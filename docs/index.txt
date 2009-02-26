@@ -1,22 +1,31 @@
 Guides
 ======
 
-### [Quickstart Guide](/quickstart)
+### [Quickstart: Deploying Your First App](/quickstart)
 
 Just getting started with Heroku? Take the crash course and have an app
-live in five minutes.
+live in minutes.
 
-### [Using The <tt>heroku</tt> Command](/heroku-command)
+### [Managing Apps: The Heroku Command-line Tool](/heroku-command)
 
-### Working with Git
+The `heroku` command is your app management interface. This guide gives an
+overview of basic commands.
+
+### [Push to Deploy: Using Git](/git)
+
+Changes are deployed to Heroku using `git` -- find out how
+to get the most out of `git` in this guide.
 
 ### [Installing Gems](/gems)
 
-### Working with Others
+Each Heroku app has a private RubyGems repository that supports both pure-ruby
+and binary/extension gems. Managing gems is as easy as modifying a text file.
 
 ### Troubleshooting Guide: Logs, Exceptions, and Errors
 
 ### Using The Remote Ruby Console and Rake
+
+### Working with Others
 
 ### HTTP Caching Guide
 
@@ -27,4 +36,6 @@ HOWTOs
 
 ### HOWTO Use a custom domain name
 
-### HOWTO
+### HOWTO Use Hoptoad for exception notification
+
+### HOWTO Use NewRelic RPM for monitoring
