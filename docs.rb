@@ -1,8 +1,12 @@
+require 'rubygems'
 require 'sinatra'
 require 'rdiscount'
 
-set :clean_trace, true
 set :app_file, __FILE__
+
+get '/README' do
+  render_topic './README'
+end
 
 get '/' do
   cache_long
@@ -33,7 +37,11 @@ helpers do
   end
 
   def topic_file(topic)
-    "#{options.root}/docs/#{topic}.txt"
+    if topic.include?('/')
+      topic
+    else
+      "#{options.root}/docs/#{topic}.txt"
+    end
   end
 
   alias_method :h, :escape_html
