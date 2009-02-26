@@ -1,0 +1,55 @@
+Using The `heroku` Command
+==========================
+
+The Heroku gem provides a command-line wrapper to the Heroku API.
+
+Running `heroku` without any arguments will show usage. Commands are divided
+into two types: general commands, and those that run against a specific app.
+
+General Commands
+----------------
+
+General commands operate on your Heroku account as a whole, and are not specific
+to a particular app.
+
+To get a list of apps you have created or are a collaborated on:
+
+    $ heroku list
+    myapp
+    anotherapp
+    thirdapp
+
+To create a new app:
+
+    $ heroku create myapp
+    Created http://myapp.heroku.com/ | git@heroku.com:myapp.git
+
+The name argument is optional.  It's often easier to start with a default name
+and rename it later.  Since Heroku app names are in a global namespace, you can
+expect that common names (like "blog" or "wiki") will already be taken.
+
+App commands
+------------
+
+App commands are typically executed inside a git clone checkout of the app.  The
+heroku command gleans the app name by looking in `.git/config` for your remote.
+So if you've added the remote as described in the Quickstart, or if you've
+cloned it from Heroku, you should `cd` into the checkout directory before
+running a command.
+
+So the info command needs no arguments inside the checkout:
+
+    $ cd myapp
+    $ heroku info
+    Web URL:        http://myapp.heroku.com/
+    Git Repo:       git@heroku.com:myapp.git
+    Collaborators:  you@example.com
+
+If you wish to run a command without a checkout of the app, any of the app
+commands can take the `--app` argument.
+
+    $ heroku info --app myapp
+
+You can also give the custom domain for the app:
+
+    $ heroku info --app www.example.com

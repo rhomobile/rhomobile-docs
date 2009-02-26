@@ -1,0 +1,30 @@
+Guides
+======
+
+### [Quickstart Guide](/quickstart)
+
+Just getting started with Heroku? Take the crash course and have an app
+live in five minutes.
+
+### [Using The <tt>heroku</tt> Command](/heroku-command)
+
+### Working with Git
+
+### [Installing Gems](/gems)
+
+### Working with Others
+
+### Troubleshooting Guide: Logs, Exceptions, and Errors
+
+### Using The Remote Ruby Console and Rake
+
+### HTTP Caching Guide
+
+### Full Text Indexing Guide
+
+HOWTOs
+======
+
+### HOWTO Use a custom domain name
+
+### HOWTO

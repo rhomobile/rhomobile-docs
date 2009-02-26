@@ -1,0 +1,107 @@
+Heroku Quickstart Guide
+=======================
+
+Introduction
+------------
+
+Heroku is a platform for the instant deployment of Ruby applications.  The
+common workflow is:
+
+ 1. Use the command-line tool to create a new app.
+ 2. Git push a copy of your code, run any database migrations.
+ 3. Visit the app's web URL (e.g., `http://myapp.heroku.com`) to see it running
+    instantly.
+ 4. Do more local development, then go to #2.
+
+If you're familiar with hosting Rails apps in traditional hosting environments,
+you may be surprised to learn that you have no ssh access, no single unix user,
+and in fact not even a single server associated with your app.  Your app is
+distributed across our cluster in an intelligent manner according to its load in
+a way that is completely invisible to you.  In short, forget about servers:
+think about apps instead.
+
+Managing apps is extremely fluid, not unlike managing files on your local
+filesystem.  You can create, rename, change settings, and destroy apps
+instantaneously.  Interaction with the app is done through Git (for code),
+remote console and rake commands (for managing the database), and other API
+commands executed through the command-line tool.
+
+Go
+--
+
+Install the Heroku gem:
+
+    $ sudo gem install heroku-0.5.2.gem
+    Successfully installed heroku-0.5.2
+    1 gem installed
+
+Start with an existing Rails app, or create a fresh app on your local system via
+the "rails" command.  Then cd into the app's checkout dir.
+
+If you aren't already using Git to track the app's revisions, run these
+commands:
+
+    $ git init
+    Initialized empty Git repository in .git/
+    $ git add .
+    $ git commit -m "new app"
+    Created initial commit 5df2d09: new app
+     44 files changed, 8393 insertions(+), 0 deletions(-)
+
+Now you're ready to create a new app on Heroku:
+
+    $ heroku create
+    Enter your Heroku credentials.
+    Email: joe@example.com
+    Password: 
+    Uploading ssh public key /Users/joe/.ssh/id_rsa.pub
+
+You'll be prompted for your username and password the first time you run a
+heroku command; they'll be saved on `~/.heroku/credentials` so that you aren't
+prompted on future runs.  It will also upload your public key to allow you to
+push and pull code.
+
+The final line of output from the create command will be something like this:
+
+    Created http://vivid-mountain-91.heroku.com/ | git@heroku.com:vivid-mountain-91.git
+
+The app has been created and two URLs are provided: one for the web face of your
+new app, and one for the Git repository that you will push your code to.  Cut
+and paste the second url to add a Git remote and push to it:
+
+    $ git remote add heroku git@heroku.com:vivid-mountain-91.git
+    $ git push heroku master
+    updating 'refs/heads/master'
+    from 0000000000000000000000000000000000000000
+    to   2e1fc57ac1b427d213ede5733aa114d31ab6424f
+    Also local refs/remotes/heroku/master
+    Generating pack...
+    Done counting 61 objects.
+    Deltifying 61 objects...
+    100% (61/61) done
+    Writing 61 objects...
+    100% (61/61) done
+    Total 61 (delta 14), reused 0 (delta 0)
+
+Your code has been pushed to Heroku.  At this point you may need to run
+migrations (`db:migrate`), load the `schema.rb` (`db:schema:load`), or whatever
+method your app uses to bootstrap its database.  For example:
+
+    $ heroku rake db:migrate
+    (in /mnt/home/slugs/41913_b81cc1e5813c58c443e4120aff984d006f36ef20/mnt)
+    == 20081118092504 CreateWidgets: migrating ====================================
+    -- create_table(:widgets)
+       -> 0.0519s
+    == 20081118092504 CreateWidgets: migrated (0.0520s) ===========================
+
+Finally, visit the web URL provided by the create command.  After a brief delay
+for the app server to launch, your app's front page will appear.
+
+NOTE: Heroku supports Rails 2.0.2, Rails 2.1.0, and Rails 2.2.2.
+
+From this point, you can work on your app locally, committing changes via Git.
+When you're ready to deploy your changes:
+
+    $ git push heroku
+
+Congratulations, you've got your app running on Heroku.
