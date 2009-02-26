@@ -1,0 +1,338 @@
+Using Git
+=========
+
+Git is a powerful decentralized revision control system, and is the central tool
+for getting code in and out of your Heroku app.  Although you do not need to be
+proficient with Git in order to use it for deploying code to Heroku, you may
+find it valuable to learn the basics of this excellent tool for managing
+source code.  Some resources for learning Git:
+
+ * [http://www.gitcasts.com/posts/2](http://www.gitcasts.com/posts/2)
+ * [http://railscasts.com/episodes/96](http://railscasts.com/episodes/96)
+ * [http://cheat.errtheblog.com/s/git](http://cheat.errtheblog.com/s/git)
+ * [http://ktown.kde.org/~zrusin/git/git-cheat-sheet-medium.png](http://ktown.kde.org/~zrusin/git/git-cheat-sheet-medium.png)
+
+If you're a Subversion user, try:
+
+[http://git.or.cz/course/svn.html](http://git.or.cz/course/svn.html)
+
+Installing
+----------
+
+If you don't already have Git, you can install it on Mac OS X with Macports:
+
+    $ port install git-core
+
+On Ubuntu Linux with apt-get:
+
+    $ apt-get install git-core
+
+On Windows, follow this guide:
+
+[http://kylecordes.com/2008/04/30/git-windows-go/](http://kylecordes.com/2008/04/30/git-windows-go/)
+
+Setting up ssh public keys
+--------------------------
+
+If you don't already use ssh, you'll need to create a public/private key pair, which is used for the strong cryptography and that uniquely identifies you as a developer when pushing code changes.
+
+Generate a public key:
+
+    $ ssh-keygen -t rsa
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/Users/adam/.ssh/id_rsa):
+    Enter passphrase (empty for no passphrase): 
+    Enter same passphrase again: 
+    Your identification has been saved in /Users/adam/.ssh/id_rsa.
+    Your public key has been saved in /Users/adam/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    a6:88:0a:0b:74:90:c6:e9:d5:49:d6:e3:04:d5:6c:3e adam@workstation.local
+
+Press enter at the first prompt to use the default file location.  You may wish to provide a password for the key, although this is not necessary - if your workstation is physically secure and is not used by anyone other than you, pressing enter at both prompts to make a passwordless key is secure.  As long as you keep the contents of ~/.ssh/id_rsa secret, your key will be secure even without a password.
+
+NOTE: You can use DSA keys if you prefer, using the -t dsa option.  Heroku can use either type of key.
+
+Further reading on SSH public key authentication:
+
+[http://sial.org/howto/openssh/publickey-auth/](http://sial.org/howto/openssh/publickey-auth/)
+
+Manage keys on Heroku
+---------------------
+
+The first time you run the heroku command, you'll be prompted for your user credentials.  Your public key will then be automatically uploaded to Heroku.  This will allow you to deploy code to all of your apps.
+
+If you wish to add other keys, use this command:
+
+    $ heroku keys:add
+    Uploading ssh public key /Users/adam/.ssh/id_rsa.pub
+
+Without an argument, it will look for the key in the default place
+(`~/.ssh/id_rsa.pub` or `~/.ssh/id_dsa.pub`).  If you wish to use an alternate
+key file, specify it as an argument.  Be certain you specify the public part of
+the key (the file ending in .pub).  The private part of the key should never be
+transmitted to any third party, ever.
+
+Revoke old keys you're no longer using or that you think might be compromised
+(for example, if your workstation is lost or stolen):
+
+    $ heroku keys:remove adam@workstation.local
+    Key adam@workstation.local removed.
+
+The key name the `user@workstation` bit that appears at the end of the key line
+in your public key file.  You can see a list of all keys, including the keyname,
+like this:
+
+    $ heroku keys
+    === 1 key for joe@example.com
+    ssh-dss AAAAB8NzaC...DVj3R4Ww== joe@workstation.local
+
+NOTE: The ASCII-armored key data is shortened for readability.  If you wish to
+see the full public key, use the --long argument.  You will probably want to
+redirect this to a file ("heroku keys --long > keys.txt"), since it will be
+easier to look at in a text editor.
+
+Setting up a new Git repo
+-------------------------
+
+Before you can push an app to Heroku, you'll need to initialize a local Git repo
+and commit your files to it.  For example, to create a new Rails app and create
+a Git repo for it:
+
+    $ rails myapp
+          create  
+          create  app/controllers
+          create  app/helpers
+          create  app/models
+    ...
+    $ cd myapp
+    $ git init
+    Initialized empty Git repository in .git/
+    $ git add .
+    $ git commit -m "my first commit"
+    Created initial commit 5df2d09: my first commit
+     44 files changed, 8393 insertions(+), 0 deletions(-)
+     create mode 100644 README
+     create mode 100644 Rakefile
+     create mode 100644 app/controllers/application.rb
+    ...
+
+This is a local repository, now residing inside the .git folder.  Nothing has
+been sent anywhere yet, you'll need to create a remote and do a push to deploy
+your code to Heroku.
+
+NOTE: Heroku apps expect the Rails directory structure at the root of the
+repository.  If your app is inside a subdirectory in your repository, it won't
+run when pushed to Heroku.
+
+Managing remotes
+----------------
+
+Git remotes are references to remote repositories.  You can have any number of
+these, but for now we'll focus on just the remote to Heroku.
+
+NOTE: This process may seem familiar if you've created and pushed to new
+repositories on Github before.  The workflow is exactly the same.
+
+As shown in the Quickstart section, you can take an existing Git repo and add a
+remote using the git url provided when you created your app.
+
+NOTE: If you don't have the git url for your app onscreen anymore, you can
+always see it again by typing "heroku info --app <appname>".
+
+NOTE: The git url for a Heroku app is always in the format
+`git@heroku.com:appname.git`. Once you get used to this format, you may find it
+easier to type than cut-and-paste each time.
+
+    $ git remote add heroku git@heroku.com:appname.git
+
+We've named the remote "heroku" in this example, but you can name the remote
+anything you want.  You will probably find it easier to follow the examples if
+you stick to this naming convention.
+
+NOTE: There is one special remote name, "origin", which is the default for
+pushes. Using origin as the remote name will allow you to type just "git push"
+instead of "git push heroku", but we recommend using an explicitly named remote.
+
+Pushing code
+------------
+
+Your Heroku app's repository starts blank by default - it has no branches and no
+code.  So the first time you push, you'll need to specify a remote branch to
+push to:
+
+    $ git push heroku master
+    updating 'refs/heads/master'
+    ...
+
+On future pushes you can omit the branch since it already exists:
+
+    $ git push heroku
+
+NOTE: Branches pushed to Heroku other than "master" will be ignored.  If you're
+working out of another branch locally, you should either merge to master before
+pushing, or always specify the branch name to push to, as in "git push heroku
+master".
+
+Pulling code
+------------
+
+You may never need to pull code from Heroku, if you are always working out of
+the same local copy and have no other collaborators.  But if there are other
+developers pushing changes to Heroku, or you work from multiple workstations,
+you'll need to pull down the latest changes before you can push again.  The
+easiest way to do this is:
+
+    $ git pull heroku master
+    Already up-to-date.
+
+In this example, the code was already up-to-date, so no action was taken.
+
+If there are local changes, Git will create a merge commit.  Advanced Git users
+may prefer to use fetch and rebase, like so:
+
+    $ git fetch heroku
+    $ git rebase heroku/master
+
+If you're not comfortable with rebasing, sticking to git pull is a safe bet.
+For more information on rebasing, a very powerful feature of Git:
+
+[http://adam.blog.heroku.com/past/2008/6/30/rebasing_is_editing_commits/](http://adam.blog.heroku.com/past/2008/6/30/rebasing_is_editing_commits/)
+
+`.gitignore`
+------------
+
+All code (Ruby, ERB, Javascript), plugins, non-binary gems, small static assets
+(CSS, images), and most config files should be checked into your Git repo for
+deploy to Heroku.  Anything else, such as log files, large static assets, or
+SQLite database files should be ignored via one or more `.gitignore` files in your
+repo.
+
+Ignoring log and tmp
+--------------------
+
+A standard Rails app should generally ignore the contents of the log and tmp
+directories.  In this example, we'll use the approach if ignoring `*.log` within
+the log folder, and ignoring the `tmp` folder altogether (Rails will create it the
+first time it runs):
+
+    $ git rm -r -f log
+    rm 'log/development.log'
+    rm 'log/production.log'
+    rm 'log/server.log'
+    rm 'log/test.log'
+    $ git rm -r -f tmp
+    fatal: pathspec 'tmp' did not match any files
+    $ mkdir log
+    $ echo '*.log' > log/.gitignore
+    $ git add log
+    $ echo tmp >> .gitignore
+    $ git add .gitignore
+    $ git commit -m "ignored log files and tmp dir"
+
+Ignoring SQLite files
+---------------------
+
+If you use SQLite for your local database (which is the default for a fresh
+Rails app created with the rails command), you should ignore the resulting
+database files.  Here's one way to do so:
+
+    $ git rm -f db/*.sqlite3
+    $ echo '*.sqlite3' >> .gitignore
+    $ git add .gitignore
+    $ git commit -m "ignored sqlite databases"
+
+Further reading
+---------------
+
+[http://www.kernel.org/pub/software/scm/git/docs/gitignore.html](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html)
+
+Cloning a local copy of a Heroku app
+------------------------------------
+
+You've been working on your Heroku app from your work computer.  Now you're
+home, and you want to grab a copy of your code to keep working.  You could copy
+it from your work computer, but it's easier to clone from Heroku using the app's
+git url:
+
+    $ git clone -o heroku git@heroku.com:appname.git
+
+The `-o` flag sets the remote name to heroku instead of origin, to make it
+consistent with the manually added remote setup specified earlier.
+
+Using Subversion or other revision control systems
+--------------------------------------------------
+
+What if you're already using Subversion or another revision control system to
+track your source code? Although we believe that Git is one of the best choices
+available for revision control, you don't need to stop using your current
+revision control system. Git can be purely a deployment mechanism, existing
+side-by-side with your other tool.
+
+For example, if you are using Subversion, init your Git repo as described above,
+but with the additional step of creating a `.gitignore` prior to adding your
+files, telling it to ignore the Subversion directories.
+
+    $ git init
+    $ echo .svn > .gitignore
+    $ git add .
+    $ git commit -m "using git for heroku deployment"
+
+Now tell Subversion to ignore Git:
+
+    $ svn propset svn:ignore .git .
+    property 'svn:ignore' set on '.'
+    $ svn commit -m "ignoring git folder (git is used for heroku deployment)"
+
+Each time you wish to deploy to Heroku:
+
+    $ git add .
+    $ git commit -m "commit for deploy to heroku"
+    ...
+    $ git push -f heroku
+
+NOTE: The `-f` (force flag) is recommended in order to avoid conflicts with other
+developers' pushes. Since you are not using Git for your revision control, but
+as a transport only, using the force flag is a reasonable practice.
+
+
+Sharing
+-------
+
+Other developers can be invited to collaborate on your app, identified by email
+address:
+
+    $ heroku sharing:add joe@example.com
+    joe@example.com added as a full collaborator on myapp.
+
+If the user has a Heroku account, they will be added to the collaborators list
+immediately.  Otherwise they will be sent an invitation email inviting them to
+join.  Once they join, they can access the app's code.
+
+NOTE: There is no distinction between the original creator/owner of the app and
+additional collaborators.  New collaborators can run all administration
+functions, including renaming or destroying the app.
+
+You can revoke a collaborator's access later:
+
+    $ heroku sharing:remove joe@example.com
+    Collaborator removed.
+
+Use the info command to see the list of current collaborators:
+
+    $ heroku info
+    ...
+    Collaborators:  adam@example.com
+                    joe@example.com
+
+Merging code changes
+--------------------
+
+Once you're collaborating with other developers, you may find that you're
+prevented from pushing to the repo with a message like this:
+
+    $ git push heroku
+    error: remote 'refs/heads/master' is not a strict subset of local ref 'refs/heads/master'. maybe you are not up-to-date and need to pull first?
+
+This means that other developers have pushed up changes that you need to pull
+down and merge with your local repository.  "git pull" is the quick way to do
+this; see the section titled "Pulling code" for details.
