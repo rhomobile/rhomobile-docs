@@ -1,34 +1,6 @@
 Heroku Quickstart Guide
 =======================
 
-Introduction
-------------
-
-Heroku is a platform for the instant deployment of Ruby applications.  The
-common workflow is:
-
- 1. Use the command-line tool to create a new app.
- 2. Git push a copy of your code, run any database migrations.
- 3. Visit the app's web URL (e.g., `http://myapp.heroku.com`) to see it running
-    instantly.
- 4. Do more local development, then go to #2.
-
-If you're familiar with hosting Rails apps in traditional hosting environments,
-you may be surprised to learn that you have no ssh access, no single unix user,
-and in fact not even a single server associated with your app.  Your app is
-distributed across our cluster in an intelligent manner according to its load in
-a way that is completely invisible to you.  In short, forget about servers:
-think about apps instead.
-
-Managing apps is extremely fluid, not unlike managing files on your local
-filesystem.  You can create, rename, change settings, and destroy apps
-instantaneously.  Interaction with the app is done through Git (for code),
-remote console and rake commands (for managing the database), and other API
-commands executed through the command-line tool.
-
-Go
---
-
 Install the Heroku gem:
 
     $ sudo gem install heroku-0.5.2.gem

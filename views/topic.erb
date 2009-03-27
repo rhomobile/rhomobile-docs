@@ -1,1 +1,9 @@
+<h1><%= @title %></h1>
+
+<ul id="toc">
+	<% @toc.each do |section| %>
+		<li><a href="#"><%= section %></a></li>
+	<% end %>
+</ul>
+
 <%= @content %>

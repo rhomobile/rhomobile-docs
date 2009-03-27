@@ -1,41 +1,28 @@
-Guides
-======
+Heroku Documentation
+====================
 
-### [Quickstart: Deploying Your First App](/quickstart)
+Overview
+--------
 
-Just getting started with Heroku? Take the crash course and have an app
-live in minutes.
+Heroku is a platform for the instant deployment of Ruby applications.  The
+common workflow is:
 
-### [Managing Apps: The Heroku Command-line Tool](/heroku-command)
+ 1. Use the command-line tool to create a new app.
+ 2. Git push a copy of your code, run any database migrations.
+ 3. Visit the app's web URL (e.g., `http://myapp.heroku.com`) to see it running
+    instantly.
+ 4. Do more local development, then go to #2.
 
-The `heroku` command is your app management interface. This guide gives an
-overview of basic commands.
+If you're familiar with hosting Rails apps in traditional hosting environments,
+you may be surprised to learn that you have no ssh access, no single unix user,
+and in fact not even a single server associated with your app.  Your app is
+distributed across our cluster in an intelligent manner according to its load in
+a way that is completely invisible to you.  In short, forget about servers:
+think about apps instead.
 
-### [Push to Deploy: Using Git](/git)
+Managing apps is extremely fluid, not unlike managing files on your local
+filesystem.  You can create, rename, change settings, and destroy apps
+instantaneously.  Interaction with the app is done through Git (for code),
+remote console and rake commands (for managing the database), and other API
+commands executed through the command-line tool.
 
-Changes are deployed to Heroku using `git` -- find out how
-to get the most out of `git` in this guide.
-
-### [Installing Gems](/gems)
-
-Each Heroku app has a private RubyGems repository that supports both pure-ruby
-and binary/extension gems. Managing gems is as easy as modifying a text file.
-
-### Troubleshooting Guide: Logs, Exceptions, and Errors
-
-### Using The Remote Ruby Console and Rake
-
-### Working with Others
-
-### HTTP Caching Guide
-
-### Full Text Indexing Guide
-
-HOWTOs
-======
-
-### HOWTO Use a custom domain name
-
-### HOWTO Use Hoptoad for exception notification
-
-### HOWTO Use NewRelic RPM for monitoring

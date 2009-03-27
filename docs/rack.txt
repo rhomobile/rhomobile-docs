@@ -1,0 +1,158 @@
+Deploying Rack-based apps
+=========================
+
+Heroku supports link:http://rack.rubyforge.org/[Rack] and Rack-based web
+frameworks like link:http://www.sinatrarb.com/[Sinatra],
+link:http://merbivore.com/[Merb], link:http://ramaze.net/[Ramaze], and
+link:http://camping.rubyforge.org/files/README.html[Camping].
+
+To run a Rack-based app, include a rackup file named `config.ru` in the root of
+the app's directory hierarchy.  The `config.ru` file convention created by
+Passenger has become common, so most existing Rack applications should work
+without additional changes.
+
+Tutorial: creating and deploying a pure Rack app
+--------------------------------
+
+First, create a new directory and write a simple `config.ru` file:
+
+    $ mkdir hello
+    $ cd hello
+    $ cat > config.ru
+    run lambda { |env| [200, { 'Content-Type' => 'text/plain' }, StringIO.new("Hello World!\n") ] }
+    [Ctrl-D]
+
+Test it locally:
+
+    $ gem install rack
+    $ rackup -p 9292 config.ru &
+    $ curl http://localhost:9292
+    Hello World!
+    $ kill %1
+
+Deploy to Heroku in the usual way:
+
+    $ git init
+    $ git add .
+    $ git commit -m 'pure rack app'
+    $ heroku create
+    $ git push heroku master
+
+The app is now deployed to Heroku.  Test in your browser with the "heroku open"
+command.  You will see the "Hello, World!" text.
+
+Framework-specific rackup files
+--------------------------------
+
+The following example `config.ru` files illustrate rackup usage with a
+variety of web frameworks.
+
+Sinatra
+--------------------------------
+
+hello.rb:
+
+    require 'sinatra'
+
+    get '/' do
+      "Hello World!"
+    end
+
+config.ru:
+
+    require 'hello'
+    run Sinatra::Application
+
+Merb
+--------------------------------
+
+The following `config.ru` file can be used for all Merb apps.
+
+    require 'merb-core'
+    Merb::Config.setup(:merb_root => ".", :environment => ENV['RACK_ENV'])
+    Merb.environment = Merb::Config[:environment]
+    Merb.root = Merb::Config[:merb_root]
+    Merb::BootLoader.run
+
+    use Merb::Rack::Static, Merb.dir_for(:public)
+    run Merb::Rack::Application.new
+
+Ramaze
+--------------------------------
+
+hello.rb:
+
+    require 'ramaze'
+
+    class MainController < Ramaze::Controller
+      def index
+         "Hello World!"
+      end
+    end
+
+config.ru:
+
+    require 'hello'
+    Ramaze.trait[:essentials].delete Ramaze::Adapter
+    Ramaze.start!
+    run Ramaze::Adapter::Base
+
+Camping
+--------------------------------
+
+`hello.rb`:
+
+    require 'camping'
+
+    Camping.goes :Hello
+
+    module Hello::Controllers
+      class Index < R '/'
+         def get
+            render :hello
+         end
+      end
+    end
+
+    module Hello::Views
+      def hello
+         p  "Hello World!"
+      end
+    end
+
+`config.ru`:
+
+    require 'hello'
+    run Rack::Adapters::Camping.new(Hello)
+
+NOTE: Camping 2.0 does not require the Rack adapter; use `run Hello` instead.
+
+Using ActiveRecord
+--------------------------------
+
+Rails or Merb will automatically read config/database.yml, which is written with the PostgreSQL config information at compile time.  For frameworks other than these two, put this code into your application to access the database with ActiveRecord:
+
+    require 'activerecord'
+
+    dbconfig = YAML.load(File.read('config/database.yml'))
+    ActiveRecord::Base.establish_connection dbconfig['production']
+
+For local development, you should create a config/database.yml file in your code repo which contains a pointer to your local database.  A good technique here is to copy the config/database.yml from a blank Rails app, which uses the SQLite database db/development.sqlite3.
+
+Using DataMapper or Sequel
+--------------------------------
+
+DataMapper and Sequel both use database URLs instead of config hashes.  You could read config/database.yml and construct the URL, but an easier way is to use the DATABASE_URL environment variable set by Heroku.  For DataMapper:
+
+    require 'rubygems'
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
+
+For Sequel:
+
+    require 'sequel'
+    Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
+
+Both of these examples will default to using a SQLite database called my.db in the current directory when not on Heroku.  You can also make use of the DATABASE_URL environment variable when running locally or on another host.  For example:
+
+    $ DATABASE_URL='mysql://user:pass@localhost/mydb' thin start --rackup config.ru
+

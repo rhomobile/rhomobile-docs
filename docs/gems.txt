@@ -15,8 +15,8 @@ repository quite large, which slows down push and deploy operations. More
 importantly, it's possible to install compiled extension gems via the manifest
 file, whereas frozen vendor gems are limited to pure-ruby libraries.
 
-The Gem Manifest File (`.gems`)
--------------------------------
+Gem Manifest
+------------
 
 The `.gems` manifest is a simple text file that includes information about each
 of the gems required by an application. Each entry in the manifest includes
@@ -26,17 +26,15 @@ manifest format resembles the gem command line:
     GEM_NAME [--version VERSION] [--source SOURCE]
     ...
 
- * `GEM_NAME` is the name of the gem as would be specified on the `gem install`
+* `GEM_NAME` is the name of the gem as would be specified on the `gem install`
    command line.
-
- * `VERSION` is an optional gem version specifier. This can be a basic version
+* `VERSION` is an optional gem version specifier. This can be a basic version
    number like "0.1.2" or an advanced version specifier with comparison
    constraints like ">= 0.1.2"
    (see [Specifying Versions](http://www.rubygems.org/read/chapter/16) in the
    RubyGems manual for more information). When no explicit version is specified,
    the most recent version of the gem is installed.
-
- * `SOURCE` is an optional gem repository URL like gems.rubyforge.org,
+* `SOURCE` is an optional gem repository URL like gems.rubyforge.org,
    gems.github.com, or gems.mycustomrepo.com. The gems.rubyforge.org repository
    is used when no explicit source is specified. Multiple `--source` arguments
    may be provided for cases where dependencies cross multiple repositories.
