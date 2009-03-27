@@ -197,15 +197,28 @@ div#header span#user {
 
 #docsnav {
 	position: absolute;
-	top: 5em;
 	left: -1em;
+	padding-top: 2em;
 	border-right: 1px solid #777;
 	padding-right: 2em;
 	height: 500px;
 }
+#docsnav .title a {
+	font-size: 120%;
+	font-weight: bold;
+	color: #777;
+}
 #docsnav li {
 	list-style-type: none;
 	padding-bottom: 1em;
+}
+#docsnav a {
+	font-size: 120%;
+	font-weight: normal;
+	color: #777;
+}
+#docsnav a:hover {
+	color: #77f;
 }
 
 /* content
@@ -213,7 +226,6 @@ div#header span#user {
 
 div#content {
 	position: absolute;
-	top: 0;
 	left: 22em;
 	width: 750px;
 }
@@ -233,7 +245,11 @@ div#content hr.dark {
 --------------------------------------------------*/
 
 #toc li {
-	padding-bottom: 0.5em;
+	list-style-type: none;
+}
+#toc {
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ccc;
 }
 
 /* quickstart

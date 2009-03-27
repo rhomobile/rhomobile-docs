@@ -1,9 +1,6 @@
 Heroku Documentation
 ====================
 
-Overview
---------
-
 Heroku is a platform for the instant deployment of Ruby applications.  The
 common workflow is:
 
