@@ -228,6 +228,7 @@ div#content {
 	position: absolute;
 	left: 22em;
 	width: 750px;
+  padding-bottom: 4em;
 }
 
 div#content hr, div#content hr.dark {

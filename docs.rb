@@ -22,9 +22,8 @@ helpers do
   def render_topic(topic)
     source = File.read(topic_file(topic))
     @content = markdown(source)
-    @title ||= @content.match(/<h1>(.*)<\/h1>/)[1]
-    @content.gsub!(/<h1>.*<\/h1>/, '')
-    @toc ||= @content.scan(/<h2>([^<]+)<\/h2>/m).to_a.map { |m| m.first }
+    @title, @content = title(@content)
+    @toc, @content = toc(@content)
     @topic = topic
     erb :topic
   end
@@ -43,6 +42,24 @@ helpers do
     else
       "#{options.root}/docs/#{topic}.txt"
     end
+  end
+
+  def title(content)
+    title = content.match(/<h1>(.*)<\/h1>/)[1]
+    content_minus_title = content.gsub(/<h1>.*<\/h1>/, '')
+    return title, content_minus_title
+  end
+
+  def slugify(title)
+    title.downcase.gsub(/[^a-z0-9 -]/, '').gsub(/ /, '-')
+  end
+
+  def toc(content)
+    toc = content.scan(/<h2>([^<]+)<\/h2>/m).to_a.map { |m| m.first }
+    content_with_anchors = content.gsub(/(<h2>[^<]+<\/h2>)/m) do |m|
+      "<a name=\"#{slugify(m.gsub(/<[^>]+>/, ''))}\"></a>#{m}"
+    end
+    return toc, content_with_anchors
   end
 
   alias_method :h, :escape_html
