@@ -1,4 +1,4 @@
-Using The `heroku` Command
+`heroku` command-line tool
 ==========================
 
 The Heroku gem provides a command-line wrapper to the Heroku API.
@@ -6,7 +6,7 @@ The Heroku gem provides a command-line wrapper to the Heroku API.
 Running `heroku` without any arguments will show usage. Commands are divided
 into two types: general commands, and those that run against a specific app.
 
-General Commands
+General commands
 ----------------
 
 General commands operate on your Heroku account as a whole, and are not specific

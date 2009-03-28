@@ -242,6 +242,16 @@ div#content hr.dark {
 	background: #C9C9CC;
 }
 
+h1 {
+	font-size: 250%;
+}
+h2 {
+	font-size: 180%;
+	padding-bottom: 0.1em;
+	border-bottom: 2px solid #bbb;
+	margin-top: 1em;
+}
+
 /* toc
 --------------------------------------------------*/
 
@@ -250,18 +260,5 @@ div#content hr.dark {
 }
 #toc {
 	padding-bottom: 1em;
-	border-bottom: 1px solid #ccc;
 }
 
-/* quickstart
---------------------------------------------------*/
-
-.quickstart {
-	background: white;
-	padding: 0 1em;
-	border: 1px solid #666;
-}
-
-.quickstart li {
-	padding-bottom: 0.8em;
-}
