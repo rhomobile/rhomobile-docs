@@ -149,47 +149,47 @@ div.center {
 /* header
 --------------------------------------------------*/
 
-div#header {
-	height: 57px;
-	width: 100%;
-	min-width: 800px;
-	text-align: right;
+#header {
+	height: 87px;
+	background: url(http://heroku.com/images/v2/header-no-shadow.png);
+	font-size: 16px;
 }
 
-div#header #logo {
-	position: absolute;
-	top: 0px;
-	left: 0px;
+#logo {
+	margin: 17px 0 0 25px;
+	float: left;
+	text-indent: -9999px;
+	width: 177px;
+	height: 56px;
+	overflow: hidden;
+	background: url(http://heroku.com/images/v2/logo.png) no-repeat;
 }
 
-div#header #nav {
-	position: relative;
-	top: 1.4em;
-	margin: 0 30px 0;
+#header ul {
+	margin: 2.2em 18px 0;
+	padding: 0;
+	list-style: none;
 	float: right;
-	color: #6E698C;
-	white-space: nowrap;
+	overflow: hidden;
 }
-
-div#header #nav a {
-	color: #BCB9CC;
-	margin: 0 0.3em;
+#header ul li {
+	float: left;
+	background: url(http://heroku.com/images/v2/header-divider.png) no-repeat 0 50%;
+	padding: 0 13px 0;
+	margin-left: -2px;
+	display: inline;
+	color: #FFF;
+}
+#header ul li a {
 	font-weight: normal;
+	text-decoration: none;
+	color: #c9c3e6;
 }
-div#header #nav a:hover {
-	color: #fff;
+#header ul li a:hover {
+	color: #ffffff;
 }
-div#header #nav .active {
-	color: #ff9;
-	margin: 0 0.3em;
-}
-div#header #nav .active:hover {
-	color: #ff9;
-}
-
-div#header span#user {
-	color: #8B8A99;
-	margin: 0 0.3em;
+#header ul li a.active {
+	color: #bfff40;
 }
 
 /* docsnav
