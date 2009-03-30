@@ -22,13 +22,13 @@
 
   <ul id="docsnav">
     <li class="title"><a href="/">Heroku Docs</a></li>
-    <li><a href="/quickstart">Quickstart</a></li>
-    <li><a href="/heroku-command">Heroku command-line tool</a></li>
-    <li><a href="/git">Using Git</a></li>
-    <li><a href="/sharing">Sharing</a></li>
-    <li><a href="/console-rake">Console and rake</a></li>
-    <li><a href="/rack">Deploying Rack-based apps</a></li>
-    <li><a href="/gems">Installing gems</a></li>
+    <% sections.each do |slug, title| %>
+      <% if params[:topic] == slug %>
+        <li class="current"><a><%= title %></a></li>
+      <% else %>
+        <li><a href="/<%= slug %>"><%= title %></a></li>
+      <% end %>
+    <% end %>
   </ul>
 
   <div id="content">

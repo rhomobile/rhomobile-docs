@@ -62,6 +62,17 @@ helpers do
     return toc, content_with_anchors
   end
 
+  def sections
+    [
+      [ 'quickstart', 'Quickstart' ],
+      [ 'heroku-command', 'Heroku command-line tool' ],
+      [ 'git', 'Using Git' ],
+      [ 'sharing', 'Sharing' ],
+      [ 'console-rake', 'Console and rake' ],
+      [ 'rack', 'Deploying Rack-based apps' ],
+    ]
+  end
+
   alias_method :h, :escape_html
 end
 

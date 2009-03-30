@@ -220,6 +220,9 @@ div.center {
 #docsnav a:hover {
 	color: #77f;
 }
+#docsnav .current {
+  list-style-type: square;
+}
 
 /* content
 --------------------------------------------------*/
