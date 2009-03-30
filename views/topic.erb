@@ -11,6 +11,5 @@
 <%= @content %>
 
 <% if ns = next_section(params[:topic]) %>
-  <div id="next_section">Next: <a href="/<%= ns[0] %>"><%= ns[1] %> &rarr;</div>
+	<div id="next_section">Next: <a href="/<%= ns[0] %>"><%= ns[1] %> &rarr;</div>
 <% end %>
-

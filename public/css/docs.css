@@ -19,7 +19,7 @@ body {
 
 a {
 	text-decoration: none;
-	outline: none;  /* disable mozilla's dotted box around link */
+	outline: none;	/* disable mozilla's dotted box around link */
 	font-weight: bold;
 	color: #4285FF;
 }
@@ -28,7 +28,7 @@ a:hover {
 	color: #75A5FF;
 }
 input {
-	outline: none;  /* disable mozilla's dotted box around link */
+	outline: none;	/* disable mozilla's dotted box around link */
 }
 
 i {
@@ -202,13 +202,13 @@ h2 {
 }
 
 #content .note td.icon {
-  background: url(/images/note.png) no-repeat;
-  width: 50px;
-  height: 50px;
-  border-right: 2px solid #aaa;
+	background: url(/images/note.png) no-repeat;
+	width: 50px;
+	height: 50px;
+	border-right: 2px solid #aaa;
 }
 #content .note td.content {
-  padding-left: 8px;
+	padding-left: 8px;
 }
 
 /* toc
