@@ -19,10 +19,13 @@ get '/:topic' do
 end
 
 get '/css/docs.css' do
-	@asset_host = ENV['ASSET_HOST']
 	cache_long
 	content_type 'text/css'
 	erb :css, :layout => false
+end
+
+before do
+	@asset_host = ENV['ASSET_HOST']
 end
 
 helpers do
