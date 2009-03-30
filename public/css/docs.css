@@ -79,73 +79,6 @@ div#bodywrap {
 	margin: 0 auto 0 auto;
 }
 
-.errors {
-	width: 722px;
-	background: #faa;
-	border: 1px solid #a00;
-	color: #600;
-	padding: 14px;
-	margin: 25px auto 5px;
-}
-
-.fieldWithErrors input {
-	background: #ffa;
-}
-
-.notice {
-	width: 722px;
-	background: #ffa;
-	border: 1px solid #aa0;
-	color: #660;
-	padding: 14px;
-	margin: 25px auto 5px;
-}
-
-input[type=text], input[type=password]
-{
-	border: 1px solid #BFBFBF;
-	background: #EBEAEB;
-	padding: 4px;
-	color: #5C5C66;
-}
-input[type=submit] {
-	border: 1px solid #888;
-	background: #999;
-	padding: 3px;
-	margin: 0 4px;
-	color: #fff;
-}
-input[type=submit]:hover {
-	background: #bbb;
-	cursor: pointer;
-}
-
-.browser {
-	background: #fda;
-	border: 1px solid #a80;
-	color: #640;
-}
-
-.browser div {
-	float: left;
-	height: 100%;
-	vertical-align: middle;
-	margin-right: 20px
-}
-
-img#subheader {
-	display: block;
-	margin: 10px 0 35px 0px;
-}
-
-div#subcontent {
-	padding: 0 75px;
-}
-
-div.center {
-	text-align: center;
-}
-
 /* header
 --------------------------------------------------*/
 
@@ -231,7 +164,7 @@ div.center {
 div#content {
 	position: absolute;
 	left: 22em;
-	width: 750px;
+	width: 53em;
 	padding-bottom: 4em;
 }
 
