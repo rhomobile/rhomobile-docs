@@ -199,9 +199,9 @@ div.center {
 	position: absolute;
 	left: -1em;
 	padding-top: 2em;
-	border-right: 1px solid #777;
+	border-right: 1px solid #ddd;
 	padding-right: 2em;
-	height: 500px;
+	height: 600px;
 }
 #docsnav .title a {
 	font-size: 120%;
@@ -211,6 +211,7 @@ div.center {
 #docsnav li {
 	list-style-type: none;
 	padding-bottom: 1em;
+	color: #777;
 }
 #docsnav a {
 	font-size: 120%;
@@ -221,7 +222,7 @@ div.center {
 	color: #77f;
 }
 #docsnav .current {
-  list-style-type: square;
+	list-style-type: square;
 }
 
 /* content
@@ -231,7 +232,7 @@ div#content {
 	position: absolute;
 	left: 22em;
 	width: 750px;
-  padding-bottom: 4em;
+	padding-bottom: 4em;
 }
 
 div#content hr, div#content hr.dark {
@@ -255,11 +256,16 @@ h2 {
 	margin-top: 1em;
 }
 
+#content li {
+	list-style-type: disc;
+	color: #777;
+}
+
 #next_section {
-  margin: 48px 0;
-  text-align: right;
-  font-size: 150%;
-  color: #777;
+	margin: 48px 0;
+	text-align: right;
+	font-size: 150%;
+	color: #777;
 }
 
 /* toc

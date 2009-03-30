@@ -1,10 +1,12 @@
 <h1><%= @title %></h1>
 
-<ul id="toc">
-	<% @toc.each do |section| %>
-		<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
-	<% end %>
-</ul>
+<% if @toc.size > 0 %>
+	<ul id="toc">
+		<% @toc.each do |section| %>
+			<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
+		<% end %>
+	</ul>
+<% end %>
 
 <%= @content %>
 

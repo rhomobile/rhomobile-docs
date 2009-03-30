@@ -1,25 +1,21 @@
 Heroku Documentation
 ====================
 
-Heroku is a platform for the instant deployment of Ruby applications.  The
-common workflow is:
+__Heroku is a platform for instant deployment of Ruby/Rails web apps.__
 
- 1. Use the command-line tool to create a new app.
- 2. Git push a copy of your code, run any database migrations.
- 3. Visit the app's web URL (e.g., `http://myapp.heroku.com`) to see it running
-    instantly.
- 4. Do more local development, then go to #2.
+Heroku is a completely novel approach to deploying web applications.
+Forget about servers; the fundamental unit is the app.  Use the Heroku client
+gem to create and manage apps from the command line.  Then deploy your code with
+Git, and control the running app with the remote Ruby console and rake
+commands.
 
-If you're familiar with hosting Rails apps in traditional hosting environments,
-you may be surprised to learn that you have no ssh access, no single unix user,
-and in fact not even a single server associated with your app.  Your app is
-distributed across our cluster in an intelligent manner according to its load in
-a way that is completely invisible to you.  In short, forget about servers:
-think about apps instead.
+All users should start with [the quickstart guide](/quickstart).
 
-Managing apps is extremely fluid, not unlike managing files on your local
-filesystem.  You can create, rename, change settings, and destroy apps
-instantaneously.  Interaction with the app is done through Git (for code),
-remote console and rake commands (for managing the database), and other API
-commands executed through the command-line tool.
+Then after you've deployed your first app, check out these goodies:
+
+* [Console and rake](/console-rake)
+* [Installing gems](/gems)
+* [Using your own domain name](/custom-domains)
+* [Deploying a Merb or Sinatra app](/rack)
+* [Database import](/taps)
 
