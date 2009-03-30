@@ -13,9 +13,9 @@ All users should start with [the quickstart guide](/quickstart).
 
 Then after you've deployed your first app, check out these goodies:
 
-* [Console and rake](/console-rake)
+* [Remote console and rake](/console-rake)
 * [Installing gems](/gems)
 * [Using your own domain name](/custom-domains)
 * [Deploying a Merb or Sinatra app](/rack)
-* [Database import](/taps)
+* [Import an existing database](/taps)
 
