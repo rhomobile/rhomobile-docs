@@ -152,10 +152,10 @@ div#bodywrap {
 	color: #777;
 }
 #docsnav a:hover {
-	color: #77f;
+	color: #75A5FF;
 }
-#docsnav .current {
-	list-style-type: square;
+#docsnav .current a {
+	color: #333;
 }
 
 /* content
