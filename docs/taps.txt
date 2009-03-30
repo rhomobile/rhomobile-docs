@@ -10,7 +10,7 @@ Import (push) to Heroku
 
 Use push when you wish to transfer an existing database to Heroku.  For example, a SQLite database that you've been working with in local development; or a MySQL database you have deployed on another host.
 
-Your app should be deployed to Heroku in [the usual way](#toc1).  From within your local checkout of the deployed app:
+Your app should be deployed to Heroku in [the usual way](/quickstart).  From within your local checkout of the deployed app:
 
     $ heroku db:push
     Sending schema

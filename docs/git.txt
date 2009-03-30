@@ -86,10 +86,7 @@ like this:
     === 1 key for joe@example.com
     ssh-dss AAAAB8NzaC...DVj3R4Ww== joe@workstation.local
 
-NOTE: The ASCII-armored key data is shortened for readability.  If you wish to
-see the full public key, use the --long argument.  You will probably want to
-redirect this to a file ("heroku keys --long > keys.txt"), since it will be
-easier to look at in a text editor.
+NOTE: The ASCII-armored key data is shortened for readability.  If you wish to see the full public key, use the --long argument.  You will probably want to redirect this to a file ("heroku keys --long > keys.txt"), since it will be easier to look at in a text editor.
 
 Setting up a new Git repo
 -------------------------
@@ -120,9 +117,7 @@ This is a local repository, now residing inside the .git folder.  Nothing has
 been sent anywhere yet, you'll need to create a remote and do a push to deploy
 your code to Heroku.
 
-NOTE: Heroku apps expect the Rails directory structure at the root of the
-repository.  If your app is inside a subdirectory in your repository, it won't
-run when pushed to Heroku.
+NOTE: Heroku apps expect the Rails directory structure at the root of the repository.  If your app is inside a subdirectory in your repository, it won't run when pushed to Heroku.
 
 Managing remotes
 ----------------
@@ -130,18 +125,14 @@ Managing remotes
 Git remotes are references to remote repositories.  You can have any number of
 these, but for now we'll focus on just the remote to Heroku.
 
-NOTE: This process may seem familiar if you've created and pushed to new
-repositories on Github before.  The workflow is exactly the same.
+NOTE: This process may seem familiar if you've created and pushed to new repositories on Github before.  The workflow is exactly the same.
 
 As shown in the Quickstart section, you can take an existing Git repo and add a
 remote using the git url provided when you created your app.
 
-NOTE: If you don't have the git url for your app onscreen anymore, you can
-always see it again by typing "heroku info --app <appname>".
+NOTE: If you don't have the git url for your app onscreen anymore, you can always see it again by typing "heroku info --app <appname>".
 
-NOTE: The git url for a Heroku app is always in the format
-`git@heroku.com:appname.git`. Once you get used to this format, you may find it
-easier to type than cut-and-paste each time.
+NOTE: The git url for a Heroku app is always in the format `git@heroku.com:appname.git`. Once you get used to this format, you may find it easier to type than cut-and-paste each time.
 
     $ git remote add heroku git@heroku.com:appname.git
 
@@ -149,9 +140,7 @@ We've named the remote "heroku" in this example, but you can name the remote
 anything you want.  You will probably find it easier to follow the examples if
 you stick to this naming convention.
 
-NOTE: There is one special remote name, "origin", which is the default for
-pushes. Using origin as the remote name will allow you to type just "git push"
-instead of "git push heroku", but we recommend using an explicitly named remote.
+NOTE: There is one special remote name, "origin", which is the default for pushes. Using origin as the remote name will allow you to type just "git push" instead of "git push heroku", but we recommend using an explicitly named remote.
 
 Pushing code
 ------------
@@ -168,10 +157,7 @@ On future pushes you can omit the branch since it already exists:
 
     $ git push heroku
 
-NOTE: Branches pushed to Heroku other than "master" will be ignored.  If you're
-working out of another branch locally, you should either merge to master before
-pushing, or always specify the branch name to push to, as in "git push heroku
-master".
+NOTE: Branches pushed to Heroku other than "master" will be ignored.  If you're working out of another branch locally, you should either merge to master before pushing, or always specify the branch name to push to, as in "git push heroku master".
 
 Pulling code
 ------------
@@ -290,7 +276,5 @@ Each time you wish to deploy to Heroku:
     ...
     $ git push -f heroku
 
-NOTE: The `-f` (force flag) is recommended in order to avoid conflicts with other
-developers' pushes. Since you are not using Git for your revision control, but
-as a transport only, using the force flag is a reasonable practice.
+NOTE: The `-f` (force flag) is recommended in order to avoid conflicts with other developers' pushes. Since you are not using Git for your revision control, but as a transport only, using the force flag is a reasonable practice.
 

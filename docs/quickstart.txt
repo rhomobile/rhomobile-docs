@@ -3,8 +3,8 @@ Heroku Quickstart Guide
 
 Install the Heroku gem:
 
-    $ sudo gem install heroku-0.5.2.gem
-    Successfully installed heroku-0.5.2
+    $ sudo gem install heroku-0.6.gem
+    Successfully installed heroku-0.6
     1 gem installed
 
 Start with an existing Rails app, or create a fresh app on your local system via

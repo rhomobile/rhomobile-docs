@@ -32,8 +32,12 @@ helpers do
     response['Cache-Control'] = "public, max-age=#{60 * 60}" unless development?
   end
 
+  def notes(source)
+    source.gsub(/NOTE: (.*)/, '<table class="note"><td class="icon"></td><td class="content">\\1</td></table>')
+  end
+
   def markdown(source)
-    RDiscount.new(source, :smart).to_html
+    RDiscount.new(notes(source), :smart).to_html
   end
 
   def topic_file(topic)

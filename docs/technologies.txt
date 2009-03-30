@@ -7,7 +7,7 @@ Infrastructure
 --------------
 
 * OS: Debian 4.0
-* Ruby: MRI 1.8.5
+* Ruby: MRI 1.8.6
 * Database: PostgreSQL 8.3.5
 * Web front: Nginx 0.6.32
 * HTTP cache: Varnish 2.0.2
@@ -15,18 +15,18 @@ Infrastructure
 Installed gems
 --------------
 
-NOTE: You can install your own gems, but the following are provided by default on Heroku.
+You can [install your own gems](/gems), but the following are provided on the default system.
 
 Web frameworks
 --------------
-* Rails 2.0.2, 2.1, 2.2.2
+* Rails 2.0.2, 2.1, 2.2.2, 2.3.2
 * Merb 1.0.9
 * Sinatra 0.9.1
 * Rack 0.9.1
 
 ORMs
 ----
-* ActiveRecord 2.2.2
+* ActiveRecord 2.3.2
 * DataMapper 0.9.10
 * Sequel 2.9
 

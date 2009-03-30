@@ -43,8 +43,7 @@ The following is an example `.gems` manifest file that includes four gems:
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
 
-NOTE: The `--version` and `--source` options have short forms just like the
-`gem` command; use `-v` and `-s`, respectively.
+NOTE: The `--version` and `--source` options have short forms just like the `gem` command; use `-v` and `-s`, respectively.
 
 Deploying gems
 --------------
