@@ -255,6 +255,13 @@ h2 {
 	margin-top: 1em;
 }
 
+#next_section {
+  margin: 48px 0;
+  text-align: right;
+  font-size: 150%;
+  color: #777;
+}
+
 /* toc
 --------------------------------------------------*/
 

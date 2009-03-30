@@ -73,6 +73,17 @@ helpers do
     ]
   end
 
+  def next_section(current_slug)
+    return sections.first if current_slug.nil?
+
+    sections.each_with_index do |(slug, title), i|
+      if current_slug == slug and i < sections.length-1
+        return sections[i+1]
+      end
+    end
+    nil
+  end
+
   alias_method :h, :escape_html
 end
 
