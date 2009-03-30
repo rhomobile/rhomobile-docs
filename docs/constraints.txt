@@ -1,0 +1,77 @@
+Constraints
+===========
+
+Heroku is a cloud hosting environment, and as such is subject to some constraints that you may not be used to in a traditional hosting environment or your local development setup.  These constratints exist to ensure that your app can be made scalable and redundant, taking full advantage of the benefits of cloud computing.
+
+Read-only filesystem
+--------------------
+
+Your app is compiled into a slug for fast distribution across the [dyno grid](http://heroku.com/how/dyno_grid) The filesystem for the slug is read-only.  This means you cannot dynamically write to the filesystem for semi-permenant storage for things such as:
+
+* Caching pages in the public directory
+* Saving uploaded assets (e.g. with attachment_fu or paperclip)
+* Writing full-text indexes with Ferret
+* Writing to a filesystem database like SQLite or GDBM
+* Accessing a git repo for an app like git-wiki
+
+There are two directories which are writeable for your app: tmp and log under your application root.  So if you wish to drop a file temporarily for the duration of the request, you can write to a filename like "#{RAILS_ROOT}/tmp/myfile_#{Process.pid}".  There is no guarantee that this file will still be there on any subsequent requests (although it might be), so this should not be used for any kind of permenant storage.
+
+So how do you accomplish each of these bullets in a way that is compatible with a cloud environment?
+
+* Caching - Use HTTP headers instead of writing to the filesystem.  See [Caching dynamic content](#toc41).
+* Saving uploaded assets - Use an asset store system like Amazon S3.  See [Large static assets](#toc54).
+* Writing full-text indexes with Ferret - You can stash temporary indexes in tmp, as described [here](#toc47).
+* SQLite or GDBM - Use the provided PostgreSQL database instead of a filesystem database.
+* Accessing a git repo - Sorry, but git-wiki and apps that use a similar technique won't work on Heroku.  As clever as git-wiki is, it is fundamentally non-scalable and non-replicatable.
+
+Further reading: [http://adam.blog.heroku.com/past/2008/7/2/readonly_source_trees/](http://adam.blog.heroku.com/past/2008/7/2/readonly_source_trees/)
+
+SSH access
+----------
+
+Since your app is spread across many services running on many virtual machine instances, there is no place to ssh to.  In short, [forget servers](http://heroku.com/how/dyno_grid#2).
+
+You can, if you wish, run shell commands from your app's console with backticks:
+
+    $ heroku console
+    Ruby console for myapp.heroku.com
+    >> `pwd`
+    => "/mnt/home/slugs/1938_94afba3_0815/mnt\n"
+
+However, there is little to be gained from doing so.  You can't write to the filesystem, and each command will often run on a different virtual machine.  If you find yourself wanting to run ssh commands, then you're probably approaching whatever you want to do in the wrong way.
+
+Interactive rake tasks
+----------------------
+
+Some open source apps, such as Radiant CMS, prompt for information on the console during some rake setup tasks.  Since the rake command is being run over an HTTP request rather than a tty, it is not possible to answer these prompts.
+
+There are several possible workarounds.  One is that you may be able to pass environment variables into these rake commands in order to avoid the prompt.  Another is that you can do all your database setup locally, then import the resulting configured database to Heroku.  Another would be to manually set up your database, using the Heroku console.  Finally, you could try editing the rake tasks, removing the prompts and instead filling in your responses in the code.
+
+Generally speaking, interactive rake tasks are bad practice and should be avoided.
+
+Git submodules
+--------------
+
+Git submodules are not currently supported.  We're evaluating whether or not to support these; in the meantime you'll need to include any submodules into the main project.  You can do so like this:
+
+    $ cd myapp
+    $ rm -rf `find . -mindepth 2 -name .git`
+    $ git add .
+    $ git commit -m "brought submodules into the main repo"
+
+If you're not certain whether your project has Git submodules, you can run this command:
+
+    $ find . -mindepth 2 -name .git
+
+If it prints any output, you have submodules.
+
+Large static assets
+-------------------
+
+Heroku is not intended to be used to serve large static assets such as videos, PDFs, or mp3s.  The good news is that there are many excellent services that work extremely well for this, so you can interoperate your app with one of those.  Perhaps the best-known is [Amazon S3](http://aws.amazon.com/s3/), and it is the one we recommend.
+
+To use S3 with your Heroku app, upload your assets to your S3 account from the command line, or using a graphical browser like [this Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/3247) or [this OS X client](http://people.no-distance.net/ol/software/s3/).  Once uploaded, you can make your assets public.  Take the URL, which will be something like http://s3.amazonaws.com/bucketname/filename, and paste it into your views inside your app wherever you need to serve the asset to your users.
+
+For writing uploaded files to S3, use the [S3 gem](http://amazon.rubyforge.org/) from within your Ruby code, or use [Paperclip](http://thoughtbot.com/projects/paperclip) or [attachment_fu](http://clarkware.com/cgi/blosxom/2007/02/24#FileUploadFu), specifying the S3 storage backend.
+
+

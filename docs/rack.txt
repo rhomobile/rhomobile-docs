@@ -1,10 +1,10 @@
 Deploying Rack-based apps
 =========================
 
-Heroku supports link:http://rack.rubyforge.org/[Rack] and Rack-based web
-frameworks like link:http://www.sinatrarb.com/[Sinatra],
-link:http://merbivore.com/[Merb], link:http://ramaze.net/[Ramaze], and
-link:http://camping.rubyforge.org/files/README.html[Camping].
+Heroku supports [Rack](http://rack.rubyforge.org/) and Rack-based web
+frameworks like [Sinatra](http://www.sinatrarb.com/),
+[Merb](http://merbivore.com/), [Ramaze](http://ramaze.net/), and
+[Camping](http://camping.rubyforge.org/files/README.html).
 
 To run a Rack-based app, include a rackup file named `config.ru` in the root of
 the app's directory hierarchy.  The `config.ru` file convention created by

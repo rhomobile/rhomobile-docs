@@ -1,0 +1,54 @@
+Custom domain names
+===================
+
+All Heroku apps will always be accessible by their Heroku subdomain: appname.heroku.com.  You can also assign one or more custom domain names.
+
+Registrar setup
+---------------
+
+Set up your domain with your registrar, then select the subdomain that you wish to point at your Heroku app.  This could be something like myapp.mycompany.com, or the standard www.mydomain.com, or it could be the root-level domain, mydomain.com, though this last one has some caveats described below.
+
+Configure your DNS provider to make your chosen custom domain name be an alias which points to heroku.com.  In DNS terms this is known as a CNAME.
+
+NOTE: Why can't you use an A record, which is a hard-coded IP address?  Heroku is a cloud computing provider, and our front-end load balancers will change IPs from time to time.  When they do, any apps hardcoded to point at a specific IP, instead than heroku.com, will stop working.  So we strongly discourage you from using A records.
+
+Check that your DNS is configured correctly with the "host" command:
+
+    $ host www.example.com
+    www.example.com is an alias for heroku.com.
+    heroku.com has address 75.101.142.103
+    heroku.com has address 75.101.141.116
+
+Output of the host command varies by unix flavor, but it should indicate that your domain name is either an alias of heroku.com, or a CNAME of heroku.com (these both mean the same thing).
+
+Heroku setup
+------------
+
+Once your DNS is pointing at your app, you can inform Heroku of the domain you are using:
+
+    $ heroku domains:add www.example.com
+    Added www.example.com as a custom domain name to myapp.heroku.com
+
+You can add any number of domains to a single app.  Remove domains with:
+
+    $ heroku domains:remove myapp.mydomain.com
+    Removed www.example.com as a custom domain name to myapp.heroku.com
+
+You can also clear all the domains at once (often the easiest even if you only have one domain):
+
+    $ heroku domains:clear
+    Removed all domain names for myapp.heroku.com
+
+NOTE: If you have multiple domains, or your app has users that access it via its Heroku subdomain but you later switched to your own custom domain, you will probably want to get all users onto the same domain with a redirect in a before filter.  Something like this will do the job:
+
+    class ApplicationController
+      before_filter :ensure_domain
+
+      TheDomain = 'myapp.mydomain.com'
+
+      def ensure_domain
+        if request.env['HTTP_HOST'] != TheDomain
+          redirect_to TheDomain
+        end
+      end
+

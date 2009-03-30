@@ -1,0 +1,20 @@
+Cron jobs
+=========
+
+Once per hour, Heroku will execute "rake cron" against your app.  You can use this to execute periodic background jobs by creating a file called lib/tasks/cron.rake and filling it in with your code.  For example, if you wanted to pull data from a news feed each night at midnight and put it into your database, you could create a task like this:
+
+    task :cron => :environment do
+      if Time.now.hour == 0
+        puts "Updating feed..."
+        NewsFeed.nightly_update
+        puts "done."
+      end
+    end
+
+To see recent results of your cron execution, type:
+
+    $ heroku logs:cron
+
+NOTE: By default, a blank Rails app does not have the cron task defined, so you will see the message "Don't know how to build task \'cron\'" as the output of heroku logs:cron on apps that have no cron task defined.  This is normal, an can safely be ignored.
+
+

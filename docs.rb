@@ -70,6 +70,17 @@ helpers do
       [ 'sharing', 'Sharing' ],
       [ 'console-rake', 'Console and rake' ],
       [ 'rack', 'Deploying Rack-based apps' ],
+      [ 'logs-exceptions', 'Logs and exceptions' ],
+      [ 'errors', 'Errors' ],
+      [ 'custom-domains', 'Custom domain names' ],
+      [ 'gems', 'Installing gems' ],
+      [ 'taps', 'Database import/export' ],
+      [ 'renaming-apps', 'Renaming apps' ],
+      [ 'cron', 'Cron jobs' ],
+      [ 'http-caching', 'HTTP caching' ],
+      [ 'full-text-indexing', 'Full text indexing' ],
+      [ 'constraints', 'Constraints' ],
+      [ 'technologies', 'Technologies' ],
     ]
   end
 

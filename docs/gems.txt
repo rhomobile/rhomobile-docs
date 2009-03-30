@@ -1,4 +1,4 @@
-Installing Gems
+Installing gems
 ===============
 
 Every Heroku app includes a private gem repository that can be used to install
@@ -15,7 +15,7 @@ repository quite large, which slows down push and deploy operations. More
 importantly, it's possible to install compiled extension gems via the manifest
 file, whereas frozen vendor gems are limited to pure-ruby libraries.
 
-Gem Manifest
+Gem manifest
 ------------
 
 The `.gems` manifest is a simple text file that includes information about each
@@ -24,32 +24,29 @@ a mandatory gem name along with optional `version` and `source` options. The
 manifest format resembles the gem command line:
 
     GEM_NAME [--version VERSION] [--source SOURCE]
-    ...
 
-* `GEM_NAME` is the name of the gem as would be specified on the `gem install`
+ * `GEM_NAME` is the name of the gem as would be specified on the `gem install`
    command line.
-* `VERSION` is an optional gem version specifier. This can be a basic version
+ * `VERSION` is an optional gem version specifier. This can be a basic version
    number like "0.1.2" or an advanced version specifier with comparison
    constraints like ">= 0.1.2"
-   (see [Specifying Versions](http://www.rubygems.org/read/chapter/16) in the
+   (see link:http://www.rubygems.org/read/chapter/16[Specifying Versions] in the
    RubyGems manual for more information). When no explicit version is specified,
    the most recent version of the gem is installed.
-* `SOURCE` is an optional gem repository URL like gems.rubyforge.org,
+ * `SOURCE` is an optional gem repository URL like gems.rubyforge.org,
    gems.github.com, or gems.mycustomrepo.com. The gems.rubyforge.org repository
-   is used when no explicit source is specified. Multiple `--source` arguments
-   may be provided for cases where dependencies cross multiple repositories.
+	is used when no explicit source is specified. Multiple `--source` arguments
+	may be provided for cases where dependencies cross multiple repositories.
 
 The following is an example `.gems` manifest file that includes four gems:
 
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
-    rest-client
-    pony
 
 NOTE: The `--version` and `--source` options have short forms just like the
 `gem` command; use `-v` and `-s`, respectively.
 
-Deploying Gems
+Deploying gems
 --------------
 
 Once a `.gems` manifest file is created, it must be added to the app's git
@@ -64,32 +61,30 @@ it, and pushes to the remote heroku repository:
     $ git add .gems
     $ git commit -m 'added gems manifest file'
     $ git push heroku
-    Counting objects: 7, done.
-    Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (7/7), 741 bytes, done.
-    Total 7 (delta 0), reused 0 (delta 0)
-    === Heroku slug compile
-    Installing gem hpricot > 0.2 from http://code.whytheluckystiff.net
-    Building native extensions.  This could take a while...
-    Successfully installed hpricot-0.6
-    1 gem installed
-    Installing gem dm-core 0.9.10 from http://gems.rubyforge.org
-    Successfully installed addressable-2.0.2
-    Successfully installed extlib-0.9.10
-    Successfully installed data_objects-0.9.11
-    Successfully installed dm-core-0.9.10
-    4 gems installed
-    Installing gem rest-client from http://gems.rubyforge.org
-    Successfully installed rest-client-0.9
-    1 gem installed
-    Installing gem pony from http://gems.rubyforge.org
-    Building native extensions.  This could take a while...
-    Successfully installed tmail-1.2.3.1
-    Successfully installed pony-0.2
-    2 gems installed
-    Verifying repository integrity... done
-    Compiled slug size is 0.8MB
-    Firing slug ..................... done
-    App deployed to Heroku
-    To git@herok.com:simple-window-27.git
-     * [new branch]      master -> master
+    Counting objects: 4, done.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 356 bytes, done.
+    Total 3 (delta 1), reused 0 (delta 0)
+
+    -----> Heroku receiving push
+
+    -----> Installing gem hpricot >= 0.2 from http://code.whytheluckystiff.net
+           Building native extensions.  This could take a while...
+           Successfully installed hpricot-0.6
+           1 gem installed
+
+    -----> Installing gem dm-core 0.9.10 from http://gems.rubyforge.org
+           Successfully installed addressable-2.0.2
+           Successfully installed extlib-0.9.10
+           Successfully installed data_objects-0.9.11
+           Successfully installed dm-core-0.9.10
+           4 gems installed
+
+    -----> Rails app detected
+           Compiled slug size is 4.3MB
+    -----> Launching.............. done
+           App deployed to Heroku
+
+    To git@heroku.com:vivid-moon-60.git
+       91425e3..fe10e87  master -> master
+

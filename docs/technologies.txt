@@ -1,0 +1,54 @@
+Technologies
+============
+
+All packages and versions listed are subject to change.
+
+Infrastructure
+--------------
+
+* OS: Debian 4.0
+* Ruby: MRI 1.8.5
+* Database: PostgreSQL 8.3.5
+* Web front: Nginx 0.6.32
+* HTTP cache: Varnish 2.0.2
+
+Installed gems
+--------------
+
+NOTE: You can install your own gems, but the following are provided by default on Heroku.
+
+Web frameworks
+--------------
+* Rails 2.0.2, 2.1, 2.2.2
+* Merb 1.0.9
+* Sinatra 0.9.1
+* Rack 0.9.1
+
+ORMs
+----
+* ActiveRecord 2.2.2
+* DataMapper 0.9.10
+* Sequel 2.9
+
+Templating and Formatting
+-------------------------
+* Erubis 2.6.4
+* Haml 2.0.9
+* Builder 2.1.2
+* RedCloth 4.1.1
+* Syntax 1.0.0
+
+Parsing
+-------
+* JSON 1.1.3
+* HPricot 0.6.164
+* libXML 0.9.8
+
+Other
+-----
+* acts_as_ferret 0.4.3
+* RestClient 0.9
+* rush 0.5
+
+For a complete raw/uncategorized listing, see [this](http://installed-gems.heroku.com/).
+
