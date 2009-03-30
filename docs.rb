@@ -18,6 +18,13 @@ get '/:topic' do
 	render_topic params[:topic]
 end
 
+get '/css/docs.css' do
+	@asset_host = ENV['ASSET_HOST']
+	cache_long
+	content_type 'text/css'
+	erb :css, :layout => false
+end
+
 helpers do
 	def render_topic(topic)
 		source = File.read(topic_file(topic))

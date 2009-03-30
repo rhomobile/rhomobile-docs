@@ -7,7 +7,7 @@ html {
 }
 
 body {
-	background: #fff url(http://heroku.com/images/pages/background.gif) repeat-x top left;
+	background: #fff url(<%= @asset_host %>/images/pages/background.gif) repeat-x top left;
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	color: #444258;
@@ -84,7 +84,7 @@ div#bodywrap {
 
 #header {
 	height: 87px;
-	background: url(http://heroku.com/images/v2/header-no-shadow.png);
+	background: url(<%= @asset_host %>/images/v2/header-no-shadow.png);
 	font-size: 16px;
 }
 
@@ -95,7 +95,7 @@ div#bodywrap {
 	width: 177px;
 	height: 56px;
 	overflow: hidden;
-	background: url(http://heroku.com/images/v2/logo.png) no-repeat;
+	background: url(<%= @asset_host %>/images/v2/logo.png) no-repeat;
 }
 
 #header ul {
@@ -107,7 +107,7 @@ div#bodywrap {
 }
 #header ul li {
 	float: left;
-	background: url(http://heroku.com/images/v2/header-divider.png) no-repeat 0 50%;
+	background: url(<%= @asset_host %>/images/v2/header-divider.png) no-repeat 0 50%;
 	padding: 0 13px 0;
 	margin-left: -2px;
 	display: inline;
