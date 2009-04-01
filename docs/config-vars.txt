@@ -1,0 +1,78 @@
+Config vars
+===========
+
+A given codebase may have numerous deployments: a production site, a staging site, and one could even count each of the developers' local checkouts as deployments running on their individual workstations.  An open source app may have hundreds or thousands of deployments.
+
+Although all running the same code, each of these deploys have environment-specific configurations.  One example would be credentials for an external service, such as Amazon S3.  Developers may share one S3 account, while the staging site and production sites each have their own keys.
+
+The traditional approach for handling such config vars is to put them under source. Often in a YAML file, such as config/s3.yml.  This is a slightly error-prone process, and is especially complicated for an open source app, which probably has to maintain a separate (and private) branch with the app-specific configurations.
+
+A better solution is to use environment variables, and keep the keys out of the code.  On a traditional host or working locally you can set environment vars in your bashrc.  On Heroku, you use config vars.
+
+Quick example
+-------------
+
+Set your config vars:
+
+    $ cd myapp
+    $ heroku config S3_KEY=8N029N81 S3_SECRET=9s83109d3+583493190
+    Setting {"S3_KEY"=>"8N029N81", "S3_SECRET"="9s83109d3+583493190"} and restarting app...done.
+
+Then set up your code, perhaps a file named config/initializers/s3.rb:
+
+    AWS::S3::Base.establish_connection!(
+      :access_key_id     => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET'],
+    )
+
+Now, upon deploying to Heroku, the app will use whatever keys have been set with heroku config.
+
+NOTE: Environment variables set with heroku config are persistent. They will remain in place across deploys and app restarts, so unless you need to change values you only need to set them once.  
+
+Local setup
+-----------
+
+In the example shown above, the app would run with the AWS keys set to nil on a developer workstation or any host other than Heroku.  You can set these values in the ~/.bashrc for the user:
+
+    export S3_KEY=...
+    export S3_SECRET=...
+
+Or, specify them when running the local server (or any other command, like a rake task):
+
+    $ S3_KEY=... S3_SECRET=... script/server
+
+Another option is to have default values when running locally:
+
+    AWS::S3::Base.establish_connection!(
+      :access_key_id     => ENV['S3_KEY'] || 'thedefaultkey',
+      :secret_access_key => ENV['S3_SECRET'] || 'thedefaultsecret',
+    )
+
+(This pattern is identical to that used for the [DATABASE_URL](/rack#using-datamapper-or-sequel) defaults.)
+
+You might fill in the S3 account allocated for developers to fool around with as the default, and override this with the production keys on the production site.
+
+Config commands
+---------------
+
+Use heroku config, config:unset, and config:reset to manage your config vars.
+
+    $ heroku config
+    RACK_ENV => production
+    $ heroku config GITHUB_USERNAME=joesmith
+    Setting {"GITHUB_USERNAME"=>"joesmith"} and restarting app...done.
+    $ heroku config:reset
+    Reseting all config vars and restarting app...done.        
+
+RACK_ENV, RAILS_ENV, MERB_ENV
+-----------------------------
+
+The RACK_ENV value is set to production by default.  You should rarely, if ever, want to change this.  But if you do, you can set it the same as any other config value:
+
+    $ heroku config RACK_ENV=staging
+    Setting {"RACK_ENV"=>"staging"} and restarting app...done.
+
+Note: RAILS_ENV and MERB_ENV will automatically mirror whatever is in RACK_ENV.  Don't set RAILS_ENV or MERB_ENV directly.
+
+Note: It is not recommended that you ever set your RACK_ENV=development, as that will enable reloading and slow down your app's dyno significantly.
+
