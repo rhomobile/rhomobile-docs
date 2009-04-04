@@ -12,20 +12,23 @@ A better solution is to use environment variables, and keep the keys out of the 
 Quick example
 -------------
 
-Set your config vars:
+Add some config vars for your S3 account keys:
 
     $ cd myapp
-    $ heroku config S3_KEY=8N029N81 S3_SECRET=9s83109d3+583493190
-    Setting {"S3_KEY"=>"8N029N81", "S3_SECRET"="9s83109d3+583493190"} and restarting app...done.
+    $ heroku config:add S3_KEY=8N029N81 S3_SECRET=9s83109d3+583493190
+    Adding config vars:
+      S3_KEY    => 8N029N81
+      S3_SECRET => 9s83109d3+583493190
+    Restarting app...done.
 
-Then set up your code, perhaps a file named config/initializers/s3.rb:
+Set up your code to read the vars at runtime in config/initializers/s3.rb:
 
     AWS::S3::Base.establish_connection!(
       :access_key_id     => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET'],
     )
 
-Now, upon deploying to Heroku, the app will use whatever keys have been set with heroku config.
+Now, upon deploying to Heroku, the app will use the keys set in the config.
 
 NOTE: Environment variables set with heroku config are persistent. They will remain in place across deploys and app restarts, so unless you need to change values you only need to set them once.  
 
@@ -34,12 +37,12 @@ Local setup
 
 In the example shown above, the app would run with the AWS keys set to nil on a developer workstation or any host other than Heroku.  You can set these values in the ~/.bashrc for the user:
 
-    export S3_KEY=...
-    export S3_SECRET=...
+    export S3_KEY=mykey
+    export S3_SECRET=mysecret
 
-Or, specify them when running the local server (or any other command, like a rake task):
+Or, specify them when running the local server (or any other command, like a rake task) by prepending the shell command:
 
-    $ S3_KEY=... S3_SECRET=... script/server
+    $ S3_KEY=mykey S3_SECRET=mysecret script/server
 
 Another option is to have default values when running locally:
 
@@ -55,22 +58,29 @@ You might fill in the S3 account allocated for developers to fool around with as
 Config commands
 ---------------
 
-Use heroku config, config:unset, and config:reset to manage your config vars.
+Use heroku config, config:add, config:remove, and config:clear to manage your config vars.
+
+    $ heroku config:add GITHUB_USERNAME=joesmith
+    Adding config vars:
+      GITHUB_USERNAME => joesmith
+    Restarting app...done.
 
     $ heroku config
+    GITHUB_USERNAME => joesmith
     RACK_ENV => production
-    $ heroku config GITHUB_USERNAME=joesmith
-    Setting {"GITHUB_USERNAME"=>"joesmith"} and restarting app...done.
-    $ heroku config:reset
-    Reseting all config vars and restarting app...done.        
+
+    $ heroku config:clear
+    Clearing all config vars and restarting app...done.
 
 RACK_ENV, RAILS_ENV, MERB_ENV
 -----------------------------
 
-The RACK_ENV value is set to production by default.  You should rarely, if ever, want to change this.  But if you do, you can set it the same as any other config value:
+The RACK_ENV value is set to production by default.  You should rarely, if ever, want to change this.  But you can set it the same as any other config value if you so desire:
 
-    $ heroku config RACK_ENV=staging
-    Setting {"RACK_ENV"=>"staging"} and restarting app...done.
+    $ heroku config:add RACK_ENV=staging
+    Adding config vars:
+      RACK_ENV => staging
+    Restarting app...done.
 
 Note: RAILS_ENV and MERB_ENV will automatically mirror whatever is in RACK_ENV.  Don't set RAILS_ENV or MERB_ENV directly.
 
