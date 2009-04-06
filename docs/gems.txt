@@ -1,6 +1,9 @@
 Installing gems
 ===============
 
+Overview
+--------
+
 Every Heroku app includes a private gem repository that can be used to install
 both pure-ruby gems and compiled extension gems. Gems available to an
 application are determined by a simple `.gems` manifest file located in the root
@@ -14,6 +17,16 @@ an application's `vendor/gems` directory. Freezing gems can make your git
 repository quite large, which slows down push and deploy operations. More
 importantly, it's possible to install compiled extension gems via the manifest
 file, whereas frozen vendor gems are limited to pure-ruby libraries.
+
+System Gems
+-----------
+
+All Heroku apps have access to a number of gems installed as part of the
+base platform. The [Technologies](technologies) topic provides a summary of
+the types of gems that are included and there's also a live-updated
+[list of all installed gems](http://installed-gems.heroku.com).
+
+Application gems override system level gems.
 
 Gem manifest
 ------------
