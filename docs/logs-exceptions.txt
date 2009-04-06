@@ -13,7 +13,9 @@ Get the most recent logs for your app:
 
 Accessing your logs is intended primarily for use in debugging a newly uploaded application that is producing unexpected results, such as an exception or a 500 / FAILSAFE error.  The logs displayed will be a jumble of results from the different servers your app happens to be running on, and will show only the most recent 100 lines.
 
-If you have a site in production use by real users, use an external exception logging service.  We can recommend Hoptoad (hoptoad.com) and Get Exceptional (getexceptional.com).  Both of these services are very simple to set up on Heroku, and provide an easy and structured way to look at all your production exceptions.
+If you have a site in production use by real users, use an external exception logging service.  We can recommend [Hoptoad](http://hoptoadapp.com/) and [Get Exceptional](http://getexceptional.com/).  Both of these services are very simple to set up on Heroku, and provide an easy and structured way to look at all your production exceptions.
 
-You should not attempt to use the output of the "heroku logs" command for metrics or usage analysis.  For that, we recommend Google Analytics (www.google.com/analytics).
+You should not attempt to use the output of the "heroku logs" command for
+metrics or usage analysis.  For that, we recommend [Google
+Analytics](http://www.google.com/analytics).
 
