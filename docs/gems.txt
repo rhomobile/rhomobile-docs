@@ -40,23 +40,26 @@ manifest format resembles the gem command line:
 
  * `GEM_NAME` is the name of the gem as would be specified on the `gem install`
    command line.
+
  * `VERSION` is an optional gem version specifier. This can be a basic version
-   number like "0.1.2" or an advanced version specifier with comparison
-   constraints like ">= 0.1.2"
-   (see link:http://www.rubygems.org/read/chapter/16[Specifying Versions] in the
+   number like `"0.1.2"` or an advanced version specifier with comparison
+   constraints like `">= 0.1.2"` (see
+   [Specifying Versions](http://www.rubygems.org/read/chapter/16) in the
    RubyGems manual for more information). When no explicit version is specified,
    the most recent version of the gem is installed.
+
  * `SOURCE` is an optional gem repository URL like gems.rubyforge.org,
    gems.github.com, or gems.mycustomrepo.com. The gems.rubyforge.org repository
-	is used when no explicit source is specified. Multiple `--source` arguments
-	may be provided for cases where dependencies cross multiple repositories.
+   is used when no explicit source is specified. Multiple `--source` arguments
+   may be provided for cases where dependencies cross multiple repositories.
 
-The following is an example `.gems` manifest file that includes four gems:
+The following is an example `.gems` manifest file that includes two gems:
 
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
 
-NOTE: The `--version` and `--source` options have short forms just like the `gem` command; use `-v` and `-s`, respectively.
+The `--version` and `--source` options have short forms just like the
+`gem` command; use `-v` and `-s`, respectively.
 
 Deploying gems
 --------------
