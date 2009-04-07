@@ -91,6 +91,7 @@ helpers do
 			[ 'taps', 'Database import/export' ],
 			[ 'renaming-apps', 'Renaming apps' ],
 			[ 'cron', 'Cron jobs' ],
+			[ 'config-vars', 'Config vars' ],
 			[ 'http-caching', 'HTTP caching' ],
 			[ 'full-text-indexing', 'Full text indexing' ],
 			[ 'constraints', 'Constraints' ],
