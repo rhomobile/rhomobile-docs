@@ -1,0 +1,168 @@
+Background Jobs
+===============
+
+Queueing is the key to building truly scalable web apps. Don't do any heavy
+lifting in the web processes (Mongrel/Thin); instead, put things on a
+queue, let the background workers do the work, so that the web requests can
+always return immediately.
+
+A good rule of thumb is to avoid web requests which run longer than 500ms.
+If you find that your app has requests which are running one, two, or more
+seconds, then you should consider using background jobs instead.
+
+Introduction to background processing with queues
+-------------------------------------------------
+
+Fetching data from remote APIs, reading RSS feeds, resizing images, and
+uploading data to S3 are all examples of tasks that should be processed as
+background jobs. The web hit that requests the job places it in queue and
+returns to the client immediately. The client can then poll for updates to
+see when their job is complete.
+
+Consider the example of a web-based RSS reader.  An app like this will have
+a form where users can submit a new feed URL to be read.  After a delay, the
+user will be taken to a page where they can see the contents of the feed.  A
+simple but non-scalable way to do this would be to run it directly inside
+the web request, like this:
+
+    class FeedsController
+      def create
+        feed = Feed.create! params
+        feed.fetch
+        redirect_to feed_url(feed)
+      end
+    end
+
+The fetch action in the model is the potentially heavy part of this:
+
+    class Feed < ActiveRecord::Base
+      def fetch
+        xml = RestClient.get url
+        # ... do read and parse the feed, putting the results in the database
+      end
+    end
+
+In the example, `feed.fetch` will go out to the network and pull down the
+data from the feed, inserting the results into the database.  Sometimes this
+may happen in as little as a few hundred milliseconds, but sometimes it may
+take several seconds.  If the feed's server is down, it could hang for 30
+seconds or more until the request times out.  Tying up your app's dyno
+during this time prevents it from handling other requests, and leaves your
+user hanging, wondering if your app is working properly.  This is ok for a
+single user, but as soon as your app has multiple simultaneous users, you'll
+find your app becoming very inconsistent in its response times.
+
+A better approach is to add the work-to-be-done to a queue:
+
+    class FeedController
+      def create
+        feed = Feed.create! params
+        Delayed::Job.enqueue feed
+        redirect_to url_for(feed)
+      end
+    end
+
+One or more worker processes, running separately (not serving web requests)
+will read items off the queue one by one and do the work asynchonously.  The
+results will be placed in the database when finished.
+
+Handling long-running work with background workers has many benefits.  It
+avoids tying up your web dynos, preventing them from serving other requests,
+and keeping your site snappy.  You can monitor and control the worker
+processes independently, and manage and introspect the queue to manage your
+site's load.  And the user experience for those visiting your site will be
+greatly improved when they get an immediate response to any page viewed,
+even if that response is only to say that their request has been received
+and is currently being processed.
+
+Delayed Job
+-----------
+
+[Delayed Job](http://github.com/tobi/delayed_job/tree/master), also known as
+DJ, is a queueing system for Rails written by Tobias Lütke of Shopify.  It
+stores jobs in a table called delayed_jobs in your app's database.
+
+To use, install the DJ plugin in your Rails app:
+
+    $ script/plugin install git://github.com/tobi/delayed_job.git
+
+Create a database migration for the delayed_jobs table:
+
+    $ script/generate migration create_delayed_jobs
+
+Edit the created migration to contain:
+
+    class CreateDelayedJobs < ActiveRecord::Migration
+      def self.up
+         create_table :delayed_jobs, :force => true do |table|
+           table.integer  :priority, :default => 0
+           table.integer  :attempts, :default => 0
+           table.text     :handler
+           table.string   :last_error
+           table.datetime :run_at
+           table.datetime :locked_at
+           table.datetime :failed_at
+           table.string   :locked_by
+           table.timestamps
+         end
+      end
+    end
+
+Run your migrations, and now you're ready to put something in your queue.
+(John Nunemaker has an [excellent tutorial](http://railstips.org/2008/11/19/delayed-gratification-with-rails)
+that goes into more detail on setting up DJ.)
+
+Continuing the feed example from the previous section, you might have a
+class like this:
+
+    class Feed < ActiveRecord::Base
+      def perform
+        xml = RestClient.get url
+        # ... do work to read and parse the feed and place it in the database
+      end
+    end
+
+DJ can queue any object that has a perform method.  In this case, perform
+will cause the feed to go out and fetch the latest info from the URL, and
+store the results in the database.  Now we can queue it with this bit of
+code:
+
+    Delayed::Job.enqueue Feed.create!(:url => 'http://adam.blog.heroku.com/feed')
+
+This will return immediately, as no work has been done yet.  The job is now
+on the queue, which you can see in your Rails console:
+
+    >> Delayed::Job.find(:first)
+    => #<Delayed::Job id: 8, priority: 0, attempts: 0, handler: "--- !ruby/object:Feed \nattributes: \n  updated_at: 2...", last_error: nil, run_at: "2009-04-13 04:10:30", locked_at: nil, failed_at: nil, locked_by: nil, created_at: "2009-04-13 04:10:30", updated_at: "2009-04-13 04:10:30">
+
+The job won't execute until a worker process exists to consume it.  Start
+the worker process like this:
+
+    $ rake jobs:work
+    (in /home/adam/feedreader)
+    *** Starting job worker host:silver pid:4227
+    1 jobs processed at 7.0823 j/s, 0 failed ...
+
+The worker process finds the job in queue, and performs it.  If you leave
+this running and add more jobs to the queue, you'll see those jobs being
+processed by the worker.  Press Ctrl-C to exit when you no longer wish to
+process jobs.
+
+Using the DJ addon
+------------------
+
+Once your app uses DJ, you can start workers locally, or on a traditional
+host, using rake jobs:work.  On Heroku, you can't start a worker this way
+due to our dyno grid architecture; but you can use a DJ-powered app out of
+the box by enabling the DJ addon.
+
+    $ cd myapp
+    $ heroku addons:add dj
+    Adding dj to widgets...done.
+
+Once the addon is installed, Heroku will start and manage a single DJ worker
+process for this app.  You can shut down the worker process by removing the
+addon:
+
+    $ heroku addons:remove dj
+    Removing dj from widgets...done.
