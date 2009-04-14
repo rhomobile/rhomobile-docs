@@ -180,6 +180,7 @@ See Also
   * [Tobias Lütke's introductory blog post on DJ][dj]
   * [The delayed_job github project][gh]
   * [John Nunemaker's DJ tutorial][tt]
+  * [Building a Queue-Backed Feed Reader][qf]
 
 [gh]: http://github.com/tobi/delayed_job/tree/master
       "tobi's delayed_job at master"
@@ -188,3 +189,5 @@ See Also
       "Delayed Job (DJ)"
 
 [tt]: http://railstips.org/2008/11/19/delayed-gratification-with-rails
+
+[qf]: http://adam.blog.heroku.com/past/2009/4/14/building_a_queuebacked_feed_reader_part_1/
