@@ -15,7 +15,7 @@ Accessing your logs is intended primarily for use in debugging a newly uploaded 
 
 If you have a site in production use by real users, use an external exception logging service.  We can recommend [Hoptoad](http://hoptoadapp.com/) and [Get Exceptional](http://getexceptional.com/).  Both of these services are very simple to set up on Heroku, and provide an easy and structured way to look at all your production exceptions.
 
-You should not attempt to use the output of the "heroku logs" command for
+You should not attempt to use the output of the `heroku logs` command for
 metrics or usage analysis.  For that, we recommend [Google
 Analytics](http://www.google.com/analytics).
 

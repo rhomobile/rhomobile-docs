@@ -19,7 +19,7 @@ If you're a Subversion user, try:
 Installing
 ----------
 
-If you don't already have Git, you can install it on Mac OS X with Macports:
+If you don't already have Git, you can install it on Mac OS X with MacPorts:
 
     $ port install git-core
 
@@ -48,9 +48,9 @@ Generate a public key:
     The key fingerprint is:
     a6:88:0a:0b:74:90:c6:e9:d5:49:d6:e3:04:d5:6c:3e adam@workstation.local
 
-Press enter at the first prompt to use the default file location.  You may wish to provide a password for the key, although this is not necessary - if your workstation is physically secure and is not used by anyone other than you, pressing enter at both prompts to make a passwordless key is secure.  As long as you keep the contents of ~/.ssh/id_rsa secret, your key will be secure even without a password.
+Press enter at the first prompt to use the default file location.  You may wish to provide a password for the key, although this is not necessary - if your workstation is physically secure and is not used by anyone other than you, pressing enter at both prompts to make a passwordless key is secure.  As long as you keep the contents of `~/.ssh/id_rsa` secret, your key will be secure even without a password.
 
-NOTE: You can use DSA keys if you prefer, using the -t dsa option.  Heroku can use either type of key.
+NOTE: You can use DSA keys if you prefer, using the `-t dsa` option.  Heroku can use either type of key.
 
 Further reading on SSH public key authentication:
 
@@ -59,7 +59,7 @@ Further reading on SSH public key authentication:
 Manage keys on Heroku
 ---------------------
 
-The first time you run the heroku command, you'll be prompted for your user credentials.  Your public key will then be automatically uploaded to Heroku.  This will allow you to deploy code to all of your apps.
+The first time you run the `heroku` command, you'll be prompted for your user credentials.  Your public key will then be automatically uploaded to Heroku.  This will allow you to deploy code to all of your apps.
 
 If you wish to add other keys, use this command:
 
@@ -79,14 +79,14 @@ Revoke old keys you're no longer using or that you think might be compromised
     Key adam@workstation.local removed.
 
 The key name the `user@workstation` bit that appears at the end of the key line
-in your public key file.  You can see a list of all keys, including the keyname,
-like this:
+in your public key file.  You can see a list of all keys, including the key's
+name, like this:
 
     $ heroku keys
     === 1 key for joe@example.com
     ssh-dss AAAAB8NzaC...DVj3R4Ww== joe@workstation.local
 
-NOTE: The ASCII-armored key data is shortened for readability.  If you wish to see the full public key, use the --long argument.  You will probably want to redirect this to a file ("heroku keys --long > keys.txt"), since it will be easier to look at in a text editor.
+NOTE: The ASCII-armored key data is shortened for readability.  If you wish to see the full public key, use the `--long` argument.  You will probably want to redirect this to a file (`heroku keys --long > keys.txt`), since it will be easier to look at in a text editor.
 
 Setting up a new Git repo
 -------------------------
@@ -113,7 +113,7 @@ a Git repo for it:
      create mode 100644 app/controllers/application.rb
     ...
 
-This is a local repository, now residing inside the .git folder.  Nothing has
+This is a local repository, now residing inside the `.git` directory.  Nothing has
 been sent anywhere yet, you'll need to create a remote and do a push to deploy
 your code to Heroku.
 
@@ -125,14 +125,14 @@ Managing remotes
 Git remotes are references to remote repositories.  You can have any number of
 these, but for now we'll focus on just the remote to Heroku.
 
-NOTE: This process may seem familiar if you've created and pushed to new repositories on Github before.  The workflow is exactly the same.
+This process may seem familiar if you've created and pushed to new repositories on Github before.  The workflow is exactly the same.
 
 As shown in the Quickstart section, you can take an existing Git repo and add a
 remote using the git url provided when you created your app.
 
-NOTE: If you don't have the git url for your app onscreen anymore, you can always see it again by typing "heroku info --app <appname>".
+NOTE: If you don't have the git url for your app on-screen anymore, you can always see it again by typing "heroku info --app <appname>".
 
-NOTE: The git url for a Heroku app is always in the format `git@heroku.com:appname.git`. Once you get used to this format, you may find it easier to type than cut-and-paste each time.
+The git url for a Heroku app is always in the format `git@heroku.com:appname.git`. Once you get used to this format, you may find it easier to type than cut-and-paste each time.
 
     $ git remote add heroku git@heroku.com:appname.git
 
@@ -140,7 +140,7 @@ We've named the remote "heroku" in this example, but you can name the remote
 anything you want.  You will probably find it easier to follow the examples if
 you stick to this naming convention.
 
-NOTE: There is one special remote name, "origin", which is the default for pushes. Using origin as the remote name will allow you to type just "git push" instead of "git push heroku", but we recommend using an explicitly named remote.
+There is one special remote name, "origin", which is the default for pushes. Using origin as the remote name will allow you to type just "git push" instead of "git push heroku", but we recommend using an explicitly named remote.
 
 Pushing code
 ------------
@@ -277,4 +277,3 @@ Each time you wish to deploy to Heroku:
     $ git push -f heroku
 
 NOTE: The `-f` (force flag) is recommended in order to avoid conflicts with other developers' pushes. Since you are not using Git for your revision control, but as a transport only, using the force flag is a reasonable practice.
-

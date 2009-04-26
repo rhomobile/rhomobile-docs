@@ -1,9 +1,9 @@
 HTTP caching
 ============
 
-All Heroku apps are fronted by Varnish, an HTTP accelerator.  Varnish will cache output from your application according to the cues provided it by the standard HTTP headers for describing a page's cache-ability.  These headers are the same ones used by browsers, so setting these headers correctly gives your app a double boost of speed when on Heroku: at the Varnish layer, and again at the user's browser.
+All Heroku apps are fronted by Varnish, an HTTP accelerator.  Varnish will cache output from your application according to the cues provided it by the standard HTTP headers for describing a page's cacheability.  These headers are the same ones used by browsers, so setting these headers correctly gives your app a double boost of speed when on Heroku: at the Varnish layer, and again at the user's browser.
 
-On the other hand, incorrect caching can cause out-of-date pages to be served, which can result in confusion for your users.  So it's important to understand how to set your headers correctly to maximize speed while minimizing stale results.
+On the other hand, incorrect caching can cause out-of-date pages to be served, which can result in confusion for your users.  So it's important to understand how to set headers correctly to maximize speed while minimizing stale results.
 
 Static assets
 -------------
@@ -35,7 +35,7 @@ Pressing shift-reload in the browser will cue the browser and Varnish to regener
 Prevent caching
 ---------------
 
-To prevent caching under any circumstance, set the header Cache-Control = no-cache.  This should not be necessary in any circumstance on Heroku, but it is mentioned for reference.
+To prevent caching under any circumstance, set the `Cache-Control` header to `no-cache`.  This should not be necessary in any circumstance on Heroku, but it is mentioned for reference.
 
 Cache purge on deploy
 ---------------------
@@ -44,12 +44,12 @@ When you git push changes to your app, the entire namespace for your app in the 
 
 NOTE: This may result in a brief performance hit to the app, particularly serving of static assets, for the first user to hit the site after the changes are in place.
 
-NOTE: The cache relies on the full path, including the domain name, of your app.  If you serve your app from multiple domains, the cache will not be shared between them, weakening the effectiveness of the HTTP accelerator.  It is recommended you choose a single canonical domain for your app and use a redirect or other method to make sure all your users use the same domain, so that the full path is always the same for identical pages.
+The cache relies on the full path, including the domain name, of your app.  If you serve your app from multiple domains, the cache will not be shared between them, weakening the effectiveness of the HTTP accelerator.  It is recommended you choose a single canonical domain for your app and use a redirect or other method to make sure all your users use the same domain, so that the full path is always the same for identical pages.
 
 Example: caching barcode images generated with ImageMagick
 ----------------------------------------------------------
 
-[qrcode-rails](http://github.com/siuying/qrcode-rails) is an open source Rails app written by Siu Ying that generates a 2D barcode which can be read by many handheld scanners, including phones.  You could use qrcode to generate a barcode with your website URL, print the barcode onto a sticker; and then anyone with the BeeTagg app on their iPhone can take a photo of the sticker and read the web URL encoded there.  Try it out at: [http://qrcode.heroku.com/](http://qrcode.heroku.com/)
+[qrcode-rails](http://github.com/siuying/qrcode-rails) is an open source Rails app written by Siu Ying that generates a 2D barcode which can be read by many hand-held scanners, including phones.  You could use qrcode to generate a barcode with your website URL, print the barcode onto a sticker; and then anyone with the BeeTagg app on their iPhone can take a photo of the sticker and read the web URL encoded there.  Try it out at: [http://qrcode.heroku.com/](http://qrcode.heroku.com/)
 
 qrcode makes a good example of dynamic content that should be cached.  It uses RMagick to generate the images, which takes several seconds of CPU-intensive to generate.  But barcodes are always completely deterministic on their input data: a barcode for the text "hello world" will always be the same.
 
@@ -62,5 +62,3 @@ Further reading
 
 * [http://www.mnot.net/cache_docs/](http://www.mnot.net/cache_docs/)
 * [http://tomayko.com/writings/things-caches-do](http://tomayko.com/writings/things-caches-do)
-
-

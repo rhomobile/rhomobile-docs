@@ -12,7 +12,7 @@ Renaming an app will cause it to become unavailable on the old subdomain (oldnam
 Updating the Git remote
 -----------------------
 
-You will need to update any git remotes that you have defined in your checkouts after a rename.  Do this by editing .git/config and looking for the lines that look like this:
+You will need to update any git remotes that you have defined in your checkouts after a rename.  Do this by editing `.git/config` and looking for the lines that look like this:
 
     [remote "heroku"]
         url = git@heroku.com:oldname.git

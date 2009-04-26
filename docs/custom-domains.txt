@@ -10,7 +10,7 @@ Set up your domain with your registrar, then select the subdomain that you wish 
 
 Configure your DNS provider to make your chosen custom domain name be an alias which points to heroku.com.  In DNS terms this is known as a CNAME.
 
-NOTE: Why can't you use an A record, which is a hard-coded IP address?  Heroku is a cloud computing provider, and our front-end load balancers will change IPs from time to time.  When they do, any apps hardcoded to point at a specific IP, instead than heroku.com, will stop working.  So we strongly discourage you from using A records.
+NOTE: Why can't you use an A record, which is a hard-coded IP address?  Heroku is a cloud computing provider, and our front-end load balancers will change IPs from time to time.  When they do, any apps hard-coded to point at a specific IP, instead than heroku.com, will stop working.  So we strongly discourage you from using A records.
 
 Check that your DNS is configured correctly with the "host" command:
 
@@ -19,7 +19,7 @@ Check that your DNS is configured correctly with the "host" command:
     heroku.com has address 75.101.142.103
     heroku.com has address 75.101.141.116
 
-Output of the host command varies by unix flavor, but it should indicate that your domain name is either an alias of heroku.com, or a CNAME of heroku.com (these both mean the same thing).
+Output of the host command varies by Unix flavor, but it should indicate that your domain name is either an alias of heroku.com, or a CNAME of heroku.com (these both mean the same thing).
 
 Heroku setup
 ------------
@@ -51,4 +51,3 @@ NOTE: If you have multiple domains, or your app has users that access it via its
           redirect_to TheDomain
         end
       end
-

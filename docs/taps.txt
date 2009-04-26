@@ -22,9 +22,9 @@ Your app should be deployed to Heroku in [the usual way](/quickstart).  From wit
     Sending indexes
     Resetting sequences
 
-This pushes the contents (schema, data, indexes, sequences) of whatever database is specified in config/database.yml to Heroku.
+This pushes the contents (schema, data, indexes, sequences) of whatever database is specified in `config/database.yml` to Heroku.
 
-If you don't have a config/database.yml (for example, if you're using Sequel or DataMapper in a Sinatra app), you can specify a database URL on the command line.  Some examples:
+If you don't have a `config/database.yml` (for example, if you're using Sequel or DataMapper in a Sinatra app), you can specify a database URL on the command line.  Some examples:
 
     $ heroku db:push sqlite://local.db
     $ heroku db:push mysql://root:mypass@localhost/mydb
@@ -48,13 +48,15 @@ From within a local checkout of your Rails or Merb app which is deployed to Hero
     Receiving indexes
     Resetting sequences
 
-This pulls the contents (schema, data, indexes, sequences) of the remote Heroku database down into a local database specified in config/database.yml, or at the database URL provided as an argument as described in the previous section.
+This pulls the contents (schema, data, indexes, sequences) of the remote Heroku database down into a local database specified in `config/database.yml`, or at the database URL provided as an argument as described in the previous section.
 
 Notes on use cases
 ------------------
 
-* When importing to Heroku from an existing host (like EC2, Slicehost, or your own colocated server), it will be fastest if you can run the import straight from that machine.  To do that, you'll need to install the Heroku client gem and enter your username/password on that machine.  If you can't or don't wish to import straight from that host, another option is to transfer the database to your local machine first (via the typical mysqldump/scp/mysql, or with the Taps open source gem) and then run the heroku db:push from there.
-* db:pull is very useful for debugging production data.  For example, you might have a user contact you about a corrupted record.  You could run db:pull to get a local copy of the database, fix the remote record (via "heroku console"), then inspect the corrupted data locally at your leisure.
+* When importing to Heroku from an existing host (like EC2, Slicehost, or your own colocated server), it will be fastest if you can run the import straight from that machine.  To do that, you'll need to install the Heroku client gem and enter your username/password on that machine.  If you can't or don't wish to import straight from that host, another option is to transfer the database to your local machine first (via the typical `mysqldump`/`scp`/`mysql`, or with the Taps open source gem) and then run the `heroku db:push` from there.
+
+* db:pull is very useful for debugging production data.  For example, you might have a user contact you about a corrupted record.  You could run db:pull to get a local copy of the database, fix the remote record (via `heroku console`), then inspect the corrupted data locally at your leisure.
+
 * db:pull can be used for backups, although it will be much slower than downloading a captured bundle.  But if you don't mind the longer transfer time, having it in a SQL database format of your choice may be superior, since you can quickly query the backed-up data in cases such as recovery of a few accidentally-deleted records.
 
 

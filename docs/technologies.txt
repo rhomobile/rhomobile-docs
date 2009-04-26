@@ -51,4 +51,3 @@ Other
 * rush 0.5
 
 For a complete raw/uncategorized listing, see [this](http://installed-gems.heroku.com/).
-

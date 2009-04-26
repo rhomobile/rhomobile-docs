@@ -12,7 +12,7 @@ Passenger has become common, so most existing Rack applications should work
 without additional changes.
 
 Tutorial: creating and deploying a pure Rack app
---------------------------------
+------------------------------------------------
 
 First, create a new directory and write a simple `config.ru` file:
 
@@ -48,7 +48,7 @@ The following example `config.ru` files illustrate rackup usage with a
 variety of web frameworks.
 
 Sinatra
---------------------------------
+-------
 
 hello.rb:
 
@@ -64,7 +64,7 @@ config.ru:
     run Sinatra::Application
 
 Merb
---------------------------------
+----
 
 The following `config.ru` file can be used for all Merb apps.
 
@@ -78,7 +78,7 @@ The following `config.ru` file can be used for all Merb apps.
     run Merb::Rack::Application.new
 
 Ramaze
---------------------------------
+------
 
 hello.rb:
 
@@ -98,7 +98,7 @@ config.ru:
     run Ramaze::Adapter::Base
 
 Camping
---------------------------------
+-------
 
 `hello.rb`:
 
@@ -128,7 +128,7 @@ Camping
 NOTE: Camping 2.0 does not require the Rack adapter; use `run Hello` instead.
 
 Using ActiveRecord
---------------------------------
+------------------
 
 Rails or Merb will automatically read config/database.yml, which is written with the PostgreSQL config information at compile time.  For frameworks other than these two, put this code into your application to access the database with ActiveRecord:
 
@@ -140,7 +140,7 @@ Rails or Merb will automatically read config/database.yml, which is written with
 For local development, you should create a config/database.yml file in your code repo which contains a pointer to your local database.  A good technique here is to copy the config/database.yml from a blank Rails app, which uses the SQLite database db/development.sqlite3.
 
 Using DataMapper or Sequel
---------------------------------
+--------------------------
 
 DataMapper and Sequel both use database URLs instead of config hashes.  You could read config/database.yml and construct the URL, but an easier way is to use the DATABASE_URL environment variable set by Heroku.  For DataMapper:
 

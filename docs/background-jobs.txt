@@ -67,7 +67,7 @@ A better approach is to add the work-to-be-done to a queue:
     end
 
 One or more worker processes, running separately (not serving web requests)
-will read items off the queue one by one and do the work asynchonously.  The
+will read items off the queue one by one and do the work asynchronously.  The
 results will be placed in the database when finished.
 
 Handling long-running work with background workers has many benefits.  It

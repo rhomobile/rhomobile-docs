@@ -2,7 +2,7 @@ Sharing
 =======
 
 Inviting other developers
---------------------
+-------------------------
 
 Other developers can be invited to collaborate on your app, identified by email address:
 
@@ -35,4 +35,3 @@ Once you're collaborating with other developers, you may find that you're preven
     maybe you are not up-to-date and need to pull first?
 
 This means that other developers have pushed up changes that you need to pull down and merge with your local repository.  "git pull" is the quick way to do this; see the section titled "Pulling code" for details.
-

@@ -1,7 +1,7 @@
 Errors
 ======
 
-Errors happen.  Knowing how to distinguish a problem with Heroku platform from an error in your application code can save you time and effort in getting to the source of the problem and restoring service.
+Errors happen. Knowing how to distinguish a problem with Heroku platform from an error in your application code can save you time and effort in getting to the source of the problem and restoring service.
 
 Platform errors
 ---------------
@@ -17,11 +17,9 @@ App failed to start
 
 If your app failed to start up, you'll get a 502 and a page that lists your app's crashlog.  You'll need to use the stack trace to correct the problem (typically a missing gem, or a bad line in your config somewhere) and push a fix.
 
-Note that while your app is crashed, you can still run rake tasks via "heroku rake," but console commands are not possible.  This is the same as an app that is failing to start locally, with rake and script/console.
+Note that while your app is crashed, you can still run rake tasks via `heroku rake`, but console commands are not possible.  This is the same as an app that is failing to start locally, with `rake` and `script/console`.
 
 Other errors
 ------------
 
 Any error code other than a 503 points to a problem within your application. Check your logs and/or exception monitoring service for info on what went wrong.
-
-
