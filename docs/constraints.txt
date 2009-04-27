@@ -73,3 +73,19 @@ Heroku is not intended to be used to serve large static assets such as videos, P
 To use S3 with your Heroku app, upload your assets to your S3 account using the command line, or a graphical browser like [this Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/3247) or [this OS X client](http://people.no-distance.net/ol/software/s3/).  Once uploaded, you can make your assets public.  Take the URL, which will be something like "http://s3.amazonaws.com/bucketname/filename", and paste it into your views inside your app wherever you need to serve the asset to your users.
 
 For writing uploaded files to S3, use the [S3 gem](http://amazon.rubyforge.org/) from within your Ruby code, or use [Paperclip](http://thoughtbot.com/projects/paperclip) or [attachment_fu](http://clarkware.com/cgi/blosxom/2007/02/24#FileUploadFu), specifying the S3 storage backend.
+
+Slug size
+---------
+
+The size of your compiled slug greatly affects the speed with which is can be distributed across our dyno grid.  Smaller slugs will result in apps that are faster to scale and more resilient to partial infrastructure outages.
+
+Your slug size is shown at compile time, or you can approximate it locally by creating a zip or .tar.gz archive of your app without the .git directory, and then adding the size of any gems specified in your .gems manifest.
+
+The maximum slug size is 20MB.  Most apps should be far below this size.  Anything under 3MB is good.  If you exceed 10MB, you should think about trying to lean down your app.
+
+If you find yourself with a large (>= 10MB) slug, here are some techniques for reducing its size:
+
+* Move large assets like PDFs or audio files to asset storage, and described in the previous section.
+* Remove files stored inside the app's repository but which are unnecessary to run the app.  For example, PSD mockups, or large design documents.
+* Look for ways to reduce the number of gems or plugins required in production.  For example, using the rspec-rails gem instead of installing the RSpec plugin in your vendor/plugins.
+
