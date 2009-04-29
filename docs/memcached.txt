@@ -66,3 +66,55 @@ Then later, in the same request - or more likely, a different one:
 
 Further reading: [MemCache client gem on Github](http://seattlerb.rubyforge.org/memcache-client/)
 
+Local dev setup
+---------------
+
+For local work, you can simulate Memcached with an in-memory hash.  (This works fine, since you only run one script/server process.)  Add this to your config/environment/development.rb:
+
+    class ::MemCache
+      def self.cache
+        @@cache ||= {}
+      end
+    end
+
+Alternately, you might wish to run the Memcached daemon locally.  This is a little more setup, but has the benefit of being identical to production, and should be used if you use features such as incr/decr.
+
+Install memcached on OS X with:
+
+    $ sudo port install memcached
+
+Or on Ubuntu with:
+
+    $ sudo apt-get install memcached
+
+Install the client gem:
+
+    $ sudo gem install memcache-client
+
+Start the daemon with very verbose logging enabled:
+
+    $ memcached -vv
+    slab class   1: chunk size     88 perslab 11915
+    slab class   2: chunk size    112 perslab  9362
+    slab class   3: chunk size    144 perslab  7281
+
+Leave that running in a terminal for as long as you're testig your app.  Then, configure Rails to use it by adding the following to the end of config/environments/development.rb:
+
+    class ::MemCache
+      def self.cache
+        @@cache ||= new('localhost:11211')
+      end
+    end
+
+Now you can access MemCache.cache locally:
+
+    $ script/console
+    Loading development environment (Rails 2.3.2)
+    >> MemCache.cache['foo'] = 'baz'
+    => "baz"
+
+Switch back to the memcached terminal and you'll see the logging for your set operation:
+
+    <18 set foo 0 0 7
+    >18 STORED
+
