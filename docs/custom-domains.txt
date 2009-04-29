@@ -51,3 +51,26 @@ NOTE: If you have multiple domains, or your app has users that access it via its
           redirect_to TheDomain
         end
       end
+
+Wildcard domains
+----------------
+
+If you wish to use subdomains in your app, you'll need to use the wildcard domains add-on.  You can do this Heroku default URL (i.e., no custom domain) like this:
+
+    $ heroku addons:add wildcard_subdomains
+    Adding wildcard_domains to myapp...done.
+    $ curl http://arbitrary-subdomain.myapp.heroku.com/
+    HTTP/1.1 200 OK
+
+To use with a custom domain, configure your registrar to point *.yourdomain.com at heroku.com.  If things are set up correctly you should be able to look up any arbitrary subdomain:
+
+    $ host arbitrary-subdomain.yourdomain.com
+    arbitrary-subdomain.yourdomain.com is an alias for heroku.com.
+
+Then add the wildcard domain on Heroku:
+
+    $ heroku domains:add *.youdomain.com
+    Added *.yourdomain.com as a custom domain name to myapp.heroku.com
+    $ curl http://arbitrary-subdomain.yourdomain.com/
+    HTTP/1.1 200 OK
+
