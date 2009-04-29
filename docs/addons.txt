@@ -49,7 +49,7 @@ Full documentation: [Wildcard domains](/custom-domains#wildcard-domains)
 DJ
 --
 
-Delayed::Job is a Rails plugin for running background job.  You should use it if you have any processing that goes on in your app that takes more than a few hundred milliseconds.
+Delayed::Job is a Rails plugin for running background jobs.  You should use it if you have any processing that goes on in your app that takes more than a few hundred milliseconds.
 
     $ script/plugin install git://github.com/tobi/delayed_job.git
     [...other DJ setup...]
