@@ -1,10 +1,6 @@
 Add-ons
 =======
 
-Extra features for your Heroku app are available as add-ons.  Some add-ons are free and others have a flat monthly cost, but all require that you verify your account by registering your billing information with us.  (We only collect this information as a way to help manage abuse.  We'll never charge your card without your explicit authorization.)
-
-You can see the current list of add-ons available and their prices at the bottom of [the Heroku pricing page](http://sick-ninja-420.heroku.com/).
-
 Manging addons
 --------------
 
@@ -12,14 +8,11 @@ List the add-ons currently in use on your app, and those available to be added:
 
     $ heroku addons
     Activated addons:
-      Nightly Cron
-      Memcached
+      (none)
 
     Available addons:
-      Custom Domains
-      SSL
-      Hourly Cron
       Wildcard Domains
+      Memcached
       Dj
 
 Add an add-on:
@@ -31,63 +24,6 @@ Remove it later:
 
     $ heroku addons:remove memcached
     Removing memcached from myapp...done.
-
-Custom Domains
---------------
-
-All Heroku apps are accessible at their default web URL, which is http://<appname>.heroku.com.  However, we recommend using your own custom domain name for any app which you plan to make broadly available:
-
-    $ heroku addons:add custom_domains
-    Adding custom domains to myapp...done.
-    $ heroku domains:add www.example.com
-    Added www.example.com as a custom domain name to myapp.heroku.com
-
-Full documentation: [Custom Domains](/custom-domains)
-
-SSL
----
-
-SSL encryption should be used to protect any form posting sensitive data to your site:
-
-    $ heroku addons:add ssl
-    Adding ssl to myapp...done.
-
-You can now access your app at https://(yourapp).heroku.com, which piggybacks on our *.heroku.com wildcard SSL certificate.  You can also access your app at https://www.yourdomain.com if you're using a custom domain, but this will produce a warning in the user's browser.
-
-Full documentation: [SSL](/ssl)
-
-Nightly Cron
-------------
-
-This add-on will run "rake cron" against your app once per day, generally around midnight PST, but you shouldn't depend on it running at any particular clock time.
-
-    $ cat > lib/tasks/rake.cron
-    task :cron do
-      puts "Running cron"
-    end
-    [Ctrl-D]
-    $ git add .
-    $ git commit -m "cron task"
-    ...
-    $ git push heroku
-    ...
-    $ heroku addons:add nightly_cron
-    Adding nightly cron to myapp...done.
-
-The next day:
-
-    $ heroku logs:cron
-    (in /disk1/home/slugs/39164_b7c3a45_0710/mnt)
-    Running cron
-
-Full documentation: [Cron](/cron)
-
-Hourly Cron
------------
-
-Hourly cron is identical to nightly cron, described above.  It runs the same rake task, but once per hour, instead of once per day.
-
-Full documentation: [Cron](/cron)
 
 Wildcard Domains
 ----------------
