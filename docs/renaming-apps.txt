@@ -21,5 +21,5 @@ Replace "newname" with the new name of your app, especified in the rename comman
 
 NOTE: If your app has collaborators, inform them of the change so that they may run these commands as well.
 
-NOTE: You can see and edit the full details for all remotes in your current git repo by editing the file .git/config.
+NOTE: You can see all remotes and the git URLs they reference by typing "git remote -v".  You can also see and edit the full details for all remotes in your current git repo by editing the file .git/config.
 
