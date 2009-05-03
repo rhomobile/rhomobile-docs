@@ -15,4 +15,4 @@ To see recent results of your cron execution, type:
 
     $ heroku logs:cron
 
-NOTE: By default, a blank Rails app does not have the cron task defined, so you will see the message "Don't know how to build task 'cron'" as the output of `heroku logs:cron` on apps that have no cron task defined.  This is normal, an can safely be ignored.
+NOTE: By default, a blank Rails app does not have the cron task defined, so you will see the message "Don't know how to build task 'cron'" as the output of `heroku logs:cron` on apps that have no cron task defined.  This is normal, and can safely be ignored.
