@@ -1,10 +1,6 @@
 Background Jobs
 ===============
 
-<p style='color:red;font-weight:bold;text-align:center;font-size:x-large'>
-  THIS IS A DRAFT. DO NOT DISTRIBUTE.
-</p>
-
 Queueing is the key to building truly scalable web apps. Don't do any heavy
 lifting in the web processes (Mongrel/Thin); instead, put things on a queue
 and do the work in a background process. This ensures that web requests can
