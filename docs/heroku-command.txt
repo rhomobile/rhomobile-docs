@@ -41,8 +41,12 @@ So the info command needs no arguments inside the checkout:
 
     $ cd myapp
     $ heroku info
+    === myapp
     Web URL:        http://myapp.heroku.com/
     Git Repo:       git@heroku.com:myapp.git
+    Repo size:      960k
+    Slug size:      512k
+    Data size:      88k in 3 tables
     Collaborators:  you@example.com
 
 If you wish to run a command without a checkout of the app, any of the app
@@ -53,3 +57,8 @@ commands can take the `--app` argument.
 You can also give the custom domain for the app:
 
     $ heroku info --app www.example.com
+
+If your app has multiple remotes (for example, "staging" and "production"), you can use the --remote argument with the name of the remote instead of the name of the app:
+
+    $ heroku rake db:migrate --remote staging
+

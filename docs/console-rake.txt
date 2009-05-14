@@ -46,6 +46,8 @@ Without an argument, `heroku console` launches an interactive console similar to
 
 Press Ctrl-D or type "exit" to end your console session.
 
+NOTE: The console history for each app is saved in ~/.heroku/console_history/appname.  If you wish to clear the history, delete its file, or the entire directory to purge the history for all apps.
+
 Rake
 ----------------
 
