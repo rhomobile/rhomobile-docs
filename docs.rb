@@ -86,6 +86,7 @@ helpers do
 			[ 'rack', 'Deploying Rack-based apps' ],
 			[ 'logs-exceptions', 'Logs and exceptions' ],
 			[ 'errors', 'Errors' ],
+			[ 'addons', 'Add-ons' ],
 			[ 'custom-domains', 'Custom domain names' ],
 			[ 'gems', 'Installing gems' ],
 			[ 'taps', 'Database import/export' ],

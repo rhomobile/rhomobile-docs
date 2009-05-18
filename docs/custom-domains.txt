@@ -1,7 +1,7 @@
 Custom domain names
 ===================
 
-All Heroku apps will always be accessible by their Heroku subdomain: appname.heroku.com.  You can also assign one or more custom domain names.
+All Heroku apps will always be accessible by their Heroku subdomain: appname.heroku.com.  You can also assign one or more custom domain names if you enable the custom domains [add-on](/addons).
 
 Registrar setup
 ---------------
@@ -24,12 +24,17 @@ Output of the host command varies by Unix flavor, but it should indicate that yo
 Heroku setup
 ------------
 
-Once your DNS is pointing at your app, you can inform Heroku of the domain you are using:
+Once your DNS is pointing at your app, enable the custom domains [add-on](/addons) for the app:
+
+    $ heroku addons:add custom_domains
+    Adding wildcard_domains to myapp...done.
+
+Then inform Heroku of the domain you are using:
 
     $ heroku domains:add www.example.com
     Added www.example.com as a custom domain name to myapp.heroku.com
 
-You can add any number of domains to a single app.  Remove domains with:
+You can add any number of domains to a single app by repeating the add command with different values.  Remove domains with:
 
     $ heroku domains:remove myapp.mydomain.com
     Removed www.example.com as a custom domain name to myapp.heroku.com
