@@ -4,6 +4,10 @@ require 'rdiscount'
 
 set :app_file, __FILE__
 
+not_found do
+	erb :not_found
+end
+
 get '/README' do
 	render_topic './README'
 end
@@ -36,6 +40,8 @@ helpers do
 		@toc, @content = toc(@content)
 		@topic = topic
 		erb :topic
+	rescue Errno::ENOENT
+		status 404
 	end
 
 	def cache_long
