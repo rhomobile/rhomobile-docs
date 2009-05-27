@@ -60,7 +60,7 @@ NOTE: If you have multiple domains, or your app has users that access it via its
 Wildcard domains
 ----------------
 
-If you wish to use subdomains in your app, you'll need to use the wildcard domains add-on.  You can do this Heroku default URL (i.e., no custom domain) like this:
+If you'd like your app to respond to any subdomain under your custom domain name (as in *.yourdomain.com), you’ll need to use the wildcard domains add-on. First, you'll need to select the add-on:
 
     $ heroku addons:add wildcard_domains
     Adding wildcard_domains to myapp...done.
