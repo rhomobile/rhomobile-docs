@@ -98,11 +98,11 @@ Edit the created migration to contain:
           table.integer  :priority, :default => 0      # jobs can jump to the front of
           table.integer  :attempts, :default => 0      # retries, but still fail eventually
           table.text     :handler                      # YAML object dump
-          table.string   :last_error                   # last failure
+          table.text     :last_error                   # last failure
           table.datetime :run_at                       # schedule for later
           table.datetime :locked_at                    # set when client working this job
           table.datetime :failed_at                    # set when all retries have failed
-          table.string   :locked_by                    # who is working on this object
+          table.text     :locked_by                    # who is working on this object
           table.timestamps
         end
       end
