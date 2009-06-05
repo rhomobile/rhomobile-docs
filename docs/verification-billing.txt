@@ -12,7 +12,8 @@ Verification
 
 Account verification let's you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks. There are two cases in which you will be prompted to verify your account. 
 
-.From the Heroku client
+From the Heroku client
+~~~~~~~~~~~~~~~
 
 When adding an addon from the Heroku client:
 
