@@ -1,8 +1,13 @@
 require 'rubygems'
 require 'sinatra'
 require 'rdiscount'
+require 'vendor/heroku_header'
 
 set :app_file, __FILE__
+
+configure do
+	HerokuHeader.fetch_latest
+end
 
 not_found do
 	erb :not_found

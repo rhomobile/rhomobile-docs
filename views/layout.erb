@@ -9,11 +9,7 @@
 <body>
 <div id="bodywrap">
 
-	<% if @asset_host %>
-		<div id="header">
-			<a id="logo" href="<%= @asset_host %>/">Heroku</a>
-		</div>
-	<% end %>
+	<%= HerokuHeader.show %>
 
 	<ul id="docsnav">
 		<li class="title"><a href="/">Heroku Docs</a></li>
