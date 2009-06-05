@@ -8,14 +8,24 @@ You can rest assured that Heroku will never charge you unless you've ordered pai
 
 ## Verification
 
-Account verification let's you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks. There are two cases in which you will be prompted to verify your account. 
+Account verification let's you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks. You only need to verify once per account. There are two places in which you'll be prompted to complete verification:
 
-### From the Heroku client
+### 1. From the Heroku client
 
-When adding an addon from the Heroku client:
+If you try to add an add-on, such as Custom Domains, to your app from an unverified account, you'll see a message directing you to the verification URL:
 
 	$ heroku addons:add custom_domains
 	Adding custom_domains to quiet-mist-49...FAILED
 	!    Before activating this add-on you must verify your account:
-	!    Please visit http://heroku.com/billing to set up your account.
+	!    Please visit http://heroku.com/verify to set up your account.
+	
+Open the URL in your browser of choice, and you'll see the verification form. 
+
+![Verify Form](http://quiet-mist-49.heroku.com/images/verify.png)
+
+Fill it out, and you'll be ready use add-ons and order more dyno and databases resources when you need them.
+
+
+	
+
 	
