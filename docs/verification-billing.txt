@@ -1,0 +1,13 @@
+Verification & Billing
+=======
+
+Basic usage of Heroku is free. However, to access certain add-on features we ask that you verify your account with us by providing your contact and credit card information.
+
+The reason we ask for this info is mainly for abuse prevention reasons. As a business we need to be able contact our users reliably in the event of a problem. 
+
+You can rest assured that Heroku will never charge you unless you've ordered paid services and explicitly confirmed your agreement to be billed on a monthly basis.
+
+Verification
+---------------
+
+Account verification let's you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks.
