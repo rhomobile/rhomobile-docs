@@ -3,8 +3,10 @@ require 'rest_client'
 module HerokuHeader
 	extend self
 
-	def fetch_latest
-		@header = RestClient::Resource.new("#{heroku_domain}/shared/header", 'internal', 'MN2q0tzjj30KlsnfT').get rescue nil
+	def fetch_latest(current=nil)
+		url = "#{heroku_domain}/shared/header"
+		url += "?current=#{current}" if current
+		@header = RestClient::Resource.new(url, 'internal', 'MN2q0tzjj30KlsnfT').get rescue nil
 	end
 
 	def show

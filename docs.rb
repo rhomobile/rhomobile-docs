@@ -6,7 +6,7 @@ require 'vendor/heroku_header'
 set :app_file, __FILE__
 
 configure do
-	HerokuHeader.fetch_latest
+	HerokuHeader.fetch_latest('docs')
 end
 
 not_found do
