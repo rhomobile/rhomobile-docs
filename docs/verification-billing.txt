@@ -1,3 +1,6 @@
+# DRAFT DRAFT DRAFT DRAFT DRAFT 
+
+
 # Verification & Billing
 
 Basic usage of Heroku is free. However, to access certain add-on features we ask that you verify your account with us by providing your contact and credit card information.
@@ -30,7 +33,7 @@ For each app listed on the [MyApps page](http://heroku.com/myapps), there's a "R
 ![Resources Page header with no changes](http://quiet-mist-49.heroku.com/images/resources_nochanges.png)
 
 
-
+NOTE: If you select a paid resource or add-on, you'll skip verification and go straight to confirming your billing information. 
 	
 
 	
