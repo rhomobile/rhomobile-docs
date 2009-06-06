@@ -10,7 +10,7 @@ You can rest assured that Heroku will never charge you unless you've ordered pai
 
 Account verification let's you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks. You only need to verify once per account. There are two places in which you'll be prompted to complete verification:
 
-### 1. From the Heroku client
+### 1. From The Heroku Client
 
 If you try to add an add-on, such as Custom Domains, to your app from an unverified account, you'll see a message directing you to the verification URL:
 
@@ -19,12 +19,15 @@ If you try to add an add-on, such as Custom Domains, to your app from an unverif
 	!    Before activating this add-on you must verify your account:
 	!    Please visit http://heroku.com/verify to set up your account.
 	
-Open the URL in your browser of choice, and you'll see the verification form. 
+Open the URL in your browser of choice, and you'll see the verification form. Fill it out, and you'll be ready use add-ons and order more dyno and databases resources when you need them.
 
 ![Verify Form](http://quiet-mist-49.heroku.com/images/verify.png)
 
-Fill it out, and you'll be ready use add-ons and order more dyno and databases resources when you need them.
+### 2. The App Resources Page
 
+For each app listed on the (MyApps page)[http://heroku.com/myapps], there's a "Resources" page that will let you select add-ons, increase your dynos and change your database size. The first time you to the Resources page for one of your apps, the header will look like this - indicating no changes have been made:
+
+![Resources Page header with no changes](http://quiet-mist-49.heroku.com/images/resources_nochanges.png)
 
 
 
