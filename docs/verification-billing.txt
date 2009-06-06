@@ -24,13 +24,13 @@ If you try to add an add-on, such as Custom Domains, to your app from an unverif
 	
 Open the URL in your browser of choice, and you'll see the verification form. Fill it out, and you'll be ready use add-ons and order more dyno and databases resources when you need them.
 
-![Verify Form](http://quiet-mist-49.heroku.com/images/verify.png)
+![Verify Form](http://docs.heroku.com/images/verify.png)
 
 ### 2. The App Resources Page
 
 For each app listed on the [MyApps page](http://heroku.com/myapps), there's a "Resources" page that will let you select add-ons, increase your dynos and change your database size. The first time you to the Resources page for one of your apps, the header will look like this - indicating no changes have been made:
 
-![Resources Page header with no changes](http://quiet-mist-49.heroku.com/images/resources_nochanges.png)
+![Resources Page header with no changes](http://docs.heroku.com/images/resources_nochanges.png)
 
 
 NOTE: If you select a paid resource or add-on, you'll skip verification and go straight to confirming your billing information. 
