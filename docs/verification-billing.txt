@@ -11,11 +11,15 @@ You can rest assured that Heroku will never charge you unless you've ordered pai
 
 ## Verification
 
-Account verification let's you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks. You only need to verify once per account. There are two places in which you'll be prompted to complete verification:
+Account verification lets you use any of our free add-ons, and gives you access to turn on paid services any time with a few easy clicks. You only need to verify once per account. The easiest way to do this is to go straight to http://heroku.com/verify:
+
+[screenshot of verify form]
+
+You can also choose to verify only when you strictly need to. There are two cases in which our system will prompt you to verify: 
 
 ### 1. From The Heroku Client
 
-If you try to add an add-on, such as Custom Domains, to your app from an unverified account, you'll see a message directing you to the verification URL:
+If you try to add an add-on, such as Custom Domains, from an unverified account, you'll see a message directing you to the verification URL:
 
 	$ heroku addons:add custom_domains
 	Adding custom_domains to quiet-mist-49...FAILED
@@ -24,16 +28,30 @@ If you try to add an add-on, such as Custom Domains, to your app from an unverif
 	
 Open the URL in your browser of choice, and you'll see the verification form. Fill it out, and you'll be ready use add-ons and order more dyno and databases resources when you need them.
 
-![Verify Form](http://docs.heroku.com/images/verify.png)
-
 ### 2. The App Resources Page
 
 For each app listed on the [MyApps page](http://heroku.com/myapps), there's a "Resources" page that will let you select add-ons, increase your dynos and change your database size. The first time you to the Resources page for one of your apps, the header will look like this - indicating no changes have been made:
 
-![Resources Page header with no changes](http://docs.heroku.com/images/resources_nochanges.png)
+[screen shot of resource page header with no changes]
+
+When selecting a resource that requires verification, you'll see a message indicating that verification is needed before the changes apply:
+
+[screen shot of resource page header with changes requiring verification]
+
+Simply click the "Save & Apply" button, and you'll be taken straight to the verification form.
+
+NOTE: If you select a paid resource or add-on, you'll skip verification and go straight to confirming your billing information.
+
+## Confirming Billing
+
+When selecting any paid feature, Heroku will always ask you to explicitly confirm your billing details and your agreement to be charged on a monthly basis for the selected plan. Here's what the confirmation dialog looks like on the Resources page:
+
+[screen shot of confirmation dialog on resources page]
+
+After clicking "Save & Apply" you'll be taken to the billing details form. If you've previously verified, the form will be pre-filled with your billing information, and you can change or confirm it as you like. If you haven't yet verified, filling out the form and submitting it will also verify your account. Just like verification, you only need to confirm your billing details once per account.
 
 
-NOTE: If you select a paid resource or add-on, you'll skip verification and go straight to confirming your billing information. 
+ 
 	
 
 	
