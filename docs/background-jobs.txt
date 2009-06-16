@@ -164,8 +164,16 @@ the box by enabling the DJ addon.
     Adding dj to widgets...done.
 
 Once the addon is installed, Heroku will start and manage a single DJ worker
-process for this app.  You can shut down the worker process by removing the
-addon:
+process for this app. You can verify that the DJ process started without
+error by inspecting the logs:
+
+    $ heroku logs
+    ==> log/Dj-6.log <==
+    (in /disk1/home/slugs/10818_59891ee_3440/mnt)
+    *** Starting job worker host:railgun64.5985 pid:2476
+
+
+To shut down the worker process, remove the addon:
 
     $ heroku addons:remove dj
     Removing dj from widgets...done.
