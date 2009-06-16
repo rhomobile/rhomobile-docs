@@ -28,6 +28,11 @@
 	<% end %>
 	</ul>
 
+	<form id="search" action="/search" method="GET">
+		<input type="text" size="15" name="q">
+		<input type="submit" value="search">
+	</form>
+
 	<div id="content">
 		<div class="topic_content">
 			<%= yield %>

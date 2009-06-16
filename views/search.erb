@@ -1,0 +1,13 @@
+<h1><%= @title %></h1>
+<h3>sorted by relevence</h3>
+
+<% if @results.empty? %>
+	No topics found match search
+<% else %>
+	<ul id="search-results">
+		<% @results.each do |result| %>
+			<% section = result["heroku.docs.page.name"] %>
+			<li><a href="/<%= slugify(section) %>"><%= section %></a></li>
+		<% end %>
+	</ul>
+<% end %>

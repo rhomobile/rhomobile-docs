@@ -1,7 +1,12 @@
+$:.unshift *Dir["vendor/*/lib"]
+
 require 'rubygems'
 require 'sinatra'
 require 'rdiscount'
 require 'vendor/heroku_header'
+
+require 'cloudquery'
+require 'search'
 
 set :app_file, __FILE__
 
@@ -20,6 +25,17 @@ end
 get '/' do
 	cache_long
 	render_topic 'index'
+end
+
+get '/search' do
+	@title = "Search results for #{params[:q]}"
+	@results = SEARCH.get_documents(
+		"heroku.docs",
+		"content:#{params[:q]}",
+		{:fields => "name", :sort => "^"},
+		"heroku.docs.page"
+	)["result"]
+	erb :search
 end
 
 get '/:topic' do
