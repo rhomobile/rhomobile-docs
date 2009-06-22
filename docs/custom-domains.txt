@@ -8,18 +8,18 @@ Registrar setup
 
 Set up your domain with your registrar, then select the subdomain that you wish to point at your Heroku app.  This could be something like myapp.mycompany.com, or the standard www.mydomain.com, or it could be the root-level domain, mydomain.com, though this last one has some caveats described below.
 
-Configure your DNS provider to make your chosen custom domain name be an alias which points to heroku.com.  In DNS terms this is known as a CNAME.
+Configure your DNS provider to make your chosen custom domain name be an alias which points to proxy.heroku.com.  In DNS terms this is known as a CNAME.
 
-NOTE: Why can't you use an A record, which is a hard-coded IP address?  Heroku is a cloud computing provider, and our front-end load balancers will change IPs from time to time.  When they do, any apps hard-coded to point at a specific IP, instead than heroku.com, will stop working.  So we strongly discourage you from using A records.
+NOTE: Why can't you use an A record, which is a hard-coded IP address?  Heroku is a cloud computing provider, and our front-end load balancers will change IPs from time to time.  When they do, any apps hard-coded to point at a specific IP, instead than proxy.heroku.com, will stop working.  So we strongly discourage you from using A records.
 
 Check that your DNS is configured correctly with the "host" command:
 
     $ host www.example.com
-    www.example.com is an alias for heroku.com.
-    heroku.com has address 75.101.142.103
-    heroku.com has address 75.101.141.116
+    www.example.com is an alias for proxy.heroku.com.
+    proxy.heroku.com has address 75.101.142.103
+    proxy.heroku.com has address 75.101.141.116
 
-Output of the host command varies by Unix flavor, but it should indicate that your domain name is either an alias of heroku.com, or a CNAME of heroku.com (these both mean the same thing).
+Output of the host command varies by Unix flavor, but it should indicate that your domain name is either an alias of proxy.heroku.com, or a CNAME of proxy.heroku.com (these both mean the same thing).
 
 Heroku setup
 ------------
