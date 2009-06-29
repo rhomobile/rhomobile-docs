@@ -21,6 +21,8 @@ Check that your DNS is configured correctly with the "host" command:
 
 Output of the host command varies by Unix flavor, but it should indicate that your domain name is either an alias of proxy.heroku.com, or a CNAME of proxy.heroku.com (these both mean the same thing).
 
+* [Screencast tutorial of setting up DNS on GoDaddy](http://onticoren.com/2009/06/29/go-daddy-dns-heroku/) by Oren Teich
+
 Heroku setup
 ------------
 
