@@ -123,7 +123,7 @@ Camping
 `config.ru`:
 
     require 'hello'
-    run Rack::Adapters::Camping.new(Hello)
+    run Rack::Adapter::Camping.new(Hello)
 
 NOTE: Camping 2.0 does not require the Rack adapter; use `run Hello` instead.
 
