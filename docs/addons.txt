@@ -107,3 +107,10 @@ You can also add wildcards to your custom domains if you have the custom domains
 
 Full documentation: [Wildcard domains](/custom-domains#wildcard-domains)
 
+Background Jobs with Delayed::Job
+---------------------------------
+
+Long-running tasks such as sending email, posting to a remote API, or rendering a PDF should be offloaded to a background worker which can handle the work asynchronously.  Heorku supports Delayed::Job (DJ) as a queueing system for managing your background jobs.
+
+Instructions for installing the DJ plugin and scheduling jobs can be found in the full documentation: [Background Jobs](/background-jobs)
+
