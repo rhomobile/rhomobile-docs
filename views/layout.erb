@@ -12,14 +12,21 @@
 	<%= HerokuHeader.show %>
 
 	<ul id="docsnav">
-		<li class="title"><a href="/">Heroku Docs</a></li>
-		<% sections.each do |slug, title| %>
-			<% if params[:topic] == slug %>
-				<li class="current"><a><%= title %></a></li>
-			<% else %>
-				<li><a href="/<%= slug %>"><%= title %></a></li>
+		<li><h3>Getting Started</h3></li>
+		<li><h3>App Lifecycle</h3></li>
+		<li>
+			<h3>Features</h3>
+			<ul>
+			<% sections.each do |slug, title| %>
+				<% if params[:topic] == slug %>
+					<li class="current"><a><%= title %></a></li>
+				<% else %>
+					<li><a href="/<%= slug %>"><%= title %></a></li>
+				<% end %>
 			<% end %>
-		<% end %>
+			</ul>
+		</li>
+		<li><h3>How-To's</h3></li>
 	</ul>
 
 	<div id="content">
