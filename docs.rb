@@ -88,40 +88,43 @@ helpers do
 	end
 
 	def sections
-		[
-			[ 'quickstart', 'Quickstart' ],
-			[ 'heroku-command', 'Heroku command-line tool' ],
-			[ 'git', 'Using Git' ],
-			[ 'sharing', 'Sharing' ],
-			[ 'console-rake', 'Console and rake' ],
-			[ 'rack', 'Deploying Rack-based apps' ],
-			[ 'logs-exceptions', 'Logs and exceptions' ],
-			[ 'errors', 'Errors' ],
-			[ 'addons', 'Add-ons' ],
-			[ 'custom-domains', 'Custom domain names' ],
-			[ 'gems', 'Installing gems' ],
-			[ 'taps', 'Database import/export' ],
-			[ 'renaming-apps', 'Renaming apps' ],
-			[ 'cron', 'Cron jobs' ],
-			[ 'background-jobs', 'Background jobs' ],
-			[ 'config-vars', 'Config vars' ],
-			[ 'http-caching', 'HTTP caching' ],
-			[ 'full-text-indexing', 'Full text indexing' ],
-			[ 'constraints', 'Constraints' ],
-			[ 'technologies', 'Technologies' ],
-		]
+		TOC.sections
 	end
 
-	def next_section(current_slug)
+	def next_section(current_slug, root=sections)
 		return sections.first if current_slug.nil?
-
-		sections.each_with_index do |(slug, title), i|
-			if current_slug == slug and i < sections.length-1
-				return sections[i+1]
+		root.each_with_index do |(slug, title, topics), i|
+			if current_slug == slug and i < root.length-1
+				return root[i+1]
+			elsif topics.any?
+				res = next_section(current_slug, topics)
+				return res if res
 			end
 		end
 		nil
 	end
 
 	alias_method :h, :escape_html
+end
+
+module TOC
+	extend self
+
+	def sections
+		@sections ||= []
+	end
+
+	# define a section
+	def section(name, title)
+		sections << [name, title, []]
+		yield if block_given?
+	end
+
+	# define a topic
+	def topic(name, title)
+		sections.last.last << [name, title, []]
+	end
+
+	file = File.dirname(__FILE__) + '/toc.rb'
+	eval File.read(file), binding, file
 end
