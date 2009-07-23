@@ -1,5 +1,5 @@
 section 'getting-started', "Getting Started" do
-
+  topic 'quickstart',      'Quickstart'
 end
 
 section 'lifecycle', "App Lifecycle" do
@@ -7,15 +7,13 @@ section 'lifecycle', "App Lifecycle" do
 end
 
 section 'features', "Features" do
-	topic 'quickstart',      'Quickstart'
+	topic 'addons',          'Add-ons'
 	topic 'heroku-command',  'Heroku command-line tool'
 	topic 'git',             'Using Git'
 	topic 'sharing',         'Sharing'
 	topic 'console-rake',    'Console and rake'
-	topic 'rack',            'Deploying Rack-based apps'
 	topic 'logs-exceptions', 'Logs and exceptions'
 	topic 'errors',          'Errors'
-	topic 'addons',          'Add-ons'
 	topic 'custom-domains',  'Custom domain names'
 	topic 'gems',            'Installing gems'
 	topic 'taps',            'Database import/export'
@@ -30,5 +28,5 @@ section 'features', "Features" do
 end
 
 section 'howto', "How-To's" do
-
+  topic 'rack',            'Deploying Rack-based apps'
 end
