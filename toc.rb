@@ -4,8 +4,6 @@ section 'getting-started', "Getting Started" do
  topic 'quickstart',      'Advanced user quickstart'
  topic 'z', "What is a dyno? XX" 
  topic 'technologies',    'Installed software'
-
-
 end
 
 section 'lifecycle', "App Lifecycle" do
@@ -43,7 +41,6 @@ section 'howto', "How do I:" do
   topic 'taps', 'import/export data'
   topic 'renaming-apps',   'rename my application'	
 	topic 'sharing',         'collaborate with another developer'
-
 end
 
 section 'errors', 'Error Debugging' do
