@@ -10,6 +10,8 @@ A good rule of thumb is to avoid web requests which run longer than 500ms.
 If you find that your app has requests which are take one, two, or more
 seconds to complete, then you should consider using background jobs instead.
 
+* You can find another great tutorial at [The Rails Way Blog](http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job)
+
 Introduction to job queues
 --------------------------
 
