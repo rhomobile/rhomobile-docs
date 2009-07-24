@@ -33,8 +33,6 @@ To setup your domain using A records, you will setup two records for the domain,
 	75.101.142.103
 	75.101.141.116
 		
-NOTE: You must have both records in your DNS.
-
 Check that your DNS is configured correctly with the "host" command:
 	
 	$ host example.com
