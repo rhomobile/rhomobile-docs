@@ -3,14 +3,12 @@ Custom domain names
 
 All Heroku apps will always be accessible by their Heroku subdomain: appname.heroku.com.  You can also assign one or more custom domain names if you enable the custom domains [add-on](/addons).
 
-Registrar setup
+CNAME setup
 ---------------
 
-Set up your domain with your registrar, then select the subdomain that you wish to point at your Heroku app.  This could be something like myapp.mycompany.com, or the standard www.mydomain.com, or it could be the root-level domain, mydomain.com, though this last one has some caveats described below.
+Set up your domain with your registrar, then select the subdomain that you wish to point at your Heroku app.  This could be something like myapp.mycompany.com, or the standard www.mydomain.com, or it could be the root-level domain, mydomain.com.
 
 Configure your DNS provider to make your chosen custom domain name be an alias which points to proxy.heroku.com.  In DNS terms this is known as a CNAME.
-
-NOTE: Why can't you use an A record, which is a hard-coded IP address?  Heroku is a cloud computing provider, and our front-end load balancers will change IPs from time to time.  When they do, any apps hard-coded to point at a specific IP, instead than proxy.heroku.com, will stop working.  So we strongly discourage you from using A records.
 
 Check that your DNS is configured correctly with the "host" command:
 
@@ -22,6 +20,27 @@ Check that your DNS is configured correctly with the "host" command:
 Output of the host command varies by Unix flavor, but it should indicate that your domain name is either an alias of proxy.heroku.com, or a CNAME of proxy.heroku.com (these both mean the same thing).
 
 * [Screencast tutorial of setting up DNS on GoDaddy](http://onticoren.com/2009/06/29/go-daddy-dns-heroku/) by Oren Teich
+
+Root domain & custom mail servers
+--------------
+
+NOTE: Due to Heroku's cloud architecture, from time to time we may need to change the public IP addresses.  By using the A record configuraiton, be aware that we may request that you change your settings at some point in the future.  We will provide advance notice, but if you do not update your addresses, your site may stop working.  For this reason, if you can use the CNAME option, we STRONGLY encourage you to do so.
+
+When configuring your root domain with custom mail servers (MX records), you must use A records instead of CNAME.  Only your root domain - mydomain.com - may use A records.  Any host or subdomain such as www.mydomain.com must use the above CNAME setup.
+
+To setup your domain using A records, you will setup two records for the domain, pointing to two different IP addresses:
+
+	75.101.142.103
+	75.101.141.116
+		
+NOTE: You must have both records in your DNS.
+
+Check that your DNS is configured correctly with the "host" command:
+	
+	$ host example.com
+	example.com has address 75.101.142.103
+	example.com has address 75.101.141.116
+
 
 Heroku setup
 ------------
