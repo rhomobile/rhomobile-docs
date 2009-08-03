@@ -1,19 +1,17 @@
 section 'getting-started', "Getting Started" do
- topic 'a', 'What is Heroku? XX'
- topic 'b', 'First application walkthrough XX'
- topic 'quickstart',      'Advanced user quickstart'
- topic 'z', "What is a dyno? XX" 
+ topic 'a', 'What is Heroku? XX - OREN'
+ topic 'quickstart',      'Advanced user quickstart - OREN'
+ topic 'z', "What is a dyno? XX - RYAN" 
  topic 'technologies',    'Installed software'
 end
 
-section 'lifecycle', "App Lifecycle" do
-  topic 'd', 'Initial deployment XX'
-  topic 'g', 'Migrating your application XX'
-  topic 'e', 'Staging & Production XX'
-  topic 'f', 'Scaling for success XX'
-  topic 'h', 'Keeping everything running smoothly XX'
-
-end
+# section 'lifecycle', "App Lifecycle" do
+#   topic 'd', 'Initial deployment XX'
+#   topic 'g', 'Migrating your application XX'
+#   topic 'e', 'Staging & Production XX'
+#   topic 'f', 'Scaling for success XX'
+#   topic 'h', 'Keeping everything running smoothly XX'
+# end
 
 section 'features', "Features" do
 	topic 'addons',          'Add-ons'
@@ -23,8 +21,7 @@ section 'features', "Features" do
 	topic 'constraints',     'Constraints'
 	topic 'custom-domains',  'Custom domain names'
 	topic 'cron',            'Cron jobs'
-  topic '',                'Database XX'
-	topic 'errors',          'Errors'
+  topic 'database',        'Database XX - Pedro'
 	topic 'full-text-indexing', 'Full text indexing'
 	topic 'logs-exceptions', 'Logs and exceptions'
 	topic 'heroku-command',  'Heroku command-line tool'
@@ -33,18 +30,18 @@ section 'features', "Features" do
 end
 
 section 'howto', "How do I:" do
-  topic '', 'send emails XX'
+  topic '', 'send emails XX - RYAN'
   topic 'git',             'use Git'
   topic 'rack',            'deploy Rack-based apps'	
-  topic '', 'use S3 for file uploads XX'
-  topic '', 'backup my app XX'
+  topic '', 'use S3 for file uploads XX - PEDRO'
+  topic '', 'backup my app XX - ADAM'
   topic 'taps', 'import/export data'
   topic 'renaming-apps',   'rename my application'	
+  topic 'performance',     'maximize application performance'
 	topic 'sharing',         'collaborate with another developer'
 end
 
-section 'errors', 'Error Debugging' do
-  topic 'backlog-too-deep', "\"Backlog too deep\""
-  topic '', "Heroku Fail whale"
-  topic '', "General 500"
+section 'troubleshooting', 'Troubleshooting' do
+	topic 'errors',          'Error Pages - RYAN'
+  topic 'performance', "Performance XX - ADAM"
 end

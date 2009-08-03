@@ -1,0 +1,25 @@
+Performance on Heroku
+=====================
+
+Many factors make up performance in a web application.  
+
+How to monitor application performance
+--------------------------------------
+
+[New relic](http://newrelic.com)
+[Fiveruns](http://fiveruns.com)
+
+Design Patterns to make a performant application
+------------------------------------------------
+
+[Delayed Job]
+[Memcached]
+[http-caching]
+
+
+Common Error Messages
+---------------------
+
+[Backlog too deep]
+
+Timeout 30 seconds
