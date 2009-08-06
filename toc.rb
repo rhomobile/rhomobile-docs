@@ -1,6 +1,6 @@
 section 'getting-started', "Getting Started" do
- topic 'a', 'What is Heroku? XX - OREN'
- topic 'quickstart',      'Advanced user quickstart - OREN'
+ topic 'heroku', 'What is Heroku?'
+ topic 'quickstart',      'Quickstart'
  topic 'z', "What is a dyno? XX - RYAN" 
  topic 'technologies',    'Installed software'
 end

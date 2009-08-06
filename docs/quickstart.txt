@@ -1,76 +1,98 @@
 Heroku Quickstart Guide
 =======================
 
-Install the Heroku gem:
+Heroku is a completely novel approach to deploying web applications. Forget about servers; the fundamental unit is the app. Develop your application locally on your machine just like you always do.  When you're ready to deploy, simply use the Heroku client gem to create your application in our cloud, then deploy with a single Git command.  Git allows you to have multiple source repositories all at the same time.  By making Heroku just another source repository, you can push your code and deploy your application in one easy step.
 
-    $ sudo gem install heroku
-    Successfully installed heroku-0.6
-    1 gem installed
+Prerequisites
+-------------
 
-Start with an existing Rails app, or create a fresh app on your local system via
-the "rails" command.  Then cd into the app's checkout dir.
 
-If you aren't already using Git to track the app's revisions, run these
-commands:
+Before using Heroku there are three simple requirements:
 
-    $ git init
-    Initialized empty Git repository in .git/
-    $ git add .
-    $ git commit -m "new app"
-    Created initial commit 5df2d09: new app
-     44 files changed, 8393 insertions(+), 0 deletions(-)
+1. Run your Ruby application locally first
+	* [Rails Getting Started](http://guides.rubyonrails.org/getting_started.htm)
+	* [Developing Rails apps on Mac OS X](http://developer.apple.com/Tools/developonrailsleopard.html)
+2. Install Git
+	* [Get Git on a Mac](http://github.com/guides/get-git-on-mac)
+	* [Install Git on Windows](http://github.com/guides/using-git-and-github-for-the-windows-for-newbies)
+	* [An illustrated guide to Git on Windows](http://nathanj.github.com/gitguide/)
+3. [Create an account on Heroku](http://heroku.com/signup)
+4. [Install the Heroku gem](HerokuGem)
 
-Now you're ready to create a new app on Heroku:
+Getting your app on Heroku
+--------------------------
+Now that you have your application running locally, let's deploy it to Heroku in 3 steps:
 
-    $ heroku create
-    Enter your Heroku credentials.
-    Email: joe@example.com
-    Password: 
-    Uploading ssh public key /Users/joe/.ssh/id_rsa.pub
+### 1. Track your application with Git ###
 
-You'll be prompted for your username and password the first time you run a
-heroku command; they'll be saved on `~/.heroku/credentials` so that you aren't
-prompted on future runs.  It will also upload your public key to allow you to
-push and pull code.
+If you're already using Git with your application, skip to the next step.
+If you're not yet using Git to track your application, run this:
 
-The final line of output from the create command will be something like this:
+	$ git init
+	Initialized empty Git repository in .git/
+	$ git add .
+	$ git commit -m "new app"
+	Created initial commit 5df2d09: new app
+ 	44 files changed, 8393 insertions(+), 0 deletions(-)
 
-    Created http://vivid-mountain-91.heroku.com/ | git@heroku.com:vivid-mountain-91.git
-    Git remote heroku added
+### 2. Create your application on Heroku ###
 
-The app has been created and two URLs are provided: one for the web face of your new app, and one for the Git repository that you will push your code to.  A Git remote named heroku is added for you automatically, so all that remains is to push up your code to Heroku:
+At the command line, run "heroku create".  When prompted for credentials, use the username and password from when you signed up; they’ll be saved on ~/.heroku/credentials so that you aren’t prompted on future runs. It will also upload your public key to allow you to push and pull code.
 
-    $ git push heroku master
-    Counting objects: 65, done.
-    Compressing objects: 100% (58/58), done.
-    Writing objects: 100% (65/65), 80.54 KiB, done.
-    Total 65 (delta 14), reused 0 (delta 0)
+	$ heroku create
+	Enter your Heroku credentials.
+	Email: joe@example.com
+	Password: 
+	Uploading ssh public key /Users/joe/.ssh/id_rsa.pub
+	Created http://high-sunrise-58.heroku.com/ | git@heroku.com:high-sunrise-58.git
+	Git remote heroku added
 
-    -----> Heroku receiving push
-    -----> Rails app detected
-           Compiled slug size is 0.1MB
-    -----> Launching....... done
-           App deployed to Heroku
+Looking at the second to last line, you can see your app is called "high-sunrise-58", and is available at http://high-sunrise-58.heroku.com.  If you visit that URL now, you'll see a standard welcome page, until you push your application up.  The second URL - git@heroku.com:high-sunrise-58.git - is for the Git repository.  Normally you would need to add this as a git remote; the "heroku create" command has done this for you automatically.
 
-    To git@heroku.com:vivid-mountain-91.git
-     * [new branch]      master -> master
+### 3. Push your application to Heroku ###
 
-Your app is now deployed to Heroku.
+	$ git push heroku master
+	Counting objects: 65, done.
+	Compressing objects: 100% (58/58), done.
+	Writing objects: 100% (65/65), 80.54 KiB, done.
+	Total 65 (delta 14), reused 0 (delta 0)
+	
+	-----> Heroku receiving push
+	-----> Rails app detected
+       	 Compiled slug size is 0.1MB
+	-----> Launching....... done
+         App deployed to Heroku
 
-At this point you may need to run migrations (db:migrate), load the schema.rb (db:schema:load), or whatever other method your app uses to bootstrap its database.  For example:
+	To git@heroku.com:vivid-mountain-91.git
+ 	* [new branch]      master -> master
 
-    $ heroku rake db:migrate
-    (in /mnt/home/slugs/41913_b81cc1e5813c58c443e4120aff984d006f36ef20/mnt)
-    == 20081118092504 CreateWidgets: migrating ====================================
-    -- create_table(:widgets)
-       -> 0.0519s
-    == 20081118092504 CreateWidgets: migrated (0.0520s) ===========================
+### 4. Bootstrap your database ###
 
-Finally, run this command to open the app in your browser:
+Your app is now running on Heroku with an empty database.  Depending on your framework, run the appropriate command to setup your DB.  For Ruby on Rails, run:
 
-    $ heroku open
 
-From here forward you can continue to develop your app locally.  When you have changes to deploy, make sure everything is committed, and then use a push to deploy the updates:
+	$ heroku rake db:migrate
+	(in /mnt/home/slugs/41913_b81cc1e5813c58c443e4120aff984d006f36ef20/mnt)
+	== 20081118092504 CreateWidgets: migrating ====================================
+	-- create_table(:widgets)
+   	-> 0.0519s
+	== 20081118092504 CreateWidgets: migrated (0.0520s) ===========================
 
-    $ git push heroku
+That's it, your app is now running on Heroku!
 
+Run "heroku open" to open your site in your default web browser.
+
+Next steps
+----------
+
+Now that your application is running you can push updates anytime with three easy steps:
+
+1. Develop & test changes locally.  
+2. Commit code to git
+3. Push your changes up to Heroku with @git push heroku@
+
+Additional Resources
+--------------------
+
+* [Renaming your application](renaming-apps)
+* [More about Git](git)
