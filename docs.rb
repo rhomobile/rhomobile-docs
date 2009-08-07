@@ -18,10 +18,6 @@ not_found do
 	erb :not_found
 end
 
-get '/README' do
-	render_topic './README'
-end
-
 get '/' do
 	cache_long
 	render_topic 'index'
