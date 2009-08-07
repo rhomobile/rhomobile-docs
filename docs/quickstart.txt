@@ -1,27 +1,36 @@
 Heroku Quickstart Guide
 =======================
 
-Heroku is a completely novel approach to deploying web applications. Forget about servers; the fundamental unit is the app. Develop your application locally on your machine just like you always do.  When you're ready to deploy, simply use the Heroku client gem to create your application in our cloud, then deploy with a single Git command.  Git allows you to have multiple source repositories all at the same time.  By making Heroku just another source repository, you can push your code and deploy your application in one easy step.
+Heroku is a completely novel approach to deploying web applications. Forget
+about servers; the fundamental unit is the app. Develop your application
+locally on your machine just like you always do.  When you're ready to
+deploy, use the Heroku client gem to create your application in our
+cloud, then deploy with a single Git command.  Git allows you to have
+multiple source repositories all at the same time.  By making Heroku just
+another source repository, you can push your code and deploy your
+application in one easy step.
 
 Prerequisites
 -------------
 
-
 Before using Heroku there are three simple requirements:
 
-1. Run your Ruby application locally first
-	* [Rails Getting Started](http://guides.rubyonrails.org/getting_started.htm)
-	* [Developing Rails apps on Mac OS X](http://developer.apple.com/Tools/developonrailsleopard.html)
-2. Install Git
-	* [Get Git on a Mac](http://github.com/guides/get-git-on-mac)
-	* [Install Git on Windows](http://github.com/guides/using-git-and-github-for-the-windows-for-newbies)
-	* [An illustrated guide to Git on Windows](http://nathanj.github.com/gitguide/)
-3. [Create an account on Heroku](http://heroku.com/signup)
-4. [Install the Heroku gem](HerokuGem)
+  1. **Run your Ruby application locally:**
+     [Getting Started with Rails](http://guides.rubyonrails.org/getting_started.html),
+     [Developing Rails apps on Mac OS X](http://developer.apple.com/Tools/developonrailsleopard.html)
+
+  2. **Install Git:** [On a Mac](http://github.com/guides/get-git-on-mac),
+     [Windows](http://nathanj.github.com/gitguide/installing.html), or
+     [UNIX/Linux](http://book.git-scm.com/2_installing_git.html)
+
+  3. [Create a Heroku account](http://heroku.com/signup) and
+     [Install the Heroku gem](heroku-command)
 
 Getting your app on Heroku
 --------------------------
-Now that you have your application running locally, let's deploy it to Heroku in 3 steps:
+
+Now that you have your application running locally, let's deploy it to
+Heroku:
 
 ### 1. Track your application with Git ###
 
@@ -85,14 +94,15 @@ Run "heroku open" to open your site in your default web browser.
 Next steps
 ----------
 
-Now that your application is running you can push updates anytime with three easy steps:
+Now that your application is running you can push updates anytime with three
+easy steps:
 
-1. Develop & test changes locally.  
-2. Commit code to git
-3. Push your changes up to Heroku with @git push heroku@
+  1. Develop and test changes locally.
+  2. Commit code to git
+  3. Push your changes to Heroku with `git push heroku`.
 
 Additional Resources
 --------------------
 
-* [Renaming your application](renaming-apps)
-* [More about Git](git)
+  * [Renaming your application](renaming-apps)
+  * [More about Git](git)
