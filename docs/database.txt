@@ -17,12 +17,10 @@ Besides `config/database.yml`, Heroku also provides your database credentials in
 
 In this case you just need to provide that ENV var to the framework, making sure to fallback to your local database of choice. This is how you can do it with DataMapper:
 
-    require 'rubygems'
     DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
 And for Sequel:
 
-    require 'sequel'
     Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
 
 FAQ
@@ -81,7 +79,9 @@ You can see what tables you have running the following command on `heroku consol
 
 Example: _PGError: ERROR: column "verified_at" cannot be cast to type "date"_
 
-Cause: It means Postgres doesn't know how to cast all the rows in that table to the specified type. Most likely it means you have an integer or a string in that column. Inspect your records and make sure they can be converted to the new type.
+Cause: Postgres doesn't know how to cast all the rows in that table to the specified type. Most likely it means you have an integer or a string in that column.
+
+Solution: Inspect your records and make sure they can be converted to the new type. Sometimes it's easier to just avoid using `change_column`, renaming/creating a new column instead.
 
 ### Testing the Database ###
 
