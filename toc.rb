@@ -21,7 +21,7 @@ section 'features', "Features" do
 	topic 'constraints',     'Constraints'
 	topic 'custom-domains',  'Custom domain names'
 	topic 'cron',            'Cron jobs'
-  topic 'database',        'Database XX - Pedro'
+  topic 'database',        'Database'
 	topic 'full-text-indexing', 'Full text indexing'
 	topic 'logs-exceptions', 'Logs and exceptions'
 	topic 'heroku-command',  'Heroku command-line tool'

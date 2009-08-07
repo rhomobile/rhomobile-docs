@@ -1,0 +1,97 @@
+Database
+========
+
+All Heroku apps get one exclusive database running on Postgres.
+
+Setup: Rails and Merb
+------------------
+
+There is no DB setup for Rails or Merb apps on Heroku: just deploy and it will be using the correct database credentials, which is written to `config/database.yml` at compile time.
+
+There's no need to change or remove this file from your Git repo.
+
+Setup: Other Frameworks
+-----------------------
+
+Besides `config/database.yml`, Heroku also provides your database credentials in the ENV var `DATABASE_URL`. This is perfect for ORMs using database URLs instead of config hashes, like DataMapper or Sequel.
+
+In this case you just need to provide that ENV var to the framework, making sure to fallback to your local database of choice. This is how you can do it with DataMapper:
+
+    require 'rubygems'
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
+
+And for Sequel:
+
+    require 'sequel'
+    Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
+
+FAQ
+---
+
+*   _Does Heroku support MySQL?_
+
+    Not at this moment.
+
+*   _Is my MySQL app going to work with Heroku?_
+
+    Yes, as long as you're not running database-specific queries. For most of our users it just works, and in a few cases a quick code fix is all that you need (see Common Database Errors below).
+
+*    _Can I access my database from another App/Host?_
+
+     No, this is not supported by Heroku. We recommend that you encapsulate your data offering an API to manipulate it.
+
+Common Issues Migrating to Postgres
+-----------------------------------
+
+Below are a list of common mistakes that might result in problems when migrating your Rails app from SQLite or MySQL to Postgres:
+
+### Invalid operator ###
+
+Example: __PGError: ERROR:  operator does not exist: character varying = integer_
+
+Cause: Postgres is more observant of data types than MySQL or SQlite. Borrowing a concept from programming languages, we could say that Postgres is a strong typed database system, in the sense that it will check and throw errors when the operator is applied to wrong data types. For instance, you can't compare strings with integers without casting first.
+
+Solution: Make sure the operator is adequate for the data types. Normally ActiveRecord will help you out if you write SQL conditions using the array form:
+
+    :conditions => ['column1 = ? AND column2 = ?', value1, value2]
+
+or hash:
+
+    :conditions => { :column1 => value1, :column2 => value2 }
+
+### Limit on binary fieds ###
+
+Cause: Postgres doesn't limit binary fields. Any migrations adding a `:binary` field with the `:limit` option will raise a syntax error.
+
+Solution: Omit the `:limit` for binary fields if possible -- or test the DB before running it (see Testing the Database below).
+
+### Table doesn't exists ###
+
+Example: _PGError: ERROR: relation "documents" does not exist_
+
+Cause: This is the standard message displayed by Postgres when a table doesn't exists. That means your query is referencing a table that is not on the database.
+
+Solution: Make sure your migrations ran normally, and that you're referencing a table that exists.
+
+You can see what tables you have running the following command on `heroku console`:
+
+    >> ActiveRecord::Base.connection.tablesActiveRecord::Base.connection.tables
+
+### Cannot change column type ###
+
+Example: _PGError: ERROR: column "verified_at" cannot be cast to type "date"_
+
+Cause: It means Postgres doesn't know how to cast all the rows in that table to the specified type. Most likely it means you have an integer or a string in that column. Inspect your records and make sure they can be converted to the new type.
+
+### Testing the Database ###
+
+To fix database-specific queries where ActiveRecord won't help (for instance, foreign keys), the only solution is to test the database before running a migration or query:
+
+    case ActiveRecord::Base.connection.adapter_name
+        when 'SQLite'
+             execute 'sqlite specific query'
+        when 'PostgreSQL'
+             execute 'postgres specific query'
+        else
+             raise 'Migration not implemented for this DB adapter'
+    end
