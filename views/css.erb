@@ -8,8 +8,9 @@ html {
 
 body {
 	background: #fff url(<%= @asset_host %>/images/pages/background.gif) repeat-x top left;
-	font-family: Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
+    line-height:1.4286; /* 20px baseline */
 	color: #444258;
 	margin: 0;
 	padding: 0;
@@ -66,6 +67,7 @@ pre code {
 	white-space: pre;
 	display: block;
 	padding: 10px;
+	margin:15px 0;
 	//border-left: 4px solid #666;
 }
 
@@ -77,6 +79,11 @@ div#bodywrap {
 	width: inherit;
 	height: inherit;
 	margin: 0 auto 0 auto;
+}
+
+p, ul, blockquote, pre, table {
+	margin-top:15px;
+	margin-bottom:15px;
 }
 
 /* search
@@ -143,11 +150,10 @@ div#bodywrap {
 }
 #docsnav li {
 	list-style-type:none;
-	margin:0;
-	line-height:2;
+	margin:0 0 10px 0;
 }
 #docsnav ul li ul li {
-	padding-left: 1em;
+	padding-left: 1.5em;
 }
 #docsnav a {
 	font-size: 120%;
@@ -161,51 +167,49 @@ div#bodywrap {
 	color:#222;
 }
 #docsnav h3 {
-	margin:0;
-    color:#666;
+	color:#666;
+	margin:0 0 10px 0;
+	font-size:16px;
+	line-height:1.25;
 }
 
 /* content
 --------------------------------------------------*/
 
 div#content {
-	margin-left: 300px;
-	padding-top: .5em;
-	padding-left: 2em;
-	padding-right: 2em;
-	padding-bottom: 4em;
+	margin-left: 290px;
+	padding:10px 40px 80px 40px;
 }
 
-div#content hr, div#content hr.dark {
+div#content hr {
 	border: 0;
 	height: 3px;
 	background: #E1E1E5;
 	margin: 20px 0;
 }
 
-div#content hr.dark {
-	background: #C9C9CC;
-}
-
 h1 {
-	font-size: 250%;
+	font-size:32px;
+	line-height:1.25;  /* 40px baseline */
+	margin:15px 0 0 0;
 }
 h2 {
-	font-size: 180%;
-	padding-bottom: 0.1em;
-	border-bottom: 2px solid #bbb;
-	margin-top: 1em;
+	font-size:24px;
+	line-height:1.30;  /* 30px baseline */
+	padding-bottom:2px;
+	border-bottom:2px solid #bbb;
+	margin:20px 0 15px 0;
 }
-
-#content li {
-	list-style-type: disc;
-	color: #777;
+h3 {
+	font-size:18px;
+	line-height:1.111;
+	margin:25px 0 15px 0;
 }
 
 #next_section {
-	margin: 48px 0;
+	margin: 40px 0;
 	text-align: right;
-	font-size: 150%;
+	font-size: 20px;
 	color: #777;
 }
 
@@ -224,7 +228,10 @@ h2 {
 
 #toc li {
 	list-style-type: none;
+	margin-left:25px;
+	padding-left:0;
 }
 #toc {
-	padding-bottom: 1em;
+	margin-left:0px;
+	padding-left:0;
 }
