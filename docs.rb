@@ -10,7 +10,7 @@ require 'search'
 
 set :app_file, __FILE__
 
-configure do
+configure :production do
 	HerokuHeader.fetch_latest('docs')
 end
 
