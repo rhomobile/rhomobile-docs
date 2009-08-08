@@ -70,7 +70,9 @@ helpers do
 	end
 
 	def markdown(source)
-		RDiscount.new(notes(source), :smart).to_html
+		html = RDiscount.new(notes(source), :smart).to_html
+		# parse custom {lang} definitions to support syntax highlighting
+		html.gsub(/<pre><code>\{(\w+)\}/, '<pre><code class="brush: \1;">')
 	end
 
 	def topic_file(topic)
