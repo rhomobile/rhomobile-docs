@@ -65,6 +65,7 @@ You can also clear all the domains at once (often the easiest even if you only h
 
 NOTE: If you have multiple domains, or your app has users that access it via its Heroku subdomain but you later switched to your own custom domain, you will probably want to get all users onto the same domain with a redirect in a before filter.  Something like this will do the job:
 
+    {ruby}
     class ApplicationController
       before_filter :ensure_domain
 
@@ -75,6 +76,7 @@ NOTE: If you have multiple domains, or your app has users that access it via its
           redirect_to TheDomain
         end
       end
+    end
 
 Wildcard domains
 ----------------

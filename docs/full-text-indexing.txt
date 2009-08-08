@@ -8,6 +8,7 @@ Ferret
 
 Heroku has the Ferret and acts_as_ferret gems installed by default.  By default, acts_as_ferret stores its indexes in a location that is not writeable for Heroku apps, so you'll need to add this bit of configuration to your environment.rb:
 
+    {ruby}
     require 'acts_as_ferret'
     ActsAsFerret.index_dir = "#{RAILS_ROOT}/tmp/index"
 

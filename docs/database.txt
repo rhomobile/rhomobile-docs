@@ -17,10 +17,12 @@ Besides `config/database.yml`, Heroku also provides your database credentials in
 
 In this case you just need to provide that ENV var to the framework, making sure to fallback to your local database of choice. This is how you can do it with DataMapper:
 
+    {ruby}
     DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
 And for Sequel:
 
+    {ruby}
     Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
 
 FAQ

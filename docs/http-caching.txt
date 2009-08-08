@@ -19,6 +19,7 @@ You can cache dynamically generated output of your app in Varnish, which will re
 
 The simplest way to cache a page is to set a header on output which cues the cache that it is a public page that it can serve unmodified to everyone visiting that same URL, as well as how long it should keep it in the cache before requesting that the page be regenerated.  For example:
 
+    {ruby}
     class MyController < ApplicationController
       def index
         response.headers['Cache-Control'] = 'public, max-age=300'
