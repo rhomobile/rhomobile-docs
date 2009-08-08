@@ -33,7 +33,7 @@ section 'howto', "How do I:" do
   topic '', 'send emails XX - RYAN'
   topic 'git',             'use Git'
   topic 'rack',            'deploy Rack-based apps'	
-  topic '', 'use S3 for file uploads XX - PEDRO'
+  topic 's3', 'use S3 for file uploads'
   topic '', 'backup my app XX - ADAM'
   topic 'taps', 'import/export data'
   topic 'renaming-apps',   'rename my application'	
