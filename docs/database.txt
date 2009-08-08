@@ -32,7 +32,15 @@ FAQ
 
 *   _Is my MySQL app going to work with Heroku?_
 
-    Yes, as long as you're not running database-specific queries. For most of our users it just works, and in a few cases a quick code fix is all that you need (see Common Database Errors below).
+    Yes, as long as you're not running database-specific queries. For most of our users it just works, and in a few cases a quick code fix is all that you need (see [Common Issues](#common-issues-migrating-to-postgres) below).
+
+*    _How can import my existing data to Heroku?_
+
+     [See this tutorial](/taps#import-push-to-heroku).
+
+*    _Can I export my data out of Heroku?_
+
+     Certainly, you can export all your data out of Heroku anytime. [More on exporting data from Heroku](/taps#export-pull-from-heroku).
 
 *    _Can I access my database from another App/Host?_
 
