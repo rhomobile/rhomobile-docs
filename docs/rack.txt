@@ -1,4 +1,4 @@
-Deploying Rack-based apps
+Deploying Rack-based Apps
 =========================
 
 Heroku supports [Rack](http://rack.rubyforge.org/) and Rack-based web
@@ -6,13 +6,12 @@ frameworks like [Sinatra](http://www.sinatrarb.com/),
 [Merb](http://merbivore.com/), [Ramaze](http://ramaze.net/), and
 [Camping](http://camping.rubyforge.org/files/README.html).
 
-To run a Rack-based app, include a rackup file named `config.ru` in the root of
-the app's directory hierarchy.  The `config.ru` file convention created by
-Passenger has become common, so most existing Rack applications should work
-without additional changes.
+To run a Rack-based app, include a rackup file named `config.ru` in the app's
+root directory. The `config.ru` file convention has become common, so most
+existing Rack applications should not require changes to deploy to Heroku.
 
-Tutorial: creating and deploying a pure Rack app
-------------------------------------------------
+Creating and Deploying Pure Rack Apps
+-------------------------------------
 
 First, create a new directory and write a simple `config.ru` file:
 
@@ -30,7 +29,7 @@ Test it locally:
     Hello World!
     $ kill %1
 
-Deploy to Heroku in the usual way:
+Deploy to Heroku:
 
     $ git init
     $ git add .
@@ -38,14 +37,8 @@ Deploy to Heroku in the usual way:
     $ heroku create
     $ git push heroku master
 
-The app is now deployed to Heroku.  Test in your browser with the "heroku open"
-command.  You will see the "Hello, World!" text.
-
-Framework-specific rackup files
---------------------------------
-
-The following example `config.ru` files illustrate rackup usage with a
-variety of web frameworks.
+The app is now deployed to Heroku. Test by executing `heroku open` or by
+visiting your app's URL in your browser. You should see *Hello, World!*.
 
 Sinatra
 -------
@@ -137,7 +130,9 @@ NOTE: Camping 2.0 does not require the Rack adapter; use `run Hello` instead.
 Using ActiveRecord
 ------------------
 
-Rails or Merb will automatically read config/database.yml, which is written with the PostgreSQL config information at compile time.  For frameworks other than these two, put this code into your application to access the database with ActiveRecord:
+Rails or Merb will automatically read `config/database.yml`, which is written
+with the PostgreSQL config information at compile time.  For other frameworks,
+put this code into your application to access the database with ActiveRecord:
 
     {ruby}
     require 'activerecord'
@@ -145,12 +140,19 @@ Rails or Merb will automatically read config/database.yml, which is written with
     dbconfig = YAML.load(File.read('config/database.yml'))
     ActiveRecord::Base.establish_connection dbconfig['production']
 
-For local development, you should create a config/database.yml file in your code repo which contains a pointer to your local database.  A good technique here is to copy the config/database.yml from a blank Rails app, which uses the SQLite database db/development.sqlite3.
+For local development, you should create a `config/database.yml` file in your
+which contains a pointer to your local database.  A good technique is to
+copy `config/database.yml` from a blank Rails app, which uses the SQLite
+database `db/development.sqlite3`.
 
 Using DataMapper or Sequel
 --------------------------
 
-DataMapper and Sequel both use database URLs instead of config hashes.  You could read config/database.yml and construct the URL, but an easier way is to use the DATABASE_URL environment variable set by Heroku.  For DataMapper:
+DataMapper and Sequel both use database URLs instead of config hashes.  You
+could read `config/database.yml` and construct the URL, but an easier way is to
+use the `DATABASE_URL` environment variable set by Heroku.
+
+For DataMapper:
 
     {ruby}
     require 'rubygems'
@@ -162,7 +164,8 @@ For Sequel:
     require 'sequel'
     Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
 
-Both of these examples will default to using a SQLite database called my.db in the current directory when not on Heroku.  You can also make use of the DATABASE_URL environment variable when running locally or on another host.  For example:
+This defaults to a SQLite database named `my.db` when no `DATABASE_URL` is set.
+You can also make use of the `DATABASE_URL` environment variable when running
+locally or on another host. For example:
 
     $ DATABASE_URL='mysql://user:pass@localhost/mydb' thin start --rackup config.ru
-
