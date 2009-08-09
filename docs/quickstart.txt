@@ -2,13 +2,12 @@ Heroku Quickstart Guide
 =======================
 
 Heroku is a completely novel approach to deploying web applications. Forget
-about servers; the fundamental unit is the app. Develop your application
-locally on your machine just like you always do.  When you're ready to
-deploy, use the Heroku client gem to create your application in our
-cloud, then deploy with a single Git command.  Git allows you to have
-multiple source repositories all at the same time.  By making Heroku just
-another source repository, you can push your code and deploy your
-application in one easy step.
+about servers; the fundamental unit is the app. Develop locally on your
+machine just like you always do. When you're ready to deploy, use the Heroku
+client gem to create your application in our cloud, then deploy with a
+single `git push`. Git allows you to have multiple source repositories all
+at the same time. By making Heroku just another source repository, you can
+push your code and deploy your application in one easy step.
 
 Prerequisites
 -------------

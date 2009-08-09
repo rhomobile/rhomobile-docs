@@ -1,7 +1,7 @@
 Introduction to Heroku
 ======================
 
-Heroku is the instant ruby platform. Deploy any ruby app instantly with nothing but Git. Take advantage of advanced features like [HTTP caching](http-caching), [memcached](memcached), [rack middleware](rack), and instant scaling built in to every app. Never think about hosting or servers again.
+Heroku is the instant ruby platform. Deploy any ruby app instantly with a simple and familiar `git push`. Take advantage of advanced features like [HTTP caching](http-caching), [memcached](memcached), [rack middleware](rack), and instant scaling built into every app. Never think about hosting or servers again.
 
 Multi-Tenant
 ------------

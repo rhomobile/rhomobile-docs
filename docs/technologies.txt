@@ -1,8 +1,8 @@
 System Infrastructure and Gems
 ==============================
 
-System Infrastructure
----------------------
+Platform Stack
+--------------
 
 The base Heroku platform stack is composed of widely deployed open source
 software:
