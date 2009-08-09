@@ -1,49 +1,70 @@
 Custom domain names
 ===================
 
-All Heroku apps will always be accessible by their Heroku subdomain: appname.heroku.com.  You can also assign one or more custom domain names if you enable the custom domains [add-on](/addons).
+All Heroku apps are accessible via their heroku.com subdomain:
+`appname.heroku.com`. Enabling the custom domains [add-on](/addons) allows you
+to assign additional custom and wildcard domain names. This document describes
+how to configure both CNAME and A (root-level domains only) records for custom
+domains.
+
+Please note that Heroku does not provide DNS services, you must have an existing
+DNS provider before continuing.
 
 CNAME setup
----------------
+-----------
 
-Set up your domain with your registrar, then select the subdomain that you wish to point at your Heroku app.  This could be something like myapp.mycompany.com, or the standard www.mydomain.com, or it could be the root-level domain, mydomain.com.
+Set up your domain with your registrar, then select the subdomain that you wish
+to point at your Heroku app. This could be something like `myapp.mycompany.com`,
+or the standard `www.mydomain.com`, or it could be the root-level domain,
+`mydomain.com`.
 
-Configure your DNS provider to make your chosen custom domain name be an alias which points to proxy.heroku.com.  In DNS terms this is known as a CNAME.
+Configure your DNS provider to make your chosen custom domain name be an alias
+which points to `proxy.heroku.com`. In DNS terms this is known as a CNAME.
 
-Check that your DNS is configured correctly with the "host" command:
+Check that your DNS is configured correctly with the `host` command:
 
     $ host www.example.com
     www.example.com is an alias for proxy.heroku.com.
-    proxy.heroku.com has address 75.101.142.103
-    proxy.heroku.com has address 75.101.141.116
+    proxy.heroku.com has address 75.101.163.44
+    proxy.heroku.com has address 75.101.145.87
 
-Output of the host command varies by Unix flavor, but it should indicate that your domain name is either an alias of proxy.heroku.com, or a CNAME of proxy.heroku.com (these both mean the same thing).
+Output of the host command varies by Unix flavor, but it should indicate that
+your domain name is either an alias or CNAME of `proxy.heroku.com`.
 
-* [Screencast tutorial of setting up DNS on GoDaddy](http://onticoren.com/2009/06/29/go-daddy-dns-heroku/) by Oren Teich
+See Oren Teich's [Setting up DNS screencast](http://onticoren.com/2009/06/29/go-daddy-dns-heroku/)
+for a walkthrough on GoDaddy.
 
-Root domain & custom mail servers
---------------
+Root domains and custom mail servers
+------------------------------------
 
-NOTE: Due to Heroku's cloud architecture, from time to time we may need to change the public IP addresses.  By using the A record configuraiton, be aware that we may request that you change your settings at some point in the future.  We will provide advance notice, but if you do not update your addresses, your site may stop working.  For this reason, if you can use the CNAME option, we STRONGLY encourage you to do so.
+NOTE: Due to Heroku's cloud architecture, the public IP addresses may need to be
+changed from time to time. When using the A record configuraiton, be aware that
+we may request that you change your settings at some point in the future.  We
+will provide advance notice, but if you do not update your addresses, your site
+may stop working.  For this reason, we **STRONGLY** encourage you to use the
+CNAME option when possible.
 
-When configuring your root domain with custom mail servers (MX records), you must use A records instead of CNAME.  Only your root domain - mydomain.com - may use A records.  Any host or subdomain such as www.mydomain.com must use the above CNAME setup.
+Root domains with custom mail servers (MX records) must use A instead of CNAME
+records. Only your root domain (`mydomain.com`) may use A records. Non root
+domains (`www.mydomain.com`) must use the CNAME setup described above.
 
-To setup your domain using A records, you will setup two records for the domain, pointing to two different IP addresses:
+To setup your root domain, add separate A records for each of the following
+addresses using your DNS management tool:
 
-	75.101.142.103
-	75.101.141.116
-		
+    75.101.163.44
+    75.101.145.87
+
 Check that your DNS is configured correctly with the "host" command:
-	
-	$ host example.com
-	example.com has address 75.101.142.103
-	example.com has address 75.101.141.116
+
+    $ host example.com
+    example.com has address 75.101.163.44
+    example.com has address 75.101.145.87
 
 
 Heroku setup
 ------------
 
-Once your DNS is pointing at your app, enable the custom domains [add-on](/addons) for the app:
+Once DNS is configured, enable the custom domains [add-on](/addons) for the app:
 
     $ heroku addons:add custom_domains
     Adding wildcard_domains to myapp...done.
@@ -53,17 +74,24 @@ Then inform Heroku of the domain you are using:
     $ heroku domains:add www.example.com
     Added www.example.com as a custom domain name to myapp.heroku.com
 
-You can add any number of domains to a single app by repeating the add command with different values.  Remove domains with:
+You can add any number of domains to a single app by repeating the add command
+with different values.
+
+Remove domains with:
 
     $ heroku domains:remove myapp.mydomain.com
     Removed www.example.com as a custom domain name to myapp.heroku.com
 
-You can also clear all the domains at once (often the easiest even if you only have one domain):
+You can also clear all the domains at once (often the easiest even if you only
+have one domain):
 
     $ heroku domains:clear
     Removed all domain names for myapp.heroku.com
 
-NOTE: If you have multiple domains, or your app has users that access it via its Heroku subdomain but you later switched to your own custom domain, you will probably want to get all users onto the same domain with a redirect in a before filter.  Something like this will do the job:
+NOTE: If you have multiple domains, or your app has users that access it via its
+Heroku subdomain but you later switched to your own custom domain, you will
+probably want to get all users onto the same domain with a redirect in a before
+filter.  Something like this will do the job:
 
     {ruby}
     class ApplicationController
@@ -81,22 +109,25 @@ NOTE: If you have multiple domains, or your app has users that access it via its
 Wildcard domains
 ----------------
 
-If you'd like your app to respond to any subdomain under your custom domain name (as in *.yourdomain.com), you’ll need to use the wildcard domains add-on. First, you'll need to select the add-on:
+If you'd like your app to respond to any subdomain under your custom domain name
+(as in `*.yourdomain.com`), you'll need to use the wildcard domains add-on.
+First, select the add-on:
 
     $ heroku addons:add wildcard_domains
     Adding wildcard_domains to myapp...done.
     $ curl http://arbitrary-subdomain.myapp.heroku.com/
     HTTP/1.1 200 OK
 
-To use with a custom domain, configure your registrar to point *.yourdomain.com at heroku.com.  If things are set up correctly you should be able to look up any arbitrary subdomain:
+To use with a custom domain, configure your registrar to point
+`*.yourdomain.com` at heroku.com.  If things are set up correctly you should be
+able to look up any arbitrary subdomain:
 
     $ host arbitrary-subdomain.yourdomain.com
     arbitrary-subdomain.yourdomain.com is an alias for heroku.com.
 
 Then add the wildcard domain on Heroku:
 
-    $ heroku domains:add *.youdomain.com
+    $ heroku domains:add *.yourdomain.com
     Added *.yourdomain.com as a custom domain name to myapp.heroku.com
     $ curl http://arbitrary-subdomain.yourdomain.com/
     HTTP/1.1 200 OK
-
