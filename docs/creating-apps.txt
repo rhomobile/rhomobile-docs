@@ -1,0 +1,24 @@
+Creating apps
+=============
+
+  * Each user has the ability to create multiple apps.
+  * The app is the fundamental unit of ... well, everything.
+  * Each app has its own PostgreSQL database, HTTP cache,
+    and some number of dyno backends.
+  * Apps are spread across Heroku's horizontally scaled *dyno grid*. You
+    can run anywhere between 1 and 24 dynos.
+
+[Installed the heroku command-line tool]
+
+To create a new app named "myapp":
+
+    $ heroku create myapp
+    Created http://myapp.heroku.com/ | git@heroku.com:myapp.git
+
+The name argument is optional. It's often easier to start with a default name
+and rename it later. Since Heroku app names are in a global namespace, you can
+expect that common names (like "blog" or "wiki") will already be taken.
+
+### Viewing application information
+
+    $ heroku info --app myapp

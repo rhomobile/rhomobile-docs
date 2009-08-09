@@ -1,43 +1,106 @@
-Heroku command-line tool
-==========================
+Installing the Heroku command-line tool
+=======================================
 
-The Heroku gem provides a command-line wrapper to the Heroku API.
+The `heroku` command-line tool is an interface to the Heroku Web API and
+includes support for things like creating/renaming apps, running rake commands,
+taking backups, and configuring add-ons. Most app management activities require
+the `heroku` command to be installed and configured alongside your local
+working environment.
 
-Running `heroku` without any arguments will show usage. Commands are divided
-into two types: general commands, and those that run against a specific app.
+[Sign-up for a Heroku account](http://heroku.com/signup) if you haven't already
+and then install the "heroku" gem. You will be asked to enter your Heroku
+credentials the first time you run a command. 
 
-General commands
-----------------
+    $ sudo gem install heroku
+
+It's general a good idea to add your public key immediately after installing the
+heroku gem so that you can use git to push or clone Heroku app repositories:
+
+    $ heroku keys:add
+    Enter your Heroku credentials.
+    Email: joe@example.com
+    Password: 
+    Uploading ssh public key /Users/joe/.ssh/id_rsa.pub
+
+### Usage
+
+Running `heroku help` displays a usage summary:
+
+    === General Commands
+
+     list                         # list your apps
+     create [<name>]              # create a new app
+
+     keys                         # show your user's public keys
+     keys:add [<path to keyfile>] # add a public key
+     keys:remove <keyname>        # remove a key by name (user@host)
+     keys:clear                   # remove all keys
+
+    === App Commands (execute inside a checkout directory, or use --app <appname>)
+
+     info                         # show app info, like web url and git repo
+     open                         # open the app in a web browser
+     rename <newname>             # rename the app
+
+     sharing:add <email>          # add a collaborator
+     sharing:remove <email>       # remove a collaborator
+     sharing:transfer <email>     # transfers the app ownership
+
+     domains:add <domain>         # add a custom domain name
+     domains:remove <domain>      # remove a custom domain name
+     domains:clear                # remove all custom domains
+
+     rake <command>               # remotely execute a rake command
+     console <command>            # remotely execute a single console command
+     console                      # start an interactive console to the remote app
+
+     restart                      # restart app servers
+     logs                         # fetch recent log output for debugging
+     logs:cron                    # fetch cron log output
+
+     config                       # display the app's config vars (environment)
+     config:add key=val [...]     # add one or more config vars
+     config:remove key [...]      # remove one or more config vars
+     config:clear                 # clear user-set vars and reset to default
+
+     db:pull [<database_url>]     # pull the app's database into a local database
+     db:push [<database_url>]     # push a local database into the app's remote database
+     db:reset                     # reset the database for the app
+
+     bundles                      # list bundles for the app
+     bundles:capture [<bundle>]   # capture a bundle of the app's code and data
+     bundles:download             # download most recent app bundle as a tarball
+     bundles:download <bundle>    # download the named bundle
+     bundles:animate <bundle>     # animate a bundle into a new app
+     bundles:destroy <bundle>     # destroy the named bundle
+
+     addons                       # list addons
+     addons:add name [...]        # install one or more addons
+     addons:remove name [...]     # uninstall one or more addons
+     addons:clear                 # uninstall all addons
+
+     destroy                      # destroy the app permanently
+
+The commands are divided into two types: general commands and app commands.
+
+### General Commands
 
 General commands operate on your Heroku account as a whole, and are not specific
-to a particular app.
-
-To get a list of apps you have created or are a collaborated on:
+to a particular app.  For instance, to get a list of apps you created or are a
+collaborator on:
 
     $ heroku list
-    myapp
-    anotherapp
-    thirdapp
+    fooapp
+    barapp
+    yetanotherapp
 
-To create a new app:
+### App Commands
 
-    $ heroku create myapp
-    Created http://myapp.heroku.com/ | git@heroku.com:myapp.git
-
-The name argument is optional.  It's often easier to start with a default name
-and rename it later.  Since Heroku app names are in a global namespace, you can
-expect that common names (like "blog" or "wiki") will already be taken.
-
-App commands
-------------
-
-App commands are typically executed inside a git clone checkout of the app.  The
-heroku command gleans the app name by looking in `.git/config` for your remote.
-So if you've added the remote as described in the Quickstart, or if you've
-cloned it from Heroku, you should `cd` into the checkout directory before
-running a command.
-
-So the info command needs no arguments inside the checkout:
+App commands are typically executed from within an app's local git working copy.
+The app name is automatically detected by scanning the git remotes for the
+current working copy, so you don't have to specify which app to operate on
+explicitly. For example, the `heroku info` command can be executed without any
+arguments inside the working copy:
 
     $ cd myapp
     $ heroku info
@@ -49,16 +112,10 @@ So the info command needs no arguments inside the checkout:
     Data size:      88k in 3 tables
     Collaborators:  you@example.com
 
-If you wish to run a command without a checkout of the app, any of the app
-commands can take the `--app` argument.
+If you have multiple heroku remotes or want to execute an app command outside of
+a local working copy, you can specify an explicit app name, domain, or git
+remote as follows:
 
     $ heroku info --app myapp
-
-You can also give the custom domain for the app:
-
     $ heroku info --app www.example.com
-
-If your app has multiple remotes (for example, "staging" and "production"), you can use the --remote argument with the name of the remote instead of the name of the app:
-
-    $ heroku rake db:migrate --remote staging
-
+    $ heroku info --remote staging

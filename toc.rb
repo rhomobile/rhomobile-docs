@@ -1,8 +1,44 @@
 section 'getting-started', "Getting Started" do
- topic 'heroku', 'What is Heroku?'
- topic 'quickstart',      'Quickstart'
- topic 'z', "What is a dyno? XX - RYAN" 
- topic 'technologies',    'Installed software'
+	topic 'heroku',          'What is Heroku?'
+	topic 'quickstart',      'Quickstart Guide'
+	topic 'dynos',           'What is a Dyno? (RYAN)'
+end
+
+section 'management', "Application Management" do
+	topic 'heroku-command',     'Installing the Heroku command-line tool'
+	topic 'creating-apps',      'Creating apps'
+	topic 'renaming-apps',      'Renaming apps'
+	topic 'git',                'Deploying with Git'
+	topic 'sharing',            'Collaborating with others'
+	topic 'gems',               'Managing Gems'
+	topic 'taps',               'Database import / export'
+	topic 'console',            'Using the console'
+	topic 'rake',               'Running rake tasks'
+	topic 'config-vars',        'Config vars'
+ 	topic 'bundles',            'Backups (ADAM)'
+	topic 'addons',             'Managing Addons'
+end
+
+section 'features', "Platform Features" do
+	topic 'technologies',       'System Infrastructure'
+	topic 'custom-domains',     'Custom domains'
+	topic 'ssl',                'SSL (RYAN)'
+	topic 'http-caching',       'HTTP cache'
+	topic 'rack',               'Rack apps'
+	topic 'cron',               'Cron'
+	topic 'background-jobs',    'Background jobs'
+	topic 'memcached',          'Memcached'
+	topic 'database',           'SQL database'
+	topic 's3',                 'Storing data in S3'
+	topic 'mail',               'Outbound email (RYAN)'
+	topic 'full-text-indexing', 'Full text indexing'
+end
+
+section 'troubleshooting',     'Troubleshooting' do
+	topic 'constraints',        'Application constraints'
+	topic 'logs-exceptions',    'Logs and exceptions'
+	topic 'errors',             'Error Pages'
+# 	topic 'performance',        'Performance XX - ADAM'
 end
 
 # section 'lifecycle', "App Lifecycle" do
@@ -12,36 +48,3 @@ end
 #   topic 'f', 'Scaling for success XX'
 #   topic 'h', 'Keeping everything running smoothly XX'
 # end
-
-section 'features', "Features" do
-	topic 'addons',          'Add-ons'
-	topic 'background-jobs', 'Background jobs'
-	topic 'config-vars',     'Config vars'
-	topic 'console-rake',    'Console and rake'
-	topic 'constraints',     'Constraints'
-	topic 'custom-domains',  'Custom domain names'
-	topic 'cron',            'Cron jobs'
-  topic 'database',        'Database'
-	topic 'full-text-indexing', 'Full text indexing'
-	topic 'logs-exceptions', 'Logs and exceptions'
-	topic 'heroku-command',  'Heroku command-line tool'
-	topic 'http-caching',    'HTTP caching'
-	topic 'gems',            'Installing gems'
-end
-
-section 'howto', "How do I:" do
-  topic '', 'send emails XX - RYAN'
-  topic 'git',             'use Git'
-  topic 'rack',            'deploy Rack-based apps'	
-  topic 's3', 'use S3 for file uploads'
-  topic '', 'backup my app XX - ADAM'
-  topic 'taps', 'import/export data'
-  topic 'renaming-apps',   'rename my application'	
-  topic 'performance',     'maximize application performance'
-	topic 'sharing',         'collaborate with another developer'
-end
-
-section 'troubleshooting', 'Troubleshooting' do
-	topic 'errors',          'Error Pages - RYAN'
-  topic 'performance', "Performance XX - ADAM"
-end
