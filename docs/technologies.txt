@@ -1,32 +1,41 @@
-Technologies
-============
+System Infrastructure and Gems
+==============================
 
-All packages and versions listed are subject to change.
+System Infrastructure
+---------------------
 
-Infrastructure
---------------
+The base Heroku platform stack is composed of widely deployed open source
+software:
 
-* OS: Debian 4.0
-* Ruby: MRI 1.8.6
-* Database: PostgreSQL 8.3.5
-* Web front: Nginx 0.6.32
-* HTTP cache: Varnish 2.0.2
+  * **Operating System:** Debian 4.0
+  * **Ruby:** MRI 1.8.6
+  * **Ruby App Server**: [Thin](http://code.macournoyer.com/thin/)
+  * **Web Server:** [Nginx 0.6.32](http://wiki.nginx.org/)
+  * **Database:** [PostgreSQL 8.3.5](http://www.postgresql.org/)
+  * **HTTP cache/accelerator**: [Varnish 2.0.2](http://varnish.projects.linpro.no/)
 
-Installed gems
---------------
+Take the [Heroku Platform Architecture Tour](http://heroku.com/how/architecture)
+for more information on these components.
 
-You can [install your own gems](/gems), but the following are provided on the default system.
+Ruby Frameworks and Libraries
+-----------------------------
+
+While each application can [install any number of custom gems](/gems),
+Heroku includes a large number of the most popular Ruby frameworks and libraries
+as part of the base platform. The following is a partial list of gems
+installed by default for all apps. See the following section for a
+comprehensive list.
 
 ### Web frameworks
 
-* Rails 2.0.2, 2.1, 2.2.2, 2.3.2
-* Merb 1.0.9
-* Sinatra 0.9.1
-* Rack 0.9.1
+  * Rails 2.3.3, 2.3.2, 2.2.2, 2.1, 2.0.2
+  * Sinatra 0.9.4, 0.9.1
+  * Merb 1.0.9
+  * Rack 1.0, 0.9.1
 
 ### ORMs
 
-* ActiveRecord 2.3.2
+* ActiveRecord 2.3.3, 2.3.2
 * DataMapper 0.9.10
 * Sequel 2.9
 
@@ -44,11 +53,15 @@ You can [install your own gems](/gems), but the following are provided on the de
 * HPricot 0.6.164
 * libxml 0.9.8
 
-### Other
+### Misc
 
 * acts_as_ferret 0.4.3
 * RestClient 0.9
 * rush 0.5
 
-For a complete raw/uncategorized listing, see
-[this](http://installed-gems.heroku.com/).
+Comprehensive List of System Gems
+---------------------------------
+
+See [installed-gems.heroku.com](http://installed-gems.heroku.com/) for a
+comprehensive generated list of all gems and versions included with the
+base platform.

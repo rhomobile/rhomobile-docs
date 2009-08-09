@@ -1,4 +1,4 @@
-Installing gems
+Installing Gems
 ===============
 
 Overview
@@ -21,54 +21,49 @@ file, whereas frozen vendor gems are limited to pure-ruby libraries.
 System Gems
 -----------
 
-All Heroku apps have access to a number of gems installed as part of the
-base platform. The [Technologies](technologies) topic provides a summary of
-the types of gems that are included and there's also a live-updated
-[list of all installed gems](http://installed-gems.heroku.com).
+All apps deployed to Heroku have access to a number of gems installed as part of
+the [base platform](technologies). See [installed-gems.heroku.com](http://installed-gems.heroku.com)
+for a comprehensive listing.
 
-Application gems override system level gems.
+Gems installed as part of your application override Heroku system gems.
 
-Gem manifest
-------------
+Creating a Gem Manifest File
+----------------------------
 
-The `.gems` manifest is a simple text file that includes information about each
-of the gems required by an application. Each entry in the manifest includes
-a mandatory gem name along with optional `version` and `source` options. The
-manifest format resembles the gem command line:
+The gems manifest is a simple text file that includes information about each of
+the gems required by an application. Each entry in the manifest includes a
+mandatory gem name along with optional `version` and `source` options.  The
+following is an example `.gems` manifest file that includes two gems:
 
-    GEM_NAME [--version VERSION] [--source SOURCE]
+    hpricot --version '>= 0.2' --source code.whytheluckystiff.net
+    dm-core --version 0.9.10
 
- * `GEM_NAME` is the name of the gem as would be specified on the `gem install`
+Each line of the `.gems` file includes the following:
+
+ * The name of the gem, as would be specified on the `gem install`
    command line.
 
- * `VERSION` is an optional gem version specifier. This can be a basic version
+ * An optional gem version specifier. This can be a basic version
    number like `"0.1.2"` or an advanced version specifier with comparison
    constraints like `">= 0.1.2"` (see
    [Specifying Versions](http://www.rubygems.org/read/chapter/16) in the
    RubyGems manual for more information). When no explicit version is specified,
    the most recent version of the gem is installed.
 
- * `SOURCE` is an optional gem repository URL like gems.rubyforge.org,
-   gems.github.com, or gems.mycustomrepo.com. The gems.rubyforge.org repository
-   is used when no explicit source is specified. Multiple `--source` arguments
+ * An optional gem repository source URL, like `gems.rubyforge.org`,
+   `gems.github.com`, or `gems.mycustomrepo.com`. The `gems.rubyforge.org` repository
+   is always included as the last source. Multiple `--source` arguments
    may be provided for cases where dependencies cross multiple repositories.
 
-The following is an example `.gems` manifest file that includes two gems:
-
-    hpricot --version '>= 0.2' --source code.whytheluckystiff.net
-    dm-core --version 0.9.10
-
-The `--version` and `--source` options have short forms just like the
+**TIP:** The `--version` and `--source` options have short forms just like the
 `gem` command; use `-v` and `-s`, respectively.
 
-Deploying gems
---------------
+Deploying Gem Changes
+---------------------
 
-Once a `.gems` manifest file is created, it must be added to the app's git
-repository and pushed to heroku. The actual gem install process occurs during
-the `git push` operation. The push is aborted if the gem manifest is invalid or
-a gem fails to install, ensuring that an application is not deployed in an
-inconsistent state.
+When a `.gems` manifest file is added or modified, it must be committed to the
+app's git repository and pushed to Heroku for changes to take effect. The actual
+gem install process occurs during the `git push` operation.
 
 The following example adds a `.gems` file to the app's git repository, commits
 it, and pushes to the remote heroku repository:
@@ -103,3 +98,5 @@ it, and pushes to the remote heroku repository:
     To git@heroku.com:vivid-moon-60.git
        91425e3..fe10e87  master -> master
 
+The push is aborted if the gem manifest is invalid or a gem fails to install,
+ensuring that an application is not deployed in an inconsistent state.
