@@ -44,6 +44,6 @@ if ENV['CLOUDQUERY_USERNAME']
 		),
 		"heroku.docs.page"
 	)
-else
-	warn "CLOUDQUERY_USERNAME environment not defined. search disabled"
+elsif !defined?(Shotgun)
+	warn "warn: CLOUDQUERY_USERNAME environment not defined. search disabled"
 end
