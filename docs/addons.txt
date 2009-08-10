@@ -43,16 +43,6 @@ All Heroku apps are accessible at their default web URL, which is http://<appnam
 
 Full documentation: [Custom Domains](/custom-domains)
 
-SSL
----
-
-SSL encryption should be used to protect any form posting sensitive data to your site:
-
-    $ heroku addons:add ssl
-    Adding ssl to myapp...done.
-
-You can now access your app at https://(yourapp).heroku.com, which piggybacks on our *.heroku.com wildcard SSL certificate.  You can also access your app at https://www.yourdomain.com if you're using a custom domain, but this will produce a warning in the user's browser.
-
 Nightly Cron
 ------------
 

@@ -1,0 +1,41 @@
+SSL
+===
+
+SSL is a cryptographic protocol that provides end-to-end data encryption and
+data integrity for all web requests. Apps that transmit sensitive data should
+enable SSL to ensure all information is transmitted securely.
+
+Piggyback SSL (myapp.heroku.com only)
+-------------------------------------
+
+SSL can be turned on for any `.heroku.com` domain by enabling the Piggyback SSL
+add-on with the [heroku command-line tool](heroku-command):
+
+    $ cd myapp
+    $ heroku addons:add piggyback_ssl
+    Adding ssl to myapp...done.
+
+Access the app over SSL at: `https://myapp.heroku.com/`. 
+
+NOTE: The SSL add-on can also be enabled on the web by signing into the <a
+href="https://heroku.com/myapps">Heroku app admin tool</a> and customizing the
+add-on section of an apps Resources page.
+
+An app specific SSL certificate is not required for Piggyback SSL. The
+`*.heroku.com` wildcard SSL certificate is used for all apps. You can view
+information about this certificate by visiting <https://heroku.com/> and
+clicking the lock icon <img src='/images/lock_icon.gif' height='16' width='12' alt=''>
+in your browser chrome.
+
+Custom-domain SSL (www.yourdomain.com)
+--------------------------------------
+
+Custom-domain SSL support through your own certificate is not yet available. The
+issue here is the SSL protocol itself, which can only present one certificate
+per IP/port combination. This is fundamentally incompatible with a fully
+dynamic, on-demand environment. If you've enabled Piggyback SSL, you can use SSL
+on custom domains (e.g., `https://www.yourdomain.com/`) but this displays a
+warning due to the domain name not matching `heroku.com`.
+
+We recognize this as a serious platform limitation and are looking into a
+variety of potential solutions to provide SSL with custom domains.

@@ -22,7 +22,7 @@ end
 section 'features', "Platform Features" do
 	topic 'technologies',       'System Infrastructure'
 	topic 'custom-domains',     'Custom domains'
-	topic 'ssl',                'SSL (RYAN)'
+	topic 'ssl',                'SSL'
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'cron',               'Cron'
