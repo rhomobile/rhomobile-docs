@@ -41,8 +41,8 @@ NOTE: Due to Heroku's cloud architecture, the public IP addresses may need to be
 changed from time to time. When using the A record configuraiton, be aware that
 we may request that you change your settings at some point in the future.  We
 will provide advance notice, but if you do not update your addresses, your site
-may stop working.  For this reason, we **STRONGLY** encourage you to use the
-CNAME option when possible.
+may stop working.  For this reason, we <strong>strongly</strong> encourage
+the CNAME option when possible.
 
 Root domains with custom mail servers (MX records) must use A instead of CNAME
 records. Only your root domain (`mydomain.com`) may use A records. Non root
