@@ -18,6 +18,16 @@ body {
 	height: inherit;
 }
 
+div#bodywrap {
+	width: inherit;
+	height: inherit;
+	margin: 0 auto 0 auto;
+}
+
+.topic_content {
+	max-width:820px;
+}
+
 a {
 	text-decoration: none;
 	outline: none; /* disable mozilla's dotted box around link */
@@ -73,12 +83,6 @@ pre code {
 
 table {
 	border-collapse: collapse;
-}
-
-div#bodywrap {
-	width: inherit;
-	height: inherit;
-	margin: 0 auto 0 auto;
 }
 
 p, ul, blockquote, pre, table {
@@ -213,11 +217,18 @@ h3 {
 	color: #777;
 }
 
+#content .note {
+	background:#eef;
+	border:1px solid #dde;
+	color:#223;
+}
+
 #content .note td.icon {
-	background: url(/images/note.png) no-repeat;
-	width: 50px;
-	height: 50px;
-	border-right: 2px solid #aaa;
+	background:url(/images/note.png) no-repeat;
+	background-position:5px 3px;
+	width:47px;
+	height:47px;
+	padding:5px;
 }
 #content .note td.content {
 	padding-left: 8px;

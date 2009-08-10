@@ -66,7 +66,10 @@ helpers do
 	end
 
 	def notes(source)
-		source.gsub(/NOTE: (.*)/, '<table class="note"><td class="icon"></td><td class="content">\\1</td></table>')
+		source.gsub(
+			/NOTE: (.*?)\n\n/m,
+			"<table class='note'>\n<td class='icon'></td><td class='content'>\\1</td>\n</table>\n\n"
+		)
 	end
 
 	def markdown(source)
