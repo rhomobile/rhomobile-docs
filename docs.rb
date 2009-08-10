@@ -52,10 +52,16 @@ end
 helpers do
 	def render_topic(topic)
 		source = File.read(topic_file(topic))
+		@topic = topic
 		@content = markdown(source)
 		@title, @content = title(@content)
 		@toc, @content = toc(@content)
-		@topic = topic
+		if @toc.any?
+			@intro, @body = @content.split('<h2>', 2)
+			@body = "<h2>#{@body}"
+		else
+			@intro, @body = '', @content
+		end
 		erb :topic
 	rescue Errno::ENOENT
 		status 404

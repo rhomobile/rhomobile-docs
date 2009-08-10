@@ -1,5 +1,7 @@
 <h1><%= @title %></h1>
 
+<%= @intro %>
+
 <% if @toc.size > 0 %>
 	<ul id="toc">
 		<% @toc.each do |section| %>
@@ -8,7 +10,7 @@
 	</ul>
 <% end %>
 
-<%= @content %>
+<%= @body %>
 
 <% if ns = next_section(params[:topic]) %>
 	<div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
