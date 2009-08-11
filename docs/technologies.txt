@@ -1,5 +1,5 @@
-System Infrastructure and Gems
-==============================
+System Infrastructure
+=====================
 
 Platform Stack
 --------------
@@ -14,8 +14,9 @@ software:
   * **Database:** [PostgreSQL 8.3.5](http://www.postgresql.org/)
   * **HTTP cache/accelerator**: [Varnish 2.0.2](http://varnish.projects.linpro.no/)
 
-Take the [Heroku Platform Architecture Tour](http://heroku.com/how/architecture)
-for more information on these components.
+See [How it Works](http://heroku.com/how) for more information about these
+components; the [Platform Architecture](http://heroku.com/how/architecture)
+section is especially relevant.
 
 Ruby Frameworks and Libraries
 -----------------------------

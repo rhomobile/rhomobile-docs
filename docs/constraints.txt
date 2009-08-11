@@ -19,7 +19,7 @@ Your app is compiled into a slug for fast distribution across the [dyno grid](ht
 
 There are two directories that _are_ writeable: `./tmp` and `./log` (under your application root). If you wish to drop a file temporarily for the duration of the request, you can write to a filename like `#{RAILS_ROOT}/tmp/myfile_#{Process.pid}`.  There is no guarantee that this file will be there on subsequent requests (although it might be), so this should not be used for any kind of permanent storage.
 
-So how do you accomplish each of these bullets in a way that is compatible with a cloud environment?
+So how do you accomplish each of the following in a way that is compatible with a cloud environment?
 
 * Caching - Use HTTP headers instead of writing to the filesystem.  See [an example of dynamically generated image caching](/http-caching#example-caching-barcode-images-generated-with-imagemagick).
 * Saving uploaded assets - Use an asset store system like Amazon S3.  See [large static assets](/constraints#large-static-assets).

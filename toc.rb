@@ -1,12 +1,11 @@
 section 'getting-started', "Getting Started" do
 	topic 'heroku',          'What is Heroku?'
 	topic 'quickstart',      'Quickstart Guide'
-	topic 'dynos',           'What is a Dyno? (RYAN)'
 end
 
 section 'management', "Application Management" do
 	topic 'heroku-command',     'Installing the Heroku command-line tool'
-	topic 'creating-apps',      'Creating apps'
+	topic 'creating-apps',      'Creating apps (RYAN)'
 	topic 'renaming-apps',      'Renaming apps'
 	topic 'git',                'Deploying with Git'
 	topic 'sharing',            'Collaborating with others'
@@ -21,6 +20,8 @@ end
 
 section 'features', "Platform Features" do
 	topic 'technologies',       'System Infrastructure'
+	topic 'dynos',              'Dynos'
+	topic 'database',           'SQL Database'
 	topic 'custom-domains',     'Custom domains'
 	topic 'ssl',                'SSL'
 	topic 'http-caching',       'HTTP cache'
@@ -28,7 +29,6 @@ section 'features', "Platform Features" do
 	topic 'cron',               'Cron'
 	topic 'background-jobs',    'Background jobs'
 	topic 'memcached',          'Memcached'
-	topic 'database',           'SQL database'
 	topic 's3',                 'Storing data in S3'
 	topic 'mail',               'Outbound email (RYAN)'
 	topic 'full-text-indexing', 'Full text indexing'
