@@ -1,0 +1,101 @@
+Outbound Email / SMTP
+=====================
+
+Heroku does not provide an outgoing mail service but does allow the use of an
+external SMTP server. If you only need to send a moderate amount of emails,
+Gmail is a good bet. Otherwise, check out a commerical solution like
+[AuthSMTP](http://www.authsmtp.com/).
+
+External SMTP Providers
+-----------------------
+
+There are a large number of free and commercial SMTP providers that can be taken
+advantage of by apps running on Heroku. The following list are the most popular
+services we see in use on Heroku:
+
+### AuthSMTP
+
+Heroku recommends [AuthSMTP](http://www.authsmtp.com/) for app's that have
+serious email demands. They have a [range of plans](http://www.authsmtp.com/auth-smtp/pricing.html)
+and are known for exceptional performance and availability.
+
+### Gmail
+
+Google offers free outbound SMTP services as part of Gmail. You're limited
+to a maximum of 500 emails per day. There's an [excellent tutorial](http://ruby.dzone.com/news/rails-gmail-simple-email-deliv)
+on using Gmail with ActionMailer. Be sure to set the `From` address in your
+mailer class to your actual Gmail address.
+
+Sending email from Rails
+------------------------
+
+Here's a quick guide to setting up a Rails app to send email with an external
+SMTP provider.
+
+### 1. Set the delivery method
+
+In `config/environment.rb` set ActionMailer's delivery method to SMTP:
+
+    config.action_mailer.delivery_method = :smtp
+
+### 2. Configure your SMTP connection
+
+    ActionMailer::Base.smtp_settings = {
+      :address  => "smtp.someserver.net",
+      :port  => 25,
+      :user_name  => "someone@someserver.net",
+      :password  => "mypass",
+      :authentication  => :login
+    }
+
+You'll want to make sure Rails raises errors on mail delivery, so turn that on
+as well like this:
+
+    config.action_mailer.raise_delivery_errors = true
+
+### 3. Build a Mailer class
+
+Start by creating a mailer class:
+
+    script/generate mailer <name>
+
+Where `<name>` is the class name (like, Notifier). Rails mailers are somewhat
+similar to controllers in that both have one method for each action, each one
+having one template under `views/<class_name>`. For mailers, each method is the
+definition of an email message: who is the recipient, what’s the subject, etc.
+The email body is contained in the view.
+
+Here's an example:
+
+    class UserMailer < ActionMailer::Base
+      def signup_notification(user)
+        recipients "#{user.name} <#{user.email}>"
+        from       "My Forum "
+        subject    "Please activate your new account"
+        sent_on    Time.now
+        body       { :user => user, :url => activate_url(user.activation_code, :host => user.site.host }
+      end
+    end
+
+And the view in `app/views/user_mailer/signup_notification.rhtml` looks like
+this:
+
+    Your account has been created.
+
+    Username: 
+    Password: 
+    Visit this url to activate your account:
+
+Now you are ready to send emails. You can manually send one from the console to
+make sure it’s working:
+
+    $ heroku console
+    >>> user = User.new(:name => 'Me', :email => 'me@gmail.com', :login => 'me', :password => '1234')
+    >>> UserMailer.deliver_signup_notification(user)
+
+Or you can of course hook it in your user model. For instance
+
+    after_create :deliver_signup_notification
+    def deliver_signup_notification
+      UserMailer.deliver_signup_notification(self)
+    end
