@@ -12,7 +12,7 @@ section 'management', "Application Management" do
 	topic 'gems',               'Managing Gems'
 	topic 'taps',               'Database import / export'
 	topic 'console',            'Using the console'
-	topic 'rake',               'Running rake tasks'
+	topic 'rake',               'Running rake tasks (RYAN)'
 	topic 'config-vars',        'Config vars'
  	topic 'bundles',            'Backups (ADAM)'
 	topic 'addons',             'Managing Addons'
@@ -22,23 +22,24 @@ section 'features', "Platform Features" do
 	topic 'technologies',       'System Infrastructure'
 	topic 'dynos',              'Dynos'
 	topic 'database',           'SQL Database'
-	topic 'custom-domains',     'Custom domains'
-	topic 'ssl',                'SSL'
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
+	topic 'custom-domains',     'Custom domains'
+	topic 'ssl',                'SSL'
 	topic 'cron',               'Cron'
 	topic 'background-jobs',    'Background jobs'
 	topic 'memcached',          'Memcached'
-	topic 's3',                 'Storing data in S3'
-	topic 'mail',               'Outbound email (RYAN)'
-	topic 'full-text-indexing', 'Full text indexing'
+	topic 's3',                 'Storing uploads in S3'
+	topic 'smtp',               'Outbound email'
+	topic 'full-text-indexing', 'Full text search indexing'
 end
 
-section 'troubleshooting',     'Troubleshooting' do
+section 'troubleshooting', "Troubleshooting" do
+	topic 'support',            'Getting support'
 	topic 'constraints',        'Application constraints'
 	topic 'logs-exceptions',    'Logs and exceptions'
-	topic 'errors',             'Error Pages'
-# 	topic 'performance',        'Performance XX - ADAM'
+	topic 'errors',             'Error pages'
+	topic 'performance',        'Performance (ADAM)'
 end
 
 # section 'lifecycle', "App Lifecycle" do
