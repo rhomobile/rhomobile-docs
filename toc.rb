@@ -39,7 +39,7 @@ section 'troubleshooting', "Troubleshooting" do
 	topic 'constraints',        'Application constraints'
 	topic 'logs-exceptions',    'Logs and exceptions'
 	topic 'errors',             'Error pages'
-	topic 'performance',        'Performance (ADAM)'
+	topic 'performance',        'Performance'
 end
 
 # section 'lifecycle', "App Lifecycle" do
