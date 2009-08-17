@@ -76,4 +76,4 @@ Direct Upload
 
 This is the preferred approach if you're working with file uploads bigger than 4mbs. The idea is to skip the hop on your application dyno, making a connection from the end user browser straight to S3.
 
-This is done with [S3 SWF Upload Plugin](http://github.com/GreenAsJade/s3-swf-upload-plugin/tree/master), initially created by ELC Tech and enhanced by Margin Gregory.
+This is done with [S3 SWF Upload Plugin](http://github.com/GreenAsJade/s3-swf-upload-plugin/tree/master), initially created by ELC Tech and enhanced by Martin Gregory.
