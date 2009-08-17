@@ -14,7 +14,7 @@ section 'management', "Application Management" do
 	topic 'console',            'Using the console'
 	topic 'rake',               'Running rake tasks (RYAN)'
 	topic 'config-vars',        'Config vars'
- 	topic 'bundles',            'Backups (ADAM)'
+	topic 'backups',            'Backups'
 	topic 'addons',             'Managing Addons'
 end
 
