@@ -15,5 +15,5 @@ Then after you've deployed your first app, check out these goodies:
 
   * [Managing gems](/gems)
   * [Using your own custom domain name](/custom-domains)
-  * [Deploying a Rake, Sinatra, or Merb app](/rack)
+  * [Deploying a Rack, Sinatra, or Merb app](/rack)
   * [Importing an existing database](/taps)
