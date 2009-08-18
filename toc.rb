@@ -35,17 +35,9 @@ section 'features', "Platform Features" do
 end
 
 section 'troubleshooting', "Troubleshooting" do
-	topic 'support',            'Getting support'
 	topic 'constraints',        'Application constraints'
 	topic 'logs-exceptions',    'Logs and exceptions'
 	topic 'errors',             'Error pages'
 	topic 'performance',        'Performance'
+	topic 'support',            'Getting support'
 end
-
-# section 'lifecycle', "App Lifecycle" do
-#   topic 'd', 'Initial deployment XX'
-#   topic 'g', 'Migrating your application XX'
-#   topic 'e', 'Staging & Production XX'
-#   topic 'f', 'Scaling for success XX'
-#   topic 'h', 'Keeping everything running smoothly XX'
-# end
