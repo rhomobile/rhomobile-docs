@@ -1,107 +1,147 @@
 Database
 ========
 
-All Heroku apps get one exclusive database running on Postgres.
+Overview
+--------
 
-Setup: Rails and Merb
-------------------
+Heroku provides each app with a full-featured [PostgreSQL
+database](http://postgresql.org/). For Rails apps, database connectivity is
+configured automatically -- your app should *just work*. For app's that use the
+DataMapper or Sequel ORMs, the `DATABASE_URL` environment variable contains
+database connection details.
 
-There is no DB setup for Rails or Merb apps on Heroku.  When you deploy your Rails or Merb application to Heroku, Heroku automatically rewrites your `config/database.yml` file with the correct credentials.
+There are [multiple database packages to choose from](http://heroku.com/pricing),
+and you can change plans at any time. The _Blossom_, _Koi_, and _Crane_ plans
+are hosted within Heroku's shared database cluster, while the _Ronin_, _Fugu_,
+and _Zilla_ plans are hosted on a high-performance machine dedicated to your
+app. Database redundancy and failover is fully managed by Heroku's infrastructure
+regardless of plan. Upgrading from the shared tier to the dedicated tier is
+seamless and managed by Heroku as well.
 
-There's no need to change or remove this file from your Git repo.  The changes only effect the runtime environment, and will have no impact on your local development or deployment to other machines.
+Using the DATABASE_URL environment variable (Sequel / DataMapper)
+-----------------------------------------------------------------
 
-Setup: Other Frameworks
------------------------
+Your database credentials and connection details can be obtained from the
+`DATABASE_URL` environment variable. This is especially useful for ORMs like
+DataMapper and Sequel that use database URLs / connection strings instead of
+files for configuration.
 
-Besides `config/database.yml`, Heroku also provides your database credentials in the ENV var `DATABASE_URL`. This is perfect for ORMs using database URLs instead of config hashes, like DataMapper or Sequel.
+A popular idiom is to use the value of the `DATABASE_URL` environment variable
+when defined, but fallback on a default database URL otherwise.
 
-In this case you just need to provide that ENV var to the framework, making sure to fallback to your local database of choice. This is how you can do it with DataMapper:
+Configuring Sequel:
 
-    {ruby}
-    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
-
-And for Sequel:
-
-    {ruby}
     Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
 
-FAQ
----
+Configuring DataMapper:
 
-*   _What database does Heroku use?_
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
-    Heroku uses Postgresql.
+Frequently Asked Questions
+--------------------------
 
-*   _Is my MySQL app going to work with Heroku?_
+### What database does Heroku use?
 
-    Yes, as long as you're not running database-specific queries. For most of our users it just works, and in a few cases a quick code fix is all that you need (see [Common Issues](#common-issues-migrating-to-postgres) below).
+PostgreSQL 8.3.
 
-*    _How can import my existing data to Heroku?_
+### I have an app built against MySQL. Is it going to work with Heroku?
 
-     [See this tutorial](/taps#import-push-to-heroku).
+Yes, as long as no database specific queries are used. For most apps, it
+just works, and in a few cases a quick code fix is all that's required (see
+[Common Issues](#common-issues-migrating-to-postgres) below).
 
-*    _Can I export my data out of Heroku?_
+### How can import my existing data to Heroku?
 
-     Certainly, you can export all your data out of Heroku anytime. [More on exporting data from Heroku](/taps#export-pull-from-heroku).
+The Heroku command line tool includes a `db:push`, which can be used to import
+data from your local environment into your remote Heroku database. See the
+[database import / export](/taps#import-push-to-heroku) topic for more
+information.
 
-*    _Can I access my database from another App/Host?_
+### Can I export my data out of Heroku?
 
-     No, this is not supported by Heroku. We recommend that you encapsulate your data offering in an API to manipulate it.
+Certainly. You can export your remote Heroku database at any time using the
+`heroku db:pull` command. See the [database import / export](/taps#export-pull-from-heroku)
+topic for more information.
 
-Common Issues Migrating to Postgres
------------------------------------
+### Can I access my database from another app/host?
 
-Below are a list of common mistakes that might result in problems when migrating your Rails app from SQLite or MySQL to Postgres:
+No, connecting to your database from machines outside of Heroku is not
+supported. We recommend that you encapsulate data access in an API to manipulate
+it.
 
-### Invalid operator ###
+Common issues migrating to PostgreSQL
+-------------------------------------
 
-Example: __PGError: ERROR:  operator does not exist: character varying = integer_
+Below are a list of common mistakes that might result in problems when migrating
+your Rails app from SQLite or MySQL to PostgreSQL:
 
-Cause: Postgres is more observant of data types than MySQL or SQlite. Borrowing a concept from programming languages, we could say that Postgres is a strong typed database system, in the sense that it will check and throw errors when the operator is applied to wrong data types. For instance, you can't compare strings with integers without casting first.
+### Invalid operator
 
-Solution: Make sure the operator is adequate for the data types. Normally ActiveRecord will help you out if you write SQL conditions using the array form:
+Example: _PGError: ERROR:  operator does not exist: character varying = integer_
+
+Cause: PostgreSQL is more sensitive with data types than MySQL or SQlite.
+PostgreSQL will check and throw errors when an operator is applied to an
+unsupported data type. For instance, you can't compare strings with integers
+without casting.
+
+Solution: Make sure the operator is adequate for the data type.  ActiveRecord
+does this automatically when you use an interpolated condition form.
+
+Array conditions:
 
     :conditions => ['column1 = ? AND column2 = ?', value1, value2]
 
-or hash:
+Hash conditions:
 
     :conditions => { :column1 => value1, :column2 => value2 }
 
-### Limit on binary fieds ###
+### Binary field limit
 
-Cause: Postgres doesn't limit binary fields. Any migrations adding a `:binary` field with the `:limit` option will raise a syntax error.
+Cause: PostgreSQL doesn't limit binary fields. Any migrations adding a `:binary`
+field with the `:limit` option will raise a syntax error.
 
-Solution: Omit the `:limit` for binary fields if possible -- or test the DB before running it (see Testing the Database below).
+Solution: Omit the `:limit` for binary fields if possible -- or test the DB
+before running it (see Testing the Database below).
 
-### Table doesn't exists ###
+### Table doesn't exist
 
 Example: _PGError: ERROR: relation "documents" does not exist_
 
-Cause: This is the standard message displayed by Postgres when a table doesn't exists. That means your query is referencing a table that is not on the database.
+Cause: This is the standard message displayed by Postgres when a table doesn't
+exists. That means your query is referencing a table that is not on the
+database.
 
-Solution: Make sure your migrations ran normally, and that you're referencing a table that exists.
+Solution: Make sure your migrations ran normally, and that you're referencing a
+table that exists.
 
-You can see what tables you have running the following command on `heroku console`:
+You can see what tables you have running the following command on `heroku
+console`:
 
-    >> ActiveRecord::Base.connection.tablesActiveRecord::Base.connection.tables
+    >> ActiveRecord::Base.connection.tables
 
-### Cannot change column type ###
+### Cannot change column type
 
 Example: _PGError: ERROR: column "verified_at" cannot be cast to type "date"_
 
-Cause: Postgres doesn't know how to cast all the rows in that table to the specified type. Most likely it means you have an integer or a string in that column.
+Cause: PostgreSQL doesn't know how to cast all the rows in that table to the
+specified type. Most likely it means you have an integer or a string in that
+column.
 
-Solution: Inspect your records and make sure they can be converted to the new type. Sometimes it's easier to just avoid using `change_column`, renaming/creating a new column instead.
+Solution: Inspect your records and make sure they can be converted to the new
+type. Sometimes it's easier to just avoid using `change_column`,
+renaming/creating a new column instead.
 
-### Testing the Database ###
+### Testing the Database
 
-To fix database-specific queries where ActiveRecord won't help (for instance, foreign keys), the only solution is to test the database before running a migration or query:
+To fix database-specific queries where ActiveRecord won't help (for instance,
+foreign keys), the only solution is to test the database before running a
+migration or query:
 
     case ActiveRecord::Base.connection.adapter_name
-        when 'SQLite'
-             execute 'sqlite specific query'
-        when 'PostgreSQL'
-             execute 'postgres specific query'
-        else
-             raise 'Migration not implemented for this DB adapter'
+    when 'SQLite'
+         execute 'sqlite specific query'
+    when 'PostgreSQL'
+         execute 'postgres specific query'
+    else
+         raise 'Migration not implemented for this DB adapter'
     end
