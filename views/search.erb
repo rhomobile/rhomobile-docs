@@ -1,13 +1,9 @@
-<h1><%= @title %></h1>
-<h3>sorted by relevence</h3>
-
-<% if @results.empty? %>
-	No topics found match search
-<% else %>
-	<ul id="search-results">
-		<% @results.each do |result| %>
-			<% section = result["heroku.docs.page.name"] %>
-			<li><a href="/<%= slugify(section) %>"><%= section %></a></li>
-		<% end %>
-	</ul>
-<% end %>
+<div id="cse-search-results"></div>
+<script type="text/javascript">
+  var googleSearchIframeName = "cse-search-results";
+  var googleSearchFormName = "cse-search-box";
+  var googleSearchFrameWidth = 600;
+  var googleSearchDomain = "www.google.com";
+  var googleSearchPath = "/cse";
+</script>
+<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>

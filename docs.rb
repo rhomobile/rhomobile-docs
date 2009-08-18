@@ -18,6 +18,10 @@ get '/' do
 	render_topic 'index'
 end
 
+get '/search' do
+  erb :search
+end
+
 get '/:topic' do
 	cache_long
 	render_topic params[:topic]
