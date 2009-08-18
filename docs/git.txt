@@ -64,7 +64,10 @@ push to:
     updating 'refs/heads/master'
     ...
 
-NOTE: Branches pushed to Heroku other than "master" will be ignored.  If you're working out of another branch locally, you should either merge to master before pushing, or always specify the branch name to push to, as in "git push heroku master".
+Branches pushed to Heroku other than "master" will be ignored.  If you're
+working out of another branch locally, you should either merge to master before
+pushing, or always specify the branch name to push to, as in "git push heroku
+master".
 
 How Heroku uses Git remotes
 ---------------------------
@@ -75,7 +78,8 @@ these, but for now we'll focus on just the remote to Heroku.
 You can take an existing Git repo and add a remote using the git url provided
 when you created your app.
 
-NOTE: If you don't have the git url for your app on-screen anymore, you can always see it again by typing "heroku info --app <appname>".
+NOTE: If you don't have the git url for your app on-screen anymore, you can
+always see it again by typing: <code>heroku info --app <appname></code>.
 
 The git url for a Heroku app is always in the format
 `git@heroku.com:appname.git`. Once you get used to this format, you may find it
