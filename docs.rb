@@ -22,6 +22,10 @@ get '/search' do
   erb :search
 end
 
+get '/getting-started' do
+  redirect '/heroku'
+end
+
 get '/:topic' do
 	cache_long
 	render_topic params[:topic]
