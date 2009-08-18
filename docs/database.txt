@@ -6,9 +6,9 @@ All Heroku apps get one exclusive database running on Postgres.
 Setup: Rails and Merb
 ------------------
 
-There is no DB setup for Rails or Merb apps on Heroku: just deploy and it will be using the correct database credentials, which is written to `config/database.yml` at compile time.
+There is no DB setup for Rails or Merb apps on Heroku.  When you deploy your Rails or Merb application to Heroku, Heroku automatically rewrites your `config/database.yml` file with the correct credentials.
 
-There's no need to change or remove this file from your Git repo.
+There's no need to change or remove this file from your Git repo.  The changes only effect the runtime environment, and will have no impact on your local development or deployment to other machines.
 
 Setup: Other Frameworks
 -----------------------
@@ -28,9 +28,9 @@ And for Sequel:
 FAQ
 ---
 
-*   _Does Heroku support MySQL?_
+*   _What database does Heroku use?_
 
-    Not at this moment.
+    Heroku uses Postgresql.
 
 *   _Is my MySQL app going to work with Heroku?_
 
@@ -46,7 +46,7 @@ FAQ
 
 *    _Can I access my database from another App/Host?_
 
-     No, this is not supported by Heroku. We recommend that you encapsulate your data offering an API to manipulate it.
+     No, this is not supported by Heroku. We recommend that you encapsulate your data offering in an API to manipulate it.
 
 Common Issues Migrating to Postgres
 -----------------------------------

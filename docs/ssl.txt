@@ -30,12 +30,6 @@ in your browser chrome.
 Custom-domain SSL (www.yourdomain.com)
 --------------------------------------
 
-Custom-domain SSL support through your own certificate is not yet available. The
-issue here is the SSL protocol itself, which can only present one certificate
-per IP/port combination. This is fundamentally incompatible with a fully
-dynamic, on-demand environment. If you've enabled Piggyback SSL, you can use SSL
-on custom domains (e.g., `https://www.yourdomain.com/`) but this displays a
-warning due to the domain name not matching `heroku.com`.
+Custom-domain SSL support through your own certificate is currently in beta.  
+If you are interested in participating in the beta, please contact us through our [support site](http://support.heroku.com)
 
-We recognize this as a serious platform limitation and are looking into a
-variety of potential solutions to provide SSL with custom domains.
