@@ -40,6 +40,7 @@ section 'troubleshooting', "Troubleshooting" do
 	topic 'logs-exceptions',    'Logs and exceptions'
 	topic 'errors',             'Error pages'
 	topic 'performance',        'Performance'
+	topic 'bar',                'fun and games'
 end
 
 # section 'lifecycle', "App Lifecycle" do
