@@ -35,11 +35,6 @@
 			</div>
 		</form>
 
-		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
-		<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
-		<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
-
 		<ul>
 			<% sections.each do |slug, title, topics| %>
 				<li>
@@ -64,6 +59,12 @@
 		</div>
 	</div>
 </div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
 
 <% if request.host == 'docs.heroku.com' %>
 <!-- loopfuse -->
