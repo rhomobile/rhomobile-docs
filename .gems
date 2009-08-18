@@ -1,3 +1,2 @@
 rdiscount
 rest-client
-taf2-curb -s http://gems.github.com -s http://gems.rubyforge.org
