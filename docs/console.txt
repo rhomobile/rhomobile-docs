@@ -2,10 +2,11 @@ Using the console
 =================
 
 Heroku apps can run remote console and rake commands from the command line.
-This is a very powerful feature and is the primary method by which you can
-introspect and manage your app's database.
+This powerful feature is the primary method by which you introspect and manage
+your app's database.
 
-### One-off commands
+One-off commands
+----------------
 
 From within a local checkout of your app:
 
@@ -31,7 +32,8 @@ Or, to test that your code is working in production the way that you expect:
     $ heroku console 'Geocoder.code("Dublin, Ireland")'
     => ["53.343700", "-6.249569"]
 
-### Interactive console sessions
+Interactive console sessions
+----------------------------
 
 Without an argument, `heroku console` launches an interactive console similar to
 `irb` or the Rails `script/console` command:

@@ -1,5 +1,5 @@
-Database
-========
+SQL Database (PostgreSQL)
+=========================
 
 Overview
 --------

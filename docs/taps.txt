@@ -1,16 +1,29 @@
-Database import/export with Taps
-================================
+Database import / export
+========================
 
-Our [Taps](http://adam.blog.heroku.com/past/2009/2/11/taps_for_easy_database_transfers/) gem provides a fast, easy, single-step way to get databases of any size in and out of Heroku.  The taps gem is automatically installed as a gem dependency when you gem install heroku.
+Installing Taps
+---------------
 
-Taps allows you to push and pull databases from your local system (or another hosting environment) directly to and from your Heroku app's database.
+The [Taps](http://adam.blog.heroku.com/past/2009/2/11/taps_for_easy_database_transfers/)
+project provides a fast, easy, single-step way to get databases of any size in and
+out of Heroku. Taps allows you to push and pull databases from your local system
+(or another hosting environment) directly to and from your Heroku app's database.
 
-Import (push) to Heroku
------------------------
+The `heroku` command-line tool uses Taps internally to perform database
+transfers. The `taps` gem must be installed before running any of the commands
+described below:
 
-Use push when you wish to transfer an existing database to Heroku.  For example, a SQLite database that you've been working with in local development; or a MySQL database you have deployed on another host.
+    sudo gem install taps
 
-Your app should be deployed to Heroku in [the usual way](/quickstart).  From within your local checkout of the deployed app:
+Import: Push to Heroku
+----------------------
+
+Use `db:push` when you wish to transfer an existing database to Heroku.  For
+example, a SQLite database that you've been working with in local development;
+or a MySQL database you have deployed on another host.
+
+Your app should be deployed to Heroku in [the usual way](/quickstart).  From
+within your local checkout of the deployed app:
 
     $ heroku db:push
     Sending schema
@@ -22,20 +35,26 @@ Your app should be deployed to Heroku in [the usual way](/quickstart).  From wit
     Sending indexes
     Resetting sequences
 
-This pushes the contents (schema, data, indexes, sequences) of whatever database is specified in `config/database.yml` to Heroku.
+This pushes the contents (schema, data, indexes, sequences) of whatever database
+is specified in `config/database.yml` to Heroku.
 
-If you don't have a `config/database.yml` (for example, if you're using Sequel or DataMapper in a Sinatra app), you can specify a database URL on the command line.  Some examples:
+If you don't have a `config/database.yml` (for example, if you're using Sequel
+or DataMapper in a Sinatra app), you can specify a database URL on the command
+line. Some examples:
 
     $ heroku db:push sqlite://local.db
     $ heroku db:push mysql://root:mypass@localhost/mydb
     $ heroku db:push postgres://postgres:mypass@remotehost/mydb
 
-Export (pull) from Heroku
--------------------------
+Export: Pull from Heroku
+------------------------
 
-Use pull when you wish to export the contents of your Heroku app's database.  Some uses include backups, local debugging, or to move the app's deployment location.
+Use `db:pull` when you wish to export the contents of your Heroku app's
+database. Some uses include backups, local debugging, or to move the app's
+deployment location.
 
-From within a local checkout of your Rails or Merb app which is deployed to Heroku:
+From within a local checkout of your Rails or Merb app which is deployed to
+Heroku:
 
     $ heroku db:pull
     Receiving schema
@@ -48,15 +67,34 @@ From within a local checkout of your Rails or Merb app which is deployed to Hero
     Receiving indexes
     Resetting sequences
 
-This pulls the contents (schema, data, indexes, sequences) of the remote Heroku database down into a local database specified in `config/database.yml`, or at the database URL provided as an argument as described in the previous section.
+This pulls the contents (schema, data, indexes, sequences) of the remote Heroku
+database down into a local database specified in `config/database.yml`, or at
+the database URL provided as an argument as described in the previous section.
 
-Notes on use cases
-------------------
+Additional Use Cases
+--------------------
 
-* When importing to Heroku from an existing host (like EC2, Slicehost, or your own colocated server), it will be fastest if you can run the import straight from that machine.  To do that, you'll need to install the Heroku client gem and enter your username/password on that machine.  If you can't or don't wish to import straight from that host, another option is to transfer the database to your local machine first (via the typical `mysqldump`/`scp`/`mysql`, or with the Taps open source gem) and then run the `heroku db:push` from there.
+### Host-to-Host Database Transfer
 
-* db:pull is very useful for debugging production data.  For example, you might have a user contact you about a corrupted record.  You could run db:pull to get a local copy of the database, fix the remote record (via `heroku console`), then inspect the corrupted data locally at your leisure.
+When importing to Heroku from an existing host (like EC2, Slicehost, or
+your own co-located server), it will be fastest if you can run the import
+straight from that machine. To do that, you'll need to install the Heroku
+client gem and enter your username/password on that machine. If you can't
+or don't wish to import straight from that host, another option is to transfer
+the database to your local machine first (via the typical `mysqldump`/`scp`/`mysql`,
+or with the `taps` gem) and then run the `heroku db:push` command from there.
 
-* db:pull can be used for backups, although it will be much slower than downloading a captured bundle.  But if you don't mind the longer transfer time, having it in a SQL database format of your choice may be superior, since you can quickly query the backed-up data in cases such as recovery of a few accidentally-deleted records.
+### Debugging
 
+db:pull is very useful for debugging production data.  For example, you
+might have a user contact you about a corrupted record.  You could run
+db:pull to get a local copy of the database, fix the remote record (via
+`heroku console`), then inspect the corrupted data locally at your leisure.
 
+### Backups
+
+`db:pull` can be used for backups, although it will be much slower than
+downloading a captured bundle.  But if you don't mind the longer transfer
+time, having it in a SQL database format of your choice may be superior,
+since you can quickly query the backed-up data in cases such as recovery of
+a few accidentally-deleted records.
