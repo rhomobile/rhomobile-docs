@@ -37,10 +37,6 @@ get '/css/docs.css' do
 	erb :css, :layout => false
 end
 
-before do
-	@asset_host = ENV['ASSET_HOST']
-end
-
 helpers do
 	def render_topic(topic)
 		source = File.read(topic_file(topic))
