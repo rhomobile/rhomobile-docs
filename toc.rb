@@ -28,7 +28,7 @@ section 'features', "Platform Features" do
 	topic 'ssl',                'SSL'
 	topic 'cron',               'Cron'
 	topic 'background-jobs',    'Background jobs'
-	topic 'memcached',          'Memcached'
+#	topic 'memcached',          'Memcached'
 	topic 's3',                 'Storing uploads in S3'
 	topic 'smtp',               'Outbound email'
 	topic 'full-text-indexing', 'Full text search indexing'
