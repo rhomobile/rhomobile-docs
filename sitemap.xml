@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://docs.heroku.com/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/heroku</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/quickstart</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/heroku-command</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/creating-apps</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/renaming-apps</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/git</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/sharing</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/gems</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/taps</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/console</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/rake</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/config-vars</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/backups</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/addons</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/technologies</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/dynos</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/database</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/http-caching</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/rack</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/custom-domains</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/ssl</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/cron</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/background-jobs</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/s3</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/smtp</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/full-text-indexing</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/constraints</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/logs-exceptions</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/errors</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/performance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/support</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://docs.heroku.com/memcached</loc>
+  <changefreq>weekly</changefreq>
+</url>
+</urlset>
