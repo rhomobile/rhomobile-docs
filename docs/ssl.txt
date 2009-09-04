@@ -36,7 +36,7 @@ SSL was not originally designed for a cloud environment.  An extension to SSL ca
 
 For those customers who require Windows XP browser support, we offer Custom SSL.  Custom SSL works with all browsers, trading off higher cost and more complex setup and administration.
 
-Either solution requires a SSL certificate.  For testing, you can use a self-signed certificate.  To remove the warnings, you will need to [purchase a SSL certificate](http://www.google.com/search?client=safari&rls=en&q=ssl+certificate&ie=UTF-8&oe=UTF-8).
+Either solution requires a SSL certificate.  For testing, you can use a [self-signed certificate](http://sial.org/howto/openssl/self-signed/).  To remove the warnings, you will need to [purchase a SSL certificate](http://www.google.com/search?client=safari&rls=en&q=ssl+certificate&ie=UTF-8&oe=UTF-8).
 
 ### Custom Domain SSL with SNI 
 
