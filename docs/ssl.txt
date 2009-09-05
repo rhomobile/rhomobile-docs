@@ -40,56 +40,47 @@ Either solution requires a SSL certificate.  For testing, you can use a [self-si
 
 ### Custom Domain SSL with SNI 
 
-1. Ensure you have the latest Heroku gem, version 1.2 or later
+Ensure you have the latest Heroku gem, version 1.2 or later:
  
     $ gem list heroku
 
     *** LOCAL GEMS ***
-    heroku (1.2)		
+    heroku (1.2)
 
-2. Enable SSL
+Enable SSL:
 
     $ cd myapp
     $ heroku addons:add sni_ssl
     Adding ssl to myapp...done.
 
-3. Upload your certificate
+Upload your certificate
 
     $ heroku ssl:add cert.pem private.key
+    Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
 
-
-You now have SSL enabled.  
+Your site will now be accessible on https://www.yourdomain.com.
 
 ### Custom Domain SSL with Custom SSL 
 
 NOTE: Custom SSL will provide you with a new public IP address.  Due to Heroku's cloud architecture, the public IP addresses may need to be changed from time to time. When using Custom SSL, be aware that we may request that you change your settings at some point in the future. We will provide advance notice, but if you do not update your addresses, your site may stop working. 
 
-1. Ensure you have the latest Heroku gem, version 1.2 or later
+Ensure you have the latest Heroku gem, version 1.2 or later:
  
     $ gem list heroku
 
     *** LOCAL GEMS ***
-    heroku (1.2)		
+    heroku (1.2)
 
-2. Enable SSL
+Enable SSL:
 
     $ cd myapp
     $ heroku addons:add custom_ssl
     Adding ssl to myapp...done.
 
-3. Upload your certificate
+Upload your certificate:
 
     $ heroku ssl:add cert.pem private.key
+    Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
 
-4. Within 2 business days, Heroku will email you a new public IP address
+Heroku will allocate you a public IP address and email it to you within two business days.  You will then need to configure your DNS to point to the provided IP address.
 
-5. Configure your DNS to point to this new IP address.
-For any URLs that you want to use SSL, remove any existing CNAME or A records.
-Add a new A record to the provided IP address
-
-6. Check that your DNS is set correctly with the host command
-
-    $ host yourdomain.com
-    yourdomain.com has address <HEROKU PROVIDED IP>
-
-You now have SSL enabled.
