@@ -50,7 +50,7 @@ Another option is to have default values when running locally:
     {ruby}
     AWS::S3::Base.establish_connection!(
       :access_key_id     => ENV['S3_KEY'] || 'thedefaultkey',
-      :secret_access_key => ENV['S3_SECRET'] || 'thedefaultsecret',
+      :secret_access_key => ENV['S3_SECRET'] || 'thedefaultsecret'
     )
 
 (This pattern is identical to that used for the [DATABASE_URL](/rack#using-datamapper-or-sequel) defaults.)
