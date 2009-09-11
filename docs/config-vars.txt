@@ -26,7 +26,7 @@ Set up your code to read the vars at runtime in `config/initializers/s3.rb`:
     {ruby}
     AWS::S3::Base.establish_connection!(
       :access_key_id     => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET'],
+      :secret_access_key => ENV['S3_SECRET']
     )
 
 Now, upon deploying to Heroku, the app will use the keys set in the config.
