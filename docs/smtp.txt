@@ -2,11 +2,31 @@ Outbound Email / SMTP
 =====================
 
 Heroku does not provide an outgoing mail service but does allow the use of an
-external SMTP server. If you only need to send a moderate amount of emails,
-Gmail is a good bet. Otherwise, check out a commerical solution like
+external SMTP server. If you need to send fewer than 500 emails per day, use
+our GMail add-on.  Otherwise, check out a commerical solution like
 [AuthSMTP](http://www.authsmtp.com/).
 
-External SMTP Providers
+GMail SMTP add-on
+-----------------
+
+Google offers free outbound SMTP services as part of Gmail, up to 500 emails
+per day.  Enable it as follows:
+
+    $ heroku addons:add gmail_smtp user=you@gmail.com password=yourpass
+	 Adding gmail_smtp to myapp...done.
+
+Use your existing GMail account or create a new one just for your app.  You can
+also use a Google Apps hosted domain, just substitute you@yourdomain.com for
+you@gmail.com.
+
+Once activated, ActionMailer will be automatically configured to send through
+your GMail account.  See [below](#sending-email-from-rails) if you're not
+already using ActionMailer.
+
+NOTE: The From header on the email will always be the GMail email address, so
+use account with the email you want people to see and potentially reply to.
+
+External SMTP providers
 -----------------------
 
 There are a large number of free and commercial SMTP providers that can be taken
@@ -21,10 +41,7 @@ and are known for exceptional performance and availability.
 
 ### Gmail
 
-Google offers free outbound SMTP services as part of Gmail. You're limited
-to a maximum of 500 emails per day. There's an [excellent tutorial](http://ruby.dzone.com/news/rails-gmail-simple-email-deliv)
-on using Gmail with ActionMailer. Be sure to set the `From` address in your
-mailer class to your actual Gmail address.
+Although the GMail SMTP add-on described above is the easiest way to use GMail SMTP from Heroku, you can also manually configure it, as described in [this tutorial](http://ruby.dzone.com/news/rails-gmail-simple-email-deliv).
 
 Sending email from Rails
 ------------------------
