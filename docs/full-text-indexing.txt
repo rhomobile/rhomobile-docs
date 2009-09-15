@@ -1,7 +1,108 @@
 Full text indexing
 ==================
 
-For apps with small datasets to be indexed, we recommend acts_as_ferret, which is quick to setup and has no external dependencies, but is limited in how far it can scale.  For apps with large datasets, we recommend Solr, which will require setup of an external server.
+We recommend Solr for full text indexing and search.  The easiest way to do
+this is using the Websolr add-on, described below.
+
+Other options include Ferret (only works for very small data sets) and running
+Solr yourself (requires you run and maintain your own server instance).
+
+Websolr add-on
+--------------
+
+Websolr is a hosted service run by
+[Onemorecloud](http://www.onemorecloud.com/).  The Heroku Websolr add-on
+provides complete integration: all you need to do is install the add-on and use
+the websolr-rails gem from your app.
+
+### 1. Local Solr setup
+
+Websolr is completely compatible with the standard open-source install of Solr,
+so we'll start by setting up a local Solr install to test our app against:
+
+    $ wget http://apache.mirrors.timporter.net/lucene/solr/1.3.0/apache-solr-1.3.0.tgz
+    Saving to: `apache-solr-1.3.0.tgz'
+
+    100%[==============================================>] 21,662,661   595K/s   in 36s     
+
+    2009-09-15 10:38:05 (591 KB/s) - `apache-solr-1.3.0.tgz' saved [21662661/21662661]
+    $ tar xzf apache-solr-1.3.0.tgz
+    $ cd apache-solr-1.3.0/example
+    $ java -jar start.jar
+    2009-09-15 10:39:54.665::INFO:  Logging to STDERR via org.mortbay.log.StdErrLog
+    2009-09-15 10:39:54.908::INFO:  jetty-6.1.3
+    ...
+    2009-09-15 10:39:56.858::INFO:  Started SocketConnector @ 0.0.0.0:8983
+
+Go to [http://localhost:8983/solr/admin/](http://localhost:8983/solr/admin/) and you should see the Solr administration panel.
+
+NOTE: OS X comes with Java preinstalled, but if your OS doesn't have a JRE (Java runtime environment) already, you will need to install it.  For example, on Ubuntu this can be done with: sudo apt-get install sun-java6-jre
+
+### 2. Install websolr-rails
+
+The websolr-rails gem is a fork/extension of the acts_as_solr Rails plugin packaged as a gem, and with additional features for the Websolr service.  Install it:
+
+    $ sudo gem install onemorecloud-websolr-rails -s http://gems.github.com
+
+Append this to your app's Rakefile:
+
+    {ruby}
+    require 'websolr_rails/tasks'
+
+Create config/initializers/websolr.rb:
+
+    {ruby}
+    require 'websolr'
+
+### 3. Modify your app to index selected models
+
+Indexing a model with Solr is as easy as adding acts_as_solr to any model class we wish to index.  for example:
+
+    {ruby}
+    class Post < ActiveRecord::Base
+      acts_as_solr
+    end
+
+Since we're testing locally first, set an environment variable to point to your local Solr:
+
+    $ export WEBSOLR_URL=http://localhost:8983/solr
+
+Now you can use the solr:reindex rake task to test whether it's all working:
+
+    $ rake solr:reindex
+    ...insert output here...
+
+### 4. Test searching with Solr from the console
+
+Now the fun part: search your Solr index.  First, let's try searching in the console.
+
+    >> Post.find_by_solr('hello')
+    => #<ActsAsSolr::SearchResults:0x25c194c @solr_data={:docs=>[#<Post id: 1 ...>], :max_score=>0.8407993, :total=>1}>
+
+The ActsAsSolr result set contained one document (the Post record that matched), with a match score of 0.84.  You can get access to the records like this:
+
+    >> Post.find_by_solr('hello').docs
+    => [#<Post id: 1, title: "Hello World" ...>]
+
+The [Lucene query syntax](http://lucene.apache.org/java/2_3_2/queryparsersyntax.html) is very powerful and allows for searching multiple fields, wildcard searches, fuzzy searches, boolean operators, and more.  Read the docs and experiment to find the queries you want to use.
+
+### 5. Using Websolr on your Heroku app
+
+Commit your changes and push to deploy your app to Heroku.  Activating Websolr is as simple as this:
+
+    $ heroku addons:add websolr
+    Adding websolr to myapp...done.
+
+This will create an account with Websolr and put the result into the WEBSOLR_URL config var.  Now test it:
+
+    $ heroku rake solr:reindex
+    ...output...
+    $ heroku console
+    Ruby console for myapp.heroku.com
+    >> Post.find_by_solr('hello').docs
+    => [#<Post id: 1, title: "Hello from production" ...>]
+
+Your next step will probably be to create a search box on one of your app's pages, which posts to a controller that uses find_by_solr to produce results for the user.
 
 Ferret
 ------
@@ -12,14 +113,14 @@ Heroku has the Ferret and acts_as_ferret gems installed by default.  By default,
     require 'acts_as_ferret'
     ActsAsFerret.index_dir = "#{RAILS_ROOT}/tmp/index"
 
-This will require rebuilding the indexes every time a new app server is launched, so it's not well-suited for large datasets.  But it's a good choice for getting off the ground quickly.
+This will require rebuilding the indexes every time a new dyno is launched, so data sets over a few megabytes will be infeasible.  But if you're already using Ferret and have a small amount of data to index, this is not a bad way to get up and running quickly.
 
 Further reading: [http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial](http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial)
 
-Solr
-----
+Exernal Solr instance
+---------------------
 
-For large datasets, you can run a Solr server on your own EC2 instance (ideal for minimizing latency), or on any internet-connected server.  Steps to set up Solr:
+You can run a Solr server on your own EC2 instance (ideal for minimizing latency), or on any internet-connected server.  Steps to set up Solr:
 
 * Install the Java runtime environment.  On Debian or Ubuntu this can be done with: apt-get install sun-java6-jre
 * `git clone git://github.com/mattmatt/acts_as_solr.git`
