@@ -26,6 +26,18 @@ already using ActionMailer.
 NOTE: The From header on the email will always be the GMail email address, so
 use account with the email you want people to see and potentially reply to.
 
+You don't need to install any additional plugins or gems in your app to use
+this add-on; a plugin is installed at deploy time as part of the slug compile
+process.  You also don't need to configure ActionMailer in your code.  You
+should therefore delete the smtp_tls plugin, any ActionMailer initializer, or
+any other support libraries that you have have formerly installed in your app
+to enable sending mail through GMail or other external SMTP provider.
+
+NOTE: The GMAIL_SMTP_USER and GMAIL_SMTP_PASSWORD config vars are stored based
+on the values specified by user= and password= during the addon install.  You
+can view and update these values using heroku config, heroku config:add, etc
+commands as you would any other config vars.
+
 External SMTP providers
 -----------------------
 
