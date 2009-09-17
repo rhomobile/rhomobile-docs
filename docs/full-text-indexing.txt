@@ -147,7 +147,7 @@ Now that you have a working full text index, you can create a search box on one 
 Ferret
 ------
 
-Heroku has the Ferret and acts_as_ferret gems installed by default.  By default, acts_as_ferret stores its indexes in a location that is not writeable for Heroku apps, so you'll need to add this bit of configuration to your environment.rb:
+Ferret is a simple solution suitable only for very small datasets.  Heroku has the Ferret and acts_as_ferret gems installed by default.  By default, acts_as_ferret stores its indexes in a location that is not writeable for Heroku apps, so you'll need to add this bit of configuration to your environment.rb:
 
     {ruby}
     require 'acts_as_ferret'
@@ -157,8 +157,8 @@ This will require rebuilding the indexes every time a new dyno is launched, so d
 
 Further reading: [http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial](http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial)
 
-Exernal Solr instance
----------------------
+External Solr instance
+----------------------
 
 You can run a Solr server on your own EC2 instance (ideal for minimizing latency), or on any internet-connected server.  Steps to set up Solr:
 
@@ -166,7 +166,7 @@ You can run a Solr server on your own EC2 instance (ideal for minimizing latency
 * `git clone git://github.com/mattmatt/acts_as_solr.git`
 * `cd acts_as_solr/solr && java -jar start.jar`
 
-The server will now be running on port 8983.  Test it with a web client, such as: curl localhost:8983, which should produce a 404.
+Go to [http://localhost:8983/solr/admin/](http://localhost:8983/solr/admin/) and you should see the Solr administration panel.
 
 Then to set up a Rails app to access it:
 
