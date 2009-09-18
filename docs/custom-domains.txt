@@ -27,12 +27,10 @@ Check that your DNS is configured correctly with the `host` command:
     www.example.com is an alias for proxy.heroku.com.
     proxy.heroku.com has address 75.101.163.44
     proxy.heroku.com has address 75.101.145.87
+    proxy.heroku.com has address 174.129.212.2 
 
 Output of the host command varies by Unix flavor, but it should indicate that
 your domain name is either an alias or CNAME of `proxy.heroku.com`.
-
-See Oren Teich's [Setting up DNS screencast](http://onticoren.com/2009/06/29/go-daddy-dns-heroku/)
-for a walkthrough on GoDaddy.
 
 Root domains and custom mail servers
 ------------------------------------
@@ -53,12 +51,14 @@ addresses using your DNS management tool:
 
     75.101.163.44
     75.101.145.87
+    174.129.212.2
 
 Check that your DNS is configured correctly with the "host" command:
 
     $ host example.com
     example.com has address 75.101.163.44
     example.com has address 75.101.145.87
+    example.com has address 174.129.212.2 
 
 
 Heroku setup
