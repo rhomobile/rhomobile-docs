@@ -25,6 +25,7 @@ Check that your DNS is configured correctly with the `host` command:
 
     $ host www.example.com
     www.example.com is an alias for proxy.heroku.com.
+    proxy.heroku.com has address 174.129.212.2
     proxy.heroku.com has address 75.101.163.44
     proxy.heroku.com has address 75.101.145.87
 
@@ -51,12 +52,15 @@ addresses using your DNS management tool:
 
     75.101.163.44
     75.101.145.87
+    174.129.212.2
+    
 
 Check that your DNS is configured correctly with the "host" command:
 
     $ host example.com
     example.com has address 75.101.163.44
     example.com has address 75.101.145.87
+    example.com has address 174.129.212.2
 
 
 Heroku setup
