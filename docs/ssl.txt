@@ -32,55 +32,52 @@ Custom-domain SSL (www.yourdomain.com)
 
 Heroku offers you two choices to support running SSL on your domain, SNI and Custom SSL.  
 
-SSL was not originally designed for a cloud environment.  An extension to SSL called [SNI](http://en.wikipedia.org/wiki/Server_Name_Indication) was introduced in 2006 to fix this problem.  SNI has full support on Windows Vista, Windows 7, Mac OS X 10.5 or later, and most linux distribution.  SNI is NOT supported on Windows XP with IE or Chrome.
+SNI is supported by all browsers except IE on Windows XP.  Due to this limitation, we recommend using SNI for advanced users and testing.  When you are ready to deploy to a broader internet audience, you can seamlessly transition to Custom SSL.
 
-For those customers who require Windows XP browser support, we offer Custom SSL.  Custom SSL works with all browsers, trading off higher cost and more complex setup and administration.
+For SNI or SSL, the workflow is the same:
 
-Either solution requires a SSL certificate.  For testing, you can use a [self-signed certificate](http://sial.org/howto/openssl/self-signed/).  To remove the warnings, you will need to [purchase a SSL certificate](http://www.google.com/search?client=safari&rls=en&q=ssl+certificate&ie=UTF-8&oe=UTF-8).
+ 1. <a href="#acquirecert">Aquire a SSL certificate</a>
+ 2. <a href="#addcert">Add your certificate to your Heroku application</a>
+ 3. <a href="#chooseSSL">Choose which SSL add-on to enable</a>
 
-### Custom Domain SSL with SNI 
+### <a name="acquirecert">Acquiring a SSL Certificate</a>
 
-Ensure you have the latest Heroku gem, version 1.2 or later:
+Custom SSL and SNI SSL both require generating a SSL certificate.  You can use the same certificate for either solution.  When generating a certificate for Heroku, here is some information you may need to know:
+
+ * Web Server: nginx
+ * You must remove the passphrase from your certificate so Heroku can automatically start the server 
  
-    $ gem list heroku
+For testing, use this excellent instructions to generate a [self-signed certificate](http://sial.org/howto/openssl/self-signed/).  
+In production, to remove the warnings, you will need to [purchase a SSL certificate](http://www.google.com/search?client=safari&rls=en&q=ssl+certificate&ie=UTF-8&oe=UTF-8).  Each provider will walk you through the process on their website.
 
-    *** LOCAL GEMS ***
-    heroku (1.2)
 
-Enable SSL:
+### <a name="addcert">Add your certificate to your app</a>
 
-    $ cd myapp
-    $ heroku addons:add sni_ssl
-    Adding ssl to myapp...done.
-
-Upload your certificate
+Using the certificate you generated in the previous step, upload it to Heroku:
 
     $ heroku ssl:add cert.pem private.key
     Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
+    
+### <a name="chooseSSL">Choose your SSL addon</a>
 
+Now that you've uploaded your certificate, you can choose which SSL option:
+
+#### SNI SSL
+
+    $ heroku addons:add sni_ssl
+    Adding ssl to myapp...done.
+    
 Your site will now be accessible on https://www.yourdomain.com.
+    
 
-### Custom Domain SSL with Custom SSL 
-
-NOTE: Custom SSL will provide you with a new public IP address.  Due to Heroku's cloud architecture, the public IP addresses may need to be changed from time to time. When using Custom SSL, be aware that we may request that you change your settings at some point in the future. We will provide advance notice, but if you do not update your addresses, your site may stop working. 
-
-Ensure you have the latest Heroku gem, version 1.2 or later:
- 
-    $ gem list heroku
-
-    *** LOCAL GEMS ***
-    heroku (1.2)
-
-Enable SSL:
-
-    $ cd myapp
+#### Custom SSL    
     $ heroku addons:add custom_ssl
     Adding ssl to myapp...done.
 
-Upload your certificate:
 
-    $ heroku ssl:add cert.pem private.key
-    Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
+NOTE: Custom SSL will provide you with a new public IP address.  Due to Heroku's cloud architecture, the public IP addresses may need to be changed from time to time. When using Custom SSL, be aware that we may request that you change your settings at some point in the future. We will provide advance notice, but if you do not update your addresses, your site may stop working. 
 
-Heroku will allocate you a public IP address and email it to you within two business days.  You will then need to configure your DNS to point to the provided IP address.
+Heroku will allocate you a public IP address and email it to you within two business days.  You will then need to configure your DNS to point to the provided IP address.  Although you have a dedicated IP for your incoming traffic, you will still take full advantage of the cloud architecture on Heroku.
+
+Once your DNS is pointing to the new IP address, your site will now be accessible on https://www.yourdomain.com.
 
