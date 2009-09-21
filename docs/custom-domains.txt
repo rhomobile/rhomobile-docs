@@ -31,8 +31,6 @@ Check that your DNS is configured correctly with the `host` command:
 Output of the host command varies by Unix flavor, but it should indicate that
 your domain name is either an alias or CNAME of `proxy.heroku.com`.
 
-See Oren Teich's [Setting up DNS screencast](http://onticoren.com/2009/06/29/go-daddy-dns-heroku/)
-for a walkthrough on GoDaddy.
 
 Root domains and custom mail servers
 ------------------------------------
