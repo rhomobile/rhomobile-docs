@@ -10,7 +10,9 @@ Static assets
 
 Anything that is served from the filesystem (a Rack::File) is cached for 12 hours.  Whenever you push changes, your cache is cleared (see below), and since Heroku filesystems are read-only, it's safe to cache these for a long period.
 
-NOTE: Large static assets, such as MP3s or PDFs, should generally not be included in your code tree.  Use an external asset hosting service, such as Amazon S3, instead.  See [this](/constraints#large-static-assets).
+NOTE: Large static assets, such as MP3s or PDFs, should generally not be
+included in your code tree.  Use an external asset hosting service, such as
+Amazon S3, instead.  See <a href='/constraints#large-static-assets'>this</a>.
 
 Caching dynamic content by age
 ------------------------------
