@@ -1,7 +1,7 @@
 Heroku Collaborators Quickstart Guide
 =======================
 
-Heroku is a completely novel approach to deploying web applications. Forget
+Heroku is a new approach to deploying web applications. Forget
 about servers; the fundamental unit is the app. Develop locally on your
 machine just like you always do. When you're ready to deploy, use the Heroku
 client gem to create your application in our cloud, then deploy with a
@@ -9,9 +9,13 @@ single `git push`. Git allows you to have multiple source repositories all
 at the same time. By making Heroku just another source repository, you can
 push your code and deploy your application in one easy step.
 
-You're viewing this page because someone invited you to collaborate with them
-on an application.  This allows you to access the source code, make any changes
-and push a new version of the application up quickly and easily.
+Heroku makes it easy to collaborate with others.  Collaborating allows you 
+to share access to your source code, make any changes and push a new version 
+of the application up quickly and easily.  
+
+You can [start sharing](sharing) existing applications with a single command.  
+
+New collaborators can get started by following these instructions:
 
 Prerequisites
 -------------
@@ -35,9 +39,9 @@ Collaborating on an app
 
 The first step is to clone the git repo to your local machine.  The invitation email included the name of the app.  To clone the git repo, simply run this command, filling in the approrpriate app name:
 
-    $ git clone git@heroku.com:APPNAME.git
+    $ git clone git@heroku.com:APPNAME.git -o production
     
-This will create a directory called APPNAME, with a full copy of the git repository.
+This will create a directory called APPNAME, with a full copy of the git repository.  It also sets up a git remote called "production".  If you'd prefer to name this something else (e.g. heroku, or staging), simply change the parameter after the -o flag.
 
 ### Edit and Deploy
 
@@ -45,7 +49,7 @@ You can now make any changes.  When you are ready to deploy these changes, simpl
 
     <edit files>
     $ git commit -a -m "log of the changes I made"
-    $ git push master
+    $ git push production master
     -----> Heroku receiving push
     -----> Launching.... done
 
