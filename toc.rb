@@ -31,7 +31,7 @@ section 'features', "Platform Features" do
 #	topic 'memcached',          'Memcached'
 	topic 's3',                 'Storing uploads in S3'
 	topic 'smtp',               'Outbound email'
-	topic 'full-text-indexing', 'Full text search indexing'
+#	topic 'full-text-indexing', 'Full text search indexing'
 end
 
 section 'troubleshooting', "Troubleshooting" do
