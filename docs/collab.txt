@@ -53,8 +53,3 @@ You can now make any changes.  When you are ready to deploy these changes, simpl
     -----> Heroku receiving push
     -----> Launching.... done
 
-Additional Resources
---------------------
-
-Insert useful links for GIT here
-Pointers to Herokiu command...
