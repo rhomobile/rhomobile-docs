@@ -19,7 +19,7 @@ Before using Heroku there are three simple requirements:
      [Developing Rails apps on Mac OS X](http://developer.apple.com/Tools/developonrailsleopard.html)
 
   2. **Install Git:** [On a Mac](http://github.com/guides/get-git-on-mac),
-     [Windows](http://nathanj.github.com/gitguide/installing.html), or
+     [Windows](http://code.google.com/p/msysgit/), or
      [UNIX/Linux](http://book.git-scm.com/2_installing_git.html)
 
   3. [Create a Heroku account](http://heroku.com/signup) and
