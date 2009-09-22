@@ -1,6 +1,7 @@
 section 'getting-started', "Getting Started" do
 	topic 'heroku',          'What is Heroku?'
 	topic 'quickstart',      'Quickstart Guide'
+	topic 'collab',          'Collaborator Quickstart'
 end
 
 section 'management', "Application Management" do
