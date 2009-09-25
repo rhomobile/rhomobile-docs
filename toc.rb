@@ -17,6 +17,7 @@ section 'management', "Application Management" do
 	topic 'config-vars',        'Config vars'
 	topic 'backups',            'Backups'
 	topic 'addons',             'Managing Addons'
+	topic 'maintenance-mode',   'Maintenance Mode'
 end
 
 section 'features', "Platform Features" do

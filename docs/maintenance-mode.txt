@@ -1,0 +1,10 @@
+Maintenance Mode
+================
+
+If you're deploying a large migration or need to disable access to your application for some length of time, you can use Heroku's built in maintenance mode. Enable it like so:
+
+    $ heroku maintenance:on
+
+Once your application is ready, you can disable maintenance mode with:
+
+    $ heroku maintenance:off
