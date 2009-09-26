@@ -1,7 +1,7 @@
 section 'getting-started', "Getting Started" do
 	topic 'heroku',          'What is Heroku?'
-	topic 'quickstart',      'Quickstart Guide'
-	topic 'collab',          'Collaborator Quickstart'
+	topic 'quickstart',      'Quickstart guide'
+	topic 'collab',          'Collaborator quickstart'
 end
 
 section 'management', "Application Management" do
@@ -16,14 +16,14 @@ section 'management', "Application Management" do
 	topic 'rake',               'Running rake tasks'
 	topic 'config-vars',        'Config vars'
 	topic 'backups',            'Backups'
-	topic 'addons',             'Managing Addons'
-	topic 'maintenance-mode',   'Maintenance Mode'
+	topic 'addons',             'Managing addons'
+	topic 'maintenance-mode',   'Maintenance mode'
 end
 
 section 'features', "Platform Features" do
-	topic 'technologies',       'System Infrastructure'
+	topic 'technologies',       'System infrastructure'
 	topic 'dynos',              'Dynos'
-	topic 'database',           'SQL Database'
+	topic 'database',           'SQL database'
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'custom-domains',     'Custom domains'
