@@ -8,3 +8,25 @@ If you're deploying a large migration or need to disable access to your applicat
 Once your application is ready, you can disable maintenance mode with:
 
     $ heroku maintenance:off
+
+You can also create your own content to display when your application goes into maintenance mode. Just create `public/maintenance/index.html` and you should be set. Any static files you place inside of this directory (CSS, images, etc) will be served as well.
+
+Here's a small example:
+
+    $ tree public/maintenance
+    .
+    |-- index.html
+    |-- css
+    |   `-- screen.css
+    `-- wait.png
+
+    $ cat public/maintenance.html
+    <html>
+      <head>
+        <link rel="stylesheet" href="/css/screen.css" type="text/css" />
+      </head>
+      <body>
+        <h1>We're under maintenance!</h1>
+        <img src="wait.png" />
+      </body>
+    </html>
