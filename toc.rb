@@ -26,12 +26,19 @@ section 'features', "Platform Features" do
 	topic 'database',           'SQL database'
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
+	topic 'background-jobs',    'Background jobs'
+#	topic 'memcached',          'Memcached'
+	topic 's3',                 'Storing uploads in S3'
+	topic 'smtp',               'Outbound email'
+#	topic 'full-text-indexing', 'Full text search indexing'
+end
+
+section 'addons', "Add-ons" do
+	topic 'addons',             'Managing addons'
 	topic 'custom-domains',     'Custom domains'
 	topic 'ssl',                'SSL'
 	topic 'cron',               'Cron'
 	topic 'background-jobs',    'Background jobs'
-#	topic 'memcached',          'Memcached'
-	topic 's3',                 'Storing uploads in S3'
 	topic 'smtp',               'Outbound email'
 #	topic 'full-text-indexing', 'Full text search indexing'
 end
