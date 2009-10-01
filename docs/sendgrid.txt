@@ -1,5 +1,5 @@
 Sendgrid SMTP add-on
------------------
+===========
 
 [Sendgrid](http://www.sendgrid.com/) offers a modern, API driven approach to SMTP delivery. Several plans are available through the Heroku add-on, starting with their free plan offering 200 messages per day. All you need to get going with Sendgrid is to enable the add-on:
 
@@ -8,4 +8,4 @@ Sendgrid SMTP add-on
     
 This automatically creates a Sendgrid account for you, and configures ActionMailer to use it by default. See the guide below for [how to send email from Rails with ActionMailer](#sending-email-from-rails). Remember that Sendgrid lets you specify a from-address for your emails.
 
-NOTE: Currently, The Sendgrid add-on will only work for Rails apps with ActionMailer installed
+NOTE: The Sendgrid add-on will only work for Rails apps with ActionMailer installed.
