@@ -34,13 +34,7 @@ section 'features', "Platform Features" do
 end
 
 section 'addons', "Add-ons" do
-	topic 'addons',             'Managing addons'
-	topic 'custom-domains',     'Custom domains'
-	topic 'ssl',                'SSL'
-	topic 'cron',               'Cron'
-	topic 'background-jobs',    'Background jobs'
-	topic 'smtp',               'Outbound email'
-#	topic 'full-text-indexing', 'Full text search indexing'
+	topic 'sendgrid',             'Sendgrid SMTP'
 end
 
 section 'troubleshooting', "Troubleshooting" do
