@@ -1,0 +1,90 @@
+Deploy Hooks
+============
+
+Deploy hooks allows you to receive a notification whenever a new version of your app is pushed to Heroku. It's useful to keep you and your team informed about deploys, while it can also be used to integrate different systems together.
+
+After one or more hooks are setup, git push will show their activation right after the app is launched:
+
+    $ git push heroku master
+    ...
+    
+    -----> Heroku receiving push
+    -----> Rails app detected
+           Compiled slug size is 76K
+    -----> Launching...... done
+           http://myapp.heroku.com deployed to Heroku
+    
+    -----> Running email hook... done
+    -----> Running IRC hook... done
+
+Below you will find what hooks are available, and how to install and configure them.
+
+Email
+-----
+
+This hook will send one or more emails. You can specify the subject and body, as follows:
+
+    $ heroku addons:add email_hook \
+        recipient=me@example.com \
+        subject="Myapp Deployed" \
+        body="{{user}} deployed app"
+    Adding email_hook to myapp...Done.
+
+Email multiple recipients adding more email addresses separated by spaces.
+
+IRC
+---
+
+An IRC bot will connect to the specified server and message the room.
+
+    $ heroku addons:add irc_hook \
+        server=irc.freenode.net \
+        room=devlounge \
+        nick=mydeploybot \
+        password=secret \
+        message="{{user}} deployed app"
+    Adding irc_hook to myapp...Done.
+
+Nick and password are optional. You can also set the server port by sending port=1234.
+
+Basecamp
+--------
+
+This hook will post a message to any Basecamp account you specify, under a certain project and post category (both specified by the name). Example:
+
+    $ heroku addons:add basecamp_hook \
+        url=http://myaccount.basecamphq.com \
+        username=deploybot \
+        password=secret \
+        project=myapp \
+        category=deploys \
+        title="{{user}} deployed myapp" \
+        body="check it at {{url}}"
+    Adding campfire_hook to myapp...Done.
+
+Campfire
+--------
+
+Have any Campfire room receive an automated message when your app is pushed. Install it like:
+
+    $ heroku addons:add campfire_hook \
+        url=mycampfiredomain \
+        email=me@example.com \
+        password=secret \
+        room=devlounge \
+        message="{{user}} deployed myapp"
+    Adding campfire_hook to myapp...Done.
+
+Customizing messages
+--------------------
+
+It's possible to use variables when defining the message, title or subject of any deploy hook attribute.
+
+For instance, use {{user}} when you want to see who deployed, and that text will be replaced for the actual user email whenever a hook is executed.
+
+Available variables are:
+
+* **user**: email of the user deploying the app
+* **url**: myapp.heroku.com or mydomain.com if you have custom domains enabled
+* **head**: identifier of the latest commit (full SHA1 git object name)
+* **head_short**: short version of the head (first seven bytes of the SHA1)
