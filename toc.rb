@@ -31,7 +31,7 @@ section 'features', "Platform Features" do
 	topic 's3',                 'Storing uploads in S3'
 	topic 'smtp',               'Outbound email'
 	topic 'deploy-hooks',       'Deploy Hooks'
-#	topic 'full-text-indexing', 'Full text search indexing'
+ topic 'full-text-search', 'Full text search'
 end
 
 section 'addons', "Add-ons" do
