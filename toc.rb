@@ -26,6 +26,7 @@ section 'features', "Platform Features" do
 	topic 'database',           'SQL database'
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
+	topic 'custom-domains'      'Custom Domains'
 	topic 'background-jobs',    'Background jobs'
 #	topic 'memcached',          'Memcached'
 	topic 's3',                 'Storing uploads in S3'
