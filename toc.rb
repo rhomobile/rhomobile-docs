@@ -1,7 +1,7 @@
 section 'getting-started', "Getting Started" do
 	topic 'heroku',          'What is Heroku?'
-	topic 'quickstart',      'Quickstart guide'
-	topic 'collab',          'Collaborator quickstart'
+	topic 'quickstart',      'Quickstart Guide'
+	topic 'collab',          'Collaborator Quickstart'
 end
 
 section 'management', "Application Management" do
@@ -31,12 +31,16 @@ section 'features', "Platform Features" do
 #	topic 'memcached',          'Memcached'
 	topic 's3',                 'Storing uploads in S3'
 	topic 'smtp',               'Outbound email'
+<<<<<<< HEAD
 	topic 'deploy-hooks',       'Deploy Hooks'
   topic 'full-text-search', 'Full text search'
 end
 
 section 'addons', "Add-ons" do
 	topic 'sendgrid',             'Sendgrid SMTP'
+=======
+	topic 'full-text-indexing', 'Full text search indexing'
+>>>>>>> e57a22c1558c339a6db3efd855b5bf2d39e5fdeb
 end
 
 section 'troubleshooting', "Troubleshooting" do
