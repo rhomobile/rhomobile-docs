@@ -5,10 +5,10 @@ section 'getting-started', "Getting Started" do
 end
 
 section 'howto', "How To" do
-  topic 's3',                 'Storing uploads in S3'
-	topic 'smtp',               'Outbound email'
-  topic 'full-text-search',   'Full text search'
   topic 'background-jobs',    'Background jobs'
+  topic 'full-text-search',   'Full text search'
+	topic 'smtp',               'Outbound email'
+  topic 's3',                 'Storing uploads in S3'
 end
 
 section 'management', "Application Management" do
@@ -36,7 +36,7 @@ section 'features', "Platform Features" do
 end
 
 section 'addons', "Add-ons" do
-  topic 'addons',             'Managing addons'
+  topic 'addons',             'Addons Overview'
   topic 'delayedjob',         'Delayed Job'
   topic 'deploy-hooks',       'Deploy Hooks'
 	topic 'gmailsmtp',          'Gmail SMTP'

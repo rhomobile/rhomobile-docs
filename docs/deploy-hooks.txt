@@ -17,7 +17,7 @@ After one or more hooks are setup, git push will show their activation right aft
     -----> Running email hook... done
     -----> Running IRC hook... done
 
-Below you will find what hooks are available, and how to install and configure them.
+Each deploy hook is it's own addon.  This allows you to pick and choose one or more that you want.  The deploy hooks include:
 
 Email
 -----
@@ -30,7 +30,7 @@ This hook will send one or more emails. You can specify the subject and body, as
         body="{{user}} deployed app"
     Adding email_hook to myapp...Done.
 
-Email multiple recipients adding more email addresses separated by spaces.
+Email multiple recipients by adding additional email addresses separated by spaces.
 
 IRC
 ---
