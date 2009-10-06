@@ -1,0 +1,20 @@
+Zerigo DNS add-on
+=================
+
+[Zerigo](http://www.zerigo.com/) provides an excellent [DNS service](http://www.zerigo.com/managed-dns) that is fully integrated with Heroku via the Zerigo DNS add-on.  To use, you will need to do one-time setup for your domain with your registrar, configuring it to use [Zerigo's DNS servers](http://www.zerigo.com/managed-dns/technical_specs):
+
+    a.ns.zerigo.net
+    b.ns.zerigo.net
+    c.ns.zerigo.net
+    d.ns.zerigo.net
+    e.ns.zerigo.net
+
+Now you can use this domain in one or more of your Heroku apps by installing the Zerigo DNS add-on:
+
+    $ heroku addons:add zerigo_dns
+    Installing zerigo_dns into myapp...done.
+
+Once installed, any domains added or removed via the heroku command-line tool will automatically be added to Zerigo's globally distributed DNS servers.  Updates happen instantly and Heroku will always keep your DNS records correct, meaning you never need to worry about them again.
+
+NOTE: You currently can not define additional records when using the Zerigo add-on.  This means you can not specify MX records or non-heroku records.  A future update will fix this.
+

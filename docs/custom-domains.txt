@@ -9,26 +9,6 @@ You can use the Zerigo DNS add-on for completely managed DNS service
 (recommended), or use your own DNS provider and manually configure CNAME or A
 records (root-level domains only) for your domains.
 
-Zerigo DNS add-on
------------------
-
-[Zerigo](http://www.zerigo.com/) provides an excellent [DNS service](http://www.zerigo.com/managed-dns) that is fully integrated with Heroku via the Zerigo DNS add-on.  To use, you will need to do one-time setup for your domain with your registrar, configuring it to use [Zerigo's DNS servers](http://www.zerigo.com/managed-dns/technical_specs):
-
-    a.ns.zerigo.net
-    b.ns.zerigo.net
-    c.ns.zerigo.net
-    d.ns.zerigo.net
-    e.ns.zerigo.net
-
-Now you can use this domain in one or more of your Heroku apps by installing the Zerigo DNS add-on:
-
-    $ heroku addons:add zerigo_dns
-    Installing zerigo_dns into myapp...done.
-
-Once installed, any domains added or removed via the heroku command-line tool will automatically be added to Zerigo's globally distributed DNS servers.  Updates happen instantly and Heroku will always keep your DNS records correct, meaning you never need to worry about them again.
-
-If you're using Zerigo, you can skip the next two sections and go straight to [Heroku setup](#heroku-setup).
-
 CNAME setup
 -----------
 
@@ -51,6 +31,9 @@ Check that your DNS is configured correctly with the `host` command:
 Output of the host command varies by Unix flavor, but it should indicate that
 your domain name is either an alias or CNAME of `proxy.heroku.com`.
 
+This screencast will walk you through setting up DNS on Heroku with CNAMEs:
+
+<object width="500" height="375"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6917278&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6917278&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="375"></embed></object>
 
 Root domains and custom mail servers
 ------------------------------------
@@ -80,11 +63,12 @@ Check that your DNS is configured correctly with the "host" command:
     example.com has address 75.101.145.87
     example.com has address 174.129.212.2
 
+<object width="500" height="375"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6918287&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6918287&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="375"></embed></object>
 
 Heroku setup
 ------------
 
-Once you've installed the Zerigo DNS add-on or manually configured your DNS, you can proceed to enabling the custom domains [add-on](/addons) for the app:
+Once you've installed the [Zerigo DNS add-on](zerigo) or manually configured your DNS, you can proceed to enabling the custom domains [add-on](/addons) for the app:
 
     $ heroku addons:add custom_domains
     Adding wildcard_domains to myapp...done.

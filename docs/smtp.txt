@@ -2,77 +2,17 @@ Outbound Email / SMTP
 =====================
 
 Heroku does not provide an outgoing mail service but does allow the use of an
-external SMTP server. For production use, we recommend our Sendgrid add-on which 
+external SMTP server. For production use, we recommend our [Sendgrid](sendgrid) add-on which 
 lets you scale from very light requirements to thousands of emails per day with no 
 change in configuration. If you need to send fewer than 500 emails per day, we also 
-offer a GMail add-on.
+offer a [GMail add-on](gmail-smtp).
 
-Sendgrid SMTP add-on
------------------
-
-[Sendgrid](http://www.sendgrid.com/) offers a modern, API driven approach to SMTP delivery. Several plans are available through the Heroku add-on, starting with their free plan offering 200 messages per day. All you need to get going with Sendgrid is to enable the add-on:
-
-    $ heroku addons:add sendgrid
-    Adding sendgrid to myapp...done.
-    
-This automatically creates a Sendgrid account for you, and configures ActionMailer to use it by default. See the guide below for [how to send email from Rails with ActionMailer](#sending-email-from-rails). Remember that Sendgrid lets you specify a from-address for your emails.
-
-NOTE: The Sendgrid add-on will only work for Rails apps with ActionMailer installed.
-
-GMail SMTP add-on
------------------
-
-Google offers free outbound SMTP services as part of Gmail, up to 500 emails
-per day.  Enable it as follows:
-
-    $ heroku addons:add gmail_smtp user=you@gmail.com password=yourpass
-	 Adding gmail_smtp to myapp...done.
-
-Use your existing GMail account or create a new one just for your app.  You can
-also use a Google Apps hosted domain, just substitute you@yourdomain.com for
-you@gmail.com.
-
-Once activated, ActionMailer will be automatically configured to send through
-your GMail account.  See [below](#sending-email-from-rails) if you're not
-already using ActionMailer.
-
-NOTE: The From header on the email will always be the GMail email address, so
-use account with the email you want people to see and potentially reply to.
-
-You don't need to install any additional plugins or gems in your app to use
-this add-on; a plugin is installed at deploy time as part of the slug compile
-process.  You also don't need to configure ActionMailer in your code.  You
-should therefore delete the smtp_tls plugin, any ActionMailer initializer, or
-any other support libraries that you have have formerly installed in your app
-to enable sending mail through GMail or other external SMTP provider.
-
-NOTE: The GMAIL_SMTP_USER and GMAIL_SMTP_PASSWORD config vars are stored based
-on the values specified by user= and password= during the addon install.  You
-can view and update these values using heroku config, heroku config:add, etc
-commands as you would any other config vars.
-
-External SMTP providers
------------------------
-
-There are a large number of free and commercial SMTP providers that can be taken
-advantage of by apps running on Heroku. The following list are the most popular
-services we see in use on Heroku:
-
-### AuthSMTP
-
-Heroku recommends [AuthSMTP](http://www.authsmtp.com/) for app's that have
-serious email demands. They have a [range of plans](http://www.authsmtp.com/auth-smtp/pricing.html)
-and are known for exceptional performance and availability.
-
-### Gmail
-
-Although the GMail SMTP add-on described above is the easiest way to use GMail SMTP from Heroku, you can also manually configure it, as described in [this tutorial](http://ruby.dzone.com/news/rails-gmail-simple-email-deliv).
 
 Sending email from Rails
 ------------------------
 
 Here's a quick guide to setting up a Rails app to send email with an external
-SMTP provider.
+SMTP provider.  Note that if you're using an SMTP add-on, you do not need to configure your SMTP connection.  You can skip straight to Step #3.
 
 ### 1. Set the delivery method
 

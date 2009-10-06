@@ -8,4 +8,5 @@ Sendgrid SMTP add-on
     
 This automatically creates a Sendgrid account for you, and configures ActionMailer to use it by default. See the [guide](smtp) for how to send email from Rails with ActionMailer. Remember that Sendgrid lets you specify a from-address for your emails.
 
-NOTE: The Sendgrid add-on will only work for Rails apps with ActionMailer installed.
+NOTE: Adding this add-on requires that you have ActiveMailer in your application.  If you're using a standard Rails application, and haven't explicitly disabled ActiveMailer, there's nothing additional you need to do.  If you are using Sinatra/Merb/etc or have disabled ActionMailer, please make sure to enable/install it before installing this add-on
+

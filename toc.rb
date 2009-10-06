@@ -27,24 +27,24 @@ section 'management', "Application Management" do
 end
 
 section 'features', "Platform Features" do
-	topic 'technologies',       'System infrastructure'
-	topic 'dynos',              'Dynos'
-	topic 'database',           'SQL database'
+  topic 'custom-domains',      'Custom Domains'
+	topic 'dynos',              'Dynos'	
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
-	topic 'custom-domains',      'Custom Domains'
+	topic 'technologies',       'System infrastructure'
+	topic 'database',           'SQL database'
 end
 
 section 'addons', "Add-ons" do
   topic 'addons',             'Addons Overview'
-  topic 'delayedjob',         'Delayed Job'
+  topic 'delayed-job',         'Delayed Job'
   topic 'deploy-hooks',       'Deploy Hooks'
-	topic 'gmailsmtp',          'Gmail SMTP'
+	topic 'gmail-smtp',          'Gmail SMTP'
 	topic 'memcached',          'Memcached'
 	topic 'newrelic',           'New Relic RPM'
 	topic 'sendgrid',           'Sendgrid SMTP'
-	topic 'websolr',            'Websolr'
-	topic 'zerigo',             'Zerigo'
+	topic 'websolr',            'Websolr Search'
+	topic 'zerigo',             'Zerigo DNS'
 end
 
 section 'troubleshooting', "Troubleshooting" do
