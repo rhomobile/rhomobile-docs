@@ -4,6 +4,13 @@ section 'getting-started', "Getting Started" do
 	topic 'collab',          'Collaborator Quickstart'
 end
 
+section 'howto', "How To" do
+  topic 's3',                 'Storing uploads in S3'
+	topic 'smtp',               'Outbound email'
+  topic 'full-text-search',   'Full text search'
+  topic 'background-jobs',    'Background jobs'
+end
+
 section 'management', "Application Management" do
 	topic 'heroku-command',     'Installing the Heroku command-line tool'
 	topic 'creating-apps',      'Creating apps'
@@ -16,7 +23,6 @@ section 'management', "Application Management" do
 	topic 'rake',               'Running rake tasks'
 	topic 'config-vars',        'Config vars'
 	topic 'backups',            'Backups'
-	topic 'addons',             'Managing addons'
 	topic 'maintenance-mode',   'Maintenance mode'
 end
 
@@ -27,20 +33,18 @@ section 'features', "Platform Features" do
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'custom-domains',      'Custom Domains'
-	topic 'background-jobs',    'Background jobs'
-#	topic 'memcached',          'Memcached'
-	topic 's3',                 'Storing uploads in S3'
-	topic 'smtp',               'Outbound email'
-<<<<<<< HEAD
-	topic 'deploy-hooks',       'Deploy Hooks'
-  topic 'full-text-search', 'Full text search'
 end
 
 section 'addons', "Add-ons" do
-	topic 'sendgrid',             'Sendgrid SMTP'
-=======
-	topic 'full-text-indexing', 'Full text search indexing'
->>>>>>> e57a22c1558c339a6db3efd855b5bf2d39e5fdeb
+  topic 'addons',             'Managing addons'
+  topic 'delayedjob',         'Delayed Job'
+  topic 'deploy-hooks',       'Deploy Hooks'
+	topic 'gmailsmtp',          'Gmail SMTP'
+	topic 'memcached',          'Memcached'
+	topic 'newrelic',           'New Relic RPM'
+	topic 'sendgrid',           'Sendgrid SMTP'
+	topic 'websolr',            'Websolr'
+	topic 'zerigo',             'Zerigo'
 end
 
 section 'troubleshooting', "Troubleshooting" do
