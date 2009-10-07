@@ -41,7 +41,7 @@ section 'addons', "Add-ons" do
   topic 'deploy-hooks',       'Deploy Hooks'
 	topic 'gmail-smtp',          'Gmail SMTP'
 	topic 'memcached',          'Memcached'
-	topic 'newrelic',           'New Relic RPM'
+#	topic 'newrelic',           'New Relic RPM'
 	topic 'sendgrid',           'Sendgrid SMTP'
 	topic 'websolr',            'Websolr Search'
 	topic 'zerigo',             'Zerigo DNS'
