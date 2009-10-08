@@ -84,7 +84,8 @@ For instance, use {{user}} when you want to see who deployed, and that text will
 
 Available variables are:
 
+* **app**: the app name
 * **user**: email of the user deploying the app
 * **url**: myapp.heroku.com or mydomain.com if you have custom domains enabled
-* **head**: identifier of the latest commit (full SHA1 git object name)
-* **head_short**: short version of the head (first seven bytes of the SHA1)
+* **head**: short identifier of the latest commit (first seven bytes of the SHA1 git object name)
+* **head_long**: full identifier of the latest commit
