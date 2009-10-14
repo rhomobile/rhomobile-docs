@@ -30,7 +30,7 @@ Here's a small example:
     |   `-- screen.css
     `-- wait.png
 
-    $ cat public/maintenance.html
+    $ cat public/maintenance/index.html
     <html>
       <head>
         <link rel="stylesheet" href="/css/screen.css" type="text/css" />
