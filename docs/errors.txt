@@ -15,7 +15,7 @@ This indicates an error inside your application. Common causes would be gem depe
 
 When you see an HTTP 502 error it means your app failed to properly respond to communication from the Heroku platform. In this case, you will see one of the following three pages:
 
-#### App Failed to Boot
+1. #### App Failed to Boot
 
 If your app failed to start up, a 502 status is returned with a page displaying
 the app's crashlog.  Use the backtrace to locate the problem (typically a
