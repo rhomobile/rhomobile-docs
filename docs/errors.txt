@@ -17,15 +17,20 @@ When you see an HTTP 502 error it means your app failed to properly respond to c
 
 #### App Failed to Boot
 
-Your application failed to start up following a deploy, or issuing a restart request from the gem. You will see a crashlog with a backtrace outlining the error condition. 
-
-#### App Failed to Respond
-
-Occasionally an app may issue a zero-length response. Often, this type of error would be memory related. While Ruby handles memory errors gracefully, this is not always the case for gems with native extensions. A native extension exceeding the Dyno memory limit can cause this error.
+If your app failed to start up, a 502 status is returned with a page displaying
+the app's crashlog.  Use the backtrace to locate the problem (typically a
+missing gem, or a bad line in your config somewhere) and push a fix.
 
 #### App Crashed
 
 If your app crashes unexpectedly due to an uncaught exception, or perhaps broken code injected at runtime, you will see an "App Crashed" page.
+
+NOTE: While your app is crashed, you can still run rake tasks via
+`heroku rake`, but console commands are not possible.
+
+#### App Failed to Respond
+
+Occasionally an app may issue a zero-length response. Often, this type of error is memory related. While Ruby handles memory errors gracefully, this is not always the case for gems with native extensions. A native extension exceeding the dyno memory limit can cause this error.
 
 #### Request Timeout
 
@@ -45,20 +50,6 @@ In the event of a Heroku platform error or system outage, an HTTP 503 status cod
 
 <img src="/images/ouchie.png" width='484' height='130'>
 
-This indicates that something is wrong with Heroku. If the problem persists,
+This specific error code indicates that something is wrong with Heroku, and not with your app. If the problem persists,
 please [open a support ticket](http://support.heroku.com/) or send an email
 to [support@heroku.com](mailto:support@heroku.com).
-
-### App failed to boot (HTTP 502)
-
-If your app failed to start up, a 502 status is returned with a page displaying
-the app's crashlog.  Use the backtrace to locate the problem (typically a
-missing gem, or a bad line in your config somewhere) and push a fix.
-
-Note that while your app is crashed, you can still run rake tasks via
-`heroku rake`, but console commands are not possible.
-
-### Other errors
-
-Error codes other than a 503 points to a problem within your application. Check
-your logs and/or exception monitoring service for info on what went wrong.
