@@ -15,26 +15,33 @@ This indicates an error inside your application. Common causes would be gem depe
 
 When you see an HTTP 502 error it means your app failed to properly respond to communication from the Heroku platform. In this case, you will see one of the following three pages:
 
-#### App Failed to Boot (HTTP 502)
+#### App Failed to Boot
 
 Your application failed to start up following a deploy, or issuing a restart request from the gem. You will see a crashlog with a backtrace outlining the error condition. 
 
-#### App Failed to Respond (HTTP 502)
+#### App Failed to Respond
 
 Occasionally an app may issue a zero-length response. Often, this type of error would be memory related. While Ruby handles memory errors gracefully, this is not always the case for gems with native extensions. A native extension exceeding the Dyno memory limit can cause this error.
 
-#### App Crashed (HTTP 502)
+#### App Crashed
 
 If your app crashes unexpectedly due to an uncaught exception, or perhaps broken code injected at runtime, you will see an "App Crashed" page.
 
-#### Request Timeout (HTTP 502)
+#### Request Timeout
 
 This page is shown when your dyno takes more than 30 seconds to respond to a request. Check our [Performance page](performance#request-timeout) for more info on how to avoid request timeouts.
 
+### Backlog Too Deep (HTTP 504)
+
+Your dyno(s) cannot keep up with the current request volume. See the [Performance](performance#backlog-too-deep) page for more info.
+
+### Maintenance Mode (HTTP 422)
+
+Your app has been put in [maintenance mode](maintenance-mode).
+
 ### Heroku Ouchie Page (HTTP 503)
 
-In the event of a Heroku platform error or system outage, an HTTP 503 status
-code is returned with an *Ouchie Guy*, like this:
+In the event of a Heroku platform error or system outage, an HTTP 503 status code is returned with an *Ouchie Guy*, like this:
 
 <img src="/images/ouchie.png" width='484' height='130'>
 
