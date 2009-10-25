@@ -1,0 +1,30 @@
+New Relic
+=========
+
+New Relic RPM is an on-demand performance management solution for web applications developed in Ruby. The New Relic RPM Plugin offers seamless integration with the Heroku platform enabling immediate and automatic access to RPM’s comprehensive capabilities for monitoring, troubleshooting and tuning web applications.
+
+Supported Frameworks
+--------------------
+
+RPM is only available for Ruby on Rails apps at this time.
+
+Add-on Installation
+-------------------
+
+To install the add-on, run
+
+    $ heroku addons:add newrelic:bronze
+
+What the Add-on does
+--------------------
+
+The RPM addon will automatically creates a private account on RPM, and configures access for Heroku's servers.  The add-on will then install the latest New Relic plugin if you don't already have it installed.  This is the same as you running the command:
+
+    $ script/plugin install http://newrelic.rubyforge.org/svn/newrelic_rpm
+
+We then autoconfigure your newrelic.yml file with the proper access keys.
+
+FAQ
+---
+Q: How do I customize my Appdex score?
+A: Right now, you can't.  We will offer this customization shortly.
