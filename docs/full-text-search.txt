@@ -3,6 +3,11 @@ Full text search
 
 Heroku recommends using Solr for full text search.  You have two options, running your own Solr server on any internet-connected server, or using the [Websolr add-on](http://addons.heroku.com/websolr)
 
+Websolr
+-------
+
+[Websolr](http://addons.heroku.com/websolr) is a hosted service run by Onemorecloud. The Heroku Websolr add-on provides complete integration: all you need to do is install the add-on and use the websolr-rails gem from your app.
+
 Solr
 ----
 
