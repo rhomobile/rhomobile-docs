@@ -1,20 +1,7 @@
-Full text indexing
+Full text search
 ==================
 
-For apps with small datasets to be indexed, we recommend acts_as_ferret, which is quick to setup and has no external dependencies, but is limited in how far it can scale.  For apps with large datasets, we recommend Solr, which will require setup of an external server.
-
-Ferret
-------
-
-Heroku has the Ferret and acts_as_ferret gems installed by default.  By default, acts_as_ferret stores its indexes in a location that is not writeable for Heroku apps, so you'll need to add this bit of configuration to your environment.rb:
-
-    {ruby}
-    require 'acts_as_ferret'
-    ActsAsFerret.index_dir = "#{RAILS_ROOT}/tmp/index"
-
-This will require rebuilding the indexes every time a new app server is launched, so it's not well-suited for large datasets.  But it's a good choice for getting off the ground quickly.
-
-Further reading: [http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial](http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial)
+Heroku recommends using Solr for full text search.  You have two options, running your own Solr server on any internet-connected server, or using the [Websolr add-on](http://addons.heroku.com/websolr)
 
 Solr
 ----
