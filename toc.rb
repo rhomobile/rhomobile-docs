@@ -43,6 +43,7 @@ section 'addons', "Add-ons" do
 	topic 'memcached',          'Memcached'
 	topic 'newrelic',           'New Relic RPM'
 	topic 'sendgrid',           'Sendgrid SMTP'
+	topic 'ssl',                'SSL'
 	topic 'websolr',            'Websolr Search'
 	topic 'zerigo',             'Zerigo DNS'
 end
