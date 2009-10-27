@@ -9,132 +9,64 @@ the websolr-rails gem from your app.
 Setup local machine
 -------------------
 
-### 1. Install websolr-rails
+### 1. Choose which plugin you want to use
 
-The websolr-rails gem is a fork/extension of the acts_as_solr Rails plugin
-packaged as a gem.  It includes both a `websolr` command to manipulate your
-indexes (similar to the `heroku` command) and a local copy of Solr.  Install
-it:
+There are two great plugins available for indexing, acts_as_solr and Sunspot.  At a high level, acts_as_solr is the easiest to setup, and Sunspot is more advanced though still easy.  The developer of Sunspot [posted a comparison](http://groups.google.com/group/ruby-sunspot/msg/cac676e5740aeb20).  By default, Websolr assumes you are using acts_as_solr.  
 
-    $ sudo gem install onemorecloud-websolr-rails -s http://gems.github.com
+### 2. Install the appropriate gems & plugin into your application
 
-NOTE: OS X comes with Java preinstalled, but if your OS doesn't have a JRE (Java runtime environment) already, you will need to install it.  For example, on Ubuntu this can be done with: sudo apt-get install sun-java6-jre
+Acts_as_solr
 
-### 2. Start a local Solr
+    $ script/plugin install git://github.com/onemorecloud/acts_as_solr.git
+    
+SunSpot
 
-Using the websolr command installed by websolr-rails:
+    $ gem install sunspot sunspot_rails 
+    $ script/plugin install git://github.com/onemorecloud/sunspot_rails.git
+    $ echo "sunspot -s gems.github.com" >> .gems
+    $ echo "sunspot_rails -s gems.github.com" >> .gems
+    
+### 3. Setup your config file.
+You need a config file in config/sunspot.yml.  Here's a [starting point](http://github.com/outoftime/sunspot_rails/raw/master/generators/sunspot/templates/sunspot.yml)
 
-    $ websolr local:start
-    Requiring REXML
-          
-          You haven't configured your app.  You might want to do that. I 
-          assume you just want a quick development server, so I'll start 
-          one up for you at http://localhost:8983/solr.
-          
-          You should let Rails know about it by setting the WEBSOLR_URL, i.e:
-          
-          > ./script/server WEBSOLR_URL=http://localhost:8983/solr
-          
-          If you want to set up a full environment, run websolr configure.
-          
-    Is this what you want? [yes]
+### 4. Tell your rails app about the rake commands
 
-Press enter at the prompt, you will see a bunch of scroll at Solr starts the Jetty webserver:
+    $ echo "require 'sunspot/rails/tasks'" >> Rakefile
 
-    2009-09-15 19:13:33.957::INFO:  Logging to STDERR via org.mortbay.log.StdErrLog
-    2009-09-15 19:13:34.054::INFO:  jetty-6.1.3
-    ...
-    2009-09-15 19:13:35.289::INFO:  Started SocketConnector @ 0.0.0.0:8983
-    development Solr started successfully on 8983, pid: 48055.
-
-Go to [http://localhost:8983/solr/admin/](http://localhost:8983/solr/admin/) and you should see the Solr administration panel.
-
-You can shut it down later with `websolr local:stop` from within the same Rails app directory.
-
-### 3. Use websolr-rails from your app
-
-Append this to your Rakefile:
-
-    {ruby}
-    require 'websolr_rails/tasks'
-
-And create config/initializers/websolr.rb:
-
-    {ruby}
-    require 'websolr'
-
-Add the solr directory to your gitignore, since the `websolr local:start` process stores its indexes there:
-
-    $ echo solr >> .gitignore
-
-### 4. Modify your app to index selected models
-
-Indexing a model with Solr is as easy as adding acts_as_solr to any model class we wish to index.  for example:
-
-    {ruby}
-    class Post < ActiveRecord::Base
-      acts_as_solr
-    end
-
-Since we're testing locally first, set an environment variable to point to your local Solr:
-
-    $ export WEBSOLR_URL=http://localhost:8983/solr
-
-Now you can use the solr:reindex rake task to test whether it's all working:
-
-    $ rake solr:reindex
-    (in /Users/adam/solrapp)
-    Requiring REXML
-    Clearing index for Post...
-    Sep 15, 2009 7:16:46 PM org.apache.solr.update.SolrIndexWriter getDirectory
-    ...
-    Sep 15, 2009 7:16:46 PM org.apache.solr.update.processor.LogUpdateProcessor finish
-    Sep 15, 2009 7:16:46 PM org.apache.solr.core.SolrCore execute
-    INFO: [] webapp=/solr path=/update params={} status=0 QTime=56 
-
-### 5. Try searching with Solr from the console
-
-Now the fun part: search your Solr index.
-
-    $ script/console
-    Loading development environment (Rails 2.3.2)
-    >> Post.find_by_solr('hello')
-    => #<ActsAsSolr::SearchResults:0x26b1adc @solr_data={:docs=>[#<Post id: 1, title: "Hello World"], :highlights=>{}, :max_score=>0.73360884, :total=>1, :query_time=>13}>
-
-The ActsAsSolr result set contained one document (the Post record that matched), with a match score of 0.73.  You can get access to the records like this:
-
-    >> Post.find_by_solr('hello').docs
-    => [#<Post id: 1, title: "Hello World">]
-
-The [Lucene query syntax](http://lucene.apache.org/java/2_3_2/queryparsersyntax.html) is very powerful and allows for searching multiple fields, wildcard searches, fuzzy searches, boolean operators, and more.  Read the docs and experiment to find the queries you want to use.
-
-Use Websolr with your Heroku app
---------------------------------
-
-So far everything we've done has been local, and can be deployed anywhere.  Now is the step where we'll combine the magic of Heroku with Websolr to make your app just work when it is deployed.
-
-Commit your changes and push to deploy your app to Heroku:
-
-    $ git add .
-    $ git commit -m "use websolr for full text search"
-    $ git push heroku
+### 5. Tell your rails app about the gems.  Edit your config/environment.rb to include these lines:
 
 
-Activate the Websolr add-on:
+    config.gem 'sunspot', :lib => 'sunspot'
+    config.gem 'sunspot_rails', :lib => 'sunspot/rails'
+    config.gem 'websolr-rails'
+    
+    
+### Now edit your app to use SunSpot
 
-    $ heroku addons:add websolr
-    Adding websolr to myapp...done.
+Make your models searcchable with the "searchable do" block and query with Model.search
 
-(This creates an account with Websolr and put the result into the WEBSOLR_URL config var.)  Now try it out:
+### Run a local solr server
 
-    $ heroku rake solr:reindex
-    (in /mnt/home/slugs/59513_73e1e6f_6daf/mnt)
-    Clearing index for Post...
-    Rebuilding index for Post...
-    Optimizing...
-    $ heroku console
-    Ruby console for myapp.heroku.com
-    >> Post.find_by_solr('hello').docs
-    => [#<Post id: 1, title: "Hello From The Cloud">]
+    $ rake sunspot:solr:start
+    
+    
+Heroku Configuration
+--------------------
 
-Now that you have a working full text index, you can create a search box on one of your app's pages, and post to a controller that uses find_by_solr to produce a weighted list of results for the user.
+Running Websolr on Heroku is easy.  
+
+### 1. Enable the addon
+
+    $ heroku addons:add websolr:basic
+    
+### 2. Tell websolr which plugin you are using
+
+    $ websolr heroku set client sunspot
+    
+### 3. Include the gems in your .gems file
+
+    $ echo 'sunspot --source=http://gemcutter.org' >> .gems
+    $ echo 'sunspot_rails --source=http://gemcutter.org' >> .gems
+    $ echo 'websolr-rails --source=http://gemcutter.org' >> .gems
+    
+### 4. You're running!
