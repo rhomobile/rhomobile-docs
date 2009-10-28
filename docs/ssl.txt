@@ -81,3 +81,11 @@ Heroku will allocate you a public IP address and email it to you within two busi
 
 Once your DNS is pointing to the new IP address, your site will now be accessible on https://www.yourdomain.com.
 
+FAQ
+---
+
+*Why is Custom SSL so expensive?*
+
+SSL was designed before cloud computing.  The original implementation requires that each domain have it's own dedicated IP address.  Further adding to the complexity, Amazon doesn't have a mechanism to have multiple IP addresses connected to a single instance, meaning that Heroku must spin up a dedicated instance for each domain using SSL.  
+
+SNI was designed to address this issue, and is the best way to support SSL in a cloud architecture.  Unfortunately, Microsoft has decided to not support SNI on Windows XP.  Until Vista/Windows 7 has major market penetration, for users requiring broad browser compatibiltiy Custom SSL is the only viable option.  We are providing an expensive option in favor of none at all, while we work with Amazon to provide cheaper alternatives.
