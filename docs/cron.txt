@@ -1,15 +1,22 @@
 Cron jobs
 =========
 
-If you have enabled either the nightly or hourly cron [addon](/addons), then Heroku will execute "rake cron" against your app during the given period.  You can use this to execute periodic background jobs by creating a file called `lib/tasks/cron.rake` and filling it in with your code.  For example, if you wanted to pull data from a news feed each night at midnight and put it into your database, you could create a task like this:
+Enable the daily or hourly cron addon, and Heroku will execute "rake
+cron" against your app, hourly for the hourly add-on, and once per 24 hour period with the daily add-on.  You can use this to
+execute periodic background jobs by creating a file called
+lib/tasks/cron.rake and filling it in with your code. Remember the
+task is specified in Ruby code, so you can control the cron execution
+by checking the current hour, for instance:
 
-    {ruby}
     task :cron => :environment do
-      if Time.now.hour == 0
-        puts "Updating feed..."
-        NewsFeed.nightly_update
-        puts "done."
-      end
+     if Time.now.hour % 4 == 0 # run every four hours
+       puts "Updating feed..."
+       NewsFeed.update
+       puts "done."
+     end
+     if Time.now.hour == 0 # run at midnight
+       User.send_reminders
+     end
     end
 
 To see recent results of your cron execution, type:
