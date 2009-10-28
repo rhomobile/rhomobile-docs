@@ -84,7 +84,7 @@ Once your DNS is pointing to the new IP address, your site will now be accessibl
 FAQ
 ---
 
-*Why is Custom SSL so expensive?*
+**Why is Custom SSL so expensive?**
 
 SSL was designed before cloud computing.  The original implementation requires that each domain have it's own dedicated IP address.  Further adding to the complexity, Amazon doesn't have a mechanism to have multiple IP addresses connected to a single instance, meaning that Heroku must spin up a dedicated instance for each domain using SSL.  
 
