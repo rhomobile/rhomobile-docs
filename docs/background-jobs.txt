@@ -83,7 +83,7 @@ and is currently being processed.
 Background Jobs on Heroku
 -------------------------
 
-Heroku supports single [Delayed Job](delayedjob) workers as an addon.  See the [docs](delayedjob) to add it to your application.
+Heroku supports single [Delayed Job](delayed-job) workers as an addon.  See the [docs](delayed-job) to add it to your application.
 
 
 See Also
