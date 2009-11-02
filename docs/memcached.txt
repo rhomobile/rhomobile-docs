@@ -71,7 +71,7 @@ If your site is private, but a particular page looks the same for all users who 
       before_filter :authenticate_user
       caches_action :index
 
-This would cause the authenticate_user to be executed for each pageview, but the complete cotents of the page are cached and no rendering need be done after the first pass.
+This would cause the authenticate_user to be executed for each pageview, but the complete contents of the page are cached and no rendering need be done after the first pass.
 
 If you have parts of your page that are customized to each user (such as a header showing the username), but other parts which are the same for everyone, place your cacheable HTML into a cache do .. end block.  For example:
 
