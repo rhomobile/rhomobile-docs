@@ -14,6 +14,15 @@ Add-on Installation
 To install the add-on, run
 
     $ heroku addons:add newrelic:bronze
+    
+Upgrading from an existing New Relic Install
+--------------------------------------------
+
+If you already have New Relic installed, simply install the add-on as above, and you're done.
+
+Adding the add-on will automatically point you to the integrated Heroku/New Relic account.  This means you will only see data from after you installed the add-on.
+
+You're welcome to keep or remove the plugin and configuration from your code repository.  If you remove it, we will automatically keep you up-to-date with the latest version.
 
 What the Add-on does
 --------------------
