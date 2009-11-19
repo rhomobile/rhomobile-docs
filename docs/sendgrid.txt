@@ -1,12 +1,27 @@
 Sendgrid SMTP add-on
 ===========
 
-[Sendgrid](http://www.sendgrid.com/) offers a modern, API driven approach to SMTP delivery. Several plans are available through the Heroku add-on, starting with their free plan offering 200 messages per day. All you need to get going with Sendgrid is to enable the add-on:
+[Sendgrid](http://www.sendgrid.com/) offers a modern, API driven approach to SMTP delivery. We offer two levels of Sendgrid service: the free basic service offering 200 messages per day, and the $20/month premium service that allows 30,000 emails per month.
 
-    $ heroku addons:add sendgrid
-    Adding sendgrid to myapp...done.
+Sendgrid Basic
+--------------
+
+To enable free Sendgrid add-on, simply run:
+
+    $ heroku addons:add sendgrid:basic
+    Adding sendgrid:basic to myapp...done.
     
 This automatically creates a Sendgrid account for you, and configures ActionMailer to use it by default. See the [guide](smtp) for how to send email from Rails with ActionMailer. Remember that Sendgrid lets you specify a from-address for your emails.
 
-NOTE: Adding this add-on requires that you have ActiveMailer in your application.  If you're using a standard Rails application, and haven't explicitly disabled ActiveMailer, there's nothing additional you need to do.  If you are using Sinatra/Merb/etc or have disabled ActionMailer, please make sure to enable/install it before installing this add-on
+Sendgrid Premium
+----------------
+
+Increasing your outgoing email capability is equally simple. To activate the premium Sendgrid add-on:
+
+$ heroku addons:add sendgrid:premium
+Adding sendgrid:premium to myapp...done.
+
+NOTE: Adding this add-on requires that you have ActiveMailer in your application.  If you're using a standard Rails application, and haven't explicitly disabled ActiveMailer, there's nothing additional you need to do.  If you are using Sinatra/Merb/etc or have disabled ActionMailer, please make sure to enable/install it before installing this add-on.
+
+
 
