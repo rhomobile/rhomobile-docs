@@ -18,8 +18,8 @@ Sendgrid Premium
 
 Increasing your outgoing email capability is equally simple. To activate the premium Sendgrid add-on:
 
-$ heroku addons:add sendgrid:premium
-Adding sendgrid:premium to myapp...done.
+    $ heroku addons:add sendgrid:premium
+    Adding sendgrid:premium to myapp...done.
 
 NOTE: Adding this add-on requires that you have ActiveMailer in your application.  If you're using a standard Rails application, and haven't explicitly disabled ActiveMailer, there's nothing additional you need to do.  If you are using Sinatra/Merb/etc or have disabled ActionMailer, please make sure to enable/install it before installing this add-on.
 
