@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'rdiscount'
 require 'vendor/heroku_header'
 
 set :app_file, __FILE__
@@ -40,38 +39,29 @@ end
 helpers do
 	def render_topic(topic)
 		source = File.read(topic_file(topic))
-		@topic = topic
-		@content = markdown(source)
-		@title, @content = title(@content)
-		@toc, @content = toc(@content)
-		if @toc.any?
-			@intro, @body = @content.split('<h2>', 2)
-			@body = "<h2>#{@body}"
-		else
-			@intro, @body = '', @content
-		end
+		@topic = Topic.load(topic, source)
+		
+		@title   = @topic.title
+		@content = @topic.content
+		@intro   = @topic.intro
+		@toc     = @topic.toc
+		@body    = @topic.body
+		
+    # @topic = topic
+    # @content = markdown(source)
+    # @title, @content = title(@content)
+    # @toc, @content = toc(@content)
+    # if @toc.any?
+    #   @intro, @body = @content.split('<h2>', 2)
+    #   @body = "<h2>#{@body}"
+    # else
+    #   @intro, @body = '', @content
+    # end
 		erb :topic
 	rescue Errno::ENOENT
 		status 404
 	end
-
-	def cache_long
-		response['Cache-Control'] = "public, max-age=#{60 * 60}" unless development?
-	end
-
-	def notes(source)
-		source.gsub(
-			/NOTE: (.*?)\n\n/m,
-			"<table class='note'>\n<td class='icon'></td><td class='content'>\\1</td>\n</table>\n\n"
-		)
-	end
-
-	def markdown(source)
-		html = RDiscount.new(notes(source), :smart).to_html
-		# parse custom {lang} definitions to support syntax highlighting
-		html.gsub(/<pre><code>\{(\w+)\}/, '<pre><code class="brush: \1;">')
-	end
-
+	
 	def topic_file(topic)
 		if topic.include?('/')
 			topic
@@ -80,22 +70,12 @@ helpers do
 		end
 	end
 
-	def title(content)
-		title = content.match(/<h1>(.*)<\/h1>/)[1]
-		content_minus_title = content.gsub(/<h1>.*<\/h1>/, '')
-		return title, content_minus_title
+	def cache_long
+		response['Cache-Control'] = "public, max-age=#{60 * 60}" unless development?
 	end
 
 	def slugify(title)
 		title.downcase.gsub(/[^a-z0-9 -]/, '').gsub(/ /, '-')
-	end
-
-	def toc(content)
-		toc = content.scan(/<h2>([^<]+)<\/h2>/m).to_a.map { |m| m.first }
-		content_with_anchors = content.gsub(/(<h2>[^<]+<\/h2>)/m) do |m|
-			"<a name=\"#{slugify(m.gsub(/<[^>]+>/, ''))}\"></a>#{m}"
-		end
-		return toc, content_with_anchors
 	end
 
 	def sections
