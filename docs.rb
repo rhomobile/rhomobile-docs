@@ -18,7 +18,7 @@ get '/' do
 end
 
 get '/search' do
-  erb :search
+  erb :search, :locals => {:search => search_for(params[:q])}
 end
 
 get '/getting-started' do
@@ -50,6 +50,12 @@ helpers do
 		erb :topic
 	rescue Errno::ENOENT
 		status 404
+	end
+	
+	def search_for(query)
+	  Sunspot.search(Topic) do
+	    keywords(query)
+	  end
 	end
 	
 	def topic_file(topic)
