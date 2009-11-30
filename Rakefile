@@ -14,7 +14,8 @@ end
 desc 'Index documentation'
 task :index do
   docs = FileList['docs/*.txt']
-  docs.each { |d| Sunspot.index!(topic_for(d)) }
+  docs.each { |d| Sunspot.index(topic_for(d)) }
+  Sunspot.commit
 end
 
 task :start => :server
