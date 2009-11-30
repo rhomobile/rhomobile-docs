@@ -47,16 +47,6 @@ helpers do
 		@toc     = @topic.toc
 		@body    = @topic.body
 		
-    # @topic = topic
-    # @content = markdown(source)
-    # @title, @content = title(@content)
-    # @toc, @content = toc(@content)
-    # if @toc.any?
-    #   @intro, @body = @content.split('<h2>', 2)
-    #   @body = "<h2>#{@body}"
-    # else
-    #   @intro, @body = '', @content
-    # end
 		erb :topic
 	rescue Errno::ENOENT
 		status 404
