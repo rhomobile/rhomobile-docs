@@ -1,7 +1,7 @@
 Delayed Job (DJ)
 ===========
 
-Heroku makes it easy to use DJ in your application.  You can read more about how [background jobs work](background-jobs).  There are two steps to using DJ: the first is to configure your application to use it, and the second is to enable the DJ addon on Heroku.
+Heroku makes it easy to use DJ in your application.  You can read more about how [background jobs work](background-jobs).  There are two steps to using DJ: the first is to configure your application to use it, and the second is to run one or more worker processes in your app.
 
 Initial application setup
 -------------------------
@@ -83,36 +83,41 @@ this running and add more jobs to the queue, you'll see those jobs being
 processed by the worker. Press `Ctrl-C` to exit when you no longer wish to
 process jobs.
 
-Using the DJ Heroku addon
--------------------------
+Running DJ workers on Heroku
+----------------------------
 
-Once your app uses DJ, you can start workers locally, or on a traditional
-host, using `rake jobs:work`.  On Heroku, you can't start a worker this way
-due to our dyno grid architecture; but you can use a DJ-powered app out of
-the box by enabling the DJ addon.
+Once your app uses DJ, you can start workers locally, or on a traditional host,
+using `rake jobs:work`.  On Heroku, start your worker process via the heroku
+workers command:
 
     $ cd myapp
-    $ heroku addons:add dj
-    Adding dj to widgets...done.
+    $ heroku workers 1
+    myapp is now running 1 worker
 
-Once the addon is installed, Heroku will start and manage a single DJ worker
-process for this app. You can verify that the DJ process started without
-error by inspecting the logs:
+You can verify that the DJ process started without error by inspecting the
+logs:
 
     $ heroku logs
     ==> log/Dj-6.log <==
     (in /disk1/home/slugs/10818_59891ee_3440/mnt)
     *** Starting job worker host:railgun64.5985 pid:2476
 
+Heroku will run and manage the number of worker processes you specify, and
+you'll be billed by the hour, exactly like dynos.  You can increase or decrease
+your workers as needed:
 
-To shut down the worker process, remove the addon:
+    $ heroku workers +2
+    myapp is now running 3 workers
+    $ heroku workers -1
+    myapp is now running 2 workers
 
-    $ heroku addons:remove dj
-    Removing dj from widgets...done.
+To shut down all worker processes, set workers to zero:
+
+    $ heroku workers 0
+    myapp is now running 0 workers
     
     
 [gh]: http://github.com/tobi/delayed_job/tree/master
       "tobi's delayed_job at master"
       
 [tt]: http://railstips.org/2008/11/19/delayed-gratification-with-rails
-      

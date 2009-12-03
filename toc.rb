@@ -28,7 +28,8 @@ end
 
 section 'features', "Platform Features" do
   topic 'custom-domains',      'Custom Domains'
-	topic 'dynos',              'Dynos'	
+	topic 'dynos',              'Dynos'
+	topic 'delayed-job',         'Delayed Job Workers'	
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'technologies',       'System infrastructure'
@@ -39,7 +40,6 @@ section 'addons', "Add-ons" do
   topic 'addons',             'Addons Overview'
   topic 'amazon_rds',	      'Amazon RDS'
   topic 'cron',               'Cron'
-  topic 'delayed-job',         'Delayed Job'
   topic 'deploy-hooks',       'Deploy Hooks'
 	topic 'gmail-smtp',          'Gmail SMTP'
 	topic 'memcached',          'Memcached'
