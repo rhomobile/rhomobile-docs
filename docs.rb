@@ -6,6 +6,7 @@ set :app_file, __FILE__
 
 configure :production do
 	HerokuHeader.fetch_latest('docs')
+	Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
 end
 
 not_found do
