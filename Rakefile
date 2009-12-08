@@ -34,4 +34,4 @@ end
 
 def name_for(doc)
   File.basename(doc, '.txt')
-end
+endrequire 'sunspot/rails/tasks'
