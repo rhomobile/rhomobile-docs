@@ -57,7 +57,7 @@ Running Websolr on Heroku is easy.
 
 ### 1. Enable the addon
 
-    $ heroku addons:add websolr:basic
+    $ heroku addons:add websolr
     
 ### 2. Tell websolr which plugin you are using
 
