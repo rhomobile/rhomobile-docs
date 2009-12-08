@@ -59,8 +59,9 @@ helpers do
 	
 	def search_for(query)
 	  Sunspot.search(Topic) do
-	    keywords(query)
-	    highlight :content
+	    keywords(query) do
+	      highlight :body
+      end
 	  end
 	end
 	
