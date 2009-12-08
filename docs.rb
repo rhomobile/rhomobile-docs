@@ -1,12 +1,16 @@
 require 'rubygems'
 require 'sinatra'
+require 'sunspot'
+require 'topic'
 require 'vendor/heroku_header'
+
 
 set :app_file, __FILE__
 
+Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
+
 configure :production do
 	HerokuHeader.fetch_latest('docs')
-	Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
 end
 
 not_found do
@@ -55,7 +59,9 @@ helpers do
 	
 	def search_for(query)
 	  Sunspot.search(Topic) do
-	    keywords(query)
+	    keywords(query) do
+	      highlight :content
+      end
 	  end
 	end
 	
