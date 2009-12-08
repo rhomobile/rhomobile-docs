@@ -1,3 +1,6 @@
+require 'sunspot'
+require 'topic'
+
 desc 'Start a development server'
 task :server do
 	if which('shotgun')
@@ -8,6 +11,14 @@ task :server do
 	end
 end
 
+desc 'Index documentation'
+task :index do
+  Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
+  docs = FileList['docs/*.txt']
+  docs.each { |d| Sunspot.index(topic_for(d).text_only) }
+  Sunspot.commit
+end
+
 task :start => :server
 
 def which(command)
@@ -15,4 +26,12 @@ def which(command)
 		split(':').
 		map  { |p| "#{p}/#{command}" }.
 		find { |p| File.executable?(p) }
+end
+
+def topic_for(doc)
+  Topic.load(name_for(doc), File.read(doc))
+end
+
+def name_for(doc)
+  File.basename(doc, '.txt')
 end

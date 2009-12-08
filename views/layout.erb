@@ -27,12 +27,9 @@
 	<%= HerokuHeader.show %>
 
 	<div id="docsnav">
-		<form action="/search" id="cse-search-box">
+		<form action="/search">
 			<div id="search">
-				<input type="hidden" name="cx" value="011016403564345195107:s5fypn6csxi" />
-				<input type="hidden" name="cof" value="FORID:10;NB:1" />
-				<input type="hidden" name="ie" value="UTF-8" />
-				<input type="text" name="q" size="31" />
+				<input type="text" name="q" size="31" value="<%= params[:q] || '' %>" />
 			</div>
 		</form>
 

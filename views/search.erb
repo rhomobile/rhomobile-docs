@@ -1,10 +1,23 @@
 <h1>Search Results</h1>
-<div id="cse-search-results"></div>
-<script type="text/javascript">
-  var googleSearchIframeName = "cse-search-results";
-  var googleSearchFormName = "cse-search-box";
-  var googleSearchFrameWidth = 400;
-  var googleSearchDomain = "www.google.com";
-  var googleSearchPath = "/cse";
-</script>
-<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+
+<p>Results for &quot;<%= params[:q] %>&quot;:</p>
+
+<ul id="results">
+<% search.hits.each do |hit| %>
+<% 
+
+highlight = hit.highlights(:body).first
+ if highlight
+   string = highlight.format{|word| "[[[#{word}]]]"}
+   # stripped = string.gsub(/\<[^\<]+\>/,'')
+   bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
+   highlight = bolded
+ end
+%>
+<% result = hit.instance %>
+  <li>
+    <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
+    <%= highlight %> ...
+  </li>
+<% end %>
+</ul>
