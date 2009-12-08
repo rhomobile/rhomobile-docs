@@ -2,6 +2,11 @@ require 'rdiscount'
 
 class Topic
   
+  def text_only
+    @body = @body.gsub(/\<[^\<]+\>/,'')
+    self
+  end
+  
   def self.load(topic, source)
     topic = new(topic, source)
     topic.parse

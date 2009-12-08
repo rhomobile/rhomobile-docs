@@ -60,7 +60,7 @@ helpers do
 	def search_for(query)
 	  Sunspot.search(Topic) do
 	    keywords(query) do
-	      highlight :body
+	      highlight :body, :fragment_size => 175
       end
 	  end
 	end
