@@ -3,9 +3,12 @@
 <p>Results for &quot;<%= params[:q] %>&quot;:</p>
 
 <ul id="results">
-<% search.results.each do |result| %>
+<% search.hits.each do |hit| %>
+<% highlight = hit.highlights(:content) %>
+<% result = hit.instance %>
   <li>
     <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
+    <%= highlight %>
   </li>
 <% end %>
 </ul>
