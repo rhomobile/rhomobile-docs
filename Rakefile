@@ -13,6 +13,7 @@ end
 
 desc 'Index documentation'
 task :index do
+  Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
   docs = FileList['docs/*.txt']
   docs.each { |d| Sunspot.index(topic_for(d)) }
   Sunspot.commit
