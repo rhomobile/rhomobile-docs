@@ -11,6 +11,12 @@ section 'howto', "How To" do
   topic 's3',                 'Storing uploads in S3'
 end
 
+section 'faq', "FAQ" do
+  topic 'faq-accounts-billing',    'Accounts & Billing'
+  topic 'faq-product-features',   'Product features'
+	topic 'faq-other',               'Other'
+end
+
 section 'management', "Application Management" do
 	topic 'heroku-command',     'Installing the Heroku command-line tool'
 	topic 'creating-apps',      'Creating apps'
