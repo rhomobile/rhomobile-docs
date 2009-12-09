@@ -14,8 +14,7 @@ CNAME setup
 
 Set up your domain with your registrar, then select the subdomain that you wish
 to point at your Heroku app. This could be something like `myapp.mycompany.com`,
-or the standard `www.mydomain.com`, or it could be the root-level domain,
-`mydomain.com`.
+or the standard `www.mydomain.com`.  CNAME support is only valid for hosts, not the root domain.  If you need to setup yourdomain.com, you must use the setup in the next section.
 
 Configure your DNS provider to make your chosen custom domain name be an alias
 which points to `proxy.heroku.com`. In DNS terms this is known as a CNAME.
@@ -31,21 +30,16 @@ Check that your DNS is configured correctly with the `host` command:
 Output of the host command varies by Unix flavor, but it should indicate that
 your domain name is either an alias or CNAME of `proxy.heroku.com`.
 
-This screencast will walk you through setting up DNS on Heroku with CNAMEs:
-
-<object width="500" height="375"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6917278&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6917278&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="375"></embed></object>
-
 Root domains and custom mail servers
 ------------------------------------
 
 NOTE: Due to Heroku's cloud architecture, the public IP addresses may need to be
-changed from time to time. When using the A record configuraiton, be aware that
+changed from time to time. When using the A record configuration, be aware that
 we may request that you change your settings at some point in the future.  We
 will provide advance notice, but if you do not update your addresses, your site
-may stop working.  For this reason, we <strong>strongly</strong> encourage
-the CNAME option when possible.
+may stop working.
 
-Root domains with custom mail servers (MX records) must use A instead of CNAME
+Root domains must use A records instead of CNAME
 records. Only your root domain (`mydomain.com`) may use A records. Non root
 domains (`www.mydomain.com`) must use the CNAME setup described above.
 
