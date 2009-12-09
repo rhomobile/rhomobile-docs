@@ -8,7 +8,7 @@
 
 highlight = hit.highlights(:body).first
  if highlight
-   highlight = highlight.format{|word| "<em>#{word}</em>"}
+   highlight = highlight.format{|word| "<strong>#{word}</strong>"}
    # stripped = string.gsub(/\<[^\<]+\>/,'')
    # bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
    # highlight = bolded
