@@ -8,16 +8,14 @@
 
 highlight = hit.highlights(:body).first
  if highlight
-   string = highlight.format{|word| "[[[#{word}]]]"}
+   highlight = highlight.format{|word| "<em>#{word}</em>"}
    # stripped = string.gsub(/\<[^\<]+\>/,'')
-   bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
-   highlight = bolded
+   # bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
+   # highlight = bolded
  end
 %>
 <% result = hit.instance %>
-  <li>
     <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
     <%= highlight %> ...
-  </li>
 <% end %>
 </ul>
