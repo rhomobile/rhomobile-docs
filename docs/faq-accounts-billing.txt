@@ -1,0 +1,36 @@
+Accounts and Billing
+====================
+
+How do I delete my account?
+---------------------------
+
+To delete your account, [submit a support ticket](http://support.heroku.com/tickets/new) or email support@heroku.com. In either case, it's important that you originate your request from the Heroku account email address on record, either by logging in as that user or emailing from this address.
+
+
+How do I change my email address?
+---------------------------
+
+To change your email address, [submit a support ticket](http://support.heroku.com/tickets/new) or email support@heroku.com. In either case, it's important that you originate your request from the Heroku account email address on record, either by logging in as that user or emailing from this address.
+
+Why do I have to provide my billing details to use add-ons?
+---------------------------
+
+Some features, most notably outgoing email and custom domains, carry a potential for abuse. As a business, we need to be able reliably identify and contact our users in the event of an issue. We have found that a credit card on file provides the most reliable way of obtaining verified contact information.
+
+I don't have a credit card. Can I still verify?
+-----------------------------------------------
+
+Currently, you need a credit card to verify. We continue to research other means of verification, and will announce if other methods are made available.
+
+Do you accept foreign credit cards?
+-----------------------------------
+
+Yes, a standard VISA, Mastercard or American Express should work regardless of issuing country. If your card doesn't work, please [submit a support ticket](http://support.heroku.com/tickets/new) or email support@heroku.com.
+
+
+
+
+
+
+
+
