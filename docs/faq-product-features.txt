@@ -1,4 +1,4 @@
-Platform Features
+Product Features
 ====================
 
 How does database scaling work?

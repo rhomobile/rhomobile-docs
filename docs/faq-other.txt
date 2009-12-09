@@ -1,3 +1,6 @@
+Other
+=====
+
 Do you offer support?
 ---------------------
 
@@ -12,3 +15,5 @@ Do you have an affiliate program?
 ---------------------------------
 
 Working on it! Contact us at biz@heroku.com for more info.
+
+
