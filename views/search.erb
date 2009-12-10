@@ -1,21 +1,21 @@
-<h1>Search Results</h1>
+<h1>Results for <em style="color:#4c4074"><%= params[:q] %></em>:</h1>
 
-<p>Results for &quot;<%= params[:q] %>&quot;:</p>
+<div id="results">
+  <% search.hits.each do |hit| %>
+  <% 
 
-<ul id="results">
-<% search.hits.each do |hit| %>
-<% 
-
-highlight = hit.highlights(:body).first
- if highlight
-   highlight = highlight.format{|word| "<strong>#{word}</strong>"}
-   # stripped = string.gsub(/\<[^\<]+\>/,'')
-   # bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
-   # highlight = bolded
- end
-%>
-<% result = hit.instance %>
-    <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
-    <%= highlight %> ...
-<% end %>
-</ul>
+  highlight = hit.highlights(:body).first
+   if highlight
+     highlight = highlight.format{|word| "<strong>#{word}</strong>"}
+     # stripped = string.gsub(/\<[^\<]+\>/,'')
+     # bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
+     # highlight = bolded
+   end
+  %>
+  <% result = hit.instance %>
+    <div class="result">
+      <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
+      <%= highlight %> <% if highlight %>...<% end %>
+    </div>
+  <% end %>
+</div>
