@@ -7,26 +7,36 @@ html {
 }
 
 body {
-	background: #fff repeat-x top left;
+	background: #fff;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
-    line-height:1.4286; /* 20px baseline */
+  line-height:1.4286em; /* 20px baseline */
 	color: #444258;
 	margin: 0;
 	padding: 0;
-	width: inherit;
-	height: inherit;
+	min-width: 1000px;
 }
 
 div#bodywrap {
-	width: inherit;
-	height: inherit;
-	margin: 0 auto 0 auto;
+  width:1000px;
 }
 
-.topic_content {
-	max-width:820px;
+div#content {
+  float: left;
+  width: 620px;
+	padding:10px 40px 80px 30px;
+	border-left: 1px solid #ddd;
+	margin-left: -1px;
 }
+
+#docsnav {
+  padding: 30px;
+	border-right: 1px solid #ddd;
+	width: 235px;
+	float: left;
+}
+
+
 
 a {
 	text-decoration: none;
@@ -140,14 +150,7 @@ p, ul, blockquote, pre, table {
 /* docsnav
 --------------------------------------------------*/
 
-#docsnav {
-	margin: 0;
-    padding: 2em 30px;
-	border-right: 1px solid #ddd;
-	margin-right: 2em;
-	width: 235px;
-	float: left;
-}
+
 #docsnav ul {
 	margin:0;
 	padding:0;
@@ -179,11 +182,6 @@ p, ul, blockquote, pre, table {
 
 /* content
 --------------------------------------------------*/
-
-div#content {
-	margin-left: 290px;
-	padding:10px 40px 80px 40px;
-}
 
 div#content hr {
 	border: 0;
@@ -245,4 +243,24 @@ h3 {
 #toc {
 	margin-left:0px;
 	padding-left:0;
+}
+
+/* index
+------------------------------------------------ */
+
+#index .twocol .left, #index .twocol .right {
+  float: left;
+  width: 280px;
+}
+#index .twocol .left ul, #index .twocol .right ul{
+  margin: 0;
+  padding: 0;
+  margin-left: 1.4em;
+  list-style-type: square;
+}
+#index .twocol .left {
+  margin-right: 50px;
+}
+#index .twocol .clear {
+  clear:both;
 }
