@@ -2,7 +2,7 @@
 
 ## Overview
 
-Basic usage of Heroku is free.  When you first sign up for your account, you have access to 1 dyno and 5MB of storage.  From there, you can extend your application with add-ons from our [catalog](http://addons.heroku.com).  Use of any add-on requires that we first verify your account, in order to prevent abuse.   
+Basic usage of Heroku is free.  When you first sign up for your account, you have access to 1 dyno and a 5MB database.  From there, you can extend your application with add-ons from our [catalog](http://addons.heroku.com).  Use of any add-on requires that we first verify your account, in order to prevent abuse.   
 
 Verification is completely free, and we will never charge your card until you explicitly confirm that it is OK to do so.
 
