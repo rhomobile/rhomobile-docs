@@ -21,11 +21,6 @@ end
 
 get '/' do
 	cache_long
-	render_topic 'index'
-end
-
-get '/new' do
-	cache_long
 	haml :index
 end
 
