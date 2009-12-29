@@ -20,7 +20,7 @@ Key concepts
 	 ...
 	 Time per request:       207.189 [ms] (mean)
 
-**Concurrency** - The number of requests that can be processed simulatneously.  On Heroku, your concurrency level is exactly equal to the number of dynos you have selected on the My Apps -> Resources page for your app.
+**Concurrency** - The number of requests that can be processed simultaneously.  On Heroku, your concurrency level is exactly equal to the number of dynos you have selected on the My Apps -> Resources page for your app.
 
 **Throughput** - Throughput is the number of requests that can be served in a given time period.  You can calculate your app's request-per-second throughput by dividing your concurrency (number of dynos) by your average request time.  For example, if you're running four dynos and have an average request time of 100ms, your maximum throughput will be 4 / 0.100 = 40 requests per second.
 
