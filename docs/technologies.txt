@@ -60,7 +60,7 @@ comprehensive list.
 * RestClient 0.9
 * rush 0.5
 
-Comprehensive List of System Gems
+Comprehensive List of System Rbuy Gems
 ---------------------------------
 
 See [installed-gems.heroku.com](http://installed-gems.heroku.com/) for a
