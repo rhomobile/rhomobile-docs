@@ -8,7 +8,7 @@ The base Heroku platform stack is composed of widely deployed open source
 software:
 
   * **Operating System:** Debian 4.0
-  * **Ruby:** MRI 1.8.6
+  * **Ruby Version:** MRI 1.8.6
   * **Ruby App Server**: [Thin](http://code.macournoyer.com/thin/)
   * **Web Server:** [Nginx 0.6.32](http://wiki.nginx.org/)
   * **Database:** [PostgreSQL 8.3.5](http://www.postgresql.org/)
