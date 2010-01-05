@@ -33,6 +33,12 @@ The RPM addon will automatically creates a private account on RPM, and configure
 
 We then autoconfigure your newrelic.yml file with the proper access keys.
 
+Customizing the Configuration
+-----------------------------
+New Relic allows you customize certain settings by editing your configuration file.  Since Heroku automatically writes this out, you can't directly edit the file.  By setting certain configuration variables, you can change how the configuration file is generated.
+
+    $ heroku config:add NEW_RELIC_APDEX=0.4
+
 FAQ
 ---
 Q: How do I customize my Appdex score?
