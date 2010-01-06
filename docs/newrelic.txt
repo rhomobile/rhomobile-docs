@@ -41,8 +41,3 @@ Currently we support setting a custom apdex score, and enabling parameter captur
 
     $ heroku config:add NEW_RELIC_APDEX=0.4
     $ heroku config:add NEW_RELIC_CAPTURE_PARAMS=TRUE
-
-FAQ
----
-Q: How do I customize my Appdex score?
-A: Right now, you can't.  We will offer this customization shortly.
