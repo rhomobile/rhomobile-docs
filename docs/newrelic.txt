@@ -27,7 +27,7 @@ You're welcome to keep or remove the plugin and configuration from your code rep
 What the Add-on does
 --------------------
 
-The RPM addon will automatically creates a private account on RPM, and configures access for Heroku's servers.  The add-on will then install the latest New Relic plugin if you don't already have it installed.  This is the same as you running the command:
+The RPM add-on will automatically creates a private account on RPM, and configures access for Heroku's servers.  The add-on will then install the latest New Relic plugin if you don't already have it installed.  This is the same as you running the command:
 
     $ script/plugin install http://newrelic.rubyforge.org/svn/newrelic_rpm
 
@@ -37,7 +37,10 @@ Customizing the Configuration
 -----------------------------
 New Relic allows you customize certain settings by editing your configuration file.  Since Heroku automatically writes this out, you can't directly edit the file.  By setting certain configuration variables, you can change how the configuration file is generated.
 
+Currently we support setting a custom apdex score, and enabling parameter capture.
+
     $ heroku config:add NEW_RELIC_APDEX=0.4
+    $ heroku config:add NEW_RELIC_CAPTURE_PARAMS=TRUE
 
 FAQ
 ---
