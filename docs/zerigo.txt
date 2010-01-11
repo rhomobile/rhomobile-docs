@@ -16,5 +16,3 @@ Now you can use this domain in one or more of your Heroku apps by installing the
 
 Once installed, any domains added or removed via the heroku command-line tool will automatically be added to Zerigo's globally distributed DNS servers.  Updates happen instantly and Heroku will always keep your DNS records correct, meaning you never need to worry about them again.
 
-NOTE: You currently can not define additional records when using the Zerigo add-on.  This means you can not specify MX records or non-heroku records.  A future update will fix this.
-

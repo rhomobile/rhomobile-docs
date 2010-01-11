@@ -15,6 +15,7 @@ This automatically creates a Sendgrid account for you, and configures ActionMail
 
 NOTE: Adding this add-on requires that you have ActiveMailer in your application.  If you're using a standard Rails application, and haven't explicitly disabled ActiveMailer, there's nothing additional you need to do.  If you are using Sinatra/Merb/etc or have disabled ActionMailer, please make sure to enable/install it before installing this add-on.
 
+NOTE: Make sure you configure a From: address when using SendGrid. Without it, SendGrid will silently drop emails.
 
 Sendgrid Premium
 ----------------
