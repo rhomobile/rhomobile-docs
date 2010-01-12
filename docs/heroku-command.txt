@@ -7,6 +7,12 @@ taking backups, and configuring add-ons. Most app management activities require
 the `heroku` command to be installed and configured alongside your local
 working environment.
 
+The command-line tool also has a plugin architecture that allows developers to 
+extend the functionality of the command.
+
+Installation
+------------
+
 [Sign-up for a Heroku account](http://heroku.com/signup) if you haven't already
 and then install the "heroku" gem. You will be asked to enter your Heroku
 credentials the first time you run a command. 
@@ -22,7 +28,8 @@ heroku gem so that you can use git to push or clone Heroku app repositories:
     Password: 
     Uploading ssh public key /Users/joe/.ssh/id_rsa.pub
 
-### Usage
+Usage
+-----
 
 Running `heroku help` displays a usage summary:
 
@@ -119,3 +126,37 @@ remote as follows:
     $ heroku info --app myapp
     $ heroku info --app www.example.com
     $ heroku info --remote staging
+
+Plugins
+-------
+
+Plugins allow developers to extend the functionality of the Heroku command interface, adding commands or features.
+
+	=== Plugins
+	plugins                      # list installed plugins
+	plugins:install <url>        # install the plugin from the specified git url
+	plugins:uninstall <url/name> # remove the specified plugin
+
+
+### Installing Plugin
+
+To install a plugin, you need to know the git url for the plugin.  Use the heroku plugins:install command, and specify the git repo:
+
+    $ heroku plugins:install git://github.com/hone/heroku_colorize_console.git
+
+### List plugins
+
+To see a list of currently installed plugins:
+
+    $ heroku plugins
+	heroku_tab_complete_console
+	
+### Removing Plugins
+
+    $ heroku plugins:uninstall heroku_tab_complete_console
+
+### List of available plugins
+
+This <a href="http://wiki.github.com/heroku/heroku">wiki page</a> keeps a list of currently known plugins.
+
+

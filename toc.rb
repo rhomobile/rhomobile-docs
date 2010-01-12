@@ -18,7 +18,7 @@ section 'faq', "FAQ" do
 end
 
 section 'management', "Application Management" do
-	topic 'heroku-command',     'Installing the Heroku command-line tool'
+	topic 'heroku-command',     'Heroku command-line'
 	topic 'creating-apps',      'Creating apps'
 	topic 'renaming-apps',      'Renaming apps'
 	topic 'git',                'Deploying with Git'
