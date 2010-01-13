@@ -24,11 +24,11 @@ Email
 
 This hook will send one or more emails. You can specify the subject and body, as follows:
 
-    $ heroku addons:add email_hook \
+    $ heroku addons:add deployhooks:email \
         recipient=me@example.com \
         subject="Myapp Deployed" \
         body="{{user}} deployed app"
-    Adding email_hook to myapp...Done.
+    Adding deployhooks:email to myapp...Done.
 
 Email multiple recipients by adding additional email addresses separated by spaces.
 
@@ -37,22 +37,22 @@ IRC
 
 An IRC bot will connect to the specified server and message the room.
 
-    $ heroku addons:add irc_hook \
+    $ heroku addons:add deployhooks:irc \
         server=irc.freenode.net \
         room=devlounge \
         nick=mydeploybot \
         password=secret \
         message="{{user}} deployed app"
-    Adding irc_hook to myapp...Done.
+    Adding deployhooks:irc to myapp...Done.
 
 Nick and password are optional. You can also set the server port by sending port=1234.
 
 Basecamp
 --------
 
-This hook will post a message to any Basecamp account you specify, under a certain project and post category (both specified by the name). Example:
+This hook will post a message to any Basecamp account you specify, under a certain project and post category (both specified by the name).
 
-    $ heroku addons:add basecamp_hook \
+    $ heroku addons:add deployhooks:basecamp \
         url=http://myaccount.basecamphq.com \
         username=deploybot \
         password=secret \
@@ -60,20 +60,29 @@ This hook will post a message to any Basecamp account you specify, under a certa
         category=deploys \
         title="{{user}} deployed myapp" \
         body="check it at {{url}}"
-    Adding campfire_hook to myapp...Done.
+    Adding deployhooks:basecamp to myapp...Done.
 
 Campfire
 --------
 
-Have any Campfire room receive an automated message when your app is pushed. Install it like:
+Have any Campfire room receive an automated message when your app is pushed.
 
-    $ heroku addons:add campfire_hook \
+    $ heroku addons:add deployhooks:campfire \
         url=mycampfiredomain \
         email=me@example.com \
         password=secret \
         room=devlounge \
         message="{{user}} deployed myapp"
-    Adding campfire_hook to myapp...Done.
+    Adding deployhooks:campfire to myapp...Done.
+
+HTTP Post Hook
+--------------
+
+Performs an HTTP post to URL of your choice.
+
+    $ heroku addons:add deployhooks:http \
+        url=http://example.org
+    Adding deployhooks:http to myapp...Done.
 
 Customizing messages
 --------------------
