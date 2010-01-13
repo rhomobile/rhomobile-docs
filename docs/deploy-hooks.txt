@@ -98,3 +98,4 @@ Available variables are:
 * **url**: the app URL (http://myapp.heroku.com or http://mydomain.com if you have custom domains enabled)
 * **head**: short identifier of the latest commit (first seven bytes of the SHA1 git object name)
 * **head_long**: full identifier of the latest commit
+* **git_log**: log of commits between this deploy and the last
