@@ -79,5 +79,19 @@ pageTracker._trackPageview();
 </script>
 <% end %>
 
+<!-- Kiss Metrics -->
+<script type="text/javascript">
+  var KM_KEY = "858f55e10be896dee1d2f37f77198c31a0b90064";
+  var KM_COOKIE_DOMAIN = 'heroku.com';
+  document.write(unescape("%3Cscript src='" + (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "scripts.kissmetrics.com/t.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  if (document.location.pathname.toLowerCase() == "/" )
+    KM.record("Docs Home Page")
+  if (document.location.pathname.toLowerCase() == '/quickstart') 
+	KM.record("Quickstart Guide")
+</script>
+
+
 </body>
 </html>
