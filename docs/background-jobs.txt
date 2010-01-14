@@ -1,4 +1,4 @@
-Background Jobs
+Background Jobs / Workers
 ===============
 
 Queueing is the key to building truly scalable web apps. Don't do any heavy
@@ -9,8 +9,6 @@ always return immediately.
 A good rule of thumb is to avoid web requests which run longer than 500ms.
 If you find that your app has requests which are take one, two, or more
 seconds to complete, then you should consider using background jobs instead.
-
-* You can find another great tutorial at [The Rails Way Blog](http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job)
 
 Introduction to job queues
 --------------------------
@@ -83,27 +81,6 @@ and is currently being processed.
 Background Jobs on Heroku
 -------------------------
 
-Heroku supports single [Delayed Job](delayed-job) workers as an addon.  See the [docs](delayed-job) to add it to your application.
+Heroku supports multiple [Delayed Job](delayed-job) workers.  See the [docs](delayed-job) to add it to your application.
 
-
-See Also
---------
-
-  * [Tobias Lütke's introductory blog post on DJ][dj]
-  * [The delayed_job github project][gh]
-  * [John Nunemaker's DJ tutorial][tt]
-  * [Building a Queue-Backed Feed Reader][qf]
-  * [The Rails Way on Delayed Job][rw]
-
-[gh]: http://github.com/tobi/delayed_job/tree/master
-      "tobi's delayed_job at master"
-
-[dj]: http://blog.leetsoft.com/2008/2/17/delayed-job-dj
-      "Delayed Job (DJ)"
-
-[tt]: http://railstips.org/2008/11/19/delayed-gratification-with-rails
-
-[qf]: http://adam.blog.heroku.com/past/2009/4/14/building_a_queuebacked_feed_reader_part_1/
-
-[rw]: http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
 
