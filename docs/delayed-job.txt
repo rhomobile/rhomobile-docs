@@ -103,7 +103,7 @@ logs:
     *** Starting job worker host:railgun64.5985 pid:2476
 
 Heroku will run and manage the number of worker processes you specify, and
-you'll be billed by the hour, exactly like dynos.  You can increase or decrease
+you'll be billed to a prorated second, exactly like dynos.  You can increase or decrease
 your workers as needed:
 
     $ heroku workers +2

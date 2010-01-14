@@ -81,6 +81,8 @@ and is currently being processed.
 Background Jobs on Heroku
 -------------------------
 
-Heroku supports multiple [Delayed Job](delayed-job) workers.  See the [docs](delayed-job) to add it to your application.
+Heroku supports multiple [Delayed Job](delayed-job) workers.  Workers are charged at the same rate as Dynos: $0.05 per hour, prorated to the second.  Unlike Dynos, Workers are starting with the first worker.   For example, an application with 3 workers for 3 hours will be charged $0.15 for each hour the workers are running.
+
+See the [docs](delayed-job) to add it to your application.
 
 

@@ -6,10 +6,10 @@ How does database scaling work?
 
 Heroku can scale your PostgreSQL database vertically. Switching between plans within our shared database tier is instant and seamless. All that changes is the amount of allocated database storage. Switching to/from a dedicated database usually takes one business day as our support staff processes the requests, and verifies that data migrations completed successfully.
 
-How does dyno scaling work?
+How does dyno & worker scaling work?
 ---------------------------
 
-There are three ways to scale your dynos: with the slider on the resources page for your app, using the heroku command-line client or directly through the API. Either way, changes are almost instant - it only takes a few seconds to deploy your requested number into the [dyno grid](http://heroku.com/how/dyno_grid). Also, dynos are billed by the hour ($0.05/hour), so if you want to experiment with different configurations, you can do so and only be billed for actual dyno hours consumed. Remember, it's your responsibility to set the correct number of dynos for your app.
+There are three ways to scale your dynos and workers: with the slider on the resources page for your app, using the heroku command-line client or directly through the API. Either way, changes are almost instant - it only takes a few seconds to deploy your requested number into the [dyno grid](http://heroku.com/how/dyno_grid). Dynos and workers are prorated to the second, so if you want to experiment with different configurations, you can do so and only be billed for actual seconds set. Remember, it's your responsibility to set the correct number of dynos & workers for your app.
 
 What Rails versions do you support?
 -----------------------------------

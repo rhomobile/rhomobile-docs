@@ -87,7 +87,7 @@ available to process requests.
 
 The number of dynos allocated to an app may be changed at any time by visiting
 the app's *Resources* page in [My Apps](http://heroku.com/myapps).  The first
-dyno is always free; subsequent dynos cost $0.05 per hour. For example, an app
-with four dynos is charged $0.15 per hour for each hour that the four dynos are
-running. See the [pricing page](http://heroku.com/pricing) for an estimate
-monthly cost under various configurations.
+dyno is always free; subsequent dynos cost $0.05 per hour, prorated to the second. 
+For example, an app with four dynos is charged $0.15 per hour for each hour that 
+the four dynos are running. See the [pricing page](http://heroku.com/pricing) for 
+an estimate monthly cost under various configurations.

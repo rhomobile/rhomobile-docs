@@ -1,6 +1,14 @@
 Accounts and Billing
 ====================
 
+How do you prorate charges?
+---------------------------
+Dynos & Workers are prorated per second at a rate of $0.05/hr.  Dynos and workers are charged based on the number you have set, regardless of the amount of activity they are receiving.
+
+Databases are prorated per hour, based on their applicable monthly fee.  
+
+All add-ons are prorated per second, unless explicitly noted otherwise.
+
 How do I delete my account?
 ---------------------------
 
