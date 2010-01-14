@@ -40,6 +40,6 @@ module HerokuHeader
 	end
 
 	def heroku_domain
-		ENV['HEROKU_HOST'] || "heroku.com"
+		ENV['HEROKU_HOST'] || "api.heroku.com"
 	end
 end
