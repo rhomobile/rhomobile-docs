@@ -11,7 +11,7 @@ DataMapper or Sequel ORMs, the `DATABASE_URL` environment variable contains
 database connection details.
 
 There are [multiple database packages to choose from](http://heroku.com/pricing),
-and you can change plans at any time. The _Blossom_, _Koi_, and _Crane_ plans
+and you can change plans at any time. The _Blossom_ and _Koi_ plans
 are hosted within Heroku's shared database cluster, while the _Ronin_, _Fugu_,
 and _Zilla_ plans are hosted on a high-performance machine dedicated to your
 app. Database redundancy and failover is fully managed by Heroku's infrastructure
@@ -23,7 +23,7 @@ Shared vs. Dedicated
 
 Heroku offers you the choice of running on a shared or dedicated database package.  In general, the shared database will give you better peak performance at a lower price, with the tradeoff that your performance may be impacted by the operations of another user.  Dedicated databases offer predictable performance at a higher cost.
 
-Database performance on Heroku is measured by "CPU Units".  A CPU Unit is a measure of how fast the CPU and overall IO of the underlying machine are.  Shared databases run on very high performance machines, shared amoung many different applications.  Dedicated databases allow you to choose the performance package that best meets your needs.
+Database performance on Heroku is measured by "CPU Units".  A CPU Unit is a measure of how fast the CPU and overall IO of the underlying machine are.  Shared databases run on very high performance machines, shared among many different applications.  Dedicated databases allow you to choose the performance package that best meets your needs.
 
 Note that CPU unit is only a measure of database performance.  Regardless of which database you choose, each <a href="http://heroku.com/how/dynos">dyno</a> is it's own independent grid process. 
 
