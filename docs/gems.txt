@@ -1,24 +1,88 @@
 Managing Gems
 ==============
 
-Overview
---------
+Ruby gems can be installed on Herou via [Gem Bundler](http://github.com/wycats/bundler) or the Heroku gem manifest.  Both are supported, but you may prefer Bundler as it is the up-and-coming community standard, and can be used to manage gems locally.
 
-Every Heroku app includes a private gem repository that can be used to install
-both pure-ruby gems and compiled extension gems. Gems available to an
-application are determined by a simple `.gems` manifest file located in the root
-of the application directory and versioned in the app's git repository like any
-other file. When a new version of the app is pushed to Heroku, any changes to
-the `.gems` file are detected and new gems are installed along with their
-dependencies.
+Gem Bundler
+-----------
 
-Using the `.gems` manifest has some distinct advantages over freezing gems under
-an application's `vendor/gems` directory. Freezing gems can make your git
-repository quite large, which slows down push and deploy operations. More
-importantly, it's possible to install compiled extension gems via the manifest
-file, whereas frozen vendor gems are limited to pure-ruby libraries.
+Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  To use, install bundler:
 
-System Gems
+    $ sudo gem install bundler
+
+Create a Gemfile in the root of your app, with contents like this:
+
+    {ruby}
+    gem 'sinatra', '0.9.4'
+
+Bundle your gems by running:
+
+    $ gem bundle
+
+The gems will be placed into vendor/gems.  You will probably want to add vendor/gems to your .gitignore.
+
+When you push to Heroku, the Gemfile will be detected and your gems bundled automatically:
+
+    -----> Heroku receiving push
+
+    -----> Gemfile detected, running gem bundle
+           Calculating dependencies...
+           Updating source: http://gems.rubyforge.org
+           Downloading rack-1.1.0.gem
+           Downloading sinatra-0.9.4.gem
+           Installing rack (1.1.0)
+           Installing sinatra (0.9.4)
+           Done.
+
+To use gems from your bundler environment under Sinatra or other non-Rails framework, add the following to the top of your app:
+
+    {ruby}
+    require File.dirname(__FILE__) + '/vendor/gems/environment'
+    Bundler.require_env
+
+If you're using Rails 1.x or 2.x, you'll need to add the following line to the top of your Gemfile:
+
+    {ruby}
+    bundle_path 'vendor/bundler_gems'
+
+Then add vendor/bundler_gems to your .gitignore.  Finally, create config/preinitializer.rb with the following contents:
+
+    {ruby}
+    require "#{File.dirname(__FILE__)}/../vendor/bundler_gems/environment"
+     
+    class Rails::Boot
+      def run
+        load_initializer
+        extend_environment
+        Rails::Initializer.run(:set_load_path)
+      end
+     
+      def extend_environment
+        Rails::Initializer.class_eval do
+          old_load = instance_method(:load_environment)
+          define_method(:load_environment) do
+            Bundler.require_env RAILS_ENV
+            old_load.bind(self).call
+          end
+        end
+      end
+    end
+
+Further reading:
+
+* [Yehuda Katz: Using the New Gem Bundler Today](http://yehudakatz.com/2009/11/03/using-the-new-gem-bundler-today/)
+* [Nick Quaranto: Gem Bundler is the Future](http://litanyagainstfear.com/blog/2009/10/14/gem-bundler-is-the-future/)
+* [Gem Bundler readme](http://github.com/wycats/bundler)
+
+Heroku gem manifest overview
+----------------------------
+
+Another method for specifying your gem dependencies is the Heroku gems
+manifest, which is a `.gems` file in the root of your app.  When a new version
+of the app is pushed to Heroku, any changes to the `.gems` file are detected
+and new gems are installed along with their dependencies.
+
+System gems
 -----------
 
 All apps deployed to Heroku have access to a number of gems installed as part of
@@ -27,7 +91,7 @@ for a comprehensive listing.
 
 Gems installed as part of your application override Heroku system gems.
 
-Creating a Gem Manifest File
+Creating a gem manifest file
 ----------------------------
 
 The gems manifest is a simple text file that includes information about each of
@@ -58,7 +122,7 @@ Each line of the `.gems` file includes the following:
 **TIP:** The `--version` and `--source` options have short forms just like the
 `gem` command; use `-v` and `-s`, respectively.
 
-Deploying Gem Changes
+Deploying gem changes
 ---------------------
 
 When a `.gems` manifest file is added or modified, it must be committed to the
