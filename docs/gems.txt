@@ -1,7 +1,7 @@
 Managing Gems
-==============
+=============
 
-Ruby gems can be installed on Herou via [Gem Bundler](http://github.com/wycats/bundler) or the Heroku gem manifest.  Both are supported, but you may prefer Bundler as it is the up-and-coming community standard, and can be used to manage gems locally.
+Ruby gems can be installed on Herou via [Gem Bundler](http://github.com/wycats/bundler) or the Heroku gem manifest.  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is the up-and-coming community standard, and can be used to manage gems locally.
 
 Gem Bundler
 -----------
@@ -34,13 +34,17 @@ When you push to Heroku, the Gemfile will be detected and your gems bundled auto
            Installing sinatra (0.9.4)
            Done.
 
+### Using Bundler from Sinatra or any Rack app
+
 To use gems from your bundler environment under Sinatra or other non-Rails framework, add the following to the top of your app:
 
     {ruby}
     require File.dirname(__FILE__) + '/vendor/gems/environment'
     Bundler.require_env
 
-If you're using Rails 1.x or 2.x, you'll need to add the following line to the top of your Gemfile:
+### Using Bundler from Rails 2.x
+
+If you're using Rails below version 3.0, you'll need to add the following line to the top of your Gemfile:
 
     {ruby}
     bundle_path 'vendor/bundler_gems'
@@ -68,22 +72,31 @@ Then add vendor/bundler_gems to your .gitignore.  Finally, create config/preinit
       end
     end
 
-Further reading:
+### Binary gems
+
+Gem bundler will build binary gems for you.  Because your gems directory is ignored, developers who get a fresh checkout of the app will need to run "gem bundle" to build the gems for their local system.
+
+### Bundle everything
+
+The recommended use of gem bundler is to bundle absolutely every gem your app depends upon.  This includes your framework (Rails, Sinatra, etc).  This doesn't add anything to your repository size if you've gitignored the vendored gems directory.
+
+Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
+
+### Further reading
 
 * [Yehuda Katz: Using the New Gem Bundler Today](http://yehudakatz.com/2009/11/03/using-the-new-gem-bundler-today/)
 * [Nick Quaranto: Gem Bundler is the Future](http://litanyagainstfear.com/blog/2009/10/14/gem-bundler-is-the-future/)
 * [Gem Bundler readme](http://github.com/wycats/bundler)
 
-Heroku gem manifest overview
-----------------------------
+Heroku gem manifest
+-------------------
 
 Another method for specifying your gem dependencies is the Heroku gems
 manifest, which is a `.gems` file in the root of your app.  When a new version
 of the app is pushed to Heroku, any changes to the `.gems` file are detected
 and new gems are installed along with their dependencies.
 
-System gems
------------
+### System gems
 
 All apps deployed to Heroku have access to a number of gems installed as part of
 the [base platform](technologies). See [installed-gems.heroku.com](http://installed-gems.heroku.com)
@@ -91,8 +104,7 @@ for a comprehensive listing.
 
 Gems installed as part of your application override Heroku system gems.
 
-Creating a gem manifest file
-----------------------------
+### Creating a gem manifest file
 
 The gems manifest is a simple text file that includes information about each of
 the gems required by an application. Each entry in the manifest includes a
@@ -122,8 +134,7 @@ Each line of the `.gems` file includes the following:
 **TIP:** The `--version` and `--source` options have short forms just like the
 `gem` command; use `-v` and `-s`, respectively.
 
-Deploying gem changes
----------------------
+### Deploying gem changes
 
 When a `.gems` manifest file is added or modified, it must be committed to the
 app's git repository and pushed to Heroku for changes to take effect. The actual
