@@ -23,7 +23,7 @@ Shared vs. Dedicated
 
 Heroku offers you the choice of running on a shared or dedicated database package.  In general, the shared database will give you better peak performance at a lower price, with the tradeoff that your performance may be impacted by the operations of another user.  Dedicated databases offer predictable performance at a higher cost.
 
-Database performance on Heroku is measured by "CPU Units".  A CPU Unit is a measure of how fast the CPU and overall IO of the underlying machine are.  Shared databases run on very high performance machines, shared among many different applications.  Dedicated databases allow you to choose the performance package that best meets your needs.
+<a name="cpu_units">Database performance on Heroku is measured by "CPU Units".  A CPU Unit is a measure of how fast the CPU and overall IO of the underlying machine are.  Shared databases run on very high performance machines, shared among many different applications.  Dedicated databases allow you to choose the performance package that best meets your needs.
 
 Note that CPU unit is only a measure of database performance.  Regardless of which database you choose, each <a href="http://heroku.com/how/dynos">dyno</a> is it's own independent grid process. 
 
