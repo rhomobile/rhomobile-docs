@@ -1,7 +1,7 @@
 Managing Gems
 =============
 
-Ruby gems can be installed on Herou via [Gem Bundler](http://github.com/wycats/bundler) or the Heroku gem manifest.  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is the up-and-coming community standard, and can be used to manage gems locally.
+Ruby gems can be installed on Heroku via [Gem Bundler](http://github.com/wycats/bundler) or the Heroku gem manifest.  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is the up-and-coming community standard, and can be used to manage gems locally.
 
 Gem Bundler
 -----------
