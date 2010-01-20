@@ -6,15 +6,15 @@ section 'getting-started', "Getting Started" do
 end
 
 section 'howto', "How To" do
-  topic 'background-jobs',    'Background jobs'
-  topic 'full-text-search',   'Full text search'
+	topic 'background-jobs',    'Background jobs'
+	topic 'full-text-search',   'Full text search'
 	topic 'smtp',               'Outbound email'
-  topic 's3',                 'Storing uploads in S3'
+	topic 's3',                 'Storing uploads in S3'
 end
 
 section 'faq', "FAQ" do
-  topic 'faq-accounts-billing',    'Accounts & Billing'
-  topic 'faq-product-features',   'Product features'
+	topic 'faq-accounts-billing',   'Accounts & Billing'
+	topic 'faq-product-features',   'Product features'
 end
 
 section 'management', "Application Management" do
@@ -33,9 +33,9 @@ section 'management', "Application Management" do
 end
 
 section 'features', "Platform Features" do
-  topic 'custom-domains',      'Custom Domains'
+	topic 'custom-domains',     'Custom Domains'
 	topic 'dynos',              'Dynos'
-	topic 'delayed-job',         'Delayed Job Workers'	
+	topic 'delayed-job',        'Delayed Job Workers'
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'slug-compiler',      'Slug compiler'
@@ -44,17 +44,17 @@ section 'features', "Platform Features" do
 end
 
 section 'addons', "Add-ons" do
-  topic 'addons',             'Addons Overview'
-  topic 'amazon_rds',	      'Amazon RDS'
-  topic 'cron',               'Cron'
-  topic 'deploy-hooks',       'Deploy Hooks'
-	topic 'gmail-smtp',          'Gmail SMTP'
-	topic 'memcached',          'Memcached'
-	topic 'newrelic',           'New Relic RPM'
-	topic 'sendgrid',           'Sendgrid SMTP'
-	topic 'ssl',                'SSL'
-	topic 'websolr',            'Websolr Search'
-	topic 'zerigo',             'Zerigo DNS'
+	topic 'addons',            'Addons Overview'
+	topic 'amazon_rds',        'Amazon RDS'
+	topic 'cron',              'Cron'
+	topic 'deploy-hooks',      'Deploy Hooks'
+	topic 'gmail-smtp',        'Gmail SMTP'
+	topic 'memcached',         'Memcached'
+	topic 'newrelic',          'New Relic RPM'
+	topic 'sendgrid',          'Sendgrid SMTP'
+	topic 'ssl',               'SSL'
+	topic 'websolr',           'Websolr Search'
+	topic 'zerigo',            'Zerigo DNS'
 end
 
 section 'troubleshooting', "Troubleshooting" do
