@@ -1,0 +1,33 @@
+Slug Compiler
+=============
+
+When you git push to Heroku, your code is received by the slug compiler.  Slug compiler transforms your repository into a slug, which is a compressed package optimized for lightning-fast distribution across the dyno grid.
+
+Compile steps
+-------------
+
+The slug compiler is invoked by a git pre-receive hook.  The compile steps are:
+
+1. Create a fresh checkout of HEAD from the master branch.
+2. Download, build, and install local gems from the .gems manifest or gem bundler Gemfile.
+3. Remove unused files, including the .git directory, anything in log and tmp, .gem files in the bundled gems directory, and anything specified in .slugignore.
+4. Write the environment into the slug.  (The slug is rebuilt any time a config var is added or removed, or an addon added or removed.)
+5. Package into the final slug archive.
+
+Slugignore
+----------
+
+If your repository contains files not necessary to run your app, you may wish to add these to a .slugignore file in the root of your repository, to have them deleted from the checkout prior to packaging the slug.  Examples of files you may wish to exclude from the slug:
+
+* Unit tests or specs
+* Art sources (like .psd files)
+* Design documents (like .pdf files)
+* Test data (for example, the feedtools gem has 11 megs of XML sample files for its unit tests)
+
+The format is roughly similar to .gitignore.  Here's an example .slugignore:
+
+    *.psd
+    *.pdf
+    test
+    spec
+

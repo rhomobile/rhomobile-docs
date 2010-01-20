@@ -38,6 +38,7 @@ section 'features', "Platform Features" do
 	topic 'delayed-job',         'Delayed Job Workers'	
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
+	topic 'slug-compiler',      'Slug compiler'
 	topic 'technologies',       'System infrastructure'
 	topic 'database',           'SQL database'
 end
