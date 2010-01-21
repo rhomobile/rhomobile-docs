@@ -15,7 +15,7 @@ Create a Gemfile in the root of your app, with contents like this:
     {ruby}
     gem 'sinatra', '0.9.4'
 
-NOTE: Do not use `disable_system_gems` in your Gemfile
+NOTE: Do not use disable_system_gems in your Gemfile
 
 Bundle your gems by running:
 
