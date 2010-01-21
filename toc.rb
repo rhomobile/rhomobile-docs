@@ -3,6 +3,7 @@ section 'getting-started', "Getting Started" do
 	topic 'quickstart',      'Quickstart Guide'
 	topic 'collab',          'Collaborator Quickstart'
 	topic 'billing',         'Confirmation & Verification'
+	topic 'windows',         'Ruby on Windows'
 end
 
 section 'howto', "How To" do
