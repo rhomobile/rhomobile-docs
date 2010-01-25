@@ -23,7 +23,6 @@ So how do you accomplish each of the following in a way that is compatible with 
 
 * Caching - Use HTTP headers instead of writing to the filesystem.  See [an example of dynamically generated image caching](/http-caching#example-caching-barcode-images-generated-with-imagemagick).
 * Saving uploaded assets - Use an asset store system like Amazon S3.  See [large static assets](/constraints#large-static-assets).
-* Writing full-text indexes with Ferret - You can stash temporary indexes in `tmp`, as described [here](/full-text-indexing#ferret).
 * SQLite or GDBM - Use the provided PostgreSQL database instead of a filesystem database.
 * Accessing a git repo - Sorry, but git-wiki and apps that use a similar technique won't work on Heroku. As clever as git-wiki is, it is fundamentally non-scalable and non-replicatable.
 
