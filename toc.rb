@@ -11,6 +11,8 @@ section 'howto', "How To" do
 	topic 'full-text-search',   'Full text search'
 	topic 'smtp',               'Outbound email'
 	topic 's3',                 'Storing uploads in S3'
+	topic 'custom-domains',     'DNS & Custom Domains'
+	
 end
 
 section 'faq', "FAQ" do
@@ -34,7 +36,6 @@ section 'management', "Application Management" do
 end
 
 section 'features', "Platform Features" do
-	topic 'custom-domains',     'Custom Domains'
 	topic 'dynos',              'Dynos'
 	topic 'delayed-job',        'Delayed Job Workers'
 	topic 'http-caching',       'HTTP cache'

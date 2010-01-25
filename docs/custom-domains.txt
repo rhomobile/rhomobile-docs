@@ -5,64 +5,16 @@ All Heroku apps are accessible via their heroku.com subdomain:
 `appname.heroku.com`. Enabling the custom domains [add-on](/addons) allows you
 to assign additional custom and wildcard domain names.
 
-You can use the Zerigo DNS add-on for completely managed DNS service
-(recommended), or use your own DNS provider and manually configure CNAME or A
-records (root-level domains only) for your domains.
-
-CNAME setup
------------
-
-Set up your domain with your registrar, then select the subdomain that you wish
-to point at your Heroku app. This could be something like `myapp.mycompany.com`,
-or the standard `www.mydomain.com`.  CNAME support is only valid for hosts, not the root domain.  If you need to setup yourdomain.com, you must use the setup in the next section.
-
-Configure your DNS provider to make your chosen custom domain name be an alias
-which points to `proxy.heroku.com`. In DNS terms this is known as a CNAME.
-
-Check that your DNS is configured correctly with the `host` command:
-
-    $ host www.example.com
-    www.example.com is an alias for proxy.heroku.com.
-    proxy.heroku.com has address 75.101.163.44
-    proxy.heroku.com has address 75.101.145.87
-    proxy.heroku.com has address 174.129.212.2 
-
-Output of the host command varies by Unix flavor, but it should indicate that
-your domain name is either an alias or CNAME of `proxy.heroku.com`.
-
-Root domains and custom mail servers
-------------------------------------
-
-NOTE: Due to Heroku's cloud architecture, the public IP addresses may need to be
-changed from time to time. When using the A record configuration, be aware that
-we may request that you change your settings at some point in the future.  We
-will provide advance notice, but if you do not update your addresses, your site
-may stop working.
-
-Root domains must use A records instead of CNAME
-records. Only your root domain (`mydomain.com`) may use A records. Non root
-domains (`www.mydomain.com`) must use the CNAME setup described above.
-
-To setup your root domain, add separate A records for each of the following
-addresses using your DNS management tool:
-
-    75.101.163.44
-    75.101.145.87
-    174.129.212.2
-
-Check that your DNS is configured correctly with the "host" command:
-
-    $ host example.com
-    example.com has address 75.101.163.44
-    example.com has address 75.101.145.87
-    example.com has address 174.129.212.2
-
-<object width="500" height="375"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6918287&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6918287&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="375"></embed></object>
+After assigning a custom domain to your app, you must also point DNS to Heroku.
+You can use the [Zerigo DNS](zerigo) add-on for completely managed DNS service, 
+or use your own DNS provider and manually configure the records for your domains.
 
 Heroku setup
 ------------
 
-Once you've installed the [Zerigo DNS add-on](zerigo) or manually configured your DNS, you can proceed to enabling the custom domains [add-on](/addons) for the app:
+The first step is to tell Heroku to respond to requests at your domain.  This requires adding the custom_domain addon, and telling Heroku what domain to respond to.
+
+NOTE: You must add both www.yourdomain.com and youdomain.com if you want both to work.  You must specify each host you want Heroku to recognize
 
     $ heroku addons:add custom_domains
     Adding wildcard_domains to myapp...done.
@@ -71,6 +23,8 @@ Then inform Heroku of the domain you are using:
 
     $ heroku domains:add www.example.com
     Added www.example.com as a custom domain name to myapp.heroku.com
+    $ heroku domains:add example.com
+    Added example.com as a custom domain name to myapp.heroku.com
 
 You can add any number of domains to a single app by repeating the add command
 with different values.
@@ -86,23 +40,50 @@ have one domain):
     $ heroku domains:clear
     Removed all domain names for myapp.heroku.com
 
-NOTE: If you have multiple domains, or your app has users that access it via its
-Heroku subdomain but you later switched to your own custom domain, you will
-probably want to get all users onto the same domain with a redirect in a before
-filter.  Something like this will do the job:
+DNS Setup
+-----------
 
-    {ruby}
-    class ApplicationController
-      before_filter :ensure_domain
+Next, you must point your DNS to Heroku.  We recommend using the [Zerigo Add-On](zerigo), which will automate all the steps in this section.  Alternatively, you may use any DNS provider you wish, following these instructions.
 
-      TheDomain = 'myapp.mydomain.com'
+This screencast walks through the steps to setup a custom domain name with GoDaddy:
 
-      def ensure_domain
-        if request.env['HTTP_HOST'] != TheDomain
-          redirect_to TheDomain
-        end
-      end
-    end
+<object width="500" height="375"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6918287&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6918287&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="375"></embed></object>
+
+
+### mydomain.com
+
+Root domains must use A records. Only your root domain (`mydomain.com`) may use A records.
+
+To setup your root domain, add separate A records for each of the following
+addresses using your DNS management tool:
+
+    75.101.163.44
+    75.101.145.87
+    174.129.212.2
+
+Check that your DNS is configured correctly with the "host" command:
+
+    $ host example.com
+    example.com has address 75.101.163.44
+    example.com has address 75.101.145.87
+    example.com has address 174.129.212.2
+
+### host.mydomain.com (e.g. www.mydomain.com)
+
+For each host you want to setup, configure your DNS provider to make your host name be an alias
+which points to `proxy.heroku.com`. In DNS terms this is known as a CNAME.
+
+Check that your DNS is configured correctly with the `host` command:
+
+    $ host www.mydomain.com
+    www.mydomain.com is an alias for proxy.heroku.com.
+    proxy.heroku.com has address 75.101.163.44
+    proxy.heroku.com has address 75.101.145.87
+    proxy.heroku.com has address 174.129.212.2 
+
+Output of the host command varies by Unix flavor, but it should indicate that
+your host name is either an alias or CNAME of `proxy.heroku.com`.
+
 
 Wildcard domains
 ----------------
@@ -129,3 +110,24 @@ Then add the wildcard domain on Heroku:
     Added *.yourdomain.com as a custom domain name to myapp.heroku.com
     $ curl http://arbitrary-subdomain.yourdomain.com/
     HTTP/1.1 200 OK
+    
+Redirecting Traffic to Specific Domain
+--------------------------------------
+
+If you have multiple domains, or your app has users that access it via its
+Heroku subdomain but you later switched to your own custom domain, you will
+probably want to get all users onto the same domain with a redirect in a before
+filter.  Something like this will do the job:
+
+    {ruby}
+    class ApplicationController
+      before_filter :ensure_domain
+
+      TheDomain = 'myapp.mydomain.com'
+
+      def ensure_domain
+        if request.env['HTTP_HOST'] != TheDomain
+          redirect_to TheDomain
+        end
+      end
+    end
