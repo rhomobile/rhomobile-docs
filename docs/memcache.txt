@@ -1,0 +1,97 @@
+Memcache
+========
+
+Memcache is an in-memory transient key/value store typically used for caching.  It's a key technology for building scalable web apps.
+
+Local memcached setup
+---------
+
+Install a local copy of the memcached daemon.  On Ubuntu:
+
+    $ sudo apt-get install memcached
+
+On Mac OS X:
+
+    $ sudo port install memcached
+
+You can also download the source from [the memcached site](http://memcached.org/).
+
+Now run the memcached daemon:
+
+    $ memcached -vv
+    slab class   1: chunk size     88 perslab 11915
+    ...
+    <15 server listening
+
+Gem setup
+---------
+
+The [memcache-auth](http://github.com/pedro/memcache-auth) gem is the only Ruby memcache client that will work on Heroku.  So first remove any memcache client gems you may already be using from your application, such as memcache-client or memcached.  Then add memcache-auth to your Gemfile:
+
+    {ruby}
+    gem 'memcache-auth'
+
+Run `gem bundle` to fetch and build the memcache-auth gem within your app.
+
+Using from Rails
+----------------
+
+For Rails version 2.3.3 and higher, add config/initializers/memcache.rb:
+
+    {ruby}
+    require 'memcache-auth'
+    config.cache_store = :mem_cache_store, MemcacheAuth::Rails.new
+
+Start a console and check to make sure you can read and write to your local memcache:
+
+    $ script/console
+    >> Rails.cache.write('color', 'red')
+
+You should see output like this in your memcached -vv terminal:
+
+    <18 set color 0 604800 7
+    >18 STORED
+
+Now fetch the data back:
+
+    >> Rails.cache.read('color')
+    => "red"
+
+Further reading:
+
+* [Caching with Rails](http://guides.rubyonrails.org/caching_with_rails.html) by RailsGuides
+
+Using from Sinatra
+----------------
+
+In your configure block:
+
+    {ruby}
+    configure do
+      require 'memcache-auth'
+      CACHE = MemcacheAuth.new
+    end
+
+Test it out in a console:
+
+    $ irb -r myapp.rb
+    >> CACHE['color'] = 'blue'
+
+And read it back:
+
+    >> CACHE['color']
+    => "blue"
+
+Further reading:
+
+* [Blazing Fast Speeds with Sinatra and Memcached](http://railsillustrated.com/blazing-fast-sinatra-with-memcached.html) by Erik Andrejko
+
+Deploying to Heroku
+------------------
+
+To use memcache on Heroku, install the memcache add-on:
+
+    $ heroku addons:add memcache
+
+If you're using the memcache-auth gem as described above, your app will use memcache on Heroku without any further code changes.
+
