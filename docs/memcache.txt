@@ -36,10 +36,21 @@ Run `gem bundle` to fetch and build the memcache-auth gem within your app.
 Using from Rails
 ----------------
 
-For Rails version 2.3.3 and higher, add config/initializers/memcache.rb:
+Rails abstracts the caching mechanisms through Rails.cache.  
+
+For Rails version 2.3.3 and higher, add the gem to your config/environment.rb:
 
     {ruby}
-    require 'memcache-auth'
+    config.gem 'memcache-auth'
+    
+And then configure your app to use the cache store in the appropriate environment.  Add the following to config/environment/production.rb:
+
+    {ruby}
+    config.cache_store = :mem_cache_store, MemcacheAuth::Rails.new
+    
+By default in your development environment, calls to Rails.cache will be stored in a local memory store.  If you've installed memcached locally, you can tell rails to use memcached by adding the same line to config/environment/development.rb:
+
+    {ruby}
     config.cache_store = :mem_cache_store, MemcacheAuth::Rails.new
 
 Start a console and check to make sure you can read and write to your local memcache:
