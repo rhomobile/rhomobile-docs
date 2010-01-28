@@ -3,26 +3,6 @@ Memcache
 
 Memcache is an in-memory transient key/value store typically used for caching.  It's a key technology for building scalable web apps.
 
-Local memcached setup
----------
-
-Install a local copy of the memcached daemon.  On Ubuntu:
-
-    $ sudo apt-get install memcached
-
-On Mac OS X:
-
-    $ sudo port install memcached
-
-You can also download the source from [the memcached site](http://memcached.org/).
-
-Now run the memcached daemon:
-
-    $ memcached -vv
-    slab class   1: chunk size     88 perslab 11915
-    ...
-    <15 server listening
-
 Gem setup
 ---------
 
@@ -38,32 +18,24 @@ Using from Rails
 
 Rails abstracts the caching mechanisms through Rails.cache.  
 
-For Rails version 2.3.3 and higher, add the gem to your config/environment.rb:
+For Rails version 2.3.3 and higher, add the gem to config/environment.rb:
 
     {ruby}
     config.gem 'memcache-auth'
     
-And then configure your app to use the cache store in the appropriate environment.  Add the following to config/environment/production.rb:
+Configure your app to use memcache for the cache store in production.  Add the following to config/environment/production.rb:
 
     {ruby}
     config.cache_store = :mem_cache_store, MemcacheAuth::Rails.new
     
-By default in your development environment, calls to Rails.cache will be stored in a local memory store.  If you've installed memcached locally, you can tell rails to use memcached by adding the same line to config/environment/development.rb:
+In your development environment, Rails.cache will default to an in-memory memory store that doesn't require a running memcached.
 
-    {ruby}
-    config.cache_store = :mem_cache_store, MemcacheAuth::Rails.new
-
-Start a console and check to make sure you can read and write to your local memcache:
+You can test writing to the local memory cache in a console:
 
     $ script/console
     >> Rails.cache.write('color', 'red')
 
-You should see output like this in your memcached -vv terminal:
-
-    <18 set color 0 604800 7
-    >18 STORED
-
-Now fetch the data back:
+And fetching the data back:
 
     >> Rails.cache.read('color')
     => "red"
@@ -74,6 +46,27 @@ Further reading:
 
 Using from Sinatra
 ----------------
+
+### Local memcached
+
+You'll need to run a local memcached process to test against with Sinatra or other Ruby app.  Install it on Mac OS X:
+
+    $ sudo port install memcached
+
+Or on Ubuntu:
+
+    $ sudo apt-get install memcached
+
+You can also download the source from [the memcached site](http://memcached.org/).
+
+Now run the memcached daemon:
+
+    $ memcached -vv
+    slab class   1: chunk size     88 perslab 11915
+    ...
+    <15 server listening
+
+### Sinatra app
 
 In your configure block:
 
@@ -88,7 +81,12 @@ Test it out in a console:
     $ irb -r myapp.rb
     >> CACHE['color'] = 'blue'
 
-And read it back:
+You should see output like this in your memcached -vv terminal:
+
+    <18 set color 0 604800 7
+    >18 STORED
+
+Now read it back:
 
     >> CACHE['color']
     => "blue"
