@@ -12,7 +12,6 @@ section 'howto', "How To" do
 	topic 'smtp',               'Outbound email'
 	topic 's3',                 'Storing uploads in S3'
 	topic 'custom-domains',     'DNS & Custom Domains'
-	
 end
 
 section 'faq', "FAQ" do
@@ -50,7 +49,6 @@ section 'addons', "Add-ons" do
 	topic 'amazon_rds',        'Amazon RDS'
 	topic 'cron',              'Cron'
 	topic 'deploy-hooks',      'Deploy Hooks'
-	topic 'gmail-smtp',        'Gmail SMTP'
 	topic 'memcached',         'Memcached'
 	topic 'newrelic',          'New Relic RPM'
 	topic 'sendgrid',          'Sendgrid SMTP'

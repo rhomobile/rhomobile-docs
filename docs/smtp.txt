@@ -4,15 +4,14 @@ Outbound Email / SMTP
 Heroku does not provide an outgoing mail service but does allow the use of an
 external SMTP server. For production use, we recommend our [Sendgrid](sendgrid) add-on which 
 lets you scale from very light requirements to thousands of emails per day with no 
-change in configuration. If you need to send fewer than 500 emails per day, we also 
-offer a [GMail add-on](gmail-smtp).
+change in configuration.
 
 
 Sending email from Rails
 ------------------------
 
 Here's a quick guide to setting up a Rails app to send email with an external
-SMTP provider.  Note that if you're using an SMTP add-on, you do not need to configure your SMTP connection.  You can skip straight to Step #3.
+SMTP provider.  Note that if you're using the [Zerigo](/zerigo) add-on, you do not need to configure your SMTP connection.  You can skip straight to Step #3.
 
 ### 1. Set the delivery method
 
@@ -35,6 +34,8 @@ You'll want to make sure Rails raises errors on mail delivery, so turn that on
 as well like this:
 
     config.action_mailer.raise_delivery_errors = true
+    
+If you would like to use Gmail as your SMTP server, there are a few additional configuration steps required, as outlined in this [blog](http://blog.heroku.com/archives/2009/11/9/tech_sending_email_with_gmail/) post.
 
 ### 3. Build a Mailer class
 
