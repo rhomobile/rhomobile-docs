@@ -13,6 +13,8 @@ The [memcache-auth](http://github.com/pedro/memcache-auth) gem is the only Ruby 
 
 Run `gem bundle` to fetch and build the memcache-auth gem within your app.
 
+The memcache-auth has an identical interface to memcache-client and memcached, so if you're already using one of those gems you won't need to rewrite any of your code.  Only the gem depenency declaration and the memcache client object initialization (described below) needs to change.
+
 Using from Rails
 ----------------
 
