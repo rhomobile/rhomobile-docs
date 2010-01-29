@@ -68,9 +68,9 @@ Campfire
 Have any Campfire room receive an automated message when your app is pushed.
 
     $ heroku addons:add deployhooks:campfire \
-        url=mycampfiredomain \
-        email=me@example.com \
-        password=secret \
+        url=mycampfiresubdomain \
+        ssl=1 \
+        api_key=0000000 \
         room=devlounge \
         message="{{user}} deployed myapp"
     Adding deployhooks:campfire to myapp...Done.
