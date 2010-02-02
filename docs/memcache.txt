@@ -13,6 +13,16 @@ The [memcache-auth](http://github.com/pedro/memcache-auth) gem is the only Ruby 
 
 Run `gem bundle` to fetch and build the memcache-auth gem within your app.
 
+### Note for Mac OS 10.5 Users
+
+A bug in port / Mac OS 10.5 causes an error when trying to build the memcache-auth gem.  To resolve this,
+uninstall the cyrus-sasl2 library, and then build the memcache-auth gem.  Once the memcache gem is built, you can reinstall the cyrus-sasl2 package if you require it elsewhere.
+
+Uninstall cryus-sasl2:
+
+    $ sudo port -f uninstall cyrus-sasl2
+
+
 Using from Rails
 ----------------
 
