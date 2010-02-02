@@ -42,6 +42,7 @@ section 'features', "Platform Features" do
 	topic 'slug-compiler',      'Slug compiler'
 	topic 'technologies',       'System infrastructure'
 	topic 'database',           'SQL database'
+	topic 'stack',              'Deployment Stack'
 end
 
 section 'addons', "Add-ons" do
