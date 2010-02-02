@@ -34,7 +34,7 @@ Migrating between stacks
 You can begin migration to a new stack by using the stack:migrate command:
 
     $ heroku stack:migrate bamboo-mri-1.8.7
-    ----> Preparing to migrate myapp from aspen-mri-1.8.6 to bamboo-mri-1.8.7
+    ----> Preparing to migrate myapp from aspen-mri-1.8.6 to bamboo-ree-1.8.7
 
 The migration will be completed after you git push and a new slug is successfully compiled.  The reason for this two-phase migration is so that you can see the output of your new slug compiling, in case anything should go wrong.  (If the slug fails to compile, your push will be rejected as normal and your existing app will continue to run.)
 
@@ -49,7 +49,7 @@ Aspen stack runs on Debian 4.0 (etch) and offers a single Ruby VM, MRI 1.8.6.  I
 
 ### [Badious Bamboo](/bamboo)
 
-[Bamboo](/bamboo) stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: MRI 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
+[Bamboo](/bamboo) stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/) 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
 
 NOTE: Bamboo differs from Aspen in that there are no gems preinstalled by default.  Apps running on bamboo stack should package all of their gem dependencies into the slug using a Gemfile or .gems.
 

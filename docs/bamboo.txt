@@ -3,7 +3,7 @@ Badious Bamboo
 
 Bamboo is a deployment [stacks](/stack), released February XX, 2010.  See the [stack](/stack) page for full details on what stacks are.
  
-Bamboo stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: MRI 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
+Bamboo stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/) 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
 
 NOTE: Bamboo differs from Aspen in that there are no gems preinstalled by default.  Apps running on bamboo stack should package all of their gem dependencies into the slug using a Gemfile or .gems.
 
@@ -12,7 +12,7 @@ Migrating to Bamboo
 
 When preparing to migrate to bamboo stack, there are two things you should be sure to do:
 
-* **Check to make sure that your app runs on the version of MRI you will be using.**  1.8.7 is the default for Mac OS X so chances are good your app already works with it.  If you wish to switch to 1.9.1, you'll want to make sure you've tested it thoroughly under that VM on your local machine.
+* **Check to make sure that your app runs on the version of Ruby you will be using.**  1.8.7 is the default for Mac OS X so chances are good your app already works with it.  If you wish to switch to 1.9.1, you'll want to make sure you've tested it thoroughly under that VM on your local machine.
 * **Explicitly declare all gem dependencies, including Rails.**  Since aspen stack offered many gems installed by default, most apps did not declare their dependencies completely.  Bamboo requires you declare everything, which you can do using either a gem bundler Gemfile, or a .gems manifest.
 
 Let's walk through the steps you might take migrating a Rails 2.x app from aspen to bamboo.
@@ -25,7 +25,7 @@ You probably already have a .gems file, but chances are it isn't complete.  You'
 
 ### 2. Deploy to a temporary app
 
-    $ heroku create --stack bamboo-mri-1.8.7 --remote trybamboo
+    $ heroku create --stack bamboo-ree-1.8.7 --remote trybamboo
     Created http://young-wind-88.heroku.com/ | git@heroku.com:young-wind-88.git
     Git remote trybamboo added
     $ git push trybamboo master
@@ -39,8 +39,8 @@ Check your app and confirm that it's running as expected.  The most common issue
 
 Once your trybamboo app is running and you feel confident that your code works on the new stack, you can migrate your main app:
 
-    $ heroku stack:migrate bamboo-mri-1.8.7
-    ----> Preparing to migrate myapp from aspen-mri-1.8.6 to bamboo-mri-1.8.7
+    $ heroku stack:migrate bamboo-ree-1.8.7
+    ----> Preparing to migrate myapp from aspen-mri-1.8.6 to bamboo-ree-1.8.7
     ...
     $ git push heroku master
 
@@ -48,7 +48,7 @@ Once your trybamboo app is running and you feel confident that your code works o
 
 If you didn't make any code changes to prep the app for bamboo, you may need to insert a dummy commit to get the slug to rebuild:
 
-    $ heroku stack:migrate bamboo-mri-1.8.7
+    $ heroku stack:migrate bamboo-ree-1.8.7
     $ echo >> Rakefile && git commit -a -m "migrating to bamboo stack"
     $ git push heroku master
 
