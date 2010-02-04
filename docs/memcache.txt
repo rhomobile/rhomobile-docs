@@ -6,7 +6,7 @@ Memcache is an in-memory transient key/value store typically used for caching.  
 Gem setup
 ---------
 
-The [memcache-auth](http://github.com/pedro/memcache-auth) gem is the only Ruby memcache client that will work on Heroku.  So first remove any memcache client gems you may already be using from your application, such as memcache-client or memcached.  Then add memcache-auth to your Gemfile:
+The [memcache-auth](http://github.com/pedro/memcache-auth) gem is the only Ruby memcache client that will work on Heroku.  The memcache-auth has an identical interface to memcache-client and memcached, so if you're already using one of those gems you won't need to rewrite any of your code.  Only the gem dependency declaration and the memcache client object initialization (described below) needs to change.  First remove any memcache client gems you may already be using from your application, such as memcache-client or memcached.  Then add memcache-auth to your Gemfile:
 
     {ruby}
     gem 'memcache-auth'
