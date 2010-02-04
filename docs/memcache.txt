@@ -33,6 +33,11 @@ For Rails version 2.3.3 and higher, add the gem to config/environment.rb:
     {ruby}
     config.gem 'memcache-auth'
     
+NOTE: If you are using the .gems manifest, you need to manually include the MemcacheAuth gem in your enviornment file:
+
+    {ruby}
+    require 'memcache-auth'
+    
 Configure your app to use memcache for the cache store in production.  Add the following to config/environment/production.rb:
 
     {ruby}
