@@ -4,3 +4,4 @@ gem 'rdiscount', '1.3.5'
 gem 'rest-client', '1.2.0'
 gem 'sunspot', '0.10.8'
 gem 'haml', '2.2.17'
+
