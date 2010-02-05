@@ -21,7 +21,9 @@ Bundle your gems by running:
 
     $ gem bundle
 
-The gems will be placed into vendor/gems.  You will probably want to add vendor/gems to your .gitignore.
+The gems will be placed into vendor/gems. Make sure to add the following to your .gitignore
+
+    vendor/gems
 
 When you push to Heroku, the Gemfile will be detected and your gems bundled automatically:
 
@@ -51,7 +53,11 @@ If you're using Rails below version 3.0, you'll need to add the following line t
     {ruby}
     bundle_path 'vendor/bundler_gems'
 
-Then add vendor/bundler_gems to your .gitignore.  Finally, create config/preinitializer.rb with the following contents:
+Then add the following to your .gitignore
+
+    vendor/bundler_gems
+
+Finally, create config/preinitializer.rb with the following contents:
 
     {ruby}
     require "#{File.dirname(__FILE__)}/../vendor/bundler_gems/environment"
