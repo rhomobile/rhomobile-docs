@@ -4,16 +4,14 @@ require 'haml'
 require 'sass'
 require 'sunspot'
 require 'topic'
-require 'vendor/heroku_header'
 
+$LOAD_PATH << File.dirname(__FILE__) + '/lib'
+require 'heroku_header'
+use Heroku::Header, :active => "docs"
 
 set :app_file, __FILE__
 
 Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
-
-configure :production do
-	HerokuHeader.fetch_latest('docs')
-end
 
 not_found do
 	erb :not_found
