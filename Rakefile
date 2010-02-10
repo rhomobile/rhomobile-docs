@@ -1,4 +1,4 @@
-require 'sunspot'
+require 'sunspot' 
 require 'topic'
 
 desc 'Start a development server'
