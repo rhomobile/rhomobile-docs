@@ -22,6 +22,7 @@ Uninstall cryus-sasl2:
 
     $ sudo port -f uninstall cyrus-sasl2
 
+The memcache-auth has an identical interface to memcache-client and memcached, so if you're already using one of those gems you won't need to rewrite any of your code.  Only the gem dependency declaration and the memcache client object initialization (described below) needs to change.
 
 Using from Rails
 ----------------
