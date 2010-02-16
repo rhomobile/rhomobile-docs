@@ -104,11 +104,13 @@ Create a file named Gemfile in the root of your app specifying what gems are req
     source :gemcutter
     gem 'sinatra', '0.9.4'
 
-The Gemfile should be added to the git repository since it is part of the app. Once in there, it makes it easy for other developers to get their environment ready to run the app:
+The Gemfile should be added to the git repository since it is part of the app. You should add .bundle to your .gitignore file however.  Once the bundle file is created, it makes it easy for other developers to get their environment ready to run the app:
 
     $ bundle install
 
 This will ensure all gems specified on Gemfile, together with their dependencies, are available for your application.
+
+Add .bundle to your .gitignore file
 
 Heroku also uses that file to resolve and install your application dependencies automatically. All you need to do is to push it:
 
