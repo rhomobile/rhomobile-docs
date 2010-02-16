@@ -11,12 +11,11 @@ The [memcache-auth](http://github.com/pedro/memcache-auth) gem is the only Ruby 
     {ruby}
     gem 'memcache-auth'
 
-Run `gem bundle` to fetch and build the memcache-auth gem within your app.
+Run `bundle install` to fetch and build the memcache-auth gem within your app.
 
 ### Note for Mac OS 10.5 Users
 
-A bug in port / Mac OS 10.5 causes an error when trying to build the memcache-auth gem.  To resolve this,
-uninstall the cyrus-sasl2 library, and then build the memcache-auth gem.  Once the memcache gem is built, you can reinstall the cyrus-sasl2 package if you require it elsewhere.
+A bug in port / Mac OS 10.5 causes an error when trying to build the memcache-auth gem.  Snow Leopard (10.6) users do NOT have this bug.  To resolve this, uninstall the cyrus-sasl2 library, and then build the memcache-auth gem.  Once the memcache gem is built, you can reinstall the cyrus-sasl2 package if you require it elsewhere.
 
 Uninstall cryus-sasl2:
 
@@ -26,14 +25,14 @@ Uninstall cryus-sasl2:
 Using from Rails
 ----------------
 
-Rails abstracts the caching mechanisms through Rails.cache.  
+Rails abstracts the caching mechanisms through Rails.cache.  This was only introduced in Rails 2.3.3.  You must be using Rails 2.3.3 or newer to use memcache on Heroku.
 
 For Rails version 2.3.3 and higher, add the gem to config/environment.rb:
 
     {ruby}
     config.gem 'memcache-auth'
     
-NOTE: If you are using the .gems manifest, you need to manually include the MemcacheAuth gem in your enviornment file:
+NOTE: If you are using the .gems manifest, you need to manually include the MemcacheAuth gem in your environment file:
 
     {ruby}
     require 'memcache-auth'
