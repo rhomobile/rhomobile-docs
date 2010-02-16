@@ -1,88 +1,7 @@
 Managing Gems
 =============
 
-Ruby gems can be installed on Heroku via [Gem Bundler](http://github.com/wycats/bundler) or the Heroku gem manifest.  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is the up-and-coming community standard, and can be used to manage gems locally.
-
-Gem Bundler
------------
-
-Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  To use, install bundler:
-
-    $ sudo gem install bundler
-
-Create a file named Gemfile in the root of your app specifying what gems are required to run it:
-
-    {ruby}
-    source :gemcutter
-    gem 'sinatra', '0.9.4'
-
-The Gemfile should be added to the git repository since it is part of the app. Once in there, it makes it easy for other developers to get their environment ready to run the app:
-
-    $ bundle install
-
-This will ensure all gems specified on Gemfile, together with their dependencies, are available for your application.
-
-Heroku also uses that file to resolve and install your application dependencies automatically. All you need to do is to push it:
-
-    -----> Heroku receiving push
-    -----> Gemfile detected, running Bundler
-           Unresolved dependencies detected; Installing...
-           Fetching source index from http://gemcutter.org
-           Resolving dependencies
-           Installing mime-types (1.16) from rubygems repository at http://gemcutter.org 
-           Installing rack (1.1.0) from rubygems repository at http://gemcutter.org 
-           Installing sinatra (0.9.4) from rubygems repository at http://gemcutter.org 
-           Your bundle is complete!
-           Locking environment
-
-### Using Bundler from Rails 3
-
-Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.
-
-### Using Bundler from Rails 2.x
-
-Install dependencies to your application folder, running:
-
-    $ bundle install vendor/bundler_gems
-
-Then create the file config/preinitializer.rb:
-
-    {ruby}
-    ENV["GEM_HOME"] = File.expand_path('../../vendor/bundler_gems', __FILE__)
-
-Thanks to [Christopher Rigor](http://blog.admoolabs.com/using-bundler-0-9-4-with-rails-2-3-5/).
-
-### Using Bundler from Sinatra or any Rack app
-
-To use gems from your bundler environment under Sinatra or other non-Rails framework, add the following to the top of your app:
-
-    {ruby}
-    begin
-      # Require the preresolved locked set of gems.
-      require File.expand_path('../.bundle/environment', __FILE__)
-    rescue LoadError
-      # Fallback on doing the resolve at runtime.
-      require "rubygems"
-      require "bundler"
-      Bundler.setup
-    end
-
-### Bundle everything
-
-The recommended use of gem bundler is to bundle absolutely every gem your app depends upon.  This includes your framework (Rails, Sinatra, etc). This doesn't add anything to your repository size if you've gitignored the vendored gems directory.
-
-Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
-
-### Migrating from 0.8
-
-Bundler 0.9 brought several changes to the Bundler API and philosophy.
-
-[This post on Yehuda's blog](http://yehudakatz.com/2010/02/01/bundler-0-9-heading-toward-1-0/) enumerates most of the differences, while the [Gem Bundler readme](http://github.com/carlhuda/bundler) describes what was deprecated on the previous API.
-
-### Further reading
-
-* [Nick Quaranto: Gem Bundler is the Future](http://litanyagainstfear.com/blog/2009/10/14/gem-bundler-is-the-future/)
-* [Gem Bundler readme](http://github.com/carlhuda/bundler)
+Ruby gems can be installed on Heroku via the Heroku gem manifest or [Gem Bundler](http://github.com/wycats/bundler).  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is an emerging community standard currently in beta and under active development.  
 
 Heroku gem manifest
 -------------------
@@ -171,3 +90,84 @@ it, and pushes to the remote heroku repository:
 
 The push is aborted if the gem manifest is invalid or a gem fails to install,
 ensuring that an application is not deployed in an inconsistent state.
+
+Gem Bundler
+-----------
+
+Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  To use, install bundler:
+
+    $ sudo gem install bundler
+
+Create a file named Gemfile in the root of your app specifying what gems are required to run it:
+
+    {ruby}
+    source :gemcutter
+    gem 'sinatra', '0.9.4'
+
+The Gemfile should be added to the git repository since it is part of the app. Once in there, it makes it easy for other developers to get their environment ready to run the app:
+
+    $ bundle install
+
+This will ensure all gems specified on Gemfile, together with their dependencies, are available for your application.
+
+Heroku also uses that file to resolve and install your application dependencies automatically. All you need to do is to push it:
+
+    -----> Heroku receiving push
+    -----> Gemfile detected, running Bundler
+           Unresolved dependencies detected; Installing...
+           Fetching source index from http://gemcutter.org
+           Resolving dependencies
+           Installing mime-types (1.16) from rubygems repository at http://gemcutter.org 
+           Installing rack (1.1.0) from rubygems repository at http://gemcutter.org 
+           Installing sinatra (0.9.4) from rubygems repository at http://gemcutter.org 
+           Your bundle is complete!
+           Locking environment
+
+### Using Bundler from Rails 3
+
+Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.
+
+### Using Bundler from Rails 2.x
+
+Install dependencies to your application folder, running:
+
+    $ bundle install vendor/bundler_gems
+
+Then create the file config/preinitializer.rb:
+
+    {ruby}
+    ENV["GEM_HOME"] = File.expand_path('../../vendor/bundler_gems', __FILE__)
+
+Thanks to [Christopher Rigor](http://blog.admoolabs.com/using-bundler-0-9-4-with-rails-2-3-5/).
+
+### Using Bundler from Sinatra or any Rack app
+
+To use gems from your bundler environment under Sinatra or other non-Rails framework, add the following to the top of your app:
+
+    {ruby}
+    begin
+      # Require the preresolved locked set of gems.
+      require File.expand_path('../.bundle/environment', __FILE__)
+    rescue LoadError
+      # Fallback on doing the resolve at runtime.
+      require "rubygems"
+      require "bundler"
+      Bundler.setup
+    end
+
+### Bundle everything
+
+The recommended use of gem bundler is to bundle absolutely every gem your app depends upon.  This includes your framework (Rails, Sinatra, etc). This doesn't add anything to your repository size if you've gitignored the vendored gems directory.
+
+Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
+
+### Migrating from 0.8
+
+Bundler 0.9 brought several changes to the Bundler API and philosophy.
+
+[This post on Yehuda's blog](http://yehudakatz.com/2010/02/01/bundler-0-9-heading-toward-1-0/) enumerates most of the differences, while the [Gem Bundler readme](http://github.com/carlhuda/bundler) describes what was deprecated on the previous API.
+
+### Further reading
+
+* [Nick Quaranto: Gem Bundler is the Future](http://litanyagainstfear.com/blog/2009/10/14/gem-bundler-is-the-future/)
+* [Gem Bundler readme](http://github.com/carlhuda/bundler)
