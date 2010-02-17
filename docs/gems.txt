@@ -104,7 +104,7 @@ Create a file named Gemfile in the root of your app specifying what gems are req
     source :gemcutter
     gem 'sinatra', '0.9.4'
 
-The Gemfile should be added to the git repository since it is part of the app. Once in there, it makes it easy for other developers to get their environment ready to run the app:
+The Gemfile should be added to the git repository since it is part of the app. You should also add the .bundle directory to your gitignore file.  Once you have added the Gemfile, it makes it easy for other developers to get their environment ready to run the app:
 
     $ bundle install
 
