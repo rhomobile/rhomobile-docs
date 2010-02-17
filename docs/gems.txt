@@ -129,7 +129,7 @@ Rails 3 is built on top of Bundler. That means there is no setup needed, all gem
 
 ### Using Bundler from Rails 2.3.5
 
-Follow the instructions in this [gist](http://gist.github.com/302406).  After you have added the code to your application, run
+Follow the instructions in this [gist](http://gist.github.com/302406).  Remember to remove all your "config.gem" lines from your environment configuration file!  After you have added the code to your application, run
 
     $ bundle install
     $ bundle lock
