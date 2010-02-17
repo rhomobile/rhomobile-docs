@@ -6,7 +6,7 @@ Ruby gems can be installed on Heroku via the Heroku gem manifest or [Gem Bundler
 Heroku gem manifest
 -------------------
 
-Another method for specifying your gem dependencies is the Heroku gems
+The preferred method for specifying your gem dependencies is the Heroku gems
 manifest, which is a `.gems` file in the root of your app.  When a new version
 of the app is pushed to Heroku, any changes to the `.gems` file are detected
 and new gems are installed along with their dependencies.
@@ -127,18 +127,14 @@ Heroku also uses that file to resolve and install your application dependencies 
 
 Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.
 
-### Using Bundler from Rails 2.x
+### Using Bundler from Rails 2.3.5
 
-Install dependencies to your application folder, running:
+Follow the instructions in this [gist](http://gist.github.com/302406).  After you have added the code to your application, run
 
-    $ bundle install vendor/bundler_gems
-
-Then create the file config/preinitializer.rb:
-
-    {ruby}
-    ENV["GEM_HOME"] = File.expand_path('../../vendor/bundler_gems', __FILE__)
-
-Thanks to [Christopher Rigor](http://blog.admoolabs.com/using-bundler-0-9-4-with-rails-2-3-5/).
+    $ bundle install
+    $ bundle lock
+    
+And your app should now be using Gembundler.
 
 ### Using Bundler from Sinatra or any Rack app
 
@@ -166,6 +162,10 @@ Bundling Rails and other dependencies does increase your slug size by a few mega
 Bundler 0.9 brought several changes to the Bundler API and philosophy.
 
 [This post on Yehuda's blog](http://yehudakatz.com/2010/02/01/bundler-0-9-heading-toward-1-0/) enumerates most of the differences, while the [Gem Bundler readme](http://github.com/carlhuda/bundler) describes what was deprecated on the previous API.
+
+### Bundler groups
+
+Heroku currently doesn't support gemfile groups.  We are working with the bundler team to support this feature shortly.
 
 ### Further reading
 
