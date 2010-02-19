@@ -3,28 +3,28 @@ Sendgrid SMTP add-on
 
 [Sendgrid](http://www.sendgrid.com/) offers a modern, API driven approach to SMTP delivery. Currently there are two offers available for Heroku users: Sendgrid basic, a free alternative for apps sending up to 200 messages a day - and premium, for apps with a high volume of emails.
 
-Sendgrid Basic
+Sendgrid Free
 --------------
 
 To enable free Sendgrid add-on, simply run:
 
-    $ heroku addons:add sendgrid:basic
-    Adding sendgrid:basic to myapp...done.
+    $ heroku addons:add sendgrid:free
+    Adding sendgrid:free to myapp...done.
 
 The basic account allows you to send up to 200 emails per day.
 
 NOTE: Adding this add-on will instantly setup your Rails app to send emails using ActionMailer. Check the usage instructions below if you're not using Rails, or if you're using another framework to send emails.
 
 
-Sendgrid Premium
-----------------
+Sendgrid Pro/Premium
+--------------------
 
-Increasing your outgoing email capability is equally simple. To activate the premium Sendgrid add-on:
+Increasing your outgoing email capability is equally simple. To activate one of the paid Sendgrid add-ons:
 
     $ heroku addons:add sendgrid:premium
     Adding sendgrid:premium to myapp...done.
 
-That will bump your limit to 30,000 emails per month.
+Pro will bump your limit to 20,000 emails per month. Premium will give you 100,000.
 
 Usage
 -----
