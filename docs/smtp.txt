@@ -11,7 +11,7 @@ Sending email from Rails
 ------------------------
 
 Here's a quick guide to setting up a Rails app to send email with an external
-SMTP provider.  Note that if you're using the [Zerigo](/zerigo) add-on, you do not need to configure your SMTP connection.  You can skip straight to Step #3.
+SMTP provider.  Note that if you're using the [Sendgrid](/sendgrid) add-on, you do not need to configure your SMTP connection.  You can skip straight to Step #3.
 
 ### 1. Set the delivery method
 
@@ -87,3 +87,8 @@ Once you've verified it as working, you'll probably want to hook it into your mo
     def deliver_signup_notification
       UserMailer.deliver_signup_notification(self)
     end
+    
+Sending Email with Gmail
+------------------------
+
+For limited email needs, Gmail can be a good choice.  You can send 200 messages a day.  The from address will ALWAYS be set to the account email address.  [This blog post](http://blog.heroku.com/archives/2009/11/9/tech_sending_email_with_gmail/) outlines the steps necessary to send email through Gmail.  Follow the instructions in the blog post, then start at step #1 above to configure rails to use Gmail.
