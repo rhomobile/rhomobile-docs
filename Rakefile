@@ -13,10 +13,12 @@ end
 
 desc 'Index documentation'
 task :index do
+  puts "indexing now:"
   Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
   docs = FileList['docs/*.txt']
-  docs.each { |d| Sunspot.index(topic_for(d).text_only) }
+  docs.each { |d| puts '...indexing #{d}'; Sunspot.index(topic_for(d).text_only) }
   Sunspot.commit
+  puts "finished indexing"
 end
 
 task :start => :server
