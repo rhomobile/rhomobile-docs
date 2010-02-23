@@ -13,14 +13,12 @@
    end
   %>
   <% 
-		begin
-			result = hit.instance 
-		rescue
-			next ## skip this if there's an error (file not found for instance)
-		end
+		result = hit.instance rescue nil
+		topic = result.topic rescue ""
+		title = result.title rescue ""
 	%>
     <div class="result">
-      <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
+      <h2><a href="/<%= topic %>"><%=h title %></a></h2>
       <%= highlight %> <% if highlight %>...<% end %>
     </div>
   <% end %>
