@@ -12,7 +12,13 @@
      # highlight = bolded
    end
   %>
-  <% result = hit.instance %>
+  <% 
+		begin
+			result = hit.instance 
+		rescue
+			next ## skip this if there's an error (file not found for instance)
+		end
+	%>
     <div class="result">
       <h2><a href="/<%= result.topic %>"><%=h result.title %></a></h2>
       <%= highlight %> <% if highlight %>...<% end %>
