@@ -58,6 +58,7 @@ helpers do
 	end
 	
 	def search_for(query)
+#	  Sunspot.search(Topic) { keywords("rails") { highlight :body, :fragment_size => 175 } }
 	  Sunspot.search(Topic) do
 	    keywords(query) do
 	      highlight :body, :fragment_size => 175

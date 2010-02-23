@@ -91,7 +91,7 @@ end
 class TopicAccessor < Sunspot::Adapters::DataAccessor
   
   def load(id)
-    Topic.load(id, File.open("docs/#{id}.txt").read)
+    Topic.load(id, File.open("docs/#{id}.txt").read rescue "")
   end
   
 end
