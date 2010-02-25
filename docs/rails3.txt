@@ -1,0 +1,19 @@
+Rails 3
+=======
+
+Heroku supports Rails 3 on the [bamboo](/bamboo) [stack](/stack) with either Ruby 1.8.7 or Ruby 1.9.1.
+
+Serving Status Assets
+---------------------
+
+Rails 3 defaults will not serve static assets in production, such as your javascript, HTML files, images, etc.  Heroku requires that this be changed to true.  We'll auto-detect if this is set to false, and install a plugin that simply flips this to true.  You can also manually set this to true by editing config/environments/production.rb and setting this line:
+
+    config.serve_static_assets = true
+    
+Configuring your database
+-------------------------
+
+Heroku will automatically rewrite your database.yml file with the correct settings.  Heroku uses a postgres database.  To use the database, you'll need to include the "pg" gem in your gemfile.  If you aren't using postgres for local development, you can specify the production group so it only gets compiled on Heroku:
+
+    gem "pg", :group => :production
+
