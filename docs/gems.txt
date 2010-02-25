@@ -123,15 +123,31 @@ Heroku also uses that file to resolve and install your application dependencies 
            Your bundle is complete!
            Locking environment
 
+### Specifying gems & groups
+
+The recommended use of gem bundler is to bundle absolutely every gem your app depends upon.  This includes your framework (Rails, Sinatra, etc) and your database connectors. 
+
+Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
+
+Heroku will run "bundler --without development --without text" on deploy.  
+
 ### Using Bundler from Rails 3
 
-Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.
+Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.  Remember to specify the the appropriate database gem as well:
+
+    gem "pg", :group => :production
+    gem "sqlite3-ruby", :group => :development
 
 ### Using Bundler from Rails 2.3.5
 
-Follow the instructions in this [gist](http://gist.github.com/302406).  Remember to remove all your "config.gem" lines from your environment configuration file!  After you have added the code to your application, run
+Follow the instructions in this [gist](http://gist.github.com/302406).  Remember to remove all your "config.gem" lines from your environment configuration file!  Also remember to specify the your database gem as appropriate:
 
-    $ bundle install
+    gem "pg", :group => :production
+    gem "sqlite3-ruby", :group => :development
+    
+After you have added the code to your application, run
+
+    $ bundle install --without production
     $ bundle lock
     
 And your app should now be using Gembundler.
@@ -151,11 +167,6 @@ To use gems from your bundler environment under Sinatra or other non-Rails frame
       Bundler.setup
     end
 
-### Bundle everything
-
-The recommended use of gem bundler is to bundle absolutely every gem your app depends upon.  This includes your framework (Rails, Sinatra, etc). This doesn't add anything to your repository size if you've gitignored the vendored gems directory.
-
-Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
 
 ### Migrating from 0.8
 
