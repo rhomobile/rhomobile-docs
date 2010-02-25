@@ -61,8 +61,16 @@ Due to changes in 1.9.1, the command 'heroku console' doesn't currently support 
 This will not work:
 
     >> a = 1
+    => 1
+    >> a
+    NameError: undefined local variable or method `a' for #<Object:0x00000000808b08 @heroku_console_output=[], @a=1>
+
     
 while this will:
 
     >> @a = 1
+    => 1
+    >> @a
+    => 1
+
 
