@@ -50,7 +50,10 @@ Very similar setup: add `aws-s3` to your [gem manifest](/gems), set the storage 
 
     {ruby}
     class User
-      has_attached_file :photo, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => "/:style/:filename"
+      has_attached_file :photo, 
+          :storage => :s3, 
+          :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
+          :path => "/:style/:filename"
     end
 
 Then create that YAML file to setup credentials and your bucket:
