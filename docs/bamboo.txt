@@ -51,4 +51,17 @@ If you didn't make any code changes to prep the app for bamboo, you may need to 
     $ heroku stack:migrate bamboo-ree-1.8.7
     $ echo >> Rakefile && git commit -a -m "migrating to bamboo stack"
     $ git push heroku master
+    
+Known Issues
+------------
+### heroku console local variables on Ruby 1.9.1
+Due to changes in 1.9.1, the command 'heroku console' doesn't currently support local variables, though it does support instance variables.
+
+This will not work:
+
+    >> a = 1
+    
+while this will:
+
+    >> @a = 1
 
