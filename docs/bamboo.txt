@@ -22,6 +22,7 @@ Let's walk through the steps you might take migrating a Rails 2.x app from aspen
 You probably already have a .gems file, but chances are it isn't complete.  You'll need to specify the version of Rails mentioned in your config/environment.rb, and any gems that you know you're using but aren't declared already (or manually vendored).  You may use either a [gem file or gem bundler](/gems).  When you're done, the first line of your .gems file will almost certainly look like this:
 
     rails -v 2.3.5
+    pg
 
 ### 2. Deploy to a temporary app
 
