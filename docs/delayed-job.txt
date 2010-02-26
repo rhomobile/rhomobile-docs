@@ -16,7 +16,7 @@ To use, install the DJ plugin in your Rails app:
 
 Create a database migration for the delayed_jobs table:
 
-    $ script/generate migration create_delayed_jobs
+    $ script/generate migration delayed_job_migration
 
 Edit the created migration to contain:
 
