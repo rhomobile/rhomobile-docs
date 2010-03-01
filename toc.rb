@@ -32,6 +32,7 @@ section 'management', "Application Management" do
 	topic 'config-vars',        'Config vars'
 	topic 'backups',            'Backups'
 	topic 'maintenance-mode',   'Maintenance mode'
+	topic 'rails3',             'Rails 3'
 end
 
 section 'features', "Platform Features" do

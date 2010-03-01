@@ -1,7 +1,7 @@
-Badious Bamboo 
+Badious Bamboo (Beta)
 ============
 
-Bamboo is a deployment [stacks](/stack), released February XX, 2010.  See the [stack](/stack) page for full details on what stacks are.
+Bamboo is a deployment [stacks](/stack).  See the [stack](/stack) page for full details on what stacks are.
  
 Bamboo stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/) 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
 
@@ -19,7 +19,7 @@ Let's walk through the steps you might take migrating a Rails 2.x app from aspen
 
 ### 1. Declare all gem dependencies
 
-You probably already have a .gems file, but chances are it isn't complete.  You'll need to specify the version of Rails mentioned in your config/environment.rb, and any gems that you know you're using but aren't declared already (or manually vendored).  You may use either a [gem file or gem bundler](/gems).  When you're done, the first line of your .gems file will almost certainly look like this:
+You probably already have a .gems file, but chances are it isn't complete.  You'll need to specify the version of Rails mentioned in your config/environment.rb, and any gems that you know you're using but aren't declared already (or manually vendored).  When you're done, the first line of your [.gems](/gems) file will almost certainly look like this:
 
     rails -v 2.3.5
     pg
@@ -52,25 +52,3 @@ If you didn't make any code changes to prep the app for bamboo, you may need to 
     $ heroku stack:migrate bamboo-ree-1.8.7
     $ echo >> Rakefile && git commit -a -m "migrating to bamboo stack"
     $ git push heroku master
-    
-Known Issues
-------------
-### heroku console local variables on Ruby 1.9.1
-Due to changes in 1.9.1, the command 'heroku console' doesn't currently support local variables, though it does support instance variables.
-
-This will not work:
-
-    >> a = 1
-    => 1
-    >> a
-    NameError: undefined local variable or method `a' for #<Object:0x00000000808b08 @heroku_console_output=[], @a=1>
-
-    
-while this will:
-
-    >> @a = 1
-    => 1
-    >> @a
-    => 1
-
-
