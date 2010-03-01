@@ -14,7 +14,7 @@ There are three ways to scale your dynos and workers: with the slider on the res
 What Rails versions do you support?
 -----------------------------------
 
-We support Rails 1.2.x through 2.x. We plan to support any new Rails versions as they are officially released.
+We support Rails 1.2.x, 2.x and [3.0.0beta](/rails3). We plan to support any new Rails versions as they are officially released.
 
 Do you support MySQL?
 --------------------
