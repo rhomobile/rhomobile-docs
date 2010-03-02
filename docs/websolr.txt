@@ -5,13 +5,9 @@ Websolr Add-on
 Local setup
 -------------------
 
-There are two great plugins available for indexing, acts_as_solr and Sunspot.  At a high level, acts_as_solr is the easiest to setup, and Sunspot is more advanced and more actively maintained.  The developer of Sunspot [posted a comparison](http://groups.google.com/group/ruby-sunspot/msg/cac676e5740aeb20).  By default, Websolr assumes you are using acts_as_solr.
-
-### 1. Choose your plugin
-
 There are two great solutions for indexing and searching your models, acts_as_solr and Sunspot. At a high level, acts_as_solr is the easiest to set up, while Sunspot is more advanced, and also works with non-Rails applications. The developer of Sunspot [posted a comparison](http://groups.google.com/group/ruby-sunspot/msg/cac676e5740aeb20).  By default, Websolr assumes you are using acts_as_solr.
 
-### 2. Acts as solr
+### 1. Acts as solr
 
 #### Installation
 
@@ -45,7 +41,7 @@ Here's an example of searching:
     $ rake solr:start
     $ rake solr:stop
 
-### 3. Setting up Sunspot
+### 2. Sunspot
 
 Go to your Rails application directory, install the Websolr gem for Sunspot and add it to your gem manifest:
 
