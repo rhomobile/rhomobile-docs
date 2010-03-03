@@ -27,7 +27,7 @@ SunSpot
     $ echo "sunspot_rails -s gems.github.com" >> .gems
     
 ### 3. Setup your config file.
-You need a config file in config/sunspot.yml.  Here's a [starting point](http://github.com/outoftime/sunspot_rails/raw/master/generators/sunspot/templates/sunspot.yml)
+You need a config file in config/sunspot.yml.  Here's a [starting point](http://github.com/outoftime/sunspot/raw/master/sunspot_rails/generators/sunspot/templates/sunspot.yml)
 
 ### 4. Tell your rails app about the rake commands
 
