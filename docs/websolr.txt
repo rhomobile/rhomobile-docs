@@ -5,24 +5,31 @@ Websolr Add-on
 Local setup
 -------------------
 
-There are two great solutions for indexing and searching your models, acts_as_solr and Sunspot. At a high level, acts_as_solr is the easiest to set up, while Sunspot is more advanced, and also works with non-Rails applications. The developer of Sunspot [posted a comparison](http://groups.google.com/group/ruby-sunspot/msg/cac676e5740aeb20).  By default, Websolr assumes you are using acts_as_solr.
+There are two great solutions for indexing and searching your models, acts_as_solr and Sunspot. At a high level, acts_as_solr is the easiest to set up, while Sunspot is more advanced, and also works with non-Rails applications. The developer of Sunspot [posted a comparison](http://groups.google.com/group/ruby-sunspot/msg/cac676e5740aeb20).  
 
 ### 1. Acts as solr
 
 #### Installation
 
-Start by installing and committing the plugin in your Rails app. You will also need the Websolr-rails gem:
+Start by installing the websolr-acts_as_solr gem:
 
-    $ script/plugin install git://github.com/onemorecloud/acts_as_solr.git
-    $ sudo gem install websolr-rails
+    $ sudo gem install websolr-acts_as_solr
     
-Add the websolr-rails gem to your gem manifest:
+Add the gem to your gem manifest:
     
-    $ echo websolr-rails >> .gems 
+    $ echo websolr-acts_as_solr >> .gems 
     
-Next up, add websolr-rails as a dependency in your Rails app by adding a config.gem statement to config/environment.rb:
+Next up, add websolr-acts_as_solr as a dependency in your Rails app by adding a config.gem statement to config/environment.rb:
 
-    config.gem "websolr-rails"
+    $ config.gem "websolr-acts_as_solr"
+
+Then you should run the generator to add the config/solr.yml file:
+  
+    $ acts_as_solr install
+    
+Finally, install the rake tasks to let you start a local Solr server for development:
+
+    $ echo "require 'aas_tasks'" >> Rakefile
     
 #### Making models searchable
 
@@ -45,7 +52,7 @@ Here's an example of searching:
 
 Go to your Rails application directory, install the Websolr gem for Sunspot and add it to your gem manifest:
 
-    $ sudo gem install websolr-sunspot-rails
+    $ sudo gem install websolr-sunspot_rails
     $ echo websolr-sunspot_rails >> .gems 
     
 Now, add the gem to config/environment.rb 
@@ -89,13 +96,7 @@ Running Websolr on Heroku is easy.
 ### 1. Enable the add-on
 
     $ heroku addons:add websolr
-    
-### 2. Tell Websolr which plugin you are using
+            
+### 2. You're running!
 
-    $ websolr heroku set client acts_as_solr # default setting
-
-or    
-
-    $ websolr heroku set client sunspot
-        
-### 4. You're running!
+### 3. There is no step 3.
