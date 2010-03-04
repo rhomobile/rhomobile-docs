@@ -36,6 +36,10 @@ get '/getting-started' do
   redirect '/heroku'
 end
 
+get '/technologies' do
+  redirect '/aspen'
+end
+
 get '/:topic' do
 	cache_long
 	render_topic params[:topic]

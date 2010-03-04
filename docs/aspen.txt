@@ -1,18 +1,16 @@
-System Infrastructure
+Argent Aspen System Infrastructure
 =====================
 
 Platform Stack
 --------------
 
-The base Heroku platform stack is composed of widely deployed open source
+The base Aspen [platform stack](/stack) is composed of widely deployed open source
 software:
 
   * **Operating System:** Debian 4.0
   * **Ruby Version:** MRI 1.8.6
   * **Ruby App Server**: [Thin](http://code.macournoyer.com/thin/)
   * **Web Server:** [Nginx 0.6.32](http://wiki.nginx.org/)
-  * **Database:** [PostgreSQL 8.3.5](http://www.postgresql.org/)
-  * **HTTP cache/accelerator**: [Varnish 2.0.2](http://varnish.projects.linpro.no/)
 
 See [How it Works](http://heroku.com/how) for more information about these
 components; the [Platform Architecture](http://heroku.com/how/architecture)
@@ -29,14 +27,14 @@ comprehensive list.
 
 ### Web frameworks
 
-  * Rails 2.3.3, 2.3.2, 2.2.2, 2.1, 2.0.2
+  * Rails 2.3.5, 2.3.4, 2.3.3, 2.3.2, 2.2.2, 2.1, 2.0.2
   * Sinatra 0.9.4, 0.9.1
   * Merb 1.0.9
   * Rack 1.0, 0.9.1
 
 ### ORMs
 
-* ActiveRecord 2.3.3, 2.3.2
+* ActiveRecord 2.3.5, 2.3.4, 2.3.3, 2.3.2
 * DataMapper 0.9.10
 * Sequel 2.9
 
@@ -56,7 +54,6 @@ comprehensive list.
 
 ### Misc
 
-* acts_as_ferret 0.4.3
 * RestClient 0.9
 * rush 0.5
 
@@ -65,4 +62,4 @@ Comprehensive List of System Rbuy Gems
 
 See [installed-gems.heroku.com](http://installed-gems.heroku.com/) for a
 comprehensive generated list of all gems and versions included with the
-base platform.
+Argent Aspen stack.

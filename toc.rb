@@ -41,7 +41,6 @@ section 'features', "Platform Features" do
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'slug-compiler',      'Slug compiler'
-	topic 'technologies',       'System infrastructure'
 	topic 'database',           'SQL database'
 	topic 'stack',              'Deployment Stack'
 end
