@@ -42,7 +42,9 @@ You can see what stack your app is on, and all available stacks, using the herok
       bamboo-ree-1.8.7
       bamboo-mri-1.9.1
 
-Here, the app is running on Argent Aspen, using MRI 1.8.6.  [Badious Bamboo](/bamboo) stack is also available to this app, with two choices for the VM (Enterprise Edition 1.8.7 and MRI 1.9.1).
+Here, the app is running on [Argent Aspen](/aspen), using MRI 1.8.6.  [Badious Bamboo](/bamboo) stack is also available to this app, with two choices for the VM (Enterprise Edition 1.8.7 and MRI 1.9.1).
+
+NOTE: Bamboo differs from Aspen in that there are no gems preinstalled by default.  Apps running on bamboo stack should package all of their gem dependencies into the slug using .gems or a Gemfile.
 
 Targeting a stack on app creation
 ---------------------------------
@@ -66,17 +68,3 @@ You can begin migration to a new stack by using the stack:migrate command:
 The migration will be completed after you git push and a new slug is successfully compiled.  The reason for this two-phase migration is so that you can see the output of your new slug compiling, in case anything should go wrong.  (If the slug fails to compile, your push will be rejected as normal and your existing app will continue to run.)
 
 When migrating to a new stack, it's likely that the differences in the underlying runtime environment will result in some minor breakage in your app.  We highly recommend that you try pushing your app's code to a temporary Heroku app to test the migration process and the new environment, so that you can make any changes necessary to run on the new stack without affecting your production environment.  Once your code runs cleanly, you can push those changes back to your production app and do the migration.
-
-Available Stacks
-----------------
-
-### [Argent Aspen](/aspen)
-
-[Argent Aspen](/aspen) stack runs on Debian 4.0 (etch) and offers a single Ruby VM, MRI 1.8.6.  It was released January 15, 2009, and is currently the default stack for new apps.
-
-### [Badious Bamboo](/bamboo)
-
-[Badious Bamboo](/bamboo) stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/) 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
-
-NOTE: Bamboo differs from Aspen in that there are no gems preinstalled by default.  Apps running on bamboo stack should package all of their gem dependencies into the slug using a Gemfile or .gems.
-
