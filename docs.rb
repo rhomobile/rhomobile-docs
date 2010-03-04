@@ -5,6 +5,12 @@ require 'sass'
 require 'sunspot'
 require 'topic'
 
+configure :production do
+    ENV['APP_ROOT'] ||= File.dirname(__FILE__)
+    $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
+    require 'newrelic_rpm'
+end
+
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 require 'heroku_header'
 use Heroku::Header, :active => "docs"
