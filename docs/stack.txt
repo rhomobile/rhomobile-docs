@@ -7,15 +7,24 @@ Stacks overview
 A stack is a complete deployment environment, including the base OS and all associated libraries.  Each stack runs on a different set of servers with different underlying operating systems, libraries, gems, and Ruby VMs available. Different stacks support different runtime environments.  
 
 ### Summary of stack and Ruby VM combinations:
-<table>
+
+<table id="stack-compare" class="compare">
   <tr>
-    <th>&nbsp;</th><th>Base Technology</th><th>MRI 1.8.6</th><th>REE 1.8.7</th><th>MRI 1.9.1</th>
+    <th class="icon">&nbsp;</th><th class="tech">Base Technology</th><th>MRI 1.8.6</th><th>REE 1.8.7</th><th>MRI 1.9.1</th>
   </tr>
-  <tr>
-    <td><a href="/aspen">Aspen</a></td><td>Debian Etch 4.0</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td>
+  <tr id="argent-aspen">
+    <td class="icon"><a href="/aspen">Argent Aspen</a></td>
+		<td class="tech">Debian Etch 4.0</td>
+		<td><span class="check">X</span></td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
   </tr>
-  <tr>
-    <td><a href="/bamboo">Bamboo</a></td><td>Debian Lenny 5.0</td><td>&nbsp;</td><td>X</td><td>X</td>
+  <tr id="badious-bamboo">
+    <td class="icon"><a href="/bamboo">Badious Bamboo</a></td>
+		<td class="tech">Debian Lenny 5.0</td>
+		<td>&nbsp;</td>
+		<td><span class="check">X</span></td>
+		<td><span class="check">X</span></td>
   </tr>
 </table>
 
