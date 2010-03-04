@@ -24,7 +24,7 @@ not_found do
 end
 
 get '/' do
-	cache_long
+  sleep 1
 	haml :index
 end
 
