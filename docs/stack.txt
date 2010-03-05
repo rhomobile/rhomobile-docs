@@ -13,14 +13,14 @@ A stack is a complete deployment environment, including the base OS and all asso
     <th class="icon">&nbsp;</th><th class="tech">Base Technology</th><th>MRI 1.8.6</th><th>REE 1.8.7</th><th>MRI 1.9.1</th>
   </tr>
   <tr id="argent-aspen">
-    <td class="icon"><a href="/aspen">Argent Aspen</a></td>
+    <td class="icon"><a href="/aspen">Argent <strong>Aspen</strong></a></td>
 		<td class="tech">Debian Etch 4.0</td>
 		<td><span class="check">&bull;</span></td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
   </tr>
   <tr id="badious-bamboo">
-    <td class="icon"><a href="/bamboo">Badious Bamboo</a></td>
+    <td class="icon"><a href="/bamboo">Badious <strong>Bamboo</strong></a></td>
 		<td class="tech">Debian Lenny 5.0</td>
 		<td>&nbsp;</td>
 		<td><span class="check">&bull;</span></td>
