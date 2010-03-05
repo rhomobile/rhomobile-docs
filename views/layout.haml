@@ -20,6 +20,12 @@
   			SyntaxHighlighter.defaults['gutter'] = false;
   			SyntaxHighlighter.defaults['toolbar'] = false;
   			SyntaxHighlighter.all();
+
+        $("#stack-compare tr").click(function(){
+      	  window.location=$(this).find("a").attr("href"); 
+      	  return false;
+      	});
+        
   		});
   	</script>
   </head>
