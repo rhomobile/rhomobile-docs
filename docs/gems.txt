@@ -94,4 +94,4 @@ ensuring that an application is not deployed in an inconsistent state.
 Gem Bundler
 -----------
 
-Gem Bundler is under active development, and is not currently stable for production applications.  Heroku has [experimental support](/rails3#gem-bundler) for Bundler to enable early testing and Rails 3 beta application testing.
+Gem Bundler is under active development, and is not currently stable for production applications.  Heroku has [experimental support](/bundler) for Bundler to enable early testing and Rails 3 beta application testing.
