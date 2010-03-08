@@ -62,7 +62,7 @@ Migrating between stacks
 
 You can begin migration to a new stack by using the stack:migrate command:
 
-    $ heroku stack:migrate bamboo-mri-1.8.7
+    $ heroku stack:migrate bamboo-ree-1.8.7
     ----> Preparing to migrate myapp from aspen-mri-1.8.6 to bamboo-ree-1.8.7
 
 The migration will be completed after you git push and a new slug is successfully compiled.  The reason for this two-phase migration is so that you can see the output of your new slug compiling, in case anything should go wrong.  (If the slug fails to compile, your push will be rejected as normal and your existing app will continue to run.)
