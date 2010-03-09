@@ -55,6 +55,15 @@ And finally check it all in and push it up to heroku:
     
 See the <a href="http://github.com/heroku/heroku-docs">source to our docs app</a> for an example of a Sinatra app using New Relic
 
+Watching your Queue Depth
+-------------------------
+
+When a request comes in to Heroku it’s passed to your dynos to process the request. If more requests are coming in than your dynos can handle, the requests queue up. The [performance docs](/performance) provide a more detailed overview of performance. The queue is often a sign that you need to increase your dynos or speed up your app. New Relic can now show you the peak and average queue for your app.
+
+This screencast provides an overview of the new feature in New Relic, and some guidance on how to tell when it’s time to crank your dynos
+
+<object width="640" height="360"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=9926269&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=d7bbfc&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=9926269&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=d7bbfc&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="640" height="360"></embed></object>
+
 Customizing the Configuration
 -----------------------------
 New Relic allows you customize certain settings by editing your configuration file.  Since Heroku automatically writes this out, you can't directly edit the file.  By setting certain configuration variables, you can change how the configuration file is generated.
