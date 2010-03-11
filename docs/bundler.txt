@@ -1,7 +1,13 @@
 Gem Bundler
 ===========
 
-Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  Gem Bundler is under active development, and is not recommended for production use yet.  Heroku has experimental support for bundler.
+Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  Gem Bundler is under active development, and is not recommended for production use yet.  Heroku has experimental support for bundler on the [Bamboo](/bamboo) stack only.
+
+Bundler Version
+---------------
+0.9.11
+
+Bundler is evolving quickly.  Heroku will try to stay as up-to-date as possible as Bundler releases new versions.  As this is experimental support, it is your responsibility to make sure you stay compatible with the latest version of Bundler.  Announcements of new versions will be posted to the [google group](http://groups.google.com/group/heroku/).
 
 Using Bundler
 -------------
@@ -109,10 +115,3 @@ Further reading
 
 * [Nick Quaranto: Gem Bundler is the Future](http://litanyagainstfear.com/blog/2009/10/14/gem-bundler-is-the-future/)
 * [Gem Bundler readme](http://github.com/carlhuda/bundler)
-
-Known Issues
--------------
-
-### Bundler groups
-
-Heroku currently doesn't support gemfile groups.  We are working with the bundler team to support this feature shortly.
