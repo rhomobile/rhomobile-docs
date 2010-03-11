@@ -50,7 +50,7 @@ section 'addons', "Add-ons" do
 	topic 'amazon_rds',        'Amazon RDS'
 	topic 'cron',              'Cron'
 	topic 'deploy-hooks',      'Deploy Hooks'
-	topic 'memcached',         'Memcached'
+	topic 'memcache',         'Memcached'
 	topic 'newrelic',          'New Relic RPM'
 	topic 'sendgrid',          'Sendgrid SMTP'
 	topic 'ssl',               'SSL'
