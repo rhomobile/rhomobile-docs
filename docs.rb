@@ -29,7 +29,7 @@ get '/getting-started' do
   redirect '/heroku'
 end
 
-get '/memcached/' do
+get '/memcached' do
   redirect '/memcache'
 end
 
