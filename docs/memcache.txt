@@ -32,7 +32,7 @@ For Rails version 2.3.3 and higher using .gems, update your config/environment.r
 Configure your app to use memcache for the cache store in production.  Add the following to config/environment/production.rb:
 
     {ruby}
-    config.cache_store = :mem_cache_store, MemcacheAuth::Rails.new
+    config.cache_store = :mem_cache_store, Memcached::Rails.new
     
 In your development environment, Rails.cache will default to an in-memory memory store that doesn't require a running memcached.
 
@@ -78,8 +78,8 @@ In your configure block:
 
     {ruby}
     configure do
-      require 'memcache-auth'
-      CACHE = MemcacheAuth.new
+      require 'memcached'
+      CACHE = Memcached.new
     end
 
 Test it out in a console:
@@ -108,5 +108,5 @@ To use memcache on Heroku, install the memcache add-on:
 
     $ heroku addons:add memcache
 
-If you're using the memcache-auth gem as described above, your app will use memcache on Heroku without any further code changes.
+If you're using the memcached gem as described above, your app will use memcache on Heroku without any further code changes.
 
