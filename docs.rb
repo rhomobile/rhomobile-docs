@@ -23,6 +23,22 @@ not_found do
 	erb :not_found
 end
 
+# REDIRECTS
+
+get '/getting-started' do
+  redirect '/heroku'
+end
+
+get '/memcached' do
+  redirect '/memcache'
+end
+
+get '/technologies' do
+  redirect '/aspen'
+end
+
+# 
+
 get '/' do
 	cache_long
 	haml :index
@@ -30,14 +46,6 @@ end
 
 get '/search' do
   erb :search, :locals => {:search => search_for(params[:q])}
-end
-
-get '/getting-started' do
-  redirect '/heroku'
-end
-
-get '/technologies' do
-  redirect '/aspen'
 end
 
 get '/:topic' do
