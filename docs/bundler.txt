@@ -1,7 +1,9 @@
 Gem Bundler
 ===========
 
-Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  Gem Bundler is under active development, and is not recommended for production use yet.  Heroku has experimental support for bundler on the [Bamboo](/bamboo) stack only.
+Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  Gem Bundler is under active development, and is not recommended for production use yet.  
+
+NOTE: Bundler can only be used on the Bamboo stack.  Using Bundler with the Aspen stack is NOT supported.
 
 Bundler Version
 ---------------
@@ -21,9 +23,6 @@ Create a file named Gemfile in the root of your app specifying what gems are req
     {ruby}
     source :gemcutter
     gem 'sinatra', '0.9.4'
-    gem 'thin'
-
-NOTE: You are currently REQUIRED to add gem 'thin' to your Gemfile.  Bundler 0.10 will fix this by including system specified gems, while maintaining compatibility.  In the meantime, make sure to include this gem.  
 
 The Gemfile should be added to the git repository since it is part of the app. You should also add the .bundle directory to your gitignore file.  Once you have added the Gemfile, it makes it easy for other developers to get their environment ready to run the app:
 
@@ -45,17 +44,6 @@ Heroku also uses that file to resolve and install your application dependencies 
            Locking environment
 
 
-Required Gems on Heroku
------------------------
-
-When using bundler on Heroku, you must specify additional gems for all applications:
-
-    {ruby}
-    group :production do
-      gem 'pg'
-      gem 'thin'
-    end
-
 Specifying gems & groups
 ------------------------
 
@@ -68,9 +56,7 @@ Heroku will run "bundler --without development --without test" on deploy.
 Using Bundler from Rails 3
 --------------------------
 
-Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.  Remember to specify the the appropriate database gem as well:
-
-    gem "pg", :group => :production
+Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.
     
 Using Bundler from Rails 2.3.5
 ------------------------------
