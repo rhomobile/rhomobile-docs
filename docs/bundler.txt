@@ -51,7 +51,7 @@ The recommended use of gem bundler is to bundle absolutely every gem your app de
 
 Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
 
-Heroku will run "bundler --without development --without test" on deploy.  
+Heroku does not specify any groups during bundle installation, so all gems from all groups will be bundled with your application.
 
 Using Bundler from Rails 3
 --------------------------
