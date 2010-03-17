@@ -5,6 +5,8 @@ Heroku apps can run remote console and rake commands from the command line.
 This powerful feature is the primary method by which you introspect and manage
 your app's database.
 
+NOTE: Your console commands will run within the context of a dyno. This will tie up the dyno for the duration of the console command.
+
 One-off commands
 ----------------
 
