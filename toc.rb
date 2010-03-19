@@ -17,6 +17,7 @@ end
 section 'faq', "FAQ" do
 	topic 'faq-accounts-billing',   'Accounts & Billing'
 	topic 'faq-product-features',   'Product features'
+	topic 'faq-support'         ,   'Support'
 end
 
 section 'management', "Application Management" do
