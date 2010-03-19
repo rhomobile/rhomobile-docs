@@ -1,3 +1,11 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+  	$("#stack-compare tr").click(function(){
+  	  window.location=$(this).find("a").attr("href"); 
+  	  return false;
+  	});
+  });
+</script>
 <h1><%= @title %></h1>
 
 <%= @intro %>

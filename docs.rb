@@ -5,6 +5,12 @@ require 'sass'
 require 'sunspot'
 require 'topic'
 
+configure :production do
+    ENV['APP_ROOT'] ||= File.dirname(__FILE__)
+    $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
+    require 'newrelic_rpm'
+end
+
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 require 'heroku_header'
 use Heroku::Header, :active => "docs"
@@ -17,6 +23,22 @@ not_found do
 	erb :not_found
 end
 
+# REDIRECTS
+
+get '/getting-started' do
+  redirect '/heroku'
+end
+
+get '/memcached' do
+  redirect '/memcache'
+end
+
+get '/technologies' do
+  redirect '/aspen'
+end
+
+# 
+
 get '/' do
 	cache_long
 	haml :index
@@ -24,10 +46,6 @@ end
 
 get '/search' do
   erb :search, :locals => {:search => search_for(params[:q])}
-end
-
-get '/getting-started' do
-  redirect '/heroku'
 end
 
 get '/:topic' do

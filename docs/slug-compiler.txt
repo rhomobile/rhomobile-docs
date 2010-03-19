@@ -36,5 +36,5 @@ Slug size
 
 Your slug size is displayed at the end of a successful compile.  You can roughly estimate slug size locally by doing a fresh checkout of your app, deleting the .git directory, and running `du -hsc`.
 
-Smaller slugs can be transferred across the dyno grid more quickly, and allowing for a faster spin-up speed on your dynos.  Generally speaking, any slug under 10MB is small and nimble; 20MB is average; and 30MB and above is weighty.  If you find your app getting into the 30MB+ range, you may want to look into some techniques (such as removing unneeded dependencies or excluding files via slugignore) to reduce the size.
+Smaller slugs can be transferred across the dyno grid more quickly, and allowing for a faster spin-up speed on your dynos.  Generally speaking, any slug under 15MB is small and nimble; 30MB is average; and 40MB and above is weighty.  If you find your app getting into the 40MB+ range, you may want to look into some techniques (such as removing unneeded dependencies or excluding files via slugignore) to reduce the size.
 

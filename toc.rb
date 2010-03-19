@@ -32,6 +32,7 @@ section 'management', "Application Management" do
 	topic 'config-vars',        'Config vars'
 	topic 'backups',            'Backups'
 	topic 'maintenance-mode',   'Maintenance mode'
+	topic 'rails3',             'Rails 3'
 end
 
 section 'features', "Platform Features" do
@@ -40,7 +41,6 @@ section 'features', "Platform Features" do
 	topic 'http-caching',       'HTTP cache'
 	topic 'rack',               'Rack apps'
 	topic 'slug-compiler',      'Slug compiler'
-	topic 'technologies',       'System infrastructure'
 	topic 'database',           'SQL database'
 	topic 'stack',              'Deployment Stack'
 end
@@ -50,7 +50,7 @@ section 'addons', "Add-ons" do
 	topic 'amazon_rds',        'Amazon RDS'
 	topic 'cron',              'Cron'
 	topic 'deploy-hooks',      'Deploy Hooks'
-	topic 'memcached',         'Memcached'
+	topic 'memcache',         'Memcached'
 	topic 'newrelic',          'New Relic RPM'
 	topic 'sendgrid',          'Sendgrid SMTP'
 	topic 'ssl',               'SSL'

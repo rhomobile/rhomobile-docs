@@ -3,10 +3,6 @@ New Relic
 
 New Relic RPM is an on-demand performance management solution for web applications developed in Ruby. The New Relic RPM Plugin offers seamless integration with the Heroku platform enabling immediate and automatic access to RPM’s comprehensive capabilities for monitoring, troubleshooting and tuning web applications.
 
-Supported Frameworks
---------------------
-
-RPM is only available for Ruby on Rails apps at this time.
 
 Add-on Installation
 -------------------
@@ -33,6 +29,41 @@ The RPM add-on will automatically creates a private account on RPM, and configur
 
 We then autoconfigure your newrelic.yml file with the proper access keys.
 
+Using New Relic from a Rack App
+-------------------------------
+
+When using New Relic with a non-rails app, you need to manually install the plugin into your code repo.  Heroku will automatically configure your newrelic.yml file in config/newrelic.yml
+
+    $ mkdir -p vendor/plugins
+    $ cd vendor/plugins
+    $ svn co http://newrelic.rubyforge.org/svn/newrelic_rpm
+    $ find newrelic_rpm -name \.svn -type d -exec rm -rf {} \;
+    $ git add .
+
+And then add the following code to your app:
+
+    configure :production do
+        ENV['APP_ROOT'] ||= File.dirname(__FILE__)
+        $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
+        require 'newrelic_rpm'
+    end
+    
+And finally check it all in and push it up to heroku:
+
+    $ git ci -m "Added New Relic Plugin"
+    $ git push heroku master
+    
+See the <a href="http://github.com/heroku/heroku-docs">source to our docs app</a> for an example of a Sinatra app using New Relic
+
+Watching your Queue Depth
+-------------------------
+
+When a request comes in to Heroku it’s passed to your dynos to process the request. If more requests are coming in than your dynos can handle, the requests queue up. The [performance docs](/performance) provide a more detailed overview of performance. The queue is often a sign that you need to increase your dynos or speed up your app. New Relic can now show you the peak and average queue for your app.
+
+This screencast provides an overview of the new feature in New Relic, and some guidance on how to tell when it’s time to crank your dynos
+
+<object width="640" height="360"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=9926269&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=d7bbfc&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=9926269&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=d7bbfc&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="640" height="360"></embed></object>
+
 Customizing the Configuration
 -----------------------------
 New Relic allows you customize certain settings by editing your configuration file.  Since Heroku automatically writes this out, you can't directly edit the file.  By setting certain configuration variables, you can change how the configuration file is generated.
@@ -41,3 +72,8 @@ Currently we support setting a custom apdex score, and enabling parameter captur
 
     $ heroku config:add NEW_RELIC_APDEX=0.4
     $ heroku config:add NEW_RELIC_CAPTURE_PARAMS=TRUE
+    
+Supported Frameworks
+--------------------
+
+RPM is available for any Rack app, including Rails & Sinatra

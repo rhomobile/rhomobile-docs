@@ -1,0 +1,22 @@
+Rails 3 (Beta)
+=======
+
+Heroku allows you to run Rails 3 on the [bamboo](/bamboo) [stack](/stack) with either Ruby 1.8.7 or Ruby 1.9.1.  **This is currently experimental, as Rails 3 and associated components are evolving quickly, sometimes breaking compatibility.**  We currently support Rails [3.0.0beta](http://rubygems.org/gems/rails/versions/3.0.0.beta) with [Bundler 0.9.5](http://rubygems.org/gems/bundler/versions/0.9.5)
+
+Serving Static Assets
+---------------------
+
+Rails 3 defaults will not serve static assets in production, such as your javascript, HTML files, images, etc.  Heroku requires that this be enabled to work correctly.  During deploy, we auto-detect if this is set to false, and install [a plugin](http://github.com/pedro/rails3_serve_static_assets) that simply flips this to true.  You can also manually set this to true by editing config/environments/production.rb and setting this line:
+
+    config.serve_static_assets = true
+    
+Configuring your database
+-------------------------
+
+Heroku will automatically rewrite your database.yml file with the correct settings.  Heroku uses a postgres database.  To connect to the database, you'll need to include the "pg" gem in your gemfile.  
+
+Gem Bundler
+-----------
+
+For details on Bundler & Heroku, see our [bundler](/bundler) docs page
+
