@@ -16,7 +16,9 @@ Before you can use the add-on, you will need to do a one-time setup for your dom
 
 Now you can use these domains with any of your Heroku apps by way of the Zerigo DNS Add-on.
 
+
 NOTE: DNS changes can take time to propagate across the Internet. On Unix systems, you can verify that your domain is correctly pointed at Zerigo's servers by running "dig ns yourdomain.com" in the shell. You should see the five servers above listed in the output. 
+
 
 Install the add-on
 ------------------
@@ -31,7 +33,9 @@ All you need to do now is choose one of the [available Zerigo DNS plans](http://
 	$ heroku addons:add zerigo_dns:basic
 	Installing zerigo_dns:basic into myapp...done.
 
+
 NOTE: If you already have the Custom Domains add-on installed when adding the Zerigo DNS add-on, DNS entries for your existing custom domain names will automatically be added to Zerigo's systems.
+
 
 Add & remove domain names
 -------------------------
