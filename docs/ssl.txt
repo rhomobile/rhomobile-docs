@@ -42,14 +42,14 @@ Heroku offers you three choices for enabling SSL on your custom domain(s): SNI, 
 
 The steps for setting up custom domain SSL with your Heroku app are as follows
 
-1.  [Acquire an SSL certificate](#acquirecert)
+1.  [Acquire SSL certificate](#acquirecert)
 2.  [Add it to your application](#addcert)
 3.  [Install the desired add-on](#chooseaddon)
 4.  [Configure DNS](#configuredns) (not necessary for SNI)
 
-### <a name="acquirecert">Acquire a SSL Certificate</a>
+### <a name="acquirecert">Acquire SSL Certificate</a>
 
-All custom domain SSL options require generating a SSL certificate.  You can use the same certificate for either solution.  When generating a certificate for Heroku, here is some information you may need to know:
+All custom domain SSL options require generating an SSL certificate.  You can use the same certificate for either solution.  When generating a certificate for Heroku, here is some information you may need to know:
 
  * Web Server: Nginx
  * You must remove the passphrase from your certificate so Heroku can automatically start the server 
