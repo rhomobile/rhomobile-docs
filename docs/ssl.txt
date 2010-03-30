@@ -98,10 +98,10 @@ Shortly after installing the add-on you will receive an email containing the hos
 To enable SSL for a particular subdomain within your custom domain, you must create a CNAME alias pointing the subdomain to the SSL endpoint above. If you wanted to use "www.yourdomain.com", the output of the UNIX host command should look like this after completing DNS configuration:
 
     $ host www.yourdomain.com
-    www.yourdomain.com is an alias for proxy.heroku.com.
-    proxy.heroku.com has address 75.101.145.87
-    proxy.heroku.com has address 75.101.163.44
-    proxy.heroku.com has address 174.129.212.2
+    www.yourdomain.com is an alias for appid1234herokucom-56789.us-east-1.elb.amazonaws.com
+    appid1234herokucom-56789.us-east-1.elb.amazonaws.com has address 1.1.1.1
+    
+The actual IP address of the SSL endpoint will vary.
     
 NOTE: Remember to point the CNAME to the SSL endpoint address listed in your confirmation email, and *not* proxy.heroku.com. Also, keep in mind that the subdomain(s) you alias have to be covered in your SSL certificate. That is, it must specify it explicitly or through a wildcard (*.yourdomain.com).
 
