@@ -30,76 +30,105 @@ in your browser chrome.
 Custom-domain SSL (www.yourdomain.com)
 --------------------------------------
 
-Heroku offers you two choices to support running SSL on your domain, SNI and Custom SSL.  
+### Overview
 
-SNI is supported by all browsers except IE on Windows XP.  Due to this limitation, we recommend using SNI for advanced users and testing.  When you are ready to deploy to a broader internet audience, you can seamlessly transition to Custom SSL.
+Heroku offers you three choices for enabling SSL on your custom domain(s): SNI, Hostname based SSL and finally IP based SSL. Here's a quick overview of the use cases for each product:
 
-For SNI or Custom SSL, the workflow almost identical:
+*   [SNI](http://addons.heroku.com/ssl) is a newer standard that requires browser support. It works on most modern browsers, with the notable exception of Internet Explorer 6 and 7 on Windows XP. For that reason, we recommend you use SNI for testing and other environments where you control the browser selection.
 
- 1. <a href="#acquirecert">Aquire a SSL certificate</a>
- 2. <a href="#addcert">Add your certificate to your Heroku application</a>
- 3. <a href="#chooseSSL">Choose which SSL add-on to enable</a>
- 
-For Custom SSL you there's an extra step of <a href="#setupdns">setting up DNS</a>.
+*   [Hostname based SSL](http://addons.heroku.com/ssl) works with all browsers. Use it when you will be accessing you site via SSL on a subdomain such as www.myapp.com, secure.myapp.com or *.myapp.com. Hostname based SSL will not work with root domains as it relies on CNAME aliasing of your custom domain names. CNAME aliasing of root domains is an RFC violation.
 
-### <a name="acquirecert">Acquiring a SSL Certificate</a>
+*   [IP based SSL](http://addons.heroku.com/ssl) works in all browsers, and is necessary if you want to use SSL when accessing your app using a root domain such as myapp.com. It also works with subdomains.
 
-Custom SSL and SNI SSL both require generating a SSL certificate.  You can use the same certificate for either solution.  When generating a certificate for Heroku, here is some information you may need to know:
+The steps for setting up custom domain SSL with your Heroku app are as follows
 
- * Web Server: nginx
+1.  [Acquire an SSL certificate](#acquirecert)
+2.  [Add it to your application](#addcert)
+3.  [Install the desired add-on](#chooseaddon)
+4.  [Configure DNS](#configuredns) (not necessary for SNI)
+
+### <a name="acquirecert">Acquire a SSL Certificate</a>
+
+All custom domain SSL options require generating a SSL certificate.  You can use the same certificate for either solution.  When generating a certificate for Heroku, here is some information you may need to know:
+
+ * Web Server: Nginx
  * You must remove the passphrase from your certificate so Heroku can automatically start the server 
  
 For testing, use this excellent instructions to generate a [self-signed certificate](http://sial.org/howto/openssl/self-signed/).  
 In production, to remove the warnings, you will need to [purchase a SSL certificate](http://www.google.com/search?client=safari&rls=en&q=ssl+certificate&ie=UTF-8&oe=UTF-8).  Each provider will walk you through the process on their website.
 
-
-### <a name="addcert">Add your certificate to your app</a>
+### <a name="addcert">Add the certificate to your app</a>
 
 Using the certificate you generated in the previous step, upload it to Heroku:
 
     $ heroku ssl:add cert.pem private.key
     Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
-    
+
 ### <a name="chooseSSL">Choose your SSL addon</a>
 
-Now that you've uploaded your certificate, you can choose which SSL option:
+Now that you've uploaded your certificate, you can choose your desired SSL option:
 
 #### SNI SSL
 
-    $ heroku addons:add sni_ssl
+    $ heroku addons:add ssl:sni
     Adding ssl to myapp...done.
     
-Your site will now be accessible on https://www.yourdomain.com.
+That's it, you're done. If your certificate was for "www.yourdomain.com", you should now be able to type https://www.yourdomain.com into a browser, and browse your app securely.
+
+#### Hostname Based SSL    
+
+    $ heroku addons:add ssl:hostname
+    Adding ssl to myapp...done.
+    
+Within a few minutes you should receive an email containing the hostname of your new SSL endpoint. Proceed to follow the instructions for setting up DNS.
     
 
-#### Custom SSL    
-    $ heroku addons:add custom_ssl
+#### IP Based SSL    
+
+    $ heroku addons:add ssl:ip
     Adding ssl to myapp...done.
+    
+Within two (2) business days of adding the add-on, you will receive an email containing the IP address of your SSL endpoint along with instructions for completing the necessary DNS configuration.
 
+### <a name="configuredns">Configure DNS</a>
 
-NOTE: Custom SSL will provide you with a new public IP address.  Due to Heroku's cloud architecture, the public IP addresses may need to be changed from time to time. When using Custom SSL, be aware that we may request that you change your settings at some point in the future. We will provide advance notice, but if you do not update your addresses, your site may stop working.
+For hostname and IP based SSL, simple DNS configuration is necessary to complete the setup.
 
-### <a name="setupdns">Setting up DNS</a> 
+#### Hostname Based SSL
 
-Heroku will allocate you a public IP address and email it to you within two business days.  You will then need to configure your DNS to point to the provided IP address using an A Record. Assuming your assigned IP is 1.1.1.1, the output from the "host" command should look like this:
+Shortly after installing the add-on you will receive an email containing the hostname of your SSL endpoint. It will look like this:
 
-    $ host example.com
-    secure.example.com has address 1.1.1.1
+    appid1234herokucom-56789.us-east-1.elb.amazonaws.com
+    
+To enable SSL for a particular subdomain within your custom domain, you must create a CNAME alias pointing the subdomain to the SSL endpoint above. If you wanted to use "www.yourdomain.com", the output of the UNIX host command should look like this after completing DNS configuration:
 
-If you are mapping a root domain, like "example.com" to your SSL IP address, the easiest way to map additional host names would be using a CNAME pointing to the root domain. Correctly configured, the output for "www.example.com" would look like:
+    $ host www.yourdomain.com
+    www.yourdomain.com is an alias for proxy.heroku.com.
+    proxy.heroku.com has address 75.101.145.87
+    proxy.heroku.com has address 75.101.163.44
+    proxy.heroku.com has address 174.129.212.2
+    
+NOTE: Remember to point the CNAME to the SSL endpoint address listed in your confirmation email, and *not* proxy.heroku.com. Also, keep in mind that the subdomain(s) you alias have to be covered in your SSL certificate. That is, it must specify it explicitly or through a wildcard (*.yourdomain.com).
 
-    $ host www.example.com
-    www.example.com is an alias for example.com.
-    example.com has address 1.1.1.1
+#### IP Based SSL
 
-Although you have a dedicated IP for your incoming traffic, you will still take full advantage of the cloud architecture on Heroku.
+No more than 2 business days after installing the add-on you will receive an email from our support system specifying the IP address of your custom SSL endpoint. Having an IP address will allow you to use a root domain for SSL traffic to your app. To do this, you must create an A Record mapping the root domain to the IP address listed in the email. If the IP address was 1.1.1.1 and your root domain "yourdomain.com", the output from the UNIX host command should look like this:
 
-Once your DNS is pointing to the new IP address, your site will now be accessible on https://www.yourdomain.com.
+    $ host yourdomain.com
+    yourdomain.com has addresss 1.1.1.1
+    
+If you wish to use a subdomain with your IP based SSL endpoint, the easiest way is to alias the subdomain to the root domain. For "www.subdomain.com", the output from the host command should look as follows:
+
+    $ host www.yourdomain.com
+    www.yourdomain.com is an alias for yourdomain.com
+    yourdomain.com has addresss 1.1.1.1
+    
+You can, of course, also create CNAME aliases directly to the IP address.
 
 FAQ
 ---
 
-**Why is Custom SSL so expensive?**
+**Why is IP based SSL so expensive?**
 
 SSL was designed before cloud computing.  The original implementation requires that each domain have it's own dedicated IP address.  Further adding to the complexity, Amazon doesn't have a mechanism to have multiple IP addresses connected to a single instance, meaning that Heroku must spin up a dedicated instance for each domain using SSL.  
 
