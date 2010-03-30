@@ -117,5 +117,3 @@ If you wish to use a subdomain with your IP based SSL endpoint, the easiest way 
     $ host www.yourdomain.com
     www.yourdomain.com is an alias for yourdomain.com
     yourdomain.com has addresss 1.1.1.1
-    
-You can, of course, also create CNAME aliases directly to the IP address.
