@@ -59,6 +59,12 @@ Using the certificate you generated in the previous step, upload it to Heroku:
     $ heroku ssl:add cert.pem private.key
     Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
 
+If you purchased a certificate, it may include a [chain or intermediate certificate](http://help.godaddy.com/article/868). In this case, you should append it to your site certificate before uploading it to your app:
+
+    $ cat chain.crt >> cert.pem
+    $ heroku ssl:add cert.pem private.key
+    Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
+
 ### <a name="chooseSSL">Choose your SSL addon</a>
 
 Now that you've uploaded your certificate, you can choose your desired SSL option:
