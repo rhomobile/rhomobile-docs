@@ -1,7 +1,7 @@
 Websolr Add-on
 ==============
 
-[Websolr](http://www,websolr.com) is a hosted service run by [Onemorecloud](http://www.onemorecloud.com). The Heroku Websolr add-on provides complete integration: all you need to do is install the add-on and use the websolr-rails gem from your app.
+[Websolr](http://www.websolr.com) is a hosted service run by [Onemorecloud](http://www.onemorecloud.com). The Heroku Websolr add-on provides complete integration: all you need to do is install the add-on and use the websolr-rails gem from your app.
 Local setup
 -------------------
 
