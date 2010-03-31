@@ -29,7 +29,7 @@ Custom-domain SSL (www.yourdomain.com)
 
 Heroku offers you three choices for enabling SSL on your custom domain(s): SNI, Hostname based SSL and finally IP based SSL. Here's a quick overview of the use cases for each product:
 
-*   [SNI](http://addons.heroku.com/ssl) is a newer standard that requires browser support. It works on most modern browsers, with the notable exception of Internet Explorer 6 and 7 on Windows XP. For that reason, we recommend you use SNI for testing and other environments where you control the browser selection.
+*   [SNI](http://addons.heroku.com/ssl) is a newer standard that requires browser support. It works on most modern browsers, with the notable exceptions of Internet Explorer 6-7 on Windows XP, and Google Chrome on OS X. For that reason, we recommend you use SNI for testing and other environments where you control the browser selection.
 
 *   [Hostname based SSL](http://addons.heroku.com/ssl) works with all browsers. Use it when you will be accessing you site via SSL on a subdomain such as www.myapp.com, secure.myapp.com or *.myapp.com. Hostname based SSL will not work with root domains as it relies on CNAME aliasing of your custom domain names. CNAME aliasing of root domains is an RFC violation.
 
