@@ -60,8 +60,9 @@ end
 
 section 'troubleshooting', "Troubleshooting" do
 	topic 'constraints',        'Application constraints'
-	topic 'logs-exceptions',    'Logs and exceptions'
+	topic 'crashlog',           'Crash Logs'
 	topic 'errors',             'Error pages'
-	topic 'performance',        'Performance'
 	topic 'support',            'Getting support'
+	topic 'logs-exceptions',    'Logs and exceptions'
+	topic 'performance',        'Performance'
 end
