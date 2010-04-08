@@ -61,7 +61,7 @@ Rails 3 is built on top of Bundler. That means there is no setup needed, all gem
 Using Bundler from Rails 2.3.5
 ------------------------------
 
-Follow the instructions in this [gist](http://gist.github.com/302406).  Remember to remove all your "config.gem" lines from your environment configuration file!  Also remember to specify the your database gem as appropriate.
+Follow the instructions [here](http://gembundler.com/rails23.html).  Remember to remove all your "config.gem" lines from your environment configuration file!  Also remember to specify the your database gem as appropriate.
 
     gem "pg", :group => :production
     gem "sqlite3-ruby", :group => :development
