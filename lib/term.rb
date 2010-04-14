@@ -11,21 +11,20 @@ module CodeRay
 
       def scan_tokens (tokens, options)
         state = :initial
-        output = ""
 
         until eos?
           if state == :initial
-            if match = scan(/\$/)
+            if match = scan(/^\$/)
               tokens << [match, :prompt]
             else
-              tokens << [scan(/.*\n/), :command]
-              state = :output
+              command = scan(/.*?\n/)
+              tokens << [command, :command]
+              state = :output unless command =~ /\\$/
             end
           else
-            output << getch
+            tokens << [scan(/.*?\n/), :output]
           end
         end
-        tokens << [output, :output]
 
         return tokens
       end
