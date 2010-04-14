@@ -5,6 +5,7 @@ pre, .CodeRay {
   font-family: 'Monaco', monospace;
   color: #000;
   font-size: 12px;
+  overflow: auto;
 }
 .CodeRay .prompt {
   color: #40337C;

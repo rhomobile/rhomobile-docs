@@ -34,6 +34,7 @@ In `config/environment.rb` set ActionMailer's delivery method to SMTP:
 You'll want to make sure Rails raises errors on mail delivery, so turn that on
 as well like this:
 
+    :::ruby
     config.action_mailer.raise_delivery_errors = true
     
 If you would like to use Gmail as your SMTP server, there are a few additional configuration steps required, as outlined in this [blog](http://blog.heroku.com/archives/2009/11/9/tech_sending_email_with_gmail/) post.
