@@ -3,7 +3,7 @@ pre, .CodeRay {
   border: 1px solid silver;
   padding: 18px 36px 18px 36px;
   font-family: 'Monaco', monospace;
-  color: #000;
+  color: #333;
   font-size: 12px;
   overflow: auto;
 }
