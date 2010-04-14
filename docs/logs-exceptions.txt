@@ -3,6 +3,7 @@ Logs and exceptions
 
 Get the most recent logs for your app:
 
+    :::term
     $ heroku logs
     Processing PlacesController#index (for 70.239.226.42 at 2008-11-03 17:28:18) [GET]
       Session ID: a6ed07bda83b889670e1841091d83c07

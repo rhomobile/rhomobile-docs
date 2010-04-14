@@ -39,6 +39,7 @@ Collaborating on an app
 
 The first step is to clone the git repo to your local machine.  The invitation email included the name of the app.  To clone the git repo, simply run this command, filling in the approrpriate app name:
 
+    :::term
     $ git clone git@heroku.com:APPNAME.git -o production
     
 This will create a directory called APPNAME, with a full copy of the git repository.  It also sets up a git remote called "production".  If you'd prefer to name this something else (e.g. heroku, or staging), simply change the parameter after the -o flag.
@@ -47,6 +48,7 @@ This will create a directory called APPNAME, with a full copy of the git reposit
 
 You can now make any changes.  When you are ready to deploy these changes, simply commit and push your changes:
 
+    :::term
     <edit files>
     $ git commit -a -m "log of the changes I made"
     $ git push production master

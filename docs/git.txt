@@ -29,12 +29,14 @@ Before you can push an app to Heroku, you'll need to initialize a local Git repo
 and commit your files to it.  For example, to create a new Rails app and create
 a Git repo for it:
 
+    :::term
     $ rails myapp
           create  
           create  app/controllers
           create  app/helpers
           create  app/models
     ...
+    :::term
     $ cd myapp
     $ git init
     Initialized empty Git repository in .git/
@@ -60,6 +62,7 @@ Your Heroku app's repository starts blank by default - it has no branches and no
 code. So the first time you deploy, you'll need to specify a remote branch to
 push to:
 
+    :::term
     $ git push heroku master
     updating 'refs/heads/master'
     ...
@@ -85,6 +88,7 @@ The git url for a Heroku app is always in the format
 `git@heroku.com:appname.git`. Once you get used to this format, you may find it
 easier to type than cut-and-paste each time.
 
+    :::term
     $ git remote add heroku git@heroku.com:appname.git
 
 We've named the remote "heroku" in this example, but you can name the remote
@@ -108,6 +112,7 @@ For example, if you are using Subversion, init your Git repo as described above,
 but with the additional step of creating a `.gitignore` prior to adding your
 files, telling it to ignore the Subversion directories.
 
+    :::term
     $ git init
     $ echo .svn > .gitignore
     $ git add .
@@ -115,15 +120,18 @@ files, telling it to ignore the Subversion directories.
 
 Now tell Subversion to ignore Git:
 
+    :::term
     $ svn propset svn:ignore .git .
     property 'svn:ignore' set on '.'
     $ svn commit -m "ignoring git folder (git is used for heroku deployment)"
 
 Each time you wish to deploy to Heroku:
 
+    :::term
     $ git add .
     $ git commit -m "commit for deploy to heroku"
     ...
+    :::term
     $ git push -f heroku
 
 NOTE: The `-f` (force flag) is recommended in order to avoid conflicts with other developers' pushes. Since you are not using Git for your revision control, but as a transport only, using the force flag is a reasonable practice.

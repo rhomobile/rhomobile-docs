@@ -25,13 +25,15 @@ Install the add-on
 
 The [Custom Domains](http://addons.heroku.com/custom_domains) is a prerequisite for using the Zerigo DNS add-on. The Custom Domains add-on is needed to inform Heroku's [Routing Mesh](http://heroku.com/how/architecture#routing-mesh) of where to send incoming requests for a specific custom domain name. If you haven't already, install it first:
 
-	$ heroku addons:add custom_domains:basic
-	Installing custom_domains:basic into myapp...done.
+    :::term
+    $ heroku addons:add custom_domains:basic
+    Installing custom_domains:basic into myapp...done.
 
 All you need to do now is choose one of the [available Zerigo DNS plans](http://addons.heroku.com/zerigo_dns), and install the appropriate add-on. Here's an example using the free version:
 
-	$ heroku addons:add zerigo_dns:basic
-	Installing zerigo_dns:basic into myapp...done.
+    :::term
+    $ heroku addons:add zerigo_dns:basic
+    Installing zerigo_dns:basic into myapp...done.
 
 
 NOTE: If you already have the Custom Domains add-on installed when adding the Zerigo DNS add-on, DNS entries for your existing custom domain names will automatically be added to Zerigo's systems.
@@ -42,17 +44,20 @@ Add & remove domain names
 
 Once installed, any domain names added or removed via the heroku command-line tool will automatically be added to Zerigo's globally distributed DNS servers.  Updates happen instantly and Heroku will always keep your DNS records correct, meaning you never need to worry about them again. For example:
 
-	$ heroku domains:add foo.mydomain.com
+    :::term
+    $ heroku domains:add foo.mydomain.com
 
 This will automatically add a CNAME pointing "foo.mydomain.com" to "proxy.heroku.com". The process for adding the root domain is identical:
 
-	$ heroku domains:add mydomain.com
+    :::term
+    $ heroku domains:add mydomain.com
 	
 In this case, multiple A Records pointing to all the current Heroku front-end IPs will be added since the root domain cannot be aliased with CNAMEs.
 
 Of course, you can also remove a domain name at any time with:
 
-	$ heroku domains:remove foo.mydomain.com
+    :::term
+    $ heroku domains:remove foo.mydomain.com
 
 
 Managing MX and other host records

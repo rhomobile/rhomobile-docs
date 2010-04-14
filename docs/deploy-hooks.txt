@@ -5,6 +5,7 @@ Deploy hooks allows you to receive a notification whenever a new version of your
 
 After one or more hooks are setup, git push will show their activation right after the app is launched:
 
+    :::term
     $ git push heroku master
     ...
     
@@ -24,6 +25,7 @@ Email
 
 This hook will send one or more emails. You can specify the subject and body, as follows:
 
+    :::term
     $ heroku addons:add deployhooks:email \
         recipient=me@example.com \
         subject="Myapp Deployed" \
@@ -37,6 +39,7 @@ IRC
 
 An IRC bot will connect to the specified server and message the room.
 
+    :::term
     $ heroku addons:add deployhooks:irc \
         server=irc.freenode.net \
         room=devlounge \
@@ -52,6 +55,7 @@ Basecamp
 
 This hook will post a message to any Basecamp account you specify, under a certain project and post category (both specified by the name).
 
+    :::term
     $ heroku addons:add deployhooks:basecamp \
         url=http://myaccount.basecamphq.com \
         username=deploybot \
@@ -67,6 +71,7 @@ Campfire
 
 Have any Campfire room receive an automated message when your app is pushed.
 
+    :::term
     $ heroku addons:add deployhooks:campfire \
         url=mycampfiresubdomain \
         ssl=1 \
@@ -80,6 +85,7 @@ HTTP Post Hook
 
 Performs an HTTP post to URL of your choice.
 
+    :::term
     $ heroku addons:add deployhooks:http \
         url=http://example.org
     Adding deployhooks:http to myapp...Done.

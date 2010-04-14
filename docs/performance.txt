@@ -16,9 +16,10 @@ Key concepts
 
 **Round-trip time** - The time a request takes from the browser or client app.  This number includes the request time, but also includes the time spent traversing the internet and the hops in front of your app include Nginx and Varnish.  You can test round-trip time from your local machine like this:
 
+    :::term
     $ ab -n 1 http://myapp.heroku.com/
-	 ...
-	 Time per request:       207.189 [ms] (mean)
+    ...
+    Time per request:       207.189 [ms] (mean)
 
 **Concurrency** - The number of requests that can be processed simultaneously.  On Heroku, your concurrency level is exactly equal to the number of dynos you have selected on the My Apps -> Resources page for your app.
 

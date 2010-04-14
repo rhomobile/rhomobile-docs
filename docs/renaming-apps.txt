@@ -5,6 +5,7 @@ You can rename an app at any time with the `heroku rename` command. For example,
 to rename an app named "oldname" to "newname", change into the app's git
 checkout and run:
 
+    :::term
     $ heroku rename newname
     http://newname.heroku.com/ | git@heroku.com:newname.git
     Git remote heroku updated
@@ -19,6 +20,7 @@ name, but be aware that any external links will need to be updated.
 You can rename an app while outside a git checkout by passing an explicit
 `--app` argument:
 
+    :::term
     $ heroku rename newname --app oldname
     http://newname.heroku.com/ | git@heroku.com:newname.git
 
@@ -31,6 +33,7 @@ If you are inside the Git checkout directory, your remote will be updated
 automatically. Other checkouts, such as those belonging to other
 developers, will need to be updated manually:
 
+    :::term
     $ git remote rm heroku
     $ git remote add heroku git@heroku.com:newname.git
 

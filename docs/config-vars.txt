@@ -14,6 +14,7 @@ Quick example
 
 Add some config vars for your S3 account keys:
 
+    :::term
     $ cd myapp
     $ heroku config:add S3_KEY=8N029N81 S3_SECRET=9s83109d3+583493190
     Adding config vars:
@@ -43,6 +44,7 @@ In the example shown above, the app would run with the AWS keys set to `nil` on 
 
 Or, specify them when running the local server (or any other command, like a rake task) by prepending the shell command:
 
+    :::term
     $ S3_KEY=mykey S3_SECRET=mysecret script/server
 
 Another option is to have default values when running locally:
@@ -62,15 +64,16 @@ Config commands
 
 Use `heroku config`, `config:add`, `config:remove`, and `config:clear` to manage your config vars.
 
+    :::term
     $ heroku config:add GITHUB_USERNAME=joesmith
     Adding config vars:
       GITHUB_USERNAME => joesmith
     Restarting app...done.
-
+    
     $ heroku config
     GITHUB_USERNAME => joesmith
     RACK_ENV => production
-
+    
     $ heroku config:clear
     Clearing all config vars and restarting app...done.
 
@@ -79,6 +82,7 @@ RACK_ENV, RAILS_ENV, MERB_ENV
 
 The RACK_ENV value is set to production by default.  You should rarely, if ever, want to change this.  But you can set it the same as any other config value if you so desire:
 
+    :::term
     $ heroku config:add RACK_ENV=staging
     Adding config vars:
       RACK_ENV => staging

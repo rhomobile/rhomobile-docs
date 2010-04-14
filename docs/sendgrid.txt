@@ -8,6 +8,7 @@ Sendgrid Free
 
 To enable free Sendgrid add-on, simply run:
 
+    :::term
     $ heroku addons:add sendgrid:free
     Adding sendgrid:free to myapp...done.
 
@@ -21,6 +22,7 @@ Sendgrid Pro/Premium
 
 Increasing your outgoing email capability is equally simple. To activate one of the paid Sendgrid add-ons:
 
+    :::term
     $ heroku addons:add sendgrid:premium
     Adding sendgrid:premium to myapp...done.
 
@@ -39,6 +41,7 @@ NOTE: SendGrid requires you to setup the From: address when sending emails. With
 
 In case you're not using it with Rails, it must be configured like:
 
+    :::ruby
     ActionMailer::Base.smtp_settings = {
       :address        => "smtp.sendgrid.net",
       :port           => "25",

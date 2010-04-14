@@ -17,11 +17,13 @@ Installation
 and then install the "heroku" gem. You will be asked to enter your Heroku
 credentials the first time you run a command. 
 
+    :::term
     $ sudo gem install heroku
 
 It's general a good idea to add your public key immediately after installing the
 heroku gem so that you can use git to push or clone Heroku app repositories:
 
+    :::term
     $ heroku keys:add
     Enter your Heroku credentials.
     Email: joe@example.com
@@ -33,72 +35,92 @@ Usage
 
 Running `heroku help` displays a usage summary:
 
-	=== General Commands
+    :::term
+    $ heroku help
+    === General Commands
 
-	help                         # show this usage
-	version                      # show the gem version
+    help                         # show this usage
+    version                      # show the gem version
 
-	list                         # list your apps
-	create [<name>]              # create a new app
+    list                         # list your apps
+    create [<name>]              # create a new app
 
-	keys                         # show your user's public keys
-	keys:add [<path to keyfile>] # add a public key
-	keys:remove <keyname>        # remove a key by name (user@host)
-	keys:clear                   # remove all keys
+    keys                         # show your user's public keys
+    keys:add [<path to keyfile>] # add a public key
+    keys:remove <keyname>        # remove a key by name (user@host)
+    keys:clear                   # remove all keys
 
-	info                         # show app info, like web url and git repo
-	open                         # open the app in a web browser
-	rename <newname>             # rename the app
+    info                         # show app info, like web url and git repo
+    open                         # open the app in a web browser
+    rename <newname>             # rename the app
 
-	dynos <qty>                  # scale to qty web processes
-	workers <qty>                # scale to qty background processes
+    dynos <qty>                  # scale to qty web processes
+    workers <qty>                # scale to qty background processes
 
-	sharing:add <email>          # add a collaborator
-	sharing:remove <email>       # remove a collaborator
-	sharing:transfer <email>     # transfers the app ownership
+    sharing:add <email>          # add a collaborator
+    sharing:remove <email>       # remove a collaborator
+    sharing:transfer <email>     # transfers the app ownership
 
-	domains:add <domain>         # add a custom domain name
-	domains:remove <domain>      # remove a custom domain name
-	domains:clear                # remove all custom domains
+    domains:add <domain>         # add a custom domain name
+    domains:remove <domain>      # remove a custom domain name
+    domains:clear                # remove all custom domains
 
-	ssl:add <pem> <key>          # add SSL cert to the app
-	ssl:remove <domain>          # removes SSL cert from the app domain
+    ssl:add <pem> <key>          # add SSL cert to the app
+    ssl:remove <domain>          # removes SSL cert from the app domain
 
-	rake <command>               # remotely execute a rake command
-	console <command>            # remotely execute a single console command
-	console                      # start an interactive console to the remote app
+    rake <command>               # remotely execute a rake command
+    console <command>            # remotely execute a single console command
+    console                      # start an interactive console to the remote app
 
-	restart                      # restart app servers
-	logs                         # fetch recent log output for debugging
-	logs:cron                    # fetch cron log output
+    restart                      # restart app servers
+    logs                         # fetch recent log output for debugging
+    logs:cron                    # fetch cron log output
 
-	maintenance:on               # put the app into maintenance mode
-	maintenance:off              # take the app out of maintenance mode
+    maintenance:on               # put the app into maintenance mode
+    maintenance:off              # take the app out of maintenance mode
 
-	config                       # display the app's config vars (environment)
-	config:add key=val [...]     # add one or more config vars
-	config:remove key [...]      # remove one or more config vars
-	config:clear                 # clear user-set vars and reset to default
+    config                       # display the app's config vars (environment)
+    config:add key=val [...]     # add one or more config vars
+    config:remove key [...]      # remove one or more config vars
+    config:clear                 # clear user-set vars and reset to default
 
-	db:pull [<database_url>]     # pull the app's database into a local database
-	db:push [<database_url>]     # push a local database into the app's remote database
-	db:reset                     # reset the database for the app
+    stack                        # show current stack and list of available stacks
+    stack:migrate                # prepare migration of this app to a new stack
 
-	bundles                      # list bundles for the app
-	bundles:capture [<bundle>]   # capture a bundle of the app's code and data
-	bundles:download             # download most recent app bundle as a tarball
-	bundles:download <bundle>    # download the named bundle
-	bundles:animate <bundle>     # animate a bundle into a new app
-	bundles:destroy <bundle>     # destroy the named bundle
+    db:pull [<database_url>]     # pull the app's database into a local database
+    db:push [<database_url>]     # push a local database into the app's remote database
+    db:reset                     # reset the database for the app
 
-	addons                       # list installed addons
-	addons:info                  # list all available addons
-	addons:add name [key=value]  # install addon (with zero or more config vars)
-	addons:remove name           # uninstall an addons
-	addons:clear                 # uninstall all addons
+    bundles                      # list bundles for the app
+    bundles:capture [<bundle>]   # capture a bundle of the app's code and data
+    bundles:download             # download most recent app bundle as a tarball
+    bundles:download <bundle>    # download the named bundle
+    bundles:animate <bundle>     # animate a bundle into a new app
+    bundles:destroy <bundle>     # destroy the named bundle
 
-	destroy                      # destroy the app permanently
+    addons                       # list installed addons
+    addons:info                  # list all available addons
+    addons:add name [key=value]  # install addon (with zero or more config vars)
+    addons:remove name           # uninstall an addons
+    addons:clear                 # uninstall all addons
 
+    destroy                      # destroy the app permanently
+
+    === Plugins
+
+    plugins                      # list installed plugins
+    plugins:install <url>        # install the plugin from the specified git url
+    plugins:uninstall <url/name> # remove the specified plugin
+
+    === Example:
+
+     rails myapp
+     cd myapp
+     git init
+     git add .
+     git commit -m "my new app"
+     heroku create
+     git push heroku master
 
 The commands are divided into two types: general commands and app commands.
 
@@ -108,6 +130,7 @@ General commands operate on your Heroku account as a whole, and are not specific
 to a particular app.  For instance, to get a list of apps you created or are a
 collaborator on:
 
+    :::term
     $ heroku list
     fooapp
     barapp
@@ -121,6 +144,7 @@ current working copy, so you don't have to specify which app to operate on
 explicitly. For example, the `heroku info` command can be executed without any
 arguments inside the working copy:
 
+    :::term
     $ cd myapp
     $ heroku info
     === myapp
@@ -135,6 +159,7 @@ If you have multiple heroku remotes or want to execute an app command outside of
 a local working copy, you can specify an explicit app name, domain, or git
 remote as follows:
 
+    :::term
     $ heroku info --app myapp
     $ heroku info --app www.example.com
     $ heroku info --remote staging
@@ -143,28 +168,31 @@ Plugins
 -------
 
 Plugins allow developers to extend the functionality of the Heroku command interface, adding commands or features.
-
-	=== Plugins
-	plugins                      # list installed plugins
-	plugins:install <url>        # install the plugin from the specified git url
-	plugins:uninstall <url/name> # remove the specified plugin
+    :::term
+    === Plugins
+    plugins                      # list installed plugins
+    plugins:install <url>        # install the plugin from the specified git url
+    plugins:uninstall <url/name> # remove the specified plugin
 
 
 ### Installing Plugin
 
 To install a plugin, you need to know the git url for the plugin.  Use the heroku plugins:install command, and specify the git repo:
 
+    :::term
     $ heroku plugins:install git://github.com/hone/heroku_colorize_console.git
 
 ### List plugins
 
 To see a list of currently installed plugins:
 
+    :::term
     $ heroku plugins
-	heroku_tab_complete_console
+    heroku_tab_complete_console
 	
 ### Removing Plugins
 
+    :::term
     $ heroku plugins:uninstall heroku_tab_complete_console
 
 ### List of available plugins
@@ -178,10 +206,12 @@ Troubleshooting
 
 On some machines your path may not be set correctly to run binary gems.  If you get a command not found error, you need to add the rubygems executable directory to your path.  You can find the EXECUTABLE_DIRECTORY by running
 
+    :::term
     $ gem environment
     
 And then setting your path to include the appropriate directory:
 
+    :::term
     $ export PATH=/opt/ruby-enterprise-1.8.6-20090201/bin:$PATH
     
 See [this StackOverflow article](http://stackoverflow.com/questions/909673/gems-and-ubuntu-9-04) for additional information

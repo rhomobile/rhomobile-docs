@@ -27,11 +27,13 @@ To list the add-ons currently in use on your app as well as those available to b
 
 ### Adding an add-on:
 
+    :::term
     $ heroku addons:add custom_domains
     Adding custom_domains to myapp...done.
 
 ### Removing an add-on:
 
+    :::term
     $ heroku addons:remove custom_domains
     Removing custom_domains from myapp...done.
 

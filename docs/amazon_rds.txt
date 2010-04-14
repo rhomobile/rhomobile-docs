@@ -19,10 +19,12 @@ Transferring Data
 
 If you are migrating from Heroku's built in PostgreSQL database to RDS, you may want to transfer database schema and data before switching over to RDS. To do this, you'll need to allow access to the RDS instance from your workstation. Here's how you authorize access, assuming your workstation's public IP is 1.1.1.1:
 
+    :::term
     rds-authorize-db-security-group-ingress default --cidr-ip 1.1.1.1/32
     
 Now you can use [taps](taps) to pull from your Heroku database to your RDS database:
 
+    :::term
     heroku db:pull mysql://user:pass@rdshostname.amazonaws.com/databasename
     
 Configuring the add-on
@@ -30,6 +32,7 @@ Configuring the add-on
 
 Heroku needs to be able to access your RDS instance. To allow Heroku's cloud through your RDS firewall, run the following command:
 
+    :::term
     rds-authorize-db-security-group-ingress default \
         --ec2-security-group-name default \
         --ec2-security-group-owner-id 098166147350
@@ -38,11 +41,13 @@ NOTE: If you have multiple RDS security groups, you can specify the desired grou
 
 Once authorized, you can add the add-on using the connection information for your database:
 
+    :::term
     $ heroku addons:add amazon_rds url=mysql://user:pass@rdshostname.amazonaws.com/databasename
     Adding amazon_rds to appname...Done.
     
 That's it! Your Heroku app should now be using your Amazon RDS database. If you check your config variables, you will see the DATABASE_URL changed:
 
+    :::term
     $ heroku config
     DATABASE_URL => mysql://user:...zonaws.com/database
 

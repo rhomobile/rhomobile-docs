@@ -15,6 +15,7 @@ A bug in port / Mac OS 10.5 causes an error when trying to build the memcached g
 
 Uninstall cryus-sasl2:
 
+    :::term
     $ sudo port -f uninstall cyrus-sasl2
 
 
@@ -38,6 +39,7 @@ In your development environment, Rails.cache will default to an in-memory memory
 
 You can test writing to the local memory cache in a console:
 
+    :::term
     $ script/console
     >> Rails.cache.write('color', 'red')
 
@@ -57,16 +59,19 @@ Using from Sinatra
 
 You'll need to run a local memcached process to test against with Sinatra or other Ruby app.  Install it on Mac OS X:
 
+    :::term
     $ sudo port install memcached
 
 Or on Ubuntu:
 
+    :::term
     $ sudo apt-get install memcached
 
 You can also download the source from [the memcached site](http://memcached.org/).
 
 Now run the memcached daemon:
 
+    :::term
     $ memcached -vv
     slab class   1: chunk size     88 perslab 11915
     ...
@@ -84,6 +89,7 @@ In your configure block:
 
 Test it out in a console:
 
+    :::term
     $ irb -r myapp.rb
     >> CACHE['color'] = 'blue'
 
@@ -106,6 +112,7 @@ Deploying to Heroku
 
 To use memcache on Heroku, install the memcache add-on:
 
+    :::term
     $ heroku addons:add memcache
 
 If you're using the memcached gem as described above, your app will use memcache on Heroku without any further code changes.

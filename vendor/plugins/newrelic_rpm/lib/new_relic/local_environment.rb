@@ -147,7 +147,8 @@ module NewRelic
     # Obsolete method for DelayedJob instrumentation support, which is
     # now in the rpm_contrib gem.
     def delayed_worker=(worker)
-      $stderr.puts "WARNING: DelayedJob instrumentation has been moved to the rpm_contrib gem."
+      :::term
+    $stderr.puts "WARNING: DelayedJob instrumentation has been moved to the rpm_contrib gem."
     end
 
     private
@@ -245,11 +246,13 @@ module NewRelic
       begin
         version = ::Sinatra::VERSION
       rescue
-        $stderr.puts("Error determining Sinatra version")
+        :::term
+    $stderr.puts("Error determining Sinatra version")
       end
 
       if ::NewRelic::VersionNumber.new('0.9.2') > version
-        $stderr.puts("Your Sinatra version is #{version}, we highly recommend upgrading to >=0.9.2")
+        :::term
+    $stderr.puts("Your Sinatra version is #{version}, we highly recommend upgrading to >=0.9.2")
       end
 
       @dispatcher = :sinatra

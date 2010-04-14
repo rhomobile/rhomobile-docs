@@ -44,10 +44,12 @@ when defined, but fallback on a default database URL otherwise.
 
 Configuring Sequel:
 
+    :::ruby
     Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
 
 Configuring DataMapper:
 
+    :::ruby
     DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
 Frequently Asked Questions
@@ -102,10 +104,12 @@ does this automatically when you use an interpolated condition form.
 
 Array conditions:
 
+    :::ruby
     :conditions => ['column1 = ? AND column2 = ?', value1, value2]
 
 Hash conditions:
 
+    :::ruby
     :conditions => { :column1 => value1, :column2 => value2 }
 
 ### Binary field limit
@@ -130,6 +134,7 @@ table that exists.
 You can see what tables you have running the following command on `heroku
 console`:
 
+    :::term
     >> ActiveRecord::Base.connection.tables
 
 ### Cannot change column type
@@ -150,6 +155,7 @@ To fix database-specific queries where ActiveRecord won't help (for instance,
 foreign keys), the only solution is to test the database before running a
 migration or query:
 
+    :::ruby
     case ActiveRecord::Base.connection.adapter_name
     when 'SQLite'
          execute 'sqlite specific query'

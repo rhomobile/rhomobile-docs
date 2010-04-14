@@ -16,11 +16,13 @@ The first step is to tell Heroku to respond to requests at your domain.  This re
 
 NOTE: You must add both www.yourdomain.com and youdomain.com if you want both to work.  You must specify each host you want Heroku to recognize
 
+    :::term
     $ heroku addons:add custom_domains
     Adding wildcard_domains to myapp...done.
 
 Then inform Heroku of the domain you are using:
 
+    :::term
     $ heroku domains:add www.example.com
     Added www.example.com as a custom domain name to myapp.heroku.com
     $ heroku domains:add example.com
@@ -31,12 +33,14 @@ with different values.
 
 Remove domains with:
 
+    :::term
     $ heroku domains:remove myapp.mydomain.com
     Removed www.example.com as a custom domain name to myapp.heroku.com
 
 You can also clear all the domains at once (often the easiest even if you only
 have one domain):
 
+    :::term
     $ heroku domains:clear
     Removed all domain names for myapp.heroku.com
 
@@ -63,6 +67,7 @@ addresses using your DNS management tool:
 
 Check that your DNS is configured correctly with the "host" command:
 
+    :::term
     $ host example.com
     example.com has address 75.101.163.44
     example.com has address 75.101.145.87
@@ -75,6 +80,7 @@ which points to `proxy.heroku.com`. In DNS terms this is known as a CNAME.
 
 Check that your DNS is configured correctly with the `host` command:
 
+    :::term
     $ host www.mydomain.com
     www.mydomain.com is an alias for proxy.heroku.com.
     proxy.heroku.com has address 75.101.163.44
@@ -92,6 +98,7 @@ If you'd like your app to respond to any subdomain under your custom domain name
 (as in `*.yourdomain.com`), you'll need to use the wildcard domains add-on.
 First, select the add-on:
 
+    :::term
     $ heroku addons:add wildcard_domains
     Adding wildcard_domains to myapp...done.
     $ curl http://arbitrary-subdomain.myapp.heroku.com/
@@ -101,11 +108,13 @@ To use with a custom domain, configure your registrar to point
 `*.yourdomain.com` at heroku.com.  If things are set up correctly you should be
 able to look up any arbitrary subdomain:
 
+    :::term
     $ host arbitrary-subdomain.yourdomain.com
     arbitrary-subdomain.yourdomain.com is an alias for heroku.com.
 
 Then add the wildcard domain on Heroku:
 
+    :::term
     $ heroku domains:add *.yourdomain.com
     Added *.yourdomain.com as a custom domain name to myapp.heroku.com
     $ curl http://arbitrary-subdomain.yourdomain.com/

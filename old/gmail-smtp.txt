@@ -8,6 +8,7 @@ NOTE: This add-on is a convienience wrapper around the TLS libraries & configuri
 
 Enable it as follows:
 
+    :::term
     $ heroku addons:add gmail_smtp user=you@gmail.com password=yourpass
 	 Adding gmail_smtp to myapp...done.
 

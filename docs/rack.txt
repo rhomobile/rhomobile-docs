@@ -15,6 +15,7 @@ Creating and Deploying Pure Rack Apps
 
 First, create a new directory and write a simple `config.ru` file:
 
+    :::term
     $ mkdir hello
     $ cd hello
     $ cat > config.ru
@@ -23,6 +24,7 @@ First, create a new directory and write a simple `config.ru` file:
 
 Test it locally:
 
+    :::term
     $ gem install rack
     $ rackup -p 9292 config.ru &
     $ curl http://localhost:9292
@@ -31,6 +33,7 @@ Test it locally:
 
 Deploy to Heroku:
 
+    :::term
     $ git init
     $ git add .
     $ git commit -m 'pure rack app'
@@ -168,4 +171,5 @@ This defaults to a SQLite database named `my.db` when no `DATABASE_URL` is set.
 You can also make use of the `DATABASE_URL` environment variable when running
 locally or on another host. For example:
 
+    :::term
     $ DATABASE_URL='mysql://user:pass@localhost/mydb' thin start --rackup config.ru

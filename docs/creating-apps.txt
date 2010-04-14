@@ -12,6 +12,7 @@ cache](/http-caching).
 To create a new app named "myapp", [install the heroku command line
 tool](/heroku-command) and run the following command:
 
+    :::term
     $ heroku create myapp
     Created http://myapp.heroku.com/ | git@heroku.com:myapp.git
     Git remote heroku added
@@ -30,6 +31,7 @@ changes as well.
 The app name argument ("myapp") is optional. If no app name is specified, a
 random generated name is used:
 
+    :::term
     $ heroku create
     Created http://mystic-wind-83.heroku.com/ | git@heroku.com:mystic-wind-83.git
 
@@ -42,4 +44,5 @@ you can expect that common names, like "blog" or "wiki", will already be taken.
 You can find out a variety of information about an app (such as the app's git
 URL, registered domain names, repo size, etc.) using the `heroku info` command:
 
+    :::term
     $ heroku info --app myapp

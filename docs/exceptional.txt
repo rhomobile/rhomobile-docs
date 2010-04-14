@@ -5,6 +5,7 @@ Exceptional
 
 Install the add-on into your app:
 
+    :::term
     $ heroku addons:add exceptional
     Adding exceptional to myapp...done.
 

@@ -9,6 +9,7 @@ Add-on Installation
 
 To install the add-on, run
 
+    :::term
     $ heroku addons:add newrelic:bronze
     
 Upgrading from an existing New Relic Install
@@ -25,6 +26,7 @@ What the Add-on does
 
 The RPM add-on will automatically creates a private account on RPM, and configures access for Heroku's servers.  The add-on will then install the latest New Relic plugin if you don't already have it installed.  This is the same as you running the command:
 
+    :::term
     $ script/plugin install http://newrelic.rubyforge.org/svn/newrelic_rpm
 
 We then autoconfigure your newrelic.yml file with the proper access keys.
@@ -34,6 +36,7 @@ Using New Relic from a Rack App
 
 When using New Relic with a non-rails app, you need to manually install the plugin into your code repo.  Heroku will automatically configure your newrelic.yml file in config/newrelic.yml
 
+    :::term
     $ mkdir -p vendor/plugins
     $ cd vendor/plugins
     $ svn co http://newrelic.rubyforge.org/svn/newrelic_rpm
@@ -42,14 +45,17 @@ When using New Relic with a non-rails app, you need to manually install the plug
 
 And then add the following code to your app:
 
+    :::ruby
     configure :production do
         ENV['APP_ROOT'] ||= File.dirname(__FILE__)
-        $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
+        :::term
+    $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
         require 'newrelic_rpm'
     end
     
 And finally check it all in and push it up to heroku:
 
+    :::term
     $ git ci -m "Added New Relic Plugin"
     $ git push heroku master
     
@@ -70,6 +76,7 @@ New Relic allows you customize certain settings by editing your configuration fi
 
 Currently we support setting a custom apdex score, and enabling parameter capture.
 
+    :::term
     $ heroku config:add NEW_RELIC_APDEX=0.4
     $ heroku config:add NEW_RELIC_CAPTURE_PARAMS=TRUE
     

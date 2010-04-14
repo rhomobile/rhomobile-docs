@@ -111,18 +111,22 @@ Alternately, you might wish to run the `memcached` daemon locally.  This is a li
 
 Install memcached on OS X with:
 
+    :::term
     $ sudo port install memcached
 
 Or on Ubuntu with:
 
+    :::term
     $ sudo apt-get install memcached
 
 Install the client gem:
 
+    :::term
     $ sudo gem install memcache-client
 
 Start the daemon with very verbose logging enabled:
 
+    :::term
     $ memcached -vv
     slab class   1: chunk size     88 perslab 11915
     slab class   2: chunk size    112 perslab  9362
@@ -130,6 +134,7 @@ Start the daemon with very verbose logging enabled:
 
 Now pass a `MEMCACHE_SERVERS` environment variable to all commands:
 
+    :::term
     $ MEMCACHE_SERVERS=localhost:11211 script/console
     Loading development environment (Rails 2.3.2)
     >> CACHE['foo'] = 'baz'

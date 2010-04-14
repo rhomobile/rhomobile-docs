@@ -12,10 +12,12 @@ in your app's database.
 
 To use, install the DJ plugin in your Rails app:
 
+    :::term
     $ script/plugin install git://github.com/tobi/delayed_job.git
 
 Create a database migration for the delayed_jobs table:
 
+    :::term
     $ script/generate migration delayed_job_migration
 
 Edit the created migration to contain:
@@ -73,6 +75,7 @@ the queue, which you can see in your Rails console:
 The job won't execute until a worker process exists to consume it.  Start
 the worker process like this:
 
+    :::term
     $ rake jobs:work
     (in /home/adam/feedreader)
     *** Starting job worker host:silver pid:4227
@@ -90,6 +93,7 @@ Once your app uses DJ, you can start workers locally, or on a traditional host,
 using `rake jobs:work`.  On Heroku, start your worker process via the heroku
 workers command:
 
+    :::term
     $ cd myapp
     $ heroku workers 1
     myapp is now running 1 worker
@@ -97,6 +101,7 @@ workers command:
 You can verify that the DJ process started without error by inspecting the
 logs:
 
+    :::term
     $ heroku logs
     ==> log/Dj-6.log <==
     (in /disk1/home/slugs/10818_59891ee_3440/mnt)
@@ -106,6 +111,7 @@ Heroku will run and manage the number of worker processes you specify, and
 you'll be billed to a prorated second, exactly like dynos.  You can increase or decrease
 your workers as needed:
 
+    :::term
     $ heroku workers +2
     myapp is now running 3 workers
     $ heroku workers -1
@@ -113,6 +119,7 @@ your workers as needed:
 
 To shut down all worker processes, set workers to zero:
 
+    :::term
     $ heroku workers 0
     myapp is now running 0 workers
     

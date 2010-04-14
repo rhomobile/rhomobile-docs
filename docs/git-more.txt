@@ -18,6 +18,7 @@ directories.  In this example, we'll use the approach if ignoring `*.log` within
 the log folder, and ignoring the `tmp` folder altogether (Rails will create it the
 first time it runs):
 
+    :::term
     $ git rm -r -f log
     rm 'log/development.log'
     rm 'log/production.log'
@@ -39,6 +40,7 @@ If you use SQLite for your local database (which is the default for a fresh
 Rails app created with the rails command), you should ignore the resulting
 database files.  Here's one way to do so:
 
+    :::term
     $ git rm -f db/*.sqlite3
     $ echo '*.sqlite3' >> .gitignore
     $ git add .gitignore
@@ -57,6 +59,7 @@ home, and you want to grab a copy of your code to keep working.  You could copy
 it from your work computer, but it's easier to clone from Heroku using the app's
 git url:
 
+    :::term
     $ git clone -o heroku git@heroku.com:appname.git
 
 The `-o` flag sets the remote name to heroku instead of origin, to make it

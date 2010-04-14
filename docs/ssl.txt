@@ -11,6 +11,7 @@ Piggyback SSL (myapp.heroku.com only)
 SSL can be turned on for any `.heroku.com` domain by enabling the Piggyback SSL
 add-on with the [heroku command-line tool](heroku-command):
 
+    :::term
     $ cd myapp
     $ heroku addons:add piggyback_ssl
     Adding ssl to myapp...done.
@@ -56,11 +57,13 @@ In production, to remove the warnings, you will need to [purchase a SSL certific
 
 Using the certificate you generated in the previous step, upload it to Heroku:
 
+    :::term
     $ heroku ssl:add cert.pem private.key
     Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
 
 If you purchased a certificate, it may include a [chain or intermediate certificate](http://help.godaddy.com/article/868). In this case, you should append it to your site certificate before uploading it to your app:
 
+    :::term
     $ cat chain.crt >> cert.pem
     $ heroku ssl:add cert.pem private.key
     Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
@@ -71,6 +74,7 @@ Now that you've uploaded your certificate, you can choose your desired SSL optio
 
 #### SNI SSL
 
+    :::term
     $ heroku addons:add ssl:sni
     Adding ssl to myapp...done.
     
@@ -78,6 +82,7 @@ That's it, you're done. If your certificate was for "www.yourdomain.com", you sh
 
 #### Hostname Based SSL    
 
+    :::term
     $ heroku addons:add ssl:hostname
     Adding ssl to myapp...done.
     
@@ -86,6 +91,7 @@ Within a few minutes you should receive an email containing the hostname of your
 
 #### IP Based SSL    
 
+    :::term
     $ heroku addons:add ssl:ip
     Adding ssl to myapp...done.
     
@@ -103,6 +109,7 @@ Shortly after installing the add-on you will receive an email containing the hos
     
 To enable SSL for a particular subdomain within your custom domain, you must create a CNAME alias pointing the subdomain to the SSL endpoint above. If you wanted to use "www.yourdomain.com", the output of the UNIX host command should look like this after completing DNS configuration:
 
+    :::term
     $ host www.yourdomain.com
     www.yourdomain.com is an alias for appid1234herokucom-56789.us-east-1.elb.amazonaws.com
     appid1234herokucom-56789.us-east-1.elb.amazonaws.com has address 1.1.1.1
@@ -115,11 +122,13 @@ NOTE: Remember to point the CNAME to the SSL endpoint address listed in your con
 
 No more than 2 business days after installing the add-on you will receive an email from our support system specifying the IP address of your custom SSL endpoint. Having an IP address will allow you to use a root domain for SSL traffic to your app. To do this, you must create an A Record mapping the root domain to the IP address listed in the email. If the IP address was 1.1.1.1 and your root domain "yourdomain.com", the output from the UNIX host command should look like this:
 
+    :::term
     $ host yourdomain.com
     yourdomain.com has addresss 1.1.1.1
     
 If you wish to use a subdomain with your IP based SSL endpoint, the easiest way is to alias the subdomain to the root domain. For "www.subdomain.com", the output from the host command should look as follows:
 
+    :::term
     $ host www.yourdomain.com
     www.yourdomain.com is an alias for yourdomain.com
     yourdomain.com has addresss 1.1.1.1

@@ -5,6 +5,7 @@ Rake tasks are executed on Heroku's dyno grid, within the same environment as
 your app's [dynos](/dynos). You can run rake tasks within the remote app
 environment using the `heroku rake` command as follows:
 
+    :::term
     $ heroku rake db:version
     (in /home/slugs/41913_06f36ef_ab3a/mnt)
     Current version: 20081118092504
@@ -13,6 +14,7 @@ You can pass rake arguments, run multiple tasks, and pass environment variables
 just as you would locally. For instance, to migrate the database to a specific
 version with verbose backtraces:
 
+    :::term
     $ heroku rake --trace db:migrate VERSION=20081118092504
 
 ### Limitations

@@ -25,6 +25,7 @@ or a MySQL database you have deployed on another host.
 Your app should be deployed to Heroku in [the usual way](/quickstart).  From
 within your local checkout of the deployed app:
 
+    :::term
     $ heroku db:push
     Sending schema
     Sending data
@@ -42,6 +43,7 @@ If you don't have a `config/database.yml` (for example, if you're using Sequel
 or DataMapper in a Sinatra app), you can specify a database URL on the command
 line. Some examples:
 
+    :::term
     $ heroku db:push sqlite://local.db
     $ heroku db:push mysql://root:mypass@localhost/mydb
     $ heroku db:push postgres://postgres:mypass@remotehost/mydb
@@ -56,6 +58,7 @@ deployment location.
 From within a local checkout of your Rails or Merb app which is deployed to
 Heroku:
 
+    :::term
     $ heroku db:pull
     Receiving schema
     Receiving data

@@ -28,6 +28,7 @@ Add `aws-s3` to your [gem manifest](/gems) and specify `:s3` as your storage bac
 
 Configuration is done in `config/amazon_s3.yml`:
 
+    :::yaml
     development:
       bucket_name: myapp_development
       access_key_id: <your key>

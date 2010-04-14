@@ -37,6 +37,7 @@ All apps are set to the "aspen-mri-1.8.6" stack by default.  You may migrate an 
 
 You can see what stack your app is on, and all available stacks, using the heroku client (version 1.7 and higher):
 
+    :::term
     $ heroku stack
     * aspen-mri-1.8.6
       bamboo-ree-1.8.7
@@ -51,6 +52,7 @@ Targeting a stack on app creation
 
 When creating a new app, you may specify a stack during app creation:
 
+    :::term
     $ heroku create test-sushi-app --stack bamboo-ree-1.8.7
     Created http://test-sushi-app.heroku.com/ | git@heroku.com:test-sushi-app.git
 
@@ -62,6 +64,7 @@ Migrating between stacks
 
 You can begin migration to a new stack by using the stack:migrate command:
 
+    :::term
     $ heroku stack:migrate bamboo-ree-1.8.7
     ----> Preparing to migrate myapp from aspen-mri-1.8.6 to bamboo-ree-1.8.7
 

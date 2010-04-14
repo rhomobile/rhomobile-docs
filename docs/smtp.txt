@@ -17,6 +17,7 @@ SMTP provider.  Note that if you're using the [Sendgrid](/sendgrid) add-on, you 
 
 In `config/environment.rb` set ActionMailer's delivery method to SMTP:
 
+    :::ruby
     config.action_mailer.delivery_method = :smtp
 
 ### 2. Configure your SMTP connection
@@ -41,6 +42,7 @@ If you would like to use Gmail as your SMTP server, there are a few additional c
 
 Start by creating a mailer class:
 
+    :::term
     script/generate mailer <name>
 
 Where `<name>` is the class name (like, Notifier). Rails mailers are somewhat
@@ -74,6 +76,7 @@ this:
 Now you are ready to send emails. You can manually send one from the console to
 make sure it’s working:
 
+    :::term
     $ heroku console
     >>> user = User.new(:name => 'Me', :email => 'me@gmail.com', :login => 'me', :password => '1234')
     >>> UserMailer.deliver_signup_notification(user)

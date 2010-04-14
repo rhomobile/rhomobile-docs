@@ -8,11 +8,13 @@ Usage
 
 Enable it like so:
 
+    :::term
     $ heroku maintenance:on
     Maintenance mode enabled.
 
 Once your application is ready, you can disable maintenance mode with:
 
+    :::term
     $ heroku maintenance:off
     Maintenance mode disabled.
 
@@ -23,6 +25,7 @@ You can also create your own content to display when your application goes into 
 
 Here's a small example:
 
+    :::term
     $ tree public/maintenance
     .
     |-- index.html

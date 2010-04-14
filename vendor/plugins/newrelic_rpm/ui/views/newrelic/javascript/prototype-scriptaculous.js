@@ -404,7 +404,8 @@ Object.extend(String.prototype, {
     var div = new Element('div');
     div.innerHTML = this.stripTags();
     return div.childNodes[0] ? (div.childNodes.length > 1 ?
-      $A(div.childNodes).inject('', function(memo, node) { return memo+node.nodeValue }) :
+      :::term
+    $A(div.childNodes).inject('', function(memo, node) { return memo+node.nodeValue }) :
       div.childNodes[0].nodeValue) : '';
   },
 
@@ -964,6 +965,7 @@ Object.extend(Number.prototype, {
   },
 
   times: function(iterator) {
+    :::term
     $R(0, this, true).each(iterator);
     return this;
   },
@@ -1180,6 +1182,7 @@ Ajax.Request = Class.create(Ajax.Base, {
   _complete: false,
 
   initialize: function($super, url, options) {
+    :::term
     $super(options);
     this.transport = Ajax.getTransport();
     this.request(url);
@@ -1266,7 +1269,8 @@ Ajax.Request = Class.create(Ajax.Base, {
         for (var i = 0, length = extras.length; i < length; i += 2)
           headers[extras[i]] = extras[i+1];
       else
-        $H(extras).each(function(pair) { headers[pair.key] = pair.value });
+        :::term
+    $H(extras).each(function(pair) { headers[pair.key] = pair.value });
     }
 
     for (var name in headers)
@@ -1437,6 +1441,7 @@ Ajax.Updater = Class.create(Ajax.Request, {
       if (Object.isFunction(onComplete)) onComplete(response, json);
     }).bind(this);
 
+    :::term
     $super(url, options);
   },
 
@@ -1461,6 +1466,7 @@ Ajax.Updater = Class.create(Ajax.Request, {
 
 Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
   initialize: function($super, container, url, options) {
+    :::term
     $super(options);
     this.onComplete = this.options.onComplete;
 
@@ -1574,11 +1580,13 @@ Element.Methods = {
   },
 
   hide: function(element) {
+    :::term
     $(element).style.display = 'none';
     return element;
   },
 
   show: function(element) {
+    :::term
     $(element).style.display = '';
     return element;
   },
@@ -1652,7 +1660,8 @@ Element.Methods = {
   wrap: function(element, wrapper, attributes) {
     element = $(element);
     if (Object.isElement(wrapper))
-      $(wrapper).writeAttribute(attributes || { });
+      :::term
+    $(wrapper).writeAttribute(attributes || { });
     else if (Object.isString(wrapper)) wrapper = new Element(wrapper, attributes);
     else wrapper = new Element('div', wrapper);
     if (element.parentNode)
@@ -1664,6 +1673,7 @@ Element.Methods = {
   inspect: function(element) {
     element = $(element);
     var result = '<' + element.tagName.toLowerCase();
+    :::term
     $H({'id': 'id', 'className': 'class'}).each(function(pair) {
       var property = pair.first(), attribute = pair.last();
       var value = (element[property] || '').toString();
@@ -2431,7 +2441,8 @@ if (Prototype.Browser.IE || Prototype.Browser.Opera) {
     var tagName = element.tagName.toUpperCase();
 
     if (tagName in Element._insertionTranslations.tags) {
-      $A(element.childNodes).each(function(node) { element.removeChild(node) });
+      :::term
+    $A(element.childNodes).each(function(node) { element.removeChild(node) });
       Element._getContentFromAnonymousElement(tagName, content.stripScripts())
         .each(function(node) { element.appendChild(node) });
     }
@@ -2671,6 +2682,7 @@ document.viewport = {
   getDimensions: function() {
     var dimensions = { };
     var B = Prototype.Browser;
+    :::term
     $w('width height').each(function(d) {
       var D = d.capitalize();
       dimensions[d] = (B.WebKit && !document.evaluate) ? self['inner' + D] :
@@ -3374,6 +3386,7 @@ function $$() {
 }
 var Form = {
   reset: function(form) {
+    :::term
     $(form).reset();
     return form;
   },
@@ -3488,11 +3501,13 @@ Form.Methods = {
 
 Form.Element = {
   focus: function(element) {
+    :::term
     $(element).focus();
     return element;
   },
 
   select: function(element) {
+    :::term
     $(element).select();
     return element;
   }
@@ -3526,6 +3541,7 @@ Form.Element.Methods = {
   },
 
   clear: function(element) {
+    :::term
     $(element).value = '';
     return element;
   },
@@ -3633,6 +3649,7 @@ Form.Element.Serializers = {
 
 Abstract.TimedObserver = Class.create(PeriodicalExecuter, {
   initialize: function($super, element, frequency, callback) {
+    :::term
     $super(callback, frequency);
     this.element   = $(element);
     this.lastValue = this.getValue();
@@ -4023,6 +4040,7 @@ Object.extend(document, {
 
   } else {
     document.write("<script id=__onDOMContentLoaded defer src=//:><\/script>");
+    :::term
     $("__onDOMContentLoaded").onreadystatechange = function() {
       if (this.readyState == "complete") {
         this.onreadystatechange = null;
@@ -4331,6 +4349,7 @@ var Effect = {
     if (Prototype.Browser.IE) tagifyStyle += ';zoom:1';
 
     element = $(element);
+    :::term
     $A(element.childNodes).each( function(child) {
       if (child.nodeType==3) {
         child.nodeValue.toArray().each( function(character) {
@@ -4358,6 +4377,7 @@ var Effect = {
     }, arguments[2] || { });
     var masterDelay = options.delay;
 
+    :::term
     $A(elements).each( function(element, index) {
       new effect(element, Object.extend(options, { delay: index * options.speed + masterDelay }));
     });
@@ -7011,7 +7031,8 @@ Ajax.InPlaceEditor = Class.create({
   postProcessEditField: function() {
     var fpc = this.options.fieldPostCreation;
     if (fpc)
-      $(this._controls.editor)['focus' == fpc ? 'focus' : 'activate']();
+      :::term
+    $(this._controls.editor)['focus' == fpc ? 'focus' : 'activate']();
   },
   prepareOptions: function() {
     this.options = Object.clone(Ajax.InPlaceEditor.DefaultOptions);
@@ -7029,6 +7050,7 @@ Ajax.InPlaceEditor = Class.create({
   registerListeners: function() {
     this._listeners = { };
     var listener;
+    :::term
     $H(Ajax.InPlaceEditor.Listeners).each(function(pair) {
       listener = this[pair.value].bind(this);
       this._listeners[pair.key] = listener;
@@ -7057,6 +7079,7 @@ Ajax.InPlaceEditor = Class.create({
     }
   },
   unregisterListeners: function() {
+    :::term
     $H(this._listeners).each(function(pair) {
       if (!this.options.externalControlOnly)
         this.element.stopObserving(pair.key, pair.value);
@@ -7079,6 +7102,7 @@ Object.extend(Ajax.InPlaceEditor.prototype, {
 Ajax.InPlaceCollectionEditor = Class.create(Ajax.InPlaceEditor, {
   initialize: function($super, element, url, options) {
     this._extraDefaultOptions = Ajax.InPlaceCollectionEditor.DefaultOptions;
+    :::term
     $super(element, url, options);
   },
 

@@ -6,6 +6,7 @@ Collaborating with others
 Other developers can be invited to collaborate on your app, identified by email
 address:
 
+    :::term
     $ heroku sharing:add joe@example.com
     joe@example.com added as a full collaborator on myapp.
 
@@ -21,6 +22,7 @@ NOTE: There is no distinction between the original creator/owner of the app and 
 When someone grants you access to an app, you will receive an email with
 the app name and some other information to help you get.
 
+    :::term
     $ heroku info theirapp
     === theirapp
     Web URL:        http://theirapp.heroku.com/
@@ -33,6 +35,7 @@ the app name and some other information to help you get.
 
 Use the Git Repo URL to clone the app locally:
 
+    :::term
     $ git clone -o heroku git@heroku.com:theirapp.git
     $ cd theirapp
 
@@ -43,6 +46,7 @@ to merge any changes deployed by other collaborators.
 
 Use the `heroku info` command to see the list of current collaborators:
 
+    :::term
     $ heroku info
     ...
     Collaborators:  adam@example.com
@@ -52,6 +56,7 @@ Use the `heroku info` command to see the list of current collaborators:
 
 You can revoke a collaborator's access using the `heroku sharing:remove` command:
 
+    :::term
     $ heroku sharing:remove joe@example.com
     Collaborator removed.
 
@@ -62,6 +67,7 @@ modify the app's configuration.
 
 Once you're collaborating with other developers, you may find that you're prevented from pushing to the repo with a message like this:
 
+    :::term
     $ git push heroku
     error: remote 'refs/heads/master' is not a strict subset of local ref 'refs/heads/master'.
     maybe you are not up-to-date and need to pull first?

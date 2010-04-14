@@ -8,6 +8,7 @@ lib/tasks/cron.rake and filling it in with your code. Remember the
 task is specified in Ruby code, so you can control the cron execution
 by checking the current hour, for instance:
 
+    :::ruby
     task :cron => :environment do
      if Time.now.hour % 4 == 0 # run every four hours
        puts "Updating feed..."
@@ -21,5 +22,6 @@ by checking the current hour, for instance:
 
 To see recent results of your cron execution, type:
 
+    :::term
     $ heroku logs:cron
 

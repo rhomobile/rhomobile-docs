@@ -36,6 +36,7 @@ Heroku:
 If you're already using Git with your application, skip to the next step.
 If you're not yet using Git to track your application, run this:
 
+    :::term
     $ git init
     Initialized empty Git repository in .git/
     $ git add .
@@ -47,6 +48,7 @@ If you're not yet using Git to track your application, run this:
 
 At the command line, run "heroku create".  When prompted for credentials, use the username and password from when you signed up; they’ll be saved on ~/.heroku/credentials so that you aren’t prompted on future runs. It will also upload your public key to allow you to push and pull code.
 
+    :::term
     $ heroku create
     Enter your Heroku credentials.
     Email: joe@example.com
@@ -59,6 +61,7 @@ Looking at the second to last line, you can see your app is called "high-sunrise
 
 ### 3. Push your application to Heroku ###
 
+    :::term
     $ git push heroku master
     Counting objects: 65, done.
     Compressing objects: 100% (58/58), done.
@@ -78,6 +81,7 @@ Looking at the second to last line, you can see your app is called "high-sunrise
 
 Your app is now running on Heroku with an empty database.  Depending on your framework, run the appropriate command to setup your DB.  For Ruby on Rails, run:
 
+    :::term
     $ heroku rake db:migrate
     (in /mnt/home/slugs/41913_b81cc1e5813c58c443e4120aff984d006f36ef20/mnt)
     == 20081118092504 CreateWidgets: migrating ====================================

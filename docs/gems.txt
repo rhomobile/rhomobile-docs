@@ -26,6 +26,7 @@ the gems required by an application. Each entry in the manifest includes a
 mandatory gem name along with optional `version` and `source` options.  The
 following is an example `.gems` manifest file that includes two gems:
 
+    :::ruby
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
 
@@ -58,6 +59,7 @@ gem install process occurs during the `git push` operation.
 The following example adds a `.gems` file to the app's git repository, commits
 it, and pushes to the remote heroku repository:
 
+    :::term
     $ git add .gems
     $ git commit -m 'added gems manifest file'
     $ git push heroku

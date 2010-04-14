@@ -35,6 +35,7 @@ Since your app is spread across many servers, there is no single place to ssh. I
 
 You can, if you wish, run shell commands from your app's console with backticks:
 
+    :::term
     $ heroku console
     Ruby console for myapp.heroku.com
     >> `pwd`
@@ -71,6 +72,7 @@ Git submodules are not currently supported. We're evaluating whether or not to
 support them in the future; in the meantime you'll need to track any submodules
 in the main project. You can do so like this:
 
+    :::term
     $ cd myapp
     $ rm -rf `find . -mindepth 2 -name .git`
     $ git rm --cache `git submodule | cut -f2 -d' '`
@@ -81,6 +83,7 @@ in the main project. You can do so like this:
 
 Run this command if you're not sure whether your project uses submodules:
 
+    :::term
     $ find . -mindepth 2 -name .git
 
 If it prints any output, you have submodules.
