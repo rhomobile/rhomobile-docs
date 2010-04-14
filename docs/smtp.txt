@@ -21,7 +21,7 @@ In `config/environment.rb` set ActionMailer's delivery method to SMTP:
 
 ### 2. Configure your SMTP connection
 
-    {ruby}
+    :::ruby
     ActionMailer::Base.smtp_settings = {
       :address  => "smtp.someserver.net",
       :port  => 25,
@@ -51,7 +51,7 @@ The email body is contained in the view.
 
 Here's an example:
 
-    {ruby}
+    :::ruby
     class UserMailer < ActionMailer::Base
       def signup_notification(user)
         recipients "#{user.name} <#{user.email}>"
@@ -82,7 +82,7 @@ Check the output of "heroku logs" to see whether the email was sent.
 
 Once you've verified it as working, you'll probably want to hook it into your model:
 
-    {ruby}
+    :::ruby
     after_create :deliver_signup_notification
     def deliver_signup_notification
       UserMailer.deliver_signup_notification(self)

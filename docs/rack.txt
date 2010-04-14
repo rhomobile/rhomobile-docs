@@ -45,7 +45,7 @@ Sinatra
 
 hello.rb:
 
-    {ruby}
+    :::ruby
     require 'sinatra'
 
     get '/' do
@@ -54,7 +54,7 @@ hello.rb:
 
 config.ru:
 
-    {ruby}
+    :::ruby
     require 'hello'
     run Sinatra::Application
 
@@ -63,7 +63,7 @@ Merb
 
 The following `config.ru` file can be used for all Merb apps.
 
-    {ruby}
+    :::ruby
     require 'merb-core'
     Merb::Config.setup(:merb_root => ".", :environment => ENV['RACK_ENV'])
     Merb.environment = Merb::Config[:environment]
@@ -78,7 +78,7 @@ Ramaze
 
 hello.rb:
 
-    {ruby}
+    :::ruby
     require 'ramaze'
 
     class MainController < Ramaze::Controller
@@ -89,7 +89,7 @@ hello.rb:
 
 config.ru:
 
-    {ruby}
+    :::ruby
     require 'hello'
     Ramaze.trait[:essentials].delete Ramaze::Adapter
     Ramaze.start!
@@ -100,7 +100,7 @@ Camping
 
 `hello.rb`:
 
-    {ruby}
+    :::ruby
     require 'camping'
 
     Camping.goes :Hello
@@ -121,7 +121,7 @@ Camping
 
 `config.ru`:
 
-    {ruby}
+    :::ruby
     require 'hello'
     run Rack::Adapter::Camping.new(Hello)
 
@@ -134,7 +134,7 @@ Rails or Merb will automatically read `config/database.yml`, which is written
 with the PostgreSQL config information at compile time.  For other frameworks,
 put this code into your application to access the database with ActiveRecord:
 
-    {ruby}
+    :::ruby
     require 'activerecord'
 
     dbconfig = YAML.load(File.read('config/database.yml'))
@@ -154,13 +154,13 @@ use the `DATABASE_URL` environment variable set by Heroku.
 
 For DataMapper:
 
-    {ruby}
+    :::ruby
     require 'rubygems'
     DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
 For Sequel:
 
-    {ruby}
+    :::ruby
     require 'sequel'
     Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://my.db')
 

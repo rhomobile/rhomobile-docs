@@ -119,7 +119,7 @@ Heroku subdomain but you later switched to your own custom domain, you will
 probably want to get all users onto the same domain with a redirect in a before
 filter.  Something like this will do the job:
 
-    {ruby}
+    :::ruby
     class ApplicationController
       before_filter :ensure_domain
 

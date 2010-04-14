@@ -10,6 +10,7 @@ Using the Command Line Interface
 
 To list the add-ons currently in use on your app as well as those available to be added:
 
+    :::term
     $ heroku addons
     Activated addons:
       (none)

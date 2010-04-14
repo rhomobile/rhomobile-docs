@@ -21,7 +21,7 @@ Ruby plugins
 
 Add `aws-s3` to your [gem manifest](/gems) and specify `:s3` as your storage backend:
 
-    {ruby}
+    :::ruby
     class User
       has_attachment :storage => :s3
     end
@@ -48,7 +48,7 @@ Configuration is done in `config/amazon_s3.yml`:
 
 Very similar setup: add `aws-s3` to your [gem manifest](/gems), set the storage backend to `:s3` and inform the path of your S3 config file:
 
-    {ruby}
+    :::ruby
     class User
       has_attached_file :photo, 
           :storage => :s3, 

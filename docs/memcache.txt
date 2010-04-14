@@ -25,13 +25,13 @@ Rails abstracts the caching mechanisms through Rails.cache.  This was only intro
 
 For Rails version 2.3.3 and higher using .gems, update your config/environment.rb:
 
-    {ruby}
+    :::ruby
     config.gem 'memcached'
     require 'memcached'
     
 Configure your app to use memcache for the cache store in production.  Add the following to config/environment/production.rb:
 
-    {ruby}
+    :::ruby
     config.cache_store = :mem_cache_store, Memcached::Rails.new
     
 In your development environment, Rails.cache will default to an in-memory memory store that doesn't require a running memcached.
@@ -76,7 +76,7 @@ Now run the memcached daemon:
 
 In your configure block:
 
-    {ruby}
+    :::ruby
     configure do
       require 'memcached'
       CACHE = Memcached.new

@@ -8,6 +8,14 @@ require 'topic'
 require 'heroku/nav'
 use Heroku::Nav::Header
 
+# require 'rack/coderay'
+# use Rack::Coderay, "//pre[@lang]>code"
+
+require 'coderay'
+require './lib/term.rb'
+require 'rack/codehighlighter'
+use Rack::Codehighlighter, :coderay, :markdown => true, :element => "pre>code", :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
+
 configure :production do
     ENV['APP_ROOT'] ||= File.dirname(__FILE__)
     $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"

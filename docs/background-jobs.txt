@@ -25,7 +25,7 @@ user will be taken to a page where they can see the contents of the feed. A
 simple but non-scalable way to do this would be to run it directly inside
 the web request, like this:
 
-    {ruby}
+    :::ruby
     class FeedsController
       def create
         feed = Feed.create! params
@@ -36,7 +36,7 @@ the web request, like this:
 
 The fetch action in the model is the potentially heavy part of this:
 
-    {ruby}
+    :::ruby
     class Feed < ActiveRecord::Base
       def fetch
         xml = RestClient.get url
@@ -56,7 +56,7 @@ find that response times become more and more inconsistent.
 
 A better approach is to add the work-to-be-done to a queue:
 
-    {ruby}
+    :::ruby
     class FeedController
       def create
         feed = Feed.create! params
