@@ -14,7 +14,6 @@ module CodeRay
         output = ""
 
         until eos?
-          puts tokens.inspect
           if state == :initial
             if match = scan(/\$/)
               tokens << [match, :prompt]
