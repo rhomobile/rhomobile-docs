@@ -44,7 +44,6 @@ Configuration is done in `config/amazon_s3.yml`:
       access_key_id: <your key>
       secret_access_key: <your key>
 
-
 ### Paperclip ###
 
 Very similar setup: add `aws-s3` to your [gem manifest](/gems), set the storage backend to `:s3` and inform the path of your S3 config file:
@@ -59,6 +58,7 @@ Very similar setup: add `aws-s3` to your [gem manifest](/gems), set the storage 
 
 Then create that YAML file to setup credentials and your bucket:
 
+    :::yaml
     development:
       bucket: myapp_development
       access_key_id: <your key>
