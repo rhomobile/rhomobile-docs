@@ -48,6 +48,8 @@ line. Some examples:
     $ heroku db:push mysql://root:mypass@localhost/mydb
     $ heroku db:push postgres://postgres:mypass@remotehost/mydb
 
+NOTE: If you're having issues with character encoding, try appending the encoding type to your database URL, like ?encoding=utf8
+
 Export: Pull from Heroku
 ------------------------
 
