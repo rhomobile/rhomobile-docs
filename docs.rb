@@ -7,6 +7,7 @@ require 'topic'
 
 require 'heroku/nav'
 use Heroku::Nav::Header
+use Heroku::Nav::Internal
 
 configure :production do
     ENV['APP_ROOT'] ||= File.dirname(__FILE__)
