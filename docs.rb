@@ -8,6 +8,7 @@ require 'topic'
 require 'heroku/nav'
 use Heroku::Nav::Internal
 use Heroku::Nav::Header
+use Heroku::Nav::Internal
 
 # require 'rack/coderay'
 # use Rack::Coderay, "//pre[@lang]>code"
