@@ -6,6 +6,7 @@ require 'sunspot'
 require 'topic'
 
 require 'heroku/nav'
+use Heroku::Nav::Internal
 use Heroku::Nav::Header
 
 configure :production do
