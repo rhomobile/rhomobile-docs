@@ -6,8 +6,8 @@ require 'sunspot'
 require 'topic'
 
 require 'heroku/nav'
-use Heroku::Nav::Header
 use Heroku::Nav::Internal
+use Heroku::Nav::Header
 
 configure :production do
     ENV['APP_ROOT'] ||= File.dirname(__FILE__)
