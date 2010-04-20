@@ -65,7 +65,7 @@ Yes, as long as no database specific queries are used. For most apps, it
 just works, and in a few cases a quick code fix is all that's required (see
 [Common Issues](#common-issues-migrating-to-postgres) below).
 
-### How can import my existing data to Heroku?
+### How can I import my existing data to Heroku?
 
 The Heroku command line tool includes a `db:push`, which can be used to import
 data from your local environment into your remote Heroku database. See the
