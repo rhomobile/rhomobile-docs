@@ -10,20 +10,19 @@ module CodeRay
       register_for :term
 
       def scan_tokens (tokens, options)
-        state = :initial
+        prev = nil
 
         until eos?
-          if state == :initial
-            if match = scan(/^\$/)
-              tokens << [match, :prompt]
-            else
-              command = scan(/.*?\n/)
-              tokens << [command, :command]
-              state = :output unless command =~ /\\$/
-            end
+          line = scan(/.*?\n/)
+          if line =~ /^(\$)(.*)/
+            tokens << [$1, :prompt]
+            tokens << [$2 + "\n", :command]
+          elsif prev =~ /\\$/
+            tokens << [line, :command]
           else
-            tokens << [scan(/.*?\n/), :output]
+            tokens << [line, :output]
           end
+          prev = line
         end
 
         return tokens
