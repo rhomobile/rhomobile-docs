@@ -13,7 +13,8 @@ The `heroku` command-line tool uses Taps internally to perform database
 transfers. The `taps` gem must be installed before running any of the commands
 described below:
 
-    sudo gem install taps
+    :::term
+    $ sudo gem install taps
 
 Import: Push to Heroku
 ----------------------

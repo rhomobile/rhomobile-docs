@@ -11,22 +11,17 @@ $(document).ready(function() {
   $("form .fieldWithErrors").closest("div.field").addClass("error")
   // -- add active class to active elements
   $("form select, form .text").focus(function( ){
-    :::term
     $(this).closest("div.field").addClass("active");
-    :::term
     $(this).closest("fieldset").addClass("active");
   });
   // -- remove active class from inactive elements
   $("form select, form .text").blur(function( ){
-    :::term
     $(this).closest("div.field").removeClass("active");
-    :::term
     $(this).closest("fieldset").removeClass("active");
   });
   // -- make error notice the same width as error field
   $("form .fieldWithErrors input").each(function(i, field){
     width = $(field).width();
-    :::term
     $(field).closest('div.field').find('.formError').width(width);
   });
 	// make main #flash notice same width as next panel or content

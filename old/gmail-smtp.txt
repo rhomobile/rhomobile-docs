@@ -10,7 +10,7 @@ Enable it as follows:
 
     :::term
     $ heroku addons:add gmail_smtp user=you@gmail.com password=yourpass
-	 Adding gmail_smtp to myapp...done.
+    Adding gmail_smtp to myapp...done.
 
 Use your existing GMail account or create a new one just for your app.  You can
 also use a Google Apps hosted domain, just substitute you@yourdomain.com for

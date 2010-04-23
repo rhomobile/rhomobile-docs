@@ -36,7 +36,7 @@ a Git repo for it:
           create  app/helpers
           create  app/models
     ...
-    :::term
+    
     $ cd myapp
     $ git init
     Initialized empty Git repository in .git/
@@ -131,7 +131,7 @@ Each time you wish to deploy to Heroku:
     $ git add .
     $ git commit -m "commit for deploy to heroku"
     ...
-    :::term
+
     $ git push -f heroku
 
 NOTE: The `-f` (force flag) is recommended in order to avoid conflicts with other developers' pushes. Since you are not using Git for your revision control, but as a transport only, using the force flag is a reasonable practice.

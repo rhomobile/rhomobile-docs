@@ -49,7 +49,6 @@ This will create a directory called APPNAME, with a full copy of the git reposit
 You can now make any changes.  When you are ready to deploy these changes, simply commit and push your changes:
 
     :::term
-    <edit files>
     $ git commit -a -m "log of the changes I made"
     $ git push production master
     -----> Heroku receiving push

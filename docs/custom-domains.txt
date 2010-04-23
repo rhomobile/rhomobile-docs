@@ -117,6 +117,7 @@ Then add the wildcard domain on Heroku:
     :::term
     $ heroku domains:add *.yourdomain.com
     Added *.yourdomain.com as a custom domain name to myapp.heroku.com
+    
     $ curl http://arbitrary-subdomain.yourdomain.com/
     HTTP/1.1 200 OK
     

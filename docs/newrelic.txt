@@ -48,7 +48,8 @@ And then add the following code to your app:
     :::ruby
     configure :production do
         ENV['APP_ROOT'] ||= File.dirname(__FILE__)
-        :::term
+
+    :::term
     $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
         require 'newrelic_rpm'
     end
