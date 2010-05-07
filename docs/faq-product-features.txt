@@ -51,9 +51,9 @@ Can I run services outside of Heroku and have my app connect to them?
 
 Yes. Heroku runs on Amazon EC2, so any servers you run on EC2 will have the possibility of a low-latency connection from Heroku.
 
-If you'd like to open your server(s) up only to Heroku, you can use the following AWS command:
+If you'd like to open your server(s) up only to Heroku, you can use the following AWS command (will open up TCP port 3306):
 
-    ec2-authorize YOURGROUP -p 3306 -u 098166147350 -o default
+    ec2-authorize YOURGROUP -P tcp -p 3306 -u 098166147350 -o default
 
 
 
