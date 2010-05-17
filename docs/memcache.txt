@@ -117,3 +117,19 @@ To use memcache on Heroku, install the memcache add-on:
 
 If you're using the memcached gem as described above, your app will use memcache on Heroku without any further code changes.
 
+Getting Stats on Usage
+----------------------
+
+The memcached gem allows you to access your bucket's stats through the built in stats() method:
+
+    :::term
+	$ heroku console
+	Ruby console for myapp.heroku.com
+	>> mc = Memcached.new
+	>> ... truncated output...
+	>> mc.stats
+	=> {:threads=>[4], :limit_maxbytes=>[67108864], :rusage_user=>[916.12], :cmd_get=>[1759086], :pointer_size=>[64], :total_connections=>[129368], :rusage_system=>[899.37], :cmd_set=>[1699375], :total_items=>[1699375], :time=>[1274128635], :evictions=>[0], :connection_structures=>[470], :version=>["1.4.4_188_g0117a2c"], :uptime=>[677746], :get_hits=>[59653], :bytes=>[2848846], :bytes_read=>[2848846], :curr_connections=>[283], :get_misses=>[1699433], :pid=>[21691], :bytes_written=>[2848846], :curr_items=>[35553]}
+
+The limit_maxbytes is not applicable with the Northscale Memcache Add-on.  
+You can not see the engine_maxbytes field which provides the actual bucket size.
+
