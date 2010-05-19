@@ -23,7 +23,7 @@ The mongo_mapper gem by John Nunemaker [http://rubygems.org/gems/mongo_mapper](h
 
 ### Mongoid
 
-The mongoid gem, by Durran Jordan (blah) is a robust ODM framework that acts as an API to connect to documents within MongoDB.  More information can be found at: [http://mongoid.org/home](http://mongoid.org/home)
+The mongoid gem, by Durran Jordan (blah) is a robust ODM framework that acts as an API to connect to documents within MongoDB.  More information can be found at: [http://mongoid.org/](http://mongoid.org/)
 
 ### Mongo Ruby Driver
 
