@@ -104,9 +104,9 @@ The size of your compiled slug greatly affects the speed with which is can be di
 
 Your slug size is shown at compile time, or you can approximate it locally by creating a zip or .tar.gz archive of your app without the .git directory, and then adding the size of any gems specified in your .gems manifest.
 
-The maximum slug size is 50MB.  Most apps should be far below this size.  Anything under 10MB is good.  If you exceed 20MB, you should think about trying to lean down your app.
+The maximum slug size is 100MB.  Most apps should be far below this size.  Anything under 10MB is good.  If you exceed 50MB, you should think about trying to lean down your app.
 
-If you find yourself with a large (>= 20MB) slug, here are some techniques for reducing its size:
+If you find yourself with a large (>= 50MB) slug, here are some techniques for reducing its size:
 
   * Move large assets like PDFs or audio files to asset storage, and described in the previous section.
   * Remove files stored inside the app's repository but which are unnecessary to run the app.  For example, PSD mockups, or large design documents.
