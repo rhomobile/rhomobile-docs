@@ -43,7 +43,7 @@ If you're on the [Bamboo stack](http://docs.heroku.com/bamboo), you should be us
 ### Ignore dependencies for selected gems
 
 If you suspect a particular gem is causing problems by requiring an unspecified version of actionpack, activesupport or another component with a dependency on Rack, you can specify the "--ignore-dependencies" flag for that gem in your .gems manifest. This will tell rubygems not to load _any_ dependencies for that gem. Since you only want to ignore Rack, you will need to add other dependencies to your manifest. For example:
-    formtastic —ignore-dependencies
+    formtastic --ignore-dependencies
     hobosupport
-    hobofields —ignore-depedencies
+    hobofields --ignore-depedencies
     
