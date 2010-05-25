@@ -22,6 +22,13 @@ For gems that depend on Rails or any of its subcomponents, and do not pin to ver
 
 On Heroku we use [thin](http://code.macournoyer.com/thin/) as the application server for your Ruby web apps. When it's time to start your app we'll automatically launch thin, which first loads Rack and subsequently your application code. By design, thin will pull in any available versions of Rack, including 1.1.0. Because Rails 2.3.5 and older are incompatible with Rack 1.1.0 your application will fail to start, displaying the error outlined above.
 
+If you're debugging this issue locally, you can reproduce it by making sure you're using thin to launch your app on your workstation or test server. Here's how you start your app with thin:
+
+    $ gem install thin
+    $ cd myapp
+    $ thin start
+
+
 Resolution
 ----------
 
