@@ -6,7 +6,10 @@ On Sunday, May 23 2010 Rails 2.3.6 was released. Among the changes in this relea
 If your Heroku app is affected, it may be displaying the following error:
 
     :::ruby
-    Missing the Rails gem. Please `gem install -v= x.x.x`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.
+    Missing the Rails gem. Please `gem install -v= x.x.x`, update your
+    RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do
+    have installed, or comment out RAILS_GEM_VERSION to use the latest version
+    installed.
     
 Root Cause
 ----------
