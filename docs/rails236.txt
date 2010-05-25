@@ -1,7 +1,7 @@
 Rails 2.3.6 - 2.3.8
 ===================
 
-On Sunday, May 23 2010 Rails 2.3.6 was released. Among the changes in this release the move from Rack 1.0.1 to Rack 1.1.0. This change has been known to cause problems for some apps, specifically preventing them from starting.
+On Sunday, May 23 2010 Rails 2.3.6 was released. Among the changes in this release is the move from Rack 1.0.1 to Rack 1.1.0. This change has been known to cause problems for some apps, specifically preventing them from starting.
 
 If your Heroku app is affected, it may be displaying the following error:
 
@@ -43,8 +43,7 @@ If you're on the [Bamboo stack](http://docs.heroku.com/bamboo), you should be us
 ### Ignore dependencies for selected gems
 
 If you suspect a particular gem is causing problems by requiring an unspecified version of actionpack, activesupport or another component with a dependency on Rack, you can specify the "--ignore-dependencies" flag for that gem in your .gems manifest. This will tell rubygems not to load _any_ dependencies for that gem. Since you only want to ignore Rack, you will need to add other dependencies to your manifest. For example:
-
     formtastic —ignore-dependencies
     hobosupport
     hobofields —ignore-depedencies
-
+    
