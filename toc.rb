@@ -49,6 +49,7 @@ end
 section 'addons', "Add-ons" do
 	topic 'addons',            'Addons Overview'
 	topic 'amazon_rds',        'Amazon RDS'
+	topic 'apigee',        'Apigee for Twitter'
 	topic 'cron',              'Cron'
 	topic 'deploy-hooks',      'Deploy Hooks'
 	topic 'memcache',         'Memcached'
