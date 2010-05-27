@@ -6,6 +6,7 @@ Add-on Installation
 -------------------
 To use (add-on) on Heroku, install the Apigee add-on:
 
+    :::term
     $ heroku addons:add apigee
 
 Local setup
@@ -23,6 +24,7 @@ After you activate the add-on, Apigee will create a private endpoint for your AP
 
 Note: the [Twitter Gem](http://rubygems.org/gems/twitter) supports the OAuth flow through Apigee natively. A brief example:
 
+    :::ruby
     # build the endpoint based on the add-on supplied configvar
     @endpoint = 'http://'+ENV['APIGEE_TWITTER_API_ENDPOINT']
     
