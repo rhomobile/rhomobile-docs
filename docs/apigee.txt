@@ -6,7 +6,6 @@ Add-on Installation
 -------------------
 To use (add-on) on Heroku, install the Apigee add-on:
 
-    :::term
     $ heroku addons:add apigee
 
 Local setup
@@ -24,7 +23,6 @@ After you activate the add-on, Apigee will create a private endpoint for your AP
 
 Note: the [Twitter Gem](http://rubygems.org/gems/twitter) supports the OAuth flow through Apigee natively. A brief example:
 
-    :::ruby
     # build the endpoint based on the add-on supplied configvar
     @endpoint = 'http://'+ENV['APIGEE_TWITTER_API_ENDPOINT']
     
@@ -40,7 +38,7 @@ Note: the [Twitter Gem](http://rubygems.org/gems/twitter) supports the OAuth flo
 
 A Note on Search
 -----------
-The Twitter REST API appears to support all search methods from search.twitter.com. Developers may discover rate limiting benefits by directing authenticated requests to the REST API endpoint (though it is unclear how well supported this may be).
+While Twitter's search methods at one time were available at api.twitter.com, those are [no longer supported](http://groups.google.com/group/twitter-development-talk/browse_thread/thread/1966cd34ad06574). Be sure to use the Apigee provided configvar for search to make all your search requests.
 
 Additional Resources
 -----------
