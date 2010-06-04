@@ -30,12 +30,12 @@ Configuration is done in `config/amazon_s3.yml`:
 
     :::yaml
     development:
-      bucket_name: myapp_development
+      bucket_name: myappdevelopment
       access_key_id: <your key>
       secret_access_key: <your key>
     
     test:
-      bucket_name: myapp_test
+      bucket_name: myapptest
       access_key_id: <your key>
       secret_access_key: <your key>
     
@@ -60,12 +60,12 @@ Then create that YAML file to setup credentials and your bucket:
 
     :::yaml
     development:
-      bucket: myapp_development
+      bucket: myappdevelopment
       access_key_id: <your key>
       secret_access_key: <your key>
 
     test:
-      bucket: myapp_test
+      bucket: myapptest
       access_key_id: <your key>
       secret_access_key: <your key>
 
