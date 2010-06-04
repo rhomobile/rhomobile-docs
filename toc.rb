@@ -4,6 +4,7 @@ section 'getting-started', "Getting Started" do
 	topic 'collab',          'Collaborator Quickstart'
 	topic 'billing',         'Confirmation & Verification'
 	topic 'windows',         'Ruby on Windows'
+	topic 'rails',           'Running Rails Apps'
 end
 
 section 'howto', "How To" do
