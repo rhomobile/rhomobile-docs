@@ -91,7 +91,7 @@ Test it out in a console:
 
     :::term
     $ irb -r myapp.rb
-    >> CACHE.set('color') = 'blue'
+    >> CACHE.set('color', 'blue')
 
 You should see output like this in your memcached -vv terminal:
 
