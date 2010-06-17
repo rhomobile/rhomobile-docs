@@ -30,6 +30,12 @@ Note that CPU unit is only a measure of database performance.  Regardless of whi
 
 Regardless of which database you choose, your data is always protected, accessible only by your own application.
 
+Rails database.yml & DATABASE_URL environment variable
+------------------------------------------------------
+To ease deployment of typical Rails applications, Heroku automatically generates a new database.yml file on deployment.  This auto-generated database.yml file points your RACK_ENV environment to your selected postgres db.  This enables you to simply push a rails app up to Heroku and have it automatically connect to your database.
+
+If you would like to have your rails application connect to a non-Heroku provided database, you can take advantage of this same mechanism.  Simply set your DATABASE_URL config var to point to any cloud-accessible database, and Heroku will automatically create your database.yml file to point to your chosen server.  The <A href="http://addons.heroku.com/amazon_rds">Amazon RDS</a> Add-on does this for you automatically, though you can also use this same method to connect to non-RDS databases as well.
+
 
 Using the DATABASE_URL environment variable (Sequel / DataMapper)
 -----------------------------------------------------------------
