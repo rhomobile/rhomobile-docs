@@ -13,7 +13,7 @@ in your app's database.
 To use, install the DJ plugin in your Rails app:
 
     :::term
-    $ script/plugin install git://github.com/tobi/delayed_job.git
+    $ script/plugin install git://github.com/collectiveidea/delayed_job.git
 
 Create a database migration for the delayed_jobs table:
 
@@ -124,8 +124,8 @@ To shut down all worker processes, set workers to zero:
     myapp is now running 0 workers
     
     
-[gh]: http://github.com/tobi/delayed_job/tree/master
-      "tobi's delayed_job at master"
+[gh]: http://github.com/collectiveidea/delayed_job/tree/master
+      "collectiveidea's delayed_job at master"
       
 [tt]: http://railstips.org/2008/11/19/delayed-gratification-with-rails
 
@@ -138,8 +138,8 @@ See Also
   * [Building a Queue-Backed Feed Reader][qf]
   * [The Rails Way on Delayed Job][rw]
 
-[gh]: http://github.com/tobi/delayed_job/tree/master
-      "tobi's delayed_job at master"
+[gh]: http://github.com/collectiveidea/delayed_job/tree/master
+      "collectiveidea's delayed_job at master"
 
 [dj]: http://blog.leetsoft.com/2008/2/17/delayed-job-dj
       "Delayed Job (DJ)"

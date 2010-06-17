@@ -67,6 +67,8 @@ If you purchased a certificate, it may include a [chain or intermediate certific
     $ cat chain.crt >> cert.pem
     $ heroku ssl:add cert.pem private.key
     Added certificate to www.yourdomain.com, expiring in 2012/08/27 22:16:39 -0700
+    
+NOTE: Certificates purchased from Godaddy.com always include the chain/intermediate certificate, so please be sure to follow the instructions above if you have a Godaddy certificate.   
 
 ### <a name="chooseSSL">Choose your SSL addon</a>
 
