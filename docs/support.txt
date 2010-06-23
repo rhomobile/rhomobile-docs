@@ -1,51 +1,47 @@
 Getting Support
 ===============
 
-### The Heroku Helpdesk (support.heroku.com)
+We provide basic support free-of-charge to all our users, even those
+who are not paying customers. We describe in detail what this means in
+our [support policy](http://legal.heroku.com/support) If you are not a paying customer, we do ask
+that you make sure that you've exhausted the freely available
+resources and community channels before you contact support.
 
-The [Heroku Helpdesk](http://support.heroku.com) is the official channel for
-getting support. New requests are triaged and assigned to a Heroku engineer
-immediately. If you're experiencing a problem with your app, the best way to
-ensure a timely response is to [submit a ticket](http://support.heroku.com/requests/portal/new).
-Using the ticket system lets you communicate directly with our support staff,
-and receive email updates as soon as there's activity on your request.
+### Heroku Status
 
-NOTE: The support site includes a regularly updated
-<a href="http://support.heroku.com/forums">Knowledge Base</a> with information on
-the most frequently asked questions and support requests. There's a good chance
-that a solution to your issue will be documented there.
+If you have questions about whether the Heroku service is experiencing
+any issues, check out [Heroku Status](http://status.heroku.com)
 
-When submitting support requests, please include as much information as
-possible, including:
+### Docs
 
-  * The app's name.
-  * The exact URL where the error occured.
-  * The exact error message(s).
-  * Any backtraces or relevant log output.
+Our docs cover most of the basics as well as a number of important
+advanced features and areas where there has been confusion.
 
-In general, it's better to err on the side of providing too much information
-rather than too little. The easier it is to reproduce the issue, the more
-likely it will be diagnosed and corrected in a timely manner.
+### Web
 
-### Heroku community mailing list
+We're lucky enough to have a very strong community of devs using our
+platform, many of who help one another out. There's a bunch of great
+articles, how-tos, and example apps available. Check them out when
+you've hit a rough spot.
 
-The [Heroku mailing list](http://groups.google.com/group/heroku/topics?gvc=2)
-(heroku@googlegroups.com) is a growing user community with over a thousand
-subscribers and multiple discussions every day. This is the place to talk about
-general application design, Heroku related tools and technologies, or solicit
-advice from peers about building apps on Heroku.
+### Mailing List and IRC
 
-Note that the mailing list *is not an official support channel*. Many Heroku
-employees participate on the mailing list but there's no guarantee that
-messages sent to the list will receive a response from Heroku staff.
+We maintain the [Heroku mailing list](http://groups.google.com/group/heroku/topics?gvc=2) (heroku@googlegroups.com).
+In addition there's the <code>#heroku</code> channel on [irc.freenode.net](http://freenode.net) IRC for
+people to hang out and trade questions and answers.
 
-### IRC: #heroku
+### Contacting Heroku Support
 
-Join the `#heroku` channel on [irc.freenode.net](http://freenode.net) to chat
-with other Heroku users. There's usually a few Heroku staff lurking in the
-channel to answer questions as well.
+Heroku has a team of engineers dedicated to providing great support.
+Our team's focus is investigating and solving new problems, getting
+feedback on the service and in particular new features, and working
+hard to improve the core service.
 
-Note that, like the mailing list, the `#heroku` channel *is not an official
-support channel*. [Open a ticket](http://support.heroku.com/requests/portal/new)
-with support if you have a pressing issue or question that requires immediate
-attention.
+Contact our support engineers by [submitting a
+ticket](http://support.heroku.com/requests/portal/new). Using the ticket system lets you communicate directly with
+our support team, and receive email updates as soon as there’s
+activity on your request. You can generally expect a response in a few
+business days.
+
+Heroku does provide higher levels of response time under contract to
+paid customers. [Contact us](http://heroku.com/contact) for more information.
