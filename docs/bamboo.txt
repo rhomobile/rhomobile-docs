@@ -1,9 +1,9 @@
-Badious Bamboo (Beta)
+Badious Bamboo
 ============
 
 Bamboo is a deployment [stacks](/stack).  See the [stack](/stack) page for full details on what stacks are.
  
-Bamboo stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/) 1.8.7 and MRI 1.9.1.  It is currently in beta, and will become the default for new apps soon.
+Bamboo stack runs on Debian 5.0 (lenny) and offers two Ruby VMs: [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/) 1.8.7 and MRI 1.9.1.  It will become the default for new apps soon.
 
 NOTE: Bamboo differs from Aspen in that there are no gems preinstalled by default.  Apps running on bamboo stack should package all of their gem dependencies into the slug using a Gemfile or .gems.
 
