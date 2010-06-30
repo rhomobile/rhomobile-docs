@@ -13,9 +13,7 @@ address:
 The user is sent an email immediately to let them know they were granted access
 to the app. If no existing Heroku account matches the email specified, an
 invitation email is sent. They can access the app's code immediately after
-signing up.
-
-NOTE: There is no distinction between the original creator/owner of the app and additional collaborators.  New collaborators can run all administration functions, including renaming or destroying the app.
+signing up.  Collaberators only have access to the app git repository.  They can not change resources.
 
 ## Accessing an app when you've been added as a collaborator
 
