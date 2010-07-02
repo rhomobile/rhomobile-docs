@@ -54,7 +54,7 @@ section 'addons', "Add-ons" do
 	topic 'cron',              'Cron'
 	topic 'deploy-hooks',      'Deploy Hooks'
 	topic 'memcache',         'Memcached'
-	topic 'moonshadosms'      'Moonshado SMS'
+	topic 'moonshadosms',      'Moonshado SMS'
 	topic 'newrelic',          'New Relic RPM'
 	topic 'pandastream',        'Panda Stream'
 	topic 'sendgrid',          'Sendgrid SMTP'
