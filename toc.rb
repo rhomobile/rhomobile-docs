@@ -56,7 +56,7 @@ section 'addons', "Add-ons" do
 	topic 'memcache',         'Memcached'
 	topic 'moonshadosms'      'Moonshado SMS'
 	topic 'newrelic',          'New Relic RPM'
-	topic 'pandastream'        'Panda Stream'
+	topic 'pandastream',        'Panda Stream'
 	topic 'sendgrid',          'Sendgrid SMTP'
 	topic 'ssl',               'SSL'
 	topic 'websolr',           'Websolr Search'
