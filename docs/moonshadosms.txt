@@ -16,7 +16,7 @@ Add the gem to your gem manifest:
 
 Next, add moonshado-sms as a dependency in your Rails app by adding a config.gem statement to config/environment.rb:
 
-    $ config.gem "moonshado-sms"
+    config.gem "moonshado-sms"
 
 
 ### Local Setup
