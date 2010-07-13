@@ -1,0 +1,73 @@
+# Panda
+
+Panda is a cloud based video encoding solution, which makes it easy to add video uploading and encoding functionality to your web application. 
+
+Panda provides a REST API for managing the uploading and encoding of your video assets. Requests to the API make use of the GET, POST, PUT and DELETE request methods. All responses are in JSON.
+
+![How Panda works](http://pandastream.com/images/how_panda_works_heroku_.png "How Panda works")
+
+## Prerequisite
+
+Panda uses [Amazon S3 buckets](http://aws.amazon.com/s3/) to store encoded videos. Before you use the add-on, you'll need to create a bucket. 
+
+## Add-on Installation
+
+To install the free version of the Panda add-on, simply run:
+
+    $ heroku addons:add pandastream:free
+    Adding pandastream:free to myapp... done
+
+
+The free plan allows you to upload and encode an unlimited number of videos. However the filesize of uploads must be below 10Mb. For production usage there a several [paid plans available](http://addons.heroku.com/panda) with no upload limit, and dedicated encoders.
+
+ After this, the Heroku config variable $PANDASTREAM_URL will have been set correctly.
+
+
+## Configuring Panda
+
+Before using Panda in your application, you need to let Panda know where to saved encoded videos. The `setup_bucket` command will set the Heroku config variable for you and also give Panda permission to read/write your S3 bucket.
+
+    $ sudo gem install panda
+    Successfully installed panda-...
+    1 gem installed
+    $ heroku plugins:install http://github.com/newbamboo/heroku-panda.git
+    heroku-panda installed
+    $ heroku panda:setup_bucket $S3_BUCKET ($S3_KEY $S3_SECRET)
+    Successfull:: The bucket permission is setup correctly.
+
+## Configuring your application.
+
+Add panda gem into .gems file:
+
+    $ echo 'panda' >> .gems
+
+Then if you're using Rails, make sure the Panda gem is loaded by adding it to your environment.rb:
+
+    config.gem "panda", :source => "http://gemcutter.org"
+
+## Testing that it is all working
+
+Connect to Panda via the Heroku console:
+
+    $ heroku console
+
+Then try out some of the commands below:
+
+    >>Panda.connect!(ENV['PANDASTREAM_URL'])
+    #<Panda::Connection:0x101f88a98 @prefix="v2", @api_port="80", @access_key="xxx", @api_version=2, @connection=#<RestClient::Resource:0x101f88a48 @block=nil, @url="http://api.pandastream.com:80/v2", @options={}>, @secret_key="xxx", @cloud_id="xxx", @api_host="api.pandastream.com">
+
+Post a sample video. The video specified in `source_url` will be downloaded, encoded and then saved to your S3 bucket.
+
+    >>Panda.post('/videos.json', {:source_url => 'http://panda-test-harness-videos.s3.amazonaws.com/panda.mp4'})
+    "{\"duration\":null,\"created_at\":\"2010/03/30 10:37:08 +0000\",\"original_filename\":\"panda.mp4\",\"updated_at\":\"2010/03/30 10:37:08 +0000\",\"source_url\":\"http://panda-test-harness-videos.s3.amazonaws.com/panda.mp4\",\"extname\":\".mp4\",\"id\":\"somevideoid\",\"audio_codec\":null,\"thumbnail_position\":null,\"height\":null,\"fps\":null,\"status\":\"processing\",\"video_codec\":null,\"width\":null}"
+
+Get the encoded video. If the encoding is complete (this may take a few minutes depending on duration of the video), this will return status as "success" and the encoded video id on S3.
+
+    >> Panda.get('/videos/somevideoid/encodings.json')
+    => "[{\"created_at\":\"2010/03/30 10:41:21 +0000\",\"video_id\":\"somevideoid\",\"started_encoding_at\":\"2010/03/30 10:41:32 +0000\",\"updated_at\":\"2010/03/30 10:41:55 +0000\",\"encoding_progress\":100,\"encoding_time\":20,\"extname\":\".flv\",\"id\":\"someencodingid\",\"height\":240,\"status\":\"success\",\"profile_id\":\"someprofileid\",\"width\":300}]"    
+
+## Integration with your Rails app
+
+Now you have successfully setup the Panda Heroku add-on, you're ready to integrate Panda with your application. A step-by-step guide is available here: [Integrating Panda with your Ruby on Rails application](http://account.pandastream.com/docs/integrate_with_rails#implementing_video_uploads_into_your_application)
+
+You may also wish to learn more about the full Panda API: [API Documentation](http://account.pandastream.com/docs/api)
