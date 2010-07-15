@@ -7,7 +7,7 @@ Amazon Relational Database Service (RDS)
 * Point-in-time recovery.
 * Seamless vertical scaling between instance types.
 
-The free Amazon RDS add-on lets you connect your Heroku app to an RDS instance and seamlessly use it in place of the standard, Heroku-provided PostgreSQL. database.
+The free Amazon RDS add-on lets you connect your Heroku app to an RDS instance and seamlessly use it in place of the standard, Heroku-provided PostgreSQL database.
 
 Prerequisites
 -------------------
