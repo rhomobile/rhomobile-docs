@@ -1,4 +1,4 @@
-Gem Bundler
+Gem Bundler (BETA)
 ===========
 
 Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  Gem Bundler is under active development, and is not recommended for production use yet.  
