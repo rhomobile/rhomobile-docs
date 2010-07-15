@@ -3,6 +3,22 @@ Managing Gems
 
 Ruby gems can be installed on Heroku via the Heroku gem manifest or [Gem Bundler](http://github.com/wycats/bundler).  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is an emerging community standard currently in beta and under active development.  
 
+Warnings on git push
+------------------
+
+**WARNING: Detected Rails is not declared in either .gems or Gemfile**
+
+You must specify all gem dependencies for your application, including the framework.  If you are receiving this warning  create a .gems file with the contents:
+
+    rails -v YOUR_RAILS_VERSION
+    
+Add it to your repo and push:
+
+    git add .gems
+    git commit -a -m "added .gems file specifying framework"
+    git push heroku master
+    
+
 Heroku gem manifest
 -------------------
 
@@ -11,22 +27,18 @@ manifest, which is a `.gems` file in the root of your app.  When a new version
 of the app is pushed to Heroku, any changes to the `.gems` file are detected
 and new gems are installed along with their dependencies.
 
-### System gems
+### Which gems to list
 
-All apps deployed to Heroku have access to a number of gems installed as part of
-the [base platform](technologies). See [installed-gems.heroku.com](http://installed-gems.heroku.com)
-for a comprehensive listing.
-
-Gems installed as part of your application override Heroku system gems.
+You should list ALL gems that your app uses, including any framework such as Rails or Sinatra that your app uses.  
 
 ### Creating a gem manifest file
 
 The gems manifest is a simple text file that includes information about each of
 the gems required by an application. Each entry in the manifest includes a
 mandatory gem name along with optional `version` and `source` options.  The
-following is an example `.gems` manifest file that includes two gems:
+following is an example `.gems` manifest file that includes two gems and Rails:
 
-    :::ruby
+    rails -v 2.3.5
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
 
