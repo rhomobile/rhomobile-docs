@@ -1,14 +1,20 @@
 Managing Gems
 =============
 
-Ruby gems can be installed on Heroku via the Heroku gem manifest or [Gem Bundler](http://github.com/wycats/bundler).  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  Bundler is an emerging community standard currently in beta and under active development.  
+Ruby gems can be installed on Heroku via the Heroku gem manifest 
+or [Gem Bundler](http://github.com/wycats/bundler).  Both are supported, 
+but it it is recommended you only use one in your app in order to avoid 
+confusion.  Bundler is an emerging community standard currently in beta 
+and under active development.  
 
 Warnings on git push
 ------------------
 
-**WARNING: Detected Rails is not declared in either .gems or Gemfile**
+### WARNING: Detected Rails is not declared in either .gems or Gemfile
 
-You must specify all gem dependencies for your application, including the framework.  If you are receiving this warning  create a .gems file with the contents:
+You must specify all gem dependencies for your application, including the 
+framework.  If you are receiving this warning  create a .gems file with 
+the contents:
 
     rails -v YOUR_RAILS_VERSION
     
@@ -29,7 +35,10 @@ and new gems are installed along with their dependencies.
 
 ### Which gems to list
 
-You should list ALL gems that your app uses, including any framework such as Rails or Sinatra that your app uses.  
+You should list ALL gems that your app uses, including any framework such as 
+Rails or Sinatra that your app uses.  To ensure no surprises, include the 
+version of each gem as well.  This ensures that the gem maintainer updating 
+the gem doesn't surprise you with changes effecting your application.
 
 ### Creating a gem manifest file
 
