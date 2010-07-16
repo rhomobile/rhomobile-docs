@@ -18,7 +18,7 @@ To install the free version of the Panda add-on, simply run:
     Adding pandastream:free to myapp... done
 
 
-The free plan allows you to upload and encode an unlimited number of videos. However the filesize of uploads must be below 10Mb. For production usage there a several [paid plans available](http://addons.heroku.com/panda) with no upload limit, and dedicated encoders.
+The free plan allows you to upload and encode an unlimited number of videos. However the filesize of uploads must be below 10Mb. For production usage there a several [paid plans available](http://addons.heroku.com/pandastream) with no upload limit, and dedicated encoders.
 
  After this, the Heroku config variable $PANDASTREAM_URL will have been set correctly.
 
