@@ -95,7 +95,6 @@ Running `heroku help` displays a usage summary:
     bundles:capture [<bundle>]   # capture a bundle of the app's code and data
     bundles:download             # download most recent app bundle as a tarball
     bundles:download <bundle>    # download the named bundle
-    bundles:animate <bundle>     # animate a bundle into a new app
     bundles:destroy <bundle>     # destroy the named bundle
 
     addons                       # list installed addons
