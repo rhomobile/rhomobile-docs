@@ -21,20 +21,10 @@ In order to use OAuth with Apigee, there are two important steps to keep in mind
 
 After you activate the add-on, Apigee will create a private endpoint for your API requests. You can continue to request user tokens as you have before, and likewise, you would continue to build the base string with _http://api.twitter.com_ . But instead of sending those requests directly to _http://api.twitter.com_ , you instead send them to your configvar, e.g. _http://APIGEE_TWITTER_API_ENDPOINT_ instead.
 
-Note: the [Twitter Gem](http://rubygems.org/gems/twitter) supports the OAuth flow through Apigee natively. A brief example:
-
-    # build the endpoint based on the add-on supplied configvar
-    @endpoint = 'http://'+ENV['APIGEE_TWITTER_API_ENDPOINT']
-    
-    # initialize with sample variables
-    ctoken = 'your_consumer_token'
-    csecret = 'your_consumer_secret'
-    atoken, asecret = ["14142354-mykey", "mysecret"]
-
-    oauth = Twitter::OAuth.new(ctoken, csecret, :api_endpoint => @endpoint)
-    oauth.authorize_from_access(atoken, asecret)
-    client = Twitter::Base.new(oauth)
-    @user = client.user('heroku') # calls user/show on @heroku via Apigee
+Note: several gems have been reported to support the use of proxies with the Twitter API:
+* [Twitter OAuth](http://rubygems.org/gems/twitter_oauth)
+* [Twitter Gem](http://rubygems.org/gems/twitter)
+* [OAuth-Ruby](http://oauth.rubyforge.org/)
 
 A Note on Search
 -----------
@@ -42,6 +32,7 @@ While Twitter's search methods at one time were available at api.twitter.com, th
 
 Additional Resources
 -----------
+* [Notes](http://gist.github.com/421561) on configuring your local development environment (example uses the REST API endpointóadjust for your Facebook configvar; you may wish to configure the search endpoint in a similar fashion).
 * [Apigee.com](http://apigee.com)
 * [Support community](http://support.apigee.com)
 * Apigee is designed to be a [highly available service](http://apigee.com/blog_detail/on_availability)
