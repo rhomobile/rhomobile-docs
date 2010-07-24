@@ -37,7 +37,11 @@ Collaborating on an app
 
 ### Clone the code
 
-The first step is to clone the git repo to your local machine.  The invitation email included the name of the app.  To clone the git repo, simply run this command, filling in the approrpriate app name:
+The first step is to clone the git repo to your local machine.  The invitation email included the name of the app.  First ensure that your keys are already on Heroku.  If this is the first time you have ever used heroku, run:
+
+    $ heroku keys:add
+    
+To clone the git repo, simply run this command, filling in the appropriate app name:
 
     :::term
     $ git clone git@heroku.com:APPNAME.git -o production
