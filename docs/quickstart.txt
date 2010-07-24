@@ -37,6 +37,7 @@ If you're already using Git with your application, skip to the next step.
 If you're not yet using Git to track your application, run this:
 
     :::term
+    $ cd PATH/TO/MY_APP
     $ git init
     Initialized empty Git repository in .git/
     $ git add .
