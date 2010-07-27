@@ -61,6 +61,11 @@ config.ru:
     require 'hello'
     run Sinatra::Application
 
+.gems:
+
+    :::ruby
+    sinatra
+
 Merb
 ----
 
@@ -75,6 +80,11 @@ The following `config.ru` file can be used for all Merb apps.
 
     use Merb::Rack::Static, Merb.dir_for(:public)
     run Merb::Rack::Application.new
+
+.gems:
+
+    :::ruby
+    merb-core
 
 Ramaze
 ------
@@ -97,6 +107,11 @@ config.ru:
     Ramaze.trait[:essentials].delete Ramaze::Adapter
     Ramaze.start!
     run Ramaze::Adapter::Base
+
+.gems:
+
+    :::ruby
+    ramaze
 
 Camping
 -------
@@ -127,6 +142,12 @@ Camping
     :::ruby
     require 'hello'
     run Rack::Adapter::Camping.new(Hello)
+
+.gems:
+
+    :::ruby
+    camping
+
 
 NOTE: Camping 2.0 does not require the Rack adapter; use `run Hello` instead.
 
