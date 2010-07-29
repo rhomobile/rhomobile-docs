@@ -18,7 +18,7 @@ NOTE: You must add both www.yourdomain.com and youdomain.com if you want both to
 
     :::term
     $ heroku addons:add custom_domains
-    Adding wildcard_domains to myapp...done.
+    Adding custom_domains to myapp...done.
 
 Then inform Heroku of the domain you are using:
 
