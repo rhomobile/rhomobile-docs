@@ -47,7 +47,7 @@ If you're not yet using Git to track your application, run this:
 
 ### 2. Setup your SSH keys
 
-Git uses SSH as it's secure transport protocol.  You will need to have a public ssh key generated and uploaded to Heroku.  Follow the instructions at Github for [Mac](http://help.github.com/mac-key-setup/), [Windows](http://help.github.com/windows-key-setup/), or [Linux](http://help.github.com/linux-key-setup/) for generating keys.  
+Git uses SSH as it's secure transport protocol.  You will need to have a public ssh key generated and uploaded to Heroku.  Follow the instructions at Github for [Mac](http://help.github.com/mac-key-setup/), [Windows](http://help.github.com/msysgit-key-setup/), or [Linux](http://help.github.com/linux-key-setup/) for generating keys.  
 
 ### 3. Create your application on Heroku ###
 
