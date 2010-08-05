@@ -50,6 +50,7 @@ following is an example `.gems` manifest file that includes two gems and Rails:
     rails -v 2.3.5
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
+    formtastic --ignore-dependencies
 
 Each line of the `.gems` file includes the following:
 
@@ -67,6 +68,9 @@ Each line of the `.gems` file includes the following:
    `gems.github.com`, or `gems.mycustomrepo.com`. The `gems.rubyforge.org` repository
    is always included as the last source. Multiple `--source` arguments
    may be provided for cases where dependencies cross multiple repositories.
+
+ * An optional flag to ignore installing dependencies.  This can be used to 
+   manually specify gem dependencies if they're causing conflicts.
 
 **TIP:** The `--version` and `--source` options have short forms just like the
 `gem` command; use `-v` and `-s`, respectively.
