@@ -47,7 +47,7 @@ section 'features', "Platform Features" do
 	topic 'stack',              'Deployment Stack'
 end
 
-section 'addons', "Add-ons" do
+section 'addo-ns', "Add-ons" do
 	topic 'addons',            'Addons Overview'
 	topic 'amazon_rds',        'Amazon RDS'
 	topic 'apigee',           'Apigee for Twitter'
