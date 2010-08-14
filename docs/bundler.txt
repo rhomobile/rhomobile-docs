@@ -7,7 +7,7 @@ NOTE: Bundler can only be used on the Bamboo stack.  Using Bundler with the Aspe
 
 Bundler Version
 ---------------
-1.0.0.rc2
+1.0.0.rc.5
 
 Bundler is evolving quickly.  Heroku will try to stay as up-to-date as possible as Bundler releases new versions.  As this is experimental support, it is your responsibility to make sure you stay compatible with the latest version of Bundler.  Announcements of new versions will be posted to the [google group](http://groups.google.com/group/heroku/).
 
