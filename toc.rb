@@ -1,6 +1,7 @@
 section 'getting-started', "Getting Started" do
 	topic 'heroku',          'What is Heroku?'
 	topic 'quickstart',      'Quickstart Guide'
+  topic 'keys',            'Managing Keys'
 	topic 'collab',          'Collaborator Quickstart'
 	topic 'billing',         'Confirmation & Verification'
 	topic 'windows',         'Ruby on Windows'
