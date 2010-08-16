@@ -1,7 +1,7 @@
 Rails 3 (Beta)
 =======
 
-Heroku allows you to run Rails 3 on the [bamboo](/bamboo) [stack](/stack) with either Ruby 1.8.7 or Ruby 1.9.1.  **This is currently experimental, as Rails 3 and associated components are evolving quickly, sometimes breaking compatibility.**  We currently support Rails [3.0.0beta](http://rubygems.org/gems/rails/versions/3.0.0.beta) with [Bundler 0.9.5](http://rubygems.org/gems/bundler/versions/0.9.5)
+Heroku allows you to run Rails 3 on the [bamboo](/bamboo) [stack](/stack) with Ruby 1.8.7.  **This is currently experimental, as Rails 3 and associated components are evolving quickly, sometimes breaking compatibility.**  We currently support Rails [3.0.0.rc](http://rubygems.org/gems/rails/versions/3.0.0.rc).
 
 Serving Static Assets
 ---------------------
