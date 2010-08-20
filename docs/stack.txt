@@ -33,7 +33,7 @@ Specify a stack by combining the stack name with the ruby VM name:
     <STACK_NAME>-<RUBY_VM_NAME>
     bamboo-ree-1.8.7
     
-All apps are set to the "aspen-mri-1.8.6" stack by default.  You may migrate an app to a different stack at any time, or target a specific stack when creating your application.
+All apps are set to the "bamboo-ree-1.8.7" stack by default.  You may migrate an app to a different stack at any time, or target a specific stack when creating your application.
 
 You can see what stack your app is on, and all available stacks, using the heroku client (version 1.7 and higher):
 
