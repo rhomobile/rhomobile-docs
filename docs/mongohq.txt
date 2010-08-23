@@ -74,3 +74,11 @@ If you are using Ruby driver version < 0.19
     conn = Mongo::Connection.new(uri.host, uri.port)
     db = conn.db(uri.path.gsub(/^\//, ''))
     db.authenticate(uri.user, uri.password)
+
+## Known Issues
+
+If you see the following error in your logs
+
+    Mongo::ConfigurationError (Trying to connect directly to slave; if this is what you want, specify :slave_ok => true.):
+
+try updating your mongo gem to the latest. You can do this by specifying a newer version of mongo in your .gems manifest or Gemfile. 1.0.7 and later should work.
