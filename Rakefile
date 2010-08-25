@@ -1,4 +1,4 @@
-require 'sunspot'
+require 'indextank'
 require 'topic'
 
 desc 'Start a development server'
@@ -14,11 +14,30 @@ end
 desc 'Index documentation'
 task :index do
   puts "indexing now:"
-  Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes('heroku-docs')
+  index.add unless index.exists?
+
   docs = FileList['docs/*.txt']
-  docs.each { |d| puts "...indexing #{d}"; Sunspot.index(topic_for(d).text_only) }
-  Sunspot.commit
+  docs.each do |doc|
+    name = name_for(doc)
+    puts "...indexing #{name}"
+    source = File.read(doc)
+    topic = Topic.load(name, source)
+    topic.text_only
+    result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body)
+    puts "=> #{result}"
+  end
   puts "finished indexing"
+end
+
+desc 'Sample search'
+task :search, :query do |t, args|
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes('heroku-docs')
+  results = index.search(args[:query], :fetch => 'title', :snippet => 'text')
+  puts "#{results['matches']} results."
+  puts results.inspect
 end
 
 task :start => :server
@@ -28,10 +47,6 @@ def which(command)
 		split(':').
 		map  { |p| "#{p}/#{command}" }.
 		find { |p| File.executable?(p) }
-end
-
-def topic_for(doc)
-  Topic.load(name_for(doc), File.read(doc))
 end
 
 def name_for(doc)

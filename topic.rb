@@ -79,26 +79,3 @@ class Topic
 	end
 	
 end
-
-class TopicAdapter < Sunspot::Adapters::InstanceAdapter
-  
-  def id
-    @instance.topic
-  end
-  
-end
-
-class TopicAccessor < Sunspot::Adapters::DataAccessor
-  
-  def load(id)
-    Topic.load(id, File.open("docs/#{id}.txt").read)
-  end
-  
-end
-
-Sunspot::Adapters::InstanceAdapter.register(TopicAdapter, Topic)
-Sunspot::Adapters::DataAccessor.register(TopicAccessor, Topic)
-
-Sunspot.setup(Topic) do
-  text :title, :intro, :body
-end

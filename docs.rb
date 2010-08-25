@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'sass'
-require 'sunspot'
+require 'indextank'
 require 'topic'
 
 require 'heroku/nav'
@@ -27,8 +27,6 @@ end
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 
 set :app_file, __FILE__
-
-Sunspot.config.solr.url = ENV["WEBSOLR_URL"]
 
 not_found do
 	erb :not_found
@@ -87,12 +85,9 @@ helpers do
 	end
 	
 	def search_for(query)
-#	  Sunspot.search(Topic) { keywords("rails") { highlight :body, :fragment_size => 175 } }
-	  Sunspot.search(Topic) do
-	    keywords(query) do
-	      highlight :body, :fragment_size => 175
-      end
-	  end
+    client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+    index = client.indexes('heroku-docs')
+    index.search(query, :fetch => 'title', :snippet => 'text')
 	end
 	
 	def topic_file(topic)

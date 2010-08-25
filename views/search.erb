@@ -1,25 +1,10 @@
 <h1>Results for <em style="color:#4c4074"><%= params[:q] %></em>:</h1>
 
 <div id="results">
-  <% search.hits.each do |hit| %>
-  <% 
-
-  highlight = hit.highlights(:body).first
-   if highlight
-     highlight = highlight.format{|word| "<strong>#{word}</strong>"}
-     # stripped = string.gsub(/\<[^\<]+\>/,'')
-     # bolded = string.gsub("[[[", "<b>").gsub("]]]", "</b>")
-     # highlight = bolded
-   end
-  %>
-  <% 
-		result = hit.instance rescue nil
-		topic = result.topic rescue ""
-		title = result.title rescue ""
-	%>
+  <% search['results'].each do |result| %>
     <div class="result">
-      <h2><a href="/<%= topic %>"><%=h title %></a></h2>
-      <%= highlight %> <% if highlight %>...<% end %>
+      <h2><a href="/<%= result['docid'] %>"><%=h result['title'] %></a></h2>
+      <%= result['snippet_text'] %> <% if result['snippet_text'] %>...<% end %>
     </div>
   <% end %>
 </div>
