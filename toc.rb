@@ -58,6 +58,7 @@ section 'addo-ns', "Add-ons" do
 	topic 'moonshadosms',      'Moonshado SMS'
 	topic 'newrelic',          'New Relic RPM'
 	topic 'pandastream',        'Panda Stream'
+	topic 'redistogo',         'Redis To Go'
 	topic 'sendgrid',          'Sendgrid SMTP'
 	topic 'ssl',               'SSL'
 	topic 'websolr',           'Websolr Search'
