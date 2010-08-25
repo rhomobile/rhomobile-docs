@@ -1,7 +1,25 @@
+GIT
+  remote: git://github.com/hone/indextank-rb.git
+  revision: 61c2179
+  ref: 61c217938b9c96f69ba0
+  specs:
+    indextank (0.0.1)
+      faraday
+      yajl-ruby (= 0.7.7)
+
+GIT
+  remote: git://github.com/technoweenie/faraday
+  revision: 3aa840d
+  ref: 3aa840d012875ee80410
+  specs:
+    faraday (0.4.6)
+      addressable (>= 2.1.1)
+      rack (>= 1.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
-    builder (2.1.2)
+    addressable (2.2.0)
     coderay (0.9.3)
     daemons (1.1.0)
     eventmachine (0.12.10)
@@ -19,35 +37,34 @@ GEM
     rack-codehighlighter (0.4.6)
       nokogiri (>= 1.4.1)
       rack (>= 1.0.0)
+    rake (0.8.7)
     rdiscount (1.3.5)
     rest-client (1.2.0)
       mime-types (>= 1.16)
-    rsolr (0.12.1)
-      builder (>= 2.1.2)
     sinatra (0.9.4)
       rack (>= 0.9.1)
-    sunspot (0.10.8)
-      daemons (~> 1.0)
-      rsolr (>= 0.9.6)
     thin (1.2.7)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
+    yajl-ruby (0.7.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coderay
+  faraday!
   haml (= 2.2.17)
   heroku-nav (~> 0)
+  indextank!
   json
   newrelic_rpm
   nokogirl
   rack (= 1.2.1)
   rack-codehighlighter
+  rake
   rdiscount (= 1.3.5)
   rest-client (= 1.2.0)
   sinatra (= 0.9.4)
-  sunspot (= 0.10.8)
   thin
