@@ -54,7 +54,9 @@ get '/' do
 end
 
 get '/search' do
-  erb :search, :locals => {:search => search_for(params[:q])}
+  page = params[:page].to_i
+  search, prev_page, next_page = search_for(params[:q], page)
+  erb :search, :locals => {:search => search, :query => params[:q], :prev_page => prev_page, :next_page => next_page}
 end
 
 get '/:topic' do
@@ -84,10 +86,20 @@ helpers do
 		status 404
 	end
 	
-	def search_for(query)
+	def search_for(query, page = 0)
     client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
     index = client.indexes('heroku-docs')
-    index.search(query, :fetch => 'title', :snippet => 'text')
+    search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title', :snippet => 'text')
+    next_page =
+      if search['matches'] > (page + 1) * 10
+        page + 1
+      end
+    prev_page =
+      if page > 0
+        page - 1
+      end
+
+    [search, prev_page, next_page]
 	end
 	
 	def topic_file(topic)

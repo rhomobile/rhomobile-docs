@@ -8,3 +8,7 @@
     </div>
   <% end %>
 </div>
+
+<% if next_page %>
+  <div id="next_section"><a href="/search?q=<%= query %>&page=<%= next_page %>">Next Page &rarr;</a></div>
+<% end %>
