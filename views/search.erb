@@ -12,3 +12,7 @@
 <% if next_page %>
   <div id="next_section"><a href="/search?q=<%= query %>&page=<%= next_page %>">Next Page &rarr;</a></div>
 <% end %>
+
+<% if prev_page %>
+  <div id="prev_section"><a href="/search?q=<%= query %>&page=<%= prev_page %>">&larr; Prev Page</a></div>
+<% end %>
