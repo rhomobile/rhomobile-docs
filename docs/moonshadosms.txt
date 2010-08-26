@@ -58,14 +58,14 @@ Usage
     >> sms = Moonshado::Sms.new("15556345789", "test")
     => #<Moonshado::Sms:0x1032b4900 @number="15556345789", @message="test">
     >> sms.deliver_sms
-    => {:stat=>"ok", :id=>"e3debdc7f4719ec0"}
+    => {:stat=>"ok", :id=>"e3debdc7f4719ec0", :credit => 500}
 
 
 ### SMS Reports & Status
 Reports will indicate success or delivery failure of the SMS:
 
     >> Moonshado::Sms.find('e3debdc7f4719ec0')
-    => {:stat=>"ok", :sms=>{:reports=>"[{"update_date":"2010-01-03T22:56:45-08:00","status_info":"test"}]", :id=>"e3debdc7f4719ec0"}}
+    => {:stat=>"ok", :credit => 500, :sms=>{:reports=>"[{"update_date":"2010-01-03T22:56:45-08:00","status_info":"test"}]", :id=>"e3debdc7f4719ec0"}}
 
 ### Receiving Incoming SMS & Keywords
   Keyword is first word of a MO SMS (Mobile-Originated SMS).
@@ -78,11 +78,11 @@ Reports will indicate success or delivery failure of the SMS:
     Parameters: {"device_address"=>"13135551234", "carrier"=>"ATT", "shortcode"=>"69940", "message"=>"bender the robot", "country" => "US"}
 
 
-Beta SMS Incoming (MO) and Outgoing (MT) limits
+SMS Incoming (MO) and Outgoing (MT) limits
 
-* 500 Credit per account on Free plan.
+* MT/MO credit cost per carrier > [Pricing]
 * Message char limit is 115 (reduced from 160 due to the Msg&Data rate and opt-out footer)
-* **198 Countries/620 Carriers Supported** [List of Supported Carriers]
+* **198 Countries/620 Carriers Supported** > [List of Supported Carriers]
 
 Further reading:
 
@@ -99,3 +99,4 @@ To use moonshado-sms on Heroku, install the moonshado-sms add-on:
 [Details]: http://wiki.github.com/moonshado/moonshado-sms/
 [Support]: http://moonshado-sms.tenderapp.com/
 [List of Supported Carriers]: https://moonshado-sms.tenderapp.com/faqs/carriers/supported_carriers
+[Pricing]: http://support.moonshado.com/faqs/pricing/pricing
