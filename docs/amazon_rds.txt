@@ -39,6 +39,8 @@ Heroku needs to be able to access your RDS instance. To allow Heroku's cloud thr
     
 NOTE: If you have multiple RDS security groups, you can specify the desired group instead of "default".
 
+NOTE: Your RDS instance will need to be in the us-east Amazon region to use Heroku's security group to control access.
+
 Once authorized, you can add the add-on using the connection information for your database:
 
     :::term
