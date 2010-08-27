@@ -36,6 +36,7 @@ section 'management', "Application Management" do
 	topic 'backups',            'Backups'
 	topic 'maintenance-mode',   'Maintenance mode'
 	topic 'rails3',             'Rails 3'
+	topic 'ps',                 'Processes'
 end
 
 section 'features', "Platform Features" do
