@@ -68,30 +68,5 @@ pageTracker._trackPageview();
 } catch(err) {}
 </script>
 <% end %>
-
-<!-- Kiss Metrics -->
-<script type="text/javascript">
-  var KM_KEY = "858f55e10be896dee1d2f37f77198c31a0b90064";
-  var KM_COOKIE_DOMAIN = 'heroku.com';
-  document.write(unescape("%3Cscript src='" + (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "scripts.kissmetrics.com/t.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  if (document.location.pathname.toLowerCase() == "/" )
-    KM.record("Docs: Homepage")
-  if (document.location.pathname.toLowerCase() == '/quickstart') 
-	KM.record("Docs: Quickstart")
-  if (document.location.pathname.toLowerCase() == '/faq-accounts-billing') 
-	KM.record("Docs: FAQ")
-  if (document.location.pathname.toLowerCase() == '/faq-product-features') 
-	KM.record("Docs: FAQ")
-  if (document.location.pathname.toLowerCase() == '/performance') 
-	KM.record("Docs: Performance")
-  if (document.location.pathname.toLowerCase() == '/git') 
-	KM.record("Docs: Git")
-  if (document.location.pathname.toLowerCase() == '/errors') 
-  	KM.record("Docs: Errors")
-</script>
-
-
 </body>
 </html>
