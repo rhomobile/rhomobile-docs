@@ -1,29 +1,7 @@
 Managing Gems
 =============
 
-Ruby gems can be installed on Heroku via the Heroku gem manifest 
-or [Gem Bundler](http://github.com/wycats/bundler).  Both are supported, 
-but it it is recommended you only use one in your app in order to avoid 
-confusion.  Bundler is an emerging community standard currently in beta 
-and under active development.  
-
-Warnings on git push
-------------------
-
-### WARNING: Detected Rails is not declared in either .gems or Gemfile
-
-You must specify all gem dependencies for your application, including the 
-framework.  If you are receiving this warning  create a .gems file with 
-the contents:
-
-    rails -v YOUR_RAILS_VERSION
-    
-Add it to your repo and push:
-
-    git add .gems
-    git commit -a -m "added .gems file specifying framework"
-    git push heroku master
-    
+Ruby gems can be installed on Heroku via the Heroku gem manifest or [Gem Bundler](http://github.com/wycats/bundler).  Both are supported, but it it is recommended you only use one in your app in order to avoid confusion.  
 
 Heroku gem manifest
 -------------------
@@ -33,24 +11,24 @@ manifest, which is a `.gems` file in the root of your app.  When a new version
 of the app is pushed to Heroku, any changes to the `.gems` file are detected
 and new gems are installed along with their dependencies.
 
-### Which gems to list
+### System gems
 
-You should list ALL gems that your app uses, including any framework such as 
-Rails or Sinatra that your app uses.  To ensure no surprises, include the 
-version of each gem as well.  This ensures that the gem maintainer updating 
-the gem doesn't surprise you with changes effecting your application.
+All apps deployed to Heroku have access to a number of gems installed as part of
+the [base platform](technologies). See [installed-gems.heroku.com](http://installed-gems.heroku.com)
+for a comprehensive listing.
+
+Gems installed as part of your application override Heroku system gems.
 
 ### Creating a gem manifest file
 
 The gems manifest is a simple text file that includes information about each of
 the gems required by an application. Each entry in the manifest includes a
 mandatory gem name along with optional `version` and `source` options.  The
-following is an example `.gems` manifest file that includes two gems and Rails:
+following is an example `.gems` manifest file that includes two gems:
 
-    rails -v 2.3.5
+    :::ruby
     hpricot --version '>= 0.2' --source code.whytheluckystiff.net
     dm-core --version 0.9.10
-    formtastic --ignore-dependencies
 
 Each line of the `.gems` file includes the following:
 
@@ -68,9 +46,6 @@ Each line of the `.gems` file includes the following:
    `gems.github.com`, or `gems.mycustomrepo.com`. The `gems.rubyforge.org` repository
    is always included as the last source. Multiple `--source` arguments
    may be provided for cases where dependencies cross multiple repositories.
-
- * An optional flag to ignore installing dependencies.  This can be used to 
-   manually specify gem dependencies if they're causing conflicts.
 
 **TIP:** The `--version` and `--source` options have short forms just like the
 `gem` command; use `-v` and `-s`, respectively.
@@ -121,4 +96,4 @@ ensuring that an application is not deployed in an inconsistent state.
 Gem Bundler
 -----------
 
-Gem Bundler is under active development, and is not currently stable for production applications.  Heroku has [experimental support](/bundler) for Bundler to enable early testing and Rails 3 beta application testing.
+Gem Bundler is the future of gem management.  It is still evolving, with changes coming frequently.  See our [bundler](/bundler) page for full details on Bundler support.

@@ -1,13 +1,13 @@
-Gem Bundler (BETA)
+Gem Bundler
 ===========
 
-Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  Gem Bundler is under active development, and is not recommended for production use yet.  
+Gem Bundler is the default gem manager for Rails 3, and can be used with any Ruby project as it has no dependency on framework.  
 
-NOTE: Bundler can only be used on the Bamboo stack.  Using Bundler with the Aspen stack is NOT supported.
+NOTE: Bundler can only be used on the Bamboo stack.  Using Bundler with the Aspen stack will not work.
 
-Bundler Version
+Current Bundler Version
 ---------------
-1.0.0.rc.5
+1.0.0
 
 Bundler is evolving quickly.  Heroku will try to stay as up-to-date as possible as Bundler releases new versions.  As this is experimental support, it is your responsibility to make sure you stay compatible with the latest version of Bundler.  Announcements of new versions will be posted to the [google group](http://groups.google.com/group/heroku/).
 
@@ -17,34 +17,37 @@ Using Bundler
 To use, install bundler:
 
     :::term
-    $ gem install bundler --pre
+    $ gem install bundler
 
 Create a file named Gemfile in the root of your app specifying what gems are required to run it:
 
     :::ruby
-    source "http://rubygems.org"
+    source :gemcutter
     gem 'sinatra', '1.0'
 
-Use Bundler to install all dependencies you have declared:
+The Gemfile should be added to the git repository since it is part of the app. You should also add the .bundle directory to your gitignore file.  Once you have added the Gemfile, it makes it easy for other developers to get their environment ready to run the app:
 
     :::term
     $ bundle install
 
-The Gemfile and Gemfile.lock files should be added to your git repository.
+This will ensure all gems specified on Gemfile, together with their dependencies, are available for your application.  Running "bundle install" will also generate a "Gemfile.lock" file.  We encourage you to add the Gemfile.lock file to your git repo.  The Gemfile.lock ensures that your deployed versions of gems on Heroku match the version installed locally on your development machine.
 
 Heroku also uses that file to resolve and install your application dependencies automatically. All you need to do is to push it:
 
     :::term
     -----> Heroku receiving push
-    -----> Gemfile detected, running Bundler
+    -----> Sinatra app detected
+    -----> Gemfile detected, running Bundler version 1.0.0
            Unresolved dependencies detected; Installing...
-           Fetching source index from http://gemcutter.org
-           Resolving dependencies
-           Installing mime-types (1.16) from rubygems repository at http://gemcutter.org 
-           Installing rack (1.1.0) from rubygems repository at http://gemcutter.org 
-           Installing sinatra (0.9.4) from rubygems repository at http://gemcutter.org 
-           Your bundle is complete!
-           Locking environment
+           Using rack (1.2.1) 
+           Using sinatra (1.0) 
+           Using bundler (1.0.0) 
+           Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
+
+           Your bundle was installed to `.bundle/gems`
+           Compiled slug size is 10.7MB
+    -----> Launching.... done
+
 
 
 Specifying gems & groups
@@ -54,21 +57,21 @@ The recommended use of gem bundler is to bundle absolutely every gem your app de
 
 Bundling Rails and other dependencies does increase your slug size by a few megabytes.  Increased slug size is a worthwhile tradeoff for vastly simplified dependency management, as well as the flexibility of being able to use any version of Rails you wish.
 
-Heroku does not specify any groups during bundle installation, so all gems from all groups will be bundled with your application.
+Heroku does not specify any groups during bundle installation, so all gems from all groups will be bundled with your application.  We are working with the bundler team to implement a way to restrict groups on deploy as part of Bundler 1.1.
 
 Using Bundler from Rails 3
 --------------------------
 
 Rails 3 is built on top of Bundler. That means there is no setup needed, all gems specified on the Gemfile are ready for use on your app.
     
-Using Bundler from Rails 2.3.5
+Using Bundler from Rails 2.3.X
 ------------------------------
 
 Follow the instructions [here](http://gembundler.com/rails23.html).  Remember to remove all your "config.gem" lines from your environment configuration file!  Also remember to specify the your database gem as appropriate.
 
     :::term
-    gem "pg"
-    gem "sqlite3-ruby"
+    gem "pg", :group => :production
+    gem "sqlite3-ruby", :group => :development
     
 After you have added the code to your application, run
 
@@ -80,15 +83,10 @@ And your app should now be using Gembundler.
 Using Bundler from Sinatra or any Rack app
 ------------------------------------------
 
-To use gems from your bundler environment under Sinatra or other non-Rails framework, add the following to the top of your app:
+Gembundler has a great set of [documentation](http://gembundler.com/sinatra.html) on how to use bundler with Sinatra and other frameworks as well.
 
-    :::ruby
-    require "rubygems"
-    require "bundler"
-    Bundler.setup
 
 Further reading
 ---------------
 
-* [Gem Bundler Homepage](http://gembundler.com/)
-* [Gem Bundler README](http://github.com/carlhuda/bundler)
+* [Gem Bundler Docs](http://gembundler.com/)

@@ -11,10 +11,15 @@ How does dyno & worker scaling work?
 
 There are three ways to scale your dynos and workers: with the slider on the resources page for your app, using the heroku command-line client or directly through the API. Either way, changes are almost instant - it only takes a few seconds to deploy your requested number into the [dyno grid](http://heroku.com/how/dyno_grid). Dynos and workers are prorated to the second, so if you want to experiment with different configurations, you can do so and only be billed for actual seconds set. Remember, it's your responsibility to set the correct number of dynos & workers for your app.
 
+What is dyno idling?
+--------------------
+
+Apps that have only 1 free dyno will be idled out after a period of inactivity.  When a request comes in to an idled app your dyno will be spun back up, causing a delay for this first request.  Subsequent requests will perform normally.  Apps that have >1 dyno are never idled out.  Workers are never idled out. 
+
 What Rails versions do you support?
 -----------------------------------
 
-We support Rails 1.2.x, 2.x and [3.0.0beta](/rails3). We plan to support any new Rails versions as they are officially released.
+We support Rails 1.2.x, 2.x and [3.0.X](/rails3). 
 
 Do you support MySQL?
 --------------------
