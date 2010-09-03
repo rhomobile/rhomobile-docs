@@ -77,6 +77,21 @@ Use `heroku config`, `config:add`, `config:remove`, and `config:clear` to manage
     $ heroku config:clear
     Clearing all config vars and restarting app...done.
 
+Long Config Vars
+-----------------------
+
+`heroku config` will truncate long config var names on display.  This is for security and brevity:
+
+    :::term
+    $ heroku config
+    NEW_RELIC_LICENSE_KEY => da412123...ea6aa145d
+    
+To see the full value of your configuration variables, use the --long argument:
+
+    :::term
+    $ heroku config --long
+    NEW_RELIC_LICENSE_KEY => YOURLONGSTRINGWITHOUTTRUNCATION
+    
 RACK_ENV, RAILS_ENV, MERB_ENV
 -----------------------------
 
