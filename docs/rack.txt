@@ -104,9 +104,9 @@ config.ru:
 
     :::ruby
     require 'hello'
-    Ramaze.trait[:essentials].delete Ramaze::Adapter
-    Ramaze.start!
-    run Ramaze::Adapter::Base
+    require ::File.expand_path('../app', __FILE__)
+    Ramaze.start(:file => __FILE__, :started => true)
+    run Ramaze
 
 .gems:
 
