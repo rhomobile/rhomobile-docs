@@ -67,10 +67,13 @@ push to:
     updating 'refs/heads/master'
     ...
 
-Branches pushed to Heroku other than "master" will be ignored.  If you're
-working out of another branch locally, you should either merge to master before
-pushing, or always specify the branch name to push to, as in "git push heroku
-master".
+Branches pushed to Heroku other than `master` will be ignored.  If you're
+working out of another branch locally, you can either merge to master before
+pushing, or specify that you want to push your local branch to a remote master.
+To push a branch other than master, use this syntax:
+
+    :::term
+	 $ git push heroku yourbranch:master
 
 How Heroku uses Git remotes
 ---------------------------
