@@ -1,5 +1,5 @@
-Gem Depedency
-=============
+Gem Dependency
+==============
 
 There is an issue affecting Rails 2.3.x apps from loading. If your Heroku app is affected you'll see an error like the following:
 
