@@ -1,6 +1,8 @@
 Rails 2.3.6 - 2.3.8
 ===================
 
+This has now been replaced with [Gem Dependency](http://docs.heroku.com/gem-depdency)
+
 On Sunday, May 23 2010 Rails 2.3.6 was released. Among the changes in this release is the move from Rack 1.0.1 to Rack 1.1.0. This change has been known to cause problems for some apps, specifically preventing them from starting.
 
 If your Heroku app is affected, it may be displaying the following error:
