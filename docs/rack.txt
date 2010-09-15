@@ -103,10 +103,9 @@ hello.rb:
 config.ru:
 
     :::ruby
-    require 'hello'
-    Ramaze.trait[:essentials].delete Ramaze::Adapter
-    Ramaze.start!
-    run Ramaze::Adapter::Base
+    require ::File.expand_path('../hello', __FILE__)
+    Ramaze.start(:file => __FILE__, :started => true)
+    run Ramaze
 
 .gems:
 
