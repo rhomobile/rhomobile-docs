@@ -16,6 +16,18 @@ What is dyno idling?
 
 Apps that have only 1 free dyno will be idled out after a period of inactivity.  When a request comes in to an idled app your dyno will be spun back up, causing a delay for this first request.  Subsequent requests will perform normally.  Apps that have >1 dyno are never idled out.  Workers are never idled out. 
 
+How can I improve my application's performance?
+----------------------------------------------
+
+There are a number of ways that you can improve your application's performance:
+
+* Cache whole pages of your application with our our built-in and free [HTTP-accelerator](/http-caching).
+* Cache data from long running database queries, complicated page fragments, or other frequently accessed information with the [memcache plugin](/memcache). 
+* Architect your application to utilize [delayed job workers](/delayed-job) so that long running tasks are handled in the background.
+* Use [New Relic RPM](/newrelic) to identify and optimize slow operations in your application.
+
+Please note that the majority of these technologies require modifying your source code to take advantage of them in addition to installing the relevant add-on or resource.
+
 What Rails versions do you support?
 -----------------------------------
 
