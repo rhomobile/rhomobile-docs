@@ -54,3 +54,7 @@ You can inspect the dependencies for any gem with:
     $ gem dependency warden
     Gem warden-0.10.7
       rack (>= 1.0.0, runtime)
+
+### For Aspen
+
+If you're on the [Aspen stack](http://docs.heroku.com/aspen), you need to either upgrade to our [Bamboo stack](http://docs.heroku.com/bamboo) and user [Bundler](http://docs.heroku.com/bundler) or follow the instructions for "Ignore dependencies for selected gems" above.
