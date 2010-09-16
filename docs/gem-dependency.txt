@@ -18,7 +18,7 @@ Rails encourages developers to pin their application to a specific Rails gem ver
 [2.3.9]: http://rubygems.org/gems/actionpack/versions/2.3.9
 [3.0.0]: http://rubygems.org/gems/actionpack/versions/3.0.0
 
-In addition to Rails itself, any gem required by your application may list its own set of dependencies. That way, when you install a gem, you will automatically get all _its_ required gems installed. For example, many gems written to be used in Rails apps may directly require some of Rails' underlying components such as [ActiveSupport][] or [ActionPack][]. Gem developers can require specific versions of these, or use syntax like `>= 2.2` - meaning that 2.2 or anything newer than version 2.2 will match.
+In addition to Rails itself, any gem required by your application may list its own set of dependencies. That way, when you install a gem, you will automatically get all _its_ required gems installed. For example, many gems written to be used in Rails apps may directly require some of Rails' underlying components such as [ActiveSupport][] or [ActionPack][]. Gem developers can require specific versions of these, or use syntax like "`>= 2.2`" - meaning that 2.2 or anything newer than version 2.2 will match.
 
 [ActiveSupport]: http://as.rubyonrails.org/
 [ActionPack]: http://ap.rubyonrails.org/
