@@ -61,7 +61,7 @@ Almost any gem - even those with native dependencies - can be installed using a 
 Does my app have a static IP?
 -----------------------------
 
-No. With multiple dynos, your app is distributed across several nodes in our grid. Access and routing to individual dynos is always controlled by our [routing mesh](http://heroku.com/how/architecture#routing-mesh), and goes through our [public IPs]((http://docs.heroku.com/custom-domains#root-domains-and-custom-mail-servers)). While you can never access a dyno directly by IP, it is possible to originate outgoing requests directly from a dyno. However, do not count on the dyno's IP being static. We actively monitor our grid, and frequently move dynos around to ensure optimal reliability and performance.
+No. With multiple dynos, your app is distributed across several nodes in our grid. Access and routing to individual dynos is always controlled by our [routing mesh](http://heroku.com/how/architecture#routing-mesh), and goes through our [public IPs](http://docs.heroku.com/custom-domains#root-domains-and-custom-mail-servers)). While you can never access a dyno directly by IP, it is possible to originate outgoing requests directly from a dyno. However, do not count on the dyno's IP being static. We actively monitor our grid, and frequently move dynos around to ensure optimal reliability and performance.
 
 Can I run services outside of Heroku and have my app connect to them?
 ---------------------------------------------------------------------
