@@ -12,9 +12,16 @@ There is an issue affecting Rails 2.3.x apps from loading. If your Heroku app is
 Root Cause
 ----------
 
-Rails encourages developers to pin their application to a specific Rails gem version through config/environment.rb. Versions [2.3.3](http://rubygems.org/gems/actionpack/versions/2.3.5) to [2.3.5](http://rubygems.org/gems/actionpack/versions/2.3.5) use Rack ~> 1.0.0 and are incompatible with Rack >= 1.1.0, which is required by later [2.3.x releases](http://rubygems.org/gems/actionpack/versions/2.3.9). [Rails 3](http://rubygems.org/gems/actionpack/versions/3.0.0) requires rack 1.2.1 and newer which is incompatible with with any of the Rails 2 rack versions.
+Rails encourages developers to pin their application to a specific Rails gem version through config/environment.rb. Versions [2.3.3][2.3.5] to [2.3.5][] use Rack ~> 1.0.0 and are incompatible with Rack >= 1.1.0, which is required by [later 2.3.x releases][2.3.9]. [Rails 3][3.0.0] requires rack 1.2.1 and newer which is incompatible with with any of the Rails 2 rack versions.
 
-In addition to Rails itself, any gem required by your application may list its own set of dependencies. That way, when you install a gem, you will automatically get all _its_ required gems installed. For example, many gems written to be used in Rails apps may directly require some of Rails' underlying components such as [ActiveSupport](http://as.rubyonrails.org/) or [ActionPack](http://ap.rubyonrails.org/). Gem developers can require specific versions of these, or use syntax like ">= 2.2" - meaning that 2.2 or anything newer than version 2.2 will match.
+[2.3.5]: http://rubygems.org/gems/actionpack/versions/2.3.5
+[2.3.9]: http://rubygems.org/gems/actionpack/versions/2.3.9
+[3.0.0]: http://rubygems.org/gems/actionpack/versions/3.0.0
+
+In addition to Rails itself, any gem required by your application may list its own set of dependencies. That way, when you install a gem, you will automatically get all _its_ required gems installed. For example, many gems written to be used in Rails apps may directly require some of Rails' underlying components such as [ActiveSupport][] or [ActionPack][]. Gem developers can require specific versions of these, or use syntax like `>= 2.2` - meaning that 2.2 or anything newer than version 2.2 will match.
+
+[ActiveSupport]: http://as.rubyonrails.org/
+[ActionPack]: http://ap.rubyonrails.org/
 
 For gems that depend on Rails or any of its subcomponents, and do not pin to specific versions(formtastic and hobofields for example), Rubygems will pick up the dependency and install the latest version of Rails that matches the requirement (2.3.9 when using >= 2.2 as of this writing) _in addition_ to the older version of Rails specified in config/environment.rb. As part of this rather complex dependency resolution process, you will also get Rack 1.1.0 as Rails 2.3.6 and newer depend on it or rack 1.2.1 as Rails 3 depends on it.
 
@@ -86,11 +93,11 @@ If you're on the [Bamboo stack](http://docs.heroku.com/bamboo), you can use [Bun
 ### Ignore dependencies for selected gems
 
 If you suspect a particular gem is causing problems by requiring an unspecified version of actionpack or another component with a dependency on Rack, you can specify the "--ignore-dependencies" flag for that gem in your .gems manifest. This will tell rubygems not to load _any_ dependencies for that gem. Since you only want to ignore Rack, you will need to add other dependencies to your manifest. For example:
-    
+
     formtastic --ignore-dependencies
     hobosupport
     hobofields --ignore-depedencies
-    
+
 You can inspect the dependencies for any gem with:
 
     $ gem dependency hobofields
