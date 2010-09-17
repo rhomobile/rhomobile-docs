@@ -21,7 +21,8 @@ First review the [Bundler documentation for Rails 2.3 applications](http://gembu
 
 Once you have set up your application to use Bundler, add the `sunspot_rails` gem to your Gemfile.
 
-    gem 'sunspot_rails', '~> 1.1'
+    :::ruby
+    gem 'sunspot_rails', '~> 1.1', :require => 'sunspot/rails'
 
 Run `bundle install` to install Sunspot into your local environment.
 
@@ -35,14 +36,16 @@ If your application is not using Bundler, you may install Sunspot using your .ge
 
 Next, use the following `config.gem` statement in `config/environment.rb`:
 
-    config.gem 'sunspot_rails', '~> 1.1'
+    :::ruby
+    config.gem 'sunspot_rails', :version => '~> 1.1', :lib => 'sunspot/rails'
 
 
 ## Installing Sunspot 1.2 with Rails 3
 
 The impending release of Sunspot 1.2 supports both Rails 3 and Rails 2.3 applications. As of this writing it is in release candidate status, and we will be installing it from its master branch in git. Simply add the following line to your application's `Gemfile`:
 
-    gem 'sunspot_rails', :git => 'http://github.com/outoftime/sunspot.git'
+    :::ruby
+    gem 'sunspot_rails', :git => 'http://github.com/outoftime/sunspot.git', :require => 'sunspot/rails'
 
 Next, run `bundle install` to install Sunspot into your local environment. That's it!
 
@@ -50,7 +53,8 @@ Next, run `bundle install` to install Sunspot into your local environment. That'
 
 Once the `sunspot_rails` plugin is installed, you need to configure Sunspot to connect to your Websolr index in production. The URL for your Websolr index is stored in the environment variable `WEBSOLR_URL`. Create a Rails initializer file at `config/initializers/websolr.rb` with the following line of code:
 
-    Sunspot.config.solr.url = ENV['WEBSOLR_URL']
+    :::ruby
+    Sunspot.config.solr.url = ENV['WEBSOLR_URL'] if ENV['WEBSOLR_URL']
 
 When a value is provided for the `WEBSOLR_URL` environment variable, Sunspot will connect to that URL. If no value is present, it will attempt to connect to a Solr server running on localhost.
 
@@ -58,6 +62,7 @@ If you would like more fine-grained control over which Solr servers you are usin
 
 Sunspot provides Rake tasks to start and stop a local Solr server for development and testing. In order to use these Rake tasks, add the following line to your application's `Rakefile`:
 
+    :::ruby
     require 'sunspot/rails/tasks'
 
 You may wish to familiarize yourself with the available tasks by running `rake -T sunspot`.
@@ -114,16 +119,19 @@ If you are adding Websolr to an application with existing data in your developme
 
 In order to reindex your production data, you may run a command similar to the following from your application's directory:
 
+    :::term
     heroku rake sunspot:reindex
 
 If you are indexing a large number of documents, or your models us a lot of memory, you may need to reindex in batches smaller than Sunspot's default of 500. We recommend starting small and gradually experimenting to find the best results.
 
+    :::term
     heroku rake sunspot:reindex[10]
 
 ### Indexing asynchronously with Heroku Workers
 
 Queuing your updates to Solr is a perfect job for Heroku's [Delayed Job Workers](/delayed-job). Sending updates to Solr has the advantage of increasing your application's performance and robustness. Simply add the following line to your model after the `searchable` block:
 
+    :::ruby
     handle_asynchronously :solr_index
 
 ## Using a different Solr client
@@ -132,13 +140,15 @@ There are other Ruby clients, including the venerable `acts_as_solr`. If you are
 
 Your index's URL is set in the `WEBSOLR_URL` environment variable. If your Solr client can be configured at runtime, we recommend creating a Rails initializer at `config/initializer/websolr.rb` in which you instruct your client to connect to `ENV['WEBSOLR_URL']` when present.
 
+
+
 Alternatively, you may run `heroku config --long` from your application's directory to view the value for `WEBSOLR_URL` and update the relevant configuration file for your particular Solr client.
 
 Selecting your index at the Websolr control panel will allow you to select from among other common client configurations, or enter your own schema.xml.
 
 ## Configuring your index
 
-When your index is first created, it will be automatically configured using the latest default Sunspot `schema.xml`.
+When your index is first created, it will be automatically configured using the `schema.xml` for the latest version of Sunspot.
 
 Websolr provides a control panel at [http://websolr.com/](http://websolr.com/) where you may make changes to your index, such as adding or removing different Solr features, selecting a different Solr client, providing your own `schema.xml` and so on.
 
