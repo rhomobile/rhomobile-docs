@@ -45,7 +45,7 @@ Next, use the following `config.gem` statement in `config/environment.rb`:
 The impending release of Sunspot 1.2 supports both Rails 3 and Rails 2.3 applications. As of this writing it is in release candidate status, and we will be installing it from its master branch in git. Simply add the following line to your application's `Gemfile`:
 
     :::ruby
-    gem 'sunspot_rails', :git => 'http://github.com/outoftime/sunspot.git', :require => 'sunspot/rails'
+    gem 'sunspot_rails', :git => 'http://github.com/outoftime/sunspot.git'
 
 Next, run `bundle install` to install Sunspot into your local environment. That's it!
 
