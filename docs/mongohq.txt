@@ -75,6 +75,10 @@ If you are using Ruby driver version < 0.19
     db = conn.db(uri.path.gsub(/^\//, ''))
     db.authenticate(uri.user, uri.password)
 
+## Logging into MongoHQ
+
+Following the instructions [here](http://support.mongohq.com/discussions/community-tips/2-logging-in-to-mongohq-for-heroku-users), you can log into the MongoHQ interface and use features like mongodump and mongorestore
+
 ## Known Issues
 
 If you see the following error in your logs
