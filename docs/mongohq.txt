@@ -79,6 +79,25 @@ If you are using Ruby driver version < 0.19
 
 Following the instructions [here](http://support.mongohq.com/discussions/community-tips/2-logging-in-to-mongohq-for-heroku-users), you can log into the MongoHQ interface and use features like mongodump and mongorestore
 
+## Upgrading
+
+We're currently, we're working on better integration with MongoHQ to allow seamless addon upgrades. In the meantime, you'll need to do the following:
+
+- Backup your database. You can use the instructions [above](http://docs.heroku.com/mongohq#logging-into-mongohq) to get a local mongodump
+- Remove the addon
+
+
+    $ heroku addons:remove mongohq:free
+
+
+- Upgrade the addon
+
+
+    $ heroku addons:add mongohq:small
+
+
+- Restore your database using mongorestore
+
 ## Known Issues
 
 If you see the following error in your logs
