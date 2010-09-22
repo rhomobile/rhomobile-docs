@@ -20,6 +20,8 @@ Alternatively, when you attempt to perform an action that requires verification,
 
 <a href="http://heroku.com/verify"><img src="/images/verify.png"></a>
 
+NOTE: You may see a $1 charge appear temporarily on your credit card statement. This charge is merely an authorization, and should disappear within a few days.
+
 ## Confirmation
 
 Before we ever start charing your card, you must confirm that you agree to be billed.  You may confirm at any time by visiting [http://heroku.com/confirm](http://heroku.com/confirm).  
