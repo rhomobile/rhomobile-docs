@@ -97,6 +97,11 @@ To use S3 with your Heroku app, upload your assets to your S3 account using the 
 
 For writing uploaded files to S3, use the [S3 gem](http://amazon.rubyforge.org/) from within your Ruby code, or use [Paperclip](http://thoughtbot.com/projects/paperclip) or [attachment_fu](http://clarkware.com/cgi/blosxom/2007/02/24#FileUploadFu), specifying the S3 storage backend.
 
+Rack::Sendfile
+--------------
+
+Heroku does not support the use of Rack::Sendfile. This will interfere with Rack::Static calls and prevent them from being served. This doesn't work here since Rack::Sendfile replies with a X-Sendfile header and expects the local webserver to handle it. This is fine normally where the reverse proxy webserver is in the same box as the webserver but this is not the case on Heroku.
+
 Slug size
 ---------
 
