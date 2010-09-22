@@ -30,6 +30,11 @@ I don't have a credit card. Can I still verify?
 
 Currently, you need a credit card to verify. We continue to research other means of verification, and will announce if other methods are made available.
 
+Why was my credit card charged $1
+---------------------------------
+
+As part of our verification process, we run a credit card authorization for $1 to make sure your information is correct.  The charge will expire after a few days.  
+
 Do you accept foreign credit cards?
 -----------------------------------
 
