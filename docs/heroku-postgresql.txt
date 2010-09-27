@@ -3,33 +3,12 @@ Heroku PostgreSQL
 
 The Heroku PostgreSQL add-on is our next generation of our dedicated database service. Unlike the previous generation database service, it is provisioned and managed as an add-on.
 
-Activate Your Heroku Beta Invitation
-------------------------------------
-
-If you are new to the Heroku Beta program, please be sure to click the activation link in the beta program invitation e-mail (sent from beta@heroku.com). If you were already a member of the Heroku beta program, this is not necessary. 
-
-Local setup
------------
-
-### Plugin
+Plugin Installation
+-------------------
 
 To use the `heroku pg` commands shown throughout this document, install the PostgreSQL by Heroku client plugin:
 
     $ heroku plugins:install git://github.com/heroku/heroku-postgresql.git
-
-### Postgres
-
-If you wish to use the optional psql console, you should have a current version of PostgreSQL installed.  (It's also a good idea to develop your app locally on Postgres instead of SQLite or MySQL, to avoid minor incompatibilities between SQL implementations.)  On OS X, you can use MacPorts:
-
-    $ sudo port install postgresql84-server
-
-Or use Homebrew:
-
-    $ sudo brew install postgresql
-
-To install on Ubuntu:
-
-    $ sudo apt-get install postgresql
 
 Starting a fresh database
 -------------------------
@@ -228,7 +207,7 @@ You can get stats on your database with the info command:
 
 ### psql console
 
-If you have PostgreSQL installed on your system, you can open a direct psql console to your remote db:
+If you have PostgreSQL [installed on your system](#local-postgresql-installation), you can open a direct psql console to your remote db:
 
     $ heroku pg:psql
     Connecting to Heroku PostgreSQL database for app peruse-new ...
@@ -240,3 +219,17 @@ If you have PostgreSQL installed on your system, you can open a direct psql cons
 
 Further reading: [PostgreSQL interactive terminal docs](http://www.postgresql.org/docs/8.4/static/app-psql.html)
 
+Local PostgreSQL Installation
+-----------------------------
+
+If you wish to use the optional psql console, you should have a current version of PostgreSQL installed.  (It's also a good idea to develop your app locally on Postgres instead of SQLite or MySQL, to avoid minor incompatibilities between SQL implementations.)  On OS X, you can use MacPorts:
+
+    $ sudo port install postgresql84-server
+
+Or use Homebrew:
+
+    $ sudo brew install postgresql
+
+To install on Ubuntu:
+
+    $ sudo apt-get install postgresql
