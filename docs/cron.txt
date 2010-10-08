@@ -16,6 +16,9 @@ Note that the task is specified in Ruby code, so you can further control the rat
 by checking the current hour. This is useful if you want your task to run more often than every
 24 hours, but not every hour.
 
+Cron jobs execute based on when you enabled the add-on.  For example if you add the add-on @ 9:35,
+hourly cron will operate each hour at 35 minutes past, and daily cron at 9:35 each day.
+
 ### Example task
 
     :::ruby
