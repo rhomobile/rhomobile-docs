@@ -210,7 +210,7 @@ You can get stats on your database with the info command:
 If you have PostgreSQL [installed on your system](#local-postgresql-installation), you can open a direct psql console to your remote db:
 
     $ heroku pg:psql
-    Connecting to Heroku PostgreSQL database for app peruse-new ...
+    Connecting to Heroku PostgreSQL database for app myapp ...
     psql (8.4.4, server 8.4.4)
     SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
     Type "help" for help.
