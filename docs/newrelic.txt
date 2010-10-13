@@ -27,7 +27,7 @@ What the Add-on does
 The RPM add-on will automatically creates a private account on RPM, and configures access for Heroku's servers.  The add-on will then install the latest New Relic plugin if you don't already have it installed.  This is the same as you running the command:
 
     :::term
-    $ script/plugin install http://newrelic.rubyforge.org/svn/newrelic_rpm
+    $ script/plugin install git://github.com/newrelic/rpm.git
 
 We then autoconfigure your newrelic.yml file with the proper access keys.
 
@@ -39,8 +39,8 @@ When using New Relic with a non-rails app, you need to manually install the plug
     :::term
     $ mkdir -p vendor/plugins
     $ cd vendor/plugins
-    $ svn co http://newrelic.rubyforge.org/svn/newrelic_rpm
-    $ find newrelic_rpm -name \.svn -type d -exec rm -rf {} \;
+    $ git clone git://github.com/newrelic/rpm.git
+    $ find newrelic_rpm -name \.git -type d -exec rm -rf {} \;
     $ git add .
 
 And then add the following code to your app:
