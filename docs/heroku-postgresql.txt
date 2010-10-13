@@ -55,8 +55,8 @@ Put your app into maintenance mode:
 
 Capture a pgdump of your current database:
 
-    $ heroku pgdumps:capture
-    Capturing pgdump 2010-04-22 of myapp's 188MB database
+    $ heroku pg:backup
+    Capturing backup 2010-10-01-19:42:18-legacy of 188MB database for app myapp
     Dump      ...  187.79MB, done
     Gzip      ...  46.69MB, done
     Store     ...  46.69MB, done
@@ -67,9 +67,9 @@ Attach your new database to your app:
     $ heroku pg:attach
     Setting DATABASE_URL to point to HEROKU_POSTGRESQL_URL... done
 
-Restore the pgdump into your new db:
+Restore the pgdump into your new db. You'll need to grab the name from the output of "heroku pg:backup":
 
-    $ heroku pg:restore `heroku pgdumps:url`
+    $ heroku pg:restore 2010-10-01-19:42:18-legacy
 
 Once finished, you can confirm that your data was migrated properly using your app's Heroku console.  For example, if you have a model named Post:
 
@@ -87,7 +87,7 @@ You're done.  Should at any point after you need to revert to your previous data
     $ heroku pg:detach
     Detatching database from myapp ... done
 
-    heroku addons:add heroku-postgresql
+    heroku addons:remove heroku-postgresql
 
 Migrating a non-Heroku database
 ------------------------------
