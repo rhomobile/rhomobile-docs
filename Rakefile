@@ -19,7 +19,7 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-  index = client.indexes('heroku-docs')
+  index = client.indexes('rhodocs')
   index.add unless index.exists?
 
   docs = FileList['docs/*.txt']

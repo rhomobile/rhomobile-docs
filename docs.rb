@@ -16,11 +16,11 @@ require './lib/term.rb'
 require 'rack/codehighlighter'
 use Rack::Codehighlighter, :coderay, :markdown => true, :element => "pre>code", :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
 
-configure :production do
-    ENV['APP_ROOT'] ||= File.dirname(__FILE__)
-    $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
-    require 'newrelic_rpm'
-end
+# configure :production do
+#     ENV['APP_ROOT'] ||= File.dirname(__FILE__)
+#     $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
+#     require 'newrelic_rpm'
+# end
 
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 
@@ -86,7 +86,7 @@ helpers do
 	
 	def search_for(query, page = 0)
     client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-    index = client.indexes('heroku-docs')
+    index = client.indexes('rhodocs')
     search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title', :snippet => 'text')
     next_page =
       if search['matches'] > (page + 1) * 10
