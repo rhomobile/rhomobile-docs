@@ -22,23 +22,6 @@ section 'faq', "FAQ" do
 	topic 'faq-support'         ,   'Support'
 end
 
-section 'management', "Application Management" do
-	topic 'heroku-command',     'Heroku command-line'
-	topic 'creating-apps',      'Creating apps'
-	topic 'renaming-apps',      'Renaming apps'
-	topic 'git',                'Deploying with Git'
-	topic 'sharing',            'Collaborating with others'
-	topic 'gems',               'Managing Gems'
-	topic 'taps',               'Database import / export'
-	topic 'console',            'Using the console'
-	topic 'rake',               'Running rake tasks'
-	topic 'config-vars',        'Config vars'
-	topic 'backups',            'Backups'
-	topic 'maintenance-mode',   'Maintenance mode'
-	topic 'rails3',             'Rails 3'
-	topic 'ps',                 'Processes'
-end
-
 section 'features', "Platform Features" do
 	topic 'dynos',              'Dynos'
 	topic 'delayed-job',        'Delayed Job Workers'
@@ -47,24 +30,6 @@ section 'features', "Platform Features" do
 	topic 'slug-compiler',      'Slug compiler'
 	topic 'database',           'SQL database'
 	topic 'stack',              'Deployment Stack'
-end
-
-section 'add-ons', "Add-ons" do
-	topic 'addons',            'Addons Overview'
-	topic 'amazon_rds',        'Amazon RDS'
-	topic 'apigee',           'Apigee for Twitter'
-	topic 'cloudant',         'Cloudant'
-	topic 'cron',              'Cron'
-	topic 'deploy-hooks',      'Deploy Hooks'
-	topic 'memcache',         'Memcached'
-	topic 'moonshadosms',      'Moonshado SMS'
-	topic 'newrelic',          'New Relic RPM'
-	topic 'pandastream',        'Panda Stream'
-	topic 'redistogo',         'Redis To Go'
-	topic 'sendgrid',          'Sendgrid SMTP'
-	topic 'ssl',               'SSL'
-	topic 'websolr',           'Websolr Search'
-	topic 'zerigo',            'Zerigo DNS'
 end
 
 section 'troubleshooting', "Troubleshooting" do
