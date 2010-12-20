@@ -13,6 +13,12 @@ class Topic
     return topic
   end
   
+  def self.all_topics
+    dirs = AppConfig['dirs'] || {}
+    dirs.collect { |dir,path| path += "*.txt" }
+    FileList[dirs]
+  end
+  
   attr_reader :topic, :title, :content, :toc, :intro, :body
   
   def initialize(name, source)
@@ -50,14 +56,6 @@ class Topic
 		html = RDiscount.new(notes(source), :smart).to_html
 		# parse custom {lang} definitions to support syntax highlighting
 		html.gsub(/<pre><code>\{(\w+)\}/, '<pre><code class="brush: \1;">')
-	end
-	
-	def topic_file(topic)
-		if topic.include?('/')
-			topic
-		else
-			"#{options.root}/docs/#{topic}.txt"
-		end
 	end
 
 	def _title(content)

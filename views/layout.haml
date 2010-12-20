@@ -5,7 +5,7 @@
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   	<meta name="verify-v1" content="J75JQ+WGFRjBEnhNT4hhYxgVTQmRHjd0v3JF+izUFvA=" >
-  	<title>Heroku | <%=h @title %></title>
+  	<title>Rhomobile | <%=h @title %></title>
   	<link type="text/css" rel="stylesheet" href="/css/docs.css" media="screen" />
   	<link type="text/css" rel="stylesheet" href="/stylesheets/fontface.css" media="screen" />
   	<link type="text/css" rel="stylesheet" href="/stylesheets/coderay.css" media="screen" />
@@ -34,7 +34,7 @@
   				<h3><%= title %></h3>
   				<ul>
   					<% topics.each do |slug, title, _| %>
-  						<% if params[:topic] == slug %>
+  						<% if topic_path == slug %>
   							<li class="current"><a><%=h title %></a></li>
   						<% else %>
   							<li><a href="/<%= slug %>"><%=h title %></a></li>

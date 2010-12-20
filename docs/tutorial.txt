@@ -139,25 +139,25 @@ Note that you can edit this top level page or any of the other pages with any ar
 Doing More With Rhodes
 ----------------------
 
-See the comprehensive and exhaustive [http://wiki.rhomobile.com/index.php/Rhodes Rhodes Developer Reference] for details on all Rhodes capabilities.  
+See the comprehensive and exhaustive [Rhodes Developer Reference](http://wiki.rhomobile.com/index.php/Rhodes) for details on all Rhodes capabilities.  
 
 Code samples of each and every Rhodes capability are in the
-[http://github.com/rhomobile/rhodes-system-api-samples Rhodes API samples].
+[Rhodes API samples](http://github.com/rhomobile/rhodes-system-api-samples).
 
-You should take a look at the [http://vimeo.com/channels/rhomobile#12214213 Rhodes 2.0 training webinar] 
+You should take a look at the [Rhodes 2.0 training webinar](http://vimeo.com/channels/rhomobile#12214213).
 
-There is a [http://wiki.rhomobile.com/index.php/TechnicalFAQ technical FAQ] that describes how to perform certain specific tasks in Rhodes.  
+There is a [technical FAQ](TechnicalFAQ) that describes how to perform certain specific tasks in Rhodes.  
 
 The following sections describe how to add synchronized data to our app with RhoSync.
 
 Adding Synchronized Data to Your App with RhoSync
 -------------------------------------------------
-To add synchronized data to your application, see the [[Rhosync Tutorial]].  Also check out the [http://vimeo.com/channels/rhomobile#12218913 RhoSync training video]
+To add synchronized data to your application, see the [Rhosync Tutorial](rhosync/tutorial).  Also check out the [RhoSync training video](http://vimeo.com/channels/rhomobile#12218913).
 
 More Info
 ---------
-There are training webinars on various Rhomobile related topics held weekly.  Videos of these are on [http://vimeo.com/channels/rhomobile the Rhomobile Vimeo channel]
+There are training webinars on various Rhomobile related topics held weekly.  Videos of these are on [the Rhomobile Vimeo channel](http://vimeo.com/channels/rhomobile).
 
-There is also the following [http://www.apress.com/book/view/9781430228684 book on Rhomobile]. 
+There is also the following [book on Rhomobile](http://www.apress.com/book/view/9781430228684). 
 
-For more questions, [mailto:info@rhomobile.com write to us] or join the [http://groups.google.com/group/rhomobile Rhomobile Google Group] and post.
+For more questions, [write to us](mailto:info@rhomobile.com) or join the [Rhomobile Google Group](http://groups.google.com/group/rhomobile) and post.
