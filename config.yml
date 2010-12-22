@@ -1,24 +1,24 @@
 development:
-    dirs:
-        rhosync: '../rhosync/doc/'
-        rhodes: '../rhodes/doc/'
-        rhohub: '../rhohub.com/doc/'
-        rhogallery: '../rhogallery/doc/'
-        guides: 'docs/'
-    index: 'rhodocs_edge'
+  dirs:
+    rhosync: '../rhosync/doc/'
+    rhodes: '../rhodes/doc/'
+    rhohub: '../rhohub.com/doc/'
+    rhogallery: '../rhogallery/doc/'
+    guides: 'docs/'
+  index: 'rhodocs_edge'
 edge:
-    dirs:
-        rhosync: '../rhosync/doc/'
-        rhodes: '../rhodes/doc/'
-        rhohub: '../rhohub.com/doc/'
-        rhogallery: '../rhogallery/doc/'
-        guides: 'docs/'
-    index: 'rhodocs_edge'
+  dirs:
+    rhosync: '../rhosync/doc/'
+    rhodes: '../rhodes/doc/'
+    rhohub: '../rhohub.com/doc/'
+    rhogallery: '../rhogallery/doc/'
+    guides: 'docs/'
+  index: 'rhodocs_edge'
 production:
-    dirs:
-        rhosync: 'docs/rhosync/'
-        rhodes: 'docs/rhodes/'
-        rhohub: 'docs/rhohub/'
-        rhogallery: 'docs/rhogallery/'
-        guides: 'docs/'
-    index: 'rhodocs'
+  dirs:
+    rhosync: 'docs/rhosync/'
+    rhodes: 'docs/rhodes/'
+    rhohub: 'docs/rhohub/'
+    rhogallery: 'docs/rhogallery/'
+    guides: 'docs/'
+  index: 'rhodocs'
