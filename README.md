@@ -1,7 +1,7 @@
 Rhomobile Docs App
 ==================
 
-CMS and content for documentation of the Rhomobile platform.
+CMS and content for documentation of the Rhomobile platform. Production location TBD...
 
 If you'd like to propose an edit to the Rhomobile docs, fork this repo, then send us a pull request.
 
@@ -37,4 +37,4 @@ Code is released under the [MIT License](http://www.opensource.org/licenses/mit-
 
 All rights reserved on the content (text files in the docs subdirectory), although you're welcome to modify these for the purpose of suggesting edits.
 
-http://docs.rhohub.com
+http://rhodocs.heroku.com
