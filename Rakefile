@@ -43,6 +43,17 @@ task :search, :query do |t, args|
   puts results.inspect
 end
 
+desc 'Load doc files from config.yml dirs'
+task :load do
+  AppConfig['dirs'].each do |name,dir|
+    if File.exist?(dir) and not dir == 'docs/'
+      puts "Copying #{dir}*.txt to docs/#{name}"
+      `mkdir -p docs/#{name}`
+      `cp #{dir}*.txt docs/#{name}`
+    end
+  end
+end
+
 desc 'Alias for server'
 task :start => :server
 
