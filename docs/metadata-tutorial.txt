@@ -1,0 +1,196 @@
+Metadata
+========
+This tutorial will guide you through how to add metadata to your application. You should already have an application the has synced data. We will be adding metadata to 
+
+Metadata allows you to sync field definitions with your data. You would use it if you have a backend with custom fields that may not exist when the application is first built. 
+
+Source Code
+-----------
+The source code for this example is located here.
+
+ * [Rhodes Application](https://github.com/rhomobile/webinar-samples/tree/master/metastore)
+ * [RhoSync Application](https://github.com/rhomobile/webinar-samples/tree/master/metastore-server)
+
+Webinar Video
+-------------
+[Vimeo link](https://github.com/rhomobile/webinar-samples/tree/master/contact)
+
+Pre-requisite Reading
+---------------------
+ * [Rhodes Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact)
+ * [Rhosync Tutorial]()
+
+Reference Reading
+-----------------
+ * [MetaData]()
+
+Tutorial
+--------
+#### Setup
+This tutorial assumes that you know how to generate a Rhodes app and can successfully sync with a backend system. If you do not know how to do this, see [Pre-requisite Reading]().
+
+#### Source Adapter Code
+In your source adapter you need to define and implement the metadata method. This method must return json data that defines your metadata methods that will be synced to the device.
+
+These methods will be used in place of views with the same name on the device when metadata is enable. You can use this to define your views dynamically on the server side that are then synced to the client.
+
+For the first example we will create a page that replaces the index page.
+
+	:::ruby
+	def metadata
+		objectlink = { :type => "linkli", :uri => "{{showuri}}", :text => "{{name}}" }
+	  list = { :type => "list", :children => [objectlink], :repeatable => "{{@people}}" }
+	  content = { :type => "content", :children => [ list ] }
+	  toolbar = { :type => "toolbar", :lefturi => "/app", :righturi => "/app/Person/new", :lefttext => "Home", :righttext => "New"}
+	  title = { :title => "Meta People", :type => "title"}
+	  index = { :title => "index", :type => "view", :children => [title, toolbar, content]}
+		
+		{'index' => index}.to_json
+	end
+
+Each defined element must have a type. This type is the template that will be rendered for that element. The metadata framework comes with several templates that are already defined, and you can also define custom templates.
+ 
+The bracketed strings (surrounded by {{ and }} ) are data binding elements. These elements are evaluated on the client side and then inserted into the string. More information on data binding can be found in the [Reference Reading]().
+
+The children elements is how you lay out your page. You define a container that contains child elements, and those child elements can render data or contain and layout other child elements.
+
+Now we will lay out the rest of the elements on the page.
+
+	:::ruby
+	def metadata
+    
+	  objectlink = { :type => "linkli", :uri => "{{showuri}}", :text => "{{name}}" }
+	  list = { :type => "list", :children => [objectlink], :repeatable => "{{@people}}" }
+	  content = { :type => "content", :children => [ list ] }
+	  toolbar = { :type => "toolbar", :lefturi => "/app", :righturi => "/app/Person/new", :lefttext => "Home", :righttext => "New"}
+	  title = { :title => "Meta People", :type => "title"}
+	  index = { :title => "index", :type => "view", :children => [title, toolbar, content]}
+		
+	  ## NEW
+		
+	  ###Shared with NEW and EDIT
+	  ageinput = { :type => 'labeledinputli',
+	               :label => 'Age',
+	               :name => 'person[age]',
+	               :value => '{{@person/age}}' }
+								
+	  nameinput = { :type => 'labeledinputli',
+	                :label => 'Name',
+	                :name => 'person[name]',
+	                :value => '{{@person/name}}' }
+	  ###End Shared
+		
+	  newlist = { :type => 'list',
+	           :children => [ nameinput, ageinput ] }
+						
+	  newsubmit = { :type => 'submit',
+	                :value => 'Create' }
+									
+	  newhiddenid = { :type => 'hidden',
+	                  :name => 'id',
+	                  :value => '{{@person/object}}' }
+										
+	  newform = { :type => 'form',
+	              :action => '/app/Person/create',
+	              :method => 'POST',
+	              :children => [newhiddenid, newlist, newsubmit] }
+								
+	  newcontent = { :type => 'content',
+	                 :children => [ newform ] } 
+									
+	  newtoolbar = { :type => 'toolbar',
+	                 :lefturi => '/app/Person',
+	                 :lefttext => 'Cancel',
+	                 :leftclass => 'backButton',
+	                 :righturi => '/app',
+	                 :righttext => 'Home' }
+									
+	  newtitle = { :title => 'New',
+	               :type => 'title' }
+								
+	  new = { :title => 'index',
+	          :type => 'view',
+	          :children => [newtitle,newtoolbar,newcontent] }
+	  ##END NEW
+		
+	  ##SHOW
+	  showage = { :type => 'labeledvalueli',
+	              :label => 'Age',
+	              :value => '{{@person/age}}' }
+								
+	  showname = { :type => 'labeledvalueli',
+	               :label => 'Name',
+	               :value => '{{@person/name}}' }
+								
+	               showloc = { :type => 'labeledvalueli',
+	                            :label => 'Location',
+	                            :value => '{{@person/location}}' }
+															
+	  showlist = { :type => 'list',
+	           :children => [ showname, showage  ] }
+						
+	  showcontent = { :type => 'content',
+	                 :children => [ showlist ] } 
+									
+	  showtoolbar = { :type => 'toolbar',
+	                 :lefturi => 'index',
+	                 :lefttext => 'Back',
+	                 :leftclass => 'backButton',
+	                 :righturi => 'edit',
+	                 :righttext => 'Edit' }
+									
+	  showtitle = { :title => '{{@person/name}}',
+	                :type => 'title' }
+									
+	  show = { :title => 'view',
+	          :type => 'view',
+	          :children => [showtitle,showtoolbar,showcontent] }
+	  ## END SHOW
+		
+	  ## edit
+		
+	  editsubmit = { :type => 'submit',
+	                :value => 'Update' }
+									
+	  editform = { :type => 'form',
+	              :action => '/app/Person/update',
+	              :method => 'POST',
+	              :children => [newhiddenid, newlist, editsubmit] }
+								
+	  editcontent = { :type => 'content',
+	                 :children => [ editform ] } 
+									
+	  edittoolbar = { :type => 'toolbar',
+	                 :lefturi => 'Person',
+	                 :lefttext => 'Cancel',
+	                 :leftclass => 'backButton',
+	                 :righturi => '{{@person/deleteuri}}',
+	                 :righttext => 'Delete' }
+									
+	  edit = { :title => 'index',
+	          :type => 'view',
+	          :children => [showtitle,edittoolbar,editcontent] }
+	  ## END UPDATE
+		
+	  {'index' => index, 'new' => new, 'show' => show, 'edit' => edit }.to_json
+	end
+
+#### Client side
+
+To enable the metadata to be used on the client, you need to make a few small changes. The first change that you need to do is to make sure that sync is enabled on the model that you are using metadata with:
+
+	:::ruby
+	class Person
+	  include Rhom::PropertyBag
+	  enable :sync
+	end
+	
+The next is to add the metadata extension to your build.yml:
+
+	:::ruby
+	extensions: ["rhodes_translator"]
+	
+These changes are all that are needed to enable metadata in your application.
+
+
+#### Metadata validation
