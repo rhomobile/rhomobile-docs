@@ -4,9 +4,11 @@ require 'haml'
 require 'sass'
 require 'indextank'
 require 'topic'
-
-require 'heroku/nav'
-use Heroku::Nav::Header
+require 'rhomobile/nav'
+use Rhomobile::Nav::Base, {
+    :nav_host => "http://rhonav.heroku.com/#{ENV["RACK_ENV"]}",
+    :blog => true, :subscribe => false,:support => false
+}
 
 require 'coderay'
 require './lib/term.rb'

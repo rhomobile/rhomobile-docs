@@ -6,6 +6,7 @@ development:
     rhogallery: '../rhogallery/doc/'
     guides: 'docs/'
   index: 'rhodocs_edge'
+  rhonav_host: http://localhost:8080
 edge:
   dirs:
     rhosync: '../rhosync/doc/'
@@ -14,6 +15,7 @@ edge:
     rhogallery: '../rhogallery/doc/'
     guides: 'docs/'
   index: 'rhodocs_edge'
+  rhonav_host: http://rhonav.heroku.com
 production:
   dirs:
     rhosync: 'docs/rhosync/'
@@ -22,3 +24,4 @@ production:
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
   index: 'rhodocs'
+  rhonav_host: http://rhonav.heroku.com
