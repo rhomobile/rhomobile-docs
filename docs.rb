@@ -6,7 +6,7 @@ require 'indextank'
 require 'topic'
 require 'rhomobile/nav'
 use Rhomobile::Nav::Base, {
-    :nav_host => "http://rhonav.heroku.com/#{ENV["RACK_ENV"]}",
+    :nav_host => "#{AppConfig['rhonav_host']}/#{ENV["RACK_ENV"]}",
     :blog => true, :subscribe => false,:support => false
 }
 
