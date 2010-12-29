@@ -12,6 +12,6 @@
 
 <%= @body %>
 
-<% if ns = next_section(params[:topic]) %>
+<% if ns = next_section(topic_path) %>
 	<div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
 <% end %>

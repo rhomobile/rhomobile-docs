@@ -4,16 +4,16 @@ pre, .CodeRay {
  padding: 18px 36px 18px 36px;
  font-family: 'Monaco', monospace;
  color: #333;
- font-size: 12px;
+ font-size: 14px;
  overflow: auto;
 }
 .CodeRay .prompt {
  color: #6F5EEE;
-  
+
 }
 .CodeRay .command {
  color: #6F5EEE;
-  
+
 }
 .CodeRay .output {
  color: #333;
