@@ -10,14 +10,6 @@
   	<link type="text/css" rel="stylesheet" href="/stylesheets/fontface.css" media="screen" />
   	<link type="text/css" rel="stylesheet" href="/stylesheets/coderay.css" media="screen" />
   	<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
-  	<script type="text/javascript">
-  		$(document).ready(function() {
-        $("#stack-compare tr").click(function(){
-      	  window.location=$(this).find("a").attr("href"); 
-      	  return false;
-      	});
-  		});
-  	</script>
   </head>
   <body id="<%= @bodyid %>">
   <div id="bodywrap">
