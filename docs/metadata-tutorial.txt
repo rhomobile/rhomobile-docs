@@ -194,3 +194,10 @@ These changes are all that are needed to enable metadata in your application.
 
 
 #### Metadata validation
+
+Validation is done by defining validation criteria in your metadata. See [Validation]() on the Metadata page for the keys that are allowed. In your controller, validation is simple:
+
+	:::ruby
+	errors = validate(Metadata.metadata['validation'],@params)
+  
+validate is the method defined by the framework that takes the definition you provided and compares the parameters based on the name key. It will then return any errors that were found, or nil if there are no errors.
