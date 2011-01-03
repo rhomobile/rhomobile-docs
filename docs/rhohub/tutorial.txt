@@ -290,9 +290,9 @@ Show all targets and virtual devices
 Git Resources
 ---
 
-* [http://gitref.org/](http://gitref.org/) - Useful guide and introduction to git
-* [http://progit.org/](http://progit.org/) - Open source book on git
-* [http://git-scm.com/](http://git-scm.com/) - Git homepage
+* [[http://gitref.org/]] - Useful guide and introduction to git
+* [[http://progit.org/]] - Open source book on git
+* [[http://git-scm.com/]] - Git homepage
 
 Other Resources
 ---
