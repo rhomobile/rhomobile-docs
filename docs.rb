@@ -23,9 +23,11 @@ not_found do
 	erb :not_found
 end
 
-get '/' do
-	cache_long
-	haml :index
+['/', '/home'].each do |path|
+  get path do
+	  cache_long
+  	haml :index
+	end
 end
 
 get '/search' do

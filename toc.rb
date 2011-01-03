@@ -1,4 +1,5 @@
 section 'getting-started', "Getting Started" do
+  topic 'home',                 'Home'
   topic 'tutorial',             'Rhodes Tutorial'
   topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
