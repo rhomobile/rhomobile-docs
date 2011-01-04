@@ -15,8 +15,8 @@ class Topic
   
   def self.all_topics
     dirs = AppConfig['dirs'] || {}
-    dirs.collect { |dir,path| path += "*.txt" }
-    FileList[dirs]
+    paths = dirs.values.map! { |path| path += "*.txt" }
+    FileList[paths]
   end
   
   attr_reader :topic, :title, :content, :toc, :intro, :body

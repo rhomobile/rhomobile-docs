@@ -1,7 +1,18 @@
 section 'getting-started', "Getting Started" do
-  topic 'tutorial',        'Tutorial'
+  topic 'home',                 'Home'
+  topic 'tutorial',             'Rhodes Tutorial'
+  topic 'rhosync/tutorial',     'RhoSync Tutorial'
+  topic 'rhohub/tutorial',      'RhoHub Tutorial'
+  topic 'rhogallery/tutorial',  'RhoGallery Tutorial'
 end
 
-section 'rhosync', "RhoSync" do
-	topic 'rhosync/tutorial',        'RhoSync Tutorial'
+section 'references', "Developer References" do
+end
+
+section 'samples', "Sample Apps" do
+  topic 'mapping-tutorial',     'Mapping'
+  topic 'metadata-tutorial',    'Metadata'
+end
+
+section 'community', "Community Resources" do
 end

@@ -5,8 +5,13 @@ require 'sass'
 require 'indextank'
 require 'topic'
 
-require 'heroku/nav'
-use Heroku::Nav::Header
+unless development?
+  require 'rhomobile/nav'
+  use Rhomobile::Nav::Base, {
+    :nav_host => "#{AppConfig['rhonav_host']}/#{ENV["RACK_ENV"]}",
+    :blog => true, :subscribe => false, :support => false
+  }
+end
 
 require 'coderay'
 require './lib/term.rb'
@@ -21,9 +26,11 @@ not_found do
 	erb :not_found
 end
 
-get '/' do
-	cache_long
-	haml :index
+['/', '/home'].each do |path|
+  get path do
+	  cache_long
+  	haml :index
+	end
 end
 
 get '/search' do

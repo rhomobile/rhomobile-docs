@@ -8,20 +8,10 @@
 	<link type="text/css" rel="stylesheet" href="/css/docs.css" media="screen" />
 	<link type="text/css" rel="stylesheet" href="/stylesheets/coderay.css" media="screen" />
 	<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-
-			$("#stack-compare tr").click(function(){
-    	  window.location=$(this).find("a").attr("href"); 
-    	  return false;
-    	});
-		});
-
-	</script>
 </head>
 <body>
 
-<div id="bodywrap">
+<div id="container">
 	<div id="docsnav">
 		<form action="/search">
 			<div id="search">
@@ -53,19 +43,7 @@
 	</div>
 </div>
 
-<% if request.host == 'docs.heroku.com' %>
-<!-- google analytics -->
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try{
-var pageTracker = _gat._getTracker("UA-2989055-1");
-pageTracker._setDomainName(".heroku.com");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
+<% if request.host == 'docs.rhohub.com' %>
 <% end %>
 </body>
 </html>

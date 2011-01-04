@@ -8,6 +8,12 @@ GIT
       yajl-ruby (= 0.7.7)
 
 GIT
+  remote: git://github.com/rhomobile/rhomobile-nav.git
+  revision: c636c46aee5bea3de59b7475941762c7d7f5a126
+  specs:
+    rhomobile-nav (0.0.30)
+
+GIT
   remote: git://github.com/technoweenie/faraday
   revision: 3aa840d
   ref: 3aa840d012875ee80410
@@ -24,9 +30,6 @@ GEM
     daemons (1.1.0)
     eventmachine (0.12.10)
     haml (2.2.17)
-    heroku-nav (0.1.17)
-      json
-      rest-client (>= 1.0)
     json (1.4.6)
     mime-types (1.16)
     nokogiri (1.4.3.1)
@@ -55,7 +58,6 @@ DEPENDENCIES
   coderay
   faraday!
   haml (= 2.2.17)
-  heroku-nav (~> 0)
   indextank!
   json
   rack (= 1.2.1)
@@ -63,6 +65,7 @@ DEPENDENCIES
   rake
   rdiscount (= 1.3.5)
   rest-client (= 1.2.0)
+  rhomobile-nav (= 0.0.30)!
   shotgun
   sinatra (= 0.9.4)
   thin
