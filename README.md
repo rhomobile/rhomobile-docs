@@ -9,11 +9,7 @@ This tool is based off the excellent [heroku-docs project!](https://github.com/h
 
 Setup
 -----
-	# start rhonav or edit config.yml to use http://rhonav.heroku.com
-	$ cd rhonav
-	$ rackup -p8080 
-	
-	# shotgun the docs server
+	# install prereqs and shotgun the docs server
 	$ cd rhomobile-docs
 	$ bundle install
 	$ rake start #=> this will start the server and load the docs home page in your browser

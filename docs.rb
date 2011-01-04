@@ -4,11 +4,14 @@ require 'haml'
 require 'sass'
 require 'indextank'
 require 'topic'
-require 'rhomobile/nav'
-use Rhomobile::Nav::Base, {
+
+unless development?
+  require 'rhomobile/nav'
+  use Rhomobile::Nav::Base, {
     :nav_host => "#{AppConfig['rhonav_host']}/#{ENV["RACK_ENV"]}",
     :blog => true, :subscribe => false, :support => false
-}
+  }
+end
 
 require 'coderay'
 require './lib/term.rb'

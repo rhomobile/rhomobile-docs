@@ -6,7 +6,6 @@ development:
     rhogallery: '../rhogallery/doc/'
     guides: 'docs/'
   index: 'rhodocs_edge'
-  rhonav_host: http://localhost:8080
 edge:
   dirs:
     rhosync: '../rhosync/doc/'
