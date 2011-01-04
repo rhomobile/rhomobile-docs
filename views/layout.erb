@@ -12,6 +12,7 @@
 <body>
 
 <div id="container">
+	<div id="doc_container">
 	<div id="docsnav">
 		<form action="/search">
 			<div id="search">
@@ -41,8 +42,8 @@
 			<%= yield %>
 		</div>
 	</div>
-    <!-- end container -->
-</div>
+	</div>
+</div> <!-- end container -->
 
 <% if request.host == 'docs.rhohub.com' %>
 <% end %>
