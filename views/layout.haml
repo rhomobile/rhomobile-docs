@@ -37,13 +37,15 @@
   			<% end %>
   		</ul>
   	</div>
-
-  	<div id="content">
-  		<div class="topic_content">
-  			<%= yield %>
-  		</div>
-  	</div>
-  </div><!-- end container -->
+	
+  <div id="doc_container">
+    <div id="content">
+      <div class="topic_content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  </div> <!-- end container -->
 
   <% if request.host == 'docs.rhohub.com' %>
 
