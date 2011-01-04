@@ -1,4 +1,4 @@
-Tutorial
+Rhodes Tutorial
 ========
 This tutorial describes how to use Rhodes and RhoSync to build native mobile apps for all shipping smartphones.  Specifically it describes how to write Rhodes controllers and templates and how to write RhoSync source adapters to sync data from backend apps to the device.  The architecture of this is shown [here](http://wiki.rhomobile.com/images/1/1b/RhodesArchitecture.jpg).
 

@@ -155,7 +155,7 @@ You can use "rake -T" to print a complete list of all of the automated build com
 
 * Windows is required to test builds and install to a device for BlackBerry and Windows Mobile, however, running the simulators in Windows virtual machines such as VMware or Parallels works fine. 
 * Mac OS X 10.5+ is required for testing iPhone applications.
-* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Building Rhodes on Supported Platforms](http://wiki.rhomobile.com/index.php/Building_Rhodes_on_Supported_Platforms). 
+* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Building Rhodes on Supported Platforms](/rhodes/building). 
 
 Since Android simulators are available for all major operating systems, we'll build our app for Android in this tutorial.
 
@@ -212,20 +212,24 @@ By default, the index page displays items using the item's first attribute, the 
 So that our users won't have to view each record to find out which product is which, let's add the brand attribte to the index page, allowing us to can distinguish different products.  To modify the display of our application's index page, we can simply edit the index.erb file.
 
 * Open app/Products/index.erb and find the following line (around line 20):
-	
-	:::html
-  	<span class="title"><%= product.name %></span><span class="disclosure_indicator"></span>
+
+		:::html
+  		<span class="title"><%= product.name %></span>
+		<span class="disclosure_indicator"></span>
 
 * Add the product's name to the list item as follows:  
 
-	:::html
-  	<span class="title"><%= "#{product.brand} #{product.name}" %></span><span class="disclosure_indicator"></span>
+		:::html
+  		<span class="title">
+	      <%= "#{product.brand} #{product.name}" %>
+	    </span>
+	    <span class="disclosure_indicator"></span>
 
 * Save the file.
 * On the command line, type:
 	
-	:::term
-  	$ rake run:android
+		:::term
+  		$ rake run:android
 
 Now you should see the brand and name in the list item.  (Note: you will need to re-enter your test data.)
 
@@ -290,9 +294,9 @@ Show all targets and virtual devices
 Git Resources
 ---
 
-* [[http://gitref.org/]] - Useful guide and introduction to git
-* [[http://progit.org/]] - Open source book on git
-* [[http://git-scm.com/]] - Git homepage
+* [http://gitref.org/](http://gitref.org/) - Useful guide and introduction to git
+* [http://progit.org/](http://progit.org/) - Open source book on git
+* [http://git-scm.com/](http://git-scm.com/) - Git homepage
 
 Other Resources
 ---
