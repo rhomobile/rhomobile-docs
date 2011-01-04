@@ -8,7 +8,8 @@ gem 'rest-client', '1.2.0'
 gem 'haml', '2.2.17'
 gem 'json'
 gem 'thin'
-gem "rhomobile-nav", '0.0.30', :require => "rhomobile/nav", :git => "git://github.com/rhomobile/rhomobile-nav.git"
+gem 'heroku-nav', '~>0'
+gem "rhomobile-nav", '0.0.31', :require => "rhomobile/nav", :git => "git://github.com/rhomobile/rhomobile-nav.git"
 #gem 'newrelic_rpm'
 gem 'coderay'
 gem 'rack-codehighlighter'
