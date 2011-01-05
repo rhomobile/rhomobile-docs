@@ -12,6 +12,12 @@ section 'tutorials', "Tutorials" do
   topic 'metadata-tutorial',    'Metadata'
 end
 
+section 'rhodes-reference', "Rhodes Developer Reference" do
+  topic 'rhodes/introduction',      'Introduction'
+  topic 'rhodes/rhodes_generator',  'App Generator'
+  topic 'rhodes/files',             'Application Files'
+end
+
 section 'references', "Developer References" do
   topic 'rhodes/api',           'Rhodes'
   topic 'rhosync/api',          'RhoSync'
