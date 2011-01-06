@@ -1,0 +1,158 @@
+RhoSync Generator and Rake Tasks
+===
+
+## RhoSync Generator
+
+The `rhosync` utility is a command line tool for generating RhoSync applications and sources.
+
+### Generate an Application
+
+The app name is passed as a parameter.  The `rhosync` utility will generate a directory for your application with all the necessary files to get started.  We will start with running `rhosync app` to see the usage:
+
+	:::term
+	Usage: rhosync app [options] [args]
+
+	Generates a new rhosync application.
+
+	Required:
+	  name        - application name
+
+
+	Options specific for this generator:
+
+	General options:
+	    -p, --pretend                    Run, but do not make any changes.
+	    -f, --force                      Overwrite files that already exist.
+	    -s, --skip                       Skip files that already exist.
+	    -d, --delete                     Delete files that have previously been generated with this generator.
+	        --no-color                   Don't colorize the output
+	    -h, --help                       Show this message
+	        --debug                      Do not catch errors
+
+For example:
+
+	:::term
+	$ rhosync app storeserver
+	Generating with app generator:
+	     [ADDED]  storeserver/config.ru
+	     [ADDED]  storeserver/settings/settings.yml
+	     [ADDED]  storeserver/settings/license.key
+	     [ADDED]  storeserver/application.rb
+	     [ADDED]  storeserver/Rakefile
+	     [ADDED]  storeserver/spec/spec_helper.rb
+	
+Here's a basic rundown of each of the files that were just generated:
+	
+	
+* **config.ru** - This is a rackup file which will load your application.  RhoSync uses the excellent [sinatra](http://www.sinatrarb.com/) web framework to run the application.
+* **settings/settings.yml** - This contains settings such as your redis connection, which source adapters exist and their parameters.  You can also put custom settings here.
+* **settings/license.key** - The RhoSync license associated with your application.  The default license allows up to 10 devices to synchronize with the application.
+* **application.rb** - The RhoSync application class where you can implement authentication.  You can also add other custom methods here to use in your application.  This class is a singleton, so all methods should be added to the `class << self` block.
+* **Rakefile** - This contains tasks that can be run from the terminal.
+* **spec/spec_helper.rb** - A helper file which loads the environment for running specs.
+
+### Add a New Source Adapter
+
+To generate a source for your RhoSync application, run the `rhosync source` command:
+
+	:::term
+	Usage: rhosync source [options] [args]
+
+	Generates a new source adapter.
+
+	Required:
+	  name        - source name(i.e. product)
+
+
+	Options specific for this generator:
+
+	General options:
+	    -p, --pretend                    Run, but do not make any changes.
+	    -f, --force                      Overwrite files that already exist.
+	    -s, --skip                       Skip files that already exist.
+	    -d, --delete                     Delete files that have previously been generated with this generator.
+	        --no-color                   Don't colorize the output
+	    -h, --help                       Show this message
+	        --debug                      Do not catch errors
+	
+For example:
+
+	:::term
+	$ cd storeserver
+	$ rhosync source product
+	Generating with source generator:
+	     [ADDED]  sources/product.rb
+	     [ADDED]  spec/sources/product_spec.rb
+	
+This generates a source adapter file `product.rb` and corresponding [rspec](http://rspec.info/) file `product_spec.rb`.  If you choose, you can use this spec to implement the source adapter.
+
+## Rake Tasks
+
+Each RhoSync application uses [rake](https://github.com/jimweirich/rake) to manage development tasks such as starting/stopping the app, starting resque workers, and running specs.
+
+To run a RhoSync rake task, simply type `rake the-task-to-run` in your RhoSync application's root directory. Here are the rake tasks available in a RhoSync application:
+
+	:::term
+	$ cd storeserver
+	$ rake -T
+	(in ~/storeserver)
+	rake dtach:about                 # About dtach
+	rake dtach:install               # Install dtach 0.8 from source
+	rake redis:about                 # About redis
+	rake redis:attach                # Attach to redis dtach socket
+	rake redis:download              # Download package
+	rake redis:install               # Install the latest verison of Redis from Github (requires git, duh)
+	rake redis:restart               # Restart redis
+	rake redis:start                 # Start redis
+	rake redis:stop                  # Stop redis
+	rake resque:work                 # Start a Resque worker
+	rake resque:workers              # Start multiple Resque workers.
+	rake rhosync:attach              # Attach to rhosync console
+	rake rhosync:clean_start         # Clean rhosync, get token, and create new user
+	rake rhosync:create_user         # Creates and subscribes user for application in rhosync
+	rake rhosync:delete_device       # Deletes a device from rhosync
+	rake rhosync:delete_user         # Deletes a user from rhosync
+	rake rhosync:flushdb             # Flush data store - WARNING: THIS REMOVES ALL DATA IN RHOSYNC
+	rake rhosync:get_token           # Fetches current api token from rhosync
+	rake rhosync:reset               # Reset the rhosync database (you will need to run rhosync:get_token afterwards)
+	rake rhosync:reset_refresh       # Reset source refresh time
+	rake rhosync:restart             # Alias for `rake rhosync:stop; rake rhosync:start`
+	rake rhosync:set_admin_password  # Sets the admin password
+	rake rhosync:spec                # Run source adapter specs
+	rake rhosync:start               # Start rhosync server
+	rake rhosync:stop                # Stop rhosync server
+	rake rhosync:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml
+	
+### Common Tasks
+
+* 	`rake dtach:install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
+
+* 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead.
+	
+* 	`rake rhosync:set_admin_password` - Set the RhoSync administrator password.  The default password is blank ''.
+
+*	`rake rhosync:get_token` - Get a RhoSync API token to use for calling the RhoSync REST API.
+		
+**NOTE: On Mac OS / Linux, dtach is required to run the following tasks: **
+
+* 	`rake redis:start` - This will launch a redis server in a new console.
+	
+* 	`rake redis:stop` - Stop the currently-running redis server.
+
+*	`rake redis:attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
+
+* 	`rake rhosync:start` - Start the RhoSync application in a new console.  This requires a running redis server.
+
+* 	`rake rhosync:stop` - Stop the currently-running RhoSync application.
+	
+*	`rake rhosync:attach` - (Mac OS / Linux only) Attach to a currently-running RhoSync application. 
+
+* 	`rake rhosync:clean_start` - Useful for development, resets and bootstraps the RhoSync application with a test user.
+
+Some other useful development tasks:
+
+*	`rake rhosync:reset` - Reset the RhoSync application to the initial state.  This WILL DELETE ALL DATA IN REDIS! So be sure you don't run this in production!
+
+*	`rake rhosync:spec` - Run all source adapter specs in spec/sources/.
+	
+*	`rake rhosync:web` - Open the RhoSync web console in a browser.

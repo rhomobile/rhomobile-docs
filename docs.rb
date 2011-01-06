@@ -16,7 +16,8 @@ end
 require 'coderay'
 require './lib/term.rb'
 require 'rack/codehighlighter'
-use Rack::Codehighlighter, :coderay, :markdown => true, :element => "pre>code", :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
+use Rack::Codehighlighter, :coderay, :markdown => true, :element => "pre>code", 
+  :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
 
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 
