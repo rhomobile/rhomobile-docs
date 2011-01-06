@@ -15,7 +15,8 @@ end
 section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/rhodes_generator',  'App Generator'
-  topic 'rhodes/files',             'Application Files'
+  topic 'rhodes/application',       'Rhodes Application'
+  topic 'rhodes/configuration',      'Application Configuration'
 end
 
 section 'references', "Developer References" do
