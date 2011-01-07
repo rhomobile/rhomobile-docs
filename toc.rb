@@ -21,10 +21,10 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/configuration',     'Application Configuration'
 end
 
-section 'references', "Developer References" do
-  topic 'rhodes/api',           'Rhodes'
-  topic 'rhosync/api',          'RhoSync'
-  topic 'rhodes/rhosync-client-api',   'RhoSync Client'
+section 'rhosync-reference', "RhoSync Developer Reference" do
+  topic 'rhosync/introduction',      'Introduction'
+  topic 'rhosync/install',           'Installation'
+  topic 'rhosync/command-line',      'App Generator and Rake Tasks'
 end
 
 section 'community', "Community Resources" do
