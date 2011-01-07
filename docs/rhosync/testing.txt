@@ -1,0 +1,141 @@
+== Testing Your RhoSync Application ==
+RhoSync 2.0 provides a [http://rspec.info/ spec] framework for [http://en.wikipedia.org/wiki/Behavior_Driven_Development behavior driven development] of your application.  When your application and source adapters are generated, you will see spec files generated in the top-level 'spec' folder of your application.
+
+=== Example ===
+Here is a simple example spec for the [http://github.com/rhomobile/store-server/blob/master/sources/product.rb rhostore product adapter]:
+
+<source lang='ruby'>
+it "should process Product query" do
+  test_query.size.should > 0
+  query_errors.should == {}
+end
+</source>
+
+This simple spec runs the query method of our product adapter and verifies the result is greater than one object and has no errors.
+
+The full code listing for the product adapter is available [http://github.com/rhomobile/store-server/blob/master/spec/sources/product_spec.rb on github].
+
+=== Running Specs ===
+From your application's root folder:
+
+  rake rhosync:spec
+
+This will also automatically generate an rcov report under 'coverage' if you have rcov installed (currently only Mac/Linux rcov is supported).
+
+=== TestMethods API ===
+For the most up-to-date TestMethods API, please see the [http://rdoc.info/projects/rhomobile/rhosync hosted rdocs].
+
+==== setup_test_for(adapter,user_id) ====
+Initializes the source adapter under test for a given user, typically in a before(:each) block
+<source lang='ruby'>
+setup_test_for(Product,'testuser') #=> 'testuser' will be used by rest of the specs
+</source>
+
+==== test_query ====
+Executes the adapter's query method and returns the master document (:md) stored in redis.
+
+For example, if your source adapter query method was:
+<source lang='ruby'>
+def query(params=nil)
+  @result = { 
+    "1"=>{"name"=>"Acme", "industry"=>"Electronics"},
+    "2"=>{"name"=>"Best", "industry"=>"Software"}
+  }
+end
+</source>
+
+test_query would return:
+<source lang='ruby'>
+{ 
+  "1"=>{"name"=>"Acme", "industry"=>"Electronics"},
+  "2"=>{"name"=>"Best", "industry"=>"Software"}
+}
+</source>
+
+==== query_errors ====
+Returns any errors stored in redis for the previous source adapter query.
+
+For example:  <source lang='ruby'>{"query-error"=>{"message"=>"error connecting to web service!"}}</source>
+
+==== test_create(record) ====
+Execute's the adapter's create method with a provided record and returns the object string from the create method.  If the create method returns a string, then a link will be saved for the device next time it synchronizes.  This link can be tested here.
+
+For example, in your spec:
+<source lang='ruby'>
+@product = {
+  'name' => 'iPhone',
+  'brand' => 'Apple',
+  'price' => '$299.99',
+  'quantity' => '5',
+  'sku' => '1234'
+}
+new_product_id = test_create(@product)
+create_errors.should == {}
+md[new_product_id].should == @product
+</source>
+ 
+==== create_errors ====
+This will return the result of the adapter's create method.  The master document (:md) should also contain the new record.
+Returns any errors stored in redis from the previous source adapter create (same structure as query errors).
+
+==== test_update(record) ====
+Execute the source adapter's update method.  Takes a record as hash of hashes (object_id => object)
+
+For example:
+<source lang='ruby'>
+test_update({'4' => {'price' => '$199.99'}})
+update_errors.should == {}
+test_query
+md[product_id]['price'].should == '$199.99'
+</source>
+ 
+This will call the adapter's update method for object_id '4'.
+
+NOTE: To test the master document, you will need to run <code>test_query</code> as shown above.
+
+==== update_errors ====
+Returns any errors stored in redis from the previous source adapter update (same structure as query errors).
+
+==== test_delete(record) ====
+Execute the source adapter's delete method.  Takes a record as hash of hashes (object_id => object).
+
+For example:
+<source lang='ruby'>
+@product = {
+  'name' => 'iPhone',
+  'brand' => 'Apple',
+  'price' => '$299.99',
+  'quantity' => '5',
+  'sku' => '1234'
+}
+test_delete('4' => @product)
+delete_errors.should == {}
+md.should == {}
+</source>
+ 
+This will call the adapter's delete method for product '4'.
+
+NOTE: The master document (:md) will be updated and can be verified as shown above.
+
+==== delete_errors ====
+Returns any errors stored in redis from the previous source adapter delete (same structure as query errors).
+
+==== md ====
+Returns the master document (:md) for the source adapter stored in redis.  This is equivalent to the @result hash of hashes structure.
+
+For example:
+<source lang='ruby'>
+md.should == { 
+  "1"=>{"name"=>"Acme", "industry"=>"Electronics"},
+  "2"=>{"name"=>"Best", "industry"=>"Software"}
+}
+</source>
+
+==== cd ====
+Returns the client document (:cd) for the source adapter + client under test.  The master document (:md) and client document (:cd) should be equal after the query is executed.
+
+For example:
+<source lang='ruby'>
+test_query.size.should > 0
+md.should == cd
+</source>

@@ -1,0 +1,376 @@
+RhoSync Source Adapters
+===
+
+Connecting to a backend service with RhoSync requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The collection of the Ruby code for these operations we refer to as a "source" or "source adapter".
+
+## Generate Source Adapter
+
+Adding a new source adapter to your rhosync application is simple:
+  	
+	:::term
+	$ cd storeserver
+  	$ rhosync source product
+
+This will generate a new ruby class called sources/product.rb:
+
+	:::ruby
+	class Product < SourceAdapter
+	  def initialize(source,credential)
+	    super(source,credential)
+	  end
+ 
+	  def login
+	    # TODO: Login to your data source here if necessary
+	  end
+ 
+	  def query
+	    # TODO: Query your backend data source and assign the records 
+	    # to a nested hash structure called @result. For example:
+	    # @result = { 
+	    #   "1"=>{"name"=>"Acme", "industry"=>"Electronics"},
+	    #   "2"=>{"name"=>"Best", "industry"=>"Software"}
+	    # }
+	    raise SourceAdapterException.new("Please provide some code to read records from the backend data source")
+	  end
+ 
+	  def sync
+	    super
+	  end
+ 
+	  def create(create_hash,blob=nil)
+	    # TODO: Create a new record in your backend data source
+	    # If your rhodes rhom object contains image/binary data 
+	    # (has the image_uri attribute), then a blob will be provided
+	    raise "Please provide some code to create a single record in the backend data source using the create_hash"
+	  end
+ 
+	  def update(update_hash)
+	    # TODO: Update an existing record in your backend data source
+	    raise "Please provide some code to update a single record in the backend data source using the update_hash"
+	  end
+ 
+	  def delete(object_id)
+	    # TODO: write some code here if applicable
+	    # be sure to have a hash key and value for "object"
+	    # for now, we'll say that its OK to not have a delete operation
+	    # raise "Please provide some code to delete a single object in the backend application using the hash values in name_value_list"
+	  end
+ 
+	  def logoff
+	    # TODO: Logout from the data source if necessary
+	  end
+	end
+
+It will also add a spec file spec/sources/product_spec.rb and edit settings/settings.yml and add the product adapter to the sources section with some default options:
+
+ 	:::yaml
+	:sources: 
+  	  Product: 
+    	:poll_interval: 300
+
+Now you implement your source adapter methods, check out the [RhoSync tutorial](/rhosync/tutorial) for more details.
+
+## Source Adapter API
+
+The source adapter interface is described below, your source adapter can use any of these methods to interact with your backend service.
+
+	:::ruby
+	# login to your backend service (optional)
+	def login
+	end
+	# logoff once query is finished (optional)
+	def logoff
+	end
+
+	# query your backend service and build a hash of hashes (required)
+	def query
+	  # assign @result to the hash of hashes
+	  # you can also call stash_result in here to incrementally save the @result in the case of large datasets
+	  # if @result is nil or empty, the source data will be removed from redis.
+	end
+
+	# search your backend based on params and build a hash of hashes (optional)
+	def search(params)
+	end
+
+	# create a new record in the backend (optional)
+	def create(create_hash)
+	end
+
+	# update an existing record in the backend (optional)
+	def update(update_hash)
+	end
+
+	# delete an existing record in the backend (optional)
+	def delete(object_id)
+	end
+
+	# instance vars
+	@source #=> source settings
+
+	# utility methods
+	current_user #=> handle to current user issuing request, can be used anywhere in adapter
+
+	stash_result #=> stores @result to redis and sets @result to nil, typically used in search or query
+
+## Data Partitioning
+RhoSync source adapters can partition data in two ways: user and app.  As you might have guessed, user partitioning stores a copy of the source adapter dataset for each user (one copy shared across all devices for a user).  
+
+Likewise, app partitioning stores one copy of the source adapter dataset for the entire application (all users and devices share the same data).  App partitioning can be particularly useful if you have source adapters which retrieve large amounts of data that doesn't vary from user to user, for example a product catalog.
+
+### User Partition
+User partitioning is the default scheme for source adapters, however you can explicitly define it in settings/settings.yml with:
+
+	:::yaml
+	:sources: 
+  	  Product: 
+    	:poll_interval: 300
+    	:partition_type: user
+
+### App Partition
+Enable app partitioning the same way:
+	
+	:::yaml
+	:sources: 
+  	  Product: 
+    	:poll_interval: 300
+    	:partition_type: app
+
+Now you have a single copy of the Product source adapter dataset for all users.
+
+### Store API
+RhoSync provides a simple redis interface for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
+
+	:::ruby
+	Store.put_value('hello','world')
+
+	Store.get_value('hello') #=> 'world'
+
+	# You can store hashes too!
+	Store.put_data(
+	  'mydata',
+	  {
+	    :hello => 'world'
+	  }
+	)
+
+	Store.get_data('mydata') #=> { 'hello' => 'world' }
+
+== Push ==
+RhoSync has a simple ruby API for sending push notifications to a user's devices.  This API can be called directly, queued as a resque job, or called remotely via the RhoSync REST API. The push message can trigger the following actions in the rhodes application: alert with a message, sync one or more sources, vibrate, display a badge, play a sound file.
+
+We will now show you how to use the RhoSync application to deliver push messages and how you can handle the push notification in your Rhodes application.
+
+=== iPhone ===
+To setup your RhoSync application for iPhone push, you will need to update settings/settings.yml to include the following:
+
+<source lang='ruby'>
+:development: 
+  :redis: localhost:6379
+  :iphonecertfile: settings/apple_push_cert.pem
+  :iphonepassphrase: #=> empty or put your password for your certificate
+  :iphoneserver: gateway.sandbox.push.apple.com
+  :iphoneport: 2195
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+</source>
+
+This is for running your application in development mode, for production you will need all of the iphone settings, and change the :iphoneserver: to:
+
+<source lang='ruby'>
+  :iphoneserver: gateway.push.apple.com
+</source>
+
+=== Blackberry ===
+To setup your RhoSync application for BlackBerry push, you will need to update settings/settings.yml to include the following:
+
+<source lang='ruby'>
+:development: 
+  :redis: localhost:6379
+  :mdsserver: 192.168.1.110
+  :mdsserverport: 8080
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+</source>
+
+Replace :mdsserver: and :mdsserverport: with the hostname/IP and port of your machine (default port is 8080).
+
+=== Android ===
+To setup your RhoSync application for Android push, you will need to update settings/settings.yml to include the following:
+
+<source lang='ruby'>
+:development:
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :authtoken: authtoken
+</source>
+
+Replace :authtoken: with actual authentication token. This token MUST be related to the role-based google account registered for your application. See [[RhodesDeviceCapabilities#Setup_application]] for description. To retrieve this token, use sample script [http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb c2dm.rb]. Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
+
+For those who interested in what this token means, here is the description: http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html.
+
+Now start up your RhoSync application and setup [[RhodesDeviceCapabilities#PUSH_Notifications|push notifications]] in your Rhodes application.
+
+=== Testing Push in the Web Console ===
+The [[RhoSyncWritingApplication#Web_Console|RhoSync Web Console]] includes a utility for testing push to make sure everything is wired up correctly.  
+
+First, make sure you've logged in and performed a sync on the device/simulator you are going to test. 
+
+Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application.  For example, if you logged in as user 't', the url would be: http://localhost:9292/console/user?user_id=t
+
+You should see a registered device for this user, for example: "c92e36874bc74f39a8fbd7c1a86f9e0e".  Click on the link for this device and you will see the device attributes:
+
+  device_type:	APPLE
+  device_pin:	10fd92abfa8ee48155d9af6e7329086322b323fd0d18fdbd19e92d03c0fef7c8
+  device_port:	100
+  user_id:	t
+  app_id:	application
+
+'''Note:''' If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [[RhodesDeviceCapabilities#PUSH_Notifications|push setup steps]].
+
+Now that the device is registered, go back to the user page and click 'Ping User'.
+
+Here you can specify an alert message, sources array to sync, badge value (iphone only), sound file to play, and duration to vibrate.
+
+Enter in some values or try the defaults, you should see a push message on the device when you click "Ping!".
+
+By default, the sources list will be a comma-separated list of your RhoSync application's sources.  This sources list will be sent in the push message to trigger a sync.  You can specify one or more sources, or 'all' to trigger a sync of all sources.
+
+=== Push API ===
+The RhoSync push API consists of executing a ping call.  There are three ways to execute a ping call:  use RhoSync API to remotely call the ping, perform the ping job directly in a blocking ruby call, enqueue a resque job to ping asynchronously.
+
+==== RhoSync API Ping Method ====
+You can trigger a push remotely using the [[RhoSyncAPI#Ping|RhoSync API Ping method]].  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
+
+==== Direct Push ====
+To perform a ping directly, you can call the following:
+<source lang='ruby'>
+PingJob.perform(
+  'user_id' => current_user.login,
+  'sources' => ['Product','Customer'],
+  'message' => 'hello world',
+  'vibrate' => 2000,
+  'sound' => 'hello.mp3'
+)
+</source>
+
+==== Asynchronous Push ====
+To queue a ping that is executed asynchronously in a job, you can call the following:
+
+<source lang='ruby'>
+Resque.enqueue(
+  PingJob,
+  'user_id' => current_user.login,
+  'sources' => ['Product','Customer'],
+  'message' => 'hello world',
+  'vibrate' => 2000,
+  'sound' => 'hello.mp3'
+)
+</source>
+'''Note:''' For this job to execute, you will need to have a resque worker running.  See the [[RhoSyncAsyncJobs|async jobs]] for more information.
+
+==== Example ====
+Let's say we want to execute a ping for the current_user at the end of our source adapter query.  This is useful if our source adapter runs in a resque job outside of a device connection.
+
+In this case, we can put the ping call at the end of the query method:
+
+<source lang='ruby'>
+def query(params=nil)
+  parsed=JSON.parse(RestClient.get("#{@base}.json").body)
+    
+  @result={}
+  parsed.each { |item|@result[item["product"]["id"].to_s]=item["product"] } if parsed    
+  PingJob.perform(
+    'user_id' => current_user.login,
+    'sources' => ['Product'],
+    'message' => "There are new products!",
+    'vibrate' => 2000
+  )
+end
+</source>
+
+=== Push Notifications in Rhodes ===
+Now that you can send push messages in your RhoSync application, you can now handle the [[RhodesDeviceCapabilities#PUSH_Notifications| push notification]] in your Rhodes application.
+
+== Bulk Sync ==
+Sometimes, especially during initialization of application on the device, you may need to synchronize a substantial number of objects. This may result in many megabytes of data sent to the device. In such case, incremental  synchronization may take a while to complete. To speed up this process you may use RhoSync's "bulk sync" feature. 
+
+If and when the Rhodes application issues request to the rhosync server to get bulk data, the RhoSync application will do following:
+* execute 'query' method of all source adapters to get latest set of objects from the backend server
+* generate appropriate db files for the device - hsql for Blacberry and sqlite for the rest of them. RhoSync will use sqlite3-ruby gem to generate sqlite db files and vendor/hsqldata.jar to generate db files for Blackberry (please make sure you have java installed and configured to execute hsqldata.jar)  
+* Rhodes application will be polling for availability of db files while they are generated; once these files are generated, Rhodes will load them and install them on the device. Please be cautious - any previous set of objects on the device will be replaced with the latest set from the backend. 
+
+Once bulk data sync process completed for a given source, you may continue to synchronize this data source using regular incremental sync process. However, regular sync process may be disabled for a given source by setting sync_type to :bulk_sync_only.
+
+=== Enabling Bulk Sync ===
+In the device rhodes application, setting bulksync_state to 0 in rhoconfig.txt will trigger bulk sync next time sync is performed:
+
+<pre>
+bulksync_state = 0
+</pre>
+
+After application executed bulk sync it will set bulksync_state to 1 and next time sync will happen, it will not execute bulk sync anymore. You may force bulk sync on the next sync cycle by setting bulksync_state to 0 again using ruby in your application:
+<source lang='ruby'>
+Rho::RhoConfig.bulksync_state = '0'
+</source>
+
+==== Enabling BlackBerry Bulk Sync ====
+If your application will be performing bulk sync for BlackBerry devices, you will need to install the open source Rhomobile HSQLDB tool [http://github.com/rhomobile/hsqldata hsqldata.jar] in your RhoSync application.
+  Download and extract [http://github.com/rhomobile/hsqldata/zipball/0.0.2 hsqldata].
+  cd hsqldata
+  ant
+  mkdir <path-to-rhosync-app>/vendor
+  cp bin/hsqldata.jar <path-to-rhosync-app>/vendor/
+
+Next set the :blackberry_bulk_sync: flag in settings/settings.yml:
+
+<pre>
+:development:
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/
+  :blackberry_bulk_sync: true
+</pre>
+
+=== Bulk Sync Data Files ===
+By default, bulk sync data files will be stored in the application's root folder, under a 'data' directory.  When bulk data is requested by the Rhodes application, RhoSync will return a link to the file if the bulk_sync_poll_interval has not expired.  If the file is expired, RhoSync will return a wait command to Rhodes and enqueue a [http://github.com/defunkt/resque resque job] to generate new bulk data files.  By default, the bulk_sync_poll_interval is set to 1 hour (3600) seconds and is configurable in settings.yml:
+
+<pre>
+:development: 
+  :redis: localhost:6379
+  :licensefile: settings/license.key
+  :syncserver: http://localhost:9292/application/
+  :bulk_sync_poll_interval: 3600
+</pre>
+
+== Sync Images or Binary Blobs (blob sync) ==
+
+== [[Metadata]] ==
+The [[Metadata|metadata framework]] is a RhoSync / Rhodes feature which provides dynamic application layouts at runtime.  Checkout the [[Metadata|metadata docs]].
+
+== Fixed Schema (with bulk) ==
+If your Rhom model is a [[Rhom#Fixed_Schema_Model|fixed schema model]] and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  An example schema method is as follows:
+
+<source lang='ruby'>
+  def schema
+    {
+      'version' => '1.0',
+      'property' => {
+        'name' => 'string',
+        'brand' => 'string',
+        'price' => 'string',
+        'image_url_cropped' => 'blob,overwrite',
+        'image_url' => 'blob'
+      },
+      'index' => {
+        'by_name_brand' => 'name,brand'
+      },
+      'unique_index' => {
+        'by_price' => 'price'
+      }
+    }.to_json
+  end
+</source>
+
+Note that this method must return JSON.

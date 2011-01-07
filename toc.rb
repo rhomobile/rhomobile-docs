@@ -25,6 +25,11 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/introduction',      'Introduction'
   topic 'rhosync/install',           'Installation'
   topic 'rhosync/command-line',      'App Generator and Rake Tasks'
+  topic 'rhosync/source-adapters',   'Source Adapters'
+  topic 'rhosync/testing',           'Testing and Debugging'
+  topic 'rhosync/authentication',    'Adding Device Authentication'
+  topic 'rhosync/web-console',       'Admin Web Interface'
+  topic 'rhosync/deploying',         'Deployment and Hosting Options'
 end
 
 section 'community', "Community Resources" do

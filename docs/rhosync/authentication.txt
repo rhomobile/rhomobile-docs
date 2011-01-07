@@ -1,0 +1,18 @@
+Device Authentication in RhoSync
+===
+
+The generated RhoSync application code includes a file at the root called "application.rb" which contains an "authenticate" hook.  This method is called when a device first connects to the RhoSync application and provides username/password credentials.
+
+If your backend service requires authentication, simply add code to the authenticate method and return true if authentication was successful or false to deny access to the application from this device.  For example:
+
+	:::ruby
+	def authenticate(username, password, session)
+	  success = false 
+	  # ... connect to backend using API and authenticate ... 
+	  success = true if do_custom_authentication(username,password) 
+	  if success
+	    # save the data for later use in the source adapter
+	    Store.put_value("username:#{username}:token",username)
+	  end
+	  return success
+	end

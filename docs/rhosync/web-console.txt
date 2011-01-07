@@ -1,0 +1,33 @@
+Web Console
+===
+
+Your RhoSync application exposes a web interface which runs on http://localhost:9292/console/ (port 80 on Windows) by default.  You can open the console by running the following in your application directory:
+
+	:::term
+  	$ rake rhosync:web
+
+To login to the console:
+
+1. Click on the "Console" link
+2. Make sure the server field matches the host and port your rhosync app is running
+3. Default username is 'rhoadmin' and the password is empty
+4. Now you will be presented with a page showing your current license, for example:
+
+  		:::term
+		Licensed to Rhomobile on Fri Apr 23 17:20:13 -0700 2010, 
+			available 9 of 10 devices
+
+It will also show a link to "Application Users" where you can view users of the system as well as devices they have registered.
+
+If you want to disable this web interface, you can do so by editing the rackup file, config.ru:
+
+	:::ruby
+	# Setup the url map
+	run Rack::URLMap.new \
+		"/"         => Rhosync::Server.new,
+		"/resque"   => Resque::Server.new, # If you don't want resque frontend, disable it here
+		#"/console"  => RhosyncConsole::Server.new # If you don't want rhosync frontend, disable it here
+
+**NOTE: This web console is intended to be used for basic tests and views into the running RhoSync application.  It uses the [RhoSync HTTP API](/rhosync/http-api) for everything it does, so it is very easy to extend this console or programmatically control your RhoSync application directly using the [RhoSync API](/rhosync/http-api). **
+
+
