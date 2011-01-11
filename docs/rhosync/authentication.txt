@@ -16,3 +16,7 @@ If your backend service requires authentication, simply add code to the authenti
 	  end
 	  return success
 	end
+	
+The following diagram shows how this authenticate method is called:
+
+<img src="https://img.skitch.com/20110111-g2ujk785gak2kfgfrspq1w8u8j.png"/>

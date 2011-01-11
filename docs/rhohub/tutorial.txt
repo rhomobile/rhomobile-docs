@@ -4,7 +4,7 @@ RhoHub Tutorial
 Introduction
 ---
 
-The [Rhodes](/rhodes/rhodes) framework allows you to quickly create and build applications for multiple smartphone operating systems. RhoHub makes building Rhodes applications even easier, reducing the overhead of getting started and as well as streamlining ongoing development effort. 
+The [Rhodes](/rhodes/introduction) framework allows you to quickly create and build applications for multiple smartphone operating systems. RhoHub makes building Rhodes applications even easier, reducing the overhead of getting started and as well as streamlining ongoing development effort. 
 
 Rhodes applications are written within a Model View Controller pattern.  The views are written with your familiar web development toolkit of  HTML, CSS, and JavaScript.  The controllers are written in Ruby, using Rhodes first mobile implementation of Ruby for each smartphone operating system.  Rhodes features an app generator that creates controllers and views for business objects that provide basic listing and editing of data, enabling most of your development to be focused on optimizing your views.  
 
@@ -38,7 +38,7 @@ RhoHub will create a Rhodes application and the corresponding RhoSync server app
 
 #### Generate Project in RhoHub
 
-To create your new RhoHub project, go to [rhohub.com](http://rhohub.com) and click on "My Account".  Click the "Create a New Project" button.  Give your project a unique name.  We use 'my-store' in this example, but you will need to make up another name because the project name must be globally unique.  You will notice that "Generate Apps?" is checked by default, this means we will have a working skeleton [Rhodes](/rhodes/rhodes) and [RhoSync](/rhosync/rhosync) app generated for us.
+To create your new RhoHub project, go to [rhohub.com](http://rhohub.com) and click on "My Account".  Click the "Create a New Project" button.  Give your project a unique name.  We use 'my-store' in this example, but you will need to make up another name because the project name must be globally unique.  You will notice that "Generate Apps?" is checked by default, this means we will have a working skeleton [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) app generated for us.
 
 <img src="http://img.skitch.com/20100915-nu921iyuc44xqtd693hgr1tahr.png"/>
 
@@ -100,22 +100,24 @@ Use the "rhodes" command to generate a model for your project (in this case we c
 
 Rhodes provides this app generator tool that quickly generates a controller and views for the identified model.  It can be used to create an entire application with standard screens or "views". You can then modify the views to create exactly the user experience that you want.  
 
-By default,  your application will contain views that allow your users to interact with the object, and each attribute you add to your object will be available as field or strings in your UI.   The rhodes app generator also generates your controller file, containing code that supports default actions of listing, creating, displaying, updating and deleting your object will be created for the object as well.  Note that each model you create must contain at least one attribute.  Attributes should be named using alphanumeric strings.
+By default,  your application will contain views that allow your users to interact with the object, and each attribute you add to your object will be available as field or strings in your UI.   The rhodes app generator also generates your controller file, containing code that supports default actions of listing, creating, displaying, updating and deleting your object will be created for the object as well.  
+
+**NOTE: Each model you create must contain at least one attribute.  Attributes should be named using alphanumeric strings.**
 
 You should see the following output from the rhodes command:
 
-  Generating with model generator:
-     [ADDED]  app/Product/index.erb
-     [ADDED]  app/Product/edit.erb
-     [ADDED]  app/Product/new.erb
-     [ADDED]  app/Product/show.erb
-     [ADDED]  app/Product/index.bb.erb
-     [ADDED]  app/Product/edit.bb.erb
-     [ADDED]  app/Product/new.bb.erb
-     [ADDED]  app/Product/show.bb.erb
-     [ADDED]  app/Product/product_controller.rb
-     [ADDED]  app/Product/product.rb
-     [ADDED]  app/test/product_spec.rb
+  	Generating with model generator:
+	   [ADDED]  app/Product/index.erb
+	   [ADDED]  app/Product/edit.erb
+	   [ADDED]  app/Product/new.erb
+	   [ADDED]  app/Product/show.erb
+	   [ADDED]  app/Product/index.bb.erb
+	   [ADDED]  app/Product/edit.bb.erb
+	   [ADDED]  app/Product/new.bb.erb
+	   [ADDED]  app/Product/show.bb.erb
+	   [ADDED]  app/Product/product_controller.rb
+	   [ADDED]  app/Product/product.rb
+	   [ADDED]  app/test/product_spec.rb
 
 The "rhodes model" command generates model, view and controller files.  The view files are ERB (Embedded Ruby) files.  If you are unfamiliar with ERB, see this [cheat sheet](http://cheat.errtheblog.com/s/erb/) or [full reference docs](http://ruby-doc.org/stdlib/libdoc/erb/rdoc/classes/ERB.html).
 
@@ -128,7 +130,7 @@ Edit "rhoconfig.txt" at the root level of the source directory and define the pa
 	
 	start_path = '/app/Product'
 
-**NOTE:** paths are case-sensitive.
+**NOTE: Paths are case-sensitive.**
 
 #### Commit the Changes
 
@@ -231,7 +233,9 @@ So that our users won't have to view each record to find out which product is wh
 		:::term
   		$ rake run:android
 
-Now you should see the brand and name in the list item.  (Note: you will need to re-enter your test data.)
+Now you should see the brand and name in the list item.  
+
+**NOTE: You will need to re-enter your test data.**
 
 <img src="http://img.skitch.com/20100920-n5efc3r1jwwcqb7x7639ykuxw3.png"/>
 
@@ -242,7 +246,7 @@ Your application is pre-configured to use the RhoSync server.  You will need to 
 	:::term
 	$ git clone git@git.rhohub.com:your_name/your-app-rhosync.git
 
-Then you will need to create a source adapter to connect to whatever backend you want to sync to.  See the [[Rhosync_Tutorial|RhoSync tutorial]] for details on how to do that, but you don't need to run the server locally.  Simply check in your code (and push to the remote repository) and then follow the steps below to deploy the server on RhoHub.
+Then you will need to create a source adapter to connect to whatever backend you want to sync to.  See the [RhoSync tutorial](/rhosync/tutorial) for details on how to do that, but you don't need to run the server locally.  Simply check in your code (and push to the remote repository) and then follow the steps below to deploy the server on RhoHub.
 
 ### Deploy your RhoSync app
 * Deploying your RhoSync app on RhoHub is a simple click of the "Deploy" button, which brings up a dialog of the deploy history for the app.  
@@ -251,7 +255,7 @@ Then you will need to create a source adapter to connect to whatever backend you
 
 <img src="http://img.skitch.com/20100914-2m81ytm95he7ns8qywbnse3y2.jpg"/>
 
-* The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [[RhoSyncWritingApplication#Web_Console|RhoSync web console]].  This url will be static for this RhoSync app, even if you rename the app.
+* The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoSync web console](/rhosync/web-console).  This url will be static for this RhoSync app, even if you rename the app.
 
 <img src="http://img.skitch.com/20100914-8hit83brmyk3bc2m94pex48m9x.jpg"/>
 
