@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup
 
-require 'environment'
+require './environment'
 
 desc 'Start a development server'
 task :server do
