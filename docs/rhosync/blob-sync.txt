@@ -1,1 +1,3 @@
-== Sync Images or Binary Blobs (blob sync) ==
+Binary Objects and Blob Sync
+===
+

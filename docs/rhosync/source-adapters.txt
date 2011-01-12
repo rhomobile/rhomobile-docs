@@ -114,7 +114,7 @@ The source adapter interface is described below, your source adapter can use any
 ## Data Partitioning
 RhoSync source adapters can partition data in two ways: user and app.  As you might have guessed, user partitioning stores a copy of the source adapter dataset for each user (one copy shared across all devices for a user).  
 
-Likewise, app partitioning stores one copy of the source adapter dataset for the entire application (all users and devices share the same data).  App partitioning can be particularly useful if you have source adapters which retrieve large amounts of data that doesn't vary from user to user, for example a product catalog.
+Likewise, app partitioning stores one copy of the source adapter dataset for the entire application (all users and devices share the same data).  App partitioning can be particularly useful if you have source adapters which retrieve large amounts of data that doesn't vary from user to user, for example a global product catalog.  Using app partitioning will greatly reduce the amount of data stored in redis.
 
 ### User Partition
 User partitioning is the default scheme for source adapters, however you can explicitly define it in settings/settings.yml with:

@@ -69,7 +69,7 @@ You should see a registered device for this user, for example: "c92e36874bc74f39
 	user_id: t
 	app_id:	application
 
-**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [[RhodesDeviceCapabilities#PUSH_Notifications|push setup steps]].**
+**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [Rhodes application push setup](/rhodes/push#setup).**
 
 Now that the device is registered, go back to the user page and click 'Ping User'.
 
@@ -83,7 +83,7 @@ By default, the sources list will be a comma-separated list of your RhoSync appl
 The RhoSync push API consists of executing a ping call.  There are three ways to execute a ping call:  use RhoSync API to remotely call the ping, perform the ping job directly in a blocking ruby call, enqueue a resque job to ping asynchronously.
 
 ### RhoSync API Ping Method
-You can trigger a push remotely using the [[RhoSyncAPI#Ping|RhoSync API Ping method]].  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
+You can trigger a push remotely using the [RhoSync API Ping method](/rhosync/http-api#ping).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
 
 ### Direct Push
 To perform a ping directly, you can call the following:
@@ -132,4 +132,4 @@ Let's say we want to execute a ping for the `current_user` at the end of our sou
 	end
 
 ### Push Notifications in Rhodes
-Now that you can send push messages in your RhoSync application, you can now handle the [[RhodesDeviceCapabilities#PUSH_Notifications| push notification]] in your Rhodes application.
+Now that you can send push messages in your RhoSync application, you can now handle the [push notification](/rhodes/push) in your Rhodes application.
