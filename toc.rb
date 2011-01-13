@@ -37,6 +37,7 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhosync/metadata',          'Source Adapter Metadata'
   topic 'rhosync/async-jobs',        'Adapter Jobs with Resque'
+  topic 'rhosync/rest-api',          'RhoSync REST API'
   topic 'rhosync/stats-middleware',  'Collecting Runtime Stats'
   topic 'rhosync/client',            'Using RhoSync without Rhodes'
   topic 'rhosync/benchmarks',        'Benchmarks'
