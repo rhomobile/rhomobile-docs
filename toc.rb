@@ -14,11 +14,12 @@ end
 
 section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/introduction',      'Introduction'
-  topic 'rhodes/rhodes_generator',  'App Generator'
-  topic 'rhodes/application',       'Rhodes Application'
-  topic 'rhodes/ui',                'Application User Interface'
-  topic 'rhodes/css_framework',     'Application CSS Framework'  
-  topic 'rhodes/configuration',     'Application Configuration'
+  topic 'rhodes/install',           'Install Rhodes'
+  topic 'rhodes/generator',         'App Generator'
+  topic 'rhodes/application',       'Application'
+  topic 'rhodes/ui',                'User Interface'
+  topic 'rhodes/css_framework',     'CSS Framework'  
+  topic 'rhodes/configuration',     'Configuration'
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
