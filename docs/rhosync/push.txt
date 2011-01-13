@@ -1,7 +1,7 @@
 Device Push
 ===
 
-RhoSync has a simple ruby API for sending push notifications to a user's devices.  This API can be called directly, queued as a resque job, or called remotely via the [RhoSync HTTP API](/rhosync/http-api). The push message can trigger the following actions in the rhodes application: alert with a message, sync one or more sources, vibrate, display a badge, play a sound file.
+RhoSync has a simple ruby API for sending push notifications to a user's devices.  This API can be called directly, queued as a resque job, or called remotely via the [RhoSync REST API](/rhosync/rest-api). The push message can trigger the following actions in the rhodes application: alert with a message, sync one or more sources, vibrate, display a badge, play a sound file.
 
 We will now show you how to use the RhoSync application to deliver push messages on each platform and how you can handle the push notification in your Rhodes application.
 
@@ -50,7 +50,7 @@ Replace `:authtoken:` value with actual authentication token. This token MUST be
 
 For those who interested in what this token means, here is the description: <a href="http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html"/>.
 
-Now start up your RhoSync application and setup [[RhodesDeviceCapabilities#PUSH_Notifications|push notifications]] in your Rhodes application.
+Now start up your RhoSync application and setup [push notifications](/rhodes/push) in your Rhodes application.
 
 ## Testing Push in the Web Console
 The [RhoSync Web Console](/rhosync/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
@@ -83,7 +83,7 @@ By default, the sources list will be a comma-separated list of your RhoSync appl
 The RhoSync push API consists of executing a ping call.  There are three ways to execute a ping call:  use RhoSync API to remotely call the ping, perform the ping job directly in a blocking ruby call, enqueue a resque job to ping asynchronously.
 
 ### RhoSync API Ping Method
-You can trigger a push remotely using the [RhoSync API Ping method](/rhosync/http-api#ping).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
+You can trigger a push remotely using the [RhoSync API Ping method](/rhosync/rest-api#ping).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
 
 ### Direct Push
 To perform a ping directly, you can call the following:

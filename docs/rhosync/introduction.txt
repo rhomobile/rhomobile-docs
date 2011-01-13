@@ -11,9 +11,9 @@ RhoSync consists of the following components:
 
 * Synchronization Framework - The core of RhoSync, this facilitates data synchronization between the Rhodes / RhoSync-Client and a 3rd party source (SOAP, REST, etc...). Each source is synchronized by implementing a simple "source adapter" class. The client connects with the embedded [sinatra](http://www.sinatrarb.com/) server to interact with the collection of source adapters.  RhoSync uses [redis](http://redis.io/) to efficiently cache data to be synchronized.
 
-* HTTP API - RhoSync exposes a simple HTTP API for interacting with an application.  See the [HTTP API docs](/rhosync/http-api) for more information.
+* REST API - RhoSync exposes a simple REST API for interacting with an application.  See the [REST API docs](/rhosync/rest-api) for more information.
 
-* Administration Web Console - The RhoSync [web console](/rhosync/web-console) is sinatra server used for manipulating and peeking into a running RhoSync app. The console uses the [RhoSync HTTP API](/rhosync/http-api) for everything it does.
+* Administration Web Console - The RhoSync [web console](/rhosync/web-console) is sinatra server used for manipulating and peeking into a running RhoSync app. The console uses the [RhoSync REST API](/rhosync/rest-api) for everything it does.
 
 * Asynchronous Job System - RhoSync uses the [resque](https://github.com/defunkt/resque) library to provide asynchronous execution of various tasks it needs to perform. These tasks include source adapter execution, sending push messages, preparing bulk data, etc... Resque is dead-simple to use and highly extensible, so it can easily be used for other functionality not described here.
 
