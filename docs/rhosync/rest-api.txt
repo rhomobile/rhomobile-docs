@@ -172,6 +172,7 @@ Delete User and all associated devices from the RhoSync application.
 ### `list_clients`
 List clients (devices) associated with given user.
 
+	:::ruby
 	clients = RestClient.post("#{server}/api/list_clients", 
 	  { 
 		:api_token => token, 
