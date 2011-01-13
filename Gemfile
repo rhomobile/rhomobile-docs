@@ -2,7 +2,7 @@ source :gemcutter
 
 gem 'thin'
 gem 'rack', '1.2.1'
-gem 'sinatra', '0.9.4'
+gem 'sinatra', '1.1.2'
 gem 'rdiscount', '1.3.5'
 gem 'rest-client', '1.2.0'
 gem 'haml', '2.2.17'

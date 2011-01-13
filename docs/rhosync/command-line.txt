@@ -90,7 +90,77 @@ This generates a source adapter file `product.rb` and corresponding [rspec](http
 
 Each RhoSync application uses [rake](https://github.com/jimweirich/rake) to manage development tasks such as starting/stopping the app, starting resque workers, and running specs.
 
-To run a RhoSync rake task, simply type `rake the-task-to-run` in your RhoSync application's root directory. Here are the rake tasks available in a RhoSync application:
+To run a RhoSync rake task, simply type `rake the-task-to-run` in your RhoSync application's root directory.
+
+### Installing DTach (Mac OS / Linux only)
+
+If you're using MacOS / Linux, install [dtach](http://dtach.sourceforge.net/) on your path before running any of the rake tasks.  [DTach](http://dtach.sourceforge.net/) is a simple utility which runs processes in a detached state so you can re-attach your console later.
+
+	:::term
+	$ cd storeserver
+ 	$ rake dtach:install
+
+### Setup Redis
+
+Next, you will need to setup and start a [redis](http://redis.io/) server:
+
+	:::term
+	$ rake redis:install
+	$ rake redis:start
+	
+### Start the Application
+
+Now, start the application!
+
+	:::term
+	$ rake rhosync:start
+	
+If everything went well, you should see the following in your console:
+
+	[02:37:03 PM 2011-01-06] Rhosync Server v2.1.1 started...
+	
+To open the web console, navigate to [http://localhost:9292/](http://localhost:9292) in your browser or run:
+
+	:::term
+	$ rake rhosync:web
+	
+### Common Tasks
+
+RhoSync applications come with many useful rake tasks for administrative and development workflows.  Some common ones are:
+
+* 	`rake dtach:install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
+
+* 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead.
+	
+* 	`rake rhosync:set_admin_password` - Set the RhoSync administrator password.  The default password is blank ''.
+
+*	`rake rhosync:get_token` - Get a RhoSync API token to use for calling the RhoSync REST API.
+		
+**NOTE: On Mac OS / Linux, you need to install dtach (i.e. by running `rake dtach:install`) to run the following tasks: **
+
+* 	`rake redis:start` - This will launch a redis server in a new console.
+	
+* 	`rake redis:stop` - Stop the currently-running redis server.
+
+*	`rake redis:attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
+
+* 	`rake rhosync:start` - Start the RhoSync application in a new console.  This requires a running redis server.
+
+* 	`rake rhosync:stop` - Stop the currently-running RhoSync application.
+	
+*	`rake rhosync:attach` - (Mac OS / Linux only) Attach to a currently-running RhoSync application. 
+
+* 	`rake rhosync:clean_start` - Useful for development, resets and bootstraps the RhoSync application with a test user.
+
+Some other useful development tasks:
+
+*	`rake rhosync:reset` - Reset the RhoSync application to the initial state.  This WILL DELETE ALL DATA IN REDIS! So be sure you don't run this in production!
+
+*	`rake rhosync:spec` - Run all source adapter specs in spec/sources/.
+	
+*	`rake rhosync:web` - Open the RhoSync web console in a browser.
+
+Here is a complete list of the rake tasks available in a RhoSync application:
 
 	:::term
 	$ cd storeserver
@@ -122,37 +192,3 @@ To run a RhoSync rake task, simply type `rake the-task-to-run` in your RhoSync a
 	rake rhosync:start               # Start rhosync server
 	rake rhosync:stop                # Stop rhosync server
 	rake rhosync:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml
-	
-### Common Tasks
-
-* 	`rake dtach:install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
-
-* 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead.
-	
-* 	`rake rhosync:set_admin_password` - Set the RhoSync administrator password.  The default password is blank ''.
-
-*	`rake rhosync:get_token` - Get a RhoSync API token to use for calling the RhoSync REST API.
-		
-**NOTE: On Mac OS / Linux, dtach is required to run the following tasks: **
-
-* 	`rake redis:start` - This will launch a redis server in a new console.
-	
-* 	`rake redis:stop` - Stop the currently-running redis server.
-
-*	`rake redis:attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
-
-* 	`rake rhosync:start` - Start the RhoSync application in a new console.  This requires a running redis server.
-
-* 	`rake rhosync:stop` - Stop the currently-running RhoSync application.
-	
-*	`rake rhosync:attach` - (Mac OS / Linux only) Attach to a currently-running RhoSync application. 
-
-* 	`rake rhosync:clean_start` - Useful for development, resets and bootstraps the RhoSync application with a test user.
-
-Some other useful development tasks:
-
-*	`rake rhosync:reset` - Reset the RhoSync application to the initial state.  This WILL DELETE ALL DATA IN REDIS! So be sure you don't run this in production!
-
-*	`rake rhosync:spec` - Run all source adapter specs in spec/sources/.
-	
-*	`rake rhosync:web` - Open the RhoSync web console in a browser.

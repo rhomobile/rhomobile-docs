@@ -11,6 +11,7 @@ Setup
 -----
 	# install prereqs and shotgun the docs server
 	$ cd rhomobile-docs
+	$ sudo gem install bundler (if you don't have it already)
 	$ bundle install
 	$ rake start #=> this will start the server and load the docs home page in your browser
 	

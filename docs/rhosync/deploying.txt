@@ -1,0 +1,12 @@
+Deploying a RhoSync Application
+===
+
+Since RhoSync applications are standard ruby [sinatra](http://www.sinatrarb.com/) applications, you have many hosting options.  This section will cover two ways to deploy a RhoSync application: use the RhoHub service, deploy to an on-premise server.
+
+## Hosting on RhoHub
+The [RhoHub](/rhohub/introduction) service offers several [production RhoSync application hosting levels](http://rhohub.com/pricing).  Simply sign up on [rhohub.com](http://rhohub.com/) and go through the [tutorial](/rhohub/tutorial) on deploying your first RhoSync application with RhoHub.
+
+## Deploying On-Premise
+The [sinatra book](http://sinatra-book.gittr.com/) has some great [deployment documentation](http://sinatra-book.gittr.com/#deployment) that you should review before running your RhoSync application in production.
+
+We recommend using the [phusion passenger](http://modrails.com/index.html) stack for deploying an on-premise RhoSync application.  Please refer to the [section on rack applications](http://modrails.com/documentation/Users%20guide%20Apache.html#_deploying_a_rack_based_ruby_application) for information on deploying a RhoSync sinatra application.

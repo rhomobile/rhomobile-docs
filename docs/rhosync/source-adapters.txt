@@ -1,0 +1,202 @@
+RhoSync Source Adapters
+===
+
+Connecting to a backend service with RhoSync requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The collection of the Ruby code for these operations we refer to as a "source" or "source adapter".
+
+## Generate Source Adapter
+
+Adding a new source adapter to your rhosync application is simple:
+  	
+	:::term
+	$ cd storeserver
+  	$ rhosync source product
+
+This will generate a new ruby class called sources/product.rb:
+
+	:::ruby
+	class Product < SourceAdapter
+	  def initialize(source,credential)
+	    super(source,credential)
+	  end
+ 
+	  def login
+	    # TODO: Login to your data source here if necessary
+	  end
+ 
+	  def query
+	    # TODO: Query your backend data source and assign the records 
+	    # to a nested hash structure called @result. For example:
+	    # @result = { 
+	    #   "1"=>{"name"=>"Acme", "industry"=>"Electronics"},
+	    #   "2"=>{"name"=>"Best", "industry"=>"Software"}
+	    # }
+	    raise SourceAdapterException.new("Please provide some code to read records from the backend data source")
+	  end
+ 
+	  def sync
+	    super
+	  end
+ 
+	  def create(create_hash,blob=nil)
+	    # TODO: Create a new record in your backend data source
+	    # If your rhodes rhom object contains image/binary data 
+	    # (has the image_uri attribute), then a blob will be provided
+	    raise "Please provide some code to create a single record in the backend data source using the create_hash"
+	  end
+ 
+	  def update(update_hash)
+	    # TODO: Update an existing record in your backend data source
+	    raise "Please provide some code to update a single record in the backend data source using the update_hash"
+	  end
+ 
+	  def delete(object_id)
+	    # TODO: write some code here if applicable
+	    # be sure to have a hash key and value for "object"
+	    # for now, we'll say that its OK to not have a delete operation
+	    # raise "Please provide some code to delete a single object in the backend application using the hash values in name_value_list"
+	  end
+ 
+	  def logoff
+	    # TODO: Logout from the data source if necessary
+	  end
+	end
+
+It will also add a spec file spec/sources/product_spec.rb and edit settings/settings.yml and add the product adapter to the sources section with some default options:
+
+ 	:::yaml
+	:sources: 
+  	  Product: 
+    	:poll_interval: 300
+
+## Source Adapter API
+
+The source adapter interface is described below, your source adapter can use any of these methods to interact with your backend service.
+
+	:::ruby
+	# login to your backend service (optional)
+	def login
+	end
+	# logoff once query is finished (optional)
+	def logoff
+	end
+
+	# query your backend service and build a hash of hashes (required)
+	def query
+	  # assign @result to the hash of hashes
+	  # you can also call stash_result in here to incrementally save the @result in the case of large datasets
+	  # if @result is nil or empty, the source data will be removed from redis.
+	end
+
+	# search your backend based on params and build a hash of hashes (optional)
+	def search(params)
+	end
+
+	# create a new record in the backend (optional)
+	def create(create_hash)
+	end
+
+	# update an existing record in the backend (optional)
+	def update(update_hash)
+	end
+
+	# delete an existing record in the backend (optional)
+	def delete(delete_hash)
+	end
+
+	# instance vars
+	@source #=> source settings
+
+	# utility methods
+	current_user #=> handle to current user issuing request, can be used anywhere in adapter
+
+	stash_result #=> stores @result to redis and sets @result to nil, typically used in search or query
+
+## Data Partitioning
+RhoSync source adapters can partition data in two ways: user and app.  As you might have guessed, user partitioning stores a copy of the source adapter dataset for each user (one copy shared across all devices for a user).  
+
+Likewise, app partitioning stores one copy of the source adapter dataset for the entire application (all users and devices share the same data).  App partitioning can be particularly useful if you have source adapters which retrieve large amounts of data that doesn't vary from user to user, for example a global product catalog.  Using app partitioning will greatly reduce the amount of data stored in redis.
+
+### User Partition
+User partitioning is the default scheme for source adapters, however you can explicitly define it in settings/settings.yml with:
+
+	:::yaml
+	:sources: 
+  	  Product: 
+    	:poll_interval: 300
+    	:partition_type: user
+
+### App Partition
+Enable app partitioning the same way:
+	
+	:::yaml
+	:sources: 
+  	  Product: 
+    	:poll_interval: 300
+    	:partition_type: app
+
+Now you have a single copy of the Product source adapter dataset for all users.
+
+## Store API
+RhoSync provides a simple redis interface for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
+
+	:::ruby
+	Store.put_value('hello','world')
+
+	Store.get_value('hello') #=> 'world'
+
+	# You can store hashes too!
+	Store.put_data(
+	  'mydata',
+	  {
+	    :hello => 'world'
+	  }
+	)
+
+	Store.get_data('mydata') #=> { 'hello' => 'world' }
+	
+## Sample Adapter
+Here's a complete example of how the completed [product adapter might look](https://github.com/rhomobile/store-server/blob/master/sources/product.rb):
+
+	:::ruby
+	require 'json'
+	require 'rest_client'
+
+	class Product < SourceAdapter
+  
+	  def initialize(source,credential)
+	    @base = 'http://rhostore.heroku.com/products'
+	    super(source,credential)
+	  end
+ 
+	  def query(params=nil)
+	    parsed = JSON.parse(RestClient.get("#{@base}.json").body)
+	   	
+	    @result={}
+	    parsed.each do |item|
+	      @result[item["product"]["id"].to_s] = item["product"]
+	    end if parsed    
+	  end
+ 
+	  def create(create_hash)
+	    res = RestClient.post(@base,:product => create_hash)
+    
+	    # After create we are redirected to the new record. 
+	    # We need to get the id of that record and return 
+		# it as part of create so rhosync can establish a link 
+		# from its temporary object on the client to this newly 
+		# created object on the server
+	    JSON.parse(
+		  RestClient.get("#{res.headers[:location]}.json").body
+		)["product"]["id"]
+	  end
+ 
+	  def update(update_hash) 
+	    obj_id = update_hash['id']
+	    update_hash.delete('id')   
+	    RestClient.put("#{@base}/#{obj_id}",:product => update_hash)
+	  end
+ 
+	  def delete(delete_hash)   
+	    RestClient.delete("#{@base}/#{delete_hash['id']}")
+	  end
+	end

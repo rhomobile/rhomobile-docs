@@ -1,0 +1,4 @@
+RhoSync and Metadata
+===
+
+The [metadata framework](/rhodes/metadata) is a RhoSync & Rhodes feature which provides dynamic application layouts at runtime. Checkout the [metadata docs](/rhodes/metadata) for more information.
