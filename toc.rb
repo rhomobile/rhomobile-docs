@@ -38,6 +38,7 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/metadata',          'Source Adapter Metadata'
   topic 'rhosync/async-jobs',        'Adapter Jobs with Resque'
   topic 'rhosync/stats-middleware',  'Collecting Runtime Stats'
+  topic 'rhosync/client',            'Using RhoSync without Rhodes'
   topic 'rhosync/benchmarks',        'Benchmarks'
   topic 'rhosync/contributing',      'Contributing'
 end
