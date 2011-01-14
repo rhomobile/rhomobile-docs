@@ -1,13 +1,8 @@
 section 'getting-started', "Getting Started" do
   topic 'home',                 'Home'
-  topic 'quickstart',           'Quickstart'
-end
-
-section 'tutorials', "Tutorials" do
   topic 'rhodes/tutorial',      'Rhodes'
   topic 'rhosync/tutorial',     'RhoSync'
   topic 'rhohub/tutorial',      'RhoHub'
-  topic 'rhogallery/tutorial',  'RhoGallery'
   topic 'mapping-tutorial',     'Mapping'
   topic 'metadata-tutorial',    'Metadata'
 end
@@ -40,6 +35,7 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhosync/metadata',          'Source Adapter Metadata'
   topic 'rhosync/async-jobs',        'Adapter Jobs with Resque'
+  topic 'rhosync/rest-api',          'RhoSync REST API'
   topic 'rhosync/stats-middleware',  'Collecting Runtime Stats'
   topic 'rhosync/client',            'Using RhoSync without Rhodes'
   topic 'rhosync/benchmarks',        'Benchmarks'

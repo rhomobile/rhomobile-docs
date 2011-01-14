@@ -1,252 +1,366 @@
-[[Category:RhoSyncPdf]]
-The RhoSync API allows you to control, monitor, and debug a running RhoSync application using a simple REST API.
+RhoSync REST API
+===
+The RhoSync REST API allows you to control, monitor, and debug a running RhoSync application using a simple HTTP API.
 
-== API Errors ==
+Below we describe the REST API using ruby sample code.
+
+## API Errors
 All API calls will return http 200 and requested data (if applied). Otherwise, API will return http error code and specific error message in the http message body.
 
-<source lang='ruby'>
-def handle_api_error(error_message)
-  @errorrs ||= []
-  begin
-    yield
-  rescue RestClient::Exception => re
-    if re.response.body.nil? or re.response.body.length == 0
-      @errors << "#{error_message}: [#{re.http_code}] #{re.message}"  
-    else
-      @errors << "#{error_message}: #{re.response.body}"
-    end
-  rescue Exception => e      
-    @errors << "#{error_message}: #{e.message}"
-  end     
-end  
+	:::ruby
+	def handle_api_error(error_message)
+	  @errors ||= []
+	  begin
+	    yield
+	  rescue RestClient::Exception => re
+	    if re.response.body.nil? or re.response.body.length == 0
+	      @errors << "#{error_message}: [#{re.http_code}] #{re.message}"  
+	    else
+	      @errors << "#{error_message}: #{re.response.body}"
+	    end
+	  rescue Exception => e      
+	    @errors << "#{error_message}: #{e.message}"
+	  end     
+	end  
 
-handle_api_error("Can't get license information") do
-  @license_info = JSON.parse(RestClient.post("#{server}/api/get_license_info", 
-    { :api_token => @token }.to_json, :content_type => :json).body)
-end
-</source>
+	handle_api_error("Can't get license information") do
+	  @license_info = JSON.parse(
+		RestClient.post(
+		  "#{server}/api/get_license_info", 
+	      { :api_token => @token }.to_json, 
+	      :content_type => :json
+	    ).body
+	  )
+	end
 
-== Get API token ==
+## API Methods
+
+### `get_api_token`
 Before you can use RhoSync API you should get API token:
 
-<source lang='ruby'>
-require 'restclient'
-require 'json'
+	:::ruby
+	require 'rest_client'
+	require 'json'
 
-server = "http://localhost:9292"
-login = "rhoadmin"
-password = ""
+	server = "http://localhost:9292"
+	login = "rhoadmin"
+	password = ""
 
-res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
-token = RestClient.post("#{server}/api/get_api_token",'',{ :cookies => res.cookies })
-</source>
+	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
+	token = RestClient.post("#{server}/api/get_api_token",'',{ :cookies => res.cookies })
 
-== Get License Info ==
+### `get_license_info`
 Returns license information of the currently used license
 
-<source lang='ruby'>    
-license_info = RestClient.post("#{server}/api/get_license_info",
-        {:api_token => token}.to_json, :content_type => :json).body
-</source>
+	:::ruby
+	license_info = RestClient.post(
+	  "#{server}/api/get_license_info",
+      {:api_token => token}.to_json, :content_type => :json
+    ).body
 
-== Reset ==
+### `reset`
 Reset the server: flush db and re-bootstrap server
 
-<source lang='ruby'>    
-RestClient.post("#{server}/api/reset",
-  { :api_token => token }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	RestClient.post("#{server}/api/reset",
+  	  { :api_token => token }.to_json, 
+      :content_type => :json
+    )
 
-== Ping ==
+### `ping`
 Sends PUSH message to all devices of the specified user:
 
-<source lang='ruby'>    
-ping_params = {
-  :api_token => token,
-  :user_id => user_id,
-  :sources => source_name,
-  :message => 'hello world',
-  :vibrate => 2000,
-  :sound => 'hello.mp3'
-}
-RestClient.post("#{server}/api/ping",ping_params.to_json, :content_type => :json) 
-</source>
+	:::ruby
+	# :message - message which will be used to display notification popup dialog on the device
+	# :badge - iphone specific badge
+	# :sound - name of the sound file to play upon receiving PUSH notification
+	# :vibrate - number of seconds to vibrate upon receiving PUSH notification
+	# :sources - list of data source names to be synced upon receiving PUSH notification
+	ping_params = {
+      :api_token => token,
+      :user_id => user_id,
+      :sources => source_name,
+      :message => 'hello world',
+      :vibrate => 2000,
+      :sound => 'hello.mp3'
+    }
 
+	RestClient.post(
+	  "#{server}/api/ping",ping_params.to_json, 
+	  :content_type => :json
+	) 
 
-* :message - message which will be used to display notification popup dialog on the device
-* :badge - iphone specific badge
-* :sound - name of the sound file to play upon receiving PUSH notification
-* :vibrate - number of seconds to vibrate upon receiving PUSH notification
-* :sources - list of data source names to be synced upon receiving PUSH notification
+### `push_objects`
+Push new objects or object updates to RhoSync. These changes will be sent to device next time it synchronizes.
 
-== Push Objects ==
-Push new objects or object updates to the RhoSync. These objects will be synchronized with device next time client will do sync. 
-Note: you may use Ping to notify client and trigger sync 
+**NOTE: you may use [ping](/rhosync/push) to notify client and trigger sync.**
 
-<source lang='ruby'>
-data = {
-  '5' => {
-    'name' => 'iPhone'  
-  }
-}
-RestClient.post("#{server}/api/push_objects", { :api_token => token, 
-      :user_id => user_id, :source_id => source_name, :objects => data }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	# list of objects in the canonical hash of hashes structure
+	data = {
+	  '5' => {
+	    'name' => 'iPhone'  
+	  }
+	}
+	RestClient.post(
+	  "#{server}/api/push_objects", 
+	  { 
+		:api_token => token, 
+        :user_id => user_id, 
+	    :source_id => source_name, 
+	    :objects => data 
+	  }.to_json, 
+	  :content_type => :json
+	)
 
-'data' is a list of objets in the form of hash of hashes
+### `push_deletes`
+Delete objects from RhoSync. These objects will be deleted from the device the next time it synchronizes.
 
-== Push Deletes ==
-Delete objects from RhoSync. These objects will be deleted on the device next time client will do sync 
-Note: you may use Ping to notify client and trigger sync 
+**NOTE: You may use [ping](/rhosync/push) to notify client and trigger sync.**
 
-<source lang='ruby'>
-RestClient.post("/api/push_deletes", { :api_token => api_token, 
-      :user_id => user_id, :source_id => source_name, :objects => object_ids }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	# object_ids is an array of objects to be deleted
+	RestClient.post(
+	  "/api/push_deletes", 
+	  { 
+		:api_token => api_token, 
+	    :user_id => user_id, 
+	    :source_id => source_name, 
+	    :objects => object_ids 
+      }.to_json, 
+     :content_type => :json
+    )
 
-object_ids is an array of objects to be deleted 
+### `list_users`
+List users registered with this RhoSync application.
 
-== List Users ==
-List users registered with RhoSync
+	:::ruby
+ 	users = RestClient.post(
+	  "#{server}/api/list_users",
+      { :api_token => token }.to_json, 
+      :content_type => :json
+    ).body
 
-<source lang='ruby'>
- users = RestClient.post("#{server}/api/list_users",
-        { :api_token => token }.to_json, :content_type => :json).body
-</source>
+### `create_user`
+Create a user in this RhoSync application.
 
-Returns list of RhoSync application users
+	:::ruby
+	RestClient.post("#{server}/api/create_user",
+	  { 
+		:api_token => token,
+	    :attributes => { 
+		  :login => login, 
+		  :password => password 
+		} 
+	  }.to_json, 
+	  :content_type => :json
+	)
 
-== Create User ==
-Create user on RhoSync server
+### `delete_user`
+Delete User and all associated devices from the RhoSync application.
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/create_user",
-   { :api_token => token,
-      :attributes => { :login => login, :password => password } }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/delete_user",
+	  { 
+		:api_token => token, 
+		:user_id => user_id 
+	  }.to_json, 
+	 :content_type => :json
+	)
 
-== Delete User ==
-Delete User and all associated clients from RhoSync server
+### `list_clients`
+List clients (devices) associated with given user.
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/delete_user",
-  { :api_token => token, :user_id => user_id }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	clients = RestClient.post("#{server}/api/list_clients", 
+	  { 
+		:api_token => token, 
+		:user_id => user_id 
+	  }.to_json, 
+	 :content_type => :json
+	).body
 
-== List Clients ==
-List clients (devices) used buy specified user 
+Returns list of client ids.
 
-<source lang='ruby'>
-clients = RestClient.post("#{server}/api/list_clients", 
-  { :api_token => token, :user_id => user_id }.to_json, :content_type => :json).body
-</source>
-
-Returns list of client ids
-
-== Create Client ==
-Creates client (device) for the specified user
+### `create_client`
+Creates a client (device) for a given user.
  
-<source lang='ruby'>
-RestClient.post("#{server}/api/create_client",
-  { :api_token => token, :user_id => user_id }.to_json, :content_type => :json).body
-</source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/create_client",
+	  { 
+		:api_token => token, 
+		:user_id => user_id 
+	  }.to_json, 
+	  :content_type => :json
+	).body
 
-== Delete Client ==
-Deletes specified client (device)    
+### `delete_client`
+Deletes the specified client (device).
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/delete_client",
-  { :api_token => token, :user_id => user_id,  :client_id => client_id }.to_json, :content_type => :json)    
-</source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/delete_client",
+	  { 
+		:api_token => token, 
+		:user_id => user_id,  
+		:client_id => client_id 
+	  }.to_json, 
+	 :content_type => :json
+    )    
 
-== Get Client Params ==
-Returns client (device) attributes, such as device_type, device_pin, device_port. These attributes used by Push protocols. 
+### `get_client_params`
+Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes used by [RhoSync push](/rhosync/push). 
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/get_client_params", 
-  { :api_token => token, :client_id => client_id }.to_json, :content_type => :json).body
- </source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/get_client_params", 
+	  { 
+		:api_token => token, 
+		:client_id => client_id 
+	  }.to_json, 
+	  :content_type => :json
+	).body
 
-== List Client Docs ==
-Returns list of document ids associated with particular client. These documents are used by the server to sync data with the client. 
-CD (:cd) - client document; represents state of the client (set of all objects on the given client). Description of other client docs see [[RhoSync_2.0_Spec#Client_document_types|here]]
+### `list_client_docs`
+Returns list of document keys associated with particular client. These documents are used by the server to sync data with the client. 
+CD (:cd) - client document; represents the state of the client (set of all objects on the given client).
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/list_client_docs", 
-  { :api_token => token, :source_id => source_id, :client_id => client_id }.to_json, :content_type => :json).body
- </source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/list_client_docs", 
+	  { 
+		:api_token => token, 
+		:source_id => source_id, 
+		:client_id => client_id 
+	  }.to_json, 
+	  :content_type => :json
+	).body
 
-== List Sources ==
-Return list of data sources
+### `list_sources`
+Return list of source adapters for this RhoSync application.
 
-<source lang='ruby'>
-sources = RestClient.post("#{server}/api/list_sources", 
-  { :api_token => token, :partition_type => partition }.to_json, :content_type => :json).body
- </source>
+	:::ruby
+	sources = RestClient.post("#{server}/api/list_sources", 
+	  { 
+		:api_token => token, 
+		:partition_type => partition 
+	  }.to_json, 
+	  :content_type => :json
+	).body
 
-== Get Source Params ==
-Return attributes associated with the data source:
-* name - name of the data source
-* poll_interval - poll interval; defines how often RhoSync will poll back-end server for new data, set to -1 to disable polling
-* partition_type - to share data across all users, set partition to :app; otherwise use :user partition (default)  
-* sync_type - set to :bulk_only to disable :incremental sync; regular sync is :incremental (default) 
-* queue - name of the queue for both query and create/update/delete (CUD) jobs (used if no specific queues not specified)
-* query_queue - name of query queue
-* cud_queue - name of CUD queue
-NOTE: query or CUD methods of the source adapter will be executed asynchronously if respective queue name is set
+### `get_source_params`
+Return attributes associated with a given source:
 
-<source lang='ruby'>
-attributes = RestClient.post("#{server}/api/get_source_params", 
-  { :api_token => token, :source_id => source_id }.to_json, :content_type => :json).body
-</source>
+* `name` - name of the data source
+* `poll_interval` - query poll interval; defines how often RhoSync will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll
+* `partition_type` - to share data across all users, set partition to :app; otherwise use `:user` partition (default)  
+* `sync_type` - set to `:bulk_only` to disable `:incremental` sync; regular sync is `:incremental` (default) 
+* `queue` - name of the queue for both query and create/update/delete (CUD) jobs (used if no specific queues not specified)
+* `query_queue` - name of query queue
+* `cud_queue` - name of CUD queue
 
-== Set Refresh Time ==
+**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](/rhosync/async-jobs) if a queue name is defined.**
+
+	:::ruby
+	attributes = RestClient.post("#{server}/api/get_source_params", 
+	  { 
+		:api_token => token, 
+		:source_id => source_id 
+	  }.to_json, 
+	  :content_type => :json
+	).body
+
+### `set_refresh_time`
 Sets source poll interval to "current time plus x seconds".
 
-<source lang='ruby'>
-RestClient.post("/api/set_refresh_time", { :api_token => @api_token, 
-  :source_name => source_name, :user_name => user, :refresh_time => 100 }.to_json, :content_type => :json)
- </source>
+	:::ruby
+	RestClient.post(
+	  "/api/set_refresh_time", 
+	  { 
+		:api_token => @api_token, 
+	    :source_name => source_name, 
+	    :user_name => user, 
+	    :refresh_time => 100 
+	  }.to_json, 
+	  :content_type => :json
+	)
 
-This will set the refresh time to 100 seconds from the current time.  Calling set_refresh_time with no :refresh_time will trigger a refresh on the sync request for the source.
+This will set the refresh time to 100 seconds from the current time.  Calling `set_refresh_time` with no `:refresh_time` will trigger a refresh on the sync request for the source.
 
-== List Source Documents ==
-Return list of document ids associated with given source and user. If user_id set to '*', this call will return list of ids for 'shared' documents. MD(:md) - master document; represents state of the back-end (set of all objects for the given app/user/source on the back-end server). Description of other client docs see [[RhoSync_2.0_Spec#Source_document_types|here]]
+### `list_source_docs`
+Return list of document keys associated with given source and user. 
 
-<source lang='ruby'>    
-docs = RestClient.post("#{server}/api/list_source_docs", 
-  { :api_token => token, :source_id => source_id, :user_id => user_id }.to_json, :content_type => :json).body
-</source>
+If `:user_id` set to '*', this call will return list of keys for 'shared' documents. 
 
-== Get DB Doc ==
-Return content of the specified document (client or source) 
+MD(:md) - master document; represents state of the backend (set of all objects for the given app/user/source on the backend service).
 
-<source lang='ruby'>    
-res = RestClient.post("#{server}/api/get_db_doc", 
-  { :api_token => token, :doc => doc, :data_type => data_type }.to_json, :content_type => :json).body
- </source>
+	:::ruby
+	docs = RestClient.post(
+	  "#{server}/api/list_source_docs", 
+	  { 
+		:api_token => token, 
+		:source_id => source_id, 
+		:user_id => user_id 
+	  }.to_json, 
+	  :content_type => :json
+	).body
 
-data_type should be 'string' for the documents containing single string (size or token docs); otherwise this call will return hash of hashes.
+### `get_db_doc`
+Return content of a given document (client or source).
 
-== Set DB Doc ==
-Sets content of the specified server document. Data should be either a string or hash of hashes. Data type should be set accordingly.
+	:::ruby
+	res = RestClient.post(
+	  "#{server}/api/get_db_doc", 
+	  { 
+		:api_token => token, 
+		:doc => doc, 
+		:data_type => data_type 
+	  }.to_json, 
+	  :content_type => :json
+	).body
 
-<source lang='ruby'>    
-RestClient.post("#{server}/api/set_db_doc", 
-  { :api_token => token, :doc => doc, :data => data, :data_type => data_type }.to_json, :content_type => :json)
-</source>
+`:data_type` should be 'string' for the documents containing single string (size or token docs); otherwise this call will return hash of hashes.
 
-== Stats ==
-Retrieves stats for a given metric:
+### `set_db_doc`
+Sets the content of the specified server document. Data should be either a string or hash of hashes. Data type should be set accordingly.
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/stats", 
-  { :api_token => @api_token, :metric => 'foo', :start => 0, :finish => -1 }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/set_db_doc", 
+	  { 
+		:api_token => token, 
+		:doc => doc, 
+		:data => data, 
+		:data_type => data_type 
+	  }.to_json, 
+	  :content_type => :json
+    )
 
-Retrieves a list of metric keys matching a given pattern.  For example, all metric keys associated with 'Product' source adapter methods:
+### `stats`
+Retrieves stats for a given metric key:
 
-<source lang='ruby'>
-RestClient.post("#{server}/api/stats", 
-  { :api_token => @api_token, :names => 'sources:*:Product' }.to_json, :content_type => :json)
-</source>
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/stats", 
+	  { 
+		:api_token => @api_token, 
+		:metric => 'foo', 
+		:start => 0, 
+		:finish => -1 
+	  }.to_json, 
+	  :content_type => :json
+	)
+
+Retrieves a list of metric keys matching a given pattern.  This supports 'glob' or '*' style pattern matching.  For example, all metric keys associated with 'Product' source adapter methods:
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/stats", 
+	  { 
+		:api_token => @api_token, 
+		:names => 'sources:*:Product' 
+	  }.to_json, 
+	  :content_type => :json
+	)

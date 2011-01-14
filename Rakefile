@@ -48,6 +48,7 @@ task :load do
   AppConfig['dirs'].each do |name,dir|
     if File.exist?(dir) and not dir == 'docs/'
       puts "Copying #{dir}*.txt to docs/#{name}"
+      `rm -rf docs/#{name}`
       `mkdir -p docs/#{name}`
       `cp #{dir}*.txt docs/#{name}`
     end
@@ -65,6 +66,7 @@ def which(command)
 end
 
 def name_for(doc)
-  File.basename(doc, '.txt')
+  parts = doc.split('/')
+  parts.size == 3 ? parts[1..-1].join('/').gsub(/\.txt/,'') : File.basename(doc, '.txt')
 end
 
