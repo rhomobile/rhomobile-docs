@@ -16,10 +16,13 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/install',           'Install Rhodes'
   topic 'rhodes/generator',         'App Generator'
-  topic 'rhodes/application',       'Application'
+  topic 'rhodes/application',       'App Structure'
   topic 'rhodes/ui',                'User Interface'
   topic 'rhodes/css_framework',     'CSS Framework'  
   topic 'rhodes/configuration',     'Configuration'
+  topic 'rhodes/device-capabilities', 'Device Capabilities'
+  topic 'rhodes/rhom',              'On Device DB/ORM'
+  
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
