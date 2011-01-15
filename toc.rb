@@ -16,7 +16,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/css-framework',       'CSS Framework'  
   topic 'rhodes/configuration',       'Configuration'
   topic 'rhodes/device-capabilities', 'Device Capabilities'
-  topic 'rhodes/rhom',                'On Device DB/ORM'
+  topic 'rhodes/rhom',                'Local Database and Rhom'
   
 end
 
