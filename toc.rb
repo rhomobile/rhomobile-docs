@@ -11,13 +11,17 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/install',           'Install Rhodes'
   topic 'rhodes/generator',         'App Generator'
+  topic 'rhodes/build',             'Build Appication'  
   topic 'rhodes/application',       'App Structure'
   topic 'rhodes/ui',                'User Interface'
   topic 'rhodes/css_framework',     'CSS Framework'  
   topic 'rhodes/configuration',     'Configuration'
-  topic 'rhodes/device-capabilities', 'Device Capabilities'
+  topic 'rhodes/device-caps',       'Device Capabilities'
   topic 'rhodes/rhom',              'On Device DB/ORM'
-  
+  topic 'rhodes/Synchronization',   'Synchronization'
+  topic 'rhodes/call-web-services', 'Connecting to Web Services'
+  topic 'rhodes/extensions',        'Extending the Rhodes Framework'  
+  topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
