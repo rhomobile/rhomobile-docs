@@ -1,5 +1,0 @@
-Console and Rake
-================
-
-This topic has been split into two separate topics. See [Using the
-console](/console) and [Running rake tasks](/rake) for more information.

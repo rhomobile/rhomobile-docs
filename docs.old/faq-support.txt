@@ -1,8 +1,0 @@
-Support
-=======
-
-Do you offer support?
----------------------
-
-
-Yes. We offer ticket-based support for all Heroku users through our [zendesk ticket system](http://support.heroku.com). Please go [here](http://legal.heroku.com/support) to view our full [Support Policy](http://legal.heroku.com/support).
