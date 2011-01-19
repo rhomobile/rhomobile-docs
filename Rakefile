@@ -55,6 +55,20 @@ task :load do
   end
 end
 
+desc 'Create offline archive'
+task :archive do
+  serverpid = Process.fork { Rake::Task['start'].invoke }
+
+  puts "Waiting 3 seconds for server to start..."
+  sleep 3
+  
+  `wget -mirror -k -E -nH -P archive http://localhost:9393/`
+
+  puts "Mirroring complete. Killing server..."
+  Process.kill(9,serverpid)
+end
+
+
 desc 'Alias for server'
 task :start => :server
 
