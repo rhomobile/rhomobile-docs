@@ -57,17 +57,53 @@ end
 
 desc 'Create offline archive'
 task :archive do
-  serverpid = Process.fork { Rake::Task['start'].invoke }
+  serverpid = Process.fork { Rake::Task['server'].invoke }
 
   puts "Waiting 3 seconds for server to start..."
   sleep 3
   
-  `wget -mirror -k -E -nH -P archive http://localhost:9393/`
+  `wget -mirror -k -E -nH -nv -P archive http://127.0.0.1:9393/`
 
-  puts "Mirroring complete. Killing server..."
+  puts "Mirroring complete. Killing server."
   Process.kill(9,serverpid)
+
+  Rake::Task['processArchive'].invoke
+
+  puts "Done"
+
 end
 
+desc 'Apply inline CSS styling to offline archive files'
+task :processArchive do
+
+  downloadedHTML = File.join("archive","**","*.html")
+  puts "\nHighlighting unclickable links..."
+
+  htmlFiles = Dir.glob(downloadedHTML)
+
+  # Links that go to 127.0.0.1:9393 (where no server is running) get styled dark red
+  # Links that go to external sites (may not be reachable if user is truly offline) get italics
+  htmlFiles.each do |fileName|
+    puts "Processing " + fileName
+    fileContents = IO.read(fileName)
+
+    fileContents.gsub!(/href="(http:\/\/127.0.0.1:9393\/.*?)"/) do |match|
+      #puts "Red: " + $1
+      "style='color:darkred;cursor:pointer' title='" + $1 + " was unreachable'"
+    end
+
+    fileContents.gsub!(/href="http.*?"/) do |match|
+      #puts "Italic: " + match
+      match + ' style="font-style:italic"'
+    end
+    #puts ""
+
+    File.open(fileName,"w") do |fd|
+      fd.write(fileContents)
+    end
+  end
+
+end
 
 desc 'Alias for server'
 task :start => :server
