@@ -1,20 +1,20 @@
 Using RhoSync with the RhoSync Client
 ===
 
-Rhosync Client is a library to add sync data capability to your applications. Application code can be ObjectiveC, C++, JavaScript or any other supported language. Using this library you can easily synchronized data between client and RhoSync server.
+Rhosync Client is a library to add sync data capability to your applications. Application code can be ObjectiveC, C++, JavaScript or any other supported language. Using this library you can easily enable synchronized data between your smartphone application and a RhoSync server.
 
 ## Objective-C Client
 
 ### Getting started
-* The rhosync-client is part of the Rhodes repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhosync-client' package). 
+* The RhoSync Client is part of the Rhodes repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhosync-client' package). 
 
-* Create new project or open existing one in Xcode. Add `<rhosync-client>/objectivec/SyncClient.xcodeproj` as dependency to your project, so SyncClient libary will link with your project.
+* Create new project or open existing one in XCode. Add `<rhosync-client>/objectivec/SyncClient.xcodeproj` as dependency to your project, so the SyncClient library will link with your project.
 
-* Add 'Copy bundle resources'  build phase to project target, than add `<rhosync-client>/shared/db/res/db` folder to it.
+* Add a 'Copy bundle resources' build phase to project target, than add `<rhosync-client>/shared/db/res/db` folder to it.
 
-* Add libraries to your project: `libstdc++6.dylib, libsqlite3.dylib, libz.dylib, CFNetwork.framework`.
+* Add these libraries to your project: `libstdc++6.dylib, libsqlite3.dylib, libz.dylib, CFNetwork.framework`.
 
-### Object model
+### Object Model
 
 #### RhoSyncClient
 
@@ -105,7 +105,7 @@ Rhosync Client is a library to add sync data capability to your applications. Ap
 
 #### RhoSyncNotify
 
-This class provide access to sync notification object as describe [here](/rhodes/sync-notification): 
+This class provides access to sync notification objects as describe [here](/rhodes/synchronization#notifications): 
 
 	:::cplusplus
 	@property int       total_count;
@@ -163,7 +163,7 @@ See [rhosync-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rhodes
 	textBrand = [item valueForKey:@"brand"];
 
 ## Packaging RhoSync Client
-To package the rhosync client archive for distribution, go to the top of your rhodes repository and run:
+To package the RhoSync Client archive for distribution, go to the top of the rhodes repository and run:
 
 	:::term
   	$ rake build:rhosync_client

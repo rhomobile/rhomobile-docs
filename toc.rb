@@ -18,8 +18,8 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/configuration',     'Configuration'
   topic 'rhodes/device-caps',       'Device Capabilities'
   topic 'rhodes/rhom',              'Local Database and Rhom'
-  topic 'rhodes/Synchronization',   'Synchronization'
-  topic 'rhodes/call-web-services', 'Connecting to Web Services'
+  topic 'rhodes/synchronization',   'Synchronization'
+  topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
   topic 'rhodes/extensions',        'Extending the Rhodes Framework'  
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
 end

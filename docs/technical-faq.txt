@@ -1,0 +1,181 @@
+Technical FAQ
+===
+
+This page describes how to perform various functions using the Rhodes / RhoSync frameworks and RhoHub.
+
+## How do I write "Hello, world" in Rhodes?
+Edit the `app/index.erb` to create some content:
+	
+	:::html
+	<div class="toolbar">
+	  <h1 id="pageTitle">
+	    Small demo app
+	  </h1>
+	</div>
+
+	<ul id="home" selected="true" title="Hello">
+	  <li><a href="another.erb">Hello, world which links to another page</a></li>
+	</ul>
+
+## I don't know Ruby and you don't seem to try to teach us Ruby in your tutorials.
+As shown in the above example and tutorials you can do a lot without knowing much Ruby.  But you can build much more sophisticated apps with some Ruby knowledge.  There are many great Ruby tutorials out there and we could probably not improve on them.  One of them is [http://www.ruby-lang.org/en/documentation/quickstart/ Ruby in Twenty Minutes]
+
+## How do I add an OK button to my app?
+Our generated code (rhogen and Rhodes) contains several samples. Here's a smaller fragment.  
+<source lang='ruby'>
+<form method="POST" action="<%=url_for(:action =>:update)%>">
+<input type="submit" value="OK"/>
+</form>
+</pre>
+
+## How do I insert a little picture icon next to a element?
+Adding to the above example:
+<pre>
+<ul id="home" selected="true" title="Hello">
+  <li><a href="another.erb"><img src="/public/images/bluebutton.png"></a></li>
+</ul>
+</source>
+
+## How do I call a web service and process the returned data?
+
+This is done with AsyncHttp([http://wiki.rhomobile.com/index.php/RhodesConnectToWebServices#AsyncHttp]).  You will then use either JSON (if its a JSON returning web service) or REXML (if the web service returns XML) to process the data. 
+
+The following code connects to a JSON feed at http://rhostore.heroku.com/products.json and parses it with JSON.
+<source lang='ruby'>
+require 'rho/rhocontroller'
+ 
+class HttpTestController < Rho::RhoController
+ 
+  #GET /HttpTest
+  def index
+    Rho::AsyncHttp.get(
+      :url => 'http://rhostore.heroku.com/products.json',
+      :callback => (url_for :action => :httpget_callback),
+      :callback_param => "" )
+      
+    render :action => :wait
+  end
+
+  def httpget_callback
+    puts "httpget_callback: #{@params}"
+
+    if @params['status'] != 'ok'
+      puts " Rho error : #{Rho::RhoError.new(@params['error_code'].to_i).message}"
+      puts " Http error : #{@params['http_error']}"
+      puts " Http response: #{@params['body']}"
+
+      WebView.navigate ( url_for :action => :show_error ) 
+    else
+        #if content-type is 'application\json' when AsyncHttp parse it to  @params['body']
+        #otherwise use Rho::JSON.parse(@params['body'])
+        
+        if @params['body'] and @params['body'].is_a?(String)
+          parsed = Rho::JSON.parse(@params['body'])
+        else
+          parsed = @params['body']
+        end
+
+        puts "Result: #{parsed}"
+        WebView.navigate ( url_for :action => :show_result )
+    end
+end
+</source>
+
+## How do I make a POST request to webservice?
+To make POST request, use Rho::AsyncHttp.post method. See AsyncHttp documentation: [http://wiki.rhomobile.com/index.php/RhodesConnectToWebServices#AsyncHttp]
+
+<source lang='ruby'>
+require 'rho/rhocontroller'
+ 
+class HttpTestController < Rho::RhoController
+ 
+  #POST /HttpTest
+  def index
+    Rho::AsyncHttp.post(
+      :url => 'http://rhostore.heroku.com/products.json',
+      :body => :body => "username=#{@params['username']}&password=#{@params['password']}",
+      :callback => (url_for :action => :httppost_callback),
+      :callback_param => "" )
+      
+    render :action => :wait
+  end
+
+  def httppost_callback
+    puts "httppost_callback: #{@params}"
+
+    if @params['status'] != 'ok'
+      puts " Rho error : #{Rho::RhoError.new(@params['error_code'].to_i).message}"
+      puts " Http error : #{@params['http_error']}"
+      puts " Http response: #{@params['body']}"
+
+      WebView.navigate ( url_for :action => :show_error ) 
+    else
+        WebView.navigate ( url_for :action => :show_result )
+    end
+end
+</source>
+
+## Can I process XML with Rhodes?
+Yes. First add the following to your build.yml
+
+  extensions: ["rexml", "set"]
+
+Now use the following code
+<source lang='ruby'>
+   require 'rexml/document'
+   file = File.new("bibliography.xml")
+   doc = REXML::Document.new(file)
+   puts doc
+</source>
+
+If you are planning to run your app on Blackberry you should use RhoXml extension[http://wiki.rhomobile.com/index.php/RhodesExtensions#RhoXML]. It has the same syntax as rexml, but has limited functionality and smaller size. But it is suited for most data-oriented xml.
+build.yml
+
+  extensions: ["rhoxml"]
+
+Now use the following code
+<source lang='ruby'>
+   require 'rexml/document'
+   file = File.new("bibliography.xml")
+   doc = REXML::Document.new(file)
+   puts doc
+</source>
+
+If you have big xml data from web service, take a look on StreamParser[http://wiki.rhomobile.com/index.php/RhodesExtensions#XML_Stream_parser]
+
+## How to insert large amount of items to database with Rhom?
+<source lang='ruby'>
+db = ::Rho::RHO.get_user_db()    #If you don't change partition in your models, default partition is user
+db.start_transaction
+begin
+  items.each do |item|
+    data = {:field1 => item['value1'], :field2 => item['value2'] } # create hash of field\value pairs
+    new_item = Model.create(data) # will create new Model object and save it to db
+  end
+ db.commit
+rescue
+ db.rollback
+end
+</source>
+
+## How do I customize the app name and icons?
+You should manually place your icons to rhodes folder only if you build application by XCode. 
+Please follow [http://wiki.rhomobile.com/index.php/BuildingRhodes#HOWTO:_Customize_application_name_and_icon| these instructions]
+
+## What About Rhodes/RhoSync and Security
+There are three big issues with synchronized data smartphone apps and security:
+*  securing data over the wire
+
+Just as with an Objective C or Android Java app, you will transmit the data over SSL (https).  Both Rhodes alone and Rhodes plus RhoSync support use of https as a transport. In fact it is easier with Rhodes than with Objective C. You just list an https URL and Rhodes will connect to the backend appropriately. This is in contrast to underlying SDKs where significantly different code is written to connect to an https URL.
+
+* storing data encrypted on the device
+
+This is not always necessary or recommended.  Using a device management solution such as RhoGallery you can always remotely delete the data.  If you really need the data encrypted you can encrypt data with your Rhodes app using the Ruby crypt library calls.  Block cyphers currently available include Blowfish, GOST, IDEA, and Rijndael (AES). Cypher Block Chaining (CBC) has been implemented. Twofish, Serpent, and CAST256 are planned for release soon. 
+
+You can also use SQLCipher for transparent encryption.  Finally to ease some burden of integrating SQLCipher into your app we will be adding transparent encryption as a model option in Rhodes 2.3 (to ship by end of 2010).
+
+* authentication
+
+There needs to be delegated authentication to some form of directory for optimal sync server security.  RhoSync makes it very easy to perform delegated authentication by simply providing an "authenticate" method that can call to any directory authority. A typical authenticate method is less than five lines of code.
+
+There is also the issue of how does RhoSync authenticate with your backend app.  This is done via the "login" method in each source adapter itself.

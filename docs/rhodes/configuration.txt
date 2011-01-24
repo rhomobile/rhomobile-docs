@@ -2,6 +2,36 @@
 
 ## Build time configuration 
 
+### Application Permissions and Capabilities
+
+To enable specific device capabilities, edit application's build.yml as below:
+
+	:::yaml
+	capabilities:
+	  - camera
+	  - gps
+	android:
+	  capabilities:
+	    - network_state
+
+Rhodes support common plus platform-specific capabilities. They are merged into a single list at build time.
+
+** NOTE: Right now only Android recognizes these configuration options. However, we are planning to enable these options across all platforms. **
+
+List of supported capabilities:
+
+* audio: allow using of audio hardware (record audio, modify audio settings)
+* camera: allow use of hardware camera
+* gps: allow use of geo location service
+* network_state: allow read device network state (connected/disconnected)
+* phone: allow make calls/read phone state
+* pim: allow read/modify personal information and contacts
+* push: allow to use PUSH on device
+* record_audio: allow recording audio ('audio' implies it)
+* vibrate: allow to use hardware vibration mechanism
+* bluetooth: allow to use bluetooth hardware
+
+
 ## Run time configuration
 Each Rhodes application contains a configuration file called "rhoconfig.txt".  A typical rhoconfig.txt will look like the following when an app is generated:
 
@@ -106,7 +136,15 @@ Hides forward button and animates back button transition
 Splash screen image display options. See more details [here](ui#loading-screen).
 
 	splash_screen='zoom'
+	
+Turn on Full Browser mode for Blackberry 4.6.0 and higher
 
+	use_bb_full_browser = 1
+
+Turn on Persistent Storage usage mode for Blackberry
+
+	use_persistent_storage = 1
+	
 
 ### Last Visited Page
 Rhodes can keep track of the last visited page, so that next time you start your application, it will open to the same page. To enable this feature, use 
