@@ -1,10 +1,10 @@
 section 'getting-started', "Getting Started" do
   topic 'home',                 'Home'
-  topic 'rhodes/tutorial',      'Rhodes'
-  topic 'rhosync/tutorial',     'RhoSync'
-  topic 'rhohub/tutorial',      'RhoHub'
-  topic 'mapping-tutorial',     'Mapping'
-  topic 'metadata-tutorial',    'Metadata'
+  topic 'rhodes/tutorial',      'Rhodes Tutorial'
+  topic 'rhosync/tutorial',     'RhoSync Tutorial'
+  topic 'rhohub/tutorial',      'RhoHub Tutorial'
+  topic 'tutorials',            'Topic Tutorials'
+  topic 'faq',                  'Frequently Asked Questions'
 end
 
 section 'rhodes-reference', "Rhodes Developer Reference" do

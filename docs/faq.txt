@@ -1,0 +1,117 @@
+Frequently Asked Questions
+===
+
+This page describes how to perform various functions using the Rhodes / RhoSync frameworks and RhoHub.
+
+## How do I write "Hello, world" in Rhodes?
+Edit the `app/index.erb` to create some content:
+	
+	:::html
+	<div class="toolbar">
+	  <h1 id="pageTitle">
+	    Small demo app
+	  </h1>
+	</div>
+
+	<ul id="home" selected="true" title="Hello">
+	  <li><a href="another.erb">Hello, world which links to another page</a></li>
+	</ul>
+
+## I don't know Ruby.  Why don't you teach us Ruby in your tutorials?
+As shown in the above example and tutorials you can do a lot without knowing much Ruby.  But you can build much more sophisticated apps with some Ruby knowledge.  There are many great Ruby tutorials out there and we could probably not improve on them.  One of them is [Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/).
+
+## How do I add an OK button to my app?
+The generated code from running (`rhodes model <modelname> <attributelist>`) contains several samples. Here's a smaller fragment.
+	 
+	:::html
+	<form method="POST" action="<%= url_for(:action =>:update) %>">
+	<input type="submit" value="OK"/>
+	</form>
+
+## How do I insert a picture icon next to an element?
+Adding to the above example:
+	
+	:::html
+	<ul id="home" selected="true" title="Hello">
+	  <li><a href="another.erb"><img src="/public/images/bluebutton.png"></a></li>
+	</ul>
+
+## How do I call a web service and process the returned data?
+
+This is done with [`AsyncHttp`](/rhodes/connect-to-web-services).  You will then use either JSON (if its a JSON web service) or REXML (if the web service returns XML) to process the data. 
+
+See the [`AsyncHttp` example code](/rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at <a href="http://rhostore.heroku.com/products.xml"/> and parses it with rexml.
+
+## How do I make a POST request to webservice?
+To make a POST request, use the `AsyncHttp.post` method.  See the [`AsyncHttp.post` docs here](/rhodes/connect-to-web-services#asynchttp-api).
+
+
+## Can I process XML with Rhodes?
+Yes, first add the following to your `build.yml`:
+
+	:::yaml
+	extensions: ["rexml", "set"]
+
+Now parse the xml in your controller action:
+
+	:::ruby
+	require 'rexml/document'
+	file = File.new("bibliography.xml")
+	doc = REXML::Document.new(file)
+	puts doc
+
+If you are planning to run your app on Blackberry, you should use the [`RhoXml` extension](/rhodes/extensions#rhodes-extensions). It has the same syntax as rexml, but has limited functionality and a much smaller memory footprint.  Enable it in your application by adding to `build.yml`:
+
+	:::ruby
+  	extensions: ["rhoxml"]
+
+Now parse the xml in your controller action:
+	require 'rexml/document'
+	file = File.new("bibliography.xml")
+	doc = REXML::Document.new(file)
+	puts doc
+
+If you have a very large XML document to parse, you should use the [XML stream parser extension](/rhodes/extensions#rhodes-extensions).
+
+## How can I seed a large amount of data into my application with Rhom?
+You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-database) or use a database transaction:
+
+	:::ruby
+	db = ::Rho::RHO.get_user_db  
+	db.start_transaction
+	begin
+	  items.each do |item|
+		# create hash of attribute/value pairs
+	    data = {
+		  :field1 => item['value1'], 
+		  :field2 => item['value2'] 
+		} 
+		# Creates a new Model object and saves it
+	    new_item = Model.create(data)
+	  end
+	 db.commit
+	rescue
+	 db.rollback
+	end
+
+## How do I customize the app name and icons?
+Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
+
+## What about Rhodes/RhoSync and security?
+There are three main points with synchronized data smartphone apps and security:
+
+*  Securing data over the wire
+
+	Just as with an Objective C or Android Java app, you will transmit the data over SSL (https).  Both Rhodes alone and Rhodes plus RhoSync support use of https as a transport. In fact it is easier with Rhodes than with Objective C. You just list an https URL and Rhodes will connect to the backend appropriately. This is in contrast to underlying SDKs where significantly different code is written to connect to an https URL.
+
+* Storing encrypted data on the device
+
+	This is not always necessary or recommended.  Using a device management solution such as RhoGallery you can always remotely delete the data.  If you really need the data encrypted you can encrypt data with your Rhodes app using the Ruby crypt library calls.  Block cyphers currently available include Blowfish, GOST, IDEA, and Rijndael (AES). Cypher Block Chaining (CBC) has been implemented. Twofish, Serpent, and CAST256 are planned for release soon. 
+
+	You can also use SQLCipher for transparent encryption.  Finally, to ease some burden of integrating SQLCipher into your app, we will be adding transparent encryption as a model option in Rhodes 2.3.
+
+* Authentication
+
+	There needs to be authentication to some form of directory for optimal sync server security.  RhoSync makes it very easy to perform authentication by simply providing an "authenticate" method that can call to any directory authority. A typical authenticate method is less than five lines of code.
+	
+	There is also the issue of how does RhoSync authenticate with your backend service each time an adapter is executed.  This is done via the "login" method in the source adapter.
