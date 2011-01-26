@@ -3,7 +3,7 @@ section 'getting-started', "Getting Started" do
   topic 'rhodes/tutorial',      'Rhodes Tutorial'
   topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
-  topic 'tutorials',            'Topic Tutorials'
+  topic 'tutorials',            'How To'
   topic 'faq',                  'Frequently Asked Questions'
 end
 
@@ -20,7 +20,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/rhom',              'Local Database and Rhom'
   topic 'rhodes/synchronization',   'Synchronization'
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
-  topic 'rhodes/extensions',        'Extending the Rhodes Framework'  
+  topic 'rhodes/extensions',        'Extending the Rhodes Framework'
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
 end
 
@@ -37,9 +37,9 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/push',              'Device Push'
   topic 'rhosync/blob-sync',         'Binary Objects and Blob Sync'
   topic 'rhosync/bulk-sync',         'Big Datasets and Bulk Sync'
-  topic 'rhosync/metadata',          'Source Adapter Metadata'
   topic 'rhosync/async-jobs',        'Adapter Jobs with Resque'
   topic 'rhosync/rest-api',          'RhoSync REST API'
+  topic 'rhosync/metadata',          'Dynamic Views with Metadata'
   topic 'rhosync/stats-middleware',  'Collecting Runtime Stats'
   topic 'rhosync/client',            'Using RhoSync without Rhodes'
   topic 'rhosync/benchmarks',        'Benchmarks'

@@ -312,4 +312,4 @@ If your back end web service requires authentication, simply add code to the aut
 
 Using RhoSync from Objective C
 ---
-You don't have to use Rhodes to use RhoSync.  For this scenario, we offer an [Objective C client for RhoSync](/rhodes/rhosync-client).
+You don't have to use Rhodes to use RhoSync.  For this scenario, we offer an [Objective C client for RhoSync](/rhosync/client).
