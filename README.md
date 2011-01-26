@@ -40,4 +40,4 @@ Code is released under the [MIT License](http://www.opensource.org/licenses/mit-
 
 All rights reserved on the content (text files in the docs subdirectory), although you're welcome to modify these for the purpose of suggesting edits.
 
-http://rhodocs.heroku.com
+http://docs.rhomobile.com
