@@ -24,11 +24,15 @@ Before using your RhoHub account, you will need the following prerequisites:
 
 * [Create a RhoHub account](https://app.rhohub.com/sign_up/free) or if you already have an account, [login](https://app.rhohub.com/login).  After signing up, you will receive an email containing a link directing you to http://app.rhohub.com/your-user-name.  
 
-* Add your SSH public key in the RhoHub "SSH Keys" page.  (see the "?" help section for details).
+* Add your SSH public key in the RhoHub "SSH Keys" page.  From <a href="http://rhohub.com">http://rhohub.com</a>, click "My Account".  Click the "SSH Keys" link in the right top navigation.  
 
 <img src="http://img.skitch.com/20100913-d4eendxe473ury4f59f7m4bwxs.jpg"/>
 
-If you already have a public key generated, copy the contents of your public key.  Then you can paste it into the "Public Key" field of the form.  
+* For help with generating and adding a public key for your operating system, click on the help (?) button in the upper right corner of the page.
+
+<img src="https://img.skitch.com/20110125-giqjxxcmhyafq88p2r9j9s7244.png"/>
+
+* If you already have a public key generated, copy the contents of your public key.  Then you can paste it into the "Public Key" field of the form.  
 
 <img src="http://img.skitch.com/20100913-knjph8qc9usc591yqsbsarkkeg.jpg"/>
 

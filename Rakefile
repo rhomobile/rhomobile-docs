@@ -67,14 +67,14 @@ task :archive do
   puts "Mirroring complete. Killing server."
   Process.kill(9,serverpid)
 
-  Rake::Task['processArchive'].invoke
+  Rake::Task['process_archive'].invoke
 
   puts "Done"
 
 end
 
 desc 'Apply inline CSS styling to offline archive files'
-task :processArchive do
+task :process_archive do
 
   downloadedHTML = File.join("archive","**","*.html")
   puts "\nHighlighting unclickable links..."
@@ -103,6 +103,13 @@ task :processArchive do
     end
   end
 
+end
+
+desc 'Load latest docs and publish to edge'
+task :publish_edge => :load do
+  `git commit -a -m "cijoe auto-commit"`
+  `git push origin master`
+  `git push edge master`
 end
 
 desc 'Alias for server'
