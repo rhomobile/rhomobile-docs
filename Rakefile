@@ -6,11 +6,11 @@ require './environment'
 
 desc 'Start a development server'
 task :server do
-	if which('shotgun')
-		exec 'shotgun -s thin -O config.ru'
+  if which('shotgun')
+		exec 'shotgun -O config.ru'
 	else
 		warn 'warn: shotgun not installed; reloading is disabled.'
-		exec 'rackup config.ru -s thin -p 9393'
+		exec 'rackup config.ru -p 9393'
 	end
 end
 
