@@ -9,6 +9,11 @@ This tool is based off the excellent [heroku-docs project!](https://github.com/h
 
 Setup
 -----
+* On Windows? Install the [Development Kit](http://rubyinstaller.org/downloads/). Then run:
+
+	$ gem install rdiscount --platform=ruby -v=1.6.8
+
+* Run the following commands:
 	# install prereqs and shotgun the docs server
 	$ cd rhomobile-docs
 	$ sudo gem install bundler (if you don't have it already)
