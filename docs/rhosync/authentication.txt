@@ -9,10 +9,11 @@ If your backend service requires authentication, simply add code to the authenti
 	def authenticate(username, password, session)
 	  success = false 
 	  # ... connect to backend using API and authenticate ... 
-	  success = true if do_custom_authentication(username,password) 
-	  if success
+	  result = do_custom_authentication(username,password) 
+	  if result.code == 200
 	    # save the data for later use in the source adapter
-	    Store.put_value("username:#{username}:token",username)
+	    Store.put_value("username:#{username}:token",result.body)
+		success = true
 	  end
 	  return success
 	end
