@@ -12,32 +12,27 @@ First run the rhosync specs to make sure your environment is up-to-date for deve
 
 2. Clone your new repo: 
 		
-		:::term
 		$ git clone git://github.com/<yourhandle>/rhosync.git
 		$ cd rhosync
 
-2. Install [Jeweler](http://github.com/technicalpickles/jeweler):
+3. Install [Jeweler](http://github.com/technicalpickles/jeweler):
 		
-		:::term
 		$ gem install jeweler
 
-3. Jeweler comes with useful tasks to identify missing development dependencies.  Run it and install any missing gems it reports:
+4. Jeweler comes with useful tasks to identify missing development dependencies.  Run it and install any missing gems it reports:
 		
-		:::term
 		$ rake check_dependencies
 
-4. Install [hsqldata](http://github.com/rhomobile/hsqldata):
+5. Install [hsqldata](http://github.com/rhomobile/hsqldata):
 		
-		:::term
 		$ git clone git://github.com/rhomobile/hsqldata.git
 		$ cd hsqldata
 		$ ant
 		$ mkdir -p <path-to-rhosync>/vendor/
 		$ cp bin/hsqldata.jar <path-to-rhosync>/vendor/
 
-5. Run the RhoSync specs:
+6. Run the RhoSync specs:
 
-		:::term
  		$ rake   #=> runs all rhosync specs by default
 
 
@@ -48,7 +43,6 @@ Now that you're environment is ready, make your changes!
 
 1. Create a topic branch:
 		
-		:::term
 		$ git checkout -b cool_new_feature
 
 2. Write tests ([example](http://github.com/rhomobile/rhosync/commit/f95cfdbf3f53d64c3957499906c77d7127b7c3db#diff-2))
@@ -59,7 +53,6 @@ Now that you're environment is ready, make your changes!
 
 5. Push to your branch:
 		
-		:::term
 		$ git push origin cool_new_feature
 
 6. Send a note to the [google group](http://groups.google.com/group/rhomobile)
