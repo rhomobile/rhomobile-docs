@@ -64,7 +64,7 @@ If your application will be performing bulk sync for BlackBerry devices, you wil
 
 ## Data Files
 
-By default, bulk sync data files will be stored in the application's root folder, under a 'data' directory.  When bulk data is requested by the Rhodes application, RhoSync will return a link to the file if the `bulk_sync_poll_interval` has not expired.  If the file is expired, RhoSync will return a wait command to Rhodes and enqueue another [resque job](http://github.com/defunkt/resque) to generate new bulk data files.  By default, the `bulk_sync_poll_interval` is set to 1 hour (3600) seconds and is configurable in settings.yml:
+By default, bulk sync data files will be stored in the application's root folder, under a 'data' directory.  When bulk data is requested by the Rhodes application, RhoSync will return a link to the file if the `bulk_sync_poll_interval` has not expired.  If the file is expired, RhoSync will return a wait command to Rhodes and enqueue another [resque job](http://github.com/defunkt/resque) to generate new bulk data files.  By default, the `bulk_sync_poll_interval` is set to 1 hour (3600) seconds and is configurable in `settings.yml`:
 
 	:::yaml
 	:development: 
@@ -75,7 +75,7 @@ By default, bulk sync data files will be stored in the application's root folder
 
 ## Using Bulk Sync with Fixed Schema Models
 
-If your Rhom model is a [[Rhom#Fixed_Schema_Model|fixed schema model]] and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
+If your Rhom model is a [fixed schema model](/rhodes/rhom#fixed-schema) and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
 
 **NOTE: This method must return a JSON string.  This JSON string is sent to the Rhodes application and used to dynamically build the database schema.**
 
