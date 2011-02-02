@@ -6,7 +6,7 @@ RhoSync has a simple ruby API for sending push notifications to a user's devices
 We will now show you how to use the RhoSync application to deliver push messages on each platform and how you can handle the push notification in your Rhodes application.
 
 ## iOS
-To setup your RhoSync application for iOS push, you will need to update settings/settings.yml to include the following:
+To setup your RhoSync application for iOS push, you will need to update `settings/settings.yml` to include the following:
 
 	:::yaml
 	:development: 
@@ -24,7 +24,7 @@ This is for running your application in development mode, for production you wil
   	:iphoneserver: gateway.push.apple.com
 
 ## Blackberry
-To setup your RhoSync application for BlackBerry push, you will need to update settings/settings.yml to include the following:
+To setup your RhoSync application for BlackBerry push, you will need to update `settings/settings.yml` to include the following:
 
 	:::yaml
 	:development: 
@@ -37,7 +37,7 @@ To setup your RhoSync application for BlackBerry push, you will need to update s
 Replace `:mdsserver:` and `:mdsserverport:` with the hostname/IP and port of your machine (default port is 8080).
 
 ## Android
-To setup your RhoSync application for Android push, you will need to update settings/settings.yml to include the following:
+To setup your RhoSync application for Android push, you will need to update `settings/settings.yml` to include the following:
 
 	:::yaml
 	:development:
@@ -50,7 +50,7 @@ Replace `:authtoken:` value with actual authentication token. This token MUST be
 
 For those who interested in what this token means, here is the description: <a href="http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html"/>.
 
-Now start up your RhoSync application and setup [push notifications](/rhodes/push) in your Rhodes application.
+Now start up your RhoSync application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
 
 ## Testing Push in the Web Console
 The [RhoSync Web Console](/rhosync/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
@@ -69,7 +69,7 @@ You should see a registered device for this user, for example: "c92e36874bc74f39
 	user_id: t
 	app_id:	application
 
-**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [Rhodes application push setup](/rhodes/push#setup).**
+**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [Rhodes application push setup](/rhodes/device-caps#push-notifications).**
 
 Now that the device is registered, go back to the user page and click 'Ping User'.
 
@@ -83,7 +83,7 @@ By default, the sources list will be a comma-separated list of your RhoSync appl
 The RhoSync push API consists of executing a ping call.  There are three ways to execute a ping call:  use RhoSync API to remotely call the ping, perform the ping job directly in a blocking ruby call, enqueue a resque job to ping asynchronously.
 
 ### RhoSync API Ping Method
-You can trigger a push remotely using the [RhoSync API Ping method](/rhosync/rest-api#ping).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
+You can trigger a push remotely using the [RhoSync API Ping method](/rhosync/rest-api).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
 
 ### Direct Push
 To perform a ping directly, you can call the following:
@@ -132,4 +132,4 @@ Let's say we want to execute a ping for the `current_user` at the end of our sou
 	end
 
 ### Push Notifications in Rhodes
-Now that you can send push messages in your RhoSync application, you can now handle the [push notification](/rhodes/push) in your Rhodes application.
+Now that you can send push messages in your RhoSync application, you can now handle the [push notification](/rhodes/device-caps#push-notifications) in your Rhodes application.
