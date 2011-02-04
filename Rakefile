@@ -19,7 +19,14 @@ task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
   index = client.indexes(AppConfig['index'])
-  index.add unless index.exists?
+  index.delete rescue nil
+  index.add
+  print "Waiting to initialize #{AppConfig['index']}..."
+  while not index.running?
+    print "."
+    sleep 0.5
+    $stdout.flush
+  end
   Topic.all_topics.each do |doc|
     if File.exist?(doc)
       name = name_for(doc)
