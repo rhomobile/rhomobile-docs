@@ -77,7 +77,7 @@ If you have a very large XML document to parse, you should use the [XML stream p
 You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-database) or use a database transaction:
 
 	:::ruby
-	db = ::Rho::RHO.get_user_db  
+	db = ::Rho::RHO.get_src_db('Model')
 	db.start_transaction
 	begin
 	  items.each do |item|
@@ -106,12 +106,26 @@ There are three main points with synchronized data smartphone apps and security:
 
 * Storing encrypted data on the device
 
-	This is not always necessary or recommended.  Using a device management solution such as RhoGallery you can always remotely delete the data.  If you really need the data encrypted you can encrypt data with your Rhodes app using the Ruby crypt library calls.  Block cyphers currently available include Blowfish, GOST, IDEA, and Rijndael (AES). Cypher Block Chaining (CBC) has been implemented. Twofish, Serpent, and CAST256 are planned for release soon. 
-
-	You can also use SQLCipher for transparent encryption.  Finally, to ease some burden of integrating SQLCipher into your app, we will be adding transparent encryption as a model option in Rhodes 2.3.
+    [Database Encryption](/rhodes/rhom#database-encryption)
 
 * Authentication
 
 	There needs to be authentication to some form of directory for optimal sync server security.  RhoSync makes it very easy to perform authentication by simply providing an "authenticate" method that can call to any directory authority. A typical authenticate method is less than five lines of code.
 	
 	There is also the issue of how does RhoSync authenticate with your backend service each time an adapter is executed.  This is done via the "login" method in the source adapter.
+
+## How to improve application perfomance on Blackberry?
+* Before test application for perfomance set warning log level in rhoconfig.txt:
+
+        MinSeverity = 3
+    
+* Database is most critical part for perfomance improvement. See [Database Perfomance Tips](/rhodes/rhom#perfomance-tips)
+* Do not use images in html body(single or tiled) - use solid color
+* Do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
+* Do not use Date/Time parse method. Use strptime instead. Use time as number when possible
+* Move require of big ruby files to methods when they used. This is true for locally used classes. Add system check for platform dependent code.
+* Exclude unused files from build(images, libraries etc). It will decrease application size and improve startup perfomance.Edit build.yml:
+      excludedirs: 
+      bb: 
+      - public/images/iphone
+      - public/images/android
