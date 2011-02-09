@@ -8,10 +8,10 @@ development:
   index: 'rhodocs_edge'
 edge:
   dirs:
-    rhosync: '../rhosync/doc/'
-    rhodes: '../rhodes/doc/'
-    rhohub: '../rhohub.com/doc/'
-    rhogallery: '../rhogallery/doc/'
+    rhosync: 'docs/rhosync/'
+    rhodes: 'docs/rhodes/'
+    rhohub: 'docs/rhohub/'
+    rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
   index: 'rhodocs_edge'
   rhonav_host: http://nav.rhohub.com
