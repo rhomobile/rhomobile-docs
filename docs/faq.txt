@@ -120,9 +120,9 @@ There are three main points with synchronized data smartphone apps and security:
         MinSeverity = 3
     
 * Database is most critical part for perfomance improvement. See [Database Perfomance Tips](/rhodes/rhom#perfomance-tips)
-* Do not use images in html body(single or tiled) - use solid color
-* Do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
-* Do not use Date/Time parse method. Use strptime instead. Use time as number when possible
+* If possible, do not use images in html body(single or tiled) - use solid color
+* If possible, do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
+* If possible, do not use Date/Time parse method. Use strptime instead. Use time as number when possible
 * Move require of big ruby files to methods when they used. This is true for locally used classes. Add system check for platform dependent code.
 * Exclude unused files from build(images, libraries etc). It will decrease application size and improve startup perfomance.Edit build.yml:
       excludedirs: 
