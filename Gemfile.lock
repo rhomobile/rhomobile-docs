@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/rhomobile/rhomobile-nav.git
-  revision: 346cd94c2a3da08752fcae860eb7da8d654533d4
+  revision: f09683c96cd631eaf5a12cded1da1049d68c7150
   specs:
-    rhomobile-nav (0.0.31)
+    rhomobile-nav (0.0.35)
 
 GIT
   remote: git://github.com/technoweenie/faraday
@@ -65,6 +65,6 @@ DEPENDENCIES
   rake
   rdiscount (= 1.6.8)
   rest-client (= 1.2.0)
-  rhomobile-nav (= 0.0.31)!
+  rhomobile-nav (= 0.0.35)!
   shotgun
   sinatra (= 1.1.2)
