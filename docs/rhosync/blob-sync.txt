@@ -21,36 +21,40 @@ Suppose you have a [Rhom model](/rhodes/rhom) called "Image" and you have a [cam
 	
 When this is executed in a Rhodes application:
 
-1. This callback triggers a sync after saving saving an image.  
+* This callback triggers a sync after saving saving an image.  
 
-2. Then Rhodes will push the image file to the RhoSync application by HTTP POST.
+* Then Rhodes will push the image file to the RhoSync application by HTTP POST.
 
-3. `application.rb#store_blob` is called for optional pre-processing of the file.  This is useful in cases where you want to preserve the filename that Rhodes sent.  The following example stores the `:filename` argument as another object attribute.
+* `application.rb#store_blob` is called for optional pre-processing of the file.  This is useful in cases where you want to preserve the filename that Rhodes sent.  
 
-		:::ruby
-		def store_blob(obj,field_name,blob)
-	      obj['filename'] = blob[:filename]
-	      super
-	    end
+The following example stores the `:filename` argument as another object attribute.
 
-4. The RhoSync source adapter tied to this Rhom model processes the blob in the `create` method:
+	:::ruby
+	def store_blob(obj,field_name,blob)
+      obj['filename'] = blob[:filename]
+      super
+    end
 
-		:::ruby
-		def create(create_hash,blob)
-		  # this would be a blob attribute, points to a tempfile 
-		  # containing the raw post data
-		  name = create_hash["image_uri"] 
-		  
-		  # filename we saved in application.rb#store_blob method
-		  basename = create_hash["filename"]
-		  S3Object.store(
-		    basename,
-		    open(name),
-		    @bucket,
-		    :access => :public_read
-		  )
-		  basename #=> object id here is the filename
-		end
+* The RhoSync source adapter tied to this Rhom model processes the blob in the `create` method.
+
+The following example takes the blob and stores it in S3:
+
+	:::ruby
+	def create(create_hash,blob)
+	  # this would be a blob attribute, points to a tempfile 
+	  # containing the raw post data
+	  name = create_hash["image_uri"] 
+	  
+	  # filename we saved in application.rb#store_blob method
+	  basename = create_hash["filename"]
+	  S3Object.store(
+	    basename,
+	    open(name),
+	    @bucket,
+	    :access => :public_read
+	  )
+	  basename #=> object id here is the filename
+	end
 
 In this example, we store the image blob to s3 so we can query it later.  See the "image" source adapter that comes with [the rhodes-samples-server](https://github.com/rhomobile/rhodes-samples-server/blob/master/sources/image.rb).
 
