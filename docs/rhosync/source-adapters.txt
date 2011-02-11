@@ -227,7 +227,8 @@ For example, your delete method might check the web service HTTP response code w
 	end
 
 **NOTE: When your adapter method raises an exception, no data is removed from the adapter's master document.**
-	
+
+
 ## Sample Adapter
 Here's a complete example of how the completed [product adapter might look](https://github.com/rhomobile/store-server/blob/master/sources/product.rb):
 
