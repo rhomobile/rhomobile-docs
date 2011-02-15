@@ -120,6 +120,7 @@ There are three main points with synchronized data smartphone apps and security:
         MinSeverity = 3
     
 * Database is most critical part for perfomance improvement. See [Database Perfomance Tips](/rhodes/rhom#perfomance-tips)
+* If possible, do not use complex regular expressions - they slow works slow on Blackberry
 * If possible, do not use images in html body(single or tiled) - use solid color
 * If possible, do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
 * If possible, do not use Date/Time parse method. Use strptime instead. Use time as number when possible
@@ -129,3 +130,4 @@ There are three main points with synchronized data smartphone apps and security:
       bb: 
       - public/images/iphone
       - public/images/android
+* To parse XML use Stream parser: XML handling:XML Stream parser see - [Rhodes Extensions](/rhodes/extensions#rhodes-extensions)
