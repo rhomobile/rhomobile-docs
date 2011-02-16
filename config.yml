@@ -14,7 +14,7 @@ edge:
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
   index: 'rhodocs_edge'
-  rhonav_host: https://app.staging.rhohub.com
+  rhonav_host: http://app.staging.rhohub.com
 production:
   dirs:
     rhosync: 'docs/rhosync/'
