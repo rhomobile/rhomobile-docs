@@ -12,7 +12,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/install',           'Install Rhodes'
   topic 'rhodes/generator',         'App Generator'
-  topic 'rhodes/build',             'Build Appication'  
+  topic 'rhodes/build',             'Build Application'  
   topic 'rhodes/application',       'App Structure'
   topic 'rhodes/ui',                'User Interface'
   topic 'rhodes/css-framework',     'CSS Framework'  
