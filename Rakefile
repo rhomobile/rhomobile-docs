@@ -20,7 +20,7 @@ task :index do
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
   index = client.indexes(AppConfig['index'])
   index.delete rescue nil
-  index.add
+  index.add rescue nil
   print "Waiting to initialize #{AppConfig['index']}..."
   while not index.running?
     print "."
