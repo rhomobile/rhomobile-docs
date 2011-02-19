@@ -131,3 +131,12 @@ There are three main points with synchronized data smartphone apps and security:
       - public/images/iphone
       - public/images/android
 * To parse XML use Stream parser: XML handling:XML Stream parser see - [Rhodes Extensions](/rhodes/extensions#rhodes-extensions)
+
+## White screen between pages
+It takes a bit of time for WebView to load and parse html/css of your page; meanwhile WebView show empty page which is white by default. Try setting default background color of the toolbar to the color of your pages:
+	:::ruby
+	Rho::NativeToolbar.create( :buttons => toolbar, 
+		:background_color => 0x0000FF )
+Please see more details about toolbar [here](/rhodes/ui#native-toolbar-control)
+
+If you are loading javascript, consider doing it at the very end of your page; this way WebView will not wait for JS before parsing css and showing html. 
