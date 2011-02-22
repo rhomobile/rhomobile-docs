@@ -31,21 +31,18 @@ The code sample above demonstrates authentication by calling a method you would 
 	:::ruby
 	require 'net/ldap'
 
-	def authenticate(username, password, session)
-	  success = false 
-	  ldap = Net::LDAP.new
-	  ldap.host = "localhost"
-	  ldap.port = 389
-	  ldap.auth "cn=#{username},dc=example,dc=com", password
-	  
-	  # we only need to bind to verify successful login
-	  if ldap.bind
-	    # save the data for later use in the source adapter
-	    Store.put_value("username:#{username}:token",result.body)
-		success = true
-	  end
-	  return success
-	end
+    def authenticate(username, password, session)
+      success = false 
+      ldap = Net::LDAP.new
+      ldap.host = "localhost"
+      ldap.port = 389
+      ldap.auth "cn=#{username},dc=example,dc=com", password
+
+      # we only need to bind to verify successful login
+      success = true if ldap.bind
+
+      return success
+    end
 	
 Where the domain component "dc=example,dc=com" is replaced by your domain.  For example, the `ldap.auth` code above using "rhomobile.com" would be:
 
