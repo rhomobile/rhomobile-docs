@@ -26,7 +26,7 @@ If your backend service requires authentication, simply add code to the authenti
 	end
 
 ## LDAP Example
-The code sample above demonstrates authentication by calling a method you would implement called 'do_custom_authentication' that returns an HTTP response object, however the actual implementation is left as an excercise.  If your application needs to connect to LDAP, you can use the following sample code to perform simple authentication:
+The code sample above demonstrates authentication by calling a method you would implement called 'do_custom_authentication' that returns an HTTP response object, however the actual implementation is left as an exercise.  If your application needs to connect to LDAP, you can use the following sample code to perform simple authentication:
 
 	:::ruby
 	require 'net/ldap'
