@@ -1,7 +1,7 @@
 Rhomobile Docs App
 ==================
 
-CMS and content for documentation of the Rhomobile platform. Production location TBD...
+CMS and content for documentation of the Rhomobile platform: [http://docs.rhomobile.com](http://docs.rhomobile.com)
 
 If you'd like to propose an edit to the Rhomobile docs, fork this repo, then send us a pull request.
 
@@ -45,5 +45,3 @@ Originally written by Ryan Tomayko and Adam Wiggins.  This application is mainta
 Code is released under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
 All rights reserved on the content (text files in the docs subdirectory), although you're welcome to modify these for the purpose of suggesting edits.
-
-http://docs.rhomobile.com
