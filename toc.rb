@@ -24,6 +24,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/extensions',        'Extending the Rhodes Framework'
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
   topic 'rhodes/contributing',      'Contributing'
+  topic 'rhodes/linea',      'Using LineaSDK in Rhodes applications'
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
