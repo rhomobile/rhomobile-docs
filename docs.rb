@@ -29,9 +29,16 @@ end
 
 ['/', '/home'].each do |path|
   get path do
+    @print = 0
 	  cache_long
   	haml :index
 	end
+end
+
+get '/print/home' do 
+  @print = 1
+  cache_long
+  haml :index
 end
 
 get '/search' do
@@ -48,15 +55,29 @@ end
 
 #get '/:topic' do
 # TODO: use proper regex
-['/:topic/?', '/:subpath/:topic/?'].each do |path|
+['/:topic/?', '/:subpath/:topic/?', '/:printme/:subpath/:topic/?'].each do |path|
   get path do
 	  cache_long
-	  render_topic params[:topic], params[:subpath]
+	  if params[:subpath] == "print" 
+	    render_topic params[:topic], nil, 1
+	  elsif params[:printme] == "print"
+	    render_topic params[:topic], params[:subpath], 1
+	  else
+  	  render_topic params[:topic], params[:subpath], 0
+  	end
   end
 end
 
+['/print/:topic/?', '/print/:subpath/:topic/?'].each do |path|
+  get path do
+	  cache_long
+	  render_topic params[:topic], params[:subpath], 1
+  end
+end
+
+
 helpers do
-	def render_topic(topic, subpath = nil)
+	def render_topic(topic, subpath = nil, print = 0)
 		source = File.read(topic_file(topic, subpath))
 		@topic = Topic.load(topic, source)
 		
@@ -66,6 +87,8 @@ helpers do
 		@toc     = @topic.toc
 		@body    = @topic.body
 		
+		@print = print
+
 		erb :topic
 	rescue Errno::ENOENT
 		status 404

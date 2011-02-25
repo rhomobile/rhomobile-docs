@@ -2,7 +2,7 @@
 
 <%= @intro %>
 
-<% if @toc.size > 0 %>
+<% if @toc.size > 0 && @print == 0 %>
 	<ul id="toc">
 		<% @toc.each do |section| %>
 			<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
@@ -13,5 +13,8 @@
 <%= @body %>
 
 <% if ns = next_section(topic_path) %>
-	<div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
+    <% if @print == 0 %>
+      <div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
+      <a href="/print/<%= topic_path%>"><img src="/images/print.png"> Print this page</a>
+    <% end %>
 <% end %>

@@ -12,7 +12,7 @@
 
 <div id="container">
 	<div id="doc_container">
-	<div id="docsnav">
+	<div id="docsnav" <% if @print != 0 %> style="display:none" <% end %> >
 		<form action="/search">
 			<div id="search">
 				<input type="text" name="q" size="31" value="<%= params[:q] || '' %>" />
