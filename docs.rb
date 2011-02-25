@@ -68,14 +68,6 @@ end
   end
 end
 
-['/print/:topic/?', '/print/:subpath/:topic/?'].each do |path|
-  get path do
-	  cache_long
-	  render_topic params[:topic], params[:subpath], 1
-  end
-end
-
-
 helpers do
 	def render_topic(topic, subpath = nil, print = 0)
 		source = File.read(topic_file(topic, subpath))
