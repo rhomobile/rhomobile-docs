@@ -13,7 +13,7 @@ To login to the console:
 3. Default username is 'rhoadmin' and the password is empty
 4. Now you will be presented with a page showing your current license, for example:
 
-  		:::term
+  		
 		Licensed to Rhomobile on Fri Apr 23 17:20:13 -0700 2010, 
 			available 9 of 10 devices
 
