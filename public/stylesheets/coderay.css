@@ -9,11 +9,11 @@ pre, .CodeRay {
 }
 .CodeRay .prompt {
  /*color: #6F5EEE;*/
- color:#D20;
+ color:#680000;
 }
 .CodeRay .command {
  /*color: #6F5EEE;*/
- color:#D20;
+ color:#680000;
 }
 .CodeRay .output {
  color: #333;
