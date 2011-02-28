@@ -8,12 +8,10 @@ pre, .CodeRay {
  overflow: auto;
 }
 .CodeRay .prompt {
- /*color: #6F5EEE;*/
- color:#680000;
+ color:#780000;
 }
 .CodeRay .command {
- /*color: #6F5EEE;*/
- color:#680000;
+ color:#780000;
 }
 .CodeRay .output {
  color: #333;
