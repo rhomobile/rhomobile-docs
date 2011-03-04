@@ -5,13 +5,13 @@ require 'sass'
 require 'indextank'
 require './topic'
 
-unless development?
-  require 'rhomobile/nav'
-  use Rhomobile::Nav::Base, {
-    :nav_host => "#{AppConfig['rhonav_host']}/#{ENV["RACK_ENV"]}",
-    :blog => true, :subscribe => false, :support => false, :footer => false #footer true/false if you (or don't) want render the footer
-  }
-end
+# unless development?
+#   require 'rhomobile/nav'
+#   use Rhomobile::Nav::Base, {
+#     :nav_host => "#{AppConfig['rhonav_host']}/#{ENV["RACK_ENV"]}",
+#     :blog => true, :subscribe => false, :support => false, :footer => false #footer true/false if you (or don't) want render the footer
+#   }
+# end
 
 require 'coderay'
 require './lib/term.rb'

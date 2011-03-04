@@ -5,12 +5,31 @@
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   	<title>Rhomobile | <%=h @title %></title>
-  	<link type="text/css" rel="stylesheet" href="/css/docs.css" media="screen" />
+  	<link type="text/css" rel="stylesheet" href="/stylesheets/docs.css" media="screen" />
   	<link type="text/css" rel="stylesheet" href="/stylesheets/fontface.css" media="screen" />
   	<link type="text/css" rel="stylesheet" href="/stylesheets/coderay.css" media="screen" />
   	<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
   </head>
   <body id="<%= @bodyid %>">
+  <div class="nav_header">
+    <div class="nav_logos">
+      <a href="http://rhomobile.com" class="nav_logo_rhomobile">RhoMobile</a>
+    </div>
+    <div id="nav_menu">
+      <ul>
+        <li ><a href="http://rhomobile.com/" class="">Home</a></li>
+        <li class="nav_separator"> 
+          <img src="/images/dashboard/tabs_separator.png"> 
+        </li>
+        <li><a href="http://rhomobile.com/products">Products</a></li>
+        <li><a href="http://docs.rhomobile.com/">Docs</a></li>
+        <li><a href="http://rhomobile.com/partners">Partners</a></li>
+        <li><a href="http://rhomobile.com/apps">Apps</a></li>
+        <li><a href="http://rhomobile.com/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+
   <div id="container">
   	<div id="docsnav" <% if @print != 0 %> style="display:none" <% end %> >
   		<form action="/search">
