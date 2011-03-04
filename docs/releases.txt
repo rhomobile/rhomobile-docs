@@ -1,2 +1,49 @@
-Framework Releases
+Rhomobile Product Releases
 ===
+
+## Current Release
+* Rhodes - [2.3.1 Release Notes](https://github.com/rhomobile/rhodes/raw/2.3.1/CHANGELOG)
+* RhoSync - [2.1.1 Release Notes](https://github.com/rhomobile/rhosync/raw/2.1.1/CHANGELOG)
+
+Please make sure to review the [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) pages periodically for information on new features.
+
+## Getting New Versions
+
+### Rhodes
+Choose one of three options, then review the upgrade instructions for the version you downloaded.
+
+Option A: If you already have rhodes as a gem installed, you can simply do:
+
+	:::term
+	$ [sudo] gem update rhodes
+  	$ rhodes-setup
+  	$ set-rhodes-sdk (from your application's root folder)
+
+Option B: If you were tracking rhodes by a specific branch, just run:
+	:::term
+  	$ cd rhodes
+  	$ git pull
+
+or
+	:::term
+  	$ git checkout <tag> (if you want the specific released version)
+
+Option C: If you downloaded rhodes from github directly, you can download the new versions here: [http://github.com/rhomobile/rhodes/downloads](http://github.com/rhomobile/rhodes/downloads)
+
+### RhoSync
+Choose one of three options, then review the upgrade instructions for the version you downloaded.
+
+Option A: If you already have rhosync as a gem installed, you can simply do:
+	:::term
+  	$ [sudo] gem update rhosync
+
+Option B: If you were tracking rhosync by a specific branch, just run:
+	:::term
+  	$ cd rhosync
+  	$ git pull
+
+or
+	:::term
+  	$ git checkout <tag> (if you want the specific released version)
+
+Option C: If you downloaded rhosync from github directly, you can download the new versions here: [http://github.com/rhomobile/rhosync/downloads](http://github.com/rhomobile/rhosync/downloads)
