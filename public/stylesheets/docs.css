@@ -16,7 +16,7 @@ body {
 	min-width: 1000px;
 	margin: 0;
 	padding: 0;
-	background:url("/images/bg/dash_header.png") repeat-x scroll 0 0 transparent;color:#000000;
+	background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;
 }
 
 div#container {
@@ -341,10 +341,23 @@ table.device-caps td.tbd {
 
 /*Header*/
 div#container {min-height: 100%;overflow: hidden;position: relative;}
-.nav_header {height: 62px;margin: 0 auto;position: relative;width: 960px;}
-.nav_header {background:url("/images/bg/dash_header.png") repeat-x scroll 0 0 transparent;color:#000000;}
+.nav_header {
+    color: #000000;
+}
+.nav_header {
+    height: 81px;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}
 .nav_header .nav_logos {overflow:hidden;position:absolute;top:9px;}
-.nav_header .nav_logos a.nav_logo_rhomobile {background:url("/images/bg/rhomobile_rhohub_logo.png") no-repeat scroll 0 0 transparent;float:left;height:38px;text-indent:-3000px;width:56px;}
+.nav_header .nav_logos a.nav_logo_rhomobile {
+    background: url("/images/rhomobile_logo.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 64px;
+    text-indent: -3000px;
+    width: 95px;
+}
 .nav_header .nav_logos a.nav_logo_rhohub {background:url("/images/bg/rhomobile_rhohub_logo.png") no-repeat scroll -56px 0 transparent;float:left;height:38px;text-indent:-3000px;width:145px;}
 #nav_menu {color:#CCCCCC;float:right;font-size:12px;padding:0;position:relative;top:-19px;}
 #nav_menu ul {background-repeat:no-repeat;color:#FFFFFF;font-family:arial;margin:27px 0 0;padding:0;}
