@@ -134,4 +134,3 @@ def name_for(doc)
   parts = doc.split('/')
   parts.size == 3 ? parts[1..-1].join('/').gsub(/\.txt/,'') : File.basename(doc, '.txt')
 end
-
