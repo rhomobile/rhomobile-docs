@@ -16,6 +16,7 @@ body {
 	min-width: 1000px;
 	margin: 0;
 	padding: 0;
+	background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;
 }
 
 div#container {
@@ -337,3 +338,48 @@ table.device-caps td.tbd {
 }
 
 </style>
+
+/*Header*/
+div#container {min-height: 100%;overflow: hidden;position: relative;}
+.nav_header {
+    color: #000000;
+}
+.nav_header {
+    height: 81px;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}
+.nav_header .nav_logos {overflow:hidden;position:absolute;top:9px;}
+.nav_header .nav_logos a.nav_logo_rhomobile {
+    background: url("/images/rhomobile_logo.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 64px;
+    text-indent: -3000px;
+    width: 95px;
+}
+.nav_header .nav_logos a.nav_logo_rhohub {background:url("/images/bg/rhomobile_rhohub_logo.png") no-repeat scroll -56px 0 transparent;float:left;height:38px;text-indent:-3000px;width:145px;}
+#nav_menu {color:#CCCCCC;float:right;font-size:12px;padding:0;position:relative;top:-19px;}
+#nav_menu ul {background-repeat:no-repeat;color:#FFFFFF;font-family:arial;margin:27px 0 0;padding:0;}
+#nav_menu ul li {display:inline;font-size:12px;padding:0;}
+#nav_menu ul li.nav_separator{position:relative;top:9px;}
+#nav_menu ul li#current {-moz-border-radius:5px;-webkit-border-radius:5px;background:none repeat scroll 0 0 rgba(255, 255, 255, 0.15);padding:5px 0;text-decoration:none;}
+#nav_menu ul li a {height:24px;margin:0 auto;padding-left:12px;padding-right:12px;text-align:center;text-shadow:1px 1px 0 #000000;}
+#nav_menu ul li a.current {color:#FFFFFF;padding-bottom:5px;padding-top:5px;}
+#nav_menu ul li a.nav_logout {color:#FFFFFF;}
+#nav_menu ul li a.nav_logout:hover{-moz-border-radius:0px;-webkit-border-radius:0px;color:#c0c0c0;text-decoration:none;background:none;}
+#nav_menu a:link, #nav_menu a:visited, #nav_menu a:active {	color:#CCCCCC;font-weight:bold;	text-decoration:none;}
+#nav_menu a:hover { -moz-border-radius:5px;	-webkit-border-radius:5px;background:none repeat scroll 0 0 rgba(255, 255, 255, 0.15);color:#FFFFFF;padding:5px 12px;	text-decoration:none;}
+/*Footer*/
+#footer{background: none repeat scroll 0 0 #363736;bottom: 0;height: 85px;margin-top: 40px;width: 100%;float: left;position: absolute;}
+#footer a{color:#FFFFFF;}
+#footer .footer_content{width:962px;margin: 0 auto;}
+#footer .footer_content p{color:#FFFFFF;font-size:12px;margin-top:10px;}
+#footer .footer_content div{padding-top:15px;}
+#footer .footer_content .foot_left{float:left;}
+#footer .footer_content .foot_left a img{border:none;}
+#footer .footer_content .foot_right{float:right;}
+.ul_footer{font-size:12px;list-style-type:none;margin-top:5px;padding-left:0;}
+.ul_footer li{color:#FFFFFF;display:inline;padding-right:5px;}
+.ul_footer li a{color:#FFFFFF;}
+.ul_footer li a:hover{text-decoration:none;}
