@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/hone/indextank-rb.git
+  revision: 61c2179
+  ref: 61c217938b9c96f69ba0
+  specs:
+    indextank (0.0.1)
+      faraday
+      yajl-ruby (= 0.7.7)
+
+GIT
   remote: git://github.com/technoweenie/faraday
   revision: 3aa840d
   ref: 3aa840d012875ee80410
@@ -16,12 +25,7 @@ GEM
     heroku-nav (0.1.19)
       json
       rest-client (>= 1.0)
-    indextank (1.0.7)
-      faraday
-      json_pure (>= 1.4.6)
-      yajl-ruby (>= 0.7.7)
     json (1.4.6)
-    json_pure (1.5.1)
     mime-types (1.16)
     nokogiri (1.4.3.1)
     rack (1.2.1)
@@ -38,7 +42,7 @@ GEM
       rack (~> 1.1)
       tilt (~> 1.2)
     tilt (1.2.1)
-    yajl-ruby (0.8.1)
+    yajl-ruby (0.7.7)
 
 PLATFORMS
   ruby
@@ -48,7 +52,7 @@ DEPENDENCIES
   faraday!
   haml (= 2.2.17)
   heroku-nav (~> 0)
-  indextank
+  indextank!
   json
   rack (= 1.2.1)
   rack-codehighlighter

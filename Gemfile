@@ -14,7 +14,7 @@ gem 'coderay'
 gem 'rack-codehighlighter'
 gem 'shotgun'
 gem 'faraday',   :git => 'git://github.com/technoweenie/faraday',  :ref => '3aa840d012875ee80410'
-gem 'indextank'
+gem 'indextank', :git => 'git://github.com/hone/indextank-rb.git', :ref => '61c217938b9c96f69ba0'
 
 group :development do
   gem "rake"
