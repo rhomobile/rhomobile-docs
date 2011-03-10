@@ -203,15 +203,15 @@ RhoSync provides a simple redis interface for saving/retrieving arbitrary data. 
 
 	Store.get_value('hello') #=> 'world'
 
-	# You can store hashes too!
+	# You can store nested hashes too!
 	Store.put_data(
 	  'mydata',
 	  {
-	    :hello => 'world'
+	    '1' => { 'hello' => 'world' }
 	  }
 	)
 
-	Store.get_data('mydata') #=> { 'hello' => 'world' }
+	Store.get_data('mydata') #=> { '1' => { 'hello' => 'world' } }
 	
 ## Handling Exceptions
 If your source adapter raises an instance of `SourceAdapterException`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/rhodes/synchronization#handling-exceptions) for more details.
