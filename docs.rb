@@ -13,6 +13,12 @@ require './topic'
 #     :blog => true, :subscribe => false, :support => false, :footer => false #footer true/false if you (or don't) want render the footer
 #   }
 # end
+  
+unless development?
+  PDFKit.configure do |config|       
+   config.wkhtmltopdf = File.expand_path(File.join( File.dirname(__FILE__), 'bin', 'wkhtmltopdf-amd64')).to_s  
+  end
+end
 
 require 'coderay'
 require './lib/term.rb'
