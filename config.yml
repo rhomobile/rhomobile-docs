@@ -6,6 +6,7 @@ development:
     rhogallery: '../rhogallery/doc/'
     guides: 'docs/'
   index: 'rhodocs_edge'
+  pdfkithost: 'localhost:9393'
 edge:
   dirs:
     rhosync: 'docs/rhosync/'
@@ -14,6 +15,7 @@ edge:
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
   index: 'rhodocs_edge'
+  pdfkithost: 'edgedocs.rhomobile.com'
   rhonav_host: http://app.staging.rhohub.com
 production:
   dirs:
@@ -23,4 +25,5 @@ production:
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
   index: 'rhodocs'
+  pdfkithost: 'docs.rhomobile.com'
   rhonav_host: https://app.rhohub.com

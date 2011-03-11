@@ -3,6 +3,7 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 require 'indextank'
+require 'pdfkit'
 require './topic'
 
 # unless development?
@@ -61,8 +62,16 @@ end
 	  cache_long
 	  if params[:subpath] == "print" 
 	    render_topic params[:topic], nil, 1
+    elsif params[:subpath] == "pdf"
+      kit = PDFKit.new('http://' + AppConfig['pdfkithost'] + '/print/' +  params[:topic])
+      content_type 'application/pdf'
+      kit.to_pdf
 	  elsif params[:printme] == "print"
 	    render_topic params[:topic], params[:subpath], 1
+    elsif params[:printme] == "pdf"
+      kit = PDFKit.new('http://' + AppConfig['pdfkithost'] + '/print/' + params[:subpath] + '/' +  params[:topic])
+      content_type 'application/pdf'
+      kit.to_pdf
 	  else
   	  render_topic params[:topic], params[:subpath], 0
   	end

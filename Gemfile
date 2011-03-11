@@ -1,6 +1,7 @@
 source :gemcutter
 
 #gem 'thin'
+gem 'pdfkit'
 gem 'rack', '1.2.1'
 gem 'sinatra', '1.1.2'
 gem 'rdiscount', '1.6.8'
