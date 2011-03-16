@@ -16,13 +16,16 @@ require './topic'
   
 unless development?
   PDFKit.configure do |config|       
-   config.wkhtmltopdf = File.expand_path(File.join( File.dirname(__FILE__), 'bin', 'wkhtmltopdf-amd64')).to_s  
+   config.wkhtmltopdf = File.expand_path(File.join( File.dirname(__FILE__), 'bin', 'wkhtmltopdf-amd64')).to_s
+   #config.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf'
   end
 end
 
 require 'coderay'
 require './lib/term.rb'
 require 'rack/codehighlighter'
+require './pdfmaker'
+use PdfMaker
 use Rack::Codehighlighter, :coderay, :markdown => true, :element => "pre>code", 
   :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
 
@@ -63,23 +66,18 @@ end
 
 #get '/:topic' do
 # TODO: use proper regex
-['/:topic/?', '/:subpath/:topic/?', '/:printme/:subpath/:topic/?'].each do |path|
+['/:topic/?', '/:subpath/:topic/?'].each do |path|
   get path do
 	  cache_long
-	  if params[:subpath] == "print" 
-	    render_topic params[:topic], nil, 1
-    elsif params[:subpath] == "pdf"
-      kit = PDFKit.new('http://' + AppConfig['pdfkithost'] + '/print/' +  params[:topic])
-      content_type 'application/pdf'
-      kit.to_pdf
-	  elsif params[:printme] == "print"
-	    render_topic params[:topic], params[:subpath], 1
-    elsif params[:printme] == "pdf"
-      kit = PDFKit.new('http://' + AppConfig['pdfkithost'] + '/print/' + params[:subpath] + '/' +  params[:topic])
-      content_type 'application/pdf'
-      kit.to_pdf
-	  else
+
+    # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
+    if params[:topic] =~ /(\.pdf|\.print)$/
+      newtopic = params[:topic].gsub(/(\.pdf|\.print)/,"")
+	    render_topic newtopic, params[:subpath], 1
+
+    else
   	  render_topic params[:topic], params[:subpath], 0
+
   	end
   end
 end
