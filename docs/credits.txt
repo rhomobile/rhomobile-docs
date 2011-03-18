@@ -73,9 +73,6 @@
  <b>Apache 2.2<b/> [http://httpd.apache.org](http://httpd.apache.org)<br/>
  License: Apache License 2.0 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
- <b>NSIS 2.46<b/> [http://nsis.sourceforge.net](http://nsis.sourceforge.net)<br/>
- License: Common Public License (mixed) [http://nsis.sourceforge.net/License](http://nsis.sourceforge.net/License)
-
  <b>thin 1.2.8<b/> [https://github.com/macournoyer/thin](https://github.com/macournoyer/thin)<br/>
  License: MIT [https://github.com/macournoyer/thin/blob/master/COPYING](https://github.com/macournoyer/thin/blob/master/COPYING)
 
