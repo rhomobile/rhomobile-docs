@@ -11,19 +11,29 @@ class PdfMaker
       
       content = response.join("")
 
-      # Replace relative links with absolute links
-      # First, regex for all a href elements
-      content.gsub!(/<a href="(.*?)">(.*?)<\/a>/) do |match|
-        url = $1
-        text = $2
+      # Perform regexes to transform content to make it more PDFKit-riendly
+
+      # Replace note elements with actual note icons, since PDFKit won't render background images as
+      # defined in external CSS files
+      content.gsub!(/<td class="icon"><\/td>/) do |match|
+        "<td class=\"icon\"><img src=\"/images/note.png\"></td>"
+      end
+
+      # Use regexes to replace relative links/images with fully qualified links/images
+      # Otherwise, PDF will try to link to file:// and images will be broken
+      content.gsub!(/<(a href|img src)="(.*?)">(.*?)(?:<\/a>|)/) do |match|
+        type = $1
+        url = $2
+        text = $3
         
         # If there's no colon in the URL, then assume it's a relative link, and make it absolute
         if !(url.include? ":")
+          #puts "Subbing for " + type + " " + url
           if !( url =~ /^\// )
             url = "/"+url
           end
           
-          '<a href="http://'+ env["HTTP_HOST"] + url.to_s + '" style="font-style:italic">' + text.to_s + '</a>'
+          '<'+type+'="http://'+ env["HTTP_HOST"] + url.to_s + '" style="font-style:italic">' + text.to_s + '</a>'
         else
           # Colon in the URL, leave it as is (ftp, http, mailto...)
           match
