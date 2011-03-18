@@ -1,0 +1,82 @@
+#Third party software credits
+
+###Rhodes contains code from the following other projects:
+
+ <b>Ruby language 1.9.1</b> [http://www.ruby-lang.org/](http://www.ruby-lang.org/)<br/>
+ License: GPL or Ruby own license [http://www.ruby-lang.org/en/about/license.txt](http://www.ruby-lang.org/en/about/license.txt)
+
+ <b>XRuby 0.3.3</b> [http://code.google.com/p/xruby/](http://code.google.com/p/xruby/)<br/>
+ License: Apache License 2.0 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+ <b>sqlite 3.7.5</b> [http://www.sqlite.org/index.html](http://www.sqlite.org/index.html)<br/>
+ License: Public Domain [http://www.sqlite.org/copyright.html](http://www.sqlite.org/copyright.html)
+
+ <b>libcurl 7.19.7</b> [http://curl.haxx.se/](http://curl.haxx.se/)<br/>
+ License: MIT/X derivate license [http://curl.haxx.se/docs/copyright.html](http://curl.haxx.se/docs/copyright.html)
+
+ <b>JSON-C 0.9</b> [http://oss.metaparadigm.com/json-c/](http://oss.metaparadigm.com/json-c/)<br/>
+ License: MIT derivate license [http://oss.metaparadigm.com/json-c/COPYING](http://oss.metaparadigm.com/json-c/COPYING)
+
+ <b>tcmalloc 1.2</b> [http://code.google.com/p/google-perftools/](http://code.google.com/p/google-perftools/)<br/>
+ License: BSD [http://www.opensource.org/licenses/bsd-license.php](http://www.opensource.org/licenses/bsd-license.php)
+
+ <b>HSQLDB 1.8</b> [http://hsqldb.org/](http://hsqldb.org/)<br/>
+ License: based on BSD License [http://hsqldb.org/web/hsqlLicense.html](http://hsqldb.org/web/hsqlLicense.html)
+
+ <b>Javolution 5.2</b> [http://javolution.org/](http://javolution.org/)<br/>
+ License: BSD [http://javolution.org/LICENSE.txt](http://javolution.org/LICENSE.txt)
+
+ <b>JSON ME 2.0</b> [https://github.com/upictec/org.json.me/](https://github.com/upictec/org.json.me/)<br/>
+ License: json.org [https://github.com/upictec/org.json.me/blob/master/src/main/java/org/json/me/JSONArray.java](https://github.com/upictec/org.json.me/blob/master/src/main/java/org/json/me/JSONArray.java)
+
+ <b>Apache ORO library 2.0.8</b> [http://jakarta.apache.org/oro/](http://jakarta.apache.org/oro/)<br/>
+ License: Apache License 2.0 [http://svn.apache.org/repos/asf/jakarta/oro/trunk/LICENSE](http://svn.apache.org/repos/asf/jakarta/oro/trunk/LICENSE)
+
+ <b>zxing 1.6</b> [http://code.google.com/p/zxing/](http://code.google.com/p/zxing/)<br/>
+ License: Apache License 2.0 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+ 
+ <b>zbar 0.10</b> [http://zbar.sourceforge.net/](http://zbar.sourceforge.net/)<br/>
+ License: GNU LGPL 2.1 [http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+
+###RhoSync uses following other projects:
+
+ <b>Ruby language 1.8.7<b/> [http://www.ruby-lang.org/en/downloads/](http://www.ruby-lang.org/en/downloads/)<br/>
+ License: GPL or Ruby own license [http://www.ruby-lang.org/en/about/license.txt](http://www.ruby-lang.org/en/about/license.txt)
+
+ <b>Redis 1.2.6 or 2.2.1<b/> [http://redis.io](http://redis.io)<br/>
+ License: BSD [https://github.com/antirez/redis/blob/master/COPYING](https://github.com/antirez/redis/blob/master/COPYING)
+
+ <b>Resque 1.13.0<b/> [https://github.com/defunkt/resque](https://github.com/defunkt/resque)<br/>
+ License: MIT-like [https://github.com/defunkt/resque/blob/master/LICENSE](https://github.com/defunkt/resque/blob/master/LICENSE)
+
+ <b>Sinatra 1.1.3<b/> [http://www.sinatrarb.com/](http://www.sinatrarb.com/)<br/>
+ License: MIT-like [https://github.com/sinatra/sinatra/blob/master/LICENSE](https://github.com/sinatra/sinatra/blob/master/LICENSE)
+
+ <b>sqlite3-ruby 1.2.5<b/> [http://github.com/luislavena/sqlite3-ruby](http://github.com/luislavena/sqlite3-ruby)<br/>
+ License: MIT-like [https://github.com/luislavena/sqlite3-ruby/blob/master/LICENSE](https://github.com/luislavena/sqlite3-ruby/blob/master/LICENSE)
+
+ <b>log4r 1.1.7<b/> [http://log4r.rubyforge.org/](http://log4r.rubyforge.org/)<br/>
+ License: GNU LGPLv3 [http://log4r.rubyforge.org/license.html](http://log4r.rubyforge.org/license.html)
+
+ <b>uuidtools 2.1.1<b/> [https://github.com/sporkmonger/uuidtools/](https://github.com/sporkmonger/uuidtools/)<br/>
+ License: MIT-like [https://github.com/sporkmonger/uuidtools/blob/master/LICENSE](https://github.com/sporkmonger/uuidtools/blob/master/LICENSE)
+
+ <b>rest-client 1.6.1<b/> [https://github.com/archiloque/rest-client](https://github.com/archiloque/rest-client)<br/>
+ License: MIT [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
+
+ <b>json 1.4.6<b/> [http://flori.github.com/json/](http://flori.github.com/json/)<br/>
+ License: GPL2 or Ruby [http://www.ruby-lang.org/en/LICENSE.txt](http://www.ruby-lang.org/en/LICENSE.txt)
+
+ <b>templater 1.0.0<b/> [https://github.com/jnicklas/templater](https://github.com/jnicklas/templater)<br/>
+ License: MIT [https://github.com/jnicklas/templater](https://github.com/jnicklas/templater)
+
+ <b>Apache 2.2<b/> [http://httpd.apache.org](http://httpd.apache.org)<br/>
+ License: Apache License 2.0 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+ <b>NSIS 2.46<b/> [http://nsis.sourceforge.net](http://nsis.sourceforge.net)<br/>
+ License: Common Public License (mixed) [http://nsis.sourceforge.net/License](http://nsis.sourceforge.net/License)
+
+ <b>thin 1.2.8<b/> [https://github.com/macournoyer/thin](https://github.com/macournoyer/thin)<br/>
+ License: MIT [https://github.com/macournoyer/thin/blob/master/COPYING](https://github.com/macournoyer/thin/blob/master/COPYING)
+
+

@@ -6,6 +6,7 @@ section 'getting-started', "Getting Started" do
   topic 'tutorials',            'How To'
   topic 'faq',                  'Frequently Asked Questions'
   topic 'secure-apps',          'Building Highly Secure Apps'
+  topic 'credits',              'Credits'
 end
 
 section 'rhodes-reference', "Rhodes Developer Reference" do
