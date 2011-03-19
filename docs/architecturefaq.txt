@@ -1,0 +1,20 @@
+Rhodes Architecture: Frequently Asked Questions
+===
+
+## Is Rhodes a "virtual machine" or interpreter?  Aren't those slow?
+Rhodes compiles Ruby into Ruby 1.9 bytecode.  Apps written in Rhodes are very fast, and in fact faster on Android than an Android Java app (since Rhodes itself is written in C++ with the Android NDK). Since most Rhodes apps use RhoSync for synchronized local data, the data is always available locally and hence most Rhodes apps appear to the user as far faster than apps written with an underlying SDK. 
+
+## Are frameworks acceptable on the App Store?
+There are thousands of apps written with Rhodes and other frameworks on the App Store. Apple has clarified that use of frameworks is completely acceptable.  No Rhodes app has ever been rejected for using a framework. 
+
+## Will Rhodes apps look as good as "native" apps?
+Rhodes is for building native apps.  But for developer productivity, Rhodes allows programmers to use HTML for its their views (interfaces). Combined with HTML5/CSS/JavaScript libraries like [SenchaTouch](http://sencha.com) and [JQuery Mobile](http://jquerymobile.com) Rhodes enables much better user interfaces than are typically done with underlying SDKs or with frameworks that use their own JavaScript UI libraries (such as Appcelerator). Rhodes apps are generated with support for [JQTouch](jqtouch.com) out of the box today, buth it is easy to use Sencha or JQuery Mobile as well.  
+
+## What about when you need to use "native controls"?
+Rhodes includes several "native controls" such as native mapping, a date/time picker, tabbars and toolbars, and signature capture.  But developers can add their own controls as well via [native extensions](http://docs.rhomobile.com/rhodes/extensions#native-view-extensions)
+
+## Do I have to use RhoSync to connect to a backend system?
+The RhoSync app integration server makes it much easier to connect to enterprise apps and informational feeds.  But it is not required. You can connect directly from Rhodes via [AsyncHttp](http://docs.rhomobile.com/rhodes/connect-to-web-services#asynchttp-api)
+
+## Why use RhoSync then?
+RhoSync bypasses the need to connect, retrieve, parse, and store data on the device.  All data is automatically retrieved from the backend and synchronized to the device. All that is necessary is providing the RhoSync server a "source adapter" which implements "query", "create", "update" and "delete" methods to interact with the data source.
