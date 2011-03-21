@@ -11,10 +11,49 @@ There are thousands of apps written with Rhodes and other frameworks on the App 
 Rhodes is for building native apps.  But for developer productivity, Rhodes allows programmers to use HTML for its their views (interfaces). Combined with HTML5/CSS/JavaScript libraries like [SenchaTouch](http://sencha.com) and [JQuery Mobile](http://jquerymobile.com) Rhodes enables much better user interfaces than are typically done with underlying SDKs or with frameworks that use their own JavaScript UI libraries (such as Appcelerator). Rhodes apps are generated with support for [JQTouch](jqtouch.com) out of the box today, buth it is easy to use Sencha or JQuery Mobile as well.  
 
 ## What about when you need to use "native controls"?
-Rhodes includes several "native controls" such as native mapping, a date/time picker, tabbars and toolbars, and signature capture.  But developers can add their own controls as well via [native extensions](http://docs.rhomobile.com/rhodes/extensions#native-view-extensions)
+Rhodes includes several "native controls" such as native mapping, a date/time picker, tabbars and toolbars, and signature capture.  But developers can add their own controls as well via [native extensions](http://docs.rhomobile.com/rhodes/extensions#native-view-extension)
+
+## Do you really expose all device capabilities?
+Rhodes exposes [almost every capability of the underlying device](http://docs.rhomobile.com/rhodes/device-caps).  
+
+## What if some device capability is not supported?   
+You can implement it with [Rhodes native extensions](http://docs.rhomobile.com/rhodes/extensions#native-extensions)
+
+## Why do I need MVC?
+The Model View Controller pattern separates data definitions (models) from business logic (controllers) from interfaces (views).  MVC based apps are far more maintainable and understandable.  All modern web development languages now use MVC as their dominant approach (Java/Struts, ASP.NET MVC, Python/Django, Ruby/Rails, PHP/Zend). Rhodes is the only framework to offer MVC for native mobile app development. 
+
+## Isn't MVC on the server enough?
+Having a backend app written with MVC is great.  If you have real business logic on the device, MVC is a better approach.  
+
+## Can I really use Rho if I am not a Ruby programmer?
+Ruby is easy to learn.  See [Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/). Just as most Ruby on Rails programmers came to Rails years ago without any Ruby background, most Rhodes developers do not start doing Rhodes development with existing Ruby knowledge.  The Rhodes app generator generates the basic business logic in Ruby, allowing developers with zero Ruby knowledge to be immediately productive with Rhodes.   
+
+## How do I debug my app?
+Use the Rhodes debugger.  See the [Rhodes debugger webinar](http://www.youtube.com/watch?v=xtpjlIdOdQE&feature=player_profilepage)
+
+##  How can I unit test my app as a developer?
+Rhodes is the only smartphone framework to include a test framework. You can include tests with both your Rhodes and RhoSync apps.  See the [Rhodes advanced testing webinar](http://vimeo.com/19403983)
+
+## How does Rho help get apps to alpha and beta testers?
+You can use the RhoGallery feature of [RhoHub](http://rhohub.com) to distribute apps to your initial testers. 
 
 ## Do I have to use RhoSync to connect to a backend system?
 The RhoSync app integration server makes it much easier to connect to enterprise apps and informational feeds.  But it is not required. You can connect directly from Rhodes via [AsyncHttp](http://docs.rhomobile.com/rhodes/connect-to-web-services#asynchttp-api)
 
 ## Why use RhoSync then?
 RhoSync bypasses the need to connect, retrieve, parse, and store data on the device.  All data is automatically retrieved from the backend and synchronized to the device. All that is necessary is providing the RhoSync server a "source adapter" which implements "query", "create", "update" and "delete" methods to interact with the data source.
+
+## How do I handle varying dynamic schemas of backend apps?
+Rhodes and RhoSync feature a [metadata framework](http://docs.rhomobile.com/rhosync/metadata). The metadata framework let you write a single app which works regardless of the underlying data schema.  This is important when writing an app to connect to an enterprise application for CRM or ERP, which never use a standard schema. It allows ISVs to build apps to make available on App Stores, which will work regardless of how the customer has customized their enterprise application.
+
+## How well does RhoSync scale?
+Rhodes is the most scalable sync server available. This is primarily due to its use of a NoSQL database: [Redis](http://redis.io/)
+
+## How well does RhoSync handle large data synchronization?
+RhoSync handles large data sync better than any other sync server with [bulk sync](http://docs.rhomobile.com/rhosync/bulk-sync)
+
+## How do I secure data on the device?
+Rhodes is the only way (framework or underlying SDK) to support [automatic data encryption](http://docs.rhomobile.com/rhodes/rhom#database-encryption)
+
+## How do I handle lost or stolen devices?
+You can purchase a mobile device management server or just use the free RhoGallery feature on [RhoHub](http://rhohub.com)

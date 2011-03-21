@@ -4,9 +4,9 @@ section 'getting-started', "Getting Started" do
   topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
   topic 'tutorials',            'How To'
-  topic 'faq',                  'Frequently Asked Questions'
+  topic 'architecturefaq',      'Architecture FAQ'
+  topic 'faq',                  'Programming FAQ'
   topic 'secure-apps',          'Building Highly Secure Apps'
-  topic 'credits',              'Credits'
 end
 
 section 'rhodes-reference', "Rhodes Developer Reference" do
@@ -25,6 +25,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/extensions',        'Extending the Rhodes Framework'
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
   topic 'rhodes/contributing',      'Contributing'
+  topic 'credits',              'Credits'
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
