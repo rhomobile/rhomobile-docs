@@ -28,6 +28,12 @@ Having a backend app written with MVC is great.  If you have real business logic
 ## Can I really use Rho if I am not a Ruby programmer?
 Ruby is easy to learn.  See [Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/). Just as most Ruby on Rails programmers came to Rails years ago without any Ruby background, most Rhodes developers do not start doing Rhodes development with existing Ruby knowledge.  The Rhodes app generator generates the basic business logic in Ruby, allowing developers with zero Ruby knowledge to be immediately productive with Rhodes.   
 
+## Can I write Rhodes apps with my favorite editor/Integrated Development Environment?   
+Rhodes apps can be written with any editor or IDE which supports Ruby and HTML.  This includes Eclipse, IntelliJ, NetBeans, Visual Studio, Textmate, VIM, emacs and others.
+
+## Why doesn't Rhodes include its own IDE?
+We believe that it is best to insure that Rhodes works with the developer's favorite IDE. That said, [RhoHub 3.0](http://rhohub.com) includes a hosted IDE, allowing developers to write apps whether or not they have anything installed locally on their own machine.  You can generate, edit, and build your native smartphone apps, all online on RhoHub.  
+
 ## How do I debug my app?
 Use the Rhodes debugger.  See the [Rhodes debugger webinar](http://www.youtube.com/watch?v=xtpjlIdOdQE&feature=player_profilepage)
 
