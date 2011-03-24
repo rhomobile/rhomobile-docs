@@ -44,7 +44,7 @@ Rhodes is the only smartphone framework to include a test framework. You can inc
 You can use the RhoGallery feature of [RhoHub](http://rhohub.com) to distribute apps to your initial testers. 
 
 ## Do I have to use RhoSync to connect to a backend system?
-The RhoSync app integration server makes it much easier to connect to enterprise apps and informational feeds.  But it is not required. You can connect directly from Rhodes via [AsyncHttp](http://docs.rhomobile.com/rhodes/connect-to-web-services#asynchttp-api)
+The RhoSync app integration server makes it much easier to connect to enterprise apps and informational feeds.  But it is not required. You can connect directly from Rhodes via [AsyncHttp](http://docs.rhomobile.com/rhodes/connect-to-web-services#asynchttp-api). See the AsyncHttp example code which connects to an XML feed at and parses it with Rexml.
 
 ## Why use RhoSync then?
 RhoSync bypasses the need to connect, retrieve, parse, and store data on the device.  All data is automatically retrieved from the backend and synchronized to the device. All that is necessary is providing the RhoSync server a "source adapter" which implements "query", "create", "update" and "delete" methods to interact with the data source.
@@ -60,6 +60,9 @@ RhoSync handles large data sync better than any other sync server with [bulk syn
 
 ## How do I secure data on the device?
 Rhodes is the only way (framework or underlying SDK) to support [automatic data encryption](http://docs.rhomobile.com/rhodes/rhom#database-encryption)
+
+## What about Rho for highly secure apps in general?
+You need to handle on device encryption (see last question), transport security, and delegated authentication.  See [Building Highly Secure Apps](http://docs.rhomobile.com/secure-apps).  
 
 ## How do I handle lost or stolen devices?
 You can purchase a mobile device management server or just use the free RhoGallery feature on [RhoHub](http://rhohub.com)

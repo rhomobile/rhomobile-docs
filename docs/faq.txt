@@ -17,9 +17,6 @@ Edit the `app/index.erb` to create some content:
 	  <li><a href="another.erb">Hello, world which links to another page</a></li>
 	</ul>
 
-## I don't know Ruby.  Why don't you teach us Ruby in your tutorials?
-As shown in the above example and tutorials you can do a lot without knowing much Ruby.  But you can build much more sophisticated apps with some Ruby knowledge.  There are many great Ruby tutorials out there and we could probably not improve on them.  One of them is [Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/).
-
 ## How do I add an OK button to my app?
 The generated code from running (`rhodes model <modelname> <attributelist>`) contains several samples. Here's a smaller fragment.
 	 
@@ -96,23 +93,6 @@ You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-databa
 
 ## How do I customize the app name and icons?
 Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
-
-## What about Rhodes/RhoSync and security?
-There are three main points with synchronized data smartphone apps and security:
-
-*  Securing data over the wire
-
-	Just as with an Objective C or Android Java app, you will transmit the data over SSL (https).  Both Rhodes alone and Rhodes plus RhoSync support use of https as a transport. In fact it is easier with Rhodes than with Objective C. You just list an https URL and Rhodes will connect to the backend appropriately. This is in contrast to underlying SDKs where significantly different code is written to connect to an https URL.
-
-* Storing encrypted data on the device
-
-    [Database Encryption](/rhodes/rhom#database-encryption)
-
-* Authentication
-
-	There needs to be authentication to some form of directory for optimal sync server security.  RhoSync makes it very easy to perform authentication by simply providing an "authenticate" method that can call to any directory authority. A typical authenticate method is less than five lines of code.
-	
-	There is also the issue of how does RhoSync authenticate with your backend service each time an adapter is executed.  This is done via the "login" method in the source adapter.
 
 ## How to improve application perfomance on Blackberry?
 * Before test application for perfomance set warning log level in rhoconfig.txt:
