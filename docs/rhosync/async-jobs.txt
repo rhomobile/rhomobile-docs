@@ -65,4 +65,5 @@ For more information on the options available when running resque workers, pleas
 If you want to run resque workers in daemon mode, we recommend using [nohup](http://en.wikipedia.org/wiki/Nohup), [god](http://github.com/defunkt/resque/tree/master/examples/god/), or [monit](http://github.com/defunkt/resque/tree/master/examples/monit):
 
 	:::term
-  	$ nohup rake resque:work & &> log/resque_worker_QUEUE.log
+	$ mkdir log/; touch log/resque_worker_QUEUE.log # if it doesn't exist
+  	$ nohup QUEUE=* rake resque:work & &> log/resque_worker_QUEUE.log
