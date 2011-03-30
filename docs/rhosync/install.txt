@@ -27,12 +27,12 @@ To install the latest stable RhoSync gem, run:
 
 ### Installing Redis
 
-**NOTE: Skip these steps below if you want to use the [rhosync rake tasks](/rhosync/command-line#rake-tasks) to install redis.**
+**NOTE: This describes a simple installation of redis.  See [the redis site](http://redis.io) for more thorough instructions on setting up a production redis environment.  Skip these steps below if you want to use the [rhosync rake tasks](/rhosync/command-line#rake-tasks) to install redis.**
 
 	:::term
-  	$ wget http://redis.googlecode.com/files/redis-2.0.4.tar.gz
-	$ tar xvzf redis-2.0.4.tar.gz
-	$ cd redis-2.0.4
-	$ make
-	$ ./redis-server
+  	$ wget http://redis.googlecode.com/files/redis-2.2.2.tar.gz
+	$ tar xvzf redis-2.2.2.tar.gz
+	$ cd redis-2.2.2
+	$ make && make install
+	$ redis-server
 	
