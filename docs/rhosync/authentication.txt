@@ -25,6 +25,24 @@ If your backend service requires authentication, simply add code to the authenti
 	  return success
 	end
 
+## Changing Login
+If your actual user name is different than the username that is input into the client, you can change the username by returning a string instead of true if authentication was successful.
+
+  :::ruby
+	def authenticate(username, password, session)
+	  success = false 
+	  # ... connect to backend using API and authenticate ... 
+	  result = do_custom_authentication(username,password) 
+	  if result.code == 200
+	    new_user = custom_user_mapping(username)
+	    # save the data for later use in the source adapter
+	    Store.put_value("username:#{new_user}:token",result.body)
+		  success = new_user
+	  end
+	  return success
+	end
+  
+
 ## LDAP Example
 The code sample above demonstrates authentication by calling a method you would implement called 'do_custom_authentication' that returns an HTTP response object, however the actual implementation is left as an exercise.  If your application needs to connect to LDAP, you can use the following sample code to perform simple authentication:
 
@@ -55,3 +73,4 @@ This example uses the [net-ldap](https://github.com/RoryO/ruby-net-ldap) gem.  T
 	$ [sudo] gem install net-ldap
 	
 For more details about LDAP, please visit [http://www.openldap.org/](http://www.openldap.org/).
+
