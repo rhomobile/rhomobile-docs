@@ -249,7 +249,7 @@ The create method will be called once for every object that has been created on 
 
 	:::ruby
 	def create(create_hash, blob=nil)
-      result = RestClient.post(@base,:product => new_object_hash)
+      result = RestClient.post(@base, :product => create_hash)
     
       # after create we are redirected to the new record.
       # The URL of the new record is given in the location header
