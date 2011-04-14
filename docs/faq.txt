@@ -120,3 +120,12 @@ It takes a bit of time for WebView to load and parse html/css of your page; mean
 Please see more details about toolbar [here](/rhodes/ui#native-toolbar-control)
 
 If you are loading javascript, consider doing it at the very end of your page; this way WebView will not wait for JS before parsing css and showing html. 
+
+## How to pre-populate client database
+* Run application on target emulator, insert objects to database(locally or get data from server)
+* Copy all files from 'db' folder on emulator to '<rhodes>/platform\shared\db\res\db'. Here is how to find 'db' emulator folder:
+    * iPhone: look inside log to find paths with guid - this is there application store files on emulator. Or run search by 'syncdbuser.sqlite' from disk root
+    * Android: difficult since emulator is virtual machine and files stored inside emulator. Use adb command line to find path to application package
+    * Windows Mobile: open device explorer from ActiveSync or 'Mobile Device center', navigate to 'Program Files/<application name>/rho/db'
+    * Blackberry: open on computer file system  - '<jde>/components/simulator/sdcard/Rho/<appname>/db
+* Build application, now all db files are in the application package
