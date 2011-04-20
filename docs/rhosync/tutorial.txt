@@ -58,8 +58,8 @@ You'll see a file similar to the following one below. The generated source adapt
 
 	:::ruby
 	class Product < SourceAdapter
-	  def initialize(source,credential)
-	    super(source,credential)
+	  def initialize(source)
+	    super(source)
 	  end
  
 	  def login

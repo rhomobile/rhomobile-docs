@@ -15,8 +15,8 @@ This will generate a new ruby class called `sources/product.rb`:
 
 	:::ruby
 	class Product < SourceAdapter
-	  def initialize(source,credential)
-	    super(source,credential)
+	  def initialize(source)
+	    super(source)
 	  end
  
 	  def login
@@ -238,9 +238,9 @@ Here's a complete example of how the completed [product adapter might look](http
 
 	class Product < SourceAdapter
   
-	  def initialize(source,credential)
+	  def initialize(source)
 	    @base = 'http://rhostore.heroku.com/products'
-	    super(source,credential)
+	    super(source)
 	  end
  
 	  def query(params=nil)

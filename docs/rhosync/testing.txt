@@ -21,16 +21,21 @@ From your application's root folder:
 	
 	:::term
   	$ rake rhosync:spec
-	[11:43:29 AM 2011-01-10] Rhosync Server v2.1.1 started...
+	[05:51:48 PM 2011-04-19] Rhosync Server v2.2.0 started...
 	Product
-	  should process Product query
-	  should process Product create
-	  should process Product update
-	  should process Product delete
+	  it should behave like SpecHelper
+	    should process Product query (PENDING: No reason given)
+	    should process Product create (PENDING: No reason given)
+	    should process Product update (PENDING: No reason given)
+	    should process Product delete (PENDING: No reason given)
+	Pending:
+	  Product it should behave like SpecHelper should process Product query
+	  Product it should behave like SpecHelper should process Product create
+	  Product it should behave like SpecHelper should process Product update
+	  Product it should behave like SpecHelper should process Product delete
 
-	Finished in 4.353873 seconds
-
-	4 examples, 0 failures
+	Finished in 0.05877 seconds
+	4 examples, 0 failures, 4 pending
 	
 
 This will also automatically generate an rcov report under 'coverage' if you have rcov installed (currently only Mac/Linux support rcov).
