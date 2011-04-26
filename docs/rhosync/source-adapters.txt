@@ -226,6 +226,8 @@ RhoSync provides a simple redis interface for saving/retrieving arbitrary data. 
 ## Handling Exceptions
 If your source adapter raises an instance of `SourceAdapterException`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/rhodes/synchronization#handling-exceptions) for more details.
 
+You can use `SourceAdapterException` as a convenient way to notify your application of various error conditions.
+
 For example, your delete method might check the web service HTTP response code was 200 to make sure the record was deleted:
 
 	:::ruby
@@ -238,6 +240,37 @@ For example, your delete method might check the web service HTTP response code w
 
 **NOTE: When your adapter method raises an exception, no data is removed from the adapter's master document.**
 
+The following exceptions are provided for convenience:
+
+### `SourceAdapterLoginException`
+Useful to raise in your adapter's login method if it failed.
+
+### `SourceAdapterLogoffException`
+Similar to login, raise this if your adapter's logoff failed.
+
+### `SourceAdapterServerTimeoutException`
+Raise if your backend service connection times out.
+
+### `SourceAdapterServerErrorException`
+Raise this if your backend service returns a non-successful response.
+
+
+## Handling Conflicts
+
+Handling conflicts in RhoSync follows the same pattern as handling exceptions.  Once your adapter method has detected a conflict, you can raise a `SourceAdapterObjectConflictError` which will be sent to your application's sync callback.
+
+### `SourceAdapterObjectConflictError`
+Raise this if your adapter has detected a conflict.
+
+	:::ruby
+	def update(update_hash) 
+      obj_id = update_hash['id']
+      update_hash.delete('id')   
+      rest_result = RestClient.put("#{@base}/#{obj_id}",:product => update_hash)
+	  if rest_result.code != 200
+	    raise SourceAdapterObjectConflictError.new("Conflict detected updating the object.")
+	  end
+    end
 
 ## Sample Adapter
 Here's a complete example of how the completed [product adapter might look](https://github.com/rhomobile/store-server/blob/master/sources/product.rb):
