@@ -2,8 +2,8 @@ Rhomobile Product Releases
 ===
 
 ## Current Release
-* Rhodes - [2.3.1 Release Notes](https://github.com/rhomobile/rhodes/raw/2.3.1/CHANGELOG)
-* RhoSync - [2.2.0 Release Notes](https://github.com/rhomobile/rhosync/raw/master/CHANGELOG)
+* Rhodes - [2.4.1 Release Notes](https://github.com/rhomobile/rhodes/raw/2.3.1/CHANGELOG)
+* RhoSync - [2.1.2 Release Notes](https://github.com/rhomobile/rhosync/raw/2.1.2/CHANGELOG)
 
 Please make sure to review the [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) pages periodically for information on new features.
 
