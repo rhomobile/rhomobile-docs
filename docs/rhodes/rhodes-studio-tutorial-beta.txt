@@ -1,0 +1,229 @@
+RhoStudio
+==============
+
+RhoStudio is an Eclipse plugin that facilitates development of native smartphone applications.
+
+Use RhoStudio to:
+* Generate Rhodes application(s)
+* Generate Rhodes Model(s) and associated Controllers and View templates
+* Manage build configuration (build.yml and rhobuild.yml) using the Eclipse UI
+* Build and run on Rhodes application on iPhone, Android, Windows Mobile, and BlackBerry simulators and devices
+* See the build and application execution logs in Eclipse output console
+
+
+Eclipse Installation
+----------------
+
+If you already have Eclipse installed, please ensure you have a supported version of Eclipse. Eclipse has a number of different versions, some of which may exhibit different behavior with the RhoStudio plugin. For this reason, RhoStudio is supported in Eclipse version 3.6.x (i.e. Helios) or later.
+
+If you already have a supported version of Eclipse, skip the next section entitled "Installing RhoStudio in Eclipse".
+
+If you are installing Eclipse for the first time, navigate in your web browser to the Eclipse downloads page. 
+
+Select the "Eclipse IDE for Java Developers"
+
+You should see a page similar to the following:
+
+
+As you can see, there are many versions of eclipse to choose from (Europa, Ganymede, Galileo, etc).  RhoStudio is supported in Eclipse Helios (3.6.2) and later.  The Download links should default to the latest stable Eclipse package. At this particular time, the Download Links on the right hand side refer to the Helios SR2 version.
+
+Click on the Download Link appropriate for your particular operating system (e.g. Windows 32-bit, Mac OS X (Cocoa 32), etc). You will be taken to a download link screen like the one shown below. Note that the download screen shown below is for the Mac OS X 32-bit install.
+
+Once the download is completed, unzip the downloaded package and copy the directory to where you want the eclipse application to reside. Eclipse is a Java application, so no further installation steps are necessary.  However, a Java Runtime Environment is necessary in order to run Eclipse (minimum of Java 5 JRE or JDK required).
+
+In Mac OS X, you may copy the unzipped folder to your Applications folder. In order to launch Eclipse, simply go to Applications -> Eclipse and click on the Eclipse.app application Icon.
+
+
+In Windows, click on the Eclipse.exe icon in the Eclipse directory. 
+
+Installing RhoStudio in Eclipse
+------------------
+Open menu Help -> Install New Software...
+In the Install popup add RhoStudio update site:
+* Enter name: RhoStudio
+* Enter location: http://rhostudio.rhomobile.com
+
+
+
+Check Rhomobile (or RhoStudio) and press Next. Follow instructions.
+
+
+Generate a Rhodes Application
+---------------------
+
+In the menu select File->New->Projects->Rhomobile->Rhodes Application
+
+
+Select the Rhodes Application wizard and assign the application name 'storemanager' to your application name. You may specify a specific folder for your destination, by default the destination is your eclipse workspace folder.
+
+
+After pressing the Finish button you'll see Rhodes app generator script output in the output console (Rhodes build log console).
+
+
+
+
+Generate Rhodes Model
+---------------------
+Rhodes applications support a Model-View-Controller (MVC) pattern.  To start our application, we will generate a Model. To generate a Rhodes model and create the associated Controller and View templates you should right click on the application project in the package explorer and open the Project Popup menu.
+
+Project popup menu:
+
+
+In the Project Popup menu select 'Rhomobile->Rhodes Model' item to open Rhodes Model wizard. Use this wizard to assign model name.  Call it 'Product'. You must also specify the fields of the model you are creating. Fields are defined as a coma separated string. Keep in mind, however, that whitespaces at the field name begining and end will be trimmed and whitespaces in the middle of the field name will be replaced with underscore character.
+
+Enter the following as your list of fields
+
+> name,brand,price,quantity,sku
+
+After pressing Finish button you'll see Rhodes model generator script output in the output console (Rhodes build log console).
+
+You should now notice a 'Product' folder below the 'app' folder in your storemanager application. These files constitute the Model, Views and Controller file for the Product Model we just created. The files are organized as follows:
+* product.rb -> This is the Model file which contains the Model definition.  Since we are using the default PropertyBag definition, we don't need to modify this file any further.
+* product_controller.rb -> This file contains the business logic which relates to our Model.
+* *.erb -> The .erb files are the html view template files. We'll be modifying them in the next section.
+
+
+Edit Rhodes Views
+----------------------------
+You can edit the generated ERB files to customize the HTML as you see fit. Typically you will provide links to the model index page from the home screen. Below is the generated top level index.erb file for the Store Manager app (app/index.erb).
+
+
+
+Edit build.yml
+--------------
+You should edit build.yml to manage Rhodes build time configuration. Double click on 'build.yml' item in project tree to open build.yml editor. In the editor you'll see two tabs: text editor and WYSIWIG editor.
+
+WYSIWIG editor:
+
+Text editor:
+
+Make changes on ant editor tabs and they appear in another. Use the WISIWIG editor to assign application name, application capabilities, log file name (locate in application folder after application run), and location of Rhodes (useful in case you have more then one Rhodes gem installed or build your app using Rhodes source code).
+
+To change application capabilities press the Add button and select items in the popup dialog.
+
+Application capabilities dialog:
+
+Selected application capabilities will appear in text field in the WISIWIG editor.
+
+Edit rhobuild.yml
+
+Use rhobuild.yml to manage location(s) of platform SDK-s/JDK-s used to build Rhodes application; rhobuild.yml located in the Rhodes gem folder (or in the Rhodes source code folder). To edit rhobuild.yml open Preferences (Window->Preferences in Windows or Eclipse->Preferences in OS X) and select Rhomobile item.
+
+Main preference page:
+
+Android preference page:
+
+Use the above page to set Android SDK and NDK path.
+
+Blackberry preference page:
+
+Use the above page to set path to BlackBerry JDK's, path to MDS server, and device simulator name
+
+Windows Mobile preference page:
+
+Use the above page to set path to Cab Wizard utility used by the build script to build cab file.
+
+Build application
+-------------------
+To start build process you should create Run Configuration. Go to Run->Run Configurations...
+
+Run configuration dialog:
+
+To edit the configuration for the target platform go to Run -> Configuration manager and double click on 'Rhodes application'.
+
+Rhodes configuration:
+
+For Android and BlackBerry platform you may select emulator version. For Android platform you must assign the AVD name.
+
+Press Run button to build and run application. Build output will appear in the Rhodes build output console. The application log will be available in the Rhodes application output console.
+
+
+Steps to build RhoStudio
+------------------------------
+* Download latest JDK
+* Download and install Eclipse for RCP and RAP Developers
+* Clone RhoStudio sources from git repository
+* Import the RhoStudio project into the Eclipse workspace (menu item File/Import)
+* Build the project (menu item Project -> Build). If this menu item is disabled then uncheck the 'build automatically' option located below
+* Export the jar package
+    * open export dialog (menu item File -> Export)
+    * In the open window select tree item 'Plugin Development/Deployable plugin and fragments'
+    * In the wizard you can assign a destination directory for the plugin jar package the destination file name
+* Copy the created plugin into your Eclipse file hierarchy (in subfolder /plugins/) and restart Eclipse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
