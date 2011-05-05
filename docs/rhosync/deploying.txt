@@ -13,12 +13,11 @@ This rackup file contains runtime configuration for the RhoSync sinatra applicat
 	Rhosync::Server.disable :run
 	Rhosync::Server.disable :clean_trace
 	Rhosync::Server.enable  :raise_errors
-	Rhosync::Server.set     :environment, :development
 	Rhosync::Server.set     :secret,      '<changeme>'
 	Rhosync::Server.set     :root,        ROOT_PATH
 	Rhosync::Server.use     Rack::Static, :urls => ["/data"], :root => Rhosync::Server.root
 	
-Two important settings here, `:secret` and `:environment` you will want to change.  `:secret` should be set to a long random string, it ___should not___ be set to a dictionary word or short string (30 characters or more is sufficient).  This is used for the session storage using a digest algorithm as described [here](http://guides.rubyonrails.org/security.html#session-storage).
+The important setting here `:secret` you will want to change.  `:secret` should be set to a long random string, it ___should not___ be set to a dictionary word or short string (30 characters or more is sufficient).  This is used for the session storage using a digest algorithm as described [here](http://guides.rubyonrails.org/security.html#session-storage).
 
 If you don't change the `:secret` setting, RhoSync automatically warns you each time the application starts:
 
@@ -42,12 +41,14 @@ Then plug this secret into your `config.ru`:
 	:::ruby
 	Rhosync::Server.set     :secret, '040a2355475e9d0fb591ef78d5b9ca61a34cbcfd3f11942b18bc1d91f1ca66c27b2e0386333843a7efa29f40fff03624cd908d0883364ffbfa3208ab23fa2664'
 
-Next, change `:environment` to `:production`:
+To run RhoSync in production mode, use `RACK_ENV` environment variable set to "production".  This ensures RhoSync will use the `:production` section of the settings.  For example:
 
-	:::ruby
-	Rhosync::Server.set     :environment, :production
+	:::term
+	$ thin start -e production -p 9292
 
-This ensures RhoSync will use the `:production` section of the settings.
+Will start thin in with `RACK_ENV` set to "production".  
+
+NOTE: If you deploy using passenger or on RhoHub, this variable is automatically set to production.
 
 ### `settings/settings.yml`
 This file contains all source adapter options and settings like the redis server connection.  Before deploying to production, make sure you have the appropriate production settings:
