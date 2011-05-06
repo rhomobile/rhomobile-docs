@@ -3,7 +3,7 @@ section 'getting-started', "Getting Started" do
   topic 'rhodes/tutorial',      'Rhodes Tutorial'
   topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
-  topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
+  topic 'rhostudio.tutorial',   'RhoStudio Tutorial (Beta)'
   topic 'tutorials',            'How To'
   topic 'architecturefaq',      'Architecture FAQ'
   topic 'faq',                  'Programming FAQ'
