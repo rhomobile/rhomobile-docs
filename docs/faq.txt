@@ -159,4 +159,11 @@ There is no way to define controller for top-level index.erb, so create special 
             #do something
             render
         end
+        
+## How to print document in Rhodes
+* Prepare file with printed content (html, pdf, image, etc.)
+* Open this file by 
+
+    System.open_url(file_path)
     
+* Print document from document application

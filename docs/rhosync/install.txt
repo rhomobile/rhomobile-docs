@@ -6,7 +6,7 @@ Installing RhoSync
 
 If you're running Windows, download the latest [RhoSync windows installer](http://github.com/rhomobile/rhosync/downloads).  This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [Apache](http://httpd.apache.org/), and a default RhoSync application so you don't need to generate one by hand.
 
-Your RhoSync application folder will be located in C:\RhoSync\rhosync by default so you can skip to the [generating a source instructions](/rhosync/rhosync_generator#generate-source-adapter) in the next section.
+Your RhoSync application folder will be located in C:\RhoSync\rhosync by default so you can skip to the [generating a source instructions](/rhosync/command-line#rhosync-generator) in the next section.
 
 ## Mac OS / Linux
 
