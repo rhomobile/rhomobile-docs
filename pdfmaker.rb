@@ -6,8 +6,9 @@ class PdfMaker
   def call(env)
     status, headers, response = @app.call(env)
     
-    if env["REQUEST_URI"] =~ /.pdf$/
-      # If the page ends in ".pdf", render it as a PDF. Otherwise, don't do anything with it.
+    if env["REQUEST_URI"] =~ /[^=?]*\.pdf$/
+      # If the page ends in ".pdf" and doesn't contain ?'s or ='s,
+      # render it as a PDF. Otherwise, don't do anything with it.
       
       content = response.join("")
 
