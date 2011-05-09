@@ -20,19 +20,26 @@ If you already have a supported version of Eclipse, skip the next section entitl
 
 If you are installing Eclipse for the first time, navigate in your web browser to the Eclipse downloads page. 
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image06.jpg"/>
+
 Select the "Eclipse IDE for Java Developers"
 
 You should see a page similar to the following:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image02.png"/>
 
 
 As you can see, there are many versions of eclipse to choose from (Europa, Ganymede, Galileo, etc).  RhoStudio is supported in Eclipse Helios (3.6.2) and later.  The Download links should default to the latest stable Eclipse package. At this particular time, the Download Links on the right hand side refer to the Helios SR2 version.
 
 Click on the Download Link appropriate for your particular operating system (e.g. Windows 32-bit, Mac OS X (Cocoa 32), etc). You will be taken to a download link screen like the one shown below. Note that the download screen shown below is for the Mac OS X 32-bit install.
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image07.jpg"/>
+
 Once the download is completed, unzip the downloaded package and copy the directory to where you want the eclipse application to reside. Eclipse is a Java application, so no further installation steps are necessary.  However, a Java Runtime Environment is necessary in order to run Eclipse (minimum of Java 5 JRE or JDK required).
 
 In Mac OS X, you may copy the unzipped folder to your Applications folder. In order to launch Eclipse, simply go to Applications -> Eclipse and click on the Eclipse.app application Icon.
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image11.jpg"/>
 
 In Windows, click on the Eclipse.exe icon in the Eclipse directory. 
 
@@ -43,9 +50,11 @@ In the Install popup add RhoStudio update site:
 * Enter name: RhoStudio
 * Enter location: http://rhostudio.rhomobile.com
 
-
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image17.png"/>
 
 Check Rhomobile (or RhoStudio) and press Next. Follow instructions.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image14.png"/>
 
 
 Generate a Rhodes Application
@@ -53,13 +62,15 @@ Generate a Rhodes Application
 
 In the menu select File->New->Projects->Rhomobile->Rhodes Application
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image08.jpg"/>
 
 Select the Rhodes Application wizard and assign the application name 'storemanager' to your application name. You may specify a specific folder for your destination, by default the destination is your eclipse workspace folder.
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image09.jpg"/>
 
 After pressing the Finish button you'll see Rhodes app generator script output in the output console (Rhodes build log console).
 
-
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image00.jpg"/>
 
 
 Generate Rhodes Model
@@ -68,14 +79,19 @@ Rhodes applications support a Model-View-Controller (MVC) pattern.  To start ou
 
 Project popup menu:
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image20.jpg"/>
 
 In the Project Popup menu select 'Rhomobile->Rhodes Model' item to open Rhodes Model wizard. Use this wizard to assign a Model name.  Call it 'Product'. You must also specify the fields of the model you are creating. Fields are defined as a coma separated string. Keep in mind, however, that whitespaces at the field name begining and end will be trimmed and whitespaces in the middle of the field name will be replaced with underscore character.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image19.jpg"/>
 
 Enter the following as your list of fields
 
 > name,brand,price,quantity,sku
 
 After pressing Finish button you'll see Rhodes model generator script output in the output console (Rhodes build log console).
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image12.jpg"/>
 
 You should now notice a 'Product' folder below the 'app' folder in your storemanager application. These files constitute the Model, Views and Controller file for the Product Model we just created. The files are organized as follows:
 * product.rb -> This is the Model file which contains the Model definition.  Since we are using the default PropertyBag definition, we don't need to modify this file any further.
@@ -136,7 +152,11 @@ You should edit build.yml to manage Rhodes build time configuration. Double clic
 
 WYSIWIG editor:
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image03.jpg"/>
+
 Text editor:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image10.jpg"/>
 
 Make changes on ant editor tabs and they appear in another. Use the WISIWIG editor to assign application name, application capabilities, log file name (locate in application folder after application run), and location of Rhodes (useful in case you have more then one Rhodes gem installed or build your app using Rhodes source code).
 
@@ -152,15 +172,23 @@ Use rhobuild.yml to manage location(s) of platform SDK-s/JDK-s used to build Rho
 
 Main preference page:
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image16.jpg"/>
+
 Android preference page:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image04.jpg"/>
 
 Use the above page to set Android SDK and NDK path.
 
 Blackberry preference page:
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image15.jpg"/>
+
 Use the above page to set path to BlackBerry JDK's, path to MDS server, and device simulator name
 
 Windows Mobile preference page:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image18.jpg"/>
 
 Use the above page to set path to Cab Wizard utility used by the build script to build cab file.
 
@@ -170,9 +198,13 @@ To start build process you should create Run Configuration. Go to Run->Run Confi
 
 Run configuration dialog:
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image05.jpg"/>
+
 To edit the configuration for the target platform go to Run -> Configuration manager and double click on 'Rhodes application'.
 
 Rhodes configuration:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image01.jpg"/>
 
 For Android and BlackBerry platform you may select emulator version. For Android platform you must assign the AVD name.
 
