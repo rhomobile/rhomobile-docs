@@ -1,7 +1,9 @@
-Rhomobile Docs App
+Rhomobile Documentation Project
 ==================
 
-CMS and content for documentation of the Rhomobile platform: [http://docs.rhomobile.com](http://docs.rhomobile.com)
+This is a simple CMS and documentation for the Rhomobile platform: [http://docs.rhomobile.com](http://docs.rhomobile.com)
+
+Edge changes to this repository are tracked realtime on [http://edgedocs.rhomobile.com](http://edgedocs.rhomobile.com)
 
 If you'd like to propose an edit to the Rhomobile docs, fork this repo, then send us a pull request.
 
@@ -25,10 +27,7 @@ Rebuilding & Publishing
 -----------------------
 This app loads content from sub-directories located in config.yml.  
 
-To update the production copy (stored in docs/), run:
 
-	$ rake load
-	
 This will copy all content from the sub-directories into docs/.  Then push to heroku:
 
 	$ git add docs/
@@ -36,6 +35,8 @@ This will copy all content from the sub-directories into docs/.  Then push to he
 	$ git push heroku master
 
 The app loads content from the docs subdirectory.  Pages are served with a 1 hour cache setting.
+
+**NOTE: Do NOT checkin changes to docs/(subdirectory) (i.e. docs/rhodes/).  The content in docs/(subdirectory) are managed by the separate repositories.  For example, content in docs/rhodes/ is maintained in the rhodes repo [https://github.com/rhomobile/rhodes](https://github.com/rhomobile/rhodes).**
 
 About
 ----
