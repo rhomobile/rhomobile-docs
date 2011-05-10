@@ -47,6 +47,7 @@ Installing RhoStudio in Eclipse
 ------------------
 Open menu Help -> Install New Software...
 In the Install popup add RhoStudio update site:
+
 * Enter name: RhoStudio
 * Enter location: http://rhostudio.rhomobile.com
 
