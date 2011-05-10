@@ -40,7 +40,7 @@ Once the download is completed, unzip the downloaded package and copy the direct
 
 In Mac OS X, you may copy the unzipped folder to your Applications folder. In order to launch Eclipse, simply go to Applications -> Eclipse and click on the Eclipse.app application Icon.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image11.png" width="50%"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image11.png" width="75%"/>
 
 In Windows, click on the Eclipse.exe icon in the Eclipse directory. 
 
