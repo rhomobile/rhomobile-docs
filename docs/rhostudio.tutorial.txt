@@ -169,6 +169,8 @@ To change application capabilities press the Add button and select items in the 
 
 Application capabilities dialog:
 
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image13.jpg"/>
+
 Selected application capabilities will appear in text field in the WISIWIG editor.
 
 Edit rhobuild.yml
