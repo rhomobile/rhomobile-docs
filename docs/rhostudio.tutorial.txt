@@ -4,6 +4,7 @@ RhoStudio
 RhoStudio is an Eclipse plugin that facilitates development of native smartphone applications.
 
 Use RhoStudio to:
+
 * Generate Rhodes application(s)
 * Generate Rhodes Model(s) and associated Controllers and View templates
 * Manage build configuration (build.yml and rhobuild.yml) using the Eclipse UI
@@ -95,6 +96,7 @@ After pressing Finish button you'll see Rhodes model generator script output in 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image12.jpg"/>
 
 You should now notice a 'Product' folder below the 'app' folder in your storemanager application. These files constitute the Model, Views and Controller file for the Product Model we just created. The files are organized as follows:
+
 * product.rb -> This is the Model file which contains the Model definition.  Since we are using the default PropertyBag definition, we don't need to modify this file any further.
 * product_controller.rb -> This file contains the business logic which relates to our Model.
 * *.erb -> The .erb files are the html view template files. We'll be modifying them in the next section.
@@ -137,10 +139,10 @@ You may edit the generated ERB files to customize the HTML as you see fit. Typic
 To provide a link to the Product model’s index page and templates, replace the list item with the title “Add links here” with the following:
 
 > <li>
->  <a href="Product">
->   <span class="title">Products</span>
->    <span class="disclosure_indicator"></span>
->  </a>
+> <a href="Product">
+> <span class="title">Products</span>
+> <span class="disclosure_indicator"></span>
+> </a>
 > </li>
 
 This change now means that when the index.erb view is displayed (remember this is the default view when the app starts), you will see a UI element called "Products" that will take you to the controller for the "Product" Model definition. Because no specific action is provided, the controller will default to displaying the Model's index page, in this case the Product model's index page. All further functionality in the app is carried out by the default scaffolding of the generated controller and view files. These generated files provide basic CRUD (Create, Read, Update, Delete) functionality for your Model.
@@ -214,6 +216,7 @@ Press Run button to build and run application. Build output will appear in the R
 
 Steps to build RhoStudio
 ------------------------------
+
 * Download latest JDK
 * Download and install Eclipse for RCP and RAP Developers
 * Clone RhoStudio sources from git repository
