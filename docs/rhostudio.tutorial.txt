@@ -139,12 +139,13 @@ You may edit the generated ERB files to customize the HTML as you see fit. Typic
 
 To provide a link to the Product model’s index page and templates, replace the list item with the title “Add links here” with the following:
 
-> <li>
-> <a href="Product">
-> <span class="title">Products</span>
-> <span class="disclosure_indicator"></span>
-> </a>
-> </li>
+	:::html
+	<li>
+	<a href="Product">
+	<span class="title">Products</span>
+	<span class="disclosure_indicator"></span>
+	</a>
+	</li>
 
 This change now means that when the index.erb view is displayed (remember this is the default view when the app starts), you will see a UI element called "Products" that will take you to the controller for the "Product" Model definition. Because no specific action is provided, the controller will default to displaying the Model's index page, in this case the Product model's index page. All further functionality in the app is carried out by the default scaffolding of the generated controller and view files. These generated files provide basic CRUD (Create, Read, Update, Delete) functionality for your Model.
 
