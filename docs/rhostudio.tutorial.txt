@@ -106,6 +106,7 @@ Edit Rhodes Views
 ----------------------------
 You may edit the generated ERB files to customize the HTML as you see fit. Typically you will provide links to the model index page from the home screen. In order to accomplish this, a modification needs to be made to the default view for the application, called index.erb. Below is the content for the StoreManager app's generated top level index.erb file (app/index.erb). Open this file for editing.
 
+    :::html
 > <div id="pageTitle">
 > <h1>Storemanager</h1>
 > </div>
