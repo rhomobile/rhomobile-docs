@@ -20,7 +20,7 @@ If you already have a supported version of Eclipse, skip the next section entitl
 
 If you are installing Eclipse for the first time, navigate in your web browser to the Eclipse downloads page. 
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image06.jpg"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image06.png"/>
 
 Select the "Eclipse IDE for Java Developers"
 
@@ -33,13 +33,13 @@ As you can see, there are many versions of eclipse to choose from (Europa, Ganym
 
 Click on the Download Link appropriate for your particular operating system (e.g. Windows 32-bit, Mac OS X (Cocoa 32), etc). You will be taken to a download link screen like the one shown below. Note that the download screen shown below is for the Mac OS X 32-bit install.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image07.jpg"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image07.png"/>
 
 Once the download is completed, unzip the downloaded package and copy the directory to where you want the eclipse application to reside. Eclipse is a Java application, so no further installation steps are necessary.  However, a Java Runtime Environment is necessary in order to run Eclipse (minimum of Java 5 JRE or JDK required).
 
 In Mac OS X, you may copy the unzipped folder to your Applications folder. In order to launch Eclipse, simply go to Applications -> Eclipse and click on the Eclipse.app application Icon.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image11.jpg"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image11.png"/>
 
 In Windows, click on the Eclipse.exe icon in the Eclipse directory. 
 
