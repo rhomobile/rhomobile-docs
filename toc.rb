@@ -25,6 +25,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
   topic 'rhodes/extensions',        'Extending the Rhodes Framework'
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
+  topic 'rhodes/simulator',         'Using RhoSimulator'
   topic 'rhodes/contributing',      'Contributing'
   topic 'credits',              'Credits'
 end
