@@ -11,3 +11,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Mapping and Geolocation](/mapping-tutorial)
 
 * ### [Metadata and Dynamic Views](/metadata-tutorial)
+
+* ### [Image Uploading Tutorial](/imageupload-tutorial)
