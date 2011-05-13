@@ -46,11 +46,12 @@ In Windows, click on the Eclipse.exe icon in the Eclipse directory.
 
 Installing the Dynamic Languages Toolkit (DLTK) in Eclipse
 ------------------
-Open menu Help -> Install New Software...
+
+You will need the Dynamic Languages Toolkit (DLTK) present in Eclipse in order to install RhoStudio. In order to install the DLTK, select menu Help -> Install New Software...
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image22.png"/>
 
-You will need the Dynamic Languages Toolkit (DLTK) present in Eclipse in order to install RhoStudio. In order to install DLTK, you must first have an Eclipse Available Software Site for your version of Eclipse.  For Eclipse version 3.6 (Helios), the Available Software site is:
+You must first have an Eclipse Available Software Site for your version of Eclipse.  For Eclipse version 3.6 (Helios), the Available Software site is:
 
     Helios - http://download.eclipse.org/releases/helios
 
