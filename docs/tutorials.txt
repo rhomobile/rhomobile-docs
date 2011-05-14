@@ -13,3 +13,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Metadata and Dynamic Views](/metadata-tutorial)
 
 * ### [Image Uploading Tutorial](/imageupload-tutorial)
+
+* ### [Rhodes Simulator and Debugging Tutorial](/rhosimulator-debugger-tutorial)
