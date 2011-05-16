@@ -50,5 +50,4 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/client',            'Using RhoSync without Rhodes'
   topic 'rhosync/benchmarks',        'Benchmarks'
   topic 'rhosync/contributing',      'Contributing'
-  topic 'rhosync/release',           'Release Process'
 end
