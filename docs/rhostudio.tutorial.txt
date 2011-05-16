@@ -44,14 +44,12 @@ In Mac OS X, you may copy the unzipped folder to your Applications folder. In or
 
 In Windows, click on the Eclipse.exe icon in the Eclipse directory. 
 
-Installing the Dynamic Languages Toolkit (DLTK) in Eclipse
+Installing RhoStudio in Eclipse
 ------------------
 
-You will need the Dynamic Languages Toolkit (DLTK) present in Eclipse in order to install RhoStudio. In order to install the DLTK, select menu Help -> Install New Software...
+Go to the Install New Software screen for Eclipse, or open it by selecting Help -> Install New Software from the menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image22.png"/>
-
-You must first have an Eclipse Available Software Site for your version of Eclipse.  For Eclipse version 3.6 (Helios), the Available Software site is:
+The RhoStudio installation will install the Dynamic Languages Toolkit(DLTK) as part of the installation process. In order to do this, you must have an Eclipse Available Software Site for your version of Eclipse.  For Eclipse version 3.6 (Helios), the Available Software site is:
 
     Helios - http://download.eclipse.org/releases/helios
 
@@ -61,25 +59,9 @@ Your available software sites are visible by clicking on the dropdown next to "W
 
 If you need to add the Software site, enter the url on the line next to "Work with:" and click on the "Add" button to the right.
 
-Once the site is added, select it in the available software sites dropdown and type "dynamic" in the search line below the Available Software Sites dropdown.
+**NOTE: If you have previously installed the DLTK, you may get an error that there is a mismatch between your installed version and the RhoStudio version.  Simply uninstall your previous DLTK version.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-image23.png"/>
-
-After you type "dynamic" in the search criteria, you should see several selections for the Dynamic Languages Toolkit in the main available software section. Check the following:
-
-* Dynamic Languages Toolkit -- Core Frameworks
-* Dynamic Languages Toolkit -- Ruby Development Tools
-
-Note: You may see some categories displayed in a results treeview, such as "General Purpose Tools" and "Programming Languages". The Core Framework and Ruby Development Tools selections are under those two sections, respectively.
-
-Proceed through the install process for the DLTK plugins. Once this is finished, proceed to install the RhoStudio plugin.
-
-Installing RhoStudio in Eclipse
-------------------
-
-Return to the Install New Software screen for Eclipse, or open it by selecting Help -> Install New Software from the menu.
-
-In the Install popup add RhoStudio update site:
+In the Install popup, also add the RhoStudio update site:
 
 * Enter name: RhoStudio
 * Enter location: http://rhostudio.rhomobile.com
