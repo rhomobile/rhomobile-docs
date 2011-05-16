@@ -1,4 +1,5 @@
-## RhoSync Release Process
+RhoSync Release Process
+===
 The RhoSync release process addresses following requirements:
 
 * Introduce new features in timely fashion
@@ -11,7 +12,7 @@ The RhoSync release process addresses following requirements:
 * Each release will include bug fixes requested by customers 
 * Each release will be done in 1-2 weeks time
 
-### Versioning ==
+### Versioning
 Versioning will be done according to [http://semver.org/ Semantic Versioning] and input from pm/sales.
 
 ### Pivotal tracker story workflow
