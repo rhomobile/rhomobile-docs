@@ -27,7 +27,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
   topic 'rhodes/simulator',         'Using RhoSimulator'
   topic 'rhodes/contributing',      'Contributing'
-  topic 'credits',              'Credits'
+  topic 'credits',                  'Credits'
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
@@ -50,4 +50,5 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/client',            'Using RhoSync without Rhodes'
   topic 'rhosync/benchmarks',        'Benchmarks'
   topic 'rhosync/contributing',      'Contributing'
+  topic 'rhosync/release',           'Release Process'
 end
