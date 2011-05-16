@@ -59,7 +59,7 @@ Your available software sites are visible by clicking on the dropdown next to "W
 
 If you need to add the Software site, enter the url on the line next to "Work with:" and click on the "Add" button to the right.
 
-**NOTE: If you have previously installed the DLTK, you may get an error that there is a mismatch between your installed version and the RhoStudio version.  Simply uninstall your previous DLTK version.
+**NOTE: If you have previously installed the DLTK, you may get an error when installing RhoStudio that there is a mismatch between your installed version and the RhoStudio version.  Simply uninstall your previous DLTK version.
 
 In the Install popup, also add the RhoStudio update site:
 
