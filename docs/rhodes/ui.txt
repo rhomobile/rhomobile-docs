@@ -241,7 +241,7 @@ Switch to/from full screen mode
 	:::ruby
 	WebView.full_screen_mode(enable)
 
-Set cookie to be used by WebView for specified url. Each time when WebView load specified url (either by selecting link or in result of calling WebView.navigate), it will add this cookie to the HTTP request. Cookie should be in format "NAME=VALUE". Multiple name/value pairs allowed. In this case they need to be split by semicolon: "NAME1=VALUE1; NAME2=VALUE2".
+Set cookie is to be used by WebView to load a specified url. Each time WebView loads specified url (either by selecting link or as a result of calling WebView.navigate), it will add this cookie to the HTTP request. The cookie should be in format "NAME=VALUE",  with multiple name/value pairs allowed. If more than one is set, they need to be split by semicolon: "NAME1=VALUE1; NAME2=VALUE2". Currently works unsupported on iOS.
 	:::ruby
 	WebView.set_cookie(url, cookie)
 
