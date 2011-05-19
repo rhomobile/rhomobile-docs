@@ -15,3 +15,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Image Uploading Tutorial](/imageupload-tutorial)
 
 * ### [Rhodes Simulator and Debugging Tutorial](/rhosimulator-debugger-tutorial)
+
+* ### [Rhodes Near Field Communication Tutorial](/near-field-communication-with-rhodes-tutorial)
