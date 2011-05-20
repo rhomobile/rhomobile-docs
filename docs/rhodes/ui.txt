@@ -4,7 +4,7 @@
 
 Rhodes supports a layout mechanism based on ERB templates. The default layout template is called "layout.erb" and is located in the application root folder.  Unless overridden, this layout is rendered on all non-Ajax requests.
 
-You may use layout.erb to load CSS and favorite [JavaScript frameworks](#javascript-frameworks) and libraries. Generated layout.erb loads rhomobile [CSS framework](#css-framework) and modified JQTouch library.
+You may use layout.erb to load CSS files, favorite [JavaScript frameworks](#javascript-frameworks), and libraries. Generated layout.erb loads the rhomobile [CSS framework](#css-framework) and a modified JQTouch library.
 
 	:::html
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -105,7 +105,7 @@ By default, Rhodes framework uses a modified version of jQTouch version 1, beta 
 ### Submit form
 If you need to submit form programmatically, please use the expression **jQT.submitForm('.current form.yourFormClass');**. Here **jQT** is defined as it shown above.  To specify the exact form on the page it is recommended to use **class** instead of **id**.
 
-Be careful, using expressions like **$('#form_id').submit();** with jQTouch it lead to an incorrect result!
+Be careful, using expressions like **$('#form_id').submit();** with jQTouch it leads to an incorrect result!
 
 ## Loading screen
 
@@ -113,7 +113,7 @@ Rhodes supports the display of a custom "Loading" screen while your application 
 
 Alternatively, you can replace loading.html with an image named loading.png if you just want a simple image to be displayed. 
 
-You can control how image presented by modifying splash_screen options in [rhoconfig.txt](configuration):
+You can control how the image is presented by modifying splash_screen options in [rhoconfig.txt](configuration):
 
 * delay - how long splash screen should be displayed (in seconds)
 * center,vcenter,hcenter - picture alignment
@@ -121,11 +121,11 @@ You can control how image presented by modifying splash_screen options in [rhoco
 
 Examples:
 
-Place splash screen in the center and show it for 5 seconds: 
+Place the splash screen in the center and show it for 5 seconds: 
 	:::ruby
 	splash_screen='delay=5;center'
 
-Center splash screen horizontally, scale it vertically to file all available space, and show it for 5 seconds: 
+Center the splash screen horizontally, scale it vertically to file all available space, and show it for 5 seconds: 
 	:::ruby
 	splash_screen='delay=5;hcenter;vzoom'
 
@@ -136,7 +136,7 @@ You can customize you loading image (showed on start of application) for each pl
 * WM `loading.wm.png`
 * BB `loading.bb.png`
 
-If application doesn't have platform specific `loading.png`, then Rhodes'll try to load default `loading.png`.
+If application doesn't have platform specific `loading.png`, then Rhodes will try to load default `loading.png`.
 
 For iPhone you may define a set of loading images. See Apple documentation about these images, [section Application Launch Images in Build-Time Configuration Details](http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html).
 
@@ -196,11 +196,11 @@ Force WebView refresh current page
 	:::ruby
 	WebView.refresh
 	
-Force WebView refresh current page on tab with specified index. If no tab bar present, index ignored	 
+Force WebView to refresh the current page on the tab with specified index. If no tab bar is present, the index ignored	 
 	:::ruby
 	WebView.refresh(index) 
 
-Force WebView navigate to provided location (url)
+Force WebView to navigate to provided location (url)
 	:::ruby
 	WebView.navigate(url) 
 	
@@ -217,7 +217,7 @@ The same as above but for specified tab (if tab bar present)
 	WebView.current_location(index) 
 
 Execute javascript string in the context of the currently displayed page. Supported on iPhone, Android, Windows Mobile and Blackberry 5.0 in full browser mode.
-Suppose that current page has js method:
+Suppose that current page has the Javascript method:
 	:::html
 	function test() {
 	    alert("Test");
@@ -227,13 +227,13 @@ Then to call test() function from controller, do this:
 	#call method test on the current page
 	WebView.execute_js("test();") 
 
-The same as above but for specified tab (if tab bar present)	
+The same as above, but for a specified tab (if tab bar is present)	
 	:::ruby
 	#call method test on the tab page 
 	WebView.execute_js("test();", index) 
 
 
-Returns index of @tabs array for currently selected tab
+Returns index of @tabs array for the currently selected tab
 	:::ruby
 	WebView.active_tab 
 
@@ -241,7 +241,7 @@ Switch to/from full screen mode
 	:::ruby
 	WebView.full_screen_mode(enable)
 
-Set cookie to be used by WebView for specified url. Each time when WebView load specified url (either by selecting link or in result of calling WebView.navigate), it will add this cookie to the HTTP request. Cookie should be in format "NAME=VALUE". Multiple name/value pairs allowed. In this case they need to be split by semicolon: "NAME1=VALUE1; NAME2=VALUE2".
+Set cookie is to be used by WebView to load a specified url. Each time WebView loads specified url (either by selecting link or as a result of calling WebView.navigate), it will add this cookie to the HTTP request. The cookie should be in format "NAME=VALUE",  with multiple name/value pairs allowed. If more than one is set, they need to be split by semicolon: "NAME1=VALUE1; NAME2=VALUE2". Currently works unsupported on iOS.
 	:::ruby
 	WebView.set_cookie(url, cookie)
 
@@ -249,7 +249,7 @@ Set cookie to be used by WebView for specified url. Each time when WebView load 
 See controller and view in the /app/Image folder of the [system API sample application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Image/controller.rb#L30) for some of the examples of how to use WebView in the callbacks.
 
 ## Application Menu
-For platforms which support menus Rhodes framework provides ability to change the native application menu items through the following simple API:
+For platforms which support menus, Rhodes framework provides the ability to change the native application menu items through the following simple API:
 
 	:::ruby
 	@default_menu = { 
@@ -346,7 +346,7 @@ Action can be also URL of user-defined controller method. URL can be prefixed wi
 
 Some examples:
 
-Calling of this action will be done by UI WebView component so result of the do_that method will be rendered in UI
+Calling of this action will be done by UI WebView component so the result of the do_that method will be rendered in UI
 	:::ruby
 	:action => url_for(:action => :do_that) 
 
@@ -364,14 +364,14 @@ The same as above but for another controller
 	
 ## Redefine back action
 
-Use :back parameter in render:
+Use the :back parameter in render:
 
 	:::ruby
 	render :action => :index, :back => 
 		url_for( :controller => :Settings, :action => :main_page )
 	render :back => '/app'
 
-Use back with callback:
+Use :back with callback:
 
 	:::ruby
 	render :action => :page_alert, :back => 
@@ -506,7 +506,7 @@ Rhodes supports displaying a native looking 'tabbar'.
 
 The tabbar is set of different UI views associated with each tab, so that selecting any tab will display the associated view. There is no ability to define custom actions for the tabbar like you can for the toolbar. The only action when a tab is selected is to switch to another UI view.
 
-The tabbar are supported on iPhone and Android.
+The tabbar is supported on iPhone and Android.
 
 You can use VerticalTabBar control on iPad (specifically control for iPad). It like Tabbar, but tabs located on left side and each item have horizontal orientation. Like Tabs items can have Icon image and text. Functionality very similar Tabbar.
 
@@ -516,7 +516,7 @@ For the tabbar:
 	:::ruby
 	class AppApplication < Rho::RhoApplication
 	  def initialize
-	    # Tab items are loaded left->right, @tabs[0] is leftmost tab in the tab-bar
+	    # Tab items are loaded left->right, @tabs[0] is the leftmost tab in the tab-bar
 	    @tabs = [
 	      { :label => "Dashboard", :action => '/app', 
 			:icon => "/public/images/tabs/dashboard.png", :reload => true, :web_bkg_color => 0x7F7F7F }, 
@@ -540,7 +540,7 @@ Each tabbar item defined in the above sample defines following tab elements:
 * :reload => true - Optional argument which tells rhodes to reload the tab's :action, defaults to false
 * :selected_color => 0xFFFF00 - Optional parameter for change selected color of this tabs (if you use it on Android - you should defined it for all tabs! and also define :background_color for TabBar!)
 * :disabled => true - Optional parameter for disable this tab
-* :web_bkg_color = > int hex value (0x7F7F7F for example) - background color for tab (use when your app bkg is not white for remove blink during switch tabs)
+* :web_bkg_color = > hex value (0x7F7F7F for example) - background color for tab (use when your app background is not white to remove the blink while switching tabs)
 * :use_current_view_for_tab => true - Optional argument which tells rhodes to smooth transfer WebView from current view into this Tab and make this Tab active. Defaults to false. Only one Tab can have this parameter!
 
 
@@ -566,7 +566,7 @@ Require rhotabbar in your controller to use it
 	:::ruby
 	require 'rho/rhotabbar'
 
-Remove existing tabbar (if exists) and create new one
+Remove existing tabbar (if it exists) and create a new one
 	:::ruby
 	Rho::NativeTabbar.create(tabs) 
 
@@ -579,7 +579,7 @@ Means the same as above and setup background color for tabbar.
 	Rho::NativeTabbar.create( :tabs => tabs, 
 		:background_color => 0x0000FF)
 
-Means the same as above and place TabBar in bottom of screen (actual only on Android, where TabBar placed in top of screen by default).	
+Means the same as above and place TabBar in bottom of screen (actually only on Android, where TabBar placed in top of screen by default).	
 	:::ruby
 	Rho::NativeTabbar.create( :tabs => tabs, 
 		:background_color => 0x0000FF, :place_tabs_bottom => true)
@@ -604,7 +604,7 @@ Get current tab index
 	Rho::NativeTabbar.get_current_tab 
 
 
-Rho::NativeTabbar.create() create native tab bar UI element and activate its first tab. If you want to see another tab, call Rho::NativeTabbar.switch_tab explicitly just after NativeBar.create:
+Rho::NativeTabbar.create() creates a native tab bar UI element and activates its first tab. If you want to see another tab, call Rho::NativeTabbar.switch_tab explicitly, just after NativeBar.create:
 
 	:::ruby
 	require 'rho/rhotabbar'
