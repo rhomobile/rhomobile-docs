@@ -17,7 +17,7 @@ This tutorial assumes that you know how to edit a Rhodes application, and that y
 
 If you have the Android SDK installed, you can check to see if it has Google APIs:10. Go to your tools folder in your Android SDK and run android. In the Android SDK and AVD Manager, click Installed packages. If you do not see Google APIs:10 in the list of installed packages, click on Available Packages, find Google APIs by Google Inc, Android API 10, and install it. Also click Virtual Devices and check that you have an AVD (Android Virtual Device) set up for this version of Android; create one if you do not.
 
-<img src="near-field-communication-with-rhodes-tutorial/android-sdk-avd-manager.jpg" alt="Android SDK and AVD Manager" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/android-sdk-avd-manager.jpg" alt="Android SDK and AVD Manager" />
 
 The webinar and this tutorial show Android running from the command line, outside of Eclipse.
 
@@ -72,7 +72,7 @@ You will get a bunch of errors because you also need some Java libraries for the
 
 ### Coding the NFCDemo Project to Send NFC Tags on a Timer
 
-Open the NFCDemo project in your text editor to edit its Android example that sends out fake NFC tags. In NFCDemo/src/com/example/android/nfc/simulator/FakeTagsActivity.java, edit the onListItemClick method. You will edit the code so it no longer sends the tag to its own application, but instead it sends out that broadcast message on a time period, giving you time to open your Phodes application to see it recieve the tag.
+Open the NFCDemo project in your text editor to edit its Android example that sends out fake NFC tags. In NFCDemo/src/com/example/android/nfc/simulator/FakeTagsActivity.java, edit the onListItemClick method. You will edit the code so it no longer sends the tag to its own application, but instead it sends out that broadcast message on a time period, giving you time to open your Rhodes application to see it receive the tag.
 
 Add the imports for Timer and TimerTask.
 
@@ -98,7 +98,7 @@ Add code for Timer and TimerTask. You need a timer to delay from when you have t
 	final int pos = position;     /* save the position */
 	Timer timer = new Timer();
 	timer.schedule( new TimerTask() {  
-	/* Instead of startActivity, sendBroadcast sends the activity 15 seconds after you click the button so we have time to switch to the Rhodes application that picks up the boradcast. */
+	/* Instead of startActivity, sendBroadcast sends the activity 15 seconds after you click the button so we have time to switch to the Rhodes application that picks up the broadcast. */
 	  private int ppos = pos;
 	  public void run() {
 		TagDescription description = mAdapter.getItem(ppos);
@@ -121,11 +121,7 @@ Run your Android emulator: android in your tools folder within your Android SDK 
 
 In the webinar video, the emulator is running at 8:10, where the Android SDK and AVD Manager is set up to run an AVD for Android with Google APIs level 10 or above, which is the minimum required for near field communication. Run that AVD.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhosimulator-debugger-tutorial/Store.jpg" alt="Store project" />
-
-<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-with-rhodes-tutorial/android-sdk-avd-manager.jpg" alt="Android SDK and AVD Manager" />
-
-<img src="near-field-communication-with-rhodes-tutorial/android-sdk-avd-manager.jpg" alt="Android SDK and AVD Manager" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/android-sdk-avd-manager.jpg" alt="Android SDK and AVD Manager" />
 
 ### Installing NFCDemo into the Android Emulator
 
@@ -134,7 +130,7 @@ Now install your NFCDemo app into the Android emulator that you are running. Fro
 	:::term
 	$ adb install bin/NFC\ Demo-debug.apk
 
-<img src="near-field-communication-with-rhodes-tutorial/NFCDemo-installed.jpg" alt="NFCDemo installed" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/NFCDemo-installed.jpg" alt="NFCDemo installed" />
 
 In the Android emulator, the NFCDemo app should be running (9:09 in the webinar video). The NFCDemo app lets you generate NFC tags that you can receive in a Rhodes Android application.
 
@@ -174,15 +170,15 @@ The first time you build the rhodes-system-api-samples project, it will take sev
 
 The Android emulator appears, and it will be running the rhodes-system-api-samples application. Click Menu and close the application. You do this because when you launch the rhodes-system-api-samples application from the command line, and then you press the Home button in the emulator, the application exits. But you want to have the application running in the background, ready to have a message pushed to it (this application is registered for push messages). 
 
-<img src="near-field-communication-with-rhodes-tutorial/rhodesNFC-closing.jpg" alt="rhodesNFC-closing" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/rhodesNFC-closing.jpg" alt="rhodesNFC-closing" />
 
 Run rhodes-system-api-samples again by clicking on it within the emulator. 
 
-<img src="near-field-communication-with-rhodes-tutorial/rhodesNFC-running.jpg" alt="rhodesNFC-running" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/rhodesNFC-running.jpg" alt="rhodesNFC-running" />
 
 In the rhodes-system-api-samples application tasklist, select NFC (Near Field Communication). 
 
-<img src="near-field-communication-with-rhodes-tutorial/rhodesNFC-running.jpg" alt="rhodesNFC running" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/rhodesNFC-running.jpg" alt="rhodesNFC running" />
 
 Now when you click the Home button, the application goes into the background. But do not click Home yet; you will set up some logging information first.
 
@@ -197,7 +193,7 @@ From the command line, enter the following command to see all the log informatio
 
 The rhodes-system-api-samples application has a simple control page, showing the button to enable and disable NFC, and the status and the log.
 
-<img src="near-field-communication-with-rhodes-tutorial/rhodesNFC-control-page.jpg" alt="Rhodes NFC control page" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/rhodesNFC-control-page.jpg" alt="Rhodes NFC control page" />
 
 Click the enable NFC button on the control page to start listening. Since logcat is running, you will see on the command line that the enable is executed. Select the Home button to put the rhodes-system-api-samples application into the background.
 
@@ -205,13 +201,13 @@ Click the enable NFC button on the control page to start listening. Since logcat
 
 Click on the NFCDemo application in the emulator to run it. You will see choices for the types of NFC tags that you can broadcast. Select NFC SmartPoster URL & text.
 
-<img src="near-field-communication-with-rhodes-tutorial/NFCDemo-tag-types-to-send.jpg" alt="NFC Demo tag types to send" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/NFCDemo-tag-types-to-send.jpg" alt="NFC Demo tag types to send" />
 
 ### Receiving the NFC Tag with the Rhodes Application
 
 Now you have 15 seconds to click Home, go back to the rhodes-system-api-samples application and click on it, and then click on its enable NFC button. In the Log window on the rhodes-system-api-samples application, you see "TAG received!". 
 
-<img src="near-field-communication-with-rhodes-tutorial/rhodesNFC-tag-received.jpg" alt="Rhodes NFC tag received" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/rhodesNFC-tag-received.jpg" alt="Rhodes NFC tag received" />
 
 ### Examining the NFC Tag
 
@@ -229,7 +225,7 @@ At the command line, you see more detailed information about the received tag. W
 
 ### Sending and Receiving Another NFC Tag
 
-We can do this again. Go to the NFCDemo application, and this time click on Broadcast NFC Text Tag. Then click Home, go back to the rhodes-system-api-samples application and click on it, then click on the enable NFC button. In the Log, we see that another tag is recieved.
+We can do this again. Go to the NFCDemo application, and this time click on Broadcast NFC Text Tag. Then click Home, go back to the rhodes-system-api-samples application and click on it, then click on the enable NFC button. In the Log, we see that another tag is received.
 
 At the command line, we see that this is a simple text tag.
 
@@ -237,7 +233,7 @@ At the command line, we see that this is a simple text tag.
 	Record :
 	    tnf = TNF_WELL_KNOWN
 	    type = RTD_TEXT
-	    payload_as_string = Some random engish text.
+	    payload_as_string = Some random english text.
 
 ## Examining the Rhodes NFC Application Code for Receiving Tags
 
@@ -245,9 +241,9 @@ Let's take a look at the rhodes-system-api-samples project and see how this is d
 
 ### Understanding the Rhodes NFC Application Control Page
 
-Open the Nfc model: app/Nfc/controller.rb. The code below from the controller checks if the NFC is enabled, and if it is supported. And when the application recieves a tag, the set\_nfc\_callback is called, and the callback is set to the nfc\_callback action. Since this is the index, it renders the index page for this application. Note that in the status page for this application, it has the enable NFC and disable NFC buttons, and it shows the Current status and Support status.
+Open the Nfc model: app/Nfc/controller.rb. The code below from the controller checks if the NFC is enabled, and if it is supported. And when the application receives a tag, the set\_nfc\_callback is called, and the callback is set to the nfc\_callback action. Since this is the index, it renders the index page for this application. Note that in the status page for this application, it has the enable NFC and disable NFC buttons, and it shows the Current status and Support status.
 
-<img src="near-field-communication-with-rhodes-tutorial/rhodesNFC-tag-received.jpg" alt="Rhodes NFC tag received" />
+<img src="http://rhodocs.s3.amazonaws.com/near-field-communication-rhodes-tutorial/rhodesNFC-tag-received.jpg" alt="Rhodes NFC tag received" />
 
 	:::ruby
 	def index
@@ -357,4 +353,4 @@ If you click the Broadcast NFC Text Tag in NFCDemo, you see that its tag has one
 	        Record :
 	            tnf = TNF_WELL_KNOWN
 	            type = RTD_TEXT
-	            payload_as_string = Some random engish text.
+	            payload_as_string = Some random english text.
