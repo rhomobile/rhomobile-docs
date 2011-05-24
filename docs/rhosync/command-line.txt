@@ -132,7 +132,8 @@ RhoSync applications come with many useful rake tasks for administrative and dev
 
 * 	`rake dtach:install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
 
-* 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead.
+* 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead. 
+If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](http://docs.rhomobile.com/rhosync/install).
 	
 * 	`rake rhosync:set_admin_password` - Set the RhoSync administrator password.  The default password is blank ''.
 
