@@ -17,3 +17,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Rhodes Simulator and Debugging Tutorial](/rhosimulator-debugger-tutorial)
 
 * ### [Rhodes Near Field Communication Tutorial](/near-field-communication-with-rhodes-tutorial)
+
+* ### [RhoStudio Tutorial - webinar version](/rhostudio-tutorial-webinar)
