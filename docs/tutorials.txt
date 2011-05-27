@@ -19,3 +19,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Rhodes Near Field Communication Tutorial](/near-field-communication-with-rhodes-tutorial)
 
 * ### [RhoStudio Tutorial - webinar version](/rhostudio-tutorial-webinar)
+
+* ### [Deploying a RhoSync Application to Amazon EC2 Tutorial](/rhosync-ec2-tutorial)

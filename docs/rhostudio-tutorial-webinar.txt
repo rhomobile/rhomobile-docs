@@ -8,8 +8,8 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact)
- * [Rhosync Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact-server)
+ * [Rhodes Tutorial](/rhodes/tutorial)
+ * [Rhodes Tutorial](/rhodes/install)
  * [Eclipse download](http://www.eclipse.org/downloads/)
 
 ## Setup
