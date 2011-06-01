@@ -29,7 +29,7 @@ class PdfMaker
       # Don't use the one for images. Same issue as with icons, trying to load a locally hosted
       # image will deadlock.
       #content.gsub!(/<(a href|img src)="(.*?)">(.*?)(?:<\/a>|)/) do |match|
-      content.gsub!(/<(a href)="(.*?)">(.*?)(?:<\/a>|)/) do |match|
+      content.gsub!(/<(a href)="(.*?)">(.*?)(?:<\/a>|\/)/) do |match|
         type = $1
         url = $2
         text = $3
