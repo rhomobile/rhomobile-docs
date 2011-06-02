@@ -9,7 +9,7 @@ Webinar Video
 Pre-requisite Reading
 ---------------------
  * [Rhodes Tutorial](/rhodes/tutorial)
- * [Rhodes Tutorial](/rhodes/install)
+ * [Rhodes Installation](/rhodes/install)
  * [Eclipse download](http://www.eclipse.org/downloads/)
 
 ## Setup
