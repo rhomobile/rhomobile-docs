@@ -21,3 +21,7 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [RhoStudio Tutorial - webinar version](/rhostudio-tutorial-webinar)
 
 * ### [Deploying a RhoSync Application to Amazon EC2 Tutorial](/rhosync-ec2-tutorial)
+
+* ### [RhoHub Editor Tutorial](/rhohub-editor-tutorial)
+
+* ### [Converting a Rhodes Application to JQueryMobile Tutorial](/rhodes-jquerymobile)
