@@ -3,6 +3,7 @@ section 'getting-started', "Getting Started" do
   topic 'rhodes/tutorial',      'Rhodes Tutorial'
   topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
+  topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'tutorials',            'How To'
   topic 'architecturefaq',      'Architecture FAQ'
   topic 'faq',                  'Programming FAQ'
@@ -24,8 +25,9 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
   topic 'rhodes/extensions',        'Extending the Rhodes Framework'
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
+  topic 'rhodes/simulator',         'Using RhoSimulator'
   topic 'rhodes/contributing',      'Contributing'
-  topic 'credits',              'Credits'
+  topic 'credits',                  'Credits'
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do

@@ -217,25 +217,25 @@ By default, the index page displays items using the item's first attribute, the 
 
 So that our users won't have to view each record to find out which product is which, let's add the brand attribte to the index page, allowing us to can distinguish different products.  To modify the display of our application's index page, we can simply edit the index.erb file.
 
-* Open app/Products/index.erb and find the following line (around line 20):
+Open app/Products/index.erb and find the following line (around line 20):
 
-		:::html
-  		<span class="title"><%= product.name %></span>
-		<span class="disclosure_indicator"></span>
+	:::html
+	<span class="title"><%= product.name %></span>
+	<span class="disclosure_indicator"></span>
 
-* Add the product's name to the list item as follows:  
+Add the product's name to the list item as follows:  
 
-		:::html
-  		<span class="title">
-	      <%= "#{product.brand} #{product.name}" %>
-	    </span>
-	    <span class="disclosure_indicator"></span>
+	:::html
+	<span class="title">
+	  <%= "#{product.brand} #{product.name}" %>
+	</span>
+	<span class="disclosure_indicator"></span>
 
-* Save the file.
-* On the command line, type:
-	
-		:::term
-  		$ rake run:android
+Save the file.
+On the command line, type:
+
+	:::term
+	$ rake run:android
 
 Now you should see the brand and name in the list item.  
 

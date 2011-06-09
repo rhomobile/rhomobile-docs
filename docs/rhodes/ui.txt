@@ -160,7 +160,7 @@ If you are using xCode to build for iPhone, you should add to your project Defau
 * Default-LandscapeLeft.png; size 1024x768 - for iPad in LandscapeLeft orientation on start, if not defined then Default-Landscape.png will be used
 * Default-LandscapeRight.png; size 1024x768 - for iPad in LandscapeRight orientation on start, if not defined then Default-Landscape.png will be used
 
-**NOTE: Use rake command once and it will update xcode project. **
+**NOTE: Use rake command  "rake build:iphone:setup_xcode_project" for setup XCode project for current application (include loading images, icons, etc.) **
 
 You can see examples of all these images in [Rhodes-System-Api-Samples](http://github.com/rhomobile/rhodes-system-api-samples) application.
 
@@ -540,7 +540,7 @@ Each tabbar item defined in the above sample defines following tab elements:
 * :reload => true - Optional argument which tells rhodes to reload the tab's :action, defaults to false
 * :selected_color => 0xFFFF00 - Optional parameter for change selected color of this tabs (if you use it on Android - you should defined it for all tabs! and also define :background_color for TabBar!)
 * :disabled => true - Optional parameter for disable this tab
-* :web_bkg_color = > int hex value (like HTML color) - background color for tab (use when your app bkg is not white for remove blink during switch tabs)
+* :web_bkg_color = > int hex value (0x7F7F7F for example) - background color for tab (use when your app bkg is not white for remove blink during switch tabs)
 * :use_current_view_for_tab => true - Optional argument which tells rhodes to smooth transfer WebView from current view into this Tab and make this Tab active. Defaults to false. Only one Tab can have this parameter!
 
 
@@ -602,6 +602,11 @@ Switch active tab to second (numeration is zero based i.e. 0 means first tab, 1 
 Get current tab index
 	:::ruby
 	Rho::NativeTabbar.get_current_tab 
+
+Set iPhone badge to Tab (worked only on iOS devices!) 
+	:::ruby
+	# set badge '12' to tab 1
+	Rho::NativeTabbar.set_tab_badge( 1, '12')
 
 
 Rho::NativeTabbar.create() create native tab bar UI element and activate its first tab. If you want to see another tab, call Rho::NativeTabbar.switch_tab explicitly just after NativeBar.create:

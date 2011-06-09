@@ -6,8 +6,9 @@ class PdfMaker
   def call(env)
     status, headers, response = @app.call(env)
     
-    if env["REQUEST_URI"] =~ /.pdf$/
-      # If the page ends in ".pdf", render it as a PDF. Otherwise, don't do anything with it.
+    if ( env["REQUEST_URI"] =~ /\.pdf$/ and env["REQUEST_URI"] !~ /\?|=/ )
+      # If the page ends in ".pdf" and doesn't contain ?'s or ='s,
+      # render it as a PDF. Otherwise, don't do anything with it.
       
       content = response.join("")
 
@@ -28,7 +29,7 @@ class PdfMaker
       # Don't use the one for images. Same issue as with icons, trying to load a locally hosted
       # image will deadlock.
       #content.gsub!(/<(a href|img src)="(.*?)">(.*?)(?:<\/a>|)/) do |match|
-      content.gsub!(/<(a href)="(.*?)">(.*?)(?:<\/a>|)/) do |match|
+      content.gsub!(/<(a href)="(.*?)">(.*?)<\/a>/) do |match|
         type = $1
         url = $2
         text = $3

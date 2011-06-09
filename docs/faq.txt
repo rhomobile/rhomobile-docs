@@ -129,3 +129,41 @@ If you are loading javascript, consider doing it at the very end of your page; t
     * Windows Mobile: open device explorer from ActiveSync or 'Mobile Device center', navigate to 'Program Files/<application name>/rho/db'
     * Blackberry: open on computer file system  - '<jde>/components/simulator/sdcard/Rho/<appname>/db
 * Build application, now all db files are in the application package
+
+## How to remove toolbar from top-level index.erb
+Edit app/application.rb file: initialize method
+
+    :::ruby
+    class AppApplication < Rho::RhoApplication
+      
+      def initialize
+        #To remove default toolbar uncomment next line:
+        #it should be before super
+        @@toolbar = nil    
+        
+        super
+      end
+    end  
+
+## How to define controller for top-level index.erb
+There is no way to define controller for top-level index.erb, so create special model and put index.erb there:
+
+* Create special 'Home' model
+* in rhoconfig.txt modify 'start_path' :
+
+        start_path = '/app/Home'
+    
+* 'Home' model index method:
+
+        def index
+            #do something
+            render
+        end
+        
+## How to print document in Rhodes
+* Prepare file with printed content (html, pdf, image, etc.)
+* Open this file by 
+
+    System.open_url(file_path)
+    
+* Print document from document application
