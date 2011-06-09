@@ -1,0 +1,104 @@
+RhoConnect Heroku Addon
+==========
+
+RhoConnect is a data synchronization server and client library which keeps enterprise app data current and available on users’ smartphones. 
+
+The information is stored locally on a user’s device and available even when disconnected and offline.  
+
+Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](http://docs.rhomobile.com/rhosync/introduction).
+
+Gem
+-----
+To install the latest stable RhoConnect gem, run:
+
+	:::term
+	$ [sudo] gem install rhoconnect
+
+Using from Rails
+------------
+To use rhoconnect from a rails application you must first install the `rhoconnect-rb` gem.
+
+	:::term
+	$ [sudo] gem install rhoconnect-rb
+	
+**NOTE: rhoconnect-rb only supports rails 3.  You will not be able to connect your app to rhoconnect with rails < 3.**
+
+Load the `rhoconnect-rb` library
+
+	:::ruby
+	require 'rhoconnect-rb'
+	
+**NOTE: If you are using datamapper, install the `dm-seriarlizer` library and require it in your application.  rhoconnect-rb depends on this utility to interact with Rhoconnect applications using JSON.**
+
+You will have to let your rails app know where your rhoconnect instance is located.  From inside your `environment.rb` file you can define:
+	
+	:::ruby
+	ENV['RHOCONNECT_URL'] = 'http://token@rhoservice.heroku.com'
+	
+**NOTE: when provisioning rhoconnect from heroku, a rhoconnect url and token will be returned to you.**
+
+Next you will need to include Rhoconnect::Resource in the model you want to synchronize with your mobile application:
+
+	:::ruby
+	class Product < ActiveRecord::Base
+	  include Rhosync::Resource
+	end
+
+Or, if you are using DataMapper:
+
+	:::ruby
+	class Product
+	  include DataMapper::Resource
+	  include Rhosync::Resource
+	end
+	
+Your model will also have to declare a partition key for rhoconnect-rb.  This partition key is used by rhoconnect-rb to uniquely identify the model dataset when it is stored in a RhoConnect application.
+It is typically an attribute on the model or related model.  rhoconnect-rb supports two types of partitions:
+
+* app - No unique key will be used, a shared dataset is used for all users
+* lambda{some lambda} - Execute a lambda which returns the unique key string
+	
+For example, the Product model above might have a belongs_to :user relationship.  The partition identifying the username would be declared as:
+	:::ruby
+	class Product < ActiveRecord::Base
+	  include Rhosync::Resource
+
+	  belongs_to :user
+
+	  partition lambda { self.user.username }
+	end
+	
+
+
+
+
+Deploying to Heroku
+-----------------------
+To use RhoConnect from Heroku, install the RhoConnect add-on:
+
+	:::term
+	$ heroku addons:add rhoconnect
+	
+Setup
+-----
+From inside your heroku account you will need to setup the url to your backend service that RhoConnect will connect to.
+
+Click the addons drop down and select rhoconnect.
+<p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/addon_rhoconnect.png' width="479" height="319"/></p>
+
+Once redirected to the admin console of your rhoconnect instance, you will need to set the adapter url to your backend service.  Select Adapter Url from the right menu.
+<p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/console.png' /></p>
+
+
+From here you can enter a url to your backend service.  Enter a url ex: http://myrailsapp.com, and click add to save the url.
+<p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/Rhosync+Console_1307489736659.png' /></p>
+
+Rhoconnect is now setup with your backend service.  You are now ready to create a rhodes app using the [Rhodes framework](http://docs.rhomobile.com/rhodes/tutorial) or synchronize existing clients using [rhoconnect.js](https://github.com/rhomobile/rhoconnect.js)
+Further Reading
+----
+[RhoConnect Introduction](http://docs.rhomobile.com/rhosync/introduction)
+
+[RhoConnect Installation](http://docs.rhomobile.com/rhosync/install)
+
+[RhoConnect Tutorial](http://docs.rhomobile.com/rhosync/tutorial)
+
