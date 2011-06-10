@@ -27,3 +27,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Converting a Rhodes Application to JQueryMobile Tutorial](/rhodes-jquerymobile)
 
 * ### [Using the Google API with Rhodes and RhoSync Tutorial](/google-api-rhodes-rhosync-tutorial)
+
+* ### [iPad Split View UI with Rhodes Tutorial](/iPad-rhodes-tutorial)
