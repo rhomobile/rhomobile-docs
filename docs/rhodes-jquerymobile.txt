@@ -61,14 +61,11 @@ The changes you perform on the generated Rhodes projects to prepare them for JQu
 
 In the layout file, you will modify to include the JQuery Mobile files, and you will not need the checks for platforms.
 
-### layout.erb: generated Rhodes
+### layout.erb for generated Rhodes
 
 In your Rhodes store project, open app/layout.erb. You will see the default code for the JQTouch layouts that was created when this Rhodes application was generated. The code has checks for Blackberry, Android, Windows Mobile, and so on.
 
    :::html
-   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	    <title>Store1</title>
 	    
@@ -116,8 +113,6 @@ In your Rhodes store project, open app/layout.erb. You will see the default code
 	    <%= @content %>
 	</body>
 
-</html>
-
 ### layout.erb: JQuery Mobile
 
 When you use JQuery Mobile, you remove those checks that were generated in app/layout.erb. Instead, you include the stylesheets that were downloaded with JQuery Mobile. 
@@ -130,8 +125,7 @@ The code shown below, the app/index.erb for the sample jqmobilestore project, is
 It points to the JQuery Mobile CSS file and the JQuery JavaScript, and it changes the loading message to false because we do not want the loading screen to flash between transitions.
 
 	:::html
-	<html> 
-		<head> 
+	<head> 
 		<title>Store</title> 
 		
 		<!-- Point to the CSS file in the public folder for the jquery -->
@@ -156,7 +150,6 @@ It points to the JQuery Mobile CSS file and the JQuery JavaScript, and it change
 	<body>
 	    <%= @content %>
 	</body>
-	</html>
 
 ## Modifying The Main Index File To Data-Role Wrap And To Grid The Buttons
 
