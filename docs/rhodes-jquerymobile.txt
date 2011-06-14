@@ -65,9 +65,9 @@ In the layout file, you will modify to include the JQuery Mobile files, and you 
 
 In your Rhodes store project, open app/layout.erb. You will see the default code for the JQTouch layouts that was created when this Rhodes application was generated. The code has checks for Blackberry, Android, Windows Mobile, and so on.
 
-   :::html
+	:::html
 	<head>
-	    <title>Store1</title>
+	  <title>Store1</title>
 	    
 	    <% is_bb6 = System::get_property('platform') == 'Blackberry' && (System::get_property('os_version') =~ /^6\.0/) %>
 	
