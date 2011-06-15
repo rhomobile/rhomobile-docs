@@ -29,3 +29,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Using the Google API with Rhodes and RhoSync Tutorial](/google-api-rhodes-rhosync-tutorial)
 
 * ### [iPad Split View UI with Rhodes Tutorial](/iPad-rhodes-tutorial)
+
+* ### [Near Field Communications With Rhodes In-Depth Tutorial](/nfc-with-rhodes-in-depth-tutorial)
