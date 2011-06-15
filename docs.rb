@@ -105,7 +105,7 @@ helpers do
     index = client.indexes(AppConfig['index'])
     search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title', :snippet => 'text')
     next_page =
-      if search['matches'] > (page + 1) * 10
+      if search and search['matches'] and search['matches'] > (page + 1) * 10
         page + 1
       end
     prev_page =
