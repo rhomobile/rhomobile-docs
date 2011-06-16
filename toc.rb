@@ -53,7 +53,7 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
 end
 
 section 'rhoconnect-reference', "RhoConnect JS Developer Reference (Alpha)" do
-  topic 'rhoconnectjs/introduction',      'Introduction'
-  topic 'rhoconnectjs/getting-started',   'Getting Started'
-  topic 'rhoconnectjs/reference',         'API Reference'
+  topic 'rhoconnect.js/introduction',      'Introduction'
+  topic 'rhoconnect.js/getting-started',   'Getting Started'
+  topic 'rhoconnect.js/reference',         'API Reference'
 end
