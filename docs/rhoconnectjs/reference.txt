@@ -1,0 +1,47 @@
+RhoConnect.js API Reference
+===
+Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Those are methods and *ERRORS* hash.
+
+## Methods
+- *RhoConnect.login(username, password, notification, doDataReset)* - Authenticates application on the server, returns *promise* object. Arguments are:
+    - *username* - User name to authenticate with
+    - *password* - Password
+    - *notofication* - Synchronization notification object instance, just use "new RhoConnect.SyncNotification()"
+    - *doDataReset* - (optional, default is *false*) - Boolean value, true means to do database reset before login.
+- *RhoConnect.init(modelDefinitions, dataApiType, syncProgressCallback)* - Performs rhoconnect.js and data API initialization, returns *promise* object. Arguments are:
+    - *modelDefinitions* (mandatory) - Model definitions array, see Getting Started guide for the sample.
+    - *dataApiType* (optional) - Use string values:
+        - 'extjs' - Do initialize ExtJS/SenchaToush data API to use as application data storage.
+        - 'persistencejs' - Do initialize Persistence.js data API to use as application data storage.
+        - 'custom' or *null* - Don't initialize any data API, perform data API initialization in custom code.
+    - *syncProgressCallback* (optional) - Progress update callback function to use. The only function argument is the model name, which has just been synchronized.
+- *RhoConnect.logout()* - Disconnects application from the server, returns *promise* object. Have no arguments.
+- *RhoConnect.isLoggedIn()* - Returns *true* value if aplication is logged in on the server. Have no arguments.
+- *RhoConnect.syncAllSources()* - Synchronize application data with the RhoSync server, returns *promise* object. Have no arguments.
+- *RhoConnect.dataAccessObjects()* - Returns the hash of data access objects which are data API specific. Have no arguments. In returned hash object the *key* is model name and the *value* is instances of:
+    - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
+    - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
+
+## Errors
+Are defined as:
+
+    RhoConnect.ERRORS = {
+        ERR_NONE: 'No error',
+        ERR_NETWORK: 'Network error',
+        ERR_REMOTESERVER: 'Remote server access error',
+        ERR_RUNTIME: 'Runtime error',
+        ERR_UNEXPECTEDSERVERRESPONSE: 'Unexpected server response',
+        ERR_DIFFDOMAINSINSYNCSRC: 'Different synchronization domain error',
+        ERR_NOSERVERRESPONSE: 'No server response',
+        ERR_CLIENTISNOTLOGGEDIN: 'Client not logged in',
+        ERR_CUSTOMSYNCSERVER: 'Custom sync server',
+        ERR_UNATHORIZED: 'Unauthorized access',
+        ERR_CANCELBYUSER: 'Canceled by user',
+        ERR_SYNCVERSION: 'Synchronization version error',
+        ERR_GEOLOCATION: 'Geolocation error'
+    };
+
+## Returned values
+API methods returns object instance of jQuery *promise* type. On success the *done* handler is called. On failure the *fail* handler is called with following arguments:
+- *errCode* - The error code value from *RhoConnect.ERRORS*
+- *errorMessage* - More detailed error message if available.
