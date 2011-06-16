@@ -15,7 +15,7 @@ edge:
     rhohub: 'docs/rhohub/'
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
-    rhoconnectjs: 'docs/rhoconnect.js/'
+    rhoconnectjs: 'docs/rhoconnectjs/'
   index: 'rhodocs_edge'
   pdfkithost: 'edgedocs.rhomobile.com'
   rhonav_host: http://app.staging.rhohub.com
@@ -26,7 +26,7 @@ production:
     rhohub: 'docs/rhohub/'
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
-    rhoconnectjs: 'docs/rhoconnect.js/'
+    rhoconnectjs: 'docs/rhoconnectjs/'
   index: 'rhodocs'
   pdfkithost: 'docs.rhomobile.com'
   rhonav_host: https://app.rhohub.com
