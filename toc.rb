@@ -51,3 +51,9 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/benchmarks',        'Benchmarks'
   topic 'rhosync/contributing',      'Contributing'
 end
+
+section 'rhoconnect-reference', "RhoConnect JS Developer Reference (Alpha)" do
+  topic 'rhoconnectjs/introduction',      'Introduction'
+  topic 'rhoconnectjs/getting-started',   'Getting Started'
+  topic 'rhoconnectjs/reference',         'API Reference'
+end
