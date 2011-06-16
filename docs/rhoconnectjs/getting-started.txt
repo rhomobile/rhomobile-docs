@@ -87,4 +87,4 @@ To use rhoconnect.js you need to login and initialize rhoconnect.js with model d
         }).promise();
     }
 
-You can use *RhoConnect.dataAccessObjects()* to obtain data API specific objects to access you data. See the reference guide.
+You can use *RhoConnect.dataAccessObjects()* to obtain data API specific objects to access you data. See the API reference.
