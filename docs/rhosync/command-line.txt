@@ -126,6 +126,18 @@ To open the web console, navigate to [http://localhost:9292/](http://localhost:9
 	:::term
 	$ rake rhosync:web
 	
+### Creating executable WAR containers (JRuby environment only)
+
+It is possible to create Java WAR containers for your Rhosync application that can be deployed into the
+Java App Servers (for example, JBoss). To create the executable WAR container, execute the following command in your app's root directory:
+	
+	:::term
+	$ cd storeserver
+	$ rake rhosync:war
+	
+This will build the WAR file named <your_app>.war that can be deployed into the Java App Server.
+
+
 ### Common Tasks
 
 RhoSync applications come with many useful rake tasks for administrative and development workflows.  Some common ones are:
@@ -194,4 +206,5 @@ Here is a complete list of the rake tasks available in a RhoSync application:
 	rake rhosync:spec                # Run source adapter specs
 	rake rhosync:start               # Start rhosync server
 	rake rhosync:stop                # Stop rhosync server
+	rake rhosync:war                 # Build executable WAR file to be used in Java App Servers
 	rake rhosync:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml

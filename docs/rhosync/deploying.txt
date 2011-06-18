@@ -72,4 +72,11 @@ The [RhoHub](/rhohub/introduction) service offers several [production RhoSync ap
 ## Deploying On-Premise
 The [sinatra book](http://sinatra-book.gittr.com/) has some great [deployment documentation](http://sinatra-book.gittr.com/#deployment) that you should review before running your RhoSync application in production.
 
+## Deploying into J2EE environment
+In JRuby environment, there is an option to create the WAR container for the Rhosync app
+and deploy it into the J2EE App Server.
+(see the corresponding 'rake' task for creating the WAR containers).
+Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
+to place the WAR file into the server's deploy directory.
+
 We recommend using the [phusion passenger](http://modrails.com/index.html) stack for deploying an on-premise RhoSync application.  Please refer to the [section on rack applications](http://modrails.com/documentation/Users%20guide%20Apache.html#_deploying_a_rack_based_ruby_application) for information on deploying a RhoSync sinatra application.
