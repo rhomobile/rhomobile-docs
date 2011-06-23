@@ -167,3 +167,18 @@ There is no way to define controller for top-level index.erb, so create special 
     System.open_url(file_path)
     
 * Print document from document application
+
+## How to use native Google map view on Android
+
+* Get [Google Maps API key](http://code.google.com/android/maps-api-signup.html)
+* Add 'mapping' and 'apikey' parameters to your build.yml
+    
+    android:
+        mapping: yes
+        apikey: <YOUR-API-KEY>
+
+* Add 'network_state' to capabilities list in your build.yml.
+
+    capabilities:
+        - network_state
+
