@@ -31,7 +31,7 @@ Ruby is easy to learn.  See [Ruby in Twenty Minutes](http://www.ruby-lang.org/en
 ## Can I write Rhodes apps with my favorite editor/Integrated Development Environment?   
 Rhodes apps can be written with any editor or IDE which supports Ruby and HTML.  This includes Eclipse, IntelliJ, NetBeans, Visual Studio, Textmate, VIM, emacs and others.
 
-## Why doesn't Rhodes include its own IDE?
+## Does Rhodes have an IDE?
 We do provide an Integrated Development Environment called [RhoStudio](http://docs.rhomobile.com/rhostudio.tutorial). We also supply, [RhoHub 3.0](http://rhohub.com) which features a hosted IDE, allowing developers to write apps whether or not they have anything installed locally on their own machine.  You can generate, edit, and build your native smartphone apps, all online on RhoHub.  
 
 ## How do I debug my app?
