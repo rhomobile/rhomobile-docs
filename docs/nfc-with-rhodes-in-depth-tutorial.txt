@@ -6,7 +6,7 @@ Source Code
 -----------
 The source code for this example is located here.
 
- * [Rhodes Webinar Samples sample](https://github.com/rhomobile/webinar-samples.git)
+ * [Rhodes Webinar Samples](https://github.com/rhomobile/webinar-samples)
 
 Webinar Video
 -------------
