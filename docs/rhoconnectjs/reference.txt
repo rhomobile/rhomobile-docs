@@ -18,6 +18,30 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
 - *RhoConnect.logout()* - Disconnects application from the server, returns *promise* object. Have no arguments.
 - *RhoConnect.isLoggedIn()* - Returns *true* value if aplication is logged in on the server. Have no arguments.
 - *RhoConnect.syncAllSources()* - Synchronize application data with the RhoSync server, returns *promise* object. Have no arguments.
+
+
+- *RhoConnect.setModelNotification(modelName, callback, removeAfterFire) - Set handler for exact *model* synchronization notification. Arguments are:
+    - *modelName* - Name of model to listen notifications for.
+    - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
+        - *source_name* - The name of model just synchronized.
+        - *total_count* - The total *objects* count for the *model*.
+        - *processed_count* - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
+        - *status* - It is a string value. May be "ok" or "error" in case of exact model synchronization error.
+    - *removeAfterFire* - Clear notification subscription after notification event if true. The same if handler function returns true.
+- *RhoConnect.clearModelNotification(modelName) - Reset handler for *model* synchronization notification. Arguments are:
+        - *modelName* - Name of model to reset the handler.
+- *RhoConnect.setAllNotification(callback, removeAfterFire) - Set handler for all *models* synchronization notifications. Arguments are:
+    - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
+        - *in_progress* - Boolean value *true* if synchronization still in a progress, *undefined* value if synchronization finished.
+        - *status* - String value "complete" if synchronization finished, *undefined* value if synchronization in a progress.
+    - *removeAfterFire* - Clear notification subscription after notification event if true. The same if handler function returns true.
+- *RhoConnect.clearAllNotification() - Reset handler for all *models* synchronization notifications.
+- *RhoConnect.setObjectsNotification(callback, removeAfterFire)
+- *RhoConnect.clearObjectsNotification()
+- *RhoConnect.addObjectNotify(modelName, objectId)
+- *RhoConnect.clearObjectsNotify()
+
+
 - *RhoConnect.dataAccessObjects()* - Returns the hash of data access objects which are data API specific. Have no arguments. In returned hash object the *key* is model name and the *value* is instances of:
     - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
     - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
