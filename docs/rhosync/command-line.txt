@@ -47,11 +47,11 @@ Here's a basic rundown of each of the files that were just generated:
 	
 * **config.ru** - This is a rackup file which will load your application.  RhoSync uses the excellent [sinatra](http://www.sinatrarb.com/) web framework to run the application.
 * **settings/settings.yml** - This contains settings such as your redis connection, which source adapters exist and their parameters.  You can also put custom settings here.
-* **settings/license.key** - The RhoSync license associated with your application.  The default license allows up to 10 devices to synchronize with the application.
+* **settings/license.key** - The RhoSync [license](/rhosync/licensing) associated with your application.  The default license allows up to 10 devices to synchronize with the application.
 * **application.rb** - The RhoSync application class where you can implement authentication.  You can also add other custom methods here to use in your application.  This class is a singleton, so all methods should be added to the `class << self` block.
 * **Rakefile** - This contains tasks that can be run from the terminal.
-* **Gemfile** - This file specifies application's dependencies.
-* **spec/spec_helper.rb** - A helper file which loads the environment for running specs.
+* **Gemfile** - This file specifies application's dependencies using [bundler](http://gembundler.com/).
+* **spec/spec_helper.rb** - A helper file which loads the environment for running [specs](/rhosync/testing).
 
 ### Add a New Source Adapter
 
@@ -145,7 +145,7 @@ RhoSync applications come with many useful rake tasks for administrative and dev
 * 	`rake dtach:install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
 
 * 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead. 
-If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](http://docs.rhomobile.com/rhosync/install).
+If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](/rhosync/install).
 	
 * 	`rake rhosync:set_admin_password` - Set the RhoSync administrator password.  The default password is blank ''.
 
