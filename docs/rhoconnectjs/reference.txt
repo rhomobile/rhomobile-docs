@@ -3,6 +3,9 @@ RhoConnect.js API Reference
 Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Those are methods and *ERRORS* hash.
 
 ## Methods
+
+### Initialization and data access
+
 - *RhoConnect.login(username, password, doDataReset)* - Authenticates application on the server, returns *promise* object. Arguments are:
     - *username* - User name to authenticate with
     - *password* - Password
@@ -17,7 +20,11 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
 - *RhoConnect.logout()* - Disconnects application from the server, returns *promise* object. Have no arguments.
 - *RhoConnect.isLoggedIn()* - Returns *true* value if aplication is logged in on the server. Have no arguments.
 - *RhoConnect.syncAllSources()* - Synchronize application data with the RhoSync server, returns *promise* object. Have no arguments.
+- *RhoConnect.dataAccessObjects()* - Returns the hash of data access objects which are data API specific. Have no arguments. In returned hash object the *key* is model name and the *value* is instances of:
+    - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
+    - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
 
+### Synchronization notifications
 
 - *RhoConnect.setModelNotification(modelName, callback, removeAfterFire) - Set handler for exact *model* synchronization notification. Arguments are:
     - *modelName* - Name of model to listen notifications for.
@@ -35,7 +42,7 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
         - *status* - String value "complete" if synchronization finished, *undefined* value if synchronization in a progress.
     - *removeAfterFire* - Clear notification subscription after notification event if true. The same if handler function returns true.
 - *RhoConnect.clearAllNotification() - Reset handler for all *models* synchronization notifications.
-- *RhoConnect.setObjectsNotification(callback, removeAfterFire)
+- *RhoConnect.setObjectsNotification(callback, removeAfterFire) - Set handler for all *object* change notifications. Arguments are:
     - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
         - *updated* - Array of hashes for updated objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
             - *objectId* - Is *id* of updated object.
@@ -46,14 +53,12 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
         - *deleted* - Array of hashes for deleted objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
             - *objectId* - Is *id* of updated object.
             - *sourceId* - Is internal artifact of RhoConnect.js, have no value for application development so far.
-- *RhoConnect.clearObjectsNotification()
-- *RhoConnect.addObjectNotify(modelName, objectId)
-- *RhoConnect.clearObjectsNotify()
+- *RhoConnect.clearObjectsNotification() - Reset handler for all *object* change notifications.
+- *RhoConnect.addObjectNotify(modelName, objectId) - Subscribe exact object for changes notification.  Arguments are:
+    - *modelName* - The name of object *model*.
+    - *objectId* - The *id* of object.
+- *RhoConnect.clearObjectsNotify() - Unsubscribe all objects from changes notification.
 
-
-- *RhoConnect.dataAccessObjects()* - Returns the hash of data access objects which are data API specific. Have no arguments. In returned hash object the *key* is model name and the *value* is instances of:
-    - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
-    - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
 
 ## Errors
 Are defined as:
