@@ -3,10 +3,9 @@ RhoConnect.js API Reference
 Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Those are methods and *ERRORS* hash.
 
 ## Methods
-- *RhoConnect.login(username, password, notification, doDataReset)* - Authenticates application on the server, returns *promise* object. Arguments are:
+- *RhoConnect.login(username, password, doDataReset)* - Authenticates application on the server, returns *promise* object. Arguments are:
     - *username* - User name to authenticate with
     - *password* - Password
-    - *notofication* - Synchronization notification object instance, just use "new RhoConnect.SyncNotification()"
     - *doDataReset* - (optional, default is *false*) - Boolean value, true means to do database reset before login.
 - *RhoConnect.init(modelDefinitions, dataApiType, syncProgressCallback)* - Performs rhoconnect.js and data API initialization, returns *promise* object. Arguments are:
     - *modelDefinitions* (mandatory) - Model definitions array, see Getting Started guide for the sample.
@@ -37,6 +36,16 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
     - *removeAfterFire* - Clear notification subscription after notification event if true. The same if handler function returns true.
 - *RhoConnect.clearAllNotification() - Reset handler for all *models* synchronization notifications.
 - *RhoConnect.setObjectsNotification(callback, removeAfterFire)
+    - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
+        - *updated* - Array of hashes for updated objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
+            - *objectId* - Is *id* of updated object.
+            - *sourceId* - Is internal artifact of RhoConnect.js, have no value for application development so far.
+        - *created* - Array of hashes for created objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
+            - *objectId* - Is *id* of updated object.
+            - *sourceId* - Is internal artifact of RhoConnect.js, have no value for application development so far.
+        - *deleted* - Array of hashes for deleted objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
+            - *objectId* - Is *id* of updated object.
+            - *sourceId* - Is internal artifact of RhoConnect.js, have no value for application development so far.
 - *RhoConnect.clearObjectsNotification()
 - *RhoConnect.addObjectNotify(modelName, objectId)
 - *RhoConnect.clearObjectsNotify()
