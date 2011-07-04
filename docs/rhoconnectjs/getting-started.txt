@@ -1,5 +1,9 @@
 RhoConnect.js Getting Started
 ===
+Here is a brief description on how to get started with RhoConnect.js. You may use code from
+*samples/app-template* directory as template to start your own application.
+
+## Getting Started
 Load the `rhoconnect.js` library:
 
 	<head>
@@ -30,6 +34,7 @@ To use rhoconnect.js you need to login and initialize rhoconnect.js with model d
             var syncInterval = setInterval(function(){
 
                 RhoConnect.syncAllSources().done(function(){
+                    // performSomeRealWork();
                     // updateSomeUI();
                 }).fail(function(errCode, err){
                     alert('Data sync error: ' +errCode);
@@ -74,11 +79,6 @@ To use rhoconnect.js you need to login and initialize rhoconnect.js with model d
                     dfr.reject(errCode, errMessage);
                 });
 
-                initRhoconnect(username, false).done(function(){
-                }).fail(function(errCode, err){
-                    alert('DB init error: ' +errCode);
-                    dfr.reject(errCode, err);
-                });
             }).fail(function(errCode, err){
                 alert('RhoConnect login error: ' +errCode);
                 dfr.reject(errCode, err);

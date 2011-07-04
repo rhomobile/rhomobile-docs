@@ -16,7 +16,15 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
         - 'extjs' - Do initialize ExtJS/SenchaToush data API to use as application data storage.
         - 'persistencejs' - Do initialize Persistence.js data API to use as application data storage.
         - 'custom' or *null* - Don't initialize any data API, perform data API initialization in custom code.
-    - *syncProgressCallback* (optional) - Progress update callback function to use. The only function argument is the model name, which has just been synchronized.
+    - *syncProgressCallback* (optional) - Progress update callback function to use. Receives the only argument *notificationBody*, it is a hash with fields:
+        - *sourceName* - The name of model just synchronized.
+        - *totalCount* - The total *objects* count for the *model*.
+        - *processedCount* - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
+        - *status* - Is undefined while *inPprogress* value is *true*. When finished it is a string value:
+            - "ok" - Synchronization of exact model has been performed without errors.
+            - "error" - Errors happened during synchronization process.
+        - *errorCode* - Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.
+        - *errorMessage* - Synchronization error message. Is undefined if no errors happened.
 - *RhoConnect.logout()* - Disconnects application from the server, returns *promise* object. Have no arguments.
 - *RhoConnect.isLoggedIn()* - Returns *true* value if aplication is logged in on the server. Have no arguments.
 - *RhoConnect.syncAllSources()* - Synchronize application data with the RhoSync server, returns *promise* object. Have no arguments.
@@ -29,9 +37,9 @@ Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Th
 - *RhoConnect.setModelNotification(modelName, callback, removeAfterFire) - Set handler for exact *model* synchronization notification. Arguments are:
     - *modelName* - Name of model to listen notifications for.
     - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
-        - *source_name* - The name of model just synchronized.
-        - *total_count* - The total *objects* count for the *model*.
-        - *processed_count* - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
+        - *sourceName* - The name of model just synchronized.
+        - *totalCount* - The total *objects* count for the *model*.
+        - *processedCount* - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
         - *status* - Is undefined while *inPprogress* value is *true*. When finished it is a string value:
             - "ok" - Synchronization of exact model has been performed without errors.
             - "error" - Errors happened during synchronization process.
