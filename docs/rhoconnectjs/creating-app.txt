@@ -2,7 +2,7 @@ Creating an application
 ===
 This page describes how to use `rhoconnect.js` to connect your application to a rhoconnect instance.  <a href='http://jquerymobile.com/demos/1.0b1/' target='_blank'>jQuery Mobile</a> will be used for the UI and <a href='http://persistencejs.org/' target='_blank'>persistence.js</a>  will be used as an object-database mapper.  Currently rhoconnect.js supports both sencha touch and persistence.js.
 
-To view the finished application written to run with the phonegap framework visit <a href='rho-fat-freec-crm' target='_blank'>rho-fat-freec-crm</a> example.
+To view the finished application written to run with the phonegap framework visit <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>rho-fat-freec-crm</a> example.
 
 NOTE: unless you are using sencha touch for your UI as well, you will need to use persistence.js as your object-database mapper to avoid framework conflicts
 
@@ -430,7 +430,7 @@ At this point you have created a new object locally.  To synch with your rhoconn
 
 ##Updating an object
 
-Updating an object is very similar to creating an object.  I will show the code required to update and object below.  You can see all the UI functionality by looking at the complete <a href='' target='_blank'>project</a>
+Updating an object is very similar to creating an object.  I will show the code required to update and object below.  You can see all the UI functionality by looking at the complete <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>project</a>
 
 Inside of application.js, I have defined a function update_object().
 
