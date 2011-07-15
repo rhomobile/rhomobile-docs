@@ -1,101 +1,360 @@
-RhoConnect.js API Reference
-===
-Rhoconnect.js API implemented as public fields of global *RhoConnect* object. Those are methods and *ERRORS* hash.
+# RhoConnect.js API Reference
 
-## Methods
+RhoConnect.js API implemented as public fields of global *RhoConnect* object. Those are methods and *ERRORS* hash.
 
-### Initialization and data access
+## RhoConnect API: Initialization and Data Access
 
-- *RhoConnect.login(username, password, doDataReset)* - Authenticates application on the server, returns *promise* object. Arguments are:
-    - *username* - User name to authenticate with
-    - *password* - Password
-    - *doDataReset* - (optional, default is *false*) - Boolean value, true means to do database reset before login.
-- *RhoConnect.init(modelDefinitions, dataApiType, syncProgressCallback)* - Performs rhoconnect.js and data API initialization, returns *promise* object. Arguments are:
-    - *modelDefinitions* (mandatory) - Model definitions array, see Getting Started guide for the sample.
-    - *dataApiType* (optional) - Use string values:
-        - 'extjs' - Do initialize ExtJS/SenchaToush data API to use as application data storage.
-        - 'persistencejs' - Do initialize Persistence.js data API to use as application data storage.
-        - 'custom' or *null* - Don't initialize any data API, perform data API initialization in custom code.
-    - *syncProgressCallback* (optional) - Progress update callback function to use. Receives the only argument *notificationBody*, it is a hash with fields:
-        - *sourceName* - The name of model just synchronized.
-        - *totalCount* - The total *objects* count for the *model*.
-        - *processedCount* - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
-        - *status* - Is undefined while *inPprogress* value is *true*. When finished it is a string value:
-            - "ok" - Synchronization of exact model has been performed without errors.
-            - "error" - Errors happened during synchronization process.
-        - *errorCode* - Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.
-        - *errorMessage* - Synchronization error message. Is undefined if no errors happened.
-- *RhoConnect.logout()* - Disconnects application from the server, returns *promise* object. Have no arguments.
-- *RhoConnect.isLoggedIn()* - Returns *true* value if aplication is logged in on the server. Have no arguments.
-- *RhoConnect.syncAllSources()* - Synchronize application data with the RhoSync server, returns *promise* object. Have no arguments.
-- *RhoConnect.dataAccessObjects()* - Returns the hash of data access objects which are data API specific. Have no arguments. In returned hash object the *key* is model name and the *value* is instances of:
-    - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
-    - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
+The RhoConnect.js API is implemented as public fields of the global *RhoConnect* object. Those are methods and *ERRORS* hash.
 
-### Synchronization notifications
+If you have properties in the class, list and define them here.
 
-- *RhoConnect.setModelNotification(modelName, callback, removeAfterFire) - Set handler for exact *model* synchronization notification. Arguments are:
-    - *modelName* - Name of model to listen notifications for.
-    - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
-        - *sourceName* - The name of model just synchronized.
-        - *totalCount* - The total *objects* count for the *model*.
-        - *processedCount* - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
-        - *status* - Is undefined while *inPprogress* value is *true*. When finished it is a string value:
-            - "ok" - Synchronization of exact model has been performed without errors.
-            - "error" - Errors happened during synchronization process.
-        - *errorCode* - Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.
-        - *errorMessage* - Synchronization error message. Is undefined if no errors happened.
-    - *removeAfterFire* - Clear notification subscription after notification event if true. The same if handler function returns true.
-- *RhoConnect.clearModelNotification(modelName) - Reset handler for *model* synchronization notification. Arguments are:
-        - *modelName* - Name of model to reset the handler.
-- *RhoConnect.setAllNotification(callback, removeAfterFire) - Set handler for all *models* synchronization notifications. Arguments are:
-    - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
-        - *inProgress* - Boolean value *true* if synchronization still in a progress, *undefined* value if synchronization finished.
-        - *status* - Is undefined while *inPprogress* value is *true*. When finished it is a string value:
-            - "complete" - Synchronization of all models have been performed without errors.
-            - "error" - Errors happened during synchronization process.
-        - *errorCode* - Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.
-        - *errorMessage* - Synchronization error message. Is undefined if no errors happened.
-    - *removeAfterFire* - Clear notification subscription after notification event if true. The same if handler function returns true.
-- *RhoConnect.clearAllNotification() - Reset handler for all *models* synchronization notifications.
-- *RhoConnect.setObjectsNotification(callback, removeAfterFire) - Set handler for all *object* change notifications. Arguments are:
-    - *callback* - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
-        - *updated* - Array of hashes for updated objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
-            - *objectId* - Is *id* of updated *object*.
-            - *modelName* - The name of object *model*.
-        - *created* - Array of hashes for created objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
-            - *objectId* - Is *id* of updated *object*.
-            - *modelName* - The name of object *model*.
-        - *deleted* - Array of hashes for deleted objects. Every hash object has form of: *{objectId: objId, sourceId: srcId}*, where:
-            - *objectId* - Is *id* of updated *object*.
-            - *modelName* - The name of object *model*.
-- *RhoConnect.clearObjectsNotification() - Reset handler for all *object* change notifications.
-- *RhoConnect.addObjectNotify(modelName, objectId) - Subscribe exact object for changes notification.  Arguments are:
-    - *modelName* - The name of object *model*.
-    - *objectId* - The *id* of object.
-- *RhoConnect.clearObjectsNotify() - Unsubscribe all objects from changes notification.
+### RhoConnect.login(username, password, doDataReset)
+
+Authenticates the RhoConnect application on the server.
+
+#### Returns
+
+A jQuery promise object.
+
+On success, the done handler is called. On failure, the fail handler is called with the following arguments:
+* errCode - The error code value from RhoConnect.ERRORS.
+* errorMessage - More detailed error message if available.
+
+#### Parameters
+
+username - The user name to authenticate with.
+
+password - The password to authenticate with.
+
+doDataReset - (optional) Boolean. If true, do a database reset before login. Default value is false.
+
+#### Example
+
+	function loginRhoConnect(username, password) {
+		persistence.store.rhoconnect.config(persistence);
+        return $.Deferred(function(dfr){
+            // login with username, password, and a DB reset
+            RhoConnect.login(username, password,
+                    new RhoConnect.SyncNotification(), true /*do db init*/).done(function(){
+                // Init DB for the user on success
+                initRhoconnect(username, false).done(function(){
+                    dfr.resolve();
+                }).fail(function(errCode, err){
+                    alert('DB init error: ' +errCode);
+                    dfr.reject(errCode, err);
+                });
+            }).fail(function(errCode, err){
+                //alert('RhoConnect login error: ' +errCode);
+                dfr.reject(errCode, err);
+            });
+        }).promise();
+    }
+
+### RhoConnect.init(modelDefinitions, dataApiType, syncProgressCallback)
+
+This method performs rhoconnect.js and data API initialization.
+
+#### Returns
+
+A jQuery promise object.
+
+On success, the done handler is called. On failure, the fail handler is called with the following arguments:
+* errCode - The error code value from RhoConnect.ERRORS.
+* errorMessage - More detailed error message if available.
+
+#### Parameters
+
+modelDefinitions - Model definitions array. See Getting Started for the sample.
+
+dataApiType - (optional) - A string value.
+
+ * 'extjs' - Do initialize ExtJS/SenchaTouch data API to use as application data storage.
+ * 'persistencejs' - Do initialize Persistence.js data API to use as application data storage.
+ * 'custom' or *null* - Don't initialize any data API, perform data API initialization in custom code.
+
+syncProgressCallback - (optional) Progress update callback function to use. Receives the argument notificationBody. It is a hash with the following fields:
+
+ * sourceName - The name of model just synchronized.
+ * totalCount - The total *objects* count for the *model*.
+ * processedCount - The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.
+ * status - Is undefined while *inProgress* value is *true*. When finished it is a string value:
+	- "ok" - Synchronization of exact model has been performed without errors.
+	- "error" - Errors happened during synchronization process.
+ * errorCode - Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.
+ * errorMessage - Synchronization error message. Is undefined if no errors happened.
+
+#### Example
+
+	// RhoConnect.js initialization
+	function initRhoconnect(username, doReset) {
+	    return RhoConnect.init(modelDefinitions, 'persistencejs', doReset);
+	}
+
+modelDefinitions is a hash, such as:
+
+	var modelDefinitions = [
+			{
+	            name: 'User',
+	            fields: [
+					{name: 'username',    	type: 'string'},
+	                {name: 'email',			type: 'string'},
+	                {name: 'first_name',	type: 'string'},
+	                {name: 'last_name',   	type: 'string'},
+	                {name: 'title',   		type: 'string'},
+	                {name: 'company', 		type: 'string'},
+					{name: 'created_at',   	type: 'string'},
+					{name: 'updated_at',   	type: 'string'}
+	            ]
+		   },
+	//...
+
+### RhoConnect.logout()
+
+Disconnects application from the server.
+
+#### Returns
+
+A jQuery promise object.
+
+On success, the done handler is called. On failure, the fail handler is called with the following arguments:
+* errCode - The error code value from RhoConnect.ERRORS.
+* errorMessage - More detailed error message if available.
+
+#### Parameters
+
+None.
+
+### RhoConnect.isLoggedIn()
+
+Checks to see if your application is logged into the server.
+
+#### Returns
+
+True if the application is logged in on the server.
+
+#### Parameters
+
+None.
+
+#### Example
+
+### RhoConnect.syncAllSources()
+
+Synchronizes that application data with the RhoSync server.
+
+#### Returns
+
+A jQuery promise object.
+
+On success, the done handler is called. On failure, the fail handler is called with the following arguments:
+
+errCode - The error code value from RhoConnect.ERRORS.
+errorMessage - More detailed error message if available.
+
+#### Parameters
+
+None.
+
+#### Example
+
+	function sync(){
+	    RhoConnect.syncAllSources().done(function(){
+	        alert('sync successful');
+	    }).fail(function(errCode, err){
+	        alert('Data sync error: ' +errCode);
+	    });
+	}
+
+### RhoConnect.dataAccessObjects()
+
+Returns the hash of data access objects which are data API specific.
+
+#### Returns
+
+Returns the hash of data access objects which are data API specific. 
+
+The hash contains:
+
+* key - model name.
+* value - instances of 
+ - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
+ - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
+
+#### Parameters
+
+None.
+
+#### Example
+
+	function pull_data(model) {
+		// passed a model name, returns hash of data access objects.
+	    var store = RhoConnect.dataAccessObjects()[model];
+
+	    current_model = model;
+	    persistence.loadFromRhoConnect(function() {
+	        storeLoaded();
+	    });
+
+## RhoConnect API: Synchronization Notifications
+
+### RhoConnect.setModelNotification(modelName, callback, removeAfterFire)
+
+Set the handler for the exact model synchronization notification.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+ * modelName - Name of the model to listen for notifications.
+ * callback - Handler function. Receives the only argument of notificationBody, which is a hash with the following fields:
+  - sourceName - The name of the model just synchronized.
+  - totalCount - The total number of objects for the model.
+  - processedCount - The number of objects that have been processed so far for a model. 0 if all the objects have already been processed.
+  - status - Is undefined while inProgress is True. When finished, it is a string value: "ok" if the synchronization of the exact model has been performed without errors, "error" if errors happened during the synchronization process.
+  - errorCode - Code of synchronization error. Undefined if no errors happened. Look at the RhoConnect.ERRORS description for details.
+  - errorMessage - Synchronization error message. Undefined if no errors happened.
+ * removeAfterFire - Clear notification subscription after notification event if true. The same if handler function returns true.
+
+#### Example
 
 
-## Errors
-Are defined as:
 
-    RhoConnect.ERRORS = {
-        ERR_NONE: 'No error',
-        ERR_NETWORK: 'Network error',
-        ERR_REMOTESERVER: 'Remote server access error',
-        ERR_RUNTIME: 'Runtime error',
-        ERR_UNEXPECTEDSERVERRESPONSE: 'Unexpected server response',
-        ERR_DIFFDOMAINSINSYNCSRC: 'Different synchronization domain error',
-        ERR_NOSERVERRESPONSE: 'No server response',
-        ERR_CLIENTISNOTLOGGEDIN: 'Client not logged in',
-        ERR_CUSTOMSYNCSERVER: 'Custom sync server',
-        ERR_UNATHORIZED: 'Unauthorized access',
-        ERR_CANCELBYUSER: 'Canceled by user',
-        ERR_SYNCVERSION: 'Synchronization version error',
-        ERR_GEOLOCATION: 'Geolocation error'
-    };
+### RhoConnect.clearModelNotification(modelName)
 
-## Returned values
-API methods returns object instance of jQuery *promise* type. On success the *done* handler is called. On failure the *fail* handler is called with following arguments:
-- *errCode* - The error code value from *RhoConnect.ERRORS*
-- *errorMessage* - More detailed error message if available.
+Resets the handler for the model synchronization notification.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+modelName - Name of the model to reset the handler.
+
+#### Example
+
+
+
+### RhoConnect.setAllNotification(callback, removeAfterFire)
+
+Sets the handler for all models synchronization notifications.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+callback - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
+ * inProgress - Boolean value. True if synchronization is still in progress, undefined if synchronization is finished.
+ * status - Undefined while the inProgress value is true. When synchronization is finished, it is a string value:
+  - "complete" - Synchronization of all models have been performed without errors.
+  - "error" - Errors happened during synchronization process.
+ * errorCode - Code of the synchronization error. Undefined if no errors happened. Look at RhoConnect.ERRORS description for details.
+ * errorMessage - Synchronization error message. Undefined if no errors happened.
+
+removeAfterFire - Clear notification subscription after notification event if true. The same if handler function returns true.
+
+### RhoConnect.clearAllNotification()
+
+Reset handler for all models synchronization notifications.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+None.
+
+#### Example
+
+
+
+### RhoConnect.setObjectsNotification(callback, removeAfterFire)
+
+Set handler for all object change notifications.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+callback - Handler function. Receives the only argument *notificationBody*, it is a hash with fields:
+
+ * updated - Array of hashes for updated objects. Every hash object has form of {objectId: objId, sourceId: srcId}, where:
+  - objectId - The id of the updated object.
+  - modelName - The name of the object model.
+ * created - Array of hashes for created objects. Every hash object has form of {objectId: objId, sourceId: srcId}, where:
+  - objectId - The id of the created object.
+  - modelName - The name of the object model.
+ * deleted - Array of hashes for deleted objects. Every hash object has form of {objectId: objId, sourceId: srcId}, where:
+  - objectId - The id of the deleted object.
+  - modelName - The name of the object model.
+
+#### Example
+
+
+
+### RhoConnect.clearObjectsNotification()
+
+Reset the handler for all object change notifications.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+None.
+
+#### Example
+
+
+
+### RhoConnect.addObjectNotify(modelName, objectId)
+
+Subscribe an object for changes notification.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+modelName - The name of the object model.
+
+objectId - The id of the object.
+
+### RhoConnect.clearObjectsNotify()
+
+Unsubscribe all objects from changes notification.
+
+#### Returns
+
+None.
+
+#### Parameters
+
+None.
+
+## RhoConnect.ERRORS
+
+RhoConnect.ERRORS are defined as:
+
+ * ERR\_NONE: 'No error'
+ * ERR\_NETWORK: 'Network error'
+ * ERR\_REMOTESERVER: 'Remote server access error'
+ * ERR\_RUNTIME: 'Runtime error'
+ * ERR\_UNEXPECTEDSERVERRESPONSE: 'Unexpected server response'
+ * ERR\_DIFFDOMAINSINSYNCSRC: 'Different synchronization domain error'
+ * ERR\_NOSERVERRESPONSE: 'No server response'
+ * ERR\_CLIENTISNOTLOGGEDIN: 'Client not logged in'
+ * ERR\_CUSTOMSYNCSERVER: 'Custom sync server'
+ * ERR\_UNATHORIZED: 'Unauthorized access'
+ * ERR\_CANCELBYUSER: 'Canceled by user'
+ * ERR\_SYNCVERSION: 'Synchronization version error'
+ * ERR\_GEOLOCATION: 'Geolocation error'

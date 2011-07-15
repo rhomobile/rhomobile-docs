@@ -1,16 +1,20 @@
 Creating an application
 ===
-This page describes how to use `rhoconnect.js` to connect your application to a rhoconnect instance.  <a href='http://jquerymobile.com/demos/1.0b1/' target='_blank'>jQuery Mobile</a> will be used for the UI and <a href='http://persistencejs.org/' target='_blank'>persistence.js</a>  will be used as an object-database mapper.  Currently rhoconnect.js supports both sencha touch and persistence.js.
+The following instructions describe how to use `rhoconnect.js` to connect your application to a rhoconnect instance.  <a href='http://jquerymobile.com/demos/1.0b1/' target='_blank'>jQuery Mobile</a> will be used for the UI and <a href='http://persistencejs.org/' target='_blank'>persistence.js</a>  will be used as an object-database mapper. Currently rhoconnect.js supports both sencha touch and persistence.js.
 
-To view the finished application written to run with the phonegap framework visit <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>rho-fat-freec-crm</a> example.
+To view the finished application, which is written to run with the phonegap framework, visit <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>rho-fat-freec-crm</a> example.
 
-NOTE: unless you are using sencha touch for your UI as well, you will need to use persistence.js as your object-database mapper to avoid framework conflicts
+NOTE: Unless you are using Sencha Touch for your UI as well, you will need to use persistence.js as your object-database mapper to avoid framework conflicts.
 
 ## Getting Started
 
-### Adding dependent libraries
-First we will need to add all of the javascript and stylesheet libraries to the application.  Inside of the index.html we will add the following lines:
+You need to add libraries and define the rhoconnect location.
 
+### Adding Dependent Libraries
+
+Add all of the javascript and stylesheet libraries to the application. Inside of the index.html file, add the following lines:
+
+	:::html
 	 <script type="text/javascript" charset="utf-8" src="external/jquery/jquery-1.6.1.min.js"></script>
      <script type="text/javascript" charset="utf-8" src="external/jquery/jquery.base64.min.js"></script>
      <script type="text/javascript" charset="utf-8" src="external/jquery/json.js"></script>
@@ -24,15 +28,17 @@ First we will need to add all of the javascript and stylesheet libraries to the 
 	 <script type="text/javascript" charset="utf-8" src="js/rhoconnect-0_9.js"></script>
      <script type="text/javascript" language="javascript" src="application.js"></script>
 
-The first five files included are for jQuery mobile.  They include jQuery 1.6.1, jQuery.base64.js(needed for binary encoding of data), json.js, jquery.mobile css and js files.<br/>
+The first five files included are for jQuery mobile. They include jQuery 1.6.1, jQuery.base64.js (needed for binary encoding of data), json.js, and jquery.mobile css and js files.
 
-The next two files are for persistence.js.  Since we are using sqlite, we will include persistence.store.sql.js.  <a href='https://github.com/zefhemel/persistencejs' taget='_blank'>See persistence.js documenation</a> for more information on this.</br>
+The next two files are for persistence.js, and since we are using SQLite, persistence.store.sql.js. <a href='https://github.com/zefhemel/persistencejs' target='_blank'>See persistence.js documentation</a> for more information on this.
 
-Then next file is the latest version at this time of rhoconnect.js.  We are going to add all of our javascript code into a file application.js, so that is included as well.
+The next file is, at this time, the latest version of rhoconnect.js.  We will add all of our javascript code into a file called application.js, so include that file as well.
 
-### Defining the rhoconnect location
-We will need to include the location of our rhoconnect instance.  In this example we are connecting to a rhoconnect instance provisioned on heroku.  We will also define our application name and set the log level.
+### Defining the rhoconnect Location
 
+Include the location of our rhoconnect instance.  In this example, we are connecting to a rhoconnect instance provisioned on heroku.  We also define our application name and set the log level.
+
+	:::html
 	<script type="text/javascript">
         var syncUrl = 'http://rhoconnect-resource.heroku.com/application';
         RhoConfig = {
@@ -42,11 +48,15 @@ We will need to include the location of our rhoconnect instance.  In this exampl
         }; 
     </script>
 
-## Creating a login
-Next we will create a simple login screen to login to the rhoconnect instance.<br/>
+## Creating a Login View
 
-Inside of index.html we will define a jquery mobile page with two textfields for username and password. Notice the onload event attached to the body tag.  This will be used to attach the javascript functions that we will write inside of application.js.
+Next we will create a simple login view to login to the rhoconnect instance.
 
+### Defining a jQuery Mobile Page
+
+Inside of index.html we will define a jQuery Mobile page with two textfields for username and password. Notice the onload event attached to the body tag.  This will be used to attach the JavaScript functions that we will write inside of application.js.
+
+	:::html
 	<body onload="onLoad()">
 	<!-- start of page 1 -->
 	    <div data-role="page" id="form">
@@ -67,7 +77,9 @@ Inside of index.html we will define a jquery mobile page with two textfields for
 	<!------  end page               -->
 	</body>
 
-Inside of application.js we will define a login function to be returned onload of body.
+### Defining a Login Function
+
+Inside of application.js, define a login function that is returned onload of body.
 
 	var username = null;
 	var password = null;
@@ -125,15 +137,20 @@ Inside of application.js we will define a login function to be returned onload o
 	
 		return mapPages;
 	})(jQuery);
-	
-	
-Inside of the mapPages() function we will call setNames().  This grabs the username and password from the fields defined in the jQuery mobile page defined in index.html.<br/>
+
+### Get the Username and Password
+
+Inside of the mapPages() function, call setNames(). The setNames() function grabs the username and password from the fields defined in the jQuery mobile page defined in index.html.
+
 	function setNames(){
         username = $('input#username')[0].value;
         password = $('input#password')[0].value;    
     }
-	
-Next we call loginRhoConnect(username,password).  We are using <a href='http://api.jquery.com/category/deferred-object/' target='_blank'>deferred objects</a> to chain multiple callbacks. First Rhoconnect.login is called, on success Rhoconnect.init is called.<br/>
+
+### Call Rhoconnect.login, Rhoconnect.init, and Rhoconnect.syncAllSources
+
+Next, call loginRhoConnect(username,password). We are using <a href='http://api.jquery.com/category/deferred-object/' target='_blank'>deferred objects</a> to chain multiple callbacks. First Rhoconnect.login is called, on success Rhoconnect.init is called.
+
 	function loginRhoConnect(username, password) {
 		persistence.store.rhoconnect.config(persistence);
 
@@ -159,11 +176,11 @@ Next we call loginRhoConnect(username,password).  We are using <a href='http://a
         return RhoConnect.init(modelDefinitions, 'persistencejs', doReset);
     }
 
-Rhoconnect.init takes three parameters.  An array of hashes defining each model or data-object, the data-object mapping library( either persistencejs or extjs), and a callback function.  All parameters are optional except for the modelDefinitions.</br>
+Rhoconnect.init takes three parameters: an array of hashes defining each model or data-object, the data-object mapping library (either persistencejs or extjs), and a callback function. All parameters are optional except for the modelDefinitions (the hash array).
 
-On success of init the callback chain will be resolved and a promise object(see deferred objects) will be returned.</br>
+On success of Rhoconnect.init, the callback chain will be resolved and a promise object (see <a href='http://api.jquery.com/category/deferred-object/' target='_blank'>deferred objects</a>) will be returned.
 
-Inside of loginRhoConnect(username, password) the sync() function will be called.
+Inside of loginRhoConnect(username, password), the sync() function will be called.
 
 	function sync(){
 		RhoConnect.syncAllSources().done(function(){
@@ -173,13 +190,17 @@ Inside of loginRhoConnect(username, password) the sync() function will be called
 	    });
 	}
 
-Rhoconnect.syncAllSources() will attempt to sync all model defintions defined with the rhoconnect instance.
+Rhoconnect.syncAllSources() will attempt to sync all model definitions defined with the rhoconnect instance.
 
 ## Querying objects
-Since we have logged in successfully and synced with the rhoconnect instance, we will want to display all of the records.<br/>
 
-Notice in the login function, we call $.mobile.changePage("#home", "slideup") as well as attach_events().  Lets now define a new jquery mobile page called home.  Inside of index.html we will define this.
+Since we have logged in successfully and synced with the rhoconnect instance, we will want to display all of the records.
 
+### Define a New jQuery Mobile Page
+
+Notice in the login function, we call $.mobile.changePage("#home", "slideup") as well as attach\_events().  Define a new jQuery Mobile page called home inside of index.html.
+
+	:::html
 	<!-- start of page 2     -->
 	    <div data-role="page" id="home">
 	        <div data-role="header">
@@ -191,9 +212,11 @@ Notice in the login function, we call $.mobile.changePage("#home", "slideup") as
 	    </div>
 	<!------   end page              -->
 	
-Above I have created a button called tasks which I will use to display all the records from the Task model.</br>
+The button called tasks is used to display all the records from the Task model.
 
-We can now define the attach_events() function to map this task button:
+### Map the Tasks Button
+
+We can now define the attach\_events() function to map this task button:
 
 	function attach_events() {
 		$('a#tasks').live('tap',function(event){
@@ -207,7 +230,9 @@ We can now define the attach_events() function to map this task button:
 					'first_name','last_name','title','company','status','email','lead_id','probability','closes_on', 'source'
 				]
 
-The pull_data function will accept any model we would like to query.  In this case it will be passed the Task model.
+### Accept the Model to Query
+
+The pull\_data function accepts any model we would like to query. In this case it is passed the Task model.
 
 	function pull_data(model) {
 		var store = RhoConnect.dataAccessObjects()[model];
@@ -246,21 +271,23 @@ The pull_data function will accept any model we would like to query.  In this ca
 		}
 	}
 
-This is a very busy function.   The important calls to take out of it are:
+This is a very busy function. The important calls to take out of it are:
 
 	var store = RhoConnect.dataAccessObjects()[model];
 
-This function is passed a model name and returns hash of data access objects.
+This function is passed a model name and returns a hash of data access objects.
 
 	persistence.loadFromRhoConnect(function() {
         storeLoaded();
     });
 
-When using peristance.js you will need to call loadFromRhoConnect and parse the hash of dataAccessObjects inside of the callback function.  In this case storeLoaded().<br/>
+When using persistance.js, you need to call loadFromRhoConnect and parse the hash of dataAccessObjects inside of the callback function: in this case, storeLoaded().
 
-The storeLoaded() function iterates through all the models constructing html to be inserted into a page yet to be defined in index.html.  Buttons for edit and delete are also being mapped here.<br/>
+The storeLoaded() function iterates through all the models constructing html to be inserted into a page yet to be defined in index.html.  Buttons for edit and delete are also being mapped here.
 
-We will now create a new page in index.html to display the results from pull_data().
+### Display the Results
+
+Create a new page in index.html to display the results from pull\_data().
 
 	<!-- start of page 3     -->
 		<div data-role="page" id="list">
@@ -275,11 +302,11 @@ We will now create a new page in index.html to display the results from pull_dat
 		</div>
 	<!------   end page              -->
 	
-Notice `<div id='list-data'></div>`.  This is a place holder we will use to insert the constructed html list of Tasks.
+Notice `<div id='list-data'></div>`.  This is a place holder that is used to insert the constructed html list of Tasks.
 
-###Creating an object
+## Creating an Object
 
-To create a new Task object lets first add a button to the page we defined above
+To create a new Task object, first add a button to the page we defined above.
 
 	<!-- start of page 3     -->
 		<div data-role="page" id="list">
@@ -295,7 +322,9 @@ To create a new Task object lets first add a button to the page we defined above
 		</div>
 	<!------   end page              -->
 
-We will also create another page to show a form for a user to enter object values
+### Show a Form to Enter Object Values
+
+Create another page to show a form for a user to enter object values.
 
 	<!-- start of page 4 			 -->
 		<div data-role="page" id="form-new">
@@ -308,8 +337,10 @@ We will also create another page to show a form for a user to enter object value
 	        </div>
 	    </div>
 	<!------ end of page             -->
-	
-Lets go into the attach_events function and map this button:
+
+### Map the Task Button
+
+In the attach\_events function, map this button:
 	
 	function attach_events() {
 		$('a#tasks').live('tap',function(event){
@@ -360,13 +391,15 @@ Lets go into the attach_events function and map this button:
 		}
 	}
 	
-This function will call get_form_data() which will construct the html form to insert into the newly created page `form-new`.  It then uses the place holder 
-	<form action='#' id='form-create'></form>
+This function calls get\_form\_data(), which constructs the html form to insert into the newly created page `form-new`.  It then uses the place holder 
+	`<form action='#' id='form-create'></form>`
 to insert this html.  After this 
-	$.mobile.changePage("#form-new", "slideup");
-is called and the form-new page defined above is loaded.<br/>
+	`$.mobile.changePage("#form-new", "slideup");`
+is called and the form-new page defined above is loaded.
 
-Lets go back to the function attach_events() and add another function to map the event that a user selects the create button on the form.
+### Map the Create Event
+
+In the function attach_events(), add another function to map the event that a user selects with the create button on the form.
 
 	function attach_events() {
 		$('a#tasks').live('tap',function(event){
@@ -385,8 +418,10 @@ Lets go back to the function attach_events() and add another function to map the
 			create_obj();
 		})
 	}
-	
-Then we will define the create_obj() function.
+
+### Create the Data Object
+
+Then define the create\_obj() function.
 	
 	function create_obj(){
 		var record = null;
@@ -407,11 +442,15 @@ Then we will define the create_obj() function.
 		$.mobile.changePage("#home", "slideup");
 	}
 
-Inside of this function we will first grab the hash of data object for the current_model.  In this case current_model = 'Task'
+### Grab the Hash from the Data Object
+
+Inside of this function, grab the hash of data object for the current\_model: in this case, current\_model = 'Task'.
 
 	var model = RhoConnect.dataAccessObjects()[current_model];
-	
-We then create a new model
+
+### Create a New Model and Populate the Record Fields
+
+Now create a new model.
 	
 	record = new model();
 	
@@ -419,7 +458,9 @@ The next loop populates the record fields.  You will then add this new record to
 
 	persistence.add(record);	
 	persistence.flush();
-	
+
+### Save to RhoConnect
+
 The last step is to save to RhoConnect.
 
 	 persistence.saveToRhoConnect(function() {
@@ -428,11 +469,11 @@ The last step is to save to RhoConnect.
 
 At this point you have created a new object locally.  To synch with your rhoconnect instance you would need to call the sync() function described above at login.
 
-##Updating an object
+## Updating an Object
 
 Updating an object is very similar to creating an object.  I will show the code required to update and object below.  You can see all the UI functionality by looking at the complete <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>project</a>
 
-Inside of application.js, I have defined a function update_object().
+Inside of application.js is a function named update\_object().
 
  	function update_object() {
 		var rec = null;
@@ -463,10 +504,9 @@ Inside of application.js, I have defined a function update_object().
 		$.mobile.changePage("#home", "slideup");
 	}
 	
-You will notice this function is very similar to create_object.  The only difference is that a new model is not created.  Instead a model is searched for, when found, its fields are assigned new values and the object is flushed and saved to Rhoconnect.  You do not need to call `persistence.add(record)` in this case because the item already exists in the persistence hash.  
+You will notice this function is very similar to create\_object.  The only difference is that a new model is not created.  Instead a model is searched for, when found, its fields are assigned new values and the object is flushed and saved to Rhoconnect.  You do not need to call `persistence.add(record)` in this case because the item already exists in the persistence hash.  
 
-
-##Deleting an object
+## Deleting an Object
 
 Deleting an object is exactly like creating an object except that instead of call `persistance.add(recored)`, you will call `persistance.remove(record)`.  The other calls to persistence and rhoconnect are the same.
 
