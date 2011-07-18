@@ -1,0 +1,28 @@
+Installing RhoConnect
+===
+
+## Windows
+
+If you're running Windows, download the latest [RhoConnect windows installer](http://github.com/rhomobile/rhoconnect/downloads).  This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [Apache](http://httpd.apache.org/), and a default RhoConnect application so you don't need to generate one by hand.
+
+Your RhoConnect application folder will be located in C:\RhoConnect\rhoconnect by default so you can skip to the [generating a source instructions](/rhoconnect/command-line#rhoconnect-generator) in the next section.
+
+## Mac OS / Linux
+
+### Prerequisites
+
+1. [Ruby v1.8.7+](http://www.ruby-lang.org/en/downloads/)
+
+2. [RubyGems v1.3.7+](http://rubygems.org/pages/download) 
+
+3. Ruby Web Server - We test with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/).  WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
+
+4. [Redis 2.2.x](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the next section.  Alternatively, you can [install redis directly](http://redis.io/download).
+
+### Installing RhoConnect Gem
+
+To install the latest stable RhoConnect gem, run:
+
+	:::term
+  	$ [sudo] gem install rhoconnect
+ 

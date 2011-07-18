@@ -1,0 +1,210 @@
+RhoConnect Generator and Rake Tasks
+===
+
+## RhoConnect Generator
+
+The `rhoconnect` utility is a command line tool for generating RhoConnect applications and sources.
+
+### Generate an Application
+
+The app name is passed as a parameter.  The `rhoconnect` utility will generate a directory for your application with all the necessary files to get started.  We will start with running `rhoconnect app` to see the usage:
+
+	:::term
+	Usage: rhoconnect app [options] [args]
+
+	Generates a new rhoconnect application.
+
+	Required:
+	  name        - application name
+
+
+	Options specific for this generator:
+
+	General options:
+	    -p, --pretend                    Run, but do not make any changes.
+	    -f, --force                      Overwrite files that already exist.
+	    -s, --skip                       Skip files that already exist.
+	    -d, --delete                     Delete files that have previously been generated with this generator.
+	        --no-color                   Don't colorize the output
+	    -h, --help                       Show this message
+	        --debug                      Do not catch errors
+
+For example:
+
+	:::term
+	$ rhoconnect app storeserver
+	Generating with app generator:
+	     [ADDED]  storeserver/config.ru
+	     [ADDED]  storeserver/settings/settings.yml
+	     [ADDED]  storeserver/settings/license.key
+	     [ADDED]  storeserver/application.rb
+	     [ADDED]  storeserver/Rakefile
+	     [ADDED]  storeserver/Gemfile
+	     [ADDED]  storeserver/spec/spec_helper.rb
+	
+Here's a basic rundown of each of the files that were just generated:
+	
+	
+* **config.ru** - This is a rackup file which will load your application.  RhoConnect uses the excellent [sinatra](http://www.sinatrarb.com/) web framework to run the application.
+* **settings/settings.yml** - This contains settings such as your redis connection, which source adapters exist and their parameters.  You can also put custom settings here.
+* **settings/license.key** - The RhoConnect [license](/rhoconnect/licensing) associated with your application.  The default license allows up to 10 devices to synchronize with the application.
+* **application.rb** - The RhoConnect application class where you can implement authentication.  You can also add other custom methods here to use in your application.  This class is a singleton, so all methods should be added to the `class << self` block.
+* **Rakefile** - This contains tasks that can be run from the terminal.
+* **Gemfile** - This file specifies application's dependencies using [bundler](http://gembundler.com/).
+* **spec/spec_helper.rb** - A helper file which loads the environment for running [specs](/rhoconnect/testing).
+
+### Add a New Source Adapter
+
+To generate a source for your RhoConnect application, run the `rhoconnect source` command:
+
+	:::term
+	Usage: rhoconnect source [options] [args]
+
+	Generates a new source adapter.
+
+	Required:
+	  name        - source name(i.e. product)
+
+
+	Options specific for this generator:
+
+	General options:
+	    -p, --pretend                    Run, but do not make any changes.
+	    -f, --force                      Overwrite files that already exist.
+	    -s, --skip                       Skip files that already exist.
+	    -d, --delete                     Delete files that have previously been generated with this generator.
+	        --no-color                   Don't colorize the output
+	    -h, --help                       Show this message
+	        --debug                      Do not catch errors
+	
+For example:
+
+	:::term
+	$ cd storeserver
+	$ rhoconnect source product
+	Generating with source generator:
+	     [ADDED]  sources/product.rb
+	     [ADDED]  spec/sources/product_spec.rb
+	
+This generates a source adapter file `product.rb` and corresponding [rspec](http://rspec.info/) file `product_spec.rb`.  If you choose, you can use this spec to implement the source adapter.
+
+## Rake Tasks
+
+Each RhoConnect application uses [rake](https://github.com/jimweirich/rake) to manage development tasks such as starting/stopping the app, starting resque workers, and running specs.
+
+To run a RhoConnect rake task, simply type `rake the-task-to-run` in your RhoConnect application's root directory.
+
+### Installing DTach (Mac OS / Linux only)
+
+If you're using MacOS / Linux, install [dtach](http://dtach.sourceforge.net/) on your path before running any of the rake tasks.  [DTach](http://dtach.sourceforge.net/) is a simple utility which runs processes in a detached state so you can re-attach your console later.
+
+	:::term
+	$ cd storeserver
+ 	$ rake dtach:install
+
+### Setup Redis
+
+Next, you will need to setup and start a [redis](http://redis.io/) server:
+
+	:::term
+	$ rake redis:install
+	$ rake redis:start
+	
+### Start the Application
+
+Now, start the application!
+
+	:::term
+	$ rake rhoconnect:start
+	
+If everything went well, you should see the following in your console:
+
+	[05:47:10 PM 2011-04-19] Rhoconnect Server v3.0.0 started...
+	
+To open the web console, navigate to [http://localhost:9292/](http://localhost:9292) in your browser or run:
+
+	:::term
+	$ rake rhoconnect:web
+	
+### Creating executable WAR containers (JRuby environment only)
+
+It is possible to create Java WAR containers for your Rhoconnect application that can be deployed into the
+Java App Servers (for example, JBoss). To create the executable WAR container, execute the following command in your app's root directory:
+	
+	:::term
+	$ cd storeserver
+	$ rake rhoconnect:war
+	
+This will build the WAR file named <your_app>.war that can be deployed into the Java App Server.
+
+
+### Common Tasks
+
+RhoConnect applications come with many useful rake tasks for administrative and development workflows.  Some common ones are:
+
+* 	`rake dtach:install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
+
+* 	`rake redis:install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead. 
+If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](/rhoconnect/install).
+	
+* 	`rake rhoconnect:set_admin_password` - Set the RhoConnect administrator password.  The default password is blank ''.
+
+*	`rake rhoconnect:get_token` - Get a RhoConnect API token to use for calling the RhoConnect REST API.
+		
+**NOTE: On Mac OS / Linux, you need to install dtach (i.e. by running `rake dtach:install`) to run the following tasks: **
+
+* 	`rake redis:start` - This will launch a redis server in a new console.
+	
+* 	`rake redis:stop` - Stop the currently-running redis server.
+
+*	`rake redis:attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
+
+* 	`rake rhoconnect:start` - Start the RhoConnect application in a new console.  This requires a running redis server.
+
+* 	`rake rhoconnect:stop` - Stop the currently-running RhoConnect application.
+	
+*	`rake rhoconnect:attach` - (Mac OS / Linux only) Attach to a currently-running RhoConnect application. 
+
+* 	`rake rhoconnect:clean_start` - Useful for development, resets and bootstraps the RhoConnect application with a test user.
+
+Some other useful development tasks:
+
+*	`rake rhoconnect:reset` - Reset the RhoConnect application to the initial state.  This WILL DELETE ALL DATA IN REDIS! So be sure you don't run this in production!
+
+*	`rake rhoconnect:spec` - Run all source adapter specs in spec/sources/.
+	
+*	`rake rhoconnect:web` - Open the RhoConnect web console in a browser.
+
+Here is a complete list of the rake tasks available in a RhoConnect application:
+
+	:::term
+	$ cd storeserver
+	$ rake -T
+	(in ~/storeserver)
+	rake dtach:about                    # About dtach
+	rake dtach:install                  # Install dtach 0.8 from source
+	rake redis:about                    # About redis
+	rake redis:attach                   # Attach to redis dtach socket
+	rake redis:download                 # Download package
+	rake redis:install                  # Install the latest verison of Redis from Github (requires git, duh)
+	rake redis:restart                  # Restart redis
+	rake redis:start                    # Start redis
+	rake redis:stop                     # Stop redis
+	rake resque:work                    # Start a Resque worker
+	rake resque:workers                 # Start multiple Resque workers.
+	rake rhoconnect:attach              # Attach to rhoconnect console
+	rake rhoconnect:clean_start         # Clean rhoconnect, get token, and create new user
+	rake rhoconnect:create_user         # Creates and subscribes user for application in rhoconnect
+	rake rhoconnect:delete_device       # Deletes a device from rhoconnect
+	rake rhoconnect:delete_user         # Deletes a user from rhoconnect
+	rake rhoconnect:flushdb             # Flush data store - WARNING: THIS REMOVES ALL DATA IN RHOCONNECT
+	rake rhoconnect:get_token           # Fetches current api token from rhoconnect
+	rake rhoconnect:reset               # Reset the rhoconnect database (you will need to run rhoconnect:get_token afterwards)
+	rake rhoconnect:reset_refresh       # Reset source refresh time
+	rake rhoconnect:restart             # Alias for `rake rhoconnect:stop; rake rhoconnect:start`
+	rake rhoconnect:set_admin_password  # Sets the admin password
+	rake rhoconnect:spec                # Run source adapter specs
+	rake rhoconnect:start               # Start rhoconnect server
+	rake rhoconnect:stop                # Stop rhoconnect server
+	rake rhoconnect:war                 # Build executable WAR file to be used in Java App Servers
+	rake rhoconnect:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml

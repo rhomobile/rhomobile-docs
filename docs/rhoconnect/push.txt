@@ -1,0 +1,135 @@
+Device Push
+===
+
+RhoConnect has a simple ruby API for sending push notifications to a user's devices.  This API can be called directly, queued as a resque job, or called remotely via the [RhoConnect REST API](/rhoconnect/rest-api). The push message can trigger the following actions in the rhodes application: alert with a message, sync one or more sources, vibrate, display a badge, play a sound file.
+
+We will now show you how to use the RhoConnect application to deliver push messages on each platform and how you can handle the push notification in your Rhodes application.
+
+## iOS
+To setup your RhoConnect application for iOS push, you will need to update `settings/settings.yml` to include the following:
+
+	:::yaml
+	:development: 
+	  :redis: localhost:6379
+	  :iphonecertfile: settings/apple_push_cert.pem
+	  :iphonepassphrase: #=> empty or put password for your certificate
+	  :iphoneserver: gateway.sandbox.push.apple.com
+	  :iphoneport: 2195
+	  :syncserver: http://localhost:9292/application/
+	  :licensefile: settings/license.key
+
+This is for running your application in development mode, for production you will need all of the iphone settings, and change the `:iphoneserver:` to:
+
+	:::yaml
+  	:iphoneserver: gateway.push.apple.com
+
+## Blackberry
+To setup your RhoConnect application for BlackBerry push, you will need to update `settings/settings.yml` to include the following:
+
+	:::yaml
+	:development: 
+	  :redis: localhost:6379
+	  :mdsserver: 192.168.1.110
+	  :mdsserverport: 8080
+	  :syncserver: http://localhost:9292/application/
+	  :licensefile: settings/license.key
+
+Replace `:mdsserver:` and `:mdsserverport:` with the hostname/IP and port of your machine (default port is 8080).
+
+## Android
+To setup your RhoConnect application for Android push, you will need to update `settings/settings.yml` to include the following:
+
+	:::yaml
+	:development:
+	  :redis: localhost:6379
+	  :syncserver: http://localhost:9292/application/
+	  :licensefile: settings/license.key
+	  :authtoken: authtoken
+
+Replace `:authtoken:` value with actual authentication token. This token MUST be related to the role-based google account registered for your application. See [the rhodes push instructions](/rhodes/device-caps#push-notifications) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
+
+For those who interested in what this token means, here is the description: <a href="http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html"/>.
+
+Now start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
+
+## Testing Push in the Web Console
+The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
+
+First, make sure you've logged in and performed a sync on the device/simulator you are going to test. 
+
+Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application.  For example, if you logged in as user 't', the url would be: 
+
+	http://localhost:9292/console/user?user_id=t
+
+You should see a registered device for this user, for example: "c92e36874bc74f39a8fbd7c1a86f9e0e".  Click on the link for this device and you will see the device attributes:
+
+  	device_type: APPLE
+	device_pin:	10fd92abfa8ee48155d9af6e7329086322b323fd0d18fdbd19e92d03c0fef7c8
+	device_port: 100
+	user_id: t
+	app_id:	application
+
+**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [Rhodes application push setup](/rhodes/device-caps#push-notifications).**
+
+Now that the device is registered, go back to the user page and click 'Ping User'.
+
+Here you can specify an alert message, sources array to sync, badge value (iOS only), sound file to play, and duration to vibrate.
+
+Enter in some values or try the defaults, you should see a push message on the device when you click "Ping!".
+
+By default, the sources list will be a comma-separated list of your RhoConnect application's sources.  This sources list will be sent in the push message to trigger a sync.  You can specify one or more sources, or 'all' to trigger a sync of all sources.
+
+## Push API
+The RhoConnect push API consists of executing a ping call.  There are three ways to execute a ping call:  use RhoConnect API to remotely call the ping, perform the ping job directly in a blocking ruby call, enqueue a resque job to ping asynchronously.
+
+### RhoConnect API Ping Method
+You can trigger a push remotely using the [RhoConnect API Ping method](/rhoconnect/rest-api).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
+
+### Direct Push
+To perform a ping directly, you can call the following:
+
+	:::ruby
+	PingJob.perform(
+	  'user_id' => current_user.login,
+	  'sources' => ['Product','Customer'],
+	  'message' => 'hello world',
+	  'vibrate' => 2000,
+	  'sound' => 'hello.mp3'
+	)
+
+### Asynchronous Push
+To queue a ping that is executed asynchronously in a job, you can call the following:
+
+	:::ruby
+	Resque.enqueue(
+	  PingJob,
+	  'user_id' => current_user.login,
+	  'sources' => ['Product','Customer'],
+	  'message' => 'hello world',
+	  'vibrate' => 2000,
+	  'sound' => 'hello.mp3'
+	)
+
+**Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](/rhoconnect/async-jobs) for more information.**
+
+### Example
+Let's say we want to execute a ping for the `current_user` at the end of our source adapter query:
+
+	:::ruby
+	def query(params=nil)
+	  parsed = JSON.parse(RestClient.get("#{@base}.json").body)
+
+	  @result = {} 
+	  parsed.each do |item|
+	    @result[item["product"]["id"].to_s] = item["product"]
+	  end if parsed    
+	  PingJob.perform(
+	    'user_id' => current_user.login,
+	    'sources' => ['Product'],
+	    'message' => "There are new products!",
+	    'vibrate' => 2000
+	  )
+	end
+
+### Push Notifications in Rhodes
+Now that you can send push messages in your RhoConnect application, you can now handle the [push notification](/rhodes/device-caps#push-notifications) in your Rhodes application.
