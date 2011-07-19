@@ -8,6 +8,7 @@ However, if you prefer to migrate your Rhosync app manually, perform the steps i
 ## Install the Bundler
 Install the `bundler` gem:
 
+	:::term
 	$ [sudo] gem install bundler
 
 ## Create the Gemfile
