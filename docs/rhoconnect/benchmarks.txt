@@ -1,63 +1,124 @@
 RhoConnect Benchmarks
 ===
 
-Note, these numbers reflect synchronization performance using the rhoconnect bench utility (see the rhoconnect/bench folder for more information).  We will be adding more results as we test across different server environments.
-
-Benchmark setup:
-
-* 100 concurrent connections
-
-* ~2000 active devices
-
-* 3000 total HTTP requests
+Note, these numbers reflect synchronization performance using the rhoconnect bench utility (see the rhoconnect/bench folder for more information).  
+We will be adding more results as we test across different server environments.
 
 
-## Environment #1
-* Passenger 2.2.14 (mod_rails)
+Servers configuration (Amazon EC2 'm1.small' instances) :
 
-* Ruby 1.8.7 (2009-06-08 patchlevel 173)
+* CPU Units - 1 ECU
 
-* Mac OSX - 2.4GHz Core 2 Duo w/ 4GB RAM
+* CPU Cores - 1 Core
 
-### 20 object dataset
+* Memory - 1.7GB
 
-<pre>
-Request ack-cud        : min: 0.0254, max: 8.4765, avg: 0.8469
-Request get-cud        : min: 0.0265, max: 8.1008, avg: 0.7302
-Sync Time(per device)  : min: 0.0519, max: 16.5773, avg: 1.5771
-Throughput(req/s)      : 16.068540508777
-Throughput(req/min)    : 964.112430526621
-</pre>
+* Platform - Ubuntu (2.6.38-8-virtual)
 
-### 100 object dataset
 
-<pre>
-Request ack-cud        : min: 0.0289, max: 14.2707, avg: 3.0037
-Request get-cud        : min: 0.0750, max: 16.2059, avg: 3.1053
-Sync Time(per device)  : min: 0.1039, max: 30.4766, avg: 6.109
-Throughput(req/s)      : 11.9151921842277
-Throughput(req/min)    : 714.911531053663
-</pre>
+Environment (instance #1):
 
-## Environment #2
-* 6 Heroku [Dynos](http://heroku.com/how/dynos)
+* Nginx 1.0.0
 
-### 20 object dataset
+* Ruby 1.8.7 (2011-02-18 patchlevel 334) [i686-linux], Ruby Enterprise Edition 2011.03
+ 
+* Passenger 3.0.7 (mod_rails)
+
+* Redis 2.2.11
+
+* Rhoconnect 3.0.0 
+
+Nginx configuration file:
 
 <pre>
-Request ack-cud        : min: 0.1667, max: 23.7955, avg: 7.0991
-Request get-cud        : min: 0.1660, max: 25.7146, avg: 7.0445
-Sync Time(per device)  : min: 0.3327, max: 49.5101, avg: 14.1436
-Throughput(req/s)      : 7.14547932682727
-Throughput(req/min)    : 428.728759609636
+user  www-data;
+worker_processes  4;
+
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    passenger_root /usr/local/lib/ruby/gems/1.8/gems/passenger-3.0.7;
+    passenger_ruby /usr/local/bin/ruby;
+    passenger_max_pool_size 20;
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile    on;
+    tcp_nopush  on;
+    tcp_nodelay on;
+
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    server {
+        listen 80;
+        server_name  ec2-50-18-72-186.us-west-1.compute.amazonaws.com;
+        root  /var/www/benchapp/public;   # Bench application #1
+        # root  /var/www/blobapp/public;   # Bench application #2
+        passenger_enabled on;
+        passenger_min_instances 6;
+    }
+}
 </pre>
 
-### 100 object dataset
+
+Environment (instance #2):
+
+* Ruby 1.8.7 (2011-02-18 patchlevel 334) [i686-linux], Ruby Enterprise Edition 2011.03
+
+* Rhoconnect 3.0.0 code with bench scripts
+ 
+
+Server instance #1 is running rhoconnect bench applications, 2nd instance executes rhoconnect bench scripts. 
+
+## Bench application #1
+* Simulates creating multiple objects
+
+* 100 concurrent users
+
+* 1 device per user
+
+* 20 object dataset
+
+* each object has 7 attributes 
+
+* 904 total HTTP requests
 
 <pre>
-Request ack-cud        : min: 0.2009, max: 33.6580, avg: 9.9480
-Request get-cud        : min: 0.2165, max: 39.1057, avg: 13.0394
-Sync Time(per device)  : min: 0.4174, max: 72.7637, avg: 22.9874
-Throughput(req/s)      : 5.3703552387724
-Throughput(req/min)    : 322.221314326344
+Request clientcreate   : min: 0.0069, max: 1.6010, avg: 0.3404
+Request ack-cud        : min: 0.0339, max: 3.2250, avg: 0.5910
+Request clientlogin    : min: 0.0063, max: 0.8138, avg: 0.1216
+Request get-cud        : min: 0.0315, max: 3.0044, avg: 0.3988
+Request create-object  : min: 0.0791, max: 4.4959, avg: 1.3521
+Throughput(req/s)      : 7.13629650622702
+Throughput(req/min)    : 428.177790373621
 </pre>
+
+## Bench application #2
+* Simulates creating multiple objects
+
+* 100 concurrent users
+
+* 1 device per user
+
+* 10 object dataset
+
+* each object has variable number of attributes (from 10 to 60) + image
+
+* 904 total HTTP requests
+
+<pre>
+Request clientcreate   : min: 0.0067, max: 2.9286, avg: 0.6870
+Request ack-cud        : min: 0.0473, max: 5.5015, avg: 1.6219
+Request clientlogin    : min: 0.0061, max: 3.2326, avg: 0.4687
+Request get-cud        : min: 0.0382, max: 7.2202, avg: 1.0975
+Request create-object  : min: 0.3765, max: 11.1387, avg: 5.1424
+Throughput(req/s)  : 7.22833609137099
+Throughput(req/min): 433.700165482259
+</pre>
+
