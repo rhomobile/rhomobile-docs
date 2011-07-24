@@ -8,7 +8,7 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 ### Getting started
 * The RhoConnect Client is part of the Rhodes repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhoconnect-client' package). 
 
-* Create new project or open existing one in XCode. Add `<rhoconnect-client>/objectivec/SyncClient.xcodeproj` as dependency to your project, so the SyncClient library will link with your project.
+* Create new project or open existing one in XCode. Add `<rhoconnect-client>/objectivec/RhoConnectClient.xcodeproj` as dependency to your project, so the RhoConnectClient library will link with your project.
 
 * Add a 'Copy bundle resources' build phase to project target, than add `<rhoconnect-client>/shared/db/res/db` folder to it.
 
@@ -163,8 +163,8 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 #### Login
 
 	:::cplusplus
-	RhoConnectNotify* res = [ [SyncEngine sharedInstance].syncClient loginWithUser:txtUser pwd:txtPwd];
-	if ( res.error_code != RHO_ERR_NONE || ![[SyncEngine sharedInstance].syncClient is_logged_in]) 
+	RhoConnectNotify* res = [ [RhoConnectEngine sharedInstance].syncClient loginWithUser:txtUser pwd:txtPwd];
+	if ( res.error_code != RHO_ERR_NONE || ![[RhoConnectEngine sharedInstance].syncClient is_logged_in]) 
 	  ;//show error page
 	else
 	  ;//show success page
@@ -172,12 +172,12 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 #### Sync Data
 
 	:::cplusplus
-	RhoConnectNotify* res = [[SyncEngine sharedInstance].syncClient syncAll];
+	RhoConnectNotify* res = [[RhoConnectEngine sharedInstance].syncClient syncAll];
 
 #### Fetch data
 
 	:::cplusplus
-	NSMutableArray* arItems = [[SyncEngine sharedInstance].product find_all:nil];
+	NSMutableArray* arItems = [[RhoConnectEngine sharedInstance].product find_all:nil];
 	NSDictionary* item = [arItems objectAtIndex: 0 ];
 	textBrand = [item valueForKey:@"brand"];
 
@@ -206,6 +206,6 @@ This will produce a zipfile in the folder called `rhoconnect-client-<someversion
 ## Release procedure
 1. Unzip package to some folder
 
-2. Open project `rhoconnect-client\ObjectiveC\Tests\SyncClientTest` in xcode and run. See log - SUCCESS should be at the end of log
+2. Open project `rhoconnect-client\ObjectiveC\Tests\RhoConnectClientTest` in xcode and run. See log - SUCCESS should be at the end of log
 
 3. Open project `rhoconnect-client\Samples\ObjectiveC\store` in xcode and run. Press Login, you should see several items, click on item, you should see details
