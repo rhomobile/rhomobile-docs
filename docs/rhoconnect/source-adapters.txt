@@ -37,7 +37,7 @@ This will generate a new ruby class called `sources/product.rb`:
 	    super
 	  end
  
-	  def create(create_hash,blob=nil)
+	  def create(create_hash)
 	    # TODO: Create a new record in your backend data source
 	    # If your rhodes rhom object contains image/binary data 
 	    # (has the image_uri attribute), then a blob will be provided

@@ -83,7 +83,7 @@ You'll see a file similar to the following one below. The generated source adapt
 	    super
 	  end
  
-	  def create(create_hash,blob=nil)
+	  def create(create_hash)
 	    # TODO: Create a new record in your backend data source
 	    # If your rhodes rhom object contains image/binary data 
 	    # (has the image_uri attribute), then a blob will be provided
@@ -248,7 +248,7 @@ For your create method you can assume that the RhoConnect server will pass you a
 The create method will be called once for every object that has been created on the client since the last sync.  Your code for create (or edit or delete) needs to use this populated array to do its work.  Below is an example of a create method against the [rhostore](http://rhostore.heroku.com), which accepts an HTTP POST to perform a create action. The create method must return a unique id string for the object for it to be later modifiable by the client.  If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
 
 	:::ruby
-	def create(create_hash, blob=nil)
+	def create(create_hash)
       result = RestClient.post(@base, :product => create_hash)
     
       # after create we are redirected to the new record.
