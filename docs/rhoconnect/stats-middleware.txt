@@ -35,7 +35,7 @@ A complete config.ru might look like:
 	Rhoconnect::Server.use     Rack::Static, :urls => ["/data"], :root => Rhoconnect::Server.root
 
 	# Load our rhoconnect application
-	require 'application'
+	require './application'
 
 	# Setup the url map
 	run Rack::URLMap.new \

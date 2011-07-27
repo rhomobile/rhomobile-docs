@@ -134,9 +134,8 @@ Edit your `spec/spec_helper.rb` file to contain the following:
 	  require 'rhoconnect'
 	end
 
-	$:.unshift File.join(File.dirname(__FILE__), "..") # FIXME:
 	# Load our rhoconnect application
-	require 'application'
+	require './application'
 	include Rhoconnect
 
 	require 'rhoconnect/test_methods'
