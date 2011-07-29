@@ -213,7 +213,8 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 
 * Load native library before any RhoConnect client usage. Example of appropriate place to do so is Android application's onCreate method
 
-	:::cplusplus
+	:::java
+
 	import android.app.Application;
 	public class SampleApplication extends Application {
 	    public void onCreate()
@@ -227,6 +228,7 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 * Login to RhoConnect server
 
 	:::cplusplus
+
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
@@ -262,6 +264,11 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync methodin axample above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
 
 ### Object Model
+
+#### Intro
+
+RhoConnect Client Android Java API resides at com.rhomobile.rhoconnect pakage. It contains two main classes: RhoConnectClient and RhomModel. The package also contains two classes which represent results of call to the API. These are RhoConnectNotify and RhoConnectObjectNotify.
+Also several utility classes from com.rhomobile.rhodes package can be used. These are RhoConf, RhoLogConf, Logger.
 
 #### RhoConnectClient
 
@@ -357,7 +364,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
     	public void stopBulkUpdate();
     }
 
-### RhoConnectNotify
+#### RhoConnectNotify
 
 	:::cplusplus
     package com.rhomobile.rhoconnect;
@@ -380,7 +387,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 	    }
     }
 
-### RhoConnectObjectNotyfy
+#### RhoConnectObjectNotyfy
 
 	:::cplusplus
     package com.rhomobile.rhoconnect;
@@ -388,6 +395,10 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
     public interface RhoConnectObjectNotify {
     }
 
+### Samples
+
+* See android_store sample [rhoconnect-client\Samples\Java\android_store](http://github.com/rhomobile/rhodes/tree/master/rhoconnect-client/Samples/Java/android_store/) as an example.
+* See android test Eclipse project [rhoconnect-client\Java\Android\test](http://github.com/rhomobile/rhodes/tree/master/rhoconnect-client/Java/Android/test/) as another example.
 
 ## Packaging RhoConnect Client
 To package the RhoConnect Client archive for distribution, go to the top of the rhodes repository and run:
