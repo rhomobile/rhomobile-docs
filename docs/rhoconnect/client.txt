@@ -195,6 +195,120 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 	
     [sclient addObjectNotify: [[item objectForKey:@"source_id"] intValue] szObject:[item valueForKey:@"object"] ];
 
+## Android Java Client
+
+### Getting started
+* The RhoConnect Client is part of the Rhodes repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhoconnect-client' package). 
+
+* The RhoConnect Client for Android contains two files:
+
+** rhoimpl.jar - Java part of RhoConnect Client library
+** librhoconnectclient.so - native part of RhoConnect Client library
+
+* Create new Android project or open existing one in Eclipse. Add rhoimple.jar to your project build path and copy librhoconnectclient.so to <project_root>/libs/armeabi, so both Java and native parts of RhoConnect Client library will link with your project.
+
+* Copy all files and subfolders from <rhodes>/rhoconnect-client/Java/RhoConnect/assets to assets folder of your Android project.
+
+### RhoConnectClient initialization
+
+* Load native library before any RhoConnect client usage. Example of appropriate place to do so is Android application's onCreate method
+
+    :::java
+    import android.app.Application;
+    public class SampleApplication extends Application {
+    	@Override
+    	public void onCreate()
+	    {
+	    	System.loadLibrary("rhoconnectclient");
+	    }
+	}
+
+* Configure and initialize RhoConnect library. Example of appropriate place to do so is main Activity onCreate method
+
+* Login to RhoConnect server
+
+    :::java
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        
+		ApplicationInfo appInfo = getApplicationInfo();
+        
+		try {
+			RhoFileApi.initRootPath(appInfo.dataDir, appInfo.sourceDir);
+			RhoFileApi.init(this.getApplicationContext());
+			
+			RhoLogConf.setMinSeverity(0);
+			RhoLogConf.setEnabledCategories("*");
+			
+			RhoConnectClient.nativeInit();
+		} catch (Exception e) {
+			Logger.E(TAG, e.getMessage());
+		}
+        
+        mSyncClient = new RhoConnectClient();
+        
+    	mModels = new RhomModel[]{
+				new RhomModel("Customer", RhomModel.SYNC_TYPE_INCREMENTAL),
+				new RhomModel("Product", RhomModel.SYNC_TYPE_INCREMENTAL)
+			};
+        
+    	mSyncClient.initialize(mModels);
+    	mSyncClient.setPollInterval(0);
+    	mSyncClient.setSyncServer("http://rhodes-store-server.heroku.com/application");
+    	mSyncClient.setBulkSyncState(1);
+        
+    	mSyncClient.loginWithUserAsync("", "", new RhoConnectNotify.IDelegate()
+    		{
+    			public void call(RhoConnectNotify notify) { onLogin(notify); }
+    		});
+    }
+
+Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync methodin axample above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
+
+### Object Model
+
+#### RhoConnectClient
+
+    :::java
+    package com.rhomobile.rhoconnect;
+    public class RhoConnectClient{
+        /// Call this method before create and use the client. It sets up directory structure and makes nessesary native library initialization.
+    	public static native void nativeInit();
+        /// Creates instance of RhoConnectClient singlethon (yes, it's only one instance of RhoConnectClient allowed).
+	    public RhoConnectClient();
+        /// Call this method to close network connections and release any resources gracefully
+    	public synchronized void close();
+	    /// Makes db models initialization. This call must be made just after RhoConnectClient construction and before any other calls to RhoConnectClient object.
+	    public native void initialize(RhomModel models[]);
+        /// Sets up server URL to sync (RhoConnect server)	
+    	public native void setSyncServer(String url);
+        /// Forces synchronous or asynchronous RhoConnectClient mode
+        /// true - asynchronous mode (default)
+        /// false - synchronous mode
+	    public native void setThreadedMode(boolean mode);
+        /// Sets/gets auto sync interval. 0 - disable auto sync
+    	public native void setPollInterval(int interval);
+	    public native int getPollInterval();
+        ///
+    	public native void setBulkSyncState(int state);
+	    public native int getBulkSyncState();
+        /// Set get various configuration parameters.
+	    public native void setConfigString(String name, String param);
+	    public native String getConfigString(String name);
+        /// Reset all data for all models in local database, also perform logout
+    	public native void databaseFullResetAndLogout();
+        /// Checks does login session exists in the database
+        public native boolean isLoggedIn();
+	    /// Logins to RhoConnect server and keep login session in database
+    	public native RhoConnectNotify loginWithUserSync(String user, String pass);
+	    /// Logins to RhoConnect server and keep login session in database.
+        /// callback will be called when operation has finished.
+    	public native void loginWithUserAsync(String user, String pass, RhoConnectNotify.IDelegate callback);
+        /// Runs sync of all models
+    	public native RhoConnectNotify syncAll();
+    }
+
 ## Packaging RhoConnect Client
 To package the RhoConnect Client archive for distribution, go to the top of the rhodes repository and run:
 
