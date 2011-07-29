@@ -265,7 +265,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 #### RhoConnectClient
 
-    :::cplusplus
+	:::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectClient{
         /// Call this method before create and use the client. It sets up directory structure and makes nessesary native library initialization.
@@ -306,7 +306,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 #### RhomModel
 
-    :::cplusplus
+	:::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhomModel {
         /// Possible model types
@@ -359,7 +359,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 ### RhoConnectNotify
 
-    :::cplusplus
+	:::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectNotify {
     	public int getTotalCount() { return mTotalCount; }
@@ -382,7 +382,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 ### RhoConnectObjectNotyfy
 
-    :::cplusplus
+	:::cplusplus
     package com.rhomobile.rhoconnect;
     /// Not implemented yet
     public interface RhoConnectObjectNotify {
