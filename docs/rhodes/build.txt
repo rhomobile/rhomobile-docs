@@ -676,7 +676,7 @@ Add path to Qt SDK to rhobuild.yml in the Rhodes folder:
           paths:
             qtsymbian-sdk: C:/QtSDK
 
-### To build application sis-file for the device:
+### To build application sis-file for the device, run:
 
 	:::term
 	$ rake device:symbian:production
