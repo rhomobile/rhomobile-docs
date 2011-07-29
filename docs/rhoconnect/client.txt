@@ -213,7 +213,7 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 
 * Load native library before any RhoConnect client usage. Example of appropriate place to do so is Android application's onCreate method
 
-	:::Java
+	:::cplusplus
 	import android.app.Application;
 	public class SampleApplication extends Application {
 	    public void onCreate()
@@ -226,7 +226,7 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 
 * Login to RhoConnect server
 
-	:::Java
+	:::cplusplus
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
@@ -265,7 +265,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 #### RhoConnectClient
 
-    :::Java
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectClient{
         /// Call this method before create and use the client. It sets up directory structure and makes nessesary native library initialization.
@@ -306,7 +306,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 #### RhomModel
 
-    :::java
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhomModel {
         /// Possible model types
@@ -359,7 +359,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 ### RhoConnectNotify
 
-    :::Java
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectNotify {
     	public int getTotalCount() { return mTotalCount; }
@@ -382,7 +382,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 ### RhoConnectObjectNotyfy
 
-    :::java
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     /// Not implemented yet
     public interface RhoConnectObjectNotify {
