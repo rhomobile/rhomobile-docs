@@ -213,13 +213,12 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 
 * Load native library before any RhoConnect client usage. Example of appropriate place to do so is Android application's onCreate method
 
-    :::java
-    import android.app.Application;
-    public class SampleApplication extends Application {
-    	@Override
-    	public void onCreate()
+	:::Java
+	import android.app.Application;
+	public class SampleApplication extends Application {
+	    public void onCreate()
 	    {
-	    	System.loadLibrary("rhoconnectclient");
+	        System.loadLibrary("rhoconnectclient");
 	    }
 	}
 
@@ -227,42 +226,38 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 
 * Login to RhoConnect server
 
-    :::java
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        
-		ApplicationInfo appInfo = getApplicationInfo();
-        
-		try {
-			RhoFileApi.initRootPath(appInfo.dataDir, appInfo.sourceDir);
-			RhoFileApi.init(this.getApplicationContext());
-			
-			RhoLogConf.setMinSeverity(0);
-			RhoLogConf.setEnabledCategories("*");
-			
-			RhoConnectClient.nativeInit();
-		} catch (Exception e) {
-			Logger.E(TAG, e.getMessage());
+	:::Java
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.main);
+	
+	    ApplicationInfo appInfo = getApplicationInfo();
+	
+	    try {
+	        RhoFileApi.initRootPath(appInfo.dataDir, appInfo.sourceDir);
+	        RhoFileApi.init(this.getApplicationContext());
+	
+	        RhoLogConf.setMinSeverity(0);
+	        RhoLogConf.setEnabledCategories("*");
+	
+	        RhoConnectClient.nativeInit();
+	    } catch (Exception e) {
+	        Logger.E(TAG, e.getMessage());
 		}
-        
-        mSyncClient = new RhoConnectClient();
-        
-    	mModels = new RhomModel[]{
-				new RhomModel("Customer", RhomModel.SYNC_TYPE_INCREMENTAL),
-				new RhomModel("Product", RhomModel.SYNC_TYPE_INCREMENTAL)
-			};
-        
-    	mSyncClient.initialize(mModels);
-    	mSyncClient.setPollInterval(0);
-    	mSyncClient.setSyncServer("http://rhodes-store-server.heroku.com/application");
-    	mSyncClient.setBulkSyncState(1);
-        
+	    mSyncClient = new RhoConnectClient();
+	    mModels = new RhomModel[]{
+	            new RhomModel("Customer", RhomModel.SYNC_TYPE_INCREMENTAL),
+	            new RhomModel("Product", RhomModel.SYNC_TYPE_INCREMENTAL)
+	        };
+	    mSyncClient.initialize(mModels);
+	    mSyncClient.setPollInterval(0);
+	    mSyncClient.setSyncServer("http://rhodes-store-server.heroku.com/application");
+	    mSyncClient.setBulkSyncState(1);
     	mSyncClient.loginWithUserAsync("", "", new RhoConnectNotify.IDelegate()
-    		{
-    			public void call(RhoConnectNotify notify) { onLogin(notify); }
-    		});
-    }
+	        {
+	            public void call(RhoConnectNotify notify) { onLogin(notify); }
+	        });
+	}
 
 Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync methodin axample above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
 
@@ -270,7 +265,7 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
 
 #### RhoConnectClient
 
-    :::java
+    :::Java
     package com.rhomobile.rhoconnect;
     public class RhoConnectClient{
         /// Call this method before create and use the client. It sets up directory structure and makes nessesary native library initialization.
@@ -308,6 +303,91 @@ Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync m
         /// Runs sync of all models
     	public native RhoConnectNotify syncAll();
     }
+
+#### RhomModel
+
+    :::java
+    package com.rhomobile.rhoconnect;
+    public class RhomModel {
+        /// Possible model types
+    	public final static int MODEL_TYPE_PROPERTY_BAG = 0;
+    	public final static int MODEL_TYPE_FIXED_SCHEMA = 1;
+        /// Possible sync types
+    	public final static int SYNC_TYPE_NONE = 0;
+    	public final static int SYNC_TYPE_INCREMENTAL = 1;
+    	public final static int SYNC_TYPE_BULK_ONLY = 2;
+        /// Constructor        
+        public RhomModel(String name, int syncType);
+        /// Returns the model name    
+        public String getName() { return mName; }
+        /// Returns the model type
+        public int getModelType() { return mModelType; }
+        /// Sets the model type
+        public void setModelType(int type) { mModelType = type; }
+        // Returns the model sync type
+        public int getSyncType() { return mSyncType; } 
+        /// Sets the model sync type
+        public void setSyncType(int type) { mSyncType = type; }
+        /// Returns the model sync priority
+        public int getSyncPriority() { return mSyncPriority; }
+        /// Sets the model sync priority
+        public void setSyncPriority(int prio) { mSyncPriority = prio; }
+        /// Returns the model partition
+        public String getPartition() { return mPartition; }
+        /// Sets the model partition
+        public void setPartition(String part) { mPartition = part; }
+	    /// Runs sync of the model
+	    public RhoConnectNotify sync();
+        /// Creates model object with properties and save to database, object id will be generated automatically if not set
+    	public void create(Map<String, String> props);
+        /// Finds object by object id
+    	public Map<String, String> find(String objectId)
+
+    	//Not implemented yet
+        public Map findFirst();
+    	//Not implemented yet
+	    public Set findAll();
+    	//Not implemented yet
+	    public void save(Map<String, String>);
+    	//Not implemented yet
+	    public void destroy(Map<String, String>);
+    	//Not implemented yet
+    	public void startBulkUpdate();
+    	//Not implemented yet
+    	public void stopBulkUpdate();
+    }
+
+### RhoConnectNotify
+
+    :::Java
+    package com.rhomobile.rhoconnect;
+    public class RhoConnectNotify {
+    	public int getTotalCount() { return mTotalCount; }
+    	public int getProcessedCount() { return mProcessedCount; }
+    	public int getCumulativeCount() { return mCumulativeCount; }
+    	public int getSourceId() { return mSourceId; }
+    	public int getErrorCode() { return mErrorCode; }
+    	public String getSourceName() { return mSourceName; }
+    	public String getStatus() { return mStatus; }
+    	public String getSyncType() { return mSyncType; }
+        /// Not implemented yet
+        public String getErrorMessage()
+    	public String getCallbackParams() { return mParams; }
+        ///	Developer need to implement and pass reference to this interface
+        /// in order to get call back when asynchronous operation has completed
+	    public static interface IDelegate {
+		    public void call(RhoConnectNotify notify); 
+	    }
+    }
+
+### RhoConnectObjectNotyfy
+
+    :::java
+    package com.rhomobile.rhoconnect;
+    /// Not implemented yet
+    public interface RhoConnectObjectNotify {
+    }
+
 
 ## Packaging RhoConnect Client
 To package the RhoConnect Client archive for distribution, go to the top of the rhodes repository and run:
