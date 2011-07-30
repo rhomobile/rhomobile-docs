@@ -203,12 +203,13 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 * The RhoConnect Client for Android contains two files:
 
 ** rhoimpl.jar - Java part of RhoConnect Client library
+
 ** librhoconnectclient.so - native part of RhoConnect Client library
 
 These can be build from <rhodes>/rhoconnect-client directory with next commend
 
     :::shell
-    rake android:default
+    $>rake android:default
 
 * Create new Android project or open existing one in Eclipse. Add rhoimple.jar to your project build path and copy librhoconnectclient.so to <project_root>/libs/armeabi, so both Java and native parts of RhoConnect Client library will link with your project.
 
@@ -218,21 +219,20 @@ These can be build from <rhodes>/rhoconnect-client directory with next commend
 
 * Load native library before any RhoConnect client usage. Example of appropriate place to do so is Android application's onCreate method
 
-    :::java
-    import android.app.Application;
-    public class SampleApplication extends Application {
-	    public void onCreate()
-	    {
-	        System.loadLibrary("rhoconnectclient");
-	    }
+	:::java
+	import android.app.Application;
+	public class SampleApplication extends Application {
+		public void onCreate() {
+			System.loadLibrary("rhoconnectclient");
+		}
 	}
 
 * Configure and initialize RhoConnect library. Example of appropriate place to do so is main Activity onCreate method
 
 * Login to RhoConnect server
 
-    :::cplusplus
-    public void onCreate(Bundle savedInstanceState) {
+	:::cplusplus
+	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
 	
@@ -248,7 +248,7 @@ These can be build from <rhodes>/rhoconnect-client directory with next commend
 	        RhoConnectClient.nativeInit();
 	    } catch (Exception e) {
 	        Logger.E(TAG, e.getMessage());
-		}
+	    }
 	    mSyncClient = new RhoConnectClient();
 	    mModels = new RhomModel[]{
 	            new RhomModel("Customer", RhomModel.SYNC_TYPE_INCREMENTAL),
@@ -258,12 +258,11 @@ These can be build from <rhodes>/rhoconnect-client directory with next commend
 	    mSyncClient.setPollInterval(0);
 	    mSyncClient.setSyncServer("http://rhodes-store-server.heroku.com/application");
 	    mSyncClient.setBulkSyncState(1);
-    	mSyncClient.loginWithUserAsync("", "", new RhoConnectNotify.IDelegate()
-	        {
-	            public void call(RhoConnectNotify notify) { onLogin(notify); }
-	        });
+	    mSyncClient.loginWithUserAsync("", "", new RhoConnectNotify.IDelegate() {
+	        public void call(RhoConnectNotify notify) { onLogin(notify); } });
 	}
 	public void onLogin(RhoConnectNotify notify) {
+	    // Handle login event
 	}
 
 Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync methodin axample above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
