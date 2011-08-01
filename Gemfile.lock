@@ -1,12 +1,17 @@
+GIT
+  remote: git://github.com/technoweenie/faraday
+  revision: 3aa840d012875ee80410e2e627f23fba3d508fa9
+  ref: 3aa840d012875ee80410
+  specs:
+    faraday (0.4.6)
+      addressable (>= 2.1.1)
+      rack (>= 1.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.6)
     coderay (0.9.3)
-    faraday (0.7.4)
-      addressable (~> 2.2.6)
-      multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
     haml (2.2.17)
     heroku-nav (0.1.19)
       json
@@ -18,7 +23,6 @@ GEM
     json (1.4.6)
     json_pure (1.5.1)
     mime-types (1.16)
-    multipart-post (1.1.3)
     nokogiri (1.4.3.1)
     nokogiri (1.4.3.1-x86-mingw32)
     pdfkit (0.5.0)
@@ -44,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   coderay
+  faraday!
   haml (= 2.2.17)
   heroku-nav (~> 0)
   indextank
