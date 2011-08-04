@@ -2,9 +2,16 @@ Near Field Communications With Rhodes
 ========
 This tutorial will guide you through running near field communications with Rhodes. Near field communication is very similar to RFID, and you can even use near field communications to read RFID tags. It has features to have two devices communicate with each other, as well as act as mobile business cards.
 
+Source Code
+-----------
+The source code for this example is located here.
+
+ * [Rhodes system API samples](https://github.com/rhomobile/rhodes-system-api-samples)
+ * [Rhodes system API samples - NFC](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Nfc)
+
 Webinar Video
 -------------
-[Vimeo link](http://rhomobile.com/webinars/)
+[Vimeo link](http://vimeo.com/23570610)
 
 Pre-requisite Reading
 ---------------------
@@ -136,10 +143,7 @@ In the Android emulator, the NFCDemo app should be running (9:09 in the webinar 
 
 ## Preparing the Rhodes Project to Receive NFC Tags
 
-In your browser, go to github.com/rhomobile/rhodes-system-api-samples. (You need to have an account on git to do this.) You will get the URL for Rhodes API samples. Run the following command to copy the rhodes-system-api-samples project onto your computer. (It is probably a good idea to open a fresh command line window for this command.)
-
-	:::term
-	$ git clone https://github.com/rhomobile/rhodes-system-api-samples.git
+The [Rhodes system API samples project](https://github.com/rhomobile/rhodes-system-api-samples) has  several aapplications, one of which is called [NFC](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Nfc). Copy the Rhodes system API samples project to your local computer; you will be using the NFC code.
 
 ### Checking the Rhodes Application for NFC
 
