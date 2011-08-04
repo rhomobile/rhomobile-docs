@@ -6,7 +6,7 @@ Source Code
 -----------
 The source code for this example is located here.
 
- * [Rhodes Webinar Samples](https://github.com/rhomobile/webinar-samples)
+ * [Rhodes Webinar Sample for nfc-rhodes](https://github.com/rhomobile/webinar-samples/tree/master/nfc-rhodes)
 
 Webinar Video
 -------------
@@ -106,14 +106,9 @@ Now install your NFCDemo app into the Android emulator that you are running. Fro
 
 In the Android emulator, the NFCDemo app should be running. The NFCDemo app lets you generate NFC tags that you can receive in a Rhodes Android application.
 
-## Test the nfc-rhodes Application
+## Getting the nfc-rhodes Application
 
-In your browser, go to github.com/rhomobile/webinar-samples/tree/master/nfc-rhodes. (You need to have an account on git to do this.) You will get the URL for nfc-rhodes, a Rhodes project which receives nfc tags. 
-
-You can run the following command to copy the webinar samples onto your computer. (It is probably a good idea to open a fresh command line window for this command.)
-
-	:::term
-	$ git clone https://github.com/rhomobile/webinar-samples.git
+You can go to the source code for the [Rhodes Webinar Sample for nfc-rhodes](https://github.com/rhomobile/webinar-samples/tree/master/nfc-rhodes), a Rhodes project which receives nfc tags, is stored. You can copy this project to your local computer.
 
 ### Checking the Rhodes Application for NFC
 

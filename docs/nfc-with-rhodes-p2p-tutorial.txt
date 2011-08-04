@@ -29,14 +29,9 @@ If you have any Android SDK installed, you can check to see if it has Android 2.
 
 The webinar and this tutorial show Android running from the command line, rather than an IDE such as Eclipse. You can also run from Eclipse.
 
-## Check the nfc-rhodes Application
+# Getting the nfc-rhodes Application
 
-In your browser, go to github.com/rhomobile/webinar-samples/tree/master/nfc-rhodes. (You need to have an account on git to do this.) You will get the URL for nfc-rhodes, a Rhodes project which receives nfc tags. 
-
-You can run the following command to copy the webinar samples onto your computer, if. (It is probably a good idea to open a fresh command line window for this command.)
-
-	:::term
-	$ git clone https://github.com/rhomobile/webinar-samples.git
+You can go to the source code for the [Rhodes Webinar Sample for nfc-rhodes](https://github.com/rhomobile/webinar-samples/tree/master/nfc-rhodes), a Rhodes project which receives nfc tags, is stored. You can copy this project to your local computer.
 
 ### Checking the Rhodes Application for NFC
 
