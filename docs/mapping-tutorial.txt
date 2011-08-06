@@ -10,14 +10,11 @@ The source code for this example is located here.
  * [Rhodes Application](https://github.com/rhomobile/webinar-samples/tree/master/contact)
  * [RhoSync Application](https://github.com/rhomobile/webinar-samples/tree/master/contact-server)
 
-Webinar Video
--------------
-[Vimeo link](https://github.com/rhomobile/webinar-samples/tree/master/contact)
-
 Pre-requisite Reading
 ---------------------
  * [Rhodes Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact)
  * [Rhosync Tutorial]()
+ * [Webinar Video](http://vimeo.com/12301104)
 
 Reference Reading
 -----------------
