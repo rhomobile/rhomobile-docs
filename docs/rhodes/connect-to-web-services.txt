@@ -25,7 +25,7 @@ Below is the list of available `AsyncHttp` methods you can use to asyncrhonously
 * `:ssl_verify_peer` - (optional) Verify SSL certificates, `true` by default.
 
 ### `get(:url, :headers, :callback, :callback_param)`
-Perform HTTP GET request to the specified `:url`.  You can also provide an optional hash of `:headers` and `:callback_param`.<a id="asynchttp-get-ex" />
+Perform HTTP GET request to the specified <code>:url</code>.  You can also provide an optional hash of <code>:headers</code> and <code>:callback_param</code>.<a id="asynchttp-get-ex" />
 
 	:::ruby
 	Rho::AsyncHttp.get(
@@ -60,7 +60,7 @@ Example of synchronous call:
 
 
 ### `post(:url, :headers, :body, :callback, :callback_param)`
-Perform HTTP POST request to the specified `:url`.  As with `get`, you can specify optional arguments:
+Perform HTTP POST request to the specified <code>:url</code>.  As with <code>get</code>, you can specify optional arguments:<a id="asynchttp-post-ex" />
 
 	:::ruby
 	# :post				HTTP POST body to send with request.
