@@ -52,7 +52,30 @@ section 'rhosync-reference', "RhoSync Developer Reference" do
   topic 'rhosync/contributing',      'Contributing'
 end
 
-section 'rhoconnect-reference', "RhoConnect JS Developer Reference (Alpha)" do
+section 'rhoconnect-reference', "RhoConnect Developer Reference (Beta)" do
+  topic 'rhoconnect/introduction',      'Introduction'
+  topic 'rhoconnect/install',           'Installation'
+  topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
+  topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
+  topic 'rhoconnect/source-adapters',   'Source Adapters'
+  topic 'rhoconnect/testing',           'Testing and Debugging'
+  topic 'rhoconnect/authentication',    'Adding Device Authentication'
+  topic 'rhoconnect/web-console',       'Admin Web Interface'
+  topic 'rhoconnect/licensing',         'Licensing your App'
+  topic 'rhoconnect/deploying',         'Deployment and Hosting Options'
+  topic 'rhoconnect/push',              'Device Push'
+  topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
+  topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
+  topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
+  topic 'rhoconnect/rest-api',          'RhoSync REST API'
+  topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
+  topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
+  topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
+  topic 'rhoconnect/benchmarks',        'Benchmarks'
+  topic 'rhoconnect/contributing',      'Contributing'
+end
+
+section 'rhoconnectjs-reference', "RhoConnect JS Developer Reference (Beta)" do
   topic 'rhoconnectjs/introduction',      'Introduction'
   topic 'rhoconnectjs/getting-started',   'Getting Started'
   topic 'rhoconnectjs/reference',         'API Reference'
