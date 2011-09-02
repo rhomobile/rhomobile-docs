@@ -21,8 +21,8 @@ Your RhoConnect application folder will be located in C:\RhoConnect\rhoconnect b
 
 ### Installing RhoConnect Gem
 
-To install the latest stable RhoConnect gem, run:
+To install the RhoConnect gem, run:
 
 	:::term
-  	$ [sudo] gem install rhoconnect
+  	$ [sudo] gem install rhoconnect --pre
  
