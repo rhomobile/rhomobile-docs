@@ -58,3 +58,13 @@ section 'rhoconnect-reference', "RhoConnect JS Developer Reference (Alpha)" do
   topic 'rhoconnectjs/reference',         'API Reference'
   topic 'rhoconnectjs/creating-app',   'creating an app'
 end
+
+section 'rhoconnect-plugin-reference', "RhoConnect Plugins" do
+  topic 'rhoconnect/plugin-intro',      'Introduction'
+  topic 'rhoconnect/rails-plugin',   'Rails Plugin'
+  topic 'rhoconnect/net-plugin',   '.Net Plugin'
+end
+
+section 'rhoconnect-service-reference', "RhoConnect Services" do
+  topic 'rhoconnect/heroku-addon',      'Heroku Addon'
+end
