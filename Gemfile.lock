@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/technoweenie/faraday
-  revision: 3aa840d
+  revision: 3aa840d012875ee80410e2e627f23fba3d508fa9
   ref: 3aa840d012875ee80410
   specs:
     faraday (0.4.6)
@@ -10,7 +10,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    addressable (2.2.0)
+    addressable (2.2.6)
     coderay (0.9.3)
     haml (2.2.17)
     heroku-nav (0.1.19)
@@ -24,12 +24,13 @@ GEM
     json_pure (1.5.1)
     mime-types (1.16)
     nokogiri (1.4.3.1)
+    nokogiri (1.4.3.1-x86-mingw32)
     pdfkit (0.5.0)
     rack (1.2.1)
     rack-codehighlighter (0.4.6)
       nokogiri (>= 1.4.1)
       rack (>= 1.0.0)
-    rake (0.8.7)
+    rake (0.9.2)
     rdiscount (1.6.8)
     rest-client (1.2.0)
       mime-types (>= 1.16)
@@ -43,6 +44,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   coderay
@@ -54,7 +56,7 @@ DEPENDENCIES
   pdfkit
   rack (= 1.2.1)
   rack-codehighlighter
-  rake
+  rake (~> 0.9.2)
   rdiscount (= 1.6.8)
   rest-client (= 1.2.0)
   shotgun

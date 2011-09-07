@@ -18,5 +18,5 @@ gem 'faraday',   :git => 'git://github.com/technoweenie/faraday',  :ref => '3aa8
 gem 'indextank'
 
 group :development do
-  gem "rake"
+  gem "rake", '~> 0.9.2'
 end

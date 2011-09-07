@@ -1,0 +1,168 @@
+RhoConnect Benchmarks
+===
+
+Note, these numbers reflect synchronization performance using the rhoconnect bench utility (see the rhoconnect/bench folder for more information).  
+We will be adding more results as we test across different server environments.
+
+
+Servers configuration (Amazon EC2 'm1.small' instances) :
+
+* CPU Units - 1 ECU
+
+* CPU Cores - 1 Core
+
+* Memory - 1.7GB
+
+* Platform - Ubuntu (2.6.38-8-virtual)
+
+
+Environment (instance #1):
+
+* Nginx 1.0.0
+
+* Ruby 1.8.7 (2011-02-18 patchlevel 334) [i686-linux], Ruby Enterprise Edition 2011.03
+ 
+* Passenger 3.0.7 (mod_rails)
+
+* Redis 2.2.11
+
+* Rhoconnect 3.0.0 
+
+Nginx configuration file:
+
+<pre>
+user  www-data;
+worker_processes  4;
+
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    passenger_root /usr/local/lib/ruby/gems/1.8/gems/passenger-3.0.7;
+    passenger_ruby /usr/local/bin/ruby;
+    passenger_max_pool_size 20;
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile    on;
+    tcp_nopush  on;
+    tcp_nodelay on;
+
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    server {
+        listen 80;
+        server_name  ec2-50-18-72-186.us-west-1.compute.amazonaws.com;
+        root  /var/www/benchapp/public;   # Bench application #1
+        # root  /var/www/blobapp/public;   # Bench application #2
+        passenger_enabled on;
+        passenger_min_instances 6;
+    }
+}
+</pre>
+
+
+Environment (instance #2):
+
+* Ruby 1.8.7 (2011-02-18 patchlevel 334) [i686-linux], Ruby Enterprise Edition 2011.03
+
+* Rhoconnect 3.0.0 code with bench scripts
+ 
+
+Server instance #1 is running rhoconnect bench applications, 
+the 2nd one executes rhoconnect bench scripts. 
+
+## Bench application #1
+* Simulates creating multiple objects
+
+* 100 concurrent users
+
+* 1 device per user
+
+* 20 object dataset
+
+* each object has 7 attributes 
+
+* 904 total HTTP requests
+
+<pre>
+Request clientcreate   : min: 0.0069, max: 1.6010, avg: 0.3404
+Request ack-cud        : min: 0.0339, max: 3.2250, avg: 0.5910
+Request clientlogin    : min: 0.0063, max: 0.8138, avg: 0.1216
+Request get-cud        : min: 0.0315, max: 3.0044, avg: 0.3988
+Request create-object  : min: 0.0791, max: 4.4959, avg: 1.3521
+Throughput(req/s)      : 7.13629650622702
+Throughput(req/min)    : 428.177790373621
+</pre>
+
+## Bench application #2
+* Simulates creating multiple objects
+
+* 100 concurrent users
+
+* 1 device per user
+
+* 10 object dataset
+
+* each object has variable number of attributes (from 10 to 60) + image
+
+* 904 total HTTP requests
+
+<pre>
+Request clientcreate   : min: 0.0067, max: 2.9286, avg: 0.6870
+Request ack-cud        : min: 0.0473, max: 5.5015, avg: 1.6219
+Request clientlogin    : min: 0.0061, max: 3.2326, avg: 0.4687
+Request get-cud        : min: 0.0382, max: 7.2202, avg: 1.0975
+Request create-object  : min: 0.3765, max: 11.1387, avg: 5.1424
+Throughput(req/s)  : 7.22833609137099
+Throughput(req/min): 433.700165482259
+</pre>
+
+## Prepare bench applications for running on server #1
+
+Go to rhoconnect/bench directory and configure benchapp application: 
+
+<pre>
+sudo cp -R benchapp /var/www/
+cd /var/www/
+sudo mkdir benchapp/public
+sudo chown -R www-data:www-data benchapp/
+</pre>
+
+Do the same for blobapp bench: 
+<pre>
+sudo cp -R blobapp /var/www/
+cd /var/www/
+sudo mkdir blobapp/public
+sudo chown -R www-data:www-data blobapp/
+</pre>
+
+Edit <b>Nginx</b> configuration file, set server_name and root properties to public DNS server name 
+and bench application public folder respectively. After restarting server make sure that bench application is
+running by visiting its web concole, i.e. : 
+<pre>
+http://server_dns_public_name/console/ 
+</pre>
+
+## How to execute bench scripts on server #2
+Before running bench scripts you need configure bench application settings properly. 
+
+Edit rhoconnect/bench/benchapp/settings/settings.yml and set redis and syncserver properties:
+<pre>
+:development:
+  :licensefile: settings/license.key
+  :redis: server_ip_address:6379
+  :syncserver: http://server_dns_public_name:80/api/application/
+</pre>
+
+Do the same for blobapp settings.yml file.
+
+Then from rhoconnect/becnh directory execute run_cud_script.sh and run_blob_script.sh scripts respectively.
+
+ 
+

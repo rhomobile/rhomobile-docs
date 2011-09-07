@@ -74,7 +74,7 @@ To build for iPhone/iPad using you will need the following software installed:
 
 If you wish to run your Rhodes application on an iOS device, you need to build and run it using an Xcode project.
 
-Tell Rhodes where to build from your Rhodes application.
+Tell Rhodes to build from your Rhodes application.
 
 	:::term
 	$ rake switch_app
@@ -114,7 +114,7 @@ Plug in your iOS device. In Xcode, under Scheme, select iOS device under rhorunn
 
 For more information on running on your iOS device from Xcode, go to the [Apple developer site](http://developer.apple.com/), go to the iOS Developer Library, and search on "managing devices", or "run applications on a device," or similar.
 
-You can edit your Rhodes code for your Rhodes application in a text editor, save your changes, and then rebuild and run your project from Xcode.
+You can edit your Rhodes code for your Rhodes application in a text editor, save your changes, do a Clean in Xcode so that your changes will register in Xcode, and then rebuild and run your project from Xcode.
 
 The resulting application package (*.app) is located in your Rhodes source code folder under /platform/iphone/build/, in a folder named like [Debug/Release]-[iphoneos/iphonesimulator]/rhorunner.app.
 
@@ -253,7 +253,7 @@ In case if you are planning to work with native geo mapping (MapView interface),
 If you are using Eclipse (Optional) please follow [these instructions](http://source.android.com/source/using-eclipse.html) on how to increase Java memory space to use Android.
 
 
-Please check you applications and change the way how you include css files into html pages.
+Please check your applications and change how you include css files into html pages.
 
 For example, you will need to replace 
 
@@ -659,6 +659,62 @@ You can also clean emulator and start emulator again:
 
 Press Menu button on emulator. Go to Downloads, run Rhodes
 
+## Build for Symbian
+
+Note that Symbian versions of your Rhodes app must be built in a Windows environment.
+
+### Prerequisites
+
+* Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
+* Visual Studio 2005 Service Pack 1 installed
+* [Qt SDK](http://qt.nokia.com/downloads/sdk-windows-cpp-offline)
+
+If you want to build for Symbian device you have to install QT and QT Mobility for Symbian on your device.
+You can find installation files in QT SDK folder like below:
+
+	QT - C:/QtSDK/Symbian/sis/Symbian1/Qt/4.7.3/qt.sis
+	QT Mobility - C:/QtSDK/Symbian/sis/Symbian1/QtMobility/1.1.3/qtmobility.sis
+
+Then open file - C:/QtSDK/Symbian/SDKs/Symbian1Qt473/epoc32/include/cntdb.h and replace below two strings:
+    CContactConverter& CContactDatabase::ConverterL(const TUid& aFormat);
+    CContactConverter& CContactDatabase::ConverterL(const TUid& aFormat, const TInt64 aContactFieldFilter, MConverterCallBack* aCallback, const TVCardVersion aVersion,const TBool aExportTel);
+with these strings:
+    CContactConverter& ConverterL(const TUid& aFormat);
+    CContactConverter& ConverterL(const TUid& aFormat, const TInt64 aContactFieldFilter, MConverterCallBack* aCallback, const TVCardVersion aVersion,const TBool aExportTel);
+
+NOTE: You have to install Rhodes on the same local disk with QtSDK!
+
+
+### Build application from the command line
+
+Add pathes to Qt SDK and MS Visual Studio 2005 to rhobuild.yml in the Rhodes folder:
+
+        env:
+          paths:
+            qtsymbian-sdk: C:/QtSDK
+            msvs2005: C:/Program Files/Microsoft Visual Studio 8
+			
+
+### To build and run application on emulator(Visual Studio 2005 only) :
+
+	:::term
+	$ rake run:symbian
+
+### To build application sis-file for the device:
+
+	:::term
+	$ rake device:symbian:production
+	
+### To clean all binaries run:
+
+	:::term
+	$ rake clean:symbian	
+	
+NOTE: If the clean rake task doesn't respond long time while it is being executed then stop it and delete folder like this: C:/QtSDK/Symbian/SDKs/Symbian1Qt473/epoc32/BUILD/.../rhodes
+
+NOTE: If You want to use your own UID for application you can redefine it in build.yml. You can find information about UID here - http://www.developer.nokia.com/Community/Wiki/UID_Q&As_(Symbian_Signed)
+
+
 ## Build for Windows Mobile
 
 Note that Windows Mobile versions of your Rhodes app must be built in a Windows environment.
@@ -668,11 +724,11 @@ Note that Windows Mobile versions of your Rhodes app must be built in a Windows 
 * Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
 * .NET Compact Framework
 * Windows Mobile 6 Professional SDK(s) 
-* Microsoft Active Sync 4.5
+* Microsoft Active Sync 4.5 for Windows XP; Windows Mobile Device Center and Microsoft Device Emulator 3.0 for Windows Vista or higher
 * Visual Studio 2005 Service Pack 1 installed or Visual Studio 2008. 
 * [7-zip](http://www.7-zip.org/)
 
-Open ActiveSync main window, go to the File -> Connection Settings, select checkbox "Allow connections to one of the following" and select "DMA" from the list box. It is required to work with emulator.
+On Windows XP, open ActiveSync main window and open the File menu; on Windows Vista and above, open Windows Mobile Device Center and click Mobile Device Settings. Select Connection Settings, select checkbox "Allow connections to one of the following" and select "DMA" from the list box. It is required to work with emulator.
 
 ### Build application from the command line
 
@@ -683,7 +739,14 @@ Add path to vcbuild.exe and CabWiz.exe to rhobuild.yml in the Rhodes folder:
 	    vcbuild: 'C:/Program Files/Microsoft Visual Studio 8/VC/vcpackages/vcbuild.exe'
 	    cabwiz: 'C:/Program Files/Windows Mobile 6 SDK/Tools/CabWiz'
 
-### To run application on device or emulator(Visual Studio 2008 only) :
+On 64-bit installations:
+
+	env:
+	  paths:
+	    vcbuild: 'C:/Program Files (x86)/Microsoft Visual Studio 8/VC/vcpackages/vcbuild.exe'
+	    cabwiz: 'C:/Program Files (x86)/Windows Mobile 6 SDK/Tools/CabWiz'
+
+### To run application on device or emulator (Visual Studio 2008 only):
 
 To build and run application on emulator, run (fastest way):
 	
@@ -694,6 +757,8 @@ To build cab-file, install it and run application on emulator, run:
 
 	:::term
 	$ rake run:wm:cab 
+
+If you want to run the application on your Windows Mobile device, first connect your device via USB cable. Then check that your device is connected with ActiveSync on Windows XP or Windows Mobile Device Center on Windows Vista or above.
 
 To build and run application on device, run (fastest way):
 
@@ -714,11 +779,11 @@ If you want the application to be signed automaticly during the build process, p
 
 	wmsign: <disk:/path/MySign.pfx>
 
-More information about  Windows Mobile code signing you could find at:
-http://msdn.microsoft.com/en-us/windowsmobile/dd569132.aspx
+You can find more information about Windows Mobile code signing at:
+[http://msdn.microsoft.com/en-us/windowsmobile/dd569132.aspx](http://msdn.microsoft.com/en-us/windowsmobile/dd569132.aspx)
 
 ### To deploy application on device
-First connect your device to computer. You can use USB-cable, bluetooth or any other method. To use computer internet you have to start ActiveSync.
+First connect your device to computer. You can use USB-cable, bluetooth or any other method. To use computer internet you have to start ActiveSync or Windows Mobile Device Center.
 
 * You can use rake tasks. See 'Build application from the command line' section. Device should be connected via USB-cable. 
 * You can manually copy .cab file to device, for example to Temp folder and click on cab-file on the device using File Explorer. Installation process will be started. After finish you should see app icon on the device
@@ -932,3 +997,6 @@ Place your image to use as an icon in a folder called `icon` in your application
 ### Windows Mobile
 Windows Mobile Shell program caches program icons. This cache is cleared only when device or simulator is restarted.
 So if you change icon of application, you have to restart device/simulator(uninstall/install is not enough).
+
+### Symbian
+You can change icon for your Symbian application replacing icon.svg which is in your application icon folder with a new one.

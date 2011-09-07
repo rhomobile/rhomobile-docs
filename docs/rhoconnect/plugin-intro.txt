@@ -1,0 +1,6 @@
+RhoConnect Plugins Introduction
+===
+
+Rhoconnect Plugins allow you to connect your backend apps seamlessly with rhoconnect.  
+
+<img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/intro-plugin.png' alt='image' height='467' width='800' />

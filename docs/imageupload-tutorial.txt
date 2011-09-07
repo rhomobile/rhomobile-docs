@@ -9,14 +9,11 @@ The source code for this example is located here.
 
  * [Rhodes Application](https://github.com/rhomobile/webinar-samples/tree/master/imageupload)
 
-Webinar Video
--------------
-[Vimeo link](http://rhomobile.com/webinars-old/image-capture-and-upload/)
-
 Pre-requisite Reading
 ---------------------
  * [Rhodes Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact)
  * [Rhosync Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact-server)
+ * [Webinar Video](http://vimeo.com/13281215)
 
 ## Setup
 This tutorial assumes that you know how to generate a Rhodes app and can successfully sync with a backend system. If you do not know how to do this, see [Pre-requisite Reading]().
