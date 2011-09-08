@@ -69,7 +69,7 @@ Reset the server: flush db and re-bootstrap server
     )
 
 ### `ping`
-Sends PUSH message to all devices of the specified user:
+Sends PUSH message to all devices of the specified user(s):
 
 	:::ruby
 	# :message - message which will be used to display notification popup dialog on the device
@@ -79,7 +79,7 @@ Sends PUSH message to all devices of the specified user:
 	# :sources - list of data source names to be synced upon receiving PUSH notification
 	ping_params = {
       :api_token => token,
-      :user_id => user_id,
+      :user_id => [array_of_users],
       :sources => source_name,
       :message => 'hello world',
       :vibrate => 2000,
