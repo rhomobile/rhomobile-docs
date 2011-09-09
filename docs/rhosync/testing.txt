@@ -110,21 +110,7 @@ For example, in your spec:
 	new_product_id = test_create(@product)
 	create_errors.should == {}
 	md[new_product_id].should == @product
- 
-If you have set [pass through](http://docs.rhomobile.com/rhosync/source-adapters#pass-through) to true, the create method will not return a string but instead a json hash of the object ids created.  When testing the id will always be set to 'temp_id'.  
-
-For example, in your spec:
-	:::ruby
-	@product = {
-	  'name' => 'iPhone',
-	  'brand' => 'Apple',
-	  'price' => '$299.99',
-	  'quantity' => '5',
-	  'sku' => '1234'
-	}
-	@s.pass_through = 'true'
-	new_product = test_create(@product)
-	new_product.should == {'processed' => ["temp-id"]}.to_json
+	
 	
 ### `create_errors`
 This will return the result of the adapter's create method.  The master document (:md) should also contain the new record.
@@ -144,14 +130,6 @@ For example:
 This will call the adapter's update method for object_id '4'.
 
 **NOTE: To test the master document, you will need to run `test_query` as shown above.**
-
-If you have set [pass through](http://docs.rhomobile.com/rhosync/source-adapters#pass-through) to true, the update method will return a json hash of the object id updated.
-
-For example, in your spec:
-	:::ruby
-	record = {'4'=> { 'price' => '199.99' }}
-	@s.pass_through = 'true'
-	test_update(record).should == {'processed' => ["4"]}.to_json
 	
 ### `update_errors`
 Returns any errors stored in redis from the previous source adapter update (same structure as query errors).
@@ -176,21 +154,6 @@ For example:
 This will call the adapter's delete method for product '4'.
 
 **NOTE: The master document (:md) will be updated and can be verified as shown above.**
-
-If you have set [pass through](http://docs.rhomobile.com/rhosync/source-adapters#pass-through) to true, the delete method will return a json hash of the object id deleted.
-
-For example, in your spec:
-	:::ruby
-	@product = {
-	  'name' => 'iPhone',
-	  'brand' => 'Apple',
-	  'price' => '$299.99',
-	  'quantity' => '5',
-	  'sku' => '1234'
-	}
-	record = {'4'=> { 'price' => '199.99' }}
-	@s.pass_through = 'true'
-	test_update(record).should == {'processed' => ["4"]}.to_json
 
 ### `delete_errors`
 Returns any errors stored in redis from the previous source adapter delete (same structure as query errors).

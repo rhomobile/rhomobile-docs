@@ -195,16 +195,6 @@ Enable app partitioning the same way:
 
 Now you have a single copy of the `Product` source adapter dataset for all users.
 
-## Pass Through
-RhoSync provides a simple way to keep data out of redis.  If you have sensitive data that you do not want saved in redis, add the pass_through option in settings/settings.yml for each source:
- 
-	:::yaml
-	:sources: 
-  	  Product: 
-    	:pass_through: true
-
-**NOTE: When running query or search the entire data set will be returned from your backend service. **
-
 ## Store API
 RhoSync provides a simple redis interface for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
 
