@@ -48,7 +48,7 @@ To setup your RhoSync application for Android push, you will need to update `set
 
 Replace `:authtoken:` value with actual authentication token. This token MUST be related to the role-based google account registered for your application. See [the rhodes push instructions](/rhodes/device-caps#push-notifications) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
 
-For those who interested in what this token means, here is the description: <a href="http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html"/>.
+For those who interested in what this token means, the description is [here](http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html).
 
 Now start up your RhoSync application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
 
