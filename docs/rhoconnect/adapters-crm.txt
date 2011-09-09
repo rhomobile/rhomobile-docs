@@ -210,7 +210,7 @@ Every CRM object file has the following entries:
 For the default generated CRM object adapters, this file is pre-filled with sample information. However, you can customize it by including or excluding
 different fields. For custom adapters, you need to fill this file with relevant information. List of object's fields, for example, can be obtained
 from the Salesforce documentation and then later used to fill the Query_Fields setting. Alternatively, user can customize the adapter and obtain 
-the list of fields using the `/sobjects/\<CRM\-object\-name\>/describe/` API.
+the list of fields using the `/sobjects/<CRM-object-name>/describe/` API.
 
 
 ## Running the CRM Application
