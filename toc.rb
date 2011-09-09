@@ -91,3 +91,8 @@ end
 section 'rhoconnect-service-reference', "RhoConnect Services" do
   topic 'rhoconnect/heroku-addon',      'Heroku Addon'
 end
+
+section 'rhoconnect-adapters-reference', "RhoConnect Adapters" do
+  topic 'rhoconnect/adapters-intro',    'Introduction'
+  topic 'rhoconnect/adapters-crm',      'CRM adapters'
+end

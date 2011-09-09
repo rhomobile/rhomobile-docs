@@ -14,7 +14,6 @@ gem 'heroku-nav', '~>0'
 gem 'coderay'
 gem 'rack-codehighlighter'
 gem 'shotgun'
-gem 'faraday',   :git => 'git://github.com/technoweenie/faraday',  :ref => '3aa840d012875ee80410'
 gem 'indextank'
 
 group :development do
