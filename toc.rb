@@ -58,6 +58,7 @@ section 'rhoconnect-reference', "RhoConnect Developer Reference (Beta)" do
   topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
   topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
   topic 'rhoconnect/source-adapters',   'Source Adapters'
+  topic 'rhoconnect/settings',          'Rhoconnect Settings'
   topic 'rhoconnect/testing',           'Testing and Debugging'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
