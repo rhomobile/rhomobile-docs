@@ -77,6 +77,9 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	//possible values: RST_INCREMENTAL, RST_BULK_ONLY
 	@property int       sync_type;
 
+	//possible values: RMT_PROPERTY_BAG (default), RMT_PROPERTY_FIXEDSCHEMA
+	@property int       model_type;
+
 	// model constructor
 	- (id) init;
 
@@ -159,6 +162,22 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 	[sclient addModels:models];
 
 	sclient.sync_server = @"http://rhodes-store-server.heroku.com/application";
+
+#### Initialization of Schema model
+
+	RhomModel* product = [[RhomModel alloc] init];
+	product.name = @"Product_s";
+    product.model_type = RMT_PROPERTY_FIXEDSCHEMA;
+
+To create schema model tables edit database schema file: 
+
+* Copy file <rhoconnect-client>/shared/db/res/db/syncdb.schema to your project folder
+
+* Edit file syncdb.schema : add create table statment for each schema model. Note that mandatory object column should be in each table:
+
+    "object" varchar(255) PRIMARY KEY
+    
+* Open 'Copy bundle resources' build phase in project target and point it to local project db folder
 
 #### Login
 
