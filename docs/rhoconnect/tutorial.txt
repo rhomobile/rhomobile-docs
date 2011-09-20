@@ -21,6 +21,7 @@ Now you are ready to write your RhoConnect app.  You can generate an app with th
 	
 Next, install the application's dependencies.  RhoConnect applications use [bundler](http://gembundler.com/) to manage dependencies, so you can install them with:
 
+	:::term
 	$ [sudo] bundle install
 
 **If you are running this for the first time on Mac or Linux**, you will need to install [dtach](http://dtach.sourceforge.net/):
