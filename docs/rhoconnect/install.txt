@@ -25,4 +25,3 @@ To install the RhoConnect gem, run:
 
 	:::term
   	$ [sudo] gem install rhoconnect --pre
- 

@@ -18,11 +18,15 @@ Now you are ready to write your RhoConnect app.  You can generate an app with th
 	:::term
 	$ rhoconnect app storemanager-server
 	$ cd storemanager-server/
+	
+Next, install the application's dependencies.  RhoConnect applications use [bundler](http://gembundler.com/) to manage dependencies, so you can install them with:
+
+	$ [sudo] bundle install
 
 **If you are running this for the first time on Mac or Linux**, you will need to install [dtach](http://dtach.sourceforge.net/):
 
 	:::term
-	$ sudo rake dtach:install  
+	$ [sudo] rake dtach:install  
 
 ### Verify Installation
 
@@ -35,8 +39,6 @@ Now you can run redis and your RhoConnect app:
 If everything went well you should see:
 
 	[07:01:15 PM 2010-05-04] Rhoconnect Server v3.0.0 started...
-
-**NOTE: You will be prompted to edit the session secret in your config.ru to something other than "\<changeme\>"**
 
 Defining RhoConnect Source Adapters
 ---
@@ -164,9 +166,9 @@ We need to declare the standard libraries that we are using at the top of the fi
 For convenience, we'll add an instance variable @base which contains the base URL of the web service and set the value in the constructor:
 
 	:::ruby
-  	def initialize(source,credential)
+  	def initialize(source)
       @base = 'http://rhostore.heroku.com/products'
-      super(source,credential)
+      super(source)
     end
 
 Then fill in the query method:
