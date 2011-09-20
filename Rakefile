@@ -120,6 +120,14 @@ task :publish_edge => :load do
   `git push edge master`
 end
 
+desc 'Publish docs to production'
+task :publish_prod do
+  `git pull`
+  `git push production master`
+  sh "HEROKUTANK_API_URL=`heroku config --long --app rhodocs | 
+      grep HEROKUTANK_API_URL | awk -F '=> ' '{print $2}'` RACK_ENV=production rake index"
+end
+
 desc 'Alias for server'
 task :start => :server
 
