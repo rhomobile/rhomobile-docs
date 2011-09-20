@@ -1,6 +1,5 @@
 source :gemcutter
 
-#gem 'thin'
 gem 'pdfkit'
 gem 'rack', '1.2.1'
 gem 'sinatra', '1.1.2'
@@ -15,6 +14,7 @@ gem 'coderay'
 gem 'rack-codehighlighter'
 gem 'shotgun'
 gem 'indextank'
+gem 'heroku'
 
 group :development do
   gem "rake", '~> 0.9.2'
