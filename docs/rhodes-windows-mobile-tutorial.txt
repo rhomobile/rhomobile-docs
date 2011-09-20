@@ -4,8 +4,8 @@ This tutorial will guide you through building and running a Rhodes application o
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](/rhodes/install)
- * [Rhodes Tutorial](/rhodes/generator)
+ * [Rhodes Install](/rhodes/install)
+ * [Rhodes App Generator](/rhodes/generator)
 
 ## Installing Rhodes
 
@@ -112,7 +112,7 @@ To build a .cab file for the device, run:
 
 The .cab file will be located at `<your-rhodes-app>\bin\target\wm6p` on your Windows computer. 
 
-As you did with "Building and Running on the Device," connect your Windows Mobile device to your Windows computer via USB cable, and check that it is connected in Active Sync or Windows Mobile Device Manager.
+As you did with [Building and Running on the Device](#building-and-running-on-the-device), connect your Windows Mobile device to your Windows computer via USB cable, and check that it is connected in Active Sync or Windows Mobile Device Manager.
 
 Copy the .cab file from your Windows computer to your mobile device:
 
