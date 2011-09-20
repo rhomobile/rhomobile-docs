@@ -1,6 +1,7 @@
 section 'getting-started', "Getting Started" do
   topic 'home',                 'Home'
   topic 'rhodes/tutorial',      'Rhodes Tutorial'
+  topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
   topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
