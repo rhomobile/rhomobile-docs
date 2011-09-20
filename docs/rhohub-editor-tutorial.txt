@@ -4,7 +4,7 @@ This tutorial will guide you through editing a Rhodes and RhoSync project on Rho
 
 Webinar Video
 -------------
-[Vimeo link](http://rhomobile.com/webinars/)
+[RhoHub 3.0 Editor webinar video](http://vimeo.com/21215373)
 
 Pre-requisite Reading
 ---------------------
@@ -13,59 +13,55 @@ Pre-requisite Reading
 ## Setup
 This tutorial assumes that you have set up an account on RhoHub. If you have not done this, see [Pre-requisite Reading](). The RhoHub tutorial contains instructions on how to set up a RhoHub account.
 
-RhoHub Editor is an Integrated Developement Environment for Rhodes and RhoSync. 
+RhoHub Editor is an Integrated Development Environment for Rhodes and RhoSync. 
 
 ## Logging Into RhoHub
 
-On the main RhoHub page, www.rhohub.com, click on login if you are not logged in already. (The screenshot below shows the user as logged in.)
+On the main RhoHub page, www.rhohub.com, click on login if you are not logged in already, and enter your username or email and password. (The screenshot below shows the user as already logged in; in that case, click on "My Account.")
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-top-page.png" alt="RhoHub Website" />
 
-Enter your username or email, and your password. Click Login.
-
 You now see your RhoHub dashboard. It contains all the applications that you are working on in RhoHub. 
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-dashboard.png" alt="RhoHub Dashboard" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-dashboard-editor-create.png" alt="RhoHub Dashboard" />
+
+If you have already created projects, you can click on Launch Editor to launch the [RhoHub Editor](/rhohub-editor-tutorial#opening-the-rhohub-editor) for that project. You can also enter the project and click the Launch Editor button.
+
+Or you can click the Create Project button to create a new project.
+
+## Create a New Project
 
 Click the Create Project button to create a new project. 
 
-In the Create a New Project window, enter the name of the project and a description. Have the Generate Apps checkbox checked so your project can generate apps. 
+In the Create a New Project window, enter the name of the project and a description. Have the Generate Apps checkbox checked so your project can generate apps. Then click the Create Project button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-create-new-project.png" alt="RhoHub Create New Project" />
 
-Click the Create Project button.
+You are retuned to the RhoHub project that you have just created.
 
-Note that at this point in the webinar, a window showing how you would work with git to interact with your project appears; RhoHub no longer shows this window when you create a project.
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-created-project.png" alt="New RhoHub Project" />
 
-You are returned to your RhoHub dashboard, where you see the project you just created. 
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhodes-dashboard-store.png" alt="RhoHub Dashboard Store" />
-
-You can change the name of your project by clicking the rename icon (the pencil icon to the right of the project name).
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-rename.png" alt="Rename Project" />
+You can change the description and names in your project by clicking the rename icon (the pencil icon to the right of the name and description).
 
 ## Managing Collaborators
 
-You can add collaborators to your project. Collaborators are other people who have RhoHub accounts who can work with you on this project. Open Project Collaborators, then click on Manage Collaborators. 
+You can add collaborators to your project. Collaborators are other people who have RhoHub accounts who can work with you on this project. Within your RhoHub project, click the Collaborators button. 
+
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-collaborators-button.png" alt="Collaborators Button" />
+
+In the Manage Collaborators window, enter the username of the collaborator(s) you wish to work with. You can also select if this person is a member or the owner of the project; usually you would leave this at the default of "member", since you will tend to own your projects. Click Add Collaborator, then click Close.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/manage-collaborators.png" alt="Manage Collaborators" />
 
-In the Add or Edit Collaborators window, enter the username of the collaborator(s) you wish to work with. You can also select if this person is a member or the owner of the project; usually you would leave this at the default of member, since you will tend to own your projects. Click Add Collaborator, then click Close.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/add-collaborator.png" alt="Add Collaborator" />
-
-You will see the collaborators listed under your project.
-
 ## Using Local Development Instead of RhoHub Editor
 
-At this point, your project is hosted in a Git repository by RhoHub. If you want to do local development, accessing and developing the project code on your local computer instead of with RhoHub Editor, you will need a Git repository on your local computer. There, you will use the git clone command to clone the project to your local computer, then use a Rhodes and RhoSync installation on your local computer to develop the project, then use git commit to commit your project to RhoHub again. See the [RhoHub Tutorial](/rhohub/tutorial) for those instructions.
+At this point, your project is hosted in a Git repository by RhoHub. If you want to do local development where you would access and develop the project code on your local computer instead of with RhoHub Editor, you will need a Git repository on your local computer. There, you will use the git clone command to clone the project to your local computer, then use a Rhodes and RhoSync installation on your local computer to develop the project, then use git commit to commit your project to RhoHub again. See the [RhoHub Tutorial](/rhohub/tutorial) for those instructions.
 
 ## Opening the RhoHub Editor
 
-To open the RhoHub Editor, click on Launch Editor, which is located above the RhoSync Project.
+To open the RhoHub Editor, either click on Launch Editor in the project dashboard, or enter the project and click the Launch Editor button.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/launch-editor.png" alt="Launch Editor" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-project-launch-editor.png" alt="Launch Editor Button" />
 
 The RhoHub Editor appears, containing your Rhodes and RhoSync projects.
 
@@ -73,7 +69,7 @@ The RhoHub Editor appears, containing your Rhodes and RhoSync projects.
 
 To generate a model in the Rhodes project, click on Actions for your Rhodes project, then select Generate Model from the pop-up menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/action-generate-model.png" alt="Generate Model" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhodes-editor-actions.jpg" alt="Rhodes Editor Actions" />
 
 Enter the name for your model and its attributes. This example is a store application, so it uses a model name of product and attributes of name,brand,price,quantity.
 
@@ -135,7 +131,7 @@ In the icon folder, you can see the icons for the Rhodes application. The app/lo
 
 You need to generate the RhoSync source adapter for your Rhodes project model. Click on Actions for your RhoSync project, then select Generate Source.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/action-generate-source.png" alt="Action: Generate Source" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhosync-editor-actions.jpg" alt="Rhodes Editor Actions" />
 
 In the Generate RhoSync Source window, enter the name of the source: in this example, enter product to match the name of the model in the Rhodes project.
 
@@ -206,31 +202,29 @@ Commit the RhoSync project the same way. Click on Actions -> Commit, then in the
 
 ## Building the Rhodes Project
 
-Now that the Rhodes project files have been edited to add a model and link to that model, and the project files have been committed, you can build the project. Click on Actions for your Rhodes projet, then select Build.
+Now that the Rhodes project files have been edited to add a model and link to that model, and the project files have been committed, you can build the project. Click on the Rhodes Actions for your Rhodes project, then select Build from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/create-a-new-build.png" alt="Create a new Build" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhodes-editor-actions.jpg" alt="Rhodes Editor Actions" />
 
-In the Create a new Build window, select the target device and platform version for which you want to build. You can build for the target devices Android, Blackberry, Windows Mobile, and iOS. You will need a license to build for iOS.
+In the Create a new build window, select the target device and platform version for which you want to build. You can build for the target devices Android, Blackberry, Windows Mobile, and iOS (you will need a license to build for iOS).
 
-Click Create a new Build. Your project will take a little time to build. You can click Close to go back to the Editor while your Rhodes project is building.
+Click the Build button. Your project will take a little time to build. You can click Close to go back to the Editor while your Rhodes project is building.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/create-a-new-build-completed.png" alt="Build completed" />
 
 At this point, you can click on the green down arrow in Status, next to completed.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/green-arrow.jpg" alt="green arrow" />
-
 This will download a zip file of the Rhodes application to your computer. You can install this application build on your mobile device and try it out. For example, for an Android device, you can put the .apk file onto an http server, browse to it from an Android device, and follow the prompt to install the application.
 
-You can also use RhoGallery, an application management tool, to invite people to galleries of applications and deploy them on mobile devices. This is discussed in the webinars for RhoHub and RhoGallery; the RhoGallery tutorial is upcoming.
+You can also use RhoGallery, an application management tool, to invite people to galleries of applications and deploy them on mobile devices. This is discussed in the [RhoGallery tutorial](rhohub-rhogallery).
 
 ## Deploying the RhoSync Project
 
-You have committed the RhoSync project. Now you need to deploy it for testing. In the RhoSync project, click Action -> Deploy.
+You have committed the RhoSync project. Now you need to deploy it for testing. Click on the RhoSync Actions for your Rhodes project, then select Deploy from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/deploy-rhosync.png" alt="Deploy RhoSync" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhosync-editor-actions.jpg" alt="RhoSync Editor Actions" />
 
-You will see that your RhoSync is deployed, and you get a link where it is deployed. This will have your RhoSync running in development mode, since it is not a live application yet.
+To deploy, click the Deploy button. You will then see that your RhoSync is deployed, and you get a link where it is deployed. This will have your RhoSync running in development mode, since it is not a live application yet.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/deployed-rhosync.png" alt="Deployed RhoSync" />
 
