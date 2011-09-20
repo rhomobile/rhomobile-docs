@@ -35,3 +35,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [RhoHub Gallery and RhoGallery Tutorial](/rhohub-rhogallery)
 
 * ### [Near Field Communications With Rhodes Peer-to-Peer Tutorial](/nfc-with-rhodes-p2p-tutorial)
+
+* ### [Rhodes on Windows Mobile Tutorial](/rhodes-windows-mobile-tutorial)
