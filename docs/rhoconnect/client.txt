@@ -75,10 +75,14 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	@property(assign) NSString* name;
 
 	//possible values: RST_INCREMENTAL, RST_BULK_ONLY
-	@property int       sync_type;
+	@property(assign) int       sync_type;
 
 	//possible values: RMT_PROPERTY_BAG (default), RMT_PROPERTY_FIXEDSCHEMA
-	@property int       model_type;
+	@property(assign) int       model_type;
+
+	//associations dictionary: the key is attribute name, the value is associated model name
+	//while using associations use object_id attribute as object reference
+	@property(assign) NSDictionary* associations;
 
 	// model constructor
 	- (id) init;
@@ -156,8 +160,12 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 	RhomModel* product = [[RhomModel alloc] init];
 	product.name = @"Product";
 
+	RhomModel* order = [[RhomModel alloc] init];
+	order.name = @"Order";
+    order.associations = [NSDictionary dictionaryWithObjectsAndKeys: @"Customer", @"customer", @"Product", @"product", nil];
+
 	RhoConnectClient* sclient = [[RhoConnectClient alloc] init];
-	NSArray* models = [NSArray arrayWithObjects:customer, product, nil];	
+	NSArray* models = [NSArray arrayWithObjects:customer, product, order, nil];
 
 	[sclient addModels:models];
 
