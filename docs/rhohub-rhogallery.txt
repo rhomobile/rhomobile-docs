@@ -6,8 +6,8 @@ It also shows how to install RhoGallery, which is the mobile app that consumers 
 
 Webinar Video
 -------------
- * [Vimeo link](http://vimeo.com/16679855)
- * [Vimeo link](http://vimeo.com/17457250)
+ * [RhoGallery Webinar](http://vimeo.com/16679855)
+ * [RhoGallery Management Webinar](http://vimeo.com/17457250)
 
 Pre-requisite Reading
 ---------------------
@@ -318,7 +318,7 @@ You will be asked if you want to install the application. Click the Install butt
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/rhogallery-want-to-install.jpg"/>
 
-Afet the application installs, click the Done button (or Open if you want to run it immediately).
+After the application installs, click the Done button (or Open if you want to run it immediately).
 
 ### Launching Apps from a RhoHub Gallery on Your Mobile device
 
