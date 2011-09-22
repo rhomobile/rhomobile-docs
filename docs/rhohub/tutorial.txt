@@ -42,20 +42,20 @@ RhoHub will create a Rhodes application and the corresponding RhoSync server app
 
 #### Generate Project in RhoHub
 
-To create your new RhoHub project, go to [rhohub.com](http://rhohub.com) and click on "My Account".  Click the "Create a New Project" button.  Give your project a unique name.  We have used 'my-store' and 'Store', but you will need to make up another name because the project name must be globally unique.  You will notice that "Generate Apps?" is checked by default, this means we will have a working skeleton [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) app generated for us. You can also click to open "Select Rhodes and RhoSync Version" and edit the version numbers as is shown below, or you can leave the version numbers at the defaults.
+To create your new RhoHub project, go to [rhohub.com](http://rhohub.com) and click on "My Account".  Click the "Create a New Project" button.  Give your project a unique name.  We use 'my-store' in this example, but you will need to make up another name because the project name must be globally unique.  You will notice that "Generate Apps?" is checked by default, this means we will have a working skeleton [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) app generated for us.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-create-project.png">
+<img src="http://img.skitch.com/20100915-nu921iyuc44xqtd693hgr1tahr.png"/>
 
-After you click "Create a New Project," text appears with the exact set of commands (such as the Git clone command) that you can copy and paste into your terminal to access your project locally.  You can see this help text at any time by entering the project (click on the project name under "My Projects") and then clicking on the (?) button in the top-right of the project panel (indicated with an arrow in the image below).
+After you click "Create a New Project," text appears with the exact set of commands for you to paste into your terminal that match your project name.  You can see this help text at any time by clicking on the (?) button in the top-right of the project panel (indicated with an arrow in the image below).
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-project-qarrow.png">
+<img src="http://img.skitch.com/20100915-daex44j92h7h2w9ratrpdi41ti.png"/>
 
 #### Setup Local Development
 
-Your new project is now hosted in a Git repository by RhoHub.  To access and edit the code, you can either use the [RhoHub Editor](/rhohub-editor-tutorial), or you can create a local Git repository of your Rhodes project code on your computer.  The git clone command will create a local repository with a local branch called "master" and set up the remote repository with the name "origin".
+Your new project is now hosted in a Git repository by RhoHub.  To access and edit the code, you will need to a local Git repository on your computer.  The git clone command will create a local repository with a local branch called "master" and set up the remote repository with the name "origin"
 
 	:::term
-	$ git clone git@git.rhohub.com:yourname/Store-rhodes.git
+	$ git clone git@git.rhohub.com:yourname/your-store-rhodes.git
 
 If you are new to git, you will need to set up your credentials:
 
@@ -83,12 +83,12 @@ You should see a version of rhodes that is the same or higher than the version t
   	
 	*** LOCAL GEMS ***
   
-	rhodes (3.0.2)
+	rhodes (2.1.0)
 
 Go to your Rhodes app directory created with the git clone command:
 
 	:::term
-  	$ cd Store-rhodes
+  	$ cd my-store-rhodes
 
 Set up your project to refer to your local Rhodes SDK with the following command:
   
@@ -104,7 +104,7 @@ Use the "rhodes" command to generate a model for your project (in this case we c
 
 Rhodes provides this app generator tool that quickly generates a controller and views for the identified model.  It can be used to create an entire application with standard screens or "views". You can then modify the views to create exactly the user experience that you want.  
 
-By default, your application will contain views that allow your users to interact with the object, and each attribute you add to your object will be available as field or strings in your UI.   The rhodes app generator also generates your controller file, containing code that supports default actions of listing, creating, displaying, updating and deleting your object will be created for the object as well.  
+By default,  your application will contain views that allow your users to interact with the object, and each attribute you add to your object will be available as field or strings in your UI.   The rhodes app generator also generates your controller file, containing code that supports default actions of listing, creating, displaying, updating and deleting your object will be created for the object as well.  
 
 **NOTE: Each model you create must contain at least one attribute.  Attributes should be named using alphanumeric strings.**
 
@@ -155,11 +155,11 @@ Choose one of the following commands (wm = Windows Mobile, bb = Blackberry, ipho
   	$ rake run:android
   	$ rake run:iphone
   	$ rake run:bb
-  	$ rake run:wm:cab
+  	$ rake run:wm:emu
 
 You can use "rake -T" to print a complete list of all of the automated build command with descriptions of what each does.
 
-* Windows is required to test builds and install to a device for BlackBerry and Windows Mobile. Running the simulators in Windows virtual machines such as VMware or Parallels works fine. 
+* Windows is required to test builds and install to a device for BlackBerry and Windows Mobile, however, running the simulators in Windows virtual machines such as VMware or Parallels works fine. 
 * Mac OS X 10.5+ is required for testing iPhone applications.
 * For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Building Rhodes on Supported Platforms](/rhodes/building). 
 
@@ -167,7 +167,7 @@ Since Android simulators are available for all major operating systems, we'll bu
 
 ### Using the Inventory application
 
-Your Inventory application features several auto-generated pages corresponding to the actions in your Product object's controller.rb file ("index", "show", "new", "edit", "create", etc).   The page we are using as our start page uses the index action and the "/product/index" view file, so the first thing a user will see when launching the application is the list of products they have added.
+Your Inventory application features several auto-generated pages corresponding to the actions in your Product object's controller.rb file ( "index", "show", "new", "edit", "create", etc).   The page we are using as our start page uses the index action and the "/product/index" view file, so the first thing a user will  see when launching the application is the list of products they have added.
 
 But our list is empty!  We need to add records to the before they can be displayed in the list! 
 
@@ -191,31 +191,31 @@ To edit a product, click "Edit" in the top-right.  The application will display 
 
 Build and Test on Multiple Platforms
 ---
-Once you have your application working well locally in the simulator for a specific platform,  you will want to test across all of the platforms that you plan to support.  Using RhoHub you can build for Android, BlackBerry, Windows Mobile, Windows 7, and iPhone.
+Once you have your application working well locally in the simulator for a specific platform,  you will want to test across all of the platforms that you plan to support.  Using RhoHub you can build for Android, BlackBerry or Windows Mobile (iPhone coming soon).  
 
 First make sure that your latest changes have all been committed to the remote repository:
+  git push origin master
 
-	:::term
-	$ git push origin master
+From your account page, you will see each of your projects listed.  To create a build, click the "Build" button above the project you want to build.  
 
-From your RhoHub account page, you will see each of your projects listed.  To create a build for your project, select the target device and its Platform Version, enter a different Rhodes Git revision if you do not wish to use the default, then click the "Build" button.
+<img src="http://img.skitch.com/20100914-qm81nn96btfejyt6x774qfwbn9.jpg"/>
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhodes-barrow.png"/>
+### Build & Download
+On the lightbox form that appears, select the target device and the Rhodes git version.  
 
-### Download
+<img src="http://img.skitch.com/20100914-tyehydngh4rjw22w6rt4nd8hxf.jpg"/>
 
-Once the build is finished, you will see "completed" under Status, and a green download button:
+Click "Create a New Build" and wait for the build to complete. Once the build is finished, you will see a green button:
+<img src="http://img.skitch.com/20100914-xeqap2urwy4eimk6u5qn6dw1q2.jpg"/>
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhodes-download.png"/>
-
-Click on the green button to download a zipped file; in the case on Android, the zipped file contains an .apk file. The .apk file is an Android executable. All you need to do is to put the .apk on an http server, browse to it from a device, and you will be prompted to install the application.
+Click on the green button to download a zipped file with the .apk file.  The .apk file is an Android executable.  All you need to do is to put the .apk on an http server and browse to it from a device and you will be prompted to install the application.
 
 Customizing Views
 ---
 
 By default, the index page displays items using the item's first attribute, the name of each product. But what if we have multiple products with the same name from the different manufacturers? We won't be able to distinguish between them from the index alone.  
 
-So that our users won't have to view each record to find out which product is which, let's add the brand attribute to the index page, allowing us to can distinguish different products.  To modify the display of our application's index page, we can simply edit the index.erb file.
+So that our users won't have to view each record to find out which product is which, let's add the brand attribte to the index page, allowing us to can distinguish different products.  To modify the display of our application's index page, we can simply edit the index.erb file.
 
 Open app/Products/index.erb and find the following line (around line 20):
 
@@ -245,39 +245,30 @@ Now you should see the brand and name in the list item.
 
 RhoSync
 ---
-
-Your application is pre-configured to use the RhoSync server.  To access and edit the code, you can either use the [RhoHub Editor](http://docs.rhomobile.com/rhohub-editor-tutorial), or you can create a local Git repository of your RhoSync project code on your computer with the git clone command.
+Your application is pre-configured to use the RhoSync server.  You will need to get the code using the git clone command, such as:
 
 	:::term
-	$ git clone git@git.rhohub.com:yourname/Store-rhosync.git
+	$ git clone git@git.rhohub.com:your_name/your-app-rhosync.git
 
-Then you will need to create a source adapter to connect to whatever backend you want to sync to.  See the [RhoSync tutorial](/rhosync/tutorial) for details on how to code that, but you don't need to run the server locally.  Simply check in your code (and push to the remote repository) and then follow the steps below to deploy the server on RhoHub.
+Then you will need to create a source adapter to connect to whatever backend you want to sync to.  See the [RhoSync tutorial](/rhosync/tutorial) for details on how to do that, but you don't need to run the server locally.  Simply check in your code (and push to the remote repository) and then follow the steps below to deploy the server on RhoHub.
 
 ### Deploy your RhoSync app
+* Deploying your RhoSync app on RhoHub is a simple click of the "Deploy" button, which brings up a dialog of the deploy history for the app.  
 
-Deploying your RhoSync app on RhoHub is a simple click of the "Deploy" button.  
+<img src="http://img.skitch.com/20100914-rtqkf5k9u1as6g4u4ij1ec5gem.jpg"/>
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhosync-deploy.png"/>
+<img src="http://img.skitch.com/20100914-2m81ytm95he7ns8qywbnse3y2.jpg"/>
 
-The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoSync web console](/rhosync/web-console).  This url will be static for this RhoSync app, even if you rename the app.
+* The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoSync web console](/rhosync/web-console).  This url will be static for this RhoSync app, even if you rename the app.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhosync-url.png"/>
+<img src="http://img.skitch.com/20100914-8hit83brmyk3bc2m94pex48m9x.jpg"/>
 
 ### Login
+* Now you can launch your Rhodes app and click login -> sync.  In the web console you should see a new device registered under the username you used to login.
+* You can view more information about RhoHub's deploy feature by clicking on the "?" icon in the deploy box.
 
-Now you can launch your Rhodes app and click login -> sync.  In the web console, you should see a new device registered under the username you used to login.
-
-You can view more information about RhoHub's deploy feature by clicking on the "?" icon in the RhoHub/RhoSync project.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhosync-qarrow.png"/>
-
-### Manage Collaborators
-
-Click the "Collaborators" button for your project to add/edit the project's team.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-collaborators.png"
-
-There are two types of collaborators in RhoHub:
+### Manage collaborators
+* Open the "Manage Collaborators" link for your project to add/edit the project's team.  There are two types of collaborators in RhoHub:
 
 1. Owners: Have full read/write access to the project, control of builds and deploys, the ability to rename apps and rename/delete the project, and add/edit the collaborators.
 2. Members: Have full read/write access to the project, control of builds and deploys, and can view other collaborators.
