@@ -17,7 +17,7 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 ### Features supported
 
 <table>
-<tr><td>Feature</td><td>Ruby client</td><td>ObjectiveC client</td></tr>
+<tr><th>Feature</th><th>&nbsp;Ruby&nbsp;</th><th>ObjectiveC</th></tr>
 <tr><td>Property bag model</td><td>yes</td><td>yes</td></tr>
 <tr><td>Fixed schema mode</td><td>yes</td><td>yes</td></tr>
 <tr><td>Model associations</td><td>yes</td><td>yes</td></tr>
