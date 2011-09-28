@@ -28,7 +28,7 @@ If your backend service requires authentication, simply add code to the authenti
 ## Changing Login
 If your actual user name is different than the username that is input into the client, you can change the username by returning a string instead of true if authentication was successful.
 
-  :::ruby
+  	:::ruby
 	def authenticate(username, password, session)
 	  success = false 
 	  # ... connect to backend using API and authenticate ... 
