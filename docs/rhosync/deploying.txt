@@ -24,16 +24,17 @@ If you don't change the `:secret` setting, RhoSync automatically warns you each 
  	[11:34:56 AM 2011-01-12] ************************************************************
 
 	[11:34:56 AM 2011-01-12] WARNING: Change the session secret in config.ru from <changeme> to something secure.
-	[11:34:56 AM 2011-01-12]   i.e. running `rake rhosync:secret` in your app will generate a secret you could use.
+	[11:34:56 AM 2011-01-12]   i.e. running `rake secret` in a rails app will generate a secret you could use.
 
 	[11:34:56 AM 2011-01-12] ************************************************************
 	
 
-As this warning states, a good way to generate a cryptographically secure secret is by running `rake rhosync:secret` in your RhoSync  application.
+As this warning states, a good way to generate a cryptographically secure secret is by running `rake secret` in a new rails application.
 
 	:::term
-	$ cd storemanager-server
-	$ rake rhosync:secret
+	$ rails new blogger
+	$ cd blogger
+	$ rake secret
 	040a2355475e9d0fb591ef78d5b9ca61a34cbcfd3f11942b18bc1d91f1ca66c27b2e0386333843a7efa29f40fff03624cd908d0883364ffbfa3208ab23fa2664
 	
 Then plug this secret into your `config.ru`:
@@ -71,12 +72,5 @@ The [RhoHub](/rhohub/introduction) service offers several [production RhoSync ap
 
 ## Deploying On-Premise
 The [sinatra book](http://sinatra-book.gittr.com/) has some great [deployment documentation](http://sinatra-book.gittr.com/#deployment) that you should review before running your RhoSync application in production.
-
-## Deploying into J2EE environment
-In JRuby environment, there is an option to create the WAR container for the Rhosync app
-and deploy it into the J2EE App Server.
-(see the corresponding 'rake' task for creating the WAR containers).
-Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
-to place the WAR file into the server's deploy directory.
 
 We recommend using the [phusion passenger](http://modrails.com/index.html) stack for deploying an on-premise RhoSync application.  Please refer to the [section on rack applications](http://modrails.com/documentation/Users%20guide%20Apache.html#_deploying_a_rack_based_ruby_application) for information on deploying a RhoSync sinatra application.

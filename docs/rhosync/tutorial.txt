@@ -58,8 +58,8 @@ You'll see a file similar to the following one below. The generated source adapt
 
 	:::ruby
 	class Product < SourceAdapter
-	  def initialize(source)
-	    super(source)
+	  def initialize(source,credential)
+	    super(source,credential)
 	  end
  
 	  def login
@@ -95,11 +95,11 @@ You'll see a file similar to the following one below. The generated source adapt
 	    raise "Please provide some code to update a single record in the backend data source using the update_hash"
 	  end
  
-	  def delete(delete_hash)
+	  def delete(object_id)
 	    # TODO: write some code here if applicable
 	    # be sure to have a hash key and value for "object"
 	    # for now, we'll say that its OK to not have a delete operation
-	    # raise "Please provide some code to delete a single object in the backend application using the object_id"
+	    # raise "Please provide some code to delete a single object in the backend application using the hash values in name_value_list"
 	  end
  
 	  def logoff
@@ -249,7 +249,7 @@ The create method will be called once for every object that has been created on 
 
 	:::ruby
 	def create(create_hash, blob=nil)
-      result = RestClient.post(@base, :product => create_hash)
+      result = RestClient.post(@base,:product => new_object_hash)
     
       # after create we are redirected to the new record.
       # The URL of the new record is given in the location header

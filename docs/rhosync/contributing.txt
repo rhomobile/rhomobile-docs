@@ -15,13 +15,13 @@ First run the rhosync specs to make sure your environment is up-to-date for deve
 		$ git clone git://github.com/<yourhandle>/rhosync.git
 		$ cd rhosync
 
-3. Install [Bundler](http://gembundler.com/):
+3. Install [Jeweler](http://github.com/technicalpickles/jeweler):
 		
-		$ [sudo] gem install bundler
+		$ gem install jeweler
 
-4. Install all of the required gems. If any of the needed gems are already installed, Bundler will use them:
+4. Jeweler comes with useful tasks to identify missing development dependencies.  Run it and install any missing gems it reports:
 		
-		$ [sudo] bundle install
+		$ rake check_dependencies
 
 5. Install [hsqldata](http://github.com/rhomobile/hsqldata):
 		

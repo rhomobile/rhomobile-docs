@@ -47,9 +47,8 @@ Before you can use RhoSync API you should get API token:
 	password = ""
 
 	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
-	rhosync_session_cookie = 'rhosync_session='  + res.cookies['rhosync_session']
-	token = RestClient.post("#{server}/api/get_api_token",'',{ 'Cookie' => rhosync_session_cookie })
-      	
+	token = RestClient.post("#{server}/api/get_api_token",'',{ :cookies => res.cookies })
+
 ### `get_license_info`
 Returns license information of the currently used license
 
