@@ -113,6 +113,11 @@ Push new objects or object updates to RhoConnect. These changes will be sent to 
 	  }.to_json, 
 	  :content_type => :json
 	)
+	
+**NOTE: Normally, `push_objects` method will refresh the whole :md document in Redis. However, in case of large-size
+documents, `push_objects` method can be optimized by invoking only the necessary updates. This can help reducing
+the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
+in the `push_objects` parameters hash.
 
 ### `push_deletes`
 Delete objects from RhoConnect. These objects will be deleted from the device the next time it synchronizes.
@@ -131,6 +136,12 @@ Delete objects from RhoConnect. These objects will be deleted from the device th
       }.to_json, 
      :content_type => :json
     )
+
+**NOTE: Normally, `push_deletes` method will refresh the whole :md document in Redis. However, in case of large-size
+documents, `push_deletes` method can be optimized by invoking only the necessary updates. This can help reducing
+the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
+in the `push_deletes` parameters hash.
+
 
 ### `list_users`
 List users registered with this RhoConnect application.
