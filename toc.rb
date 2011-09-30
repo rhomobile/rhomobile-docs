@@ -31,7 +31,7 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'credits',                  'Credits'
 end
 
-section 'rhoconnect-reference', "RhoConnect Developer Reference (Beta)" do
+section 'rhoconnect-reference', "RhoConnect Developer Reference" do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/install',           'Installation'
   topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
@@ -55,7 +55,7 @@ section 'rhoconnect-reference', "RhoConnect Developer Reference (Beta)" do
   topic 'rhoconnect/contributing',      'Contributing'
 end
 
-section 'rhoconnectjs-reference', "RhoConnect JS Developer Reference (Beta)" do
+section 'rhoconnectjs-reference', "RhoConnect JS Developer Reference" do
   topic 'rhoconnectjs/introduction',      'Introduction'
   topic 'rhoconnectjs/getting-started',   'Getting Started'
   topic 'rhoconnectjs/reference',         'API Reference'
