@@ -53,7 +53,7 @@ end
 desc 'Load doc files from config.yml dirs'
 task :load do
   AppConfig['dirs'].each do |name,dir|
-    if File.exist?(dir) and not dir == 'docs/'
+    if File.exist?(dir) and not dir.match(/^docs/)
       puts "Copying #{dir}*.txt to docs/#{name}"
       `rm -rf docs/#{name}`
       `mkdir -p docs/#{name}`
