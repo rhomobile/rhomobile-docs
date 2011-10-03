@@ -38,7 +38,7 @@
  <b>zbar 0.10</b> [http://zbar.sourceforge.net/](http://zbar.sourceforge.net/)<br/>
  License: GNU LGPL 2.1 [http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
 
-###RhoSync uses following other projects:
+###RhoConnect uses following other projects:
 
  <b>Ruby language 1.8.7<b/> [http://www.ruby-lang.org/en/downloads/](http://www.ruby-lang.org/en/downloads/)<br/>
  License: GPL or Ruby own license [http://www.ruby-lang.org/en/about/license.txt](http://www.ruby-lang.org/en/about/license.txt)
