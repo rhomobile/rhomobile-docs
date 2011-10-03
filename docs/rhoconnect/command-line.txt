@@ -53,12 +53,18 @@ Here's a basic rundown of each of the files that were just generated:
 * **Gemfile** - This file specifies application's dependencies using [bundler](http://gembundler.com/).
 * **spec/spec_helper.rb** - A helper file which loads the environment for running [specs](/rhoconnect/testing).
 
-### Add a New Source Adapter
-
-To generate a source for your RhoConnect application, run the `rhoconnect source` command:
+After generating the application, you might be asked to change directories to your application directory and run bundle install. For example, you would run these commands:
 
 	:::term
-	Usage: rhoconnect source [options] [args]
+	$ cd storeserver
+	$ bundle install
+
+### Add a New Source Adapter
+
+To generate a source for your RhoConnect application, run the `rhoconnect source` command within your application directory:
+
+	:::term
+	Usage: rhoconnect source name [options] [args]
 
 	Generates a new source adapter.
 
@@ -76,11 +82,10 @@ To generate a source for your RhoConnect application, run the `rhoconnect source
 	        --no-color                   Don't colorize the output
 	    -h, --help                       Show this message
 	        --debug                      Do not catch errors
-	
-For example:
+
+For the storeserver application example, within the sourceserver directory, run:
 
 	:::term
-	$ cd storeserver
 	$ rhoconnect source product
 	Generating with source generator:
 	     [ADDED]  sources/product.rb
@@ -100,21 +105,24 @@ If you're using MacOS / Linux, install [dtach](http://dtach.sourceforge.net/) on
 
 	:::term
 	$ cd storeserver
- 	$ rake dtach:install
+ 	$ [sudo] rake dtach:install
 
 ### Setup Redis
 
 Next, you will need to setup and start a [redis](http://redis.io/) server:
 
 	:::term
-	$ rake redis:install
+	$ [sudo] rake redis:install
 	$ rake redis:start
-	
+
+The server will show that it is running on the console.
+
 ### Start the Application
 
-Now, start the application!
+Open a new console window (since the redis server is running in the previous console window). Then change directories to your rhoconnect applciation and start the application.
 
 	:::term
+	$ cd storeserver
 	$ rake rhoconnect:start
 	
 If everything went well, you should see the following in your console:

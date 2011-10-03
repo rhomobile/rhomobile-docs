@@ -127,4 +127,4 @@ A complete image source adapter that stores files in S3 might look like:
 	end
 
 ## Rhodes Sample Code
-See controller and view in the `/app/Blob` directory of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master) for a complete Rhodes code sample.
+See controller and view in the [app/Blob directory](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Blob) of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master) for a complete Rhodes code sample.

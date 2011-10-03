@@ -22,7 +22,7 @@ After this step is completed, you can add references to the `Rhoconnect.NET` nam
 	using RhoconnectNET.Controllers;
 
 
-## Registering `Rhoconnect.NET` routes for your application
+## Registering Rhoconnect.NET routes for your application
 
 To establish the communication channel between ASP.NET MVC 3 application and Rhoconnect server, 
 you need to implement the following `init_rhoconnect` and `rhoconnect_authenticate` methods in the `Global.asax.cs` file 
