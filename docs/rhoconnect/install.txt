@@ -17,7 +17,7 @@ Your RhoConnect application folder will be located in C:\RhoConnect\rhoconnect b
 
 3. Ruby Web Server - We test with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/).  WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-4. [Redis 2.2.14+](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the next section.  Alternatively, you can [install redis directly](http://redis.io/download).
+4. [Redis 2.2.14+](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the [Rake Tasks section](rhoconnect/command-line#rake-tasks). Alternatively, you can [install redis directly](http://redis.io/download).
 
 ### Installing RhoConnect Gem
 
