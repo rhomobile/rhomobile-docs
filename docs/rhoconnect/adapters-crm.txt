@@ -186,7 +186,7 @@ These are:
 Rhoconnect-adapters is not using `OAuth2` scheme at this point.
 
 For every source adapter based on CRM object there is a corresponding *'vendor/salesforce/settings/\<CRM\-object\-name\>.yml'*
-file containing the descriptions for the OracleOnDemand CRM object.
+file containing the descriptions for the SalesForce CRM object.
 Every CRM object file has the following entries:
 
 	Query_Fields: hash of the objects's fields 
