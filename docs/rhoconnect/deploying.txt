@@ -80,3 +80,114 @@ Deploying the WAR container varies per J2EE App Server, for JBoss it is necessar
 to place the WAR file into the server's deploy directory.
 
 We recommend using the [phusion passenger](http://modrails.com/index.html) stack for deploying an on-premise RhoConnect application.  Please refer to the [section on rack applications](http://modrails.com/documentation/Users%20guide%20Apache.html#_deploying_a_rack_based_ruby_application) for information on deploying a RhoConnect sinatra application.
+
+## Deploying packaged RhoConnect software on Linux servers
+
+You can create RhoConnect production environment on Linux servers by installing software packages
+for Ubuntu and Cent OS respectively. At this moment supported formats are Debian (deb) and Red Hat (rpm) packages.
+
+Every package provides the following components:
+
+* Ruby 1.8.7, Ruby Enterprise Edition 2011.03
+ 
+* Nginx HTTP server (v. 1.0.6)
+
+* Passenger (v. 3.0.9)
+
+* Redis data store (v. 2.2.14)
+
+* Rhoconnect gem with all required dependencies 
+ 
+In addition, RPM package provides latest Sqlite3 headers and binaries, because standard Cent OS (5.x) libraries for Sqlite3 outdated.
+
+To create Debian package you need to have development version of RhoConnect software on Ubuntu (server, desktop. virtual machine) and execute the following rake task:
+<pre>
+rake build:deb  
+</pre>
+
+To create RPM package you need to have development version of RhoConnect software on Cent OS and execute the following rake task:
+<pre>
+rake build:rpm  
+</pre>
+
+After task is compete, either rhoconnect-x.y.z_all.deb or rhoconnect-x.y.z.noarch.rpm package will be created in the pkg/ directory. In the future, pre-built packages for latest RhoConnect software will be available for direct download.
+
+To install Deb package on Ununtu server (Ubuntu 11.4 server, Amazon EC2 Ubuntu server), you should run the following command:
+<pre>
+dpkg -i rhoconnect-x.y.z_all.deb
+</pre>
+
+To install RPM package on Cent OS server (tested for 5.x, 6.x, and basic 64-bit Amazon Linux AMI 2011.09):
+<pre>
+rpm -i rhoconnect-x.y.z.noarch.rpm
+</pre>
+
+In process of installation many of above components will be downloaded, configured and compiled on target platform.
+For practical usage, you should be familiar with and understand some of the provided settings.
+
+### Ruby Enterprise Edition
+By defaut all ruby binaries, libraries, and gems are installed into <b>/opt/rhoconnect</b> directory. 
+You may wish to have access to these items by adding to bash configuration files this command:
+<pre>
+export PATH=/opt/rhoconnect/bin:$PATH
+</pre>
+
+### Redis
+Rhoconnect installer configured redis server with the following settings:
+
+* Redis configuration file <b>/opt/rhoconnect/etc/redis.conf</b> has the following properties:
+  <pre>
+daemonize yes
+pidfile /var/run/redis.pid
+logfile /var/log/redis.log
+  </pre>
+
+* Redis logrotate settings for <b>/var/log/redis.log</b> files defined in <b>/etc/logrotate.d/redis</b> as: 
+  <pre>
+/var/log/redis.log {
+rotate 3
+missingok
+notifempty
+size 250k
+create 0644 root root
+compress
+}
+  </pre>
+
+* Redis start-up script <b>/etc/init.d/redis</b>. You can start/stop redis server by running the following commands:
+  <pre>
+/etc/init.d/redis {start|stop}
+  </pre>
+
+### Nginx
+Installer compiled Nginx web server (to <b>/opt/nginx</b> directory) with the following configuration files:
+
+* Nginx start-up script (<b>/etc/init.d/nginx</b>)
+
+* Nginx logrotate settings (<b>/etc/logrotate.d/nginx</b>)
+
+* Nginx configuration file (<b>/opt/nginx/conf/nginx.conf</b>) 
+
+* Passenger configuration file and virtual host template for RhoConnect application 
+  (<b>/opt/nginx/conf/conf.d/passenger.conf</b> and <b>/opt/nginx/conf/conf.d/rhoconnect.conf</b>)
+
+* user <b>nginx</b> added to system users list
+ 
+  
+### As a bonus  :-)
+Installer also created and configured RhoConnect <b>rhoapp</b> application in <b>/opt/nginx/html</b> directory.
+To test it you need to as a root user start redis and nginx servers:
+<pre>
+/etc/init.d/redis start
+/etc/init.d/nginx start
+</pre>
+
+And verify that it's up and running by visiting application web console in your browser:
+<pre>
+http://server_ip_address/console/
+</pre>
+ 
+
+
+
+ 
