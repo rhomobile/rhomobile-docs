@@ -212,17 +212,29 @@ sudo rpm -i rhoconnect-3.0.0.noarch.rpm
 
 ### Prepare bench application for running on servers
  
-Go to rhoconnect/bench directory and configure benchapp application: 
-
-<pre>
+1. Go to rhoconnect/bench directory and configure benchapp application: 
+   <pre>
 sudo cp -R benchapp /opt/nginx/html
 cd /opt/nginx/html/benchapp
 sudo /opt/rhoconnect/bin/bundle install --without=test development
+sudo mkdir public
 sudo chown -R nginx:nginx /opt/nginx/html/benchapp
-</pre> 
+   </pre> 
 
-Then edit '/opt/nginx/conf/conf.d/rhoconnect.conf' file and 
-set root entry as <b>root /opt/nginx/html/benchapp/public;</b>
+2. Edit '/opt/nginx/conf/conf.d/rhoconnect.conf' file and point root entry to <b>/opt/nginx/html/benchapp/public</b> directory: 
+   <pre>
+server {
+  listen      80;
+  root  /opt/nginx/html/benchapp/public;
+  passenger_enabled on;
+}
+   </pre>
+
+3. Start redis and nginx servers:
+   <pre>
+sudo /etc/init.d/redis start
+sudo /etc/init.d/nginx start
+   </pre> 
 
 ### Benchmark results for large (2 cores) server
 <pre>
