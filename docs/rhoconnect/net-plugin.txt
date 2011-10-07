@@ -1,9 +1,9 @@
 rhoconnect.NET
 ===
 
-A .NET 4 framework library for the [Rhoconnect](http://rhomobile.com/products/rhosync) App Integration Server.
+A .NET 4 framework library for the [Rhoconnect](http://rhomobile.com/products/rhoconnect) App Integration Server.
 
-Using rhoconnect.NET, your [ASP.NET MVC3](http://www.asp.net/mvc/mvc3) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [Rhoconnect clients](http://rhomobile.com/products/rhosync/).
+Using rhoconnect.NET, your [ASP.NET MVC3](http://www.asp.net/mvc/mvc3) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [Rhoconnect clients](http://rhomobile.com/products/rhoconnect/).
 
 ## Getting started
 
@@ -183,7 +183,7 @@ Each of the above methods have a partition key supplied with the CRUD request.	T
 For example, the `Product` model above might have a relationship to the User model.  This provides us a simple way to organize the `Product` dataset for rhoconnect by reusing this relationship.  
 In this case, your implementation might filter out data on a per user basis.
 	
-For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](http://docs.rhomobile.com/rhosync/source-adapters#data-partitioning).
+For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
 
 ## Implementing MVC callbacks
 All of the above methods are necessary to establish the communication from the Rhoconnect instance to your ASP.NET MVC application. 

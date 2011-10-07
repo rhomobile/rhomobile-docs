@@ -47,8 +47,8 @@ To get the value for the url_of_rhoconnect_instance argument, go to the RhoConne
  
 
 ----
-[RhoConnect Introduction](http://docs.rhomobile.com/rhosync/introduction)
+[RhoConnect Introduction](http://docs.rhomobile.com/rhoconnect/introduction)
 
-[RhoConnect Installation](http://docs.rhomobile.com/rhosync/install)
+[RhoConnect Installation](http://docs.rhomobile.com/rhoconnect/install)
 
-[RhoConnect Tutorial](http://docs.rhomobile.com/rhosync/tutorial)
+[RhoConnect Tutorial](http://docs.rhomobile.com/rhoconnect/tutorial)
