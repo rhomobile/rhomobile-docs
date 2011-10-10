@@ -13,7 +13,7 @@ Load the `rhoconnect-rb` library:
 
 Note, if you are using datamapper, install the `dm-serializer` library and require it in your application.  `rhoconnect-rb` depends on this utility to interact with Rhoconnect applications using JSON.
 	
-## Usage
+## Setup the Model
 Now include Rhoconnect::Resource in a model that you want to synchronize with your mobile application:
 
 	class Product < ActiveRecord::Base
@@ -27,7 +27,7 @@ Or, if you are using DataMapper:
 	  include Rhoconnect::Resource
 	end
 
-### Partitioning Datasets
+## Partitioning Datasets
 	
 Next, your models will need to declare a partition key for `rhoconnect-rb`.  This partition key is used by `rhoconnect-rb` to uniquely identify the model dataset when it is stored in a rhoconnect instance.  It is typically an attribute on the model or related model.  `rhoconnect-rb` supports two types of partitions:
 
@@ -54,7 +54,7 @@ Now all of the `Product` data synchronized by rhoconnect will organized by `self
 	
 For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
 
-### Querying Datasets
+## Querying Datasets
 
 `rhoconnect-rb` installs a `/rhoconnect/query` route in your application which the Rhoconnect instance invokes to query the dataset for the dataset you want to synchronize.  This route is mapped to a `rhoconnect_query` method in your model.  This method should return a collection of objects:
 
@@ -74,7 +74,7 @@ For more information about Rhoconnect partitions, please refer to the [Rhoconnec
 
 In this example, `self.rhoconnect_query` returns a list of products where the partition string (provided by the rhoconnect instance) matches the `user_id` field in the products table.  
 
-### Configuration and Authentication
+## Configuration and Authentication
 
 Configure Rhoconnect in an initializer like `config/initializers/rhoconnect.rb` (for Rails), or directly in your application (i.e. Sinatra).  Here you will setup the rhoconnect uri (the location of your rhoconnect instance), and app\_endpoint (the location of your ruby app):
 
@@ -106,6 +106,17 @@ Example with authentication:
       config.token = "secrettoken"
 	  config.authenticate = lambda { |credentials| 
         User.authenticate(credentials[:login], credentials[:password]) 
+	  }
+	end
+	
+Example using the [RhoConnect Heroku Addon](/rhoconnect/heroku-addon):
+
+If you're using the [RhoConnect Heroku Addon](/rhoconnect/heroku-addon), then you can omit the config.uri (it is added for you):
+
+	Rhoconnect.configure do |config|
+	  config.token = "secrettoken"
+	  config.authenticate = lambda { |credentials| 
+	    User.authenticate(credentials[:login], credentials[:password]) 
 	  }
 	end
 	
