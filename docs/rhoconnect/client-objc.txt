@@ -1,0 +1,736 @@
+Using RhoConnect without Rhodes: Objective C Client API
+===
+
+The RhoConnect Client is a library that adds sync data capability to your non-Rhodes applications, such as applications created in XCode or Android Java. Using this library, you can enable synchronized data between your Objective C iOS device application and a RhoConnect server.
+
+Source Code
+-----------
+The source code for the RhoConnect client store example is located here.
+
+ * [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rhodes/tree/master/rhoconnect-client/Samples/ObjectiveC/store/)
+
+Pre-requisite Reading
+---------------------
+ * [iOS development](http://developer.apple.com/devcenter/ios/index.action)
+
+## Features supported
+
+<table>
+<tr><th>Feature</th><th>&nbsp;Ruby&nbsp;</th><th>ObjectiveC</th></tr>
+<tr><td>Property bag model</td><td>yes</td><td>yes</td></tr>
+<tr><td>Fixed schema mode</td><td>yes</td><td>yes</td></tr>
+<tr><td>Model associations</td><td>yes</td><td>yes</td></tr>
+<tr><td>BLOB attributes</td><td>yes</td><td>yes</td></tr>
+<tr><td>Bulk sync</td><td>yes</td><td>yes</td></tr>
+<tr><td>Sync</td><td>yes</td><td>yes</td></tr>
+<tr><td>Notifications</td><td>yes</td><td>yes</td></tr>
+<tr><td>Database reset</td><td>yes</td><td>yes</td></tr>
+<tr><td>Authentication</td><td>yes</td><td>yes</td></tr>
+<tr><td>DB partitioning</td><td>yes</td><td>not yet</td></tr>
+</table>
+
+## Setup
+
+The RhoConnect Client is part of the Rhodes repository; it contains files that you will need to add to your Xcode project. You can get the client [on github](https://github.com/rhomobile/rhodes/downloads). (Select the latest 'rhoconnect-client' package).
+
+Create a new Xcode project or open an existing one in Xcode.
+
+### Adding RhoConnectClient to your Xcode Project
+
+Do the following steps to add `<rhoconnect-client>/objectivec/RhoConnectClient.xcodeproj` as a dependency so that the RhoConnectClient library will link with your project.
+
+1. Drag and drop `<rhoconnect-client>/ObjectiveC/RhoConnectClient.xcodeproj` from the Finder into Groups & Files for your Xcode project. RhoConnectClient.xcodeproj should now appear in Groups & Files.
+
+<img src="rhoconnect-objc-client-tutorial/rhoconnectclient-groupfile.png" alt="RhoConnectClient in Groups & Files" /> 
+
+2. Under Groups and Files, open the Targets icon.
+3. Right-click on your project-named target.
+4. Choose Get Info, then click on the General tab.
+5. In Direct Dependencies, click the + button.
+6. Choose the dependency from RhoConnectClient.xcodeproj.
+
+<img src="rhoconnect-objc-client-tutorial/direct-dependency.png" alt="RhoConnectClient Direct Dependency" />
+
+### Adding Xcode Libraries
+
+Do the following steps to add libraries:
+
+1. Under Groups & Files, right-click on your project (the name at the top of the list).
+2. Select Add->Existing Frameworks from the popup menu.
+3. Add the following to your project: `libstdc++6.dylib, libsqlite3.dylib, libz.dylib, CFNetwork.framework`.
+
+<img src="rhoconnect-objc-client-tutorial/add-frameworks.png" alt="Add Frameworks" />
+
+### Adding Schema Files
+
+Do the following steps to add schema files to your Copy Bundle Resources build phase:
+1. Copy the folder `<rhodes>/platform/shared/db/res/db` into your Xcode project folder.
+2. Drag the copied db folder into your Xcode project, onto the project-named icon under Groups & Files. The db folder should now appear in the Groups & Files list.
+3. Under Groups and Files, open the Targets icon, then open the project-named icon under Targets, then open the Copy Bundle Resources folder. You should see sync.schema listed there.
+4. Open and edit the sync.schema file. Add a create table statement for every model you will use in your project. For example, for a model named product:
+
+	:::term
+	CREATE TABLE product (
+	 "client_id" VARCHAR(255) default NULL);
+
+## Coding a RhoConnect Client
+
+This section discusses the general steps you perform to code a RhoConnect client in Objective C, using the store example. It is not a tutorial for coding a complete Xcode application, but instead discusses the RhoConnect code that you need to create.
+
+### Initialize the Database
+
+Call the RhoConnectClient method initDatabase to initialize the local database for the models. You must do this before you initialize and use a RhoConnectClient object.
+
+	:::cplusplus
+	[RhoConnectClient initDatabase];
+
+### Initialize the Client
+
+Call the RhomModel init method for each model. In the Store example, initialize a customer model and a product model.
+
+	:::cplusplus
+	customer = [[RhomModel alloc] init];
+	customer.name = @"Customer";
+	product = [[RhomModel alloc] init];
+	product.name = @"Product";
+
+Call init for RhoConnectClient to initialize your client.
+
+	:::cplusplus
+	sclient = [[RhoConnectClient alloc] init];
+
+Set up an NSArray containing the models for your client.
+
+	:::cplusplus
+	NSArray* models = [NSArray arrayWithObjects:customer, product, nil];
+
+Call the RhoConnectClient method addModels to add those models to your client.
+
+	:::cplusplus
+	[sclient addModels:models];
+
+Set the RhoConnectClient property sync\_server to the URL of the RhoConnect server for your client.
+
+	:::cplusplus
+	sclient.sync_server = @"http://rhodes-store-server.heroku.com/application";
+
+Here is the Store code for the initialization process, contained in RhoConnectEngine.m.
+
+	:::cplusplus
+	- (id)init
+	{
+	    if ( sharedInst != nil ) {
+	        [NSException raise:NSInternalInconsistencyException
+			format:@"[%@ %@] cannot be called; use +[%@ %@] instead",
+			NSStringFromClass([self class]), NSStringFromSelector(_cmd), 
+			NSStringFromClass([self class]),
+			NSStringFromSelector(@selector(sharedInstance))];
+
+		} else if ( self = [super init] ) {
+			sharedInst = self;
+		
+		    	[RhoConnectClient initDatabase];		
+			
+			customer = [[RhomModel alloc] init];
+			customer.name = @"Customer";
+		
+			product = [[RhomModel alloc] init];
+			product.name = @"Product";
+		
+			sclient = [[RhoConnectClient alloc] init];
+			NSArray* models = [NSArray arrayWithObjects:customer, product, nil];	
+		
+			[sclient addModels:models];
+		
+			sclient.sync_server = @"http://rhodes-store-server.heroku.com/application";
+			sclient.threaded_mode = TRUE;
+		
+			loginState = [sclient is_logged_in] ? logged_in : logged_out;
+		}
+		return sharedInst;
+	}
+
+### Log Into the RhoConnect Server
+
+Call the RhoConnectClient loginWithUser method to log into the RhoConnect server.
+
+	:::cplusplus
+	[ [RhoConnectEngine sharedInstance].syncClient loginWithUser:txtLogin.text pwd:txtPassword.text callback:@selector(loginComplete:) target:self];
+
+Here is the Store code for the login process, contained in LoginViewController.m. It contains both a login method that calls loginWithUser, and a callback method called by loginWithUser, that checks to see if the login is active.
+
+	:::cplusplus
+	- (void)loginComplete:(RhoConnectNotify*) notify
+	{
+		if ( notify.error_code != RHO_ERR_NONE || ![[RhoConnectEngine sharedInstance].syncClient is_logged_in]) 
+			[RhoConnectEngine sharedInstance].loginState = failed;	
+		else
+			[RhoConnectEngine sharedInstance].loginState = logged_in;	
+	 
+		[waitPage loginComplete: [notify error_message] ];	
+	
+		[notify release];
+	}
+
+	- (IBAction)doLogin:(id)sender 
+	{
+		[RhoConnectEngine sharedInstance].loginState = in_progress;	
+		[[self navigationController] pushViewController:waitPage animated:YES];
+	
+		[ [RhoConnectEngine sharedInstance].syncClient loginWithUser:txtLogin.text pwd:txtPassword.text callback:@selector(loginComplete:) target:self];	
+	}
+
+### Synchronize Data
+
+Call the RhoConnectClient setNotification method to call a callback method that notifies about the state of the synchronization.
+
+	:::cplusplus
+	[ [RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllComplete:) target:self];
+
+Call a sync method, such as the RhoConnectClient syncAll method or the RhomModel sync method, to sync your client model data with the RhoConnect server.
+
+	:::cplusplus
+	[ [RhoConnectEngine sharedInstance].syncClient syncAll];
+
+Call clearNotification upon completion of the sync.
+
+	:::cplusplus
+	[ [RhoConnectEngine sharedInstance].syncClient clearNotification];
+
+Here is the Store code for the sync process, contained in WaitLoginController.m. It contains both a loginComplete method (called from the loginWithUser callback method) that calls setNotification and syncAll, and the setNotification callback method that calls clearNotification when the sync is complete.
+
+	:::cplusplus
+	- (void)syncAllComplete:(RhoConnectNotify*) notify
+	{
+		if ( [notify.status compare:@"in_progress"] == 0)
+		{
+		}else if ([notify.status compare:@"complete"] == 0)
+		{
+			[[self navigationController] pushViewController:homePage animated:YES];
+			[ [RhoConnectEngine sharedInstance].syncClient clearNotification];		
+		}else if ([notify.status compare:@"error"] == 0)
+		{
+		}
+	}
+
+	- (void)loginComplete:(NSString*) errorMessage 
+	{
+		NSLog(@"Login error message: \"%@\"", errorMessage);
+		[indicator stopAnimating];
+		if ([RhoConnectEngine sharedInstance].loginState == logged_in) 
+		{
+			[ [RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllComplete:) target:self];
+			[ [RhoConnectEngine sharedInstance].syncClient syncAll];
+		} else {
+			lblMessage.text = errorMessage;
+			self.navigationItem.hidesBackButton = false;
+		}
+	}
+
+### Search the Client Database for Models
+
+Call a RhomModel find method (find, find\_first, find\_all) to find model objects in the client database. This code sample for the find\_all method fetches all the models in the database; you can also search for models containing certain attribute data.
+
+	:::cplusplus
+	NSMutableArray* arItems = [[RhoConnectEngine sharedInstance].product find_all:nil];
+	NSDictionary* item = [arItems objectAtIndex: 0 ];
+	textBrand = [item valueForKey:@"brand"];
+
+Here is the Store code for the find process, contained in RootViewController.m. It contains a call to the find\_all method, and returns the total count of the models in the database.
+
+	:::cplusplus
+	// Customize the number of rows in the table view.
+	- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+	{
+		if (!arItems)
+			arItems = [[RhoConnectEngine sharedInstance].product find_all:nil];
+	
+		//warning here because this may be dictionary or an array when called.
+	    return (NSUInteger)[arItems count];
+	}
+
+## RhoConnectClient Class API
+
+The RhoConnectClient class contains properties and methods to build an Objective C RhoConnect client and connect it with a RhoConnect server.
+
+## threaded\_mode (RhoConnectClient property)
+
+BOOL. Set to false to get the result of operations as a return value. (Set to true to get notifications - not supported yet.) Default = false.
+
+	:::cplusplus
+	@property(setter=setThreadedMode) BOOL threaded_mode;
+
+## poll\_interval (RhoConnectClient property)
+
+int. Not yet supported. Default = 0.
+
+	:::cplusplus
+	@property(setter=setPollInterval) int poll_interval;
+
+## sync\_server (RhoConnectClient property)
+
+NSString. Sets the RhoConnect server url, for example: "`http://<ip>:<port>/application`"
+
+	:::cplusplus
+	@property(assign, setter=setSyncServer) NSString* sync_server;
+
+## initDatabase (RhoConnectClient method)
+
+Initializes your client database. Call this method before you create and use a client.
+
+	::::cplusplus
+	+ (void) initDatabase;
+
+## addModels (RhoConnectClient method)
+
+Adds your model objects to your client database, allowing them to sync with the RhoConnect server.
+
+	:::cplusplus
+	- (void) addModels:(NSArray*)models;
+
+<table border="1">
+<tr>
+	<td><code>models</code></td>
+	<td>NSArray containing the model objects.</td>
+</tr>
+</table>
+
+## database\_full\_reset\_and\_logout (RhoConnectClient method)
+
+Resets all data for all models in your local database, and then performs logout.
+
+	:::cplusplus
+	- (void) database_full_reset_and_logout;
+
+## loginWithUser (RhoConnectClient method)
+
+Returns a RhoConnectNotify object containing login data after logging your client database into the RhoConnect server.
+
+	:::cplusplus
+	- (RhoConnectNotify*) loginWithUser: (NSString*) user pwd:(NSString*) pwd;
+
+<table border="1">
+<tr>
+	<td><code>usr</code></td>
+	<td>NSString containing the user name.</td>
+</tr>
+<tr>
+	<td><code>pwd</code></td>
+	<td>NSString containing the password.</td>
+</tr>
+</table>
+
+## loginWithUser (RhoConnectClient method)
+
+Logs your client database into the RhoConnect server and calls a selector callback target method when the login process is finished.
+
+	:::cplusplus
+	- (void) loginWithUser: (NSString*) user pwd:(NSString*) pwd callback:(SEL) callback target:(id)target;
+
+<table border="1">
+<tr>
+	<td><code>usr</code></td>
+	<td>NSString containing the user name.</td>
+</tr>
+<tr>
+	<td><code>pwd</code></td>
+	<td>NSString containing the password.</td>
+</tr>
+<tr>
+	<td><code>callback:(SEL) callback target:(id)target</code></td>
+	<td>The reference to the callback method. An example could be <code>callback:@selector(loginComplete:) target:self</code>. You would write the callback method loginComplete to perform actions when the login process completes.</td>
+</tr>
+</table>
+
+## setNotification (RhoConnectClient method)
+
+Set the sync notification callback method.
+
+	:::cplusplus
+	- (void) setNotification: (SEL) callback target:(id)target;
+
+<table border="1">
+<tr>
+	<td><code>callback:(SEL) target:(id)target</code></td>
+	<td>The reference to the callback method that performs actions upon a sync notification.</td>
+</tr>
+</table>
+
+## clearNotification (RhoConnectClient method)
+
+Instance method. Clear the sync notification callback.
+
+	:::cplusplus
+	- (void) clearNotification;
+
+## is\_logged\_in (RhoConnectClient method)
+
+Instance method. Returns true if your RhoConnect session is logged in (if the login session exists in the database), false otherwise.
+
+	:::cplusplus	
+	- (BOOL) is_logged_in;
+
+## syncAll (RhoConnectClient method)
+
+Instance method. Returns a RhoConnectNotify object after running a sync on all the models for your RhoConnect client.
+
+	:::cplusplus
+	- (RhoConnectNotify*) syncAll;
+
+## search (RhoConnectClient method)
+
+Instance method. Returns a RhoConnectNotify object after sending a search request to the RhoConnect server.
+
+	:::cplusplus
+	- (RhoConnectNotify*) search: (NSArray*)models from: (NSString*) from params: (NSString*)params sync_changes: (BOOL) 				
+		sync_changes progress_step: (int) progress_step;
+
+<table border="1">
+<tr>
+	<td><code>models</code></td>
+	<td>NSArray containing the names of the model names to search in.</td>
+</tr>
+<tr>
+	<td><code>from</code></td>
+	<td>(Optional) NSString. Sets the RhoConnect path that the records are fetched with. Default = "search".</td>
+</tr>
+<tr>
+	<td><code>params</code></td>
+	<td>NSString. A string containing the name/value search items, in the form "param1=val1&param2=val2&param3=val3". The values must be url-encoded.</td>
+</tr>
+<tr>
+	<td><code>sync_changes</code></td>
+	<td>BOOL. TRUE if data with local changes is pushed to the server before the search is performed, FALSE otherwise.</td>
+</tr>
+<tr>
+	<td><code>progress_step</code></td>
+	<td>(Optional) int. Define how often the search callback will be executed when the RhoConnectNotify status is "in_progress".</td>
+</tr>
+</table>
+
+## setObjectNotification (RhoConnectClient method)
+
+Instance method. Sets the callback method for object notification. The callback receives a RhoConnectObjectNotify object as a parameter. This RhoConnectObjectNotify object contains three arrays of hashes for the objects and their source ids that have been updated, created, and deleted, allowing you to display which records were changed.
+
+    - (void) setObjectNotification: (SEL) callback target:(id)target;
+
+<table border="1">
+<tr>
+	<td><code>(SEL) callback target:(id)target</code></td>
+	<td>The name of your callback method.</td>
+</tr>
+</table>
+
+## clearObjectNotification (RhoConnectClient method)
+
+    - (void) clearObjectNotification;
+
+Instance method. Clears the callback method for object notification.
+
+## addObjectNotify (RhoConnectClient method)
+
+Instance method. Add an object to track changes: create, update, delete.
+
+	:::cplusplus
+    - (void) addObjectNotify: (int) nSrcID szObject:(NSString*) szObject;
+
+<table border="1">
+<tr>
+	<td><code>nSrcID</code></td>
+	<td>int. The object ID of the source on the server with which this RHoConnectClient syncs. You can provide this with the "source\_id" property value.</td>
+</tr>
+<tr>
+	<td><code>szObject</code></td>
+	<td>NSString. The object ID of the item created to track the changes to this RhoConnectClient.</td>
+</tr>
+</table>
+
+Sample call:
+
+	:::cplusplus
+	RhoConnectClient* sclient;
+	...
+	[sclient addObjectNotify: [[item objectForKey:@"source_id"] intValue] szObject:[item valueForKey:@"object"] ];
+    
+## RhomModel Class API
+
+The RhomModel class contains properties and methods for setting and using RhomModel objects; those objects are RhoConnect models and their attributes.
+
+## name (RhomModel property)
+
+NSString. Sets the model name.
+
+	:::cplusplus
+	@property(assign) NSString* name;
+
+## sync\_type (RhomModel property)
+
+int. Sets the synchronization type: RST\_INCREMENTAL or RST\_BULK\_ONLY.
+
+	:::cplusplus
+	@property(assign) int sync_type;
+
+## model\_type (RhomModel property)
+
+int. Sets the model type: RMT\_PROPERTY\_BAG (default) or RMT\_PROPERTY\_FIXEDSCHEMA.
+
+	:::cplusplus
+	@property(assign) int model_type;
+
+## associations (RhomModel property)
+
+The associations dictionary is a property of the model that controls its synchronization process. When one model (model A) has an association with another model (model B), this forces the other model (model B) synchronized along with the model (model A).
+
+	:::cplusplus
+	// Associations dictionary: the key is the model attribute name, 
+	// the value is the associated model name.
+	// While using associations, use the object_id attribute as object reference
+	
+	@property(assign) NSDictionary* associations;
+
+Example of associating two models, customer and product:
+
+	:::cplusplus
+	RhomModel* order = [[RhomModel alloc] init];
+	order.name = @"Order";
+    order.associations = [NSDictionary dictionaryWithObjectsAndKeys: @"Customer", @"customer", @"Product", @"product", nil];
+
+## init (RhomModel method)
+
+Initializes a model object.
+
+	:::cplusplus
+	- (id) init;
+
+## sync (RhomModel method)
+
+Returns a RhoConnectNotify object containing sync information, after running a sync on this model.
+
+	:::cplusplus
+	- (RhoConnectNotify*) sync;
+
+## sync with callback (RhomModel method)
+
+Runs a sync on this model, and calls a callback, passing the callback the RhoConnectNotify status parameter for the synchronization: "in\_progress", "ok", "error", "complete".
+
+	:::cplusplus
+	- (void) sync: (SEL) callback target:(id)target;
+
+Example:
+
+	:::cplusplus
+	int shouldSyncProductByName()
+	{
+		RhoConnectNotify* res = [[product sync] retain];
+		int	nErr = res.error_code;
+		[res release];
+		if ( nErr!= RHO_ERR_NONE ) {
+			return 0;
+		}
+	
+		return 1;
+	}
+
+## create (RhomModel method)
+
+Create a model object with attributes and save it to the database, the object id will be generated automatically if not set.
+
+	:::cplusplus
+	- (void) create: (NSMutableDictionary *) data;
+
+<table border="1">
+<tr>
+	<td><code>data</code></td>
+	<td>NSMutableDictionary. The object containing the attribute data for this model.</td>
+</tr>
+</table>
+
+## find (RhomModel method)
+
+Returns an NSMutableDictionary object containing a model with the given object id.
+
+	:::cplusplus
+	- (NSMutableDictionary *) find: (NSString*)object_id;
+
+<table border="1">
+<tr>
+	<td><code>object_id</code></td>
+	<td>NSString. The object id.</td>
+</tr>
+</table>
+
+## find\_first (RhomModel method)
+
+Returns an NSMutableDictionary object containing the first model object found with the given set of model attributes.
+
+	:::cplusplus
+	- (NSMutableDictionary *) find_first: (NSDictionary *)cond;
+
+<table border="1">
+<tr>
+	<td><code>cond</code></td>
+	<td>A NSDictionary object containing the model attributes to find.</td>
+</tr>
+</table>
+
+Example call:
+
+	:::cplusplus
+    NSMutableDictionary* cond = [[NSMutableDictionary alloc] init];
+    [cond setValue: @"SomeRealName" forKey:@"name"];
+    prod = [[product find_first: cond] retain];
+    [cond release];
+    if ( !prod ) {
+          // not found
+    }
+
+## find\_all (RhomModel method)
+
+Returns a NSMutableArray containing all the model objects that match the given set of attributes.
+
+	:::cplusplus
+	- (NSMutableArray *) find_all: (NSDictionary *)cond;
+
+<table border="1">
+<tr>
+	<td><code>cond</code></td>
+	<td>A NSDictionary object containing the model attributes to find.</td>
+</tr>
+</table>
+
+## save (RhomModel method)
+
+Saves a model object with the given data to the database.
+
+	:::cplusplus
+	- (void) save: (NSDictionary *)data;
+
+<table border="1">
+<tr>
+	<td><code>data</code></td>
+	<td>A NSDictionary object containing the attribute data for the model object that is saved.</td>
+</tr>
+</table>
+
+## destroy (RhomModel method)
+
+Delete model objects from the database that contain the given data.
+
+	:::cplusplus
+	- (void) destroy: (NSDictionary *)data;
+
+<table border="1">
+<tr>
+	<td><code>data</code></td>
+	<td>A NSDictionary object containing the attribute data for the model objects that are to be deleted.</td>
+</tr>
+</table>
+
+## startBulkUpdate (RhomModel method)
+
+Run this method when you start to create or update a bunch of models; it will optimize database access. Equal to start transaction.
+
+	:::cplusplus
+	- (void) startBulkUpdate;
+
+## stopBulkUpdate (RhomModel method)
+
+Run this method when you start to create or update a bunch of models; it will optimize database access. Equal to commit transaction.
+
+	:::cplusplus
+	- (void) stopBulkUpdate;
+
+## RhoConnectNotify Class API
+
+Several RhoConnectClient methods return a RhoConnectNotify object. The properties for the RhoConnectNotify class provide access to sync notification objects as described [here](/rhodes/synchronization#notifications). (Developers do not set RhoConnectNotify properties, but only read them after a call to a RhoConnectClient method that returns a RhoConnectNotify object.)
+
+<table border="1">
+<tr>
+	<td><code>total_count</code></td>
+	<td>@property int. Total number of records that exist for this RhoConnect source.</td>
+</tr>
+<tr>
+	<td><code>processed_count</code></td>
+	<td>@property int. Number of records included in this sync page for an in\_progress (status = incremental) sync.</td>
+</tr>
+<tr>
+	<td><code>cumulative_count</code></td>
+	<td>@property int. Number of records the SyncEngine has processed so far for this source.</td>
+</tr>
+<tr>
+	<td><code>source_id</code></td>
+	<td>@property int. The id of the current model that is synchronizing.</td>
+</tr>
+<tr>
+	<td><code>error_code</code></td>
+	<td>@property int. The HTTP response code of the RhoConnect server error: 401, 500, 404, etc.</td>
+</tr>
+<tr>
+	<td><code>source_name</code></td>
+	<td>@property(assign) NSString*. Name of the model (i.e. "Product").</td>
+</tr>
+<tr>
+	<td><code>status</code></td>
+	<td>@property(assign) NSString*. Status of the current sync process: "in\_progress", "error", "ok", "complete", "schema-changed".</td>
+</tr>
+<tr>
+	<td><code>sync_type</code></td>
+	<td>@property(assign) NSString*. Type of sync used for this model: "incremental" or "bulk".</td>
+</tr>
+<tr>
+	<td><code>error_message</code></td>
+	<td>@property(assign) NSString*. Response body of error message (if any).</td>
+</tr>
+<tr>
+	<td><code>callback_params</code></td>
+	<td>@property(assign) NSString*. Callback parameters.</td>
+</tr>
+</table>
+
+## RhoConnectObjectNotify Class API
+
+This class provides access to the sync object notification as described [here](/rhodes/synchronization#notifications).
+
+The RhoConnectObjectNotify object contains three arrays of hashes for the objects and their source ids that have been updated, created, and deleted. Each hash contains values for the keys “object” and “source\_id” so you can display which records were changed.
+
+<table border="1">
+<tr>
+	<td><code>deleted_objects</code></td>
+	<td>@property(readonly) NSMutableArray*. An array containing the deleted objects.</td>
+</tr>
+<tr>
+	<td><code>updated_objects</code></td>
+	<td>@property(readonly) NSMutableArray*. An array containing the updated objects.</td>
+</tr>
+<tr>
+	<td><code>created_objects</code></td>
+	<td>@property(readonly) NSMutableArray*. An array containing the created objects.</td>
+</tr>
+<tr>
+	<td><code>deleted_source_ids</code></td>
+	<td>@property(readonly) NSMutableArray*. An array containing the deleted source ids.</td>
+</tr>
+<tr>
+	<td><code>updated_source_ids</code></td>
+	<td>@property(readonly) NSMutableArray*. An array containing the updated source ids.</td>
+</tr>
+<tr>
+	<td><code>created_source_ids</code></td>
+	<td>@property(readonly) NSMutableArray*. An array containing the created source ids.</td>
+</tr>
+</table>
+
+## Packaging RhoConnect Client
+To package the RhoConnect Client archive for distribution, go to the top of the rhodes repository and run:
+
+	:::term
+  	$ rake build:rhoconnect_client
+
+This will produce a zipfile in the folder called `rhoconnect-client-<someversion>.zip` where `<someversion>` is the version of the client.
+
+## Release procedure
+1. Unzip package to some folder
+
+2. Open project `rhoconnect-client\ObjectiveC\Tests\RhoConnectClientTest` in xcode and run. See log - SUCCESS should be at the end of log
+
+3. Open project `rhoconnect-client\Samples\ObjectiveC\store` in xcode and run. Press Login, you should see several items, click on item, you should see details
