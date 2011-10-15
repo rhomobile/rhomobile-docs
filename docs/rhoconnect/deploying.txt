@@ -90,91 +90,51 @@ Every package provides the following components:
 
 * Ruby 1.8.7, Ruby Enterprise Edition 2011.03
  
-* Nginx HTTP server (v. 1.0.6)
+* Nginx HTTP server
 
-* Passenger (v. 3.0.9)
+* Phusion Passenger
 
-* Redis data store (v. 2.2.14)
+* Redis data store
 
 * Rhoconnect gem with all required dependencies 
  
 In addition, RPM package provides latest Sqlite3 headers and binaries, because standard Cent OS (5.x) libraries for Sqlite3 outdated.
 
-To create Debian package you need to have development version of RhoConnect software on Ubuntu (server, desktop. virtual machine) and execute the following rake task:
+### Getting the Packages
+
+To download the rhoconnect debian package, you first must add our repo to your list of sources.
+
+#### Steps for Debian-Based Linux Users
+	:::term
+	$ sudo add-apt-repository "deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main"
+
+Once the repo is added apt-get needs to be updated
+	:::term
+	$ sudo apt-get update
+
+Once that is done, it is time to install rhoconnect
+	:::term
+	$ sudo apt-get install rhoconnect
+
+#### Steps for Red-Hat-Based Linux Users
+To do this, you must create a file named <b>rhoconnect.repo</b>in the <b>/etc/yum.repos.d/</b>.
+	:::term
+	$ sudo vim /etc/yum.repos.d/rhoconnect.repo
+
+Copy and paste these contents into the file.
 <pre>
-rake build:deb  
+[rhoconnect]
+name=Rhoconnect
+baseurl=http://rhoconnect.s3.amazonaws.com/packages/rpm
+enabled=1
+gpgcheck=0
 </pre>
 
-To create RPM package you need to have development version of RhoConnect software on Cent OS and execute the following rake task:
-<pre>
-rake build:rpm  
-</pre>
+Once that is done, it is time to install rhoconnect
+	:::term
+	$ sudo yum install rhoconnect
 
-After task is compete, either rhoconnect-x.y.z_all.deb or rhoconnect-x.y.z.noarch.rpm package will be created in the pkg/ directory. In the future, pre-built packages for latest RhoConnect software will be available for direct download.
-
-To install Deb package on Ununtu server (Ubuntu 11.4 server, Amazon EC2 Ubuntu server), you should run the following command:
-<pre>
-dpkg -i rhoconnect-x.y.z_all.deb
-</pre>
-
-To install RPM package on Cent OS server (tested for 5.x, 6.x, and basic 64-bit Amazon Linux AMI 2011.09):
-<pre>
-rpm -i rhoconnect-x.y.z.noarch.rpm
-</pre>
-
-In process of installation many of above components will be downloaded, configured and compiled on target platform.
-For practical usage, you should be familiar with and understand some of the provided settings.
-
-### Ruby Enterprise Edition
-By defaut all ruby binaries, libraries, and gems are installed into <b>/opt/rhoconnect</b> directory. 
-You may wish to have access to these items by adding to bash configuration files this command:
-<pre>
-export PATH=/opt/rhoconnect/bin:$PATH
-</pre>
-
-### Redis
-Rhoconnect installer configured redis server with the following settings:
-
-* Redis configuration file <b>/opt/rhoconnect/etc/redis.conf</b> has the following properties:
-  <pre>
-daemonize yes
-pidfile /var/run/redis.pid
-logfile /var/log/redis.log
-  </pre>
-
-* Redis logrotate settings for <b>/var/log/redis.log</b> files defined in <b>/etc/logrotate.d/redis</b> as: 
-  <pre>
-/var/log/redis.log {
-rotate 3
-missingok
-notifempty
-size 250k
-create 0644 root root
-compress
-}
-  </pre>
-
-* Redis start-up script <b>/etc/init.d/redis</b>. You can start/stop redis server by running the following commands:
-  <pre>
-/etc/init.d/redis {start|stop}
-  </pre>
-
-### Nginx
-Installer compiled Nginx web server (to <b>/opt/nginx</b> directory) with the following configuration files:
-
-* Nginx start-up script (<b>/etc/init.d/nginx</b>)
-
-* Nginx logrotate settings (<b>/etc/logrotate.d/nginx</b>)
-
-* Nginx configuration file (<b>/opt/nginx/conf/nginx.conf</b>) 
-
-* Passenger configuration file and virtual host template for RhoConnect application 
-  (<b>/opt/nginx/conf/conf.d/passenger.conf</b> and <b>/opt/nginx/conf/conf.d/rhoconnect.conf</b>)
-
-* user <b>nginx</b> added to system users list
- 
-  
-### As a bonus  :-)
+### Final Steps (After the installer is finished)
 Installer also created and configured RhoConnect <b>rhoapp</b> application in <b>/opt/nginx/html</b> directory.
 To test it you need to as a root user start redis and nginx servers:
 <pre>
