@@ -41,7 +41,7 @@ Do the following steps to add `<rhoconnect-client>/objectivec/RhoConnectClient.x
 
 1. Drag and drop `<rhoconnect-client>/ObjectiveC/RhoConnectClient.xcodeproj` from the Finder into Groups & Files for your Xcode project. RhoConnectClient.xcodeproj should now appear in Groups & Files.
 
-<img src="rhoconnect-objc-client-tutorial/rhoconnectclient-groupfile.png" alt="RhoConnectClient in Groups & Files" /> 
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhoconnect-objc-client-tutorial/rhoconnectclient-groupfile.png" alt="RhoConnectClient in Groups & Files" /> 
 
 2. Under Groups and Files, open the Targets icon.
 3. Right-click on your project-named target.
@@ -49,7 +49,7 @@ Do the following steps to add `<rhoconnect-client>/objectivec/RhoConnectClient.x
 5. In Direct Dependencies, click the + button.
 6. Choose the dependency from RhoConnectClient.xcodeproj.
 
-<img src="rhoconnect-objc-client-tutorial/direct-dependency.png" alt="RhoConnectClient Direct Dependency" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhoconnect-objc-client-tutorial/direct-dependency.png" alt="RhoConnectClient Direct Dependency" />
 
 ### Adding Xcode Libraries
 
@@ -59,7 +59,7 @@ Do the following steps to add libraries:
 2. Select Add->Existing Frameworks from the popup menu.
 3. Add the following to your project: `libstdc++6.dylib, libsqlite3.dylib, libz.dylib, CFNetwork.framework`.
 
-<img src="rhoconnect-objc-client-tutorial/add-frameworks.png" alt="Add Frameworks" />
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhoconnect-objc-client-tutorial/add-frameworks.png" alt="Add Frameworks" />
 
 ### Adding Schema Files
 
