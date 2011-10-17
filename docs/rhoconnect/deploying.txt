@@ -98,8 +98,10 @@ In addition, RPM package provides latest Sqlite3 headers and binaries, because s
 To download the RhoConnect debian package, you first must add our repo to your list of sources.
 
 #### Steps for Debian-Based Linux Users
-	:::term
-	$ sudo add-apt-repository "deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main"
+Add the following line to the end of your <b>/etc/apt/sources.list</b>:
+
+	:::text
+	deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
 
 Once the repo is added apt-get needs to be updated:
 
@@ -112,19 +114,20 @@ Once that is done, it is time to install RhoConnect:
 	$ sudo apt-get install rhoconnect
 
 #### Steps for RedHat-Based Linux Users
-To do this, create a file named <b>rhoconnect.repo</b> in the <b>/etc/yum.repos.d/</b> directory:
+Create a file named <b>rhoconnect.repo</b> in the <b>/etc/yum.repos.d/</b> directory:
 
 	:::term
 	$ sudo vim /etc/yum.repos.d/rhoconnect.repo
 
 Copy and paste these contents into the file.
-<pre>
-[rhoconnect]
-name=Rhoconnect
-baseurl=http://rhoconnect.s3.amazonaws.com/packages/rpm
-enabled=1
-gpgcheck=0
-</pre>
+
+	:::text
+	[rhoconnect]
+	name=Rhoconnect
+	baseurl=http://rhoconnect.s3.amazonaws.com/packages/rpm
+	enabled=1
+	gpgcheck=0
+
 
 Once that is done, it is time to install RhoConnect:
 
@@ -134,15 +137,14 @@ Once that is done, it is time to install RhoConnect:
 ### Final Steps (After the installer is finished)
 Installer also created and configured RhoConnect <b>rhoapp</b> application in <b>/opt/nginx/html</b> directory.
 To test it you need to as a root user start redis and nginx servers:
-<pre>
-/etc/init.d/redis start
-/etc/init.d/nginx start
-</pre>
+
+	:::term
+	$ sudo /etc/init.d/redis start
+	$ sudo /etc/init.d/nginx start
 
 And verify that it's up and running by visiting application web console in your browser:
-<pre>
-http://server_ip_address/console/
-</pre>
+
+	http://server_ip_address/console/
 
 ## Deploying into J2EE environment
 In JRuby environment, there is an option to create the WAR container for the RhoConnect app
