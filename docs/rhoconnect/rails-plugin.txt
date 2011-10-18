@@ -1,9 +1,9 @@
 rhoconnect-rb
 ===
 
-A ruby library for the [Rhoconnect](http://rhomobile.com/products/rhoconnect) App Integration Server.
+A ruby library for the [RhoConnect](http://rhomobile.com/products/rhoconnect) App Integration Server.
 
-Using rhoconnect-rb, your application's model data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [Rhoconnect clients](http://rhomobile.com/products/rhoconnect/).  This client includes built-in support for [ActiveRecord](http://ar.rubyonrails.org/) and [DataMapper](http://datamapper.org/) models.
+Using rhoconnect-rb, your application's model data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [RhoConnect clients](http://rhomobile.com/products/rhoconnect/).  This client includes built-in support for [ActiveRecord](http://ar.rubyonrails.org/) and [DataMapper](http://datamapper.org/) models.
 
 ## Getting started
 
@@ -68,7 +68,7 @@ For more information about Rhoconnect partitions, please refer to the [Rhoconnec
 	  end
 	
 	  def self.rhoconnect_query(partition)
-	    Product.where(:user_id => partition)
+	    Product.includes(:user).where("users.username = ?",partition)
 	  end
 	end
 
@@ -76,16 +76,15 @@ In this example, `self.rhoconnect_query` returns a list of products where the pa
 
 ## Configuration and Authentication
 
-Configure Rhoconnect in an initializer like `config/initializers/rhoconnect.rb` (for Rails), or directly in your application (i.e. Sinatra).  Here you will setup the rhoconnect uri (the location of your rhoconnect instance), and app\_endpoint (the location of your ruby app):
+### Running RhoConnect Manually
 
+Configure RhoConnect in an initializer like `config/initializers/rhoconnect.rb` (for Rails), or directly in your application (i.e. Sinatra).  Here you will setup the rhoconnect uri (the location of your RhoConnect instance), the api\_token (see [rhoconnect:get_token](http://docs.rhomobile.com/rhoconnect/command-line#rake-tasks) rake task), and app\_endpoint (the location of your ruby app):
 
-	# Use rhoconnect:get_token to get the token value.
-	
 	config.uri   = "http://myrhoconnect.com"
 	config.token = "secrettoken"
 	config.app_endpoint = "http://myapp.heroku.com"
 	
-If `app_endpoint` is defined, your Rhoconnect instance will be configured to query data from the endpoint using the rhoconnect_query method in your model.  For example, if your `app_endpoint` is defined as "http://myapp.heroku.com", Rhoconnect will query data with:
+If `app_endpoint` is defined, your Rhoconnect instance will be configured to query data from the endpoint using the rhoconnect_query method in your model.  For example, if your `app_endpoint` is defined as "http://myapp.heroku.com", RhoConnect will query data with:
 
 	POST http://myapp.heroku.com/rhoconnect/query
 
@@ -109,12 +108,11 @@ Example with authentication:
 	  }
 	end
 	
-Example using the [RhoConnect Heroku Addon](/rhoconnect/heroku-addon):
+### Using the [RhoConnect Heroku Addon](http://docs.rhomobile.com/rhoconnect/heroku-addon)
 
-If you're using the [RhoConnect Heroku Addon](/rhoconnect/heroku-addon), then you can omit the config.uri (it is added for you):
+If you're using the [RhoConnect Heroku Addon](http://docs.rhomobile.com/rhoconnect/heroku-addon), then you can omit the config.uri and config.token (they are managed for you):
 
 	Rhoconnect.configure do |config|
-	  config.token = "secrettoken"
 	  config.authenticate = lambda { |credentials| 
 	    User.authenticate(credentials[:login], credentials[:password]) 
 	  }
