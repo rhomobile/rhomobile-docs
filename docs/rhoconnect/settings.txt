@@ -23,6 +23,27 @@ In addition, the following settings can be specified:
 									 as a default sync poll interval.
 	:bulk_data_poll_interval: <secs> - poll interval setting for bulk data sync
 	
+	:c2dm_username: <google's email>
+	:c2dm_passwd: <passwd>                       
+	:authtoken: <authtoken>          - these settings are used specifically for Android push notifications.
+									   In order to push messages to the Android device, your server needs to 
+									   obtain Google's C2DM authentication token associated with the trusted google account.
+									   For this purpose, you can specify C2DM Google account's username/password combo 
+									   via the `:c2dm_username` and `:c2dm_passwd` settings.
+									   At run-time, the system will use these credentials to obtain 
+									   the C2DM token and store it in the Redis for the future use.
+									   Once the token is expired, the system will automatically 
+									   connect to the Google C2DM service to renew the token.
+
+									   Alternatively, you can use `:authtoken` setting to specify 
+									   the pre-defined authentication token. This token MUST be related to the role-based google account 
+									   registered for your application. See [the rhodes push instructions](/rhodes/device-caps#push-notifications) 
+									   for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). 
+									   Uncomment last two lines and put your google account specific data, then run it. 
+									   It will print token to stdout.
+									   This approach, however, will not allow the server to connect 
+									   to the C2DM service and renew the token once it is expired.
+
 ## Source settings
 
 All source-specific settings are specified under the corresponding source name entry in the `:sources` category.

@@ -40,7 +40,7 @@ The following example stores the `:filename` argument as another object attribut
 The following example takes the blob and stores it in S3:
 
 	:::ruby
-	def create(create_hash,blob)
+	def create(create_hash)
 	  # this would be a blob attribute, points to a tempfile 
 	  # containing the raw post data
 	  name = create_hash["image_uri"] 
