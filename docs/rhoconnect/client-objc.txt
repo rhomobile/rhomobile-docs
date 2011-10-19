@@ -99,10 +99,10 @@ Call init for RhoConnectClient to initialize your client.
 	:::cplusplus
 	sclient = [[RhoConnectClient alloc] init];
 
-Set up an NSArray containing the models for your client.
+Set up an NSMutableArray containing the models for your client.
 
 	:::cplusplus
-	NSArray* models = [NSArray arrayWithObjects:customer, product, nil];
+	NSMutableArray* models = [NSMutableArray arrayWithObjects:customer, product, nil];
 
 Call the RhoConnectClient method addModels to add those models to your client.
 
@@ -259,6 +259,7 @@ The RhoConnectClient class contains the following properties and methods to buil
  * <a href="#initDatabase">initDatabase</a>
  * <a href="#addModels">addModels</a>
  * <a href="#database_full_reset_and_logout">database\_full\_reset\_and\_logout</a>
+ * <a href="#database_client_reset">database\_client\_reset</a>
  * <a href="#initDatabase">initDatabase</a>
  * <a href="#loginWithUser">loginWithUser</a>
  * <a href="#loginWithUser (with callback)">loginWithUser (with callback)</a>
@@ -319,6 +320,13 @@ Resets all data for all models in your local database, and then performs logout.
 
 	:::cplusplus
 	- (void) database_full_reset_and_logout;
+
+### <a id="database_client_reset"></a>database\_client\_reset
+
+Resets all data for all models in your local database and delete client ID. Use this method for 'unknown client' error
+
+	:::cplusplus
+	- (void) database_client_reset;
 
 ### <a id="loginWithUser">loginWithUser
 
@@ -481,6 +489,8 @@ The RhomModel class contains the following properties and methods for setting an
  * <a href="#init">init</a>
  * <a href="#sync">sync</a>
  * <a href="#sync (with callback)">sync (with callback)</a>
+ * <a href="#setNotification">setNotification</a>
+ * <a href="#clearNotification">clearNotification</a>
  * <a href="#create">create</a>
  * <a href="#find">find</a>
  * <a href="#find_first">find_first</a>
@@ -564,6 +574,28 @@ Example:
 	
 		return 1;
 	}
+
+### <a id="setNotification">setNotification
+
+Set the sync notification callback method for the Model.
+
+	:::cplusplus
+	- (void) setNotification: (SEL) callback target:(id)target;
+
+<table border="1">
+<tr>
+	<td><code>callback:(SEL) target:(id)target</code></td>
+	<td>The reference to the callback method that performs actions upon a sync notification.</td>
+</tr>
+</table>
+
+### <a id="clearNotification">clearNotification
+
+Instance method. Clear the sync notification callback for the Model.
+
+	:::cplusplus
+	- (void) clearNotification;
+
 
 ### <a id="create">create
 
