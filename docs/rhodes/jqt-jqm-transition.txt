@@ -22,6 +22,7 @@ You need to use [Rhodes application template code](https://github.com/rhomobile/
 1. Rename your *app/layout.erb* to some other name, say *app/layout-legacy.erb*.
 1. Copy *app/layout.erb* file to the *app* directory of your application.
 1. Replace all instances of **'<%%'** symbol combination in the new *app/layout.erb* to the **'<%'** combination.
+1. Replace "<%= class_name %>" inside the title tag in the header for the name of your app, ex "My App"
 1. Use your *app/layout-legacy.erb* as reference to implement needed customization and styling in the *app/layout.erb* file.
 1. Change the HTML structure of all application pages so they will meet jQuery Mobile requirements (see below).
 
