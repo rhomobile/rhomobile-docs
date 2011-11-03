@@ -4,7 +4,6 @@ Heroku Addon
 RhoConnect is now available for those using <a href='http://heroku.com' target='_blank'>Heroku</a> as an addon.  
 
 
-
 Adding RhoConnect from Heroku
 -----------------------
 To use RhoConnect from Heroku, install the RhoConnect add-on:
@@ -12,14 +11,14 @@ To use RhoConnect from Heroku, install the RhoConnect add-on:
 	:::term
 	$ heroku addons:add rhoconnect
 	
-###Setup
+##Setup
 
 From inside your heroku account, setup the url to your backend service that RhoConnect will connect to.
 
 First, click the addons drop down and select rhoconnect.
 <p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/addon_rhoconnect.png' width="479" height="319"/></p>
 
-You will be redirected to the admin console of your RhoConnect instance where you can set the backend app url.  Select Backend App Url from the right menu.
+You will be redirected to the admin console of your RhoConnect instance where you can set the backend app url.  Select Backend App URL from the right menu.
 <p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/console.png' width="800" height="280"/></p>
 
 
@@ -31,24 +30,26 @@ Connecting a simple rhodes app
 -------------------------------
 To view a full tutorial about creating a rhodes application and the features of rhodes see [Rhodes framework](http://docs.rhomobile.com/rhodes/tutorial).
 
-###Gem installation:
+##Gem installation:
 
-	:::ruby
-	[sudo] gem install rhodes
+	:::term
+	$ [sudo] gem install rhodes
 
 Next using the rhodes gem you can create a rhodes app.   
 
-	:::ruby
-    rhodes app sample_app url_of_rhoconnect_instance
+	:::term
+    $ rhodes app sample_app url_of_rhoconnect_instance
 	
 To get the value for the url_of_rhoconnect_instance argument, go to the RhoConnect console and click on the right Backend App URL link.  From there you can copy the syncserver url.
 
 <p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/console.png' width="800" height="280"/></p>  
  
 
-----
-[RhoConnect Introduction](http://docs.rhomobile.com/rhosync/introduction)
+##Other Resources
+[RhoConnect Introduction](http://docs.rhomobile.com/rhoconnect/introduction)
 
-[RhoConnect Installation](http://docs.rhomobile.com/rhosync/install)
+[RhoConnect Installation](http://docs.rhomobile.com/rhoconnect/install)
 
-[RhoConnect Tutorial](http://docs.rhomobile.com/rhosync/tutorial)
+[RhoConnect Tutorial](http://docs.rhomobile.com/rhoconnect/tutorial)
+
+[Using RhoConnect from Rails/Sinatra](http://docs.rhomobile.com/rhoconnect/rails-plugin)

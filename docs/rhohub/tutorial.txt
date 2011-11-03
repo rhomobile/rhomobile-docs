@@ -275,7 +275,7 @@ You can view more information about RhoHub's deploy feature by clicking on the "
 
 Click the "Collaborators" button for your project to add/edit the project's team.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-collaborators.png"
+<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-collaborators.png">
 
 There are two types of collaborators in RhoHub:
 

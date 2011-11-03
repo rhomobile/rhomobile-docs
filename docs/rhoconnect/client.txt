@@ -121,6 +121,9 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	//find all objects by set of properties
 	- (NSMutableArray *) find_all: (NSDictionary *)cond;
 
+    //run sql query - result is array of hashes (string)
+    - (NSMutableArray *) find_bysql: (NSString*)sql args: (NSArray*) sql_args;
+
 	//save object represents by data to database
 	- (void) save: (NSDictionary *)data;
 
@@ -237,6 +240,13 @@ To create schema model tables edit database schema file:
     [sclient setObjectNotification:@selector(objectNotifyCallback:) target:self];        
 	
     [sclient addObjectNotify: [[item objectForKey:@"source_id"] intValue] szObject:[item valueForKey:@"object"] ];
+
+#### Run SQL query on Schema model
+
+	:::cplusplus
+    NSArray* params = [NSArray arrayWithObjects: @"Apple", nil];
+	NSMutableArray* items2 = [product find_bysql:@"SELECT * FROM Product_s WHERE name=?" args: params];	
+	//items2 is an Array of NSDictionary* (NSString* to NSString*)
 
 ## Android Java Client
 

@@ -2,7 +2,6 @@ section 'getting-started', "Getting Started" do
   topic 'home',                 'Home'
   topic 'rhodes/tutorial',      'Rhodes Tutorial'
   topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
-  topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'tutorials',            'How To'
@@ -37,7 +36,7 @@ section 'rhoconnect-reference', "RhoConnect Developer Reference" do
   topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
   topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
   topic 'rhoconnect/source-adapters',   'Source Adapters'
-  topic 'rhoconnect/settings',          'Rhoconnect Settings'
+  topic 'rhoconnect/settings',          'RhoConnect Settings'
   topic 'rhoconnect/testing',           'Testing and Debugging'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
@@ -47,10 +46,11 @@ section 'rhoconnect-reference', "RhoConnect Developer Reference" do
   topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
-  topic 'rhoconnect/rest-api',          'RhoSync REST API'
+  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
   topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
+  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C API'
   topic 'rhoconnect/benchmarks',        'Benchmarks'
   topic 'rhoconnect/contributing',      'Contributing'
 end
@@ -79,6 +79,7 @@ section 'rhoconnect-adapters-reference', "RhoConnect Adapters" do
 end
 
 section 'rhosync-reference', "RhoSync Developer Reference" do
+  topic 'rhosync/tutorial',     'RhoSync Tutorial'
   topic 'rhosync/introduction',      'Introduction'
   topic 'rhosync/install',           'Installation'
   topic 'rhosync/command-line',      'App Generator and Rake Tasks'

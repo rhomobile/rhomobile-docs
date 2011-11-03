@@ -72,11 +72,88 @@ The [RhoHub](/rhohub/introduction) service offers several [production RhoConnect
 ## Deploying On-Premise
 The [sinatra book](http://sinatra-book.gittr.com/) has some great [deployment documentation](http://sinatra-book.gittr.com/#deployment) that you should review before running your RhoConnect application in production.
 
+We recommend using the [phusion passenger](http://modrails.com/index.html) stack for deploying an on-premise RhoConnect application.  Please refer to the [section on rack applications](http://modrails.com/documentation/Users%20guide%20Apache.html#_deploying_a_rack_based_ruby_application) for information on deploying a RhoConnect sinatra application.
+
+## Deploying packaged RhoConnect software on Linux servers
+
+You can create RhoConnect production environment on Linux servers by installing software packages
+for Ubuntu and CentOS respectively. At this moment supported formats are Debian (deb) and Red Hat (rpm) packages.
+
+Every package provides the following components:
+
+* Ruby 1.8.7, Ruby Enterprise Edition 2011.03
+ 
+* Nginx HTTP server
+
+* Phusion Passenger
+
+* Redis data store
+
+* RhoConnect gem with all required dependencies 
+ 
+In addition, RPM package provides latest Sqlite3 headers and binaries, because standard Cent OS (5.x) libraries for Sqlite3 outdated.
+
+### Getting the Packages
+
+To download the RhoConnect debian package, you first must add our repo to your list of sources.
+
+#### Steps for Debian-Based Linux Users
+Add the following line to the end of your <b>/etc/apt/sources.list</b>:
+
+	:::text
+	deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
+
+Once the repo is added apt-get needs to be updated:
+
+	:::term
+	$ sudo apt-get update
+
+Once that is done, it is time to install RhoConnect:
+
+	:::term
+	$ sudo apt-get install rhoconnect
+
+#### Steps for RedHat-Based Linux Users
+Create a file named <b>rhoconnect.repo</b> in the <b>/etc/yum.repos.d/</b> directory:
+
+	:::term
+	$ sudo vim /etc/yum.repos.d/rhoconnect.repo
+
+Copy and paste these contents into the file.
+
+	:::text
+	[rhoconnect]
+	name=Rhoconnect
+	baseurl=http://rhoconnect.s3.amazonaws.com/packages/rpm
+	enabled=1
+	gpgcheck=0
+
+
+Once that is done, it is time to install RhoConnect:
+
+	:::term
+	$ sudo yum install rhoconnect
+
+### Final Steps (After the installer is finished)
+Installer also created and configured RhoConnect <b>rhoapp</b> application in <b>/opt/nginx/html</b> directory.
+To test it you need to as a root user start redis and nginx servers:
+
+	:::term
+	$ sudo /etc/init.d/redis start
+	$ sudo /etc/init.d/nginx start
+
+And verify that it's up and running by visiting application web console in your browser:
+
+	http://server_ip_address/console/
+
 ## Deploying into J2EE environment
-In JRuby environment, there is an option to create the WAR container for the Rhoconnect app
+In JRuby environment, there is an option to create the WAR container for the RhoConnect app
 and deploy it into the J2EE App Server.
 (see the corresponding 'rake' task for creating the WAR containers).
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
+ 
 
-We recommend using the [phusion passenger](http://modrails.com/index.html) stack for deploying an on-premise RhoConnect application.  Please refer to the [section on rack applications](http://modrails.com/documentation/Users%20guide%20Apache.html#_deploying_a_rack_based_ruby_application) for information on deploying a RhoConnect sinatra application.
+
+
+ 

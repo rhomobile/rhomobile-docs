@@ -40,7 +40,7 @@ The following example stores the `:filename` argument as another object attribut
 The following example takes the blob and stores it in S3:
 
 	:::ruby
-	def create(create_hash,blob)
+	def create(create_hash)
 	  # this would be a blob attribute, points to a tempfile 
 	  # containing the raw post data
 	  name = create_hash["image_uri"] 
@@ -72,11 +72,18 @@ In your query call, you should store the URL to images in the blob attribute so 
 	    @result[entry.key] = new_item
 	  end
 	  @result
-	end
+	end              
 
 Here we save the image URL to an attribute `image_uri-rhoblob`.  This will correspond to the `image_uri` attribute in our Rhom model above.
 
 **NOTE: In order for Rhodes to automatically recognize a blob attribute, the attribute name must end with "-rhoblob".  In the above example, `image_uri` was our Rhom attribute, so our source adapter assigned `image_uri-rhoblob` with the blob URL.**
+
+### Blob file name and extension on client
+File name is generated on client when downloading. File extension is determine by:
+
+* To specify blob file extension add extension parameter to the blob URL. For example: '&extension=jpg'
+* If no extension parameter the blob URL then extension is extracted from blob URL itself(looking for '.' from the end of the URL)
+* If still no file extension found, then '.bin' is used
 
 A complete image source adapter that stores files in S3 might look like:
 

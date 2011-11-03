@@ -115,6 +115,10 @@ Set application icon badge (number) - only for iPhone. set badge to 0 (zero) for
 	:::ruby
 	System.set_application_icon_badge(badge_number)
 
+Switch locale at runtime:
+	:::ruby
+    System::set_locale('es') #set current locale to Spanish
+
 ### Sample
 See layout.erb of [System API Sample application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/layout.erb)  for some of the examples of how to use System class. There is also [system test](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/SystemTest/controller.rb) which demonstrate System class usage.
 
@@ -273,9 +277,33 @@ To allow read/modify personal information and contacts enable the pim capability
 
 The following methods are available in the RhoContact class:
 
-Return hash of hashes of all contacts stored in the phonebook (index):
+Return hash of hashes of contacts stored in the phonebook (index):
 	:::ruby
 	Rho::RhoContact.find(:all)
+
+On some platforms an extended Rho::RhoContact.find routine is implemented
+	:::ruby
+	Rho::RhoContact.find(:all, params)
+	Rho::RhoContact.find(:first, params)
+	Rho::RhoContact.find(:count, params)
+
+Currently the extended functionality is available at Android and iOS
+
+* :all - get all contacts as usual 
+* :first - find first contact from list
+* :count - returns count of contacts
+
+For these selectors an additional params hash may be used. The next keys and values are recognized in additional params:
+
+* :per_page - max count if contacts returned by find
+* :offset - offset from begin of contacts' list
+These two parameters are used to paginate contacts list. If used with :count exact number of returned contacts can be determined (for example for last page).
+
+The next parameters are available at Android only:
+* :select - list of contact properties have to be selected from phonebook (Use it to enchance query performance)
+* :conditions - hash of conditions to query contacts. Look for more details below.
+
+**NOTE: It is allowed to pass additional params hash at all platforms. Platforms that has no extended functionality will just skip these**
 
 Return hash of all properties of the contact identified by the provided id (show):
 	:::ruby
@@ -294,6 +322,8 @@ Remove contact identified by the provided id from the phonebook. (delete)
 	Rho::RhoContact.destroy(@params['id'])
 
 On all devices, properties currently supported are: "id","first_name","last_name","mobile_number","home_number","business_number","email_address","company_name"
+
+### iPhone
 
 On iPhone, additional contact properties are supported. 
 
@@ -321,6 +351,58 @@ Phone numbers:
 
 Home pages: 
 "home_page"
+
+### Android
+
+**NOTE: In most cases the result of RhoContact::find query may return more contact properties then defined in :select**
+
+On Android the next contact properties are supported (every of them may be used in :select list):
+
+General:
+"id", "display_name", "first_name", "last_name"
+The "display_name" is always filled by Android even if "first_name" and "last_name" are both empty. In this case email or phone number may be used.
+
+Phone numbers:
+"mobile_number", "home_number", "business_number"
+
+E-mails:
+"email_address"
+
+Company:
+"company_name"
+
+#### Conditions
+
+:conditions parameter is a hash of conditions. Keys of the hash are contact property selectors (condition to be applied to) and values are conditions itself.
+The next property selectors are defined:
+- :phone
+- :email
+A property selector has no one-to-one relation to a single contact property like mobile_phone or email_address. Selectors are mapped to whole property group like all phones or all emails (support for several emails may be implemented in future).
+Condition like
+	:::ruby
+	{:phone => 'not_nil'}
+will select all contacts which has at least one phone.
+The next conditions are currently suported:
+- 'not_nil'
+- 'is_nil'
+
+**NOTE: It may be useful to sort received contacts (espessially if paginated). Contacts is ordered by 'display_name' column and then splitted for pages. Unfortunately the order inside page is lost while passing the list to ruby**
+
+	:::ruby
+	@count = Rho::RhoContact.find(:count, :conditions => {:phone => 'not_nil'})
+	if @params['offset']
+		@offset = @params['offset'].to_i
+	else
+		@offset = 0;
+	end
+	@contacts = Rho::RhoContact.find(:all, :per_page => 10, :offset => @offset, :select => ["id", "display_name", "mobile_number"], :conditions => {:phone => 'not_nil'})    
+	@contacts = {} unless @contacts
+	@contacts = @contacts.sort do |x,y| 
+		res = 1 if x[1]['display_name'].nil? 
+		res = -1 if y[1]['display_name'].nil?
+		res = x[1]['display_name'] <=> y[1]['display_name'] unless res
+		res
+	end
 
 ### Sample
 For examples on how to use the API provided by this class, see the view and controller in the /app/Contacts folder in the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Contacts/controller.rb).
@@ -470,11 +552,16 @@ For barcode recognition we use Zbar library (iPhone, and Windows Mobile platform
 * iPhone platform: UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 128, QR Code .
 * Android and BlackBerry platforms: UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 128, Code 93, QR Code, ITF, Codabar
 
-**NOTE: We are very sorry, but we are removed ZBar source code from our project by ZBar license requirements. For build Barcode extension for WM, you should download ZBar sources from http://zbar.sourceforge.net/ and copy to [rhodes root]/lib/extensions/barcode/ext/barcode/shared/zbar/zbar/ folder "include" and "zbar" folders from ZBar sources. Also you should fix ZBar sources for building by Microsoft Visual Studio (move define of inner function variables to begin of functions, etc.)
+**NOTE: We are very sorry, but we are removed ZBar source code from our project by ZBar license requirements. For build Barcode extension for WM, you should download ZBar sources from http://zbar.sourceforge.net/ and copy to [rhodes root]/lib/extensions/barcode/ext/barcode/shared/zbar/zbar/ folder "include" and "zbar" folders from ZBar sources. Also you should fix ZBar sources for building by Microsoft Visual Studio (move define of inner function variables to begin of functions, etc.). See detailed instructon in [Rhodes root]/lib/extensions/barcode/ext/barcode/shared/zbar/zbar/README.TXT
 
-On Android now supported real-time barcode recognizing:
+On Android and iOS now supported real-time barcode recognizing (second parameter is hash with options):
 	:::ruby
-	Barcode.take_barcode(url_for :action => :take_callback)
+	Barcode.take_barcode(url_for(:action => :take_callback), {})
+
+On Android also you can use front camera for take_barcode :
+	:::ruby
+	Barcode.take_barcode(url_for(:action => :take_callback), {:camera => 'front'})
+
 This code open special UI for real-time barcode recognizing from camera. If any barcode found recognizing stopped and user can select - confirm recognizing barcode or continue recognizig. If user confirmed or cancelled the callback will be called.
 In callback:
 * "status" - "ok" or "cancel"
@@ -1201,13 +1288,16 @@ Preload map tiles for region (0<=zoom<=18):
 	  end
 	
 	  def preload_map
-	      min_zoom = 3
-	      max_zoom = 13
-	      top_latitude = 60.1
-	      left_longitude = 30.0
-	      bottom_latitude = 59.7
-	      right_longitude = 30.6
-	      total_tiles_for_preload_count = MapView.preload_map_tiles('OSM', 'roadmap', top_latitude, left_longitude, bottom_latitude, right_longitude, min_zoom, max_zoom, url_for(:action => :preload_callback))    
+	      options = { :engine => 'OSM',
+	          :map_type => 'roadmap',
+	          :top_latitude => 60.1,
+	          :left_longitude => 30.0,
+	          :bottom_latitude => 59.7,
+	          :right_longitude => 30.6,
+	          :min_zoom => 9,
+	          :max_zoom => 11
+	        }
+	      total_tiles_for_preload_count = MapView.preload_map_tiles(options, url_for(:action => :preload_callback))    
 	      redirect :action => :index
 	  end
 

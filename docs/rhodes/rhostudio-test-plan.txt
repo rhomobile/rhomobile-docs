@@ -1,0 +1,440 @@
+# RhoStudio Test Plan
+
+## On Testing In General
+
+RhoStudio is a multi-platform application and should act identically on all platforms (Windows and Mac OS X at present).
+The only process that differs from platform to platform is an installation. So the installation tests are
+described separately for each platform. All other tests should be performed on all platforms and yield the identical results.
+
+Any deviation from the described behaviour is a possible bug and should be reported to the developers.
+
+## On Virtual Machines
+
+It is recommended to run all tests on virtual machines (e.g. using freeware [Oracle VirtualBox](http://www.virtualbox.org/)) on Windows XP, Windows 7, Mac OS 10.6 Snow Leopard, Mac OS 10.7 Lion.
+
+1. Create virtual (guest) machine for selected operating system. Use the default settings for each virtual machine except:
+   1. For Windows XP:
+      - General > Basic > Version = Windows XP
+      - Virtual HDD: 100 GB (dynamically allocated)
+      - System > Motherboard > Base Memory = 1024 MB
+      - Display > Video > Enable 3D Acceleration = check
+      - Display > Video > Enable 2D Video Acceleration = check
+      - Display > Video > Video Memory = 128 MB
+   2. For Windows 7:
+      - General > Basic > Version = Windows 7
+      - Virtual HDD: 100 GB (dynamically allocated)
+      - System > Motherboard > Base Memory = 2048 MB
+      - Display > Video > Enable 3D Acceleration = check
+      - Display > Video > Enable 2D Video Acceleration = check
+      - Display > Video > Video Memory = 256 MB
+   3. For Mac OS X:
+      - General > Basic > Version = Mac OS X Server (64 bit)
+      - Virtual HDD: 100 GB (dynamically allocated)
+      - System > Motherboard > Base Memory = 2048 MB
+      - Display > Video > Enable 3D Acceleration = check
+      - Display > Video > Enable 2D Video Acceleration = uncheck
+      - Display > Video > Video Memory = 128 MB
+
+      NOTE: Mac OS X <b>Server</b> license <b>only</b> allows an installation on virtual machines, and that virtual machine must run on Apple hardware.
+      This means that it's illegal to install regular Mac OS X to virtual machine even on Apple hardware.
+      And of course it's completely illegal to install Mac OS X or Mac OS X Server to any non-Apple hardware
+      (to virtual machine or as a primary operating system).
+
+   NOTE: Pay attention to `System > Processor > Processors` property -- if you plan to connect USB devices directly to virtual machine, set the number of processors strictly to 1
+   (this is a workaround for the bug in VirtualBox). Also for USB pass-thru you need to install [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) and,
+   if VirtualBox is installed on Linux host, then you need to add all users runnung virtual machines to `vboxusers` group.
+
+2. Install desired operating system to virtual machine using original installation media (CD or DVD) and product license key
+   (see VirtualBox help and documentation for details on guest operating systems installation).
+
+3. Install all updates, service packs and official patches for installed OS.
+
+4. Install all latest avaiable SDKs for supported mobile platforms:
+
+   1. Install latest Android SDK and NDK. Do not forget to run Android SDK Manager to download and install all latest tools, platforms and APIs.
+      Don't use path with spaces, install SDK and NDK to something like `C:\Anrdoid\android-sdk` and `C:\Anrdoid\android-ndk` on Windows
+      and to something like `/Developer/SDKs/android-sdk` and `/Developer/SDKs/android-ndk` on Mac.
+   2. On Windows: install Visual Studio 2008 and Windows Mobile 6 Professional SDK Refresh
+      (don't forget to run Microsoft Update after Visual Studio installation to apply all latest updates, service packs and fixes).
+
+      NOTE: On Windows 7 you should install Windows Mobile Device Center (WMDC) in order to be able to connect to Windows Mobile devices and emulators.
+      On Windows XP ActiveSync will be installed automatically.
+
+      NOTE: To be able to connect to Windows Mobile emulators go to 'Connection settings' of WMDC/ActiveSync,
+      check 'Allow connections to one of the following' and select 'DMA'.
+
+      NOTE: Make sure `C:\Program Files\Microsoft Visual Studio 9.0\VC\vcpackages` is added to the system-wide PATH environment variable.
+
+5. Shutdown virtual machine and create a snapshot.
+
+6. Before testing of each new version of RhoStudio restore the virtual machine state from this snapshot.
+
+7. After release of the update, service pack or official patch for the operating system and/or mobile platforms SDKs:
+   - restore the virtual machine state from latest snapshot;
+   - install the updates, service packs and/or patches;
+   - shutdown virtual machine and create new snapshot;
+   - delete old (previous) snapshot.
+
+Thus you will always have an up-to-date clean fresh installation of each operating system with all required SDKs for testing purposes.
+
+NOTE: Never create a snapshot of crashed or abnormally exited virtual machine! Always restore previous good state
+from latest snapshot, install neccesary updates/service-packs/patches, create new snapshot, and delete previous snapshot.
+
+NOTE: Deletion of previous snapshots lets you save a lot of free disk space on a physical (host) machine especially for Windows virtual machines (guests).
+
+## Testing Windows installation
+
+Take just installed Windows XP or Windows 7 with all latest Microsoft Service Packs and hotfixes applied, Android SDK, Android NDK, Visual Studio 2008, and Windows Mobile 6 Professional SDK Refresh installed.
+
+### Installation failure test on Windows without JRE
+
+1. Download and run RhoStudioInstallerX.Y.Z.exe
+2. Go through the installation wizard until message appears: "Java Runtime Environment could not be found on your computer.
+   Please install Java Runtime Environment before RhoStudio" (if this message does not appear and install starts,
+   then it's a bug).
+
+### Installation success test on Windows with JRE
+
+1. Install the latest JDK (Java Development Kit). Make sure that full path to `bin` folder of JDK is added to system-wide PATH environment variable.
+   NOTE: Java Runtime Environment (JRE) installation would be enough at this stage, but RhoStudio needs JDK to build applications for Android,
+   so it's logical to install the full JDK here.
+
+2. Run RhoStudioInstallerX.Y.Z.exe again.
+3. Go through the installation wizard, leave all settings at their defaults.
+4. Installation must start then. It takes some time.
+5. On the last installation step the Git installer should appear. Install Git leaving all default settings.
+   When it's done, click `Finish` button. If you didn't unselect <b>View ReleaseNotes.rtf</b>, then the Release Notes window will appear -- just close it.
+6. On the last screen of RhoStudio installation wizard click `Finish`. If you didn't unselect <b>View Readme</b>, then `README.html` will be opened in the separate default browser window.
+7. Check that `RhoStudio` group appears on `Start Menu` and contains `RhoStudio` and `Uninstall RhoStudio` shortcuts.
+8. Open RhoStudio by clicking `RhoStudio` shortcut in the `RhoStudio` group on the `Start Menu`.
+   NOTE: On Windows the security dialog may appear asking you to 'Keep blocking' or to 'Unblock' RhoStudio --
+   agree to unblock it.
+
+## Testing Mac OS X installation
+
+Take a fresh clean installation of Mac OS X with all available Software Updates (excluding Java), latest Android SDK and Android NDK installed.
+
+### RhoStudioInstaller appearance test
+
+1. Download and open RhoStudioInstallerX.Y.Z.dmg
+2. You will see `RhoStudio -> Applications` in the first row (top part of the window), and `README.html`, 'Install gems', 'Install gems on rvm', and 'samples' below (on the next rows).
+
+### Installation failure test on Mac OS X without Xcode
+
+1. Open 'Install gems' shorcut. The Terminal window will appear.
+2. If asked for a password, enter the password.
+3. The message will appear: "Please install building tools"
+
+### Installation failure test on Mac OS X without Java
+
+1. Install latest available Xcode with iOS SDK.
+2. Open 'Install gems' shorcut again.
+3. If asked for a password, enter the password.
+4. The message will appear: "Please install java development kit"
+
+### Installation success test on Mac OS X with Xcode
+
+1. Open Terminal application and type:
+
+       :::term
+       $ java
+
+   The window will appear asking you about installation of Java -- agree and proceed JDK installation.
+
+2. Open 'Install gems' shorcut again.
+
+3. If asked for password, enter your password.
+
+4. When `[Process completed]` appears, close this window and open new Terminal window.
+
+5. Type:
+
+       :::term
+       $ gem list
+
+   Make sure the following gems are on the list:
+   - activesupport
+   - bundler
+   - diff-lcs
+   - extlib
+   - highline
+   - i18n
+   - json
+   - macaddr
+   - mime-types
+   - multi_json
+   - nokogiri
+   - rack
+   - rack-protection
+   - rake
+   - redis
+   - redis-namespace
+   - resque
+   - rest-client
+   - rhoconnect
+   - rhoconnect-adapters
+   - rhodes
+   - rhomobile-debug
+   - rubyzip
+   - sinatra
+   - systemu
+   - templater
+   - tilt
+   - uuid
+   - uuidtools
+   - vegas
+
+6. Drag `RhoStudio` icon to `Applications` icon. The 'Copy' progress window will appear. It will copy approximately 300 MB and 2,000 files.
+
+7. Drag 'samples' folder to the desktop -- it will be used in the further tests.
+
+8. To launch RhoStudio open Finder window, go to Applications, open `RhoStudio` folder and then open `RhoStudio` shortcut.
+
+## Testing RhoStudio
+
+When you open the RhoStudio it asks a path to create (or open existing) `workspace` folder -- leave this path at its default and click 'OK'
+(you may wish to check 'Use this as the default and do not ask again' to avoid unnecessary stop during RhoStudio launch in the future).
+
+### RhoStudio update site check
+
+1. Go to `Help > Install New Software`.
+2. Open 'Work with' drop-down selection list.
+3. Select 'RhoStudio update site'.
+4. Expand 'Rhomobile' node.
+5. 'RhoStudio' should be grayed out -- that means the latest version is already installed.
+6. To double-check this write down the version number of RhoStudio available from the update site (that is displayed in this list).
+7. Click 'What is <u>alreay installed</u>?' link.
+8. Switch to 'Plug-ins' tab.
+9. Find plug-in named 'com.rhomobile.rhostudio' and write down its version number.
+10. The version numbers written down on step 6 and step 9 should be the same -- if not, the RhoStudio installer contains
+    incorrect version of RhoStudio plug-in (that's a problem that must be reported to developers and be fixed).
+
+### RhoStudio check for updates test
+
+1. Go to `Help > Check for Updates`.
+2. On process finish the message box should appear saying "No updates were found."
+
+### Rhomobile Preferences editing failure test
+
+1. Go to `Window > Preferences` (on Windows) or `RhoStudio > Preferences` (on Mac) in the top menu.
+2. Click on `Rhomobile` node, the message will appear: "Rhodes location is undefined. Please, open/create at least one Rhodes Application project".
+
+### Rhodes Application project creation test
+
+1. Go to `File > New > Project` in the top menu.
+2. Expand `Rhomobile` node, select `Rhodes application` and click `Next`.
+3. Leave all settings at their defaults and click `Finish`. Wait until the wizard finishes application generation.
+4. Something similar to the following output should appear in the Console window:
+       Generating with app generator:
+       [ADDED]   RhodesApplication1/rhoconfig.txt
+       [ADDED]   RhodesApplication1/build.yml
+       [ADDED]   RhodesApplication1/.gitignore
+       [ADDED]   RhodesApplication1/app/application.rb
+       [ADDED]   RhodesApplication1/app/index.erb
+       [ADDED]   RhodesApplication1/app/index.bb.erb
+       [ADDED]   RhodesApplication1/app/layout.erb
+       [ADDED]   RhodesApplication1/app/loading.html
+       [ADDED]   RhodesApplication1/Rakefile
+       [ADDED]   RhodesApplication1/app/helpers
+       [ADDED]   RhodesApplication1/icon
+       [ADDED]   RhodesApplication1/app/Settings
+       [ADDED]   RhodesApplication1/public
+       [ADDED]   RhodesApplication1/app/loading.png
+5. Check that project `RhodesApplication1` appeared at `Project Explorer` window.
+
+### Rhomobile Preferences editing success test
+
+1. Go to `Window > Preferences` (on Windows) or `RhoStudio > Preferences` (on Mac) in the top menu.
+2. Click on `Rhomobile` node, 'Rhodes rhobuild.yml preferences' page containing 'Java path' textbox should appear.
+3. Enter the correct path to `bin` folder of the installed JDK (typically `/Library/Java/Home/bin` on Mac,
+   and the `bin` folder of JDK installed during installation tests on Windows, e.g. `C:\Program Files\Java\jdk1.7.0\bin`).
+4. Expand `Rhomobile` node and enter correct paths to 'Android SDK' and 'Android NDK' on `Android` tab,
+   e.g. `C:\Anrdoid\android-sdk` and `C:\Anrdoid\android-ndk` on Windows
+   and `/Developer/SDKs/android-sdk` and `/Developer/SDKs/android-ndk` on Mac.
+5. On Windows go to `Windows Mobile` tab and set a correct path to 'Cab wizard'.
+6. Click `OK` to finish editing and apply changes.
+7. Open `rhobuild.yml` (from the Rhodes gem home folder) in any text editor/viewer and make sure
+   it contains the correct paths you just entered, e.g. on Windows:
+       env:
+         paths:
+           java: C:/Program Files/Java/jdk1.7.0/bin
+           android: C:/Android/android-sdk
+           android-ndk: C:/Android/android-ndk
+           cabwiz: C:/Program Files/Windows Mobile 6 SDK/Tools/CabWiz
+   On Mac, e.g.:
+       env:
+         paths:
+           java: /Library/Java/Home/bin
+           android: /Developer/SDKs/android-sdk
+           android-ndk: /Developer/SDKs/android-ndk
+
+
+   NOTE: `rhobuild.yml` is located at the Rhodes gem home folder.
+   Typically its full path is `/Library/Ruby/Gems/1.8/gems/rhodes-x.y.z/rhobuild.yml` on Mac and
+   `C:\RhoStudio\ruby\lib\ruby\gems\1.8\gems\rhodes-x.y.z\rhobuild.yml` on Windows.
+
+### Rhodes Application import test
+
+1. Go to `File > New > Project` in the top menu.
+2. Expand `Rhomobile` node, select `Rhodes application` and click `Next`.
+3. Check 'Create application from existing sources'.
+4. To select 'Application folder' click 'Browse...' and open:
+   - on Windows: `C:\RhoStudio\samples\rhodes-system-api-samples`
+   - on Mac: `Desktop > samples > rhodes-system-api-samples`
+5. Click `Finish`. Wait until the wizard finishes application import.
+6. Check that project `rhodes-system-api-samples` appeared at `Project Explorer` window.
+
+## Testing RhoStudio Debugger
+
+### Debugging new application
+
+1. Go to `Run > Debug Configurations` in the top menu.
+2. Pop-up context menu on `Rhodes Application` node and choose `New`.
+3. Select `RhodesApplication1` using `Browse` button of 'Project name' textbox.
+4. Select any 'Platform' and version (e.g. 'Android', '3.0').
+5. Click `Debug` button.
+6. RhoSimulator running new empty application should appear. There should be 'RhodesApplication1' title, 'Login' button, and 'Add link here...' text below
+   in main RhoSimulator window. A separate Web Inspector window should be on the right of the main Rhosimulator window.
+   NOTE: On Windows the security dialog may appear asking you to 'Keep blocking' or to 'Unblock' RhoSimulator --
+   it must be unblocked in order all further tests to work.
+
+7. Switch back to RhoStudio. There must be 'Debug' perspective opened by RhoStudio automatically.
+8. Make sure that Console window shows rhodes application log. The last lines at this point should look somewhat like this:
+       I 10/31/2011 20:37:13:295 00000b3c   MainWindow| addToolbarButton: Label: '';Action: 'back'
+       I 10/31/2011 20:37:13:295 00000b3c   MainWindow| addToolbarButton: Label: '';Action: 'separator'
+       I 10/31/2011 20:37:13:295 00000b3c   MainWindow| addToolbarButton: Label: '';Action: 'home'
+       I 10/31/2011 20:37:13:295 00000b3c   MainWindow| addToolbarButton: Label: '';Action: 'refresh'
+       I 10/31/2011 20:37:13:295 00000b3c   MainWindow| addToolbarButton: Label: '';Action: 'options'
+       I 10/31/2011 20:37:13:341 00000b3c   MainWindow| WebView: URL changed
+       I 10/31/2011 20:37:13:607 00000734   HttpServer| Process URI: '/public/jquery/jquery-1.6.4.min.js'
+       I 10/31/2011 20:37:13:607 00000734   HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0rc1.min.css'
+       I 10/31/2011 20:37:13:607 00000734   HttpServer| Process URI: '/public/css/jqmobile-patch.css'
+       I 10/31/2011 20:37:13:623 00000734   HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0rc1.min.js'
+       I 10/31/2011 20:37:13:638 00000734   HttpServer| Process URI: '/public/js/jqmobile-patch.js'
+       I 10/31/2011 20:37:13:638 00000734   HttpServer| Process URI: '/public/css/android.css'
+       I 10/31/2011 20:37:13:966 00000734   HttpServer| Process URI: '/public/jqmobile/images/icons-18-white.png'
+       I 10/31/2011 20:37:13:982 00000b3c   MainWindow| WebView: loaded
+9. Switch to 'RhoStudio' perspective.
+10. Open file `RhodesApplication1\app\Settings\controller.rb` -- its Ruby code must be syntax-highlighted appropriately.
+11. Go to line 10 and toggle breakpoint.
+12. Switch to RhoSimulator window and choose `Main > Options` in the top menu.
+13. Switch to RhoStudio and choose 'Debug' perspective.
+14. The execution must be stopped at the breakpoint in `controller.rb` line 10.
+15. Look at the Variables window -- there must be a complete list of Ruby variables with current values in the following order:
+    - instance variables (name starts with '@')
+    - global variables (name starts with '$')
+    - local variables (name starts with latin letter) -- at this breakpoint there must be no local variables
+    - class variables (name starts with '@@') -- at this breakpoint there must be no class variables
+
+    Notice that there is no `@msg` variable on the list.
+16. Choose `Run > Step Over` in the top menu.
+17. The execution must stop at line 11 of `controller.rb`.
+18. Notice that `@msg` variable appeared on the list of variables with 'nil' value.
+19. Close RhoSimulator main window.
+20. The status of the `RhodesApplication1` in the Debug window of RhoStudio must be `<terminated>` now.
+    NOTE: On Mac OS X this will not happen -- it's a known issue. Choose `Run > Terminate` from the top menu to stop the debug session.
+
+21. Switch to `RhoStudio` perspective.
+22. Close `RhodesApplication1` project (select it in Project Explorer window and choose `Project > Close` in the top menu).
+
+### Debugging imported application
+
+1. Go to `Run > Debug Configurations` in the top menu.
+2. Select previously created configuration under the `Rhodes Application` node
+   (most likely it's named `New_configuration` if you didn't change the name) and
+   choose `rhodes-system-api-samples` as 'Project name' using `Browse` button.
+3. Click `Debug` button.
+4. RhoSimulator running `rhodes-system-api-samples` application will appear.
+5. Switch back to RhoStudio. There must be 'Debug' perspective opened by RhoStudio automatically.
+6. Make sure that Console window shows rhodes application log (see p.8 of [previous test](#testing-rhostudio-debugger)).
+7. Open file `rhodes-system-api-samples\app\JsonTest\controller.rb` -- its Ruby code must be syntax-highlighted appropriately.
+8. Go to line 14 and toggle breakpoint.
+9. Switch to RhoSimulator window, click on `Json test` link at the bottom of the page, and on the next page click `Parse test.json`.
+10. Switch to RhoStudio and choose 'Debug' perspective.
+11. The execution must be stopped at the breakpoint in `controller.rb` line 14.
+12. Look at the Variables window -- there must be a complete list of Ruby variables with current values in the following order:
+    - instance variables (name starts with '@')
+    - global variables (name starts with '$')
+    - local variables (name starts with latin letter) -- at this breakpoint there must be 4 local variables having 'nil' values:
+      - file_name
+      - content
+      - parsed
+      - gen
+    - class variables (name starts with '@@') -- at this breakpoint there must be no class variables
+13. Choose `Run > Step Into` in the top menu.
+17. The execution must stop at line 15 of `controller.rb`.
+18. Notice that the `file_name` variable has a non-nil value, e.g. `C:/RhoStudio/samples/rhodes-system-api-samples/app/JsonTest/test.json` on Windows.
+19. Toggle breakpoint on line 24 and choose `Run > Resume` in the top menu.
+20. The execution must stop at line 24 of `controller.rb`.
+21. Take a look at Variables window and make sure that all four local variables (`file_name`, `content`, `parsed`, `gen`) have non-nil values.
+22. Choose `Run > Terminate` in the top menu.
+23. RhoSimulator and Web Inspector windows must close automatically and the status of the
+    `rhodes-system-api-samples` application in the Debug window of RhoStudio must be
+    `<terminated>` now.
+24. Switch to 'RhoStudio' perspective and close the RhoStudio. 'Confirm Exit' dialog will appear --
+    you may check 'Always exit without prompt' and click 'OK'.
+
+## Testing RhoStudio with device emulators
+
+This test must be repeated for each device emulator and each major version available on the testing platform, i.e. at this time:
+
+- on Windows:
+  - Windows Mobile 6 Professional Emulator
+  - Android 2.3.3 and 3.2 Emulator
+    NOTE: <b>Temporary workaround:</b> To run Android tests successfully on Windows at present you need to patch `build.yml` file in `rhodes-system-api-samples` project.
+    In RhoStudio open `build.yml` file located in the root folder of `rhodes-system-api-samples` project,
+    switch to source code using `build.yml` tab at the bottom of the editor window, find the `android` section and
+    comment out `rainbow` extension like this:
+
+        android:
+          extensions:
+            - barcode
+            # - rainbow
+            - nfc
+
+- on Mac OS X:
+  - Android 2.3.3 and 3.2 Emulator
+  - iPhone 4.3 and 5.0 Simulator
+  NOTE: To change the version of iPhone simulator open `build.yml` located in the root folder of
+  `rhodes-system-api-samples` project, switch to source using `build.yml` tab at the bottom of the editor window,
+  find `iphone` section and change `sdk` to either `iphonesimulator4.3` or `iphonesimulator5.0` -- it should look like this:
+
+        iphone:
+          sdk: iphonesimulator5.0
+
+Now open RhoStudio as described in installation success tests and begin testing.
+
+1. Make sure the `rhodes-system-api-samples` project is opened.
+2. Go to `Run > Run Configurations` in the top menu.
+3. Select previously created configuration under the `Rhodes Application` node
+   (most likely it's named `New_configuration` if you didn't change the name).
+4. Make sure the 'Project name' is `rhodes-system-api-samples` (if not, choose it using `Browse` button).
+5. Choose the desired 'Platform' and version.
+6. Select `Simulator` as 'Simulator type'.
+7. Check 'Clean before build' checkbox.
+8. Click `Run` button.
+9. Console window should display `Rhomobile build console` with lengthy output of building process. It takes time.
+   Do not overload the machine (nor physical, nor virtual) with other resource-intensive tasks.
+10. The device emulator will be started as soon as the build succeed. Wait for the application to load into the emulator.
+11. The application will start on the emulator automatically and the Console window of the RhoStudio
+    should display rhodes application log right now.
+12. Play with the application to make sure it works (see [system-api-samples section](/rhodes/release#test-procedures)
+    of rhodes release test procedures to get an idea of what to check).
+13. Close emulator
+14. Close `rhodes-system-api-samples` project and open `RhodesApplication1` project.
+15. Go to `Run > Run Configurations` in the top menu and change 'Project name' to `RhodesApplication1` using `Browse` button.
+16. Repeat steps 8-11.
+17. Click on 'Login' button to get to login screen, click on settings icon to get to settings screen.
+    Make sure the application works and looks native on this mobile platform.
+18. Close `RhodesApplication1` project and open `rhodes-system-api-samples` project.
+
+## Testing RhoStudio with devices
+
+This test must be repeated for all different devices you have on hand.
+
+1. Reset the device and set it to factory defaults.
+2. Connect the device via USB to the host machine.
+3. In virtual (guest) machine menu check `Devices > USB Devices > ...connected device...`
+4. Do all the steps of [previous test](#testing-rhostudio-with-device-emulators) except step 6 where you should select `Device` as a 'Simulator type' (instead of `Simulator`).
+5. After you finish uncheck `Devices > USB Devices > ...connected device...` in virtual (guest) machine menu.
+6. Disconnect the device.
