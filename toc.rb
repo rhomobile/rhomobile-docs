@@ -66,6 +66,7 @@ section 'rhoconnect-plugin-reference', "RhoConnect Plugins" do
   topic 'rhoconnect/plugin-intro',      'Introduction'
   topic 'rhoconnect/rails-plugin',      'Rails Plugin'
   topic 'rhoconnect/net-plugin',        '.Net Plugin'
+  topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
 section 'rhoconnect-service-reference', "RhoConnect Services" do
