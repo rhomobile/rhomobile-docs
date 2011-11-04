@@ -337,6 +337,7 @@ Return content of a given document (client or source).
 
 ### `set_db_doc`
 Sets the content of the specified server document. Data should be either a string or hash of hashes. Data type should be set accordingly.
+If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
 
 	:::ruby
 	RestClient.post(
@@ -345,7 +346,8 @@ Sets the content of the specified server document. Data should be either a strin
 		:api_token => token, 
 		:doc => doc, 
 		:data => data, 
-		:data_type => data_type 
+		:data_type => data_type,
+		:append => false
 	  }.to_json, 
 	  :content_type => :json
     )
