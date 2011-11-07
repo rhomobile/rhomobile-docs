@@ -15,6 +15,7 @@ For testing and evaluation purposes you might want to use [RhoconnectJavaSample]
 
 Add dependencies to your Apache Maven 2 project object model (POM): apache common beanutils, and Jackson JSON mapper. In the RhoconnectJavaSample application, this code is in the pom.xml file.
 
+    :::xml
     <!-- apache commons beanutils -->  
     <dependency>  
         <groupId>commons-beanutils</groupId>  
@@ -34,6 +35,7 @@ Add dependencies to your Apache Maven 2 project object model (POM): apache commo
 
 Update your servlet xml configuration file to include rhoconnect-java metadata: the packages, converters, and beans. In the RhoconnectJavaSample, this code is in comments in the src/main/webapp/WEB-INF/spring-servlet.xml file.
 
+    :::xml
     <!-- rhoconnect-java plugin packages -->
     <context:component-scan base-package="com.rhomobile.rhoconnect.controller" /> 
 
@@ -127,6 +129,7 @@ You need to establish communication from the rhoconnect instance to your java ba
 
 For example, `RhoconnectJavaSample` application implementation is based on `contactService` API:
 
+    :::java
     /**
     * RhoconnectImpl.java 
     */
@@ -204,22 +207,22 @@ For example, `RhoconnectJavaSample` application implementation is based on `cont
 
 ### Establishing communication from java back-end application the rhoconnect server
 
-you also must to establish the communication from your java back-end application the rhoconnect instance by autowiring your data access (DAO) service layer with RhoconnectClient bean and inserting noftifications hooks there.
+You also must to establish the communication from your java back-end application the rhoconnect instance by autowiring your data access (DAO) service layer with RhoconnectClient bean and inserting notifications hooks there.
 
-     :::java
-     package com.rhomobile.rhoconnect;
+    :::java
+    package com.rhomobile.rhoconnect;
     
-     public class RhoconnectClient {
-         // ...
-         public boolean notifyOnCreate(String sourceName, String partition, Object objId, Object object);
-         public boolean notifyOnUpdate(String sourceName, String partition, Object objId, Object object);
-         public boolean notifyOnDelete(String sourceName, String partition, Object objId);
-         // ...
-     }
-
+    public class RhoconnectClient {
+        // ...
+        public boolean notifyOnCreate(String sourceName, String partition, Object objId, Object object);
+        public boolean notifyOnUpdate(String sourceName, String partition, Object objId, Object object);
+        public boolean notifyOnDelete(String sourceName, String partition, Object objId);
+        // ...
+    }
 
 For example, `RhoconnectJavaSample` application uses the following implementation:
 
+    :::java
     package com.rhomobile.contact.service;
     import java.util.List;
 
