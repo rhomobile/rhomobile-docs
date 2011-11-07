@@ -241,6 +241,50 @@ To create schema model tables edit database schema file:
 	
     [sclient addObjectNotify: [[item objectForKey:@"source_id"] intValue] szObject:[item valueForKey:@"object"] ];
 
+#### Processing unknown-client error
+Unknown client error return by server after resetting server database, removing particular client id from database or any other cases when server cannot find client id(sync server unique id of device).
+Note that login session may still exist on server, so in this case client does not have to login again, just create new client id.
+Processing of this error contain 2 steps:
+
+* When unknown client error is come from server, client should call database_client_reset and start new sync, to register new client id.
+
+* If login session also deleted or expired on the server, then customer has to login again.
+
+Example:
+	:::cplusplus
+	
+    - (void)syncAllCalback:(RhoConnectNotify*) notify
+    {
+        NSString* status = notify.status;
+        NSString* error = notify.error_message;
+        int err_code = notify.error_code;
+        
+        NSLog(@"syncAll DONE, status: '%s' , error_msg: '%s' , error_code: %d",
+              [status cStringUsingEncoding: NSUTF8StringEncoding],
+              [error cStringUsingEncoding: NSUTF8StringEncoding],
+              err_code
+              );
+        
+	    if ( [notify.status compare:@"in_progress"] == 0) {
+            
+	    } else if ([notify.status compare:@"complete"] == 0) {
+            
+		    [[RhoConnectEngine sharedInstance].syncClient clearNotification];
+            
+	    } else if ([notify.status compare:@"error"] == 0) {
+            
+	            if([notify.error_message caseInsensitiveCompare:@"unknown client"] == 0) {
+	                [[RhoConnectEngine sharedInstance].syncClient database_client_reset]; 
+	                [[RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllCalback:) target:self];
+	                [[RhoConnectEngine sharedInstance].syncClient syncAll];
+	            } else if( err_code == RHO_ERR_CLIENTISNOTLOGGEDIN
+	                    || err_code == RHO_ERR_UNATHORIZED) {
+    	
+	                NSLog(@"GO TO LOGIN PAGE!");
+	                // real code to trigger view transition goes here.. 
+	            }
+	    }
+    }
 #### Run SQL query on Schema model
 
 	:::cplusplus
