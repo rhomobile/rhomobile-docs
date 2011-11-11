@@ -73,6 +73,8 @@ Do the following steps to add schema files to your Copy Bundle Resources build p
 	CREATE TABLE product (
 	 "client_id" VARCHAR(255) default NULL);
 
+** NOTE: Do not use NOT NULL statement in column definitions. RhoConnect client delete object attributes by setting value to null, when all object attributes become nulls, object deleted. So objects with NOT NULL columns will not be deleted. **
+
 ## Coding a RhoConnect Client
 
 This section discusses the general steps you perform to code a RhoConnect client in Objective C, using the store example. It is not a tutorial for coding a complete Xcode application, but instead discusses the RhoConnect code that you need to create.
@@ -180,6 +182,7 @@ Here is the Store code for the login process, contained in LoginViewController.m
 		[ [RhoConnectEngine sharedInstance].syncClient loginWithUser:txtLogin.text pwd:txtPassword.text callback:@selector(loginComplete:) target:self];	
 	}
 
+
 ### Synchronize Data
 
 Call the RhoConnectClient setNotification method to call a callback method that notifies about the state of the synchronization.
@@ -210,6 +213,16 @@ Here is the Store code for the sync process, contained in WaitLoginController.m.
 			[ [RhoConnectEngine sharedInstance].syncClient clearNotification];		
 		}else if ([notify.status compare:@"error"] == 0)
 		{
+                if([notify.error_message caseInsensitiveCompare:@"unknown client"] == 0) {
+	                [[RhoConnectEngine sharedInstance].syncClient database_client_reset]; 
+	                [[RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllCalback:) target:self];
+	                [[RhoConnectEngine sharedInstance].syncClient syncAll];
+	            } else if( err_code == RHO_ERR_CLIENTISNOTLOGGEDIN
+	                    || err_code == RHO_ERR_UNATHORIZED) {
+    	
+	                NSLog(@"GO TO LOGIN PAGE!");
+	                // real code to trigger view transition goes here.. 
+	            }		
 		}
 	}
 
@@ -227,6 +240,51 @@ Here is the Store code for the sync process, contained in WaitLoginController.m.
 		}
 	}
 
+### Processing unknown-client error
+Unknown client error return by server after resetting server database, removing particular client id from database or any other cases when server cannot find client id(sync server unique id of device).
+Note that login session may still exist on server, so in this case client does not have to login again, just create new client id.
+Processing of this error contain 2 steps:
+
+* When unknown client error is come from server, client should call database_client_reset and start new sync, to register new client id.
+
+* If login session also deleted or expired on the server, then customer has to login again.
+
+Example:
+	:::cplusplus
+	
+    - (void)syncAllComplete:(RhoConnectNotify*) notify
+    {
+        NSString* status = notify.status;
+        NSString* error = notify.error_message;
+        int err_code = notify.error_code;
+        
+        NSLog(@"syncAll DONE, status: '%s' , error_msg: '%s' , error_code: %d",
+              [status cStringUsingEncoding: NSUTF8StringEncoding],
+              [error cStringUsingEncoding: NSUTF8StringEncoding],
+              err_code
+              );
+        
+	    if ( [notify.status compare:@"in_progress"] == 0) {
+            
+	    } else if ([notify.status compare:@"complete"] == 0) {
+            
+		    [[RhoConnectEngine sharedInstance].syncClient clearNotification];
+            
+	    } else if ([notify.status compare:@"error"] == 0) {
+            
+	            if([notify.error_message caseInsensitiveCompare:@"unknown client"] == 0) {
+	                [[RhoConnectEngine sharedInstance].syncClient database_client_reset]; 
+	                [[RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllCalback:) target:self];
+	                [[RhoConnectEngine sharedInstance].syncClient syncAll];
+	            } else if( err_code == RHO_ERR_CLIENTISNOTLOGGEDIN
+	                    || err_code == RHO_ERR_UNATHORIZED) {
+    	
+	                NSLog(@"GO TO LOGIN PAGE!");
+	                // real code to trigger view transition goes here.. 
+	            }
+	    }
+    }
+    
 ### Search the Client Database for Models
 
 Call a RhomModel find method (find, find\_first, find\_all) to find model objects in the client database. This code sample for the find\_all method fetches all the models in the database; you can also search for models containing certain attribute data.

@@ -192,6 +192,7 @@ See [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rho
 
 #### Initialization of Schema model
 
+	:::cplusplus
 	RhomModel* product = [[RhomModel alloc] init];
 	product.name = @"Product_s";
     product.model_type = RMT_PROPERTY_FIXEDSCHEMA;
@@ -203,8 +204,12 @@ To create schema model tables edit database schema file:
 * Edit file syncdb.schema : add create table statment for each schema model. Note that mandatory object column should be in each table:
 
     "object" varchar(255) PRIMARY KEY
+
+** NOTE: Do not use NOT NULL statement in column definitions. RhoConnect client delete object attributes by setting value to null, when all object attributes become nulls, object deleted. So objects with NOT NULL columns will not be deleted. **
+
     
 * Open 'Copy bundle resources' build phase in project target and point it to local project db folder
+
 
 #### Login
 
