@@ -49,6 +49,7 @@ section 'rhoconnect-reference', "RhoConnect Developer Reference" do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
   topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
+  topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
   topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C API'
   topic 'rhoconnect/benchmarks',        'Benchmarks'
