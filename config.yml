@@ -9,6 +9,17 @@ development:
     rhoconnect: '../rhoconnect/doc/'
   index: 'rhodocs_edge'
   pdfkithost: 'localhost:9393'
+jenkins:
+  dirs:
+    rhosync: '../rhosync/workspace/doc/'
+    rhodes: '../rhodes/workspace/doc/'
+    rhogallery: '../rhogallery/workspace/doc/'
+    rhohub: 'docs/rhohub/'
+    guides: 'docs/'
+    rhoconnectjs: '../rhoconnect.js/workspace/doc/'
+    rhoconnect: '../rhoconnect/workspace/doc/'
+  index: 'rhodocs_edge'
+  pdfkithost: 'localhost:9393'
 edge:
   dirs:
     rhosync: 'docs/rhosync/'
