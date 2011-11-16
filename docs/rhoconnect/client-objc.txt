@@ -222,7 +222,22 @@ Here is the Store code for the sync process, contained in WaitLoginController.m.
     	
 	                NSLog(@"GO TO LOGIN PAGE!");
 	                // real code to trigger view transition goes here.. 
-	            }		
+	            }else
+	            {
+                    //This is mandatory:
+                    if([notify hasCreateErrors]) {
+                        [[RhoConnectEngine sharedInstance].syncClient onCreateError: notify @"delete"];        
+                    }
+                    //These are optional:
+                    /*
+                    if([notify hasUpdateErrors]) {
+                        [[RhoConnectEngine sharedInstance].syncClient onUpdateError: notify @"rollback"];        
+                    }
+                    if([notify hasDeleteErrors]) {
+                        [[RhoConnectEngine sharedInstance].syncClient onDeleteError: notify @"retry"];        
+                    }
+                    */
+	            }
 		}
 	}
 
@@ -284,6 +299,69 @@ Example:
 	            }
 	    }
     }
+
+### Processing server errors
+* create-error: 
+has to be handled in sync callback. Otherwise sync will stop on this model. To fix create errors you should call Model.on_sync_create_error or SyncEngine.on_sync_create_error:
+
+* update-error:
+If not handled, local modifications, which were failing on server, will never sync to server again.
+So sync will work fine, but nobody will know about these changes.
+
+* delete-error:
+If not handled, local modifications, which were failing on server, will never sync to server again.
+So sync will work fine, but nobody will know about these changes.
+
+Example:
+	:::cplusplus
+	
+    - (void)syncAllCalback:(RhoConnectNotify*) notify
+    {
+        NSString* status = notify.status;
+        NSString* error = notify.error_message;
+        int err_code = notify.error_code;
+        
+        NSLog(@"syncAll DONE, status: '%s' , error_msg: '%s' , error_code: %d",
+              [status cStringUsingEncoding: NSUTF8StringEncoding],
+              [error cStringUsingEncoding: NSUTF8StringEncoding],
+              err_code
+              );
+        
+	    if ( [notify.status compare:@"in_progress"] == 0) {
+            
+	    } else if ([notify.status compare:@"complete"] == 0) {
+            
+		    [[RhoConnectEngine sharedInstance].syncClient clearNotification];
+            
+	    } else if ([notify.status compare:@"error"] == 0) {
+            
+            if([notify isUnknownClientError]) {
+                [[RhoConnectEngine sharedInstance].syncClient database_client_reset]; 
+                [[RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllCalback:) target:self];
+                [[RhoConnectEngine sharedInstance].syncClient syncAll];
+            } else if( err_code == RHO_ERR_CLIENTISNOTLOGGEDIN
+                || err_code == RHO_ERR_UNATHORIZED) {
+
+                NSLog(@"GO TO LOGIN PAGE!");
+                // real code to trigger view transition goes here.. 
+            }else
+            {
+                //This is mandatory:
+                if([notify hasCreateErrors]) {
+                    [[RhoConnectEngine sharedInstance].syncClient onCreateError: notify action:@"delete"];        
+                }
+                //These are optional:
+                /*
+                if([notify hasUpdateErrors]) {
+                    [[RhoConnectEngine sharedInstance].syncClient onUpdateError: notify action:@"rollback"];        
+                }
+                if([notify hasDeleteErrors]) {
+                    [[RhoConnectEngine sharedInstance].syncClient onDeleteError: notify action:@"retry"];        
+                }
+                */
+            }
+	    }
+    }
     
 ### Search the Client Database for Models
 
@@ -329,6 +407,9 @@ The RhoConnectClient class contains the following properties and methods to buil
  * <a href="#setObjectNotification">setObjectNotification</a>
  * <a href="#clearObjectNotification">clearObjectNotification</a>
  * <a href="#addObjectNotify">addObjectNotify</a>
+ * <a href="#onCreateError">onCreateError</a>
+ * <a href="#onUpdateError">onUpdateError</a>
+ * <a href="#onDeleteError">onDeleteError</a>
 
 ### <a id="threaded_mode"></a>threaded\_mode property
 
@@ -535,7 +616,86 @@ Sample call:
 	RhoConnectClient* sclient;
 	...
 	[sclient addObjectNotify: [[item objectForKey:@"source_id"] intValue] szObject:[item valueForKey:@"object"] ];
-    
+
+### <a id="onCreateError"></a>onCreateError
+
+Instance method. To process 'create-error' errors from server.
+
+	:::cplusplus
+    - (void) onCreateError: (RhoConnectNotify*)notify action: (NSString*)action;
+
+<table border="1">
+<tr>
+	<td><code>notify</code></td>
+	<td>RhoConnectNotify. Notification object passed to notification callback.</td>
+</tr>
+<tr>
+	<td><code>action</code></td>
+	<td>NSString. May be "delete" or "recreate": "delete" just remove object from client, "recreate" will push this object to server again at next sync.</td>
+</tr>
+</table>
+
+Sample call:
+
+	:::cplusplus
+	RhoConnectClient* sclient;
+	...
+	if ([notify hasCreateErrors])
+	    [sclient onCreateError: notify action:@"delete" ];
+
+
+### <a id="onUpdateError"></a>onUpdateError
+
+Instance method. To process 'update-error' errors from server.
+
+	:::cplusplus
+    - (void) onUpdateError: (RhoConnectNotify*)notify action: (NSString*)action;
+
+<table border="1">
+<tr>
+	<td><code>notify</code></td>
+	<td>RhoConnectNotify. Notification object passed to notification callback.</td>
+</tr>
+<tr>
+	<td><code>action</code></td>
+	<td>NSString. May be "retry" or "rollback": "retry" will push update object operation to server again at next sync, "rollback" will write rollback objects(comes from server) to client database.</td>
+</tr>
+</table>
+
+Sample call:
+
+	:::cplusplus
+	RhoConnectClient* sclient;
+	...
+	if ([notify hasUpdateErrors])
+	    [sclient onUpdateError: notify action:@"retry" ];
+
+### <a id="onDeleteError"></a>onUpdateError
+
+Instance method. To process 'delete-error' errors from server.
+
+	:::cplusplus
+    - (void) onDeleteError: (RhoConnectNotify*)notify action: (NSString*)action;
+
+<table border="1">
+<tr>
+	<td><code>notify</code></td>
+	<td>RhoConnectNotify. Notification object passed to notification callback.</td>
+</tr>
+<tr>
+	<td><code>action</code></td>
+	<td>NSString. May be "retry" - will push delete object operation to server again at next sync.</td>
+</tr>
+</table>
+
+Sample call:
+
+	:::cplusplus
+	RhoConnectClient* sclient;
+	...
+	if ([notify hasDeleteErrors])
+	    [sclient onDeleteError: notify action:@"retry" ];
+	    	        
 ## RhomModel Class API
 
 The RhomModel class contains the following properties and methods for setting and using RhomModel objects; RhomModel objects are RhoConnect models and their attributes.
@@ -809,6 +969,23 @@ Several RhoConnectClient methods return a RhoConnectNotify object. The propertie
 	<td><code>callback_params</code></td>
 	<td>@property(assign) NSString*. Callback parameters.</td>
 </tr>
+<tr>
+	<td><code>hasCreateErrors</code></td>
+	<td>(Boolean). Return true if server return create-errors.</td>
+</tr>
+<tr>
+	<td><code>hasUpdateErrors</code></td>
+	<td>(Boolean). Return true if server return update-errors.</td>
+</tr>
+<tr>
+	<td><code>hasDeleteErrors</code></td>
+	<td>(Boolean). Return true if server return delete-errors.</td>
+</tr>
+<tr>
+	<td><code>isUnknownClientError</code></td>
+	<td>(Boolean). Return true if server return unknown client error.</td>
+</tr>
+
 </table>
 
 ## RhoConnectObjectNotify Class API

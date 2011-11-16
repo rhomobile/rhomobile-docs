@@ -4,8 +4,8 @@ Extending Rhoconnect Application with custom routes
 Extending Rhoconnect Application with custom routes
 ---
 
-In certain cases it is necessary to provide custom routes support in your Rhoconnect application, while fully utilizing the powerful features provided by the default Rhoconnect server implementation.
-This can be achieved by creating a custom server class inherited from `Rhoconnect::Server` and defining all of your custom routes in this extended server class.
+You can provide custom routes support in your Rhoconnect application while you still fully utilize the powerful features provided by the default Rhoconnect server implementation. To do this, create a custom server class inherited from `Rhoconnect::Server` and define all of your custom routes in this extended server class.
+
 The following example illustrates how to add a sample `my_custom_route' to the existing Rhoconnect application.
 
 1) create `my_server.rb` class in your Rhoconnect application's root directory:
@@ -20,8 +20,8 @@ The following example illustrates how to add a sample `my_custom_route' to the e
 	  end
 	end
 
-The above custom route implementation will respond to client's GET request, verify the current_user (which will be extracted from the Rhoconnect session cookie)
-and return back some static PNG file (which can be later used in BLOB syncs)
+The above custom route implementation will respond to client's GET request, verifies the current_user (which will be extracted from the Rhoconnect session cookie)
+and returns a static PNG file (which can be later used in BLOB syncs)
 
 
 2) Replace the default server instance with the new extended one in the `config.ru` file of your Rhoconnect application:
@@ -34,11 +34,11 @@ and return back some static PNG file (which can be later used in BLOB syncs)
 		"/console"  => RhoconnectConsole::Server.new # If you don't want rhoconnect frontend, disable it here
 		
 
-Using new custom route in BLOB syncs
+Using the New Custom route in BLOB syncs
 ---
 
-After the new custom routes has been created and registered, we can reference it and use from standard Rhodes applications.
-For example, to use the it in BLOB syncs, define the following property in your Rhodes Product model (file app/Product/product.rb):
+After you create the new custom routes and replace the default server instance with the new extended one, you can reference and use them from standard Rhodes applications.
+For example, suppose you have a Rhodes app with a Product model. To use a custom route in BLOB syncs, define the following property in the Rhodes Product model (file: `app/Product/product.rb`):
 
 	:::ruby
 	# The model has already been created by the framework, and extends Rhom::RhomObject
@@ -53,7 +53,7 @@ For example, to use the it in BLOB syncs, define the following property in your 
 	  property :my_custom_blob_field, :blob, :overwrite 
 	end
 	
-To see the static image, modify the `show.erb` file for the Product model in your Rhodes application:
+To see the static image, modify the `app/Product/show.erb` file for the Product model in your Rhodes application:
 
 	:::html
 	<li>
@@ -61,7 +61,7 @@ To see the static image, modify the `show.erb` file for the Product model in you
         <div class="itemValue"><img src="<%=Rho::RhoApplication::get_blob_path(@product.my_custom_field)%>"></img></div>
     </li>
 	
-Then, modify your Rhoconnect source adapter to provide BLOB's url for the `my_custom_blob_field`:
+Then, modify your Rhoconnect source adapter (in `rhoconnect_app/sources/product.rb`) to provide BLOB's url for the `my_custom_blob_field`:
 
 	:::ruby
 	def query(params=nil)

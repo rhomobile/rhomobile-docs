@@ -83,6 +83,20 @@ Rhoconnect Client is a library to add sync data capability to your applications.
     - (void) clearObjectNotification;
     //add object to track changes: create, update, delete
     - (void) addObjectNotify: (int) nSrcID szObject:(NSString*) szObject;
+
+    //To process 'create-error' errors from server:
+    //Action may be "delete" or "recreate"
+    //"delete" just remove object from client, "recreate" will push this object to server again at next sync.
+    - (void) onCreateError: (RhoConnectNotify*)notify action: (NSString*)action;
+
+    //To process 'update-error' errors from server:
+    //Action may be "retry" or "rollback". 
+    //"retry" will push update object operation to server again at next sync, "rollback" will write rollback objects(comes from server) to client database.
+    - (void) onUpdateError: (RhoConnectNotify*)notify action: (NSString*)action;
+
+    //To process 'delete-error' errors from server:
+    //Action may be "retry" - will push delete object operation to server again at next sync.
+    - (void) onDeleteError: (RhoConnectNotify*)notify action: (NSString*)action;
     
 #### RhomModel
 
@@ -150,6 +164,11 @@ This class provides access to sync notification objects as describe [here](/rhod
 	@property(assign) NSString* sync_type;
 	@property(assign) NSString* error_message;
 	@property(assign) NSString* callback_params;
+
+    - (Boolean) hasCreateErrors;
+    - (Boolean) hasUpdateErrors;
+    - (Boolean) hasDeleteErrors;
+    - (Boolean) isUnknownClientError;
 
 #### RhoConnectObjectNotify
 
@@ -278,7 +297,7 @@ Example:
             
 	    } else if ([notify.status compare:@"error"] == 0) {
             
-	            if([notify.error_message caseInsensitiveCompare:@"unknown client"] == 0) {
+	            if([notify isUnknownClientError]) {
 	                [[RhoConnectEngine sharedInstance].syncClient database_client_reset]; 
 	                [[RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllCalback:) target:self];
 	                [[RhoConnectEngine sharedInstance].syncClient syncAll];
@@ -290,6 +309,70 @@ Example:
 	            }
 	    }
     }
+    
+#### Processing server errors
+* create-error: 
+has to be handled in sync callback. Otherwise sync will stop on this model. To fix create errors you should call Model.on_sync_create_error or SyncEngine.on_sync_create_error:
+
+* update-error:
+If not handled, local modifications, which were failing on server, will never sync to server again.
+So sync will work fine, but nobody will know about these changes.
+
+* delete-error:
+If not handled, local modifications, which were failing on server, will never sync to server again.
+So sync will work fine, but nobody will know about these changes.
+
+Example:
+	:::cplusplus
+	
+    - (void)syncAllCalback:(RhoConnectNotify*) notify
+    {
+        NSString* status = notify.status;
+        NSString* error = notify.error_message;
+        int err_code = notify.error_code;
+        
+        NSLog(@"syncAll DONE, status: '%s' , error_msg: '%s' , error_code: %d",
+              [status cStringUsingEncoding: NSUTF8StringEncoding],
+              [error cStringUsingEncoding: NSUTF8StringEncoding],
+              err_code
+              );
+        
+	    if ( [notify.status compare:@"in_progress"] == 0) {
+            
+	    } else if ([notify.status compare:@"complete"] == 0) {
+            
+		    [[RhoConnectEngine sharedInstance].syncClient clearNotification];
+            
+	    } else if ([notify.status compare:@"error"] == 0) {
+            
+            if([notify isUnknownClientError]) {
+                [[RhoConnectEngine sharedInstance].syncClient database_client_reset]; 
+                [[RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllCalback:) target:self];
+                [[RhoConnectEngine sharedInstance].syncClient syncAll];
+            } else if( err_code == RHO_ERR_CLIENTISNOTLOGGEDIN
+                || err_code == RHO_ERR_UNATHORIZED) {
+
+                NSLog(@"GO TO LOGIN PAGE!");
+                // real code to trigger view transition goes here.. 
+            }else
+            {
+                //This is mandatory:
+                if([notify hasCreateErrors]) {
+                    [[RhoConnectEngine sharedInstance].syncClient onCreateError: notify action:@"delete"];        
+                }
+                //These are optional:
+                /*
+                if([notify hasUpdateErrors]) {
+                    [[RhoConnectEngine sharedInstance].syncClient onUpdateError: notify action:@"rollback"];        
+                }
+                if([notify hasDeleteErrors]) {
+                    [[RhoConnectEngine sharedInstance].syncClient onDeleteError: notify action:@"retry"];        
+                }
+                */
+            }
+	    }
+    }
+    
 #### Run SQL query on Schema model
 
 	:::cplusplus
