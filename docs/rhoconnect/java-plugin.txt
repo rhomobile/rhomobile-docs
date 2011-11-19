@@ -11,14 +11,14 @@ Using the RhoConnect-Java plugin, your [Spting 3 MVC](http://www.springsource.or
 * Maven2 (2.2.1)
 * Git
 
-If you cloned rhoconnect-java project, then you can create target plugin jar from sources by executing the following commands:
+You can create target rhoconnect-java plugin jar from sources by executing the following commands:
     
     :::term
     mvn clean
     mvn compile
     mvn jar:jar
     
-Archived rhoconnect-plugin-x.y.z.jar file will be created in target/ directory.   
+Archived rhoconnect-java-x.y.z.jar file will be created in the target/ directory.   
 
 ## Getting started
 
@@ -113,7 +113,7 @@ Update your servlet xml configuration file to include rhoconnect-java metadata: 
     </bean>
     <bean id="dispatcher" class = "com.rhomobile.rhoconnect.RhoconnectDispatcher"></bean>
     
-    <!-- This bean should implement authentication -->
+    <!-- This bean should implement your application specific authentication -->
     <bean id="authenticate" class = "com.rhomobile.rhoconnect.RhoconnectAuthenticate" />
 
 The `setAppEndpoint` method in the `rhoconnectClient` bean in the above code sample is a main point in establishing the communication 
@@ -134,14 +134,14 @@ link between the `Rhoconnect` server and the Spring 3 MVC application. It has th
   </tr>
 </table>
 
-The final step in configuration is to implement application specific authentication code. You should create a class implemting the following interface: 
+The final step in configuration is to implement application specific authentication code. You should create a class by implementing the following interface: 
 
     :::java
     package com.rhomobile.rhoconnect;
     import java.util.Map;
 
     public interface Rhoconnect {
-        boolean authenticate(String login, String password, Map<String, Object> attribures);    
+        boolean authenticate(String login, String password, Map<String, Object> attributes);    
     }
  
 For example:
@@ -151,7 +151,7 @@ For example:
 	import java.util.Map;
     public class RhoconnectAuthenticate implements Rhoconnect {
 	    @Override
-	    public boolean authenticate(String login, String password, Map<String, Object> attribures) {
+	    public boolean authenticate(String login, String password, Map<String, Object> attributes) {
             // TODO: your authentication code goes here ...
 		    return true;
 	    }
@@ -192,6 +192,7 @@ For example, `RhoconnectJavaSample` application implementation is based on `cont
 	public class ContactServiceImpl implements ContactService, RhoconnectResource {
 	    @Autowired
 	    private ContactDAO contactDAO;
+	    // ...
 	    private static final String sourceName  = "Contact"; // name of DAO model
     
 	    @Transactional
@@ -272,7 +273,7 @@ For more information about RhoConnect partitions, please refer to the [RhoConnec
 
 ### Establishing communication from java back-end application to the RhoConnect server
 
-You also must to establish the communication from your java back-end application to the RhoConnect instance by autowiring RhoconnectClient bean into your data access (DAO) service layer and inserting notifications hooks there.
+You also must to establish the communication from your java back-end application to the RhoConnect instance by auto-wiring RhoconnectClient bean into your data access (DAO) service layer and inserting notifications hooks into data access methods.
 
     :::java
     package com.rhomobile.rhoconnect;
