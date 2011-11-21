@@ -91,6 +91,12 @@ You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-databa
 	 db.rollback
 	end
 
+*NOTE: If ::Rho::RHO.get_src_db('Model') return nil, it means that you never call this models methods before(models are loaded by demand). To fix it call 'require_source': *
+
+	:::ruby
+    require_source 'Model'  
+
+
 ## How do I customize the app name and icons?
 Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
 
