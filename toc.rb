@@ -78,27 +78,3 @@ section 'rhoconnect-adapters-reference', "RhoConnect Adapters" do
   topic 'rhoconnect/adapters-intro',    'Introduction'
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end
-
-section 'rhosync-reference', "RhoSync Developer Reference" do
-  topic 'rhosync/tutorial',     'RhoSync Tutorial'
-  topic 'rhosync/introduction',      'Introduction'
-  topic 'rhosync/install',           'Installation'
-  topic 'rhosync/command-line',      'App Generator and Rake Tasks'
-  topic 'rhosync/source-adapters',   'Source Adapters'
-  topic 'rhosync/settings',          'Rhosync Settings'
-  topic 'rhosync/testing',           'Testing and Debugging'
-  topic 'rhosync/authentication',    'Adding Device Authentication'
-  topic 'rhosync/web-console',       'Admin Web Interface'
-  topic 'rhosync/licensing',         'Licensing your App'
-  topic 'rhosync/deploying',         'Deployment and Hosting Options'
-  topic 'rhosync/push',              'Device Push'
-  topic 'rhosync/blob-sync',         'Binary Objects and Blob Sync'
-  topic 'rhosync/bulk-sync',         'Big Datasets and Bulk Sync'
-  topic 'rhosync/async-jobs',        'Adapter Jobs with Resque'
-  topic 'rhosync/rest-api',          'RhoSync REST API'
-  topic 'rhosync/metadata',          'Dynamic Views with Metadata'
-  topic 'rhosync/stats-middleware',  'Collecting Runtime Stats'
-  topic 'rhosync/client',            'Using RhoSync without Rhodes'
-  topic 'rhosync/benchmarks',        'Benchmarks'
-  topic 'rhosync/contributing',      'Contributing'
-end
