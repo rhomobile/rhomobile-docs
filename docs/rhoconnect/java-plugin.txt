@@ -32,7 +32,6 @@ and executing in cloned project directory the following commands:
 The archived rhoconnect-java-x.y.z.jar file will be created in the project target/ directory.
 
 For testing and evaluation purposes you can use [RhoconnectJavaSample](https://github.com/shurab/RhoconnectJavaSample) application as a starting point before continuing with the following steps. 
-If you wish you might want to look at the same [application](https://github.com/shurab/RhoconnectJavaPluginDemo) after it's integrated with rhoconnect-java plugin and walk through the code changes.
 
 ### Adding Dependencies to Your Maven 2 Project
 
@@ -61,22 +60,27 @@ Add dependencies to your Apache Maven 2 project object model (POM): log4j, apach
         <optional>false</optional>  
     </dependency>
 
-### Adding rhoconnect-java jar to the Build Path
+You must also add the rhoconnect-java jar to your apache maven 2 project. At this moment rhoconnect-plugin jar is not available in Maven public repositories and you need install the jar manually into your Maven's local repository.
+Download the `rhoconnect-java-1.0-SNAPSHOT.jar` jar file and put it into your hard drive, and issue following Maven's command:
 
-You must add the rhoconnect-java jar to your apache maven 2 build classpath. In the RhoconnectJavaSample application, you would add this code to the pom.xml file, putting in the path to your rhoconnect-java jar into the systemPath.
+    :::term
+	$ mvn install:install-file -Dfile=/path-to-jar/rhoconnect-java-1.0-SNAPSHOT.jar -DgroupId=com.rhomobile.rhoconnect  -DartifactId=rhoconnect-java -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+
+Now, the `rhoconnect-java` jar library is included into your Maven local repository.
+In the RhoconnectJavaSample application, you would add this code to the pom.xml file.
 
     :::xml
-    <dependency>
-	    <groupId>com.rhomobile.rhoconnect</groupId>
-	    <artifactId>rhoconnect-java</artifactId>
-	    <version>1.0-SNAPSHOT</version>
-	    <scope>system</scope>
-	    <systemPath>/absolute-path-to-your-directory/rhoconnect-java-1.0-SNAPSHOT.jar</systemPath>
-    </dependency>
+    <!-- Rhoconnect-java plugin -->
+	<dependency>
+    	<groupId>com.rhomobile.rhoconnect</groupId>
+    	<artifactId>rhoconnect-java</artifactId>
+    	<version>1.0-SNAPSHOT</version>
+    	<type>jar</type>
+	</dependency>
 
 ### Updating Your Servlet XML Configuration File
 
-Update your servlet xml configuration file to include rhoconnect-java metadata: the packages, converters, and beans. In the RhoconnectJavaSample, this code is in comments in the src/main/webapp/WEB-INF/spring-servlet.xml file.
+Update your servlet xml configuration file to include rhoconnect-java metadata: the packages, converters, and beans. In the RhoconnectJavaSample, th following code is added to src/main/webapp/WEB-INF/spring-servlet.xml file.
 
     :::xml
     <!-- rhoconnect-java plugin packages -->
@@ -92,14 +96,11 @@ Update your servlet xml configuration file to include rhoconnect-java metadata: 
          	</list>
      	</property>
     </bean>
-
     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
      	<property name="supportedMediaTypes" value="application/json" />
     </bean>
-
     <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
     </bean>
-    
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
      	<property name="messageConverters">
          	<list>
@@ -110,15 +111,16 @@ Update your servlet xml configuration file to include rhoconnect-java metadata: 
     </bean>    
 
     <!-- rhoconnect-java plugin beans -->
-    <bean id="rhoconnect" class = "com.rhomobile.rhoconnect.RhoconnectImpl" />
-    
+    <bean id="dispatcher" class = "com.rhomobile.rhoconnect.RhoconnectDispatcher"></bean>
     <bean id="rhoconnectClient" class = "com.rhomobile.rhoconnect.RhoconnectClient" init-method="setAppEndpoint" >
      	<property name="restTemplate"><ref bean="restTemplate"/></property>
      	<property name="endpointUrl" value="your_rhoconnect_server_url" />
      	<property name="appEndpoint" value="your_spring_app_url" />
      	<property name="apiToken" value="rhoconnect_api_token" />
     </bean>
-    <bean id="dispatcher" class = "com.rhomobile.rhoconnect.RhoconnectDispatcher"></bean>
+    
+    <!--The following bean handles the application's authentication routine and should be implemented by you -->
+    <bean id="authenticate" class = "com.rhomobile.contact.ContactAuthenticate" />
 
 The `setAppEndpoint` method in the `rhoconnectClient` bean in the above code sample is a main point in establishing the communication 
 link between the `Rhoconnect` server and the Spring 3 MVC application. It has the following properties that you need to configure.
@@ -126,19 +128,19 @@ link between the `Rhoconnect` server and the Spring 3 MVC application. It has th
 <table border="1">
   <tr>
 	<td><code>endpointUrl</code></td>
-	<td>rhoconnect server's url, for example <code>http://localhost:9292</code>.</td>
+	<td>rhoconnect server's url, for example <code>http://localhost:9292</code></td>
   </tr>
   <tr>
 	<td><code>appEndpoint</code></td>
-	<td>your Spring 3 MVC app url, for example <code>http://localhost:8080/contacts</code>.</td>
+	<td>your Spring 3 MVC app url, for example <code>http://localhost:8080/contacts</code></td>
   </tr>
   <tr>
 	<td><code>apiToken</code></td>
-	<td>rhoconnect server's api_token, for example <code>sometokenforme</code>.</td>
+	<td>rhoconnect server's api_token, for example <code>sometokenforme</code></td>
   </tr>
 </table>
 
-The final step in configuration is to implement application specific authentication code. You should create a class that implements `Rhoconnect` interface: 
+The `authenticate` bean will be called by rhoconnect server to authenticate users, and has to implement `Rhoconnect` interface provided by rhoconnect-java plugin: 
 
     :::java
     package com.rhomobile.rhoconnect;
@@ -151,35 +153,23 @@ The final step in configuration is to implement application specific authenticat
 For example:
 
     :::java
-	package com.acme;
+    package com.rhomobile.contact;
 
-	import java.util.Map;
-	import org.apache.log4j.Logger;
-	import com.rhomobile.rhoconnect.Rhoconnect;
+    import java.util.Map;
+    import org.apache.log4j.Logger;
+    import com.rhomobile.rhoconnect.Rhoconnect;
 
-	public class AcmeAuthenticate implements Rhoconnect {
-		private static final Logger logger = Logger.getLogger(AcmeAuthenticate.class);	
+    public class ContactAuthenticate implements Rhoconnect {
+        private static final Logger logger = Logger.getLogger(ContactAuthenticate.class);
 
-		@Override
-		public boolean authenticate(String login, String password, Map<String, Object> attributes) {
-			logger.info("AcmeAuthenticate#authenticate: implement your authentication code!");    		
-	        // TODO: your authentication code goes here ...
-			return true;
-		}
+        @Override
+        public boolean authenticate(String login, String password, Map<String, Object> attributes) {
+            logger.info("ContactAuthenticate#authenticate: implement your authentication code!");
+            // TODO: your authentication code goes here ...
+            return true;
+        }
+    }
 
-	}
-	
-
-And add its bean to src/main/webapp/WEB-INF/spring-servlet.xml file 
-
-	:::xml
-	<beans>
-        <!-- ... -->
-	    <bean id="authenticate" class = "com.acme.AcmeAuthenticate" />
-	    <!-- ... -->	
-	</beans>
-
- 
 ### Establishing communication from the RhoConnect server to java back-end application
 
 You need to establish communication from the RhoConnect instance to your java back-end application by mixing RhoconnectResource interface in your data access (DAO) service class:
@@ -331,6 +321,8 @@ Example for `RhoconnectJavaSample` application:
 	        return "alexb";
 	    }
 	 }
+
+Click [here](https://github.com/shurab/RhoconnectJavaPluginDemo) to download full source code of Contact manager application that integrated with rhoconnect-java plugin.
 
 ## Meta
 Created and maintained by Alexander Babichev.
