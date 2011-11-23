@@ -146,7 +146,8 @@ Here is the Store code for the initialization process, contained in RhoConnectEn
 		
 			sclient.sync_server = @"http://rhodes-store-server.heroku.com/application";
 			sclient.threaded_mode = TRUE;
-		
+			sclient.log_severity = 1;
+
 			loginState = [sclient is_logged_in] ? logged_in : logged_out;
 		}
 		return sharedInst;
@@ -391,6 +392,7 @@ The RhoConnectClient class contains the following properties and methods to buil
 
  * <a href="#threaded_mode">threaded_mode property</a>
  * <a href="#poll_interval">poll_interval property</a>
+ * <a href="#log_severity">log_severity property</a>
  * <a href="#sync_server">sync_server property</a>
  * <a href="#initDatabase">initDatabase</a>
  * <a href="#addModels">addModels</a>
@@ -424,6 +426,13 @@ int. Not yet supported. Default = 0.
 
 	:::cplusplus
 	@property(setter=setPollInterval) int poll_interval;
+
+### <a id="log_severity"></a>log\_severity property
+
+int. Set minimal severity level for messages to log output. Default = 0.
+
+	:::cplusplus
+	@property(setter=setLogSeverity) int log_severity;
 
 ### <a id="sync_server"></a>sync\_server property
 

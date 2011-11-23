@@ -43,6 +43,9 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	//default is 0. Not supported yet
 	@property(setter=setPollInterval) int  poll_interval;
 
+    //default is 0. Set minimal severity level for messages to log output
+	@property(setter=setLogSeverity) int log_severity;
+
 	//set rhoconnect server url, for example: "http://<ip>:<port>/application"
 	@property(assign, setter=setSyncServer) NSString* sync_server;
 
