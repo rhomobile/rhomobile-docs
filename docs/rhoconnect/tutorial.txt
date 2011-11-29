@@ -1,25 +1,36 @@
-RhoConnect Tutorial
-===
+# RhoConnect Tutorial
 
-Adding Synchronized Data to Your App with RhoConnect
----
+## Adding Synchronized Data to Your Rhodes App with RhoConnect
 
-RhoConnect is a synchronization framework consisting of a client component on the device and a server component that runs on any server capable of running Ruby. RhoConnect requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The collection of the Ruby code for these operations we refer to as a "source" or "source adapter".   Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](/rhoconnect/introduction).
+RhoConnect is a synchronization framework consisting of a client component (a Rhodes app) on the mobile device and a server component (a RhoConnect application) that runs on any server capable of running Ruby. RhoConnect requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The Ruby code for these operations is referred to as a "source" or "source adapter". Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](/rhoconnect/introduction).
 
-Install the RhoConnect Dependencies
----
+## Install the RhoConnect Dependencies
 
 * Install RhoConnect as described [here](/rhoconnect/install).
 
-* If you have a RhoConnect license that has been sent to you you can replace the settings/license.yml file as described [here](/rhoconnect/licensing).
+* If you have a RhoConnect license that has been sent to you, you can replace the settings/license.yml file as described [here](/rhoconnect/licensing).
 
-Now you are ready to write your RhoConnect app.  You can generate an app with the RhoConnect app command. 
+Now you are ready to write your RhoConnect app. You can generate an app with RhoStudio, or with the RhoConnect app command.
+
+### Generating a RhoConnect App with RhoStudio
+
+In RhoStudio, select File->New->Project...
+
+The New Project window opens. Select the RhoConnect application wizard and click the Next button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/new-project-rhoconnect.png"/>
+
+Enter the name for your RhoConnect application in Project name; in this case, "storeserver". You may specify a specific folder for your destination where your project is stored, by default, the destination is your RhoStudio workspace folder. Then press the Finish button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-application-wizard.png"/>
+
+### Generating a RhoConnect App from the Command Line
 
 	:::term
-	$ rhoconnect app storemanager-server
-	$ cd storemanager-server/
+	$ rhoconnect app storeserver
+	$ cd storeserver
 	
-Next, install the application's dependencies.  RhoConnect applications use [bundler](http://gembundler.com/) to manage dependencies, so you can install them with:
+Next, install the application's dependencies. RhoConnect applications use [bundler](http://gembundler.com/) to manage dependencies, so you can install them with:
 
 	:::term
 	$ [sudo] bundle install
@@ -28,8 +39,6 @@ Next, install the application's dependencies.  RhoConnect applications use [bund
 
 	:::term
 	$ [sudo] rake dtach:install  
-
-### Verify Installation
 
 Now you can run redis and your RhoConnect app:
 
@@ -41,12 +50,36 @@ If everything went well you should see:
 
 	[07:01:15 PM 2010-05-04] Rhoconnect Server v3.0.0 started...
 
-Defining RhoConnect Source Adapters
----
+## Defining RhoConnect Source Adapters
 
 Once RhoConnect is installed we're ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoConnect source adapter](/rhoconnect/source-adapters) documentation.  
 
-From the storemanager-sever directory, generate a source adapter for the product model:
+### Generating the Source Adapter from RhoStudio
+
+To generate a RhoConnect source adapter and create the associated Controller templates, right-click on the application project in the Project Explorer and select New->Rhodes model.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/menu-new-rhoconnect_source-adapter.png"/>
+
+In the Model Information window, enter the name for your source adapter: in this case, product.
+
+Click the Finish button to create the source adapter.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/source-adapter-information.png"/>
+
+After pressing the Finish button, you'll see the RhoConnect source adapter generator script output in the output console (Rhodes build log console).
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-source-generator-output.png"/>
+
+You should now have files for the source adapter in your storeserver application. The files are organized as follows:
+
+* product.rb -> This is the source adapter file which contains the login, query, create, update, delete and logoff methods to call a backend service. You will add code to implement these methods.
+* product_spec.rb -> This file contains the spec with tests which relate to our source adapter.
+
+### Generating the Source Adapter from the Command Line
+
+From the command line, navigate to the main folder for your RhoConnect app: in this case, storeserver. 
+
+Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](rhostudio.tutorial) and the [documentation to generate a Rhodes application](rhodes/generator).
 
 	:::term
 	$ rhoconnect source product
@@ -57,7 +90,13 @@ which generates two files, the product adapter and the product spec:
      	[ADDED]  sources/product.rb
      	[ADDED]  spec/sources/product_spec.rb
 
-You'll see a file similar to the following one below. The generated source adapter has code to raise an exception for any required method.  Note that you don't need to use the source generator. You can just create a Ruby file and place it into your lib directory. The class name of the source adapter must match that of the client model.
+In RhoStudio, you can open the sources/product.rb file and edit it. 
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhostudio-rhoconnect-product-rb.png"/>
+
+You can also use the command line to navigate to the sources/product.rb file in your RhoConnect application folder.
+
+You'll see a product.rb file similar to the code listing below. The generated source adapter has code to raise an exception for any required method. Note that you don't need to use the source generator; you can create a Ruby file and place it into your lib directory. The class name (in this case, product) of the RhoConnect source adapter must match that of the Rhodes client model.
 
 	:::ruby
 	class Product < SourceAdapter
@@ -122,9 +161,11 @@ The next step is for you to fill in the login, query, create, update, delete and
 
 The description below shows what such code might look like.  
 
-A RhoConnect Query
----
-If you're doing a readonly non-authenticated source adapter, you can get away with just writing one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.heroku.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example simply shows JSON over HTTP with a REST interface since that is common. The RhoConnect source adapter is pure Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.  
+## A RhoConnect Query
+
+If you're doing a readonly non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.heroku.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common. The RhoConnect source adapter is Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.
+
+For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](rhoconnect/source-adapters#sample-adapter) in the RhoConnect Developer Reference.
 
 Our sample web service for returning all products in the catalog (http://rhostore.heroku.com/products.json) returns data like this:
 	
@@ -156,15 +197,17 @@ Our sample web service for returning all products in the catalog (http://rhostor
 	  }
 	]
 
-The Ruby code for parsing that data listed below uses the standard Ruby JSON library and the RestClient library for easy access to the REST web service.  This example uses the id of the product record as the hash key.  Note that the key for this hash must be a string and the value can be any set of name-value pairs which are represented as a Ruby hash. The instance variable @result must be set by the query method to this "hash of hashes", indexed by a unique identifier, so that the base SourceAdapter class sync method can populate Redis data store.
+The Ruby code for parsing that data, sources.product.rb, is listed below. It uses the standard Ruby JSON library and the RestClient library for easy access to the REST web service. This example uses the id of the product record as the hash key. Note that the key for this hash must be a string and the value can be any set of name-value pairs which are represented as a Ruby hash. The instance variable @result must be set by the query method to this "hash of hashes", indexed by a unique identifier, so that the base SourceAdapter class sync method can populate Redis data store.
 
-We need to declare the standard libraries that we are using at the top of the file:
+You can edit sources/product.rb within RhoStudio, or you can navigate to it within your RhoConnect application folder and edit it with a text editor.
+
+We need to declare the standard libraries that we are using at the top of the sources/product.rb file:
 
 	:::ruby
 	require 'json'
 	require 'rest_client'
 
-For convenience, we'll add an instance variable @base which contains the base URL of the web service and set the value in the constructor:
+For convenience, we'll add an instance variable @base which contains the base URL of the web service and sets the value in the constructor:
 
 	:::ruby
   	def initialize(source)
@@ -187,8 +230,8 @@ Then fill in the query method:
       end 
     end
 
-**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language.  If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.  
-Each hash key in the inner hash represents an attribute of an individual object.  All datatypes must be strings (so the hash values need to all be strings not integers).**
+**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language. If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.  
+Each hash key in the inner hash represents an attribute of an individual object.  All datatypes must be strings (so the hash values need to all be strings, not integers).**
 
 For example:
 	
@@ -204,20 +247,27 @@ For example:
 	  }
 	}	
 
-Testing Sync from the Client
----
-Make sure you are running redis and start (or restart) your server:
+## Testing Sync from the Client
+
+Make sure you are running redis.
+
+	:::term
+	rake redis:start
+	
+Then start (or restart) your server:
 	
 	:::term
    	$ rake rhoconnect:start
 
-The code for the source adapter loads when the server starts.  If you have a syntax error in your Ruby code, it will be reported and the server will not start; however, if you have a runtime error, that will not be reported until the source adapter is called.
+**Note: The RhoConnect application must be run from the command line. It does not run from RhoStudio.**
 
-Make sure your server URL is configured in the app.  If your server is running on localhost with the default port, the following line should be at the bottom of rhoconfig.txt:
+The code for the source adapter loads when the server starts. If you have a syntax error in your Ruby code, it will be reported and the server will not start; however, if you have a runtime error, that will not be reported until the source adapter is called.
+
+Make sure your server URL is configured in the Rhodes app. If your server is running on localhost with the default port, the following line should be at the bottom of your corresponding Rhodes app, storemanager/rhoconfig.txt:
 
 	syncserver = 'http://localhost:9292/application'
 
-Enable sync in your storemanager/app/Product/product.rb model:
+Enable sync in your corresponding Rhodes app, storemanager/app/Product/product.rb model:
 
 	:::ruby
 	class Product
@@ -226,21 +276,29 @@ Enable sync in your storemanager/app/Product/product.rb model:
   	  enable :sync
 	end
 
-To get a feel for what is happening, it is helpful to watch the server log (the output of rake rhoconnect:start) in one window, and tail the client log in another window.  For example, on the iPhone, display the end of the client log with:
+To get a feel for what is happening, it is helpful to watch the server log (the output of rake rhoconnect:start) in one window, and tail the client log in another window. For example, on the iPhone, display the end of the client log with:
 
 	:::term
    	$ tail -f rholog-User.txt
 
-To sync with the server, the client must log in.  The generated app includes some screens for login and other common functions, which you will typically modify to suit the design of your application.  The generated UI is useful since it allows you to focus on the core functionality of your application before implementing the important, but mundane, details of user authentication and settings.
+To sync with the RhoConnect server, the Rhodes client must log in. The Rhodes generated app includes some screens for login and other common functions, which you will typically modify to suit the design of your application.  The generated UI is useful since it allows you to focus on the core functionality of your application before implementing the important, but mundane, details of user authentication and settings.
 
-1. Click on the gears icon at the bottom of the screen to go to the Settings screen
-2. Login using any name & password.  The generated code allows any login, but you can modify that in application.rb. 
+1. From the home page in the Rhodes app, click on the login button in the upper right corner. Alternatively, you can click on the tool icon at the bottom of the screen to go to the Settings screen, and click the login button from there.
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/storemanager-rhosimulator-home-arrows.png"/>
+
+2. Login using any name & password. The generated code allows any login, but you can modify that in application.rb.
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhosimulator-login.png"/>
+
 3. If login is successful, you will see a Client ID in the settings screen. The ClientID is generated the first time you log in and is stored in the client database.  It serves as a unique identifier which is required for rhoconnect. (Note: this value will persist across logins, but if you reset the client database or the user re-installs the app, a new ClientID will be generated.)   
-4. Sync is triggered automatically.  Click on the home icon and then select "Products" and you should see the records from the server.
+4. Sync is triggered automatically. Click on the home icon and then select "Products" and you should see the list of product records from the server.
 
-Creating Objects with RhoConnect
----
-For your create method you can assume that the RhoConnect server will pass you a hash containing the new record  called "create_hash".   For example it might be:
+This example shows a couple of iPhone products.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhosimulator-product-list.png"/>
+
+## Creating Objects with RhoConnect
+
+For your create method, the RhoConnect server will pass you a hash containing the new record, called "create_hash". For example, it might be:
 	
 	:::ruby
 	{
@@ -248,7 +306,7 @@ For your create method you can assume that the RhoConnect server will pass you a
 	  "brand" => "Acme"
 	}
 
-The create method will be called once for every object that has been created on the client since the last sync.  Your code for create (or edit or delete) needs to use this populated array to do its work.  Below is an example of a create method against the [rhostore](http://rhostore.heroku.com), which accepts an HTTP POST to perform a create action. The create method must return a unique id string for the object for it to be later modifiable by the client.  If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
+The RhoConnect sources/product.rb create method will be called once for every object that has been created on the client since the last sync.  Your code for create (or edit or delete) needs to use this populated array to do its work.  Below is an example of a create method against the [rhostore](http://rhostore.heroku.com), which accepts an HTTP POST to perform a create action. The create method should return a unique id string for the object for it to be later modifiable by the client. If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
 
 	:::ruby
 	def create(create_hash)
@@ -266,11 +324,11 @@ The create method will be called once for every object that has been created on 
       JSON.parse(new_record)["product"]["id"].to_s
     end
 
-You will need to restart RhoConnect to reload the source adapter after modifying code.  Note that the object will be created on the client right away, but it will be sent to the server on the next sync.
+You will need to restart RhoConnect to reload the source adapter after modifying code. Note that the object will be created on the client right away, but it will be sent to the server on the next sync.
 
-Authentication
----
-The generated application code includes a file at the root of the directory called "application.rb" which contains a hook for authentication.  The complete file looks like this:
+## Authentication
+
+The generated RhoConnect application code includes a file at the root of the directory called "application.rb" which contains a hook for authentication. The complete file looks like this:
 
 	:::ruby
 	class Application < Rhoconnect::Base
@@ -301,7 +359,7 @@ The generated application code includes a file at the root of the directory call
 
     Application.initializer(ROOT_PATH)
 
-If your back end web service requires authentication, simply add code to the authenticate method and return true if authentication was successful or false to deny access to the application from this client.  For example:
+If your back end web service requires authentication, add code to the authenticate method and return true if authentication was successful or false to deny access to the application from this client. For example:
 
 	:::ruby
 	def authenticate(username, password, session)
@@ -313,6 +371,6 @@ If your back end web service requires authentication, simply add code to the aut
       return success
     end
 
-Using RhoConnect from Objective C
----
-You don't have to use Rhodes to use RhoConnect.  For this scenario, we offer an [Objective C client for RhoConnect](/rhoconnect/client).
+## Using RhoConnect from Objective C
+
+You don't have to use Rhodes to use RhoConnect. For this scenario, we offer an [Objective C client for RhoConnect](/rhoconnect/client).
