@@ -4,7 +4,7 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 
 * ### [Rhodes Tutorial](/rhodes/tutorial)
 
-* ### [RhoSync Tutorial](/rhosync/tutorial)
+* ### [RhoConnect Tutorial](/rhoconnect/tutorial)
 
 * ### [RhoHub Tutorial](/rhohub/tutorial)
 
