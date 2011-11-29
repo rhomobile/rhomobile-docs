@@ -323,7 +323,7 @@ Example for `RhoconnectJavaSample` application:
 	    }
 	 }
 
-Click [here](https://github.com/shurab/RhoconnectJavaPluginDemo) to download full source code of Contact manager application that integrated with rhoconnect-java plugin.
+Click [here](https://github.com/shurab/RhoconnectJavaPluginDemo) to download full source code of Contact manager application with rhoconnect-java plugin.
 
 ## Meta
 Created and maintained by Alexander Babichev.
