@@ -35,7 +35,7 @@ For testing and evaluation purposes you can use [RhoconnectJavaSample](https://g
 
 ### Adding Dependencies to Your Maven 2 Project
 
-Add dependencies to your Apache Maven 2 project object model (POM): log4j, apache common beanutils, and Jackson JSON mapper. In the RhoconnectJavaSample application, this code is in the pom.xml file.
+Add dependencies to your Apache Maven 2 project object model (POM): log4j, Apache common beanutils, and Jackson JSON mapper. In the RhoconnectJavaSample application, this code is in the pom.xml file.
 
     :::xml
     <!-- Log4j -->
@@ -60,8 +60,8 @@ Add dependencies to your Apache Maven 2 project object model (POM): log4j, apach
         <optional>false</optional>  
     </dependency>
 
-You must also add the rhoconnect-java jar to your apache maven 2 project. At this moment rhoconnect-plugin jar is not available in Maven public repositories and you need install the jar manually into your Maven's local repository.
-Download the `rhoconnect-java-1.0-SNAPSHOT.jar` jar file and put it into your hard drive, and issue following Maven's command:
+You must also add the rhoconnect-java jar to your Maven 2 project. At this moment rhoconnect-plugin jar is not available in Maven public repositories and you need install the jar manually into your Maven's local repository.
+Download the `rhoconnect-java-1.0-SNAPSHOT.jar` jar file and put it into your hard drive, and issue the following Maven's command:
 
     :::term
 	$ mvn install:install-file -Dfile=/path-to-jar/rhoconnect-java-1.0-SNAPSHOT.jar -DgroupId=com.rhomobile.rhoconnect  -DartifactId=rhoconnect-java -Dversion=1.0-SNAPSHOT -Dpackaging=jar
@@ -80,7 +80,7 @@ In the RhoconnectJavaSample application, you would add this code to the pom.xml 
 
 ### Updating Your Servlet XML Configuration File
 
-Update your servlet xml configuration file to include rhoconnect-java metadata: the packages, converters, and beans. In the RhoconnectJavaSample, th following code is added to src/main/webapp/WEB-INF/spring-servlet.xml file.
+Update your servlet xml configuration file to include rhoconnect-java metadata: the packages, converters, and beans. In the RhoconnectJavaSample, the following code is added to src/main/webapp/WEB-INF/spring-servlet.xml file.
 
     :::xml
     <!-- rhoconnect-java plugin packages -->
@@ -197,11 +197,12 @@ For more information about RhoConnect partitions, please refer to the [RhoConnec
 
 ### Establishing communication from java back-end application to the RhoConnect server
 
-You also must to establish the communication from your java back-end application to the RhoConnect instance by auto-wiring RhoconnectClient bean into your DAO service class and inserting notifications hooks into data access (create/update/delete) methods. RhoconnectClient bean is provided by rhoconnect-java plugin and its responds to the following methods you have to call:
+You also must to establish the communication from your java back-end application to the RhoConnect instance by auto-wiring `RhoconnectClient` bean into your DAO service class and inserting notifications hooks into data access (create/update/delete) methods. 
+`RhoconnectClient` bean is provided by rhoconnect-java plugin and responds to the following methods you have to call:
 
-* public boolean notifyOnCreate(String sourceName, String partition, Object objId, Object object)
-* public boolean notifyOnUpdate(String sourceName, String partition, Object objId, Object object)
-* public boolean notifyOnDelete(String sourceName, String partition, Object objId)
+* boolean notifyOnCreate(String sourceName, String partition, Object objId, Object object)
+* boolean notifyOnUpdate(String sourceName, String partition, Object objId, Object object)
+* boolean notifyOnDelete(String sourceName, String partition, Object objId)
 
 Example for `RhoconnectJavaSample` application:
 
