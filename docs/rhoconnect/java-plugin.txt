@@ -1,9 +1,9 @@
 RhoConnect-Java
 ===
 
-RhoConnect-Java library is designed for the [RhoConnect](http://rhomobile.com/products/rhoconnect/) App Integration Server.
+RhoConnect-Java library is designed for the [RhoConnect](http://rhomobile.com/products/rhoconnect/) Application Integration Server.
 
-Using the RhoConnect-Java plugin, your [Spting 3 MVC](http://www.springsource.org/) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [RhoConnect clients](http://rhomobile.com/products/rhoconnect/).
+Using the RhoConnect-Java plugin, your [Spring 3 MVC](http://www.springsource.org/) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [RhoConnect clients](http://rhomobile.com/products/rhoconnect/).
 
 ## Prerequisites
 
