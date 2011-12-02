@@ -77,6 +77,12 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	// run sync of all models
 	- (RhoConnectNotify*) syncAll;
 
+	// check is sync is in progress
+    - (BOOL) is_syncing;
+    
+    //stop current sync if running
+    - (void) stop_sync;
+
 	//send search request to rhoconnect
 	- (RhoConnectNotify*) search: (NSArray*)models from: (NSString*) from params: (NSString*)params sync_changes: (BOOL) 				
 		sync_changes progress_step: (int) progress_step;
@@ -151,6 +157,9 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	//these are equivalent to start/commit transaction
 	- (void) startBulkUpdate;
 	- (void) stopBulkUpdate;
+                                                                                              
+    //check does model was modified and not yet synced
+    - (BOOL) is_changed;
 
 #### RhoConnectNotify
 

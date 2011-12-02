@@ -405,6 +405,8 @@ The RhoConnectClient class contains the following properties and methods to buil
  * <a href="#clearNotification">clearNotification</a>
  * <a href="#is_logged_in">is\_logged\_in</a>
  * <a href="#syncAll">syncAll</a>
+ * <a href="#is_syncing">is_syncing</a> 
+ * <a href="#stop_sync">stop_sync</a> 
  * <a href="#search">search</a>
  * <a href="#setObjectNotification">setObjectNotification</a>
  * <a href="#clearObjectNotification">clearObjectNotification</a>
@@ -550,6 +552,20 @@ Instance method. Returns a RhoConnectNotify object after running a sync on all t
 
 	:::cplusplus
 	- (RhoConnectNotify*) syncAll;
+
+### <a id="is_syncing">is_syncing
+
+Instance method. Returns TRUE if syncronization is in progress
+
+	:::cplusplus
+	- (BOOL) is_syncing;
+
+### <a id="stop_sync">stop_sync
+
+Instance method. Stop current sync if running
+
+	:::cplusplus
+	- (void) stop_sync;
 
 ### <a id="search">search
 
@@ -726,6 +742,7 @@ The RhomModel class contains the following properties and methods for setting an
  * <a href="#destroy">destroy</a>
  * <a href="#startBulkUpdate">startBulkUpdate</a>
  * <a href="#stopBulkUpdate">stopBulkUpdate</a>
+ * <a href="#is_changed">is_changed</a>
 
 ### <a id="name"></a>name property
 
@@ -932,6 +949,13 @@ Run this method when you start to create or update a bunch of models; it will op
 
 	:::cplusplus
 	- (void) stopBulkUpdate;
+
+### <a id="is_changed">is_changed
+
+Check does model contain non-synced local changes
+
+	:::cplusplus
+	- (BOOL) is_changed;
 
 ## RhoConnectNotify Class API
 
