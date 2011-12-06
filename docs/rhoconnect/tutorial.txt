@@ -1,10 +1,14 @@
 # RhoConnect Tutorial
 
-## Adding Synchronized Data to Your Rhodes App with RhoConnect
+## Adding Synchronized Data to Your Backend Application with RhoConnect
 
-RhoConnect is a synchronization framework consisting of a client component (a Rhodes app) on the mobile device and a server component (a RhoConnect application) that runs on any server capable of running Ruby. RhoConnect requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The Ruby code for these operations is referred to as a "source" or "source adapter". Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](/rhoconnect/introduction).
+RhoConnect is a synchronization framework consisting of a backend application (a client component on the mobile device) and a server component (a RhoConnect application) that runs on any server capable of running Ruby. The backend application can be a Rhodes application, or another mobile application written without the use of Rhodes (such as an iOS/Objective C or Android/Java application).
 
-## Install the RhoConnect Dependencies
+RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. You can write this code in Ruby as a RhoConnect source adapter, or you can write this code as a RhoConnect plugin application written in Java, .NET, or Ruby on Rails.
+
+Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](/rhoconnect/introduction).
+
+## Installing the RhoConnect Dependencies
 
 * Install RhoConnect as described [here](/rhoconnect/install).
 
