@@ -1,11 +1,13 @@
 # RhoStudio
 
-RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
+RhoStudio is an Eclipse installation that facilitates development of native smartphone applications. It installs all Rho products, such as Rhodes and RhoConnect. It provides an integrated development environment (IDE) for Rhodes and RhoConnect development.
 
 Use RhoStudio to:
 
 * Generate Rhodes application(s).
 * Generate Rhodes Model(s) and associated Controllers and View templates.
+* Generate RhoConnect applications.
+* Generate RhoConnect source adapters.
 * Manage build configuration (build.yml and rhobuild.yml) using the RhoStudio/Eclipse UI.
 * Build, run, and debug your application in the RhoSimulator.
 * Build and run your Rhodes application on iPhone, Android, Windows Mobile, and BlackBerry simulators and devices.
@@ -46,6 +48,8 @@ Then in RhoStudio Preferences, open Rhomobile and check that the path is set to 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/preferences-rhomobile.png"/>
 
 ## Generating a Rhodes Application
+
+**NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](/rhoconnect/tutorial).
 
 In RhoStudio, select File->New->Project...
 
