@@ -41,7 +41,7 @@ and call them from the `Application_Start` method:
 	// implement init_rhoconnect() method to establish
 	// communication link between `Rhoconnect` server
 	// and ASP.NET MVC 3 application
-	const bool init_rhoconnect()
+	private bool init_rhoconnect()
 	{
 		// this call allows parsing JSON structures into Objects
 		ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
@@ -55,7 +55,7 @@ and call them from the `Application_Start` method:
 											  rhoconnect_authenticate);
 	}
 	
-	const bool rhoconnect_authenticate(String username, String password, Hashtable params)
+	private bool rhoconnect_authenticate(String username, String password, Hashtable auth_attrs)
 	{
 		// perform your authentication here
 		return true;
@@ -120,10 +120,10 @@ which you must implement in the dataset's Controller class.
 The route `/rhoconnect/query` is mapped to the `rhoconnect_query_objects` method of the **IRhoconnectCRUD**
 interface that you must implement in the corresponding dataset's Controller class. It must
 return a collection of source objects in the form of a JsonResult:
-
-		JsonResult rhoconnect_query_objects(String partition)
+		
+		public JsonResult rhoconnect_query_objects(String partition)
 		{
-			return Json(db.Products.ToDictionary("id"));
+			return Json(db.Products.ToDictionary(p => p.ID.ToString()));
 		}
 	
 In the above example, the Products object set is converted to `Dictionary<String, Object>`
@@ -218,7 +218,7 @@ The above example will look like this after inserting the corresponding callback
 				// insert these lines to provide
 				// notifications to Rhoconnect server
 				Hashtable reqHash = new Hashtable();
-                reqHash.Add(new_product.id.ToString(), new_products);
+                reqHash.Add(new_product.id.ToString(), new_product);
                 RhoconnectNET.Client.notify_on_create("Product", "partition_string", reqHash);
 
                 return RedirectToAction("Index");  
