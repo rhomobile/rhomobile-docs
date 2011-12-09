@@ -41,7 +41,7 @@ and call them from the `Application_Start` method:
 	// implement init_rhoconnect() method to establish
 	// communication link between `Rhoconnect` server
 	// and ASP.NET MVC 3 application
-	private bool init_rhoconnect()
+	private void init_rhoconnect()
 	{
 		// this call allows parsing JSON structures into Objects
 		ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
