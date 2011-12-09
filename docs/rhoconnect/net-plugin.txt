@@ -3,7 +3,7 @@ rhoconnect.NET
 
 A .NET 4 framework library for the [Rhoconnect](http://rhomobile.com/products/rhoconnect) App Integration Server.
 
-Using rhoconnect.NET, your [ASP.NET MVC3](http://www.asp.net/mvc/mvc3) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [Rhoconnect clients](http://rhomobile.com/products/rhoconnect/).
+Using rhoconnect.NET, your [ASP.NET MVC](http://www.asp.net/mvc/mvc4) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [Rhoconnect clients](http://rhomobile.com/products/rhoconnect/).
 
 ## Getting started
 
@@ -14,17 +14,20 @@ Copy the [`rhoconnect.NET`](https://github.com/rhomobile/rhoconnect.NET) github 
 By default, the `rhoconnect.NET` repository contains the pre-built `RhoconnectNET.dll` library in the `bin/Release` subdirectory.
 However, you can build your own library using the provided Microsoft Visual Studio .NET solution file and the source code files. 
 
-In order to use `Rhoconnect.NET` functionality in your `ASP.NET MVC 3` application, first you need to include the `Rhoconnect.NET` library 
+You can download and use the sample [`ASP.NET MVC4`](https://github.com/rhomobile/RhoconnectNET_MVC4_App) application to repeat the steps described below.
+
+In order to use `Rhoconnect.NET` functionality in your `ASP.NET MVC` application, first you need to include the `Rhoconnect.NET` library 
 as a dependency to your application. Click `Project => Add Reference` menu item in the Visual Studio and navigate to the `RhoconnectNET.dll` library.
 After this step is completed, you can add references to the `Rhoconnect.NET` namespace into the application's and Controller's files:
 
 	using RhoconnectNET;
 	using RhoconnectNET.Controllers;
+	
 
 
 ## Registering Rhoconnect.NET routes for your application
 
-To establish the communication channel between ASP.NET MVC 3 application and Rhoconnect server, 
+To establish the communication channel between ASP.NET MVC application and Rhoconnect server, 
 you need to implement the following `init_rhoconnect` and `rhoconnect_authenticate` methods in the `Global.asax.cs` file 
 and call them from the `Application_Start` method:
 
@@ -40,7 +43,7 @@ and call them from the `Application_Start` method:
 	
 	// implement init_rhoconnect() method to establish
 	// communication link between `Rhoconnect` server
-	// and ASP.NET MVC 3 application
+	// and ASP.NET MVC application
 	private void init_rhoconnect()
 	{
 		// this call allows parsing JSON structures into Objects
@@ -62,7 +65,7 @@ and call them from the `Application_Start` method:
 	}
 	
 `RhoconnectNET.Client.set_app_point` method is a main point
-in establishing the communication link between `Rhoconnect` server and the ASP.NET MVC 3 application
+in establishing the communication link between `Rhoconnect` server and the ASP.NET MVC application
 and it has the following parameters:
 
 <table border="1">
@@ -104,7 +107,7 @@ invokes to perform CRUD operations on the data for the dataset you want to synch
 Each of the routes is mapped to a corresponding `rhoconnect_<operation>` method in the **IRhoconnectCRUD** interface
 which you must implement in the dataset's Controller class.
 
-		public class MyDataController : Controller, IRhoconnectCRUD
+		public class ContactController : Controller, IRhoconnectCRUD
 		{
 			... implementation of Controller routes
 	
@@ -123,11 +126,11 @@ return a collection of source objects in the form of a JsonResult:
 		
 		public JsonResult rhoconnect_query_objects(String partition)
 		{
-			return Json(db.Products.ToDictionary(p => p.ID.ToString()));
+			return Json(db.Contacts.ToDictionary(c => c.ID.ToString()));
 		}
 	
-In the above example, the Products object set is converted to `Dictionary<String, Object>`
-where the dictionary's key must correspond to an unique object's `id` field.
+In the above example, the Contacts Db set is converted to `Dictionary<String, Object>`
+where the dictionary's key must correspond to an unique object's `ID` field.
 After dictionary is created , it is converted to JsonResult and sent to the Rhoconnect server.
 
 ## Create new objects
@@ -137,10 +140,10 @@ return a newly created object's id in case of success:
 
 		public ActionResult rhoconnect_create(String objJson, String partition)
         {
-            Product new_product = (Product)RhoconnectNET.Helpers.deserialize_json(objJson, typeof(Product));
-            db.Products.AddObject(new_product);
+            Contact new_contact = (Contact)RhoconnectNET.Helpers.deserialize_json(objJson, typeof(Contact));
+            db.Contacts.Add(new_contact);
             db.SaveChanges();
-            return RhoconnectNET.Helpers.serialize_result(new_product.id);
+            return RhoconnectNET.Helpers.serialize_result(new_contact.ID);
         }
 	
 ## Update existing objects
@@ -150,13 +153,13 @@ return an updated object's id in case of success:
 
 		public ActionResult rhoconnect_update(Dictionary<string, object> changes, String partition)
         {
-            String obj_id = changes["id"]);
-            Product product_to_update = db.Products.First(p => p.id == obj_id); 
-		    // this method will update only the modified fields
-            RhoconnectNET.Helpers.merge_changes(product_to_update, changes);
-            db.ObjectStateManager.ChangeObjectState(product_to_update, EntityState.Modified);
+            int obj_id = Convert.ToInt32(changes["id"]);
+            Contact contact_to_update = db.Contacts.First(c => c.ID == obj_id); 
+            // this method will update only the modified fields
+            RhoconnectNET.Helpers.merge_changes(contact_to_update, changes);
+            db.Entry(contact_to_update).State = EntityState.Modified;
             db.SaveChanges();
-            return RhoconnectNET.Helpers.serialize_result(obj_id); 
+            return RhoconnectNET.Helpers.serialize_result(contact_to_update.ID); 
         }
 
 ## Delete objects from the dataset
@@ -166,21 +169,21 @@ return a deleted object's id in case of success:
 
         public ActionResult rhoconnect_delete(Object objId, String partition)
         {
-            String key = objId.ToString();
+            int key = Convert.ToInt32(objId);
 
-            Product product_to_delete = db.Products.Single(p => p.id == key);
-            db.Products.DeleteObject(product_to_delete);
+            Contact contact = db.Contacts.Find(key);
+            db.Contacts.Remove(contact);
             db.SaveChanges();
-            return RhoconnectNET.Helpers.serialize_result(objId);
+            return RhoconnectNET.Helpers.serialize_result(key);
         }
 
 ## Partitioning Datasets
 Each of the above methods have a partition key supplied with the CRUD request.	This partition key is used by `Rhoconnect` to uniquely identify the model dataset when it is stored in a rhoconnect instance.  It is typically an attribute on the model or related model.  `Rhoconnect` supports two types of partitions:
 
-* :app - No unique key will be used, a shared dataset is synchronized for all users.
-* lambda { some lambda } - Execute a lambda which returns the unique key string.
+* app - No unique key will be used, a shared dataset is synchronized for all users.
+* String partition key - unique key string identifying the partition (typically, user name).
 
-For example, the `Product` model above might have a relationship to the User model.  This provides us a simple way to organize the `Product` dataset for rhoconnect by reusing this relationship.  
+For example, the `Contact` model above might have a relationship to the User model.  This provides us a simple way to organize the `Contact` dataset for rhoconnect by reusing this relationship.  
 In this case, your implementation might filter out data on a per user basis.
 	
 For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
@@ -191,81 +194,111 @@ However, to complete the implementation, it is necessary to implement a reverse 
 Typically, your MVC Controller class reacts to the actions by implementing the CRUD POST routes, for example:
 
 		[HttpPost]
-		public ActionResult Create(Product new_product)
+		public ActionResult Create(Contact new_contact)
 		{
 		     if (ModelState.IsValid)
 		     {
-                db.Product.AddObject(new_product);
+                db.Contacts.Add(new_contact);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
               }
 
-            return View(new_product);
+            return View(new_contact);
         }
 
 Here, you need to insert a call which will notify the Rhoconnect instance that a new object has been created.
 For this reason, `RhoconnectNET` library provides three callback routines for CUD notifications.
 The above example will look like this after inserting the corresponding callback routine:
 
+		// This method is used to access current partition
+		// in Rhoconnect notification callbacks
+        private String partition()
+        {
+            return "testuser";
+        }
+		
 		[HttpPost]
-	    public ActionResult Create(Product product)
-	    {
-		     if (ModelState.IsValid)
-		     {
-                db.Product.AddObject(product);
+        public ActionResult Create(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
                 db.SaveChanges();
 
-				// insert these lines to provide
-				// notifications to Rhoconnect server
-				Hashtable reqHash = new Hashtable();
-                reqHash.Add(new_product.id.ToString(), new_product);
-                RhoconnectNET.Client.notify_on_create("Product", "partition_string", reqHash);
+                // insert these lines to provide
+                // notifications to Rhoconnect server
+                RhoconnectNET.Client.notify_on_create(partition(), contact);
 
                 return RedirectToAction("Index");  
-              }
+            }
 
-              return View(new_product);
+            return View(contact);
         }
 
 In the example above, user need to call `RhoconnectNET.Client.notify_on_create` method 
 with the following parameters:
 
-- String rhoconnect_source_name : dataset's name
-- String rhoconnect_partition : partition to which the object belongs (see above section "Partitioning datasets")
-- Hashtable<String, Object> object_hash : Hashtable with object's id as a key and the object itself as a value
+<table border="1">
+	<tr>
+		<td>String</td>
+		<td><code>partition</code></td>
+		<td>partition to which the object belongs (see above section "Partitioning datasets")
+		In the above example, the partition string is returned from the partition() method</td>
+	</tr>
+	<tr>
+		<td>Object</td>
+		<td><code>new_object</code></td>
+		<td>newly inserted object, which will be passed to Rhoconnect in a Json form</td>
+	</tr>
+</table>
+
+NOTE: The above notification callback has several overloads. In its simplest form, 
+`notify_on_create` callback will obtain information about the source name from the `Contact` object
+class name (since it is equal) and will get the `id` field from the object itself. If your model
+stores `id` field under the custom name, then, you can use the following override to pass its name into
+the callback, where its value will be accessed through the Reflection mechanism:
+
+		// insert these lines to provide
+        // notifications to Rhoconnect server
+        RhoconnectNET.Client.notify_on_create(partition(), "MyContactCustomID", contact);
+
+In addition to that, if your model's class is not equal to the Rhoconnect's Source Adapter name, you can
+use the following override to pass it along:
+
+		// insert these lines to provide
+        // notifications to Rhoconnect server
+        RhoconnectNET.Client.notify_on_create("MyCustomContactSourceName", partition(), "MyContactCustomID", contact);
+		
 
 In the same fashion , your dataset's Controller need to implement `Edit` and `Delete` callback notifications:
 
 		[HttpPost]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(Contact contact)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Attach(product);
-                db.ObjectStateManager.ChangeObjectState(product, EntityState.Modified);
+                db.Entry(contact).State = EntityState.Modified;
                 db.SaveChanges();
-				
-				// insert this callback to notify Rhoconnect
-				// about the update operation
-                Hashtable reqHash = new Hashtable();
-                reqHash.Add(product.id.ToString(), product);
-                RhoconnectNET.Client.notify_on_update("Product", "partition_string", reqHash);
+
+                // insert this callback to notify Rhoconnect
+                // about the update operation
+                RhoconnectNET.Client.notify_on_update(partition(), contact);
 
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(contact);
         }
-
+		
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(String id)
+        public ActionResult DeleteConfirmed(int id)
         {            
-            Product product = db.Products.Single(p => p.id == id);
-            db.Products.DeleteObject(product);
+            Contact contact = db.Contacts.Find(id);
+            db.Contacts.Remove(contact);
             db.SaveChanges();
 
-			// insert this callback to notify Rhoconnect
-			// about the delete operation
-            RhoconnectNET.Client.notify_on_delete("Product", rhoconnect_partition(), id);
+            // insert this callback to notify Rhoconnect
+            // about the delete operation
+            RhoconnectNET.Client.notify_on_delete("Contact", partition(), id);
 
             return RedirectToAction("Index");
         }
