@@ -50,10 +50,12 @@ For Linux installations, and for Windows or Mac OS installations that are not us
 
 4. [Redis 2.2.14+](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the [Rake Tasks section](rhoconnect/command-line#rake-tasks). Alternatively, you can [install redis directly](http://redis.io/download).
 
-5. Install the RhoConnect Gem by running:
+5. Install the RhoConnect Gem.
+
+Run this command to install.
 
 	:::term
-  	$ [sudo] gem install rhoconnect
+	$ [sudo] gem install rhoconnect
 
 NOTE: If you get any `no such file to load -- something` messages while running the rake tasks or rhodes commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
 
