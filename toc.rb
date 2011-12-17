@@ -30,37 +30,20 @@ section 'rhodes-reference', "Rhodes Developer Reference" do
   topic 'credits',                  'Credits'
 end
 
-section 'rhoconnect-reference', "RhoConnect Developer Reference" do
+section 'rhoconnect-reference', "RhoConnect Getting Started" do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/install',           'Installation'
-  topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
   topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
-  topic 'rhoconnect/source-adapters',   'Source Adapters'
-  topic 'rhoconnect/settings',          'RhoConnect Settings'
-  topic 'rhoconnect/testing',           'Testing and Debugging'
-  topic 'rhoconnect/authentication',    'Adding Device Authentication'
-  topic 'rhoconnect/web-console',       'Admin Web Interface'
-  topic 'rhoconnect/licensing',         'Licensing your App'
-  topic 'rhoconnect/deploying',         'Deployment and Hosting Options'
-  topic 'rhoconnect/push',              'Device Push'
-  topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
-  topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
-  topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
-  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
-  topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
-  topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
-  topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
-  topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
-  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C API'
-  topic 'rhoconnect/benchmarks',        'Benchmarks'
-  topic 'rhoconnect/contributing',      'Contributing'
 end
 
-section 'rhoconnectjs-reference', "RhoConnect JS Developer Reference" do
-  topic 'rhoconnectjs/introduction',      'Introduction'
-  topic 'rhoconnectjs/getting-started',   'Getting Started'
-  topic 'rhoconnectjs/reference',         'API Reference'
-  topic 'rhoconnectjs/creating-app',      'Creating an App'
+section 'rhoconnect-source-adapter-reference', "RhoConnect Source Adapters" do
+  topic 'rhoconnect/source-adapters',   'Source Adapters'
+  topic 'rhoconnect/authentication',    'Adding Device Authentication'
+  topic 'rhoconnect/testing',           'Testing and Debugging'
+  topic 'rhoconnect/push',              'Device Push'
+  topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
+  topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
+  topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
 end
 
 section 'rhoconnect-plugin-reference', "RhoConnect Plugins" do
@@ -68,6 +51,35 @@ section 'rhoconnect-plugin-reference', "RhoConnect Plugins" do
   topic 'rhoconnect/rails-plugin',      'Rails Plugin'
   topic 'rhoconnect/net-plugin',        '.Net Plugin'
   topic 'rhoconnect/java-plugin',       'Java Plugin'
+end
+
+section 'rhoconnect-reference', "RhoConnect Administration and Deployment" do
+  topic 'rhoconnect/settings',          'RhoConnect Settings'
+  topic 'rhoconnect/web-console',       'Admin Web Interface'
+  topic 'rhoconnect/licensing',         'Licensing your App'
+  topic 'rhoconnect/benchmarks',        'Benchmarks'
+  topic 'rhoconnect/deploying',         'Deployment and Hosting Options'
+  topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
+  topic 'rhoconnect/contributing',      'Contributing'
+end
+
+section 'rhoconnect-reference', "Customizing RhoConnect" do
+  topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
+  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
+  topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
+end
+
+section 'rhoconnect-nonrhodes-client-reference', "RhoConnect non-Rhodes Client Developer Reference" do
+  topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
+  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C API'
+end
+
+section 'rhoconnectjs-reference', "RhoConnect JS Client Developer Reference" do
+  topic 'rhoconnectjs/introduction',      'Introduction'
+  topic 'rhoconnectjs/getting-started',   'Getting Started'
+  topic 'rhoconnectjs/reference',         'API Reference'
+  topic 'rhoconnectjs/creating-app',      'Creating an App'
 end
 
 section 'rhoconnect-service-reference', "RhoConnect Services" do
