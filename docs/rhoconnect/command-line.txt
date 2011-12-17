@@ -61,7 +61,9 @@ After generating the application, you might be asked to change directories to yo
 
 ### Add a New Source Adapter
 
-To generate a source for your RhoConnect application, run the `rhoconnect source` command within your application directory:
+To generate a source for your RhoConnect application, you can run the `rhoconnect source` command within your application directory.
+
+**NOTE** You can also write the source into your backend application and [write a RhoConnect plugin](/rhoconnect/plugin-intro) in Java, .NET, or other language for that application.
 
 	:::term
 	Usage: rhoconnect source name [options] [args]
@@ -69,7 +71,7 @@ To generate a source for your RhoConnect application, run the `rhoconnect source
 	Generates a new source adapter.
 
 	Required:
-	  name        - source name(i.e. product)
+	  name        - the source name(i.e. product)
 
 
 	Options specific for this generator:
@@ -216,3 +218,10 @@ Here is a complete list of the rake tasks available in a RhoConnect application:
 	rake rhoconnect:stop                # Stop rhoconnect server
 	rake rhoconnect:war                 # Build executable WAR file to be used in Java App Servers
 	rake rhoconnect:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml
+
+## Generate Source
+
+Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. The collection of the code for these operations is called a source. To generate source for your RhoConnect application:
+
+ * Generate a Ruby code [RhoConnect source adapter](/rhoconnect/source-adapters).
+ * Write the source code (the query, create, update and delete operations) into your backend application and [write a RhoConnect plugin](/rhoconnect/plugin-intro) in the language that matchs your backend application, such as Java or .NET.
