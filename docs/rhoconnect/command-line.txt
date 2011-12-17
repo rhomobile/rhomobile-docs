@@ -63,7 +63,7 @@ After generating the application, you might be asked to change directories to yo
 
 To generate a source for your RhoConnect application, you can run the `rhoconnect source` command within your application directory.
 
-**NOTE** You can also write the source into your backend application and [write a RhoConnect plugin](/rhoconnect/plugin-intro) in Java, .NET, or other language for that application.
+**NOTE:** You can also write the source into your backend application and [write a RhoConnect plugin](/rhoconnect/plugin-intro) in Java, .NET, or other language for that application.
 
 	:::term
 	Usage: rhoconnect source name [options] [args]
