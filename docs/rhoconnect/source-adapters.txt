@@ -3,7 +3,7 @@ RhoConnect Source Adapters
 
 Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. A RhoConnect source adapter is a collection of the Ruby code for these operations.
 
-**NOTE** You can also write this source code (the query, create, update and delete operations) into a backend application, and [write a RhoConnect plugin](plugin-intro) in the language that matchs your backend application, such as Java or .NET.
+**NOTE:** You can also write this source code (the query, create, update and delete operations) into a backend application, and [write a RhoConnect plugin](plugin-intro) in the language that matchs your backend application, such as Java or .NET.
 
 ## Generate Source Adapter
 
