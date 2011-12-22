@@ -1,0 +1,120 @@
+# Creating a RhoConnect Stack in Amazon Web Services
+
+This tutorial will guide you through setting up a Redis stack and a RhoConnect application stack in the Amazon Web Service (AWS) cloud.
+
+The RhoConnect application stack is scalable; it uses load balancing to automatically distribute and balance the incoming application traffic among all the instances you are running. You will set the maximum number of instances that the load balancer can create for your RhoConnect application.
+
+## Logging onto the Amazon Web Service
+
+Go to the [Amazon Web Service (AWS) Console](http://aws.amazon.com/console/) and click on the Sign in to the AWS Console button. You can sign into an existing AWS account, or create a new one.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/AWS-login-button.png" alt="AWS login button" />
+
+Or you can open the URL for your account directly if you have the account number: 
+
+	:::term
+	https://<your_account_number>.signin.aws.amazon.com/console
+
+The login screen for your AWS account appears. Enter your User Name and Password for your AWS account, then click the Sign in button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/aws-sign-in-account-number.png" alt="AWS login page" />
+
+The AWS Management Console appears. Click the Cloud Formation tab.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab.png" alt="Cloud Formation page" />
+
+## Create the Stack
+
+In the AWS Management Console, on the CloudFormation tab, change the Region to US West (N. California).
+
+**NOTE:** The stacks created in this document only work in the North California region.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab-ncalif-crop.png" alt="Cloud Formation page N California region" />
+
+Click the Create New Stack button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab-new-stack-button.png" alt="Cloud Formation page new stack button" />
+
+The Create Stack: Select Template window appears.
+
+### Create Stack - Select Template
+
+In the Create Stack: Select Template window, you must select the template file for your redis stack. This is the template to run the AMI image with the Redis server. 
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-select-template.png" alt="Create Stack Select Template window" />
+
+First, enter the name that you want for your stack into the Stack Name field.
+
+Now get the template by either providing the URL for the template file, or by uploading the template file.
+
+#### Providing the URL for the Template File
+
+Click the Provide a Template URL radio button.
+
+Copy the following URL and paste it into the text field below the Provide a Template URL radio button.
+
+`https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt`
+
+Click Continue. The Create Stack: Specify Parameters window appears.
+
+#### Uploading the Template File
+
+Click the Upload a Template File radio button.
+
+In another browser window, go to [https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt](https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt).
+
+Save that text file to your computer.
+
+Click the Choose File button, and navigate to and select your template file.
+
+Click Continue. The Create Stack: Specify Parameters window appears.
+
+### Create Stack - Specify Parameters
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-specify-parameters.png" alt="Create Stack Specify Parameters window" />
+
+In the Create Stack: Specify Parameters window:
+
+ * Enter the maximum number of RhoConnect application servers that you want to run in your stack. Default = 2.
+ * Enter the name for your existing EC2 KeyPair to enable SSH access to the stack instances.
+
+Click Continue. The Create Stack: Review window appears.
+
+### Create Stack - Review
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-review.png" alt="Create Stack Review window" />
+
+Click Continue. The window showing that the stack is being created appears.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-being-created.png" alt="Create Stack being created window" />
+
+Click Close.
+
+## Checking the Status
+
+In the AWS Management Console, Cloud Formation tab, click the checkbox for your stack. To see the progress of the creation of your stack, click the Refresh button; the status should become CREATE_COMPLETE soon.
+
+To see the progress of the components in your stack, you can click the Events tab. You can click the refresh button to see the progress.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/aws-management-create-complete.png" alt="AWS Management CREATE_COMPLETE window" />
+
+## Using the RhoConnect Application URL
+
+In the AWS Management Console, Cloud Formation tab, click the Outputs tab. You will see a list of the Stack Outputs. 
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/aws-management-outputs.png" alt="AWS Management Stack Outputs window" />
+
+At the top of the output list is the URL of the RhoConnect application. You can click on it to see the RhoConnect Console for the running RhoConnect server.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/rhoconnect-console.png" alt="RhoConnect Console" />
+
+To use this scaleable RhoConnect server in your Rhodes application, copy the URL for the RhoConnect application. The rhoconfig.txt file on your Rhodes application has a syncserver variable; set that to this URL. For example:
+
+	:::term
+	syncserver = http://rhoconnec-RhoLoadB-OX64XR1IKNT2-1364705573.us-west-1.elb.amazonaws.com
+
+## Deleting the Stack
+
+You are charged for the stack that you have created, by the hour. When you no longer want to use the stack, you can delete it by right-clicking on the stack name in the AWS Management Console, Cloud Formation tab, and clicking Delete Stack in the pop-up menu.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/delete-stack.png" alt="Delete Stack" />

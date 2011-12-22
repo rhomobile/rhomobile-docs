@@ -15,8 +15,8 @@ Load the `rhoconnect.js` library:
             RhoConfig = {
                 // is used to form the websql database name as <appName>_<login>
                 appName: 'rhoPGapSenchaDataSample',
-                // RhoSync application URL
-                syncServer: 'http://rhohub-lars-692f63a7.rhosync.com/application'
+                // RhoConnect application URL
+                syncServer: 'http://rhohub-lars-692f63a7.rhoconnect.com/application'
             };
         </script>
 
