@@ -31,7 +31,7 @@ You also have a sample folder that you can drag to where you wish on your comput
 
 ### Installing on Windows
 
-If you're running Windows, download the latest [RhoStudio for Windows] and run the download file to install RhoStudio.
+If you're running Windows, download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
 
 ### Installing the Java Development Kit
 
