@@ -32,6 +32,7 @@ end
 
 section 'rhoconnect-reference', "RhoConnect Getting Started" do
   topic 'rhoconnect/introduction',      'Introduction'
+  topic 'rhoconnect/contributing',      'Contributing'
   topic 'rhoconnect/install',           'Installation'
   topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
 end
@@ -53,18 +54,21 @@ section 'rhoconnect-plugin-reference', "RhoConnect Plugins" do
   topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
-section 'rhoconnect-reference', "RhoConnect Administration and Deployment" do
+section 'rhoconnect-administration', "RhoConnect Administration" do
   topic 'rhoconnect/settings',          'RhoConnect Settings'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
   topic 'rhoconnect/licensing',         'Licensing your App'
   topic 'rhoconnect/benchmarks',        'Rhoconnect Benchmarking'
   topic 'rhoconnect/benchmarks-running','Running Rhoconnect Benchmarks'
-  topic 'rhoconnect/deploying',         'Deployment and Hosting Options'
   topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
-  topic 'rhoconnect/contributing',      'Contributing'
 end
 
-section 'rhoconnect-reference', "Customizing RhoConnect" do
+section 'rhoconnect-deployment', "RhoConnect Deployment" do
+  topic 'rhoconnect/deploying',         'Deployment and Hosting Options'
+  topic 'rhoconnect/rhoconnect-redis-stack',  'Creating a RhoConnect Stack on AWS'
+end
+
+section 'rhoconnect-advanced', "RhoConnect Advanced Topics" do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
@@ -73,7 +77,7 @@ end
 
 section 'rhoconnect-nonrhodes-client-reference', "RhoConnect non-Rhodes Client Developer Reference" do
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
-  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C API'
+  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C'
 end
 
 section 'rhoconnectjs-reference', "RhoConnect JS Client Developer Reference" do
