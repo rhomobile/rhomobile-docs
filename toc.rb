@@ -79,7 +79,14 @@ end
 
 section 'rhoconnect-nonrhodes-client-reference', "RhoConnect: non-Rhodes Client Developer Reference" do
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
-  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: Objective C'
+end
+
+section 'rhoconnect-nonrhodes-client-reference', "RhoConnect: iOS Objective C Client Developer Reference" do
+  topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: iOS Objective C'
+end
+
+section 'rhoconnect-nonrhodes-client-reference', "RhoConnect: Android Java Client Developer Reference" do
+  topic 'rhoconnect/client-java',       'RhoConnect without Rhodes: Android Java'
 end
 
 section 'rhoconnectjs-reference', "RhoConnect: JS Client Developer Reference" do
