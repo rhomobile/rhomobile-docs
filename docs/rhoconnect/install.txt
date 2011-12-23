@@ -20,6 +20,8 @@ Then drag RhoStudio to the Applications folder.
 
 If you're running Windows, download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), and [Rhodes](/rhodes/introduction).
 
+If you are running Windows 64-bit, you need to have 64-bit Eclipse, and then you [install RhoStudio as a plugin for Eclipse](/rhodes/rhostudio-eclipse).
+
 ## Java Development Kit (JDK)
 
 You need to have the Java Development Kit (JDK) installed for RhoStudio. If you are planning to build for Blackberry or Android, make sure you have JDK version 1.6.0_2 or higher installed; the 32-bit Windows version of the JDK is required for Blackberry tools.
