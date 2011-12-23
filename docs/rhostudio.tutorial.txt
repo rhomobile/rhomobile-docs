@@ -33,6 +33,8 @@ You also have a sample folder that you can drag to where you wish on your comput
 
 If you're running Windows, download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
 
+If you are running Windows 64-bit, you need to have 64-bit Eclipse, and then you [install RhoStudio as a plugin for Eclipse](/rhodes/rhostudio-eclipse).
+
 ### Installing the Java Development Kit
 
 You need to have the Java Development Kit (JDK) installed.
