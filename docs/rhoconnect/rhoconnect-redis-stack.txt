@@ -15,27 +15,27 @@ Or you can open the URL for your account directly if you have the account number
 	:::term
 	https://<your_account_number>.signin.aws.amazon.com/console
 
-The login screen for your AWS account appears. Enter your User Name and Password for your AWS account, then click the Sign in button.
+Enter your User Name and Password for your AWS account, then click the Sign in button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/aws-sign-in-account-number.png" alt="AWS login page" />
-
-The AWS Management Console appears. 
 
 ## Creating a Custom RhoConnect Image
 
 In the AWS Management Console, change the Region to US West (N. California).
 
-**NOTE:** The stacks created in this document only work in the North California region.
+**NOTE:** The stacks created in this document only work in the N. California region.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab-ncalif-crop.png" alt="Cloud Formation page N California region" />
 
 We provide a public preconfigured image that contains a blank RhoConnect app:
 
- * ami-65e4bb20 (Us West N. California)
+ * `ami-65e4bb20` (Us West N. California)
 
 ### Launching an Instance
 
-To create your own RhoConnect Image, launch an EC2 Image. Click the EC2 tab, then click the Launch Instance button.
+To create your own RhoConnect Image, launch an EC2 Image:
+
+Click the EC2 tab, click EC2 Dashboard, then click the Launch Instance button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/ec2-launch-instance.png" alt="Launch Instance button" />
 
@@ -45,21 +45,22 @@ Click the Launch Classic Wizard radio button. Click Continue.
 
 ### Requesting the Instance
 
-In the Request Instance: Choose AMI wizard, click the Community AMIs tab. Then paste in the AMI `ami-65e4bb20`. The preconfigured RhoConnect AMI appears. Click Select.
+In the Choose an AMI section click the Community AMIs tab.
+Then paste in the AMI `ami-65e4bb20`. When the preconfigured RhoConnect AMI appears, click Select.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-wizard-community-AMIs.png" alt="request instances - choose AMI" />
 
-In Request Instances Wizard - Instance Details, select the Instance Type (such as Large).
+In the Instance Details section, select the Instance Type (such as Large).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-instance-details.png" alt="request instances - instance details" />
 
-In the Request Instances Wizard, Instance Details, Advanced Instance Options, change nothing. Click Continue.
+In the Instance Details section, Advanced Instance Options screen, change nothing. Click Continue.
 
-In Request Instances Wizard - Instance Details, for adding tags, enter a name for your custom RhoConnect EC2 instance. Click Continue.
+In the Instance Details section, Add Tags screen, enter a name for your custom RhoConnect EC2 instance in the Value Column of the Name key, then click Continue.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-instance-details-add-tags.png" alt="request instances - add tags" />
 
-In Request Instances Wizard - Create Key Pair, select your existing key pair or create a new keypair.
+In the Create Key Pair section, select your existing key pair or create a new keypair.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-key-pair.png" alt="request instances - key pair" />
 
@@ -67,9 +68,7 @@ In Request Instances Wizard - Create Key Pair, select your existing key pair or 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-configure-firewall.png" alt="request instances - configure firewall" />
 
-In the Request Instances Wizard - Configure Firewall, click the Create New Security Group.
-
-**NOTE:** You can use a preexisting security group if it has the open ports 22, 80, and 6379.
+In the Configure Firewall section, click the Create New Security Group radio button.
 
 CLick the Add Rule button to add each port.
 
@@ -77,33 +76,33 @@ CLick the Add Rule button to add each port.
  * Add port 80 for HTTP.
  * Add port 6379 for redis.
 
-Enter a firewall name and a group description.
+**NOTE:** You may use a preexisting security group if it has ports 22, 80, and 6379 open.
 
-Click Continue.
+Enter a firewall name and a group description, then click Continue.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-review.png" alt="request instances - review" />
 
-You can see Request Instances Wizard - Review. Click Launch. 
+Make sure all the instance information is correct as shown on the Review page and then click Launch. 
 
-In the window that shows it is launching, click Close.
+In the window titled "Launch Instance Wizard", click Close and wait for your instance to be Running.
 
 ### Customizing the Instance
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/instances-instances.png" alt="instances - instances" />
 
-In the EC2 tab, Click on Instances / Instances.
+In the EC2 tab, Click on Instances.
 
-Under Viewing, select Running Instances. Right-click on your RhoConnect instance. Then scroll down to see Private DNS. 
+For Viewing, select Running Instances. Select your newly created RhoConnect instance and scroll down to see Private DNS in the lower section of the My Instances screen. 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/running-instances-public-dns.png" alt="running instances - public dns" />
 
 You will need:
 
- * your keypair
- * the public DNS name of the Instance, which you will see as the public DNS name in the running instance, such as `ec2-184-72-16-39.us-west-1.compute.amazonaws.com`.
+ * your keypair (the .pem file AWS gives you when the keypair is created)
+ * the public DNS name of the Instance, which you will see as the public DNS name in the running instance. For Example: `ec2-184-72-16-39.us-west-1.compute.amazonaws.com`.
  * the username: `ec2-user`
 
-From the command line, run an ssh command to login to the running instance, using the keypair, DNS name, and user name. For example:
+From the command line, use ssh to login to the running instance, using the keypair, DNS name, and user name. For example:
 
 	:::term
 	$ ssh -i ~/.ssh/devkey.pem ec2-user@ec2-50-18-229-26.us-west-1.compute.amazonaws.com
@@ -121,7 +120,7 @@ You can test the application.
 	$ sudo /etc/init.d/redis start
 	$ sudo /etc/init.d/nginx start
 
-If everything is configured properly, then you can login to the RhoConnect web console in your browser by using the instance public DNS name as the URL in your browser. When you are done, you can stop the application.
+If everything is configured properly, then you can login to the RhoConnect web console in your browser by using the instance's public DNS name as the URL in your browser. When you are done, you can stop the application.
 
 	:::term
 	$ sudo /etc/init.d/nginx stop
@@ -131,7 +130,7 @@ If everything is configured properly, then you can login to the RhoConnect web c
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/running-instances-public-dns.png" alt="Create Image popup" />
 
-In the EC2 tab, right-click the RhoConnect instance and select Create Image from the popup menu.
+In the EC2 tab, right-click the RhoConnect instance and select Create Image (EBS AMI).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-image.png" alt="Create Image" />
 
@@ -139,7 +138,7 @@ In the Create Image window, enter the image name and description for your custom
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-image-request.png" alt="Create Image request" />
 
-In the Create Image window showing that the request is received, click on "View pending image: ami-NNNNNNN to go to your Amazon Machine Image.
+In the Create Image window showing that the request is received, click on "View pending image: ami-XXXXXXXX to go to your Amazon Machine Image.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/ami-image.png" alt="amazon machine image" />
 
@@ -151,15 +150,13 @@ Click the Cloud Formation tab.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab.png" alt="Cloud Formation page" />
 
-Click the Create New Stack button.
+Ensure that the Region selected is US West (N. California) and Click the Create New Stack button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab-new-stack-button.png" alt="Cloud Formation page new stack button" />
 
-The Create Stack: Select Template window appears.
-
 ### Create Stack - Select Template
 
-In the Create Stack: Select Template window, you must select the template file for your redis stack. This is the template to run the AMI image with the Redis server. 
+In the Select Template section, you must select the template file for your redis stack. This is the template to run the AMI image with the Redis server. 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-select-template.png" alt="Create Stack Select Template window" />
 
@@ -175,8 +172,6 @@ Copy the following URL and paste it into the text field below the Provide a Temp
 
 `https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt`
 
-Click Continue. The Create Stack: Specify Parameters window appears.
-
 #### Uploading the Template File
 
 Click the Upload a Template File radio button.
@@ -187,7 +182,7 @@ Save that text file to your computer.
 
 Click the Choose File button, and navigate to and select your template file.
 
-Click Continue. The Create Stack: Specify Parameters window appears.
+Click Continue.
 
 ### Create Stack - Specify Parameters
 
@@ -199,13 +194,13 @@ In the Create Stack: Specify Parameters window:
  * Enter the maximum number of RhoConnect application servers that you want to run in your stack. Default = 2.
  * Enter the name for your existing EC2 KeyPair to enable SSH access to the stack instances.
 
-Click Continue. The Create Stack: Review window appears.
+Click Continue.
 
 ### Create Stack - Review
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-review.png" alt="Create Stack Review window" />
 
-Click Continue. The window showing that the stack is being created appears.
+Click Continue to see a window entitled \"Create Stack\" showing that the stack is being created.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/create-stack-being-created.png" alt="Create Stack being created window" />
 
@@ -229,14 +224,14 @@ At the top of the output list is the URL of the RhoConnect application. You can 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/rhoconnect-console.png" alt="RhoConnect Console" />
 
-To use this scaleable RhoConnect server in your Rhodes application, copy the URL for the RhoConnect application. The rhoconfig.txt file on your Rhodes application has a syncserver variable; set that to this URL. For example:
+To use this scaleable RhoConnect server in your Rhodes application, copy the URL for the RhoConnect application into the rhoconfig.txt file in your Rhodes application as the syncserver variable. For example:
 
 	:::term
 	syncserver = http://rhoconnec-RhoLoadB-OX64XR1IKNT2-1364705573.us-west-1.elb.amazonaws.com
 
 ## Deleting the Stack
 
-You are charged for the stack that you have created, by the hour. When you no longer want to use the stack, you can delete it by right-clicking on the stack name in the AWS Management Console, Cloud Formation tab, and clicking Delete Stack in the pop-up menu.
+You are charged for the stack that you have created, by the hour. When you no longer want to use the stack, you can delete it by right-clicking on the stack name in the AWS Management Console, Cloud Formation tab, and clicking Delete Stack.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/delete-stack.png" alt="Delete Stack" />
 
