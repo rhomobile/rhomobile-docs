@@ -84,7 +84,6 @@ Use [this](http://nubyonrails.com/pages/gruff) guide to install the GRUFF on you
 ## Distributed Benchmark test
 To fully simulate the distributed nature of the device-to-server system, the Rhoconnect Benchmark command allows to you to create distributed clients through the [AWS Cloud Formation](http://aws.amazon.com/cloudformation/).
 
-IMPORTANT!!!
 NOTE: Distributed Rhoconnect Benchmark test will be executed via the AWS Cloud Formation and EC2 services using your account and therefore you will be billed for its usage by Amazon.
 
 In order to run the distributed Benchmark test, you need to have an AWS account and specify its settings in a YAML file, which should have the following structure:
