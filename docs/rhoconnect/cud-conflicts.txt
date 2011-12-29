@@ -28,9 +28,7 @@ To handle this situation , Rhoconnect uses the CUD queue, which is being dispatc
 Detecting the conflict and forcing an error
 ---
 
-Using the above `validate` method you can iterate through the queue and detect the CUD conflicts based on the desired application logic. To mark the conflict, you need to do the following:
-
-- once the conflicting record is found (for example, duplicate create request), you need to insert this record params into the special hash structure:
+Using the above `validate` method you can iterate through the queue and detect the CUD conflicts based on the desired application logic. Once the conflicting record is found (for example, duplicate create request), you need to mark it by inserting this record parameters into the special hash structure that is returned by the `validate` method:
 
 	:::ruby
 	def validate(operation, cud_queue, client_ids)
@@ -54,5 +52,5 @@ Using the above `validate` method you can iterate through the queue and detect t
 		resulting_meta_hash
 	end
 				
-- once the `validate` method returns non-empty validation metadata hash structure, it will be used in processing the CUD queue. All marked records will not be processed, but instead an error will be sent back to the originating client with the user-provided error message.
+Once the `validate` method returns non-empty validation metadata hash structure, it will be used in processing the CUD queue. All marked records will not be processed, but instead an error will be sent back to the originating client with the user-provided error message.
  
