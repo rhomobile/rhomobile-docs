@@ -4,7 +4,7 @@ Resolving CUD conflicts
 Rhoconnect CUD queue and potential conflicts
 ---
 
-By nature, your Rhoconnect application must support multiple client's requests at the same time. This scenario can lead to a situation where two or more clients will try to perform CUD operations at the same time, potentially creating the race condition. For example, this can happen, if two users will try to insert or delete the same record simultaneously.
+By design, your Rhoconnect application supports parallel dispatching of the multiple client's requests via the asynchronous Resque jobs. This scenario can lead to a situation where two or more clients will try to perform CUD operations at the same time, potentially creating the race condition. For example, this can happen when two users will try to insert or delete the same record simultaneously.
 To handle this situation , Rhoconnect uses the CUD queue, which is being dispatched continuously. You can inspect this queue before the CUD operation is called and mark the conflicting records for special processing. To do this, you need to override the Source Adapter `validate` method that is called before the CUD queue is dispatched. This method has the following parameters:
 
 <table border="1">
@@ -21,14 +21,26 @@ To handle this situation , Rhoconnect uses the CUD queue, which is being dispatc
 	<tr>
 		<td>Array Of Client Ids</td>
 		<td><code>client_queue</code></td>
-		<td>This array is used to map the CUD request in the above queue to a corresponding client ID. i.e CUD_queue[N] request was issued by client_queue[N] client. Please note that there may be several entries from the same client - if they came separately in time</td>
+		<td>This array is used to map the CUD request in the above queue to a corresponding client ID. i.e. CUD_queue[N] request was issued by client_queue[N] client. Please note that there may be several entries from the same client - if they came separately in time</td>
 	</tr>
 </table>
+
+Below you can see the example of the `validate` method parameters indicating two create requests containing the conflicting records:
+
+	:::ruby
+	client_1 = 'cid_1'
+	cud_request_1 = { 'temp_cid1_1' => {'name' => 'iPhone'}, 'temp_cid1_2' => {'name' => 'Android'}}
+	client_2 = 'cid_2'
+	cud_request_2 = { 'temp_cid2_1' => {'name' => 'iPhone'}}  # this record seems to be the duplicate of the record 'temp_cid1_1'
+	
+	operation = 'create'
+	cud_queue = [ cud_request_1, cud_request_2 ]
+	client_ids = [ client_1, client_2 ]
 
 Detecting the conflict and forcing an error
 ---
 
-Using the above `validate` method you can iterate through the queue and detect the CUD conflicts based on the desired application logic. Once the conflicting record is found (for example, duplicate create request), you need to mark it by inserting this record parameters into the special hash structure that is returned by the `validate` method:
+Using the above `validate` method you can iterate through the queue and detect CUD conflicts based on the desired application logic. Once the conflicting record is found (for example, duplicate create request), you need to mark it by inserting the conflicting record parameters into the special hash structure that is returned by the `validate` method:
 
 	:::ruby
 	def validate(operation, cud_queue, client_ids)
