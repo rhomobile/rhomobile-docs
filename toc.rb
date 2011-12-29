@@ -74,6 +74,7 @@ section 'rhoconnect-advanced', "RhoConnect: Advanced Topics" do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
+  topic 'rhoconnect/cud-conflicts', 'Managing CUD conflicts'
   topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
 end
 
