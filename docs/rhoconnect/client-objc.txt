@@ -191,11 +191,11 @@ Call the RhoConnectClient setNotification method to call a callback method that 
 	:::cplusplus
 	[ [RhoConnectEngine sharedInstance].syncClient setNotification: @selector(syncAllComplete:) target:self];
 
-To perform a bulk sync *sclient.bulksync_state* configuration flag should be reset to zero. If you don't need bulk sync then just skip it.
+To perform a bulk sync *syncClient.bulksync_state* configuration flag should be reset to zero. If you don't need bulk sync then just skip it.
 
     :::cplusplus
     // set configuration for bulk sync, it means "next sync should be performed as bulk"
-    sclient.bulksync_state = 0;
+    syncClient.bulksync_state = 0;
     // after sync performed the it should contain value 1.
 
 Call a sync method, such as the RhoConnectClient syncAll method or the RhomModel sync method, to sync your client model data with the RhoConnect server.
