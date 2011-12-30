@@ -1,18 +1,8 @@
 require 'rubygems'
 require 'sinatra'
-require 'haml'
-require 'sass'
 require 'indextank'
 require 'pdfkit'
 require './topic'
-
-# unless development?
-#   require 'rhomobile/nav'
-#   use Rhomobile::Nav::Base, {
-#     :nav_host => "#{AppConfig['rhonav_host']}/#{ENV["RACK_ENV"]}",
-#     :blog => true, :subscribe => false, :support => false, :footer => false #footer true/false if you (or don't) want render the footer
-#   }
-# end
   
 unless development?
   PDFKit.configure do |config|       
@@ -41,14 +31,14 @@ end
   get path do
     @print = 0
 	  cache_long
-  	haml :index
+  	erb :index
 	end
 end
 
 get '/print/home' do 
   @print = 1
   cache_long
-  haml :index
+  erb :index
 end
 
 get '/search' do
