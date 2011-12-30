@@ -72,6 +72,7 @@ By default, all results are displayed in the console during the test. However, i
 ### Generate EXCEL spreadsheet
 To enable the automatic generation of the EXCEL spreadsheets from the test results, please install the `spreadsheet` gem by using:
 
+	:::term
 	$ [sudo] gem install spreadsheet
 	
 You can read more about the `spreadsheet` gem [here](http://rubygems.org/gems/spreadsheet).
@@ -130,6 +131,7 @@ You can install those gems using the `[sudo] gem install <gemname>` command.
 
 Once all the pre-requisites are met, you can run the distributed Rhoconnect Benchmark test with the following command:
 
+	:::term
 	$ rhoconnect-benchmark -u `server_url` -D `path_to_aws_settings_file`
 	
 
