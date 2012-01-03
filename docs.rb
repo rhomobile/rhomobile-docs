@@ -7,7 +7,6 @@ require './topic'
 unless development?
   PDFKit.configure do |config|       
    config.wkhtmltopdf = File.expand_path(File.join( File.dirname(__FILE__), 'bin', 'wkhtmltopdf-amd64')).to_s
-   #config.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf'
   end
 end
 
@@ -29,6 +28,7 @@ end
 
 ['/', '/home'].each do |path|
   get path do
+    @title = "Home"
     @print = 0
 	  cache_long
   	erb :index
