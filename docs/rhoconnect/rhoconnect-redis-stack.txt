@@ -45,7 +45,7 @@ Click the Launch Classic Wizard radio button. Click Continue.
 
 ### Requesting the Instance
 
-In the Choose an AMI section click the Community AMIs tab.
+In the Choose an AMI section, click the Community AMIs tab.
 Then paste in the AMI `ami-65e4bb20`. When the preconfigured RhoConnect AMI appears, click Select.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-wizard-community-AMIs.png" alt="request instances - choose AMI" />
@@ -70,7 +70,7 @@ In the Create Key Pair section, select your existing key pair or create a new ke
 
 In the Configure Firewall section, click the Create New Security Group radio button.
 
-CLick the Add Rule button to add each port.
+Click the Add Rule button to add each port.
 
  * Add port 22 for SSH.
  * Add port 80 for HTTP.
@@ -90,7 +90,7 @@ In the window titled "Launch Instance Wizard", click Close and wait for your ins
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/instances-instances.png" alt="instances - instances" />
 
-In the EC2 tab, Click on Instances.
+In the EC2 tab, click on Instances.
 
 For Viewing, select Running Instances. Select your newly created RhoConnect instance and scroll down to see Private DNS in the lower section of the My Instances screen. 
 
