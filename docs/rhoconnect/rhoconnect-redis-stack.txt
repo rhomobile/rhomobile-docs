@@ -1,4 +1,4 @@
-# Creating a RhoConnect Stack in Amazon Web Services
+# Deploying RhoConnect with High Availability on Amazon Web Services
 
 This tutorial will guide you through setting up a Redis stack and a RhoConnect application stack in the Amazon Web Service (AWS) cloud.
 
