@@ -67,7 +67,7 @@ section 'rhoconnect-deployment', "RhoConnect: Deployment" do
   topic 'rhoconnect/preparing-production',         'Preparing for Production'
   topic 'rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'rhoconnect/deploying',         'Deploying RhoConnect'
-  topic 'rhoconnect/rhoconnect-redis-stack',  'Creating a RhoConnect Stack on AWS'
+  topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
 
 section 'rhoconnect-advanced', "RhoConnect: Advanced Topics" do
