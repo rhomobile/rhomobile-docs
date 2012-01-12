@@ -1,7 +1,7 @@
 Using RhoConnect with the RhoConnect Client
 ===
 
-Rhoconnect Client is a library to add sync data capability to your applications. Application code can be ObjectiveC, C++, JavaScript or any other supported language. Using this library you can easily enable synchronized data between your smartphone application and a RhoConnect server.
+Rhoconnect Client is a library to add sync data capability to your applications. Application code can be ObjectiveC, JavaScript or any other supported language. Using this library you can easily enable synchronized data between your smartphone application and a RhoConnect server.
 
 ## Objective-C Client
 
