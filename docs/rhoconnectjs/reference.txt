@@ -140,7 +140,7 @@ None.
 
 ### RhoConnect.syncAllSources()
 
-Synchronizes that application data with the RhoSync server.
+Synchronizes that application data with the RhoConnect server.
 
 #### Returns
 
