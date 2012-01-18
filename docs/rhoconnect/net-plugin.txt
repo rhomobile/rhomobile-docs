@@ -97,10 +97,12 @@ and it has the following parameters:
 By providing the `rhoconnect_authenticate` method and registering it with the `Rhoconnect.NET` in the `set_app_endpoint`
 method, you map your application specific authentication to the Rhoconnect `authenticate` requests:
 
-	const bool rhoconnect_authenticate(String username, String password, Hashtable params)
+	private bool rhoconnect_authenticate(ref String username, String password, Hashtable auth_attrs)
 	{
-		// perform real authentication here
-		return true;
+		// uncomment the following line, if you want to replace the default partitioning to 'app'
+        // username = "app";
+        // perform your authentication here
+        return true;
 	}
 	
 If you want your data to be partitioned by 'app' (i.e. the data will be shared among all users), you can replace
