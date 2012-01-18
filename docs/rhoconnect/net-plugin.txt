@@ -14,7 +14,7 @@ Copy the [`rhoconnect.NET`](https://github.com/rhomobile/rhoconnect.NET) github 
 By default, the `rhoconnect.NET` repository contains the pre-built `RhoconnectNET.dll` library in the `bin/Release` subdirectory.
 However, you can build your own library using the provided Microsoft Visual Studio .NET solution file and the source code files. 
 
-You can download and use the sample [`ASP.NET MVC4`](https://github.com/rhomobile/RhoconnectNET_MVC4_App) application to repeat the steps described below.
+You can download and use the sample [`ASP.NET MVC4`](https://github.com/rhomobile/RhoconnectNET_MVC4_App) application to repeat the steps described below. In addition, the above sample also contains the final code in `ContactsApp_final` subdirrectory. You can just use it (you will still need to modify the `set_app_point` with your app endpoints and add the RhoconnectNET library reference to your project.)
 
 In order to use `Rhoconnect.NET` functionality in your `ASP.NET MVC` application, first you need to include the `Rhoconnect.NET` library 
 as a dependency to your application. Click `Project => Add Reference` menu item in the Visual Studio and navigate to the `RhoconnectNET.dll` library.
@@ -58,10 +58,12 @@ and call them from the `Application_Start` method:
 											  rhoconnect_authenticate);
 	}
 	
-	private bool rhoconnect_authenticate(String username, String password, Hashtable auth_attrs)
+	private bool rhoconnect_authenticate(ref String username, String password, Hashtable auth_attrs)
 	{
-		// perform your authentication here
-		return true;
+		// uncomment the following line, if you want to replace the default partitioning to 'app'
+        // username = "app";
+        // perform your authentication here
+        return true;
 	}
 	
 `RhoconnectNET.Client.set_app_point` method is a main point
@@ -85,7 +87,7 @@ and it has the following parameters:
 		<td>rhoconnect server's api_token, for example <code>secrettoken</code>.</td>
 	</tr>
 	<tr>
-		<td>Func&lt;String, String, Hashtable, bool&gt;</td>
+		<td>delegate rhoAuthHandler(ref String, String, Hashtable, bool)</td>
 		<td><code>Authenticating_Routine</code></td>
 		<td>handle to the application's authenticating routine (if null, <code>true</code> is returned by default).</td>
 	</tr>
@@ -100,6 +102,10 @@ method, you map your application specific authentication to the Rhoconnect `auth
 		// perform real authentication here
 		return true;
 	}
+	
+If you want your data to be partitioned by 'app' (i.e. the data will be shared among all users), you can replace
+the provided `username` parameter (which is passed by reference) to `app` - which will instruct Rhoconnect to partition
+the data accordingly. 
 
 ## Implementing CRUD functionality
 `Rhoconnect.NET` lib installs `/rhoconnect/<CRUD>` routes in your application which the Rhoconnect instance 
@@ -211,9 +217,12 @@ For this reason, `RhoconnectNET` library provides three callback routines for CU
 The above example will look like this after inserting the corresponding callback routine:
 
 		// This method is used to access current partition
-		// in Rhoconnect notification callbacks
+		// in Rhoconnect notification callback
         private String partition()
         {
+			// If you're using 'app' partition
+			// uncomment the following line
+			// return "app";
             return "testuser";
         }
 		
