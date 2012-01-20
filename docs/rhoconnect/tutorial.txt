@@ -60,17 +60,17 @@ Once RhoConnect is installed we're ready to build a RhoConnect source to integra
 
 ### Generating the Source Adapter from RhoStudio
 
-To generate a RhoConnect source adapter and create the associated Controller templates, right-click on the application project in the Project Explorer and select New->Rhodes model.
+To generate a RhoConnect source adapter and create the associated Controller templates, right-click on the application project in the Project Explorer and select New->Rhoconnect Source Adapter.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/menu-new-rhoconnect_source-adapter.png"/>
 
-In the Model Information window, enter the name for your source adapter: in this case, product.
+In the Source Adapter Information window, enter the name for your source adapter: in this case, "product".
 
 Click the Finish button to create the source adapter.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/source-adapter-information.png"/>
 
-After pressing the Finish button, you'll see the RhoConnect source adapter generator script output in the output console (Rhodes build log console).
+After pressing the Finish button, you'll see the RhoConnect source adapter generator script output in the output console (Rhomobile build console).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-source-generator-output.png"/>
 
@@ -79,11 +79,13 @@ You should now have files for the source adapter in your storeserver application
 * product.rb -> This is the source adapter file which contains the login, query, create, update, delete and logoff methods to call a backend service. You will add code to implement these methods.
 * product_spec.rb -> This file contains the spec with tests which relate to our source adapter.
 
+You can open these files for editing by clicking on them in the Project Explorer.
+
 ### Generating the Source Adapter from the Command Line
 
 From the command line, navigate to the main folder for your RhoConnect app: in this case, storeserver. 
 
-Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](rhostudio.tutorial) and the [documentation to generate a Rhodes application](rhodes/generator).
+Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](/rhostudio.tutorial) and the [documentation to generate a Rhodes application](/rhodes/generator).
 
 	:::term
 	$ rhoconnect source product
@@ -94,13 +96,11 @@ which generates two files, the product adapter and the product spec:
      	[ADDED]  sources/product.rb
      	[ADDED]  spec/sources/product_spec.rb
 
-In RhoStudio, you can open the sources/product.rb file and edit it. 
+You can use the command line to navigate to the sources/product.rb file in your RhoConnect application folder.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhostudio-rhoconnect-product-rb.png"/>
+### Understanding the Source Adapter File
 
-You can also use the command line to navigate to the sources/product.rb file in your RhoConnect application folder.
-
-You'll see a product.rb file similar to the code listing below. The generated source adapter has code to raise an exception for any required method. Note that you don't need to use the source generator; you can create a Ruby file and place it into your lib directory. The class name (in this case, product) of the RhoConnect source adapter must match that of the Rhodes client model.
+The generated source adapter file (in this case, product.rb) is similar to the code listing below. It has code to raise an exception for any required method. Note that you don't need to use the source generator; you can create a Ruby file and place it into your lib directory. The class name (in this case, product) of the RhoConnect source adapter must match that of the Rhodes client model.
 
 	:::ruby
 	class Product < SourceAdapter
@@ -161,15 +161,13 @@ The generator will also edit settings/settings.yml and add the product adapter t
   	  Product: 
         :poll_interval: 300
 
-The next step is for you to fill in the login, query, create, update, delete and logoff methods with your own code to call a backend service.
-
-The description below shows what such code might look like.  
+The next step is for you to fill in the login, query, create, update, delete and logoff methods with your own code to call a backend service.  
 
 ## A RhoConnect Query
 
 If you're doing a readonly non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.heroku.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common. The RhoConnect source adapter is Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.
 
-For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](rhoconnect/source-adapters#sample-adapter) in the RhoConnect Developer Reference.
+For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](/rhoconnect/source-adapters#sample-adapter) in the RhoConnect Developer Reference.
 
 Our sample web service for returning all products in the catalog (http://rhostore.heroku.com/products.json) returns data like this:
 	
