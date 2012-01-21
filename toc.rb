@@ -35,6 +35,7 @@ section 'rhoconnect-reference', "RhoConnect: Getting Started" do
   topic 'rhoconnect/contributing',      'Contributing'
   topic 'rhoconnect/install',           'Installation'
   topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
+  topic 'rhoconnect/supported-platforms', 'Supported Platforms'
 end
 
 section 'rhoconnect-source-adapter-reference', "RhoConnect: Source Adapters" do
