@@ -16,7 +16,7 @@ Using the RhoConnect-Java plugin, your [Spring 3 MVC](http://www.springsource.or
 
 We assume that you have a complete java end-to-end application using Spring 3.0 MVC as the front end technology and Hibernate as backend ORM. For this application we will also use Maven2 for build and dependency management and some database to persist the data. The database is accessed by a Data Access (DAO) layer.
 
-Copy [Rhoconncect-java](https://github.com/downloads/rhomobile/rhoconnect-java/rhoconnect-java-1.0-SNAPSHOT.jar) plugin jar file to your PC.
+Copy [Rhoconncect-java](https://github.com/downloads/rhomobile/rhoconnect-java/rhoconnect-java-1.0.1.jar) plugin jar file to your PC.
 You can also create target rhoconnect-java plugin jar from sources by cloning rhoconnect-java repository 
 
     :::term
