@@ -171,7 +171,7 @@ For example:
             // Otherwise, returned value is data partitioning: i.e. user name for filtering data on per user basis
             //return login;
 
-            // But if you want your data to be partitioned by ‘app’ (i.e. the data will be shared among all users),
+            // But if you want your data to be partitioned by 'app' (i.e. the data will be shared among all users),
             // you should return string "app": it will instruct Rhoconnect to partition the data accordingly.
             return "app";
         }
