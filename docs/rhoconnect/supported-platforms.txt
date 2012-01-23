@@ -11,19 +11,17 @@ Supported Platforms
     <th>Ruby 1.9.2</th>
     <th>Ruby 1.9.3</th>
     <th>JRuby</th>
-    <th>Redis</th>
-    <th>Envoronment</th>    
+    <th>Environment</th>    
   </tr>
   <tr>
     <td class='cap'>Linux</td>
-    <td> CentOS 5.x/6.x<br/>Ubuntu 11.x<br/>Amazon Linux</td>
+    <td> CentOS 5 & 6,<br/>Ubuntu 11,<br/>Amazon Linux</td>
     <td> ruby-1.8.7-p352 </td>
     <td> ree-1.8.7-2011.03 </td>
     <td> ruby-1.9.2-p290 </td>
     <td> ruby-1.9.3-p0 </td>
     <td> jruby-1.6.4 </td>
-    <td> 2.4.x </td>
-    <td>Development Production</td>
+    <td>Development &<br/>Production</td>
   </tr>
   <tr>
     <td class='cap'>Mac OS </td>
@@ -33,8 +31,7 @@ Supported Platforms
     <td> ruby-1.9.2-p290 </td>
     <td> ruby-1.9.3-p0 </td>
     <td> jruby-1.6.4 </td>
-    <td> 2.4.x </td>
-    <td>Development Production</td>
+    <td>Development &<br/>Production</td>
   </tr>
   <tr>
     <td class='cap'>Windows</td>
@@ -44,8 +41,7 @@ Supported Platforms
     <td class='tbd'> TBD </td>
     <td> ruby-1.9.3-p0 </td>
     <td class='tbd'> TBD </td>
-    <td> 2.4.x </td>
-    <td>Development Only</td>
+    <td>Development</td>
   </tr>
 </table>
 
@@ -56,7 +52,7 @@ Other Ruby versions and releases might work with RhoConnect gem, but there are n
 RhoConnect for Windows is supported only in development environment as a part of RhoStudio bundle:
 
 * Ruby 1.8.7
-* Redis 2.4.0
+* Redis 2.4.x
 * Latest RhoConnect and Rhodes gems
 * Eclipse 3.6 with latest rhostudio plugin
 * Make 3.18
