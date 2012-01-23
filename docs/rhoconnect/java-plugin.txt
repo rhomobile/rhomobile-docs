@@ -191,7 +191,6 @@ You need to establish communication from the RhoConnect instance to your java ba
 		Integer rhoconnectCreate(String partition, Map<String, Object> attributes);
 		Integer rhoconnectUpdate(String partition, Map<String, Object> attributes);
 		Integer rhoconnetDelete(String partition, Map<String, Object> attributes);
-		String getPartition();
 	}
 
 To help rhoconnect-java plugin correctly do mapping of model name to service bean you should take into account the following conventions:
