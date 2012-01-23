@@ -20,7 +20,7 @@ Copy [Rhoconncect-java](https://github.com/downloads/rhomobile/rhoconnect-java/r
 You can also create target rhoconnect-java plugin jar from sources by cloning rhoconnect-java repository 
 
     :::term
-    $ git clone git@github.com:rhomobile/rhoconnect-java.git
+    $ git clone https://github.com/rhomobile/rhoconnect-java.git
 
 and executing in cloned project directory the following commands:
 
