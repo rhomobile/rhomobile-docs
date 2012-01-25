@@ -71,7 +71,6 @@ Production environment for Linux servers is provided as pre-packaged software bu
 
 ## Known Issues
 
-* Latest gem <b>rack</b> ver. 1.4.0 is buggy, rhoconnect gemset locked to <b>rack</b> ver. 1.3.6 
 * Windows platform: only pre-release (~> 1.0.0.beta) of <b>eventmachine</b> is working on Windows  
 * Examples for <b>RSpec</b> (~> 2.8.0) fail for Ruby 1.8.7, gemset locked to ver. >= 2.6.0
 * Release <b>JRuby-1.6.5</b> is broken, use <b>JRuby-1.6.4</b> instead
