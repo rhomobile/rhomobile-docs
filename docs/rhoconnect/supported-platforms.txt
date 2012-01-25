@@ -20,7 +20,7 @@ Supported Platforms
     <td> ree-1.8.7-2011.03 </td>
     <td> ruby-1.9.2-p290 </td>
     <td> ruby-1.9.3-p0 </td>
-    <td> jruby-1.6.4 </td>
+    <td> jruby-1.6.4,<br/>jruby-1.6.5.1 </td>
     <td>Development &<br/>Production</td>
   </tr>
   <tr>
@@ -30,7 +30,7 @@ Supported Platforms
     <td> ree-1.8.7-2011.03 </td>
     <td> ruby-1.9.2-p290 </td>
     <td> ruby-1.9.3-p0 </td>
-    <td> jruby-1.6.4 </td>
+    <td> jruby-1.6.4,<br/>jruby-1.6.5.1 </td>
     <td>Development &<br/>Production</td>
   </tr>
   <tr>
@@ -73,4 +73,4 @@ Production environment for Linux servers is provided as pre-packaged software bu
 
 * Windows platform: only pre-release (~> 1.0.0.beta) of <b>eventmachine</b> is working on Windows  
 * Examples for <b>RSpec</b> (~> 2.8.0) fail for Ruby 1.8.7, gemset locked to ver. >= 2.6.0
-* Release <b>JRuby-1.6.5</b> is broken, use <b>JRuby-1.6.4</b> instead
+* Release <b>JRuby-1.6.5</b> is broken, use either <b>JRuby-1.6.4</b> or  <b>JRuby-1.6.5.1</b> instead
