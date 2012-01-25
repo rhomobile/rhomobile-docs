@@ -49,28 +49,25 @@ Other Ruby versions and releases might work with RhoConnect gem, but there are n
  
 ## Release Notes
 
-RhoConnect for Windows is supported only in development environment as a part of RhoStudio bundle:
+RhoConnect for Windows is supported only in development environments. The components you should have for this environment are:
 
 * Ruby 1.8.7
 * Redis 2.4.x
 * Latest RhoConnect and Rhodes gems
-* Eclipse 3.6 with latest rhostudio plugin
+* Eclipse 3.6 with latest RhoStudio plugin, or RhoStudio for Windows 32-bit
 * Make 3.18
-* DevKit for Windows  
+* DevKit for Windows (or other Windows development environment)
 
-RhoConnect for Linux and Mac OS X is supported for both development and production environments.
-
-Production environment for Linux servers is provided as pre-packaged software bundle and includes the following components:
+RhoConnect for Linux and Mac OS X is supported for both development and production environments. The components you should have for this environment are:
 
 * Ruby 1.8.7 (ree)
 * Nginx HTTP server (1.0.x)
 * Redis data store (2.4.x)
 * Phusion Passenger
 * RhoConnect gem with all required dependencies
-  
 
 ## Known Issues
 
 * Windows platform: only pre-release (~> 1.0.0.beta) of <b>eventmachine</b> is working on Windows  
 * Examples for <b>RSpec</b> (~> 2.8.0) fail for Ruby 1.8.7, gemset locked to ver. >= 2.6.0
-* Release <b>JRuby-1.6.5</b> is broken, use either <b>JRuby-1.6.4</b> or  <b>JRuby-1.6.5.1</b> instead
+* Release <b>JRuby-1.6.5</b> is broken, use either <b>JRuby-1.6.4</b> or <b>JRuby-1.6.5.1</b> instead
