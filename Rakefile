@@ -115,7 +115,7 @@ end
 desc 'Load latest docs and publish to edge'
 task :publish_edge => :load do
   `git add .`
-  `git commit -m "cijoe auto-commit"`
+  `git commit -m "jenkins auto-commit"`
   `git push origin master`
   `git push edge master`
 end
