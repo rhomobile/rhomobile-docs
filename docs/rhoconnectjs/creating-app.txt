@@ -1,8 +1,8 @@
 Creating an application
 ===
-The following instructions describe how to use `rhoconnect.js` to connect your application to a rhoconnect instance.  <a href='http://jquerymobile.com/demos/1.0b1/' target='_blank'>jQuery Mobile</a> will be used for the UI and <a href='http://persistencejs.org/' target='_blank'>persistence.js</a>  will be used as an object-database mapper. Currently rhoconnect.js supports both sencha touch and persistence.js.
+The following instructions describe how to use `rhoconnect.js` to connect your application to a rhoconnect instance.  <a href='http://jquerymobile.com/demos/1.0b1/' target='_blank'>jQuery Mobile</a> will be used for the UI and <a href='http://persistencejs.org/' target='_blank'>persistence.js</a>  will be used as an object-database mapper. Currently rhoconnect.js supports both Sencha Touch and persistence.js.
 
-To view the finished application, which is written to run with the phonegap framework, visit <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>rho-fat-freec-crm</a> example.
+To view the finished application, which is written to run with the PhoneGap framework, visit <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>rho-fat-freec-crm</a> example.
 
 NOTE: Unless you are using Sencha Touch for your UI as well, you will need to use persistence.js as your object-database mapper to avoid framework conflicts.
 
@@ -79,7 +79,7 @@ Inside of index.html we will define a jQuery Mobile page with two textfields for
 
 ### Defining a Login Function
 
-Inside of application.js, define a login function that is returned onload of body.
+Inside of application.js, define a login function that is returned with the onload event attached to the body tag.
 
 	var username = null;
 	var password = null;
@@ -198,7 +198,7 @@ Since we have logged in successfully and synced with the rhoconnect instance, we
 
 ### Define a New jQuery Mobile Page
 
-Notice in the login function, we call $.mobile.changePage("#home", "slideup") as well as attach\_events().  Define a new jQuery Mobile page called home inside of index.html.
+Notice in the login function, we call $.mobile.changePage("#home", "slideup") as well as attach\_events().  Define a new jQuery Mobile page called "home" inside of index.html.
 
 	:::html
 	<!-- start of page 2     -->
@@ -212,7 +212,7 @@ Notice in the login function, we call $.mobile.changePage("#home", "slideup") as
 	    </div>
 	<!------   end page              -->
 	
-The button called tasks is used to display all the records from the Task model.
+The button called "tasks" is used to display all the records from the Task model.
 
 ### Map the Tasks Button
 
@@ -444,7 +444,7 @@ Then define the create\_obj() function.
 
 ### Grab the Hash from the Data Object
 
-Inside of this function, grab the hash of data object for the current\_model: in this case, current\_model = 'Task'.
+Inside of this function, grab the hash of the data object for the current\_model: in this case, current\_model = 'Task'.
 
 	var model = RhoConnect.dataAccessObjects()[current_model];
 
@@ -467,11 +467,11 @@ The last step is to save to RhoConnect.
             alert("New " + current_model + " saved successfully!");
         });
 
-At this point you have created a new object locally.  To synch with your rhoconnect instance you would need to call the sync() function described above at login.
+At this point you have created a new object locally.  To synch with your rhoconnect instance you need to call the sync() function described above at login.
 
 ## Updating an Object
 
-Updating an object is very similar to creating an object.  I will show the code required to update and object below.  You can see all the UI functionality by looking at the complete <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>project</a>
+Updating an object is very similar to creating an object.  The code required to update an object is shown below.  You can see all the UI functionality by looking at the complete <a href='https://github.com/rhomobile/rhoconnect.js/tree/master/samples/jqmobile-persistence-ffcrm/www' target='_blank'>project</a>.
 
 Inside of application.js is a function named update\_object().
 
@@ -508,7 +508,7 @@ You will notice this function is very similar to create\_object.  The only diffe
 
 ## Deleting an Object
 
-Deleting an object is exactly like creating an object except that instead of call `persistance.add(recored)`, you will call `persistance.remove(record)`.  The other calls to persistence and rhoconnect are the same.
+Deleting an object is exactly like creating an object except that instead of call `persistance.add(recored)`, you call `persistance.remove(record)`.  The other calls to persistence and rhoconnect are the same.
 
 	function delete_object(id){
 		var model   = RhoConnect.dataAccessObjects()[current_model];
