@@ -1,19 +1,61 @@
 RhoConnect Source Adapters
 ===
 
-Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. A RhoConnect source adapter is a collection of the Ruby code for these operations.
+Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. One way to do this is through a RhoConnect source adapter, which is a collection of Ruby code for these operations.
 
-**NOTE:** You can also write this source code (the query, create, update and delete operations) into a backend application, and [write a RhoConnect plugin](plugin-intro) in the language that matchs your backend application, such as Java or .NET.
+You can generate a RhoConnect source adapter with RhoStudio or with the `rhoconnect` utility command line tool.
 
-## Generate Source Adapter
+## Generating the Source Adapter from RhoStudio
 
-Adding a new source adapter to your RhoConnect application is simple:
-  	
+To generate a RhoConnect source adapter and create the associated Controller templates, open your Rhoconnect project in RhoStudio. Then right-click on the project in the Project Explorer and select New->Rhoconnect Source Adapter.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/menu-new-rhoconnect_source-adapter.png"/>
+
+In the Source Adapter Information window, enter the name for your source adapter.
+
+Click the Finish button to create the source adapter.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/source-adapter-information.png"/>
+
+After pressing the Finish button, you'll see the RhoConnect source adapter generator script output in the output console (Rhomobile build console).
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-source-generator-output.png"/>
+
+## Generating the Source Adapter from the Command Line
+
+To generate a source for your RhoConnect application, you can run the `rhoconnect source` command within your application directory.
+
 	:::term
-	$ cd storeserver
-  	$ rhoconnect source product
+	Usage: rhoconnect source name [options] [args]
 
-This will generate a new ruby class called `sources/product.rb`:
+	Generates a new source adapter.
+
+	Required:
+	  name        - the source name(i.e. product)
+
+
+	Options specific for this generator:
+
+	General options:
+	    -p, --pretend                    Run, but do not make any changes.
+	    -f, --force                      Overwrite files that already exist.
+	    -s, --skip                       Skip files that already exist.
+	    -d, --delete                     Delete files that have previously been generated with this generator.
+	        --no-color                   Don't colorize the output
+	    -h, --help                       Show this message
+	        --debug                      Do not catch errors
+
+For the storeserver application example, within the sourceserver directory, run:
+
+	:::term
+	$ rhoconnect source product
+	Generating with source generator:
+	     [ADDED]  sources/product.rb
+	     [ADDED]  spec/sources/product_spec.rb
+
+## Understanding the Generated Source Adapter Files
+
+Generating a source adapter named "product" will generate a new ruby class called `sources/product.rb`:
 
 	:::ruby
 	class Product < SourceAdapter
@@ -63,7 +105,7 @@ This will generate a new ruby class called `sources/product.rb`:
 	  end
 	end
 
-It also adds a spec file `spec/sources/product_spec.rb` and updates `settings/settings.yml` with the product adapter to the sources section with some default options:
+It also adds a corresponding [rspec](http://rspec.info/) file `spec/sources/product_spec.rb` and updates `settings/settings.yml` with the product adapter to the sources section with some default options:
 
  	:::yaml
 	:sources: 
@@ -207,7 +249,7 @@ RhoConnect provides a simple way to keep data out of redis.  If you have sensiti
 
 **NOTE: When running query or search the entire data set will be returned from your backend service. **
 
-## Store API
+## Redis Interface
 RhoConnect provides a simple redis interface for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
 
 	:::ruby

@@ -1,11 +1,23 @@
-RhoConnect Generator and Rake Tasks
+Generating a RhoConnect Application
 ===
 
-## RhoConnect Generator
+You can generate a RhoConnect app with RhoStudio or with the `rhoconnect` utility command line tool.
+
+## Generating a RhoConnect App with RhoStudio
+
+In RhoStudio, select File->New->Project...
+
+The New Project window opens. Select the RhoConnect application wizard and click the Next button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/new-project-rhoconnect.png"/>
+
+Enter the name for your RhoConnect application in Project name. You may specify a specific folder for your destination where your project is stored, by default, the destination is your RhoStudio workspace folder. Then press the Finish button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-application-wizard.png"/>
+
+## Generating a RhoConnect App from the Command Line
 
 The `rhoconnect` utility is a command line tool for generating RhoConnect applications and sources.
-
-### Generate an Application
 
 The app name is passed as a parameter.  The `rhoconnect` utility will generate a directory for your application with all the necessary files to get started.  We will start with running `rhoconnect app` to see the usage:
 
@@ -58,42 +70,6 @@ After generating the application, you might be asked to change directories to yo
 	:::term
 	$ cd storeserver
 	$ bundle install
-
-### Add a New Source Adapter
-
-To generate a source for your RhoConnect application, you can run the `rhoconnect source` command within your application directory.
-
-**NOTE:** You can also write the source into your backend application and [write a RhoConnect plugin](/rhoconnect/plugin-intro) in Java, .NET, or other language for that application.
-
-	:::term
-	Usage: rhoconnect source name [options] [args]
-
-	Generates a new source adapter.
-
-	Required:
-	  name        - the source name(i.e. product)
-
-
-	Options specific for this generator:
-
-	General options:
-	    -p, --pretend                    Run, but do not make any changes.
-	    -f, --force                      Overwrite files that already exist.
-	    -s, --skip                       Skip files that already exist.
-	    -d, --delete                     Delete files that have previously been generated with this generator.
-	        --no-color                   Don't colorize the output
-	    -h, --help                       Show this message
-	        --debug                      Do not catch errors
-
-For the storeserver application example, within the sourceserver directory, run:
-
-	:::term
-	$ rhoconnect source product
-	Generating with source generator:
-	     [ADDED]  sources/product.rb
-	     [ADDED]  spec/sources/product_spec.rb
-	
-This generates a source adapter file `product.rb` and corresponding [rspec](http://rspec.info/) file `product_spec.rb`.  If you choose, you can use this spec to implement the source adapter.
 
 ## Rake Tasks
 
@@ -221,7 +197,13 @@ Here is a complete list of the rake tasks available in a RhoConnect application:
 
 ## Generate Source
 
-Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. The collection of the code for these operations is called a source. To generate source for your RhoConnect application:
+Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. The collection of the code for these operations is called a source. You can create source for your RhoConnect application two ways:
+ 
+ * [RhoConnect source adapter](/rhoconnect/source-adapters): generate a Ruby code source adapter from RhoStudio or from the command line, similar to how you generate a RhoConnect app. This source adapter contains code for the query, create, update and delete operations.
+ 
+ * [RhoConnect plugin](/rhoconnect/plugin-intro): write the source code (the query, create, update and delete operations) into your backend application, and plug a RhoConnect plugin in the application. The plugin is written in the language that matchs your backend application, such as Java or .NET.
 
- * Generate a Ruby code [RhoConnect source adapter](/rhoconnect/source-adapters).
- * Write the source code (the query, create, update and delete operations) into your backend application and [write a RhoConnect plugin](/rhoconnect/plugin-intro) in the language that matchs your backend application, such as Java or .NET.
+ 
+ 
+
+
