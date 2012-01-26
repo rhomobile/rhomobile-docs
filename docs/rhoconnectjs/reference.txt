@@ -13,6 +13,8 @@ Authenticates the RhoConnect application on the server. On success, the done han
  * `errCode` - The error code value from RhoConnect.ERRORS.
  * `errorMessage` - More detailed error message if available.
 
+The syntax and parameters are as follows.
+
 	:::ruby
 	RhoConnect.login(username, password, doDataReset)
 
@@ -62,6 +64,8 @@ Returns a jQuery promise object. On success, the done handler is called. On fail
  * `errCode` - The error code value from RhoConnect.ERRORS.
  * `errorMessage` - More detailed error message if available.
 
+The syntax and parameters are as follows.
+
 	:::ruby
 	RhoConnect.init(modelDefinitions, dataApiType, syncProgressCallback)
 
@@ -88,7 +92,7 @@ Returns a jQuery promise object. On success, the done handler is called. On fail
 			</tr>
 	        	<td><code>totalCount</code></td>
 	        	<td>The total *objects* count for the *model*.</td>
-	        </tr>
+	        <tr>
 	        	<td><code>processedCount</code></td>
 	        	<td>The number of *objects* that have been processed so far for a *model* may be *0* if all objects have already been processed.</td>
 	        </tr>
@@ -99,13 +103,14 @@ Returns a jQuery promise object. On success, the done handler is called. On fail
 	        	"error" - Errors happened during synchronization process.
 	        	</td>
 	        </tr>
-	        <tr>
-	        	<td><code>errorCode</code></td>
-	        	<td>Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.</td>
-	        <tr>
-	        	<td><code>errorMessage</code></td>
-	        	<td>Synchronization error message. Is undefined if no errors happened.</td>
-	        </tr>
+		    <tr>
+		        <td><code>errorCode</code></td>
+		        <td>Code of synchronization error. Is undefined if no errors happened. Look at RhoConnect.ERRORS description for details.</td>
+		    </tr>
+		    <tr>
+		        <td><code>errorMessage</code></td>
+		        <td>Synchronization error message. Is undefined if no errors happened.</td>
+		    </tr>
 	    </table>
 		</td>
 	</tr>
@@ -145,6 +150,8 @@ Returns a jQuery promise object. On success, the done handler is called. On fail
  * `errCode` - The error code value from RhoConnect.ERRORS.
  * `errorMessage` - More detailed error message if available.
 
+The syntax is as follows.
+
 	:::ruby
 	RhoConnect.logout()
 
@@ -163,6 +170,8 @@ Returns a jQuery promise object. On success, the done handler is called. On fail
 
  * `errCode` - The error code value from RhoConnect.ERRORS.
  * `errorMessage` - More detailed error message if available.
+
+The syntax is as follows.
 
 	:::ruby
 	RhoConnect.syncAllSources()
@@ -185,6 +194,8 @@ Returns the hash of data access objects which are data API specific. The returne
  * `value` - An instance of one of the following objects.
   - [Ext.data.Store](http://dev.sencha.com/deploy/touch/docs/) - for 'extjs' type of data API
   - [model](http://persistencejs.org/objects) - for 'persistencejs' type of data API
+
+The syntax is as follows.
 
 	:::ruby
 	RhoConnect.dataAccessObjects()

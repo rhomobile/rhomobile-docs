@@ -104,7 +104,7 @@ Example with authentication:
       config.uri   = "http://myrhoconnect-server.com"
       config.token = "secrettoken"
 	  config.authenticate = lambda { |credentials| 
-        User.authenticate(credentials[:login], credentials[:password]) 
+        User.authenticate(credentials['login'], credentials['password']) 
 	  }
 	end
 	
@@ -114,7 +114,7 @@ If you're using the [RhoConnect Heroku Addon](http://docs.rhomobile.com/rhoconne
 
 	Rhoconnect.configure do |config|
 	  config.authenticate = lambda { |credentials| 
-	    User.authenticate(credentials[:login], credentials[:password]) 
+	    User.authenticate(credentials['login'], credentials['password']) 
 	  }
 	end
 	
