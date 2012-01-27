@@ -16,8 +16,8 @@ Supported Platforms
   <tr>
     <td class='cap'>Linux</td>
     <td> CentOS 5 & 6,<br/>Ubuntu 11,<br/>Amazon Linux</td>
-    <td> ruby-1.8.7-p352 </td>
-    <td> ree-1.8.7-2011.03 </td>
+    <td> ruby-1.8.7-p352 <br/> ruby-1.8.7-p357 </td>
+    <td> ree-1.8.7-2011.03 <br/> ree-1.8.7-2012.01 </td>
     <td> ruby-1.9.2-p290 </td>
     <td> ruby-1.9.3-p0 </td>
     <td> jruby-1.6.4,<br/>jruby-1.6.5.1 </td>
@@ -26,8 +26,8 @@ Supported Platforms
   <tr>
     <td class='cap'>Mac OS </td>
     <td> Mac OS X 10.6/10.7 </td>
-    <td> ruby-1.8.7-p352 </td>
-    <td> ree-1.8.7-2011.03 </td>
+    <td> ruby-1.8.7-p352 <br/> ruby-1.8.7-p357 </td>
+    <td> ree-1.8.7-2011.03 <br/> ree-1.8.7-2012.01 </td>
     <td> ruby-1.9.2-p290 </td>
     <td> ruby-1.9.3-p0 </td>
     <td> jruby-1.6.4,<br/>jruby-1.6.5.1 </td>
