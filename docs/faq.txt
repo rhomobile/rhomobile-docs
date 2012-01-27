@@ -135,7 +135,6 @@ If you are loading javascript, consider doing it at the very end of your page; t
     * Windows Mobile: open device explorer from ActiveSync or 'Mobile Device center', navigate to 'Program Files/<application name>/rho/db'
     * Blackberry: open on computer file system  - '<jde>/components/simulator/sdcard/Rho/<appname>/db
 * Build application, now all db files are in the application package
-* From Rhodes 3.3.2 on iOS platform all files except databases place in /Library/Private Documents/ if you want place your database files to the same place use next setting in build.yml:     iphone_use_doc_folder:0
 
 ## How to remove toolbar from top-level index.erb
 Edit app/application.rb file: initialize method
