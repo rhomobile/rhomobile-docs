@@ -2,29 +2,31 @@ Mapping and Geolocation
 ========
 This tutorial will guide you through how to add mapping to your application. You should have a backend that provides the geolocation information.
 
+**NOTE: Since the webinar was created, the GeoLocation functionality has changed, and thus some of the code in this tutorial will not be correct. For example, the current behavior of the geolocation callback is that it will be called forever until it is stopped. For code samples that reflect the new behavior, refer to [GeoLocation](/rhodes/device-caps#geolocation).**
+
 
 Source Code
 -----------
 The source code for this example is located here.
 
  * [Rhodes Application](https://github.com/rhomobile/webinar-samples/tree/master/contact)
- * [RhoSync Application](https://github.com/rhomobile/webinar-samples/tree/master/contact-server)
+ * [RhoConnect Application](https://github.com/rhomobile/webinar-samples/tree/master/contact-server)
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact)
- * [Rhosync Tutorial]()
+ * [Rhodes Tutorial](/rhodes/tutorial)
+ * [RhoConnect Tutorial](/rhoconnect/tutorial)
  * [Webinar Video](http://vimeo.com/12301104)
 
 Reference Reading
 -----------------
- * [MapView]()
- * [GeoLocation]()
+ * [MapView](/rhodes/device-caps#mapview)
+ * [GeoLocation](/rhodes/device-caps#geolocation)
 
 Tutorial
 --------
 #### Setup
-This tutorial assumes that you know how to generate a Rhodes app and can successfully sync with a backend system. If you do not know how to do this, see [Pre-requisite Reading]().
+This tutorial assumes that you know how to generate a Rhodes app and can successfully sync with a backend system. If you do not know how to do this, see [Pre-requisite Reading](/mapping-tutorial#pre-requisite-reading).
 
 To prepare for this demo you should set up a Rhodes and Rhosync app with the following:
 
