@@ -323,13 +323,9 @@ After you generate a Sprint 3.0 MVC application, you have a DAO service class si
 * boolean notifyOnUpdate(String sourceName, Object objId, Object object)
 * boolean notifyOnDelete(String sourceName, Object objId)
 
-Here is an example of how you would recode the ContactServiceImpl.java for the `RhoconnectJavaSample` application. Comments are added to show where you add the new code to:
+Here is an example of how you would recode the ContactServiceImpl.java for the `RhoconnectJavaSample` application. Comments are added to show where you add new code to import libraries such as `RhoconnectClient` and `RhoconnectResource`, and where you call the notifyOnCreate, notifyOnDelete, and notifyOnUpdate methods to tell the backend about changes from the RhoConnect server, and where you implement the rhoconnectQuery, rhoconnectCreate, rhoconnectUpdate, and rhoconnectDelete methods to communicate changes in the backend to the RhoConnect server.
 
- * import libraries, such as RhoconnectClient and RhoconnectResource.
- * call the notifyOnCreate, notifyOnDelete, and notifyOnUpdate methods to tell the backend about changes from the RHoConnect server.
- * implement the rhoconnectQuery, rhoconnectCreate, rhoconnectUpdate, and rhoconnectDelete methods to communicate changes in the backend to the RhoConnect server.
- 
-    :::java
+	:::java
 	package com.rhomobile.contact.service;
 
 	import java.util.HashMap;		/* import HashMap */
