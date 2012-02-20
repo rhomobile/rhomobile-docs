@@ -2,6 +2,7 @@ development:
   dirs:
     rhosync: '../rhosync/doc/'
     rhodes: '../rhodes/doc/'
+    rhoelements: 'docs/rhoelements/'
     rhogallery: '../rhogallery/doc/'
     rhohub: 'docs/rhohub/'
     guides: 'docs/'
@@ -13,6 +14,7 @@ jenkins:
   dirs:
     rhosync: '../../rhosync/workspace/doc/'
     rhodes: '../../rhodes/workspace/doc/'
+    rhoelements: 'docs/rhoelements/'
     rhogallery: '../../rhogallery/workspace/doc/'
     rhohub: 'docs/rhohub/'
     guides: 'docs/'
@@ -24,6 +26,7 @@ edge:
   dirs:
     rhosync: 'docs/rhosync/'
     rhodes: 'docs/rhodes/'
+    rhoelements: 'docs/rhoelements/'
     rhohub: 'docs/rhohub/'
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
@@ -36,6 +39,7 @@ production:
   dirs:
     rhosync: 'docs/rhosync/'
     rhodes: 'docs/rhodes/'
+    rhoelements: 'docs/rhoelements/'
     rhohub: 'docs/rhohub/'
     rhogallery: 'docs/rhogallery/'
     guides: 'docs/'

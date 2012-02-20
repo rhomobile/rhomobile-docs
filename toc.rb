@@ -106,3 +106,7 @@ section 'rhoconnect-adapters-reference', "RhoConnect: Vendor Adapters" do
   topic 'rhoconnect/adapters-intro',    'Introduction'
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end
+
+section 'rhoelements-reference', "RhoElements: Getting Started" do
+  topic 'rhoelements/moto-api',      'Motorolla API'
+end
