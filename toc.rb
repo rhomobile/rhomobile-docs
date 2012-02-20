@@ -108,5 +108,5 @@ section 'rhoconnect-adapters-reference', "RhoConnect: Vendor Adapters" do
 end
 
 section 'rhoelements-reference', "RhoElements: Getting Started" do
-  topic 'rhoelements/moto-api',      'Motorolla API'
+  topic 'rhoelements/moto-api',      'Motorola API'
 end

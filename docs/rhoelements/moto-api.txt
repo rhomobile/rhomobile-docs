@@ -1,4 +1,4 @@
-# Motorolla API
+# Motorola API
 
 ## Barcode for Motorola devices
 Rhodes 3.3 and RhoElements 2.0 support Motorola barcode scanner devices. Install RhoElements gem or RhoStudio and start developing for Motorola Windows Mobile, Windows CE and Android(ET1) devices .
