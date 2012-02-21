@@ -74,3 +74,61 @@ To enable: install RhoElements gem or RhoStudio and add to build.yml
     -motorola
 
     extensions: ["webkit-browser"]
+
+## RhoElements v1.0 Compatible Shared Runtime
+Rhodes is backward compatible with RhoElements version 1.0 for Windows Mobile.
+
+### Building shared runtime compatible with RhoElements v1.0
+
+#### Preliminary steps
+
+1. Install `rhodes` gem
+
+       :::term
+       $ gem install rhodes
+
+2. Install `rhoelements` gem from file, e.g.:
+
+       :::term
+       $ gem install rhoelements-2.0.0.gem
+
+   NOTE: This gem is not located on the public repositores and is distributed privately to the authorized parties only.
+
+3. Clone `Motorola-Extensions` repository:
+
+       :::term
+       $ git clone https://github.com/rhomobile/Motorola-Extensions.git
+
+   NOTE: You must have necessary permissions at GitHub on `Motorola-Extensions` repository in order to do so.
+
+To build RhoElements v1.0 compatible shared runtime based on Rhodes use [RERuntime rhodes application](https://github.com/rhomobile/Motorola-Extensions/tree/master/RERuntime).
+NOTE: The link above is a link to the private repository, so in order to view it one must be logged in to GitHub and has the required permissions.
+
+Make sure you have [set up Rhodes](/rhodes/install#setup-rhodes) and installed all [prerequisites for Windows Mobile platform](/rhodes/build#build-for-windows-mobile).
+
+To build the `cab` file of RhoElements v1.0 shared runtime:
+
+    :::term
+    $ cd Motorola-Extensions\RERuntime
+    $ rake device:wm:production
+
+The resulting `cab` file can be found at `Motorola-Extensions\RERuntime\bin\target\<platform_id>\RERuntime.cab`.
+
+### Running RhoElements v1.0 applications
+
+Default runtime installation path on Windows Mobile device is `\Program Files\RERuntime` and the default path to the executable is `\Program Files\RERuntime\RERuntime.exe`.
+
+The following Command Line parameters are supported by the RhoElements v1.0 shared runtime (`RERuntime.exe`):
+
+    /C: Specifies the location of the configuration file
+        e.g. /C:file://\application\config.xml
+    /S: Specifies the start page
+        e.g. /S:file://\HTML\index.html
+        e.g. /S:http://www.motorola.com
+
+If `/C` parameter is present with no `/S` parameter, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag
+of the configuration file will be used as the start page parameter.
+
+If `/S` parameter is present with no `/C` parameter, then the default configuration file from the runtime will be used to launch the application.
+
+If neither `/S` nor `/C` parameters are present, then the default empty RhoElements application will be started.
