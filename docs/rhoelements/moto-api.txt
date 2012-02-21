@@ -6,14 +6,15 @@ Rhodes 3.3 and RhoElements 2.0 support Motorola barcode scanner devices. Install
 ### Android prerequisites:
 In order to enable motorola barcode scanning feature on Android (ET1) you need to install Motorola SDK add-on to Android SDK. Please contact RhoMobile support for more details.
 
+### Build
 To enable add to build.yml:
 
     capabilities:
     -motorola
 
     extensions: ["barcode-moto"]
-  
-Barcode API:
+
+### Barcode API
 
 Get a list of scanners present on the device. Return array of hashes ('name','id'):
 
