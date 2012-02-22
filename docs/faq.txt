@@ -97,6 +97,34 @@ You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-databa
     require_source 'Model'  
 
 
+## How can I create a lot of objects in controller action?
+When controller action is called Ruby Garbage Collector is disabled. If you create a lot of objects enable GC at the beginning of action:
+
+    :::ruby
+    def my_objects_generator
+        GC.enable
+        #Do some heavy operations
+    end  
+
+To avoid UI block while controller action is performed, use AsyncHttp to make operation asynchronously(Local server will be blocked, but Html and Javacript does not):
+    :::ruby
+    def start_objects_generator
+        #callback has to be provided, overwise operation will be syncronouse
+        AsyncHttp.get( :url => url_for(:action => do_objects_generation), :callback => (url_for :action => :generation_callback) )
+        render page_with_progress_updated_by_javascript
+    end  
+    
+    def do_objects_generation
+        GC.enable
+        #Do some heavy operations
+        
+        #do not call render here, call WebView.navigate or do it in  generation_callback      
+    end
+    
+    def generation_callback
+        WebView.navigate ( url_for :action => :show_results  )
+    end
+     
 ## How do I customize the app name and icons?
 Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
 
