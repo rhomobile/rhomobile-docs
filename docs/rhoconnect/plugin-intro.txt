@@ -1,8 +1,8 @@
 RhoConnect Plugins Introduction
 ===
 
-Rhoconnect Plugins allow you to connect your backend apps seamlessly with rhoconnect. You can write the source (query, create, update and delete operations) into a backend application, and write a RhoConnect plugin in the language that matchs your backend application, such as Java or .NET.
+Rhoconnect Plugins allow you to connect your backend apps seamlessly with rhoconnect. You can write the source (query, create, update and delete operations) into a backend application, and use a RhoConnect plugin in the language that matchs your backend application, such as Java or .NET.
 
 <img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/intro-plugin.png' alt='image' height='467' width='800' />
 
-**NOTE:** Another way to connect particular backend applications (such as for Salesforce or Oracle) is to generate a [RhoConnect source adapter](/rhoconnect/source-adapters) which contains the query, create, update and delete operations.
+**NOTE: Another way to connect particular backend applications (such as for Salesforce or Oracle) is to generate a [RhoConnect source adapter](/rhoconnect/source-adapters) which contains the query, create, update and delete operations.**

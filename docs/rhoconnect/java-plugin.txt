@@ -5,6 +5,8 @@ The RhoConnect-Java library is designed for the [RhoConnect](http://rhomobile.co
 
 Using the RhoConnect-Java plugin jar file, your [Spring 3 MVC](http://www.springsource.org/) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [RhoConnect clients](http://rhomobile.com/products/rhoconnect/).
 
+<img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/rhoconnect-plugin-java.jpg' alt='image' />
+
 ## Prerequisites
 
 * Java (1.6)
@@ -43,10 +45,11 @@ Your client application needs to have its model match the model used in your Jav
 	$ cd contact-app
 	$ rhodes model contact lastname,firstname,email,telephone
 
-Edit the `rhoconfig.txt` configuration file for a sync server:
+
+Edit the `rhoconfig.txt` configuration file to point to your RhoConnect server, where <your_rhoconnect_server_url> is the url for your RhoConnect server.
 
 	:::term
-	syncserver = 'http://localhost:9292/application'
+	syncserver = 'http://<your_rhoconnect_server_url>/application'
 
 And edit the `app/index.erb` view file to say Contacts:
 
@@ -178,9 +181,9 @@ Update your servlet xml configuration file in your Java backend application fold
     <bean id="dispatcher" class = "com.rhomobile.rhoconnect.RhoconnectDispatcher"></bean>
     <bean id="rhoconnectClient" class = "com.rhomobile.rhoconnect.RhoconnectClient" init-method="setAppEndpoint" >
      	<property name="restTemplate"><ref bean="restTemplate"/></property>
-     	<property name="endpointUrl" value="your_rhoconnect_server_url" />
-     	<property name="appEndpoint" value="your_spring_app_url" />
-     	<property name="apiToken" value="rhoconnect_api_token" />
+     	<property name="endpointUrl" value="<your_rhoconnect_server_url>" />
+     	<property name="appEndpoint" value=app_endpoint_url" />
+     	<property name="apiToken" value="api_token" />
     </bean>
     
     <!--The following bean handles the application's authentication routine and should be implemented by you -->
@@ -193,16 +196,16 @@ link between the `Rhoconnect` server and your Java Spring 3 MVC backend applicat
 
 <table border="1">
   <tr>
-	<td><code>endpointUrl</code></td>
+	<td><code>your_rhoconnect_server_url</code></td>
 	<td>rhoconnect server's url, for example <code>http://localhost:9292</code></td>
   </tr>
   <tr>
-	<td><code>appEndpoint</code></td>
+	<td><code>app_endpoint_url</code></td>
 	<td>your Spring 3 MVC app url, for example <code>http://localhost:8080/contacts</code></td>
   </tr>
   <tr>
 	<td><code>apiToken</code></td>
-	<td>rhoconnect server's api_token, for example <code>sometokenforme</code></td>
+	<td>rhoconnect server's api_token, for example <code>rhoconnect_api_token</code></td>
   </tr>
 </table>
 
