@@ -51,7 +51,7 @@ Then in RhoStudio Preferences, open Rhomobile and check that the path is set to 
 
 ## Generating a Rhodes Application
 
-**NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](/rhoconnect/tutorial).
+**NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](/rhoconnect/tutorial).**
 
 In RhoStudio, select File->New->Project...
 
@@ -193,19 +193,33 @@ For example, you can see the web code for the listview. Here is the listview of 
 
 ## Using the Debugger
 
-You can use the RhoStudio debugger to debug the Ruby code in your application. 
+You can use the RhoStudio debugger to debug the Ruby code in your RHodes or Rhoconnect application. 
 
-To run the RhoSimulator debugger for the iPhone platform, select your project from the Project Explorer (in this case, we use the storemanger project created earlier). Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
+### Debugging a Rhodes Application
+
+To run the RhoSimulator debugger for the iPhone platform, select your Rhodes project from the Project Explorer (in this case, we use the storemanger project created earlier). Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
 
 Click Debug to start the debugger.
 
 You will again get a RhoSimulator showing your device, and the Web Inspector window. And you get a Debug view in your workspace.
 
-To debug your Ruby code in your application, click the RhoStudio tab in your workspace, then open the Ruby file that you wish to debug.
+To debug your Ruby code in your Rhodes application, click the RhoStudio tab in your workspace, then open the Ruby file in your Rhodes application that you wish to debug.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/debug-rhostudio-ruby.png"/>
 
 Now click the Debug tab. You will see the Ruby file opened in the debugger. 
+
+### Debugging a RhoConnect Application
+
+To run the debugger for RhoConnect, select your RhoConnect project from the Project Explorer. Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
+
+Click Debug to start the debugger.
+
+You will see your RhoConnect project in the debugger; there will be a console window with redis server information messages. (You will not get a RhoSimulator or a Web Inspector, as you do with the Rhodes debugger.)
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/debugger-rhoconnect.png"/>
+
+To debug your Ruby code in your RhoConnect application, you do the same as for a Rhodes application: click the RhoStudio tab in your workspace, then open the Ruby file in your RhoConnect project that you wish to debug.
 
 ### Setting a Breakpoint
 
