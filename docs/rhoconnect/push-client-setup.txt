@@ -1,0 +1,61 @@
+Setting Up for RhoConnect Push on Client Application
+===
+
+Push notification support (receiving push notifications from the RhoConnect server/backend) is currently available for Android, Blackberry and iPhone. 
+
+## Configuring a Rhodes Application to Receive Push
+
+Enable push in your rhodes application in build.yml.
+
+	:::yaml
+	capabilities:
+	  - push
+	  - vibrate #=> if you want to enable vibrate in your push messages
+
+Set up your application [rhoconfig.txt](configuration#run-time-configuration) syncserver to point to your RhoConnect server:
+
+	syncserver = 'http://<rhoconnect_server_url>/application'
+
+## Registering a Push Callback in the Rhodes Application
+
+To handle a push message from a Rhodes application, you must register push callback with the System `set_push_notification` method.
+
+    :::ruby
+    class AppApplication < Rho::RhoApplication
+      def initialize
+        super
+        System.set_push_notification "/app/Push/push_callback", ""
+      end
+    end
+
+Push callback is set up in the form of a local application URL and called as callback whether or not rho_callback=1 is specified in its parameters list.
+
+The parameters trigger certain operations in the Rhodes client when the callback returns "rho_push". (When the callback retuens an empty string, this automatic handling is not performed.) The operations are to show an alert, vibrate the device, play a sound, and perform a sync.
+
+To have your Rhodes app automatically perform the operations listed in the push message, you can write the callback as follows.
+
+    :::ruby
+    def push_callback
+      "rho_push"
+    end
+
+## Understanding the Rhodes Push Message Payload
+
+From Rhodes 2.0.4 on, the callback push message parameters are in the form of a hash. This hash contains parameters and values for the operation to perform. If the parameter for that operation is not listed, the operation is not performed.
+
+The hash payload may include the parameters of alert, do_sync, sound, and vibrate which perform operations that the client performs when it receives the PUSH message. Here is an example of a push message body with the parameter names and values. It will have a popup alert message of "some message", play a sound of alert.mp3, will vibrate the device, and will sync the product and customer sources.
+
+    :::text
+    alert=some message here&sound=alert.mp3&vibrate=2000&do_sync=product,customer
+
+To sync all the sources with do_sync, the source name list would specified as 'all' in the ping call, instead of 'product,customer' as in this example.
+
+The sound file should be included in the Rhodes application bundle in the `/public/alerts` folder.
+
+### Setting up the Rhodes Client for iPhone, Android, and Blackberry
+
+To set up your Rhodes client for push, refer to these links for your respective platforms.
+
+* [Setting up iPhone Client for Push](/rhodes/device-caps#iphone-push-setup)
+* [Setting up Android Client for Push](/rhodes/device-caps#android-push-setup)
+* [Setting up Blackberry Client for Push](/rhodes/device-caps#blackberry-push-setup)
