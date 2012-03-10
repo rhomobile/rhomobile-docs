@@ -55,6 +55,13 @@ section 'rhoconnect-plugin-reference', "RhoConnect: Plugins" do
   topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
+section 'rhoconnect-push-reference', "RhoConnect: Push Sychronization" do
+  topic 'rhoconnect/push',      'Introduction to Push'
+  topic 'rhoconnect/push-server-setup',      'Push Setup on Server'
+  topic 'rhoconnect/push-backend-setup',        'Push Setup on Backend'
+  topic 'rhoconnect/push-client-setup',       'Push Setup on Client'
+end
+
 section 'rhoconnect-administration', "RhoConnect: Administration" do
   topic 'rhoconnect/settings',          'RhoConnect Settings'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
