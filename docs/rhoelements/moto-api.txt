@@ -153,8 +153,10 @@ If neither `/S` nor `/C` nor `-approot` parameters are present, then the default
 ### RhoElements v1.0 applications logging
 RhoElements Shared Runtime writes its internal log to file named `rholog.txt`. The location of this file is defined by the following rules (in the order of priority):
 
-1. If the configuration file is specified in the command line parameter `/C` and the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag equals to "FILE",
-then path to `rholog.txt` is taken from `Configuration` > `Logger` > `LogURI` tag (file name part of `LogURI` is ignored and `rholog.txt` is used as a file name).
+1. If the configuration file is specified in the command line parameter `/C` and the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag equals to "FILE" or "HTTP",
+then path to the log is taken from `Configuration` > `Logger` > `LogURI` tag:
+   - In case of "FILE" protocol the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name;
+   - In case of "HTTP" protocol the log messages are sent to the `LogURI` via POST HTTP-requests.
 
 2. If the start page parameter is a local file, then path to this file is used for log file `rholog.txt`
 (file name part of the start page parameter is ignored and `rholog.txt` is used as a file name).
