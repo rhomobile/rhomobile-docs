@@ -13,24 +13,25 @@ In order to enable motorola barcode scanning feature on Windows CE you need to i
     link to EMDK update - https://docs.symbol.com/downloads/EMDK-C-020004-Up2.zip   
 
 ### Build
-To enable add to build.yml:
+To enable Motorola WebKit browser, Barcode and all System Libraries add to build.yml:
 
-    capabilities:
-    -motorola
-
-    extensions: ["barcode-moto"]
+    app_type: rhoelements
 
 ### Barcode API
 
 Get a list of scanners present on the device. Return array of hashes ('name','id'):
 
 	:::ruby
-    Barcode.enumerate 
+    Barcode.enumerate(url_for(:action => :enumerate_callback))
+
+Callback parameters:
+
+* scannerArray - array of Hashes("deviceName","friendlyName")
     
 Enables the scanner. barcode_callback get the same parameters as Barcode.take_barcode:
 
     :::ruby
-    Barcode.enable(url_for(:action => :barcode_callback), {:id=>id_from_enumerate})
+    Barcode.enable(url_for(:action => :barcode_callback), {:deviceName=>deviceName_from_enumerate})
 
 Callback parameters:
 
@@ -55,7 +56,7 @@ Performs a soft trigger stop
 Enables the scanner and start scanner. Before callback is called scanner is disabled:
 
     :::ruby
-    Barcode.take_barcode(url_for(:action => :barcode_callback), {:id=>id_from_enumerate})
+    Barcode.take_barcode(url_for(:action => :barcode_callback), {:deviceName=>deviceName_from_enumerate})
 
 THe callback uses these parameters.
 
@@ -70,10 +71,12 @@ Rhodes 3.3 and RhoElements 2.0 support Motorola WebKit browser for Windows Mobil
 
 To enable: install RhoElements gem or RhoStudio and add to build.yml
 
+    app_type: rhoelements
+    
+To use Native Web Browser, do not add app_type to build.yml. To use Barcode and other System Libriries add to build.yml:
+    
     capabilities:
     -motorola
-
-    extensions: ["webkit-browser"]
 
 ## RhoElements Shared Runtime
 
