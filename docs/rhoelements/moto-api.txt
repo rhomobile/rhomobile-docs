@@ -106,11 +106,11 @@ On Windows Mobile the `Device` option must be selected when the installer asks f
 On Windows CE the default path (`\Program Files\RhoElements2`) must be selected.
 
 ### Install and run RhoElements v2.0 applications
-To build RhoElements v2.0 application with use of RhoElements Shared Runtime add `use_re_runtime` parameter to the `wm` section of `build.yml` file
+To build RhoElements v2.0 application with use of RhoElements Shared Runtime add `use_shared_runtime` parameter to the `wm` section of `build.yml` file
 located at application root folder, it should look like this:
 
     wm:
-      use_re_runtime: yes
+      use_shared_runtime: yes
 
 To build the `cab` file issue the command at the application root folder:
 
