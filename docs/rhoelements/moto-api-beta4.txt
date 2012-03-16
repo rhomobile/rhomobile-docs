@@ -91,57 +91,55 @@ To use Native(Platform built-in) Web Browser, add to build.yml:
     - native_browser
 
 ## RhoElements Shared Runtime
+RhoElements 2.0 support developing applications int Shared Runtime mode:
 
+* Shared Runtime contains all RhoElements specific binaries and Rhodes Ruby libraries
+* Shared Runtime contains all Native Extensions included at build time of Shared Runtime
+* Shared Runtime may contain public folder with common files like javascripts, css, images etc. RhoElements first looks in application public folder, then in Shared Runtime public folder
+* Application bundle in Shared Runtime mode contain only application specific code and ruby extensions(Native extensions should be included in Shared Runtime)
 
+NOTE: RhoElements 2.0 Beta 4 support Shared Runtime only for Windows Mobile and CE devices.
+
+Shared Runtime itself is RhoElements application, so you can configure it and build for specific OS.
+ 
 ### Building RhoElements Shared Runtime
 
 To build the `cab` file of RhoElements Shared Runtime:
 
-       :::term
        $ cd <RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0
        $ rake build:rhoelements:runtime
 
-The resulting `cab` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
+* Windows CE and Mobile build: the resulting `cab` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
+* Android: `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
 
 ### Installing RhoElements Shared Runtime
-Install `RhoElements2.cab` to the device the usual way or install it directly to the connected device from command line:
-
-    :::term
-    $ cd <RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
-    $ rake run:wm:device:cab
+To install Shared Runtime on specific device follow [build instructions](/rhodes/build)
 
 NOTE: RhoElements Shared Runtime <b>must</b> be installed to the primary disk partition of Windows CE/Mobile device, i.e. it has to be installed to `\Program Files\RhoElements2` only.
 On Windows Mobile the `Device` option must be selected when the installer asks for the location to install.
 On Windows CE the default path (`\Program Files\RhoElements2`) must be selected.
 
 ### Install and run RhoElements v2.0 applications
-To build RhoElements v2.0 application with use of RhoElements Shared Runtime add `use_shared_runtime` parameter to the `wm` section of `build.yml` file
-located at application root folder, it should look like this:
+To build RhoElements v2.0 application in Shared Runtime mode add to build.yml:
 
     wm:
       use_shared_runtime: yes
 
-To build the `cab` file issue the command at the application root folder:
+All RhoStudio or rake commands will automatically build application in Shared Runtime mode:
 
-    :::term
-    $ rake device:wm:production
-
-The resulting `cab` file can be found at `bin\target\<platform_id>` folder of the application.
-
-To install and run application on the connected device issue the command at the application root folder:
-
-    :::term
-    $ rake run:wm:device:cab
+* Windows CE and Windows Mobile : Follow build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile)
+* Android ET1 : Follow build instructions for [Android](/rhodes/build#build-for-android)
 
 NOTE: RhoElements v2.0 applications <b>must</b> be installed to the primary disk partition of Windows CE/Mobile device, i.e. they have to be installed to `\Program Files\&lt;app-name&gt;` only.
 On Windows Mobile the `Device` option must be selected when the installer asks for the location to install.
 On Windows CE the default path (`\Program Files\&lt;app-name&gt;`) must be selected.
 
 ### RhoElements Shared Runtime command line parameters
-RhoElements v2.0 applications should be deployed and ran as described above.
-RhoElements v1.0 applications should be started using command line parameters.
 
-The runtime installation path on Windows CE/Mobile devices is `\Program Files\RhoElements2` and the path to the executable is `\Program Files\RhoElements2\RhoElements2.exe`.
+* RhoElements v2.0 applications should be deployed and ran as described above.
+* RhoElements v1.0 applications should be started using command line parameters.
+
+Shared Runtime installation path on Windows CE/Mobile devices is `\Program Files\RhoElements2` and the path to the executable is `\Program Files\RhoElements2\RhoElements2.exe`.
 
 The following command line parameters are supported by the RhoElements Shared Runtime (`RhoElements2.exe`):
 
@@ -162,7 +160,7 @@ If `/S` parameter is present with no `/C` parameter, then the default configurat
 
 If neither `/S` nor `/C` nor `-approot` parameters are present, then the default empty RhoElements application will be started.
 
-### RhoElements v1.0 applications logging
+### RhoElements applications logging
 RhoElements Shared Runtime writes its internal log to file named `rholog.txt`. The location of this file is defined by the following rules (in the order of priority):
 
 1. If the configuration file is specified in the command line parameter `/C` and the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag equals to "FILE" or "HTTP",
