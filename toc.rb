@@ -116,4 +116,5 @@ end
 
 section 'rhoelements-reference', "RhoElements: Getting Started" do
   topic 'rhoelements/moto-api',      'Motorola API'
+  topic 'rhoelements/moto-api-beta4', 'Motorola API - RE2 beta 4'
 end

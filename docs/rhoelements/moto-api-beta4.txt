@@ -1,8 +1,28 @@
 # Motorola API
+RhoElements 2.0 support Barcode, WebKit Browser and many other device capabilities for Motorola Windows Mobile, Windows CE and Android(ET1) devices.
 
-## Barcode for Motorola devices
-Rhodes 3.3 and RhoElements 2.0 support barcode for Motorola devices. Install RhoElements gem or RhoStudio and start developing for Motorola Windows Mobile, Windows CE and Android(ET1) devices .
+## Build
 
+* Install RhoStudio installer or RhoElements gem with Rhodes latest beta
+
+* To enable Motorola device capabilities add to build.yml:
+
+    app_type: rhoelements
+
+### Windows Mobile and CE prerequisites:
+
+To build for Motorola Windows Mobile devices: 
+
+* Follow build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile)
+
+To build for Motorola Windows CE devices: 
+
+* Install MC3000c50b PSDK from [Symbol support site](http://support.symbol.com/support/search.do?cmd=displayKC&docType=kc&externalId=11964&sliceId=&dialogID=45371217&stateId=0%200%2045367143)
+* Add to build.yml:
+
+        wm:
+          sdk: "MC3000c50b (ARMV4I)"
+      
 ### Android prerequisites:
 To run an RhoElements application on ET1 device:
 
@@ -11,31 +31,21 @@ To run an RhoElements application on ET1 device:
 
     0x05E0
 
-### Windows CE prerequisites:
-In order to enable motorola barcode scanning feature on Windows CE you need to install Motorola EMDK library. 
-
-    link to EMDK - https://docs.symbol.com/downloads/EMDK-C-020004.exe
-    link to EMDK update - https://docs.symbol.com/downloads/EMDK-C-020004-Up2.zip   
-
-### Build
-To enable add to build.yml:
-
-    capabilities:
-    -motorola
-
-    extensions: ["barcode-moto"]
-
-### Barcode API
+## Barcode API
 
 Get a list of scanners present on the device. Return array of hashes ('name','id'):
 
 	:::ruby
-    Barcode.enumerate 
+    Barcode.enumerate(url_for(:action => :enumerate_callback))
+
+Callback parameters:
+
+* scannerArray - array of Hashes("deviceName","friendlyName")
     
 Enables the scanner. barcode_callback get the same parameters as Barcode.take_barcode:
 
     :::ruby
-    Barcode.enable(url_for(:action => :barcode_callback), {:id=>id_from_enumerate})
+    Barcode.enable(url_for(:action => :barcode_callback), {:deviceName=>deviceName_from_enumerate})
 
 Callback parameters:
 
@@ -60,7 +70,7 @@ Performs a soft trigger stop
 Enables the scanner and start scanner. Before callback is called scanner is disabled:
 
     :::ruby
-    Barcode.take_barcode(url_for(:action => :barcode_callback), {:id=>id_from_enumerate})
+    Barcode.take_barcode(url_for(:action => :barcode_callback), {:deviceName=>deviceName_from_enumerate})
 
 THe callback uses these parameters.
 
@@ -71,24 +81,21 @@ THe callback uses these parameters.
 See controller and view in the /app/BarcodeRecognizerMoto folder of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BarcodeRecognizerMoto/controller.rb) for more information.
 
 ## WebKit browser for Motorola devices
-Rhodes 3.3 and RhoElements 2.0 support Motorola WebKit browser for Windows Mobile, Windows CE and Android (ET1) devices.
+RhoElements 2.0 use Motorola WebKit browser for Windows Mobile, Windows CE and Android (ET1) devices when you added to build.yml:
 
-To enable: install RhoElements gem or RhoStudio and add to build.yml
-
+    app_type: rhoelements
+    
+To use Native(Platform built-in) Web Browser, add to build.yml:
+    
     capabilities:
-    -motorola
-
-    extensions: ["webkit-browser"]
+    - native_browser
 
 ## RhoElements Shared Runtime
 
+
 ### Building RhoElements Shared Runtime
 
-1. Install RhoStudio with RhoElements using latest version of RhoInstaller.
-
-2. Make sure you have installed all [prerequisites for Windows Mobile platform](/rhodes/build#build-for-windows-mobile).
-
-3. To build the `cab` file of RhoElements Shared Runtime:
+To build the `cab` file of RhoElements Shared Runtime:
 
        :::term
        $ cd <RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0
@@ -108,11 +115,11 @@ On Windows Mobile the `Device` option must be selected when the installer asks f
 On Windows CE the default path (`\Program Files\RhoElements2`) must be selected.
 
 ### Install and run RhoElements v2.0 applications
-To build RhoElements v2.0 application with use of RhoElements Shared Runtime add `use_re_runtime` parameter to the `wm` section of `build.yml` file
+To build RhoElements v2.0 application with use of RhoElements Shared Runtime add `use_shared_runtime` parameter to the `wm` section of `build.yml` file
 located at application root folder, it should look like this:
 
     wm:
-      use_re_runtime: yes
+      use_shared_runtime: yes
 
 To build the `cab` file issue the command at the application root folder:
 
@@ -154,3 +161,16 @@ of the configuration file will be used as the start page parameter.
 If `/S` parameter is present with no `/C` parameter, then the default configuration file from the runtime will be used to launch the application.
 
 If neither `/S` nor `/C` nor `-approot` parameters are present, then the default empty RhoElements application will be started.
+
+### RhoElements v1.0 applications logging
+RhoElements Shared Runtime writes its internal log to file named `rholog.txt`. The location of this file is defined by the following rules (in the order of priority):
+
+1. If the configuration file is specified in the command line parameter `/C` and the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag equals to "FILE" or "HTTP",
+then path to the log is taken from `Configuration` > `Logger` > `LogURI` tag:
+   - In case of "FILE" protocol the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name;
+   - In case of "HTTP" protocol the log messages are sent to the `LogURI` via POST HTTP-requests.
+
+2. If the start page parameter is a local file, then path to this file is used for log file `rholog.txt`
+(file name part of the start page parameter is ignored and `rholog.txt` is used as a file name).
+
+3. Otherwise the log file `rholog.txt` is placed to `rho` folder in the Shared Runtime installation folder.
