@@ -134,6 +134,16 @@ NOTE: RhoElements v2.0 applications <b>must</b> be installed to the primary disk
 On Windows Mobile the `Device` option must be selected when the installer asks for the location to install.
 On Windows CE the default path (`\Program Files\&lt;app-name&gt;`) must be selected.
 
+### Shortcut for RhoElements application in Shared Runtime mode
+If RhoElements v2.0 application running in Shared Runtime mode is not a hidden app (i.e. there is no `hidden_app: yes` line at `build.yml`),
+then on Windows Mobile or Windows CE the shortcut (`.lnk` file) containing the complete command line and icon path is created and placed to:
+
+* _Start Menu_ if application is installed from `.cab` file or by `rake run:wm:device:cab` command.
+* _application folder_ if application is installed by `rake run:wm:device` command.
+
+The generated `.lnk` is a standard Windows Mobile/CE shortcut file having the following format:
+`<line-length>#"<runtime-exe>" -approot="<app-folder>"?"<icon-path>"`
+
 ### RhoElements Shared Runtime command line parameters
 
 * RhoElements v2.0 applications should be deployed and ran as described above.
