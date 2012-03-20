@@ -363,10 +363,10 @@ div#container {min-height: 100%;overflow: hidden;position: relative;}
     width: 95px;
 }
 .nav_header .nav_logos a.nav_logo_rhohub {background:url("/images/bg/rhomobile_rhohub_logo.png") no-repeat scroll -56px 0 transparent;float:left;height:38px;text-indent:-3000px;width:145px;}
-#nav_menu {color:#CCCCCC;float:right;font-size:12px;padding:0;position:relative;top:-19px;}
+#nav_menu {color:#CCCCCC;float:right;font-size:12px;padding:0;position:relative;top:-8px;}
 #nav_menu ul {background-repeat:no-repeat;color:#FFFFFF;font-family:arial;margin:27px 0 0;padding:0;}
 #nav_menu ul li {display:inline;font-size:12px;padding:0;}
-#nav_menu ul li.nav_separator{position:relative;top:9px;}
+#nav_menu ul li.nav_separator{position:relative;top:-2px;}
 #nav_menu ul li#current {-moz-border-radius:5px;-webkit-border-radius:5px;background:none repeat scroll 0 0 rgba(255, 255, 255, 0.15);padding:5px 0;text-decoration:none;}
 #nav_menu ul li a {height:24px;margin:0 auto;padding-left:12px;padding-right:12px;text-align:center;text-shadow:1px 1px 0 #000000;}
 #nav_menu ul li a.current {color:#FFFFFF;padding-bottom:5px;padding-top:5px;}
