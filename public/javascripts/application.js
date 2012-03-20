@@ -18,5 +18,9 @@ $(document).ready(function() {
 		var cur = $('a[href$="' + $(location).attr("pathname") + '"]');
 		cur.attr('onclick', 'return false');
 		cur.parent().attr('class', 'current');
-	})
+	});
+	$('.accordion-heading:first > a > i').toggleClass('icon-minus', 'icon-plus');
+	$('.accordion-heading > a').live('click',function(){
+	  $(this).find('i').toggleClass('icon-minus', 'icon-plus');
+	});
 });

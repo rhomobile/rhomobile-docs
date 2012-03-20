@@ -180,6 +180,7 @@ p, ul, blockquote, pre, table {
 }
 #docsnav a:hover {
 	color: #555;
+	cursor:pointer;
 }
 #docsnav .current a {
 	color:#222;
@@ -190,7 +191,10 @@ p, ul, blockquote, pre, table {
 	margin:0 0 0 0;
 	font-size:15px;
 	line-height:1.25;
+	float: left;
+  width: 200px;
 }
+
 
 /* content
 --------------------------------------------------*/
@@ -383,3 +387,6 @@ div#container {min-height: 100%;overflow: hidden;position: relative;}
 .ul_footer li{color:#FFFFFF;display:inline;padding-right:5px;}
 .ul_footer li a{color:#FFFFFF;}
 .ul_footer li a:hover{text-decoration:none;}
+.accordion-heading {
+  overflow:hidden;
+}
