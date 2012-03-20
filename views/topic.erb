@@ -1,21 +1,25 @@
-<h1><%= @title %></h1>
+<div id="rendered_topic_container">
+	<div id="rendered_topic">
+		<h1><%= @title %></h1>
 
-<%= @intro %>
+		<%= @intro %>
 
-<% if @toc.size > 0 && @print == 0 %>
-	<ul id="toc">
-		<% @toc.each do |section| %>
-			<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
+		<% if @toc.size > 0 && @print == 0 %>
+			<ul id="toc">
+				<% @toc.each do |section| %>
+					<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
+				<% end %>
+			</ul>
 		<% end %>
-	</ul>
-<% end %>
 
-<%= @body %>
+		<%= @body %>
 
-<% if ns = next_section(topic_path) %>
-    <% if @print == 0 %>
-      <div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
-      <a href="/<%= topic_path%>.print"><img src="/images/print.png"> Print this page</a><br/>
-      <a href="/<%= topic_path%>.pdf"><img src="/images/pdf.png"> View as a PDF</a>
-    <% end %>
-<% end %>
+		<% if ns = next_section(topic_path) %>
+		    <% if @print == 0 %>
+		      <div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
+		      <a href="/<%= topic_path%>.print"><img src="/images/print.png"> Print this page</a><br/>
+		      <a href="/<%= topic_path%>.pdf"><img src="/images/pdf.png"> View as a PDF</a>
+		    <% end %>
+		<% end %>
+	</div>
+</div>

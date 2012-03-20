@@ -5,9 +5,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Rhomobile | <%=h @title %></title>
 	<link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css" media="screen,print" />
-	<link type="text/css" rel="stylesheet" href="/css/docs.css" media="screen,print" />
 	<link type="text/css" rel="stylesheet" href="/stylesheets/coderay.css" media="screen,print" />
+	<link type="text/css" rel="stylesheet" href="/stylesheets/application.css" media="screen,print" />
 	<script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.pjax.min.js"></script>
+	<script type="text/javascript" src="/javascripts/application.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
 </head>
 <body>
@@ -51,13 +53,13 @@
 						</a>
 					</div>
 					<div id="<%=slug%>" class="accordion-body collapse <%=first ? 'in' : ''%>">
-					<% first = false%>
+					<% first = false %>
 						<ul>
 							<% topics.each do |slug, title, _| %>
 								<% if topic_path == slug %>
-									<li class="current"><a><%=h title %></a></li>
+									<li class="current"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
 								<% else %>
-									<li><a href="/<%= slug %>"><%=h title %></a></li>
+									<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
 								<% end %>
 							<% end %>
 						</ul>
@@ -69,7 +71,7 @@
 	</div>
 
 	<div id="content">
-		<div class="topic_content">
+		<div id="t_content" class="topic_content">
 			<%= yield %>
 		</div>
 	</div>

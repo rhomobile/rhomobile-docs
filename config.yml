@@ -34,7 +34,6 @@ edge:
     rhoconnect: 'docs/rhoconnect/'
   index: 'rhodocs_edge'
   pdfkithost: 'edgedocs.rhomobile.com'
-  rhonav_host: http://app.staging.rhohub.com
 production:
   dirs:
     rhosync: 'docs/rhosync/'
@@ -47,4 +46,3 @@ production:
     rhoconnect: 'docs/rhoconnect/'
   index: 'rhodocs'
   pdfkithost: 'docs.rhomobile.com'
-  rhonav_host: https://app.rhohub.com

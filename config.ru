@@ -3,4 +3,4 @@ require 'bundler/setup'
 
 require './environment'
 
-run Sinatra::Application
+run Docs.new

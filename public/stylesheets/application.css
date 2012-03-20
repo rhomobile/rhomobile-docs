@@ -42,7 +42,7 @@ div#doc_container{
 #docsnav {
   padding: 30px;
   border-right: 1px solid #ddd;
-  width: 235px;
+  width: 250px;
   float: left;
   font-size:11px;
 }
@@ -124,7 +124,7 @@ p, ul, blockquote, pre, table {
 	border: 1px solid #ddd;
 	padding: 5px 25px 5px 5px;
 	background-color: #fff;
-	width:200px;
+	width:218px;
 	font-size: 13px;
 	margin-right: 3px;
 	-moz-border-radius:     5px; 
@@ -187,8 +187,8 @@ p, ul, blockquote, pre, table {
 }
 #docsnav h3 {
 	color:#666;
-	margin:0 0 10px 0;
-	font-size:16px;
+	margin:0 0 0 0;
+	font-size:15px;
 	line-height:1.25;
 }
 
