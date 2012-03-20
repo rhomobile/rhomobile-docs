@@ -16,7 +16,7 @@
 
 		<% if ns = next_section(topic_path) %>
 		    <% if @print == 0 %>
-		      <div id="next_section">Next: <a href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
+		      <div id="next_section">Next: <a class='js-pjax' href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
 		      <a href="/<%= topic_path%>.print"><img src="/images/print.png"> Print this page</a><br/>
 		      <a href="/<%= topic_path%>.pdf"><img src="/images/pdf.png"> View as a PDF</a>
 		    <% end %>
