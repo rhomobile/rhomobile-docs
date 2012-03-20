@@ -168,12 +168,13 @@ of the configuration file will be used as the start page parameter.
 
 If `/S` parameter is present with no `/C` parameter, then the default configuration file from the runtime will be used to launch the application.
 
-If neither `/S` nor `/C` nor `-approot` parameters are present, then the default empty RhoElements application will be started.
+If neither `/S` nor `/C` nor `-approot` parameters are present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag
+of RhoElements Shared Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Motorola RhoElements' page).
 
 ### RhoElements applications logging
 RhoElements Shared Runtime writes its internal log to file named `rholog.txt`. The location of this file is defined by the following rules (in the order of priority):
 
-1. If the configuration file is specified in the command line parameter `/C` and the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag equals to "FILE" or "HTTP",
+1. If the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals to "FILE" or "HTTP",
 then path to the log is taken from `Configuration` > `Logger` > `LogURI` tag:
    - In case of "FILE" protocol the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name;
    - In case of "HTTP" protocol the log messages are sent to the `LogURI` via POST HTTP-requests.
