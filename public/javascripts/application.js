@@ -20,6 +20,6 @@ $(document).ready(function() {
 		cur.parent().attr('class', 'current');
 	});
 	$('.accordion-heading > a').live('click',function(){
-	  $(this).find('i').toggleClass('icon-minus', 'icon-plus');
+	  $(this).find('i').toggleClass('icon-minus').toggleClass('icon-plus');
 	});
 });
