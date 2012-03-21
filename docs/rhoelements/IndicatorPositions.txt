@@ -1,0 +1,82 @@
+#Meaning of Indicator Layout
+
+The Battery and Signal Meta tags use the 'Layout' parameters to specify the layout of the indicator icon.  The examples below illustrate all possible values of layout parameter.
+
+For more information on how to use the <a href="../rhoelements/battery">Battery</a> indicator and the <a href="../rhoelements/signal">Signal</a> indicator please refer to the appropriate help file section.
+
+##Layout:Left
+The following example shows the battery indicator:
+	function doBatteryLayoutLeft()
+	{
+		battery.layout = left';
+		battery.color = '#000000';
+		battery.visibility = 'visible';
+	}
+<img src="/images/indicators/battery_left.png">
+
+The following example shows the wireless signal indicator:
+	function doSignalLayoutLeft()
+	{
+		signal.layout = 'left';
+		signal.color = '#FF0000';
+		signal.visibility = 'visible';
+	}
+<img src="/images/indicators/signal_left.png">
+
+##Layout:Right
+The following example shows the battery indicator:
+	function doBatteryLayoutRight()
+	{
+		battery.layout = 'right';
+		battery.color = '#000000';
+		battery.visibility = 'visible';
+	}
+<img src="/images/indicators/battery_right.png">
+
+The following example shows the wireless signal indicator:
+	function doSignalLayoutRight()
+	{
+		signal.layout = 'right';
+		signal.color = '#FF0000';
+		signal.visibility = 'visible';
+	}
+<img src="/images/indicators/signal_right.png">
+
+##Layout:Up
+The following example shows the battery indicator:
+	function doBatteryLayoutTop()
+	{
+		battery.layout = 'up';
+		battery.color = '#000000';
+		battery.visibility = 'visible';
+	}
+<img src="/images/indicators/battery_top.png">
+
+The following example shows the wireless signal indicator:
+	function doSignalLayoutTop()
+	{
+		signal.layout = 'up';
+		signal.color = '#FF0000';
+		signal.visibility = 'visible';
+	}
+<img src="/images/indicators/signal_top.png">
+	
+##Layout:Down
+The following example shows the battery indicator:
+	function doBatteryLayoutBottom()
+	{
+		battery.layout = 'down';
+		battery.color = '#000000';
+		battery.visibility = 'visible';
+	}
+<img src="/images/indicators/battery_bottom.png">
+
+The following example shows the wireless signal indicator:
+	function doSignalLayoutBottom()
+	{
+		signal.layout = 'down';
+		signal.color = '#FF0000';
+		signal.visibility = 'visible';
+	}
+<img src="/images/indicators/signal_bottom.png">
+	

@@ -1,0 +1,49 @@
+Code39: RhoElements Barcode Capture Decoders
+===
+
+* ### [Code39](/rhoelements/Code39)
+
+* ### [Code39code32Prefix](/rhoelements/Code39code32Prefix)
+
+* ### [Code39concatenation](/rhoelements/Code39concatenation)
+
+* ### [Code39convertToCode32](/rhoelements/Code39convertToCode32)
+
+* ### [Code39fullAscii](/rhoelements/Code39fullAscii)
+
+* ### [Code39maxLength](/rhoelements/Code39maxLength)
+
+* ### [Code39minLength](/rhoelements/Code39minLength)
+
+* ### [Code39redundancy](/rhoelements/Code39redundancy)
+
+* ### [Code39reportCheckDigit](/rhoelements/Code39reportCheckDigit)
+
+* ### [Code39securityLevel](/rhoelements/Code39securityLevel)
+
+* ### [Code39verifyCheckDigit](/rhoelements/Code39verifyCheckDigit)
+
+###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

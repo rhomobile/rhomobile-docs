@@ -1,0 +1,61 @@
+
+#PowerOn Module
+<b>
+The PowerOn Module is used to register to receive an event when the device is resumed from suspend mode.</b>
+
+
+##Syntax
+
+<table class="re-table"><tr><th class="tableHeading">powerOn (Module) Syntax
+</th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="PowerOn" content="PowerOnEvent:url('[jsFunction | url]')"&gt;</p></td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">PowerOn JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the JavaScript Object <b>'powerOn'</b> will exist on the current page and can be used to interact directly with the powerOn.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set powerOn return events via JavaScript use the following syntax: poweron.event = Javascript Function;
+<P />e.g. <b>powerOn</b>.powerOnEvent = 'doFunction(%json)';
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow">							
+To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: poweron.setEMML("[Your EMML Tags]");
+<P />
+e.g. <b>powerOn</b>.setEMML("powerOnEvent:url('JavaScript:doFunction(%json)')");							
+</td></tr></table>
+
+
+
+##Events
+
+
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+
+<br />
+###powerOnEvent
+The PowerOnEvent is sent whenever the device is resumed from suspend mode. There is no data associated with this event.
+
+
+##Examples
+
+The following example displays a message box when the device resumes:
+
+	<meta http-equiv="PowerOn" content="PowerOnEvent:url('javascript:alert('Powered Up');')">
+	
+
+
+
+##Remarks
+
+
+###Example usage
+This feature is very useful for security. Navigating to an offline page (file:// protocol) when the device is powered on can be used to request a pin number from the user.
+
+
+###Use when cradled
+Windows Power events will not always be generated when the device is connected to power and instructed to stand by / wake up, though this is dependant on the Operating System in use.
+
+
+
+##Additional Information
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+

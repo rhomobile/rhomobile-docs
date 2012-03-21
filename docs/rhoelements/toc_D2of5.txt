@@ -1,0 +1,43 @@
+D2of5: RhoElements Barcode Capture Decoders
+===
+
+* ### [D2of5](/rhoelements/D2of5)
+
+* ### [D2of5maxLength](/rhoelements/D2of5maxLength)
+
+* ### [D2of5minLength](/rhoelements/D2of5minLength)
+
+* ### [D2of5redundancy](/rhoelements/D2of5redundancy)
+
+###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
