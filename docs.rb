@@ -80,7 +80,7 @@ class Docs < Sinatra::Base
   		@intro   = @topic.intro
   		@toc     = @topic.toc
   		@body    = @topic.body
-		
+      		
   		@print = print
       
   		erb :topic, :layout => !pjax?
@@ -168,6 +168,18 @@ module TOC
 	def topic(name, title)
 		sections.last.last << [name, title, []]
 	end
+  
+  def find(path)
+    compare = path.dup
+    compare.slice!(0)
+    found = @sections[0][0] # Default to first section
+    @sections.map do |section|
+      section[2].map do |slug, title, _|
+        found = section[0] if slug == compare
+      end
+    end
+    found
+  end
 
 	file = File.dirname(__FILE__) + '/toc.rb'
 	eval File.read(file), binding, file

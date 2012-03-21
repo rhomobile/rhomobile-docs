@@ -104,13 +104,19 @@ Shared Runtime itself is RhoElements application, so you can configure it and bu
  
 ### Building RhoElements Shared Runtime
 
-To build the `cab` file of RhoElements Shared Runtime:
+* Open folder: <RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
-       $ cd <RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0
-       $ rake build:rhoelements:runtime
+* To build for Windows Mobile or Windows CE:
 
-* Windows CE and Mobile build: the resulting `cab` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
-* Android: `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
+        rake device:wm:production
+
+The resulting `cab` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
+
+* To build for Android:
+
+        rake device:android:production
+
+The resulting `apk` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
 
 ### Installing RhoElements Shared Runtime
 To install Shared Runtime on specific device follow [build instructions](/rhodes/build)

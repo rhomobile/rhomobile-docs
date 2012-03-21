@@ -42,18 +42,18 @@
 			</div>
 		</form>
 		<ul>
-			<% first = true%>
+			<% collapsed = true %>
 			<% sections.each do |slug, title, topics| %>
+				<% collapsed = false if TOC.find(request.path_info) == slug %>
 				<div class="accordion-group">
-					
 					<li>
 					<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-target="#<%=slug%>">
+						  <i class="<%= collapsed ? 'icon-plus' : 'icon-minus'%> pull-right"></i>
 							<h3><%= title %></h3>
 						</a>
 					</div>
-					<div id="<%=slug%>" class="accordion-body collapse <%=first ? 'in' : ''%>">
-					<% first = false %>
+					<div id="<%=slug%>" class="accordion-body <%=collapsed ? 'collapse' : 'in'%>">
 						<ul>
 							<% topics.each do |slug, title, _| %>
 								<% if topic_path == slug %>
@@ -66,6 +66,7 @@
 					</div>
 					</li>
 				</div>
+				<% collapsed = true %>
 			<% end %>
 		</ul>
 	</div>
