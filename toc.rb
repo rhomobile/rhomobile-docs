@@ -114,7 +114,119 @@ section 'rhoconnect-adapters-reference', "RhoConnect: Vendor Adapters" do
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end
 
-section 'rhoelements-reference', "RhoElements: Getting Started" do
+section 'rhoelements-gettingstarted', "RhoElements: Getting Started" do
   topic 'rhoelements/moto-api',      'Motorola API'
   topic 'rhoelements/moto-api-beta4', 'Motorola API - RE2 beta 4'
 end
+
+section 'rhoelements-barcode', "RhoElements: Barcode Capture" do
+  topic 'rhoelements/Scanner',      'Scanner'
+  topic 'rhoelements/RSM',      'Remote Scanner'
+  topic 'rhoelements/toc_decoders',      'Decoders'
+end
+
+section 'rhoelements-cardreader', "RhoElements: Card Reader" do
+  topic 'rhoelements/CardReader',      'Card Reader'
+end
+
+section 'rhoelements-commport', "RhoElements: Comm Port" do
+  topic 'rhoelements/Comm',      'Comm Port'
+end
+
+section 'rhoelements-configuration', "RhoElements: Configuration" do
+  topic 'rhoelements/Registry',      'Registry'
+end
+
+section 'rhoelements-controlsappearance', "RhoElements: Controls & Appearance" do
+  topic 'rhoelements/addressbar',      'Address Bar'
+  topic 'rhoelements/BackButton',      'Back Button'
+  topic 'rhoelements/BottomCommandArea',      'Bottom Command Area'
+  topic 'rhoelements/ForwardButton',      'Forward Button'
+  topic 'rhoelements/GoButton',      'Go Button'
+  topic 'rhoelements/HomeButton',      'Home Button'
+  topic 'rhoelements/KeyState',      'Key State'
+  topic 'rhoelements/MinimizeButton',      'Minimize Button'
+  topic 'rhoelements/QuitButton',      'Quit Button'
+  topic 'rhoelements/ReloadButton',      'Reload Button'
+  topic 'rhoelements/SIPButton',      'Sip Button'
+  topic 'rhoelements/StopButton',      'Stop Button'
+  topic 'rhoelements/TopCommandArea',      'Top Command Area'
+  topic 'rhoelements/ZoomTextButton',      'Zoom Text Button'
+
+end
+
+section 'rhoelements-deviceandapp', "RhoElements: Device & Application" do
+  topic 'rhoelements/alarm',      'Alarm'
+  topic 'rhoelements/application',      'Application'
+  topic 'rhoelements/Backlight',      'Backlight'
+  topic 'rhoelements/Device',      'Device'
+  topic 'rhoelements/HistoryBack2',      'History'
+  topic 'rhoelements/Hourglass',      'Hourglass'
+  topic 'rhoelements/Keylight',      'Key Light'
+  topic 'rhoelements/Notification',      'Notification'
+  topic 'rhoelements/PowerOn',      'Power On'
+  topic 'rhoelements/Reboot',      'Reboot'
+  topic 'rhoelements/Screenorientation',      'Screen Orientation'
+  topic 'rhoelements/SIP',      'SIP'
+  topic 'rhoelements/SNTP',      'SNTP'
+  topic 'rhoelements/Stylus',      'Stylus'
+  topic 'rhoelements/Timer',      'Timer'
+  topic 'rhoelements/Volume',      'Volume'
+  topic 'rhoelements/Zoom',      'Zoom'
+
+end
+
+section 'rhoelements-profiles', "RhoElements: EMML Profiles" do
+  topic 'rhoelements/emmlprofile',      'EMML Profile'
+
+end
+
+section 'rhoelements-filemanagement', "RhoElements: File Management" do
+  topic 'rhoelements/filetransfer',      'File Transfer'
+
+end
+
+section 'rhoelements-gestures', "RhoElements: Gestures" do
+  topic 'rhoelements/gesturesoverview',      'Gesturing Overview'
+  topic 'rhoelements/gesture',      'Gesture'
+
+end
+
+section 'rhoelements-imagecapture', "RhoElements: Image Capture" do
+  topic 'rhoelements/imager',      'Imager'
+
+end
+section 'rhoelements-indicators', "RhoElements: Indicators" do
+  topic 'rhoelements/battery',      'Battery'
+  topic 'rhoelements/signal',      'Signal'
+  topic 'rhoelements/indicatorpositions',      'Indicator Positions'
+
+end
+section 'rhoelements-Keyhandling', "RhoElements: Key Handling" do
+  topic 'rhoelements/key_capture_overview',      'Key Capture Overview'
+  topic 'rhoelements/keycapture',      'Key Capture'
+  
+end
+section 'rhoelements-Network', "RhoElements: Network" do
+  topic 'rhoelements/network',      'Network'
+  
+end
+section 'rhoelements-preexist', "RhoElements: Preexisting JS Objects" do
+  topic 'rhoelements/Airbeam',      'Airbeam'
+  topic 'rhoelements/Apd',      'Advanced Printer Driver'
+  topic 'rhoelements/Generic',      'Generic'
+  topic 'rhoelements/NoSip',      'NoSIP'
+  topic 'rhoelements/odax',      'ODAX'
+  
+end
+section 'rhoelements-push', "RhoElements: Push" do
+  topic 'rhoelements/push',      'push'
+  
+end
+section 'rhoelements-Signature', "RhoElements: Signature Capture" do
+  topic 'rhoelements/signaturecapture',      'Signature Capture'
+  
+end
+
+
+
