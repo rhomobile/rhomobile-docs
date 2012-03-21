@@ -294,6 +294,29 @@ h3 {
   clear:both;
 }
 
+
+/* RhoElements documentation styles 
+*/
+table.re-table
+{
+width:600px;
+border-width:1px;
+border-color:#BB2435;
+}
+table.re-table th
+{
+font-weight:bold;
+text-align:left;
+color: white;
+background-color:#BB2435;
+text-transform:uppercase;
+padding: 0.4em;
+}
+.clsEvenRow
+{
+background-color:#F4F4F4;
+}
+
 /* device caps
 ------------------------------------------------ */
 <style type="text/css">
