@@ -120,75 +120,75 @@ section 'rhoelements-gettingstarted', "RhoElements: Getting Started" do
 end
 
 section 'rhoelements-barcode', "RhoElements: Barcode Capture" do
-  topic 'rhoelements/Scanner',      'Scanner'
+  topic 'rhoelements/scanner',      'Scanner'
   topic 'rhoelements/RSM',      'Remote Scanner'
   topic 'rhoelements/toc_decoders',      'Decoders'
 end
 
 section 'rhoelements-cardreader', "RhoElements: Card Reader" do
-  topic 'rhoelements/CardReader',      'Card Reader'
+  topic 'rhoelements/cardreader',      'Card Reader'
 end
 
 section 'rhoelements-commport', "RhoElements: Comm Port" do
-  topic 'rhoelements/Comm',      'Comm Port'
+  topic 'rhoelements/comm',      'Comm Port'
 end
 
 section 'rhoelements-configuration', "RhoElements: Configuration" do
-  topic 'rhoelements/Registry',      'Registry'
+  topic 'rhoelements/registry',      'Registry'
 end
 
 section 'rhoelements-controlsappearance', "RhoElements: Controls & Appearance" do
   topic 'rhoelements/addressbar',      'Address Bar'
-  topic 'rhoelements/BackButton',      'Back Button'
-  topic 'rhoelements/BottomCommandArea',      'Bottom Command Area'
-  topic 'rhoelements/ForwardButton',      'Forward Button'
-  topic 'rhoelements/GoButton',      'Go Button'
+  topic 'rhoelements/backbutton',      'Back Button'
+  topic 'rhoelements/bottomcommandarea',      'Bottom Command Area'
+  topic 'rhoelements/forwardbutton',      'Forward Button'
+  topic 'rhoelements/gobutton',      'Go Button'
   topic 'rhoelements/HomeButton',      'Home Button'
-  topic 'rhoelements/KeyState',      'Key State'
-  topic 'rhoelements/MinimizeButton',      'Minimize Button'
-  topic 'rhoelements/QuitButton',      'Quit Button'
-  topic 'rhoelements/ReloadButton',      'Reload Button'
-  topic 'rhoelements/SIPButton',      'Sip Button'
-  topic 'rhoelements/StopButton',      'Stop Button'
-  topic 'rhoelements/TopCommandArea',      'Top Command Area'
-  topic 'rhoelements/ZoomTextButton',      'Zoom Text Button'
+  topic 'rhoelements/keystate',      'Key State'
+  topic 'rhoelements/minimizebutton',      'Minimize Button'
+  topic 'rhoelements/quitbutton',      'Quit Button'
+  topic 'rhoelements/reloadbutton',      'Reload Button'
+  topic 'rhoelements/sipbutton',      'Sip Button'
+  topic 'rhoelements/stopbutton',      'Stop Button'
+  topic 'rhoelements/topcommandarea',      'Top Command Area'
+  topic 'rhoelements/zoomTextButton',      'Zoom Text Button'
 
 end
 
 section 'rhoelements-deviceandapp', "RhoElements: Device & Application" do
   topic 'rhoelements/alarm',      'Alarm'
   topic 'rhoelements/application',      'Application'
-  topic 'rhoelements/Backlight',      'Backlight'
-  topic 'rhoelements/Device',      'Device'
-  topic 'rhoelements/HistoryBack2',      'History'
-  topic 'rhoelements/Hourglass',      'Hourglass'
+  topic 'rhoelements/backlight',      'Backlight'
+  topic 'rhoelements/device',      'Device'
+  topic 'rhoelements/historyback2',      'History'
+  topic 'rhoelements/hourglass',      'Hourglass'
   topic 'rhoelements/Keylight',      'Key Light'
-  topic 'rhoelements/Notification',      'Notification'
-  topic 'rhoelements/PowerOn',      'Power On'
-  topic 'rhoelements/Reboot',      'Reboot'
-  topic 'rhoelements/Screenorientation',      'Screen Orientation'
-  topic 'rhoelements/SIP',      'SIP'
-  topic 'rhoelements/SNTP',      'SNTP'
-  topic 'rhoelements/Stylus',      'Stylus'
-  topic 'rhoelements/Timer',      'Timer'
-  topic 'rhoelements/Volume',      'Volume'
-  topic 'rhoelements/Zoom',      'Zoom'
+  topic 'rhoelements/notification',      'Notification'
+  topic 'rhoelements/powerOn',      'Power On'
+  topic 'rhoelements/reboot',      'Reboot'
+  topic 'rhoelements/screenorientation',      'Screen Orientation'
+  topic 'rhoelements/sip',      'SIP'
+  topic 'rhoelements/sntp',      'SNTP'
+  topic 'rhoelements/stylus',      'Stylus'
+  topic 'rhoelements/timer',      'Timer'
+  topic 'rhoelements/volume',      'Volume'
+  topic 'rhoelements/zoom',      'Zoom'
 
 end
 
 section 'rhoelements-profiles', "RhoElements: EMML Profiles" do
-  topic 'rhoelements/emmlprofile',      'EMML Profile'
+  topic 'rhoelements/EMMLprofile',      'EMML Profile'
 
 end
 
 section 'rhoelements-filemanagement', "RhoElements: File Management" do
-  topic 'rhoelements/filetransfer',      'File Transfer'
+  topic 'rhoelements/FileTransfer',      'File Transfer'
 
 end
 
 section 'rhoelements-gestures', "RhoElements: Gestures" do
-  topic 'rhoelements/gesturesoverview',      'Gesturing Overview'
-  topic 'rhoelements/gesture',      'Gesture'
+  topic 'rhoelements/GesturesOverview',      'Gesturing Overview'
+  topic 'rhoelements/Gesture',      'Gesture'
 
 end
 
@@ -199,7 +199,7 @@ end
 section 'rhoelements-indicators', "RhoElements: Indicators" do
   topic 'rhoelements/battery',      'Battery'
   topic 'rhoelements/signal',      'Signal'
-  topic 'rhoelements/indicatorpositions',      'Indicator Positions'
+  topic 'rhoelements/IndicatorPositions',      'Indicator Positions'
 
 end
 section 'rhoelements-Keyhandling', "RhoElements: Key Handling" do
@@ -212,10 +212,10 @@ section 'rhoelements-Network', "RhoElements: Network" do
   
 end
 section 'rhoelements-preexist', "RhoElements: Preexisting JS Objects" do
-  topic 'rhoelements/Airbeam',      'Airbeam'
-  topic 'rhoelements/Apd',      'Advanced Printer Driver'
-  topic 'rhoelements/Generic',      'Generic'
-  topic 'rhoelements/NoSip',      'NoSIP'
+  topic 'rhoelements/airbeam',      'Airbeam'
+  topic 'rhoelements/apd',      'Advanced Printer Driver'
+  topic 'rhoelements/generic',      'Generic'
+  topic 'rhoelements/nosip',      'NoSIP'
   topic 'rhoelements/odax',      'ODAX'
   
 end
@@ -224,7 +224,7 @@ section 'rhoelements-push', "RhoElements: Push" do
   
 end
 section 'rhoelements-Signature', "RhoElements: Signature Capture" do
-  topic 'rhoelements/signaturecapture',      'Signature Capture'
+  topic 'rhoelements/SignatureCapture',      'Signature Capture'
   
 end
 
