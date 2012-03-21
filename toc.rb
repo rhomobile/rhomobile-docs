@@ -164,7 +164,7 @@ section 'rhoelements-deviceandapp', "RhoElements: Device & Application" do
   topic 'rhoelements/hourglass',      'Hourglass'
   topic 'rhoelements/Keylight',      'Key Light'
   topic 'rhoelements/notification',      'Notification'
-  topic 'rhoelements/powerOn',      'Power On'
+  topic 'rhoelements/poweron',      'Power On'
   topic 'rhoelements/reboot',      'Reboot'
   topic 'rhoelements/screenorientation',      'Screen Orientation'
   topic 'rhoelements/sip',      'SIP'
@@ -177,7 +177,7 @@ section 'rhoelements-deviceandapp', "RhoElements: Device & Application" do
 end
 
 section 'rhoelements-profiles', "RhoElements: EMML Profiles" do
-  topic 'rhoelements/EMMLprofile',      'EMML Profile'
+  topic 'rhoelements/EMMLProfile',      'EMML Profile'
 
 end
 

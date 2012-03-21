@@ -1,17 +1,17 @@
 Code11: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Code11](/rhoelements/Code11)
+* ### [Code11](/rhoelements/code11)
 
-* ### [Code11checkDigitCount](/rhoelements/Code11checkDigitCount)
+* ### [Code11checkDigitCount](/rhoelements/Code11CheckDigitCount)
 
 * ### [Code11maxLength](/rhoelements/Code11maxLength)
 
 * ### [Code11minLength](/rhoelements/Code11minLength)
 
-* ### [Code11redundancy](/rhoelements/Code11redundancy)
+* ### [Code11redundancy](/rhoelements/Code11Redundancy)
 
-* ### [Code11reportCheckDigit](/rhoelements/Code11reportCheckDigit)
+* ### [Code11reportCheckDigit](/rhoelements/Code11ReportCheckDigit)
 
 ###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
 

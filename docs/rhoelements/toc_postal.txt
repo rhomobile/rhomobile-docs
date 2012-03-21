@@ -1,29 +1,29 @@
 Postal: RhoElements Barcode Capture Decoders
 ===
 
-* ### [AusPostal](/rhoelements/AusPostal)
+* ### [AusPostal](/rhoelements/auspostal)
 
-* ### [CanPostal](/rhoelements/CanPostal)
+* ### [CanPostal](/rhoelements/canpostal)
 
-* ### [DutchPostal](/rhoelements/DutchPostal)
+* ### [DutchPostal](/rhoelements/dutchpostal)
 
-* ### [JapPostal](/rhoelements/JapPostal)
+* ### [JapPostal](/rhoelements/jappostal)
 
-* ### [UKPostal](/rhoelements/UKPostal)
+* ### [UKPostal](/rhoelements/ukpostal)
 
-* ### [UKPostalReportCheckDigit](/rhoelements/UKPostalReportCheckDigit)
+* ### [UKPostalReportCheckDigit](/rhoelements/ukpostalreportCheckDigit)
 
-* ### [Us4State](/rhoelements/Us4State)
+* ### [Us4State](/rhoelements/us4state)
 
-* ### [Us4StateFics](/rhoelements/Us4StateFics)
+* ### [Us4StateFics](/rhoelements/us4stateFics)
 
-* ### [UsPlanet](/rhoelements/UsPlanet)
+* ### [UsPlanet](/rhoelements/usplanet)
 
-* ### [UsPlanetReportCheckDigit](/rhoelements/UsPlanetReportCheckDigit)
+* ### [UsPlanetReportCheckDigit](/rhoelements/usplanetreportCheckDigit)
 
-* ### [USPostNet](/rhoelements/USPostNet)
+* ### [USPostNet](/rhoelements/uspostnet)
 
-* ### [USPostNetReportCheckDigit](/rhoelements/USPostNetReportCheckDigit)
+* ### [USPostNetReportCheckDigit](/rhoelements/uspostnetreportCheckDigit)
 
 ###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
 

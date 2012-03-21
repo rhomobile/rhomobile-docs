@@ -1,6 +1,6 @@
 RhoElements Barcode Capture Decoders
 ===
-Here you will find reference to all decoders available for the <a href="/rhoelements/Scanner">RhoElements Scanner object</a>
+Here you will find reference to all decoders available for the <a href="/rhoelements/scanner">RhoElements Scanner object</a>
 
 * ### [AllDecoders](/rhoelements/all_decoders)
 
@@ -22,35 +22,35 @@ Here you will find reference to all decoders available for the <a href="/rhoelem
 
 * ### [Code93](/rhoelements/toc_code93)
 
-* ### [D2of5](/rhoelements/toc_d2of5)
+* ### [D2of5](/rhoelements/toc_D2of5)
 
 * ### [DataMatrix](/rhoelements/datamatrix)
 
 * ### [Ean8](/rhoelements/toc_ean8)
 
-* ### [Ean13](/rhoelements/Ean13)
+* ### [Ean13](/rhoelements/ean13)
 
 * ### [I2of5](/rhoelements/toc_I2of5)
 
-* ### [Korean3of5](/rhoelements/toc_korean3of5)
+* ### [Korean3of5](/rhoelements/toc_Korean3of5)
 
-* ### [MacroPdf](/rhoelements/toc_macropdf)
+* ### [MacroPdf](/rhoelements/toc_MacroPdf)
 
-* ### [MacroMicroPdf](/rhoelements/toc_macromicropdf)
+* ### [MacroMicroPdf](/rhoelements/toc_MacroMicroPdf)
 
-* ### [Matrix2of5](/rhoelements/toc_matrix2of5)
+* ### [Matrix2of5](/rhoelements/toc_Matrix2of5)
 
 * ### [Maxicode](/rhoelements/maxicode)
 
 * ### [MicroPdf](/rhoelements/micropdf)
 
-* ### [MicroQr](/rhoelements/microQr)
+* ### [MicroQr](/rhoelements/Microqr)
 
-* ### [MSI](/rhoelements/toc_MSI)
+* ### [MSI](/rhoelements/toc_Msi)
 
 * ### [PDF417](/rhoelements/pdf417)
 
-* ### [Postal](/rhoelements/toc_Postal)
+* ### [Postal](/rhoelements/toc_postal)
 
 * ### [QrCode](/rhoelements/qrcode)
 
@@ -62,17 +62,17 @@ Here you will find reference to all decoders available for the <a href="/rhoelem
 
 * ### [Tlc39](/rhoelements/tlc39)
 
-* ### [Trioptic39](/rhoelements/toc_trioptic39)
+* ### [Trioptic39](/rhoelements/toc_Trioptic39)
 
 * ### [UPC Ean](/rhoelements/toc_upcean)
 
-* ### [Upca](/rhoelements/toc_upca)
+* ### [Upca](/rhoelements/toc_Upca)
 
-* ### [Upce0](/rhoelements/toc_upce0)
+* ### [Upce0](/rhoelements/toc_Upce0)
 
-* ### [Upce1](/rhoelements/toc_upce1)
+* ### [Upce1](/rhoelements/toc_Upce1)
 
-* ### [Webcode](/rhoelements/toc_webcode)
+* ### [Webcode](/rhoelements/toc_Webcode)
 
 
 

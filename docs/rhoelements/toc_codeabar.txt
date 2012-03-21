@@ -3,15 +3,15 @@ Codeabar: RhoElements Barcode Capture Decoders
 
 * ### [Codabar](/rhoelements/codabar)
 
-* ### [ClsiEditing](/rhoelements/codabarclsiediting)
+* ### [ClsiEditing](/rhoelements/CodabarCLSiEditing)
 
-* ### [Maxlength](/rhoelements/codabarmaxlength)
+* ### [Maxlength](/rhoelements/CodabarMaxLength)
 
-* ### [MinLength](/rhoelements/codabarminlength)
+* ### [MinLength](/rhoelements/CodabarMinLength)
 
-* ### [NotisEditing](/rhoelements/codabarnotisediting)
+* ### [NotisEditing](/rhoelements/CodabarNotisEditing)
 
-* ### [Redundancy](/rhoelements/codabarredundancy)
+* ### [Redundancy](/rhoelements/CodabarRedundancy)
 
 ###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
 

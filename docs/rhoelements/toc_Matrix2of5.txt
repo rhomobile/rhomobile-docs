@@ -1,15 +1,15 @@
 Matrix2of5: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Matrix2of5](/rhoelements/Matrix2of5)
+* ### [Matrix2of5](/rhoelements/matrix2of5)
 
-* ### [Matrix2of5maxLength](/rhoelements/Matrix2of5maxLength)
+* ### [Matrix2of5maxLength](/rhoelements/matrix2of5MaxLength)
 
-* ### [Matrix2of5minLength](/rhoelements/Matrix2of5minLength)
+* ### [Matrix2of5minLength](/rhoelements/matrix2of5MinLength)
 
-* ### [Matrix2of5reportCheckDigit](/rhoelements/Matrix2of5reportCheckDigit)
+* ### [Matrix2of5reportCheckDigit](/rhoelements/matrix2of5ReportCheckDigit)
 
-* ### [Matrix2of5verifyCheckDigit](/rhoelements/Matrix2of5verifyCheckDigit)
+* ### [Matrix2of5verifyCheckDigit](/rhoelements/matrix2of5VerifyCheckDigit)
 
 ###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
 
