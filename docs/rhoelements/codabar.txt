@@ -6,13 +6,19 @@ The Codabar Decoder is used to enable or disable the Codabar decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">codabar (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">codabar (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Codabar:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">codabar JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the codabar.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the codabar.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set codabar parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.codabar = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Codabar Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Codabar.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Codabar parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.codabar = Value
 </td></tr></table>
 
 

@@ -6,13 +6,19 @@ The MsiMinLength Decoder Setting is used to set the msi MinLength property. Sett
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">msiMinLength (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">msiMinLength (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="msiminlength:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">msiMinLength JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the msiMinLength.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the msiMinLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set msiMinLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.msiMinLength = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Msiminlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Msiminlength.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Msiminlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.msiMinLength = Value
 </td></tr></table>
 
 

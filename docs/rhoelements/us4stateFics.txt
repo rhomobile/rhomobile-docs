@@ -6,13 +6,19 @@ The Us4stateFics Decoder is used to enable or disable the US 4-state FICS decode
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">us4stateFics (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">us4stateFics (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="us4stateFics:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">us4stateFics JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the us4stateFics.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the us4stateFics.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set us4stateFics parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.us4stateFics = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Us4statefics Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Us4statefics.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Us4statefics parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.us4stateFics = Value
 </td></tr></table>
 
 

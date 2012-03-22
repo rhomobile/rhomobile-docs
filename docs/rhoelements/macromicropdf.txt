@@ -6,13 +6,19 @@ The MacroMicroPdf Decoder is used to enable or disable the MacroMicroPDF decoder
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">macroMicroPdf (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">macroMicroPdf (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="MacroMicroPDF:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">macroMicroPdf JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the macroMicroPdf.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the macroMicroPdf.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set macroMicroPdf parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.macroMicroPdf = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Macromicropdf Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Macromicropdf.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Macromicropdf parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.macroMicroPdf = Value
 </td></tr></table>
 
 

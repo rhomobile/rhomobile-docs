@@ -6,7 +6,7 @@ The Sntp Module is used to synchronize the device clock with a network SNTP serv
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">sntp (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">sntp (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="SNTP" content="[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Sntp JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'sntp'</b> will exist on the current page and can be used to interact directly with the sntp.
@@ -18,6 +18,12 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>sntp</b>.setEMML("serverIp:<i>value</i>");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">Sntp Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Sntp'</b> will exist on the current page and can be used to interact directly with the Sntp. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Sntp'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Sntp parameters via Ruby use the following syntax: Sntp.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Sntp</b>.serverIp = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 

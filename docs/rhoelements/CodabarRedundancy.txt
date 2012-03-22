@@ -6,13 +6,19 @@ The CodabarRedundancy Decoder Setting is used to set the Codabar Redundancy prop
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">codabarRedundancy (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">codabarRedundancy (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="CodabarRedundancy:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">codabarRedundancy JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the codabarRedundancy.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the codabarRedundancy.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set codabarRedundancy parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.codabarRedundancy = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Codabarredundancy Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Codabarredundancy.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Codabarredundancy parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.codabarRedundancy = Value
 </td></tr></table>
 
 

@@ -6,7 +6,7 @@ The AppSwitcher Module is used to show or hide the application switcher.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">appSwitcher (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">appSwitcher (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="AppSwitcher" content="Visibility:Visible"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="AppSwitcher-Visibility" contents="Visible"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">AppSwitcher JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'appSwitcher'</b> will exist on the current page and can be used to interact directly with the appSwitcher.
@@ -18,6 +18,12 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>appSwitcher</b>.setEMML("visibility:<i>value</i>");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">AppSwitcher Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Appswitcher'</b> will exist on the current page and can be used to interact directly with the Appswitcher. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Appswitcher'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Appswitcher parameters via Ruby use the following syntax: Appswitcher.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Appswitcher</b>.visibility = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 

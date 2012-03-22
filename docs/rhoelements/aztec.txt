@@ -6,13 +6,19 @@ The Aztec Decoder is used to enable or disable the aztec decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">aztec (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">aztec (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="aztec:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">aztec JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the aztec.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the aztec.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set aztec parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.aztec = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Aztec Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Aztec.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Aztec parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.aztec = Value
 </td></tr></table>
 
 

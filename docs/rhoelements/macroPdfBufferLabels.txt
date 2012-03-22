@@ -6,13 +6,19 @@ The MacroPdfBufferLabels Decoder Setting is used to set the macroPdfBufferLabels
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">macroPdfBufferLabels (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">macroPdfBufferLabels (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="macroPdfBufferLabels:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">macroPdfBufferLabels JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the macroPdfBufferLabels.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the macroPdfBufferLabels.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set macroPdfBufferLabels parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.macroPdfBufferLabels = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Macropdfbufferlabels Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Macropdfbufferlabels.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Macropdfbufferlabels parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.macroPdfBufferLabels = Value
 </td></tr></table>
 
 

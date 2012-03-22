@@ -6,13 +6,19 @@ The Code11reportCheckDigit Decoder Setting is used to set the Code11 ReportCheck
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">code11reportCheckDigit (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">code11reportCheckDigit (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Code11ReportCheckDigit:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code11reportCheckDigit JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code11reportCheckDigit.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code11reportCheckDigit.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code11reportCheckDigit parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code11reportCheckDigit = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code11reportcheckdigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code11reportcheckdigit.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code11reportcheckdigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code11reportCheckDigit = Value
 </td></tr></table>
 
 

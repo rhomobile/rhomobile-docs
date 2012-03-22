@@ -6,7 +6,7 @@ The PowerOn Module is used to register to receive an event when the device is re
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">powerOn (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">powerOn (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="PowerOn" content="PowerOnEvent:url('[jsFunction | url]')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">PowerOn JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'powerOn'</b> will exist on the current page and can be used to interact directly with the powerOn.
@@ -20,6 +20,14 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>powerOn</b>.setEMML("powerOnEvent:url('JavaScript:doFunction(%json)')");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">PowerOn Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Poweron'</b> will exist on the current page and can be used to interact directly with the Poweron. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Poweron'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Poweron return events via Ruby use the following syntax: Poweron.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Poweron</b>.powerOnEvent = url_for(:action =&gt; :poweron_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 

@@ -6,7 +6,7 @@ The Push Module is used to receive data over an HTTP connection.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">push (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">push (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Push" content="[Parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="Push" content="[Parameter:Attribute]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Push" contents="detected:url('[jsFunction | url]')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Push JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'push'</b> will exist on the current page and can be used to interact directly with the push.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>push</b>.setEMML("port:<i>value</i>;detected:url('JavaScript:doFunction(%json)');start");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Push Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Push'</b> will exist on the current page and can be used to interact directly with the Push. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Push'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Push methods via Ruby use the following syntax: Push.method()
+<P />e.g. <b>Push</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Push parameters via Ruby use the following syntax: Push.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Push</b>.port = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Push return events via Ruby use the following syntax: Push.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Push</b>.detected = url_for(:action =&gt; :push_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

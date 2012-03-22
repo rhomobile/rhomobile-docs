@@ -6,7 +6,7 @@ The Alarm Module is used to set an alarm and register an action to perform when 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">alarm (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">alarm (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Alarm" content="[method / parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="Alarm" content="AlarmTriggered:url('[jsFunction | url]')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Alarm JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'alarm'</b> will exist on the current page and can be used to interact directly with the alarm.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>alarm</b>.setEMML("interval:<i>value</i>;alarmTriggered:url('JavaScript:doFunction(%json)');clear");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Alarm Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Alarm'</b> will exist on the current page and can be used to interact directly with the Alarm. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Alarm'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Alarm methods via Ruby use the following syntax: Alarm.method()
+<P />e.g. <b>Alarm</b>.clear</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Alarm parameters via Ruby use the following syntax: Alarm.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Alarm</b>.interval = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Alarm return events via Ruby use the following syntax: Alarm.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Alarm</b>.alarmTriggered = url_for(:action =&gt; :alarm_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

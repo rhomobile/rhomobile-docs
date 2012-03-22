@@ -6,13 +6,19 @@ The CodabarMinLength Decoder Setting is used to set the Codabar MinLength proper
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">codabarMinLength (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">codabarMinLength (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Codabarminlength:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">codabarMinLength JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the codabarMinLength.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the codabarMinLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set codabarMinLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.codabarMinLength = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Codabarminlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Codabarminlength.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Codabarminlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.codabarMinLength = Value
 </td></tr></table>
 
 

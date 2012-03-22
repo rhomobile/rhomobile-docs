@@ -6,13 +6,19 @@ The Code128other128 Decoder Setting is used to set the code128other128 property 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">code128other128 (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">code128other128 (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="code128other128:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code128other128 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code128other128.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code128other128.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code128other128 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code128other128 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code128other128 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code128other128.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code128other128 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code128other128 = Value
 </td></tr></table>
 
 

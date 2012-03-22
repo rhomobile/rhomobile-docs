@@ -6,7 +6,7 @@ The TopCommandArea Module is used to set the parameters of the Top Command Area.
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">topCommandArea (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">topCommandArea (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="TopCommandArea" content="[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">TopCommandArea JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'topCommandArea'</b> will exist on the current page and can be used to interact directly with the topCommandArea.
@@ -18,6 +18,12 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>topCommandArea</b>.setEMML("visibility:<i>value</i>");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">TopCommandArea Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Topcommandarea'</b> will exist on the current page and can be used to interact directly with the Topcommandarea. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Topcommandarea'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Topcommandarea parameters via Ruby use the following syntax: Topcommandarea.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Topcommandarea</b>.visibility = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 

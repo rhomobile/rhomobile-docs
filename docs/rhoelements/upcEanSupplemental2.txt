@@ -6,13 +6,19 @@ The UpcEanSupplemental2 Decoder Setting is used to enable or disable upcEanSuppl
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">upcEanSupplemental2 (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">upcEanSupplemental2 (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="upcEanSupplemental2:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">upcEanSupplemental2 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanSupplemental2.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanSupplemental2.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set upcEanSupplemental2 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.upcEanSupplemental2 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Upceansupplemental2 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Upceansupplemental2.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Upceansupplemental2 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.upcEanSupplemental2 = Value
 </td></tr></table>
 
 

@@ -6,13 +6,19 @@ The Code39concatenation Decoder Setting is used to set the Code39concatenation p
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">code39concatenation (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">code39concatenation (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Code39concatenation:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code39concatenation JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code39concatenation.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code39concatenation.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code39concatenation parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code39concatenation = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code39concatenation Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code39concatenation.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code39concatenation parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code39concatenation = Value
 </td></tr></table>
 
 

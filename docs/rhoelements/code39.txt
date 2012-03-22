@@ -6,13 +6,19 @@ The Code39 Decoder is used to enable or disable the Code39 decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">code39 (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">code39 (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Code39:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code39 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code39.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code39.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code39 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code39 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code39 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code39.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code39 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code39 = Value
 </td></tr></table>
 
 

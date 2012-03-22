@@ -6,7 +6,7 @@ The Application Module is to adjust the running state of RhoElements application
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">application (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">application (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Application" content="[method]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Application JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'application'</b> will exist on the current page and can be used to interact directly with the application.
@@ -24,9 +24,19 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>application</b>.setEMML("applicationEvent:url('JavaScript:doFunction(%json)');quit");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Application Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Application'</b> will exist on the current page and can be used to interact directly with the Application. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Application'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Application methods via Ruby use the following syntax: Application.method()
+<P />e.g. <b>Application</b>.quit</td></tr><tr><td class="clsSyntaxCells clsOddRow">						
+To Set Application return events via Ruby use the following syntax: Application.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Application</b>.applicationEvent = url_for(:action =&gt; :application_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

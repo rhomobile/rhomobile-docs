@@ -6,13 +6,19 @@ The Ean8convertToEan13 Decoder Setting is used to enable conversion from ean8 to
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">ean8convertToEan13 (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">ean8convertToEan13 (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="ean8ConvertToEAN13:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">ean8convertToEan13 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the ean8convertToEan13.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the ean8convertToEan13.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set ean8convertToEan13 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.ean8convertToEan13 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Ean8converttoean13 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Ean8converttoean13.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Ean8converttoean13 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.ean8convertToEan13 = Value
 </td></tr></table>
 
 

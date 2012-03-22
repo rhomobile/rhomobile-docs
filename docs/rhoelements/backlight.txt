@@ -6,7 +6,7 @@ The Backlight Module is used to illuminate / extinguish the display backlight as
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">backlight (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">backlight (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="backlight" content="[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Backlight JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'backlight'</b> will exist on the current page and can be used to interact directly with the backlight.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>backlight</b>.setEMML("intensity:<i>value</i>;backlightSettingsEvent:url('JavaScript:doFunction(%json)');on");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Backlight Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Backlight'</b> will exist on the current page and can be used to interact directly with the Backlight. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Backlight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Backlight methods via Ruby use the following syntax: Backlight.method()
+<P />e.g. <b>Backlight</b>.on</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Backlight parameters via Ruby use the following syntax: Backlight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Backlight</b>.intensity = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Backlight return events via Ruby use the following syntax: Backlight.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Backlight</b>.backlightSettingsEvent = url_for(:action =&gt; :backlight_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

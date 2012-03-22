@@ -6,7 +6,7 @@ The Imager Module controls the imager functions and navigates to a URL or calls 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">imager (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">imager (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="imager" content="[parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="imager" content="ImagerEvent:url('jsFunction or url')"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="imager" content="ImagerEnumEvent:url('jsFunction or url')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Imager JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'imager'</b> will exist on the current page and can be used to interact directly with the imager.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>imager</b>.setEMML("enabled:<i>value</i>;imagerEvent:url('JavaScript:doFunction(%json)');enable");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Imager Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Imager'</b> will exist on the current page and can be used to interact directly with the Imager. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Imager'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Imager methods via Ruby use the following syntax: Imager.method()
+<P />e.g. <b>Imager</b>.enable</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Imager parameters via Ruby use the following syntax: Imager.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Imager</b>.enabled = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Imager return events via Ruby use the following syntax: Imager.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Imager</b>.imagerEvent = url_for(:action =&gt; :imager_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

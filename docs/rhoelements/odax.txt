@@ -6,8 +6,9 @@ The ODAX Preexisting JavaScript Object contains read methods to provide offline 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">ODAX (Preexisting JavaScript Object) Syntax
+<table class="re-table"><tr><th class="tableHeading">ODAX (Preexisting JavaScript Object) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);</p></td></tr></table>
+
 
 
 

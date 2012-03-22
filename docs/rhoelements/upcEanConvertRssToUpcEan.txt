@@ -6,13 +6,19 @@ The UpcEanConvertRssToUpcEan Decoder Setting is used to set the upcEanConvertRss
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">upcEanConvertRssToUpcEan (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">upcEanConvertRssToUpcEan (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="upcEanConvertRssToUpcEan:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">upcEanConvertRssToUpcEan JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanConvertRssToUpcEan.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanConvertRssToUpcEan.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set upcEanConvertRssToUpcEan parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.upcEanConvertRssToUpcEan = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Upceanconvertrsstoupcean Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Upceanconvertrsstoupcean.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Upceanconvertrsstoupcean parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.upcEanConvertRssToUpcEan = Value
 </td></tr></table>
 
 

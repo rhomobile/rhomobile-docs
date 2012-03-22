@@ -6,13 +6,19 @@ The Ean8 Decoder is used to enable or disable the ean8 decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">ean8 (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">ean8 (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="ean8:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">ean8 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the ean8.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the ean8.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set ean8 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.ean8 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Ean8 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Ean8.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Ean8 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.ean8 = Value
 </td></tr></table>
 
 

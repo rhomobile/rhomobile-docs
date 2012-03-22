@@ -6,13 +6,19 @@ The Upce0convertToUpca Decoder Setting is used to enable conversion from upce0 t
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">upce0convertToUpca (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">upce0convertToUpca (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="upce0ConvertToupca:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">upce0convertToUpca JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upce0convertToUpca.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upce0convertToUpca.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set upce0convertToUpca parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.upce0convertToUpca = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Upce0converttoupca Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Upce0converttoupca.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Upce0converttoupca parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.upce0convertToUpca = Value
 </td></tr></table>
 
 

@@ -6,13 +6,19 @@ The Pdf417 Decoder is used to enable or disable the PDF417 decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">pdf417 (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">pdf417 (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="PDF417:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">pdf417 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the pdf417.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the pdf417.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set pdf417 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.pdf417 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Pdf417 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Pdf417.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Pdf417 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.pdf417 = Value
 </td></tr></table>
 
 

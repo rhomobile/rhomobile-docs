@@ -6,7 +6,7 @@ The Telemetry Module is used to interface with vehicle telemetry.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">telemetry (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">telemetry (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Telemetry" content="[parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="Telemetry" content="TelemetryDataEvent:url('[jsFunction | url]');"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Telemetry JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'telemetry'</b> will exist on the current page and can be used to interact directly with the telemetry.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>telemetry</b>.setEMML("queryFrequency:<i>value</i>;telemetryDataEvent:url('JavaScript:doFunction(%json)');invoke");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Telemetry Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Telemetry'</b> will exist on the current page and can be used to interact directly with the Telemetry. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Telemetry'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Telemetry methods via Ruby use the following syntax: Telemetry.method()
+<P />e.g. <b>Telemetry</b>.invoke</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Telemetry parameters via Ruby use the following syntax: Telemetry.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Telemetry</b>.queryFrequency = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Telemetry return events via Ruby use the following syntax: Telemetry.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Telemetry</b>.telemetryDataEvent = url_for(:action =&gt; :telemetry_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

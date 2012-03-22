@@ -6,13 +6,19 @@ The I2of5reportCheckDigit Decoder Setting is used to set the i2of5 ReportCheckDi
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">i2of5reportCheckDigit (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">i2of5reportCheckDigit (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="i2of5ReportCheckDigit:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">i2of5reportCheckDigit JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the i2of5reportCheckDigit.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the i2of5reportCheckDigit.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set i2of5reportCheckDigit parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.i2of5reportCheckDigit = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">I2of5reportcheckdigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the I2of5reportcheckdigit.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set I2of5reportcheckdigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.i2of5reportCheckDigit = Value
 </td></tr></table>
 
 

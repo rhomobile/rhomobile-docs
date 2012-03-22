@@ -6,13 +6,19 @@ The Rss14 META Tag is used to enable or disable the rss14 decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">rss14 (META Tag) Syntax
+<table class="re-table"><tr><th class="tableHeading">rss14 (META Tag) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="rss14:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">rss14 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the rss14.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the rss14.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set rss14 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.rss14 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Rss14 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Rss14.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Rss14 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.rss14 = Value
 </td></tr></table>
 
 

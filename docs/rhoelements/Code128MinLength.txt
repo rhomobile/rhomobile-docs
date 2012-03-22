@@ -6,13 +6,19 @@ The Code128minLength Decoder Setting is used to set the Code128 MinLength proper
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">code128minLength (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">code128minLength (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Code128minlength:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code128minLength JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code128minLength.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code128minLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code128minLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code128minLength = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code128minlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code128minlength.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code128minlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code128minLength = Value
 </td></tr></table>
 
 

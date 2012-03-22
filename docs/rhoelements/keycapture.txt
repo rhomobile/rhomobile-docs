@@ -6,7 +6,7 @@ The KeyCapture Module is used to intercept or override keyboard input.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">keyCapture (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">keyCapture (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="KeyCapture" content="[parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="KeyCapture" content="KeyEvent:url('[jsFunction | url]')"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="KeyCapture" content="TriggerEvent:url('[jsFunction | url]')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">KeyCapture JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'keyCapture'</b> will exist on the current page and can be used to interact directly with the keyCapture.
@@ -23,6 +23,17 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>keyCapture</b>.setEMML("dispatch:<i>value</i>;keyEvent:url('JavaScript:doFunction(%json)')");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">KeyCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Keycapture'</b> will exist on the current page and can be used to interact directly with the Keycapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Keycapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Keycapture parameters via Ruby use the following syntax: Keycapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Keycapture</b>.dispatch = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsOddRow">						
+To Set Keycapture return events via Ruby use the following syntax: Keycapture.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Keycapture</b>.keyEvent = url_for(:action =&gt; :keycapture_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
 

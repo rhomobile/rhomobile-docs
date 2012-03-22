@@ -6,13 +6,19 @@ The WebcodeDecodeGtSubtype Decoder Setting is used to set the webcodeDecodeGtSub
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">webcodeDecodeGtSubtype (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">webcodeDecodeGtSubtype (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="webcodeDecodeGtSubtype:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">webcodeDecodeGtSubtype JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the webcodeDecodeGtSubtype.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the webcodeDecodeGtSubtype.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set webcodeDecodeGtSubtype parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.webcodeDecodeGtSubtype = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Webcodedecodegtsubtype Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Webcodedecodegtsubtype.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Webcodedecodegtsubtype parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.webcodeDecodeGtSubtype = Value
 </td></tr></table>
 
 

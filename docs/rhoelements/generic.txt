@@ -6,8 +6,9 @@ The Generic Preexisting JavaScript Object contains read only properties and meth
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">Generic (Preexisting JavaScript Object) Syntax
+<table class="re-table"><tr><th class="tableHeading">Generic (Preexisting JavaScript Object) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>generic.Log('Message to be logged', 1);</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>var myOEM = generic.OEMInfo;</p></td></tr></table>
+
 
 
 

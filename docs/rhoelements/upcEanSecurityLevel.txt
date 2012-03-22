@@ -6,13 +6,19 @@ The UpcEanSecurityLevel Decoder Setting is used to set the upcEanSecurityLevel w
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">upcEanSecurityLevel (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">upcEanSecurityLevel (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="upcEanSecurityLevel:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">upcEanSecurityLevel JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanSecurityLevel.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanSecurityLevel.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set upcEanSecurityLevel parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.upcEanSecurityLevel = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Upceansecuritylevel Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Upceansecuritylevel.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Upceansecuritylevel parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.upcEanSecurityLevel = Value
 </td></tr></table>
 
 

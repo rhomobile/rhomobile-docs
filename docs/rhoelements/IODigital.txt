@@ -6,7 +6,7 @@ The IoDigital Module is used to interface with the device digital input and outp
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">ioDigital (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">ioDigital (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="IODigital" content="[parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="IODigital" content="PortEvent:url('[jsFunction | url]');"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">IoDigital JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'ioDigital'</b> will exist on the current page and can be used to interact directly with the ioDigital.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>ioDigital</b>.setEMML("input1:<i>value</i>;PortEvent:url('JavaScript:doFunction(%json)');InvokeDigital1");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">IoDigital Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Iodigital'</b> will exist on the current page and can be used to interact directly with the Iodigital. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Iodigital'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Iodigital methods via Ruby use the following syntax: Iodigital.method()
+<P />e.g. <b>Iodigital</b>.InvokeDigital1</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Iodigital parameters via Ruby use the following syntax: Iodigital.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Iodigital</b>.input1 = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Iodigital return events via Ruby use the following syntax: Iodigital.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Iodigital</b>.PortEvent = url_for(:action =&gt; :iodigital_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

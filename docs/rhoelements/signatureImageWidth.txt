@@ -6,13 +6,19 @@ The SignatureImageWidth Decoder Setting is used to set the image width property 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">signatureImageWidth (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">signatureImageWidth (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="signatureImageWidth:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">signatureImageWidth JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the signatureImageWidth.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the signatureImageWidth.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set signatureImageWidth parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.signatureImageWidth = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Signatureimagewidth Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Signatureimagewidth.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Signatureimagewidth parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.signatureImageWidth = Value
 </td></tr></table>
 
 

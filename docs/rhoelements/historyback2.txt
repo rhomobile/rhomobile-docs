@@ -6,7 +6,7 @@ The History:Back Navigation instructs RhoElements to navigate to the previously 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">History:Back (Navigation) Syntax
+<table class="re-table"><tr><th class="tableHeading">History:Back (Navigation) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;a href="history:back"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">History:Back JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'History:Back'</b> will exist on the current page and can be used to interact directly with the History:Back.
@@ -15,6 +15,9 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>History:Back</b>.setEMML("");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">History:Back Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'History:back'</b> will exist on the current page and can be used to interact directly with the History:back. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'History:back'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
 

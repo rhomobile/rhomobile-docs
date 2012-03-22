@@ -6,13 +6,19 @@ The Code39securityLevel Decoder Setting is used to set the code39securityLevel w
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">Code39securityLevel (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">Code39securityLevel (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="code39securityLevel:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Code39securityLevel JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the Code39securityLevel.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the Code39securityLevel.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set Code39securityLevel parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code39securityLevel = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code39securitylevel Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code39securitylevel.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code39securitylevel parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code39securityLevel = Value
 </td></tr></table>
 
 

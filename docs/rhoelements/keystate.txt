@@ -6,7 +6,7 @@ The KeyState Module is used to set the parameters of the KeyState indicator. The
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">keyState (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">keyState (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="KeyState" content="[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">KeyState JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'keyState'</b> will exist on the current page and can be used to interact directly with the keyState.
@@ -18,6 +18,12 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 <P />
 e.g. <b>keyState</b>.setEMML("right:<i>value</i>");							
 </td></tr></table>
+
+<table class="re-table"><tr><th class="tableHeading">KeyState Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Keystate'</b> will exist on the current page and can be used to interact directly with the Keystate. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Keystate'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Keystate parameters via Ruby use the following syntax: Keystate.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Keystate</b>.right = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 

@@ -6,7 +6,7 @@ The Device Module controls device functions.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">device (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">device (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Device" content="[method]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Device JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'device'</b> will exist on the current page and can be used to interact directly with the device.
@@ -19,9 +19,14 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>device</b>.setEMML("suspend");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">Device Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Device'</b> will exist on the current page and can be used to interact directly with the Device. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Device'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Device methods via Ruby use the following syntax: Device.method()
+<P />e.g. <b>Device</b>.suspend</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

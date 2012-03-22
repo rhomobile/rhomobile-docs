@@ -6,13 +6,19 @@ The Code93minLength Decoder Setting is used to set the Code93 MinLength property
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">code93minLength (Decoder Setting) Syntax
+<table class="re-table"><tr><th class="tableHeading">code93minLength (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Code93minlength:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code93minLength JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code93minLength.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code93minLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code93minLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code93minLength = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Code93minlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code93minlength.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Code93minlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.code93minLength = Value
 </td></tr></table>
 
 

@@ -6,7 +6,7 @@ The ScreenOrientation Module is used to control the screen orientation/layout an
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">screenOrientation (Module) Syntax
+<table class="re-table"><tr><th class="tableHeading">screenOrientation (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="ScreenOrientation" content="[orientation]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="ScreenOrientation" content="ScreenOrientationEvent:url('[jsFunction | url]')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">ScreenOrientation JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'screenOrientation'</b> will exist on the current page and can be used to interact directly with the screenOrientation.
@@ -27,9 +27,22 @@ To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML
 e.g. <b>screenOrientation</b>.setEMML("autoRotate:<i>value</i>;screenOrientationEvent:url('JavaScript:doFunction(%json)');normal");							
 </td></tr></table>
 
+<table class="re-table"><tr><th class="tableHeading">ScreenOrientation Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Screenorientation'</b> will exist on the current page and can be used to interact directly with the Screenorientation. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Screenorientation'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke Screenorientation methods via Ruby use the following syntax: Screenorientation.method()
+<P />e.g. <b>Screenorientation</b>.normal</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set Screenorientation parameters via Ruby use the following syntax: Screenorientation.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+<P />e.g. <b>Screenorientation</b>.autoRotate = 'value'
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+To Set Screenorientation return events via Ruby use the following syntax: Screenorientation.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>Screenorientation</b>.screenOrientationEvent = url_for(:action =&gt; :screenorientation_event_callback)
+<P />
+For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
-#Methods
+
+##Methods
 
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.

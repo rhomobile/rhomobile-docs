@@ -6,8 +6,9 @@ The APD Preexisting JavaScript Object contains read only properties and methods 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">APD (Preexisting JavaScript Object) Syntax
+<table class="re-table"><tr><th class="tableHeading">APD (Preexisting JavaScript Object) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>apd.PSExternal(iCommand, 'strParameter');</p></td></tr></table>
+
 
 
 

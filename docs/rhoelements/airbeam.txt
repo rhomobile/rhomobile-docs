@@ -6,8 +6,9 @@ The AirBeam Preexisting JavaScript Object contains properties and methods which 
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">AirBeam (Preexisting JavaScript Object) Syntax
+<table class="re-table"><tr><th class="tableHeading">AirBeam (Preexisting JavaScript Object) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>airbeam.AddPackage('myPackage');</p></td></tr></table>
+
 
 
 

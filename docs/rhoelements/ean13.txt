@@ -6,13 +6,19 @@ The Ean13 Decoder is used to enable or disable the ean13 decoder.</b>
 
 ##Syntax
 
-<table class="re-table"><tr><th class="tableHeading">ean13 (Decoder) Syntax
+<table class="re-table"><tr><th class="tableHeading">ean13 (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="ean13:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">ean13 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the ean13.
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the ean13.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set ean13 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.ean13 = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Ean13 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Ean13.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set Ean13 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.ean13 = Value
 </td></tr></table>
 
 
