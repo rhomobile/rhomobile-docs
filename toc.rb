@@ -81,6 +81,11 @@ section 'rhodesapi-reference', "Rhodes: API Reference" do
   topic 'rhodesapi/webview-api',             'WebView'
 end
 
+section 'rhoelements-gettingstarted', "RhoElements: Getting Started" do
+  topic 'rhoelements/moto-api',      'Motorola API'
+  topic 'rhoelements/moto-api-beta4', 'Motorola API - RE2 beta 4'
+end
+
 section 'rhoelements-devref', "RhoElements: Developer Reference" do
   topic 'rhoelements/developersreference#barcode-capture', 'Barcode Capture'
   topic 'rhoelements/developersreference#card-reader','Card Reader'
@@ -183,12 +188,6 @@ section 'rhoconnect-adapters-reference', "RhoConnect: Vendor Adapters" do
   topic 'rhoconnect/adapters-intro',    'Introduction'
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end
-
-section 'rhoelements-gettingstarted', "RhoElements: Getting Started" do
-  topic 'rhoelements/moto-api',      'Motorola API'
-  topic 'rhoelements/moto-api-beta4', 'Motorola API - RE2 beta 4'
-end
-
 
 
 
