@@ -1,0 +1,129 @@
+# MapView API 
+
+Provides an embeddable map interface. See [GeoLocation/controller.rb of System API sample application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) for some examples of using the MapView class.
+
+## create
+
+Create a map on your device.
+
+	:::ruby
+	MapView.create map_params
+
+map_params is a hash consisting of:
+
+<table border="1">
+<tr>
+	<td><code>provider</code></td>
+	<td>The map provider. 'Google' supported on iPhone, Android and Blackberry. 'ESRI' supported on iPhone, Android, Blackberry, and Windows Mobile.</td>
+</tr>
+<tr>
+	<td><code>settings</code></td>
+	<td>A hash that provides map settings. See table below.</td>
+</tr>
+<tr>
+	<td><code>annotations</code></td>
+	<td>Array of map annotation objects (list of pins on the map). See table below.</td>
+</tr>
+</table>
+
+### map_params: settings hash
+
+<table border="1">
+<tr>
+	<td><code>map_type</code></td>
+	<td>Display "standard", "satellite", or "hybrid" map.</td>
+</tr>
+<tr>
+	<td><code>region</code></td>
+	<td>two types allowed: [latitude,longitude,latitudeDelta,longitudeDelta] or {:center => center, :radius => radius}.</td>
+</tr>
+<tr>
+	<td><code>zoom_enabled</code></td>
+	<td>true to enable zoom of the map</td>
+</tr>
+<tr>
+	<td><code>scroll_enabled</code></td>
+	<td>true to enable scroll of the map</td>
+</tr>
+<tr>
+	<td><code>shows_user_location</code></td>
+	<td>true to display current user location on the map</td>
+</tr>
+<tr>
+	<td><code>api_key</code></td>
+	<td>Maps JavaScript API Key (sign up for it here). (Ignored in Android; for Android you should get another key and specify it in the app's build.yml as described here).</td>
+</tr>
+</table>
+
+### region type [latitude,longitude,latitudeDelta,longitudeDelta]:
+
+<table border="1">
+<tr>
+	<td><code>latitude,longitude</code></td>
+	<td>the map coordinate of the region center.</td>
+</tr>
+<tr>
+	<td><code>latitudeDelta</code></td>
+	<td>Degrees of north-to-south distance. One degree of latitude is approximately 111 kilometers (69 miles).</td>
+</tr>
+<tr>
+	<td><code>longitudeDelta</code></td>
+	<td>Degrees of east-to-west distance. One degree of longitude is approximately 111 kilometers (69 milies) at the equator, and 0 kilometers at the poles.</td>
+</tr>
+</table>
+
+### region type {:center => center, :radius => radius}:
+
+<table border="1">
+<tr>
+	<td><code>center</code></td>
+	<td>string describing center of area that is allowed by google geocoding service. Examples: “1 infinite loop, cupertino, ca 95014”, “California, USA”, “37.365519,-121.982918”</td>
+</tr>
+<tr>
+	<td><code>radius</code></td>
+	<td>radius of displayed area measured in degrees</td>
+</tr>
+</table>
+
+### annotations parameters array
+
+<table border="1">
+<tr>
+	<td><code>latitude,longitude</code></td>
+	<td>map coordinate of the annotation</td>
+</tr>
+<tr>
+	<td><code>street_address</code></td>
+	<td>if map coordinate is not specified, framework will attempt to obtain it using provided street address from google geo-coding service</td>
+</tr>
+<tr>
+	<td><code>title</code></td>
+	<td>title of the annotation callout</td>
+</tr>
+<tr>
+	<td><code>subtitle</code></td>
+	<td>subtitle of the annotation callout</td>
+</tr>
+<tr>
+	<td><code>url</code></td>
+	<td>url to follow when user clicks on the callout button</td>
+</tr>
+</table>
+
+## Sample MapView.create call
+
+	:::ruby
+	map_params = {
+	     :provider => 'Google',
+	     :settings => {:map_type => "hybrid",:region => [@params['latitude'], @params['longitude'], 0.2, 0.2],
+                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
+                   :api_key => 'Google Maps API Key'},
+	     :annotations => [{:latitude => @params['latitude'], :longitude => @params['longitude'], :title => "Current location", :subtitle => ""},
+                      {:street_address => "Cupertino, CA 95014", :title => "Cupertino", :subtitle => "zip: 95014", 
+                       :url => "/app/GeoLocation/show?city=Cupertino"},
+                      {:street_address => "Santa Clara, CA 95051", :title => "Santa Clara", :subtitle => "zip: 95051", 
+                       :url => "/app/GeoLocation/show?city=Santa%20Clara"}]
+	}
+	MapView.create map_params
+
+

@@ -1,0 +1,71 @@
+# Rho::NFCTagTechnology_MifareUltralight API
+
+Subclass of NFCTagTechnology.
+
+## Enabling NFC
+
+## Enabling NFC
+
+To use the NFC methods, you need to enable NFC on the Android device and ensure that the version is 2.3.3 or later. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	android: 
+	  version 2.3.3
+	  extensions:
+	  - nfc
+
+## Types
+	
+	TYPE_ULTRALIGHT = 1
+	TYPE_ULTRALIGHT_C = 2
+	TYPE_UNKNOWN = -1
+
+## get_type
+
+Returns int: the type of a MifareUltralight tag.
+
+## write_page
+
+Write a page to a MifareUltralight tag.
+
+	:::ruby
+	Rho::NFCTagTechnology_MifareUltralight.write_page(index, block)
+
+<table border="1">
+<tr>
+	<td><code>index</code></td>
+	<td>integer: location where the block is written in the tag.</td>
+</tr>
+<tr>
+	<td><code>block</code></td>
+	<td>4 byte array written to the tag.</td>
+</tr>
+</table>
+
+## read_page
+
+Returns a page (16 byte array) read from a MifareUltralight tag.
+
+	:::ruby
+	Rho::NFCTagTechnology_MifareUltralight.read_page(index)
+
+<table border="1">
+<tr>
+	<td><code>index</code></td>
+	<td>integer: location where the block is read from the tag.</td>
+</tr>
+</table>
+
+## transceive
+
+Sends data in a byte array to a tag and returns the result from the tag in a byte array.
+
+	:::ruby
+	Rho::NFCTagTechnology_MifareUltralight.transceive(data)
+
+<table border="1">
+<tr>
+	<td><code>data</code></td>
+	<td>byte[] sent to the tag.</td>
+</tr>
+</table>

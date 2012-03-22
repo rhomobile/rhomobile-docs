@@ -1,0 +1,73 @@
+# RhomSource API
+
+Exposes sync information, which you can use for alerts, status pages, and so on. For some examples, refer to [Accessing Sync Info with RhomSource in Using the Local Database with Rhom](/rhodes/rhom#accessing-sync-info-with-rhomsource).
+
+## distinct_objects
+
+Returns the number of records for this source.
+
+	:::ruby
+	RhomSource.distinct_objects
+
+## find
+
+Returns a RhomSource object.
+
+	:::ruby
+	RhomSource.find(source_name)
+
+<table border="1">
+<tr>
+	<td><code>source_name</code></td>
+	<td>The name of the source on the RhoConnect server.</td>
+</tr>
+</table>
+
+## last_deleted_size
+
+Returns the number of records deleted on last sync.
+
+	:::ruby
+	RhomSource.last_deleted_size
+
+## last_inserted_size
+
+Returns the number of records inserted on last sync.
+
+	:::ruby
+	RhomSource.last_inserted_size
+
+## last_sync_duration
+
+Returns the duration in seconds of the last sync for this source.
+
+	:::ruby
+	RhomSource.last_sync_duration
+
+## last_sync_success
+
+Returns 1 if last sync was successful, 0 if it failed.
+
+	:::ruby
+	RhomSource.last_sync_success
+
+## last_updated
+
+Returns the last time the source was synchronized, in `Time.at` format.
+
+	:::ruby
+	RhomSource.last_updated
+
+## name
+
+Returns the name of the source.
+
+	:::ruby
+	RhomSource.name
+
+## source_id
+
+Returns the id of a source.
+
+	:::ruby
+	RhomSource.source_id

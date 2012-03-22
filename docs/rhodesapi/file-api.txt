@@ -1,0 +1,93 @@
+# File API
+
+Allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for an example.
+
+## binread
+
+Reads a file (binread for images and other media) and returns its binary content.
+
+	File.binread(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. Name of the file to read.</td>
+</tr>
+</table>
+
+## join
+
+Joins two strings and returns them in one string.
+
+	:::ruby
+	File.join(string1, string2)
+
+<table border="1">
+<tr>
+	<td><code>string1, string2</code></td>
+	<td>The two strings to join.</td>
+</tr>
+</table>
+
+## new
+
+Create a new file.
+
+	:::ruby
+	File.new(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. Name of the file to create.</td>
+</tr>
+</table>
+
+## open
+
+	:::ruby
+	File.open(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. Name of the file to open.</td>
+</tr>
+</table>
+
+## write
+
+	:::ruby
+	File.write(content)
+
+<table border="1">
+<tr>
+	<td><code>content</code></td>
+	<td>Binary data (as returned from binread).</td>
+</tr>
+</table>
+
+## close
+
+Close a file.
+
+	:::ruby
+	File.close
+
+## Rhodes File structure
+
+	:::term
+	<rhodes root>  # system-dependent path
+	  apps         # Rho::RhoApplication::get_base_app_path
+	    app        # Rho::RhoApplication::get_app_path('app') - contain models
+	      model1   # Rho::RhoApplication::get_model_path('app','model1')
+	  public       # contains files from application public folder
+	  db           # contains schema and data files
+	    db-files   # contains files stored in database(blobs)
+	               # for file paths from camera callback etc: Rho::RhoApplication::get_blob_path(relative_file_path); 
+	               # to create file path for blob: Rho::RhoApplication::get_blob_folder()
+	  lib          # contains rho framework library files. Blackberry does not 
+	               # have this folder, library files are stored in jar
+	  RhoLog.txt   #application log
+
+[Click here to see the RhoApplication methods.](rhoapplication-api)

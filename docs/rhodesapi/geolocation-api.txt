@@ -1,0 +1,126 @@
+# GeoLocation API
+
+Access geolocation information from your device.
+
+See the controller and view in the [/app/GeoLocation folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) application for an example.
+
+## Enabling Geolocation
+
+To use the geolocation API, you need to enable geolocation on the device. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	capabilities:
+	  - gps
+
+## latitude
+
+Returns current latitude in degrees.
+
+	:::ruby
+	GeoLocation.latitude
+
+## longitude
+
+Returns current longitude in degrees.
+
+	:::ruby
+	GeoLocation.latitude
+
+## known_position?
+
+Returns true if the location system is up and running, false otherwise.
+
+	:::ruby
+	GeoLocation.known_position?
+
+## set_notification
+
+Set callback to track location changes.
+
+**NOTE: You only need to call GeoLocation.set_notification once. The current behavior of the callback is that it will be called forever until it is stopped; you need to call `GeoLocation.turnoff` to stop it. The previous behavior was that the callback was called once and needed to be reset.**
+
+	:::ruby
+	GeoLocation.set_notification(callback, callback_params, ping_gpssystem_interval)
+
+<table border="1">
+<tr>
+	<td><code>callback_url</code></td>
+	<td>url for the callback method called upon a location change notification or for the interval set by ping_gpssystem_interval.</td>
+</tr>
+<tr>
+	<td><code>callback_params</code></td>
+	<td>a string added to the body of the callback url. You can use it to identity who is setting up the callback, such as "my_tag=55". In general you do not set callback_param (leave it blank as in "").</td>
+</tr>
+<tr>
+	<td><code>ping_gpssystem_interval</code></td>
+	<td>(optional) If 0, the system interval is used; the callback is executed when the GPS system processes a location update (dependent on the mobile platform). If set to a number (such as 3), the callback is executed at an interval of this number of seconds (such as every three seconds).</td>
+</tr>
+</table>
+
+When the GeoLocation.set_notification callback is called, it will receive a variable called @params, just like a normal Rhodes controller action. Here are the parameters included in the @params variable.
+
+<table border="1">
+<tr>
+	<td><code>known_position</code></td>
+	<td>1 or 0. Return from known_position? method.</td>
+</tr>
+<tr>
+	<td><code>latitude</code></td>
+	<td>Return from call to latitude method.</td>
+</tr>
+<tr>
+	<td><code>longitude</code></td>
+	<td>Return from call to longitude method.</td>
+</tr>
+<tr>
+	<td><code>available</code></td>
+	<td>true if geolocation is available, false otherwise.</td>
+</tr>
+<tr>
+	<td><code>status</code></td>
+	<td>"ok" or "error"</td>
+</tr>
+<tr>
+	<td><code>error_code</code></td>
+	<td>error code from RhoError.</td>
+</tr>
+<tr>
+	<td><code>accuracy</code></td>
+	<td>horizontal radius in meters; iOS and Android.</td>
+</tr>
+</table>
+
+[Click here for the RhoError error code list.](rhoerror-api)
+
+## haversine_distance
+
+Get the distance between two points in miles.
+
+	:::ruby
+	GeoLocation.haversine_distance(latitude1, longitude1, latitude2, longitude2)
+
+<table border="1">
+<tr>
+	<td><code>latitude1</code></td>
+	<td>Latitude of the first point in degrees.</td>
+</tr>
+<tr>
+	<td><code>longitude1</code></td>
+	<td>Longitude of the first point in degrees.</td>
+</tr>
+<tr>
+	<td><code>latitude2</code></td>
+	<td>Latitude of the second point in degrees.</td>
+</tr>
+<tr>
+	<td><code>longitude2</code></td>
+	<td>Longitude of the second point in degrees.</td>
+</tr>
+</table>
+
+## turnoff
+
+Turn off GeoLocation.
+
+	:::ruby
+	GeoLocation.turnoff

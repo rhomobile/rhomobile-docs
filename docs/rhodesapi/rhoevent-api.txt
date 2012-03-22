@@ -1,0 +1,208 @@
+# Rho::RhoEvent API
+
+Access a device's calendar and events.
+
+For examples on how to use the RhoEvent API, see the view and controller in the /app/Calendar folder in the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Calendar/controller.rb).
+
+## Enabling the Calendar
+
+To use the RhoEvent API, you need to enable read and write for the calendar on the device. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	capabilities:
+	  - calendar
+
+## find
+
+Returns the events in the device calendar.
+
+	:::ruby
+	Rho::RhoEvent.find(events)
+
+<table border="1">
+<tr>
+	<td><code>events</code></td>
+	<td>:all - Return a hash of hashes of all the events. @params['id'] - return a hash of the properties of the event identified by this id.</td>
+</tr>
+</table>
+
+## find in a range
+
+Returns the events in the device calendar within a specified range.
+
+	:::ruby
+	Rho::RhoEvent.find(:all, :start_date, :end_date, :find_type, :include_repeating)
+
+<table border="1">
+<tr>
+	<td><code>:all</code></td>
+	<td>Search all the events.</td>
+</tr>
+<tr>
+	<td><code>:all</code></td>
+	<td>Search all the events.</td>
+</tr>
+<tr>
+	<td><code>:start_date</code></td>
+	<td>The start date of the range to search.</td>
+</tr>
+<tr>
+	<td><code>:end_date</code></td>
+	<td>The end date of the range to search.</td>
+</tr>
+<tr>
+	<td><code>:find_type</code></td>
+	<td>'starting' - searches for events starting between start_date and end_date. 'ending' - searches for events ending between start_date and end_date. 'occurring' - searches for events that have any part of the event occurring during the period specified by start_date and end_date.</td>
+</tr>
+<tr>
+	<td><code>:include_repeating</code></td>
+	<td>true - include repeating occurrences of an event in the search; false - do not include repeating occurrences.</td>
+</tr>
+</table>
+
+Code sample:
+
+	:::ruby
+	start = Time.utc(2007, 'jan', 1, 0, 0, 0)
+    finish = Time.utc(2012, 'dec', 31, 23, 59, 59)
+    @@events = Rho::RhoEvent.find(:all, :start_date => start, 
+    	:end_date => finish, :find_type => 'starting', 
+        :include_repeating => true)
+
+## create!
+
+Creates a new event in the calendar. Returns a hash of the properties in the event.
+
+	:::ruby
+	Rho::RhoEvent.create!(event)
+
+<table border="1">
+<tr>
+	<td><code>event</code></td>
+	<td>a hash of the properties for the new event.</td>
+</tr>
+</table>
+
+## update_attributes
+
+Update the properties for this event and save the event in the calendar.
+
+	:::ruby
+	Rho::RhoEvent.update_attributes(event)
+
+<table border="1">
+<tr>
+	<td><code>event</code></td>
+	<td>a hash of the updated properties for the new event.</td>
+</tr>
+</table>
+
+## destroy
+
+Remove this event from the calendar.
+
+	:::ruby
+	Rho::RhoEvent.destroy(id)
+
+<table border="1">
+<tr>
+	<td><code>id</code></td>
+	<td>remove the event identified by this id.</td>
+</tr>
+</table>
+
+## Event Properties
+
+The event properties are stored in a hash.
+
+<table border="1">
+<tr>
+	<td><code>id</code></td>
+	<td>id for this event.</td>
+</tr>
+<tr>
+	<td><code>title</code></td>
+	<td>String. The event title.</td>
+</tr>
+<tr>
+	<td><code>location</code></td>
+	<td>String. The event location.</td>
+</tr>
+<tr>
+	<td><code>notes</code></td>
+	<td>String. Notes added to this event.</td>
+</tr>
+<tr>
+	<td><code>start_date</code></td>
+	<td>Start date for this event in Time.utc format.</td>
+</tr>
+<tr>
+	<td><code>end_date</code></td>
+	<td>End date for this event in Time.utc format.</td>
+</tr>
+<tr>
+	<td><code>reminder</code></td>
+	<td>(Blackberry and Windows only) int. event reminder in minutes.</td>
+</tr>
+<tr>
+	<td><code>privacy</code></td>
+	<td>(Blackberry and Windows only) 'public', 'private', or 'confidential'.</td>
+</tr>
+<tr>
+	<td><code>canceled</code></td>
+	<td>(iPhone and Android only).</td>
+</tr>
+<tr>
+	<td><code>oragnizer</code></td>
+	<td>(iPhone and Android only) String. The event organizer.</td>
+</tr>
+<tr>
+	<td><code>attendees</code></td>
+	<td>(iPhone and Android only) String. The attendees.</td>
+</tr>
+<tr>
+	<td><code>last_modified</code></td>
+	<td>(iPhone and Android only) Datetime when the event was last modified.</td>
+</tr>
+</table>
+
+## Recurrence Properties
+
+<table border="1">
+<tr>
+	<td><code>recurrence</code></td>
+	<td>true if this event recurs; false otherwise.</td>
+</tr>
+<tr>
+	<td><code>frequency</code></td>
+	<td>'daily', 'weekly', 'monthly', 'yearly'</td>
+</tr>
+<tr>
+	<td><code>interval</code></td>
+	<td></td>
+</tr>
+<tr>
+	<td><code>end_date</code></td>
+	<td>End date for this recurrence in Time.utc format.</td>
+</tr>
+<tr>
+	<td><code>days</code></td>
+	<td>Array of 7 items, representing Mon-Sun. Value of 1 means event is triggered.</td>
+</tr>
+<tr>
+	<td><code>months</code></td>
+	<td>Array of 12 items, representing Jan-Dec. Value of 1 means event is triggered.</td>
+</tr>
+<tr>
+	<td><code>weeks</code></td>
+	<td>Array of 5 items, representing first-fifth. Value of 1 means event is triggered.</td>
+</tr>
+<tr>
+	<td><code>count</code></td>
+	<td>how many occurrences</td>
+</tr>
+<tr>
+	<td><code>day_of_month</code></td>
+	<td>Integer. 1-31.</td>
+</tr>
+</table>

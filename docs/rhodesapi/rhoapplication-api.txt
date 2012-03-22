@@ -1,0 +1,62 @@
+# Rho::RhoApplication API
+
+Access methods for Rhodes applications. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for an example using file access.
+
+## get_base_app_path()
+
+Returns a string that contains the path to the application.
+
+## get_app_path
+
+Returns a string that contains the path to the app folder in the application.
+
+	:::ruby
+	Rho::RhoApplication.get_app_path('app')
+
+<table border="1">
+<tr>
+	<td><code>'app'</code></td>
+	<td></td>
+</tr>
+</table>
+
+## get_model_path
+
+Returns a string that contains the path to the model folder in the application.
+
+	:::ruby
+	Rho::RhoApplication.get_model_path('app', 'model1')
+
+<table border="1">
+<tr>
+	<td><code>app</code></td>
+	<td>String. Name of the file to read.</td>
+</tr>
+<tr>
+	<td><code>model1</code></td>
+	<td>String. The model name for this application.</td>
+</tr>
+</table>
+
+## get_blob_path
+
+Returns the real path to a blob (such as a digital photo). You need to use this method to have the correct path to a blob attribute, such as an image file.
+
+	:::ruby
+	Rho::RhoApplication.get_blob_path(relative_file_path)
+
+<table border="1">
+<tr>
+	<td><code>relative_file_path</code></td>
+	<td>String. The path to the blob file.</td>
+</tr>
+</table>
+
+## get_blob_folder
+
+Creates a file path for a blob.
+
+	:::ruby
+	Rho::RhoApplication.get_blob_folder()
+
+

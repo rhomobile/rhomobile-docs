@@ -1,0 +1,56 @@
+# Barcode API
+
+Allows the device to recognize a barcode. See the controller and view in the /app/BarcodeRecognizer folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/BarcodeRecognizer/controller.rb) for an example.
+
+## Enabling Barcode Recognition
+
+You need to enable the camera on the device. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	capabilities:
+	  - camera
+
+On iPhone, Android, Windows Mobile, and Blackberry (`iphone`, `android`, `wm`, `bb`), you need to add the barcode extension:
+
+	:::yaml
+	:iphone
+	  extensions: ["barcode"]
+
+## barcode_recognize
+
+Recognizes a barcode on an image. Returns a string with recognized code, or emty string if the barcode is not recognized.
+
+	:::ruby
+	Barcode.barcode_recognize(image_file_full_path)
+
+<table border="1">
+<tr>
+	<td><code>image_file_full_path</code></td>
+	<td>Path to the image that contains the barcode to be recognized.</td>
+</tr>
+</table>
+
+## take_barcode
+
+iPhone and Android only. Open a user interface for real-time barcode recognition from the device camera. If a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.
+
+	:::ruby
+	Barcode.take_barcode(url_for :action => :take_callback)
+
+Android only. You can also use the front camera for take_barcode.
+
+	:::ruby
+	Barcode.take_barcode(url_for(:action => :take_callback), {:camera => 'front'})
+
+The callback receives these parameters:
+
+<table border="1">
+<tr>
+	<td><code>status</code></td>
+	<td>OK or CANCEL</td>
+</tr>
+<tr>
+	<td><code>barcode</code></td>
+	<td>The string for the recognized barcode.</td>
+</tr>
+</table>

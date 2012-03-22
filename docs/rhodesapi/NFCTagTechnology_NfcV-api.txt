@@ -1,0 +1,43 @@
+# Rho::NFCTagTechnology_NfcV API
+
+Subset of NFCTagTechnology.
+
+## Enabling NFC
+
+To use the NFC methods, you need to enable NFC on the Android device and ensure that the version is 2.3.3 or later. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	android: 
+	  version 2.3.3
+	  extensions:
+	  - nfc
+
+## get_dsf_id
+
+Returns int - the dsf ID.
+
+	:::ruby
+	Rho::NFCTagTechnology_NfcV.get_dsf_id
+
+
+## get_responce_flags
+
+Returns int - the response flags.
+
+	:::ruby
+	Rho::NFCTagTechnology_NfcV.get_responce_flags
+
+
+## transceive
+
+Sends data in a byte array to a tag and returns the result from the tag in a byte array.
+
+	:::ruby
+	Rho::NFCTagTechnology_NfcV.transceive(data)
+
+<table border="1">
+<tr>
+	<td><code>data</code></td>
+	<td>byte[] sent to the tag.</td>
+</tr>
+</table>

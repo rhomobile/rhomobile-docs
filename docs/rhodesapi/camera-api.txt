@@ -1,0 +1,139 @@
+# Camera API
+
+Use the camera on a device. See the controller and view in the /app/Image folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Image/controller.rb) for an example.
+
+## Enabling the Camera
+
+To use the camera API, you need to enable the camera on the device. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	capabilities:
+	  - camera
+
+## get_camera_info
+
+Get camera information. Returns max_resolution: a hash with width and height numeric values (returns NIL if the camera_type is not supported).
+
+	:::ruby
+	Camera::get_camera_info(camera_type)
+
+<table border="1">
+<tr>
+	<td><code>camera_type</code></td>
+	<td>"main" or "front". Default = "main".</td>
+</tr>
+</table>
+
+## choose_picture
+
+Choose a picture from an album.
+
+	:::ruby
+	Camera::choose_picture(callback_url)
+
+<table border="1">
+<tr>
+	<td><code>callback_url</code></td>
+	<td>url to the callback method.</td>
+</tr>
+</table>
+
+Parameters in the camera callback method:
+
+<table border="1">
+<tr>
+	<td><code>status</code></td>
+	<td>"ok", "cancel", "error".</td>
+</tr>
+<tr>
+	<td><code>image_uri</code></td>
+	<td>uri to the chosen image stored in the /public/db-files folder; the image file has an auto-generated name.</td>
+</tr>
+</table>
+
+## take_picture
+
+Take a picture.
+
+	:::ruby
+	Camera::take_picture(callback_url, settings)
+
+<table border="1">
+<tr>
+	<td><code>callback_url</code></td>
+	<td>url to the callback method.</td>
+</tr>
+<tr>
+	<td><code>settings</code></td>
+	<td>(Android and iOS only) a hash of additional parameters.</td>
+</tr>
+</table>
+
+Sample call:
+	:::ruby
+	settings = { :camera_type => @params['camera_type'], 
+	  :color_model => @params['color_model'], :enable_editing => en_ed, 
+	  :desired_width => width, :desired_height => height, :flash_mode => 'auto' }
+    Camera::take_picture(url_for(:action => :camera_callback), settings)
+
+Parameters in the camera callback method:
+
+<table border="1">
+<tr>
+	<td><code>status</code></td>
+	<td>"ok", "cancel", "error".</td>
+</tr>
+<tr>
+	<td><code>image_uri</code></td>
+	<td>uri to the taken image stored in the /public/db-files folder; the image file has an auto-generated name.</td>
+</tr>
+<tr>
+	<td><code>message</code></td>
+	<td>(Android and iOS only) if status = "error", a string containing an error message.</td>
+</tr>
+<tr>
+	<td><code>image_width</code></td>
+	<td>(Android and iOS only) image width in pixels.</td>
+</tr>
+<tr>
+	<td><code>image_height</code></td>
+	<td>(Android and iOS only) image height in pixels.</td>
+</tr>
+<tr>
+	<td><code>image_format</code></td>
+	<td>(Android and iOS only) "png" or "jpg".</td>
+</tr>
+</table>
+
+`settings` is a hash used only on iOS and Android. Parameters:
+
+<table border="1">
+<tr>
+	<td><code>camera_type</code></td>
+	<td>"main" or "front". Default = "main".</td>
+</tr>
+<tr>
+	<td><code>desired_width</code></td>
+	<td>desired width in pixels. Default = max camera width.</td>
+</tr>
+<tr>
+	<td><code>desired_height</code></td>
+	<td>desired height in pixels. Default = max camera height.</td>
+</tr>
+<tr>
+	<td><code>color_model</code></td>
+	<td>"RGB" or "Grayscale". Default = "RGB".</td>
+</tr>
+<tr>
+	<td><code>format</code></td>
+	<td>"png" or "jpg". Default = "jpg".</td>
+</tr>
+<tr>
+	<td><code>enable_editing</code></td>
+	<td>(iPhone only) boolean. Enables post photo capture image customizing; image will captured reduced to screen size (not full size). Default = true.</td>
+</tr>
+<tr>
+	<td><code>flash_mode</code></td>
+	<td>(Android only) String. "off", "on", "auto", "red-eye", "torch".</td>
+</tr>
+</table>
