@@ -20,7 +20,7 @@ To Set screenOrientation parameters via JavaScript use the following syntax: scr
 To Set screenOrientation return events via JavaScript use the following syntax: screenorientation.event = Javascript Function;
 <P />e.g. <b>screenOrientation</b>.screenOrientationEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: screenorientation.setEMML("[Your EMML Tags]");
 <P />
@@ -37,7 +37,7 @@ To Set Screenorientation parameters via Ruby use the following syntax: Screenori
 To Set Screenorientation return events via Ruby use the following syntax: Screenorientation.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Screenorientation</b>.screenOrientationEvent = url_for(:action =&gt; :screenorientation_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

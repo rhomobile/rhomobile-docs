@@ -20,7 +20,7 @@ To Set cardReader parameters via JavaScript use the following syntax: cardreader
 To Set cardReader return events via JavaScript use the following syntax: cardreader.event = Javascript Function;
 <P />e.g. <b>cardReader</b>.readEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: cardreader.setEMML("[Your EMML Tags]");
 <P />
@@ -37,7 +37,7 @@ To Set Cardreader parameters via Ruby use the following syntax: Cardreader.param
 To Set Cardreader return events via Ruby use the following syntax: Cardreader.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Cardreader</b>.readEvent = url_for(:action =&gt; :cardreader_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

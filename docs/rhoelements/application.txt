@@ -17,7 +17,7 @@ To Invoke application methods via JavaScript use the following syntax: applicati
 To Set application return events via JavaScript use the following syntax: application.event = Javascript Function;
 <P />e.g. <b>application</b>.applicationEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: application.setEMML("[Your EMML Tags]");
 <P />
@@ -31,7 +31,7 @@ To Invoke Application methods via Ruby use the following syntax: Application.met
 To Set Application return events via Ruby use the following syntax: Application.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Application</b>.applicationEvent = url_for(:action =&gt; :application_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 

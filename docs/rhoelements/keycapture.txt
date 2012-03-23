@@ -17,7 +17,7 @@ To Set keyCapture parameters via JavaScript use the following syntax: keycapture
 To Set keyCapture return events via JavaScript use the following syntax: keycapture.event = Javascript Function;
 <P />e.g. <b>keyCapture</b>.keyEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: keycapture.setEMML("[Your EMML Tags]");
 <P />
@@ -32,7 +32,7 @@ To Set Keycapture parameters via Ruby use the following syntax: Keycapture.param
 To Set Keycapture return events via Ruby use the following syntax: Keycapture.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Keycapture</b>.keyEvent = url_for(:action =&gt; :keycapture_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 

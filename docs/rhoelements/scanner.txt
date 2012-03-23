@@ -20,7 +20,7 @@ To Set scanner parameters via JavaScript use the following syntax: scanner.param
 To Set scanner return events via JavaScript use the following syntax: scanner.event = Javascript Function;
 <P />e.g. <b>scanner</b>.decodeEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: scanner.setEMML("[Your EMML Tags]");
 <P />
@@ -37,7 +37,7 @@ To Set Scanner parameters via Ruby use the following syntax: Scanner.parameter =
 To Set Scanner return events via Ruby use the following syntax: Scanner.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Scanner</b>.decodeEvent = url_for(:action =&gt; :scanner_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

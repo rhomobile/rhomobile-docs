@@ -20,7 +20,7 @@ To Set telemetry parameters via JavaScript use the following syntax: telemetry.p
 To Set telemetry return events via JavaScript use the following syntax: telemetry.event = Javascript Function;
 <P />e.g. <b>telemetry</b>.telemetryDataEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: telemetry.setEMML("[Your EMML Tags]");
 <P />
@@ -37,7 +37,7 @@ To Set Telemetry parameters via Ruby use the following syntax: Telemetry.paramet
 To Set Telemetry return events via Ruby use the following syntax: Telemetry.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Telemetry</b>.telemetryDataEvent = url_for(:action =&gt; :telemetry_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="../Resources/../Getting Started/RetrievalEvents.html">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
