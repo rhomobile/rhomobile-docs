@@ -284,6 +284,22 @@ Return attributes associated with a given source:
 	  :content_type => :json
 	).body
 
+### `update_source_params`
+Updates attributes associated with a given source:
+
+* `poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll
+
+	:::ruby
+	attributes = RestClient.post("#{server}/api/update_source_params", 
+	  { 
+		:api_token => token, 
+		:source_name => source_name,
+		:user_name => user,
+		:data => {:poll_interval => 25} 
+	  }.to_json, 
+	  :content_type => :json
+	).body
+
 ### `set_refresh_time`
 Sets source poll interval to "current time plus x seconds".
 

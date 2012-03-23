@@ -55,6 +55,11 @@ To execute the Rhoconnect Benchmark test, use the `rhoconnect-benchmark` command
 		<td>This option runs several tests in a loop varying number of concurrent clients between 1 and NUMBER. The specified interval will be split by 5. For example: -m 10 will produce 5 test executions , first for 1 client, then - for 3, 6, 8, and 10</td>
 	</tr>
 	<tr>
+		<td width="20">-S</td>
+		<td width="200"><code>--simtime NUMBER</code></td>
+		<td>This option allows to enforce NUMBER of seconds delay in the source adapter, thus simulating the backend communication round-trip.</td>
+	</tr>
+	<tr>
 		<td width="20">-A</td>
 		<td width="200"><code>--advanced</code></td>
 		<td>This convenience option combines -m 10, -x 500, and -S <cur_dir/bench_results> - thus running a matrix of tests varying in payload and number of concurrent clients. Also, it saves the results into the `bench_results` subdirectory and runs the available post-processing.</td>
