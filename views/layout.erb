@@ -44,29 +44,33 @@
 		<ul>
 			<% collapsed = true %>
 			<% sections.each do |slug, title, topics| %>
-				<% collapsed = false if TOC.find(request.path_info) == slug %>
-				<div class="accordion-group">
-					<li>
-					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-target="#<%=slug%>">
-						  <i class="<%= collapsed ? 'icon-plus' : 'icon-minus'%> pull-right"></i>
-							<h3><%= title %></h3>
-						</a>
-					</div>
-					<div id="<%=slug%>" class="accordion-body <%=collapsed ? 'collapse' : 'in'%>">
-						<ul>
-							<% topics.each do |slug, title, _| %>
-								<% if topic_path == slug %>
-									<li class="current"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
-								<% else %>
-									<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
+				<% if topics and topics.length > 0 %>
+					<% collapsed = false if TOC.find(request.path_info) == slug %>
+					<div class="accordion-group">
+						<li>
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-target="#<%=slug%>">
+							  <i class="<%= collapsed ? 'icon-plus' : 'icon-minus'%> pull-right"></i>
+								<h3><%= title %></h3>
+							</a>
+						</div>
+						<div id="<%=slug%>" class="accordion-body <%=collapsed ? 'collapse' : 'in'%>">
+							<ul>
+								<% topics.each do |slug, title, _| %>
+									<% if topic_path == slug %>
+										<li class="current"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
+									<% else %>
+										<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
+									<% end %>
 								<% end %>
-							<% end %>
-						</ul>
+							</ul>
+						</div>
+						</li>
 					</div>
-					</li>
-				</div>
-				<% collapsed = true %>
+					<% collapsed = true %>
+				<% else %>
+					<h2><%= title %></h2>
+				<% end %>
 			<% end %>
 		</ul>
 	</div>
