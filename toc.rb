@@ -1,4 +1,6 @@
-section 'getting-started', "Getting Started" do
+section 'intro', 'Introduction'
+
+section 'getting-started', 'Getting Started' do
   topic 'home',                 'Home'
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
@@ -10,7 +12,9 @@ section 'getting-started', "Getting Started" do
   topic 'secure-apps',          'Building Highly Secure Apps'
 end
 
-section 'rhodes-reference', "Rhodes: Developer Reference" do
+section 'rhodes', 'Rhodes'
+
+section 'rhodes-reference', 'Developer Reference' do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/install',           'Install Rhodes'
   topic 'rhodes/generator',         'App Generator'
@@ -30,7 +34,7 @@ section 'rhodes-reference', "Rhodes: Developer Reference" do
   topic 'credits',                  'Credits'
 end
 
-section 'rhodesapi-reference', "Rhodes: API Reference" do
+section 'rhodesapi-reference', 'API Reference' do
   topic 'rhodesapi/rhodes-api-toc-functional',             'API List by Function'
   topic 'rhodesapi/alert-api',             'Alert'
   topic 'rhodesapi/appapplication-api',             'AppApplication'
@@ -81,12 +85,14 @@ section 'rhodesapi-reference', "Rhodes: API Reference" do
   topic 'rhodesapi/webview-api',             'WebView'
 end
 
-section 'rhoelements-gettingstarted', "RhoElements: Getting Started" do
+section 'rhoelements', 'RhoElements'
+
+section 'rhoelements-gettingstarted', 'Getting Started' do
   topic 'rhoelements/moto-api',      'Motorola API'
   topic 'rhoelements/moto-api-beta4', 'Motorola API - RE2 beta 4'
 end
 
-section 'rhoelements-devref', "RhoElements: Developer Reference" do
+section 'rhoelements-devref', 'Developer Reference' do
   topic 'rhoelements/developersreference#barcode-capture', 'Barcode Capture'
   topic 'rhoelements/developersreference#card-reader','Card Reader'
   topic 'rhoelements/developersreference#comm-port','Comm Port'
@@ -105,7 +111,9 @@ section 'rhoelements-devref', "RhoElements: Developer Reference" do
   topic 'rhoelements/developersreference#signature-capture','Signature Capture'
 end
 
-section 'rhoconnect-reference', "RhoConnect: Getting Started" do
+section 'rhoconnect', 'RhoConnect'
+
+section 'rhoconnect-reference', 'Getting Started' do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/contributing',      'Contributing'
   topic 'rhoconnect/install',           'Installation'
@@ -113,7 +121,7 @@ section 'rhoconnect-reference', "RhoConnect: Getting Started" do
   topic 'rhoconnect/supported-platforms', 'Supported Platforms'
 end
 
-section 'rhoconnect-source-adapter-reference', "RhoConnect: Source Adapters" do
+section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/source-adapters',   'Source Adapters'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/testing',           'Testing and Debugging'
@@ -123,21 +131,21 @@ section 'rhoconnect-source-adapter-reference', "RhoConnect: Source Adapters" do
   topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
 end
 
-section 'rhoconnect-plugin-reference', "RhoConnect: Plugins" do
+section 'rhoconnect-plugin-reference', 'Plugins' do
   topic 'rhoconnect/plugin-intro',      'Introduction'
   topic 'rhoconnect/rails-plugin',      'Rails Plugin'
   topic 'rhoconnect/net-plugin',        '.Net Plugin'
   topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
-section 'rhoconnect-push-reference', "RhoConnect: Push Sychronization" do
+section 'rhoconnect-push-reference', 'Push Sychronization' do
   topic 'rhoconnect/push',      'Introduction to Push'
   topic 'rhoconnect/push-server-setup',      'Push Setup on Server'
   topic 'rhoconnect/push-backend-setup',        'Push Setup on Backend'
   topic 'rhoconnect/push-client-setup',       'Push Setup on Client'
 end
 
-section 'rhoconnect-administration', "RhoConnect: Administration" do
+section 'rhoconnect-administration', 'Administration' do
   topic 'rhoconnect/settings',          'RhoConnect Settings'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
   topic 'rhoconnect/licensing',         'Licensing your App'
@@ -146,14 +154,14 @@ section 'rhoconnect-administration', "RhoConnect: Administration" do
   topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
 end
 
-section 'rhoconnect-deployment', "RhoConnect: Deployment" do
+section 'rhoconnect-deployment', 'Deployment' do
   topic 'rhoconnect/preparing-production',         'Preparing for Production'
   topic 'rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'rhoconnect/deploying',         'Deploying RhoConnect'
   topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
 
-section 'rhoconnect-advanced', "RhoConnect: Advanced Topics" do
+section 'rhoconnect-advanced', 'Advanced Topics' do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
@@ -161,30 +169,30 @@ section 'rhoconnect-advanced', "RhoConnect: Advanced Topics" do
   topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
 end
 
-section 'rhoconnect-nonrhodes-client-reference', "RhoConnect: non-Rhodes Client Developer Reference" do
+section 'rhoconnect-nonrhodes-client-reference', 'non-Rhodes Client Developer Reference' do
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
 end
 
-section 'rhoconnect-ios-client-reference', "RhoConnect: iOS Objective C Client Developer Reference" do
+section 'rhoconnect-ios-client-reference', 'iOS Objective C Client Developer Reference' do
   topic 'rhoconnect/client-objc',       'RhoConnect without Rhodes: iOS Objective C'
 end
 
-section 'rhoconnect-android-client-reference', "RhoConnect: Android Java Client Developer Reference" do
+section 'rhoconnect-android-client-reference', 'Android Java Client Developer Reference' do
   topic 'rhoconnect/client-java',       'RhoConnect without Rhodes: Android Java'
 end
 
-section 'rhoconnectjs-reference', "RhoConnect: JS Client Developer Reference" do
+section 'rhoconnectjs-reference', 'JS Client Developer Reference' do
   topic 'rhoconnectjs/introduction',      'Introduction'
   topic 'rhoconnectjs/getting-started',   'Getting Started'
   topic 'rhoconnectjs/reference',         'API Reference'
   topic 'rhoconnectjs/creating-app',      'Creating an App'
 end
 
-section 'rhoconnect-service-reference', "RhoConnect: Hosted Services" do
+section 'rhoconnect-service-reference', 'Hosted Services' do
   topic 'rhoconnect/heroku-addon',      'Heroku Addon'
 end
 
-section 'rhoconnect-adapters-reference', "RhoConnect: Vendor Adapters" do
+section 'rhoconnect-adapters-reference', 'Vendor Adapters' do
   topic 'rhoconnect/adapters-intro',    'Introduction'
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end
