@@ -115,7 +115,6 @@ section 'rhoconnect', 'RhoConnect'
 
 section 'rhoconnect-reference', 'Getting Started' do
   topic 'rhoconnect/introduction',      'Introduction'
-  topic 'rhoconnect/contributing',      'Contributing'
   topic 'rhoconnect/install',           'Installation'
   topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
   topic 'rhoconnect/supported-platforms', 'Supported Platforms'
