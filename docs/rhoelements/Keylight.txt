@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'keylight'</b> will exist on the current pag
 To Invoke keylight methods via JavaScript use the following syntax: keylight.method();
 <P />e.g. <b>keylight</b>.on();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set keylight parameters via JavaScript use the following syntax: keylight.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set keylight parameters via JavaScript use the following syntax: keylight.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>keylight</b>.intensity = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: keylight.setEMML("[Your EMML Tags]");
@@ -26,7 +26,7 @@ e.g. <b>keylight</b>.setEMML("intensity:<i>value</i>on");
 By default the Ruby Object <b>'Keylight'</b> will exist on the current page and can be used to interact directly with the Keylight. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Keylight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Keylight methods via Ruby use the following syntax: Keylight.method()
 <P />e.g. <b>Keylight</b>.on</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Keylight parameters via Ruby use the following syntax: Keylight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Keylight parameters via Ruby use the following syntax: Keylight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Keylight</b>.intensity = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 

@@ -87,9 +87,8 @@ end
 
 section 'rhoelements', 'RhoElements'
 
-section 'rhoelements-gettingstarted', 'Getting Started' do
-  topic 'rhoelements/moto-api',      'Motorola API'
-  topic 'rhoelements/moto-api-beta4', 'Motorola API - RE2 beta 4'
+section 'rhoelements-gettingstarted', 'Version 2 Beta' do
+  topic 'rhoelements/moto-api-beta4', 'RE2 beta 4'
 end
 
 section 'rhoelements-devref', 'Developer Reference' do

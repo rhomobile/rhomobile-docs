@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'ioSystem'</b> will exist on the current pag
 To Invoke ioSystem methods via JavaScript use the following syntax: iosystem.method();
 <P />e.g. <b>ioSystem</b>.invokeIgnition();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set ioSystem parameters via JavaScript use the following syntax: iosystem.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set ioSystem parameters via JavaScript use the following syntax: iosystem.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>ioSystem</b>.ignition = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set ioSystem return events via JavaScript use the following syntax: iosystem.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>ioSystem</b>.setEMML("ignition:<i>value</i>;portEvent:url('JavaScript:do
 By default the Ruby Object <b>'Iosystem'</b> will exist on the current page and can be used to interact directly with the Iosystem. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Iosystem'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Iosystem methods via Ruby use the following syntax: Iosystem.method()
 <P />e.g. <b>Iosystem</b>.invokeIgnition</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Iosystem parameters via Ruby use the following syntax: Iosystem.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Iosystem parameters via Ruby use the following syntax: Iosystem.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Iosystem</b>.ignition = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Iosystem return events via Ruby use the following syntax: Iosystem.event = url_for(:action =&gt; :event_callback) 

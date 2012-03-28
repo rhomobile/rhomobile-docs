@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'notification'</b> will exist on the current
 To Invoke notification methods via JavaScript use the following syntax: notification.method();
 <P />e.g. <b>notification</b>.enumerate();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set notification parameters via JavaScript use the following syntax: notification.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set notification parameters via JavaScript use the following syntax: notification.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>notification</b>.setLEDOnDuration = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set notification return events via JavaScript use the following syntax: notification.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>notification</b>.setEMML("setLEDOnDuration:<i>value</i>;enumNotification
 By default the Ruby Object <b>'Notification'</b> will exist on the current page and can be used to interact directly with the Notification. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Notification'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Notification methods via Ruby use the following syntax: Notification.method()
 <P />e.g. <b>Notification</b>.enumerate</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Notification parameters via Ruby use the following syntax: Notification.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Notification parameters via Ruby use the following syntax: Notification.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Notification</b>.setLEDOnDuration = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Notification return events via Ruby use the following syntax: Notification.event = url_for(:action =&gt; :event_callback) 

@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'battery'</b> will exist on the current page
 To Invoke battery methods via JavaScript use the following syntax: battery.method();
 <P />e.g. <b>battery</b>.getSmartBatteryStatus();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set battery parameters via JavaScript use the following syntax: battery.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set battery parameters via JavaScript use the following syntax: battery.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>battery</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set battery return events via JavaScript use the following syntax: battery.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>battery</b>.setEMML("visibility:<i>value</i>;batteryEvent:url('JavaScrip
 By default the Ruby Object <b>'Battery'</b> will exist on the current page and can be used to interact directly with the Battery. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Battery'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Battery methods via Ruby use the following syntax: Battery.method()
 <P />e.g. <b>Battery</b>.getSmartBatteryStatus</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Battery parameters via Ruby use the following syntax: Battery.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Battery parameters via Ruby use the following syntax: Battery.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Battery</b>.visibility = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Battery return events via Ruby use the following syntax: Battery.event = url_for(:action =&gt; :event_callback) 

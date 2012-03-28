@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'fileTransfer'</b> will exist on the current
 To Invoke fileTransfer methods via JavaScript use the following syntax: filetransfer.method();
 <P />e.g. <b>fileTransfer</b>.transfer();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set fileTransfer parameters via JavaScript use the following syntax: filetransfer.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set fileTransfer parameters via JavaScript use the following syntax: filetransfer.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>fileTransfer</b>.destination = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set fileTransfer return events via JavaScript use the following syntax: filetransfer.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>fileTransfer</b>.setEMML("destination:<i>value</i>;transferEvent:url('Ja
 By default the Ruby Object <b>'Filetransfer'</b> will exist on the current page and can be used to interact directly with the Filetransfer. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Filetransfer'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Filetransfer methods via Ruby use the following syntax: Filetransfer.method()
 <P />e.g. <b>Filetransfer</b>.transfer</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Filetransfer parameters via Ruby use the following syntax: Filetransfer.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Filetransfer parameters via Ruby use the following syntax: Filetransfer.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Filetransfer</b>.destination = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Filetransfer return events via Ruby use the following syntax: Filetransfer.event = url_for(:action =&gt; :event_callback) 

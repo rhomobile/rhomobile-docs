@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'timer'</b> will exist on the current page a
 To Invoke timer methods via JavaScript use the following syntax: timer.method();
 <P />e.g. <b>timer</b>.start();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set timer parameters via JavaScript use the following syntax: timer.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set timer parameters via JavaScript use the following syntax: timer.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>timer</b>.interval = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set timer return events via JavaScript use the following syntax: timer.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>timer</b>.setEMML("interval:<i>value</i>;timeout:url('JavaScript:doFunct
 By default the Ruby Object <b>'Timer'</b> will exist on the current page and can be used to interact directly with the Timer. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Timer'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Timer methods via Ruby use the following syntax: Timer.method()
 <P />e.g. <b>Timer</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Timer parameters via Ruby use the following syntax: Timer.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Timer parameters via Ruby use the following syntax: Timer.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Timer</b>.interval = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Timer return events via Ruby use the following syntax: Timer.event = url_for(:action =&gt; :event_callback) 

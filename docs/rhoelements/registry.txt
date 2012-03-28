@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'registry'</b> will exist on the current pag
 To Invoke registry methods via JavaScript use the following syntax: registry.method();
 <P />e.g. <b>registry</b>.delete();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set registry parameters via JavaScript use the following syntax: registry.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set registry parameters via JavaScript use the following syntax: registry.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>registry</b>.hive = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: registry.setEMML("[Your EMML Tags]");
@@ -26,7 +26,7 @@ e.g. <b>registry</b>.setEMML("hive:<i>value</i>delete");
 By default the Ruby Object <b>'Registry'</b> will exist on the current page and can be used to interact directly with the Registry. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Registry'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Registry methods via Ruby use the following syntax: Registry.method()
 <P />e.g. <b>Registry</b>.delete</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Registry parameters via Ruby use the following syntax: Registry.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Registry parameters via Ruby use the following syntax: Registry.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Registry</b>.hive = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 

@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'telemetry'</b> will exist on the current pa
 To Invoke telemetry methods via JavaScript use the following syntax: telemetry.method();
 <P />e.g. <b>telemetry</b>.invoke();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set telemetry parameters via JavaScript use the following syntax: telemetry.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set telemetry parameters via JavaScript use the following syntax: telemetry.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>telemetry</b>.queryFrequency = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set telemetry return events via JavaScript use the following syntax: telemetry.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>telemetry</b>.setEMML("queryFrequency:<i>value</i>;telemetryDataEvent:ur
 By default the Ruby Object <b>'Telemetry'</b> will exist on the current page and can be used to interact directly with the Telemetry. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Telemetry'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Telemetry methods via Ruby use the following syntax: Telemetry.method()
 <P />e.g. <b>Telemetry</b>.invoke</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Telemetry parameters via Ruby use the following syntax: Telemetry.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Telemetry parameters via Ruby use the following syntax: Telemetry.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Telemetry</b>.queryFrequency = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Telemetry return events via Ruby use the following syntax: Telemetry.event = url_for(:action =&gt; :event_callback) 

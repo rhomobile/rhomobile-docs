@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'backlight'</b> will exist on the current pa
 To Invoke backlight methods via JavaScript use the following syntax: backlight.method();
 <P />e.g. <b>backlight</b>.on();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set backlight parameters via JavaScript use the following syntax: backlight.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set backlight parameters via JavaScript use the following syntax: backlight.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>backlight</b>.intensity = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set backlight return events via JavaScript use the following syntax: backlight.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>backlight</b>.setEMML("intensity:<i>value</i>;backlightSettingsEvent:url
 By default the Ruby Object <b>'Backlight'</b> will exist on the current page and can be used to interact directly with the Backlight. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Backlight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Backlight methods via Ruby use the following syntax: Backlight.method()
 <P />e.g. <b>Backlight</b>.on</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Backlight parameters via Ruby use the following syntax: Backlight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Backlight parameters via Ruby use the following syntax: Backlight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Backlight</b>.intensity = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Backlight return events via Ruby use the following syntax: Backlight.event = url_for(:action =&gt; :event_callback) 

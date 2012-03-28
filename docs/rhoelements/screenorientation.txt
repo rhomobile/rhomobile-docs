@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'screenOrientation'</b> will exist on the cu
 To Invoke screenOrientation methods via JavaScript use the following syntax: screenorientation.method();
 <P />e.g. <b>screenOrientation</b>.normal();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set screenOrientation parameters via JavaScript use the following syntax: screenorientation.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set screenOrientation parameters via JavaScript use the following syntax: screenorientation.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>screenOrientation</b>.autoRotate = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set screenOrientation return events via JavaScript use the following syntax: screenorientation.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>screenOrientation</b>.setEMML("autoRotate:<i>value</i>;screenOrientation
 By default the Ruby Object <b>'Screenorientation'</b> will exist on the current page and can be used to interact directly with the Screenorientation. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Screenorientation'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Screenorientation methods via Ruby use the following syntax: Screenorientation.method()
 <P />e.g. <b>Screenorientation</b>.normal</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Screenorientation parameters via Ruby use the following syntax: Screenorientation.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Screenorientation parameters via Ruby use the following syntax: Screenorientation.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Screenorientation</b>.autoRotate = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Screenorientation return events via Ruby use the following syntax: Screenorientation.event = url_for(:action =&gt; :event_callback) 

@@ -11,7 +11,7 @@ The Zoom Module is used to set the zoom size of the text or page.</b>
 <table class="re-table"><tr><th class="tableHeading">Zoom JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'zoom'</b> will exist on the current page and can be used to interact directly with the zoom.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set zoom parameters via JavaScript use the following syntax: zoom.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set zoom parameters via JavaScript use the following syntax: zoom.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>zoom</b>.text = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: zoom.setEMML("[Your EMML Tags]");
@@ -21,7 +21,7 @@ e.g. <b>zoom</b>.setEMML("text:<i>value</i>");
 
 <table class="re-table"><tr><th class="tableHeading">Zoom Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the Ruby Object <b>'Zoom'</b> will exist on the current page and can be used to interact directly with the Zoom. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Zoom'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Zoom parameters via Ruby use the following syntax: Zoom.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Zoom parameters via Ruby use the following syntax: Zoom.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Zoom</b>.text = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 

@@ -11,7 +11,7 @@ The HomeButton Module is used to set the parameters of the Home Button. When the
 <table class="re-table"><tr><th class="tableHeading">HomeButton JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'homeButton'</b> will exist on the current page and can be used to interact directly with the homeButton.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set homeButton parameters via JavaScript use the following syntax: homebutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set homeButton parameters via JavaScript use the following syntax: homebutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>homeButton</b>.left = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: homebutton.setEMML("[Your EMML Tags]");
@@ -21,7 +21,7 @@ e.g. <b>homeButton</b>.setEMML("left:<i>value</i>");
 
 <table class="re-table"><tr><th class="tableHeading">HomeButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the Ruby Object <b>'Homebutton'</b> will exist on the current page and can be used to interact directly with the Homebutton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Homebutton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Homebutton parameters via Ruby use the following syntax: Homebutton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Homebutton parameters via Ruby use the following syntax: Homebutton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Homebutton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 

@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'comm'</b> will exist on the current page an
 To Invoke comm methods via JavaScript use the following syntax: comm.method();
 <P />e.g. <b>comm</b>.open();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set comm parameters via JavaScript use the following syntax: comm.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set comm parameters via JavaScript use the following syntax: comm.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>comm</b>.baudRate = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set comm return events via JavaScript use the following syntax: comm.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>comm</b>.setEMML("baudRate:<i>value</i>;commEvent:url('JavaScript:doFunc
 By default the Ruby Object <b>'Comm'</b> will exist on the current page and can be used to interact directly with the Comm. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Comm'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Comm methods via Ruby use the following syntax: Comm.method()
 <P />e.g. <b>Comm</b>.open</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Comm parameters via Ruby use the following syntax: Comm.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Comm parameters via Ruby use the following syntax: Comm.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Comm</b>.baudRate = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Comm return events via Ruby use the following syntax: Comm.event = url_for(:action =&gt; :event_callback) 

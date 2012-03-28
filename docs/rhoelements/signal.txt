@@ -11,7 +11,7 @@ The Signal Module is used to set positional and display parameters of the wirele
 <table class="re-table"><tr><th class="tableHeading">Signal JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'signal'</b> will exist on the current page and can be used to interact directly with the signal.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set signal parameters via JavaScript use the following syntax: signal.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set signal parameters via JavaScript use the following syntax: signal.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>signal</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">						
 To Set signal return events via JavaScript use the following syntax: signal.event = Javascript Function;
@@ -26,7 +26,7 @@ e.g. <b>signal</b>.setEMML("visibility:<i>value</i>;signalEvent:url('JavaScript:
 
 <table class="re-table"><tr><th class="tableHeading">Signal Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the Ruby Object <b>'Signal'</b> will exist on the current page and can be used to interact directly with the Signal. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Signal'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Signal parameters via Ruby use the following syntax: Signal.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Signal parameters via Ruby use the following syntax: Signal.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Signal</b>.visibility = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">						
 To Set Signal return events via Ruby use the following syntax: Signal.event = url_for(:action =&gt; :event_callback) 

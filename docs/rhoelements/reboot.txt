@@ -11,7 +11,7 @@ The Reboot Module is used to reboot the terminal immediately.</b>
 <table class="re-table"><tr><th class="tableHeading">Reboot JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'reboot'</b> will exist on the current page and can be used to interact directly with the reboot.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set reboot parameters via JavaScript use the following syntax: reboot.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set reboot parameters via JavaScript use the following syntax: reboot.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>reboot</b>.bootType = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: reboot.setEMML("[Your EMML Tags]");
@@ -21,7 +21,7 @@ e.g. <b>reboot</b>.setEMML("bootType:<i>value</i>");
 
 <table class="re-table"><tr><th class="tableHeading">Reboot Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the Ruby Object <b>'Reboot'</b> will exist on the current page and can be used to interact directly with the Reboot. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Reboot'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Reboot parameters via Ruby use the following syntax: Reboot.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Reboot parameters via Ruby use the following syntax: Reboot.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Reboot</b>.bootType = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 

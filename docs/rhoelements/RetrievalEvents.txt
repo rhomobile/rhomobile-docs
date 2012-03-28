@@ -1,5 +1,5 @@
 #Retrieval Events
-Values are returned to the caller in RhoElements via Events which will cause a navigation to a new URL to occur or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays and can be accessed in a number of ways as explained below.
+Values are returned to the caller in RhoElements via events which will cause a navigation to a new URL to occur, a Javascript function on the page to be invoked or in the case of a RhoElements native application, a Ruby callback function to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays and can be accessed in a number of ways as explained below.
 
 ##Retrieval Event Syntax
 
@@ -22,6 +22,17 @@ Events can also be specified using JavaScript notation:
 To clear an event previously defined just set it to a blank string, as below:
 	application.versionEvent = "";
 
+The equivalent statement in a Ruby would look something like below. In this statement we specify a callback function called versionEvent_callback. Note that in Ruby we do not have to specify a parameter. The event parameters are referenced using the @params hash tag.
+	def object_init
+		Application.versionEvent=url_for(:action => :versionEvent_callback)
+	end
+	
+	def versionEvent_callback
+		eParams = @params
+		WebView.execute_js("displayMessage('Product Version : " + eParams['productVersion'] + "');")
+	end
+	
+	
 ##Event Parameters
 Most events have parameters associated with them and these are detailed alongside the event in this help documentation.  E.g. the VersionEvent has the following parameters:
 <table class="re-table">
@@ -87,6 +98,19 @@ will call the function 'doVersion' as follows:
 	}
 
 note that string parameters are declared as '%number' and JS arrays are declared as %number (without quotes).
+
+###@params Object:
+To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" => "parameter1 value", "parameter2 name" => "parameter2 value", ...}
+	def object_init
+		Application.versionEvent=url_for(:action => :versionEvent_callback)
+	end
+	
+	def versionEvent_callback
+		eParams = @params
+		sproductVersion = eParams['productVersion']
+		shotFixes = eParams['hotFixes']
+		#do something
+	end
 
 
 ##JSON Overview in RhoElements

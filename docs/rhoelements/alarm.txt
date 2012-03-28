@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'alarm'</b> will exist on the current page a
 To Invoke alarm methods via JavaScript use the following syntax: alarm.method();
 <P />e.g. <b>alarm</b>.clear();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set alarm parameters via JavaScript use the following syntax: alarm.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set alarm parameters via JavaScript use the following syntax: alarm.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>alarm</b>.interval = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set alarm return events via JavaScript use the following syntax: alarm.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>alarm</b>.setEMML("interval:<i>value</i>;alarmTriggered:url('JavaScript:
 By default the Ruby Object <b>'Alarm'</b> will exist on the current page and can be used to interact directly with the Alarm. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Alarm'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Alarm methods via Ruby use the following syntax: Alarm.method()
 <P />e.g. <b>Alarm</b>.clear</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Alarm parameters via Ruby use the following syntax: Alarm.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Alarm parameters via Ruby use the following syntax: Alarm.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Alarm</b>.interval = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Alarm return events via Ruby use the following syntax: Alarm.event = url_for(:action =&gt; :event_callback) 

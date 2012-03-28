@@ -11,7 +11,7 @@ The BottomCommandArea Module is used to set the parameters of the Bottom Command
 <table class="re-table"><tr><th class="tableHeading">BottomCommandArea JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'bottomCommandArea'</b> will exist on the current page and can be used to interact directly with the bottomCommandArea.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set bottomCommandArea parameters via JavaScript use the following syntax: bottomcommandarea.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set bottomCommandArea parameters via JavaScript use the following syntax: bottomcommandarea.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>bottomCommandArea</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: bottomcommandarea.setEMML("[Your EMML Tags]");
@@ -21,7 +21,7 @@ e.g. <b>bottomCommandArea</b>.setEMML("visibility:<i>value</i>");
 
 <table class="re-table"><tr><th class="tableHeading">BottomCommandArea Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the Ruby Object <b>'Bottomcommandarea'</b> will exist on the current page and can be used to interact directly with the Bottomcommandarea. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Bottomcommandarea'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Bottomcommandarea parameters via Ruby use the following syntax: Bottomcommandarea.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Bottomcommandarea parameters via Ruby use the following syntax: Bottomcommandarea.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Bottomcommandarea</b>.visibility = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 

@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'history'</b> will exist on the current page
 To Invoke history methods via JavaScript use the following syntax: history.method();
 <P />e.g. <b>history</b>.back();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set history parameters via JavaScript use the following syntax: history.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set history parameters via JavaScript use the following syntax: history.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>history</b>.back = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: history.setEMML("[Your EMML Tags]");
@@ -26,7 +26,7 @@ e.g. <b>history</b>.setEMML("back:<i>value</i>back");
 By default the Ruby Object <b>'History'</b> will exist on the current page and can be used to interact directly with the History. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'History'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke History methods via Ruby use the following syntax: History.method()
 <P />e.g. <b>History</b>.back</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set History parameters via Ruby use the following syntax: History.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set History parameters via Ruby use the following syntax: History.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>History</b>.back = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 

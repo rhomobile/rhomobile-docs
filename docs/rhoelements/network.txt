@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'network'</b> will exist on the current page
 To Invoke network methods via JavaScript use the following syntax: network.method();
 <P />e.g. <b>network</b>.start();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set network parameters via JavaScript use the following syntax: network.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set network parameters via JavaScript use the following syntax: network.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>network</b>.host = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set network return events via JavaScript use the following syntax: network.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>network</b>.setEMML("host:<i>value</i>;networkEvent:url('JavaScript:doFu
 By default the Ruby Object <b>'Network'</b> will exist on the current page and can be used to interact directly with the Network. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Network'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Network methods via Ruby use the following syntax: Network.method()
 <P />e.g. <b>Network</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Network parameters via Ruby use the following syntax: Network.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Network parameters via Ruby use the following syntax: Network.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Network</b>.host = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Network return events via Ruby use the following syntax: Network.event = url_for(:action =&gt; :event_callback) 

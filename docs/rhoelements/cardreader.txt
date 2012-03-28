@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'cardReader'</b> will exist on the current p
 To Invoke cardReader methods via JavaScript use the following syntax: cardreader.method();
 <P />e.g. <b>cardReader</b>.open();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set cardReader parameters via JavaScript use the following syntax: cardreader.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set cardReader parameters via JavaScript use the following syntax: cardreader.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>cardReader</b>.pinTimeout = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set cardReader return events via JavaScript use the following syntax: cardreader.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>cardReader</b>.setEMML("pinTimeout:<i>value</i>;readEvent:url('JavaScrip
 By default the Ruby Object <b>'Cardreader'</b> will exist on the current page and can be used to interact directly with the Cardreader. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Cardreader'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Cardreader methods via Ruby use the following syntax: Cardreader.method()
 <P />e.g. <b>Cardreader</b>.open</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Cardreader parameters via Ruby use the following syntax: Cardreader.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Cardreader parameters via Ruby use the following syntax: Cardreader.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Cardreader</b>.pinTimeout = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Cardreader return events via Ruby use the following syntax: Cardreader.event = url_for(:action =&gt; :event_callback) 

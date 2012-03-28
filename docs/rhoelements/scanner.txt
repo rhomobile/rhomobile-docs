@@ -14,7 +14,7 @@ By default the JavaScript Object <b>'scanner'</b> will exist on the current page
 To Invoke scanner methods via JavaScript use the following syntax: scanner.method();
 <P />e.g. <b>scanner</b>.enumerate();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set scanner parameters via JavaScript use the following syntax: scanner.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in JavaScript, e.g. start-X is called as startX.
+To Set scanner parameters via JavaScript use the following syntax: scanner.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>scanner</b>.enabled = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set scanner return events via JavaScript use the following syntax: scanner.event = Javascript Function;
@@ -31,7 +31,7 @@ e.g. <b>scanner</b>.setEMML("enabled:<i>value</i>;decodeEvent:url('JavaScript:do
 By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Scanner. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Scanner'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Scanner methods via Ruby use the following syntax: Scanner.method()
 <P />e.g. <b>Scanner</b>.enumerate</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Scanner parameters via Ruby use the following syntax: Scanner.parameter = 'value' remembering to enclose your value in quotes where appropriate.  Parameters containing a hyphen, '-', should have that hyphen removed when used in Ruby, e.g. start-X is called as startX.
+To Set Scanner parameters via Ruby use the following syntax: Scanner.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Scanner</b>.enabled = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
 To Set Scanner return events via Ruby use the following syntax: Scanner.event = url_for(:action =&gt; :event_callback) 
