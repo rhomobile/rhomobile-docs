@@ -251,10 +251,10 @@ For example:
 
 ## Testing Sync from the Client
 
-Make sure you are running redis.
+Make sure you are running redis. From the folder in which you app is located, run this command.
 
 	:::term
-	rake redis:start
+	$ rake redis:start
 	
 Then start (or restart) your server:
 	
@@ -265,9 +265,11 @@ Then start (or restart) your server:
 
 The code for the source adapter loads when the server starts. If you have a syntax error in your Ruby code, it will be reported and the server will not start; however, if you have a runtime error, that will not be reported until the source adapter is called.
 
-Make sure your server URL is configured in the Rhodes app. If your server is running on localhost with the default port, the following line should be at the bottom of your corresponding Rhodes app, storemanager/rhoconfig.txt:
+Make sure your server URL is configured in the Rhodes app. If your server is running on YourIPAddress with the port 9292, the following line should be at the bottom of your corresponding Rhodes app, storemanager/rhoconfig.txt:
 
-	syncserver = 'http://localhost:9292/application'
+	syncserver = 'http://YourIPAddress:9292/application'
+
+**NOTE: If you are using Android, syncserver cannot be set to localhost.**
 
 Enable sync in your corresponding Rhodes app, storemanager/app/Product/product.rb model:
 
