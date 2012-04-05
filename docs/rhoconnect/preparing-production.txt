@@ -36,6 +36,16 @@ Then plug this secret into your `config.ru`:
 	:::ruby
 	Rhoconnect::Server.set     :secret, '040a2355475e9d0fb591ef78d5b9ca61a34cbcfd3f11942b18bc1d91f1ca66c27b2e0386333843a7efa29f40fff03624cd908d0883364ffbfa3208ab23fa2664'
 
+
+In RhoConnect version 3.2.x has been introduced the following settings to manage communication with back-end servers asynchronously using EventMachine and Fibers API:   
+
+    :::ruby
+    Rhoconnect::Server.set     :use_async_model, false # true by default
+    Rhoconnect::Server.set     :fiberpool_size, 50     # default is 100
+
+By default asynchronous mode is enabled with fiber pool size of 100 and might greatly improve performance with slow back-ends. Above settings should be used only with Ruby 1.9.
+For other rubies they are ignored.
+ 
 To run RhoConnect in production mode, use `RACK_ENV` environment variable set to "production".  This ensures RhoConnect will use the `:production` section of the settings.  For example:
 
 	:::term
