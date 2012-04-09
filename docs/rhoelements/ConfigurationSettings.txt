@@ -1,6 +1,6 @@
 #RhoElements Config.XML</title>
 
-Configuration of RhoElements is managed through an XML file.  Not every setting has a default so if the configuration file cannot be found, RhoElements will <b>not</b> start; an example configuration file is provided as part of the installation and will contain sensible defaults, this page explains the meanings of each of the settings and their possible values.
+Configuration of RhoElements Hybrid Applications are managed through an XML file.  Not every setting has a default so if the configuration file cannot be found, RhoElements will <b>not</b> start; an example configuration file is provided as part of the installation and will contain sensible defaults, this page explains the meanings of each of the settings and their possible values.
 
 ##Configuration File Location
 
