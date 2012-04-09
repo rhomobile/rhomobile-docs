@@ -92,6 +92,7 @@ section 'rhoelements-gettingstarted', 'Version 2 Beta' do
 end
 
 section 'rhoelements-devref', 'Developer Reference' do
+  topic 'rhoelements/configurationsettings', 'Config.xml'
   topic 'rhoelements/developersreference#barcode-capture', 'Barcode Capture'
   topic 'rhoelements/developersreference#card-reader','Card Reader'
   topic 'rhoelements/developersreference#comm-port','Comm Port'
