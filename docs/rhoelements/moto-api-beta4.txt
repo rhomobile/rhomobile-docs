@@ -28,6 +28,37 @@ To run a RhoElements application on an ET1 device:
 
     0x05E0
 
+## Licensing
+
+The following features require Motorola RhoElements v2 license:
+
+* [Motorola Capabilities](/rhoelements/moto-api-beta4#build)
+* [Motorola WebKit](/rhoelements/moto-api-beta4#motorola-webkit-browser)
+* [Motorola Barcode extension](/rhoelements/moto-api-beta4#barcode-api), [Barcode extension](/rhodes/device-caps#barcode)
+* [NFC extension](/rhodes/device-caps#nfc)
+* [Database Encryption](/rhodes/rhom#database-encryption)
+* [Inline Signature Capture](/rhodes/device-caps#signature-capture)
+
+### License for Motorola devices(Windows Mobile, Windows CE and Android ET1)
+
+When application started on Motorola device, License screen is displayed with the following options:
+
+* Scan Company Name barcode, Scan License barcode
+* Enter Company name and License number manually
+* License device via Internet.
+
+Both type of Motorola RhoElements v2 licenses can be used in this case: device(with particular device UUID) and deployment(without link to particular device UUID).
+
+After valid license is provided, device become 'Licensed'. Next time application started License screen will be displayed for short period with 'Device is Licensed.' message.
+
+### License for non-Motorola devices
+Deployment License information should be provided at application build time in build.yml:
+
+    motorola_licence_company: 'Deployment License Company name'
+    motorola_licence: 'Deployment License Number'
+
+When application started, license is checked for validity. If license is invalid, application will exit.
+
 ## Barcode API
 
 Get a list of scanners present on the device. Returns an array of hashes ('name','id').
