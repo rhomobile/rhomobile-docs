@@ -12,7 +12,7 @@ The following example shows the battery indicator:
 		battery.color = '#000000';
 		battery.visibility = 'visible';
 	}
-<img src="/images/indicators/battery_left.png">
+<img src="/images/indicators/battery_left.PNG">
 
 The following example shows the wireless signal indicator:
 	function doSignalLayoutLeft()
@@ -21,7 +21,7 @@ The following example shows the wireless signal indicator:
 		signal.color = '#FF0000';
 		signal.visibility = 'visible';
 	}
-<img src="/images/indicators/signal_left.png">
+<img src="/images/indicators/signal_left.PNG">
 
 ##Layout:Right
 The following example shows the battery indicator:
@@ -31,7 +31,7 @@ The following example shows the battery indicator:
 		battery.color = '#000000';
 		battery.visibility = 'visible';
 	}
-<img src="/images/indicators/battery_right.png">
+<img src="/images/indicators/battery_right.PNG">
 
 The following example shows the wireless signal indicator:
 	function doSignalLayoutRight()
@@ -40,7 +40,7 @@ The following example shows the wireless signal indicator:
 		signal.color = '#FF0000';
 		signal.visibility = 'visible';
 	}
-<img src="/images/indicators/signal_right.png">
+<img src="/images/indicators/signal_right.PNG">
 
 ##Layout:Up
 The following example shows the battery indicator:
@@ -50,7 +50,7 @@ The following example shows the battery indicator:
 		battery.color = '#000000';
 		battery.visibility = 'visible';
 	}
-<img src="/images/indicators/battery_top.png">
+<img src="/images/indicators/battery_top.PNG">
 
 The following example shows the wireless signal indicator:
 	function doSignalLayoutTop()
@@ -59,7 +59,7 @@ The following example shows the wireless signal indicator:
 		signal.color = '#FF0000';
 		signal.visibility = 'visible';
 	}
-<img src="/images/indicators/signal_top.png">
+<img src="/images/indicators/signal_top.PNG">
 	
 ##Layout:Down
 The following example shows the battery indicator:
@@ -69,7 +69,7 @@ The following example shows the battery indicator:
 		battery.color = '#000000';
 		battery.visibility = 'visible';
 	}
-<img src="/images/indicators/battery_bottom.png">
+<img src="/images/indicators/battery_bottom.PNG">
 
 The following example shows the wireless signal indicator:
 	function doSignalLayoutBottom()
@@ -78,5 +78,5 @@ The following example shows the wireless signal indicator:
 		signal.color = '#FF0000';
 		signal.visibility = 'visible';
 	}
-<img src="/images/indicators/signal_bottom.png">
+<img src="/images/indicators/signal_bottom.PNG">
 	
