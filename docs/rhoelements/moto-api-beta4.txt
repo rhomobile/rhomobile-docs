@@ -54,8 +54,8 @@ After valid license is provided, device become 'Licensed'. Next time application
 ### License for non-Motorola devices
 Deployment License information should be provided at application build time in build.yml:
 
-    motorola_licence_company: 'Deployment License Company name'
-    motorola_licence: 'Deployment License Number'
+    motorola_license_company: 'Deployment License Company name'
+    motorola_license: 'Deployment License Number'
 
 When application started, license is checked for validity. If license is invalid, application will exit.
 
