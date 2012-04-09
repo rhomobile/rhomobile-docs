@@ -20,9 +20,9 @@ e.g. <b>addressBar</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">AddressBar Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Addressbar'</b> will exist on the current page and can be used to interact directly with the Addressbar. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Addressbar'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Addressbar parameters via Ruby use the following syntax: Addressbar.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Addressbar</b>.left = 'value'
+By default the Ruby Object <b>'AddressBar'</b> will exist on the current page and can be used to interact directly with the AddressBar. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'AddressBar'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set AddressBar parameters via Ruby use the following syntax: AddressBar.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>AddressBar</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

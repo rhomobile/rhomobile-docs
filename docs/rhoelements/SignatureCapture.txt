@@ -28,14 +28,14 @@ e.g. <b>signatureCapture</b>.setEMML("visibility:<i>value</i>;signatureSaveEvent
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">SignatureCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Signaturecapture'</b> will exist on the current page and can be used to interact directly with the Signaturecapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Signaturecapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Invoke Signaturecapture methods via Ruby use the following syntax: Signaturecapture.method()
-<P />e.g. <b>Signaturecapture</b>.clear</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Signaturecapture parameters via Ruby use the following syntax: Signaturecapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Signaturecapture</b>.visibility = 'value'
+By default the Ruby Object <b>'SignatureCapture'</b> will exist on the current page and can be used to interact directly with the SignatureCapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'SignatureCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke SignatureCapture methods via Ruby use the following syntax: SignatureCapture.method()
+<P />e.g. <b>SignatureCapture</b>.clear</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set SignatureCapture parameters via Ruby use the following syntax: SignatureCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>SignatureCapture</b>.visibility = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set Signaturecapture return events via Ruby use the following syntax: Signaturecapture.event = url_for(:action =&gt; :event_callback) 
-<P />e.g. <b>Signaturecapture</b>.signatureSaveEvent = url_for(:action =&gt; :signaturecapture_event_callback)
+To Set SignatureCapture return events via Ruby use the following syntax: SignatureCapture.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>SignatureCapture</b>.signatureSaveEvent = url_for(:action =&gt; :signaturecapture_event_callback)
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>

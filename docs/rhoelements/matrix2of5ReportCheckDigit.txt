@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set matrix2of5reportCheckDigit parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.matrix2of5reportCheckDigit = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Matrix2of5reportcheckdigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Matrix2of5reportcheckdigit.
+<table class="re-table"><tr><th class="tableHeading">Matrix2of5reportCheckDigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Matrix2of5reportCheckDigit.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Matrix2of5reportcheckdigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set Matrix2of5reportCheckDigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.matrix2of5reportCheckDigit = Value
 </td></tr></table>
 

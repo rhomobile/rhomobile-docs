@@ -20,9 +20,9 @@ e.g. <b>sipButton</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">SipButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Sipbutton'</b> will exist on the current page and can be used to interact directly with the Sipbutton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Sipbutton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Sipbutton parameters via Ruby use the following syntax: Sipbutton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Sipbutton</b>.left = 'value'
+By default the Ruby Object <b>'SipButton'</b> will exist on the current page and can be used to interact directly with the SipButton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'SipButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set SipButton parameters via Ruby use the following syntax: SipButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>SipButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

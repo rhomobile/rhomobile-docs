@@ -28,14 +28,14 @@ e.g. <b>screenOrientation</b>.setEMML("autoRotate:<i>value</i>;screenOrientation
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">ScreenOrientation Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Screenorientation'</b> will exist on the current page and can be used to interact directly with the Screenorientation. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Screenorientation'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Invoke Screenorientation methods via Ruby use the following syntax: Screenorientation.method()
-<P />e.g. <b>Screenorientation</b>.normal</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Screenorientation parameters via Ruby use the following syntax: Screenorientation.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Screenorientation</b>.autoRotate = 'value'
+By default the Ruby Object <b>'ScreenOrientation'</b> will exist on the current page and can be used to interact directly with the ScreenOrientation. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'ScreenOrientation'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke ScreenOrientation methods via Ruby use the following syntax: ScreenOrientation.method()
+<P />e.g. <b>ScreenOrientation</b>.normal</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set ScreenOrientation parameters via Ruby use the following syntax: ScreenOrientation.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>ScreenOrientation</b>.autoRotate = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set Screenorientation return events via Ruby use the following syntax: Screenorientation.event = url_for(:action =&gt; :event_callback) 
-<P />e.g. <b>Screenorientation</b>.screenOrientationEvent = url_for(:action =&gt; :screenorientation_event_callback)
+To Set ScreenOrientation return events via Ruby use the following syntax: ScreenOrientation.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>ScreenOrientation</b>.screenOrientationEvent = url_for(:action =&gt; :screenorientation_event_callback)
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>

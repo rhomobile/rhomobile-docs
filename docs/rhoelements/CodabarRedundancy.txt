@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set codabarRedundancy parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.codabarRedundancy = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Codabarredundancy Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Codabarredundancy.
+<table class="re-table"><tr><th class="tableHeading">CodabarRedundancy Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the CodabarRedundancy.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Codabarredundancy parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set CodabarRedundancy parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.codabarRedundancy = Value
 </td></tr></table>
 

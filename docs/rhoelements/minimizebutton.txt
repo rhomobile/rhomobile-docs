@@ -20,9 +20,9 @@ e.g. <b>minimizeButton</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">MinimizeButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Minimizebutton'</b> will exist on the current page and can be used to interact directly with the Minimizebutton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Minimizebutton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Minimizebutton parameters via Ruby use the following syntax: Minimizebutton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Minimizebutton</b>.left = 'value'
+By default the Ruby Object <b>'MinimizeButton'</b> will exist on the current page and can be used to interact directly with the MinimizeButton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'MinimizeButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set MinimizeButton parameters via Ruby use the following syntax: MinimizeButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>MinimizeButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set usPostNetreportCheckDigit parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.usPostNetreportCheckDigit = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Uspostnetreportcheckdigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Uspostnetreportcheckdigit.
+<table class="re-table"><tr><th class="tableHeading">UsPostNetreportCheckDigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the UsPostNetreportCheckDigit.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Uspostnetreportcheckdigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set UsPostNetreportCheckDigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.usPostNetreportCheckDigit = Value
 </td></tr></table>
 

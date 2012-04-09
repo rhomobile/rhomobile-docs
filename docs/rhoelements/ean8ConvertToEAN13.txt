@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set ean8convertToEan13 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.ean8convertToEan13 = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Ean8converttoean13 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Ean8converttoean13.
+<table class="re-table"><tr><th class="tableHeading">Ean8convertToEan13 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Ean8convertToEan13.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Ean8converttoean13 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set Ean8convertToEan13 parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.ean8convertToEan13 = Value
 </td></tr></table>
 

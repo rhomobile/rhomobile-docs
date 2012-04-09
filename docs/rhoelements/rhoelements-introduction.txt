@@ -1,0 +1,37 @@
+# RhoElements 2.0 Overview
+
+RhoElements Version 2.0 provides Rhodes with an extended set of enterprise-focused device capabilities and the ability to do all device capabilities with both HTML tags (EMML tags and more) and JavaScript calls. It also supports the ability for a Rhodes app to generate a mobile web app, accessed by mobile web browsers, including device clients written with RhoElements V2 itself. 
+
+RhoElements 2.0 also allows you to create applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, deploy the application on the mobile device.
+
+## Understanding RhoElements 2.0 Native Applications
+
+RhoElements 2.0 native applications are written using HTML, CSS and JavaScript, and the Rhodes-style Ruby framework for the application logic. Like a Rhodes app, you deploy and run a RhoElements 2.0 native application on the mobile device. As with all RhoElements applications, native applications are platform agnostic.
+
+[Go here to start a RhoElements Native application.](/rhoelements/moto-api-beta4)
+
+### Native Application Development and Distribution
+
+To develop a RhoElements Native application, you use RhoStudio, as you would for a Rhodes app. And as with a Rhodes app, RhoElements native applications are built and deployed to a mobile device via a CAB file (Windows Mobile or Windows CE), APK file (Android), or whatever file the mobile platform uses.
+
+### Using Native Applications over Hybrid Applications
+
+You may decide to create RhoElements native apps over hybrid apps when the network reliability is undetermined. An example might be a despatch driver who will need to collect data and process information even when there is no Wi-Fi or cellular data network available. Other uses cases might be where it is unacceptable for a network delivered page to fail to be delivered or if significant business logic should be processed on the device.
+
+## Understanding RhoElements 2.0 Hybrid Applications
+
+RhoElements 2.0 hybrid applications are written purely with HTML, CSS, and either JavaScript or Ruby. They may include some form of server logic (local or remote). These hybrid apps have their application logic on the backend web application, whereas native apps have the application logic on the device itself. The hybrid apps perform device capabilities with both HTML tags (EMML tags and more), and either JavaScript calls or Ruby calls.
+
+[Go here to start a RhoElements Hybrid application.](/rhoelements/developersreference)
+
+### Hybrid Application Development and Distribution
+
+To develop a RhoElements Hybrid application, use a web development environment, such as Eclipse or Visual Studio. You install the RhoElements 2 Runtime on your mobile device; the runtime is a precompiled RhoElements native application written by Motorola Solutions. This application is responsible for reading your application's config.xml and directing the view to the URL specified as the "Start Page" in your application's config.xml.
+
+**NOTE: This RhoElements 2.0 hybrid application works in the same way and will be 100% backwards compatible with RhoElements 1.**
+
+Hybrid applications are distributed to the client in a mostly thin client nature, that is to say that RhoElements will be pointed to a URL and the logic and content of the application will be delivered in the same way that any website would be delivered to the client.
+
+### Using Hybrid Applications over Native Applications
+
+Primarily, hybrid apps operate in a mostly web-connected environment. These apps can be compared to RhoElements 1, PocketBrowser applications. These applications can easily be modified and distributed to the user each time they are accessed: a hybrid app lets you change and update app functionality on the web, without pushing out an update to the mobile device (as is the case with native apps). 

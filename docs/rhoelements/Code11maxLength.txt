@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set code11maxLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code11maxLength = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Code11maxlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code11maxlength.
+<table class="re-table"><tr><th class="tableHeading">Code11maxLength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code11maxLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Code11maxlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set Code11maxLength parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.code11maxLength = Value
 </td></tr></table>
 

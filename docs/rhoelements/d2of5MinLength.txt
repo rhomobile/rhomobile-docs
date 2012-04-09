@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set d2of5minLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.d2of5minLength = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">D2of5minlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the D2of5minlength.
+<table class="re-table"><tr><th class="tableHeading">D2of5minLength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the D2of5minLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set D2of5minlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set D2of5minLength parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.d2of5minLength = Value
 </td></tr></table>
 
