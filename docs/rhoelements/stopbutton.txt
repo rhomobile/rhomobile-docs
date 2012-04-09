@@ -20,9 +20,9 @@ e.g. <b>stopButton</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">StopButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Stopbutton'</b> will exist on the current page and can be used to interact directly with the Stopbutton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Stopbutton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Stopbutton parameters via Ruby use the following syntax: Stopbutton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Stopbutton</b>.left = 'value'
+By default the Ruby Object <b>'StopButton'</b> will exist on the current page and can be used to interact directly with the StopButton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'StopButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set StopButton parameters via Ruby use the following syntax: StopButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>StopButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 

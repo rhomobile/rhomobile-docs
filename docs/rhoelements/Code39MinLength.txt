@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set code39minLength parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code39minLength = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Code39minlength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code39minlength.
+<table class="re-table"><tr><th class="tableHeading">Code39minLength Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code39minLength.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Code39minlength parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set Code39minLength parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.code39minLength = Value
 </td></tr></table>
 

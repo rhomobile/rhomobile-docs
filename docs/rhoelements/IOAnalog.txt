@@ -28,14 +28,14 @@ e.g. <b>ioAnalog</b>.setEMML("generalVoltage1:<i>value</i>;portEvent:url('JavaSc
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">IoAnalog Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Ioanalog'</b> will exist on the current page and can be used to interact directly with the Ioanalog. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Ioanalog'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Invoke Ioanalog methods via Ruby use the following syntax: Ioanalog.method()
-<P />e.g. <b>Ioanalog</b>.invokeGeneralVoltage1</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set Ioanalog parameters via Ruby use the following syntax: Ioanalog.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Ioanalog</b>.generalVoltage1 = 'value'
+By default the Ruby Object <b>'IoAnalog'</b> will exist on the current page and can be used to interact directly with the IoAnalog. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'IoAnalog'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Invoke IoAnalog methods via Ruby use the following syntax: IoAnalog.method()
+<P />e.g. <b>IoAnalog</b>.invokeGeneralVoltage1</td></tr><tr><td class="clsSyntaxCells clsOddRow">
+To Set IoAnalog parameters via Ruby use the following syntax: IoAnalog.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>IoAnalog</b>.generalVoltage1 = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set Ioanalog return events via Ruby use the following syntax: Ioanalog.event = url_for(:action =&gt; :event_callback) 
-<P />e.g. <b>Ioanalog</b>.portEvent = url_for(:action =&gt; :ioanalog_event_callback)
+To Set IoAnalog return events via Ruby use the following syntax: IoAnalog.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>IoAnalog</b>.portEvent = url_for(:action =&gt; :ioanalog_event_callback)
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>

@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set code11reportCheckDigit parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code11reportCheckDigit = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Code11reportcheckdigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code11reportcheckdigit.
+<table class="re-table"><tr><th class="tableHeading">Code11reportCheckDigit Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Code11reportCheckDigit.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Code11reportcheckdigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set Code11reportCheckDigit parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.code11reportCheckDigit = Value
 </td></tr></table>
 

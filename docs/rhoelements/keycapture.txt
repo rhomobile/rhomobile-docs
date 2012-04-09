@@ -25,12 +25,12 @@ e.g. <b>keyCapture</b>.setEMML("dispatch:<i>value</i>;keyEvent:url('JavaScript:d
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">KeyCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Keycapture'</b> will exist on the current page and can be used to interact directly with the Keycapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Keycapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Keycapture parameters via Ruby use the following syntax: Keycapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>Keycapture</b>.dispatch = 'value'
+By default the Ruby Object <b>'KeyCapture'</b> will exist on the current page and can be used to interact directly with the KeyCapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'KeyCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set KeyCapture parameters via Ruby use the following syntax: KeyCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+<P />e.g. <b>KeyCapture</b>.dispatch = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">						
-To Set Keycapture return events via Ruby use the following syntax: Keycapture.event = url_for(:action =&gt; :event_callback) 
-<P />e.g. <b>Keycapture</b>.keyEvent = url_for(:action =&gt; :keycapture_event_callback)
+To Set KeyCapture return events via Ruby use the following syntax: KeyCapture.event = url_for(:action =&gt; :event_callback) 
+<P />e.g. <b>KeyCapture</b>.keyEvent = url_for(:action =&gt; :keycapture_event_callback)
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>

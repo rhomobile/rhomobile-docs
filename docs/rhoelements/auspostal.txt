@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set ausPostal parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.ausPostal = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Auspostal Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Auspostal.
+<table class="re-table"><tr><th class="tableHeading">AusPostal Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the AusPostal.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Auspostal parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set AusPostal parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.ausPostal = Value
 </td></tr></table>
 

@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set upcEanSupplemental2 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.upcEanSupplemental2 = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Upceansupplemental2 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Upceansupplemental2.
+<table class="re-table"><tr><th class="tableHeading">UpcEanSupplemental2 Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the UpcEanSupplemental2.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Upceansupplemental2 parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set UpcEanSupplemental2 parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.upcEanSupplemental2 = Value
 </td></tr></table>
 

@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set upcEanSupplementalMode parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.upcEanSupplementalMode = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Upceansupplementalmode Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Upceansupplementalmode.
+<table class="re-table"><tr><th class="tableHeading">UpcEanSupplementalMode Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the UpcEanSupplementalMode.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Upceansupplementalmode parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set UpcEanSupplementalMode parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.upcEanSupplementalMode = Value
 </td></tr></table>
 

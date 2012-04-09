@@ -14,10 +14,10 @@ XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current
 To Set macroMicroPdfReportAppendInfo parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.macroMicroPdfReportAppendInfo = Value;
 </td></tr></table>
-<table class="re-table"><tr><th class="tableHeading">Macromicropdfreportappendinfo Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the Macromicropdfreportappendinfo.
+<table class="re-table"><tr><th class="tableHeading">MacroMicroPdfReportAppendInfo Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the MacroMicroPdfReportAppendInfo.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Set Macromicropdfreportappendinfo parameters via Ruby use the following syntax: Scanner.Parameter = Value
+To Set MacroMicroPdfReportAppendInfo parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.macroMicroPdfReportAppendInfo = Value
 </td></tr></table>
 
