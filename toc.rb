@@ -89,6 +89,8 @@ section 'rhoelements', 'RhoElements'
 
 section 'rhoelements-gettingstarted', 'Version 2 Beta' do
   topic 'rhoelements/moto-api-beta4', 'RE2 beta 4'
+  topic 'rhoelements/rhoelements-introduction', 'RhoElements 2 Overview'
+  topic 'rhoelements/rhoelements2-native-hybrid', 'RhoElements 2 Native and Hybrid'
 end
 
 section 'rhoelements-devref', 'Developer Reference' do
@@ -109,6 +111,14 @@ section 'rhoelements-devref', 'Developer Reference' do
   topic 'rhoelements/developersreference#preesisting-js-objects','Preexisting JS Objects'
   topic 'rhoelements/developersreference#push','Push'
   topic 'rhoelements/developersreference#signature-capture','Signature Capture'
+end
+
+section 'rhoelements-apd', 'Motorola Adaptive Printer Driver (APD)' do
+  topic 'rhoelements/apd-overview', 'APD Overview'
+  topic 'rhoelements/apd-printer-type-codes', 'APD Printer Type Codes'
+  topic 'rhoelements/apd-programmers-manual','APD Programmers Manual'
+  topic 'rhoelements/apd-printer-demo-user-notes','APD Printer Demo User Notes'
+  topic 'rhoelements/apd-release-notes','APD Release Notes'
 end
 
 section 'rhoconnect', 'RhoConnect'
