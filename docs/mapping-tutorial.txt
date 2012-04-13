@@ -14,7 +14,7 @@ The source code for this example is located here.
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](/rhodes/tutorial)
+ * [RhoStudio Tutorial](/rhostudio.tutorial)
  * [RhoConnect Tutorial](/rhoconnect/tutorial)
  * [Webinar Video](http://vimeo.com/12301104)
 

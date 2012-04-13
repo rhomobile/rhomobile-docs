@@ -14,7 +14,7 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](/rhodes/tutorial)
+ * [RhoStudio Tutorial](/rhostudio.tutorial)
  * [iPad development](http://developer.apple.com/ipad/sdk/)
 
 ## Setup

@@ -93,12 +93,12 @@ Once redirected to the admin console of your rhoconnect instance, you will need 
 From here you can enter a url to your backend service.  Enter a url ex: http://myrailsapp.com, and click add to save the url.
 <p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/Rhosync+Console_1307489736659.png' /></p>
 
-Rhoconnect is now setup with your backend service.  You are now ready to create a rhodes app using the [Rhodes framework](http://docs.rhomobile.com/rhodes/tutorial) or synchronize existing clients using [rhoconnect.js](https://github.com/rhomobile/rhoconnect.js)
+Rhoconnect is now setup with your backend service.  You are now ready to create a rhodes app using the [Rhodes framework with RhoStudio](http://docs.rhomobile.com/rhostudio.tutorial) or synchronize existing clients using [rhoconnect.js](https://github.com/rhomobile/rhoconnect.js)
 Further Reading
 ----
-[RhoConnect Introduction](http://docs.rhomobile.com/rhosync/introduction)
+[RhoConnect Introduction](http://docs.rhomobile.com/rhoconnect/introduction)
 
-[RhoConnect Installation](http://docs.rhomobile.com/rhosync/install)
+[RhoConnect Installation](http://docs.rhomobile.com/rhoconnect/install)
 
-[RhoConnect Tutorial](http://docs.rhomobile.com/rhosync/tutorial)
+[RhoConnect Tutorial](http://docs.rhomobile.com/rhoconnect/tutorial)
 

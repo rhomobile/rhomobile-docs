@@ -2,8 +2,6 @@ Using Google API with Rhodes and RhoSync
 ========
 This tutorial will guide you through using Google API with RhoHub, RhoSync, and Rhodes to sync with a Google Docs spreadsheet.
 
-**COMMENT: This tutorial has a few questions embedded in it, headed with **QUESTION. As well as reviewing the tutorial in general, please take a look at the questions and comment on them.
-
 Source Code
 -----------
 The source code for this example is located here.
@@ -17,13 +15,13 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](/rhodes/tutorial)
- * [RhoSync Tutorial](/rhosync/tutorial)
+ * [RhoStudio Tutorial](/rhostudio.tutorial)
+ * [RhoConnect Tutorial](/rhoconnect/tutorial)
  * [RhoHub Tutorial](/rhohub/tutorial)
 
 ## Setup
 
-This tutorial assumes that you know how to generate and edit a Rhodes and RhoSync application. It also assumes that you know how to use RhoHub to host an application, and how to use Git with RhoHub to edit your Rhodes and RhoSync applications locally. If you do not know how to do this, see [Pre-requisite Reading]().
+This tutorial assumes that you know how to generate and edit a Rhodes and RhoConnect application. It also assumes that you know how to use RhoHub to host an application, and how to use Git with RhoHub to edit your Rhodes and RhoConnect applications locally. If you do not know how to do this, see [Pre-requisite Reading]().
 
 ## Creating a Project in RhoHub
 
@@ -123,10 +121,6 @@ Check if the entry element is IssueTracker. This ruby code...
 	entry["link"].each do |link|
 
 If the rel attribute of the link is the schema for worksheetsfeed, then we grab the URL that is in its href.
-
-**QUESTION: How do they know that the URL is http://schemas.google.com/spreadsheets/2006#worksheetsfeed; specifically, how do they get the 2006#worksheetsfeed part? I saw the source code listing of the XML in the webinar; I tried creating a spreadsheet in Google Docs on my account and displaying source, but that did not give me the XML. Do users have to display source to show the XML and get the URL from there? HOW DO THEY GET THAT URL? (I know it must be something simple!)
-
-**QUESTION: I felt that the most important thing for this tutorial was to discuss the RhoSync code, IN DEPTH. Is this discussion of the code sufficient for RhoSync programmers to write their own code? To understand this example?
 
 The Ruby code here...
 
@@ -336,8 +330,6 @@ You need to edit the rhoconfig.txt file to point to the RhoSync server that the 
 ## Running an iPhone Example
 
 Running the Rhodes Issue Tracker app in the iPhone simulator can show syncing with the Google Docs spreadsheet.
-
-**QUESTION: I can run the Rhodes project, but I would need the username and password for the IssueTracker RhoSync server on RhoHub, or a little help setting up a local RhoSync server that hooks into an IssueTracker spreadsheet on Google Docs. Below, I grabbed images out of the webinar, I felt I need to get this tutorial out there, and besides, the main point of this tutorial is discussing the query code example. If I need to run this and hook to a working RhoSync ImageTracker, I'll need a little help.
 
 	:::term
 	$ rake run:iphone

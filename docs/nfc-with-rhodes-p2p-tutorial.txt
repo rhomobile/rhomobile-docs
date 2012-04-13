@@ -14,8 +14,8 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](/rhodes/tutorial)
- * [Rhodes Tutorial](/rhodes/install)
+ * [RhoStudio Tutorial](/rhostudio.tutorial)
+ * [Rhodes installation](/rhodes/install)
  * [Rhodes NFC](/rhodes/nfc)
  * [Android SDK](http://developer.android.com/sdk/index.html)
 
