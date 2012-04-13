@@ -1,5 +1,7 @@
 
 #ReloadButton Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The ReloadButton Module is used to set the parameters of the Reload Button. When clicked, the current page is reloaded.</b>
 
@@ -42,20 +44,6 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-##Examples
-
-The following example shows the reload button and sets the left and top coordinates to 50 pixels.
-
-	<META HTTP-Equiv="ReloadButton" Content="Visibility:Visible">
-	<META HTTP-Equiv="ReloadButton" Content="Left:50">
-	<META HTTP-Equiv="ReloadButton" Content="Top:50">
-					
-The following example shows the Reload button and displays the reload_up.gif / reload_down.gif images on it (resizing the images if necessary).
-
-	<META HTTP-Equiv="ReloadButton" Content="ImageUp:url('http://myaddress/reload_up.gif'); ImageDown:url('http://myaddress/reload_down.gif'); Visibility:Visible">
-					
-
-
 
 ##Remarks
 
@@ -80,9 +68,20 @@ All controls are designed to be shown on top of RhoElements. If you require to s
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Examples
+
+The following example shows the reload button and sets the left and top coordinates to 50 pixels.
+
+	<META HTTP-Equiv="ReloadButton" Content="Visibility:Visible">
+	<META HTTP-Equiv="ReloadButton" Content="Left:50">
+	<META HTTP-Equiv="ReloadButton" Content="Top:50">
+					
+The following example shows the Reload button and displays the reload_up.gif / reload_down.gif images on it (resizing the images if necessary).
+
+	<META HTTP-Equiv="ReloadButton" Content="ImageUp:url('http://myaddress/reload_up.gif'); ImageDown:url('http://myaddress/reload_down.gif'); Visibility:Visible">
+					
 
 

@@ -1,5 +1,7 @@
 
 #Registry Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Registry Module is used to write and delete registry settings, and create corresponding merge files.</b>
 
@@ -55,26 +57,6 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-##Examples
-
-The tags below add a registry setting called 'RhoElements' in the 'Software' key of the HKEY_LOCAL_MACHINE hive. The setting is of type 'multisz' and has the values 'hello' and 'world'. The corresponding .reg merge file will be created in the \Application folder.
-
-	        <META HTTP-Equiv="registry" Content="hive:hklm">
-	        <META HTTP-Equiv="registry" Content="key:Software">
-	        <META HTTP-Equiv="registry" Content="setting:RhoElements">
-	        <META HTTP-Equiv="registry" Content="type:multisz">
-	        <META HTTP-Equiv="registry" Content="persistent:true">
-	        <META HTTP-Equiv="registry" Content="value:hello\nworld">
-	      
-The tags below delete the above setting.
-
-	        <META HTTP-Equiv="registry" Content="hive:hklm">
-	        <META HTTP-Equiv="registry" Content="key:Software">
-	        <META HTTP-Equiv="registry" Content="setting:RhoElements">
-	        <META HTTP-Equiv="registry" Content="delete">
-	      
-
-
 
 ##Remarks
 
@@ -95,9 +77,26 @@ When the persistent tag is given the module will write a .reg file to the \Appli
 The Registry module has been deprecated. It is advised to use the SetRegistrySetting/GetRegistrySetting/ReadConfigSetting/WriteConfigSetting methods in the Generic module instead.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Examples
+
+The tags below add a registry setting called 'RhoElements' in the 'Software' key of the HKEY_LOCAL_MACHINE hive. The setting is of type 'multisz' and has the values 'hello' and 'world'. The corresponding .reg merge file will be created in the \Application folder.
+
+	        <META HTTP-Equiv="registry" Content="hive:hklm">
+	        <META HTTP-Equiv="registry" Content="key:Software">
+	        <META HTTP-Equiv="registry" Content="setting:RhoElements">
+	        <META HTTP-Equiv="registry" Content="type:multisz">
+	        <META HTTP-Equiv="registry" Content="persistent:true">
+	        <META HTTP-Equiv="registry" Content="value:hello\nworld">
+	      
+The tags below delete the above setting.
+
+	        <META HTTP-Equiv="registry" Content="hive:hklm">
+	        <META HTTP-Equiv="registry" Content="key:Software">
+	        <META HTTP-Equiv="registry" Content="setting:RhoElements">
+	        <META HTTP-Equiv="registry" Content="delete">
+	      
 
 

@@ -1,5 +1,7 @@
 
 #Device Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Device Module controls device functions.</b>
 
@@ -35,14 +37,6 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 
 
 
-##Examples
-
-The following example put the device into suspend mode:
-
-	<META HTTP-Equiv="Device" Content="Suspend">
-	
-
-
 
 ##Remarks
 
@@ -51,9 +45,14 @@ The following example put the device into suspend mode:
 The Suspend functionality is incompatible with the unattended functionality of the push module and they should not be used together.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Examples
+
+The following example put the device into suspend mode:
+
+	<META HTTP-Equiv="Device" Content="Suspend">
+	
 
 

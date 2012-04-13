@@ -1,5 +1,7 @@
 
 #IoDigital Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The IoDigital Module is used to interface with the device digital input and output ports. The IODigital class provides an interface for two IO subsystems: * Digital Inputs: up to 8 general purpose external input ports that may sense an external short either to the vehicle ground or to the vehicle battery voltage. * Digital Outputs: up to 8 general purpose external output ports (relay drive) that may be controlled to close or release an external short circuit.</b>
 
@@ -98,6 +100,17 @@ See Remarks<table class="re-table"><col width="3%" /><col width="20%" /><col wid
 
 
 
+
+##Remarks
+
+
+###Port Event Scope
+Note that the PortEvent callback is common between IODigital, IOAnalog and IOSystem and the same function will be called when an event occurs on any one of those port types, use the 'type' attribute to determine the source of the port event.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
+
+
 ##Examples
 
 The following example opens digital output ports 1 and 2. PortEvent will be called when the digital input ports 7 or 8 have data.
@@ -120,19 +133,5 @@ The following example opens digital output ports 1 and 2. PortEvent will be call
 	   }
 	</script>
 	
-
-
-
-##Remarks
-
-
-###Port Event Scope
-Note that the PortEvent callback is common between IODigital, IOAnalog and IOSystem and the same function will be called when an event occurs on any one of those port types, use the 'type' attribute to determine the source of the port event.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
 
 

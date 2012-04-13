@@ -1,5 +1,7 @@
 
 #SignatureCapture Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The SignatureCapture Module creates a rectangular box that the user can draw within using the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.</b>
 
@@ -86,6 +88,37 @@ Signature data is formatted into a series of vectors and returned to the applica
 
 
 
+
+##Remarks
+
+
+###Scrolling
+The signature capture area is not compatible with scrolling the browser window.
+
+
+###Parameters which clear the Signature
+The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "Width", "Height", "PenColor", "BGColor".
+
+
+###Common Issues
+The 'Visibility:Visible' parameter must be set in order to display the signature capture area.
+
+
+###Setting up a Transfer to a remote HTTP or FTP location
+Signature Capture is designed to be configured before any transfer is made to a remote location. If the 'Destination' paramter is specified as either HTTP or an FTP location the 'destination' / 'username' / 'password' parameters can not be guaranteed to stay the same after capture() has been called, therefore configure your destination for each capture, as in the above examples.
+
+
+###Format of the Destination URL
+The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/Sig.bmp. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/Upload.aspx. File Example: file://\path\Sig.bmp. Remember to also wrap your URL with url('') when being used as part of a meta tag, as shown in the examples above.
+
+
+###Supported Output File Formats
+All devices support ".bmp" as the default file format for the saved signature. ET1 also supports ".png" format.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of  The signature box and Save / Vector events. These will be cleared during page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr></table>
+
+
 ##Examples
 
 The following META Tag example sets up a yellow rectangular area that has a border with a pen color of burgundy. When the Capture method is invoked via JavaScript the signature will be transferred to a server via HTTP and an alert will inform the user whether or not the transfer succeeded.
@@ -145,39 +178,5 @@ The following example shows signature vectors being displayed in an HTML table
 	  <DIV id="vectorOut">Vectors Will Appear Here:</div>
 	  </BODY>  
 	
-
-
-
-##Remarks
-
-
-###Scrolling
-The signature capture area is not compatible with scrolling the browser window.
-
-
-###Parameters which clear the Signature
-The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "Width", "Height", "PenColor", "BGColor".
-
-
-###Common Issues
-The 'Visibility:Visible' parameter must be set in order to display the signature capture area.
-
-
-###Setting up a Transfer to a remote HTTP or FTP location
-Signature Capture is designed to be configured before any transfer is made to a remote location. If the 'Destination' paramter is specified as either HTTP or an FTP location the 'destination' / 'username' / 'password' parameters can not be guaranteed to stay the same after capture() has been called, therefore configure your destination for each capture, as in the above examples.
-
-
-###Format of the Destination URL
-The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/Sig.bmp. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/Upload.aspx. File Example: file://\path\Sig.bmp. Remember to also wrap your URL with url('') when being used as part of a meta tag, as shown in the examples above.
-
-
-###Supported Output File Formats
-All devices support ".bmp" as the default file format for the saved signature. ET1 also supports ".png" format.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of  The signature box and Save / Vector events. These will be cleared during page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr></table>
 
 

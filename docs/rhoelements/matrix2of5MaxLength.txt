@@ -1,5 +1,7 @@
 
 #Matrix2of5maxLength Decoder Setting
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Matrix2of5maxLength Decoder Setting is used to set the matrix2of5 MaxLength property.</b>
 
@@ -31,6 +33,9 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports matrix2of5.</td></tr></table>
+
+
 ##Examples
 
 The following example enables the scanner to read only matrix2of5 labels with the MaxLength property set to 30:
@@ -49,11 +54,5 @@ or
 	<META HTTP-Equiv="scanner-matrix2of5maxlength" Content="30">
 	<META HTTP-Equiv="scanner-enabled" Content="SCN1">
 	
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports matrix2of5.</td></tr></table>
 
 

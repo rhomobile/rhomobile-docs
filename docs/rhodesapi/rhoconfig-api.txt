@@ -1,4 +1,5 @@
 # Rho::RhoConfig API
+<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 The RhoConfig API allow access to the configuration properties. Refer to [Run time configuration](/rhodes/configuration#run-time-configuration) for a listing of the configuration properties and some code samples.
 

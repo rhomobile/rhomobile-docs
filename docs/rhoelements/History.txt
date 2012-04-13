@@ -1,5 +1,7 @@
 
 #History META Tag
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The History META Tag is an action tag used to navigate forward or backward through the page history.</b>
 
@@ -57,6 +59,17 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+
+##Remarks
+
+
+###Deprecation
+This tag deprecates the history:back URL
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">RhoElements</td></tr></table>
+
+
 ##Examples
 
 The following example navigates back one page when the delete key is pressed (regardless of the Accelerate Key mode)
@@ -70,19 +83,5 @@ The following example navigates back one page when the delete key is pressed (re
 	    }
 	</script>
 	
-
-
-
-##Remarks
-
-
-###Deprecation
-This tag deprecates the history:back URL
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">RhoElements</td></tr></table>
 
 

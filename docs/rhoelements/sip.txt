@@ -1,5 +1,7 @@
 
 #Sip Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the address bar</b>
 
@@ -49,22 +51,6 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-##Examples
-
-The following example moves the SIP to sit at the bottom of a 1/4 VGA screen:
-
-	<META HTTP-Equiv="SIP" Content="Left:0;Top:240">
-	
-To completely disable the use of the SIP it can be positioned off the visible area of the screen.
-
-	<META HTTP-Equiv="SIP" Content="Left:640;Top:640">
-	
-The following example sets the SIP to manual:
-
-	<META HTTP-Equiv="SIP" Content="Manual">
-	
-
-
 
 ##Remarks
 
@@ -85,9 +71,22 @@ Depending on the underlying operating system the SIP position may change followi
 The SIP methods 'Manual' and 'Automatic' have slightly different behaviour when the configuration setting EngineInUse is set to Internet Explorer. Manual: When shown by the SIP Button, will show and hide when text boxes have focus. Automatic: Shows and hides when text boxes have focus. Applying SIP control Automatic will prevent SIP control Manual being applied in the same application. To return to Manual SIP control you can press a hardware key. In Backwards Compatibility mode Manual and Automatic do not apply for Windows CE, only Windows Mobile.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. left and top are not supported by the Enterprise Tablet</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page. Moving the SIP may also persist after RhoElements has been shut down, dependent on Operating System.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Examples
+
+The following example moves the SIP to sit at the bottom of a 1/4 VGA screen:
+
+	<META HTTP-Equiv="SIP" Content="Left:0;Top:240">
+	
+To completely disable the use of the SIP it can be positioned off the visible area of the screen.
+
+	<META HTTP-Equiv="SIP" Content="Left:640;Top:640">
+	
+The following example sets the SIP to manual:
+
+	<META HTTP-Equiv="SIP" Content="Manual">
+	
 
 

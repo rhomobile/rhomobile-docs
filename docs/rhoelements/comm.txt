@@ -1,5 +1,7 @@
 
 #Comm Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Comm Module is used to control the functionality of the devices communication (serial) port; the way RhoElements interacts with that port and the data it provides.</b>
 
@@ -87,6 +89,22 @@ This event is used to read data from the COM port and is triggered in response t
 
 
 
+
+##Remarks
+
+
+###General
+If any of the parameters (e.g. BaudRate) are set whilst the COM port is open they will not take effect until the port is closed and reopened again. The parameters 'Chars', 'EndChar' and 'Time' are mutually exclusive and the last one set will take priority when the COM port is next opened.
+
+
+###AutoEnter and AccelerateKey
+The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a COM port</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is mostly page persistent, however when navigating to a new page the port will be closed and the CommEvent cleared.  You will need to re-register the CommEvent and open the port again on the new page to continue serial port communication.
+			</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">COM Interface.</td></tr></table>
+
+
 ##Examples
 
 The following example opens up the COM1 port using META tags, and instructs the Comm module to call the 'ProcessData' JavaScript function after 250 ms of port inactivity, passing the received data to the function. The port will be closed when RhoElements navigates to a new page.
@@ -162,24 +180,5 @@ The following example sets up the communications port and opens it using JavaScr
 	   </BODY>
 	</HTML>
 					
-
-
-
-##Remarks
-
-
-###General
-If any of the parameters (e.g. BaudRate) are set whilst the COM port is open they will not take effect until the port is closed and reopened again. The parameters 'Chars', 'EndChar' and 'Time' are mutually exclusive and the last one set will take priority when the COM port is next opened.
-
-
-###AutoEnter and AccelerateKey
-The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a COM port</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is mostly page persistent, however when navigating to a new page the port will be closed and the CommEvent cleared.  You will need to re-register the CommEvent and open the port again on the new page to continue serial port communication.
-			</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">COM Interface.</td></tr></table>
 
 

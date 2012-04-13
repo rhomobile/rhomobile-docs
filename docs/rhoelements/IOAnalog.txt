@@ -1,5 +1,7 @@
 
 #IoAnalog Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The IoAnalog Module is used to interface with the device analog input ports. Analog ports provide the ability to read 2 general purpose external analog voltage input ports and an additional 4 internal analog ports, i.e. ambient temperature, heater temperature, battery voltage and battery current.</b>
 
@@ -90,6 +92,9 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 
 
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
+
+
 ##Examples
 
 The following example registers to receive heater temperature port change events and displays a warning when the temperature exceeds 50 degrees Celsius.
@@ -109,11 +114,5 @@ The following example registers to receive heater temperature port change events
 	   }
 	</script>
 	
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
 
 

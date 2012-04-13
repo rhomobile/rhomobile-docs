@@ -1,5 +1,7 @@
 
 #Battery Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Battery Module is used to set the attributes of the battery indicator and retrieve the status of the battery.</b>
 
@@ -76,6 +78,25 @@ Returns various parameters relating to battery charge and battery hardware. Not 
 
 
 
+
+##Remarks
+
+
+###Overlapping
+Do not display the Battery indicator overlapping with the Signal indicator.
+
+
+###Indicator Positions
+For an illustrative guide to the meaning of the Layout parameter, see the 'Indicator Positions' section.
+
+
+###Parameter Deprecation
+For users migrating their PocketBrowser apps to RhoElements please note that due to the difference in the battery indicator graphic, the GraphPosition and IconPosition parameters have been deprecated. Please use the Layout parameter instead.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Smart Battery information is not supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
 ##Examples
 
 The following example shows the battery indicator, sets the x and y co-ordinates to 50, the color of the indicator to red and positions the indicator at the bottom of the screen growing from right to left:
@@ -100,27 +121,5 @@ The following example navigates to a new page with parameters upon a battery sta
 
 	<META HTTP-Equiv="Battery" Content="BatteryEvent:url('mypage.asp?Data=%s&Source=%s&Type=%s&Time=%s&Length=%s')">
 	
-
-
-
-##Remarks
-
-
-###Overlapping
-Do not display the Battery indicator overlapping with the Signal indicator.
-
-
-###Indicator Positions
-For an illustrative guide to the meaning of the Layout parameter, see the 'Indicator Positions' section.
-
-
-###Parameter Deprecation
-For users migrating their PocketBrowser apps to RhoElements please note that due to the difference in the battery indicator graphic, the GraphPosition and IconPosition parameters have been deprecated. Please use the Layout parameter instead.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Smart Battery information is not supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

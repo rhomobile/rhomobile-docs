@@ -1,5 +1,7 @@
 
 #Notification Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Notification Module is used to control the notification objects on the device. There are three types of notification object (LEDs, Beeper and Pager) and a device may have more than one of any object type, though in practise devices will have multiple LEDs and a maximum of one beeper and pager. In order to control the notification objects it is first necessary to query the device to discover which objects are available, this is done through the Enumerate method and EnumNotificationsEvent. The EnumNotificationsEvent will return a unique identifier for each available notification and this will be used to set the notification state. Notifications can be set to either on, off or cycling with the behaviour of 'on' or 'off' notification objects self explanatory; when set to cyclic LEDs will flash for the specified number of times whereas the beeper and pager will only activate once for the specified duration.</b>
 
@@ -76,6 +78,25 @@ The EnumNotificationsEvent is triggered in response to calling the 'Enumerate' m
 
 
 
+
+##Remarks
+
+
+###No Notification Objects
+If the device has no notification objects the array returned by EnumNotificationsEvent will be empty
+
+
+###Notification State
+If RhoElements is exited after applying notifications, the settings will not revert.
+
+
+###EnumNotificationsEvent Array Format
+There is a single return value for this event which is a two dimensional array with the format below:
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the EnumNotificationsEvent which is page specific.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
 ##Examples
 
 The following example stores the available notifications in a javascript array and displays them to the user in an HTML table. Note that a 2 dimensional array is returned in the EnumNotificationsEvent.
@@ -150,27 +171,5 @@ The following function takes a notification index and a notification type. Depen
 	   }
 	</script>
 	
-
-
-
-##Remarks
-
-
-###No Notification Objects
-If the device has no notification objects the array returned by EnumNotificationsEvent will be empty
-
-
-###Notification State
-If RhoElements is exited after applying notifications, the settings will not revert.
-
-
-###EnumNotificationsEvent Array Format
-There is a single return value for this event which is a two dimensional array with the format below:
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the EnumNotificationsEvent which is page specific.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

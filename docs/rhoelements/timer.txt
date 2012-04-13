@@ -1,5 +1,7 @@
 
 #Timer Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Timer Module is used to set a timer and register an action to perform when that timer expires. Once the timer is started the interval time can not be changed without stopping the timer and restarting it.</b>
 
@@ -67,6 +69,9 @@ The Timeout event is triggered when the timer expires and returns the current ti
 
 
 
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of timeout event.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
 ##Examples
 
 The following example sets the timerinterval to 5 seconds:
@@ -88,11 +93,5 @@ The following example shows a JavaScript alert at 10 second intervals:
 	  <BODY><DIV ID="divTimer"></DIV></BODY>
 	</HTML>
 	
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of timeout event.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

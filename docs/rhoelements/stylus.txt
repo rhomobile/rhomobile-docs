@@ -1,5 +1,7 @@
 
 #Stylus Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Stylus Module is used to enable or disable the touch screen.</b>
 
@@ -35,6 +37,17 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 
 
 
+
+##Remarks
+
+
+###Remote Display
+This tag does not affect the behaviour of remote display applications for controlling the device
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr></table>
+
+
 ##Examples
 
 The following example disables the touch screen until the Enter key is pressed:
@@ -49,19 +62,5 @@ The following example disables the touch screen until the Enter key is pressed:
 	   }
 	</SCRIPT>
 	
-
-
-
-##Remarks
-
-
-###Remote Display
-This tag does not affect the behaviour of remote display applications for controlling the device
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr></table>
 
 

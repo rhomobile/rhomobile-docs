@@ -1,5 +1,7 @@
 
 #Alarm Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Alarm Module is used to set an alarm and register an action to perform when that alarm fires.</b>
 
@@ -72,18 +74,6 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 The alarm triggered event will be fired when either the alarm time reaches that specified in the 'Time' parameter or the period specified in 'Interval' expires. There are no parameters associated with the AlarmTriggered event.
 
 
-##Examples
-
-The following example sets the alarm to display an alert box at a repeated interval of 1 hour:
-
-	<META HTTP-Equiv="Alarm-Set" Content="Interval:01-00-00; Repeat:True; AlarmTriggered:url('javascript:alert('Alarm Fired');')">
-	
-The following example sets the alarm to display an alert box at 8am GMT on 27th July 2012:
-
-	<META HTTP-Equiv="Alarm-Set" Content="Time:2012-07-27t08-00-00+00-00; AlarmTriggered:url('javascript:alert('London Olympics Start Today');')">
-	
-
-
 
 ##Remarks
 
@@ -100,9 +90,18 @@ The Alarm is not designed to be triggered for intervals less than 30 seconds, if
 You must specify the time in GMT and then the device's timezone offset from that. E.g. a time expressed as 2012-07-27t08-30-00-05-00 breaks down as follows:
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Examples
+
+The following example sets the alarm to display an alert box at a repeated interval of 1 hour:
+
+	<META HTTP-Equiv="Alarm-Set" Content="Interval:01-00-00; Repeat:True; AlarmTriggered:url('javascript:alert('Alarm Fired');')">
+	
+The following example sets the alarm to display an alert box at 8am GMT on 27th July 2012:
+
+	<META HTTP-Equiv="Alarm-Set" Content="Time:2012-07-27t08-00-00+00-00; AlarmTriggered:url('javascript:alert('London Olympics Start Today');')">
+	
 
 

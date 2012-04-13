@@ -1,5 +1,7 @@
 
 #CardReader Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The CardReader Module is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.</b>
 
@@ -72,6 +74,45 @@ readEvent:URL('URI') URI is either a URL or a javascript function. If a URL, the
 
 
 
+
+##Remarks
+
+
+###General
+If the CardReader return URI is "", the cardreader data will be returned as keystrokes. The readevent parameter must be set at least once before the pandata parameter is set. If both the autotab and autoenter parameters are set to "enabled", autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed.
+
+
+###AutoEnter and AccelerateKey
+The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either
+
+
+###Operational Modes (Backwards compatibility with PocketBrowser)
+For the DCR7000 the ModuleName parameter must be set at least once before the readevent parameter is set. If the card reader is an MSR, when a card is swiped it returns the data read from the card. Setting ModuleName to a DCR will cause the card data to be returned followed by the PAN Data before waiting for a PIN to be entered on the keypad. Once entered the PIN will be encrypted and returned by a third ReadEvent. The card must be a validly formatted IATA or ABA card.
+
+
+###Event URI and Parameter Persistence
+The ReadEvent URI, the PINTimeout, PINEntry, AutoEnter / AutoTab parameters are page-specific values. When RhoElements performs a page navigate (not a JavaScript callback), the URI is invalidated, the parameters set to their default values and the cardreader is closed. While the cardreader is open, the URI value may be changed via passing a new readevent parameter/value pair. In the case that the CardReader is already open, the readevent parameter will simply update the URI and do nothing to the state of the port.
+
+
+###Invalid parameter values
+Any attempt to set a parameter to an invalid value, will result in no effect on the parameter's current value.
+
+
+###Closing the reader while PIN entry pending
+There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or RhoElements is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.
+
+
+###Blank card data
+In certain circumstances it is possible that the card reader may return empty card data. The Javascript event function should be able to handle this correctly.
+
+
+###Detaching / Reattaching the Card Reader
+Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a card reader attachment.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">See Comment Above.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">You must have the appropriate drivers installed on your device to use the CardReader.  You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements.  All necessary drivers should be included as part of the platform for supported devices.</td></tr></table>
+
+
 ##Examples
 
 The following example sets up the card reader to submit the scanned data to an asp page upon successful decoding
@@ -116,47 +157,5 @@ The following example closes the card reader
 
 	<META HTTP-Equiv="CardReader" Content="Close">
 	
-
-
-
-##Remarks
-
-
-###General
-If the CardReader return URI is "", the cardreader data will be returned as keystrokes. The readevent parameter must be set at least once before the pandata parameter is set. If both the autotab and autoenter parameters are set to "enabled", autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed.
-
-
-###AutoEnter and AccelerateKey
-The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either
-
-
-###Operational Modes (Backwards compatibility with PocketBrowser)
-For the DCR7000 the ModuleName parameter must be set at least once before the readevent parameter is set. If the card reader is an MSR, when a card is swiped it returns the data read from the card. Setting ModuleName to a DCR will cause the card data to be returned followed by the PAN Data before waiting for a PIN to be entered on the keypad. Once entered the PIN will be encrypted and returned by a third ReadEvent. The card must be a validly formatted IATA or ABA card.
-
-
-###Event URI and Parameter Persistence
-The ReadEvent URI, the PINTimeout, PINEntry, AutoEnter / AutoTab parameters are page-specific values. When RhoElements performs a page navigate (not a JavaScript callback), the URI is invalidated, the parameters set to their default values and the cardreader is closed. While the cardreader is open, the URI value may be changed via passing a new readevent parameter/value pair. In the case that the CardReader is already open, the readevent parameter will simply update the URI and do nothing to the state of the port.
-
-
-###Invalid parameter values
-Any attempt to set a parameter to an invalid value, will result in no effect on the parameter's current value.
-
-
-###Closing the reader while PIN entry pending
-There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or RhoElements is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.
-
-
-###Blank card data
-In certain circumstances it is possible that the card reader may return empty card data. The Javascript event function should be able to handle this correctly.
-
-
-###Detaching / Reattaching the Card Reader
-Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a card reader attachment.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">See Comment Above.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">You must have the appropriate drivers installed on your device to use the CardReader.  You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements.  All necessary drivers should be included as part of the platform for supported devices.</td></tr></table>
 
 

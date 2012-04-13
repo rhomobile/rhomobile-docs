@@ -1,5 +1,7 @@
 
 #Generic Preexisting JavaScript Object
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Generic Preexisting JavaScript Object contains read only properties and methods which do not belong to a specific module. If you have configured 'PreloadLegacyGeneric' to be '1' the Javascript object 'generic' will be inserted automatically into your page's DOM by RhoElements.</b>
 
@@ -49,6 +51,21 @@ The Generic Preexisting JavaScript Object contains read only properties and meth
 ##Properties
 
 <table class="re-table"><col width="20%" /><col width="80%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>OEMInfo</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The OEM Information string for the terminal</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>UUID</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The Unique Unit IDentifier for the terminal</td></tr></table>
+
+
+
+##Remarks
+
+
+###Play Flags
+Flags are as follows:
+
+
+###Backwards Compatibility
+The Generic Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'generic' on the page automatically when 'PreloadLegacyGeneric' is configured to be '1' you can not create your own objects by this name, see below:
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
 ##Examples
@@ -163,23 +180,5 @@ The Following example shows usage of the Generic object for reading / writing us
 	   alert("background color is "+Ret);
 	</script>
 	
-
-
-
-##Remarks
-
-
-###Play Flags
-Flags are as follows:
-
-
-###Backwards Compatibility
-The Generic Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'generic' on the page automatically when 'PreloadLegacyGeneric' is configured to be '1' you can not create your own objects by this name, see below:
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

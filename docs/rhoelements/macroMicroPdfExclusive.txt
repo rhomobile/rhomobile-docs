@@ -1,5 +1,7 @@
 
 #MacroMicroPdfExclusive Decoder Setting
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The MacroMicroPdfExclusive Decoder Setting is used to set the macroMicroPdfExclusive property.</b>
 
@@ -31,6 +33,9 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports MacroMicroPDF.</td></tr></table>
+
+
 ##Examples
 
 The following example enables the scanner and sets macroMicroPdfExclusive property
@@ -39,11 +44,5 @@ The following example enables the scanner and sets macroMicroPdfExclusive proper
 	<META HTTP-Equiv="scanner" Content="macroMicroPdfExclusive:true">
 	<META HTTP-Equiv="scanner" Content="enabled">
 					
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports MacroMicroPDF.</td></tr></table>
 
 

@@ -1,5 +1,7 @@
 
 #ScreenOrientation Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The ScreenOrientation Module is used to control the screen orientation/layout and register to receive an event when it changes.</b>
 
@@ -67,14 +69,6 @@ The screen orientation event is sent when the current RhoElements application ch
 
 
 
-##Examples
-
-The following example orientates the screen to righthanded in landscape mode:
-
-	<META HTTP-Equiv="ScreenOrientation" Content="RightHanded">
-	
-
-
 
 ##Remarks
 
@@ -87,9 +81,14 @@ When the screen orientation changes, either using the ScreenOrientation tag or b
 In all devices apart from the Enterprise Tablet, orientation changes will persist if RhoElements is closed or the device is warm booted.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. autoRotate is only supported in devices that have IST.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of ScreenOrientationEvent</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">A device with a screen.</td></tr></table>
+
+
+##Examples
+
+The following example orientates the screen to righthanded in landscape mode:
+
+	<META HTTP-Equiv="ScreenOrientation" Content="RightHanded">
+	
 
 

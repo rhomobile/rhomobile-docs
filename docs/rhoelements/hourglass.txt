@@ -1,5 +1,7 @@
 
 #Hourglass Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Hourglass Module is used to show or hide the hourglass (wait cursor) as well as adjust its position.</b>
 
@@ -38,6 +40,21 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+
+##Remarks
+
+
+###Navigation
+When navigating between pages the hourglass will be shown and hidden automatically and will override the current visibility settings. The position the hourglass is shown at during page loads will be as set using the Left / Top properties. Because the Hourglass is shown and hidden automatically during page loads it is not recommended to use static meta tags to show or hide it, in preference use InvokeMETATag from JavaScript.
+
+
+###Scrolling
+The hourglass is not compatible with scrolling the browser window. The spinning cursor will move with the HTML page.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception that the wait cursor will always be hidden once the new page has loaded.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
 ##Examples
 
 The following example sets the Hourglass position to (50, 50).
@@ -58,23 +75,5 @@ The following example shows and hides the Hourglass.
 	    }
 	  </SCRIPT>
 	
-
-
-
-##Remarks
-
-
-###Navigation
-When navigating between pages the hourglass will be shown and hidden automatically and will override the current visibility settings. The position the hourglass is shown at during page loads will be as set using the Left / Top properties. Because the Hourglass is shown and hidden automatically during page loads it is not recommended to use static meta tags to show or hide it, in preference use InvokeMETATag from JavaScript.
-
-
-###Scrolling
-The hourglass is not compatible with scrolling the browser window. The spinning cursor will move with the HTML page.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception that the wait cursor will always be hidden once the new page has loaded.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

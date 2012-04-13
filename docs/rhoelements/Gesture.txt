@@ -1,5 +1,7 @@
 
 #Gesture Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Gesture Module is used to define touch screen.</b>
 
@@ -90,33 +92,6 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 
 
-##Examples
-
-Create two gestures: a default left to right gesture with ID 'swipe', and a hold gesture at the top left of the screen which will fire one time after 500 milliseconds with ID 'press'. The Javascript function onGesture() is called when either gesture is detected.
-
-	        <META HTTP-Equiv="gesture" Content="type:linear">
-	        <META HTTP-Equiv="gesture" Content="id:swipe">
-	        <META HTTP-Equiv="gesture" Content="create">
-	        <META HTTP-Equiv="gesture" Content="type:hold">
-	        <META HTTP-Equiv="gesture" Content="center-x:60">
-	        <META HTTP-Equiv="gesture" Content="center-y:60">
-	        <META HTTP-Equiv="gesture" Content="radius:60">
-	        <META HTTP-Equiv="gesture" Content="delay:500">
-	        <META HTTP-Equiv="gesture" Content="interval:0">
-	        <META HTTP-Equiv="gesture" Content="id:press">
-	        <META HTTP-Equiv="gesture" Content="create">
-	        <META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture('%s','%s');')">
-	      
-The following example deletes a gesture via a javascript function.
-
-	function deleteGesture(gestureID)
-	{
-	  gesture.id = gestureID;
-	  gesture.delete();
-	}	
-	      
-
-
 
 ##Remarks
 
@@ -145,9 +120,33 @@ Any parameter values out of the allowed range will be limited to the nearest all
 Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr></table>
+
+
+##Examples
+
+Create two gestures: a default left to right gesture with ID 'swipe', and a hold gesture at the top left of the screen which will fire one time after 500 milliseconds with ID 'press'. The Javascript function onGesture() is called when either gesture is detected.
+
+	        <META HTTP-Equiv="gesture" Content="type:linear">
+	        <META HTTP-Equiv="gesture" Content="id:swipe">
+	        <META HTTP-Equiv="gesture" Content="create">
+	        <META HTTP-Equiv="gesture" Content="type:hold">
+	        <META HTTP-Equiv="gesture" Content="center-x:60">
+	        <META HTTP-Equiv="gesture" Content="center-y:60">
+	        <META HTTP-Equiv="gesture" Content="radius:60">
+	        <META HTTP-Equiv="gesture" Content="delay:500">
+	        <META HTTP-Equiv="gesture" Content="interval:0">
+	        <META HTTP-Equiv="gesture" Content="id:press">
+	        <META HTTP-Equiv="gesture" Content="create">
+	        <META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture('%s','%s');')">
+	      
+The following example deletes a gesture via a javascript function.
+
+	function deleteGesture(gestureID)
+	{
+	  gesture.id = gestureID;
+	  gesture.delete();
+	}	
+	      
 
 

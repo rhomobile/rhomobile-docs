@@ -1,5 +1,7 @@
 
 #AirBeam Preexisting JavaScript Object
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The AirBeam Preexisting JavaScript Object contains properties and methods which can be used to control the AirBeam Smart client. AirBeam is a separate application provided by Motorola Solutions and provides the ability to download software packages to your mobile device. If you have configured 'PreloadLegacyAirBeam' to be '1' the Javascript object 'airbeam' will be inserted automatically into your page's DOM by RhoElements.</b>
 
@@ -22,6 +24,21 @@ The AirBeam Preexisting JavaScript Object contains properties and methods which 
 ##Properties
 
 <table class="re-table"><col width="20%" /><col width="80%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>AutoLoadMode</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">0 - 3, describes how synchronization is started.  See remarks.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>AutoReboot</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">True or False, whether or not the enable auto reboot mode.</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>RAMManagement</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">True or False, Enables or Disables RAM Management mode.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>TestMode</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">True or False, Whether or not packages should be loaded when added.</td></tr></table>
+
+
+
+##Remarks
+
+
+###Mode Settings
+The following mode settings apply to the AutoLoadMode Property
+
+
+###Backwards Compatibility
+The AirBeam Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'airbeam' on the page automatically when 'PreloadLegacyAirBeam' is configured to be '1' you can not create your own objects by this name, see below:
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
 ##Examples
@@ -76,23 +93,5 @@ The Following example shows usage of the UploadPackage method:
 	   }
 	</script>
 	
-
-
-
-##Remarks
-
-
-###Mode Settings
-The following mode settings apply to the AutoLoadMode Property
-
-
-###Backwards Compatibility
-The AirBeam Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'airbeam' on the page automatically when 'PreloadLegacyAirBeam' is configured to be '1' you can not create your own objects by this name, see below:
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

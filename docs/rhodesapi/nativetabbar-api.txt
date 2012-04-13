@@ -1,4 +1,5 @@
-# Rho::NativeTabbar API
+﻿# Rho::NativeTabbar API
+<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 The NativeTabbar methods let you customize the Rhodes tabbar at runtime. Refer to [Native Tabbar Control in User Interface](/rhodes/ui#native-tabbar-control) and [NativeTabbarTest in Rhodes-System-Api-Samples](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/NativeTabbarTest/) for examples.
 

@@ -1,5 +1,7 @@
 
 #EmmlProfile Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The EmmlProfile Module is used to manage EMML profile pages.</b>
 
@@ -39,6 +41,21 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+
+##Remarks
+
+
+###Named Profile Pages
+Normally, when importing a profile page, the imported profiles will be cleared from memory when the page is navigated away from. If you provide a name when importing a profile page, the imported profiles will not be cleared on page navigation and you will be able to reference them until you manually clear the profiles. To reference a named imported profile, prefix the profile class name with the name you supplied when importing the profile page (see example above). Naming profile pages can improve performance. If you include many profiles for your application within the profile page, it will only have to be downloaded, parsed and imported the once. It is often also preferable to maintain a central location for all your EMML.
+
+
+###Importing Local Profiles
+Importing profiles from a file:// location will cause the profile to be moved from its previous location, not copied.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of when a named EMML profile set is imported.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow" /></tr></table>
+
+
 ##Examples
 
 The following example imports an EMML profile page into the temporary, unnamed space.
@@ -69,23 +86,5 @@ The following is an example of an EMML Profile page.
 	  scanner-i2of5: enabled;
 	  scanner-code128: enabled;
 	}
-
-
-
-##Remarks
-
-
-###Named Profile Pages
-Normally, when importing a profile page, the imported profiles will be cleared from memory when the page is navigated away from. If you provide a name when importing a profile page, the imported profiles will not be cleared on page navigation and you will be able to reference them until you manually clear the profiles. To reference a named imported profile, prefix the profile class name with the name you supplied when importing the profile page (see example above). Naming profile pages can improve performance. If you include many profiles for your application within the profile page, it will only have to be downloaded, parsed and imported the once. It is often also preferable to maintain a central location for all your EMML.
-
-
-###Importing Local Profiles
-Importing profiles from a file:// location will cause the profile to be moved from its previous location, not copied.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of when a named EMML profile set is imported.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow" /></tr></table>
 
 

@@ -1,5 +1,7 @@
 
 #Telemetry Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Telemetry Module is used to interface with vehicle telemetry.</b>
 
@@ -72,6 +74,25 @@ The TelemetryArrayEvent is similar to the TelemetryDataEvent but all enabled fil
 
 
 
+
+##Remarks
+
+
+###Query Frequency Considerations
+The QueryFrequency parameter is used to specify the frequency at which filters' values are sent to the application via the TelemetryDataEvent, consideration should be given not to overwhelm the device. The device's CPU speed, complexity of the TelemetryDataEvent JavaScript function and number of registered filters should all be taken into account when setting the QueryFrequency.
+
+
+###Filter Values
+Filters can be defined to be any of the following:
+
+
+###TelemetryArrayEvent Array Format
+There is a single return value for this event which is a two dimensional array with the format below:
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the TelemetryDataEvent which is reset when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware and drivers to run, i.e. a vehicle bus (VBus) and device capable of interfacing with such e.g. VC6000.</td></tr></table>
+
+
 ##Examples
 
 The following example registers to receive vehicle speed via a TelemetryDataEvent:
@@ -116,27 +137,5 @@ The following example registers to receive vehicle speed via a TelemetryArrayEve
 	<BODY onload="beginTelemetry()">
 	<div id=arrayOut></div>
 	
-
-
-
-##Remarks
-
-
-###Query Frequency Considerations
-The QueryFrequency parameter is used to specify the frequency at which filters' values are sent to the application via the TelemetryDataEvent, consideration should be given not to overwhelm the device. The device's CPU speed, complexity of the TelemetryDataEvent JavaScript function and number of registered filters should all be taken into account when setting the QueryFrequency.
-
-
-###Filter Values
-Filters can be defined to be any of the following:
-
-
-###TelemetryArrayEvent Array Format
-There is a single return value for this event which is a two dimensional array with the format below:
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the TelemetryDataEvent which is reset when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware and drivers to run, i.e. a vehicle bus (VBus) and device capable of interfacing with such e.g. VC6000.</td></tr></table>
 
 

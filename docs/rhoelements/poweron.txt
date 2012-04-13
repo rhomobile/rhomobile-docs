@@ -1,5 +1,7 @@
 
 #PowerOn Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The PowerOn Module is used to register to receive an event when the device is resumed from suspend mode.</b>
 
@@ -41,14 +43,6 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 The PowerOnEvent is sent whenever the device is resumed from suspend mode. There is no data associated with this event.
 
 
-##Examples
-
-The following example displays a message box when the device resumes:
-
-	<meta http-equiv="PowerOn" content="PowerOnEvent:url('javascript:alert('Powered Up');')">
-	
-
-
 
 ##Remarks
 
@@ -61,9 +55,14 @@ This feature is very useful for security. Navigating to an offline page (file://
 Windows Power events will not always be generated when the device is connected to power and instructed to stand by / wake up, though this is dependant on the Operating System in use.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+
+##Examples
+
+The following example displays a message box when the device resumes:
+
+	<meta http-equiv="PowerOn" content="PowerOnEvent:url('javascript:alert('Powered Up');')">
+	
 
 

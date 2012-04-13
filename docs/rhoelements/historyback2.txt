@@ -1,5 +1,7 @@
 
 #History:Back Navigation
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The History:Back Navigation instructs RhoElements to navigate to the previously visited address.</b>
 
@@ -23,6 +25,17 @@ By default the Ruby Object <b>'History:Back'</b> will exist on the current page 
 
 
 
+
+##Remarks
+
+
+###Interaction with Browser's History Stack
+The browser component on Windows Mobile has no history stack other than that provided by RhoElements, so this History:Back tag is the only way to navigate to a previous page (as well as the Back Button). Windows CE's browser component has its own history stack accessed via Javascript's history.go(n), this is not compatible with RhoElements's history and the History:Back tag should be used in preference.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - This method is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+
 ##Examples
 
 The following example shows how to navigate to the previous address using an anchor tag:
@@ -38,19 +51,5 @@ The following example shows how to navigate to the previous address using JavaSc
 	   }
 	</script>
 	
-
-
-
-##Remarks
-
-
-###Interaction with Browser's History Stack
-The browser component on Windows Mobile has no history stack other than that provided by RhoElements, so this History:Back tag is the only way to navigate to a previous page (as well as the Back Button). Windows CE's browser component has its own history stack accessed via Javascript's history.go(n), this is not compatible with RhoElements's history and the History:Back tag should be used in preference.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - This method is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
 
 

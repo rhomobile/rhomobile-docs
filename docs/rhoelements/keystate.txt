@@ -1,5 +1,7 @@
 
 #KeyState Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The KeyState Module is used to set the parameters of the KeyState indicator. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states. It grows from the right as necessary if more than one key state is set at once.</b>
 
@@ -41,20 +43,6 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-##Examples
-
-The following example shows the KeyState indicators and sets the right and top coordinates to 50.
-
-	<META HTTP-Equiv="KeyState" Content="Visibility:Visible">
-	<META HTTP-Equiv="KeyState" Content="Right:50">
-	<META HTTP-Equiv="KeyState" Content="Top:50">
-	
-The following example shows the KeyState and sets the right and top coordinates to 20.
-
-	<META HTTP-Equiv="KeyState" Content="Visibility:Visible; Right:20; Top:20">
-	        
-
-
 
 ##Remarks
 
@@ -67,9 +55,20 @@ All controls are designed to be shown on top of RhoElements. If you require to s
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
 
 
-
-##Additional Information
-
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Examples
+
+The following example shows the KeyState indicators and sets the right and top coordinates to 50.
+
+	<META HTTP-Equiv="KeyState" Content="Visibility:Visible">
+	<META HTTP-Equiv="KeyState" Content="Right:50">
+	<META HTTP-Equiv="KeyState" Content="Top:50">
+	
+The following example shows the KeyState and sets the right and top coordinates to 20.
+
+	<META HTTP-Equiv="KeyState" Content="Visibility:Visible; Right:20; Top:20">
+	        
 
 

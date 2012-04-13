@@ -1,5 +1,7 @@
 
 #Imager Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Imager Module controls the imager functions and navigates to a URL or calls a javascript function in response to an HTTP image transfer carried out by the imager meta tag.</b>
 
@@ -96,6 +98,37 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###imagerEnumEvent
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>imagerArray (deviceName, friendlyName)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Two dimensional array of imagers present on the device</td></tr></table>
 
+
+
+
+##Remarks
+
+
+###ImagerArray attribute
+The ImagerArray attribute returned from ImagerEnumevent retrieval tag will enumerate each imager present on the device in a 2D array, associating each Imager's device name with a user friendly name. The device ID can be passed as a parameter to "Imager" "Enabled:&lt;deviceID&gt;", the friendly name is a user readable description of the Imager, e.g: "IMG1", "Imager" "IMG2", "color Camera".
+
+
+###Scanning and Image Capture
+Image capture tags cannot be used on the same page as scanner tags due to Hardware Limitations.
+
+
+###Setting up a Transfer to a remote HTTP or FTP location
+The Imager module is designed to be configured before any transfer is made to a remote location. If the 'Destination' paramter is specified as either HTTP or an FTP location the 'destination' / 'username' / 'password' parameters can not be guaranteed to stay the same after capture() has been called, therefore configure your destination for each capture. The above examples will work for a single transfer.
+
+
+###Stretching the Image
+The image can only be stretched as far as the screen dimensions will allow, do not expect to be able to create an image larger than the dimensions of your screen.
+
+
+###Creating a fully qualified URL
+The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/file.txt. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/upload.aspx. Remember to also wrap your URL with url('') when being used as part of a meta tag, as shown in the examples above.
+
+
+###imagerEnumEvent Array Format
+The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr></table>
 
 
 ##Examples
@@ -242,39 +275,5 @@ The following example displays the available imagers on screen
 	}
 	</SCRIPT>
 	
-
-
-
-##Remarks
-
-
-###ImagerArray attribute
-The ImagerArray attribute returned from ImagerEnumevent retrieval tag will enumerate each imager present on the device in a 2D array, associating each Imager's device name with a user friendly name. The device ID can be passed as a parameter to "Imager" "Enabled:&lt;deviceID&gt;", the friendly name is a user readable description of the Imager, e.g: "IMG1", "Imager" "IMG2", "color Camera".
-
-
-###Scanning and Image Capture
-Image capture tags cannot be used on the same page as scanner tags due to Hardware Limitations.
-
-
-###Setting up a Transfer to a remote HTTP or FTP location
-The Imager module is designed to be configured before any transfer is made to a remote location. If the 'Destination' paramter is specified as either HTTP or an FTP location the 'destination' / 'username' / 'password' parameters can not be guaranteed to stay the same after capture() has been called, therefore configure your destination for each capture. The above examples will work for a single transfer.
-
-
-###Stretching the Image
-The image can only be stretched as far as the screen dimensions will allow, do not expect to be able to create an image larger than the dimensions of your screen.
-
-
-###Creating a fully qualified URL
-The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/file.txt. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/upload.aspx. Remember to also wrap your URL with url('') when being used as part of a meta tag, as shown in the examples above.
-
-
-###imagerEnumEvent Array Format
-The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr></table>
 
 

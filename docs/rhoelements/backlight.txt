@@ -1,5 +1,7 @@
 
 #Backlight Module
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
 <b>
 The Backlight Module is used to illuminate / extinguish the display backlight as well as setting the intensity of the backlight.</b>
 
@@ -71,6 +73,29 @@ The backlight display settings<table class="re-table"><col width="3%" /><col wid
 
 
 
+
+##Remarks
+
+
+###General
+The intensity tag will only have an observable effect if the screen backlight is turned on, setting the intensity by its self is insufficient to illuminate the backlight.
+
+
+###Device Limits
+The levels of supported screen backlight intensity are device dependant. You can determine the levels on your device using the backlightSettingsEvent and getBacklightSettings method.
+
+
+###'Auto' and 'Manual' Backlight Intensity
+Windows Mobile 6.5 Devices with a light sensor, such as the ES400 will support two modes for the Backlight: Auto Mode (default) where the light sensor input affects the backlight intensity and Manual Mode where the user sets the backlight manually. In order to use the Intensity setting in RhoElements the device must be put into Manual Mode, most easily achieved via the 'Backlight &amp; Keylight' applet accessed via Start-&gt;Settings-&gt;System.
+
+
+###Enterprise Tablet
+Unlike all other devices, changes made to the backlight intensity are made only to RhoElements. Switching native applications or quitting RhoElements will revert the backlight intensity to the system's default level until RhoElements is resumed.
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+
 ##Examples
 
 The following turns on the screen backlight and sets the intensity to level 2
@@ -100,31 +125,5 @@ The following example retrieves the backlight settings
 	        <INPUT align="center" type="button" value="Retrieve Backlight Settings" 
 			   onclick="backlight.getBacklightSettings()";
 	
-
-
-
-##Remarks
-
-
-###General
-The intensity tag will only have an observable effect if the screen backlight is turned on, setting the intensity by its self is insufficient to illuminate the backlight.
-
-
-###Device Limits
-The levels of supported screen backlight intensity are device dependant. You can determine the levels on your device using the backlightSettingsEvent and getBacklightSettings method.
-
-
-###'Auto' and 'Manual' Backlight Intensity
-Windows Mobile 6.5 Devices with a light sensor, such as the ES400 will support two modes for the Backlight: Auto Mode (default) where the light sensor input affects the backlight intensity and Manual Mode where the user sets the backlight manually. In order to use the Intensity setting in RhoElements the device must be put into Manual Mode, most easily achieved via the 'Backlight &amp; Keylight' applet accessed via Start-&gt;Settings-&gt;System.
-
-
-###Enterprise Tablet
-Unlike all other devices, changes made to the backlight intensity are made only to RhoElements. Switching native applications or quitting RhoElements will revert the backlight intensity to the system's default level until RhoElements is resumed.
-
-
-
-##Additional Information
-
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
 
 
