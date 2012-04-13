@@ -28,7 +28,7 @@ RhoConnect is now setup with your backend service.
 
 Connecting a simple rhodes app
 -------------------------------
-To view a full tutorial about creating a rhodes application and the features of rhodes see [Rhodes framework](http://docs.rhomobile.com/rhodes/tutorial).
+To view a full tutorial about creating a rhodes application and the features of rhodes see [RhoStudio tutorial](http://docs.rhomobile.com/rhostudio.tutorial).
 
 ##Gem installation:
 
