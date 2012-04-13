@@ -1,4 +1,4 @@
-﻿#Alert API
+#Alert API
 
 Call system alert methods for popup, vibrate, or playing audio files.
 
