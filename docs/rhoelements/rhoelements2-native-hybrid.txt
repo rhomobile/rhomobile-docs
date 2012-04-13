@@ -203,19 +203,24 @@ NOTE: The RhoElements Shared Runtime application <b>must</b> be installed to the
 On Windows Mobile, the `Device` option must be selected when the installer asks for the location to install.
 On Windows CE, the default path (`\Program Files\RhoElements2`) must be selected.
 
-### RhoElements Shared Runtime Application Logging
+### RhoElements Application Logging
 
-RhoElements Shared Runtime writes its internal log to a file named `rholog.txt`. The location of this file is defined by the following rules (in the order of priority):
+1.  RhoElements Shared Runtime running <b>RhoElements v1.0</b> application writes its internal log to a file named `rholog.txt`.
+The location of this file is defined by the following rules (in the order of priority):
 
-1. If the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP",
-then the path to the log file is taken from the `Configuration` > `Logger` > `LogURI` tag.
-   - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name.
-   - In case of "HTTP" protocol, the log messages are sent to the `LogURI` via POST HTTP-requests.
+    1. If the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP",
+    then the path to the log file is taken from the `Configuration` > `Logger` > `LogURI` tag.
+       - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name.
+       - In case of "HTTP" protocol, the log messages are sent to the `LogURI` via POST HTTP-requests.
 
-2. If the start page parameter is a local file, then path to this file is used for log file `rholog.txt`
-(the file name part of the start page parameter is ignored and `rholog.txt` is used as the file name).
+    2. If the start page parameter is a local file, then path to this file is used for log file `rholog.txt`
+    (the file name part of the start page parameter is ignored and `rholog.txt` is used as the file name).
 
-3. Otherwise the log file `rholog.txt` is placed in the `rho` folder in the Shared Runtime installation folder.
+    3. Otherwise the log file `rholog.txt` is placed in the `rho` folder in the Shared Runtime installation folder.
+
+2. When RhoElements Shared Runtime is running <b>RhoElements v2.0</b> application, the `rholog.txt` is placed to `rho` folder of the application folder.
+It is possble to [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`.
+It is also possible to [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.
 
 ## Creating RhoElements 2.0 Native Applications in Shared Runtime Mode
 
