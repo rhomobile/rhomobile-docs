@@ -1,4 +1,4 @@
-﻿# System API
+# System API
 <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Provides access to system information. 

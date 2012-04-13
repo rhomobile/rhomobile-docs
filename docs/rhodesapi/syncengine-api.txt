@@ -1,4 +1,4 @@
-﻿# SyncEngine API
+# SyncEngine API
 <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Synchronize data for the Rhodes model and handle updates between the Rhodes application and the RhoConnect server. [Refer to the Rhodes Developer Guide under Synchronization for more discussion.](/rhodes/synchronization)
