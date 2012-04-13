@@ -18,6 +18,7 @@ $(document).ready(function() {
 		var cur = $('a[href$="' + $(location).attr("pathname") + '"]');
 		cur.attr('onclick', 'return false');
 		cur.parent().attr('class', 'current');
+		$(window).scrollTop(0);
 	});
 	$('.accordion-heading > a').live('click',function(){
 	  $(this).find('i').toggleClass('icon-minus').toggleClass('icon-plus');
