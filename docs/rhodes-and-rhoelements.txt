@@ -1,0 +1,72 @@
+# Rhodes and RhoElements Mobile Application Development Paths
+
+You can create Rhodes and RhoElements applications to run on your mobile device. 
+
+## Understanding the Rhodes Development Path
+
+[Rhodes](/rhodes/introduction) is an open source framework for building locally executing, device-optimized mobile applications. RHodes applications are optimized to interact with transactional enterprise application backends, and are also designed to sync a local database with a backend synchronization framework, such as RhoConnect (another open source component available from Rhomobile).
+
+To develop a Rhodes application, you perform these steps.
+
+1. [Install Rhodes](/rhodes/install). You usually do this by installing RhoStudio, an Eclipse-base IDE. (You do this only once.)
+
+2. [Generate a Rhodes application](/rhodes/generator). This creates the view and controller files for a Ruby-based Rhodes application.
+
+3. Write the code for your Rhodes application.
+
+ * Customize the user interface (the HTML view file) if needed; the default view allows you to edit and sync your Model data to a database on a backend server.
+ * Customize the controller (the Ruby application code) for your Rhodes app, such as adding [Rhodes-provided device capabilities](/rhodes/device-caps) for your mobile platform.
+ * RhoConnect?
+
+4. [Build and Deploy](/rhodes/build) your Rhodes application to your mobile platform.
+
+## Understanding the RhoElements Development Path
+
+RhoElements Version 2.0 provides Rhodes with an extended set of enterprise-focused device capabilities and the ability to do device capabilities with both HTML tags (EMML tags and more) and JavaScript calls. It supports the ability for a Rhodes app to generate a mobile web app, accessed by mobile web browsers, including device clients written with RhoElements V2 itself. THis si called a RhoElements hybrid application.
+
+RhoElements 2.0 also allows you to create RhoElements native applications: applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, and deploying the application on the mobile device. 
+
+You can also use shared runtime with native applications: this allows multiple native applications to share a common RhoElements library in one directory while having the application-specific code in separate directories for each application. 
+
+To develop a RhoElements native application, you perform these steps.
+
+1. [Install RhoStudio](/rhodes/install) (as you would when you install Rhodes).
+
+2. Generate and install the RhoElements libraries.
+
+3. Set the build environment for RhoElements.
+
+4. Enter the Motorola license.
+
+5. Pick the browser: there is a Motorola browser, and the browser on the device.
+
+To develop a RhoElements native application in shared runtime mode, you perform these steps.
+
+1. Build the RhoElements shared runtime application (this application contains the RhoElements libraries that your native applications will share).
+
+2. Deploy the RhoElements shared runtime application on your device.
+
+3. Perform the same steps that you do for a RhoElements native application, but in addition:
+
+ - Set the build environment for shared runtime.
+ - Set the shortcut file (.lnk) to point to your application, if needed.
+
+To develop a RhoElements hybrid application, you perform the following steps.
+
+1. Code the application using Eclipse, Visual Studio, or similar web development environment.
+
+ - Code the EMML (view) files.
+ - Code the JavaScript or Ruby (controller) files.
+
+2. Build and deploy the RhoElements shared runtime application on your device.
+
+3. Edit the shortcut file (.lnk) for the command line parameters: set the location of the configuration file, and the start page for the RhoELements hybrid application.
+
+4. Deploy the application on the device or on the web, depending upon where you want to deploy (this is where the start page is located).
+
+## Diagram of the Rhodes and RhoElements Paths
+
+THe following diagram gives an overview of the development paths you would take for developing a Rhodes app, or the different types of RhoElements apps: RhoElements Native, RhoElements Native with Shared Runtime, and RhoElements Hybrid.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhodes-rhoelements-paths.jpg" alt="rhodes-rhoelements-paths.jpg" /> 
+
