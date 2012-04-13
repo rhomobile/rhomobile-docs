@@ -2,8 +2,6 @@ Topic Tutorials
 ===
 Here you will find the complete collection of Rhomobile tutorials.  Please also checkout our [collection of webinars](http://rhomobile.com/webinars/).
 
-* ### [Rhodes Tutorial](/rhodes/tutorial)
-
 * ### [RhoConnect Tutorial](/rhoconnect/tutorial)
 
 * ### [RhoHub Tutorial](/rhohub/tutorial)
@@ -37,3 +35,5 @@ Here you will find the complete collection of Rhomobile tutorials.  Please also 
 * ### [Near Field Communications With Rhodes Peer-to-Peer Tutorial](/nfc-with-rhodes-p2p-tutorial)
 
 * ### [Rhodes on Windows Mobile Tutorial](/rhodes-windows-mobile-tutorial)
+
+* ### [Building Highly Secure Apps](/secure-apps)

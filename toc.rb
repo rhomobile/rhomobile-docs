@@ -2,6 +2,7 @@ section 'intro', 'Introduction'
 
 section 'getting-started', 'Getting Started' do
   topic 'home',                 'Home'
+  topic 'rhodes-and-rhoelements',                 'Rhodes and RhoElements'
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
@@ -9,7 +10,6 @@ section 'getting-started', 'Getting Started' do
   topic 'tutorials',            'How To'
   topic 'architecturefaq',      'Architecture FAQ'
   topic 'faq',                  'Programming FAQ'
-  topic 'secure-apps',          'Building Highly Secure Apps'
 end
 
 section 'api', 'Mobile API Reference'
