@@ -64,9 +64,3 @@ To develop a RhoElements hybrid application, you perform the following steps.
 
 4. Deploy the application on the device or on the web, depending upon where you want to deploy (this is where the start page is located).
 
-## Diagram of the Rhodes and RhoElements Paths
-
-THe following diagram gives an overview of the development paths you would take for developing a Rhodes app, or the different types of RhoElements apps: RhoElements Native, RhoElements Native with Shared Runtime, and RhoElements Hybrid.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhodes-rhoelements-paths.jpg" alt="rhodes-rhoelements-paths.jpg" /> 
-
