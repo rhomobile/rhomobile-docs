@@ -43,6 +43,11 @@ Android only. You can also use the front camera for take_barcode.
 	:::ruby
 	Barcode.take_barcode(url_for(:action => :take_callback), {:camera => 'front'})
 
+You can optionally specify a specific device scanner (ex: the device may have a 1D laser scanner and a camera - both are capabale of scanning barcodes), otherwise the first available scanner object will be used.
+
+    :::ruby
+    Barcode.take_barcode(url_for(:action => :barcode_callback), {:deviceName=>deviceName_from_enumerate})
+
 The callback receives these parameters:
 
 <table border="1">
@@ -55,3 +60,48 @@ The callback receives these parameters:
 	<td>The string for the recognized barcode.</td>
 </tr>
 </table>
+
+## enumerate
+
+Get a list of scanners present on the device. Returns an array of hashes ('name','id').
+
+	:::ruby
+    Barcode.enumerate(url_for(:action => :enumerate_callback))
+
+Callback parameters:
+
+* scannerArray - array of Hashes("deviceName","friendlyName")
+
+## enable
+ 
+Enables the scanner. `barcode_callback` gets the same parameters as `Barcode.take_barcode`.
+
+    :::ruby
+    Barcode.enable(url_for(:action => :barcode_callback), {:deviceName=>deviceName_from_enumerate})
+
+Callback parameters:
+
+* "status" - "ok" or "cancel".
+* "barcode" - the recognized barcode string.
+
+## disable
+
+Disables the currently enabled scanner. This reverts the scanner to its default state and flushes any current decoder settings.
+
+    :::ruby    
+    Barcode.disable
+
+## start
+
+Performs a soft trigger start. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start .  
+
+    :::ruby    
+    Barcode.start
+
+### stop
+
+Performs a soft trigger stop.
+
+    :::ruby    
+    Barcode.stop 
+
