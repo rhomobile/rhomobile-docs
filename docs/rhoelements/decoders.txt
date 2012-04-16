@@ -1,6 +1,6 @@
 RhoElements Barcode Capture Decoders Tutorials
 ===
-Here you will find reference to all decoders available for the <a href="../Rhoelememts/scanner">RhoElements Scanner object</a>
+Here you will find reference to all decoders available for the <a href="../rhoelements/scanner">RhoElements Scanner object</a>
 
 * ### [AllDecoders](/rhoelements/all_decoders)
 
