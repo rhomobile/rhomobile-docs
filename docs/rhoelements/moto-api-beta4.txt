@@ -18,6 +18,12 @@ To build for Motorola Windows CE devices, install MC3000c50b PSDK from the [Symb
 
         wm:
           sdk: "MC3000c50b (ARMV4I)"
+
+NOTE: RhoElements 2.0 applications would not work in case of incorrect network setup on Windows Mobile device, because RE 2.0 relies on <code>localhost</code> hostname and <code>127.0.0.1</code> IP-address presence.
+In general when connected to PC the device should have Internet connectivity, e.g. the user should be able to browse web with Internet Explorer from Windows Mobile device.
+In case of broken Internet connectivity, make sure that at <code>Settings</code> » <code>Connections</code> » <code>Connections</code> » <code>Advanced</code> » <code>Select Networks</code>
+the value <code>My ISP</code> is selected in both select boxes.
+
       
 ### Android Prerequisites
 
