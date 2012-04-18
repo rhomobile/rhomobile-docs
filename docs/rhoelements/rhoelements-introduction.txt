@@ -4,6 +4,25 @@ RhoElements Version 2.0 provides Rhodes with an extended set of enterprise-focus
 
 RhoElements 2.0 also allows you to create applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, deploy the application on the mobile device.
 
+## Supported Operating Systems
+
+### Windows Mobile, Windows CE
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5 and 6
+* Motorola devices: ES400, MC2100, MC3100, MC55A0, MC55N0, MC65, MC75A0, MC75A6, MC75A8, MC9100, MC9190, MC9590, MC9596, MC9598, MC959B
+
+### Android
+* Android 2.1 and greater
+* Motorola ET1
+
+### iPhone
+All versions of iPhone 3.0 or greater, iPad
+
+### BlackBerry
+BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
+
+### Windows Phone 7
+Latest Windows Phone devices
+
 ## Understanding RhoElements 2.0 Native Applications
 
 RhoElements 2.0 native applications are written using HTML, CSS and JavaScript, and the Rhodes-style Ruby framework for the application logic. Like a Rhodes app, you deploy and run a RhoElements 2.0 native application on the mobile device. As with all RhoElements applications, native applications are platform agnostic.
