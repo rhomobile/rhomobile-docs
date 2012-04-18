@@ -83,7 +83,7 @@ Deployment License information should be provided at application build time in t
 
 When the application is started, the license is checked for validity. If the license is invalid, the application will exit.
 
-## Choosing the Browser for a RhoElements Application
+## Choosing Motorola WebKit Browser or Device Browser
 
 RhoElements 2.0 will automatically use the Motorola WebKit browser for Windows Mobile, Windows CE and Android (ET1) devices when you add the rhoelements app_type to your application's build.yml.
 
