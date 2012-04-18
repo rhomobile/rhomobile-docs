@@ -1,0 +1,75 @@
+# RhoElement-Enabling Your Web App
+
+PLACEHOLDER - BLURB ABOUT HOW YOU DO NOT HAVE TO WRITE CODE TO RHOELEMENT-ENABLE YOUR WEB APP
+
+## Installing the RhoElements Runtime
+
+PLACEHOLDER - Instructions for getting cab/apk and putting on the device
+
+## Configuration
+
+PLACEHOLDER - Instructions for modifying the config.xml - also location for each operating system should be noted
+
+## Running Multiple Applications
+
+PLACEHOLDER - Blurb about how you can use the runtime client to launch into multiple applications
+
+## Creating Shortcuts on Windows Mobile/CE
+
+You can setup Windows Mobile shortcut files to launch the RhoElements runtime with different startup options that will override the default settings. You set these parameters in a shortcut (.lnk) file for Windows Mobile/CE; you must create this file. You can use a text editor such as Notepad on Windows CE, or use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu. This will put the shortcut at the top level in your Start Menu.
+
+The RhoElements runtime installation path on Windows CE/Mobile devices is `\Program Files\RhoElements` and the path to the executable is `\Program Files\RhoElements\RhoElements.exe`.
+
+The following command line parameters are supported:
+
+    /C: Specifies the location of the configuration file for the
+        RhoElements v1.0 application. This will override all default
+		configuration settings.
+        e.g. /C:file://\application\config.xml
+        
+    /S: Specifies the start page of the RhoElements v1.0 application,
+	    Other configuration parameters will be used from the default
+		config.xml file
+        e.g. /S:file://\HTML\index.html
+        e.g. /S:http://www.motorola.com
+
+If neither the `/S` nor `/C` parameters are present, then the default values will be used. 
+
+The format in the .lnk file is:
+
+	<line-length>#"<runtime-exe>" <command-line-parameter>"<app-folder>"
+
+For example, will just change the startup page to be a local HTML file:
+
+	89#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\Demos\AttendeeTracker\index.html
+
+	
+## Customizing the RhoElements Runtime
+The RhoElements runtime is a prebuilt Rhodes application that simply launches in full screen mode and loads configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, for example change the startup screen or icon, load the Rhodes project into RhoStudio from the following location: 
+	<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
+
+To build the Shared Runtime Application, perform the following steps.
+
+On the command line on your Windows PC, navigate to this folder.
+
+	<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
+
+To build for Windows Mobile or Windows CE, run this command.
+
+        rake device:wm:production
+
+The resulting `cab` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
+
+To build for Android, run this command.
+
+        rake device:android:production
+
+The resulting `apk` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
+
+### Deploying The Customized Runtime 
+
+To install your customized Runtime application on your specific device, go to the [build instructions](/rhodes/build) for your platform and use the instructions to deploy an application on your device.
+
+NOTE: The runtime application <b>must</b> be installed to the primary disk partition on the Windows CE/Mobile device, i.e. it has to be installed to `\Program Files\RhoElements2` only.
+On Windows Mobile, the `Device` option must be selected when the installer asks for the location to install.
+On Windows CE, the default path (`\Program Files\RhoElements`) must be selected.

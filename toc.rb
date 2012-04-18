@@ -15,8 +15,11 @@ end
 section 'rhoelements', 'RhoElements'
 
 section 'rhoelements-devref', 'RhoElements Reference' do
-  topic 'rhoelements/rhoelements-introduction', 'RhoElements 2 Overview'
-  topic 'rhoelements/rhoelements2-native-hybrid', 'RhoElements 2 Native and Hybrid'
+  topic 'rhoelements/rhoelements-introduction', 'Introduction'
+  topic 'rhoelements/rhoelements-app-models', 'Application Approaches'
+  topic 'rhoelements/rhoelements-install', 'Installation'
+  topic 'rhoelements/rhoelements2-webapps', 'Enabling Web Apps'
+  topic 'rhoelements/rhoelements2-native', 'Building Native Apps'
   topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
   topic 'rhoelements/FontsInRhoElements', 'Font Handling'
   topic 'rhoelements/RetrievalEvents', 'Retrieval Events'
