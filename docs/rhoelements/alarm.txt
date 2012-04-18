@@ -89,6 +89,18 @@ The Alarm is not designed to be triggered for intervals less than 30 seconds, if
 ###Explanation of Time Format
 You must specify the time in GMT and then the device's timezone offset from that. E.g. a time expressed as 2012-07-27t08-30-00-05-00 breaks down as follows:
 
+<pre>
+
+//  Assuming a device with timezone offset -5 hours
+//  This alarm will fire at 8:30am (local time) on 27th July 2012
+
+Year: 2012
+Month: July
+Day: 27th
+Time: 13:30 exactly (GMT)
+Timezone: -5 (Eastern Time, 8:30am local time)
+			</pre>
+
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 

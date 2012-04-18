@@ -60,9 +60,39 @@ The Generic Preexisting JavaScript Object contains read only properties and meth
 ###Play Flags
 Flags are as follows:
 
+<pre>
+
+0x00000000 = Play synchronously (default all but ET1).  The function returns after the sound event completes. (Not supported on ET1)
+0x00000001 = The sound is played asynchronously (default on ET1 device).  To terminate an asynchronously played waveform 
+             sound, call PlayWave with strSound set to null.
+0x00000002 = No default sound event is used. If the sound cannot be found, PlayWave returns 
+             silently without playing the default sound. (Not applicable on ET1)
+0x00000004 = A sound event's file is loaded in RAM. The parameter specified by strSound must point 
+             to an image of a sound in memory. (Not applicable on ET1)
+0x00000008 = The sound plays repeatedly until PlayWave is called again with the strSound parameter 
+             set to null. You must also specify the 0x00000001 flag to indicate an asynchronous 
+             sound event.
+0x00000010 = The specified sound event will yield to another sound event that is already playing. 
+             If a sound cannot be played because the resource needed to generate that sound is 
+             busy playing another sound, the function immediately returns without playing the 
+             requested sound.  If this flag is not specified, PlaySound attempts to stop the 
+             currently playing sound so that the device can be used to play the new sound.
+</pre>
+
 
 ###Backwards Compatibility
 The Generic Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'generic' on the page automatically when 'PreloadLegacyGeneric' is configured to be '1' you can not create your own objects by this name, see below:
+
+<pre>
+
+&lt;script&gt;
+  //  Old PocketBrowser syntax supported by the Generic Object
+  var gen = new ActiveXObject("PocketBrowser.Generic"); 
+  
+  //  Note: var generic = new ... will fail because the object already exists on the page.
+  gen.Log('My Log Data', 1);
+&lt;/script&gt;
+</pre>
 
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>

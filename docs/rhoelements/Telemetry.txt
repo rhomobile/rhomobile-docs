@@ -85,9 +85,64 @@ The QueryFrequency parameter is used to specify the frequency at which filters' 
 ###Filter Values
 Filters can be defined to be any of the following:
 
+<pre>
+
+Filter:                         Definition:
+ABSControlStatus                ABS Control Status
+ThrottlePosition                Throttle Position
+ServiceBrakeSwitch              Service Break Switch Status
+IgnitionStatus                  Ignition Status
+ParkingBrakeSwitch              Parking Brake Switch Status
+RoadSpeed                       Road Speed
+CruiseControlSwitch             Cruise Control Switch
+BrakesSwitch                    Brake Switch of Cruise Control
+ClutchStatus                    Clutch Status in Cruise Control
+CruiseControlSetSpeed           Speed in Cruise Control
+AcceleratorPedalPos             Accelerator Pedal Position
+EngineLoad                      Engine Load (%)
+EngineOilPressure               Engine Oil Pressure
+BoostPressure                   Boost Pressure
+EngineCoolantTemperature        Engine Coolant Temperature
+EngineRetarderStatus            Engine Retarder Status
+ATC_ASR_Status                  Automatic Traction Control (ATC) and Acceleration Regulation System (ASR) Status
+TransmissionRangeSelected       Selected Transmission Range Value selected by Driver
+TransmissionRangeAttained       Attained Transmission Range Value Commanded by Transmission System
+BatteryVoltage                  Battery Potential
+EngineOilTemperature            Engine Oil Temperature
+TransmissionOilTemperature      Transmission Oil Temperature
+FuelRate                        Fuel Consumption per Time Unit
+InstantaneousFuelEconomy        Current Fuel Economy at Current Vehicle Velocity
+AverageFuelEconomy              Average of Instantaneous Fuel Economy
+EngineRPM                       Engine Speed (RPM)
+TransmitterDiagnosticTable      Transmitter Diagnostic Table
+TransmitterDiagnosticCode       Transmitter Diagnostics Code
+VehicleIDNumber                 Vehicle Identification Number
+VehicleGlobalPosition           Latitude and Longitude
+TotalDistance                   Total Distance Travelled
+</pre>
+
 
 ###TelemetryArrayEvent Array Format
 There is a single return value for this event which is a two dimensional array with the format below:
+
+<pre>
+
+(
+  (                         //  Array for filter 1 (the first filter enabled)
+      Filter Name           //  The name of the filter, e.g. RoadSpeed
+      Filter Value          //  The value of the filter, e.g. 40
+      Unit Of Measurement   //  The units, e.g. mph
+      Last Update           //  The last time the value was updated in hardware, in the format HH:MM:SS
+  )
+  (                         //  Array for filter 2 (the second filter enabled)
+      Filter Name           
+      Filter Value          
+      Unit Of Measurement   
+      Last Update           
+  )
+  
+)
+</pre>
 
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the TelemetryDataEvent which is reset when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware and drivers to run, i.e. a vehicle bus (VBus) and device capable of interfacing with such e.g. VC6000.</td></tr></table>

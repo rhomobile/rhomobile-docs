@@ -93,6 +93,22 @@ If RhoElements is exited after applying notifications, the settings will not rev
 ###EnumNotificationsEvent Array Format
 There is a single return value for this event which is a two dimensional array with the format below:
 
+<pre>
+
+(
+   (                      //  Array for Notification 1
+      notificationIndex,  //  Unique Identifier for each notification.
+      notificationType,   //  Type of the notification.  '0' Indicates an LED; '1' indicates a Beeper and '2' indicates a pager
+      notificationName    //  Human readable name of the notification, e.g. "Green LED"
+   )
+   (                      //  Array for Notification 2
+      notificationIndex,
+      notificationType,
+      notificationName
+   )
+)
+</pre>
+
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the EnumNotificationsEvent which is page specific.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 

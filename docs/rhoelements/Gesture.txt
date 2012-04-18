@@ -80,7 +80,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">0 to 10000</td><td class="clsSyntaxCells clsOddRow">Linear &amp; Circle Gestures: How far (in pixels) the mouse track can vary from the gesture path.</td><td class="clsSyntaxCells clsOddRow"> Linear: 25% of screen height. Circle: 16% of screen width.</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>sensitivity:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">0 to 100</td><td class="clsSyntaxCells clsEvenRow">Linear &amp; Circle Gestures: Percentage of gesture path which mouse track must cover. Rounds down if this results in a non-whole number of regions.</td><td class="clsSyntaxCells clsEvenRow">50</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>delay:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">&gt;=0</td><td class="clsSyntaxCells clsOddRow">Hold Gestures: Time (in milliseconds) that screen must be touched within gesture before first detected.</td><td class="clsSyntaxCells clsOddRow">1000</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>interval:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">&gt;=0</td><td class="clsSyntaxCells clsEvenRow">Hold Gestures: Time (in milliseconds) between subsequent detections while screen continues to be touched. Zero means no further detections.  This parameter is ignored if the detection event is not set to a Javascript function.</td><td class="clsSyntaxCells clsEvenRow">0</td></tr></table>
+</b></td><td class="clsSyntaxCells clsEvenRow">&gt;=0</td><td class="clsSyntaxCells clsEvenRow">Hold Gestures: Time (in milliseconds) between subsequent detections while screen continues to be touched. Zero means no further detections.  This parameter is ignored if the detection event is not set to navigate to a new page.</td><td class="clsSyntaxCells clsEvenRow">0</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 ##Events
 
@@ -100,6 +100,14 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###Presets and IDs
 The 'preset' tag is used to specify one of the preset values below. When a gesture definition is started using the 'type' tag its parameters are initially set to the preset shown as default. When a preset is specified for a gesture, including when it is first created, its ID is set to [gesture name]-[default preset name]. E.g. a new linear gesture will have the ID 'linear-left-right'. This can be replaced (as can any preset value) by a subsequent parameter tag.
 
+<pre>
+
+GESTURE          POSSIBLE VALUES                                         DEFAULT
+Linear           left-right, right-left, top-bottom, bottom-top          left-right
+Circle           happy*, sad*                                            happy
+Hold             center                                                  center
+      </pre>
+
 
 ###* Meanings of Presets
 "Happy" means a 180 degree semi-circle, clockwise from the 3 o'clock position. "Sad" means a 180 degree semi-circle, clockwise from the 9 o'clock position.
@@ -107,6 +115,10 @@ The 'preset' tag is used to specify one of the preset values below. When a gestu
 
 ###Maximum Gesture Size
 There is no formal maximum size for a gesture, for example a circle gesture could require the user to move several times round the circle. However if the user draws such a gesture very slowly it's possible that too many stylus move points could be generated, and the gesture wouldn't be detected. The plugin has been tested with a circle gesture from 0 to 720 degrees and taking approximately 6 seconds to draw without problem.
+
+
+###Finger Scrolling
+Gestures are not compatible with Finger Scrolling
 
 
 ###Common Pitfalls
