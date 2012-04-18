@@ -168,11 +168,11 @@ It is also possible to [enable HTTP-logging](/rhodes/test-log-debug#logging) wit
 
 ### RhoElements Application Logging - Android
 
-1. <b>RhoElements v1.0</b. applications log is configured at Config.xml
-    If the `value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP",
-    then destination of log is taken from the `Configuration` > `Logger` > `LogURI` tag.
-       - In case of "FILE" protocol, the log messages are stored to file specified with 'value' attribute of 'LogURI' tag.
-       - In case of "HTTP" protocol, the log messages are sent to host specified with 'value' attribute of 'LogURI' tag via POST HTTP-requests.
+1. <b>RhoElements v1.0</b> applications log is configured at Config.xml
+If the `value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP",
+then destination of log is taken from the `Configuration` > `Logger` > `LogURI` tag.
+    1. In case of "FILE" protocol log messages are stored to file specified with 'value' attribute of 'LogURI' tag.
+    2. In case of "HTTP" protocol log messages are sent to host and port specified with 'value' attribute of 'LogURI' and 'LogPort' tags via POST HTTP-requests.
 
 2. <b>RhoElements v2.0</b> applications log is configured in Rhodes way at rhoconfig.txt located in app source root folder.
     1. 'logserver' parameter is used to send log to the host via HTTP.
