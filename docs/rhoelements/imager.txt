@@ -108,8 +108,8 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 The ImagerArray attribute returned from ImagerEnumevent retrieval tag will enumerate each imager present on the device in a 2D array, associating each Imager's device name with a user friendly name. The device ID can be passed as a parameter to "Imager" "Enabled:&lt;deviceID&gt;", the friendly name is a user readable description of the Imager, e.g: "IMG1", "Imager" "IMG2", "color Camera".
 
 
-###Scanning and Image Capture
-Image capture tags cannot be used on the same page as scanner tags due to Hardware Limitations.
+###Scanning and Image Capture Interaction
+In some device configurations the scanner and imager share the same hardware, e.g. the blockbuster scanner and top mounted imager on the MC75a. Where two modules share the same physical hardware they cannot be enabled simultaneously, once the scanner is enabled it must be disabled before the imager can be used, and vice versa.
 
 
 ###Setting up a Transfer to a remote HTTP or FTP location
@@ -126,6 +126,20 @@ The protocol, port number, username (optional) and password (optional) are all d
 
 ###imagerEnumEvent Array Format
 The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
+
+<pre>
+
+(
+   (            //  Array for Imager 1
+      deviceName,    //  The internal name given to the Imager, use this when enabling a specific imager.
+      friendlyName,  //  A human readable description of the Imager.
+   )
+   (            //  Array for Imager 2
+      deviceName,
+      friendlyName,
+   )
+)
+</pre>
 
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr></table>

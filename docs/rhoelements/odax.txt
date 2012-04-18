@@ -52,6 +52,17 @@ The current result set becomes invalid after any Execute (INSERT, UPDATE, DELETE
 ###Backwards Compatibility
 The ODAX Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'odax' on the page automatically when 'PreloadLegacyODAX' is configured to be '1' you can not create your own objects by this name, see below:
 
+<pre>
+
+&lt;script&gt;
+  //  Old PocketBrowser syntax supported by ODAX
+  var myObj = new ActiveXObject("CeODAX.ODAX"); 
+  
+  //  Note: var odax = new ... will fail because the object already exists on the page.
+  myObj.Delete('\\windows\\crazy_frog.wav');
+&lt;/script&gt;
+</pre>
+
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 

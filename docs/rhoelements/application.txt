@@ -66,6 +66,20 @@ The version of RhoElements installed on the device<table class="re-table"><col w
 ###ComponentVersions Array Format
 The ComponentVersions parameter in the VersionEvent is defined as a 2D array:
 
+<pre>
+
+(
+   (            //  Array for Component 1
+      module,   //  The name of the module (string).
+      version,  //  The version of the module (string) in the form v.w.x.y.z.
+   )
+   (            //  Array for Component 2
+      module,
+      version,
+   )
+)
+</pre>
+
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet - does not support "Restore" method.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
@@ -116,7 +130,7 @@ The following example
 	</SCRIPT>
 	<div id="outputDiv">Version Goes Here</div>
 	<P>
-	  <INPUT align="center" type="button" value="Retrieve Version" onclick="application.GetVersion()"><br>
+	  <INPUT align="center" type="button" value="Retrieve Version" onclick="application.getVersion()"><br>
 	
 
 

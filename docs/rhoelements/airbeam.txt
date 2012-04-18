@@ -33,9 +33,28 @@ The AirBeam Preexisting JavaScript Object contains properties and methods which 
 ###Mode Settings
 The following mode settings apply to the AutoLoadMode Property
 
+<pre>
+
+0: Synchronization is not automatically started.
+1: Synchronization is automatically started in interactive mode.
+2: Synchronization is automatically started in non-interactive mode.
+3: Synchronization is automatically started in background mode.
+</pre>
+
 
 ###Backwards Compatibility
 The AirBeam Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'airbeam' on the page automatically when 'PreloadLegacyAirBeam' is configured to be '1' you can not create your own objects by this name, see below:
+
+<pre>
+
+&lt;script&gt;
+  //  Old PocketBrowser syntax to support AirBeam
+  var myObj = new ActiveXObject("PocketBrowser.AirBEAMSmart"); 
+  
+  //  Note: var airbeam = new ... will fail because the object already exists on the page.
+  myObj.Run();
+&lt;/script&gt;
+</pre>
 
 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>

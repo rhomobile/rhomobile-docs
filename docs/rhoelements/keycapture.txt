@@ -71,6 +71,15 @@ The TriggerEvent is invoked whenever a device hardware trigger is pressed or rel
 ###Keys which can not be captured
 It is not possible to capture the following types of keys, although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16:
 
+<pre>
+
+*  Keyboard modifiers such as SHIFT, ALT, ORANGE button, BLUE button etc.
+*  Device Keys such as the screen backlight or keyboard backlight
+*  Hot keys such as phone keys or 'soft' buttons, those whose 
+   function changes based on the running application.
+*  The Home key on the ET1 device.
+</pre>
+
 
 ###Device Lockdown on ET1
 Because the Home key cannot be captured on the ET1 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Enterprise Tablet documentation for other device lockdown options.
@@ -91,13 +100,30 @@ In Internet Explorer the F5 key is used to refresh the current page. It is not r
 ###Accelerator Keys
 The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when RhoElements is run with the Internet Explorer engine on a Windows CE device.
 
+<pre>
+
+Key           Code    Usual Behaviour               Special behaviour in Internet Explorer
+
+Left Arrow    0x25    Cursor left                   Scroll window left
+Right Arrow   0x27    Cursor right                  Scroll window right
+Up Arrow      0x26    Cursor up                     Scroll window up
+Down Arrow    0x28    Cursor down                   Scroll window down
+Backspace     0x08    Delete previous character.    Navigate to previous page
+Enter         0x0D    Cursor line feed              Submit form
+Tab           0x09    Advance to next control       Advance to next control				
+				</pre>
+
 
 ###Remapping a key to itself
 If a key is remapped to itself then RhoElements will appear to hang because if that key is pressed it will generate another press of the same key, and so on forever. The same will happen if for instance key 1 is remapped to key 2, which in turn is remapped to key 1.
 
 
-###Special characters on ET1
-On ET1, certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, (, ), !, :, ?. Due to the different SIP layout on Windows and Android, the following keys will return different codes: #, *, @, =, _ and .
+###Special characters
+On some devices certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, (, ), !, :, ?, #, _, @.
+
+
+###Different keyboard layouts on Windows and Android
+Due to the different SIP layout on Windows and Android, the following keys will return different codes: #, *, @, =, _ and .
 
 
 ###Device Specific Exceptions

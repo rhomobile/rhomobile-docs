@@ -70,7 +70,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###transferEvent
-The TransferEvent is called when the file has been successfully transfered to the specified destination. When the transfer is via the HTTP protocol 'OK: File Received' is returned; for HTTP uploads the destination server message is returned. When the transfer is via FTP either 'OK: File Sent', 'OK: File Received'. If there is an error during the transfer 'Error:' will be returned and may be followed by the relevant Windows error code; see the log file for more information on the error. Note when downloading from an HTTP server if the requested file does not exist you may receive 'OK: File received' and the server 404 string placed in your destination file.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>transferResult</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Success or failure of the transfer, see note above.</td></tr></table>
+Provided the source and destination parameters were valid, the TransferEvent is fired after the transfer has been made. When the transfer is via the HTTP protocol 'OK: File Received' is returned; for HTTP uploads the destination server message is returned. When the transfer is via FTP either 'OK: File Sent', 'OK: File Received'. If there is an error during the transfer 'Error:' will be returned and may be followed by the relevant Windows error code; see the log file for more information on the error. Note when downloading from an HTTP server if the requested file does not exist you may receive 'OK: File received' and the server 404 string placed in your destination file.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>transferResult</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Success or failure of the transfer, see note above.</td></tr></table>
 
 
 
@@ -99,7 +99,7 @@ The FileTransfer meta tag also supports relative URLs, for example if the curren
 
 
 ###Maximum File Size
-The maximum file size to transfer is 4MB but is also dependant on the memory available to the device. For file sizes above 2MB on lower memory devices alternate methods for transferring files should be considered.
+The maximum file size which can be transferred is about 4MB but is also dependant on the memory available to the device and the transport protocol selected. For file sizes above 2MB on lower memory devices alternate methods for transferring files should be considered.
 
 
 ###Platform differences

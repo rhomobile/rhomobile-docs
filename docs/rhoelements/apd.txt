@@ -34,6 +34,17 @@ For a full list of commands refer to the driver documentation (Motorola Adaptive
 ###Backwards Compatibility
 The APD Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'apd' on the page automatically when 'PreloadLegacyAPD' is configured to be '1' you can not create your own objects by this name, see below:
 
+<pre>
+
+&lt;script&gt;
+  //  Old PocketBrowser syntax supported by APD
+  var myObj = new ActiveXObject("PocketBrowser.NarrowBand"); 
+  
+  //  Note: var apd = new ... will fail because the object already exists on the page.
+  myObj.PSExternal(261, '2350C');
+&lt;/script&gt;
+</pre>
+
 
 ###APD version
 The APD version returned by the Cmd_PSGetVersion command (decimal code 260) is not assumed to be the same across the supported platforms, even though the supported capabilities are the same. For instance, at the time of writing, the current version for Windows is 'Motorola APD V2.19.06', whereas the version for Android is Motorola APD V1.00.00A, with the terminating 'A' standing for Android.
