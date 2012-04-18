@@ -7,7 +7,7 @@ RhoElements 2.0 also allows you to create applications that use the Rhodes-type 
 ## Supported Operating Systems
 
 ### Windows Mobile, Windows CE
-* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5 and 6
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
 * Motorola devices: ES400, MC2100, MC3100, MC55A0, MC55N0, MC65, MC75A0, MC75A6, MC75A8, MC9100, MC9190, MC9590, MC9596, MC9598, MC959B
 
 ### Android
