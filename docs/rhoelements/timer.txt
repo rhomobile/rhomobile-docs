@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Timer Module is used to set a timer and register an action to perform when that timer expires. Once the timer is started the interval time can not be changed without stopping the timer and restarting it.</b>
-
+The Timer Module is used to set a timer and register an action to perform when that timer expires. Once the timer is started the interval time can not be changed without stopping the timer and restarting it.
+</b>
 
 ##Syntax
 

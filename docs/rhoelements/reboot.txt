@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Reboot Module is used to reboot the terminal immediately.</b>
-
+The Reboot Module is used to reboot the terminal immediately.
+</b>
 
 ##Syntax
 

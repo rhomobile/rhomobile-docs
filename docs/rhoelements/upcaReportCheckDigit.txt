@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The UpcaReportCheckDigit Decoder Setting is used to set the upca ReportCheckDigit property which enables reporting of the bar code check digit(s).</b>
-
+The UpcaReportCheckDigit Decoder Setting is used to set the upca ReportCheckDigit property which enables reporting of the bar code check digit(s).
+</b>
 
 ##Syntax
 

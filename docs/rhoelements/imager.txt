@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Imager Module controls the imager functions and navigates to a URL or calls a javascript function in response to an HTTP image transfer carried out by the imager meta tag.</b>
-
+The Imager Module controls the imager functions and navigates to a URL or calls a javascript function in response to an HTTP image transfer carried out by the imager meta tag.
+</b>
 
 ##Syntax
 

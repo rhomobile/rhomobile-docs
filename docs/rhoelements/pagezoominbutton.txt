@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The ZoomInPageButton Module is used to set the parameters of the ZoomInPageButton. When clicked, the ZoomInPage button zooms into the web page. There is a default zoom in step and a maximum zoom in level.</b>
-
+The ZoomInPageButton Module is used to set the parameters of the ZoomInPageButton. When clicked, the ZoomInPage button zooms into the web page. There is a default zoom in step and a maximum zoom in level.
+</b>
 
 ##Syntax
 

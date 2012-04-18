@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The SignatureImageSize Decoder Setting is used to set the image size property of the signature decoder.</b>
-
+The SignatureImageSize Decoder Setting is used to set the image size property of the signature decoder.
+</b>
 
 ##Syntax
 

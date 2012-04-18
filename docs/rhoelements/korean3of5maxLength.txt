@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Korean3of5maxLength Decoder Setting is used to set the korean3of5 maxLength property.</b>
-
+The Korean3of5maxLength Decoder Setting is used to set the korean3of5 maxLength property.
+</b>
 
 ##Syntax
 

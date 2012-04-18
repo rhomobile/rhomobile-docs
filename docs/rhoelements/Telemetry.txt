@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Telemetry Module is used to interface with vehicle telemetry.</b>
-
+The Telemetry Module is used to interface with vehicle telemetry.
+</b>
 
 ##Syntax
 

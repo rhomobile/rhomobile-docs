@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The APD Preexisting JavaScript Object contains read only properties and methods for interacting with the Adaptive Printer Driver. If you have configured 'PreloadLegacyAPD' to be '1' the Javascript object 'apd' will be inserted automatically into your page's DOM by RhoElements.</b>
-
+The APD Preexisting JavaScript Object contains read only properties and methods for interacting with the Adaptive Printer Driver. If you have configured 'PreloadLegacyAPD' to be '1' the Javascript object 'apd' will be inserted automatically into your page's DOM by RhoElements.
+</b>
 
 ##Syntax
 

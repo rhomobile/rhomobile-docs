@@ -3,7 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Battery Module is used to set the attributes of the battery indicator and retrieve the status of the battery.</b>
+The Battery Module is used to set the attributes of the battery indicator and retrieve the status of the battery.
+</b><b>Check the <a href="IndicatorPositions">indicator layout overview page</a> for more detail on positioning these indicators.</b>
 
 
 ##Syntax

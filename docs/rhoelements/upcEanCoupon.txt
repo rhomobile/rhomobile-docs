@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The UpcEanCoupon Decoder is used to enable or disable decoding of upcEanCoupon barcodes.</b>
-
+The UpcEanCoupon Decoder is used to enable or disable decoding of upcEanCoupon barcodes.
+</b>
 
 ##Syntax
 
