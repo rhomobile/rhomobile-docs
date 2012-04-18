@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The IoAnalog Module is used to interface with the device analog input ports. Analog ports provide the ability to read 2 general purpose external analog voltage input ports and an additional 4 internal analog ports, i.e. ambient temperature, heater temperature, battery voltage and battery current.</b>
-
+The IoAnalog Module is used to interface with the device analog input ports. Analog ports provide the ability to read 2 general purpose external analog voltage input ports and an additional 4 internal analog ports, i.e. ambient temperature, heater temperature, battery voltage and battery current.
+</b>
 
 ##Syntax
 

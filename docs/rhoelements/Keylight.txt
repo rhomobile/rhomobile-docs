@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Keylight Module is used to illuminate / extinguish the keyboard backlight as well as setting the intensity of the keylight.</b>
-
+The Keylight Module is used to illuminate / extinguish the keyboard backlight as well as setting the intensity of the keylight.
+</b>
 
 ##Syntax
 

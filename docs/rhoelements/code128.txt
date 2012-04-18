@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Code128 Decoder is used to enable or disable the Code128 decoder.</b>
-
+The Code128 Decoder is used to enable or disable the Code128 decoder.
+</b>
 
 ##Syntax
 

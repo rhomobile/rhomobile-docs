@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The GoButton Module is used to set the parameters of the GoButton. When clicked, the Go button shall navigate to the page shown in the Address Bar. The Go button will not be visible when the browser is navigating as it is replaced by the stop button (if visible), in line with all major browsers.</b>
-
+The GoButton Module is used to set the parameters of the GoButton. When clicked, the Go button shall navigate to the page shown in the Address Bar. The Go button will not be visible when the browser is navigating as it is replaced by the stop button (if visible), in line with all major browsers.
+</b>
 
 ##Syntax
 

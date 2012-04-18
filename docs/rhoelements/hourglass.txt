@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Hourglass Module is used to show or hide the hourglass (wait cursor) as well as adjust its position.</b>
-
+The Hourglass Module is used to show or hide the hourglass (wait cursor) as well as adjust its position.
+</b>
 
 ##Syntax
 

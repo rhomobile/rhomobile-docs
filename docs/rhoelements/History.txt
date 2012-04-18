@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The History META Tag is an action tag used to navigate forward or backward through the page history.</b>
-
+The History META Tag is an action tag used to navigate forward or backward through the page history.
+</b>
 
 ##Syntax
 

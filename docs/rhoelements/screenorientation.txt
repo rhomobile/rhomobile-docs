@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The ScreenOrientation Module is used to control the screen orientation/layout and register to receive an event when it changes.</b>
-
+The ScreenOrientation Module is used to control the screen orientation/layout and register to receive an event when it changes.
+</b>
 
 ##Syntax
 

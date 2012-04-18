@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The BottomCommandArea Module is used to set the parameters of the Bottom Command Area. The bottom command area is a region at the bottom of the screen designed to hold RhoElements controls such as the SIP button or Zoom button to separate them from the rest of the user application.</b>
-
+The BottomCommandArea Module is used to set the parameters of the Bottom Command Area. The bottom command area is a region at the bottom of the screen designed to hold RhoElements controls such as the SIP button or Zoom button to separate them from the rest of the user application.
+</b>
 
 ##Syntax
 

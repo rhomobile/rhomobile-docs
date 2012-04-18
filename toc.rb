@@ -2,7 +2,6 @@ section 'intro', 'Introduction'
 
 section 'getting-started', 'Getting Started' do
   topic 'home',                 'Home'
-  topic 'rhodes-and-rhoelements',                 'Rhodes and RhoElements'
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
@@ -11,9 +10,23 @@ section 'getting-started', 'Getting Started' do
   topic 'faq',                  'Programming FAQ'
 end
 
-section 'rhodes', 'Rhodes'
 
-section 'rhodes-reference', 'Developer Reference' do
+
+section 'rhoelements', 'RhoElements'
+
+section 'rhoelements-devref', 'RhoElements Reference' do
+  topic 'rhoelements/rhoelements-introduction', 'RhoElements 2 Overview'
+  topic 'rhoelements/rhoelements2-native-hybrid', 'RhoElements 2 Native and Hybrid'
+  topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
+  topic 'rhoelements/FontsInRhoElements', 'Font Handling'
+  topic 'rhoelements/RetrievalEvents', 'Retrieval Events'
+  topic 'rhoelements/apd-overview', 'APD Overview'
+  topic 'rhoelements/apd-printer-type-codes', 'APD Printer Type Codes'
+  topic 'rhoelements/apd-programmers-manual','APD Programmers Manual'
+  topic 'rhoelements/apd-printer-demo-user-notes','APD Printer Demo User Notes'
+  topic 'rhoelements/apd-release-notes','APD Release Notes'
+end
+section 'rhodes-reference', 'Rhodes Reference' do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/install',           'Install Rhodes'
   topic 'rhodes/generator',         'App Generator'
@@ -34,107 +47,195 @@ section 'rhodes-reference', 'Developer Reference' do
   topic 'credits',                  'Credits'
 end
 
-
-section 'rhoelements', 'RhoElements'
-
-section 'rhoelements-devref', 'Developer Reference' do
-  topic 'rhoelements/rhoelements-introduction', 'RhoElements 2 Overview'
-  topic 'rhoelements/rhoelements2-native-hybrid', 'RhoElements 2 Native and Hybrid'
-  topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
-  topic 'rhoelements/RetrievalEvents', 'Retrieval Events'
-  topic 'rhoelements/GesturesOverview',      'Gesturing Overview'
-  topic 'rhoelements/IndicatorPositions',      'Indicator Positions'
-  topic 'rhoelements/key_capture_overview',      'Key Capture Overview'
-end
-
-section 'rhoelements-apd', 'Motorola Adaptive Printer Driver (APD)' do
-  topic 'rhoelements/apd-overview', 'APD Overview'
-  topic 'rhoelements/apd-printer-type-codes', 'APD Printer Type Codes'
-  topic 'rhoelements/apd-programmers-manual','APD Programmers Manual'
-  topic 'rhoelements/apd-printer-demo-user-notes','APD Printer Demo User Notes'
-  topic 'rhoelements/apd-release-notes','APD Release Notes'
-end
-
 section 'api', 'Mobile API Reference'
-
-section 'rhoelementsapi-ui', 'RhoElements UI' do
+section 'rhodesapi-reference', 'API List Alphabetically' do
   topic 'rhoelements/addressbar',      'AddressBar'
+  topic 'rhoelements/airbeam',      'Airbeam'
+  topic 'rhoelements/alarm',      'Alarm'
+  topic 'rhodesapi/alert-api',             'Alert'
+  topic 'rhoelements/apd',      'Apd'
+  topic 'rhoelements/application',      'Application'
+  topic 'rhodesapi/appapplication-api',             'AppApplication'
+  topic 'rhodesapi/asynchttp-api',             'AsyncHttp'
   topic 'rhoelements/backbutton',      'BackButton'
+  topic 'rhoelements/backlight',      'Backlight'
+  topic 'rhodesapi/barcode-api',             'Barcode'
+  topic 'rhoelements/battery',      'Battery'
+  topic 'rhoelements/bottomcommandarea',      'BottomCommandArea'
+  topic 'rhodesapi/bluetoothmanager-api',             'BluetoothManager'
+  topic 'rhodesapi/bluetoothsession-api',             'BluetoothSession'
+  topic 'rhodesapi/camera-api',             'Camera'
+  topic 'rhoelements/cardreader',      'CardReader'
+  topic 'rhoelements/comm','Comm'
+  topic 'rhodesapi/datetimepicker-api',             'DateTimePicker'
+  topic 'rhoelements/toc_decoders',      'Decoders'
+  topic 'rhoelements/device',      'Device'
+  topic 'rhoelements/EMMLProfile',      'EMMLProfile'
+  topic 'rhodesapi/file-api',             'File'
+  topic 'rhoelements/FileTransfer',      'FileTransfer'
+  topic 'rhoelements/forwardbutton',      'ForwardButton'
+  topic 'rhoelements/generic',      'Generic'
+  topic 'rhodesapi/geolocation-api',             'GeoLocation'
+  topic 'rhoelements/Gesture',      'Gesture'
+  topic 'rhoelements/gobutton',      'GoButton'
+  topic 'rhoelements/historyback2',      'History'
+  topic 'rhoelements/HomeButton',      'HomeButton'
+  topic 'rhoelements/hourglass',      'Hourglass'
+  topic 'rhoelements/imager',      'Imager'
+  topic 'rhoelements/keycapture',      'KeyCapture'
+  topic 'rhoelements/keystate',      'KeyState'
+  topic 'rhoelements/Keylight',      'Key Light'
+  topic 'rhodesapi/mapview-api',             'MapView'
+  topic 'rhoelements/minimizebutton',      'MinimizeButton'
+  topic 'rhodesapi/menu-apis',            'Menu APIs'
+  topic 'rhodesapi/menu-toolbar-tabbar-apis',           'Menu-Toolbar-Tabbar actions'
+  topic 'rhodesapi/model-controller-api',             'Model Controller'
+  topic 'rhodesapi/nativetabbar-api',             'NativeTabbar'
+  topic 'rhodesapi/nativetoolbar-api',             'NativeToolbar'
+  topic 'rhodesapi/navigationbar-iphone-api',             'NavBar'
+  topic 'rhoelements/network',      'Network'
+  topic 'rhodesapi/NdefMessage-api',             'NdefMessage'
+  topic 'rhodesapi/NdefRecord-api',             'NdefRecord'
+  topic 'rhodesapi/NFCManager-api',             'NFCManager'
+  topic 'rhodesapi/NFCTag-api',             'NFCTag'
+  topic 'rhodesapi/NFCTagTechnology_IsoDep-api',             'NFCTagTechnology_IsoDep'
+  topic 'rhodesapi/NFCTagTechnology_MifareClassic-api',      'NFCTagTechnology_MifareClassic'
+  topic 'rhodesapi/NFCTagTechnology_MifareUltralight-api',      'NFCTagTechnology_MifareUltralight'
+  topic 'rhodesapi/NFCTagTechnology_Ndef-api',      'NFCTagTechnology_Ndef'
+  topic 'rhodesapi/NFCTagTechnology_NdefFormatable-api',      'NFCTagTechnology_NdefFormatable'
+  topic 'rhodesapi/NFCTagTechnology_NfcA-api',      'NFCTagTechnology_NfcA'
+  topic 'rhodesapi/NFCTagTechnology_NfcB-api',      'NFCTagTechnology_NfcB'
+  topic 'rhodesapi/NFCTagTechnology_NfcF-api',      'NFCTagTechnology_NfcF'
+  topic 'rhodesapi/NFCTagTechnology_NfcV-api',      'NFCTagTechnology_NfcV'
+  topic 'rhodesapi/NFCTagTechnology-api',      'NFCTagTechnology'
+  topic 'rhoelements/nosip',      'NoSIP'
+  topic 'rhoelements/notification',      'Notification'
+  topic 'rhoelements/odax',      'ODAX'
+  topic 'rhoelements/poweron',      'PowerOn'
+  topic 'rhoelements/push',      'Push'
+  topic 'rhoelements/registry',      'Registry'
+  topic 'rhoelements/reloadbutton',      'ReloadButton'
+  topic 'rhoelements/reboot',      'Reboot'
+  topic 'rhodesapi/rhoapplication-api',             'RhoApplication'
+  topic 'rhodesapi/rhoconfig-api',             'RhoConfig'
+  topic 'rhodesapi/rhocontact-api',             'RhoContact'
+  topic 'rhodesapi/rhocontroller-api',             'RhoController'
+  topic 'rhodesapi/rhoerror-api',             'RhoError'
+  topic 'rhodesapi/rhoevent-api',             'RhoEvent'
+  topic 'rhodesapi/rholog-api',             'RhoLog'
+  topic 'rhodesapi/rhom-api',             'Rhom'
+  topic 'rhodesapi/rhomsource-api',             'RhomSource'
+  topic 'rhodesapi/rhoutils-api',             'RhoUtils'
+  topic 'rhodesapi/ringtonemanager-api',             'RingtoneManager'
+  topic 'rhoelements/RSM',      'RSM'
+  topic 'rhoelements/scanner','Scanner'      
+  topic 'rhoelements/screenorientation',      'ScreenOrientation'
+  topic 'rhoelements/SignatureCapture',      'SignatureCapture'
+  topic 'rhodesapi/signaturetool-api',             'SignatureTool'
+  topic 'rhoelements/sip',      'SIP'
+  topic 'rhoelements/signal',      'Signal'
+  topic 'rhoelements/sipbutton',      'SipButton'
+  topic 'rhoelements/sntp',      'SNTP'
+  topic 'rhoelements/stopbutton',      'StopButton'
+  topic 'rhoelements/stylus',      'Stylus'
+  topic 'rhodesapi/syncengine-api',             'SyncEngine'
+  topic 'rhodesapi/system-api',             'System'
+  topic 'rhodesapi/timer-api',             'Timer API'
+  topic 'rhoelements/timer',      'Timer'
+  topic 'rhoelements/topcommandarea',      'TopCommandArea'
+  topic 'rhoelements/volume',      'Volume'
+  topic 'rhodesapi/webview-api',             'WebView'
+  topic 'rhoelements/quitbutton',      'Quit Button'
+  topic 'rhoelements/zoom',      'Zoom'
+  topic 'rhoelements/zoomTextButton',      'ZoomTextButton'
+
+end
+
+section 'rhoelementsapi-ui', 'User Interface' do
+  topic 'rhoelements/addressbar',      'AddressBar'
+  topic 'rhodesapi/alert-api',             'Alert'
+  topic 'rhoelements/backbutton',      'BackButton'
+  topic 'rhoelements/battery',      'Battery'
   topic 'rhoelements/bottomcommandarea',      'BottomCommandArea'
   topic 'rhoelements/forwardbutton',      'ForwardButton'
   topic 'rhoelements/gobutton',      'GoButton'
   topic 'rhoelements/HomeButton',      'HomeButton'
   topic 'rhoelements/keystate',      'KeyState'
+  topic 'rhodesapi/mapview-api',             'MapView'
+  topic 'rhodesapi/menu-apis',            'Menu APIs'
+  topic 'rhodesapi/menu-toolbar-tabbar-apis',           'Menu-Toolbar-Tabbar actions'
   topic 'rhoelements/minimizebutton',      'MinimizeButton'
+  topic 'rhodesapi/nativetabbar-api',             'NativeTabbar'
+  topic 'rhodesapi/nativetoolbar-api',             'NativeToolbar'
+  topic 'rhodesapi/navigationbar-iphone-api',             'NavBar'
   topic 'rhoelements/quitbutton',      'Quit Button'
   topic 'rhoelements/reloadbutton',      'ReloadButton'
+  topic 'rhoelements/signal',      'Signal'
   topic 'rhoelements/sipbutton',      'SipButton'
   topic 'rhoelements/stopbutton',      'StopButton'
   topic 'rhoelements/topcommandarea',      'TopCommandArea'
   topic 'rhoelements/zoomTextButton',      'ZoomTextButton'
+  topic 'rhodesapi/webview-api',             'WebView'
+
 end
 
-section 'rhoelementsapi-indicators', 'RhoElements Indicators' do
-  topic 'rhoelements/battery',      'Battery'
-  topic 'rhoelements/signal',      'Signal'
-end
 
-section 'rhoelementsapi-device', 'RhoElements Device and Application' do
+section 'rhoelementsapi-device', 'Device Capabilities' do
+
   topic 'rhoelements/alarm',      'Alarm'
   topic 'rhoelements/application',      'Application'
   topic 'rhoelements/backlight',      'Backlight'
+  topic 'rhodesapi/camera-api',             'Camera'
   topic 'rhoelements/comm','Comm'
+  topic 'rhodesapi/datetimepicker-api',             'DateTimePicker'
   topic 'rhoelements/device',      'Device'
+  topic 'rhodesapi/geolocation-api',             'GeoLocation'
   topic 'rhoelements/Gesture',      'Gesture'
   topic 'rhoelements/historyback2',      'History'
   topic 'rhoelements/hourglass',      'Hourglass'
+  topic 'rhoelements/imager',      'Imager'
+  topic 'rhoelements/key_capture_overview',      'Key Capture Overview'
+  topic 'rhoelements/keycapture',      'KeyCapture'
   topic 'rhoelements/Keylight',      'Key Light'
   topic 'rhoelements/notification',      'Notification'
+  topic 'rhoelements/nosip',      'NoSIP'
   topic 'rhoelements/poweron',      'PowerOn'
   topic 'rhoelements/reboot',      'Reboot'
+  topic 'rhoelements/registry',      'Registry'
+  topic 'rhodesapi/rhocontact-api',             'RhoContact'
+  topic 'rhodesapi/rhoevent-api',             'RhoEvent'
+  topic 'rhodesapi/ringtonemanager-api',             'RingtoneManager'
   topic 'rhoelements/screenorientation',      'ScreenOrientation'
   topic 'rhoelements/SignatureCapture',      'SignatureCapture'
+  topic 'rhodesapi/signaturetool-api',             'SignatureTool'
   topic 'rhoelements/sip',      'SIP'
   topic 'rhoelements/sntp',      'SNTP'
   topic 'rhoelements/stylus',      'Stylus'
+  topic 'rhodesapi/system-api',             'System'
+  topic 'rhodesapi/timer-api',             'Timer API'
   topic 'rhoelements/timer',      'Timer'
   topic 'rhoelements/volume',      'Volume'
   topic 'rhoelements/zoom',      'Zoom'
 end
 
-section 'rhoelementsapi-barcode', 'RhoElements Barcode' do
+section 'rhoelementsapi-barcode', 'Barcode' do
+  topic 'rhodesapi/barcode-api',             'Barcode'
   topic 'rhoelements/RSM',      'RSM'
   topic 'rhoelements/scanner','Scanner'
   topic 'rhoelements/toc_decoders',      'Decoders'
 end
 
-section 'rhoelementsapi-attached', 'RhoElements Attached Devices' do
+section 'rhoelementsapi-attached', 'Accessories' do
   topic 'rhoelements/apd',      'Apd'
+  topic 'rhodesapi/bluetoothmanager-api',             'BluetoothManager'
+  topic 'rhodesapi/bluetoothsession-api',             'BluetoothSession'
   topic 'rhoelements/cardreader',      'CardReader'
 end
 
-section 'rhoelementsapi-web-http', 'RhoElements Web and HTTP' do
-  topic 'rhoelements/FileTransfer',      'FileTransfer'
-  topic 'rhoelements/network',      'Network'
-  topic 'rhoelements/push',      'Push'
-end
-
-section 'rhoelementsapi-misc', 'RhoElements misc.' do
-  topic 'rhoelements/EMMLProfile',      'EMMLProfile'
-  topic 'rhoelements/imager',      'Imager'
-  topic 'rhoelements/keycapture',      'KeyCapture'
-  topic 'rhoelements/registry',      'Registry'
-end
-
-section 'rhoelementsapi-js-legacy', 'RhoElements JavaScript Legacy' do
-  topic 'rhoelements/airbeam',      'Airbeam'
-  topic 'rhoelements/generic',      'Generic'
-  topic 'rhoelements/nosip',      'NoSIP'
-  topic 'rhoelements/odax',      'ODAX'
-end
-
-section 'rhodesapi-application', 'Rhodes Application' do
+section 'rhodesapi-application', 'Configuation and Logging' do
   topic 'rhodesapi/appapplication-api',             'AppApplication'
+  topic 'rhoelements/EMMLProfile',      'EMMLProfile'
+  topic 'rhoelements/generic',      'Generic'
   topic 'rhodesapi/model-controller-api',             'Model Controller'
   topic 'rhodesapi/rhoapplication-api',             'RhoApplication'
   topic 'rhodesapi/rhoconfig-api',             'RhoConfig'
@@ -146,32 +247,7 @@ section 'rhodesapi-application', 'Rhodes Application' do
   topic 'rhodesapi/rhoutils-api',             'RhoUtils'
 end
 
-section 'rhodesapi-ui', 'Rhodes User Interface' do
-  topic 'rhodesapi/menu-apis',            'Menu APIs'
-  topic 'rhodesapi/menu-toolbar-tabbar-apis',           'Menu-Toolbar-Tabbar actions'
-  topic 'rhodesapi/nativetabbar-api',             'NativeTabbar'
-  topic 'rhodesapi/nativetoolbar-api',             'NativeToolbar'
-  topic 'rhodesapi/navigationbar-iphone-api',             'NavBar'
-  topic 'rhodesapi/webview-api',             'WebView'
-end
 
-section 'rhodesapi-devicecap', 'Device Capabilities' do
-  topic 'rhodesapi/alert-api',             'Alert'
-  topic 'rhodesapi/barcode-api',             'Barcode'
-  topic 'rhodesapi/bluetoothmanager-api',             'BluetoothManager'
-  topic 'rhodesapi/bluetoothsession-api',             'BluetoothSession'
-  topic 'rhodesapi/camera-api',             'Camera'
-  topic 'rhodesapi/datetimepicker-api',             'DateTimePicker'
-  topic 'rhodesapi/file-api',             'File'
-  topic 'rhodesapi/geolocation-api',             'GeoLocation'
-  topic 'rhodesapi/mapview-api',             'MapView'
-  topic 'rhodesapi/rhocontact-api',             'RhoContact'
-  topic 'rhodesapi/rhoevent-api',             'RhoEvent'
-  topic 'rhodesapi/ringtonemanager-api',             'RingtoneManager'
-  topic 'rhodesapi/signaturetool-api',             'SignatureTool'
-  topic 'rhodesapi/system-api',             'System'
-  topic 'rhodesapi/timer-api',             'Timer API'
-end
 
 section 'rhodesapi-reference', 'Near Field Communications' do
   topic 'rhodesapi/NdefMessage-api',             'NdefMessage'
@@ -190,8 +266,14 @@ section 'rhodesapi-reference', 'Near Field Communications' do
   topic 'rhodesapi/NFCTagTechnology-api',      'NFCTagTechnology'
 end
 
-section 'rhodesapi-web-sync', 'Web and Syncing' do
+section 'rhodesapi-web-sync', 'File Management and Syncing' do
+  topic 'rhoelements/airbeam',      'Airbeam'
   topic 'rhodesapi/asynchttp-api',             'AsyncHttp'
+  topic 'rhodesapi/file-api',             'File'
+  topic 'rhoelements/FileTransfer',      'FileTransfer'
+  topic 'rhoelements/network',      'Network'
+  topic 'rhoelements/odax',      'ODAX'
+  topic 'rhoelements/push',      'Push'
   topic 'rhodesapi/rhomsource-api',             'RhomSource'
   topic 'rhodesapi/syncengine-api',             'SyncEngine'
 end

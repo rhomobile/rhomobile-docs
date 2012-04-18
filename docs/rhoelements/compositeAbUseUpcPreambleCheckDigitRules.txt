@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The CompositeAbUseUpcPreambleCheckDigitRules Decoder Setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.</b>
-
+The CompositeAbUseUpcPreambleCheckDigitRules Decoder Setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.
+</b>
 
 ##Syntax
 

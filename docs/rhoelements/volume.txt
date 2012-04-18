@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Volume Module is used to set the audio output volume of the device. This is the wave output volume, not the volume of the device beeper.</b>
-
+The Volume Module is used to set the audio output volume of the device. This is the wave output volume, not the volume of the device beeper.
+</b>
 
 ##Syntax
 

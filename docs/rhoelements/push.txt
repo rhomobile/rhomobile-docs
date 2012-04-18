@@ -3,8 +3,8 @@
 <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
-The Push Module is used to receive data over an HTTP connection.</b>
-
+The Push Module is used to receive data over an HTTP connection.
+</b>
 
 ##Syntax
 
