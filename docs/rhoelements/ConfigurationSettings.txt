@@ -1,164 +1,167 @@
-#RhoElements Config.XML</title>
+#RhoElements Configuration Settings
 
-Configuration of RhoElements Hybrid Applications are managed through an XML file.  Not every setting has a default so if the configuration file cannot be found, RhoElements will <b>not</b> start; an example configuration file is provided as part of the installation and will contain sensible defaults, this page explains the meanings of each of the settings and their possible values.
+Configuration of RhoElements is managed through an XML file.  Not every setting has a default so if the configuration file cannot be found, RhoElements will <b>not</b> start; an example configuration file is provided as part of the installation and will contain sensible defaults, this page explains the meanings of each of the settings and their possible values.
 
 ##Configuration File Location
-
 The location of the configuration file loaded by RhoElements is dependant on a number of factors:
 <ul>
 <li/>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.rhoelements/Config.xml.
 <li/>When running on all other devices RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
-<li/>You can change which configuration file is loaded using the /C: configuration option, see the Command Line help file entry.
-</ul>
+<li/>You can change which configuration file is loaded using the /C: configuration option, see the <a href="/rhoelements/rhoelements2-native-hybrid#running-rhoelements-hybrid-applications">Command Line</a> help file entry.
+</ul><br/>
 
 For persistant installations on cold boot the Config.xml file is copied from \Application\RhoElements\Config\Config.xml to \Program Files\RhoElements\Config\Config.xml; bear this in mind if you want your configuration to persist across cold boot and you can also modify this behaviour by changing \Application\RhoElements.cpy.
 
 ##Configuration XML File Format
 The following is an example of a typical configuration file, many of the attributes will be self explanatory but are explained in detail below.</p>
-
 	<Configuration>
 	  <DebugButtons>
-		<DebugButtonsEnabled VALUE="0" />
+		<DebugButtonsEnabled Value="0" />
 	  </DebugButtons>
 	  <Engine>
-		<EngineInUse VALUE= "" />
+		<EngineInUse Value = "" />
 	  </Engine>
 	  <Logger>
-		<LogProtocol  VALUE="FILE"/>
-		<LogPort      VALUE="80"/>
-		<LogURI       VALUE="file://\Program Files\RhoElements\Log.txt"/>
-		<LogError     VALUE="1"/>
-		<LogWarning   VALUE="1"/>
-		<LogInfo      VALUE="1"/>
-		<LogUser      VALUE="1"/>
-		<LogMemory    VALUE="1"/>
-		<LogMemPeriod VALUE="5000"/>
-		<LogMaxSize   VALUE="10"/>
+		<LogProtocol  Value="FILE"/>
+		<LogPort      Value="80"/>
+		<LogURI       Value="file://\Program Files\RhoElements\Log.txt"/>
+		<LogError     Value="1"/>
+		<LogWarning   Value="1"/>
+		<LogInfo      Value="1"/>
+		<LogUser      Value="1"/>
+		<LogMemory    Value="1"/>
+		<LogMemPeriod Value="5000"/>
+		<LogMaxSize   Value="10"/>
 	  </Logger>
 	  <FileLocations>
-		<RegEXFile  VALUE="\Program Files\RhoElements\Config\RegEx.xml"/>
-		<PluginFile VALUE="\Program Files\RhoElements\Config\Plugin.xml"/>
+		<RegEXFile  Value="\Program Files\RhoElements\Config\RegEx.xml"/>
+		<PluginFile Value="\Program Files\RhoElements\Config\Plugin.xml"/>
 	  </FileLocations>
 	  <Screen>
-		<FullScreen VALUE="1"/>
+		<FullScreen Value="1"/>
 	  </Screen>
 	  <WebServer>
-		<Enabled   VALUE="1"/>
-		<Port      VALUE="80"/>
-		<WebFolder VALUE="\www"/>
-		<Public    VALUE="0"/>
+		<Enabled   Value="1"/>
+		<Port      Value="80"/>
+		<WebFolder Value="\www"/>
+		<Public    Value="0"/>
 	  </WebServer>
 	  <DeviceKeys>
-		<FunctionKeysCapturable   VALUE="0"/>
-		<EnableFunctionKey_F1     VALUE="0"/>
-		<EnableFunctionKey_F2     VALUE="0"/>
-		<EnableFunctionKey_F3     VALUE="0"/>
-		<EnableFunctionKey_F4     VALUE="0"/>
-		<EnableFunctionKey_F5     VALUE="0"/>
-		<EnableFunctionKey_F6     VALUE="0"/>
-		<EnableFunctionKey_F7     VALUE="0"/>
-		<EnableFunctionKey_F8     VALUE="0"/>
-		<EnableFunctionKey_F9     VALUE="0"/>
-		<EnableFunctionKey_F10    VALUE="0"/>
-		<EnableFunctionKey_F11    VALUE="0"/>
-		<EnableFunctionKey_F12    VALUE="0"/>
-		<EnableApplicationKey_A1  VALUE="0"/>	
-		<EnableApplicationKey_A2  VALUE="0"/>	
-		<EnableApplicationKey_A3  VALUE="0"/>	
-		<EnableApplicationKey_A4  VALUE="0"/>	
-		<EnableApplicationKey_A5  VALUE="0"/>	
-		<EnableApplicationKey_A6  VALUE="0"/>	
-		<EnableApplicationKey_A7  VALUE="0"/>	
-		<EnableApplicationKey_A8  VALUE="0"/>	
+		<FunctionKeysCapturable   Value="0"/>
+		<EnableFunctionKey_F1     Value="0"/>
+		<EnableFunctionKey_F2     Value="0"/>
+		<EnableFunctionKey_F3     Value="0"/>
+		<EnableFunctionKey_F4     Value="0"/>
+		<EnableFunctionKey_F5     Value="0"/>
+		<EnableFunctionKey_F6     Value="0"/>
+		<EnableFunctionKey_F7     Value="0"/>
+		<EnableFunctionKey_F8     Value="0"/>
+		<EnableFunctionKey_F9     Value="0"/>
+		<EnableFunctionKey_F10    Value="0"/>
+		<EnableFunctionKey_F11    Value="0"/>
+		<EnableFunctionKey_F12    Value="0"/>
+		<EnableApplicationKey_A1  Value="0"/>	
+		<EnableApplicationKey_A2  Value="0"/>	
+		<EnableApplicationKey_A3  Value="0"/>	
+		<EnableApplicationKey_A4  Value="0"/>	
+		<EnableApplicationKey_A5  Value="0"/>	
+		<EnableApplicationKey_A6  Value="0"/>	
+		<EnableApplicationKey_A7  Value="0"/>	
+		<EnableApplicationKey_A8  Value="0"/>	
 	  </DeviceKeys>
 	  <Navigation>
-		<NavTimeout VALUE="45000"/>
+		<NavTimeout Value="45000"/>
 	  </Navigation>
 	  <ScreenOrientation>
-		<AutoRotate VALUE="0"/>
+		<AutoRotate Value="0"/>
 	  </ScreenOrientation>
 	  <Geolocation>
-		<GeolocationEnabled VALUE="0"/>
+		<GeolocationEnabled Value="0"/>
 	  </Geolocation>
 	  <UserData>
 	  </UserData>  
 	  <Applications>
 		<Application>
 		  <General>
-			<Name      VALUE="Menu"/>
-			<StartPage VALUE="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
+			<Name      Value="Menu"/>
+			<StartPage Value="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
 		  </General>
-		  <HTTP_Proxy  VALUE="http://myproxy.com:1050"/> 
+		  <HTTP_Proxy  Value="http://myproxy.com:1050"/> 
 		  <WebDB>
-			<WebStorageDBPath VALUE="file://\Program Files\RhoElements"/>
-			<WebSQLDBQuota    VALUE="5000000"/>
-			<WebSQLDBPath     VALUE="file://\Program Files\RhoElements"/>
+			<WebStorageDBPath Value="file://\Program Files\RhoElements"/>
+			<WebSQLDBQuota    Value="5000000"/>
+			<WebSQLDBPath     Value="file://\Program Files\RhoElements"/>
 		  </WebDB>
 		  <ApplicationCache>
-			<ApplicationCachePath   VALUE="file://\Program Files\RhoElements"/>
-			<ApplicationCacheQuota  VALUE="5000000"/>
+			<ApplicationCachePath   Value="file://\Program Files\RhoElements"/>
+			<ApplicationCacheQuota  Value="5000000"/>
 		  </ApplicationCache>
 		  <NPAPI>
-			<NPAPIDirectory         VALUE="file://\Program Files\RhoElements\NPAPI\"/>
+			<NPAPIDirectory         Value="file://\Program Files\RhoElements\NPAPI\"/>
 			<Preloads>
-			  <PreloadLegacyGeneric VALUE="1"/>
-			  <PreloadLegacyODAX    VALUE="1"/>
-			  <PreloadLegacyNoSIP   VALUE="1"/>
-			  <PreloadLegacyAirBeam VALUE="1"/>
-			  <PreloadLegacyAPD     VALUE="1"/>
-			  <PreloadJSObjects     VALUE="1"/>
+			  <PreloadLegacyGeneric Value="1"/>
+			  <PreloadLegacyODAX    Value="1"/>
+			  <PreloadLegacyNoSIP   Value="1"/>
+			  <PreloadLegacyAirBeam Value="1"/>
+			  <PreloadLegacyAPD     Value="1"/>
+			  <PreloadJSObjects     Value="1"/>
 			</Preloads>
 		  </NPAPI>	  
 		  <Preloads>
-			<Preload VALUE="Scanner"/>
-			<Preload VALUE="Hourglass"/>
+			<Preload Value="Scanner"/>
+			<Preload Value="Hourglass"/>
 		  </Preloads>
-		  <ScrollBars>
-			<ScrollBarsEnabled  VALUE="0" />
-		  </ScrollBars>
+		  <Scrolling>
+			<ScrollTechnique Value="FingerScroll"/>
+		  </Scrolling>
+		  <Authentication>
+			<Username Value="user"/>
+			<Password Value="pass"/>
+		  </Authentication>
 		  <HTMLStyles>
-			<FitToScreenEnabled    VALUE="1" />
-			<ClearTypeEnabled      VALUE="1" />
-			<JavascriptEnabled     VALUE="1" />
-			<TextSelectionEnabled  VALUE="1" />
-			<FontFamily            VALUE="Tahoma" />
+			<FitToScreenEnabled    Value="1" />
+			<ClearTypeEnabled      Value="1" />
+			<JavascriptEnabled     Value="1" />
+			<FontFamily            Value="Tahoma" />
 		  </HTMLStyles>
 		  <SIP>
-			<ResizeOnSIP  VALUE="1"/>
-			<EnableSIP    VALUE="1"/>
+			<ResizeOnSIP  Value="1"/>
+			<EnableSIP    Value="1"/>
 		  </SIP>
 		  <System>
-			<LowBatteryScan	VALUE="0"/>
+			<LowBatteryScan	Value="0"/>
 		  </System>  
 		  <Sound>
-			<DecodeVolume           VALUE="5"/>
-			<DecodeFrequency        VALUE="0xBB8"/>
-			<InvalidDecodeFrequency VALUE="0x9C4"/>
-			<DecodeDuration         VALUE="250"/>
-			<ScanDecodeWav          VALUE=""/>
-			<ScanInvalidWav         VALUE=""/>
-			<ImagerCaptureWav       VALUE=""/>
+			<DecodeVolume           Value="5"/>
+			<DecodeFrequency        Value="0xBB8"/>
+			<InvalidDecodeFrequency Value="0x9C4"/>
+			<DecodeDuration         Value="250"/>
+			<ScanDecodeWav          Value=""/>
+			<ScanInvalidWav         Value=""/>
+			<ImagerCaptureWav       Value=""/>
 		  </Sound>
 		  <GUI>
-			<SignalRefresh      VALUE="5000"/>
-			<BatteryRefresh     VALUE="5000"/>
-			<HourglassEnabled   VALUE="1" />
-			<HourglassLeft      VALUE="" />
-			<HourglassTop       VALUE="" />
+			<SignalRefresh      Value="5000"/>
+			<BatteryRefresh     Value="5000"/>
+			<HourglassEnabled   Value="1" />
+			<HourglassLeft      Value="" />
+			<HourglassTop       Value="" />
 		  </GUI>
 		  <Navigation>
-			<BadLinkURI VALUE=""/>
-			<UserAgent  VALUE="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
+			<BadLinkURI      Value=""/>
+			<UserAgent       Value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
+			<ViewportEnabled Value="0"/>
+			<ViewportWidth   Value="640"/>
 		  </Navigation>
 		  <DeviceKeys>
-			<EnableCtrlKey_C          VALUE="0"/>
-			<EnableCtrlKey_V          VALUE="0"/>
-			<EnableBacklightSlider    VALUE="0"/>
-			<EnableVolumeSlider       VALUE="0"/>
+			<EnableCtrlKey_C          Value="0"/>
+			<EnableCtrlKey_V          Value="0"/>
+			<EnableBacklightSlider    Value="0"/>
+			<EnableVolumeSlider       Value="0"/>
 		  </DeviceKeys>
 		  <DefaultMetaTags>
-			<MetaTag VALUE="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
-			<MetaTag VALUE="Signal~left:10;top:200;color:#663300;"/>	  
+			<MetaTag Value="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
+			<MetaTag Value="Signal~left:10;top:200;color:#663300;"/>	  
 		  </DefaultMetaTags>
 		</Application>
 	  </Applications>
@@ -168,7 +171,7 @@ The following is an example of a typical configuration file, many of the attribu
 <table class="re-table">
 <tr>
 <th >Group\\XML Tag</th>
-<th >Configuration Identifier<a href="#_configIndentifiers" style="color: white;">*</a></th>
+<th>Configuration Identifier<a href="#_configIndentifiers" style="color: white;">*</a></th>
 <th >Description</th>
 <th  width="12%">Possible Values</th>
 </tr>
@@ -183,7 +186,7 @@ The following is an example of a typical configuration file, many of the attribu
 <td class="clsEvenRow">Not Applicable</td>
 <td class="clsEvenRow">Not applicable to the Enterprise Tablet:<br>By default RhoElements will use the WebKit rendering engine.  For backward compatibility this option can be set to 'InternetExplorer' to use the IE rendering engine present on the device.  Note that the behaviour of the IE engine will differ between Windows Mobile and CE and in both cases will be less functional than the Motorola WebKit rendering engine.  Because the InternetExplorer engine is provided solely for backward compatibility with PocketBrowser then modules exclusive to RhoElements, e.g. zoom, will not function with the IE engine.
 </ul></td>
-<td class="clsEvenRow">See Description</td>
+<td >See Description</td>
 </tr>
 <tr>
 <td >Logger\\LogProtocol</td>
@@ -346,7 +349,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >HTTPS_Proxy</td>
 <td >N/A</td>
-<td >Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE.</td>
+<td >Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
 <td >URL:PortNo</td>
 </tr>
 <tr>
@@ -429,10 +432,22 @@ The following is an example of a typical configuration file, many of the attribu
 <td class="clsEvenRow">Module name</td>
 </tr>
 <tr>
-<td >ScrollBars\\ScrollBarsEnabled</td>
-<td >SCROLLBARSENABLED</td>
-<td >Enables or Disables display scrolling (both horizontal and vertical as needed)</td>
-<td >0 - Disabled<BR>1 - Enabled</td>
+<td >Scrolling\\ScrollTechnique</td>
+<td >SCROLLTECHNIQUE</td>
+<td >Specifies the technique used to scroll about the page:<br/><i>"FingerScroll"</i> - You can scroll around the page using finger swiping.<br/><i>"Scrollbars"</i> - When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page (Not available on Android devices)<br/><i>"None"</i> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/></td>
+<td >See description</td>
+</tr>
+<tr>
+<td class="clsEvenRow">Authentication\\Username</td>
+<td class="clsEvenRow">AUTHUSER_GLOBAL</td>
+<td class="clsEvenRow">Specifies the username to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of ""</td>
+<td class="clsEvenRow">ASCII text</td>
+</tr>
+<tr>
+<td >Authentication\\Password</td>
+<td >AUTHPASS_GLOBAL</td>
+<td >Specifies the password to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of ""</td>
+<td >ASCII text</td>
 </tr>
 <tr>
 <td class="clsEvenRow">HTMLStyles\\FitToScreenEnabled</td>
@@ -453,111 +468,105 @@ The following is an example of a typical configuration file, many of the attribu
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td >HTMLStyles\\TextSelectionEnabled</td>
-<td >TEXTSELECTIONENABLED</td>
-<td >Enables or Disables selection of text when dragging the stylus on the screen</td>
-<td >0 - Disabled<BR>1 - Enabled</td>
+<td >HTMLStyles\\FontFamily</td>
+<td >FONTFAMILY</td>
+<td >Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants.  Not applicable to the Enterprise Tablet.</td>
+<td >Font name</td>
 </tr>
 <tr>
-<td class="clsEvenRow">HTMLStyles\\FontFamily</td>
-<td class="clsEvenRow">FONTFAMILY</td>
-<td class="clsEvenRow">Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. Not applicable to the Enterprise Tablet.</td>
-<td class="clsEvenRow">Font name</td>
-</tr>
-<tr>
-<td >SIP\\ResizeOnSIP</td>
-<td >RESIZEONSIP</td>
-<td >When enabled the browser window will resize to accommodate the SIP when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only)</td>
-<td >0 - Disabled<BR>1 - Enabled</td>
-</tr>
-<tr>
-<td class="clsEvenRow">SIP\\EnableSIP</td>
-<td class="clsEvenRow">Not Configurable</td>
-<td class="clsEvenRow">Disables or Enables the SIP.  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)</td>
+<td class="clsEvenRow">SIP\\ResizeOnSIP</td>
+<td class="clsEvenRow">RESIZEONSIP</td>
+<td class="clsEvenRow">When enabled the browser window will resize to accommodate the SIP when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only)</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td >System\\LowBatteryScan</td>
-<td >LOWBATTERYSCAN</td>
-<td >Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling scanner.enable().</td>
+<td >SIP\\EnableSIP</td>
+<td >Not Configurable</td>
+<td >Disables or Enables the SIP.  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td class="clsEvenRow">Sound\\DecodeVolume</td>
-<td class="clsEvenRow">DECODEVOLUME</td>
-<td class="clsEvenRow">The volume of the device beeper when a barcode is scanned</td>
-<td class="clsEvenRow">0 to 5 with 5 being the loudest</td>
+<td class="clsEvenRow">System\\LowBatteryScan</td>
+<td class="clsEvenRow">LOWBATTERYSCAN</td>
+<td class="clsEvenRow">Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling scanner.enable().</td>
+<td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td >Sound\\DecodeFrequency</td>
-<td >DECODEFREQUENCY</td>
-<td >The frequency of the device beeper when a barcode is successfully decoded.  This should be within the range of the beeper</td>
-<td >0 to 0xFFFF</td>
+<td >Sound\\DecodeVolume</td>
+<td >DECODEVOLUME</td>
+<td >The volume of the device beeper when a barcode is scanned</td>
+<td >0 to 5 with 5 being the loudest</td>
 </tr>
 <tr>
-<td class="clsEvenRow">Sound\\InvalidDecodeFrequency</td>
-<td class="clsEvenRow">INVALIDDECODEFREQUENCY</td>
-<td class="clsEvenRow">The frequency of the device beeper when a barcode is scanned but not successfully decoded.  This should be within the range of the beeper. Not applicable to the Enterprise Tablet.</td>
+<td class="clsEvenRow">Sound\\DecodeFrequency</td>
+<td class="clsEvenRow">DECODEFREQUENCY</td>
+<td class="clsEvenRow">The frequency of the device beeper when a barcode is successfully decoded.  This should be within the range of the beeper</td>
 <td class="clsEvenRow">0 to 0xFFFF</td>
 </tr>
 <tr>
-<td >Sound\\DecodeDuration</td>
-<td >DECODEDURATION</td>
-<td >The duration of the device beeper when a barcode is scanned</td>
-<td >Milliseconds</td>
+<td >Sound\\InvalidDecodeFrequency</td>
+<td >INVALIDDECODEFREQUENCY</td>
+<td >The frequency of the device beeper when a barcode is scanned but not successfully decoded.  This should be within the range of the beeper. Not applicable to the Enterprise Tablet.</td>
+<td >0 to 0xFFFF</td>
 </tr>
 <tr>
-<td class="clsEvenRow">Sound\\ScanDecodeWav</td>
-<td class="clsEvenRow">SCANDECODEWAV</td>
-<td class="clsEvenRow">Wave file to be played when the scanner successfully decodes a barcode.  This setting overrides the scanner beeper.</td>
-<td class="clsEvenRow">File name and path stored locally on the device.<a href="#_caseSensitivity">&dagger;</a></td>
+<td class="clsEvenRow">Sound\\DecodeDuration</td>
+<td class="clsEvenRow">DECODEDURATION</td>
+<td class="clsEvenRow">The duration of the device beeper when a barcode is scanned</td>
+<td class="clsEvenRow">Milliseconds</td>
 </tr>
 <tr>
-<td >Sound\\ScanInvalidWav</td>
-<td >SCANINVALIDWAV</td>
-<td >Wave file to be played when a barcode is scanned but not successfully decoded.  This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.</td>
-<td >File name and path stored locally on the device.</td>
+<td >Sound\\ScanDecodeWav</td>
+<td >SCANDECODEWAV</td>
+<td >Wave file to be played when the scanner successfully decodes a barcode.  This setting overrides the scanner beeper.</td>
+<td >File name and path stored locally on the device.<a href="#_caseSensitivity">&dagger;</a></td>
 </tr>
 <tr>
-<td class="clsEvenRow">Sound\\ImagerCaptureWav</td>
-<td class="clsEvenRow">IMAGERCAPTUREWAV</td>
-<td class="clsEvenRow">Wave file to be played when the Imager captures an image</td>
+<td class="clsEvenRow">Sound\\ScanInvalidWav</td>
+<td class="clsEvenRow">SCANINVALIDWAV</td>
+<td class="clsEvenRow">Wave file to be played when a barcode is scanned but not successfully decoded.  This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.</td>
 <td class="clsEvenRow">File name and path stored locally on the device.</td>
 </tr>
 <tr>
-<td >GUI\\SignalRefresh</td>
-<td >SIGNALREFRESH</td>
-<td >Specifies the refresh rate of the signal display, see the <a href="/rhoelements/signal">Signal</a> meta tag for more information.</td>
-<td >Refresh rate in milliseconds</td>
+<td >Sound\\ImagerCaptureWav</td>
+<td >IMAGERCAPTUREWAV</td>
+<td >Wave file to be played when the Imager captures an image</td>
+<td >File name and path stored locally on the device.</td>
 </tr>
 <tr>
-<td class="clsEvenRow">GUI\\BatteryRefresh</td>
-<td class="clsEvenRow">BATTERYREFRESH</td>
-<td class="clsEvenRow">Specifies the refresh rate of the battery display, see the <a href="/rhoelements/battery">Battery</a> meta tag for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)</a></td>
+<td class="clsEvenRow">GUI\\SignalRefresh</td>
+<td class="clsEvenRow">SIGNALREFRESH</td>
+<td class="clsEvenRow">Specifies the refresh rate of the signal display, see the <a href="/rhoelements/signal">Signal</a> meta tag for more information.</td>
 <td class="clsEvenRow">Refresh rate in milliseconds</td>
 </tr>
 <tr>
-<td >GUI\\HourglassEnabled</td>
-<td >HOURGLASSENABLED</td>
-<td >By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
-<td >0 - Disabled<BR>1 - Enabled</td>
+<td >GUI\\BatteryRefresh</td>
+<td >BATTERYREFRESH</td>
+<td >Specifies the refresh rate of the battery display, see the <a href="/rhoelements/battery">Battery</a> meta tag for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)</a></td>
+<td >Refresh rate in milliseconds</td>
 </tr>
 <tr>
-<td class="clsEvenRow">GUI\\HourglassLeft</td>
-<td class="clsEvenRow">HOURGLASSLEFT</td>
-<td class="clsEvenRow">By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position.  If not specified the hourglass will appear in the center of the screen.</td>
-<td class="clsEvenRow">Pixels</td>
+<td class="clsEvenRow">GUI\\HourglassEnabled</td>
+<td class="clsEvenRow">HOURGLASSENABLED</td>
+<td class="clsEvenRow">By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
+<td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td >GUI\\HourglassTop</td>
-<td >HOURGLASSTOP</td>
-<td >By default an <a href="../Device_Application/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position.  If not specified the hourglass will appear in the center of the screen.</td>
+<td >GUI\\HourglassLeft</td>
+<td >HOURGLASSLEFT</td>
+<td >By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position.  If not specified the hourglass will appear in the center of the screen.</td>
 <td >Pixels</td>
 </tr>
 <tr>
-<td class="clsEvenRow">Navigation\\BadLinkURI</td>
-<td class="clsEvenRow">BADLINKURI</td>
-<td class="clsEvenRow">Navigates to the specified badlink uri when one of the following occurs:<br>
+<td class="clsEvenRow">GUI\\HourglassTop</td>
+<td class="clsEvenRow">HOURGLASSTOP</td>
+<td class="clsEvenRow">By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position.  If not specified the hourglass will appear in the center of the screen.</td>
+<td class="clsEvenRow">Pixels</td>
+</tr>
+<tr>
+<td >Navigation\\BadLinkURI</td>
+<td >BADLINKURI</td>
+<td >Navigates to the specified badlink uri when one of the following occurs:<br>
 <ul>
 <li>There is an error attempting to navigate to the page, e.g. the device has no network connection.
 <li>The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
@@ -565,12 +574,12 @@ The following is an example of a typical configuration file, many of the attribu
 </ul>
 The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the file:// protocol, this way the browser can always access the file.
 </td>
-<td class="clsEvenRow">File name and path stored locally on the device.<a href="#_caseSensitivity">&dagger;</a></td>
+<td >File name and path stored locally on the device.<a href="#_caseSensitivity">&dagger;</a></td>
 </tr>
 <tr>
-<td >Navigation\\UserAgent</td>
-<td >USERAGENT</td>
-<td >When visiting a web server the WebKit browser will report its self as the specified user agent.  Use the following substitution variables:<br>
+<td class="clsEvenRow">Navigation\\UserAgent</td>
+<td class="clsEvenRow">USERAGENT</td>
+<td class="clsEvenRow">When visiting a web server the WebKit browser will report its self as the specified user agent.  Use the following substitution variables:<br>
 <ul>
 <li>%p - platform name ("Windows CE " + version number)
 <li>%w - WebKit version number
@@ -578,61 +587,72 @@ The browser will automatically append the querystring value "badlink" containing
 </ul>
 Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
 </td>
-<td >String</td>
+<td class="clsEvenRow">String</td>
 </tr>
 <tr>
-<td class="clsEvenRow">DeviceKeys\\<BR>EnableCtrlKey_X</td>
-<td class="clsEvenRow">Not Configurable</td>
-<td class="clsEvenRow">CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
-<td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-</tr>
-<tr>
-<td >DeviceKeys\\<BR>EnableVolumeSlider</td>
-<td >ENABLEVOLUMESLIDER</td>
-<td >Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.</td>
+<td >Navigation\\ViewportEnabled</td>
+<td >VIEWPORTENABLED</td>
+<td >Whether to enable or disable viewport meta tag processing (default is disabled)</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td class="clsEvenRow">DeviceKeys\\<BR>EnableBacklightSlider</td>
-<td class="clsEvenRow">ENABLEBACKLIGHTSLIDER</td>
-<td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.</td>
+<td class="clsEvenRow">Navigation\\ViewportWidth</td>
+<td class="clsEvenRow">VIEWPORTWIDTH</td>
+<td class="clsEvenRow">Default viewport width to use for pages that do no thave a viewport meta tag (uses 1:1 scaling if not specified)</td>
+<td class="clsEvenRow">Number</td>
+</tr>
+<tr>
+<td >DeviceKeys\\<BR>EnableCtrlKey_X</td>
+<td >Not Configurable</td>
+<td >CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
+<td >0 - Disabled<BR>1 - Enabled</td>
+</tr>
+<tr>
+<td class="clsEvenRow">DeviceKeys\\<BR>EnableVolumeSlider</td>
+<td class="clsEvenRow">ENABLEVOLUMESLIDER</td>
+<td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td >DefaultMetaTags\\MetaTag</td>
-<td >DEFAULTMETATAG</td>
-<td >All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
-<td >[Module]~[Contents expressed in EMML1.1]</td>
+<td >DeviceKeys\\<BR>EnableBacklightSlider</td>
+<td >ENABLEBACKLIGHTSLIDER</td>
+<td >Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.</td>
+<td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
-<td class="clsEvenRow">Geolocation\\GeolocationEnabled</td>
-<td class="clsEvenRow">Not Configurable</td>
-<td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined javascript callback. When disabled the defined javascript error callback is called notifying that the permission to using Geolocation is disabled.</td>
-<td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
+<td class="clsEvenRow">DefaultMetaTags\\MetaTag</td>
+<td class="clsEvenRow">DEFAULTMETATAG</td>
+<td class="clsEvenRow">All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
+<td class="clsEvenRow">[Module]~[Contents expressed in EMML1.1]</td>
+</tr>
+<tr>
+<td >Geolocation\\GeolocationEnabled</td>
+<td >Not Configurable</td>
+<td >Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined javascript callback. When disabled the defined javascript error callback is called notifying that the permission to using Geolocation is disabled.</td>
+<td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 </table>
-
 <a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="/rhoelements/generic">Generic</a> 
 
 ##Substitution Variables
 The following substitution variables are available in the configuration file
+
 <table class="re-table">
 <tr>
-<th >Substitution Variable</th>
-<th >Expanded Value</th>
+<th class="syntaxHeadings">Substitution Variable</th>
+<th class="syntaxHeadings">Expanded Value</th>
 </tr>
 <tr>
 <td >%INSTALLDIR%</td>
 <td >The directory into which RhoElements.exe has been installed</td>
 </tr>
 </table>
-		
-	
+
 ##Remarks
-###<a name="_caseSensitivity"></a>&dagger;Case Sensitivity
+###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity
 The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
-###<a name="_batteryRefresh"></a>*Battery Polling on the Enterprise Tablet
+###<a name="_batteryRefresh">*</a>Battery Polling on the Enterprise Tablet
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 
 ###<a name="_fnbehaviour"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
@@ -645,7 +665,7 @@ The table below shows the behaviour of RhoElements when Function Keys are presse
 <tr><th></th><th>Function Keys Capturable = TRUE</th><th>Function Keys Capturable = FALSE</th></tr>
 <tr><th>Enable Function Key = TRUE</th>     
 <td valign="top"><ul>
-<li>All Function Keys <b>can</b> be captured by the <a href="../Key Handling/keycapture">Key Capture Module</a>
+<li>All Function Keys <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
 <li>Function Key will <b>not</b> have its default Operating system behaviour
 </ul>
 </td>
@@ -657,12 +677,12 @@ The table below shows the behaviour of RhoElements when Function Keys are presse
 </td>
 </tr>
 <tr><th>Enable Function Key = FALSE</th>
-<td valign="top" class="clsEvenRow"><ul>
+<td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
 <li>Function Key will <b>not</b> have its default Operating system behaviour
 </ul>
 </td>
-<td valign="top" class="clsEvenRow"><ul>
+<td valign="top"><ul>
 <li>All Function Keys <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
 <li>Function Key will <b>not</b> have its default Operating system behaviour (if any)</td>
 </ul>
