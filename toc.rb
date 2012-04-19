@@ -53,6 +53,7 @@ end
 
 section 'api', 'Mobile API Reference'
 section 'rhodesapi-reference', 'API List Alphabetically' do
+  topic 'rhoelements/apicompatibility',      'API Compatibility Matrix'
   topic 'rhoelements/addressbar',      'AddressBar'
   topic 'rhoelements/airbeam',      'Airbeam'
   topic 'rhoelements/alarm',      'Alarm'
