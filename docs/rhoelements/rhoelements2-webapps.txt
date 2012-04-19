@@ -1,18 +1,28 @@
 # RhoElement-Enabling Your Web App
 
-PLACEHOLDER - BLURB ABOUT HOW YOU DO NOT HAVE TO WRITE CODE TO RHOELEMENT-ENABLE YOUR WEB APP
+If you have an existing application that is runnning from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabailties to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile of RhoElements application using RhoStudio. You simply need to install a RhoElements runtime application on the devuce and configure it to point to your web server.
 
 ## Installing the RhoElements Runtime
 
-PLACEHOLDER - Instructions for getting cab/apk and putting on the device
+After [Installing RhoMobile Suite](/rhoelements/rhoelements-install), there will be a set of executables (runtimes) for Windows Mobile, Windows CE and Android found in subfolder of where you installed RhoMobile Suite. You will need to install these executables on each device that will be used for your application. In order for RhoElements to start with your web app, you need to configure it so that it knows which URL to start with. This can be accomplished in multiple ways:
 
-## Configuration
+1. Creating a shortcut that changes the default URL that is loaded
+2. Modifying the &lt;StartPage&gt; parameter in the default config.xml file
 
-PLACEHOLDER - Instructions for modifying the config.xml - also location for each operating system should be noted
 
-## Running Multiple Applications
+## Configuration Parameters
 
-PLACEHOLDER - Blurb about how you can use the runtime client to launch into multiple applications
+It is recommended that you get familiar with the [Configuration Parameters](/rhoelements/ConfigurationSettings) both for developing/debugging as well as deployment. 
+
+If you wish to keep all default parameters and just change the starting url, then it is recommended that you simply create a shortcut as described below. 
+
+If you wish to modify other parameters in the config.xml then you should replace the config.xml file after the RhoElements Runtime is installed. Locate the file from the instructions below, copy it to your desktop for modification and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
+
+The location of the configuration file loaded by RhoElements is dependant on a number of factors:
+<ul>
+<li/>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.rhoelements/Config.xml.
+<li/>When running on all other devices RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
+</ul>
 
 ## Creating Shortcuts on Windows Mobile/CE
 
@@ -42,6 +52,26 @@ The format in the .lnk file is:
 For example, will just change the startup page to be a local HTML file:
 
 	89#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\Demos\AttendeeTracker\index.html
+
+## Creating Shortcuts on Android Enterprise Tablet
+
+The Motorola Solutions Enterprise Tablet (ET1) has been customized so that android shortcuts can be created very easily. Once RhoElements is installed on the ET1:
+
+1. Navigate the ET1 to the home page, by pressing the Home button on the device
+2. Press and hold until you see the 'Add to Home screen' popup menu display.
+3. Select 'Shortcuts'
+4. Scroll down and select 'RhoElements'
+5. Enter change the 'config.xml path' or enter a 'Application Url'
+6. Enter a 'Shortcut name' and then press 'Ok'
+
+The shortcut will be placed on the ET1 home screen. At this time there is no way to provision an ET1 with this shortcut file, as you can with Windows Mobile.
+<!-- PLACEHOLDER SCREEN SHOTS NEEDED -->
+
+## Running Multiple Applications
+
+If you have multiple web apps that you would like to point RhoElements Runtime to, you would create multiple shortcuts as described above. 
+
+NOTE: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL **
 
 	
 ## Customizing the RhoElements Runtime

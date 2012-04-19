@@ -4,7 +4,7 @@ RhoElements Version 2.0 provides Rhodes with an extended set of enterprise-focus
 
 RhoElements 2.0 also allows you to create applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, deploy the application on the mobile device.
 
-PLACEHOLDER - BLOCK DIAGRAM 
+<!-- PLACEHOLDER - BLOCK DIAGRAM -->
 
 ## Supported Operating Systems
 
@@ -25,15 +25,30 @@ BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
 ### Windows Phone 7
 Latest Windows Phone devices
 
-## Motorola Solutions Webkit
+## Hybrid and Native HTML5 applications
 
-PLACEHOLDER - BLURB ON WHAT MOTO WEBKIT IS
+RhoElements is the ideal deployment scenario for a developer because it enables both Hybrid (connected) as well as Native (disconnected) HTML5 applications.  A developer can build ONCE and run on many devices, many operating systems and be connected or disconnected. 
 
-## Web Progamming Language
+* Ability to leverage Offline Cache capabilities with HTML5 manifest files for Hybrid applications that operate in an occasionally disconnected model
+* Compiled byte code for superior performance over traditional JS cross platform based applications
+* SQLite support for relational data storage to deliver offline capabilities for Hybrid and Native applications
+* Device integration capabilities fully enabled thru both Hybrid and Native HTML5 application models
 
-PLACEHOLDER - BLURB ON USING EITHER JS, HTML or RUBY
+## Consumer-like end user experience
 
-## HTML5 Availability on Windows Mobile & Windows CE
+The user experience on enterprise class devices is nowhere near as 'cool' or 'friendly' as consumer products.  This limits the end-user adoption of enterprise devices and developers are forced into a specific user-interface based on device OS and programming structure. With complete control over the user interface and user experience, developers will give end users identical application experiences across all operating systems and devices. The application will scale from screen size to screen size without the need to re-write or re-learn anything. The application will also look and feel very much like most consumer apps. 
 
-PLACEHOLDER - BLURB ON HOW YOU CAN NOW USE HTML5 FEATURES ON WINMO/CE. BLURB ON HTML5 FEATURES LINKS TO HTML5 PAGES
+* HTML is OS abstracted, so not bound to the UI constructs of the OS Platform. There are no limits with regards to what can be rendered
+* SVG and Canvas for creating creative, highly interactive and compelling UIs with on the fly graphics capabilities
+* HTML and SVG can utilize a floating UI paradigm allowing for auto sizing and scaling.
+* Ability to make UI on any platform look like an iOS or Android device if the developer chooses to
+* Large availability of open source HTML UI frameworks to deliver compelling UIs such as JQuery, JQueryMobile, Sencha
+
+## Enterprise class device integration
+
+Once a customer has decided to build cross platform applications, the next major concern is around device integration.  Customers today are concerned that if they develop cross platform, they will lose the ability to take advantage of enterprise device integration (i.e. losing the ability for bar code scanning). RhoElements will integrate the software with the hardware. The ability to integrate HTML5 with enterprise device capabilities removes the concerns related to accessing device features and functionality.
+
+* Built in APIs for bar code scanning, RFID, signature capture, printing, file transfer, location, and interfacing with other peripherals and accessories.
+* Broad set of device capabilities thru HTML, Javascript or Ruby in a consistent API set regardless of platform
+* Delivers a native extension framework that allows for device integration in scenarios where it doesn't support something.
 

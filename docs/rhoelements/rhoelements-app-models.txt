@@ -1,6 +1,6 @@
 # RhoElements Application Models
 
-[PLACEHOLDER - Blurb and diagram explaing choices have for native and hyrbrid approached]
+<!-- PLACEHOLDER - Blurb and diagram explaing choices have for native and hyrbrid approached] -->
 
 ## Native Application Approach
 

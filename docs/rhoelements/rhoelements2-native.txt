@@ -1,6 +1,6 @@
 # Building Native Applications
 
-PLACEHOLDER - Block Diagram
+<!-- PLACEHOLDER - Block Diagram -->
 
 ## Setting Application Type
 
@@ -100,7 +100,7 @@ There are two steps and parts of this setup
 1) Building the Shared Runtime (can be done once)
 2) Build the application and indicate at build time that shared runtime will be used
 
-PLACEHOLDER - DIAGRAM NEEDED
+<!-- PLACEHOLDER - DIAGRAM NEEDED -->
 
 ### Building The Shared Runtime
 
