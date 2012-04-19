@@ -90,11 +90,11 @@ In conditions where your may have a traditional Rhodes application but would lik
     - motorola_browser
 **NOTE: If you use the above setting without specifying <b>app_type: rhoelements</b>, <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span> APIs will not be available.**
 
-## Running Multipe RhoElements Applications
+## Running Multiple RhoElements Applications
 
-If you are planning on building multiple applications to be run on the same device, you can choose build your application in what is called "shared tuntime mode". What this does is use common libraries from a 'shared runtime' in a predefined location on the device and the 'rest' of the application from the application code that you build. This will result in not duplicating common code and consume extra memory.
+If you are planning on building multiple applications to be run on the same device, you can choose build your application in what is called "shared runtime mode". What this does is use common libraries from a 'shared runtime' in a predefined location on the device and the 'rest' of the application from the application code that you build. This will result in not duplicating common code and consume extra memory.
 
-**NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same devuce and are concerned about memory limitations. Failure to properly build and deploy will result in a non functioning application.**
+**NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same device and are concerned about memory limitations. Failure to properly build and deploy will result in a non functioning application.**
 
 There are two steps and parts of this setup
 1) Building the Shared Runtime (can be done once)
@@ -166,21 +166,18 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
 
-### Logging In Shared Runtime Mode
+## Logging a RhoElements Native Application
 
-1.  RhoElements Shared Runtime running <b>RhoElements v1.0</b> application writes its internal log to a file named `rholog.txt`.
-The location of this file is defined by the following rules (in the order of priority):
+### Windows Mobile/CE Logging
 
-    1. If the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP",
-    then the path to the log file is taken from the `Configuration` > `Logger` > `LogURI` tag.
-       - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name.
-       - In case of "HTTP" protocol, the log messages are sent to the `LogURI` via POST HTTP-requests.
+The RhoElements native application log file name is defined at `build.yml` with the `applog` parameter. The log file is placed in the `rho` folder of the application folder.
 
-    2. If the start page parameter is a local file, then path to this file is used for log file `rholog.txt`
-    (the file name part of the start page parameter is ignored and `rholog.txt` is used as the file name).
+### Android Logging
 
-    3. Otherwise the log file `rholog.txt` is placed in the `rho` folder in the Shared Runtime installation folder.
+The RhoElements native application log file is configured in the Rhodes way, at `rhoconfig.txt`, located in the app source root folder.
 
-2. When RhoElements Shared Runtime mode is enable, the `rholog.txt` is placed to `rho` folder of the application folder.
-It is possble to [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`.
-It is also possible to [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.
+You can use the `logserver` parameter to send the log to the host via HTTP. There is no option to store the log file on the mobile device in this case.
+        
+If you start your application with the `rake run:android[:device]` command, then a log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter.
+
+**Note: See [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`. See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**
