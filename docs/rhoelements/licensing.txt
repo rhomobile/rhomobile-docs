@@ -1,0 +1,30 @@
+# RhoElements Licensing
+
+The following features require Motorola RhoElements license:
+
+* Mobile APIs indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
+* [Motorola WebKit](/rhoelements/webkit)
+* [Barcode extension](/rhodesapi/barcode-api)
+* [NFC extension](/rhodes/device-caps#nfc)
+* [Database Encryption](/rhodes/rhom#database-encryption)
+* [Inline Signature Capture](/rhodes/device-caps#signature-capture)
+
+## License for Motorola devices(Windows Mobile, Windows CE and Android ET1)
+
+When an application starts on a Motorola device, the License screen is displayed with the following options:
+
+* Scan Company Name barcode, Scan License barcode.
+* Enter Company name and License number manually.
+* License device via Internet.
+
+Both type of Motorola RhoElements licenses can be used in this case: device (with particular device UUID) and deployment (without link to particular device UUID).
+
+After a valid license is provided, the device become 'Licensed'. The next time the application is started, the License screen will be displayed for a short period with a 'Device is Licensed' message. If no license is provided the License nag screen will open every so often. The application will still retain all of it's functionality in an unlicensed state.
+
+## License for non-Motorola devices
+Deployment License information should be provided at application build time in the application build.yml file:
+
+    motorola_license_company: 'Deployment License Company name'
+    motorola_license: 'Deployment License Number'
+
+When the application is started, the license is checked for validity. If the license is invalid, the application will exit.
