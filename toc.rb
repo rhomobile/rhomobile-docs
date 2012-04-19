@@ -21,6 +21,7 @@ section 'rhoelements-devref', 'RhoElements Reference' do
   topic 'rhoelements/rhoelements2-webapps', 'Enabling Web Apps'
   topic 'rhoelements/rhoelements2-native', 'Building Native Apps'
   topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
+  topic 'rhoelements/licensing', 'Licensing'
   topic 'rhoelements/FontsInRhoElements', 'Font Handling'
   topic 'rhoelements/RetrievalEvents', 'Retrieval Events'
   topic 'rhoelements/apd-overview', 'APD Overview'
