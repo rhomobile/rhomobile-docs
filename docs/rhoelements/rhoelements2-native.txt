@@ -170,11 +170,11 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 ### Windows Mobile/CE Logging
 
-The RhoElements native application log file name is defined at `build.yml` with the `applog` parameter. The log file is placed in the `rho` folder of the application folder.
+The RhoElements native application log file `rholog.txt` is placed in the `rho` folder of the application folder.
 
 ### Android Logging
 
-The RhoElements native application log file is configured in the Rhodes way, at `rhoconfig.txt`, located in the app source root folder.
+The RhoElements native application log is configured in the Rhodes way, at `rhoconfig.txt`, located in the app source root folder.
 
 You can use the `logserver` parameter to send the log to the host via HTTP. There is no option to store the log file on the mobile device in this case.
         
