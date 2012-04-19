@@ -114,10 +114,11 @@ The location of the log file of a RhoElements WebApp (hybrid) application is def
 
 1. If the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP", then the path to the log file is taken from the `Configuration` > `Logger` > `LogURI` tag.
 
- - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name.
- - In case of "HTTP" protocol, the log messages are sent to the `LogURI` via POST HTTP-requests.
+    - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` (or what is specified by 'applog' parameter at 'build.yml') is used as a file name.
+    - In case of "HTTP" protocol, the log messages are sent to the `LogURI` via POST HTTP-requests.
 
-2. If the start page parameter is a local file, then this file folder is used to store the log file. (The file name part of the start page parameter is ignored and `rholog.txt` is used as the file name.)
+2. If the start page parameter is a local file, then this file folder is used to store the log file.
+The file name part of the start page parameter is ignored and `rholog.txt` (or what is specified by 'applog' parameter at 'build.yml') is used as the file name.
 
 3. Otherwise the log file is placed in the `rho` folder in the Runtime installation folder.
 

@@ -155,7 +155,7 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 ### Windows Mobile/CE Logging
 
-The RhoElements native application log file `rholog.txt` is placed in the `rho` folder of the application folder.
+The RhoElements native application log file is placed in the `rho` folder of the application folder. The file log name is specified by 'applog' parameter at 'build.yml' and is `rholog.txt` by default.
 
 ### Android Logging
 
@@ -163,6 +163,6 @@ The RhoElements native application log is configured in the Rhodes way, at `rhoc
 
 You can use the `logserver` parameter to send the log to the host via HTTP. There is no option to store the log file on the mobile device in this case.
         
-If you start your application with the `rake run:android[:device]` command, then a log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter.
+If you start your application with the `rake run:android[:device]` command, then a log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter (by default the log file name is `rholog.txt`).
 
 **Note: See [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`. See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**

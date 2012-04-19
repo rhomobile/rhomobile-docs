@@ -35,8 +35,8 @@ Then add MC3000c50b to your application's build.yml file.
 
 Then follow the Rhodes build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
 
-NOTE: RhoElements 2.0 applications would not work in case of incorrect network setup on Windows Mobile device, because RE 2.0 relies on <code>localhost</code> hostname and <code>127.0.0.1</code> IP-address presence.
-In general when connected to PC the device should have Internet connectivity, e.g. the user should be able to browse web with Internet Explorer from Windows Mobile device.
+NOTE: RhoElements 2.0 applications will not work in the case of an incorrect network setup on a Windows Mobile device, because RhoElements 2.0 relies on <code>localhost</code> hostname and <code>127.0.0.1</code> IP-address presence.
+In general, when connected to a PC, the device should have Internet connectivity: e.g. the user should be able to browse web with Internet Explorer from the Windows Mobile device.
 In case of broken Internet connectivity, make sure that at <code>Settings</code> » <code>Connections</code> » <code>Connections</code> » <code>Advanced</code> » <code>Select Networks</code>
 the value <code>My ISP</code> is selected in both select boxes.
 
@@ -151,16 +151,16 @@ On Windows CE, the default path (`\Program Files\RhoElements2`) must be selected
 
 - Windows Mobile/CE
 
-    1. RhoElements log file name is defined at 'build.yml' with 'applog' parameter. 
+    1. RhoElements log file name is defined at 'build.yml' with 'applog' parameter (by default the log file name is `rholog.txt`).
     2. Location of the log file of <b>Hybrid</b> application is defined by the following rules (in the order of priority):
 
         1. If the `Value` attribute of `Configuration` > `Logger` > `LogProtocol` tag in the configuration file equals "FILE" or "HTTP",
         then the path to the log file is taken from the `Configuration` > `Logger` > `LogURI` tag.
-            - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` is used as a file name.
+            - In case of "FILE" protocol, the file name part of `LogURI` is ignored and `rholog.txt` (or what is specified by 'applog' parameter at 'build.yml') is used as a file name.
             - In case of "HTTP" protocol, the log messages are sent to the `LogURI` via POST HTTP-requests.
 
         2. If the start page parameter is a local file, then this file folder is used to store the log file.
-        (the file name part of the start page parameter is ignored and `rholog.txt` is used as the file name).
+        The file name part of the start page parameter is ignored and `rholog.txt` (or what is specified by 'applog' parameter at 'build.yml') is used as the file name.
 
         3. Otherwise the log file is placed in the `rho` folder in the Runtime installation folder.
 
@@ -177,7 +177,7 @@ On Windows CE, the default path (`\Program Files\RhoElements2`) must be selected
     2. RhoElements <b>Native</b> application's log is configured in Rhodes way at rhoconfig.txt located in app source root folder.
         1. 'logserver' parameter is used to send log to the host via HTTP.
         2. There is no option to store log file at device in this case.
-        3. If application is started with 'rake run:android[:device]' command then log is additionally stored at app source root folder. Name of the log file is configured at build.yml with 'applog' parameter.
+        3. If application is started with 'rake run:android[:device]' command then log is additionally stored at app source root folder. Name of the log file is configured at build.yml with 'applog' parameter (by default the log file name is `rholog.txt`).
 
 Note: See [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`.
 Note: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.
