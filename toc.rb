@@ -254,7 +254,7 @@ end
 
 
 
-section 'rhodesapi-reference', 'Near Field Communications' do
+section 'rhodesapi-NFC', 'Near Field Communications' do
   topic 'rhodesapi/NdefMessage-api',             'NdefMessage'
   topic 'rhodesapi/NdefRecord-api',             'NdefRecord'
   topic 'rhodesapi/NFCManager-api',             'NFCManager'
