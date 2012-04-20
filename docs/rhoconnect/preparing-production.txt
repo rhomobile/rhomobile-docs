@@ -35,16 +35,6 @@ Then plug this secret into your `config.ru`:
 
 	:::ruby
 	Rhoconnect::Server.set     :secret, '040a2355475e9d0fb591ef78d5b9ca61a34cbcfd3f11942b18bc1d91f1ca66c27b2e0386333843a7efa29f40fff03624cd908d0883364ffbfa3208ab23fa2664'
-
-
-In RhoConnect version 3.2.x has been introduced the following settings to manage communication with back-end servers asynchronously using EventMachine and Fibers API:   
-
-    :::ruby
-    Rhoconnect::Server.set     :use_async_model, false # true by default
-    Rhoconnect::Server.set     :fiberpool_size, 50     # default is 100
-
-By default asynchronous mode is enabled with fiber pool size of 100 and might greatly improve performance with slow back-ends. Above settings should be used only with Ruby 1.9.
-For other rubies they are ignored.
  
 To run RhoConnect in production mode, use `RACK_ENV` environment variable set to "production".  This ensures RhoConnect will use the `:production` section of the settings.  For example:
 
@@ -54,6 +44,24 @@ To run RhoConnect in production mode, use `RACK_ENV` environment variable set to
 Will start thin in with `RACK_ENV` set to "production".  
 
 NOTE: If you deploy using passenger or on RhoHub, this variable is automatically set to production.
+
+### Asynchronous processing
+
+RhoConnect version 3.2.x introduces a new feature which enables asynchronous processing of the incoming requests to improve the responsiveness of the Rhoconnect application using EventMachine, Fibers API, and Rack Fiber Pool. This new feature is available with Ruby 1.9.x and enabled by default. It is not available with Ruby 1.8.7, JRuby and REE.
+To disable the feature and revert back to synchronous handling, you can use the following options in the `config.ru` file: 
+
+    :::ruby
+    Rhoconnect::Server.set     :use_async_model, false # true by default
+
+By default, the Rhoconnect application is started with Rack FiberPool's size equal to 100 and EventMachine's thread pool size set to 20. To adjust those settings you can use the following options: 
+
+	:::ruby
+	# adjust the Rack FiberPool size
+    Rhoconnect::Server.set     :fiberpool_size, 50     # default is 100
+
+	# adjust the EventMachine Thread Pool size
+	EventMachine.threadpool_size = 25 # default is 20
+
 
 ## settings/settings.yml
 This file contains all source adapter options and settings like the redis server connection.  Before deploying to production, make sure you have the appropriate production settings:
@@ -70,4 +78,5 @@ This file contains all source adapter options and settings like the redis server
 
 ## settings/license.key
 This contains your RhoConnect license key text.  By default, a RhoConnect application comes with a 10 device license.  Please see the [licensing page](/rhoconnect/licensing) for more details.
+
 
