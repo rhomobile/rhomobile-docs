@@ -1,8 +1,8 @@
 # RhoElements Introduction
 
-RhoElements Version 2.0 provides Rhodes with an extended set of enterprise-focused device capabilities and the ability to do all device capabilities with both HTML tags (EMML tags and more) and JavaScript calls. It also supports the ability for a Rhodes app to generate a mobile web app, accessed by mobile web browsers, including device clients written with RhoElements V2 itself. 
+RhoElements provides Rhodes with an extended set of enterprise-focused device capabilities and the ability to do all device capabilities with both HTML tags (EMML tags and more) and JavaScript calls. It also supports the ability for a Rhodes app to generate a mobile web app, accessed by mobile web browsers, including device clients written with RhoElements itself. 
 
-RhoElements 2.0 also allows you to create applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, deploy the application on the mobile device.
+RhoElements also allows you to create applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, deploy the application on the mobile device.
 
 <!-- PLACEHOLDER - BLOCK DIAGRAM -->
 
