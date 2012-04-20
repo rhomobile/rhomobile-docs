@@ -1,21 +1,18 @@
-# RhoElements Installation
+# RhoMobile Auite Installation
 
 ## Download
 To begin using RhoElements you will need to download RhoMobile Suite. Windows and MAC installations are provided
 
-<!-- PLACE HOLDER - link to RhoStudio package on Support Central -->
+PLACE HOLDER - link to RhoStudio package on Support Central 
 
 After installing, you should either proceed to [Enabling Web Apps](/rhoelements/rhoelements2-webapps) or [Building Native Apps](/rhoelements/rhoelements2-native)
 
 ## Windows Install
 
-<!-- PLACEHOLDER - Screen shots and step by step instructions -->
+PLACEHOLDER - Screen shots and step by step instructions
 
 ## MAC Install
 
-<!-- PLACEHOLDER - Screen shots and step by step instructions -->
+PLACEHOLDER - Screen shots and step by step instructions
 
-## HTML5 Availability on Windows Mobile & Windows CE
-
-<!-- PLACEHOLDER - BLURB ON HOW YOU CAN NOW USE HTML5 FEATURES ON WINM O/CE. BLURB ON HTML5 FEATURES LINKS TO HTML5 PAGES -->
 
