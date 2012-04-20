@@ -127,6 +127,35 @@ NOTE: You <b>must</b> install your RhoElements native application that uses shar
 On Windows Mobile, you must select the `Device` option when the installer asks for the location to install.
 On Windows CE, you must select the default path (`\Program Files\&lt;app-name&gt;`).
 
+### Custom RhoElements configuration file
+
+It is possible to include custom RhoElements configuration file `Config.xml` to application bundle.
+If configuration file is the same for all supported platforms, then it's sufficient to add to `build.yml`:
+
+    rhoelements:
+      config: <relative-path-to-Config.xml>
+
+NOTE: The path to <code>Config.xml</code> must be specified relatively to the application root folder, e.g. <code>Config/Config.xml</code>.
+
+If configuration file differs for each platform, then add the following lines to `wm` and `android` sections of `build.yml` accordingly:
+
+    wm:
+      rhoelements:
+        config: <relative-path-to-Config.xml-for-WM>
+
+    android:
+      rhoelements:
+        config: <relative-path-to-Config.xml-for-Android>
+
+For example:
+
+    wm:
+      rhoelements:
+        config: Config/Config.xml.wm
+
+    android:
+      rhoelements:
+        config: Config/Config.xml.android
 
 ### Setting the Shortcut (.lnk) for Windows Mobile and CE
 
