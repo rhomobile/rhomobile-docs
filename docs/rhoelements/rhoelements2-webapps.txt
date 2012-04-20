@@ -1,6 +1,6 @@
-# RhoElement-Enabling Your Web App
+# RhoElements-Enabling Your Web App
 
-If you have an existing application that is runnning from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabailties to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile of RhoElements application using RhoStudio. You simply need to install a RhoElements runtime application on the devuce and configure it to point to your web server.
+If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile of RhoElements application using RhoStudio. You simply need to install a RhoElements runtime application on the device and configure it to point to your web server.
 
 ## Installing the RhoElements Runtime
 
@@ -18,7 +18,7 @@ If you wish to keep all default parameters and just change the starting url, the
 
 If you wish to modify other parameters in the config.xml then you should replace the config.xml file after the RhoElements Runtime is installed. Locate the file from the instructions below, copy it to your desktop for modification and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
 
-The location of the configuration file loaded by RhoElements is dependant on a number of factors:
+The location of the configuration file loaded by RhoElements is dependent on a number of factors:
 <ul>
 <li/>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.rhoelements/Config.xml.
 <li/>When running on all other devices RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.

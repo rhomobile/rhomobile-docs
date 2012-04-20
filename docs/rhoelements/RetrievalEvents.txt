@@ -85,7 +85,7 @@ will call the function 'doVersion' as follows:
 		//  Use parameters in this function
 	}
 
-Note that string parameters are declared as '%s' and JS arrays are declared as %s (without quotes).  In order to maintain compabitility with URLs, any data in the return event containing a '%' sign will be escaped to '%25', the Javascript function 'unescape()' can be used to undo this on your returned data.
+Note that string parameters are declared as '%s' and JS arrays are declared as %s (without quotes).  In order to maintain compatibility with URLs, any data in the return event containing a '%' sign will be escaped to '%25', the Javascript function 'unescape()' can be used to undo this on your returned data.
 
 ###%number Notation:
 To access the event parameters directly the %number placeholder can be used when declaring the event, e.g.

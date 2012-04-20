@@ -1,10 +1,10 @@
-# Building Native Applications
+# RhoElements-Building Native Applications
 
 <!-- PLACEHOLDER - Block Diagram -->
 
 ## Setting Application Type
 
-To create a RhoElements that will be deployed natively to the device, you will essentially follow the same steps you would to create a Rhodes application. However a RhoElements application provides the [Mobile APIs](rhoelements/apicompatibility) in either Javascript, HTML or Ruby.  
+To create a RhoElements application that will be deployed natively to the device, you will essentially follow the same steps you would to create a Rhodes application. However a RhoElements application provides the [Mobile APIs](rhoelements/apicompatibility) in either Javascript, HTML or Ruby.  
 
 To enable Motorola device capabilities, add the following to your application's build.yml file.
 
@@ -42,7 +42,7 @@ To run a RhoElements application on an ET1 device:
 
 Then follow the Rhodes build instructions for [Android](/rhodes/build#build-for-android).
 
-## Prelicensing Your Application
+## Pre-licensing Your Application
 If your application will be delivered as 'licensed', the Deployment License information may be provided at application build time in the application build.yml file. 
 
 	motorola_license_company: 'Deployment License Company name'
@@ -81,9 +81,10 @@ If you are planning on building multiple applications to be run on the same devi
 
 **NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same device and are concerned about memory limitations. Failure to properly build and deploy will result in a non functioning application.**
 
-There are two steps and parts of this setup
-1) Building the Shared Runtime (can be done once)
-2) Build the application and indicate at build time that shared runtime will be used
+There are two steps to this setup.
+
+1. Build the Shared Runtime (can be done once).
+2. Build the application and indicate at build time that shared runtime will be used.
 
 <!-- PLACEHOLDER - DIAGRAM NEEDED -->
 

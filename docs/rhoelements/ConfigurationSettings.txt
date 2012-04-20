@@ -3,14 +3,14 @@
 Configuration of RhoElements is managed through an XML file.  Not every setting has a default so if the configuration file cannot be found, RhoElements will <b>not</b> start; an example configuration file is provided as part of the installation and will contain sensible defaults, this page explains the meanings of each of the settings and their possible values.
 
 ##Configuration File Location
-The location of the configuration file loaded by RhoElements is dependant on a number of factors:
+The location of the configuration file loaded by RhoElements is dependent on a number of factors:
 <ul>
 <li/>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.rhoelements/Config.xml.
 <li/>When running on all other devices RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
 <li/>You can change which configuration file is loaded using the /C: configuration option, see the <a href="/rhoelements/rhoelements2-native-hybrid#running-rhoelements-hybrid-applications">Command Line</a> help file entry.
 </ul><br/>
 
-For persistant installations on cold boot the Config.xml file is copied from \Application\RhoElements\Config\Config.xml to \Program Files\RhoElements\Config\Config.xml; bear this in mind if you want your configuration to persist across cold boot and you can also modify this behaviour by changing \Application\RhoElements.cpy.
+For persistant installations on cold boot the Config.xml file is copied from \Application\RhoElements\Config\Config.xml to \Program Files\RhoElements\Config\Config.xml; bear this in mind if you want your configuration to persist across cold boot and you can also modify this behavior by changing \Application\RhoElements.cpy.
 
 ##Configuration XML File Format
 The following is an example of a typical configuration file, many of the attributes will be self explanatory but are explained in detail below.</p>
@@ -184,7 +184,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td class="clsEvenRow">Engine\\<BR>EngineInUse</td>
 <td class="clsEvenRow">Not Applicable</td>
-<td class="clsEvenRow">Not applicable to the Enterprise Tablet:<br>By default RhoElements will use the WebKit rendering engine.  For backward compatibility this option can be set to 'InternetExplorer' to use the IE rendering engine present on the device.  Note that the behaviour of the IE engine will differ between Windows Mobile and CE and in both cases will be less functional than the Motorola WebKit rendering engine.  Because the InternetExplorer engine is provided solely for backward compatibility with PocketBrowser then modules exclusive to RhoElements, e.g. zoom, will not function with the IE engine.
+<td class="clsEvenRow">Not applicable to the Enterprise Tablet:<br>By default RhoElements will use the WebKit rendering engine.  For backward compatibility this option can be set to 'InternetExplorer' to use the IE rendering engine present on the device.  Note that the behavior of the IE engine will differ between Windows Mobile and CE and in both cases will be less functional than the Motorola WebKit rendering engine.  Because the InternetExplorer engine is provided solely for backward compatibility with PocketBrowser then modules exclusive to RhoElements, e.g. zoom, will not function with the IE engine.
 </ul></td>
 <td >See Description</td>
 </tr>
@@ -263,7 +263,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >Screen\\FullScreen</td>
 <td >FULLSCREEN</td>
-<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/application">Application</a> tag.  Some Windows Mobile devices feature a customised Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/application">Application</a> tag.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -293,7 +293,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td class="clsEvenRow">DeviceKeys\\<BR>FunctionKeysCapturable</td>
 <td class="clsEvenRow">FUNCTIONKEYSCAPTURABLE</td>
-<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behaviour (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/rhoelements/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehaviour">the end of this document</a></td>
+<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behavior (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/rhoelements/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehaviour">the end of this document</a></td>
 <td class="clsEvenRow">0 - F keys not capturable<BR>1 - F keys capturable</td>
 </tr> 
 <tr>
@@ -548,7 +548,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td class="clsEvenRow">GUI\\HourglassEnabled</td>
 <td class="clsEvenRow">HOURGLASSENABLED</td>
-<td class="clsEvenRow">By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
+<td class="clsEvenRow">By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behavior.</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -572,7 +572,7 @@ The following is an example of a typical configuration file, many of the attribu
 <li>The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
 <li>The user presses the stop button.
 </ul>
-The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the file:// protocol, this way the browser can always access the file.
+The browser will automatically append the query string value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the file:// protocol, this way the browser can always access the file.
 </td>
 <td >File name and path stored locally on the device.<a href="#_caseSensitivity">&dagger;</a></td>
 </tr>
@@ -598,7 +598,7 @@ Use the UserAgent setting to spoof your device to the server, e.g. to view conte
 <tr>
 <td class="clsEvenRow">Navigation\\ViewportWidth</td>
 <td class="clsEvenRow">VIEWPORTWIDTH</td>
-<td class="clsEvenRow">Default viewport width to use for pages that do no thave a viewport meta tag (uses 1:1 scaling if not specified)</td>
+<td class="clsEvenRow">Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified)</td>
 <td class="clsEvenRow">Number</td>
 </tr>
 <tr>
@@ -656,35 +656,35 @@ The operating systems of some devices have case sensitive file systems. Therefor
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 
 ###<a name="_fnbehaviour"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
-On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system <b>any settings applied will persist until the device is next warm booted</b>.  Which function keys have default operating system behaviour will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behaviour.
+On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system <b>any settings applied will persist until the device is next warm booted</b>.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behavior.
 
 Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.</i></b>
 
-The table below shows the behaviour of RhoElements when Function Keys are pressed given the possible configuration settings:
+The table below shows the behavior of RhoElements when Function Keys are pressed given the possible configuration settings:
 <table border=1 width="100%" class="re-table">
 <tr><th></th><th>Function Keys Capturable = TRUE</th><th>Function Keys Capturable = FALSE</th></tr>
 <tr><th>Enable Function Key = TRUE</th>     
 <td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour
+<li>Function Key will <b>not</b> have its default Operating system behavior
 </ul>
 </td>
 <td valign="top"><ul>
-<li>Function Keys with default OS behaviour <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Keys without default OS behaviour <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key <b>will</b> have its default Operating system behaviour (if any)
+<li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
+<li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
+<li>Function Key <b>will</b> have its default Operating system behavior (if any)
 </ul>
 </td>
 </tr>
 <tr><th>Enable Function Key = FALSE</th>
 <td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour
+<li>Function Key will <b>not</b> have its default Operating system behavior
 </ul>
 </td>
 <td valign="top"><ul>
 <li>All Function Keys <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour (if any)</td>
+<li>Function Key will <b>not</b> have its default Operating system behavior (if any)</td>
 </ul>
 </tr>			
 </table>
