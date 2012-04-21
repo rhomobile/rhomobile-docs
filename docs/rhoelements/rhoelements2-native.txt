@@ -75,22 +75,22 @@ In conditions where your may have a traditional Rhodes application but would lik
     - motorola_browser
 **NOTE: If you use the above setting without specifying <b>app_type: rhoelements</b>, <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span> APIs will not be available.**
 
-## Running Multiple RhoElements Applications
+## Running RhoElements Applications in Shared Mode
 
-If you are planning on building multiple applications to be run on the same device, you can choose build your application in what is called "shared runtime mode". What this does is use common libraries from a 'shared runtime' in a predefined location on the device and the 'rest' of the application from the application code that you build. This will result in not duplicating common code and consume extra memory.
+If you are planning on building multiple applications to be run on the same device, you can choose build your application in what is called "shared mode". What this does is use common libraries from a RhoElements Runtime in a predefined location on the device, and the rest of the application is from the application code that you build. This will result in not duplicating common code and consuming extra memory.
 
 **NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same device and are concerned about memory limitations. Failure to properly build and deploy will result in a non functioning application.**
 
 There are two steps to this setup.
 
-1. Build the Shared Runtime (can be done once).
-2. Build the application and indicate at build time that shared runtime will be used.
+1. Build the RhoElements Runtime (can be done once).
+2. Build the application and indicate at build time that shared mode will be used.
 
 <!-- PLACEHOLDER - DIAGRAM NEEDED -->
 
-### Building The Shared Runtime
+### Building The RhoElements Runtime
 
-To build the Shared Runtime Application, perform the following steps.
+To build the RhoElements Runtime, perform the following steps.
 
 On the command line on your Windows PC, navigate to this folder.
 
@@ -112,31 +112,31 @@ NOTE: The runtime application <b>must</b> be installed to the primary disk parti
 On Windows Mobile, the `Device` option must be selected when the installer asks for the location to install.
 On Windows CE, the default path (`\Program Files\RhoElements`) must be selected.
 
-### Enabling Shared Runtime Mode
+### Enabling Shared Mode
 
-Now that your Shared Runtime has been built, your main application needs to indicate that it will run in this special mode. Indicate this mode by adding `use_shared_runtime` to your application's build.yml file:
+Now that your RhoElements Runtime has been built, your main application needs to indicate that it will run in shared mode. Indicate this mode by adding `use_shared_runtime` to your application's build.yml file:
 
     wm:
       use_shared_runtime: yes
 
-All RhoStudio or rake commands will then automatically build your application in Shared Runtime mode.
+All RhoStudio or rake commands will then automatically build your application in shared mode.
 
 * Windows CE and Windows Mobile: Follow the build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
 * Android ET1: Follow the build instructions for [Android](/rhodes/build#build-for-android).
 
-NOTE: You <b>must</b> install your RhoElements native application that uses shared runtime mode to the primary disk partition of the Windows CE/Mobile device, i.e. install to `\Program Files\&lt;app-name&gt;` only.
+NOTE: You <b>must</b> install your RhoElements native application that uses shared mode to the primary disk partition of the Windows CE/Mobile device, i.e. install to `\Program Files\&lt;app-name&gt;` only.
 On Windows Mobile, you must select the `Device` option when the installer asks for the location to install.
 On Windows CE, you must select the default path (`\Program Files\&lt;app-name&gt;`).
 
 ### Custom RhoElements configuration file
 
-It is possible to include custom RhoElements configuration file `Config.xml` to application bundle.
-If configuration file is the same for all supported platforms, then it's sufficient to add to `build.yml`:
+It is possible to include a custom RhoElements configuration file `Config.xml` to the application bundle.
+If the configuration file is the same for all supported platforms, then add to the `build.yml` file:
 
     rhoelements:
       config: <relative-path-to-Config.xml>
 
-NOTE: The path to <code>Config.xml</code> must be specified relatively to the application root folder, e.g. <code>Config/Config.xml</code>.
+NOTE: The path to <code>Config.xml</code> must be specified relative to the application root folder, e.g. <code>Config/Config.xml</code>.
 
 If configuration file differs for each platform, then add the following lines to `wm` and `android` sections of `build.yml` accordingly:
 
@@ -160,7 +160,7 @@ For example:
 
 ### Setting the Shortcut (.lnk) for Windows Mobile and CE
 
-If a RhoElements application running in Shared Runtime mode is not a hidden app (i.e. there is no `hidden_app: yes` line at `build.yml`),
+If a RhoElements application running in shared mode is not a hidden app (i.e. there is no `hidden_app: yes` line at `build.yml`),
 then on Windows Mobile or Windows CE the shortcut (`.lnk` file) containing the complete command line and icon path is created and placed to:
 
 * _Start Menu_ if the application is installed from the `.cab` file or by a `rake run:wm:device:cab` command.
@@ -169,13 +169,13 @@ then on Windows Mobile or Windows CE the shortcut (`.lnk` file) containing the c
 The generated `.lnk` is a standard Windows Mobile/CE shortcut file having the following format: 
 `<line-length>#"<runtime-exe>" -approot="<app-folder>"?"<icon-path>"`
 
-The following command line parameter is used by the RhoElements Shared Runtime (`RhoElements.exe`) for RhoElements applications:
+The following command line parameter is used by the RhoElements Runtime (`RhoElements.exe`) for RhoElements applications:
         
     -approot='<path-to-app>': Specifies the path to the root folder
         of the RhoElements main application,
         e.g. -approot='\Program Files\app'
 
-If the `-approot` parameter is not present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag of the RhoElements Shared Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Motorola RhoElements' page).
+If the `-approot` parameter is not present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag of the RhoElements Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Motorola RhoElements' page).
 
 Set the `approot` parameter in the .lnk file to point to your RhoElements main application, such as:
 
