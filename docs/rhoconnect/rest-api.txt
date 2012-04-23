@@ -142,6 +142,86 @@ documents, `push_deletes` method can be optimized by invoking only the necessary
 the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
 in the `push_deletes` parameters hash.
 
+### `fast_insert`
+Push new objects to RhoConnect. Changes are inserted into the Redis set without any checking for previous existence.
+This way, the insert is very fast, but user must ensure that the object didn't exist before. No safeguards are implemented. 
+Use this method only when you can ensure the integrity of the data.
+
+**NOTE: you may use [ping](/rhoconnect/push) to notify client after the insert and trigger sync.**
+
+	:::ruby
+	# list of objects in the canonical hash of hashes structure
+	data = {
+	  '5' => {
+	    'name' => 'iPhone'  
+	  }
+	}
+	RestClient.post(
+	  "#{server}/api/fast_insert", 
+	  { 
+		:api_token => token, 
+        :user_id => user_id, 
+	    :source_id => source_name, 
+	    :data => data 
+	  }.to_json, 
+	  :content_type => :json
+	)
+	
+### `fast_update`
+Push object updates to RhoConnect. This method doesn't involve pulling the existing data out of Redis. Instead it required user to provide the previous state of the data. This way, this method allows for very fast updates (since it just removes the previous data from set and adds new ones). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. previous state must exist, otherwise it won't be properly deleted). Also, this method can be used to perform fast appends and deletes for any of the object's attributes (However, you shoudn't use this method to remove all of the attributes, `fast_delete` should be used instead.)
+
+**NOTE: you may use [ping](/rhoconnect/push) to notify client after the update and trigger sync.**
+
+	:::ruby
+	# list of objects in the canonical hash of hashes structure
+	# delete_data contains previous state of the object (to be deleted)
+	delete_data = {
+	  '5' => {
+	    'name' => 'iPhone'  
+	  }
+	}
+	# data contains new state of the object
+	# to be inserted
+	data = {
+	  '5' => {
+	    'name' => 'HTC'  
+	  }
+	}
+	RestClient.post(
+	  "#{server}/api/fast_update", 
+	  { 
+		:api_token => token, 
+        :user_id => user_id, 
+	    :source_id => source_name,
+	 	:delete_data => delete_data,
+	    :data => data 
+	  }.to_json, 
+	  :content_type => :json
+	)
+
+### `fast_delete`
+Push object deletes to RhoConnect. This method doesn't involve pulling the existing data out of Redis and removing all of its attributes. Instead it required user to provide all of the object's data in the hash to be removed. This way, this method allows for very fast deletes (since it just removes the object's data from set). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. supply all of the object's data to be removed, otherwise some object's data will remain in Redis).
+
+**NOTE: you may use [ping](/rhoconnect/push) to notify client after the delete and trigger sync.**
+
+	:::ruby
+	# list of objects in the canonical hash of hashes structure
+	# data contains all of the object's data (to be deleted)
+	data = {
+	  '5' => {
+	    'name' => 'iPhone'  
+	  }
+	}
+	RestClient.post(
+	  "#{server}/api/fast_delete", 
+	  { 
+		:api_token => token, 
+        :user_id => user_id, 
+	    :source_id => source_name,
+	    :data => data 
+	  }.to_json, 
+	  :content_type => :json
+	)
 
 ### `list_users`
 List users registered with this RhoConnect application.
