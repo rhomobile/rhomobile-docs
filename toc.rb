@@ -14,7 +14,7 @@ end
 
 section 'rhoelements', 'RhoElements'
 
-section 'rhoelements-devref', 'RhoElements Reference' do
+section 'rhoelements-devref', 'Developer Reference' do
   topic 'rhoelements/rhoelements-introduction', 'Introduction'
   topic 'rhoelements/rhoelements-app-models', 'Application Approaches'
   topic 'rhoelements/rhoelements-install', 'Installation'
@@ -30,7 +30,10 @@ section 'rhoelements-devref', 'RhoElements Reference' do
   topic 'rhoelements/apd-printer-demo-user-notes','APD Printer Demo User Notes'
   topic 'rhoelements/apd-release-notes','APD Release Notes'
 end
-section 'rhodes-reference', 'Rhodes Reference' do
+
+section 'rhodes', 'Rhodes'
+
+section 'rhodes-reference', 'Developer Reference' do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhodes/install',           'Install Rhodes'
   topic 'rhodes/generator',         'App Generator'
