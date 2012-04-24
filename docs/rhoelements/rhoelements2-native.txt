@@ -4,13 +4,13 @@
 
 ## Setting Application Type
 
-To create a RhoElements application that will be deployed natively to the device, you will essentially follow the same steps you would to create a Rhodes application. However a RhoElements application provides the [Mobile APIs](rhoelements/apicompatibility) in either Javascript, HTML or Ruby.  
+To create a RhoElements application that will be deployed natively to the device, you will essentially follow the same steps you would to create a Rhodes application. However a RhoElements application provides the [Mobile APIs](/rhoelements/apicompatibility) in either Javascript, HTML or Ruby.  
 
 To enable Motorola device capabilities, add the following to your application's build.yml file.
 
     app_type: rhoelements
 
-This indicates that your application will be a "RhoElements" application. This application type by default uses the [Motorola Webkit](/rhoelements/webkit) as the redering engine for your application interface as well as exposes an extended set of APIs(rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
+This indicates that your application will be a "RhoElements" application. This application type by default uses the Motorola Webkit as the redering engine for your application interface as well as exposes an extended set of APIs(rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
 
 To build RhoElements application for non-Motorola device, add the following to your application's build.yml file.
 
