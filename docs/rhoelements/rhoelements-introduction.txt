@@ -1,29 +1,8 @@
 # RhoElements Introduction
 
-RhoElements provides Rhodes with an extended set of enterprise-focused device capabilities and the ability to do all device capabilities with both HTML tags (EMML tags and more) and JavaScript calls. It also supports the ability for a Rhodes app to generate a mobile web app, accessed by mobile web browsers, including device clients written with RhoElements itself. 
-
-RhoElements also allows you to create applications that use the Rhodes-type framework, written using HTML, CSS and JavaScript, and Ruby for the application logic, deploy the application on the mobile device.
+Most often, there is hesitation around developing cross platform applications because of the concern that certain features will be lost or cannot replicate properly in a non-native environment.  RhoElements 2.0 helps remove these concerns because it offers:
 
 <!-- PLACEHOLDER - BLOCK DIAGRAM -->
-
-## Supported Operating Systems
-
-### Windows Mobile, Windows CE
-* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
-* <a name="_motdevices">Motorola devices</a>: ES400, MC2100, MC3100, MC55A0, MC55N0, MC65, MC75A0, MC75A6, MC75A8, MC9100, MC9190, MC9590, MC9596, MC9598, MC959B
-
-### Android
-* Android 2.1 and greater
-* Motorola ET1
-
-### iPhone
-All versions of iPhone 3.0 or greater, iPad
-
-### BlackBerry
-BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
-
-### Windows Phone 7
-Latest Windows Phone devices
 
 ## Hybrid and Native HTML5 applications
 
@@ -52,3 +31,21 @@ Once a customer has decided to build cross platform applications, the next major
 * Broad set of device capabilities thru HTML, Javascript or Ruby in a consistent API set regardless of platform
 * Delivers a native extension framework that allows for device integration in scenarios where it doesn't support something.
 
+## Supported Operating Systems
+
+### Windows Mobile, Windows CE
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
+* <a name="_motdevices">Motorola devices</a>: ES400, MC2100, MC3100, MC55A0, MC55N0, MC65, MC75A0, MC75A6, MC75A8, MC9100, MC9190, MC9590, MC9596, MC9598, MC959B
+
+### Android
+* Android 2.1 and greater
+* Motorola ET1
+
+### iPhone
+All versions of iPhone 3.0 or greater, iPad
+
+### BlackBerry
+BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
+
+### Windows Phone 7
+Latest Windows Phone devices
