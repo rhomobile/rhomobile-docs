@@ -65,7 +65,7 @@ Users will not be able to license the product directly from the device. When the
 
 See the [RhoElements Licensing page](/rhoelements/licensing) for more information.
 
-## Overriding the Browser for a RhoElements Application
+## Overriding Motorola Webkit
 
 RhoElements will automatically use the Motorola WebKit browser for Windows Mobile, Windows CE and Android (ET1) devices when you add the rhoelements app_type to your application's build.yml. 
 
@@ -136,7 +136,30 @@ NOTE: You <b>must</b> install your RhoElements native application that uses shar
 On Windows Mobile, you must select the `Device` option when the installer asks for the location to install.
 On Windows CE, you must select the default path (`\Program Files\&lt;app-name&gt;`).
 
-### Custom RhoElements configuration file
+### Setting the Shortcut (.lnk) for Windows Mobile and CE
+
+If a RhoElements application running in shared mode is not a hidden app (i.e. there is no `hidden_app: yes` line at `build.yml`),
+then on Windows Mobile or Windows CE the shortcut (`.lnk` file) containing the complete command line and icon path is created and placed to:
+
+* _Start Menu_ if the application is installed from the `.cab` file or by a `rake run:wm:device:cab` command.
+* _application folder_ if the application is installed by a `rake run:wm:device` command.
+
+The generated `.lnk` is a standard Windows Mobile/CE shortcut file having the following format: 
+`<line-length>#"<runtime-exe>" -approot="<app-folder>"?"<icon-path>"`
+
+The following command line parameter is used by the RhoElements Runtime (`RhoElements.exe`) for RhoElements applications:
+        
+    -approot='<path-to-app>': Specifies the path to the root folder
+        of the RhoElements main application,
+        e.g. -approot='\Program Files\app'
+
+If the `-approot` parameter is not present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag of the RhoElements Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Motorola RhoElements' page).
+
+Set the `approot` parameter in the .lnk file to point to your RhoElements main application, such as:
+
+	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
+
+## Custom RhoElements configuration file
 
 It is possible to include a custom RhoElements configuration file `Config.xml` to the application bundle.
 If the configuration file is the same for all supported platforms, then add to the `build.yml` file:
@@ -166,28 +189,6 @@ For example:
       rhoelements:
         config: Config/Config.xml.android
 
-### Setting the Shortcut (.lnk) for Windows Mobile and CE
-
-If a RhoElements application running in shared mode is not a hidden app (i.e. there is no `hidden_app: yes` line at `build.yml`),
-then on Windows Mobile or Windows CE the shortcut (`.lnk` file) containing the complete command line and icon path is created and placed to:
-
-* _Start Menu_ if the application is installed from the `.cab` file or by a `rake run:wm:device:cab` command.
-* _application folder_ if the application is installed by a `rake run:wm:device` command.
-
-The generated `.lnk` is a standard Windows Mobile/CE shortcut file having the following format: 
-`<line-length>#"<runtime-exe>" -approot="<app-folder>"?"<icon-path>"`
-
-The following command line parameter is used by the RhoElements Runtime (`RhoElements.exe`) for RhoElements applications:
-        
-    -approot='<path-to-app>': Specifies the path to the root folder
-        of the RhoElements main application,
-        e.g. -approot='\Program Files\app'
-
-If the `-approot` parameter is not present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag of the RhoElements Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Motorola RhoElements' page).
-
-Set the `approot` parameter in the .lnk file to point to your RhoElements main application, such as:
-
-	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
 
 ## Logging a RhoElements Native Application
 
