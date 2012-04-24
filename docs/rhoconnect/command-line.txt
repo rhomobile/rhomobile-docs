@@ -57,7 +57,7 @@ After generating the application, you might be asked to change directories to yo
 	$ cd storeserver
 	$ bundle install
 
-## Rake Tasks (Rhoconnects v.3.1 and lower)
+## Rake Tasks (Rhoconnect v.3.1 and lower)
 <span class="label label-important">As of version 4.0 of rhoconnect rake tasks will be deprecated!!</span> 
 
 Each RhoConnect application uses [rake](https://github.com/jimweirich/rake) to manage development tasks such as starting/stopping the app, starting resque workers, and running specs.
@@ -182,7 +182,7 @@ Here is a complete list of the rake tasks available in a RhoConnect application:
 	rake rhoconnect:war                 # Build executable WAR file to be used in Java App Servers
 	rake rhoconnect:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml
 
-## Rhoconnect CLI (Rhoconnects v.3.2+)
+## Rhoconnect CLI (Rhoconnect v.3.2+)
 In rhoconnect versions 3.2 and higher the rake utility has been replaced using a ruby utility called [thor](https://github.com/wycats/thor).  
 Using this utility we are able to route all rake-like tasks through a custom command-line interface.  All tasks now are used via the 
 rhoconnect gem's cli. In doing this we have also combined the app and source generators into the same command making it unnecessary to switch
