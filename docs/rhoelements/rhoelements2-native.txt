@@ -12,6 +12,13 @@ To enable Motorola device capabilities, add the following to your application's 
 
 This indicates that your application will be a "RhoElements" application. This application type by default uses the [Motorola Webkit](/rhoelements/webkit) as the redering engine for your application interface as well as exposes an extended set of APIs(rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
 
+To build RhoElements application for non-Motorola device, add the following to your application's build.yml file.
+
+    app_type: rhoelements
+    
+    capabilities:
+    - non_motorola_device
+    
 ## Building for Motorola Windows Mobile and CE
 
 To build for Motorola Windows Mobile devices, follow the build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
@@ -65,6 +72,7 @@ RhoElements will automatically use the Motorola WebKit browser for Windows Mobil
     app_type: rhoelements
     
 In some conditions you may want to use the default native browser. (Ex, your application requires certain CSS features that only work on the native Android browser). In these scenarios you can omit the <b>app_type: rhoelements</b> or alternatively add the native browser capability to your application's build.yml file:   
+    app_type: rhoelements
     capabilities:
     - native_browser
 **NOTE: Using the native browser capability will not provide Mobile APIs through: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>**

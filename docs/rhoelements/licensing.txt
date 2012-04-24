@@ -27,4 +27,4 @@ Deployment License information should be provided at application build time in t
     motorola_license_company: 'Deployment License Company name'
     motorola_license: 'Deployment License Number'
 
-When the application is started, the license is checked for validity. If the license is invalid, the application will exit.
+When the application is started, the license is checked for validity. If the license is invalid, the Warning message will be displayed.
