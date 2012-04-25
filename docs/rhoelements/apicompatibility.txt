@@ -2,11 +2,20 @@
 
 The following table shows the compatibility for each Mobile API.
 
-Legend:
+<table class="table" >
+<tr>
+<th style="width:20px;"></th>
+<th style="text-align:center;width:150px">LANGUAGES</th>
+<th style="padding-left:30px">APP TYPES</th>
+</tr>
+<tr><td colspan="3">
+<span class="icon-star"/>:<span style="padding-left:10px;padding-right:30px"><span class="label label-info"><span rel="tooltip" title="This API has a META tag interface">HTML</span></span> <span class="label label-warning"><span rel="tooltip" title="This API has a Javascript interface">JAVASCRIPT</span></span> <span class="label label-important"><span rel="tooltip" title="This API has a Ruby interface">RUBY</span></span> </span> <span class="label label-inverse" ><span rel="tooltip" title="Rhoelements applications use both Rhodes and Rhoelements APIS. When building rhoelements applications apptype: rhoelements is specified in the build.yml">RHOELEMENTS</span></span>
+</td></tr>	
+<tr><td colspan="3">
+<span class="icon-star-empty"/>:<span style="padding-left:134px;"/><span class="label label-important"><span rel="tooltip" title="This API has a Ruby interface">RUBY</span></span><span style="padding-left:34px;"/><span class="label label-inverse"><span rel="tooltip" title="Rhoelements applications use both Rhodes and Rhoelements APIS. When building rhoelements applications apptype: rhoelements is specified in the build.yml">RHOELEMENTS</span></span>&nbsp;<span class="label"><span rel="tooltip" title="Rhodes application do not provide Motorola specific APIs and are Ruby based. No special indication is needed in the build.yml file for Rhodes applications.">RHODES</span></span>
+</td></tr>	
+</table>
 
-<span class="icon-star"/>: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
-
-<span class="icon-star-empty"/>: <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 &dagger;: [Motorola Devices Only](/rhoelements/rhoelements-introduction#_motdevices)
 
