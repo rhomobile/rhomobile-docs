@@ -55,8 +55,10 @@ section 'rhodes-reference', 'Developer Reference' do
 end
 
 section 'api', 'Mobile API Reference'
-section 'rhodesapi-reference', 'API List Alphabetically' do
+section 'rhodesapi-compatibility', 'API Compatibility' do
   topic 'rhoelements/apicompatibility',      'API Compatibility Matrix'
+end
+section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/addressbar',      'AddressBar'
   topic 'rhoelements/airbeam',      'Airbeam'
   topic 'rhoelements/alarm',      'Alarm'
