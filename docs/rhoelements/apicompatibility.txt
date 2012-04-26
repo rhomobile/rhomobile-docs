@@ -17,7 +17,9 @@ The following table shows the compatibility for each Mobile API.
 </table>
 
 
-<sup>&dagger;</sup>: [Motorola Devices Only](/rhoelements/rhoelements-introduction#_motdevices)  | <sup>&Dagger;</sup>: <span class="label label-important">RUBY</span> interface is not currently available.
+<sup>&dagger;</sup>: [Motorola Devices Only](/rhoelements/rhoelements-introduction#_motdevices) 
+
+<sup>&Dagger;</sup>: <span class="label label-important">RUBY</span> interface is not currently available.
 
 <table class="table table-striped table-bordered table-condensed">
 
