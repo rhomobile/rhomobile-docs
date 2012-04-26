@@ -16,7 +16,9 @@ Then drag RhoStudio to the Applications folder.
 
 If you're running Windows, download the latest RhoMobile Suite for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
 
-If you are running Windows 64-bit, you need to [install Ruby and the Rhodes gem](/rhodes/install#rhodes-gem-for-linux-and-non-rhostudio). If you also want RhoStudio, you need to have 64-bit Eclipse, and then you [install RhoStudio as a plugin for Eclipse](/rhodes/rhostudio-eclipse).
+If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
+
+	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
 
 ## Java Development Kit (JDK)
 
