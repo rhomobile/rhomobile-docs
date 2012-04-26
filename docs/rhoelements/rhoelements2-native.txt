@@ -2,23 +2,78 @@
 
 <!-- PLACEHOLDER - Block Diagram -->
 
-## Setting Application Type
 
-To create a RhoElements application that will be deployed natively to the device, you will essentially follow the same steps you would to create a Rhodes application. However a RhoElements application provides the [Mobile APIs](/rhoelements/apicompatibility) in either Javascript, HTML or Ruby.  
+## Generating a RhoElements Application
 
-To enable Motorola device capabilities, add the following to your application's build.yml file.
+In RhoMobile Suite on the Macintosh, select File->New->Project...
+
+The New Project window opens. Select the RhoMobile: RhoMobile application wizard and click the Next button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project.png"/>
+
+Enter the name for your RhoElements application in Project name; in this case, "rhoelementsapp". You may specify a specific folder for your destination where your project is stored, by default, the destination is your workspace folder.
+
+Click the checkbox for the RhoElements application type.
+
+Then press the Finish button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhomobile-appgen-wizard-rhoelements.png"/>
+
+After pressing the Finish button, you'll see the RhoElements app generator script output in the output console (Rhomobile build console).
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhomobile-appgen-output-rhoelements.png"/>
+
+### Adding a Model to the RhoElements Application
+
+After you generate a RhoElements native application in RhoStudio, you can add a model to it, along with the associated Controller and View templates. You do this in the same way that you would for a Rhodes application: right-click on the application project in the Project Explorer and select New->RhoMobile model. See [Adding a Model to a Rhodes Application from RhoStudio](/rhodes/generator#adding-a-model-to-a-rhodes-application-from-rhostudio) for a more detailed discussion.
+
+## Managing the Build Configuration from RhoStudio
+
+The build.yml file for your application manages your RhoElements build time configuration. Double click on ‘build.yml’ item in your project tree to open the build.yml editor. In the editor you’ll see two tabs: Rhobuild setting for the WYSIWIG editor, and build.yml for the text editor.
+
+Rhobuild setting WYSIWIG editor:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/buildyml-rhobuildsetting.png"/>
+
+build.yml text editor:
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/buildyml-textedit.png"/>
+
+You can add capabilities to your application, such as camera and vibrate, by pressing the Capabilities: Add button, selecting the capabilities from the popup window, and clicking the Ok button.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/select-capabilities.png"/>
+
+The selected application capabilities will appear in the Capabilities: text field in the WISIWIG editor.
+
+## Enabling Motorola Device Capabilities
+
+When you create a RhoElements application that will be deployed natively to the device, you will essentially follow the same steps you would to create a Rhodes application. However, a RhoElements application provides the [Mobile APIs](/rhoelements/apicompatibility) in either Javascript, HTML or Ruby. 
+
+To enable Motorola device capabilities, your application needs the following in its build.yml file. (When you generate a RhoElements application with RhoStudio, this is automatically set in the build.yml.)
 
     app_type: rhoelements
 
-This indicates that your application will be a "RhoElements" application. This application type by default uses the Motorola Webkit as the redering engine for your application interface as well as exposes an extended set of APIs(rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
+This indicates that your application will be a "RhoElements" application. This application type by default uses the Motorola Webkit as the rendering engine for your application interface. It also exposes [an extended set of RhoElements APIs](rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
 
-To build RhoElements application for non-Motorola device, add the following to your application's build.yml file.
+To build a RhoElements application for a non-Motorola device, add the following to your application's build.yml file. This application will use the [Rhodes device capabilities](/rhodes/device-caps).
 
     app_type: rhoelements
     
     capabilities:
     - non_motorola_device
-    
+
+## Building and Running in RhoStudio
+
+You need to perform some additional steps for [Motorola Windows Mobile devices, Motorola Windows CE devices](/rhoelements2-native#building-for-motorola-windows-mobile-and-ce), and for [Motorola Android devices](/rhoelements2-native#building-for-motorola-android) before you build and run a RhoElements application. After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application. 
+
+To start the build process in RhoStudio, create a Run Configuration: select your project in the Project Explorer, and select Run->Run Configurations… from the menu. The Run Configurations window appears.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/run-configurations.png"/>
+
+To create a new build configuration for your application, select RhoMobile Application. Then either right-click on RhoMobile Application or click the New button. A new configuration appears under RhoMobile Application. Select your platform and simulator type, and click Run to run your application.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/run-config-rhodes-new-rhodes.png"/>
+
 ## Building for Motorola Windows Mobile and CE
 
 To build for Motorola Windows Mobile devices, follow the build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
@@ -37,7 +92,6 @@ In general, when connected to a PC, the device should have Internet connectivity
 In case of broken Internet connectivity, make sure that at <code>Settings</code> » <code>Connections</code> » <code>Connections</code> » <code>Advanced</code> » <code>Select Networks</code>
 the value <code>My ISP</code> is selected in both select boxes.
 
-
 ### Building for Motorola Android
 
 To run a RhoElements application on an ET1 device:
@@ -50,6 +104,7 @@ To run a RhoElements application on an ET1 device:
 Then follow the Rhodes build instructions for [Android](/rhodes/build#build-for-android).
 
 ## Pre-licensing Your Application
+
 If your application will be delivered as 'licensed', the Deployment License information may be provided at application build time in the application build.yml file. 
 
 	motorola_license_company: 'Deployment License Company name'
@@ -65,29 +120,38 @@ Users will not be able to license the product directly from the device. When the
 
 See the [RhoElements Licensing page](/rhoelements/licensing) for more information.
 
+## User Interface
+
+Your RhoElements native application uses the same user interface as a Rhodes application: the view files are the .erb files in the generated application code. See [Rhodes Application User Interface](/rhodes/ui) for a more detailed discussion.
+
+A RhoElements application for Windows Mobile, Windows CE, and Android defaults to using the Motorola Webkit browser. You can change this by setting the native browser capability as instructed in [Overriding Motorola Webkit](/rhoelements2-native#overriding-motorola-webkit). 
+
 ## Overriding Motorola Webkit
 
 RhoElements will automatically use the Motorola WebKit browser for Windows Mobile, Windows CE and Android (ET1) devices when you add the rhoelements app_type to your application's build.yml. 
 
     app_type: rhoelements
     
-In some conditions you may want to use the default native browser. (Ex, your application requires certain CSS features that only work on the native Android browser). In these scenarios you can omit the <b>app_type: rhoelements</b> or alternatively add the native browser capability to your application's build.yml file:   
+In some conditions you may want to use the default native browser. (For example, your application requires certain CSS features that only work on the native Android browser). In these scenarios you can omit the <b>app_type: rhoelements</b> or alternatively add the native browser capability to your application's build.yml file:   
+
     app_type: rhoelements
     capabilities:
     - native_browser
+
 **NOTE: Using the native browser capability will not provide Mobile APIs through: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>**
 
 In conditions where your may have a traditional Rhodes application but would like to utilize Motorola Webkit on non-Motorola Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
 
     capabilities:
     - motorola_browser
+
 **NOTE: If you use the above setting without specifying <b>app_type: rhoelements</b>, <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span> APIs will not be available.**
 
 ## Running RhoElements Applications in Shared Mode
 
 If you are planning on building multiple applications to be run on the same device, you can choose build your application in what is called "shared mode". What this does is use common libraries from a RhoElements Runtime in a predefined location on the device, and the rest of the application is from the application code that you build. This will result in not duplicating common code and consuming extra memory.
 
-**NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same device and are concerned about memory limitations. Failure to properly build and deploy will result in a non functioning application.**
+**NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
 
 There are two steps to this setup.
 
@@ -159,7 +223,7 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
 
-## Custom RhoElements configuration file
+## Customizing the RhoElements Configuration File
 
 It is possible to include a custom RhoElements configuration file `Config.xml` to the application bundle.
 If the configuration file is the same for all supported platforms, then add to the `build.yml` file:
@@ -205,3 +269,13 @@ NOTE: See [configure logging](/rhodes/configuration#run-time-configuration) usin
 If you start your application with rake, then the log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter (by default the log file name is `rholog.txt`).
 
 NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.
+
+## Databases, Synchronizing, Debugging, Etc.
+
+A RhoElements native application uses many of the same capabilities as a Rhodes application, such as:
+
+* [local database and RHOM](/rhodes/rhom), 
+* [synchronization](/rhodes/synchronization), 
+* [connecting to web services](/rhodes/connect-to-web-services), 
+* and [debugging](/rhostudio.tutorial#using-the-debugger).
+
