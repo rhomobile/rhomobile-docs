@@ -2,6 +2,13 @@
 
 <!-- PLACEHOLDER - Block Diagram -->
 
+## Prerequisites
+
+You should have the [RhoMobile Suite installed](/rhoelements/rhoelements-install). And you should see if your [operating system is supported](/rhoelements/rhoelements-introduction#supported-operating-systems).
+
+## Setting Up build.yml
+
+A RhoElements native application uses the Rhodes gem and by default, that is the latest Rhodes gem installed on your computer. You can use the Rhodes instructions for [setting up build.yml](/rhodes/build#setting-up-buildyml) to use a different version of the gem.
 
 ## Generating a RhoElements Application
 
@@ -64,7 +71,7 @@ To build a RhoElements application for a non-Motorola device, add the following 
 
 ## Building and Running in RhoStudio
 
-You need to perform some additional steps for [Motorola Windows Mobile devices, Motorola Windows CE devices](/rhoelements2-native#building-for-motorola-windows-mobile-and-ce), and for [Motorola Android devices](/rhoelements2-native#building-for-motorola-android) before you build and run a RhoElements application. After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application. 
+You need to perform some additional steps for [Motorola Windows Mobile devices, Motorola Windows CE devices](/rhoelements/rhoelements2-native#building-for-motorola-windows-mobile-and-ce), and for [Motorola Android devices](/rhoelements/rhoelements2-native#building-for-motorola-android) before you build and run a RhoElements application. After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application. 
 
 To start the build process in RhoStudio, create a Run Configuration: select your project in the Project Explorer, and select Run->Run Configurations… from the menu. The Run Configurations window appears.
 
@@ -72,7 +79,7 @@ To start the build process in RhoStudio, create a Run Configuration: select your
 
 To create a new build configuration for your application, select RhoMobile Application. Then either right-click on RhoMobile Application or click the New button. A new configuration appears under RhoMobile Application. Select your platform and simulator type, and click Run to run your application.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoelements/run-config-rhodes-new-rhodes.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/new-configuration-rhoelements.png"/>
 
 ## Building for Motorola Windows Mobile and CE
 
@@ -92,7 +99,7 @@ In general, when connected to a PC, the device should have Internet connectivity
 In case of broken Internet connectivity, make sure that at <code>Settings</code> » <code>Connections</code> » <code>Connections</code> » <code>Advanced</code> » <code>Select Networks</code>
 the value <code>My ISP</code> is selected in both select boxes.
 
-### Building for Motorola Android
+## Building for Motorola Android
 
 To run a RhoElements application on an ET1 device:
 
@@ -223,6 +230,12 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
 
+## Building for iPhone/iPad or for Blackberry
+
+You can use the same instructions for [building a Rhodes application for iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad) to build a RhoElements application.
+
+You can use the same instructions for [Build a Rhodes application for BlackBerry](/rhodes/build#build-for-blackberry) to build a RhoElements application.
+
 ## Customizing the RhoElements Configuration File
 
 It is possible to include a custom RhoElements configuration file `Config.xml` to the application bundle.
@@ -270,6 +283,10 @@ If you start your application with rake, then the log file is additionally store
 
 NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.
 
+## Setting the Application Name and Icon, Upgrading the Application
+
+You can use the Rhodes instructions for [how to set application name and icon](http://edgedocs.rhomobile.com/rhodes/build#how-to-set-application-name-and-icon) and [upgrading an application](/rhodes/build#upgrade-application).
+
 ## Databases, Synchronizing, Debugging, Etc.
 
 A RhoElements native application uses many of the same capabilities as a Rhodes application, such as:
@@ -278,4 +295,5 @@ A RhoElements native application uses many of the same capabilities as a Rhodes 
 * [synchronization](/rhodes/synchronization), 
 * [connecting to web services](/rhodes/connect-to-web-services), 
 * and [debugging](/rhostudio.tutorial#using-the-debugger).
+
 
