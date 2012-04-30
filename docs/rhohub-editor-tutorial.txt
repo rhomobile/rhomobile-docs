@@ -45,13 +45,11 @@ You can change the description and names in your project by clicking the rename 
 
 ## Managing Collaborators
 
-You can add collaborators to your project. Collaborators are other people who have RhoHub accounts who can work with you on this project. Within your RhoHub project, click the Collaborators button. 
+You can add collaborators to your project. Collaborators are other people who have RhoHub accounts who can work with you on this project. Within your RhoHub project, click the Collaborators tab. 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-collaborators-button.png" alt="Collaborators Button" />
 
-In the Manage Collaborators window, enter the username of the collaborator(s) you wish to work with. You can also select if this person is a member or the owner of the project; usually you would leave this at the default of "member", since you will tend to own your projects. Click Add Collaborator, then click Close.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/manage-collaborators.png" alt="Manage Collaborators" />
+In the Manage Collaborators tab, enter the username of the collaborator(s) you wish to work with. You can also select if this person is a member or the owner of the project; usually you would leave this at the default of "member", since you will tend to own your projects. Click Add Collaborator.
 
 ## Using Local Development Instead of RhoHub Editor
 
@@ -59,7 +57,7 @@ At this point, your project is hosted in a Git repository by RhoHub. If you want
 
 ## Opening the RhoHub Editor
 
-To open the RhoHub Editor, either click on Launch Editor in the project dashboard, or enter the project and click the Launch Editor button.
+To open the RhoHub Editor, either click on the My Project tab and click Launch Editor for that project, or enter your project and click on the Launch Editor tab.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-project-launch-editor.png" alt="Launch Editor Button" />
 
@@ -162,7 +160,7 @@ You now have a sources folder in your RhoSync project. You can open the sources/
 	  def create(create_hash)
 	    res = RestClient.post(@base,:product => create_hash)
 	    
-	    # After create wa are redirected to the new record.
+	    # After create we are redirected to the new record.
 	    # We need to get the id of that record and return
 	    # it as part pf create so rhosync can establish a link
 	    # from its temporary object on the client to this newly
