@@ -20,6 +20,15 @@ If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoS
 
 	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
 
+Once you install RhoMobile Suite on Windows, you will see RhoMobile Suite on the Windows Start menu with the following options:
+
+* A link to the developer website.
+* A link to the RhoMobile documentation.
+* A launcher for RhoStudio.
+* A link to the readme file.
+* A link to the RhoElements Runtime files. You use these when you create a RhoElements hybrid application, or when you create a RhoElements native application in shared mode.
+* An uninstaller for RhoMobile Suite.
+
 ## Java Development Kit (JDK)
 
 You need to have the Java Development Kit (JDK) installed for RhoMobile Suite. If you are planning to build for Android, make sure you have JDK version 1.6.0_2 or higher installed.
@@ -36,13 +45,3 @@ On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Prefe
 
 On Mac OS, the path to the JDK is automatically set once Java is installed.
 
-## RhoMobile Suite on the Windows Start Menu
-
-Once you install RhoMobile Suite on Windows, you will see RhoMobile Suite on the Windows Start menu with the following options:
-
-* A link to the developer website.
-* A link to the RhoMobile documentation.
-* A launcher for RhoStudio.
-* A link to the readme file.
-* A link to the RhoElements Runtime files. You use these when you create a RhoElements hybrid application, or when you create a RhoElements native application in shared mode.
-* An uninstaller for RhoMobile Suite.
