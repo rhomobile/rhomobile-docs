@@ -76,11 +76,9 @@ By default, bulk sync data files will be stored in the application's root folder
 ## Bulk Sync Associations
 
 Sometimes your bulk data is not simply a collection of separate sources, but they are linked together through associations. For these purposes 
-RhoConnect uses notation of `belongs_to` association. The `belongs_to` association is a natural way to express hasOne and hasMany associations: 
-it allows to see the data from the other direction. In the of case of bulk sync data `belongs_to` relationship includes a list of all dependent 
-objects for model(s) and helps resolve dependency issues during bulk sync process. 
+RhoConnect uses the notation of `belongs_to` association. The `belongs_to` association is a natural way to express hasOne and hasMany associations. In the case of bulk sync, data `belongs_to` relationship includes a list of all dependent objects for model(s) and helps resolve dependency issues during bulk sync process.
 
-Associations are defined in `settings/settings.yml` file.  
+Associations are defined in your RhoConnect application's `settings/settings.yml` file.
  
 For example, you can have a list of customers who have purchased a product, and thus you can have them belong to that product:
 
@@ -96,7 +94,7 @@ For example, you can have a list of customers who have purchased a product, and 
         belongs_to:
           - :product_id: 'Product'
 
-`belongs_to` format is an array of attribute/source_name pairs. It might be polymorphic and define associations across multiple sources:
+`belongs_to` format is an array of attribute/source_name pairs. It can be polymorphic and define associations across multiple sources:
 
     :::yaml
       belongs_to:
@@ -104,7 +102,7 @@ For example, you can have a list of customers who have purchased a product, and 
         - :parent_id, 'Cases'
 
 Bulk Sync Associations are similar to [Rhom Sync Associations](/rhodes/rhom#associations) and both should be considered together
-if you planning to use bulk sync data.
+if you are planning to use bulk sync data.
 
 ## Using Bulk Sync with Fixed Schema Models
 
