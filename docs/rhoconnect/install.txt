@@ -1,8 +1,10 @@
 # Installing RhoConnect
 
-On Windows and Mac OS, the usual way to install RhoConnect is to install RhoStudio. 
+This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](/rhoconnect/preparing-production) and [deploying a RhoConnect application](/rhoconnect/deploying).
 
-On Linux, you install the Rhodes gem from the command line; you can also do this from Windows or Mac OS.
+On Windows and Mac OS, the usual way to install the RhoConnect development environment is to install RhoStudio. 
+
+On Linux, you install the RhoConnect gem from the command line; you can also do this from Windows or Mac OS.
 
 ## Mac OS
 
