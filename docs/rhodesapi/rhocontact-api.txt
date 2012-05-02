@@ -78,7 +78,7 @@ The :conditions argument will select all contacts that have at least one phone n
 
 ## create!
 
-Create a new contact in the phonebook, setting its properties passed as a parameter hash.
+Create a new contact in the phonebook, setting its properties passed as a parameter hash. Returns the new contact as a hash.
 
 	:::ruby
 	Rho::RhoContact.create!(contact)
@@ -106,7 +106,7 @@ Delete this contact from the phonebook.
 
 ## update_attributes
 
-Create a new contact in the phonebook, setting its properties passed as a parameter hash.
+Find contact record in the phonebook, update record properties from the hash passed as parameter, and save updated record. Contact id passed in the hash.
 
 	:::ruby
 	Rho::RhoContact.update_attributes(contact)
