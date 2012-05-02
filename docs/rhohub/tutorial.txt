@@ -42,13 +42,19 @@ RhoHub will create a Rhodes application and the corresponding RhoSync server app
 
 #### Generate Project in RhoHub
 
-To create your new RhoHub project, go to [rhohub.com](http://rhohub.com) and click on "My Account".  Click the "Create a New Project" button.  Give your project a unique name.  We have used 'my-store' and 'Store', but you will need to make up another name because the project name must be globally unique.  You will notice that "Generate Apps?" is checked by default, this means we will have a working skeleton [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) app generated for us. You can also click to open "Select Rhodes and RhoSync Version" and edit the version numbers as is shown below, or you can leave the version numbers at the defaults.
+To create your new RhoHub project, go to [rhohub.com](http://rhohub.com). Log into your account if needed. Click the "Create a New Project" button. Give your project a name and description.
+
+You will notice that "Generate Apps?" is checked by default, this means we will have a working skeleton [Rhodes](/rhodes/introduction) and [RhoSync](/rhosync/introduction) app generated for us. You can also click to open "Select Rhodes and RhoSync Version" and edit the version numbers as is shown below, or you can leave the version numbers at the defaults.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-create-project.png">
 
-After you click "Create a New Project," text appears with the exact set of commands (such as the Git clone command) that you can copy and paste into your terminal to access your project locally.  You can see this help text at any time by entering the project (click on the project name under "My Projects") and then clicking on the (?) button in the top-right of the project panel (indicated with an arrow in the image below).
+After you click "Create a New Project," you will see your application displayed in the Rhodes App tab.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-project-qarrow.png">
+
+If you click the More Info button to the right of your project name, help text appears with the exact set of commands (such as the Git clone command) that you can copy and paste into your terminal to access your project locally.
+
+If you click on the small pencil icon to the right of your project name, or your project description, or your Rhodes app name, you can edit the name or description.
 
 #### Setup Local Development
 
@@ -161,7 +167,7 @@ You can use "rake -T" to print a complete list of all of the automated build com
 
 * Windows is required to test builds and install to a device for BlackBerry and Windows Mobile. Running the simulators in Windows virtual machines such as VMware or Parallels works fine. 
 * Mac OS X 10.5+ is required for testing iPhone applications.
-* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Building Rhodes on Supported Platforms](/rhodes/building). 
+* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Build Rhodes Application](/rhodes/build).
 
 Since Android simulators are available for all major operating systems, we'll build our app for Android in this tutorial.
 
@@ -198,17 +204,22 @@ First make sure that your latest changes have all been committed to the remote r
 	:::term
 	$ git push origin master
 
-From your RhoHub account page, you will see each of your projects listed.  To create a build for your project, select the target device and its Platform Version, enter a different Rhodes Git revision if you do not wish to use the default, then click the "Build" button.
+From your RhoHub account page, you will see each of your projects listed. To create a build for your project:
+
+1. Select your project.
+2. in the Rhodes app tab, select the Target Device and its Platform Version.
+3. Enter a different Rhodes Git revision if you do not wish to use the default.
+4. Click the "Build" button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhodes-barrow.png"/>
 
 ### Download
 
-Once the build is finished, you will see "completed" under Status, and a green download button:
+Once the build is finished, you will see "completed" under Status, and a download button:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhodes-download.png"/>
 
-Click on the green button to download a zipped file; in the case on Android, the zipped file contains an .apk file. The .apk file is an Android executable. All you need to do is to put the .apk on an http server, browse to it from a device, and you will be prompted to install the application.
+Click on the download button to download a zipped file; in the case on Android, the zipped file contains an .apk file. The .apk file is an Android executable. All you need to do is to put the .apk on an http server, browse to it from a device, and you will be prompted to install the application.
 
 Customizing Views
 ---
@@ -255,7 +266,7 @@ Then you will need to create a source adapter to connect to whatever backend you
 
 ### Deploy your RhoSync app
 
-Deploying your RhoSync app on RhoHub is a simple click of the "Deploy" button.  
+To deploy your RhoSync app, open your RhoHub project, click on the RhoSync tab, then click the "Deploy" button. 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhosync-deploy.png"/>
 
@@ -267,13 +278,13 @@ The first time you deploy, it will take a few minutes as the server environment 
 
 Now you can launch your Rhodes app and click login -> sync.  In the web console, you should see a new device registered under the username you used to login.
 
-You can view more information about RhoHub's deploy feature by clicking on the "?" icon in the RhoHub/RhoSync project.
+You can view more information about RhoHub's deploy feature by clicking on the "More Info" icon in the RhoHub/RhoSync project.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-rhosync-qarrow.png"/>
 
 ### Manage Collaborators
 
-Click the "Collaborators" button for your project to add/edit the project's team.
+Open the "Collaborators" tab for your project to add/edit the project's team.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-store-collaborators.png">
 

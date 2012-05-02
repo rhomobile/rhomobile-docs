@@ -31,7 +31,7 @@ The consumers receive an invite to a RhoGallery via SMS or email. The consumers 
 
 Before you can send your applications to consumers, you need to have a RhoHub gallery for your applications and consumers.
 
-In your RhoHub account, click on the Galleries tab.
+In your RhoHub account, click on Galleries.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/galleries-tab.jpg"/>
 

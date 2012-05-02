@@ -177,7 +177,7 @@ The *arguments you can use are:
 ## sync
 
 	:::ruby
-	modelname.sync(callback_url, callback_data, show_status_popup)
+	modelname.sync(callback_url, callback_data, show_status_popup, query_params)
 
 Start the sync process for a Rhodes model.
 
@@ -193,6 +193,10 @@ Start the sync process for a Rhodes model.
 <tr>
 	<td><code>show_status_popup</code></td>
 	<td>true if you want to show a popup window upon sync, false otherwise.</td>
+</tr>
+<tr>
+	<td><code>query_params</code></td>
+	<td>Optional. a query to pass to the sync server. The query_params value must be URL encoded.</td>
 </tr>
 </table>
 

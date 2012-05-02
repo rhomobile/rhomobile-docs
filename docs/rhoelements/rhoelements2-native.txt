@@ -69,6 +69,8 @@ To build a RhoElements application for a non-Motorola device, add the following 
     capabilities:
     - non_motorola_device
 
+**NOTE: Windows CE does not support Native browser (Internet Explorer), so use 'apptype: rhoelements' or 'motorola_browser' capability to build application for Windows CE**
+
 ## Building and Running in RhoStudio
 
 You need to perform some additional steps for [Motorola Windows Mobile devices, Motorola Windows CE devices](/rhoelements/rhoelements2-native#building-for-motorola-windows-mobile-and-ce), and for [Motorola Android devices](/rhoelements/rhoelements2-native#building-for-motorola-android) before you build and run a RhoElements application. After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application. 
@@ -146,6 +148,8 @@ In some conditions you may want to use the default native browser. (For example,
     - native_browser
 
 **NOTE: Using the native browser capability will not provide Mobile APIs through: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>**
+
+**NOTE: Native browser capability does not supported on Windows CE**
 
 In conditions where your may have a traditional Rhodes application but would like to utilize Motorola Webkit on non-Motorola Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
 

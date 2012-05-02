@@ -73,6 +73,37 @@ By default, bulk sync data files will be stored in the application's root folder
       :syncserver: http://localhost:9292/application/
       :bulk_sync_poll_interval: 3600
 
+## Bulk Sync Associations
+
+Sometimes your bulk data is not simply a collection of separate sources, but they are linked together through associations. For these purposes 
+RhoConnect uses the notation of `belongs_to` association. The `belongs_to` association is a natural way to express hasOne and hasMany associations. In the case of bulk sync, data `belongs_to` relationship includes a list of all dependent objects for model(s) and helps resolve dependency issues during bulk sync process.
+
+Associations are defined in your RhoConnect application's `settings/settings.yml` file.
+ 
+For example, you can have a list of customers who have purchased a product, and thus you can have them belong to that product:
+
+    :::yaml
+    :sources:
+      :Product:
+        :poll_interval: 600
+        :partition_type: app
+        :sync_type: bulk_sync_only     
+      :Customer:
+        :poll_interval: 300
+        # ...
+        belongs_to:
+          - :product_id: 'Product'
+
+`belongs_to` format is an array of attribute/source_name pairs. It can be polymorphic and define associations across multiple sources:
+
+    :::yaml
+      belongs_to:
+        - :parent_id, 'Product'
+        - :parent_id, 'Cases'
+
+Bulk Sync Associations are similar to [Rhom Sync Associations](/rhodes/rhom#associations) and both should be considered together
+if you are planning to use bulk sync data.
+
 ## Using Bulk Sync with Fixed Schema Models
 
 If your Rhom model is a [fixed schema model](/rhodes/rhom#fixed-schema) and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
@@ -100,3 +131,6 @@ An example schema method is as follows:
         }
       }.to_json
     end
+    
+**NOTE: Key `version` is mandatory and should be always defined in schema method. You need update `version` value only in the case of schema changes.**
+
