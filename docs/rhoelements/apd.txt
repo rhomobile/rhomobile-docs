@@ -57,7 +57,7 @@ If an embedded command with a malformed code is sent via APD, for instance 'apd.
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Executes immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The Following example shows usage PSExternal:
 

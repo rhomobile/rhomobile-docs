@@ -72,7 +72,7 @@ The Timeout event is triggered when the timer expires and returns the current ti
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of timeout event.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example sets the timerinterval to 5 seconds:
 

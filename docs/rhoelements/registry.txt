@@ -91,7 +91,7 @@ The Registry module has been deprecated. It is advised to use the SetRegistrySet
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The tags below add a registry setting called 'RhoElements' in the 'Software' key of the HKEY_LOCAL_MACHINE hive. The setting is of type 'multisz' and has the values 'hello' and 'world'. The corresponding .reg merge file will be created in the \Application folder.
 

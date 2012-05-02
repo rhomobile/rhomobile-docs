@@ -77,8 +77,8 @@ longAndShort:
 allTwice:
   Two times redundancy for all barcodes.  
 allThrice:
-  Three times redundancy for all barcodes.<i>Applicable scanner types: Laser and Imager</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>scanTimeout:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager.  A value of 0 indicates an infinite timeout.  This parameter is compatibile with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease.  Note that for regulatory reasons scanTimeout is not configurable on all laser scanners.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager</i><br /><i>Default: 5000 (Laser), 15000 (Imager)</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>rasterMode:[Value]
+  Three times redundancy for all barcodes.<i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>scanTimeout:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager.  A value of 0 indicates an infinite timeout.  This parameter is compatibile with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease.  Note that for regulatory reasons scanTimeout is not configurable on all laser scanners.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: 5000 (Laser), 15000 (Imager)</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>rasterMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Describes the type of vertical rastering to use.  Possible Values:
 
 none:
@@ -113,10 +113,10 @@ continuousRead:
   Once the trigger is pulled barcodes will continue to be scanned whilst the trigger
   is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout 
   and differentSymbolTimeout.  This value is ignored if viewfinderMode is set to 
-  'dynamicReticle'<i>Applicable scanner types: Laser and Imager</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>timedAimDuration:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Duration in milliseconds for aimType:timedHold and aimType:timedRelease<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>sameSymbolTimeout:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice.  The value is specified in milliseconds, use 0 to indicate no interval between successive reads.  Use this value to prevent accidental duplicate scans.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager</i><br /><i>Default: 2500</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>differentSymbolTimeout:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned.  The value is specified in milliseconds, use 0 to indicate no interval between successive reads.  Use this setting to allow time for the operator to reaim the device between successive scans.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager</i><br /><i>Default: 500</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>aimMode:[Value]
+  'dynamicReticle'<i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>timedAimDuration:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Duration in milliseconds for aimType:timedHold and aimType:timedRelease<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>sameSymbolTimeout:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice.  The value is specified in milliseconds, use 0 to indicate no interval between successive reads.  Use this value to prevent accidental duplicate scans.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: 2500</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>differentSymbolTimeout:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned.  The value is specified in milliseconds, use 0 to indicate no interval between successive reads.  Use this setting to allow time for the operator to reaim the device between successive scans.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: 500</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>aimMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Describes the aiming mode to used.  Possible values:
 
 none:
@@ -126,7 +126,7 @@ dot:
 slab:
   Laser barcode readers will show a slab for aiming.
 reticle:
-  Imager barcode readers will show a reticle for aiming<i>Applicable scanner types: Laser and Imager</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>picklistMode:[Value]
+  Imager barcode readers will show a reticle for aiming<i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>picklistMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle.  This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode.  When enabled picklistMode will override aimMode if no aiming is chosen and use aimMode:reticle.  This mode will also interact with viewfinderMode, see the EMDK for C help file for more information.  Enabling picklist mode may adversely affect overall decoding performance.  Possible values:
 
 disabled:
@@ -138,7 +138,7 @@ hardwareReticle: (not available on Enterprise Tablet)
 softwareReticle:
   Enables picklist mode so that only the barcode in the center of the image is 
   decoded.  This is most useful when used in conjunction with static and 
-  dynamic reticle viewfinder modes.<i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderMode:[Value]
+  dynamic reticle viewfinder modes.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Configures the mode of the scanner viewfinder window.  This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.    Possible values:
 
 enabled:
@@ -153,11 +153,11 @@ dynamicReticle: (not available on Enterprise Tablet)
   Displays the viewfinder as well as draws a red reticle in the center of the image.
   If the barcode in the image is 'decodable' the reticle turns green to indicate
   this.  This mode requires a second trigger press to decode the barcode after the
-  reticle turns green.<i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>viewfinderX:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">When scanning a barcode using an imager scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderY:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">When scanning a barcode using an imager scanner the viewfinder preview window will appear this number of pixels from the top of the screen.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>viewfinderWidth:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">When scanning a barcode using an imager scanner the viewfinder preview window will be this number of pixels wide.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderHeight:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">When scanning a barcode using an imager scanner the viewfinder preview window will be this number of pixels high.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>viewfinderFeedback:[Value]
+  reticle turns green.<i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>viewfinderX:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">When scanning a barcode using an imager scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderY:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">When scanning a barcode using an imager scanner the viewfinder preview window will appear this number of pixels from the top of the screen.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>viewfinderWidth:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">When scanning a barcode using an imager scanner the viewfinder preview window will be this number of pixels wide.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderHeight:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">When scanning a barcode using an imager scanner the viewfinder preview window will be this number of pixels high.  The images displayed in the viewfinder will be scaled as appropriate.<br />Possible Values:pixels<br /><i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>viewfinderFeedback:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Configures the feedback given after a successful scan in milliseconds.  This value is ignored if aimType is set to continuousRead and no feedback will be given.  Possible values:
 
 disabled:
@@ -168,14 +168,14 @@ enabled:
 reticle:
   The last image that was successfully decoded is displayed along with a red reticle 
   in the center of the image.  The time for which the image is displayed can be 
-  configured by the viewfinderFeedbackTime parameter.<i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderFeedbackTime:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>focusMode:[Value]
+  configured by the viewfinderFeedbackTime parameter.<i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderFeedbackTime:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>focusMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Sets the focus mode in use.  Possible values:
 
 fixed:
   Use fixed focus.
 auto:
-  Use auto focus.<i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>illuminationMode:[Value]
+  Use auto focus.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>illuminationMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Selects the illumination mode to use.  Possible values:
 
 auto:(not available on Enterprise Tablet)
@@ -183,8 +183,8 @@ auto:(not available on Enterprise Tablet)
 alwaysOn:
   External illumination is always on.
 alwaysOff:
-  External illumination is always off.<i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance.  DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>inverse1dMode:[Value]
+  External illumination is always off.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance.  DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>inverse1dMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Allows the user to select inverse 1D barcodes for decoding.  Possible values:
 
 enabled:
@@ -192,8 +192,8 @@ enabled:
 disabled:
   Inverse 1D symbology decoding is disabled.
 auto:  
-  Allows decoding of both positive and inverse 1D symbologies<i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>poorQuality1dMode:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Allows poor quality 1D barcodes to be read when true but this will adversely affect the overall decoding performance.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>narrowBeam:[Value]
+  Allows decoding of both positive and inverse 1D symbologies<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>poorQuality1dMode:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Allows poor quality 1D barcodes to be read when true but this will adversely affect the overall decoding performance.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>narrowBeam:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Enables or disables narrow beam width.<br />Possible Values:true / false<br /><i>Applicable scanner types: Laser Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dbpMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.  Possible values:
 
@@ -207,7 +207,7 @@ composite:
 </b></td><td class="clsSyntaxCells clsEvenRow">Enables or disables adaptive scanning.  When set to true, the scan engine will automatically toggle between 2 scan angles, wide and narrow, allowing the scan engine to decode barcodes both in close proximity and far away (~100 inches).  Adaptive scanning is only supported in high performance, long working range scan engines such as SE960.<br />Possible Values:true / false<br /><i>Applicable scanner types: Laser Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>bidirectionalRedundancy:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Enables or disables bidirectional redundancy.<br />Possible Values:true / false<br /><i>Applicable scanner types: Laser Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>connectionIdleTimeout:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.<br />Possible Values:seconds<br /><i>Applicable scanner types: Bluetooth Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>disconnectBtOnDisable:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Forces the scanner to disconnect from the terminal when it is 'disabled'.  Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.<br />Possible Values:true / false<br /><i>Applicable scanner types: Bluetooth Only</i><br /><i>Default: false</i></td></tr></table>
+</b></td><td class="clsSyntaxCells clsOddRow">Forces the scanner to disconnect from the terminal when it is 'disabled'.  Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.<br />Possible Values:true / false<br /><i>Applicable scanner types: Bluetooth Only</i><br /><i>Default: Device specific</i></td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 ##Events
 
@@ -308,7 +308,7 @@ RHOELEMENTS DATAWEDGE PROFILE
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a scanner component. Enterprise Tablet only supports the following parameters: enabled, [Decoder Name], autoEnter, autoTab, illuminationMode, linearSecurityLevel, picklistMode, scanTimeout, viewfinderMode.  Note that not all parameters will be supported by all scanner engines, e.g. Inverse1D barcodes are not supported on the MK4000</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - The scanner is disabled when navigating to a new page or refreshing the current page.  Disabling and Re-enabling the scanner may reset some parameters back to their device default.  The Motorola utility CtlPanel, available as a separate download, can be used to configure the default state of the scanner.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example enables the scanner, turns on autoenter and performs a soft trigger start:
 
@@ -481,3 +481,66 @@ The following example displays the available scanners on screen and enables the 
 	
 
 
+##Ruby Examples
+
+The following example lists the available scanners on a device. It first detaches the listeners to 'enumScannerEvent' (if any), then attaches it to a listner and makes a call to 'enumerate' which fires the 'enumScannerEvent'. This piece of code should be placed in the controller
+
+	def registerEnumEvent
+		Scanner.enumScannerEvent = ''
+		Scanner.enumScannerEvent = url_for(:action => :enumScannerEventListener)
+		Scanner.enumerate
+	end
+
+To call the this function from HTML, use the following code: 
+
+	<li onclick="enumerateScanner();">Enumerate Scanners</li>
+
+Where 'enumerateScanner()' is a JavaScript function which looks like: 
+
+	function enumerateScanner() {
+		$.get('/app/ScannerModule/registerEnumEvent', { });
+		return false;
+    }
+
+The following piece of code captures the array of scanners returned from the 'enumScannerEvent' and constructs a string to be displayed on an HTML div:
+  
+	def enumScannerEventListener
+		scanners = @params
+			  
+		String buf = "Available scanners: <BR>"    
+		if scanners    
+		  scanners['scannerArray'].each {|scanner| buf += '' + scanner["deviceName"] + " : " + scanner["friendlyName"] + "<BR>"}
+		  WebView.execute_js("setFieldValue('"+buf+"');")
+		else
+		  WebView.execute_js("setFieldValue('No Scanners found! ');")
+		end    
+	end
+
+The following example enables the scanner and attaches a listener to the decode event. This can be called from HTML in a similar fashion to the one described above.
+  
+	def enableScanner
+		Scanner.enable
+		Scanner.decodeEvent = url_for(:action => :scannerEventListener)
+		WebView.execute_js("setFieldValue('Scanner Enabled');")
+	end
+
+The following example populates an HTML div with scanned data upon successful decoding of a barcode:
+
+	def scannerEventListener
+		scanResult = @params
+		WebView.execute_js("setFieldValue('You scanned: <BR>" + scanResult['data'] +"<BR>');")
+	end
+
+The following example disables the scanner and detaches any listeners attached to the decode event. This can be called from HTML in a similar fashion to the one described above.
+
+	def disableScanner
+		Scanner.disable
+		Scanner.decodeEvent = ''
+		WebView.execute_js("setFieldValue('Scanner Disabled.');")
+	end 
+
+For all the examples described above, the 'setFieldValue()' JavaScript function looks like: 
+
+	function setFieldValue(returnval){
+		document.getElementById("result").innerHTML=returnval;
+	}

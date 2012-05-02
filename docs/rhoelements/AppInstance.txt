@@ -101,7 +101,7 @@ The ApplicationArray attribute returned from EnumApplications will enumerate eac
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example outputs the running applications:
 

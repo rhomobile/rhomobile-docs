@@ -95,7 +95,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example registers to receive heater temperature port change events and displays a warning when the temperature exceeds 50 degrees Celsius.
 

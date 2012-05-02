@@ -53,7 +53,7 @@ Note that in WM5.0 and up there is no software difference between a warm and a c
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. (See Above comment for behaviour on Windows Mobile)</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example Warm boots the terminal:
 
@@ -61,3 +61,38 @@ The following example Warm boots the terminal:
 	
 
 
+##Ruby Examples
+
+The following example warm boots the device after displaying a warning:
+
+	def warmBoot
+		Alert.show_popup "The device will now warm boot"
+		Reboot.bootType='Warm'
+	end
+	
+To call the this function from HTML, use the following code: 
+
+	<li onclick="doWarmBoot(); ">Warm boot the device</li>
+
+Where 'doWarmBoot()' is a JavaScript function which looks like: 
+
+	function doWarmBoot() {
+		$.get('/app/RebootModule/warmBoot', { });
+		return false;
+	}
+
+Similarly, the following example cold boots the device:
+
+	def coldBoot
+		Alert.show_popup "The device will now cold boot"
+		Reboot.bootType='Cold'
+	end
+	
+If applicable, the following example performs a cold CAD boot on CE6 devices (1+9+power)
+
+	def coldCADBoot
+		Alert.show_popup "The device will now attempt a cold CAD boot"
+		Reboot.bootType='ColdCAD'
+	end
+	
+Both 'coldBoot' and 'coldCADBoot' can be called from HTML in a way similar to the one described for 'warmBoot' above

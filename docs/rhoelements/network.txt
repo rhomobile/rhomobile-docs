@@ -95,7 +95,7 @@ When defining a network event which will take place over WAN bear in mind if you
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.  WAN Connectivity is only available on devices which support data connections through the Windows Connection Manager.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the NetworkEvent and WANStatusEvent which only apply to the current page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example checks for a connection to motorola.com on the default port and notifies the user when connection is gained / lost:
 
@@ -186,3 +186,85 @@ The following example shows how to establish and monitor a WAN connection
 	
 
 
+##Ruby Examples
+
+The following example tests the network with the default values. It attaches the network event to a listener and starts polling for an internet connection. If the connection is successful or when the connection times out, the 'networkEventListener' function is called with the appropriate result:
+
+	def connect
+		Network.networkEvent = url_for(:action => :networkEventListener)
+		Network.start
+	end
+	
+To call the this function from HTML, use the following code: 
+
+	<li onclick="testConnection(); ">Test connection on default port</li>
+
+Where 'testConnection()' is a JavaScript function which looks like: 
+
+	function testConnection() {
+         $.get('/app/NetworkModule/connect', { });
+         return false;
+    }
+
+The 'networkEventListener' looks like the following:
+
+	def networkEventListener
+		networkInfo = @params['connectionInformation']
+		WebView.execute_js("setFieldValue('"+networkInfo+"'); ")
+	end
+
+The following example tests network connection via a proxy. It attaches an event listener for network events, sets up a proxy host and a proxy port and starts polling. It can be called from HTML in a fashion similar to the one described above. Note that the 'networkEventListener' callback function is the same as described above.
+  
+	def connectToProxy
+		Network.networkEvent = url_for(:action => :networkEventListener)
+		Network.host = 'exampleproxy.com'
+		Network.port = 1050
+		Network.start
+	end
+	
+The following example connects to the internet using Wide Area Network (WAN). It attaches a listener for the WAN status event and the network event, sets the polling interval and connection timeout, sets the host address to connect to and sets the connection mechanism for RhoElements. Using 'Internet' in the destination parameter connects RhoElements via the default internet connection. Specifying a destination enables RhoElements to connect via a specific connection. For more information on this, please refer to the Parameters section at the top of this page. 
+
+	def connectWan	
+		destination = @params['destination]
+		Network.wanStatusEvent = url_for(:action => :wanStatusEventListner)
+		Network.networkEvent = url_for(:action => :networkEventListener)
+		Network.networkPollInterval = 5000
+		Network.connectionTimeout = 1500
+		Network.host = 'www.motorola.com'  
+		Network.connectWan = destination
+	end
+	
+This function can be called from HTML using any of the following ways: 
+
+	<li onclick="connectToDestination('Internet'); ">Connect WAN (default connection)</li> 
+	<li onclick="connectToDestination('myConnection'); ">Connect WAN (specified connection)</li>
+	
+The 'connectToDestination' is a JavaScript function that looks like: 
+
+	function connectToDestination(destination) {
+		$.get('/app/NetworkModule/connectWan', {destination: destination });
+		return false;
+	}
+	
+The 'wanStatusEventListener' looks like the following: 
+
+	def wanStatusEventListner
+		buf = 'Signal strength: '
+		buf += @params['phoneSignalStrength']
+		buf += '<BR> Cell Operator: '
+		buf += @params['networkOperator']
+		buf += '<BR> Cell Connection available: '
+		buf += @params['connectionTypeAvailable']
+		buf += '<BR> Connection connected? '
+		buf += @params['connectionTypeConnected']
+		buf += '<BR> Connection Manager message: '
+		buf += @params['connectionManagerMessage']  
+		WebView.execute_js("setOutput('"+buf+"'); ")
+	end
+	
+The following example disconnects the current WAN connection:
+
+	def disconnect
+		Network.disconnectWan
+		WebView.execute_js("setFieldValue('Test results go here ...'); ")
+	end

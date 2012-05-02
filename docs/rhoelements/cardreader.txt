@@ -113,7 +113,7 @@ Applications running in RhoElements should be resilient against the card reader 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a card reader attachment.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">See Comment Above.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">You must have the appropriate drivers installed on your device to use the CardReader.  You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements.  All necessary drivers should be included as part of the platform for supported devices.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example sets up the card reader to submit the scanned data to an asp page upon successful decoding
 

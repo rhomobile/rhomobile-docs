@@ -100,7 +100,7 @@ Normally when a device enters suspend mode, either because it has been idle for 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The code below configures the server to listen on port 8080, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the Javascript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8080/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
 

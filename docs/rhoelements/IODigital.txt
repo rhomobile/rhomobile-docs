@@ -111,7 +111,7 @@ Note that the PortEvent callback is common between IODigital, IOAnalog and IOSys
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example opens digital output ports 1 and 2. PortEvent will be called when the digital input ports 7 or 8 have data.
 

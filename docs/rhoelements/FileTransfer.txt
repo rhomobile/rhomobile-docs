@@ -109,7 +109,7 @@ Although the file transfer functionality has the same behavior on all supported 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page or initiating a transfer.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example shows how to move the file 'myfile.txt' from the device's root to a folder off the root:
 
@@ -184,3 +184,74 @@ The following example shows to transfer a file via FTP. After each transfer the 
 	
 
 
+## Ruby Examples
+
+The following example moves a file 'myfile.txt' from the root of the device to the 'myFolder' folder inside of the root. The folder does not need to be created. 
+
+	def transferLocally
+		FileTransfer.source="url('file://\\myfile.txt')"
+		FileTransfer.destination="url('file://\\MyFoder\\myfile.txt')"
+		FileTransfer.overWrite='true'
+		FileTransfer.createFolders='true'
+		FileTransfer.transfer
+	end
+	
+To call the this function from HTML, use the following code: 
+
+	<li onclick="tranferLocal(); ">Transfer file locally</li>
+
+Where 'transferLocal()' is a JavaScript function which looks like: 
+
+	function tranferLocal() {
+		$.get('/app/FileTransfer/transferLocally', { });
+		return false;
+	}
+
+The following example sets up a protocol, destination and source file and sends the file via HTTP. It also attaches a listener to the 'transferEvent' to display the server message, if any. The 'transferEventListener' function is described at the end of this document. 
+
+	def transferToHttp
+		FileTransfer.transferEvent=url_for(:action => :transferEventListener)
+		FileTransfer.destination="url('HTTP://192.168.1.1/accounts/upload.aspx')"
+		FileTransfer.source="url('file://myfile.txt')"
+		FileTransfer.transfer
+	end
+	
+The following example shows how to download a file via HTTP when there are no login credentials required:
+
+	def downloadFile
+		FileTransfer.transferEvent=url_for(:action => :transferEventListener)
+		FileTransfer.source="url('http://myserver/myfile.txt')"
+		FileTransfer.destination="url('fil://myfile.txt')"
+		FileTransfer.transfer
+	end
+
+The following example shows how to download a file via HTTP with login credentials:
+
+	def downloadFileWithCredentials
+		FileTransfer.transferEvent=url_for(:action => :transferEventListener)
+		FileTransfer.source="url('http://myusername:mypassword@myserver/myfile.txt')"
+		FileTransfer.destination="url('fil://myfile.txt')"
+		FileTransfer.transfer
+	end
+
+The following example shows how to upload a file via FTP without login credentials required:
+
+	def uploadFileViaFTP
+		FileTransfer.transferEvent=url_for(:action => :transferEventListener)
+		FileTransfer.destination="url('ftp://192.168.4.110/file.txt')"
+		FileTransfer.transfer  
+	end
+	
+The following example shows how to upload a file via FTP on port 2500 where login is required:
+
+	def uploadFileViaFTPWithCredentials
+		FileTransfer.transferEvent=url_for(:action => :transferEventListener)
+		FileTransfer.destination="url('ftp://ftpusername:ftppasswor@192.168.4.110:2500/file.txt')"
+		FileTransfer.transfer  
+	end  
+	
+All the examples above can be called via HTTP in a manner similar to that described for the 'transferLocally' function above. The 'transferEventListener' method is given below. It simply sets the transfer result to an HTML div via JavaScript.
+
+	def transferEventListener
+		WebView.execute_js("setFieldValue('"+@params['transferResult']+"');")
+	end

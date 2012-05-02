@@ -84,7 +84,7 @@ In all devices apart from the Enterprise Tablet, orientation changes will persis
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. autoRotate is only supported in devices that have IST.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of ScreenOrientationEvent</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">A device with a screen.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example orientates the screen to righthanded in landscape mode:
 

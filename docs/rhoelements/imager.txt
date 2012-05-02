@@ -145,7 +145,7 @@ The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example sets up the imager to capture an image and transfer it to an ftp site:
 

@@ -98,7 +98,7 @@ For users migrating their PocketBrowser apps to RhoElements please note that due
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Smart Battery information is not supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example shows the battery indicator, sets the x and y co-ordinates to 50, the color of the indicator to red and positions the indicator at the bottom of the screen growing from right to left:
 

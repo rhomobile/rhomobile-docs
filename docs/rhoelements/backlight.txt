@@ -96,7 +96,7 @@ Unlike all other devices, changes made to the backlight intensity are made only 
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following turns on the screen backlight and sets the intensity to level 2
 

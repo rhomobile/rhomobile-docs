@@ -70,7 +70,7 @@ This tag deprecates the history:back URL
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">RhoElements</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example navigates back one page when the delete key is pressed (regardless of the Accelerate Key mode)
 

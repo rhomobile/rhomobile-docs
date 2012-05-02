@@ -36,7 +36,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports Signature.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example enables the scanner to read only Webcode labels:
 
@@ -56,3 +56,67 @@ or
 	
 
 
+## Ruby Examples
+
+The following example displays the signature panel with the default values:
+
+	def display
+		SignatureCapture.visibility = 'visible'
+	end
+
+To call the this function from HTML, use the following code: 
+
+	<li onclick="display();">Display signature panel</li>
+
+Where 'display()' is a JavaScript function which looks like: 
+
+	function display() {
+		$.get('/app/SignatureCapture/display', { });
+		return false;
+	}
+
+The following example displays the signature panel at the bottom of the screen with a pen color and a background color, attaches a signature save event to save the signature event. This function can be called from HTML in a similar fashion to the one described above.
+  
+	def displayWithParams
+
+		#Get the width
+		width = System::get_property('screen_width')
+		#and the height of the screen
+		height = System::get_property('screen_height')
+
+		SignatureCapture.width=width
+		SignatureCapture.height=120
+
+		#Position the signature panel at the bottom of our page
+		SignatureCapture.left=0
+		SignatureCapture.top=(height-250)
+
+		SignatureCapture.penWidth=2
+		SignatureCapture.name='signPanel1'
+		SignatureCapture.penColor="#000000"
+		SignatureCapture.bgColor="#D4D2D2"
+		SignatureCapture.visibility='visible'
+		SignatureCapture.signatureSaveEvent = url_for(:action => :signatureSaveEventListener)
+		#Remember to create the 'Signatures' folder under the root of the device before executing this function! 
+		SignatureCapture.destination = "url('file://\\Signatures\\sig1.bmp')"    
+	end
+	
+The 'signatureSaveEventListener' is a function that looks like: 
+	
+	def signatureSaveEventListener
+		WebView.execute_js("setFieldValue('Signature saved under Signatures folder in root');")
+	end
+
+And the 'setFieldValue' is a JavaScript function that sets the inner HTML of a div to the value received in the arguments. 
+
+The following function triggers a signature save and fires the 'signatureSaveEvent'. The signature is saved as a bitmap in the directory specified in the signature destination:
+
+	def save
+		SignatureCapture.capture
+	end
+
+The following function clears the signature panel:
+
+	def clear
+		SignatureCapture.clear    	
+	end

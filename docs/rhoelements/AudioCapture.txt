@@ -98,7 +98,7 @@ The protocol, port number, username (optional) and password (optional) are all d
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Microphone</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following META Tag example performs a 30 second capture. The resulting WAV file will be transferred to a server via HTTP and an alert will inform the user whether or not the transfer succeeded.
 

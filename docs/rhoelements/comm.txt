@@ -105,7 +105,7 @@ The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows 
 			</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">COM Interface.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example opens up the COM1 port using META tags, and instructs the Comm module to call the 'ProcessData' JavaScript function after 250 ms of port inactivity, passing the received data to the function. The port will be closed when RhoElements navigates to a new page.
 

@@ -119,7 +119,7 @@ All devices support ".bmp" as the default file format for the saved signature. E
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of  The signature box and Save / Vector events. These will be cleared during page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following META Tag example sets up a yellow rectangular area that has a border with a pen color of burgundy. When the Capture method is invoked via JavaScript the signature will be transferred to a server via HTTP and an alert will inform the user whether or not the transfer succeeded.
 

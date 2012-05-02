@@ -58,7 +58,7 @@ Windows Power events will not always be generated when the device is connected t
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example displays a message box when the device resumes:
 
@@ -66,3 +66,25 @@ The following example displays a message box when the device resumes:
 	
 
 
+##Ruby Examples
+
+The following example displays a custom text as a JavaScript alert when the device resumes from a suspended state: 
+
+	def setPowerOnText
+		$text = @params['text']
+		PowerOn.powerOnEvent = url_for(:action => powerOnEventListener)
+	end  
+
+Here, 'powerOnEventListner' is the following function: 
+
+	def powerOnEventListener
+		Alert.show_popup $text
+	end
+
+The 'setPowerOnText' function takes an input from the user for a custom text to be displayed when the device powers on. This function is called from JavaScript as described below: 
+
+	function setText() {
+		text = document.getElementById('textToDisplay').value
+		$.get('/app/PowerModule/setPowerOnText', {text: text});
+		return false;
+	}

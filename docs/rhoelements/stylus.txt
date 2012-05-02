@@ -48,7 +48,7 @@ This tag does not affect the behaviour of remote display applications for contro
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr></table>
 
 
-##Examples
+##HTML/Javascript Examples
 
 The following example disables the touch screen until the Enter key is pressed:
 
