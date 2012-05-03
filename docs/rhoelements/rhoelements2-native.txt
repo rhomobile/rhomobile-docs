@@ -60,6 +60,8 @@ To enable Motorola device capabilities, your application needs the following in 
 
     app_type: rhoelements
 
+NOTE: After application type change in build.yml it is required to run <code>rake clean:wm</code> and/or <code>rake clean:android</code> respectively from command line in the application folder, or check 'Clean before build' option in the respective Run Configuration(s).
+
 This indicates that your application will be a "RhoElements" application. This application type by default uses the Motorola Webkit as the rendering engine for your application interface. It also exposes [an extended set of RhoElements APIs](rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
 
 To build a RhoElements application for a non-Motorola device, add the following to your application's build.yml file. This application will use the [Rhodes device capabilities](/rhodes/device-caps).
