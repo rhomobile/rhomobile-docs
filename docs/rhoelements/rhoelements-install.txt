@@ -1,8 +1,25 @@
 # Install RhoElements
 
+## Windows
+
+If you're running Windows, download the latest Motorola RhoMobile Suite for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
+
+If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
+
+	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
+
+Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
+
+* A link to the [developer community](http://developer.motorolasolutions.com).
+* A link to the [RhoMobile documentation](/home).
+* A launcher for RhoStudio.
+* A link to the readme file.
+* A link to the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
+* An uninstaller for RhoMobile Suite.
+
 ## Mac OS
 
-If you're running Mac OS, download the latest RhoMobile Suit for Macintosh. This contains the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
+If you're running Mac OS, download the latest Motorola RhoMobile Suite for Macintosh. This contains the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
 
 Click on the RhoInstaller for Mac download file to open it. You will get a window similar to this:
 
@@ -12,26 +29,9 @@ Run the install gems script appropriate for you. You can run "Install gems." If 
 
 Then drag RhoStudio to the Applications folder.
 
-## Windows
-
-If you're running Windows, download the latest RhoMobile Suite for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
-
-If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
-
-	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
-
-Once you install RhoMobile Suite on Windows, you will see RhoMobile Suite on the Windows Start menu with the following options:
-
-* A link to the developer website.
-* A link to the RhoMobile documentation.
-* A launcher for RhoStudio.
-* A link to the readme file.
-* A link to the RhoElements Runtime files. You use these when you create a RhoElements hybrid application, or when you create a RhoElements native application in shared mode.
-* An uninstaller for RhoMobile Suite.
-
 ## Java Development Kit (JDK)
 
-You need to have the Java Development Kit (JDK) installed for RhoMobile Suite. If you are planning to build for Android, make sure you have JDK version 1.6.0_2 or higher installed.
+You need to have the Java Development Kit (JDK) installed for Motorola RhoMobile Suite. If you are planning to build for Android, make sure you have JDK version 1.6.0_2 or higher installed.
 
 ### Installing the Java Development Kit
 
@@ -41,7 +41,9 @@ For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java
 
 ### Setting the JDK Path
 
-On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk1.7.0_01/bin`.
+On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. 
+
+**NOTE: On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk1.7.0_01/bin`.**
 
 On Mac OS, the path to the JDK is automatically set once Java is installed.
 

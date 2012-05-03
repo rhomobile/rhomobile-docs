@@ -114,6 +114,12 @@ To run a RhoElements application on an ET1 device:
 
 Then follow the Rhodes build instructions for [Android](/rhodes/build#build-for-android).
 
+## Building for iPhone/iPad or for Blackberry
+
+You can use the same instructions for [building a Rhodes application for iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad) to build a RhoElements application.
+
+You can use the same instructions for [Build a Rhodes application for BlackBerry](/rhodes/build#build-for-blackberry) to build a RhoElements application.
+
 ## Pre-licensing Your Application
 
 If your application will be delivered as 'licensed', the Deployment License information may be provided at application build time in the application build.yml file. 
@@ -149,9 +155,9 @@ In some conditions you may want to use the default native browser. (For example,
     capabilities:
     - native_browser
 
-**NOTE: Using the native browser capability will not provide Mobile APIs through: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>**
+**NOTE: Using the native browser capability will not provide Mobile APIs through: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>. Only [Rhodes Device Capabilities](rhodes/device-caps) will be available via <span class="label label-important">RUBY</span>**
 
-**NOTE: Native browser capability does not supported on Windows CE**
+**NOTE: The Native browser capability is not supported on Windows CE**
 
 In conditions where your may have a traditional Rhodes application but would like to utilize Motorola Webkit on non-Motorola Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
 
@@ -236,12 +242,6 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
 
-## Building for iPhone/iPad or for Blackberry
-
-You can use the same instructions for [building a Rhodes application for iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad) to build a RhoElements application.
-
-You can use the same instructions for [Build a Rhodes application for BlackBerry](/rhodes/build#build-for-blackberry) to build a RhoElements application.
-
 ## Customizing the RhoElements Configuration File
 
 It is possible to include a custom RhoElements configuration file `Config.xml` to the application bundle.
@@ -275,19 +275,19 @@ For example:
 
 ## Logging a RhoElements Native Application
 
-The RhoElements native application log is configured in the Rhodes way, at `rhoconfig.txt`, located in the app source root folder.
+The RhoElements native application log is configured via the `rhoconfig.txt`, located in the app source root folder.
 
-By default log file has name `rholog.txt` and placed at next location:
+By default the log file has name `rholog.txt` and placed at the following location:
 * Windows Mobile/CE: `rho` folder of the application folder.
 * Android: `rhodata` folder of the application folder (accessible at emulator or rooted device only).
 
 You can use the `logserver` parameter to send the log to the host via HTTP. There is no option to store the log file on the mobile device in this case.
         
-NOTE: See [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`.
+**NOTE: See [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`. You will be able to configur options like severity levels, log file size, etc**
 
 If you start your application with rake, then the log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter (by default the log file name is `rholog.txt`).
 
-NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.
+**NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**
 
 ## Setting the Application Name and Icon, Upgrading the Application
 
