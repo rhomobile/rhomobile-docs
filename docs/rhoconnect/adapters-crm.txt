@@ -14,10 +14,15 @@ To create a standard out-of-the-box rhoconnect CRM application use the following
 Here, the \<CRM\-backend\> parameter specifies the CRM backend that your application will use.
 Currently, the following CRM backends are supported:
 
-   - OracleOnDemand (for [Oracle CRM On Demand](http://crmondemand.oracle.com))
    - MsDynamics (for [Microsoft Dynamics CRM](http://www.microsoft.com/en-us/dynamics/default.aspx))
    - Salesforce (for [Salesforce CRM](http://www.salesforce.com/))
+
+Also, you can generate the application for the following backends but they are not officially supported
+(initial test and development has been done, but currently there is no on-going test support):
+
+   - OracleOnDemand (for [Oracle CRM On Demand](http://crmondemand.oracle.com))
    - Sugar (for [Sugar CRM](http://www.sugarcrm.com/crm/))
+
 
 The generated Rhoconnect CRM application structure will include typical [RhoConnect](http://rhomobile.com/products/rhoconnect/)
 files (for example, application.rb and settings.yml). It will also create a special vendor directory `vendor/\<CRM\-backend\>`
