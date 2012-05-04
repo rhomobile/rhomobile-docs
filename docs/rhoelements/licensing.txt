@@ -3,7 +3,7 @@
 The following features require Motorola RhoElements license:
 
 * Mobile APIs indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
-* [Motorola WebKit](/rhoelements/webkit)
+* Motorola WebKit
 * [Barcode extension](/rhodesapi/barcode-api)
 * [NFC extension](/rhodes/device-caps#nfc)
 * [Database Encryption](/rhodes/rhom#database-encryption)
