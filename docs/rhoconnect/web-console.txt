@@ -32,4 +32,4 @@ If you want to disable this web interface, you can do so by editing the rackup f
 
 Here is a screenshot of the web console:
 
-<img src="https://img.skitch.com/20111007-c7agn6jqxnq2nne5srq1ijxk4g.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect/web-console.png"/>

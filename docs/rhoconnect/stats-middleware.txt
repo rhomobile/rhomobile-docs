@@ -54,9 +54,9 @@ And navigate to the 'Statistics' tab in your RhoConnect console:
   	$ rake rhoconnect:web
 
 ## Stats Console
-You should see graphs, organized by categories on the right:
+You should see graphs, organized by categories:
 
-<img src="https://img.skitch.com/20110112-x2h6tg8wr75snxfp11ia89w51j.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect/stats-console.png"/>
 
 RhoConnect statistics are organized into the following categories:
 

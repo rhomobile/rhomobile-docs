@@ -18,9 +18,9 @@ From inside your heroku account, setup the url to your backend service that RhoC
 First, click the addons drop down and select rhoconnect.
 <p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/addon_rhoconnect.png' width="479" height="319"/></p>
 
-You will be redirected to the admin console of your RhoConnect instance where you can set the backend app url.  Select Backend App URL from the right menu.
-<p><img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/console.png' width="800" height="280"/></p>
+You will be redirected to the admin console of your RhoConnect instance where you can set the backend app url. Select the Settings tab, then select Plugin Settings from the left menu.
 
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect/plugin-settings-console.png"/>
 
 From here you can enter a url to your backend service.  Enter a url (for example http://myrailsapp.com), and click the add link to save the url.
 
