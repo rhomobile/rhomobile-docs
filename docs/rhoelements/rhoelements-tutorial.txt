@@ -442,4 +442,4 @@ That’s it! We just finished creating our inventory management application. Sin
 If you close the application and reload it, you will see that all items in the data models have been retained. We could now spend some time modifying the style of the pages and changing the page flow, but for now we will stop here. In another tutorial we will show you have to add RhoConnect data synchronization services so that the ProductCatalog can some from a centralized source as well as show how to get the Inventoried records up to a backend for storage.
 
 ##Download Tutorial
-[Download the complete source to this example.](/rhoelements/rhoelements-tutorial.zip)
+[Download the complete source to this example.](https://github.com/cfh463/rhoelementstutorial)
