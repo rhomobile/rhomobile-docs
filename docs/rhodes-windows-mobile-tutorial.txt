@@ -19,7 +19,7 @@ You must install the following software to build a Windows Mobile application.
 
 * Microsoft Active Sync 4.5 for Windows XP; Windows Mobile Device Center for Windows Vista or higher
 * Microsoft Device Emulator (if it is not installed already)
-* Visual Studio 2005 with Service Pack 1, or Visual Studio 2008.
+* Visual Studio 2008.
 * Windows Mobile 6 Professional SDK 
 * A program that can unzip files, such as [7-zip](http://www.7-zip.org/)
 
@@ -31,14 +31,14 @@ Add paths to vcbuild.exe and CabWiz.exe to your rhobuild.yml, which is in the Rh
 
 	env:
 	  paths:
-	    vcbuild: `C:/Program Files/Microsoft Visual Studio 8/VC/vcpackages/vcbuild.exe`
+	    vcbuild: `C:/Program Files/Microsoft Visual Studio 9/VC/vcpackages/vcbuild.exe`
 	    cabwiz: `C:/Program Files/Windows Mobile 6 SDK/Tools/CabWiz`
 
 On 64-bit installations:
 
 	env:
 	  paths:
-	    vcbuild: `C:/Program Files (x86)/Microsoft Visual Studio 8/VC/vcpackages/vcbuild.exe`
+	    vcbuild: `C:/Program Files (x86)/Microsoft Visual Studio 9/VC/vcpackages/vcbuild.exe`
 	    cabwiz: `C:/Program Files (x86)/Windows Mobile 6 SDK/Tools/CabWiz`
 
 ## Setting up the Mobile Device Connection
