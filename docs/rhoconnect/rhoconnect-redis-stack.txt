@@ -29,7 +29,7 @@ In the AWS Management Console, change the Region to US West (N. California).
 
 We provide a public preconfigured image that contains a blank RhoConnect app:
 
- * `ami-65e4bb20` (Us West N. California)
+ * `ami-cbc59e8e` (Us West N. California)
 
 ### Launching an Instance
 
@@ -46,7 +46,7 @@ Click the Launch Classic Wizard radio button. Click Continue.
 ### Requesting the Instance
 
 In the Choose an AMI section, click the Community AMIs tab.
-Then paste in the AMI `ami-65e4bb20`. When the preconfigured RhoConnect AMI appears, click Select.
+Then paste in the AMI `ami-cbc59e8e`. When the preconfigured RhoConnect AMI appears, click Select.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-wizard-community-AMIs.png" alt="request instances - choose AMI" />
 
