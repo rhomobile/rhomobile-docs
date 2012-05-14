@@ -49,3 +49,6 @@ On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Prefe
 
 On Mac OS, the path to the JDK is automatically set once Java is installed.
 
+## Setting the Location of the RhoStudio Workspace Directory
+
+When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
