@@ -37,7 +37,7 @@ Licensing will be the same as Motorola Solutions devices except that scanning wi
 
 ## License for Non-Motorola Android, iOS, Blackberry, Windows Phone 7, and Symbian Devices
 
-On these devices, there is no license wizard available to assist the user in licensing the framework. Instead, on a device that has not been licensed, a popup appears when the application is started, and every 5 minutes thereafter, warning that the framework is unlicensed.
+On these devices, there is no license wizard available to assist the user in licensing the framework. Instead, on a device that has not been licensed, a popup appears when the application is started warning that the framework is unlicensed.
 
 The user must provide the Deployment License information in the application's build.yml file:
 
@@ -46,9 +46,7 @@ The user must provide the Deployment License information in the application's bu
  
 For development purposes, this license can be an individual license. However, the compiled package will only work on the device that the license has been assigned to. This use case is most likely to only be used with "demo" licenses supplied to developers for this purpose.
 
-For an actual release of software developed with RhoElements, the license would need to be a deployment license.  A deployment license is not restricted to a device, but will allow any device to make use of the software.
- 
-Deployment licenses are restricted by name to a specific customer, and to obtain one the customer must electronically sign an online contract. Deployment licenses are currently only offered to customers who have purchased more that 50 licenses: in order to overcome this immediate problem, the threshold will be lowered to 1 license. It should be noted that this threshold affects all products, not just RhoElements 2 (PocketBrowser, RE1).
+For an actual release of software developed with RhoElements, the license would need to be a deployment license.  A deployment license is not restricted to a device, but will allow any device to make use of the software.Deployment licenses are restricted by name to a specific customer, and to obtain one the customer must electronically sign an online contract. 
  
 ## Common Information
 

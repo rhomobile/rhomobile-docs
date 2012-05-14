@@ -1,4 +1,4 @@
-# Install RhoElements
+# RhoMobile Suite Installation
 
 ## Windows
 
