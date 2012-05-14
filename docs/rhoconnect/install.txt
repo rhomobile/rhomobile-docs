@@ -68,3 +68,7 @@ NOTE: Windows doesn't come with the necessary build tools to install gems ('make
 You can [install RhoStudio as a plugin for Eclipse](rhostudio-eclipse).
 
 RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
+
+## Setting the Location of the RhoStudio Workspace Directory
+
+When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
