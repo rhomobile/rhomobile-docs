@@ -4,19 +4,19 @@ This tutorial will outline the steps required to create a sample inventory manag
 ## Project Structure
 After  launching RhoStudio, let’s create a new project inside by selecting ‘File/New Project’. You should see a dialog appear like the one below. Select ‘RhoMobile application’ and then click the ‘Next’ button.  
 
-<img src="/images/rhoelementstutorial/image001.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image001.png"/>
 
 In the next screen, name the project “InventoryManagement” – be sure to keep ‘Use RhoElements’ checked and click Finish.
 
-<img src="/images/rhoelementstutorial/image002.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image002.png"/>
  
 This will create a blank RhoMobile project with a directory structure similar to the one shown in the following image. 
 
-<img src="/images/rhoelementstutorial/image003.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image003.png"/>
  
-Let’s take a look at the file structure for a moment and explain what is going on. The ‘app’ folder, as it may sound, is where we will put the core application files including all of our data models and their correpsonding views and controllers (more on that in a moment). The ‘icon’ folder contains the image use for the application icon. The ‘public’ folder will contain some subfodlers to hold our CSS and Javascript files. By default, Rhostudio includes jQuery Mobile/Jquery and corresponding CSS files. For the sake of this example we will not be replacing any of these and will be focusing on the ‘app’ folder contents. Recall that a Rhodes application follows a MVC (Model/View/Controller) approach and essentially the application is running a self contained web server.  The user interface is primarily determined by the ‘Views’ or ‘.erb’ files. The ‘layout.erb’  file, as the name implies, defines the main layout for the application. If you open it up in RhoStudio, you will see something that looks very familiar to a typical HTML file.
+Let’s take a look at the file structure for a moment and explain what is going on. The ‘app’ folder, as it may sound, is where we will put the core application files including all of our data models and their corresponding views and controllers (more on that in a moment). The ‘icon’ folder contains the image use for the application icon. The ‘public’ folder will contain some subfolders to hold our CSS and Javascript files. By default, RhoStudio includes jQuery Mobile/Jquery and corresponding CSS files. For the sake of this example we will not be replacing any of these and will be focusing on the ‘app’ folder contents. Recall that a Rhodes application follows a MVC (Model/View/Controller) approach and essentially the application is running a self contained web server.  The user interface is primarily determined by the ‘Views’ or ‘.erb’ files. The ‘layout.erb’  file, as the name implies, defines the main layout for the application. If you open it up in RhoStudio, you will see something that looks very familiar to a typical HTML file.
 
-<img src="/images/rhoelementstutorial/image004.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image004.png"/>
  
 You will notice typical html tags like:
 
@@ -31,24 +31,24 @@ Towards the bottom of the ‘layout.erb’ file you will see
 
 This is where the ‘main’ ui will be placed. Initially when the app is launched, the contents of ‘/app/index/erb’ will be used to populate the ‘content’ section. If you open that file up, you will see a small snippet of HTML and inline Ruby:
 
-<img src="/images/rhoelementstutorial/image005.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image005.png"/>
  
 ##First Time Run 
 Before we add the data models we will use for the application. Let’s compile the application and see what happens. From the RhoStudio menu, select ‘Run/Run Configurations’:
 
-<img src="/images/rhoelementstutorial/image006.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image006.png"/>
  
 Select ‘RhoMobile Application’ and the ‘New Launch Configuration’ icon:
 
-<img src="/images/rhoelementstutorial/image007.png" width="500px"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image007.png"/>
  
 You can optionally change the name and then click ‘Run’. Be sure to keep the ‘Simulator type’ as ‘RhoSimulator’. You will see indication in the console tab that the project is compiling:
 
-<img src="/images/rhoelementstutorial/image008.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image008.png"/>
  
-After a few moments you will see two new windows open. The sinulator showing the application as well as the ‘Web Inspector’. The simulator window shows how the application will look on the device. And the ‘Web Inspector’ is a tool that can be used to help troubleshoot your application.
+After a few moments you will see two new windows open. The simulator showing the application as well as the ‘Web Inspector’. The simulator window shows how the application will look on the device. And the ‘Web Inspector’ is a tool that can be used to help troubleshoot your application.
 
-<img src="/images/rhoelementstutorial/image009.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image009.png"/>
  
 As you can see, the application does not really do anything expect to show the contents of  ‘/app/index.erb’:
 
@@ -63,12 +63,12 @@ The code snippet above is what is shown in the simulator. The ‘data-role’ pa
 ## Adding The Product Catalog Data Model
 Right click on the project folder in the Project Explorer and select ‘New’ followed by ‘Rhodes model’ and name it ProductCatalog. It will have three attributes – Name, SKU and Image and will store information about the products in our inventory. 
 
-<img src="/images/rhoelementstutorial/image010.png" />
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image010.png" />
 
-<img src="/images/rhoelementstutorial/image011.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image011.png"/>
  
  
-NOTE: Pay attention to the case you using for model attributes. Ruby is case senstive, so it is recommend you follow the same approach to case through your code.
+NOTE: Pay attention to the case you using for model attributes. Ruby is case sensitive, so it is recommend you follow the same approach to case through your code.
 
 Creating a model will add a new folder to the ‘app’ directory with the name of that model along with a set of prebuilt files for different views as well as the model controller to handle the logic for each of these views:
 	index.erb: lists all ProductCatalog items
@@ -78,7 +78,7 @@ Creating a model will add a new folder to the ‘app’ directory with the name 
 
 If you open these files up, you will see they look very similar to the /app/index.erb we mentioned before. These files define how the page will look using a combination of HTML and inline Ruby syntax. All of the logic for this model is stored in the product_catalog_controller.rb:
 
-<img src="/images/rhoelementstutorial/image012.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image012.png"/>
  
 You can think of these as functions or methods that can be executed for this model. As you can see, there is a corresponding method for each view that was created before. When a view is loaded, it will look for the corresponding method in the controller to execute prior to rendering the view. By default, ‘index.erb’ is loaded when no specific view is referenced. As you can see in the example, this will execute the ‘index’ method inside the product_catalog_controller.erb. This file is purely Ruby syntax. It will have Rhodes Mobile APIs available to the application as well as standard Ruby syntax. 
 
@@ -90,20 +90,20 @@ With
 ##Testing The Data Model    
 Select ‘Run/RunConfigurations’ again and click ‘Run’ after you selected the run project we setup before (it should be selected already). This time we see the new ‘Catalog’ entry:
 
-<img src="/images/rhoelementstutorial/image013.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image013.png"/>
  
 
 If you click this, it will change the page to the ‘/app/ProductCatalog/index.erb’ page. We did not need to specify the full URL in the HREF attribute because we are already at the ‘/app’ level. So just saying ‘ProductCatalog’ was enough. Like with traditional web sites, index.html is the default file that is loaded when none is specified and likewise in our case, index.erb is loaded by default. Since we do not have any ProductCatalog records yet, nothing is displayed:
 
-<img src="/images/rhoelementstutorial/image014.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image014.png"/>
  
 If you click the ‘New’ button it will load the ‘ProductCatalog/new.erb’ file and likewise execute the ‘new’ method in the ‘product_catalog_controller.erb’ file:
 
-<img src="/images/rhoelementstutorial/image015.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image015.png"/>
  
 This essentially creates a new ProductCatalog item and assigns it to the variable @productcatalog. It also defines what actions to take if the ‘back’ button is pressed on that page.
 
-<img src="/images/rhoelementstutorial/image016.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image016.png"/>
  
 Go ahead and create an item. It does not matter what you type in, we will be deleting it after you see that the model’s CRUD views and methods are working. Notice that in the ‘new.erb’ file, the POST action for the form is calling the ‘create’ method
 	<form method="POST" action="<%= url_for :action => :create %>">
@@ -116,7 +116,7 @@ And the corresponding ‘create’ method in the controller file looks like:
 
 This creates the new record in the ProductCatalog model and redirects the page back to the index.erb 
 
-<img src="/images/rhoelementstutorial/image017.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image017.png"/>
  
 Select that item. Press the ‘Edit’ button. This will change the view to the ‘ProductCatalog/edit.erb’ file along with executing the ‘edit’ method inside the controller. Likewise the POST action for the ‘edit.erb’ form is to call the ‘Update’ method in the controller:
 
@@ -138,7 +138,7 @@ To seed our initial database of products under the ProductCatalog, we will have 
 	{"SKU": "22222", "Name": "A", "Image" : "data:image/jpeg;base64,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%3D%3D"},
 	]
 
-<img src="/images/rhoelementstutorial/image018.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image018.png"/>
  
 
 Where ‘SKU’ is the barcode for an item, ‘Name’ is the name of the item and ‘Image’ contains the base64 string representation of the image related to that product. There are tools available online to convert an image to its base64 representation which you can use.  This is also referred to as ‘DataURI’ and can be a nice way to handle images without having to have a whole bunch of physical files, you can keep it all in the data scheme. As you may recall, all of the UI is rendered though a browser and the <IMG> tag displays base64 strings very nicely.
@@ -172,11 +172,11 @@ line refers to the Rhodes API for getting the path to the root of the applicatio
 
 Let’s run the app in RhoSimulator again (Run/RunConfigurations), and see if the Product Catalog gets loaded. If you do not see the set of products that we had in the seed data, then most likely you did not delete all records from the previous steps. Recall that our code that we added to the initialize will load the see data if there are no records in the ProductCatalog model. You should see something that looks like:
 
-<img src="/images/rhoelementstutorial/image019.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image019.png"/>
  
 If you click on a item, you should see all three properties have data from the see file. If you do not, then you probably misspelled the properties when creating the ProductCatalog model (ex: ‘Sku’ instead of ‘SKU’). No need to worry, simply delete the ProductCatalog folder from the project and recreate the ProductCatalog model (recall we did not modify any of the prebuilt pages for the ProductCatalog yet). 
 
-<img src="/images/rhoelementstutorial/image020.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image020.png"/>
  
 Notice that the Image field in the detail view will show the raw base64 representation of the image instead of the actual image. To fix this, open up ‘show.erb’ under the ProductCatalog model and change the line 
 	<div class="itemValue"><%= @productcatalog.Image %></div>
@@ -185,31 +185,31 @@ to
 
 This change prompts the browser to recreate the image from its base64 representation returned by the Ruby code. This sets up our ProductCatalog model with sample products fed into it. 
 
-<img src="/images/rhoelementstutorial/image021.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image021.png"/>
  
 ##Adding The Inventory Data Model
-Now that we have our ProductCatalog created and prepopulated, let’s add a second model that will hold our Inventory information. For this model we will keep track of the what SKU is scanned as well as the total amount of times it was scanned. Right click on the project’s ‘app’ folder and select ‘New/RhoMobile Model’ and call it ‘Inventory’ with attributes SKU and Quantity. 
+Now that we have our ProductCatalog created and pre-populated, let’s add a second model that will hold our Inventory information. For this model we will keep track of the what SKU is scanned as well as the total amount of times it was scanned. Right click on the project’s ‘app’ folder and select ‘New/RhoMobile Model’ and call it ‘Inventory’ with attributes SKU and Quantity. 
 
-<img src="/images/rhoelementstutorial/image022.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image022.png"/>
  
 
 Open the ‘index.erb’ file under the ‘app’ folder again to add a link to the Inventory viewer. Do this by adding the following line of code under the “View Catalogs” list item:
 
 	<li><a href="Inventory">View Inventory</a></li> 
 
-<img src="/images/rhoelementstutorial/image023.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image023.png"/>
 
  
 
 Save the file, re-deploy the project and click on the “View Inventory” link inside the app. The resultant page will be blank because we do not have any entries in the Inventory model yet. Click on the ‘New’ button on the top right of this screen to bring up the New Inventory screen with an option to add an SKU and a quantity for that item. Add an SKU number you have used in the ProductCatalog model and set its quantity to 1 and click on ‘Create’. 
 
-<img src="/images/rhoelementstutorial/image024.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image024.png"/>
 
  
 
 This redirects back to the Inventory list with an entry for the inventory item that we just created. Repeat the creation process for two more SKUs. 
 
-<img src="/images/rhoelementstutorial/image025.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image025.png"/>
 
  
 ##Changing The Inventory List View
@@ -243,7 +243,7 @@ The <% @inventories.each do |inventory| %> line picks up each Inventory entry us
 
 The code above sets up list item linking to the ‘edit.erb’ page for an Inventory object and sets up the HTML/CSS elements required to display a thumbnail of the image, the item name and the quantity in the same line. RhoMobile uses jQuery Mobile so we can use CSS class elements from it to construct our UI. Save the file and re-deploy the project. On the home screen, click on ‘View Inventory’ and you should see a list of the three Inventory items we created above, with their image, name and quantity scanned as a list. A sample is shown below: 
 
-<img src="/images/rhoelementstutorial/image026.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image026.png"/>
 
  
 
@@ -285,7 +285,7 @@ This code sets up our scan page with a section to add JavaScript (more on that l
 
 Deploy the application and click on the ‘Scan a barcode’ link to view the page we just created. 
 
-<img src="/images/rhoelementstutorial/image027.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image027.png"/>
 
  
 
@@ -352,9 +352,9 @@ The ‘decodeEventCallback’ function is given below:
 
 	  end     
 
-Let’s look at this function line by line. When the decode event returns after a successful decode, it contains a few parameters (a full list is provided in the Rhodes API for Scanner) out of which we extract the ‘data’ element which contains the barcode that was just scanned. With that barcode, we find the ProductCatalog entry we may have for that product by matching the ‘barcode’ variable to each product’s ‘SKU’.  If we do not have an entry for that barcode, we create a new one with a default ‘Name’ and ‘Image’
+Let’s look at this function line by line. When the decode event returns after a successful decode, it contains a few parameters (a full list is provided in the Rhodes API for Scanner) out of which we extract the ‘data’ element which contains the barcode that was just scanned. With that barcode, we find the ProductCatalog entry we may have for that product by matching the ‘barcode’ variable to each product’s ‘SKU’.  If we do not have an entry for that barcode, we create a new one with a default ‘Name’ and ‘Image’.
 
-<img src="/images/rhoelementstutorial/image028.png" width="600px"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image028.png"/>
 
  
 
@@ -419,7 +419,7 @@ In the above code you will see mention of one Javascript function we did not spe
 
 This statement is jQuery syntax that effectively executes a function when the page is completely ready to handle Javascript. The $.get method is an Ajax passing the URL as a parameter. In order to communicate from the webpage via Javascript to the Ruby controller methods, is through Ajax. The URL we pass is calling the getInventoryCount method we added inside the controller above. Like we mentioned before this method in turn uses the WebView.execute_js function to talk back to Javascript and the rendered page.
 
-One other thing we will do here is remove the default Rhodes toolbar, since we want our UI to take up most of the realestate. This is easily accomplish by going back into the ‘app/application.rb’ file.  Look for the line:
+One other thing we will do here is remove the default Rhodes toolbar, since we want our UI to take up most of the real estate. This is easily accomplish by going back into the ‘app/application.rb’ file.  Look for the line:
 
 #@@toolbar = nil
 
@@ -428,9 +428,9 @@ And remove the ‘#’ to uncomment the line.
 ##Deploying To A Device
 That’s it! We just finished creating our inventory management application. Since we are using the ‘Scanner’ class from the Rhodes framework, we will need to deploy this application on a device in order to see the Scanner library. Attach a device to your computer and re-deploy the application, only this time selecting ‘device’ as the simulator type and the platform corresponding to your device. While creating this application, a Windows Mobile device was used and the screenshot below reflects that. The application will take longer to deploy on a device than a simulator and hence it is advisable to keep an eye on the Console window inside of Eclipse to determine when deployment has completed before using the application. 
 
-<img src="/images/rhoelementstutorial/image029.png" width="500px"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image029.png" width="500px"/>
 
-<img src="/images/rhoelementstutorial/image030.png" width="200px"/>&nbsp; <img src="/images/rhoelementstutorial/image031.png" width="200px"/> &nbsp;<img src="/images/rhoelementstutorial/image032.png" width="200px"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image030.png" width="200px"/>&nbsp; <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image031.png" width="200px"/> &nbsp;<img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image032.png" width="200px"/>
 
 
  
