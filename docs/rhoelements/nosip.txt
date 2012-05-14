@@ -1,6 +1,6 @@
 
 #NoSIP Preexisting JavaScript Object
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-inverse">RHOELEMENTS</span>
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The NoSIP Preexisting JavaScript Object contains methods which can be used to control the Soft Input Panel (on screen keyboard). If you have configured 'PreloadLegacyNoSIP' to be '1' the Javascript object 'nosip' will be inserted automatically into your page's DOM by RhoElements. These methods should be used in conjunction with the SIP module to provide full control over the SIP

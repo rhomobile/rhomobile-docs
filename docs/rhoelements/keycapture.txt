@@ -60,7 +60,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 After a KeyValue parameter has been used to specify which key to capture and whether or not to dispatch it, setting a KeyEvent will associate that key with the event to call when that key is pressed. The KeyEvent must be set after the KeyValue parameter and optionally the Dispatch parameter and to capture multiple keys you should repeat this process. The same event handler can be used to process multiple keys. Note that this event is not compatible with the Remap parameter as the two are mutually exclusive. To unregister for key events use the syntax url(''), an example is provided below.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>keyValue</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The internal representation of the key expressed in decimal, e.g. 13 is the return key</td></tr></table>
 <br />
 ###triggerEvent
-The TriggerEvent is invoked whenever a device hardware trigger is pressed or released. Note the registration for TriggerEvent will fail if the trigger is currently in use.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>triggerFlag</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The combination of the triggers pressed and the state of the triggers	</td></tr></table>
+The TriggerEvent is invoked whenever a device hardware trigger is pressed or released. Note the registration for TriggerEvent will fail if the trigger is currently in use.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>triggerFlag</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The combination of the triggers pressed and the state of the triggers.  Older devices may report duplicate values for different triggers on the device due to a platform issue, this has been resolved in newer devices.</td></tr></table>
 
 
 
@@ -119,7 +119,7 @@ If a key is remapped to itself then RhoElements will appear to hang because if t
 
 
 ###Special characters
-On some devices certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, (, ), !, :, ?, #, _, @.
+On some devices certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, ", (, ), !, :, ?, #, _, @.
 
 
 ###Different keyboard layouts on Windows and Android
