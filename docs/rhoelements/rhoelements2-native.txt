@@ -8,7 +8,13 @@ You should have the [RhoMobile Suite installed](/rhoelements/rhoelements-install
 
 ## Setting Up build.yml
 
-A RhoElements native application uses the Rhodes gem: by default, that is the latest Rhodes gem installed on your computer. You can use the Rhodes instructions for [setting up build.yml](/rhodes/build#setting-up-buildyml) to use a different version of the gem.
+A RhoElements native application uses the Rhodes gem: by default, that is the latest Rhodes gem installed on your computer. You can use the Rhodes instructions for [setting up build.yml](/rhodes/build#setting-up-buildyml) to use a different version of the Rhodes gem.
+
+To use a different version of the RhoElements gem - add to build.yml:
+
+    paths:
+      extensions: <RhoElements gem path>\libs
+
 
 ## Generating a RhoElements Application
 
