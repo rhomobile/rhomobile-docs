@@ -19,17 +19,25 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 
 ## Mac OS
 
-If you're running Mac OS, download the latest Motorola RhoMobile Suite for Macintosh. This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
+If you're running Mac OS, download the latest [MotorolaRhoMobileSuite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
-Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed. It is recommended that you install [Ruby Version Manager](https://rvm.io//) and install Ruby version 1.9.3.
+Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, the official way to install Ruby for RhoStudio is to install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
-Click on the RhoMobileSuiteInstaller for Mac download file to open it. You will get a window similar to this:
+Click on the MotorolaRhoMobileSuite Installer for Mac download file to open it. You will get a window similar to this:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
-Run the install gems script appropriate for you. If you have Ruby Version Manager, you can run "Install gems on rvm." A terminal window will open; wait for the gems install process to complete.
+Run "Install gems on rvm" (this requires that you have installed Ruby Version Manager). A terminal window will open; wait for the gems install process to complete.
 
-Then drag RhoStudio to the Applications folder.
+Then drag Motorola RhoStudio to the Applications folder.
+
+The MotorolaRhoMobileSuite Installer for Macintosh also contains:
+
+* A folder with a sample RhoElements2 application.
+* A folder wtih the Rhodes system api sample application.
+* A folder with the RhoElements Runtime.
+
+**NOTE: Installing Ruby into the System folder is not supported by RhoMobile; the official RhoMobile way to install and use Ruby on the Macintosh is with Ruby Version Manager. If you do not use Ruby Version Manager and instead install Ruby into the System folder, you will need to start and run RhoStudio from the command line using sudo.**
 
 ## Java Development Kit (JDK)
 
@@ -45,7 +53,10 @@ For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java
 
 On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. 
 
-**NOTE: On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk1.7.0_01/bin`.**
+**NOTE: On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk<version number>/bin`.**
 
 On Mac OS, the path to the JDK is automatically set once Java is installed.
 
+## Setting the Location of the RhoStudio Workspace Directory
+
+When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.

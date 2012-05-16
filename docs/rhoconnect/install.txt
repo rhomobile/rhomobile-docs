@@ -8,17 +8,19 @@ On Linux, you install the RhoConnect gem from the command line; you can also do 
 
 ## Mac OS
 
-If you're running Mac OS, download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+If you're running Mac OS, download the latest [MotorolaRhoMobileSuite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
-Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed. It is recommended that you install [Ruby Version Manager](https://rvm.io//) and install Ruby version 1.9.3, latest patch.
+Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, the official way to install Ruby for RhoStudio is to install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
-Click on the RhoStudioInstaller for Mac download file to open it. You will get a window similar to this:
+Click on the MotorolaRhoMobileSuite Installer for Mac download file to open it. You will get a window similar to this:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
-Run the install gems script appropriate for you. If you have Ruby Version Manager, you can run "Install gems on rvm." A terminal window will open; wait for the gems install process to complete.
+Run "Install gems on rvm" (this requires that you have installed Ruby Version Manager). A terminal window will open; wait for the gems install process to complete.
 
-Then drag RhoStudio to the Applications folder. 
+Then drag Motorola RhoStudio to the Applications folder.
+
+**NOTE: Installing Ruby into the System folder is not supported by RhoMobile; the official RhoMobile way to install and use Ruby on the Macintosh is with Ruby Version Manager. If you do not use Ruby Version Manager and instead install Ruby into the System folder, you will need to start and run RhoStudio from the command line using sudo.**
 
 ## Windows
 
@@ -40,7 +42,7 @@ For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java
 
 ### Setting the JDK Path
 
-On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk1.7.0_01/bin`.
+On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk<version number>/bin`.
 
 On Mac OS, the path to the JDK is automatically set once Java is installed.
 
@@ -56,7 +58,9 @@ To install RhoConnect on Linux, and to install RhoConnect on Windows or Mac OS u
 
 3. [Redis](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the [Rake Tasks section](rhoconnect/command-line#rake-tasks). Alternatively, you can [install redis directly](http://redis.io/download).
 
-4. Install the RhoConnect Gem. Run this command to install.
+4. Install the RhoConnect Gem. 
+
+Run this command to install the RhoConnect Gem.
 
 	:::term
 	$ [sudo] gem install rhoconnect
@@ -68,3 +72,11 @@ NOTE: Windows doesn't come with the necessary build tools to install gems ('make
 You can [install RhoStudio as a plugin for Eclipse](rhostudio-eclipse).
 
 RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
+
+## Setting the Location of the RhoStudio Workspace Directory
+
+When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
+
+## Standalone Ruby Installation and Ruby Version Manager
+
+Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in Rhodes applications.

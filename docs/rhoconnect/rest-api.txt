@@ -35,6 +35,19 @@ All API calls will return http 200 and requested data (if applied). Otherwise, A
 
 ## API Methods
 
+### `login`
+Login to the RhoConnect server.
+
+	:::ruby
+	require 'rest_client'
+	require 'json'
+
+	server = "http://localhost:9292"
+	login = "rhoadmin"
+	password = ""
+
+	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
+
 ### `get_api_token`
 Before you can use RhoConnect API you should get API token:
 
@@ -117,7 +130,7 @@ Push new objects or object updates to RhoConnect. These changes will be sent to 
 **NOTE: Normally, `push_objects` method will refresh the whole :md document in Redis. However, in case of large-size
 documents, `push_objects` method can be optimized by invoking only the necessary updates. This can help reducing
 the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
-in the `push_objects` parameters hash.
+in the `push_objects` parameters hash.**
 
 ### `push_deletes`
 Delete objects from RhoConnect. These objects will be deleted from the device the next time it synchronizes.
@@ -223,6 +236,44 @@ Push object deletes to RhoConnect. This method doesn't involve pulling the exist
 	  :content_type => :json
 	)
 
+### `get_adapter`
+Returns the url of the source adapter from the RhoConnect server.
+
+	:::ruby
+	adapter_url = RestClient.post(
+	  "#{server}/api/get_adapter",
+      {
+        :api_token => token
+      }.to_json, 
+      :content_type => :json
+    ).body
+
+### `save_adapter`
+Saves the url of the source adapter to the RhoConnect server.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/save_adapter",
+      {
+        :api_token => token,
+        :adapter_url => url
+      }.to_json,
+      :content_type => :json
+    )
+
+### `upload_file`
+Upload a file to the RhoConnect server.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/upload_file",
+	  {
+	    :api_token => token,
+	    :upload_file => path_to_file
+	  }.to_json,
+	  :content_type => :json
+	)
+
 ### `list_users`
 List users registered with this RhoConnect application.
 
@@ -257,6 +308,22 @@ Delete User and all associated devices from the RhoConnect application.
 	  { 
 		:api_token => token, 
 		:user_id => user_id 
+	  }.to_json, 
+	 :content_type => :json
+	)
+
+### `update_user`
+Update attributes for a user on this RhoConnect application.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/api/update_user",
+	  { 
+		:api_token => token,
+		:user_id => user_id 
+		:attributes => {
+		  :a_user_specific_attribute => a_user_specific_attribute_value
+		} 
 	  }.to_json, 
 	 :content_type => :json
 	)
@@ -367,7 +434,7 @@ Return attributes associated with a given source:
 ### `update_source_params`
 Updates attributes associated with a given source:
 
-* `poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll
+`poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll.
 
 	:::ruby
 	attributes = RestClient.post("#{server}/api/update_source_params", 
