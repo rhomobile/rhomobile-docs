@@ -1,11 +1,11 @@
 #Fonts in RhoElements: An Overview
 
 ##Overview
-The RhoElements browser depends on fonts installed on your device in order to render text. You need to configure RhoElements appropriately in order to get your desired font to display.
+The RhoElements browser depends on fonts installed on your device in order to render text.  You need to configure RhoElements appropriately in order to get your desired font to display.
 
 ##Fonts on Android Devices
 
-RhoElements running on Android devices will use a built in proprietary font; this is not currently configurable. Future releases will introduce font configurability.
+RhoElements running on Android devices can use any font which is built into the /system/fonts directory. It defaults to Droid Sans Fallback, which is the recommended font as it contains a full set of international characters. It is not possible to use font files from the SD card, but web fonts are supported as described below.
 			
 ##Fonts on Windows Mobile / Windows CE Devices
 
@@ -34,7 +34,7 @@ You can change the default font if required, just make sure the requited .ttf fi
 
 ###The Default font
 
-Out of the box RhoElements is configured to use the Tahoma font on RhoElements, the main reason for this is that it is available on all Motorola Windows devices.  One limitation of tahoma is that it has no italicized variant.
+Out of the box RhoElements is configured to use the Tahoma font on RhoElements, the main reason for this is that it is available on all Motorola Windows devices.  One limitation of tahoma is that it has no italicised variant.
 
 ###Obtaining Truetype fonts
 
@@ -66,5 +66,5 @@ RhoElements supports Web fonts, the following example shows how to use the 'univ
 
 ###Localized Font Support
 
-Running on localized builds requires an appropriate truetype font for the language to be installed on the device, as described above obtain your desired truetype font file (.ttf) and copy it to the font directory on your device (\Windows).  To ensure RhoElements picks up your localized font modify the configuration file accordingly.
+Running on localized builds requires an appropriate truetype font for the language to be installed on the device, as described above obtain your desired truetype font file (.ttf) and copy it to the configurable font directory on your device (\Windows by default).  To ensure RhoElements picks up your localized font modify the configuration file accordingly.
 

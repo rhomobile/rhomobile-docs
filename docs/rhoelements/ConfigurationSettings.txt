@@ -484,7 +484,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >SIP\\ResizeOnSIP</td>
 <td >RESIZEONSIP</td>
-<td >When enabled the browser window will resize to accommodate the SIP when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only)</td>
+<td >When enabled the browser window will resize to accommodate the SIP when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only.  This option is not compatible with Finger Scrolling, the SIP will always appear at the bottom of the screen)</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
