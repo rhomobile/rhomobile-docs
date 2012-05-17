@@ -6,7 +6,7 @@ If you're running Windows, download the latest Motorola RhoMobile Suite for Wind
 
 If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
 
-	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
+	<RhoMobile Suite Install Path>\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
 
 Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
 
@@ -51,7 +51,7 @@ For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java
 
 ### Setting the JDK Path
 
-On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. 
+On Windows installs for RhoMobile, go to RhoStudio Preferences (Window -> Preferences -> RhoMobile) and set the JDK path in the rhobuild.yml file. 
 
 **NOTE: On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk<version number>/bin`.**
 

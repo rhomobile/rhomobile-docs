@@ -175,25 +175,25 @@ NOTE: The last application will launch using the same runtime container. Only on
 	
 ## Customizing the RhoElements Runtime
 The RhoElements runtime is a prebuilt Rhodes application that simply launches in full screen mode and loads configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, for example change the startup screen or icon, load the Rhodes project into RhoStudio from the following location: 
-	<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
+	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
 To build the Shared Runtime Application, perform the following steps.
 
-On the command line on your Windows PC, navigate to this folder.
+On the command line on your Windows PC, navigate to this folder:
 
-	<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
+	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
 To build for Windows Mobile or Windows CE, run this command.
 
         rake device:wm:production
 
-The resulting `cab` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
+The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
 
 To build for Android, run this command.
 
         rake device:android:production
 
-The resulting `apk` file can be found at `<RhoStudio>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
+The resulting `apk` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
 
 ### Deploying The Customized Runtime 
 
