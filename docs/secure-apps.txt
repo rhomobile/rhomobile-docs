@@ -10,6 +10,8 @@ To access application, the user will should provide a login and password and the
 ## Protect data on the device
 To provide a high level of security you should consider turning on automatic encryption of all data in your Rhodes application. Implementing this option will ensure all customer data the application stores in the local database on the device will be encrypted. Please refer to [Database Encryption](rhodes/rhom#database-encryption) in the Rhodes [Local Database and Rhom](rhodes/rhom) section for more details. 
 
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](/rhodes/rhom#database-encryption) is removed from Rhodes. This feature are only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhoelements/rhoelements-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements']( /rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+
 ## Use secure connection
 Protect your customer's sensitive information by connecting to your backend application using Hypertext Transfer Protocol Secure. HTTPS is a combination of the Hypertext Transfer Protocol (HTTP) with the SSL/TLS protocol to provide encrypted communication and secure identification of a network server. 
 
