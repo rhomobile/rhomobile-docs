@@ -165,6 +165,70 @@ and deploy it into the J2EE App Server.
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
  
+## Deploying on Heroku Cedar
+
+#### Prerequisites
+
+* [Heroku account](https://api.heroku.com/login) and [Heroku Toolbelt](Heroku Toolbelt) 
+
+* Mac OSX or Linux development environment
+ 
+* Rhoconnect gem version >= 3.2.0
+
+#### Create Rhoconnect application
+Create your Rhoconnect app and make sure that it's up and running in your development environment
+
+    :::term
+    $ cd your_rhoconnect_app
+    $ thin start
+    
+#### Declare `Procfile`
+This step is optional, but it will give you more control and flexibility when application deployed on Heroku.
+Create in your rhoconnect project file named `Procfile` 
+
+    :::term
+    web: bundle exec thin start -p $PORT
+
+If your application is using resque worker, then you should specify it in the `Procfile` as well
+
+	:::term
+	web: bundle exec thin start -p $PORT
+    worker: bundle exec rake resque:work 
+
+Now you can run your app locally 
+
+	:::term
+    $ gem install foreman
+    $ foreman start
+
+
+#### Deploy to Heroku
+Before moving your code to Git you need comment in your project's `Gemfile` declaration of `sqlite3` gem, because target 
+Heroku server has no devel libraries required to build that gem.
+
+	:::term
+	$ git init
+	$ git add .
+	$ git commit -m ' ... '
+	$ heroku create my_rhoapp-on_heroku --stack cedar
+	$ heroku addons:add redistogo:nano
+	$ git push heroku master
+     
+#### Monitoring app on Heroku
+Use `heroku ps` to determine the number of processes that are executing.
+Use `heroku logs` to view an aggregated list of log messages from all process types.
+
+	:::term
+    $ heroku ps
+    $ heroku logs
+ 
+#### Get connected with Rhodes client
+If you have rhodes client and wanted to sync it with rhoconnect app on Heroku, then set proper sync server URL in `rhoconfig.txt` file
+
+	:::term
+ 	syncserver = 'http://my_rhoapp-on_heroku.herokuapp.com/application'
+
+
 
 
 
