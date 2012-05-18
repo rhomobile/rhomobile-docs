@@ -98,20 +98,11 @@ To build a RhoElements application for a non-Motorola device, add the following 
     - non_motorola_device
 
 
-## Building for iPhone/iPad or for Blackberry
+## Building for iPhone/iPad or for BlackBerry
 
 You can use the same instructions for [building a Rhodes application for iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad) to build a RhoElements application.
 
 You can use the same instructions for [Build a Rhodes application for BlackBerry](/rhodes/build#build-for-blackberry) to build a RhoElements application.
-
-### Licensing on iOS
-
-A license is required to run a RhoElements application. On Operating Systems that Motorola does not have products for (iOS, Blackberry, Symbian, Windows Phone 7), you will need to include the licensing information as part of the build process.  The Deployment License information should be provided in the application build.yml file. Users will not be able to license the product directly from the device. When the application is started, the license is checked for validity. If the license is invalid, the user will be notified and have to acknowledge before proceeding. 
-
-	motorola_license_company: 'Deployment License Company name'
-    motorola_license: 'Deployment License Number'
-
-See the [RhoElements Licensing page](/rhoelements/licensing) for more information.
 
 ## Enabling Motorola Device Capabilities
 
@@ -123,6 +114,19 @@ By default, when creating an application using the app generator described above
 NOTE: After application type change in build.yml it is required to run <code>rake clean:wm</code> and/or <code>rake clean:android</code> respectively from command line in the application folder, or check 'Clean before build' option in the respective Run Configuration(s).
 
 This indicates that your application will be a "RhoElements" application. This application type by default uses the Motorola Webkit as the rendering engine for your application interface. It also exposes [an extended set of RhoElements APIs](rhoelements/apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
+
+## Pre Licensing Your Application
+
+A license is required to run a RhoElements application. On Non-Motorola devices that are running Android, iOS or Blackberry operating systems, you cannot license the application from the device. You will need to include the licensing information as part of the build process.  A 'Deployment License' is needed and the following information should be provided in the application's build.yml file. 
+
+	motorola_license_company: 'Deployment License Company name'
+    motorola_license: 'Deployment License Number'
+
+When the application is started, the license is checked for validity. If the license is invalid, the user will be notified and have to acknowledge before proceeding. You may obtain this information from the [Software Licensing Server](https://softwarelicensing.motorolasolutions.com/). After logging into the server you will see your license information on the 'Deployment License' tab.
+
+NOTE: For Motorola devices and Non-Motorola devices that run Windows Mobile or Windows CE, the license cannot be obtained directly from the device or prebundled with the application. For these devices, you may either apply the license directly from the device using the licensing wizard's Manual or Internet methods.
+
+See the [RhoElements Licensing page](/rhoelements/licensing) for more information.
 
 ## Overriding Motorola Webkit
 
@@ -140,7 +144,8 @@ In some conditions you may want to use the default native browser. (For example,
 
 **NOTE: Windows CE does not support a native browser (Internet Explorer), so use 'apptype: rhoelements' or 'motorola_browser' capability to build application for Windows CE**
 
-In conditions where your may have a traditional Rhodes application but would like to utilize Motorola Webkit on non-Motorola Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
+## Enabling Motorola Webkit
+In conditions where your may have a traditional Rhodes application but would like to utilize the Motorola Webkit on Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
 
     capabilities:
     - motorola_browser
