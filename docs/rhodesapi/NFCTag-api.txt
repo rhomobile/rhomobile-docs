@@ -1,7 +1,9 @@
 # Rho::NFCTag API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
+<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;
 
 Use the NFCTag class to get the NFC tag in certain formats, such as Ndef. For code examples, see [Rhodes Webinar Sample: NFC](https://github.com/rhomobile/webinar-samples/blob/master/nfc-rhodes/app/Nfc/nfc_controller.rb) and [Rhodes System API Samples: NFC](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Nfc/controller.rb).
+
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), NFC, and [SignatureTool]( /rhodesapi/signaturetool-api) APIs, as well as [Rhom data encryption]( /rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/ rhoelements/rhoelements-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements']( /rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally,  a [RhoElements license](/rhoelements/licensing) is required.**
 
 ## Enabling NFC
 
