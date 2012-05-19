@@ -19,11 +19,11 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 
 ## Mac OS
 
-If you're running Mac OS, download the latest [MotorolaRhoMobileSuite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+If you're running Mac OS, download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
 Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, the official way to install Ruby for RhoStudio is to install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
-Click on the MotorolaRhoMobileSuite Installer for Mac download file to open it. You will get a window similar to this:
+Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
@@ -31,11 +31,13 @@ Run "Install gems on rvm" (this requires that you have installed Ruby Version Ma
 
 Then drag Motorola RhoStudio to the Applications folder.
 
-The MotorolaRhoMobileSuite Installer for Macintosh also contains:
+The Motorola RhoMobile Suite Installer for Macintosh also contains:
 
-* A folder with a sample RhoElements2 application.
-* A folder wtih the Rhodes system api sample application.
-* A folder with the RhoElements Runtime.
+* A folder containing a RhoElements application.
+* A folder containing the Rhodes system api sample application.
+* A folder containing the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
+* A link to the Launchpad Developer Community.
+* A link to the RhoMobile documentation website.
 
 **NOTE: Installing Ruby into the System folder is not supported by RhoMobile; the official RhoMobile way to install and use Ruby on the Macintosh is with Ruby Version Manager. If you do not use Ruby Version Manager and instead install Ruby into the System folder, you will need to start and run RhoStudio from the command line using sudo.**
 
