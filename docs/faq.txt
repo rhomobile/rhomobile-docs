@@ -216,3 +216,50 @@ There is no way to define controller for top-level index.erb, so create special 
         capabilities:
             - network_state
 
+## How to optimize memory usage in Rhodes
+There are several Rhodes components which consume system memory( list order by memory consumptions, bigger first):
+
+### Internet Browser
+
+Use system memory and a lot of graphics objects to display content. Rhodes Turn on Cache in Browser for static files like images, css, javascript etc
+
+Tips to optimize Browser performance and memory consumption:
+
+* Use simple css and javascript frameworks
+* Do not display big lists with images on one page: use pagination
+
+### Ruby Virtual Machine
+
+Use system memory. Here is the notes about RubyVM memory usage:
+
+*	When application bundle creates ruby files compiled to internal format(iseq), so at runtime RubyVM work with precompiled files and do not perform ruby text parsing
+*	RubyVM hold required Ruby files in memory. All required files keeps in memory till application exit
+*	RubyVM allocate memory application objects. All global and class variables will remain in memory till you nil them
+*	Controller object allocates/deallocates for each controller method request. So you cannot keep persistent information in Controller object
+*	Ruby Garbage Collector works automatically. But to improve performance and stability GC is disabled before controller action and enabled after controller action exit. So if you allocate/deallocate a lot of Ruby objects in controller action: call GC.enable at the beginning.
+*	Rhodes loads only framework ruby files at startup, all other libraries loads by demand including models 
+
+Tips to optimize RubyVM performance and memory consumption:
+
+*	Load only required libraries
+*	Do not load all ruby files at start: it will slow down application startup time. Load them by demand
+*	Do not use big global or class variables. Keep persistent objects in database
+
+###	Sqlite database
+
+Use system memory.  Here is the notes about Sqlite memory usage:
+
+* In some cases it may take more memory then Ruby VM : it depends of the database size. 
+* Rhodes use unchanged Sqlite, so all documentation about Sqlite memory usage are correct for Rhodes Sqlite database. 
+* Here is the [database perfomance tips](http://edgedocs.rhomobile.com/rhodes/rhom#perfomance-tips)
+
+###	Native controls like TabBar, Toolbar, Map etc
+
+Use System memory and graphics objects.
+
+Tips to optimize Native Controls performance and memory consumption:
+
+*	Use low resolution camera images
+*	Do not put large amount of pins to one map view
+
+
