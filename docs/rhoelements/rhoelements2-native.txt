@@ -130,7 +130,7 @@ See the [RhoElements Licensing page](/rhoelements/licensing) for more informatio
 
 ## Overriding Motorola Webkit
 
-RhoElements will automatically use the Motorola WebKit browser for Windows Mobile, Windows CE and Android devices when you add the rhoelements app_type to your application's build.yml. 
+Your application will automatically use the Motorola WebKit browser for Windows Mobile, Windows CE and Android devices when the rhoelements app_type is found in the build.yml. 
 
     app_type: rhoelements
     
@@ -152,40 +152,29 @@ In conditions where your may have a traditional Rhodes application but would lik
 
 **NOTE: If you use the above setting without specifying <b>app_type: rhoelements</b>, <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span> APIs will not be available.**
 
-## Running RhoElements Applications in Shared Mode
+## Applications in Shared Mode
 
-If you are planning on building multiple applications to be run on the same device, you can choose build your application in what is called "shared mode". What this does is use common libraries from a RhoElements Runtime in a predefined location on the device, and the rest of the application is from the application code that you build. This will result in not duplicating common code and consuming extra memory.
-
-**NOTE: This is a more complicated setup that involves building and deploying two projects. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
+If you are planning on building multiple applications to be run on the same device, you can optionally choose to build your application in what is called "shared mode". Common libraries from a RhoElements Runtime is stored only once on a device in a predefined location. Each application then uses this shared location for the core libraries and the application's device footprint will only include the application specific code. This will result in not duplicating common code and consuming extra memory as well as produce faster compile times for each application.
 
 There are two steps to this setup.
 
-1. Build the RhoElements Runtime (can be done once).
+1. Install the RhoElements Runtime (can be done once).
 2. Build the application and indicate at build time that shared mode will be used.
+
+**NOTE: This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
 
 <!-- PLACEHOLDER - DIAGRAM NEEDED -->
 
-### Building The RhoElements Runtime
+### Installing The RhoElements Runtime
 
-To build the RhoElements Runtime, perform the following steps.
+After installing RhoMobile Suite, you will find a folder that includes an shared runtime installer for each platform
 
-On the command line on your Windows PC, navigate to this folder.
+	`<RhoMobile Suite Install Folder>\RhoElements2 Shared Runtime\Windows Mobile`
+	`<RhoMobile Suite Install Folder>\RhoElements2 Shared Runtime\Windows CE`
+	`<RhoMobile Suite Install Folder>\RhoElements2 Shared Runtime\Windows Android`
 
-	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
-To build for Windows Mobile or Windows CE, run this command.
-
-        rake device:wm:production
-
-The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
-
-To build for Android, run this command.
-
-        rake device:android:production
-
-The resulting `apk` file can be found at `<RhoMobileSuite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
-
-NOTE: The runtime application <b>must</b> be installed to the primary disk partition on the Windows CE/Mobile device, i.e. it has to be installed to `\Program Files\RhoElements2` only.
+NOTE: The runtime application <b>must</b> be installed to the primary disk partition on the Windows CE/Mobile device, i.e. it has to be installed to `\Program Files\RhoElements` only.
 On Windows Mobile, the `Device` option must be selected when the installer asks for the location to install.
 On Windows CE, the default path (`\Program Files\RhoElements`) must be selected.
 
