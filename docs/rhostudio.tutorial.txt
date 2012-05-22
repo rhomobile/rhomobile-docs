@@ -57,11 +57,11 @@ Then in RhoStudio Preferences, open Rhomobile and check that the path is set to 
 
 In RhoStudio, select File->New->Project...
 
-The New Project window opens. Select the Rhodes application wizard and click the Next button.
+The New Project window opens. Select the RhoMobile application wizard and click the Next button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project.png"/>
 
-Enter the name for your Rhodes application in Project name; in this case, "storemanager". You may specify a specific folder for your destination where your project is stored, by default, the destination is your RhoStudio workspace folder. Then press the Finish button.
+Enter the name for your Rhodes application in Project name; in this case, "storemanager". You may specify a specific folder for your destination where your project is stored, by default, the destination is your RhoStudio workspace folder. Uncheck the RhoElements checkbox if this is to be a strictly Rhodes application. Then press the Finish button.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard.png"/>
 
@@ -167,7 +167,7 @@ To create a new build configuration for your application, select Rhodes Applicat
 
 You can run your project in RhoSimulator, a simulator type available only in RhoStudio. RhoSimulator allows you to build and run your project on the platform of your choice without having to install the SDK for that platform. Instead, RhoSImulator will mimic the platform. RhoSimulator builds and runs your application quickly, making it useful for testing and debugging.
 
-** NOTE: Once you have done your application development and debugging, you will need to install the SDK to create a build for that device. Or you can upload your project to RhoHub, and use RhoHub to create the build for your device.
+**NOTE: Once you have done your application development and debugging, you will need to install the SDK to create a build for that device. Or you can upload your project to RhoHub, and use RhoHub to create the build for your device.**
 
 To run RhoSimulator for the iPhone platform, select your project from the Project Explorer (in this case, we use the storemanager project created earlier). Then select Run -> Run Configurations from the main menu.  The Run Configurations window appears.
 
@@ -274,7 +274,7 @@ To create a device build with RhoStudio, you need to do the following:
  * Set RhoStudio Preferences to that platform's SDK.
  * In Run Configurations, set to that device, then do the device build and run.
 
-** NOTE: You can do the device build with RhoHub if you wish to avoid installing the SDKs on your computer. To do your device build on RhoHub, upload your application into RhoHub, then use RhoHub to create the device build. Instructions for using RhoHub are in the [Rhohub tutorial](rhohub/tutorial).
+**NOTE: You can do the device build with RhoHub if you wish to avoid installing the SDKs on your computer. To do your device build on RhoHub, upload your application into RhoHub, then use RhoHub to create the device build. Instructions for using RhoHub are in the [Rhohub tutorial](rhohub/tutorial).**
 
 ### Installing the SDK
 
