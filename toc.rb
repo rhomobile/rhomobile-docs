@@ -144,7 +144,7 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/scanner','Scanner'      
   topic 'rhoelements/screenorientation',      'ScreenOrientation'
   topic 'rhoelements/SignatureCapture',      'SignatureCapture'
-  topic 'rhodesapi/signaturetool-api',             'SignatureTool'
+  topic 'rhodesapi/signaturecapture-api',             'SignatureCapture (Inline)'
   topic 'rhoelements/sip',      'SIP'
   topic 'rhoelements/signal',      'Signal'
   topic 'rhoelements/sipbutton',      'SipButton'

@@ -128,22 +128,6 @@ NOTE: For Motorola devices and Non-Motorola devices that run Windows Mobile or W
 
 See the [RhoElements Licensing page](/rhoelements/licensing) for more information.
 
-## Overriding Motorola Webkit
-
-Your application will automatically use the Motorola WebKit browser for Windows Mobile, Windows CE and Android devices when the rhoelements app_type is found in the build.yml. 
-
-    app_type: rhoelements
-    
-In some conditions you may want to use the default native browser. (For example, your application requires certain CSS features that only work on the native Android browser). In these scenarios you can omit the <b>app_type: rhoelements</b> or alternatively add the native browser capability to your application's build.yml file:   
-
-    app_type: rhoelements
-    capabilities:
-    - native_browser
-
-**NOTE: Using the native browser capability will not provide Mobile APIs through: <span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>. Only [Rhodes Device Capabilities](rhodes/device-caps) will be available via <span class="label label-important">RUBY</span>**
-
-**NOTE: Windows CE does not support a native browser (Internet Explorer), so use 'apptype: rhoelements' or 'motorola_browser' capability to build application for Windows CE**
-
 ## Enabling Motorola Webkit
 In conditions where your may have a traditional Rhodes application but would like to utilize the Motorola Webkit on Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
 
