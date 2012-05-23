@@ -28,7 +28,7 @@ task :index do
     $stdout.flush
   end
   Topic.all_topics.each do |doc|
-    if File.exist?(doc)
+    if File.exist?(doc) and File.basename(doc) != 'credits.txt'
       name = name_for(doc)
       puts "...indexing #{name}"
       source = File.read(doc)
