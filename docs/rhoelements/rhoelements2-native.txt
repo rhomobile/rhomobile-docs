@@ -36,11 +36,11 @@ The build.yml file for your application manages your RhoElements build time conf
 
 Rhobuild setting WYSIWIG editor:
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/buildyml-rhobuildsetting.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/buildyml-rhoelbuildsetting.png"/>
 
 build.yml text editor:
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/buildyml-textedit.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/buildyml-rhoeltextedit.png"/>
 
 You can add capabilities to your application, such as camera and vibrate, by pressing the Capabilities: Add button, selecting the capabilities from the popup window, and clicking the Ok button.
 
