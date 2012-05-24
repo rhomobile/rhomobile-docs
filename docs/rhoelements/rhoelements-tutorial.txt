@@ -1,8 +1,11 @@
 #RhoElements Tutorial
-This tutorial will outline the steps required to create a sample inventory management application using RhoElements and RhoMobile Suite. The application will allow a user to scan barcodes and keep a running tally of how many times each item was scanned. To keep things simple we will not be doing any synchronization in this part of the tutorial and will cover that topic later on. Before we begin, make sure you have downloaded RhoMobile Suite and followed the setup instructions. Recall that RhoStudio is an Eclipse based IDE that allows you to write a mobile application using HTML, Javascript and Ruby that will run on multiple mobile platforms. Each mobile platform’s development environment is used in the build process to compile a final executable for that platform. It is imperative that you have this complete development environment setup for each platform you will be building on. The details for this setup can be found here.  In this tutorial will begin by developing using RhoSimulator, but the final application will be running on a device.
+This tutorial will outline the steps required to create a sample inventory management application using RhoElements and RhoMobile Suite. The application will allow a user to scan barcodes and keep a running tally of how many times each item was scanned. To keep things simple, we will not be doing any synchronization in this part of the tutorial and will cover that topic later on. 
+
+## Setting Up
+Before we begin, make sure you have [downloaded and installed RhoMobile Suite](/rhoelements/rhoelements-install). Recall that RhoStudio is an Eclipse based IDE that allows you to write a mobile application using HTML, Javascript and Ruby that will run on multiple mobile platforms. Each mobile platform’s development environment is used in the build process to compile a final executable for that platform. It is imperative that you have this complete development environment setup for each platform you will be building on. The prerequisites and setup for building on each mobile platform (for example, setting up an Android SDK) can be found [here](/rhodes/build). In this tutorial we will begin by developing using RhoSimulator, but the final application will be running on a device.
 
 ## Project Structure
-After  launching RhoStudio, let’s create a new project inside by selecting ‘File/New Project’. You should see a dialog appear like the one below. Select ‘RhoMobile application’ and then click the ‘Next’ button.  
+After launching Motorola RhoStudio, let’s create a new project inside by selecting ‘File/New Project’. You should see a dialog appear like the one below. Select ‘RhoMobile application’ and then click the ‘Next’ button.  
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image001.png"/>
 
@@ -14,17 +17,17 @@ This will create a blank RhoMobile project with a directory structure similar to
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image003.png"/>
  
-Let’s take a look at the file structure for a moment and explain what is going on. The ‘app’ folder, as it may sound, is where we will put the core application files including all of our data models and their corresponding views and controllers (more on that in a moment). The ‘icon’ folder contains the image use for the application icon. The ‘public’ folder will contain some subfolders to hold our CSS and Javascript files. By default, RhoStudio includes jQuery Mobile/Jquery and corresponding CSS files. For the sake of this example we will not be replacing any of these and will be focusing on the ‘app’ folder contents. Recall that a Rhodes application follows a MVC (Model/View/Controller) approach and essentially the application is running a self contained web server.  The user interface is primarily determined by the ‘Views’ or ‘.erb’ files. The ‘layout.erb’  file, as the name implies, defines the main layout for the application. If you open it up in RhoStudio, you will see something that looks very familiar to a typical HTML file.
+Let’s take a look at the file structure for a moment and explain what is going on. The ‘app’ folder, as it may sound, is where we will put the core application files including all of our data models and their corresponding views and controllers (more on that in a moment). The ‘icon’ folder contains the image use for the application icon. The ‘public’ folder will contain some subfolders to hold our CSS and Javascript files. By default, RhoStudio includes jQuery Mobile/Jquery and corresponding CSS files. For the sake of this example, we will not be replacing any of these and we will be focusing on the ‘app’ folder contents. Recall that a Rhodes application follows a MVC (Model/View/Controller) approach and essentially the application is running a self contained web server.  The user interface is primarily determined by the ‘Views’ or ‘.erb’ files. The ‘layout.erb’  file, as the name implies, defines the main layout for the application. If you open it up in RhoStudio, you will see something that looks very familiar to a typical HTML file.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image004.png"/>
  
 You will notice typical html tags like:
 
 	<title>InventoryManagement</title>
-But will also see Ruby syntax included in tags that contain percent symbols
+You will also see Ruby syntax included in tags that contain percent symbols.
 
 	<% if is_bb6 %>
-This is what is called inline Ruby syntax. If this file was called ‘layout.html’ then the ruby syntax would not be recognized, but since it has a ‘.erb’ extension, we can include ruby syntax. Typically this is done for conditional reasons where you would like to change the HTML tags based on some conditions. You can see from the layout.erb file, that there are several conditional statements that determine what style sheet to use based on the running operating system the application is executing on. We will come back to this file later on to modify the look of the application, but for now we will leave it alone.
+This is what is called inline Ruby syntax. If this file was called ‘layout.html’ then the ruby syntax would not be recognized, but since it has a ‘.erb’ extension, we can include ruby syntax. Typically this is done for conditional reasons, where you would like to change the HTML tags based on some conditions. You can see from the layout.erb file that there are several conditional statements that determine what style sheet to use based on the running operating system the application is executing on. We will come back to this file later on to modify the look of the application, but for now we will leave it alone.
 
 Towards the bottom of the ‘layout.erb’ file you will see
 	<% content %>
@@ -34,23 +37,23 @@ This is where the ‘main’ ui will be placed. Initially when the app is launch
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image005.png"/>
  
 ##First Time Run 
-Before we add the data models we will use for the application. Let’s compile the application and see what happens. From the RhoStudio menu, select ‘Run/Run Configurations’:
+Before we add the data models we will use for the application, let’s compile the application and see what happens. Highlight your project folder in the Project Explorer (in this example, it is named InventoryMangement). Then from the RhoStudio menu, select ‘Run/Run Configurations’:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image006.png"/>
  
-Select ‘RhoMobile Application’ and the ‘New Launch Configuration’ icon:
+Select ‘RhoMobile Application’ and the ‘New_Configuration’ icon underneath. (You may need to right-click ‘RhoMobile Application’ and select New to get the ‘New_Configuration’ icon.) The Run Configurations window appears. Rename the run configuration from New_configuration to InventoryMangement.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image007.png"/>
  
-You can optionally change the name and then click ‘Run’. Be sure to keep the ‘Simulator type’ as ‘RhoSimulator’. You will see indication in the console tab that the project is compiling:
+Click ‘Run’. Be sure to keep the ‘Simulator type’ as ‘RhoSimulator’. You will see indications in the console tab that the project is compiling:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image008.png"/>
  
-After a few moments you will see two new windows open. The simulator showing the application as well as the ‘Web Inspector’. The simulator window shows how the application will look on the device. And the ‘Web Inspector’ is a tool that can be used to help troubleshoot your application.
+After a few moments you will see two new windows open: the simulator showing the application, and the ‘Web Inspector’. The simulator window shows how the application will look on the device. The ‘Web Inspector’ is a tool that can be used to help troubleshoot your application.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image009.png"/>
  
-As you can see, the application does not really do anything expect to show the contents of  ‘/app/index.erb’:
+As you can see, the application does not really do anything except to show the contents of  ‘/app/index.erb’:
 
 	  <div data-role="content">
 		<ul data-role="listview">
@@ -61,26 +64,26 @@ As you can see, the application does not really do anything expect to show the c
 The code snippet above is what is shown in the simulator. The ‘data-role’ part of the HTML tags is jQuery syntax that controls the look and behavior of the list item. Let’s close both of these windows so we can start to add the data models we will use for the application.
 
 ## Adding The Product Catalog Data Model
-Right click on the project folder in the Project Explorer and select ‘New’ followed by ‘Rhodes model’ and name it ProductCatalog. It will have three attributes – Name, SKU and Image and will store information about the products in our inventory. 
+Right-click on your project folder in the Project Explorer. Select ‘New’ followed by ‘Rhodes model’ and name it ProductCatalog. It will have three attributes – Name, SKU and Image – and it will store information about the products in our inventory. Do not enter spaces between the attributes.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image010.png" />
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image011.png"/>
  
  
-NOTE: Pay attention to the case you using for model attributes. Ruby is case sensitive, so it is recommend you follow the same approach to case through your code.
+NOTE: Pay attention to the case you are using for model attributes. Ruby is case sensitive, so it is recommended that you follow the same case sensitive approach through your code.
 
 Creating a model will add a new folder to the ‘app’ directory with the name of that model along with a set of prebuilt files for different views as well as the model controller to handle the logic for each of these views:
 	index.erb: lists all ProductCatalog items
 	new.erb: form for creating a new ProductCatalog item
 	edit.erb: form for updating an existing ProductCatalog item
-	show.erb: page that just shows an existing ProductCatalog item
+	show.erb: page that shows an existing ProductCatalog item
 
-If you open these files up, you will see they look very similar to the /app/index.erb we mentioned before. These files define how the page will look using a combination of HTML and inline Ruby syntax. All of the logic for this model is stored in the product_catalog_controller.rb:
+If you open these files, you will see they look very similar to the /app/index.erb we mentioned before. These files define how the page will look using a combination of HTML and inline Ruby syntax. All of the logic for this model is stored in the product_catalog_controller.rb:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image012.png"/>
  
-You can think of these as functions or methods that can be executed for this model. As you can see, there is a corresponding method for each view that was created before. When a view is loaded, it will look for the corresponding method in the controller to execute prior to rendering the view. By default, ‘index.erb’ is loaded when no specific view is referenced. As you can see in the example, this will execute the ‘index’ method inside the product_catalog_controller.erb. This file is purely Ruby syntax. It will have Rhodes Mobile APIs available to the application as well as standard Ruby syntax. 
+You can think of these as functions or methods that can be executed for this model. As you can see, there is a corresponding method for each view that was created before. When a view is loaded, it will look for the corresponding method in the controller to execute prior to rendering the view. By default, ‘index.erb’ is loaded when no specific view is referenced. As you can see in the example, this will execute the ‘index’ method inside the product_catalog_controller.rb. This file is purely Ruby syntax. It will have Rhodes Mobile APIs available to the application as well as standard Ruby syntax. 
 
 Now let’s add this model to our ‘app/index.erb’ so that we can see how these methods are already plugged into the application. We will use these CRUD methods for our real application in the upcoming steps, but in a different manor. Open up the ‘/app/index.erb’ file and replace the line:
 	<li><a href="#">Add link here...</a></li>
@@ -88,7 +91,7 @@ With
 	<li><a href="ProductCatalog">Catalog</a></li>
 
 ##Testing The Data Model    
-Select ‘Run/RunConfigurations’ again and click ‘Run’ after you selected the run project we setup before (it should be selected already). This time we see the new ‘Catalog’ entry:
+Select ‘Run/RunConfigurations’ again and click ‘Run’ after you selected the run project we set up before (it should be selected already). This time we see the new ‘Catalog’ entry:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image013.png"/>
  
@@ -105,7 +108,7 @@ This essentially creates a new ProductCatalog item and assigns it to the variabl
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image016.png"/>
  
-Go ahead and create an item. It does not matter what you type in, we will be deleting it after you see that the model’s CRUD views and methods are working. Notice that in the ‘new.erb’ file, the POST action for the form is calling the ‘create’ method
+Go ahead and create an item. It does not matter what you type in, we will be deleting it after you see that the model’s CRUD views and methods are working. Notice that in the ‘new.erb’ file, the POST action for the form is calling the ‘create’ method.
 	<form method="POST" action="<%= url_for :action => :create %>">
 And the corresponding ‘create’ method in the controller file looks like:
 	  def create
@@ -114,7 +117,7 @@ And the corresponding ‘create’ method in the controller file looks like:
 	  end
 
 
-This creates the new record in the ProductCatalog model and redirects the page back to the index.erb 
+This creates the new record in the ProductCatalog model and redirects the page back to the index.erb.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image017.png"/>
  
@@ -129,7 +132,7 @@ Select that item. Press the ‘Edit’ button. This will change the view to the 
 Go ahead and delete that record as we will write some code to preload the ProductCatalog with some sample data.
 
 ##Preloading The Product Catalog
-To seed our initial database of products under the ProductCatalog, we will have a JSON file with sample data. In a real world scenario, you may choose to use AJAX and Web Services to retrieve you product catalog or you may also use RhoConnect to keep your product catalog synchronized (we will show you how to do this later on). To create the file, Right click on the ‘public’ folder under the application folder and click on New -> File to bring up the new file dialog. Name the file Products.txt and click Finish. This will create an empty text file which we will populate with sample data. Copy and paste the text below.
+To seed our initial database of products under the ProductCatalog, we will have a JSON file with sample data. In a real world scenario, you may choose to use AJAX and Web Services to retrieve your product catalog or you may also use RhoConnect to keep your product catalog synchronized (we will show you how to do this later on). To create the file, right-click on the ‘public’ folder under the application folder and click on New -> File to bring up the new file dialog. Name the file Products.txt and click Finish. This will create an empty text file which we will populate with sample data. Copy and paste the text below.
 
 	[
 	{"SKU": "12345", "Name": "Converse Hi-Top", "Image" : "data:image/jpeg;base64,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%3D%3D"},
@@ -141,7 +144,7 @@ To seed our initial database of products under the ProductCatalog, we will have 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image018.png"/>
  
 
-Where ‘SKU’ is the barcode for an item, ‘Name’ is the name of the item and ‘Image’ contains the base64 string representation of the image related to that product. There are tools available online to convert an image to its base64 representation which you can use.  This is also referred to as ‘DataURI’ and can be a nice way to handle images without having to have a whole bunch of physical files, you can keep it all in the data scheme. As you may recall, all of the UI is rendered though a browser and the <IMG> tag displays base64 strings very nicely.
+‘SKU’ is the barcode for an item, ‘Name’ is the name of the item and ‘Image’ contains the base64 string representation of the image related to that product. There are tools available online to convert an image to its base64 representation which you can use. This is also referred to as ‘DataURI’ and can be a nice way to handle images without having to have a whole bunch of physical files, you can keep it all in the data scheme. As you may recall, all of the UI is rendered though a browser and the <IMG> tag displays base64 strings very nicely.
 
 Save the file after copying the JSON string and open the ‘application.rb’ file under the ‘app’ directory.  This code gets executed when the application starts up.
 
@@ -164,17 +167,17 @@ Add the following code before the first ‘end’ statement:
       #The catalog has been loaded already there is nothing to do
     end
 
-Save the file and close it. The first line of this code snippet tries to get all the objects inside of the ProductCatalog model. It then checks if the resulting collection is empty, in which case we have no records and we need to seed it with the JSON file. It then opens the ‘Products.txt’ file using the ‘File’ module. The 
+Save the file and close it. The first line of this code snippet tries to get all the objects inside of the ProductCatalog model. It then checks if the resulting collection is empty, in which case we have no records and we need to seed it with the JSON file. It then opens the ‘Products.txt’ file using the ‘File’ module. The line
 
 	Rho::RhoApplication::get_base_app_path()
 
-line refers to the Rhodes API for getting the path to the root of the application. After reading and parsing each line, a ProductCatalog entry is created using the data returned from the JSON file. 
+refers to the Rhodes API for getting the path to the root of the application. After reading and parsing each line, a ProductCatalog entry is created using the data returned from the JSON file. 
 
-Let’s run the app in RhoSimulator again (Run/RunConfigurations), and see if the Product Catalog gets loaded. If you do not see the set of products that we had in the seed data, then most likely you did not delete all records from the previous steps. Recall that our code that we added to the initialize will load the see data if there are no records in the ProductCatalog model. You should see something that looks like:
+Let’s run the app in RhoSimulator again (Run/RunConfigurations), and see if the Product Catalog gets loaded. If you do not see the set of products that we had in the seed data, then most likely you did not delete all records from the previous steps. Recall that our code that we added to the initialize will load the seed data if there are no records in the ProductCatalog model. You should see something that looks like:
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image019.png"/>
  
-If you click on a item, you should see all three properties have data from the see file. If you do not, then you probably misspelled the properties when creating the ProductCatalog model (ex: ‘Sku’ instead of ‘SKU’). No need to worry, simply delete the ProductCatalog folder from the project and recreate the ProductCatalog model (recall we did not modify any of the prebuilt pages for the ProductCatalog yet). 
+If you click on a item, you should see that all three properties have data from the seed file. If you do not, then you probably misspelled the properties when creating the ProductCatalog model (ex: ‘Sku’ instead of ‘SKU’). No need to worry, simply delete the ProductCatalog folder from the project and recreate the ProductCatalog model (recall we did not modify any of the prebuilt pages for the ProductCatalog yet). 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image020.png"/>
  
@@ -193,7 +196,7 @@ Now that we have our ProductCatalog created and pre-populated, let’s add a sec
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image022.png"/>
  
 
-Open the ‘index.erb’ file under the ‘app’ folder again to add a link to the Inventory viewer. Do this by adding the following line of code under the “View Catalogs” list item:
+Open the ‘index.erb’ file under the ‘app’ folder again to add a link to the Inventory viewer. Do this by adding the following line of code under the “View Catalog” list item:
 
 	<li><a href="Inventory">View Inventory</a></li> 
 
@@ -201,7 +204,7 @@ Open the ‘index.erb’ file under the ‘app’ folder again to add a link to 
 
  
 
-Save the file, re-deploy the project and click on the “View Inventory” link inside the app. The resultant page will be blank because we do not have any entries in the Inventory model yet. Click on the ‘New’ button on the top right of this screen to bring up the New Inventory screen with an option to add an SKU and a quantity for that item. Add an SKU number you have used in the ProductCatalog model and set its quantity to 1 and click on ‘Create’. 
+Save the file, run the project again, and click on the “View Inventory” link inside the app. The resultant page will be blank because we do not have any entries in the Inventory model yet. Click on the ‘New’ button on the top right of this screen to bring up the New Inventory screen with an option to add an SKU and a quantity for that item. Add an SKU number that you have used in the ProductCatalog model, set its quantity to 1 and click on ‘Create’. 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image024.png"/>
 
@@ -215,7 +218,7 @@ This redirects back to the Inventory list with an entry for the inventory item t
 ##Changing The Inventory List View
 Let’s now change the Inventory List view slightly to show the quantity and the item image in the same list. By default, you should see a collection of all the entries inside the Inventory model returned in the ‘@inventories’ variable. We will use this collection to change the display of the inventory list. Open the ‘index.erb’ file inside the Inventory folder. 
 
-Add the following code after the line <% @inventories.each do |inventory| %>
+Add the following code after the line `<% @inventories.each do |inventory| %>`
 
 	<%
           product = ProductCatalog.find(
@@ -232,7 +235,7 @@ Add the following code after the line <% @inventories.each do |inventory| %>
           end
 	%>
 
-The <% @inventories.each do |inventory| %> line picks up each Inventory entry using the ‘@inventories’ variable we declared in the code behind file and performs the operations listed above. We look up the ProductCatalog model to find the item’s catalog by SKU using the ‘ProductCatalog.find’ function. If we find an item for it, we get the name of the product and if it has an image, get the base64 of that image from the catalog. If we do not find the product in our catalogs, we simply set the name to be the SKU. To show the name, image and quantity in the list view, change the list item on this page as described below: 
+The `<% @inventories.each do |inventory| %>` line picks up each Inventory entry using the ‘@inventories’ variable we declared in the code behind file and performs the operations listed above. We look up the ProductCatalog model to find the item’s catalog by SKU using the ‘ProductCatalog.find’ function. If we find an item for it, we get the name of the product and if it has an image, get the base64 of that image from the catalog. If we do not find the product in our catalogs, we simply set the name to be the SKU. To show the name, image and quantity in the list view, change the list item on this page as described below: 
 		<li>
             <a href="<%= url_for :action => :edit, :id => inventory.object %>">
               <img src="<%= isrc %>" class="ui-li-thumb">
@@ -289,14 +292,14 @@ Deploy the application and click on the ‘Scan a barcode’ link to view the pa
 
  
 
-Notice that we setup a button
+Notice that we setup a button.
 
 	<a href="/app/Inventory/index" data-role="button" id="numberScanned">0 Items Scanned</a></li>
 
-This will let the user click on the button to see the complete list of items inventoried (basically the default Inventory/index.erb file we modified before). Notice how we specify the path to the page 
+This will let the user click on the button to see the complete list of items inventoried (basically the default Inventory/index.erb file we modified before). Notice how we specify the path to the page.
 
 ##Enabling Barcode Scanning
-Next, we will setup the controller to trigger the Scanner to start as soon as the scanPage is loaded.  Open up ‘inventory_controller.rb’ under the Inventory model. Notice how there are functions for each ‘.erb’ file in the controller. This indicates the behavior of the application when a page is called so that the developer can add additional functions before the page loads. For example, we need to add code to turn the Scanner on before the app directs to ‘scanPage.erb’ so we add a function inside the controller called ‘scanPage’ and turn the Scanner on before rendering ‘scanPage.erb’. The ‘scanPage’ function looks like:
+Next, we will setup the controller to trigger the Scanner to start as soon as the scanPage is loaded.  Open up ‘inventory_controller.rb’ under the Inventory model. Notice how there are functions for each ‘.erb’ file in the controller. This indicates the behavior of the application when a page is called so that the developer can add additional functions before the page loads. For example, we need to add code to turn the Scanner on before the app directs to ‘scanPage.erb’. To do this, we add a function inside the controller called ‘scanPage’ and turn the Scanner on before rendering ‘scanPage.erb’. The ‘scanPage’ function looks like:
 
 	def scanPage
       Scanner.decodeEvent = url_for(:action => :decodeEventCallback)
@@ -306,7 +309,7 @@ Next, we will setup the controller to trigger the Scanner to start as soon as th
 
 This function calls the Rhodes ‘Scanner’ class and firsts assigns a decode event callback. This function is what gets executed on a successful barcode decode. The ‘Scanner.enable’ line makes the scanner active for this page and the user can press the scanner button on the device to bring up the viewfinder and perform a scan. After enabling the scanner, the function renders the ‘scanPage.erb’ page and attaches the Back action to display the home screen, i.e. the ‘index.erb’ at the root of the ‘app’. 
 
-NOTE: At the time of writing this tutorial the Scanner object is only available on Motorola Hardware. You will need a device at this point to complete the remainder of the project. Alternatively, I could have chosen the Barcode object with slightly different syntax. Please consult the complete list of Mobile APIs as well as the API Compatibility Matrix to see which APIs are supported on which platforms.
+NOTE: At the time of writing this tutorial, the Scanner object is only available on Motorola Hardware. You will need a device at this point to complete the remainder of the project. Alternatively, I could have chosen the Barcode object with slightly different syntax. Please consult the complete list of Mobile APIs as well as the [API Compatibility Matrix](/rhoelements/apicompatibility) to see which APIs are supported on which platforms.
 
 The ‘decodeEventCallback’ function is given below:
 
@@ -352,7 +355,7 @@ The ‘decodeEventCallback’ function is given below:
 
 	  end     
 
-Let’s look at this function line by line. When the decode event returns after a successful decode, it contains a few parameters (a full list is provided in the Rhodes API for Scanner) out of which we extract the ‘data’ element which contains the barcode that was just scanned. With that barcode, we find the ProductCatalog entry we may have for that product by matching the ‘barcode’ variable to each product’s ‘SKU’.  If we do not have an entry for that barcode, we create a new one with a default ‘Name’ and ‘Image’.
+Let’s look at this function line by line. When the decode event returns after a successful decode, it contains a few parameters (a full list is provided in the [RhoElements API for Scanner](/rhoelements/scanner)) out of which we extract the ‘data’ element which contains the barcode that was just scanned. With that barcode, we find the ProductCatalog entry we may have for that product by matching the ‘barcode’ variable to each product’s ‘SKU’.  If we do not have an entry for that barcode, we create a new one with a default ‘Name’ and ‘Image’.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image028.png"/>
 
@@ -366,7 +369,7 @@ This will execute the JavaScript function ‘setImgSrc’ (which we will create 
 
 The decode event callback then tries to find an entry in the Inventory model for the product that we just scanned so that we can fetch the Quantity parameter to determine how many of this product have we already scanned. If the result of the find is nil, it means we have no entry for this product in our Inventory model in which case we create an entry by using ‘Inventory.create’ and set its Quantity to 1. This ‘create’ function, as well as others, can be executed on any data model that you have created. We pass in a Ruby hash that essentially has a list of property names and their values. 
 
- If we do find an entry in the Inventory model, we fetch the Quantity saved in the database, convert it to an integer by using ‘Quantity.to_i’, increment it by one and update that record by using ‘inventoryItem.update_attribute’. Finally we save this change by executing an ‘Inventory.save’. The block of code after this step that checks to see if the itemCount is nil is used when we scan an item for the first time. In that case, the itemCount will be nil and we initialize it to 1 just for ease of displaying on the screen. Then we call a ‘getInventoryCount’ method in the controller to count the total number of items we have scanned. Create this method in the inventory_controller.erb:
+ If we do find an entry in the Inventory model, we fetch the Quantity saved in the database, convert it to an integer by using ‘Quantity.to_i’, increment it by one and update that record by using ‘inventoryItem.update_attribute’. Finally we save this change by executing an ‘Inventory.save’. The block of code after this step that checks to see if the itemCount is nil is used when we scan an item for the first time. In that case, the itemCount will be nil and we initialize it to 1 just for ease of displaying on the screen. Then we call a ‘getInventoryCount’ method in the controller to count the total number of items we have scanned. Create this method in the inventory_controller.rb:
 
 	def getInventoryCount  
          
@@ -421,7 +424,7 @@ This statement is jQuery syntax that effectively executes a function when the pa
 
 One other thing we will do here is remove the default Rhodes toolbar, since we want our UI to take up most of the real estate. This is easily accomplish by going back into the ‘app/application.rb’ file.  Look for the line:
 
-#@@toolbar = nil
+	#@@toolbar = nil
 
 And remove the ‘#’ to uncomment the line. 
 
