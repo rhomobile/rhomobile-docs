@@ -9,6 +9,7 @@ section 'getting-started', 'Getting Started' do
   topic 'tutorials',            'How To'
   topic 'architecturefaq',      'Architecture FAQ'
   topic 'faq',                  'Programming FAQ'
+  topic 'credits',                  'Credits'
 end
 
 
@@ -54,7 +55,6 @@ section 'rhodes-reference', 'Developer Reference' do
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'  
   topic 'rhodes/simulator',         'Using RhoSimulator'
   topic 'rhodes/contributing',      'Contributing'
-  topic 'credits',                  'Credits'
 end
 
 section 'api', 'Mobile API Reference'
