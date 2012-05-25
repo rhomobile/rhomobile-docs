@@ -4,10 +4,13 @@ If you have an existing application that is running from a web server, it is ver
 
 ## Installing the RhoElements Runtime
 
+**NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites like other mobile development platforms or Java. However, to obtain the individual platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
+
 After [Installing Motorola RhoMobile Suite](/rhoelements/rhoelements-install), there will be a set of executables (runtimes) for Windows Mobile, Windows CE and Android found in subfolder of where you installed RhoMobile Suite. You will need to install these executables on each device that will be used for your application. In order for RhoElements to start with your web app, you need to configure it so that it knows which URL to start with. This can be accomplished in multiple ways:
 
 1. Creating a shortcut that changes the default URL that is loaded
 2. Modifying the &lt;StartPage&gt; parameter in the default config.xml file
+
 
 ##Writing Your First RhoElements Application
 
