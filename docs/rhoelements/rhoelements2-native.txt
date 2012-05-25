@@ -145,7 +145,7 @@ There are two steps to this setup.
 1. Install the RhoElements Runtime (can be done once).
 2. Build the application and indicate at build time that shared mode will be used.
 
-**NOTE: This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
+**NOTE: The RhoElements Runtime is only available on [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices). This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
 
 <!-- PLACEHOLDER - DIAGRAM NEEDED -->
 

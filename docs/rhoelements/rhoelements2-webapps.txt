@@ -195,6 +195,8 @@ To build for Android, run this command.
 
 The resulting `apk` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
 
+**NOTE: The RhoElements Runtime is only available on [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices).**
+
 ### Deploying The Customized Runtime 
 
 To install your customized Runtime application on your specific device, go to the [build instructions](/rhodes/build) for your platform and use the instructions to deploy an application on your device.
