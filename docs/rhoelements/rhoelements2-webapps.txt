@@ -245,7 +245,7 @@ Navigating to <b>http://localhost:8080/index.htm</b> will load the same page via
 ##Device Uninstallation
 ###Regular Installation
 
-To uninstall a regular installation of RhoElements:
+To uninstall RhoElements on the device:
 <ol>
 <li>
 Connect your device to you PC via the USB cable and wait for Microsoft ActiveSync to connect.
@@ -261,15 +261,6 @@ RhoElements will now uninstall from your device.
 </li>
 </ol>
 Any user generated files and folders and any log files in the \Program Files\RhoElements directory will not be deleted.
-###Persistent Installation
-
-To uninstall a persistent installation of RhoElements remove the following files and directories:
-<ul>
-<li>\Application\RhoElements_RegSettings.reg
-<li>\Application\RhoElements.cpy
-<li>\Application\RhoElements\*
-<li>\Program Files\RhoElements\*
-</ul>
 
 ##Conclusion and best practice
 
