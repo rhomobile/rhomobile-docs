@@ -282,7 +282,7 @@ If you start your application with rake, then the log file is additionally store
 
 ## Setting the Application Name and Icon, Upgrading the Application
 
-You can use the Rhodes instructions for [how to set application name and icon](http://edgedocs.rhomobile.com/rhodes/build#how-to-set-application-name-and-icon) and [upgrading an application](/rhodes/build#upgrade-application).
+You can use the Rhodes instructions for [how to set application name and icon](/rhodes/build#how-to-set-application-name-and-icon) and [upgrading an application](/rhodes/build#upgrade-application).
 
 ## Using A Different RhoElements Library
 

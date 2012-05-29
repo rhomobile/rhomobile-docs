@@ -251,7 +251,7 @@ Use system memory.  Here is the notes about Sqlite memory usage:
 
 * In some cases it may take more memory then Ruby VM : it depends of the database size. 
 * Rhodes use unchanged Sqlite, so all documentation about Sqlite memory usage are correct for Rhodes Sqlite database. 
-* Here is the [database perfomance tips](http://edgedocs.rhomobile.com/rhodes/rhom#perfomance-tips)
+* Here is the [database perfomance tips](/rhodes/rhom#perfomance-tips)
 
 ###	Native controls like TabBar, Toolbar, Map etc
 

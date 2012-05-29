@@ -9,7 +9,7 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoStudio Tutorial](http://edgedocs.rhomobile.com/rhostudio.tutorial)
+ * [RhoStudio Tutorial](/rhostudio.tutorial)
 
 ## Setup
 
@@ -150,7 +150,7 @@ When the application stops at the breakpoint, you can see the local variable in 
 
 ## Checking Device Specific Capabilities
 
-For various device specific capabilities, such as cameras, we are documenting them on our documentation site, edgedocs.rhomobile.com (14:28 in the webinar video). Under Rhodes Developer Reference, click on Device Capabilities. You will see a device support matrix that shows what release supports what device on a per device operating system basis. Along with iPhone, Android, and other devices, there is a listing for RhoSimulator in this matrix.
+For various device specific capabilities, such as cameras, we are documenting them on our [documentation site](/) (14:28 in the webinar video). Under Rhodes Developer Reference, click on Device Capabilities. You will see a device support matrix that shows what release supports what device on a per device operating system basis. Along with iPhone, Android, and other devices, there is a listing for RhoSimulator in this matrix.
 
 There is currently no iOS version of this debugger, but you can add the iPhone CSS and see how it looks on the iPhone.
 
