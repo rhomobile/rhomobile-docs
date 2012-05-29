@@ -1,20 +1,20 @@
 # RhoElements-Enabling Your Web App
 
-If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile of RhoElements application using RhoStudio. You simply need to install a RhoElements runtime application on the device and configure it to point to your web server.
+If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to install a RhoElements runtime application on the device and configure it to point to your web server.
 
 ## Installing the RhoElements Runtime
 
-**NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites like other mobile development platforms or Java. However, to obtain the individual platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
+**NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Developement Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
 
 After [Installing Motorola RhoMobile Suite](/rhoelements/rhoelements-install), there will be a set of executables (runtimes) for Windows Mobile, Windows CE and Android found in subfolder of where you installed RhoMobile Suite. You will need to install these executables on each device that will be used for your application. In order for RhoElements to start with your web app, you need to configure it so that it knows which URL to start with. This can be accomplished in multiple ways:
 
-1. Creating a shortcut that changes the default URL that is loaded
-2. Modifying the &lt;StartPage&gt; parameter in the default config.xml file
+1. Creating a shortcut that changes the default URL that is loaded.
+2. Modifying the &lt;StartPage&gt; parameter in the default config.xml file.
 
 
 ##Writing Your First RhoElements Application
 
-This section will take you step by step through creating your first web based scanning application for your Motorola Device using RhoElements. The tutorial is based on the ubiquitous "Hello World" application but instead of simply displaying this message, will enable the scanner and display a message when a barcode is decoded.&nbsp;Once you have completed this tutorial you should be familiar with the RhoElements language, "EMML" and how this applies to the other features of RhoElements such as the Signature Capture or Gesture modules.
+This section will take you step by step through creating your first web based scanning application for your Motorola Device using RhoElements. The tutorial is based on the ubiquitous "Hello World" application but instead of simply displaying this message, it will enable the scanner and display a message when a barcode is decoded.&nbsp;Once you have completed this tutorial you should be familiar with the RhoElements language, "EMML" and how this applies to the other features of RhoElements such as the Signature Capture or Gesture modules.
 
 ###Hello Scan
 
@@ -25,7 +25,7 @@ document and save it as HelloScan.html.
 adding an &lt;html&gt;, &lt;head&gt;, &lt;title&gt; and &lt;body&gt;
 section. 
 
-NOTE: Although RhoElements does not have a title bar due to it providing you with the maximum screen real estate for your application, the title will appear in any dialog boxes (alerts etc) that are displayed.
+NOTE: Although RhoElements does not have a title bar due to it providing you with the maximum screen real estate for your application, the title will appear in any dialog boxes (alerts, etc.) that are displayed.
 
 	<html>
 	   <head>
@@ -48,7 +48,7 @@ NOTE: Although RhoElements does not have a title bar due to it providing you wit
 	   </body>
 	</html>
 
-4) We are now going to add a couple of &lt;meta&gt; tags that will contain the EMML to enable the scanner and call a JavaScript function when a barcode is decoded. Add this tag to the head section of your code. The second tag will simply display a button on the screen over the top of your web content which will allow you to quit the browser when clicked, this is extremely during development but is probably something you would want to remove for production.
+4) We are now going to add a couple of &lt;meta&gt; tags that will contain the EMML to [enable the scanner and call a JavaScript function](/rhoelements/scanner) when a barcode is decoded. Add this tag to the head section of your code. The second tag will simply display a button on the screen over the top of your web content which will allow you to quit the browser when clicked, this is extremely useful during development but is probably something you would want to remove for production.
 
 	<html>
 	   <head>
@@ -64,11 +64,11 @@ NOTE: Although RhoElements does not have a title bar due to it providing you wit
 	   </body>
 	</html>
 
-When this tag is parsed two actions will be performed, firstly the decode event will be setup to call the doScanDecode function and then the scanner will be enabled. The parameter and their values and methods are written as they would be in CSS, with parameters and values separated by a colon ":" and pairs separated by semi-colons ";". When setting up the decodeevent, you will see that we have chosen to retrieve parameters 1, 2 and 6 from the decode event. If you take a look at the scanner section of the help file you will see that these correspond to the data decoded, the source of the code and the event type. 
+When this tag is parsed, two actions will be performed: firstly, the decode event will be setup to call the doScanDecode function, and then the scanner will be enabled. The parameters and their values and methods are written as they would be in CSS, with parameters and values separated by a colon ":" and pairs separated by semi-colons ";". When setting up the decodeevent, you will see that we have chosen to retrieve parameters 1, 2 and 6 from the decode event. If you take a look at the scanner section of the help file you will see that these correspond to the data decoded, the source of the code and the event type. 
 
 The [Retrieval Events](/rhoelements/RetrievalEvents) help section explains how to specify the returned parameters to be sequential or returned as a JSON object.
 
-NOTE: It is not entirely necessary to add the code to call the JavaScript, and without this RhoElements will output any decoded barcodes as keyboard presses as if the code has been typed on the device keypad, however, this has its drawbacks. For example, if the user has clicked out of the focus of a text box, the decoded barcode will simply be lost causing confusion to the user. Also, by handling the decoded barcode in JavaScript, you can perform validation on the code before proceeding after which you can update a label on the screen, call an Ajax function or simply populate a text box as best suits your application design.
+NOTE: It is not entirely necessary to add the code to call the JavaScript; without the code, this RhoElements will output any decoded barcodes as keyboard presses as if the code has been typed on the device keypad. However, this has its drawbacks. For example, if the user has clicked out of the focus of a text box, the decoded barcode will simply be lost causing confusion to the user. Also, by handling the decoded barcode in JavaScript, you can perform validation on the code before proceeding after which you can update a label on the screen, call an Ajax function, or simply populate a text box as best suits your application design.
 
 5) We must now write the JavaScript function doScanDecode. Here we will check that the event is a decoded barcode (there are other event types when used in conjunction with the Bluetooth scanners), then we will display a message on the screen.
 	 
@@ -99,13 +99,13 @@ NOTE: It is not entirely necessary to add the code to call the JavaScript, and w
 
 We could have simply displayed the message in a JavaScript alert box; however this can cause problems if the user continues to scan more barcodes whilst the alert box is visible.
 
-Your first application is now complete. For the purpose of this tutorial, we will copy the file to the device however if you have a web server to hand and have configured the device to communicate on the network, you could equally view the page from there.
+Your first application is now complete. For the purpose of this tutorial, we will copy the file to the device; however, if you have a web server at hand and you have configured the device to communicate on the network, you could equally view the page from there.
 
 ##Setting RhoElements to Start With Your Application
 <ol class="firstParagraph">
 <li>Copy the file HelloScan.html to the root folder of your device using ActiveSync.</li>
 <li>Find the file "\Program Files\RhoElements\config\Config.xml" and copy it to your PC.</li>
-<li>Edit config.xml in your text editor.</li>
+<li>Open config.xml in your text editor.</li>
 <li>Find the "Application" entry in the xml file and change its startPage parameter to "file://\helloscan.html".</li>
 <li>Start RhoElements using the icon in the programs group.</li>
 </ol>
@@ -121,10 +121,8 @@ If you wish to keep all default parameters and just change the starting url, the
 If you wish to modify other parameters in the config.xml then you should replace the config.xml file after the RhoElements Runtime is installed. Locate the file from the instructions below, copy it to your desktop for modification and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
 
 The location of the configuration file loaded by RhoElements is dependent on a number of factors:
-<ul>
-<li/>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.rhoelements/Config.xml.
-<li/>When running on all other devices RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
-</ul>
+ * When running on the Enterprise Tablet, the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
+ * When running on all other devices, RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
 
 ## Creating Shortcuts on Windows Mobile/CE
 
@@ -151,7 +149,7 @@ The format in the .lnk file is:
 
 	<line-length>#"<runtime-exe>" <command-line-parameter>"<app-folder>"
 
-For example, will just change the startup page to be a local HTML file:
+For example, this code will change the startup page to be a local HTML file:
 
 	89#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\Demos\AttendeeTracker\index.html
 
@@ -159,12 +157,12 @@ For example, will just change the startup page to be a local HTML file:
 
 The Motorola Solutions Enterprise Tablet (ET1) has been customized so that android shortcuts can be created very easily. Once RhoElements is installed on the ET1:
 
-1. Navigate the ET1 to the home page, by pressing the Home button on the device
+1. Navigate the ET1 to the home page by pressing the Home button on the device.
 2. Press and hold until you see the 'Add to Home screen' popup menu display.
-3. Select 'Shortcuts'
-4. Scroll down and select 'RhoElements'
-5. Enter change the 'config.xml path' or enter a 'Application Url'
-6. Enter a 'Shortcut name' and then press 'Ok'
+3. Select 'Shortcuts'.
+4. Scroll down and select 'RhoElements'.
+5. Enter change the 'config.xml path' or enter a 'Application Url'.
+6. Enter a 'Shortcut name' and then press 'Ok'.
 
 The shortcut will be placed on the ET1 home screen. At this time there is no way to provision an ET1 with this shortcut file, as you can with Windows Mobile.
 <!-- PLACEHOLDER SCREEN SHOTS NEEDED -->
@@ -173,11 +171,11 @@ The shortcut will be placed on the ET1 home screen. At this time there is no way
 
 If you have multiple web apps that you would like to point RhoElements Runtime to, you would create multiple shortcuts as described above. 
 
-NOTE: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL **
+NOTE: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL.
 
 	
 ## Customizing the RhoElements Runtime
-The RhoElements runtime is a prebuilt Rhodes application that simply launches in full screen mode and loads configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, for example change the startup screen or icon, load the Rhodes project into RhoStudio from the following location: 
+The RhoElements runtime is a prebuilt Rhodes application that simply launches in full screen mode and loads configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, such as change the startup screen or icon, then load the Rhodes project into RhoStudio from the following location: 
 	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
 To build the Shared Runtime Application, perform the following steps.
@@ -223,12 +221,12 @@ The location of the log file of a RhoElements WebApp (hybrid) application is def
 The file name part of the start page parameter is ignored and `rholog.txt` is used as the file name.
 This rule is not applied to Android.
 
-3. Otherwise the log file has name `rholog.txt` and placed at next location:
-* Windows Mobile/CE: `rho` folder of the Runtime installation folder.
-* Android: `rhodata` folder of the Runtime installation folder (accessible at emulator or rooted device only).
+3. Otherwise the log file has the name `rholog.txt` and is placed at this location:
+ * Windows Mobile/CE: `rho` folder of the Runtime installation folder.
+ * Android: `rhodata` folder of the Runtime installation folder (accessible at emulator or rooted device only).
 
 ##RhoElements Web Server
-If you are planning on having local HTML files reside on the device and are not building a [native RhoElements application](/rhoelements/rhoelements2-native), you should consider enabling a local web server on the device. The benefits of this are that Javascript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues.
+If you are planning on having local HTML files reside on the device and you are not building a [native RhoElements application](/rhoelements/rhoelements2-native), you should consider enabling a local web server on the device. The benefits of this are that Javascript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues.
 	
 ###Setting up the web server
 By default the local web server is switched off, you will need to manually enable and configure the server using the RhoElements configuration file.  See the [Configuration Settings help page](/rhoelements/ConfigurationSettings) for the server options, specifically those under the &lt;WebServer&gt; hierarchy.
@@ -253,7 +251,7 @@ Navigating to <b>http://localhost:8080/index.htm</b> will load the same page via
 To uninstall RhoElements on the device:
 <ol>
 <li>
-Connect your device to you PC via the USB cable and wait for Microsoft ActiveSync to connect.
+Connect your device to your PC via the USB cable and wait for Microsoft ActiveSync to connect.
 </li>
 <li>
 From ActiveSync select the "Add/Remove Programs" dialog normally found in the Tools menu.
@@ -276,10 +274,10 @@ Here are a few points to remember or consider when designing and writing your ap
 <li>
 It's always best to start your application with a page that resides on the device so that there is always somewhere for the device to go should there be a problem with the network connection, from this page you can transfer automatically or manually to the online version of your application, assuming you are not writing a fully offline application.
 </li>
-<li>In asynchronous events,such as the decodeevent of the scanner module, avoid displaying alert boxes.</li>
+<li>In asynchronous events, such as the decodeevent of the scanner module, avoid displaying alert boxes.</li>
 <li>It is often better to design your application to make use of technologies like Ajax and JSON in favor of many page navigations as this will provide you with better performance.	</li>
 <li>EMML Profiles can be employed to improve readability and performance.</li>
-<li>Make use of &lt;div&gt; and &lt;span&gt; tags instead of using complex tables as these take time to calculate and position.</li>
+<li>Make use of &lt;div&gt; and &lt;span&gt; tags instead of using complex tables as complex tables take time to calculate and position.</li>
 <li>
 <B>Avoid using framesets</B>, and make use of &lt;div&gt; and &lt;span&gt; tags. A single page is faster to process and it is not possible to guarantee which frames' tags will be parsed first; also any JavaScript callbacks will always be sent to the parent frameset page.  iFrames can be used, but you should use JavaScript to instantiate your EMML over the meta tags.
 </li>
@@ -289,12 +287,12 @@ It's always best to start your application with a page that resides on the devic
 
 ##Common Mistakes
 
-When writing your RhoElements application be sure to avoid the following common mistakes:</p>
+When writing your RhoElements application, be sure to avoid the following common mistakes:</p>
 <ul>
-<li>Javascript uses the '\' as an escape character so to specify a path with backslashes you will need to use '\\'.  When specifying a path in EMML (meta tags) only a single '\' is necessary.
+<li>Javascript uses the '\' as an escape character, so to specify a path with backslashes you will need to use '\\'.  When specifying a path in EMML (meta tags) only a single '\' is necessary.
 </li>
 <li>In common with all mobile computers, accessing secure sites (https) requires the date and time to be set correctly on the device.  Take care after cold booting as this will reset the system clock.</li>
-<li>EMML is not case sensitive when used in meta tags however take care when using Javascript objects because Javascript is case sensitive</li>
+<li>EMML is not case sensitive when used in meta tags; however, take care when using Javascript objects because Javascript is case sensitive.</li>
 </ul>
 
 
