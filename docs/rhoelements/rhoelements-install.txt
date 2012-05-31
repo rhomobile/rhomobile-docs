@@ -2,7 +2,7 @@
 
 ## Windows
 
-If you're running Windows, download the latest Motorola RhoMobile Suite for Windows and run it. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
+If you're running Windows, download the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows) and run it. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), [Rhodes](/rhodes/introduction), and [RhoElements](/rhoelements/introduction).
 
 If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
 
