@@ -245,7 +245,7 @@ section 'rhoelementsapi-attached', 'Accessories' do
   topic 'rhoelements/cardreader',      'CardReader'
 end
 
-section 'rhodesapi-application', 'Configuation and Logging' do
+section 'rhodesapi-application', 'Configuration and Logging' do
   topic 'rhodesapi/appapplication-api',             'AppApplication'
   topic 'rhoelements/EMMLProfile',      'EMMLProfile'
   topic 'rhoelements/generic',      'Generic'
