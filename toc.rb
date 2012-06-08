@@ -304,7 +304,6 @@ section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/source-adapters',   'Source Adapters'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/testing',           'Testing and Debugging'
-  topic 'rhoconnect/push',              'Device Push'
   topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
   topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
   topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
