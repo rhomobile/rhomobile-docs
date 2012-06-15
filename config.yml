@@ -1,6 +1,6 @@
 development:
   dirs:
-    rhosync: '../rhosync/doc/'
+    rhosync: 'docs/rhosync/'
     rhodes: '../rhodes/doc/'
     rhodesapi: 'docs/rhodesapi/'
     rhoelements: 'docs/rhoelements/'
@@ -13,7 +13,7 @@ development:
   pdfkithost: 'localhost:9393'
 jenkins:
   dirs:
-    rhosync: '../../rhosync/workspace/doc/'
+    rhosync: 'docs/rhosync/'
     rhodes: '../../rhodes/workspace/doc/'
     rhodesapi: 'docs/rhodesapi/'
     rhoelements: 'docs/rhoelements/'

@@ -4,6 +4,7 @@ RhoSync settings
 All Rhosync application and source settings located in the *`settings/settings.yml`* file.
 There are two main categories: application environment settings and source settings.
 
+
 ## Application settings
 
 Application-wide settings are specified per deployment environment (`:test`, `:development`, `:production`).
@@ -17,7 +18,7 @@ Each of the environment categories must have the following entries:
 In addition, the following settings can be specified:
 
 	:::yaml
-	:bulk_data_poll_interval: <secs> - poll interval setting for bulk data sync
+	:bulk_sync_poll_interval: <secs> - poll interval setting for bulk data sync
 	
 ## Source settings
 
