@@ -31,15 +31,15 @@ Add paths to vcbuild.exe and CabWiz.exe to your rhobuild.yml, which is in the Rh
 
 	env:
 	  paths:
-	    vcbuild: `C:/Program Files/Microsoft Visual Studio 9/VC/vcpackages/vcbuild.exe`
-	    cabwiz: `C:/Program Files/Windows Mobile 6 SDK/Tools/CabWiz`
+	    vcbuild: C:/Program Files/Microsoft Visual Studio 9.0/VC/vcpackages/vcbuild.exe
+	    cabwiz: C:/Program Files/Windows Mobile 6 SDK/Tools/CabWiz
 
 On 64-bit installations:
 
 	env:
 	  paths:
-	    vcbuild: `C:/Program Files (x86)/Microsoft Visual Studio 9/VC/vcpackages/vcbuild.exe`
-	    cabwiz: `C:/Program Files (x86)/Windows Mobile 6 SDK/Tools/CabWiz`
+	    vcbuild: C:/Program Files (x86)/Microsoft Visual Studio 9.0/VC/vcpackages/vcbuild.exe
+	    cabwiz: C:/Program Files (x86)/Windows Mobile 6 SDK/Tools/CabWiz
 
 ## Setting up the Mobile Device Connection
 
