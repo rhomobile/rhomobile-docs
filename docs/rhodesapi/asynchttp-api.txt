@@ -133,6 +133,10 @@ Perform HTTP POST request to the specified URL.
 	<td><code>:ssl_verify_peer</code></td>
 	<td>(optional) Verify SSL certificates. Default = true.</td>
 </tr>
+<tr>
+	<td><code>:http_command</code></td>
+	<td>(optional) HTTP command to send with request: PUT, DELETE, etc.</td>
+</tr>
 </table>
 
 The authentication parameter is a hash with parameters such as the following.
