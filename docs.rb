@@ -51,6 +51,69 @@ class Docs < Sinatra::Base
     erb :search, :locals => {:search => search, :query => params[:q], :prev_page => prev_page, :next_page => next_page}
   end
 
+  get '/opensearch' do
+	content_type 'application/xml', :charset => 'utf-8'
+
+
+    @print = 0
+    page = params[:page].to_i
+    search, prev_page, next_page = search_for(params[:q], page)
+	
+	xml_string = '<?xml version="1.0" encoding="UTF-8"?>'
+xml_string +=  ' <rss version="2.0" '
+xml_string +=  '  xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"'
+xml_string +=  '  xmlns:atom="http://www.w3.org/2005/Atom">'
+xml_string +=  '    <channel>'
+xml_string +=  '      <title>RhoMobile Suite Documentation</title>'
+xml_string +=  '      <link>http://docs.rhomobile.com</link>'
+xml_string +=  '      <description>Search results for docs.rhomobile.com</description>'
+xml_string +=  '      <opensearch:totalResults>' + search['matches'].to_s + '</opensearch:totalResults>'
+xml_string +=  '      <opensearch:startIndex>' + ((page + 1) * 10).to_s + '</opensearch:startIndex>'
+xml_string +=  '      <opensearch:itemsPerPage>10</opensearch:itemsPerPage>'
+xml_string +=  '      <opensearch:Query role="request" searchTerms="' + params[:q] + '" startPage="1" />'
+search['results'].each do |result| 
+xml_string +=  '<item>'
+xml_string +=  '       <title>' + result['title'] + '</title>'
+xml_string +=  '       <link>/' + result['docid'] + '</link>'
+xml_string +=  '       <description>'
+xml_string +=  result['snippet_text'].encode(:xml => :attr)
+xml_string +=  '       </description>'
+xml_string +=  '     </item>'
+
+end 
+xml_string +=  '   </channel>'
+xml_string +=  ' </rss>	'
+#<?xml version="1.0" encoding="UTF-8"?>
+# <rss version="2.0" 
+#      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+#      xmlns:atom="http://www.w3.org/2005/Atom">
+#   <channel>
+#     <title>Example.com Search: New York history</title>
+#     <link>http://example.com/New+York+history</link>
+#     <description>Search results for "New York history" at Example.com</description>
+#     <opensearch:totalResults>4230000</opensearch:totalResults>
+#     <opensearch:startIndex>21</opensearch:startIndex>
+#     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+#     <atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>
+#     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />
+#     <item>
+#       <title>New York History</title>
+#       <link>http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html</link>
+#       <description>
+#         ... Harlem.NYC - A virtual tour and information on 
+#         businesses ...  with historic photos of Columbia's own New York 
+#         neighborhood ... Internet Resources for the City's History. ...
+#       </description>
+#     </item>
+#   </channel>
+# </rss>	
+
+	#xml_string = '<?xml version="1.0" encoding="UTF-8"?>'
+	#xml_string += '<rss version="2.0"  xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"    xmlns:atom="http://www.w3.org/2005/Atom">'
+#		xml_string += '   <channel>	     <title>Example.com Search: New York history</title>	     <link>http://example.com/New+York+history</link>	     <description>Search results for "New York history" at Example.com</description>	     <opensearch:totalResults>4230000</opensearch:totalResults>	     <opensearch:startIndex>21</opensearch:startIndex>	     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>	     <atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>	     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />	     <item>	       <title>New York History</title>	       <link>http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html</link>	       <description>	         ... Harlem.NYC - A virtual tour and information on 	         businesses ...  with historic photos of Columbias own New York 	         neighborhood ... Internet Resources for the Citys History. ...	       </description>	     </item>	   </channel>	 </rss>'	
+    xml_string
+  end
+  
   #get '/:topic' do
   # TODO: use proper regex
   ['/:topic/?', '/:subpath/:topic/?'].each do |path|
