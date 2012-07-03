@@ -1,3 +1,6 @@
+
+
+	
 /* header */
 #rhomobile-header ul#rhomobile-section-nav li a#rhomobile-header-link-docs {
 	color:#A6FE4C; 
@@ -15,13 +18,13 @@ body {
 	background: #fff;
 	min-width: 1000px;
 	margin: 0;
-	padding: 0;
+	padding-top: 125px;
 	background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;
 }
 
 div#container {
     color: #444258;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: UniversLTStd-BoldCn,Arial,Helvetica,sans-serif;
     font-size: 14px;
     line-height: 1.4286em;
     width: 100%;
@@ -40,7 +43,7 @@ div#doc_container{
 }
 
 #docsnav {
-  padding: 30px;
+  padding: 0px 30px 30px 30px;
   border-right: 1px solid #ddd;
   width: 250px;
   float: left;
@@ -52,12 +55,12 @@ div#doc_container{
 a {
 	outline: none; /* disable mozilla's dotted box around link */
 	font-weight:bold;
-	color: #BB2435;
+	color: #3778C7;
 	text-decoration: none;
 }
 a:hover {
 	text-decoration: underline;
-	color: #BB2435;
+	color: #3778C7;
 }
 input {
 	outline: none; /* disable mozilla's dotted box around link */
@@ -305,14 +308,14 @@ table.re-table
 {
 width:600px;
 border-width:1px;
-border-color:#BB2435;
+border-color:#3778C7;
 }
 table.re-table th
 {
 font-weight:bold;
 text-align:left;
 color: white;
-background-color:#BB2435;
+background-color:#3778C7;
 text-transform:uppercase;
 padding: 0.4em;
 }

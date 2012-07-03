@@ -1,0 +1,93 @@
+/* custom-css */
+
+/* ______________________________________________________________________  WEBFONTS */
+
+@font-face {
+	font-family: 'UniversLTStd-BoldCn';
+	src: url('http://developer.motorolasolutions.com/themes/launchpad/webfonts/universltstd-boldcn-webfont.eot');
+	src: local('?'), url('http://developer.motorolasolutions.com/themes/launchpad/webfonts/universltstd-boldcn-webfont.woff') format('woff'), 
+	url('http://developer.motorolasolutions.com/themes/launchpad/webfonts/universltstd-boldcn-webfont.ttf') format('truetype'), url('http://developer.motorolasolutions.com/themes/launchpad/webfonts/universltstd-boldcn-webfont.svg#webfont5dIjLfbo') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+body {
+background-color: #FFFFFF;
+}
+
+#j-main {
+padding: 5px 0;
+}
+
+#j-header {
+background: url("http://developer.motorolasolutions.com/themes/launchpad/images/launchpad-header-gradient-background.gif") repeat-x scroll center top #FFFFFF;
+border: 0 none;
+padding: 21px 20px 0 25px;
+}
+
+#j-header .j-header-logo {
+margin-bottom: 3px;
+}
+
+#j-header-wrap {
+background: none repeat scroll 0 0 transparent;
+}
+
+#j-globalNav-bg {
+background: url("http://developer.motorolasolutions.com/themes/launchpad/images/launchpad-nav-gradient-background.gif") repeat scroll 0 0 transparent;
+height: 39px;
+margin-left: -5px;
+border-left: 1px solid #AAAAAA;
+margin-right:0;
+}
+
+#j-search {
+margin: 8px 10px 0 0;
+}
+
+#j-satNav {
+font-size: 12px;
+right: 13px;
+top: 43px;
+}
+
+#j-satNav li a {
+color: #3778C7;
+}
+
+.jive-widget-header h4,
+.jive-widget-new .jive-widget-header h4,
+.jive-sidebar h4,
+.jive-widget-actions .jive-widgetsize-small h4 {
+    color: #555555;
+    font-family: UniversLTStd-BoldCn,Arial,Helvetica,sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.j-box header h4, .j-box header h3, .jive-widget .jive-box-header h4 {
+   color: #555;
+}
+
+.jive-login-reg-formblock {
+width: 850px;
+margin: 0 auto;
+}
+
+.jive-login-reg-formblock #jive-login-formblock {
+border-right:0;
+margin-right:0;
+}
+
+.jive-login-reg-formblock #jive-login-formblock, .jive-login-reg-formblock #jive-validate-formblock {
+float:none;
+padding:0 0 0 20px;
+border-left: solid 1px #ccc;
+}
+#navCreate {
+
+display:none !important;
+
+}
