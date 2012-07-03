@@ -1,0 +1,22 @@
+{namespace jive.nav}
+/**
+* Renders the footer nav bar for the application.
+*
+* @param licenseVersion the version of the product from the license.
+* @param revision the SVN revision
+*        
+* @depends template=jive.nav.globalLink
+*/
+{template .footer}
+    <div id="j-footer-poweredBy">
+        <a class="font-color-meta" href="http://www.jivesoftware.com/poweredby/" target="_blank" alt="{i18nText('dectr.jiveVersion.link', $revision)}">
+            {i18nText('dectr.copyrightJiveFooter.text') |noAutoescape} &nbsp; | <img src="{resourceUrl('/images/powered_by_Jive.png')}" alt=""/>
+        </a>
+    </div>
+    <div class="j-footer-nav">
+        <a class="font-color-meta" href="{buildUrl('/')}" alt=" ">{i18nText('global.home')}</a>&nbsp; | &nbsp;<a class="font-color-meta" href="#top" alt=" ">{i18nText('dectr.page.top.link')}</a>
+    </div>
+    <div class="j-footer-jiveVersion">
+        {i18nText('dectr.jiveVersion.link', $licenseVersion, $revision)}
+    </div>
+{/template}
