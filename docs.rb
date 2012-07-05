@@ -73,11 +73,11 @@ xml_string +=  '      <opensearch:itemsPerPage>10</opensearch:itemsPerPage>'
 xml_string +=  '      <opensearch:Query role="request" searchTerms="' + params[:q] + '" startPage="1" />'
 search['results'].each do |result| 
 xml_string +=  '<item>'
-xml_string +=  '       <title>' + result['title'] + '</title>'
-xml_string +=  '       <link>/' + result['docid'] + '</link>'
-xml_string +=  '       <description>'
-xml_string +=  result['snippet_text'].encode(:xml => :attr)
-xml_string +=  '       </description>'
+xml_string +=  '       <title><![CDATA[' + result['title'] + ']]></title>'
+xml_string +=  '       <link>http://' + ENV['pdfkithost'] + '/' + result['docid'] + '</link>'
+xml_string +=  '       <description><![CDATA['
+xml_string +=  result['snippet_text']
+xml_string +=  '       ]]></description>'
 xml_string +=  '     </item>'
 
 end 
