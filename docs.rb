@@ -74,7 +74,7 @@ xml_string +=  '      <opensearch:Query role="request" searchTerms="' + params[:
 search['results'].each do |result| 
 xml_string +=  '<item>'
 xml_string +=  '       <title><![CDATA[' + result['title'] + ']]></title>'
-xml_string +=  '       <link>http://' + ENV['pdfkithost'] + '/' + result['docid'] + '</link>'
+xml_string +=  '       <link>http://edgedocs.rhomobile.com/' + result['docid'] + '</link>'
 xml_string +=  '       <description><![CDATA['
 xml_string +=  result['snippet_text']
 xml_string +=  '       ]]></description>'
