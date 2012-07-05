@@ -18,7 +18,7 @@ body {
 	background: #fff;
 	min-width: 1000px;
 	margin: 0;
-	padding-top: 125px;
+	padding-top: 165px;
 	background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;
 }
 
@@ -185,8 +185,11 @@ p, ul, blockquote, pre, table {
 	color: #555;
 	cursor:pointer;
 }
+#docsnav .current  {
+	background-color:#222;
+}
 #docsnav .current a {
-	color:#222;
+	color:white;
 	font-weight:bold;
 }
 #docsnav h3 {
