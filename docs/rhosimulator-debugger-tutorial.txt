@@ -118,6 +118,8 @@ Click on the Breakpoints tab. You will see a listing of the breakpoints that you
 
 <img src="http://rhodocs.s3.amazonaws.com/rhosimulator-debugger-tutorial/breakpoint-listed.jpg" alt="Breakpoints Listed" />
 
+If you set the breakpoint on code line of definition of function then on start of debugger session it breakpoint will be disabled and debugger doesn't stopped on this line.
+
 ## Setting and Viewing Local Variables
 
 Now go to the Store application in the simulator. Click on Products and then click New to create a new product. The webinar shows the example of a iPhone product. Once you fill in the data for this product, click Create.
