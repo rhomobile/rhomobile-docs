@@ -118,7 +118,7 @@ Click on the Breakpoints tab. You will see a listing of the breakpoints that you
 
 <img src="http://rhodocs.s3.amazonaws.com/rhosimulator-debugger-tutorial/breakpoint-listed.jpg" alt="Breakpoints Listed" />
 
-If you set the breakpoint on code line of definition of function then on start of debugger session it breakpoint will be disabled and debugger doesn't stopped on this line.
+If you set the breakpoint on code line of function definition then on start of debugger session it breakpoint will be disabled and debugger doesn't stopped on this line.
 
 ## Setting and Viewing Local Variables
 
