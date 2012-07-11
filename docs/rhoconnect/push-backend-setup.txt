@@ -29,9 +29,10 @@ As an example, here is how to send a PUSH message to all the devices of the spec
     }
 
 	RestClient.post(
-	  "#{server}/api/client/ping",ping_params.to_json, 
-	  :content_type => :json
-	) 
+	  "#{server}/rc/v1/users/ping", ping_params.to_json, 
+	  { :content_type => :json,
+		'X-RhoConnect-API-TOKEN' => @api_token }
+	)
 
 ### Example of Ping for .NET Backend Application
 
@@ -40,8 +41,7 @@ As an example, here is how to send a PUSH message to all the devices of the spec
     private static bool perform_ping(String method, String source_name, String the_message, String vibrate_time, String sound_file,  Hashtable reqHash)
         {
             // add meta information
-            reqHash.Add("api_token", _api_token);
-            reqHash.Add("user_id", [array of users]); // not sure how I do this
+            reqHash.Add("user_id", [array of users]);
             reqHash.Add("source_id", source_name);
             reqHash.Add("message", the_message);
             reqHash.Add("vibrate", vibrate_time);
@@ -50,12 +50,11 @@ As an example, here is how to send a PUSH message to all the devices of the spec
             JavaScriptSerializer js = new JavaScriptSerializer();
             string requestBody = js.Serialize(reqHash);
             
-            
-            // Uri address = new Uri(_endpoint_url + "/api/source/" + method);
-            Uri address = new Uri(_endpoint_url + "/api/client/ping");
+            Uri address = new Uri(_endpoint_url + "/rc/v1/users /ping");
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
             request.ContentType = "application/json";
             request.Method = "POST";
+			request.Headers.Add("X-RhoConnect-API-TOKEN", _api_token);
 
             byte[] byteData = UTF8Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = byteData.Length;
@@ -90,7 +89,7 @@ As an example, here is how to send a PUSH message to all the devices of the spec
 		HttpEntity<Map> entity = new HttpEntity<Map>(hash, headers);
 
 		ResponseEntity<String> response = restTemplate.exchange(
-				endpointUrl + "/api/client/ping", 
+				endpointUrl + "/rc/v1/users/ping", 
 				HttpMethod.POST,
 				entity,
 				String.class);
