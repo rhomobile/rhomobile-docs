@@ -1,5 +1,4 @@
 
-
 	
 /* header */
 #rhomobile-header ul#rhomobile-section-nav li a#rhomobile-header-link-docs {
@@ -18,7 +17,6 @@ body {
 	background: #fff;
 	min-width: 1000px;
 	margin: 0;
-	padding-top: 165px;
 	background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;
 }
 
