@@ -2252,6 +2252,13 @@ That's all there is to it!</pre>
  <b>pdf-writer</b> [http://ruby-pdf.rubyforge.org/pdf-writer/index.html](http://ruby-pdf.rubyforge.org/pdf-writer/index.html)<br/>
  License: MIT-Style [http://ruby-pdf.rubyforge.org/pdf-writer/licence.html](http://ruby-pdf.rubyforge.org/pdf-writer/licence.html)
 
+ <b>OpenSSL</b> [(http://www.openssl.org) based on SSLeay library (license of OpenSSL contains both licenses - see link below)](http://www.openssl.org)
+ License: BSD-style [http://www.openssl.org/source/license.html](http://www.openssl.org/source/license.html)
+ 
+ <b>EzCrypto</b> [http://ezcrypto.rubyforge.org/](http://ezcrypto.rubyforge.org/)
+ License: MIT [http://ezcrypto.rubyforge.org/](http://ezcrypto.rubyforge.org/)
+
+
 ###RhoConnect uses following other projects:
 
  <b>Ruby language 1.9.3</b> [http://www.ruby-lang.org/en/downloads/](http://www.ruby-lang.org/en/downloads/)<br/>
