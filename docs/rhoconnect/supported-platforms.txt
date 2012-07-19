@@ -16,7 +16,7 @@ Supported Platforms
   <tr>
     <td class='cap'>Linux</td>
     <td> CentOS / RHEL 5 & 6,<br/>Ubuntu 11,<br/>Amazon Linux</td>
-    <td> ruby-1.8.7-p358 </td>
+    <td> ruby-1.8.7-p370 </td>
     <td> ree-1.8.7-2012.02 </td>
     <td> ruby-1.9.2-p320 </td>
     <td> ruby-1.9.3-p194 </td>
@@ -26,7 +26,7 @@ Supported Platforms
   <tr>
     <td class='cap'>Mac OS </td>
     <td> Mac OS X 10.6/10.7 </td>
-    <td> ruby-1.8.7-p358 </td>
+    <td> ruby-1.8.7-p370 </td>
     <td> ree-1.8.7-2012.02 </td>
     <td> ruby-1.9.2-p320 </td>
     <td> ruby-1.9.3-p194 </td>
@@ -36,7 +36,7 @@ Supported Platforms
   <tr>
     <td class='cap'>Windows</td>
     <td> Windows 7 </td>
-    <td> ruby-1.8.7-p358 </td>
+    <td> ruby-1.8.7-p370 </td>
     <td class='tbd'> TBD </td>
     <td class='tbd'> TBD </td>
     <td> ruby-1.9.3-p194 </td>
