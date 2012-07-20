@@ -2425,3 +2425,18 @@ That's all there is to it!</pre>
  
  <b>warbler 1.3.5</b> [https://github.com/jruby/warbler](https://github.com/jruby/warbler)<br/>
  License: MIT license [http://caldersphere.rubyforge.org/warbler/LICENSE_txt.html](http://caldersphere.rubyforge.org/warbler/LICENSE_txt.html)
+
+ <b>nodejs 0.8.1</b> [http://nodejs.org/](http://nodejs.org/)<br/>
+ License: MIT License (https://github.com/joyent/node/blob/master/LICENSE)
+
+ <b>node_redis 0.7.1</b> [http://search.npmjs.org/#/redis](http://search.npmjs.org/#/redis)<br/>
+ License: MIT License (https://github.com/mranney/node_redis#license---mit-license)
+ 
+ <b>redis-url 0.1.0</b> [http://search.npmjs.org/#/redis-url](http://search.npmjs.org/#/redis-url)<br/>
+ License: MIT License (https://github.com/ddollar/redis-url#license)
+ 
+ <b>npm 1.1.30</b> [http://npmjs.org/](http://npmjs.org/)<br/>
+ License: MIT License (https://github.com/isaacs/npm/blob/master/LICENSE)
+ 
+ <b>commander.js 1.0.0</b> [http://visionmedia.github.com/commander.js/](http://npmjs.org/)<br/>
+ License: MIT License (https://github.com/visionmedia/commander.js/#license)
