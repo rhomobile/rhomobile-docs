@@ -41,20 +41,11 @@ As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), [NFC](/rhodes
 
 ## Supported Operating Systems
 
-### Windows Mobile, Windows CE
-* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
-
-### Android
+* iOS 4.0 or greater (iPhone, iPod Touch, iPad)
 * Android 2.1 and greater
-
-### iPhone
-iPhone, iPod Touch, iPad (iOS 4.0 or greater)
-
-### BlackBerry
-BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
-
-### Windows Phone 7
-Latest Windows Phone devices
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
+* BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
+* Latest Windows Phone 7 devices
 
 NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
 
