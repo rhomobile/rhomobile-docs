@@ -41,22 +41,14 @@ As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), [NFC](/rhodes
 
 ## Supported Operating Systems
 
-### Windows Mobile, Windows CE
+* iOS 4.0 or greater (iPhone, iPod Touch, iPad)
+* Android 2.1 and greater
 * Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
-* <a name="_motdevices">Motorola devices</a>: ES400, MC2100, MC2180, MC3100, MC3100(R/S/G), MC3190(R/S), MC5574, MC5590, MC55A0, MC55N0, MC659B, MC7506, MC7508, MC7596, MC7598, MC75A0, MC75A6, MC75A8, MC9190-G, MC9190, MC9590, MC9596, MC9598, MC959B, VC6090, VC6096
-
-### Android
-* Motorola ET1
-* Consumer Android 2.1 and greater
-
-### iPhone
-iPhone, iPod Touch, iPad (iOS 4.0 or greater)
-
-### BlackBerry
-BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
-
-### Windows Phone 7
-Latest Windows Phone devices
+* BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
+* Latest Windows Phone 7 devices
 
 NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
+
+## Validated MSI Hardware
+* <a name="_motdevices"></a>ET1, ES400, MC2100, MC2180, MC3100, MC3100(R/S/G), MC3190(R/S), MC5574, MC5590, MC55A0, MC55N0, MC659B, MC7506, MC7508, MC7596, MC7598, MC75A0, MC75A6, MC75A8, MC9190-G, MC9190, MC9590, MC9596, MC9598, MC959B, VC6090, VC6096
 
