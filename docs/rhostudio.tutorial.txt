@@ -242,11 +242,27 @@ You can set a breakpoint on the line `render :back => '/app'`, then you can go t
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/debugger-breakpoint.png"/>
 
+NOTE: If you set a breakpoint on a function definition string (the first line of a function definition), as in the following line of Ruby code, that breakpoint will always be disabled. You should not set breakpoints there.
+
+	def some_method(value='default', arr=[])
+
 ### Inspecting the Variables
 
 You can also inspect the variables. When you click "Products" In the debugger simulator, and you have a breakpoint as set earlier in the product_controller.rb on the rendering line, the application will pause just before the rendering of the product listing page. You can then inspect the variables in the variable window. The storemanager example shows that at this point int he app, the local database has been read, showing that a couple of products have been created (an iPhone and an iPhone4S).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/debugger-variables.png"/>
+
+### Debugger Support for Extensions
+
+The RhoStudio debugger supports extensions, but only pure Ruby extensions or the Ruby part of a native extension.
+
+### Debugging Ruby Framework Code
+
+The debugger supports debugging Ruby framework code. With an older project, you may need to recreate the project in RhoStudio in order to enable the debugger. A good way to do this is as follows.
+
+1. Delete the project in the Project Explorer view without deleting the project content.
+2. Create a new project by creating from existing sources in the RhoMobile application wizard.
+3. Use your old project content as the existing source.
 
 ## Importing a Rhodes Project from a non-RhoStudio Source
 
