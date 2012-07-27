@@ -317,7 +317,72 @@ For complete instructions on setting up the SDKs in RhoStudio for each platform,
 
 Use RhoStudio preferences to edit the rhobuild.yml file, which manages the location(s) of the platform SDKs/JDKs that are used to build your Rhodes application. The rhobuild.yml file is located in the Rhodes gem folder (or, if you copied Rhodes from git, in the Rhodes source code folder).
 
+## Using Intellisense for Autocompletion
 
+IntelliSense is Microsoft's implementation of autocompletion, best known for its use in the Microsoft Visual Studio integrated development environment. In addition to completing the symbol names the programmer is typing, IntelliSense serves as documentation and disambiguation for variable names, functions and methods using reflection.	
 
+The RhoStudio DLTK implementation supports the following aspects of Intellisense.
+
+* Ruby keyword completion
+* `include` argument completion
+* Module/Class name completion
+* Class method/field name completion
+* Method parameter name completion
+* Local variable name completion
+* Block argument name completion
+* Completion after `::` operator
+* Completion after `.` operator
+* Local variable type determination
+* Method return type determination
+
+You can use Intellisense in RhoStudio to autocomplete your Ruby code by setting the cursor at a location in your code and pressing Ctrl+Space.
+
+For example, to complete a Ruby keyword beginning with "re", perform these steps.
+
+1. Enter "re".
+2. Press Ctrl+Space. The completion list includes “rescue” and “return”.
+
+You can complete an include argument; if you enter `include p` and press Ctrl+Space; the completion list includes “private”, “protected” and “public”. To autocomplete a module/class name starting with "Ap", enter "Ap" and press Ctrl+Space; the completion list includes “AppApplication”. If you enter “Rho::” and press Ctrl+Space, the completion list includes “AppManifest” and “AsyncHttp”.
+
+For class method/field names, suppose you have the following code. Set the cursor after "me" at line 5 and press Ctrl+Space; the completion list includes “method1” and “method2”.
+
+	:::ruby
+	class C
+	  def method1
+	  end
+	  def method2
+	    me
+	  end
+	end
+
+## Checking Progress and Canceling an Operation
+
+You can check the progress of an operation in RhoStudio, and cancel it if you wish. Open the Progress view to see the progress bar on the left, and click the red square on the right to cancel the operation.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhostudio-progress-cancel.png"/>
+
+The following RhoStudio operations can have their progress checked and be canceled from the Progress view.
+
+* Main menu: RhoMobile -> Production build
+* Main menu: Project -> Clean...
+* RhoMobile Application in Project Explorer: Run Configurations, RhoMobile Application
+* RhoMobile Application in Project Explorer: Run Configurations, RhoMobile Application Test
+* RhoConnect Application in Project Explorer: Run Configurations, RhoConnect Application
+
+You can also check progress and perform a cancel for the following operations on existing applications.
+
+* Create a new project, and then select RhoMobile->RhoMobile application from the New Project window.
+* Create a new project, and then select RhoMobile->RhoConnect application from the New Project window.
+* Select a RhoMobile application in the Project Explorer, and create a New->RhoMobile model.
+* Select a RhoMobile application in the Project Explorer, and create a New->RhoMobile extension.
+* Select a RhoConnect application in the Project Explorer, and create a New->RhoConnect source adapter.
+
+## Creating a Production Build in RhoStudio
+
+To create a production build for your application, perform these steps.
+
+1. Select your application in the Project Explorer.
+2. Select RhoMobile->Production Build from the main menu.
+3. From the Select platform pop-up box, select the platform to which you wish to build and click "Ok".
 
 
