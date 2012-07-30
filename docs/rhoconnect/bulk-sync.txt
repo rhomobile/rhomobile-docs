@@ -14,6 +14,8 @@ If and when the Rhodes application issues a request to get bulk data, the RhoCon
  
 * The Rhodes application will poll RhoConnect for the bulk sync job to finish. Once the job is finished, the files are generated and Rhodes will download and install them to the device. 
 
+* After bulk database is installed, Rhodes application will analyze sources for references to remote blob objects. Each remote blob object will be downloaded to device, and if download is successful, remote references will be updated to local ones.
+
 **NOTE: Be cautious using this in your application - any previous set of objects on the device will be replaced with the latest set from the backend service.**
 
 Once the bulk data sync process is complete for a source, you may continue to synchronize sources using the default incremental sync process. However, the default sync process may be disabled for a source by setting its `sync_type` to 'bulk_sync_only'.  This will save space in your redis database if you don't plan on using incremental sync for this source.
@@ -144,4 +146,13 @@ An example schema method is as follows:
     end
     
 **NOTE: Key `version` is mandatory and should be always defined in schema method. You need update `version` value only in the case of schema changes.**
+
+## Select which models to bulk sync.
+
+Bulk sync process will only sync sources which sync type is not ‘none’. You may exclude model data from bulk sync with following code in your Rhodes application:
+
+	:::ruby
+	Rho::RHO.get_user_db().update_into_table('sources',{'sync_type'=>'none'}, {'name'=> "MySourceName" })
+
+Set sync type to 'incremental' or 'bulk' when you want to get model data with bulk sync.
 
