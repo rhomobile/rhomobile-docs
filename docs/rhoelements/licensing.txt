@@ -8,6 +8,7 @@ The following features require Motorola RhoElements license:
 * [NFC extension](/rhodes/device-caps#nfc)
 * [Database Encryption](/rhodes/rhom#database-encryption)
 * [Inline Signature Capture](/rhodes/device-caps#signature-capture)
+* [Windows Desktop](/rhodes/build#build-for-windows)
 
 ## License for Motorola Windows Mobile and Windows CE Devices
 
@@ -31,7 +32,7 @@ On the ET1, a license can be applied at runtime like described above where the u
 
 Licensing will be the same as Motorola Solutions devices except that scanning will not be available. However, keying of the license and automatic assignment will still be valid input methods.
 
-## License for Non-Motorola Android, iOS, BlackBerry
+## License for Non-Motorola Android, iOS, BlackBerry and Windows Desktop
 
 On these devices, there is no license wizard available to assist the user in licensing the framework. Instead, on a device that has not been licensed, a popup appears when the application is started warning that the framework is unlicensed.
 
