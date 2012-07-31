@@ -61,6 +61,74 @@ For those who interested in what this token means, the description is [here](htt
 
 Now start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
 
+## Setting up RhoConnect Server Push Service
+
+**NOTE: This option is still a _beta_ feature.  You may encounter issues using this service.**
+
+RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile.  This service can be used instead of Google C2DM on Android.
+
+The typical flow of a message using RPS:
+
+	Device      RPS       	 RhoConnect        Backend App
+	+           +            +                 +
+	|           |            |                 |
+	|           |            | POST            |
+	|           | POST       |/rc/v1/users/ping|
+	|           |/instanceId |<----------------+
+	|           |<-----------+                 |
+	|<----------+            |                 |
+	|{"content"}|            |                 |
+	|           |            |                 |
+	+           +            +                 +
+
+### Starting the Push Service
+RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.  
+
+First, create a file called "config.json" with the following content:
+
+	:::json
+	{
+		"httpSecure": "n",
+		"devAuthHost": "localhost", 
+		"devAuthUrl": "/rc/v1/app/ans_login", 
+		"devAuthPort": "9292",
+		"userAuthHost": "localhost", 
+		"userAuthUrl": "/rc/v1/app/ans_login", 
+		"userAuthPort": "9292",
+		"appAuthHost": "localhost", 
+		"appAuthUrl": "/rc/v1/app/ans_login",
+		"appAuthPort": "9292",
+		"appCredentials": "appname:secret",
+		"ansResponseTimeout": "300000",
+		"ansServerPort": "8675",
+		"registrationTimeout": "2592000",
+		"clearDataBase": "n",
+		"socketPoolSize": 1,
+		"debugLevel": "3",
+		"numClients": "2",
+		"maxCollapseId": 20,
+		"messagePeriod": 0
+	}
+
+Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start RhoConnect Push by running the following in a command line:
+
+	:::term
+	$ rhoconnect-push -c /path/to/your/config.json
+
+For example:
+
+	:::term
+	$ rhoconnect-push -c C:/dev/config.json
+
+Next, make sure you have the following option in your RhoConnect application's `settings/settings.yml` file in the `:development:`, `:production:` and `:test:` sections:
+
+	:::yaml
+	:push_server: http://appname:secret@localhost:8675/
+
+**NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Make sure you change the password to something secure when you deploy to production.**
+
+Now start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Android or Windows Mobile RhoElements application.
+
 ## Testing Push in the RhoConnect Web Console
 
 The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
