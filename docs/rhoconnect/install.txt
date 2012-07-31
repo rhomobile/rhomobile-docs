@@ -80,3 +80,24 @@ When you start RhoStudio, you can set the location of the workspace directory. T
 ## Standalone Ruby Installation and Ruby Version Manager
 
 Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in Rhodes applications.
+
+## Upgrading an Existing Application
+
+If you have an existing application, upgrading to the latest version of RhoConnect is simple.
+
+Open the `Gemfile` of your application and find the rhoconnect line, it should look something like:
+
+	:::ruby
+	gem 'rhoconnect', '3.3.1'
+
+Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 3.3.2:
+
+	:::ruby
+	gem 'rhoconnect', '3.3.2'
+
+Run the following command from the root application directory:
+
+	:::term
+	$ bundle install
+
+Restart your application and verify the latest version is being used by going to the web console, for example [http://localhost:9292/](http://localhost:9292/)
