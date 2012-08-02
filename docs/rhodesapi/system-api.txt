@@ -34,74 +34,6 @@ system_property can be any of the properties below:
  * has_calendar – return true if calendar support is available
  * is_motorola_device – return true if device supports Motorola device capabilities, such as Scanner, etc.
 
-## set_screen_rotation_notification
-
-Notify (call a callback method) when the screen rotates.
-
-	:::ruby
-	System.set_screen_rotation_notification(callback_url, params)
-
-<table border="1">
-<tr>
-	<td><code>callback_url</code></td>
-	<td>Path to callback method to run when screen rotates.</td>
-</tr>
-<tr>
-	<td><code>params</code></td>
-	<td>Parameters you passed while setting up notification, as well as width, height, and degrees.</td>
-</tr>
-</table>
-
-## exit
-
-Exit the application.
-
-	:::ruby
-	System.exit
-
-## set_sleeping
-
-Enable/disable phone sleeping; return to the previous state.
-
-	:::ruby
-	System.set_sleeping
-
-## open_url
-
-Open the application associated with the URL.
-
-	:::ruby
-	System.open_url(url)
-
-<table border="1">
-<tr>
-	<td><code>url</code></td>
-	<td>Open the application at this url; behavior may be different on different platforms and depend on installed software.</td>
-</tr>
-</table>
-
-Note: On iPhone, if you post path of local file, then the specific iOS control (UIDocumentInteractionController) where file will previewed and user will be able open this file by selected application wich supported this filetype.
-
-## run_app
-
-Run an application.
-
-	:::ruby
-	System.run_app(appname, params)
-
-<table border="1">
-<tr>
-	<td><code>appname</code></td>
-	<td>The name of the application on the device to run, such as com.android.music.</td>
-</tr>
-<tr>
-	<td><code>params</code></td>
-	<td>String. List of parameters for the application; nil if no parameters.</td>
-</tr>
-</table>
-
-Note: On iPhone, appname is the same with registered application URL scheme. Example : System.run_app('myapp', 'someparams'). This call is the same as System.open_url('myapp:someparams').
-
 ## app_install
 
 Install an application.
@@ -142,6 +74,165 @@ Returns true if the specified application is installed on the device.
 </tr>
 </table>
 
+## exit
+
+Exit the application.
+
+	:::ruby
+	System.exit
+
+## get_start_params
+
+Return the command line parameters as a string (iPhone only).
+
+	:::ruby
+	System.get_start_params()
+
+## open_url
+
+Open the application associated with the URL.
+
+	:::ruby
+	System.open_url(url)
+
+<table border="1">
+<tr>
+	<td><code>url</code></td>
+	<td>Open the application at this url; behavior may be different on different platforms and depend on installed software.</td>
+</tr>
+</table>
+
+Note: On iPhone, if you post path of local file, then the specific iOS control (UIDocumentInteractionController) where file will previewed and user will be able open this file by selected application wich supported this filetype.
+
+## run_app
+
+Run an application.
+
+	:::ruby
+	System.run_app(appname, params)
+
+<table border="1">
+<tr>
+	<td><code>appname</code></td>
+	<td>The name of the application on the device to run, such as com.android.music.</td>
+</tr>
+<tr>
+	<td><code>params</code></td>
+	<td>String. List of parameters for the application; nil if no parameters.</td>
+</tr>
+</table>
+
+Note: On iPhone, appname is the same with registered application URL scheme. Example : System.run_app('myapp', 'someparams'). This call is the same as System.open_url('myapp:someparams').
+
+## set_screen_rotation_notification
+
+Notify (call a callback method) when the screen rotates.
+
+	:::ruby
+	System.set_screen_rotation_notification(callback_url, params)
+
+<table border="1">
+<tr>
+	<td><code>callback_url</code></td>
+	<td>Path to callback method to run when screen rotates.</td>
+</tr>
+<tr>
+	<td><code>params</code></td>
+	<td>Parameters you passed while setting up notification, as well as width, height, and degrees.</td>
+</tr>
+</table>
+
+## set_sleeping
+
+Enable/disable phone sleeping; return to the previous state.
+
+	:::ruby
+	System.set_sleeping
+
+## set_push_notification
+
+Register push callback, the method to call upon receiving a push message.
+
+	:::ruby
+	System.set_push_notification(url, url_params, push_service)
+
+<table border="1">
+<tr>
+	<td><code>url</code></td>
+	<td>URL of the callback method. If empty, unregisters rhoconnect-push.</td>
+</tr>
+<tr>
+	<td><code>url_params</code></td>
+	<td>string with optional params which will be added to callback URL.</td>
+</tr>
+<tr>
+	<td><code>push_service</code></td>
+	<td>string with name of a push service. Current cvalues can be 'rhoconnect_push' or 'legacy' or empty. If empty, then the call will be applied to every service listed in the push_options rhoconfig.txt parameter. It the rhoconfig.txt parameter is empty, then default value is 'legacy'. (Not implemented on bb and wp7)</td>
+</tr>
+</table>
+
+## set_window_frame
+
+Change application window position and size. Implemented only for Windows desktop.
+
+	:::ruby
+	System.set_window_frame(x,y,width,height)
+
+<table border="1">
+<tr>
+	<td><code>x</code></td>
+	<td>Left corner of window.</td>
+</tr>
+<tr>
+	<td><code>y</code></td>
+	<td>Top corner of window.</td>
+</tr>
+<tr>
+	<td><code>width</code></td>
+	<td>Width of window.</td>
+</tr>
+<tr>
+	<td><code>height</code></td>
+	<td>Height of window.</td>
+</tr>
+</table>
+
+## set_window_position
+
+Change application window position. Implemented only for Windows desktop.
+
+	:::ruby
+	System.set_window_position(x,y)
+
+<table border="1">
+<tr>
+	<td><code>x</code></td>
+	<td>Left corner of window.</td>
+</tr>
+<tr>
+	<td><code>y</code></td>
+	<td>Top corner of window.</td>
+</tr>
+</table>
+
+## set_window_size
+
+Change application window size. Implemented only for Windows desktop.
+
+	:::ruby
+	System.set_window_size(width,height)
+
+<table border="1">
+<tr>
+	<td><code>width</code></td>
+	<td>Width of window.</td>
+</tr>
+<tr>
+	<td><code>height</code></td>
+	<td>Height of window.</td>
+</tr>
+</table>
+
 ## unzip_file
 
 	:::ruby
@@ -154,9 +245,51 @@ Returns true if the specified application is installed on the device.
 </tr>
 </table>
 
-## get_start_params
+## zip_file
 
-Return the command line parameters as a string (iPhone only).
+Zip one file to a specified zip.
 
 	:::ruby
-	System.get_start_params()
+	System.zip_file(local_path_to_zip, local_path_to_file, password)
+
+<table border="1">
+<tr>
+	<td><code>local_path_to_zip</code></td>
+	<td>The path to the specified zip.</td>
+</tr>
+<tr>
+	<td><code>local_path_to_file</code></td>
+	<td>The path to the file to be zipped.</td>
+</tr>
+<tr>
+	<td><code>password</code></td>
+	<td>Optional. Password for the zip.</td>
+</tr>
+</table>
+
+## zip_files
+ 
+Zip several files to a specified zip.
+
+	:::ruby
+	System.zip_files(local_path_to_zip, base_path, array_of_files_to_be_zipped, password)
+
+<table border="1">
+<tr>
+	<td><code>local_path_to_zip</code></td>
+	<td>The path to the specified zip.</td>
+</tr>
+<tr>
+	<td><code>base_path</code></td>
+	<td>Base path to the files to be zipped.</td>
+</tr>
+<tr>
+	<td><code>array_of_files_to_be_zipped</code></td>
+	<td>An array of files to be zipped.</td>
+</tr>
+<tr>
+	<td><code>password</code></td>
+	<td>Optional. Password for the zip.</td>
+</tr>
+</table>
+

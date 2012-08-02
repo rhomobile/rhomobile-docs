@@ -137,6 +137,7 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhodesapi/rhoevent-api',             'RhoEvent'
   topic 'rhodesapi/rholog-api',             'RhoLog'
   topic 'rhodesapi/rhom-api',             'Rhom'
+  topic 'rhodesapi/rhoprofiler-api',             'RhoProfiler'
   topic 'rhodesapi/rhomsource-api',             'RhomSource'
   topic 'rhodesapi/rhoutils-api',             'RhoUtils'
   topic 'rhodesapi/ringtonemanager-api',             'RingtoneManager'
@@ -257,6 +258,7 @@ section 'rhodesapi-application', 'Configuration and Logging' do
   topic 'rhodesapi/rhoevent-api',             'RhoEvent'
   topic 'rhodesapi/rholog-api',             'RhoLog'
   topic 'rhodesapi/rhom-api',             'Rhom'
+  topic 'rhodesapi/rhoprofiler-api',             'RhoProfiler'
   topic 'rhodesapi/rhoutils-api',             'RhoUtils'
 end
 
