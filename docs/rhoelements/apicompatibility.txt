@@ -123,10 +123,10 @@ The following table shows the compatibility for each Mobile API.
 ##Legend
 <table class="table" >
 <tr><td >
-<span class="icon-star-empty"/></td><td> Can be used in <span class="label label-inverse" ><span rel="tooltip" title="Rhoelements applications use both Rhodes and Rhoelements APIS. When building rhoelements applications apptype: rhoelements is specified in the build.yml">RHOELEMENTS </span> </span>  applications only and requires RhoElements License.
+<span class="icon-star-empty"/></td><td> Can be used in <span class="label label-inverse" ><span rel="tooltip" title="Rhoelements applications use both Rhodes and Rhoelements APIS. When building rhoelements applications apptype: rhoelements is specified in the build.yml">RHOELEMENTS </span> </span>  applications only and requires a RhoElements License.
 </td></tr>	
 <tr><td >
-<span class="icon-star"/></td><td> Can be used in either <span class="label"><span rel="tooltip" title="Rhodes application do not provide Motorola specific APIs and are Ruby based. No special indication is needed in the build.yml file for Rhodes applications.">RHODES</span></span> or <span class="label label-inverse" ><span rel="tooltip" title="Rhoelements applications use both Rhodes and Rhoelements APIS. When building rhoelements applications apptype: rhoelements is specified in the build.yml">RHOELEMENTS </span> </span>  applications. Does not require a license when used in <span class="label"><span rel="tooltip" title="Rhodes application do not provide Motorola specific APIs and are Ruby based. No special indication is needed in the build.yml file for Rhodes applications.">RHODES</span></span>
+<span class="icon-star"/></td><td> Can be used in either <span class="label"><span rel="tooltip" title="Rhodes application do not provide Motorola specific APIs and are Ruby based. No special indication is needed in the build.yml file for Rhodes applications.">RHODES</span></span> or <span class="label label-inverse" ><span rel="tooltip" title="Rhoelements applications use both Rhodes and Rhoelements APIS. When building rhoelements applications apptype: rhoelements is specified in the build.yml">RHOELEMENTS </span> </span>  applications. <br/>Does not require a license when used in a <span class="label"><span rel="tooltip" title="Rhodes application do not provide Motorola specific APIs and are Ruby based. No special indication is needed in the build.yml file for Rhodes applications.">RHODES</span></span> application.
 </td></tr>
 <tr><td style="padding-top:20px;">
 <sup>&dagger;</sup></td><td> 
