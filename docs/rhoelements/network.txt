@@ -92,6 +92,17 @@ To instruct RhoElements to connect to a Wide Area Network automatically define a
 When defining a network event which will take place over WAN bear in mind if you specify a very low networkPollInterval your device will frequently have an active data connection. 'NetworkPollInterval's sufficiently low (in the region of 1000) can prevent the device from accepting incoming phone calls.
 
 
+###Preventing access to the device
+Receiving phone calls or texts whilst running RhoElements will cause the start button to be displayed on Windows Embedded Handheld devices, potentially offering users access to the operating system. It is recommended to set the following registry keys to disable Operating System access on Windows Embedded Handheld as required. The registry keys will be applied after a warm boot, omit them entirely to restore the Start and 'X' icons.
+
+<pre>
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Shell\BubbleTiles]   Location in Registry
+"HardwareStartKeyEnabled"=dword:00000001                    Prevents the Start icon from appearing in the bottom left
+"HardwareDoneKeyEnabled"=dword:00000001                     Prevents the 'X' icon from appearing in the bottom right
+				</pre>
+
+
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.  WAN Connectivity is only available on devices which support data connections through the Windows Connection Manager.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the NetworkEvent and WANStatusEvent which only apply to the current page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 

@@ -49,7 +49,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.
 
-<table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>clear</b></td><td class="clsSyntaxCells clsOddRow">Clears the capture area.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>capture</b></td><td class="clsSyntaxCells clsEvenRow">Saves the signature as a bitmap on the device and attempts to send that bitmap to the location specified in the 'Destination' parameter.</td><td class="clsSyntaxCells clsEvenRow">
+<table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>clear</b></td><td class="clsSyntaxCells clsOddRow">Clears the capture area.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>capture</b></td><td class="clsSyntaxCells clsEvenRow">Saves the signature as a bitmap on the device and attempts to send that bitmap to the location specified in the 'Destination' parameter.  If a signatureCaptureEvent is specified the signature will also be returned as a Data URI object.</td><td class="clsSyntaxCells clsEvenRow">
 N/A
 </td></tr></table>
 
@@ -82,6 +82,9 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 <br />
 ###signatureSaveEvent
 The Signature Save Event is called when the captured signature has been successfully transfered to the specified destination. When 'Capture' is called with the HTTP protocol, the destination server message is returned. When 'Capture' is called with the FTP protocol, either 'OK: File Sent', 'OK: File Received' or 'ERROR' is returned. This tag should be used in conjunction with the Capture method.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>transferResult</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Success or failure of transfer, see note above.</td></tr></table>
+<br />
+###signatureCaptureEvent
+Specifying a SignatureCaptureEvent will cause the signature to be returned as a Data URI object when the capture() method is invoked. A Data URI is a base 64 encoding of the signature and can be used to easily embed the signature on the page, store the image in a database or transfer the image to a server.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>imageData</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A DataURI representation of the captured Signature.</td></tr></table>
 <br />
 ###vectorEvent
 Signature data is formatted into a series of vectors and returned to the application via this callback function. The received data may not represent the entire signature as the vectors will be sent in batches if the signature is large. A single vector (array entry) contains an X, Y coordinate and the beginning / end of the signature is defined by (0xFFFF, 0xFFFF). This event is independent of the SignatureSaveEvent or capture method, when specified the event will be called whenever a 'pen up' occurs in the signature box.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>vectorArray</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">JavaScript array of vectors which represent the signature.</td></tr></table>
@@ -143,6 +146,29 @@ The following javascript will show a Signature Capture box with default settings
 	      signatureCapture.visibility  = 'visible';
 	   }
 	</script>
+	
+The following example shows signature being captured as a Data URI and displayed on the page
+
+	<META HTTP-Equiv="SignatureCapture" Content="Height:200">
+	<META HTTP-Equiv="SignatureCapture" Content="BGColor:#FFFF00">
+	<META HTTP-Equiv="SignatureCapture" Content="Width:400">
+	<META HTTP-Equiv="SignatureCapture" Content="Visibility:Visible">
+	<META HTTP-Equiv="SignatureCapture" Content="PenColor:#FF00FF">
+	<META HTTP-Equiv="SignatureCapture" Content="PenWidth:4">
+	<META HTTP-Equiv="SignatureCapture" Content="signatureCaptureEvent:url('Javascript:onSignatureCapture(%json)');">
+	  
+	<script type="text/javascript">
+	function onSignatureCapture(jsonObject)
+	{
+		signatureImage.src = jsonObject.imageData;
+	}
+	</script>
+	  
+	</HEAD>
+	  <BODY>
+	  <BR><BR><BR><BR>
+	  <img src="" id="signatureImage"<>/img>
+	</BODY>  
 	
 The following example shows signature vectors being displayed in an HTML table
 

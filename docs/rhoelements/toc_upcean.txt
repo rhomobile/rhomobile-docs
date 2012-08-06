@@ -5,7 +5,7 @@ Upc Ean: RhoElements Barcode Capture Decoders
 
 * ### [UpcEanBooklandFormat](/rhoelements/upcEanBooklandFormat)
 
-* ### [UpcEanConvertRssToUpcEan](/rhoelements/upcEanConvertRssToUpcEan)
+* ### [UpcEanConvertGs1dataBarToUpcEan](/rhoelements/upcEanConvertGs1dataBarToUpcEan)
 
 * ### [UpcEanCoupon](/rhoelements/upcEanCoupon)
 

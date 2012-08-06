@@ -30,6 +30,12 @@ Here you will find reference to all decoders available for the <a href="/rhoelem
 
 * ### [Ean13](/rhoelements/ean13)
 
+* ### [Gs1dataBar](/rhoelements/gs1dataBar)
+
+* ### [Gs1dataBarExpanded](/rhoelements/gs1dataBarExpanded)
+
+* ### [gs1dataBarLimited](/rhoelements/gs1dataBarLimited)
+
 * ### [I2of5](/rhoelements/toc_I2of5)
 
 * ### [Korean3of5](/rhoelements/toc_Korean3of5)
@@ -53,12 +59,6 @@ Here you will find reference to all decoders available for the <a href="/rhoelem
 * ### [Postal](/rhoelements/toc_postal)
 
 * ### [QrCode](/rhoelements/qrcode)
-
-* ### [Rss14](/rhoelements/rss14)
-
-* ### [RssExp](/rhoelements/rssexp)
-
-* ### [RssLim](/rhoelements/rsslim)
 
 * ### [Tlc39](/rhoelements/tlc39)
 

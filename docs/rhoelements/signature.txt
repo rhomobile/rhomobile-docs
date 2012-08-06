@@ -29,30 +29,21 @@ To Set Signature parameters via Ruby use the following syntax: Scanner.Parameter
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>signature:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">enabled/Disabled</td><td class="clsSyntaxCells clsOddRow">Enables/Disables the Signature decoder.</td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
+</b></td><td class="clsSyntaxCells clsOddRow">enabled / Disabled</td><td class="clsSyntaxCells clsOddRow">Enables / Disables the Signature decoder.  The barcode will be returned as a Data URI object with a jpeg mime type, you should specify the barcodeDataFormat and dataBufferSize parameters accordingly.</td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports Signature.</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner and device that supports the Signature decoder.</td></tr></table>
 
 
 ##HTML/Javascript Examples
 
-The following example enables the scanner to read only Webcode labels:
+The following example enables the scanner to read only Signature barcodes:
 
 	<META HTTP-Equiv="scanner" Content="allDecoders:disabled">
 	<META HTTP-Equiv="scanner" Content="Signature:enabled">
+	<META HTTP-Equiv="scanner" Content="barcodeDataFormat:binary;dataBufferSize:5000">
 	<META HTTP-Equiv="scanner" Content="enabled">
-	
-Above example can also be written as shown below:
-
-	<META HTTP-Equiv="scanner" Content="allDecoders:disabled;Signature:enabled;enabled">
-	
-or
-
-	<META HTTP-Equiv="scanner-all_decoders" Content="disabled">
-	<META HTTP-Equiv="scanner-Signature" Content="enabled">
-	<META HTTP-Equiv="scanner-enabled" Content="SCN1">
 	
 
 

@@ -1,0 +1,48 @@
+
+#UpcEanConvertGs1dataBarToUpcEan Decoder Setting
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+
+<b>
+The UpcEanConvertGs1dataBarToUpcEan Decoder Setting is used to set the upcEanConvertGs1dataBarToUpcEan property.
+</b>
+
+##Syntax
+
+<table class="re-table"><tr><th class="tableHeading">upcEanConvertGs1dataBarToUpcEan (Decoder Setting) &lt;META&gt; Syntax
+</th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="upcEanConvertGs1dataBarToUpcEan:[parameter]"&gt;</p></td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">upcEanConvertGs1dataBarToUpcEan JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the upcEanConvertGs1dataBarToUpcEan.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set upcEanConvertGs1dataBarToUpcEan parameters via JavaScript use the following syntax: scanner.Parameter = Value;
+<P />e.g. <b>scanner</b>.upcEanConvertGs1dataBarToUpcEan = Value;
+</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">UpcEanConvertGs1dataBarToUpcEan Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
+By default the Ruby Object <b>'Scanner'</b> will exist on the current page and can be used to interact directly with the UpcEanConvertGs1dataBarToUpcEan.
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set UpcEanConvertGs1dataBarToUpcEan parameters via Ruby use the following syntax: Scanner.Parameter = Value
+<P />e.g. <b>Scanner</b>.upcEanConvertGs1dataBarToUpcEan = Value
+</td></tr></table>
+
+
+##Parameters
+
+
+Items listed in this section indicate parameters, or attributes which can be set.
+<table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>upcEanConvertGs1dataBarToUpcEan:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">true / false</td><td class="clsSyntaxCells clsOddRow">If true, GS1 DataBar barcodes will be converted to UPC/EAN format.  For this setting to work UPC/EAN and GS1 DataBar symbologies must be enabled.</td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
+
+<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports UPC-EAN and GS1 DataBar decoders</td></tr></table>
+
+
+##HTML/Javascript Examples
+
+The following example enables the scanner and sets upcEanConvertGs1dataBarToUpcEan property
+
+	<META HTTP-Equiv="scanner" Content="allDecoders:enabled">
+	<META HTTP-Equiv="scanner" Content="upcEanConvertGs1dataBarToUpcEan:true">
+	<META HTTP-Equiv="scanner" Content="enabled">
+					
+
+

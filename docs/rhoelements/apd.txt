@@ -54,6 +54,10 @@ The APD version returned by the Cmd_PSGetVersion command (decimal code 260) is n
 If an embedded command with a malformed code is sent via APD, for instance 'apd.PSExternal(266, "$$[CMD:-0104]$$")', Windows APD will not generate any output to the printer, but on Android the malformed command will be treated as a common string and therefore printed out.
 
 
+###Printing on the MC2100
+Additional steps are required to pair your MC2100 via Bluetooth for printing. Please refer to the "Bluetooth Printing" section in the MC2100 User Guide
+
+
 <table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Executes immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
