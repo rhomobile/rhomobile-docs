@@ -1,0 +1,23 @@
+Session and configuration
+===
+
+RhoConnect persists user session in a cookie which is handled by client executable. But some client may have an issue accessing a session cookie value due to platform security features involved.
+
+At this moment well-known clients with such restrictions are Rhoconnect.js, Rhodes and ObjectiveC client on WinPhone7 platform.
+
+To overcome cookie issue the *XDomainSessionWrapper* Rack middleware has been implemented and included to the RhoConnect distribution.
+You can find it inside RhoConnect gem in *lib/rhoconnect/middleware/x_domain_session_wrapper.rb* file.
+
+## How to use
+
+To use this workaround just put these lines in config.ru file right before *Rhoconnect::Server* settings:
+
+    :::ruby
+    require 'rhoconnect/x_domain_session_wrapper'
+    use XDomainSessionWrapper, \
+        :api_uri_regexp => /\A\/(api\/)?application/, \
+        :login_uri_regexp => /\A\/(api\/)?application\/clientlogin/
+
+It just a sample, use real values there. By default it configured just for URLs based on */api/application* pattern, not */application*.
+
+**NOTE: Without mentioned configuration you may have login errors for Rhoconnect.js client and Rhodes application on WinPhone7 platform if your application points RhoConnect server as 'http://some-address.com/application'.
