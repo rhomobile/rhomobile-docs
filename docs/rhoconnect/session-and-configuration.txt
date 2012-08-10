@@ -15,9 +15,10 @@ To use this workaround just put these lines in config.ru file right before *Rhoc
     :::ruby
     require 'rhoconnect/x_domain_session_wrapper'
     use XDomainSessionWrapper, \
+        :session_cookie => 'rhoconnect_session', \
         :api_uri_regexp => /\A\/(api\/)?application/, \
         :login_uri_regexp => /\A\/(api\/)?application\/clientlogin/
 
-It just a sample, use real values there. By default it configured just for URLs based on */api/application* pattern, not */application*.
+It just a sample, use real base URL values there. By default it configured just for URLs based on */api/application* pattern, not */application*.
 
 **NOTE: Without mentioned configuration you may have login errors for Rhoconnect.js client and Rhodes application on WinPhone7 platform if your application points RhoConnect server as 'http://some-address.com/application'.
