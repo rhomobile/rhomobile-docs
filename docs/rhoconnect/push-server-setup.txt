@@ -65,7 +65,7 @@ Now start up your RhoConnect application and setup [push notifications](/rhodes/
 
 **NOTE: This option is still a _beta_ feature.  You may encounter issues using this service.**
 
-RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile.  This service can be used instead of Google C2DM on Android.
+RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile. This service can be used instead of Google C2DM on Android.
 
 The typical flow of a message using RPS:
 
@@ -81,8 +81,13 @@ The typical flow of a message using RPS:
 	|           |            |                 |
 	+           +            +                 +
 
+### Download and Install Nodejs
+
+If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile SUtie for Windows includes Node.js in its installation.)
+
 ### Starting the Push Service
-RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.  
+
+RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.
 
 First, create a file called "config.json" with the following content:
 
@@ -110,7 +115,12 @@ First, create a file called "config.json" with the following content:
 		"messagePeriod": 0
 	}
 
-Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start RhoConnect Push by running the following in a command line:
+Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis.
+
+	:::term
+	$ rake redis:start
+
+Now start RhoConnect Push by running the following in a command line:
 
 	:::term
 	$ rhoconnect-push -c /path/to/your/config.json
@@ -127,7 +137,7 @@ Next, make sure you have the following option in your RhoConnect application's `
 
 **NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Make sure you change the password to something secure when you deploy to production.**
 
-Now start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Android or Windows Mobile RhoElements application.
+Now perform setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
 
 ## Testing Push in the RhoConnect Web Console
 
@@ -135,7 +145,7 @@ The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for tes
 
 First, make sure you've logged in and performed a sync on the device/simulator you are going to test. 
 
-Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application.  For example, if you logged in as user 't', the url would be: 
+Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application. For example, if you logged in as user 't', the url would be: 
 
 	http://localhost:9292/console/user?user_id=t
 
