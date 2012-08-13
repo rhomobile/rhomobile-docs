@@ -17,40 +17,49 @@ Use RhoStudio to:
 
 ### Installing on Macintosh
 
-If you're running Macintosh, download the latest [RhoStudio for Macintosh](http://rhomobile.com/rhostudio-mac).
+If you're running Macintosh install Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install it.
 
-When the download finishes, click on the RhoStudioInstaller.dmg file to open it. You will get a window similar to this:
+Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, this version is outdated and isn't compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
+Download the latest [RhoStudio for Macintosh](http://rhomobile.com/rhostudio-mac).
+
+When the download finishes, click on the RMS_&lt;version&gt;.dmg file to open it. You will get a window similar to this:<br>
 <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
-Run the "install gems on rvm" to install with Ruby Version Manager.
-
-**NOTE: The official RhoMobile way to install and use Ruby on the Macintosh is with Ruby Version Manager. If you install a standalone version of Ruby instead, you will need to start and run RhoStudio from the command line using sudo.**
+Run the "Install gems" to install gems into selected version of Ruby. 
 
 Then drag RhoStudio to the Applications folder.
 
+**NOTE: RhoStudio Suite has two launchers: RhoStudio 32 bits and RhoStudio 64 bits. Use one suitable for your system.**
+
 You also have a sample folder that you can drag to where you wish on your computer. You can import these sample Rhodes and RhoConnect projects into RhoStudio.
 
-### Installing on Windows
+**NOTE: RhoStudio launcher asks Ruby version before start. Point the version where Gems were installed.**
 
-If you're running Windows, download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
+### Installing on Windows 32-bit
 
-**NOTE: If RhoStudio doesn't start on Windows XP 32-bit with message "Failed to create the Java Virtual Machine" then you faced memory fragmentation problem. To avoid it reduce JVM heap size:<br>
+If you're running Windows, ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp). Install Windows x64 JDK or x86 JDK or both.
+
+Download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
+
+On Windows XP reduce JVM heap size:<br>
 Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86\RhoStudio.ini</tt> file in editor.<br>
-Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
-After this change RhoStudio will start succesfully.**
+Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
 
-### Installing the Java Development Kit
+**NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
 
-You need to have the Java Development Kit (JDK) installed.
+### Installing on Windows 64-bit
 
-If you are planning to build for Blackberry or Android, make sure you have JDK version 1.6.0_2 or higher installed. The recommended version is 6.0 update 11.
+If you're running Windows, ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp).
 
-For Macintosh, JDK version 1.6.0_24 for Mac OSX 10.6 is available [here](http://support.apple.com/downloads/DL1360/en_US/JavaForMacOSX10.6Update4.dmg). Install it and then run "Java Preferences" utility to change default version.
+Download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
 
-The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp). The 32-bit Windows version of the JDK is required for Blackberry tools. 
+**NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
+Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
 
-Then in RhoStudio Preferences, open Rhomobile and check that the path is set to your JDK installation.
+### Setting path to the Java Development Kit
+
+In RhoStudio Preferences, open RhoMobile and check that the path is set to your JDK installation.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/preferences-rhomobile.png"/>
 
