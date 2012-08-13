@@ -1,6 +1,6 @@
 
 #Generic Preexisting JavaScript Object
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>  <span class="label label-inverse">RHOELEMENTS</span>
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Generic Preexisting JavaScript Object contains read only properties and methods which do not belong to a specific module. If you have configured 'PreloadLegacyGeneric' to be '1' the Javascript object 'generic' will be inserted automatically into your page's DOM by RhoElements.

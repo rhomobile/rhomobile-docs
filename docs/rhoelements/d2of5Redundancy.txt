@@ -11,7 +11,7 @@ The D2of5redundancy Decoder Setting is used to set the d2of5 Redundancy property
 <table class="re-table"><tr><th class="tableHeading">d2of5redundancy (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="d2of5Redundancy:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">d2of5redundancy JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the d2of5redundancy.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the d2of5redundancy.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set d2of5redundancy parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.d2of5redundancy = Value;

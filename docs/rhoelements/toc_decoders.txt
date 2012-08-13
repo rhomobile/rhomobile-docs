@@ -60,6 +60,8 @@ Here you will find reference to all decoders available for the <a href="/rhoelem
 
 * ### [QrCode](/rhoelements/qrcode)
 
+* ### [Signature](/rhoelements/toc_signature)
+
 * ### [Tlc39](/rhoelements/tlc39)
 
 * ### [Trioptic39](/rhoelements/toc_Trioptic39)

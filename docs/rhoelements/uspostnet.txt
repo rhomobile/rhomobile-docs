@@ -11,7 +11,7 @@ The UsPostNet Decoder is used to enable or disable the uspostnet decoder.
 <table class="re-table"><tr><th class="tableHeading">usPostNet (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="uspostnet:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">usPostNet JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the usPostNet.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the usPostNet.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set usPostNet parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.usPostNet = Value;

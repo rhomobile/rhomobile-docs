@@ -11,7 +11,7 @@ The Trioptic39 Decoder is used to enable or disable the Trioptic39 decoder.
 <table class="re-table"><tr><th class="tableHeading">trioptic39 (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Trioptic39:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">trioptic39 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the trioptic39.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the trioptic39.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set trioptic39 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.trioptic39 = Value;

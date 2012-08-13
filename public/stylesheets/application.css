@@ -417,3 +417,13 @@ div#container {min-height: 100%;overflow: hidden;position: relative;}
 .accordion-heading {
   overflow:hidden;
 }
+
+table.apicompat td.start1 {
+	padding-left: 20px !important; 
+	
+}
+
+table.apicompat td.start2 {
+	padding-left: 39px !important; 
+	
+}

@@ -11,7 +11,7 @@ The DataMatrix Decoder is an action tag used to enable or disable the DataMatrix
 <table class="re-table"><tr><th class="tableHeading">dataMatrix (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="DataMatrix:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">dataMatrix JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the dataMatrix.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the dataMatrix.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set dataMatrix parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.dataMatrix = Value;

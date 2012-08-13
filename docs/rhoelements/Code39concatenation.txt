@@ -11,7 +11,7 @@ The Code39concatenation Decoder Setting is used to set the Code39concatenation p
 <table class="re-table"><tr><th class="tableHeading">code39concatenation (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="Code39concatenation:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">code39concatenation JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code39concatenation.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the code39concatenation.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set code39concatenation parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.code39concatenation = Value;
