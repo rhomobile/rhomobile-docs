@@ -99,7 +99,11 @@ For an illustrative guide to the meaning of the Layout parameter, see the 'Indic
 For users migrating their PocketBrowser apps to RhoElements please note that due to the difference in the battery indicator graphic, the GraphPosition and IconPosition parameters have been deprecated. Please use the Layout parameter instead.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Enterprise Tablet does not support Smart battery information, getBatteryStatus, sampleInterval, setSystemNotifications and eventSource.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Enterprise Tablet does not support Smart battery information, getBatteryStatus, sampleInterval, setSystemNotifications and eventSource.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
 ##HTML/Javascript Examples

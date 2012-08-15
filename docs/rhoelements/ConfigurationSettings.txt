@@ -41,12 +41,12 @@ The following is an example of a typical configuration file, many of the attribu
 	  <Screen>
 		<FullScreen VALUE="1"/>
 	  </Screen>
-	  <WebServer&gt
+	  <WebServer>
 		<Enabled   VALUE="1"/>
-		<Port      VALUE="80"/>
+		<Port      VALUE="8080"/>
 		<WebFolder VALUE="\www"/>
 		<Public    VALUE="0"/>
-	  </WebServer&gt
+	  </WebServer>
 	  <DeviceKeys>
 		<FunctionKeysCapturable   VALUE="0"/>
 		<EnableFunctionKey_F1     VALUE="0"/>
@@ -156,7 +156,7 @@ The following is an example of a typical configuration file, many of the attribu
 			<ViewportWidth            VALUE="640"/>
         	<CaFile                   VALUE=""/>
         	<CaPath                   VALUE=""/>
-        	<VerifyCertificates       VALUE="true"/>
+        	<VerifyPeerCertificate    VALUE="1"/>
         	<NetworkCookieDatabase    VALUE="file://\Program Files\RhoElements\cookies.db" />		
 			</Navigation>
 		  <DeviceKeys>
@@ -627,9 +627,9 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <td>Local File path on the device.</td>
 </tr>
 <tr>
-<td>Navigation\\VerifyCertificates</td>
-<td>VERIFYCERTIFICATES</td>
-<td>Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to false in deployment situations, but it can be useful during development.  A value of false is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.  If unspecified this option will default to true.</td>
+<td>Navigation\\VerifyPeerCertificate</td>
+<td>VERIFYPEERCERTIFICATE</td>
+<td>Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development.  A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.  If unspecified this option will default to 1.</td>
 <td>Boolean</td>
 </tr>
 <tr>

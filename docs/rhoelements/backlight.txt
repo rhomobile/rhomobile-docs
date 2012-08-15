@@ -93,7 +93,11 @@ Windows Mobile 6.5 Devices with a light sensor, such as the ES400 will support t
 Unlike all other devices, changes made to the backlight intensity are made only to RhoElements. Switching native applications or quitting RhoElements will revert the backlight intensity to the system's default level until RhoElements is resumed.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
 
 
 ##HTML/Javascript Examples

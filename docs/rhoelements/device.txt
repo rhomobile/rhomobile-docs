@@ -49,7 +49,11 @@ The Suspend functionality is incompatible with the unattended functionality of t
 The wake functionality can be used along with Push module. For eg: in the push detected event the user can call the wake method to wake the device. Please note that the Enterprise Tablet opens in Lock Screen mode if wake method is used and the screen stays active until the user swicthes it off and hence this method consumes more battery power.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet. Only the method "wake" is supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet. Only the method "wake" is supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
 ##HTML/Javascript Examples

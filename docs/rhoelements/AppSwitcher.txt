@@ -40,7 +40,11 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">N/A</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr></table>
 
 
 ##HTML/Javascript Examples

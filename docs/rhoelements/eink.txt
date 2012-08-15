@@ -50,7 +50,11 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Devices with E ink display panel</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">E ink display panel</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">2.1</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Devices with E ink display panel</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">E ink display panel</td></tr></table>
 
 
 ##HTML/Javascript Examples

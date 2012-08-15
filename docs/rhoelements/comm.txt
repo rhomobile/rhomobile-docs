@@ -101,7 +101,11 @@ If any of the parameters (e.g. BaudRate) are set whilst the COM port is open the
 The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a COM port</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is mostly page persistent, however when navigating to a new page the port will be closed and the CommEvent cleared.  You will need to re-register the CommEvent and open the port again on the new page to continue serial port communication.
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a COM port</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is mostly page persistent, however when navigating to a new page the port will be closed and the CommEvent cleared.  You will need to re-register the CommEvent and open the port again on the new page to continue serial port communication.
 			</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">COM Interface.</td></tr></table>
 
 

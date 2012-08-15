@@ -142,7 +142,11 @@ Any parameter values out of the allowed range will be limited to the nearest all
 Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures. Diagnostics are not available for Tilt and Shake gestures.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr></table>
 
 
 ##HTML/Javascript Examples

@@ -85,7 +85,11 @@ In all devices apart from the Enterprise Tablet, orientation changes will persis
 By default the Screen Orientation module will assume the "Normal" orientation of your device is portrait mode. Devices which default to landscape mode (e.g. VC model devices) may need to be set to "leftHanded" in order to achieve an 'out of the box' orientation.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. autoRotate is only supported in devices that have IST.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of ScreenOrientationEvent</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">A device with a screen.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. autoRotate is only supported in devices that have IST.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of ScreenOrientationEvent</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">A device with a screen.</td></tr></table>
 
 
 ##HTML/Javascript Examples

@@ -71,7 +71,11 @@ Depending on the underlying operating system the SIP position may change followi
 The SIP methods 'Manual' and 'Automatic' have slightly different behaviour when the configuration setting EngineInUse is set to Internet Explorer. Manual: When shown by the SIP Button, will show and hide when text boxes have focus. Automatic: Shows and hides when text boxes have focus. Applying SIP control Automatic will prevent SIP control Manual being applied in the same application. To return to Manual SIP control you can press a hardware key. In Backwards Compatibility mode Manual and Automatic do not apply for Windows CE, only Windows Mobile.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. left and top are not supported by the Enterprise Tablet</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page. Moving the SIP may also persist after RhoElements has been shut down, dependent on Operating System.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. left and top are not supported by the Enterprise Tablet</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page. Moving the SIP may also persist after RhoElements has been shut down, dependent on Operating System.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
 ##HTML/Javascript Examples

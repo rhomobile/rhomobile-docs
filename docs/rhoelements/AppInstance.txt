@@ -98,7 +98,11 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 The ApplicationArray attribute returned from EnumApplications will enumerate each Application running on the device in a 2D array, associating each application's name with its attributes as follows: ApplicationName, ApplicationID, LocationOfIcon e.g. "LockScreen", -1, "LockScreen.gif" "AppSwitcher", -2, "AppSwitcher.gif" "AppLauncher", -3, "AppLauncher.gif" "PickingApp", 1, "file://\icons\pickApp.gif" "MedicalApp", 2, "file://\icons\medicalApp.gif"
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">N/A</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
 
 
 ##HTML/Javascript Examples

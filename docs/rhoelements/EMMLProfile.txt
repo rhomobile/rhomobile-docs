@@ -53,7 +53,11 @@ Normally, when importing a profile page, the imported profiles will be cleared f
 Importing profiles from a file:// location will cause the profile to be moved from its previous location, not copied.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of when a named EMML profile set is imported.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow" /></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of when a named EMML profile set is imported.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow" /></tr></table>
 
 
 ##HTML/Javascript Examples

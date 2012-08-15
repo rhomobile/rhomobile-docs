@@ -138,7 +138,11 @@ Certain devices may map their function keys to apparently normal keys, for examp
 Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. The Javascript standard document.onkeyup can be used as an indication of which key has been pressed.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.  AccelerateKey is only supported on Windows CE devices using the Internet Explorer engine</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of: AccelerateKey and HomeKeyValue; these will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+
+##Version Introduced and Device Support
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.  AccelerateKey is only supported on Windows CE devices using the Internet Explorer engine</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of: AccelerateKey and HomeKeyValue; these will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
 
 
 ##HTML/Javascript Examples
