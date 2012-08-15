@@ -245,9 +245,10 @@ If you press the trigger on an RSM scanner proximity enabled will be turned off,
 
 
 
-##Version Introduced and Device Support
+##Requirements
 
-<table class="re-table"><tr><th class="tableHeading">RhoElements Version Introduced</th><td class="clsSyntaxCell clsEvenRow">1.0.0</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have the ability to connect to remote scanners.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - The RSM parameters are volatile and only the current value of the RSM attribute will be altered.  Changes to RSM attributes will persist until the scanner is disabled or a navigation occurs.  rsmGetEvent will persist until a navigation occurs.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware to run, i.e. a remote scanner and a device which supports it.</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have the ability to connect to remote scanners.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware to run, i.e. a remote scanner and a device which supports it.</td></tr></table>
 
 
 ##HTML/Javascript Examples
