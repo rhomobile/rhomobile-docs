@@ -1,6 +1,12 @@
 # RhoElements Licensing
 
-The following features require Motorola RhoElements license:
+Running Motorola RhoElements applications requires a license. There are a number of licensing options available depending on the specific customer need or deployment. RhoElements applications which are not licensed will display a message on startup; unlicensed Motorola devices will also display a periodic nag screen, although unlicensed devices are fully functional for the purposes of evaluation, development, and testing.
+
+The same license key will work across any operating system. The name associated with the license is stored in the log file when the application is started.
+
+## Features Requiring a License
+
+If you have included any of the following features in your application, your application will require a RhoElements license to run. Applications not using any of these features will be able to run license-free.
 
 * [Mobile APIs](/rhoelements/apicompatibility) indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
 * [Motorola WebKit](/rhoelements/rhoelements2-native#enabling-motorola-webkit)
@@ -10,50 +16,100 @@ The following features require Motorola RhoElements license:
 * [Inline Signature Capture](/rhodes/device-caps#signature-capture)
 * [Windows Desktop](/rhodes/build#build-for-windows)
 
-## License for Motorola Windows Mobile and Windows CE Devices
+Note that the "shared runtime" requires a license to run since it uses Motorola WebKit and RhoElements APIs.
 
-When an application starts on a Motorola device, the License screen is displayed with the following options:
+## Obtaining a License
 
-* Scan Company Name barcode, Scan License barcode.
-* Enter Company name and License number manually.
-* License device via Internet.
+To obtain a license for RhoElements, you should contact us or your resell partner. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
 
-A license can also be applied by merging a .reg file into the device's registry.
+## Device Licensing
 
-Both type of Motorola RhoElements licenses can be used in this case: device (with particular device UUID) and deployment (without link to particular device UUID).
+A device license allows you to run multiple RhoElements applications on the same device and places no limits on the number of applications allowed. 
 
-After a valid license is provided, the device become 'Licensed'. The next time the application is started, the License screen will be displayed for a short period with a 'Device is Licensed' message. If no license is provided, the License nag screen will open every so often. The application will still retain all of its functionality in an unlicensed state.
+A device license consists of:
 
-## License for Motorola Android ET1 Devices
+* The company name.
+* A hexadecimal key.
 
-On the ET1, a license can be applied at runtime like described above where the user can scan in the license information or enter it manual.  The exception is that the license cannot be applied via a .reg file.
+There are two types of device license, both of which are applied in the same way.
 
-## License on Non-Motorola Windows Mobile and Windows CE
+* Device specific licenses are tied to the specific device and only apply to that device, trying to apply a device specific license to another device will fail.
 
-Licensing will be the same as Motorola Solutions devices except that scanning will not be available. However, keying of the license and automatic assignment will still be valid input methods.
+* Deployment licenses are not tied to a specific device, a single deployment license will work across an entire deployment and is most useful when including the license file in your device deployment or licensing non-Motorola devices.
 
-## License for Non-Motorola Android, iOS, BlackBerry and Windows Desktop
+Once your device is licensed, a splash screen will be displayed briefly each time the application is run saying who RhoElements has been licensed to.
 
-On these devices, there is no license wizard available to assist the user in licensing the framework. Instead, on a device that has not been licensed, a popup appears when the application is started warning that the framework is unlicensed.
+## Applying a Device License via the Wizard
 
-The user must provide the Deployment License information in the application's build.yml file:
+Devices running Windows Mobile and Windows CE as well as Motorola Android devices present the user with a licensing Wizard to guide the user through licensing.
 
-    motorola_license_company: 'Deployment License Company name'
-    motorola_license: 'Deployment License Number'
- 
-For development purposes, this license can be an individual license. However, the compiled package will only work on the device that the license has been assigned to. This use case is most likely to only be used with "demo" licenses supplied to developers for this purpose.
+<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhoe-license.png">
 
-For an actual release of software developed with RhoElements, the license would need to be a deployment license.  A deployment license is not restricted to a device, but will allow any device to make use of the software.Deployment licenses are restricted by name to a specific customer, and to obtain one the customer must electronically sign an online contract. 
- 
-## Unlicensed Devices
+The first page of the licensing wizard has a "Cancel" button. Clicking it allows you to evaluate the software. While you are evaluating the software, the functionality is not restricted.
 
-When a RhoElements application starts it will check to see if the devuce has been licensed. If the device has not been licensed a message will be displayed. However, the application will still be able to be executed with full functionality. 
+The licensing wizard assumes you have already obtained a license via the [Motorola Solutions software licensing website](https://softwarelicensing.motorolasolutions.com). The wizard will guide you through applying your license. There are two options available.
 
-## Common Information
+* Internet Licensing.  This only requires you to know the order number associated with your RhoElements licenses order.  Provided your device has an internet connection not obstructed by a proxy and can contact the licensing server your device will be licensed automatically.
 
-Regardless of the platform, who the license is assigned to is logged to the log file at start-up. The same license will work on any OS.
+* Manual Licensing.  You can also print off the license from the licensing website and manually key in your company name and license number. If you are using a Motorola device you will be able to scan the information rather than keying it in manually.
 
+More verbose instructions on licensing your device and how to interact with the licensing server are available [within the Motorola Solutions software licensing website](https://softwarelicensing.motorolasolutions.com/documentation/index.html#licensingRuntime).
 
+## Applying a Device License via a File
+
+There are three ways to apply a device license via a file.
+
+Via a Registry key: From the Motorola Software licensing site, after you have applied for your license you are able to download a registry key file (.reg) containing the company name and license key.  On Windows Mobile and Windows CE devices, you can license the device via this registry key.
+
+Via a file on Android devices when developing hybrid applications: Create the file `/mnt/sdcard/keys/rhoelements`. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key.
+
+Via build.yml for Native Applications: If you are developing native applications, you can provide the deployment license information in the build.yml file.
+
+	:::term
+	motorola_license_company: 'Deployment License Company name'
+	motorola_license: 'Deployment License Number'
+
+Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. For development purposes on a single device, a device specific license can be used in the build.yml.  
+
+## Application Licensing
+
+An application license is a completely separate concept from a device license and should be used when you only want to license a single RhoElements application without wanting to license RhoElements across the entire device.  Application licenses take precedence over device licenses and will prevent the splash screen from being displayed.
+
+Application licenses are currently only applicable for Android, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
+
+For hybrid applications, the license will define a series of URLs which are navigable from the application, these URLs can also include wildcards so it is not necessary to specify every file which comprises the app. When an application license is in effect, the following URLs are exempt from licensing:
+
+* Files resident on the local file system
+* The local web server running on 127.0.0.1 (if used)
+* Native applications. Note that native applications attempting to access remote resources will be subject to the set of allowed URLs defined in the application license. Also note that only page browsing is affected, application licensing does not apply to RhoConnect.
+
+For native applications, the application license uses the name of the application as defined in the build.yml file to determine if the application license is valid.
+
+Application Licenses are encoded by the Motorola Software License team on allocation but an unencrypted license will look like the following:
+
+	Company Name: Motorola Solutions
+	PackageName: Warehouse Picking	//  As defined in the build.yml file
+	For Version: 2.*.*			//  Application licenses can be version specific, this one is valid for any 2.x version of RhoElements
+	URL Mask: *motorolasolutions.com/apps/warehouse/*	//  Any URL in the motorolasolutions.com/apps/warehouse folder is allowed, all others are disallowed.  These URLs are currently case sensitive on Android but case insensitive on all other applicable platforms.
+
+### Applying an Application License
+
+There are two ways to apply an application license.
+
+For native applications, you should define your application license in your build.yml file as follows:
+
+	motorola_license_company: 'Company name'
+	motorola_license: '@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq'
+
+For hybrid applications, you should define your application license in your config.xml file as follows:
+
+	  <Applications>
+	    <Application > 
+	       <LicenseKeyCompany value=" Company Name"/>
+	       <LicenseKey value="@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq"/>
+	       ...
+	    </Application > 
+	  </Applications>
 
 
 
