@@ -98,8 +98,9 @@ There are two ways to apply an application license.
 
 For native applications, you should define your application license in your build.yml file as follows:
 
-	motorola_license_company: 'Company name'
 	motorola_license: '@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq'
+
+NOTE: Do not include 	motorola_license_company to build.yml, overwise application license will not be used.
 
 For hybrid applications, you should define your application license in your config.xml file as follows:
 
