@@ -27,6 +27,7 @@ To Invoke Device methods via Ruby use the following syntax: Device.method()
 <P />e.g. <b>Device</b>.suspend</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -54,7 +55,7 @@ The wake functionality can be used along with Push module. For eg: in the push d
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet. Only the method "wake" is supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet. Only the method "wake" is supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

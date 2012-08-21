@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -56,6 +57,7 @@ N/A
 </td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>stop</b></td><td class="clsSyntaxCells clsOddRow">Performs a soft trigger stop</td><td class="clsSyntaxCells clsOddRow">
 N/A
 </td></tr></table>
+
 
 ##Parameters
 
@@ -78,7 +80,7 @@ allTwice:
   Two times redundancy for all barcodes.  
 allThrice:
   Three times redundancy for all barcodes.<i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>scanTimeout:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager.  A value of 0 indicates an infinite timeout.  This parameter is compatibile with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease.  Note that for regulatory reasons scanTimeout is not configurable on all laser scanners.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: 5000 (Laser), 15000 (Imager)</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>rasterMode:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager.  A value of 0 indicates an infinite timeout.  This parameter is compatibile with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease.  Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.<br />Possible Values:milliseconds<br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: 5000 (Laser), 15000 (Imager)</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>rasterMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Describes the type of vertical rastering to use.  Possible Values:
 
 none:
@@ -213,7 +215,8 @@ composite:
 </b></td><td class="clsSyntaxCells clsOddRow">Forces the scanner to disconnect from the terminal when it is 'disabled'.  Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.<br />Possible Values:true / false<br /><i>Applicable scanner types: Bluetooth Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>displayBtAddressBarcodeOnEnable:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling 'enable' on a bluetooth scanner.  Not all devices support this functionality.  Note you must specify this parameter before calling 'enable'.<br />Possible Values:true / false<br /><i>Applicable scanner types: Bluetooth Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>enableTimeout:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the 'enable()' method.  You must specify this parameter before calling 'enable'.<br />Possible Values:seconds<br /><i>Applicable scanner types: Bluetooth Only</i><br /><i>Default: Device specific</i></td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -221,13 +224,16 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###decodeEvent
-A decode event is sent by the Scanner whenever a barcode is decoded.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>data</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The data decoded by the scanner or imaging device</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>source</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The source device and human readable decoder type of the decoded barcode or symbol</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>type</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Hex value representing the decoder type</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>time</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The time at which the decode occurred (hh:mm:ss)</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>length</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The length of the decoded barcode or symbol</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>event</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The type of event which has occurred at the scanner.  This field will be either 'Decode' for barcode scanning or a message from a Bluetooth scanner.  See Remarks</td></tr></table>
+A decode event is sent by the Scanner whenever a barcode is decoded.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>data</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The data decoded by the scanner or imaging device</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>source</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The source device and human readable decoder type of the decoded barcode or symbol</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>type</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Hex value representing the decoder type</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>time</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The time at which the decode occurred (hh:mm:ss)</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>length</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The length of the decoded barcode or symbol</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>event</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The type of event which has occurred at the scanner.  This field will be either 'Decode' for barcode scanning or a message from a Bluetooth scanner.  See Remarks</td></tr></table>
 <br />
 ###bluetoothStatusEvent
-A bluetoothStatusEvent is sent whenever a bluetooth connection / disconnection event occurs. If you are connected to a bluetooth scanner and have not registered to receive this event the status message will be sent as the sixth return value of the decodeEvent.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The message describing the bluetooth connection, see remarks.</td></tr></table>
+A bluetoothStatusEvent is sent whenever a bluetooth connection / disconnection event occurs. If you are connected to a bluetooth scanner and have not registered to receive this event the status message will be sent as the sixth return value of the decodeEvent.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The message describing the bluetooth connection, see remarks.</td></tr></table>
 <br />
 ###enumScannerEvent
-The Enum Scanner Event is used to ascertain the scanners present on the device.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>scannerArray (deviceName, friendlyName)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2 dimensional array of scanners present on the device.  See remarks.</td></tr></table>
+The Enum Scanner Event is used to ascertain the scanners present on the device.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>scannerArray (deviceName, friendlyName)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2 dimensional array of scanners present on the device.  See remarks.</td></tr></table>
 
 
 
@@ -315,7 +321,7 @@ RHOELEMENTS DATAWEDGE PROFILE
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a scanner component. Enterprise Tablet only supports the following parameters: enabled, [Decoder Name], autoEnter, autoTab, illuminationMode, linearSecurityLevel, picklistMode, scanTimeout, viewfinderMode.  Note that not all parameters will be supported by all scanner engines, e.g. Inverse1D barcodes are not supported on the MK4000</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a scanner component. Enterprise Tablet only supports the following parameters: enabled, [Decoder Name], autoEnter, autoTab, illuminationMode, linearSecurityLevel, picklistMode, scanTimeout, viewfinderMode.  Note that not all parameters will be supported by all scanner engines, e.g. Inverse1D barcodes are not supported on the MK4000</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - The scanner is disabled when navigating to a new page or refreshing the current page.  Disabling and Re-enabling the scanner may reset some parameters back to their device default.  The Motorola utility CtlPanel, available as a separate download, can be used to configure the default state of the scanner.</td></tr></table>
 
 
 ##HTML/Javascript Examples

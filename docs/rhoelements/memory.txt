@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -51,13 +52,15 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>getMemoryStats</b></td><td class="clsSyntaxCells clsOddRow">This returns the current status of the device such as total memory and available memory via memoryEvent</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
 
+
 ##Parameters
 
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>lowMemThreshold:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Values in KB</td><td class="clsSyntaxCells clsOddRow">The minimum amount of available memory, specified in KB. </td><td class="clsSyntaxCells clsOddRow">10% of the total memory</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -65,7 +68,8 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###memoryEvent
-The memoryEvent event is triggered when the available Memory drops below the set value.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>totalMemory</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The total memory in the device, specified in KB</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>availMemory</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The available memory in the device, specified in KB</td></tr></table>
+The memoryEvent event is triggered when the available Memory drops below the set value.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>totalMemory</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The total memory in the device, specified in KB</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>availMemory</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The available memory in the device, specified in KB</td></tr></table>
 
 
 
@@ -74,7 +78,7 @@ The memoryEvent event is triggered when the available Memory drops below the set
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">2.1 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Non Persistent - Changes to this module will not persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

@@ -29,6 +29,7 @@ To Set AppSwitcher parameters via Ruby use the following syntax: AppSwitcher.par
 
 
 
+
 ##Parameters
 
 
@@ -45,7 +46,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">N/A or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

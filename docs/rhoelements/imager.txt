@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -58,6 +59,7 @@ N/A
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>enumerate</b></td><td class="clsSyntaxCells clsEvenRow">Return a list of imagers available on the device using ImagerEnumEvent. This tag will be actioned immediately</td><td class="clsSyntaxCells clsEvenRow">
 N/A
 </td></tr></table>
+
 
 ##Parameters
 
@@ -85,7 +87,8 @@ N/A
 </b></td><td class="clsSyntaxCells clsOddRow">http,ftp or file path </td><td class="clsSyntaxCells clsOddRow">the path of the destination</td><td class="clsSyntaxCells clsOddRow">
 N/A
 </td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -93,12 +96,15 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###imagerEvent
-<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>transferResult</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">In response to an upload to an HTTP site, the reply from the web server will be returned.</td></tr></table>
+
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>transferResult</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">In response to an upload to an HTTP site, the reply from the web server will be returned.  There will be no response to an upload to an FTP site</td></tr></table>
 <br />
 ###imagerCaptureEvent
-Specifying an ImagerCaptureEvent will cause the captured image to be returned as a Data URI object when the capture() method is invoked. A Data URI is a base 64 encoding of the image and can be used to easily embed the image on the page, store the image in a database or transfer the image to a server.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>imageData</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A DataURI representation of the captured Image.</td></tr></table>
+Specifying an ImagerCaptureEvent will cause the captured image to be returned as a Data URI object when the capture() method is invoked. A Data URI is a base 64 encoding of the image and can be used to easily embed the image on the page, store the image in a database or transfer the image to a server.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>imageData</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A DataURI representation of the captured Image.</td></tr></table>
 <br />
 ###imagerEnumEvent
+
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>imagerArray (deviceName, friendlyName)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Two dimensional array of imagers present on the device</td></tr></table>
 
 
@@ -150,7 +156,7 @@ The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.</td></tr></table>
 
 
 ##HTML/Javascript Examples
@@ -160,7 +166,7 @@ The following example sets up the imager to capture an image and transfer it to 
 	<meta http-equiv="Imager" content="width:100">
 	<meta http-equiv="Imager" content="height:100">
 	<meta http-equiv="Imager" content="left:120">
-	<meta http-equiv="Imager" content="Destination:url('software.uk.motorola.com')">
+	<meta http-equiv="Imager" content="Destination:url('software.uk.motorolasolutions.com')">
 	<meta http-equiv="Imager" content="username:elementstest">
 	<meta http-equiv="Imager" content="password:elements30">
 	<meta http-equiv="Imager" content="sound:\windows\alarm2.wav">

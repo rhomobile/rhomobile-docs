@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -55,13 +56,15 @@ N/A
 N/A
 </td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>getBacklightSettings</b></td><td class="clsSyntaxCells clsOddRow">Returns the backlight settings via a 'backlightSettingsEvent'</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
 
+
 ##Parameters
 
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>intensity:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Positive Number, see remarks for range</td><td class="clsSyntaxCells clsOddRow">Sets the screen backlight to the specified intensity.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -69,7 +72,8 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###backlightSettingsEvent
-The backlight display settings<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>intensity</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight intensity value E.g. 2</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>intensityRange</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of integers contanining the valid range of intensity values.  e.g. ['0','1','2']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>state</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight state "on" or "off" or "timeout"</td></tr></table>
+The backlight display settings
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>intensity</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight intensity value E.g. 2</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>intensityRange</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of integers contanining the valid range of intensity values.  e.g. ['0','1','2']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>state</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight state "on" or "off" or "timeout"</td></tr></table>
 
 
 
@@ -98,7 +102,7 @@ Unlike all other devices, changes made to the backlight intensity are made only 
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

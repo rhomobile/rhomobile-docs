@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -50,6 +51,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>invokeGeneralVoltage1</b></td><td class="clsSyntaxCells clsOddRow">The function specified by 'PortEvent' is called immediately with the current value of the specified analog port, regardless of whether or not the port has been enabled..</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>invokeGeneralVoltage2</b></td><td class="clsSyntaxCells clsEvenRow">The function specified by 'PortEvent' is called immediately with the current value of the specified analog port, regardless of whether or not the port has been enabled..</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>invokeBatteryVoltage</b></td><td class="clsSyntaxCells clsOddRow">The function specified by 'PortEvent' is called immediately with the current value of the specified analog port, regardless of whether or not the port has been enabled..</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>invokeBatteryCurrent</b></td><td class="clsSyntaxCells clsEvenRow">The function specified by 'PortEvent' is called immediately with the current value of the specified analog port, regardless of whether or not the port has been enabled..</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>invokeAmbientTemperature</b></td><td class="clsSyntaxCells clsOddRow">The function specified by 'PortEvent' is called immediately with the current value of the specified analog port, regardless of whether or not the port has been enabled..</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>invokeHeaterTemperature</b></td><td class="clsSyntaxCells clsEvenRow">The function specified by 'PortEvent' is called immediately with the current value of the specified analog port, regardless of whether or not the port has been enabled..</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr></table>
+
 
 ##Parameters
 
@@ -80,7 +82,8 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsEvenRow">Value must lie within the limits of the port type.  See 'PortEvent' return value 'value' for the appropriate type for limits.</td><td class="clsSyntaxCells clsEvenRow">Sets the maximum threshold of a 'notification area' to the specified threshold on the specified port.  Entering this area and remaining there longer than the 'Debounce' duration will trigger a notification, realised by a PortEvent.</td><td class="clsSyntaxCells clsEvenRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>HeaterTemperatureMinimumThreshold:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Value must lie within the limits of the port type.  See 'PortEvent' return value 'value' for the appropriate type for limits.</td><td class="clsSyntaxCells clsOddRow">Sets the minimum threshold of a 'notification area' to the specified threshold on the specified port.  Entering this and remaining there longer than the 'Debounce' duration will trigger a notification, realised by a PortEvent.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>HeaterTemperatureDebounce:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Specified in 100 milliseconds (a value of 50 is equal to 5 seconds) and must be in the range 0 to 63.</td><td class="clsSyntaxCells clsEvenRow">Sets the duration the input on the specified port should remain stable within the 'notification area' to generate a notification event.  A notification event, when triggered, will be realised by a PortEvent.</td><td class="clsSyntaxCells clsEvenRow">Device Dependant</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -88,6 +91,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###portEvent
+
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>type</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The type of the port a value is being received for, one of: Digital1 to Digital8, the 8 digital input ports; GeneralVoltage1; GeneralVoltage2; BatteryVoltage; BatteryCurrent; AmbientTemperature; HeaterTemperature; Ignition and PowerSource</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>value</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The value of the input port, this will depend on the type of the associated port. For analog ports representing a voltage the value will be the text representation of a float in the range 0.0 to 32.5; For analog ports representing an electrical current the value will be the text representation of a float in the range 0.0 to 6.25; For analog ports representing temperature the value will be the text representation of an integer in the range -127 to 128. Float precision will always be given to two decimal places</td></tr></table>
 
 
@@ -97,7 +101,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples
