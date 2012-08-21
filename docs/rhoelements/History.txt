@@ -19,7 +19,7 @@ To Invoke history methods via JavaScript use the following syntax: history.metho
 To Set history parameters via JavaScript use the following syntax: history.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>history</b>.back = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: history.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: history.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>history</b>.setEMML("back:<i>value</i>back");							
 </td></tr></table>

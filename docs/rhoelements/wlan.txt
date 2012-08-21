@@ -24,7 +24,7 @@ To Set wlan return events via JavaScript use the following syntax: wlan.event = 
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: wlan.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: wlan.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>wlan</b>.setEMML("profileGuid:<i>value</i>;adapterPowerStateEvent:url('JavaScript:doFunction(%json)');enableAdapter");							
 </td></tr></table>
@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -78,35 +79,8 @@ N/A
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>getConnectionState</b></td><td class="clsSyntaxCells clsEvenRow">Returns the current WLAN connection state of the device. Fires the connectionStateEvent.</td><td class="clsSyntaxCells clsEvenRow">
 N/A
 </td></tr></table>
+	
 
-##Parameters
-
-
-Items listed in this section indicate parameters, or attributes which can be set.
-<table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>profileGuid:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">GUID String</td><td class="clsSyntaxCells clsOddRow">Sets the GUID credential for the user profile for which the connection is to be attempted.</td><td class="clsSyntaxCells clsOddRow">""</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>networkUsername:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Username String</td><td class="clsSyntaxCells clsEvenRow">Sets the Username credential for the user profile for which the connection is to be attempted.</td><td class="clsSyntaxCells clsEvenRow">
-N/A
-</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>networkPassword:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Password String</td><td class="clsSyntaxCells clsOddRow">Sets the Password credential for the user profile for which the connection is to be attempted.</td><td class="clsSyntaxCells clsOddRow">
-N/A
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>networkDomain:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Domain String</td><td class="clsSyntaxCells clsEvenRow">Sets the Domain credential for the user profile for which the connection is to be attempted.</td><td class="clsSyntaxCells clsEvenRow">
-N/A
-</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>selectLoginProfile:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Integer</td><td class="clsSyntaxCells clsOddRow">Select the profile from the list of candidate profiles. The parameter is the array index of profiles retrieved from loginCandidateProfilesEvent.</td><td class="clsSyntaxCells clsOddRow">Last added profile ID or -1 if none.</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>profileEssid:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Alphanumeric characters, maximum length 32</td><td class="clsSyntaxCells clsEvenRow">Sets the ESSID of the new profile.</td><td class="clsSyntaxCells clsEvenRow">""</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>profileName:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">String</td><td class="clsSyntaxCells clsOddRow">Sets the friendly name for new profile.</td><td class="clsSyntaxCells clsOddRow">""</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>profilePassphrase:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">String. May have restrictions on format dependant on the authentication method.</td><td class="clsSyntaxCells clsEvenRow">Sets the Passphrase for new profile.</td><td class="clsSyntaxCells clsEvenRow">""</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>profileEncryption:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">"OPEN", "WEP40", "WEP104", "TKIP", "AES", "SMS4"</td><td class="clsSyntaxCells clsOddRow">Sets the encryption method for this profile.</td><td class="clsSyntaxCells clsOddRow">
-N/A
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>profileSecurityMode:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">"LEGACY", "WPA_PERSONAL", "WPA2_PERSONAL", "WPA_ENTERPRISE",  "WPA2_ENTERPRISE", "CCKM_WPA", "CCKM_WPA2", "WAPI"</td><td class="clsSyntaxCells clsEvenRow">Security used for profile.</td><td class="clsSyntaxCells clsEvenRow">
-N/A
-</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>deleteAfterImport:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">'TRUE', 'FALSE'</td><td class="clsSyntaxCells clsOddRow">Deletes the profile after importing;</td><td class="clsSyntaxCells clsOddRow">false</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>importConfigFromLocation:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">URI</td><td class="clsSyntaxCells clsEvenRow">URI. Imports WLAN configuration from the defined location. Can be file, http or ftp based location.</td><td class="clsSyntaxCells clsEvenRow">""</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 ##Events
 
 
@@ -114,92 +88,61 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###adapterPowerStateEvent
-Returns data on if the radio is enabled or disabled.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "AdapterEnabled" or "AdapterDisabled"</td></tr></table>
+Returns data on if the radio is enabled or disabled.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "AdapterEnabled" or "AdapterDisabled"</td></tr></table>
 <br />
 ###loginResponseEvent
-Fired when network login response occurs<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "Success" or "Failed"</td></tr></table>
+Fired when network login response occurs
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "Success" or "Failed"</td></tr></table>
 <br />
 ###logoutResponseEvent
-Fired when network logout response occurs<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "Success" or "Failed"</td></tr></table>
+Fired when network logout response occurs
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "Success" or "Failed"</td></tr></table>
 <br />
 ###cancelLoginResponseEvent
-Fired when the network login cancel is requested<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "Success" or "Failed"</td></tr></table>
+Fired when the network login cancel is requested
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "Success" or "Failed"</td></tr></table>
 <br />
 ###loginCandidateProfilesEvent
-This event is generated when there is more than one possible profile to connect with. This event will be followed up with networkLoginEvent on successful selection of profile by the user. Maximum length of profile name is 28 characters because of data size limitation of RhoElements for a function call. If profile name is more than 28 characters, it will be truncated.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profiles</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">An array of Strings. Each string is the name of a profile.</td></tr></table>
+This event is generated when there is more than one possible profile to connect with. This event will be followed up with networkLoginEvent on successful selection of profile by the user. Maximum length of profile name is 28 characters because of data size limitation of RhoElements for a function call. If profile name is more than 28 characters, it will be truncated.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profiles</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">An array of Strings. Each string is the name of a profile.</td></tr></table>
 <br />
 ###networkLoginEvent
-This event is generated, when fusion needs the authentication from user to connect to a pre-defined profile.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileGuid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Candidate profile GUID</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileName</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Candidate profile Name</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>networkUsername</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Candidate network Username</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>networkPassword</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Candidate network Password</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>networkDomain</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Current domain Name</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>status</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Status as text message.</td></tr></table>
+This event is generated, when fusion needs the authentication from user to connect to a pre-defined profile.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileGuid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Candidate profile GUID</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileName</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Candidate profile Name</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>networkUsername</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Candidate network Username</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>networkPassword</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Candidate network Password</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>networkDomain</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Current domain Name</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>status</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Status as text message.</td></tr></table>
 <br />
 ###networkLoginCloseEvent
-This event is fired when a login dialog is to be closed due to timeout.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow" /></tr></table>
+This event is fired when a login dialog is to be closed due to timeout.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow" /></tr></table>
 <br />
 ###importConfigEvent
-Fired when the network login cancel is requested<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "ImportSuccess" or "ImportFailed"</td></tr></table>
+Fired when the network login cancel is requested
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "ImportSuccess" or "ImportFailed"</td></tr></table>
 <br />
 ###addedProfileEvent
-This event is fired when a profile is stored. This event contains data on whether the config items were imported successfully or failed to import.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileGuid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">GUID of the profile which was added successfully. If it is empty, profile addition was unsuccessful.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileName</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Candidate profile Name</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileEssid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Candidate profile ESSID</td></tr></table>
+This event is fired when a profile is stored. This event contains data on whether the config items were imported successfully or failed to import.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileGuid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">GUID of the profile which was added successfully. If it is empty, profile addition was unsuccessful.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileName</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Candidate profile Name</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileEssid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Candidate profile ESSID</td></tr></table>
 <br />
 ###allProfilesEvent
-Lists all profiles on the device<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profiles</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2D Array of profiles which defines the values of key elements of profile. guid: Unique Id of profile. name: Profile name. enabled: Either "TRUE" or "FALSE". type: Either "USER" or "DEVICE". canceled: Either "TRUE" or "FALSE"</td></tr></table>
+Lists all profiles on the device
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profiles</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2D Array of profiles which defines the values of key elements of profile. guid: Unique Id of profile. name: Profile name. enabled: Either "TRUE" or "FALSE". type: Either "USER" or "DEVICE". canceled: Either "TRUE" or "FALSE"</td></tr></table>
 <br />
 ###currentProfileEvent
-Lists details of the current profile<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileGuid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Unique Id of profile</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileEssid</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">ESSID of current profile</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileName</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Name of profile</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileEnabled</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Either "TRUE" or "FALSE"</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileType</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "USER" or "DEVICE"</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileCanceled</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Either "TRUE" or "FALSE"</td></tr></table>
+Lists details of the current profile
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileGuid</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Unique Id of profile</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileEssid</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">ESSID of current profile</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileName</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Name of profile</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileEnabled</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Either "TRUE" or "FALSE"</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>profileType</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either "USER" or "DEVICE"</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>profileCanceled</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Either "TRUE" or "FALSE"</td></tr></table>
 <br />
 ###connectionStateEvent
-Returns the current connection status<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Possible Value: "Disconnected", "Associating", "Associated", "Authenticating", "Authenticated", "Connected"</td></tr></table>
+Returns the current connection status
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>status</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Possible Value: "Disconnected", "Associating", "Associated", "Authenticating", "Authenticated", "Connected"</td></tr></table>
 
-
-
-
-##Remarks
-
-
-###connectProfile
-The credentials that connectProfile will use will be: 1) The unsaved profile data (data set by profileGuid, profileEssid, profileName, profilePassphrase, profileEncryption, profileSecurityMode). If these cant be found then, 2) The credentials stored in the profile represented by the currentProfileId.
-
-
-###addProfile
-After addProfile is called, all of the following parameters will be cleared:
-
-<pre>
-
-profileGuid
-profileEssid
-profileName
-profilePassphrase
-profileEncryption
-profileSecurityMode
-networkUsername
-networkPassword
-networkDomain
-</pre>
-
-
-###Order of events when connecting
-The order of the events when connecting will be:
-
-<pre>
-
-1) Set the profile by either setting "currentProfileId" or by setting the parameters that are prefixed with "profile".
-2) Call connectProfile.
-3) Set the parameters prefixed with "network" if needed.
-4) Call networkLogin
-5) loginResponseEvent will be fired. 
-	If connection was successful then "connectionStatus" = "CONNECTED".
-	If connection needs extra authentication then "connectionStatus" = "AUTHENTICATION REQUIRED".
-	If connection failed then "connectionStatus" = "NOT CONNECTED".
-6) If extra authentication was required, at some point another loginResponseEvent can be fired.
-	If the connectionStatus = "NOT CONNECTED", then the authentication period has timed out.
-</pre>
 
 
 
 
 ##Requirements
 
-<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">2.1 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Devices with Fusion module</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Fusion module</td></tr></table>
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">2.2 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Devices with Fusion module</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Fusion module</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to the parameters and events of this module will not persist when navigating to a new page. Enable and Disable methods do persist.</td></tr></table>
 
 
 ##HTML/Javascript Examples

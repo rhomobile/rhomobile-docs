@@ -164,6 +164,8 @@ The shortcut file supports the following command line parameters.
 
 If neither the `/S` nor `/C` parameters are specified in the shortcut file, then the default values for the location of the configuration file and the start page of the RhoElements application will be used. 
 
+NOTE: Urls that contain query string parameters (?name=value) can not be used within a shortcut on Windows Mobile / CE. This is a limitation on Windows Mobile/CE for creating shortcuts.
+
 The format in the .lnk file is:
 
 	<line-length>#<runtime-exe> <command-line-parameter> <app-folder>

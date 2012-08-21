@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'homeButton'</b> will exist on the current p
 To Set homeButton parameters via JavaScript use the following syntax: homebutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>homeButton</b>.left = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: homebutton.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: homebutton.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>homeButton</b>.setEMML("left:<i>value</i>");							
 </td></tr></table>

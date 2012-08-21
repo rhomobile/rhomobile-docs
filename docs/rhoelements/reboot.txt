@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'reboot'</b> will exist on the current page 
 To Set reboot parameters via JavaScript use the following syntax: reboot.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>reboot</b>.bootType = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: reboot.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: reboot.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>reboot</b>.setEMML("bootType:<i>value</i>");							
 </td></tr></table>

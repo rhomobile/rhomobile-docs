@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'bottomCommandArea'</b> will exist on the cu
 To Set bottomCommandArea parameters via JavaScript use the following syntax: bottomcommandarea.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>bottomCommandArea</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: bottomcommandarea.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: bottomcommandarea.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>bottomCommandArea</b>.setEMML("visibility:<i>value</i>");							
 </td></tr></table>

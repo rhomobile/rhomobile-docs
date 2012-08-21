@@ -24,7 +24,7 @@ To Set lightsensor return events via JavaScript use the following syntax: lights
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: lightsensor.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: lightsensor.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>lightsensor</b>.setEMML("status:<i>value</i>;LightSensorEvent:url('JavaScript:doFunction(%json)');getSensorData");							
 </td></tr></table>

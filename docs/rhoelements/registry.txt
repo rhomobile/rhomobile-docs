@@ -19,7 +19,7 @@ To Invoke registry methods via JavaScript use the following syntax: registry.met
 To Set registry parameters via JavaScript use the following syntax: registry.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>registry</b>.hive = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: registry.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: registry.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>registry</b>.setEMML("hive:<i>value</i>delete");							
 </td></tr></table>

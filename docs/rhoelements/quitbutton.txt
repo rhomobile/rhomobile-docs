@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'quitButton'</b> will exist on the current p
 To Set quitButton parameters via JavaScript use the following syntax: quitbutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>quitButton</b>.left = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: quitbutton.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: quitbutton.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>quitButton</b>.setEMML("left:<i>value</i>");							
 </td></tr></table>

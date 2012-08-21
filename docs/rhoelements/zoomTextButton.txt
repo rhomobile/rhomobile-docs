@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'zoomTextButton'</b> will exist on the curre
 To Set zoomTextButton parameters via JavaScript use the following syntax: zoomtextbutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>zoomTextButton</b>.left = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: zoomtextbutton.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: zoomtextbutton.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>zoomTextButton</b>.setEMML("left:<i>value</i>");							
 </td></tr></table>
