@@ -1,14 +1,14 @@
 # Building RhoStudio Apps on RhoHub
 
-Instead of using the mobile SDKs installed on your computer to build your apps with RhoStudio, you can stage the app onto RhoHub and build your app on RhoHub.
+RhoStudio lets you build your apps on RhoHub without leaving the RhosStudio IDE.  Just select the remote build option when building in RhoStudio and RhoHub will perform the build for you.
 
 NOTE: This is a Beta feature. It is not complete and it is subject to change.
 
-You will need a [RhoHub](/rhohub/tutorial) account. You will also use [RhoStudio](/rhostudio.tutorial).
+You will need a [RhoHub](/rhohub/tutorial) account. You will also use the [RhoStudio] IDE(/rhostudio.tutorial).
 
-## Setting Up Connection of RhoStudio and RhoHub
+## Setting Up Connection from RhoHub to RhoStudio
 
-Before you can build your RHoStudio apps on RHoHub, you need to connect your RhoHub account to RhoStudio. From your RhoHub account, go to your Profile and open the API Token tab. Copy the API Token.
+Before you can build your RhoStudio apps on RhoHub, you need to connect your RhoHub account to RhoStudio. From your RhoHub account, go to your Profile and open the API Token tab. Copy the API Token.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-rhohub/rhohub-api-token.png"/>
 
