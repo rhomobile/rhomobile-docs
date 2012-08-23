@@ -25,7 +25,7 @@ To Set battery return events via JavaScript use the following syntax: battery.ev
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: battery.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: battery.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>battery</b>.setEMML("visibility:<i>value</i>;batteryEvent:url('JavaScript:doFunction(%json)');getSmartBatteryStatus");							
 </td></tr></table>
@@ -44,6 +44,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -52,7 +53,10 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>getSmartBatteryStatus</b></td><td class="clsSyntaxCells clsOddRow">Triggers a SmartBatteryEvent.  This returns attributes about the battery such as number of charge cycles and date of manufacture. Not supported on the Enterprise Tablet.</td><td class="clsSyntaxCells clsOddRow">
 N/A
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>getBatteryStatus</b></td><td class="clsSyntaxCells clsEvenRow">Triggers a BatteryEvent.  This returns attributes about the battery such as battery life and AC line status etc.</td><td class="clsSyntaxCells clsEvenRow">
+N/A
 </td></tr></table>
+
 
 ##Parameters
 
@@ -63,8 +67,11 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsEvenRow">Pixel value</td><td class="clsSyntaxCells clsEvenRow">Sets the horizontal position of the battery indicator in pixels.  If it is negative the then indicator will be moved off screen</td><td class="clsSyntaxCells clsEvenRow">Top left of screen</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>top:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Pixel value</td><td class="clsSyntaxCells clsOddRow">Sets the vertical position of the battery indicator in pixels. if value is negative then indicator will be moved off screen</td><td class="clsSyntaxCells clsOddRow">Top left of screen</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>layout:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Left, Right, Up, Down</td><td class="clsSyntaxCells clsEvenRow">Sets the orientation of the battery icon</td><td class="clsSyntaxCells clsEvenRow">Right</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>color:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Hex Values (#000000 - #FFFFFF)</td><td class="clsSyntaxCells clsOddRow">RGB value that sets the color of the battery indicator using HTML web colors</td><td class="clsSyntaxCells clsOddRow">#000000</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+</b></td><td class="clsSyntaxCells clsOddRow">Hex Values (#000000 - #FFFFFF)</td><td class="clsSyntaxCells clsOddRow">RGB value that sets the color of the battery indicator using HTML web colors</td><td class="clsSyntaxCells clsOddRow">#000000</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>sampleInterval:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Refresh interval</td><td class="clsSyntaxCells clsEvenRow">The battery refresh interval, specified in milli seconds.</td><td class="clsSyntaxCells clsEvenRow">5000 milli seconds</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>setSystemNotifications:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">Enabled, Disabled</td><td class="clsSyntaxCells clsOddRow">Sets the system notifications for battery</td><td class="clsSyntaxCells clsOddRow">Disabled</td></tr></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -72,10 +79,12 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###batteryEvent
-The BatteryEvent gives an indication of the remaining battery level. Once registered for you will receive a BatteryEvent at regular intervals, as specified by the BatteryRefresh configuration setting.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>acLineStatus</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The AC line status (whether or not on external power).</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>batteryLifePercent</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Remaining battery power as a percentage.</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>backupBatteryLifePercent</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Remaining backup battery power as a percentage.</td></tr></table>
+The BatteryEvent gives an indication of the remaining battery level. Once registered for you will receive a BatteryEvent at regular intervals, as specified by the BatteryRefresh configuration setting.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>acLineStatus</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The AC line status (whether or not on external power).</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>batteryLifePercent</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Remaining battery power as a percentage.</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>backupBatteryLifePercent</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Remaining backup battery power as a percentage.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>eventSource</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Reason for event firing ("Timed Interval", "User Request", "Low Battery", "Critical Battery", "AC Connect" and "AC Disconnect").</td></tr></table>
 <br />
 ###smartBatteryEvent
-Returns various parameters relating to battery charge and battery hardware. Not all return values may be supported by all batteries. Not supported on the Enterprise Tablet.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>serialNumber</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The serial number of the battery</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>partNumber</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The Motorola part number of the battery, e.g. 21-65587 Rev. A</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>batteryChargeCycles</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The number of times the battery has been charged.  Partial charges are aggregated, therefore each charge cycle count represents one full charge / discharge cycle.  The battery charge cycle count gets updated when the battery charging state changes from charging to not charging.  Cycle count may not accuratley predict the life of a battery.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>ratedCapacity</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Rated capacity of the battery in mAh</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>manufactureDate</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Date the battery was manufactured expressed as MM/DD/YYYY.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>stateOfHealth</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">"Healthy", "Unhealthy" or "Unknown"</td></tr></table>
+Returns various parameters relating to battery charge and battery hardware. Not all return values may be supported by all batteries. Not supported on the Enterprise Tablet.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>serialNumber</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The serial number of the battery</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>partNumber</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The Motorola part number of the battery, e.g. 21-65587 Rev. A</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>batteryChargeCycles</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The number of times the battery has been charged.  Partial charges are aggregated, therefore each charge cycle count represents one full charge / discharge cycle.  The battery charge cycle count gets updated when the battery charging state changes from charging to not charging.  Cycle count may not accuratley predict the life of a battery.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>ratedCapacity</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Rated capacity of the battery in mAh</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>manufactureDate</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Date the battery was manufactured expressed as MM/DD/YYYY.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>stateOfHealth</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">"Healthy", "Unhealthy" or "Unknown"</td></tr></table>
 
 
 
@@ -95,7 +104,12 @@ For an illustrative guide to the meaning of the Layout parameter, see the 'Indic
 For users migrating their PocketBrowser apps to RhoElements please note that due to the difference in the battery indicator graphic, the GraphPosition and IconPosition parameters have been deprecated. Please use the Layout parameter instead.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Smart Battery information is not supported on the Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Enterprise Tablet does not support Smart battery information, getBatteryStatus, sampleInterval, setSystemNotifications and eventSource.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr></table>
 
 
 ##HTML/Javascript Examples
@@ -121,6 +135,24 @@ Parameters can also be concatenated as shown below
 The following example navigates to a new page with parameters upon a battery status change.
 
 	<META HTTP-Equiv="Battery" Content="BatteryEvent:url('mypage.asp?Data=%s&Source=%s&Type=%s&Time=%s&Length=%s')">
+	
+The following example alerts the user with battery notifications such as low battery warning.
+
+	<HTML>
+		<HEAD>
+		<TITLE>Low Battery Notification</TITLE>
+		<META HTTP-EQUIV="battery" content="sampleInterval:0;batteryEvent:url('javascript:lowBattery(%json);')">			
+		</HEAD>	
+		<SCRIPT type="text/javascript">
+		function lowBattery(jsonObject)
+		{
+			alert("Event: " + jsonObject.eventSource + " ,Battery remaining: " + jsonObject.batteryLifePercent + 
+			"% ,Backup battery remaining:" + jsonObject.backupBatteryLifePercent + "% ,AC line status: " + jsonObject.acLineStatus);		
+		}			
+		</SCRIPT>
+		<BR><INPUT type="button" value="EnableNotifications" onclick="battery.setSystemNotifications='Enabled';">
+		<BR><INPUT type="button" value="DisableNotifications" onclick="battery.setSystemNotifications='Disabled';">
+	</HTML>
 	
 
 

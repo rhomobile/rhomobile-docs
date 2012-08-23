@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'reloadButton'</b> will exist on the current
 To Set reloadButton parameters via JavaScript use the following syntax: reloadbutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>reloadButton</b>.left = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: reloadbutton.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: reloadbutton.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>reloadButton</b>.setEMML("left:<i>value</i>");							
 </td></tr></table>
@@ -26,6 +26,7 @@ By default the Ruby Object <b>'ReloadButton'</b> will exist on the current page 
 To Set ReloadButton parameters via Ruby use the following syntax: ReloadButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>ReloadButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+
 
 
 
@@ -68,7 +69,12 @@ All controls are designed to be shown on top of RhoElements. If you require to s
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

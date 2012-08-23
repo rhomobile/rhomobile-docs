@@ -2,49 +2,79 @@
 
 ## Mac OS
 
-If you're running Mac OS, download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+* RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install Java.
 
-Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, the official way to install Ruby for RhoStudio is to install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
+* Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, this version is outdated and isn't compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
-Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:
+* Download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
-<img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
+* Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
+  <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
-Run "Install gems on rvm" (this requires that you have installed Ruby Version Manager). A terminal window will open; wait for the gems install process to complete.
+* Run "Install gems". A terminal window will open. Select suitable Ruby version and whether to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
 
-Then drag Motorola RhoStudio to the Applications folder.
+* Drag Motorola RhoStudio to the Applications folder.
 
-**NOTE: Installing Ruby into the System folder is not supported by RhoMobile; the official RhoMobile way to install and use Ruby on the Macintosh is with Ruby Version Manager. If you do not use Ruby Version Manager and instead install Ruby into the System folder, you will need to start and run RhoStudio from the command line using sudo.**
+**NOTE: RhoStudio Suite has two launchers: RhoStudio 32 bits and RhoStudio 64 bits. Use one suitable for your system.**
 
-## Windows
+## Windows 32-bit
 
-If you're running Windows, download and run the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows) and run it. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+### Installing RhoStudio 
 
-If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
+* Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp).
 
-	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
+* Download and run the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
-Once the installer has completed, and you have installed the Java Development Kit, you can skip to the [Setup Rhodes section](#setup-rhodes).
+**NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
-## Java Development Kit (JDK)
+* On Windows XP reduce JVM heap size:<br>
+Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86\RhoStudio.ini</tt> file in editor.<br>
+Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
 
-You need to have the Java Development Kit (JDK) installed for RhoStudio. If you are planning to build for Blackberry or Android, make sure you have JDK version 1.6.0_2 or higher installed; the 32-bit Windows version of the JDK is required for Blackberry tools.
+**NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
 
-### Installing the Java Development Kit
+* Set the JDK Path
 
-The Sun JDK for Windows or Linux is available [here](http://java.sun.com/javase/downloads/index.jsp). For Windows, install the 32-bit version of the JDK; RhoStudio needs the 32-bit version.
+  Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
 
-For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install Java.
+### Troubleshooting
 
-NOTE: To build for Android it is required JDK 1.6 (JDK 1.7 is not supported)
+* RhoStudio doesn't start with message "Failed to create the Java Virtual Machine":
 
-### Setting the JDK Path
+  Reduce JVM heap size. Likely your computer has not enough memory.<br>
+  Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt> file in editor.<br>
+  Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
 
-On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk<version number>/bin`.
+## Windows 64-bit
 
-On Mac OS, the path to the JDK is automatically set once Java is installed.
+### Installing RhoStudio 
 
-For Linux and for Rhodes installs from the command line, set the JDK path in JAVA_HOME and PATH.
+* Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp). Install Windows x64 JDK or x86 JDK or both.
+
+* Download and run the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+
+**NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
+
+**NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
+Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
+
+* Set the JDK Path
+
+  Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to the x86 JDK, such as <tt>C:\Program Files (x86)\Java\jdk&lt;version number&gt;\bin</tt> .
+
+### Troubleshooting
+
+* RhoStudio doesn't start with message "Failed to create the Java Virtual Machine":
+
+  Reduce JVM heap size. Likely your computer has not enough memory.<br>
+  Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt> file in editor.<br>
+  Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
+
+* RhoStudio doesn't start with message "Failed to load the JNI shared library...":
+
+  Check compatibility between RhoStudio launcher and JDK version:<br>
+  32-bit launcher is compatible with x86 JDK.<br>
+  64-bit launcher is compatible with x64 JDK.
 
 ## Installing Rhodes from the Command Line
 
@@ -52,7 +82,9 @@ To install Rhodes on Linux, and to install Rhodes on Windows or Mac OS using the
 
 1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/) (On Windows, [RubyInstaller](http://rubyinstaller.org) is a convenient way to install Ruby; you should check "Add Ruby executables to your PATH" and "Associate .rb and .rbw files with this Ruby installation".)
 
-2. Install the Rhodes Gem. Run this command to install.
+2. Install the Rhodes Gem. 
+
+Run this command to install the Rhodes Gem.
 
 	:::term
   	$ [sudo] gem install rhodes
@@ -61,7 +93,7 @@ NOTE: If you get any `no such file to load -- something` messages while running 
 
 NOTE: Windows doesn't come with the necessary build tools to install gems ('make', for example). There are various ways to get these tools, but the GnuWin32 project at http://gnuwin32.sourceforge.net/ provides the tools, and can be installed via the GetGnuWin32 installer at http://sourceforge.net/projects/getgnuwin32/files/. You should follow the GetGnuWin32 instructions carefully.
 
-You can [install RhoStudio as a plugin for Eclipse](rhostudio-eclipse).
+**NOTE: Installing RhoStudio as a plugin for Eclipse is currently disabled.**
 
 RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
 
@@ -81,7 +113,3 @@ If you are using RhoStudio, you can either run rhodes-setup, or you can set the 
 ## Setting the Location of the RhoStudio Workspace Directory
 
 When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
-
-## Standalone Ruby Installation and Ruby Version Manager
-
-Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in Rhodes applications.

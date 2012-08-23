@@ -277,19 +277,24 @@ Use <b>iTunes</b> for installing your application package (your_application_name
 
 ## Build for Android
 
+**NOTE: To build for Android it is required JDK 1.6 (JDK 1.7 is not supported).**
+
 ### Setting Up the Android SDK and NDK
 
 Check that your [OS is compatible with the Android SDK](http://developer.android.com/sdk/requirements.html).
 
 Download the [Android SDK](http://developer.android.com/sdk/index.html), and unzip it to the location of your choice.
 
-On Macintosh and Linux, navigate to and run <Android SDK>/tools/android. On Windows, navigate to and run <Android SDK>/SDK Setup.exe. The Android SDK and AVD Manager window appears. Then perform the following steps:
+On Macintosh and Linux, navigate to and run `<Android SDK>/tools/android sdk`. On Windows, navigate to and run <Android SDK>/SDK Manager.exe. The Android SDK Manager window appears. Then perform the following steps:
 
  * Select Settings, then check "check `Force https://... sources to be fetched using http://".
- * Select Available packages, expand the Android repository and Third Party add-ons, check the Android SDK Platform(s) and Google APIs of your choice, then click the "Add Add-on site" button to download them.
- * Set up an AVD (Android Virtual Device) by clicking on Virtual Devices, and clicking the New button. More detailed instructions can be on the Google site for [Managing AVDs with AVD Manager](http://developer.android.com/guide/developing/devices/managing-avds.html).
+ * Run Android SDK Manager, check latest Android SDK Platform(s) and Google APIs, then click "Install packages" button to download and install them.
+
+** NOTE: To use Google Map View you need to install latest Google API from Android SDK Manager **
 
 Download and unzip the [Android NDK](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
+
+** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new rhodes **
 
 In RhoStudio -> Preferences on the Macintosh or Winndows -> Preferences on Windows, open Rhomobile->Android and set the paths to your Android SDK and NDK installations.
 
@@ -899,14 +904,14 @@ Also check that the vcbuild path is shown in the rhobuild.yml file. The rhobuild
 
 	env:
 	  paths:
-	    vcbuild: C:/Program Files/Microsoft Visual Studio 9/VC/vcpackages/vcbuild.exe
+	    vcbuild: C:/Program Files/Microsoft Visual Studio 9.0/VC/vcpackages/vcbuild.exe
 	    cabwiz: C:/Program Files/Windows Mobile 6 SDK/Tools/CabWiz
 
 On 64-bit installations:
 
 	env:
 	  paths:
-	    vcbuild: C:/Program Files (x86)/Microsoft Visual Studio 9/VC/vcpackages/vcbuild.exe
+	    vcbuild: C:/Program Files (x86)/Microsoft Visual Studio 9.0/VC/vcpackages/vcbuild.exe
 	    cabwiz: C:/Program Files (x86)/Windows Mobile 6 SDK/Tools/CabWiz
 
 ### Setup target SDK and emulator
@@ -1014,7 +1019,7 @@ Run
 
 Make sure you cradle your emulator (menu Tools/Device Emulator Manager/Select Running Emulator/Actions/Cradle)
 
-Copy `rhodes.exe` and `rhobundle` (located at `<source-code-root>\platform\wm\bin\Win32\rhodes\Debug\rho`) created at the previous step to the device: `My Computer\Mobile Device` and folder in Program Files on that device (for example, `\Program Files\rhodes`). You can first delete the contents of `\Program Files\rhodes\rho` folder on your device if you want to ensure there are no old files left over.
+Copy `rhodes.exe` and `rhobundle` (located at `<source-code-root>\platform\wm\bin\win32\rhodes\Debug\rho`) created at the previous step to the device: `My Computer\Mobile Device` and folder in Program Files on that device (for example, `\Program Files\rhodes`). You can first delete the contents of `\Program Files\rhodes\rho` folder on your device if you want to ensure there are no old files left over.
 
 If you changed your application, then recompile your application code by running the following command again, and copying `rhobundle` and `rhodes.exe` again:
 
@@ -1041,61 +1046,32 @@ To read the log file from the emulator or your device:
 
 * Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
 * Visual Studio 2008
-* WTL : http://wtl.sourceforge.net/ :
-    * unzip to folder: <VS path>\VC\WTL
-    * open in Visual studio menu `Tools\Options\Projects and solutions\VC++ directories`. Select platform - `Win32`; Show directories for - `Include files`; Add - `$(VCInstallDir)wtl\include`
-* If your application does not need HTTPS, then you may just use [precompiled Qt libraries](http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.2-vs2008.exe) (234 MB).
-    * Install Qt libraries 4.8.2 for Visual Studio 2008
-    * Create new (or update existing) system variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\4.8.2`
-* If your application needs HTTPS, then you need to build the Qt libraries for Visual Studio 2008 with OpenSSL as described below:
-    * Download the Qt 4.7.4 source:
-        * Go to [http://qt.nokia.com/downloads](http://qt.nokia.com/downloads)
-        * Jump to `Qt libraries`
-        * Download the [source code as a zip](http://get.qt.nokia.com/qt/source/qt-everywhere-opensource-src-4.7.4.zip) (237 MB)
-        * Extract the downloaded archive, e.g. into `C:\Qt\4.7.4`
-    * Prepare to build the OpenSSL library:
-        * Download [v1.0 source code](http://www.openssl.org/source/openssl-1.0.1.tar.gz) from [www.openssl.org](http://www.openssl.org/) and extract the downloaded archive, e.g. into `C:\Qt\openssl-1.0.1`
-        * Install Perl interpreter (if it's not installed yet), e.g. [ActiveState Perl](http://www.activestate.com/activeperl)
-        * Install [Netwide Assembler (NASM)](http://www.nasm.us/pub/nasm/releasebuilds/2.10/win32/nasm-2.10-installer.exe) from [www.nasm.us](http://www.nasm.us/) (if it's not installed yet)
-    * Open Control Panel » System » Advanced system settings » Environment Variables and then:
-        * Create new (or update existing) system variable `QTDIR` = `C:\Qt\4.7.4`
-        * Create new (or update existing) system variable `OPENSSL` = `C:\Qt\openssl-1.0.1`
-        * Add to the `PATH` variable: `C:\Qt\4.7.4\bin;C:\Qt\openssl-1.0.1\bin` (it doesn't matter that `C:\Qt\openssl-1.0.1\bin` folder does not exist yet)
-        * Add to the `PATH` variable the path to `nasm.exe` (usually `C:\Program Files\nasm`)
-        * Either close all command prompts and Visual Studio instances, or reboot the computer so the new settings take effect.
-    * Open Visual Studio 2008 Command Prompt. This is accomplished using Start » All Programs » Microsoft Visual Studio 2008 » Visual Studio Tools » Visual Studio 2008 Command Prompt. Run in Visual Studio 2008 Command Prompt:
+* Install [Qt libraries 4.7.4 for Visual Studio 2008](http://download.qt.nokia.com/qt/source/qt-win-opensource-4.7.4-vs2008.exe) (235 MB)
+* Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\4.7.4`
+* Add `bin` folder of installed Qt libraries, e.g. `C:\Qt\4.7.4\bin`, to `PATH` system environment variable
 
-			> vcvarsall.bat x86
-			> C:
-
-    * To build OpenSSL library run in the same command prompt:
-
-			> cd \Qt\openssl-1.0.1
-			> perl Configure VC-WIN32 enable-static-engine --prefix=C:/Qt/openssl-1.0.1
-			> ms\do_nasm
-			> nmake -f ms\ntdll.mak
-			> nmake -f ms\ntdll.mak install
-			> nmake -f ms\ntdll.mak clean
-
-    * To build Qt library run in the same command prompt:
-
-			> cd \Qt\4.7.4
-			> configure -opensource -platform win32-msvc2008
-			  -nomake examples -nomake demos -nomake docs
-			  -qt-libpng -qt-libjpeg -qt-libtiff -qt-libmng -qt-gif
-			  -openssl-linked -I C:/Qt/openssl-1.0.1/include
-			  -L C:/Qt/openssl-1.0.1/lib -no-qt3support
-			> nmake
-			> nmake clean
-
-      Be aware that it will take a while to build the Qt libraries from sources (maybe few hours or so). Particularly the `configure` command may run for a few minutes, and the `nmake` command may run for a few hours.
-    * After the build process is completed exit Visual Studio 2008 Command Prompt
+NOTE: If your application uses HTTPS protocol, then you need to build Qt libraries with OpenSSL (see <a href="#build-for-windows-https">instructions below</a>).
 
 ### Build application from the command line
 
-Make sure that path to vcbuild.exe (something like `C:\Program Files\Microsoft Visual Studio 9\VC\vcpackages`) is in your PATH env variable. The list of paths which should be in PATH env variable:
+Make sure that path to vcbuild.exe (something like `C:\Program Files\Microsoft Visual Studio 9.0\VC\vcpackages`) is in your PATH env variable. 
 
-<i>C:\Program Files\Microsoft Visual Studio 9\Common7\IDE;C:\Program Files\Microsoft Visual Studio 9\VC\BIN;C:\Program Files\Microsoft Visual Studio 9\Common7\Tools;C:\Program Files\Microsoft Visual Studio 9\Common7\Tools\bin;C:\Program Files\Microsoft Visual Studio 9\VC\PlatformSDK\bin;C:\Program Files\Microsoft Visual Studio 9\SDK\v2.0\bin</i>
+The list of paths which should be in PATH env variable:
+<i>C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE;C:\Program Files\Microsoft Visual Studio 9.0\VC\BIN;C:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools;C:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\PlatformSDK\bin;C:\Program Files\Microsoft Visual Studio 9.0\SDK\v3.5\bin</i>
+
+Also check that the vcbuild path is shown in the rhobuild.yml file. The rhobuild.yml file is located in the Rhodes folder (example location: `C:/RhoStudio/ruby/lib/ruby/gems/1.8/gems/rhodes-3.1.1`).
+
+If you use Visual Studio 2008 :
+
+	env:
+	  paths:
+	    vcbuild: C:/Program Files/Microsoft Visual Studio 9.0/VC/vcpackages/vcbuild.exe
+
+If you use Visual Studio 2008 on 64-bit installations:
+
+	env:
+	  paths:
+	    vcbuild: C:/Program Files (x86)/Microsoft Visual Studio 9.0/VC/vcpackages/vcbuild.exe
 
 If you use Visual Studio 2010 : add path to `msbuild` to `rhobuild.yml` in rhodes folder:
 
@@ -1108,6 +1084,8 @@ To build and run the application issue command:
 	:::term
 	$ rake run:win32
 
+*NOTE: To use `rake run:win32` command, add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\bin`
+
 To clean all temporary and binary files execute command:
 
 	:::term
@@ -1115,9 +1093,9 @@ To clean all temporary and binary files execute command:
 
 ### Create application installer for Windows
 
-Download NSIS installer tool (http://nsis.sourceforge.net/Download) 
+Download [NSIS installer tool](http://nsis.sourceforge.net/Download).
 
-Add path to NSIS complier path to 'rhobuild.yml' in rhodes folder:
+Add path to NSIS complier to 'rhobuild.yml' in rhodes folder:
 
 On 32-bit platform:
 
@@ -1131,17 +1109,54 @@ On 64-bit platform:
       paths:
         nsis: C:/Program Files (x86)/NSIS/makensis.exe
 
+#### Readme, license and icon
+* Application License can be provided by application developer. If file with LICENSE.txt name exists in the root of application folder when Installer will display separate page to confirm the license.
+* Application Readme file can be provided by application developer. If file with README.html name exists in the root of application folder when Installer will display show readme at the final page of the Installer
+* Application Icon should be used for Installer and application exe
 
 To build intaller bundle use command:
 
 	:::term
-	$ rake run:win32:production 
+	$ rake device:win32:production 
 
-After the build process is finished you can find the installer bundle named `<application-name>-setup.exe` in `bin` subfolder of your application root folder.
+After the build process is finished you can find the installer bundle named `<application-name>-setup.exe` in `<application-root>/bin/target/win32` folder.
 
 ### Logging
 
 Rholog.txt is placed in `<rhodes folder>\platform\wm\bin\win32\rhodes\Debug\rho`
+
+### <a name="build-for-windows-https"></a>How to enable HTTPS protocol
+
+If your application needs HTTPS, then you need to build the Qt libraries for Visual Studio 2008 with OpenSSL as described below:
+
+* Download the [Qt 4.7.4 source](http://get.qt.nokia.com/qt/source/qt-everywhere-opensource-src-4.7.4.zip) (237 MB) and extract the archive, e.g. into `C:\Qt\4.7.4-src`
+* Open Control Panel » System » Advanced system settings » Environment Variables and then:
+    * Create new (or update existing) system variable `QTDIR` = `C:\Qt\4.7.4` (this will be the installation folder for the compiled Qt libraries)
+    * Add to the `PATH` variable: `C:\Qt\4.7.4\bin` (it doesn't matter that this folder does not exist yet)
+    * To make command 'rake run:win32' work - Add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\bin`
+    * Either close all command prompts and Visual Studio instances, or reboot the computer so the new settings take effect.
+* Open Visual Studio 2008 Command Prompt. This is accomplished using Start » All Programs » Microsoft Visual Studio 2008 » Visual Studio Tools » Visual Studio 2008 Command Prompt. Run in Visual Studio 2008 Command Prompt:
+
+		> vcvarsall.bat x86
+		> C:
+
+* To build Qt library run in the same command prompt:
+
+		> cd \Qt\4.7.4-src
+		> configure -opensource -platform win32-msvc2008
+		  -nomake examples -nomake demos -nomake docs
+		  -qt-libpng -qt-libjpeg -qt-libtiff -qt-libmng -qt-gif
+		  -openssl-linked -no-qt3support -prefix C:/Qt/4.7.4
+		  -I <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/include
+		  -L <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/lib
+		> nmake
+		> nmake install
+		> nmake clean
+
+  Be aware that it will take a while to build the Qt libraries from sources (maybe few hours or so). Particularly the `configure` command may run for a few minutes, and the `nmake` command may run for a few hours.
+* After the build process is completed exit Visual Studio 2008 Command Prompt
+
+Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically.
 
 ## Build for Windows Phone 7
 
@@ -1253,7 +1268,10 @@ In the build.yml in your application folder there is an entry "name". This is th
 	name: My Own App
 
 ### Application Icon
-Place your image to use as an icon in a folder called `icon` in your application. If you created an app called `testapp` then the folder would be `testapp/icon`. The icon should be named `icon.png` and  `icon.ico` for Windows Mobile. Starting from iOS 4.0, Apple require three icons for application: 57x57, 72x72 and 114x114 pixels. Prepare such files, name them as `icon57.png`, `icon72.png` and `icon114.png` and place into `icon` folder
+Place your image to use as an icon in a folder called `icon` in your application. If you created an app called `testapp` then the folder would be `testapp/icon`. 
+
+* Windows Mobile and Windows: Add icon in two formats : `icon.png` and  `icon.ico`. 
+* iOS 4.0: Apple require three icons for application: 57x57, 72x72 and 114x114 pixels. Prepare such files, name them as `icon57.png`, `icon72.png` and `icon114.png` and place into `icon` folder
 
 	testapp/
 		build.yml
@@ -1279,33 +1297,38 @@ So if you change icon of application, you have to restart device/simulator(unins
 ### Symbian
 You can change icon for your Symbian application replacing icon.svg which is in your application icon folder with a new one.
 
-## Upgrade application
-Rhodes 3.3 support application code upgrade for iPhone(non AppStore distribution), Android and Windows Mobile.
+## Upgrade Application
 
-### Prepare application package
+Rhodes 3.3 supports application code upgrade for iPhone (non AppStore distribution), Android, and Windows Mobile. You can do a total upgrade or partial upgrade.
 
-To prepare upgrade package for iPhone run in application folder:
+### Total Upgrade
+
+You can replace the total application bundle with a new bundle packed in an update bundle archive file.
+
+#### Prepare Total Application Package
+
+To prepare the upgrade package for iPhone, run this command in your application folder:
 
 	:::term
     $ rake build:iphone:upgrade_package
 
-Application package will be placed to <app_root>/bin/target/iphone
+The application package will be placed in `<app_root>/bin/target/iphone`.
 
-To prepare upgrade package for Android run in application folder:
+To prepare the upgrade package for Android, run this command in your application folder:
 
 	:::term
     $ rake build:android:upgrade_package
     
-Application package will be placed to <app_root>/bin/target/android
+The application package will be placed in `<app_root>/bin/target/android`.
 
-To prepare upgrade package for Windows Mobile run in application folder:
+To prepare the upgrade package for Windows Mobile, run this command in your application folder:
 
 	:::term
     $ rake build:wm:upgrade_package
     
-Application package will be placed to <app_root>/bin/target/wmp6
+The application package will be placed in `<app_root>/bin/target/wmp6`.
 
-### Upgrade package from running application
+#### Download Bundle Package and Replace Application Current Bundle
 
 Download package:
     :::ruby
@@ -1324,13 +1347,84 @@ Unzip and replace package:
         WebView.navigate url_for :action => :error    
     end
 
-Application will restart automatically.
+The application will restart automatically.
 
-NOTE: On iPhone and Android application has to be started manually.
+NOTE: On iPhone and Android, the application has to be started manually.
 
-NOTE: When using Rho::RhoSupport.rhobundle_download method on a network that has proxies, you may need to configure a proxy exception on the device, if your  HTTP server is also on that same network. Ex: local network has an IP subnet of 192.168 and it uses a proxy. On the Windows Mobile device go into System >> Settings >> Connections >>Advanced and add 192.168.* to the proxy exception list. 
+NOTE: When using Rho::RhoSupport.rhobundle_download method on a network that has proxies, you may need to configure a proxy exception on the device, if your  HTTP server is also on that same network. Example: local network has an IP subnet of 192.168 and it uses a proxy. On the Windows Mobile device, go into System >> Settings >> Connections >> Advanced and add 192.168.* to the proxy exception list. 
 
-NOTE: The URL parameter for rhobundle_download must be a HTTP URL - FTP is not supported
-    
-### Sample
+NOTE: The URL parameter for rhobundle_download must be a HTTP URL - FTP is not supported.
+
+### Partial Upgrade
+
+You can add new files or replace old files with new ones and create an updated bundle packed in an update bundle archive file.
+
+#### Prepare Partial Application Package
+
+To add new files or replace old files with new ones in your current application's bundle content, make a list of the files in a file named `upgrade_package_add_files.txt`. Here is an example of upgrade_package_add_files.txt.
+
+	app/index.erb
+	app/Bundle/controller.rb
+	app/Bundle/error.erb
+
+In the same way, you can also remove files with an `upgrade_package_remove_files.txt` file. Here is an example of upgrade_package_remove_files.txt.
+
+	app/Bundle/wait.erb
+	app/Model2
+
+Execute the rake commands in your application folder to perform the partial upgrade.
+
+To prepare partial upgrade package for iPhone run in application folder:
+
+	:::term
+	$ rake build:iphone:upgrade_package_partial
+
+Application package will be placed to /bin/target/iphone
+
+To prepare partial upgrade package for Android run in application folder:
+
+	:::term
+	$ rake build:android:upgrade_package_partial
+
+Application package will be placed to /bin/target/android
+
+To prepare partial upgrade package for Windows Mobile run in application folder:
+
+	:::term
+	$ rake build:wm:upgrade_package_partial
+
+Application package will be placed to /bin/target/wmp6.
+
+#### Download Bundle Package and Replace Application Current Bundle
+
+You then unzip, upload and replace the application package. 
+
+Download package:
+    :::ruby
+    if !::Rho::RhoSupport.rhobundle_download(url_to_package, url_for(:action => :httpdownload_callback))
+        render :action =>:error    
+    else
+        render :action => :wait_download, :back => '/app'
+    end   
+
+Upload and Replace Package:
+	:::ruby
+	if System.unzip_file(::Rho::RhoSupport.rhobundle_getfilename())==0
+	   System.replace_current_bundle( File.dirname(::Rho::RhoSupport.rhobundle_getfilename()),  { :callback => url_for(:action => :update_finished_callback), :do_not_restart_app => true } )
+	   render :action => :wait_replace, :back => '/app'
+	else
+	   WebView.navigate url_for :action => :error    
+	end
+
+With the System.replace_current_bundle method, you can supply a params hash with the following options.
+
+`:callback` - url with callback. Called when upgrade bundle procedure is finished.
+`:do_not_restart_app` - bool, if true your application will not automatically restart after the procedure is finished.
+
+One of the callback parameters should be `status`: `"ok"` or `"error"`.
+
+NOTE: Use :do_not_restart_app very carefully. You can disable the restart of your application after a bundle update only if you change only images, JavaScript, and other similar types of files, but if you change files such as Ruby code, models, etc. In general, we recommend you do not use this parameter if you do not understand how your application works on your particular platform. Restarting your application after an update is safe.
+
+### Sample Upgrade Bundle Package
+
 See [Reload bundle demo](http://github.com/rhomobile/ReloadBundleDemo) for more information.

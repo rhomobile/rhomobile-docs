@@ -1,0 +1,163 @@
+# RhoProfiler API
+<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
+
+To perform performance measurements or to find applications bottlenecks, you can use the RhoMobile Profiler API.
+
+To enable RhoProfiler, set this in your application build.yml.
+
+	profiler: 1
+
+
+These counters start working after you turn on Profiler in build.yml:
+
+- ERB_RENDER - ERB-file render (Ruby)
+- CTRL_ACTION - Controller action (Ruby)
+- INDEX_ACTION - Index page render
+- ERB_RENDER - ERB-file render (Ruby)
+- BROWSER_PAGE  - Browser page loading time (Native)
+
+SyncEngine components has several native counters:
+ - Sync - Full sync time
+ - DB - Time spend for database insert/update/delete while sync
+ - Net - Time spend for network communication while sync
+
+These counters works only if you create them in your application. You can create a counter in your controller action and destroy it after some operations:
+
+Sqlite database (Native).
+
+* ‘SQLITE’ – counter for whole time processing SQL query including data conversion , sqlite3_step and prepare statement
+
+* ‘SQLITE_EXEC’ – sqlite3_step time only.
+
+To Enable Ruby Garbage collector logging modify rhoconfig.txt(set log level to Trace):
+
+	MinSeverity = 0
+
+
+## create_counter
+
+Create a global counter.
+
+	:::ruby
+	create_counter(counter_name)
+
+<table border="1">
+<tr>
+	<td><code>counter_name</code></td>
+	<td>the name for the global counter.</td>
+</tr>
+</table>
+
+## destroy_counter
+
+Destroy a global counter. Information from the counter will be placed in the log.
+
+	:::ruby
+	destroy_counter(counter_name)
+
+<table border="1">
+<tr>
+	<td><code>counter_name</code></td>
+	<td>the name of the global counter to be destroyed.</td>
+</tr>
+</table>
+
+## start_counter
+
+Start a local or a global counter. If Global counter with this name exists, that global counter will be started. If no global counter exists, a local counter will be created and started.
+
+	:::ruby
+	start_counter(counter_name)
+
+<table border="1">
+<tr>
+	<td><code>counter_name</code></td>
+	<td>the name of the counter to be started.</td>
+</tr>
+</table>
+
+## stop_counter
+
+Start a local or a global counter. In case of a local counter, information from the counter will be placed in the log.
+
+	:::ruby
+	start_counter(counter_name)
+
+<table border="1">
+<tr>
+	<td><code>counter_name</code></td>
+	<td>the name of the counter to be stopped.</td>
+</tr>
+</table>
+
+## flush_counter
+
+Get the log information from a counter (Local or Global). The counter does not have to be stopped or started for this method.
+
+	:::ruby
+	flush_counter(counter_name, message)
+
+<table border="1">
+<tr>
+	<td><code>counter_name</code></td>
+	<td>the name of the counter to have its information logged.</td>
+</tr>
+<tr>
+	<td><code>message</code></td>
+	<td>the log information from the counter.</td>
+</tr>
+</table>
+
+# start_created_counter
+
+Start a global counter. The counter will start only if it is a previously created global counter.
+
+	:::ruby
+	start_created_counter(counter_name)
+
+<table border="1">
+<tr>
+	<td><code>counter_name</code></td>
+	<td>the name of the previously created global counter to be started.</td>
+</tr>
+</table>
+
+## RhoProfiler C/C++ API
+
+The RhoProfiler C/C++ API contains several defines to manipulate Performance Counters. Here is the list of defines.
+
+	//Global accumulative counters
+	#define PROF_CREATE_COUNTER(name)     // Create Global counter
+	#define PROF_DESTROY_COUNTER(name)    // Destroy Global counter
+	#define PROF_START(name) //Start Local or Global counter. If Global counter with this name exist , this global counter will started. If no global counter exists, local counter will be created and started.
+	
+	#define PROF_STOP(name) // Stop Global or local counter. 
+	#define PROF_FLUSH_COUNTER(name,msg) //Log information from counter(Local or Global). Counter does not stopped or started. 
+	#define PROF_START_CREATED(name) //Counter will start only if it is already created previously(Global counter)
+
+Example:
+
+	 #include "statistic/RhoProfiler.h"
+	void testFunction()
+	{
+	    PROF_CREATE_COUNTER("Counter1");
+	
+	    PROF_START("Counter1");
+	    function1();
+	    PROF_STOP("Counter1");
+	
+	    //do something
+	
+	    PROF_START("Counter1")
+	    function2();
+	    PROF_STOP("Counter1")
+	
+	    PROF_DESTROY_COUNTER("Counter1") #Will log summary of function1 and function2 execution time
+	}
+
+
+
+
+
+
+

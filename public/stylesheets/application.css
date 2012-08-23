@@ -1,5 +1,4 @@
 
-
 	
 /* header */
 #rhomobile-header ul#rhomobile-section-nav li a#rhomobile-header-link-docs {
@@ -184,8 +183,11 @@ p, ul, blockquote, pre, table {
 	color: #555;
 	cursor:pointer;
 }
+#docsnav .current  {
+	background-color:#222;
+}
 #docsnav .current a {
-	color:#222;
+	color:white;
 	font-weight:bold;
 }
 #docsnav h3 {
@@ -414,4 +416,14 @@ div#container {min-height: 100%;overflow: hidden;position: relative;}
 .ul_footer li a:hover{text-decoration:none;}
 .accordion-heading {
   overflow:hidden;
+}
+
+table.apicompat td.start1 {
+	padding-left: 20px !important; 
+	
+}
+
+table.apicompat td.start2 {
+	padding-left: 39px !important; 
+	
 }

@@ -25,31 +25,22 @@ All API calls will return http 200 and requested data (if applied). Otherwise, A
 
 	handle_api_error("Can't get license information") do
 	  @license_info = JSON.parse(
-		RestClient.post(
-		  "#{server}/api/get_license_info", 
-	      { :api_token => @token }.to_json, 
-	      :content_type => :json
+		RestClient.get(
+		  "#{server}/rc/v1/system/license", 
+	     {'X-RhoConnect-API-TOKEN' => @api_token}
 	    ).body
 	  )
 	end
 
-## API Methods
+## API Methods (REST API version 1)
 
-### `login`
-Login to the RhoConnect server.
+NOTE: All routes that require admin privileges must pass the API token using the special header
+ 	  'X-RhoConnect-API-TOKEN':api_token_string
 
-	:::ruby
-	require 'rest_client'
-	require 'json'
+### System Resource (requires API token)
 
-	server = "http://localhost:9292"
-	login = "rhoadmin"
-	password = ""
-
-	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
-
-### `get_api_token`
-Before you can use RhoConnect API you should get API token:
+#### `POST /rc/v1/system/login`
+Before you can use RhoConnect API you should login to the RhoConnect server and get API token:
 
 	:::ruby
 	require 'rest_client'
@@ -59,29 +50,205 @@ Before you can use RhoConnect API you should get API token:
 	login = "rhoadmin"
 	password = ""
 
-	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
-	rhoconnect_session_cookie = 'rhoconnect_session='  + res.cookies['rhoconnect_session']
-	token = RestClient.post("#{server}/api/get_api_token",'',{ 'Cookie' => rhoconnect_session_cookie })
-      	
-### `get_license_info`
+	@api_token = RestClient.post("#{server}/rc/v1/system/login", { :login => login, :password => password }.to_json, :content_type => :json)
+
+#### `GET /rc/v1/system/license`
 Returns license information of the currently used license
 
 	:::ruby
-	license_info = RestClient.post(
-	  "#{server}/api/get_license_info",
-      {:api_token => token}.to_json, :content_type => :json
+	license_info = RestClient.get(
+	  "#{server}/rc/v1/system/license",
+      {'X-RhoConnect-API-TOKEN' => @api_token}
     ).body
 
-### `reset`
+#### `POST /rc/v1/system/reset`
 Reset the server: flush db and re-bootstrap server
 
 	:::ruby
-	RestClient.post("#{server}/api/reset",
-  	  { :api_token => token }.to_json, 
-      :content_type => :json
+	RestClient.post("#{server}/rc/v1/system/reset",
+  	  {}.to_json, 
+      {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
     )
 
-### `ping`
+#### `GET /rc/v1/system/appserver`
+Returns the url of the plugin's backend from the RhoConnect server.
+
+	:::ruby
+	adapter_url = RestClient.get(
+	  "#{server}/rc/v1/system/appserver",
+      {'X-RhoConnect-API-TOKEN' => @api_token}
+    ).body
+
+#### `POST /rc/v1/system/appserver`
+Saves the url of the plugin's backend to the RhoConnect server.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/rc/v1/system/appserver",
+      {
+        :adapter_url => url
+      }.to_json,
+      {:content_type => :json,
+       'X-RhoConnect-API-TOKEN' => @api_token}
+    )
+	
+#### `GET /rc/v1/system/stats`
+Retrieves stats for a given metric key:
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/rc/v1/system/stats", 
+	  {
+		'X-RhoConnect-API-TOKEN' => @api_token, 
+		:params => {:metric => 'foo', 
+					:start => 0, 
+					:finish => -1} 
+	  }
+	)
+
+Retrieves a list of metric keys matching a given pattern.  This supports 'glob' or '*' style pattern matching.  For example, all metric keys associated with 'Product' source adapter methods:
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/rc/v1/system/stats", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token,
+		:params => {:names => 'sources:*:Product'}
+	  }
+	)
+	
+### Store Resource (requires API token)
+
+#### `GET /rc/v1/store/:doc`
+Return content of a given document stored in Redis.
+
+	:::ruby
+	res = RestClient.get(
+	  "#{server}/rc/v1/store/<docname>", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `POST /rc/v1/store/:doc`
+Sets the content of the specified server document. Data should be either a string or hash of hashes.
+If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/rc/v1/store/<docname>", 
+	  { 
+		:data => data,
+		:append => false
+	  }.to_json, 
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+    )
+
+### User Resource (requires API token)
+
+#### `POST /rc/v1/users`
+Create a user in this RhoConnect application.
+
+	:::ruby
+	RestClient.post("#{server}/rc/v1/users",
+	  {
+	    :attributes => { 
+		  :login => login, 
+		  :password => password 
+		} 
+	  }.to_json, 
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+	)
+
+#### `DELETE /rc/v1/users/:user_id`
+Delete User and all associated devices from the RhoConnect application.
+
+	:::ruby
+	RestClient.delete(
+	  "#{server}/rc/v1/users/<user_id>",
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	)
+
+#### `PUT /rc/v1/users/:user_id`
+Update attributes for a user on this RhoConnect application.
+
+	:::ruby
+	RestClient.put(
+	  "#{server}/rc/v1/users/<user_id>",
+	  { 
+		:attributes => {
+		  :a_user_specific_attribute => a_user_specific_attribute_value
+		} 
+	  }.to_json, 
+	 {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+	)
+
+#### `GET /rc/v1/users`
+List users registered with this RhoConnect application.
+
+	:::ruby
+ 	users = RestClient.get(
+	  "#{server}/rc/v1/users",
+      { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+    ).body
+
+#### `GET /rc/v1/users/:user_id`
+Returns the information for the specified user.
+
+	:::ruby
+	user_info = RestClient.get(
+	  "#{server}/rc/v1/users/<user_id>",
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `GET /rc/v1/users/:user_id/clients`
+List clients (devices) associated with given user.
+
+	:::ruby
+	clients = RestClient.get("#{server}/rc/v1/users/<user_id>/clients", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+Returns list of client ids.
+
+#### `DELETE /rc/v1/users/:user_id/clients/:client_id`
+Deletes the specified client (device) for the given user.
+
+	:::ruby
+	RestClient.delete(
+	  "#{server}/rc/v1/users/<user_id>/clients/<client_id>",
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+    )    
+
+#### `GET /rc/v1/users/:user_id/sources/:source_id/docnames`
+Return list of document keys associated with given source and user. 
+
+If `:user_id` set to '*', this call will return list of keys for 'shared' documents. 
+
+	:::ruby
+	docs = RestClient.get(
+	  "#{server}/rc/v1/users/<user_id>/sources/<source_id>/docnames", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+
+#### `POST /rc/v1/users/ping`
 Sends PUSH message to all devices of the specified user(s):
 
 	:::ruby
@@ -100,11 +267,156 @@ Sends PUSH message to all devices of the specified user(s):
     }
 
 	RestClient.post(
-	  "#{server}/api/ping",ping_params.to_json, 
-	  :content_type => :json
+	  "#{server}/rc/v1/users/ping", ping_params.to_json, 
+	  { :content_type => :json,
+		'X-RhoConnect-API-TOKEN' => @api_token }
 	) 
 
-### `push_objects`
+#### `GET /rc/v1/users/:user_id/sources/:source_id/docs/:doc`
+Return content of a given source document for the specified user.
+
+	:::ruby
+	res = RestClient.get(
+	  "#{server}/rc/v1/users/<user_id>/sources/<source_id>/docs/<docname>", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `POST /rc/v1/users/:user_id/sources/:source_id/docs/:doc`
+Sets the content of the specified source document for the given user. Data should be either a string or hash of hashes.
+If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/rc/v1/users/<user_id>/sources/<source_id>/docs/<docname>", 
+	  { 
+		:data => data,
+		:append => false
+	  }.to_json, 
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+    )
+
+### Read State Resource (requires API token)
+
+#### `POST /rc/v1/read_state/users/:user_id/sources/:source_id`
+Sets source poll interval to "current time plus x seconds".
+
+	:::ruby
+	RestClient.post(
+	  #{server}/rc/v1/read_state/users/<user_id>/sources/<source_id>", 
+	  { 
+	    :refresh_time => 100 
+	  }.to_json, 
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+	)
+
+This will set the refresh time to 100 seconds from the current time.  Calling `set_refresh_time` with no `:refresh_time` will trigger a refresh on the sync request for the source.
+
+### Source Controller (requires API token)
+
+#### `GET /rc/v1/sources/type/:partition_type`
+Return list of source adapters for this RhoConnect application for the given partition type.
+Partition type can be either `app` or `user`.
+
+	:::ruby
+	sources = RestClient.get("#{server}/rc/v1/sources/type/<partition_type>", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `GET /rc/v1/sources/:source_id`
+Return attributes associated with a given source:
+
+* `name` - name of the data source
+* `poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll
+* `partition_type` - to share data across all users, set partition to :app; otherwise use `:user` partition (default)  
+* `sync_type` - set to `:bulk_only` to disable `:incremental` sync; regular sync is `:incremental` (default) 
+* `queue` - name of the queue for both query and create/update/delete (CUD) jobs (used if no specific queues not specified)
+* `query_queue` - name of query queue
+* `cud_queue` - name of CUD queue
+
+**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](/rhoconnect/async-jobs) if a queue name is defined.**
+
+	:::ruby
+	attributes = RestClient.get("#{server}/rc/v1/sources/<source_id>", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `PUT /rc/v1/sources/:source_id`
+Updates attributes associated with a given source:
+
+`poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll.
+
+	:::ruby
+	RestClient.put("#{server}/rc/v1/sources/<source_id>", 
+	  { 
+		:user_name => user,
+		:data => {:poll_interval => 25} 
+	  }.to_json, 
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+	).body
+
+### Client Resource (requires API token)
+
+#### `GET /rc/v1/clients/:client_id`
+Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes used by [RhoConnect push](/rhoconnect/push). 
+
+	:::ruby
+	client_attributes = RestClient.get(
+	  "#{server}/rc/v1/clients/<client_id>", 
+	  {
+	   'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `GET /rc/v1/clients/:client_id/sources/:source_id/docnames`
+Returns list of document keys associated with particular client for a given source. These documents are used by the server to sync data with the client. 
+
+	:::ruby
+	docs = RestClient.get(
+	  "#{server}/rc/v1/clients/:client_id/sources/:source_id/docnames", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `GET /rc/v1/clients/:client_id/sources/:source_id/docs/:doc`
+Return content of a given source document for the specified client.
+
+	:::ruby
+	res = RestClient.get(
+	  "#{server}/rc/v1/clients/<client_id>/sources/<source_id>/docs/<docname>", 
+	  { 
+		'X-RhoConnect-API-TOKEN' => @api_token
+	  }
+	).body
+
+#### `POST /rc/v1/clients/:client_id/sources/:source_id/docs/:doc`
+Sets the content of the specified source document for the given client. Data should be either a string or hash of hashes.
+If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
+
+	:::ruby
+	RestClient.post(
+	  "#{server}/rc/v1/clients/<client_id>/sources/<source_id>/docs/<docname>", 
+	  { 
+		:data => data,
+		:append => false
+	  }.to_json, 
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
+    )
+
+
+### Plugin methods (requires API token)
+
+#### `POST /app/v1/:source_name/push_objects`
 Push new objects or object updates to RhoConnect. These changes will be sent to device next time it synchronizes.
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client and trigger sync.**
@@ -117,14 +429,13 @@ Push new objects or object updates to RhoConnect. These changes will be sent to 
 	  }
 	}
 	RestClient.post(
-	  "#{server}/api/push_objects", 
+	  "#{server}/app/v1/<source_name>/push_objects", 
 	  { 
-		:api_token => token, 
         :user_id => user_id, 
-	    :source_id => source_name, 
 	    :objects => data 
 	  }.to_json, 
-	  :content_type => :json
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 	
 **NOTE: Normally, `push_objects` method will refresh the whole :md document in Redis. However, in case of large-size
@@ -132,7 +443,7 @@ documents, `push_objects` method can be optimized by invoking only the necessary
 the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
 in the `push_objects` parameters hash.**
 
-### `push_deletes`
+#### `POST /app/v1/:source_name/push_deletes`
 Delete objects from RhoConnect. These objects will be deleted from the device the next time it synchronizes.
 
 **NOTE: You may use [ping](/rhoconnect/push) to notify client and trigger sync.**
@@ -140,22 +451,21 @@ Delete objects from RhoConnect. These objects will be deleted from the device th
 	:::ruby
 	# object_ids is an array of objects to be deleted
 	RestClient.post(
-	  "/api/push_deletes", 
+	  "#{server}/app/v1/<source_name>/push_deletes", 
 	  { 
-		:api_token => api_token, 
 	    :user_id => user_id, 
-	    :source_id => source_name, 
 	    :objects => object_ids 
       }.to_json, 
-     :content_type => :json
+     {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
     )
 
 **NOTE: Normally, `push_deletes` method will refresh the whole :md document in Redis. However, in case of large-size
 documents, `push_deletes` method can be optimized by invoking only the necessary updates. This can help reducing
 the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
-in the `push_deletes` parameters hash.
+in the `push_deletes` parameters hash.**
 
-### `fast_insert`
+#### `POST /app/v1/:source_name/fast_insert`
 Push new objects to RhoConnect. Changes are inserted into the Redis set without any checking for previous existence.
 This way, the insert is very fast, but user must ensure that the object didn't exist before. No safeguards are implemented. 
 Use this method only when you can ensure the integrity of the data.
@@ -170,17 +480,16 @@ Use this method only when you can ensure the integrity of the data.
 	  }
 	}
 	RestClient.post(
-	  "#{server}/api/fast_insert", 
+	  "#{server}/app/v1/<source_name>/fast_insert", 
 	  { 
-		:api_token => token, 
         :user_id => user_id, 
-	    :source_id => source_name, 
-	    :data => data 
+	    :objects => data 
 	  }.to_json, 
-	  :content_type => :json
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 	
-### `fast_update`
+#### `POST /app/v1/:source_name/fast_update`
 Push object updates to RhoConnect. This method doesn't involve pulling the existing data out of Redis. Instead it required user to provide the previous state of the data. This way, this method allows for very fast updates (since it just removes the previous data from set and adds new ones). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. previous state must exist, otherwise it won't be properly deleted). Also, this method can be used to perform fast appends and deletes for any of the object's attributes (However, you shoudn't use this method to remove all of the attributes, `fast_delete` should be used instead.)
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client after the update and trigger sync.**
@@ -201,18 +510,17 @@ Push object updates to RhoConnect. This method doesn't involve pulling the exist
 	  }
 	}
 	RestClient.post(
-	  "#{server}/api/fast_update", 
+	  "#{server}/app/v1/<source_name>/fast_update", 
 	  { 
-		:api_token => token, 
         :user_id => user_id, 
-	    :source_id => source_name,
 	 	:delete_data => delete_data,
 	    :data => data 
 	  }.to_json, 
-	  :content_type => :json
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 
-### `fast_delete`
+#### `POST /app/v1/:source_name/fast_delete`
 Push object deletes to RhoConnect. This method doesn't involve pulling the existing data out of Redis and removing all of its attributes. Instead it required user to provide all of the object's data in the hash to be removed. This way, this method allows for very fast deletes (since it just removes the object's data from set). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. supply all of the object's data to be removed, otherwise some object's data will remain in Redis).
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client after the delete and trigger sync.**
@@ -226,318 +534,14 @@ Push object deletes to RhoConnect. This method doesn't involve pulling the exist
 	  }
 	}
 	RestClient.post(
-	  "#{server}/api/fast_delete", 
+	  "#{server}/app/v1/<source_name>/fast_delete", 
 	  { 
-		:api_token => token, 
         :user_id => user_id, 
-	    :source_id => source_name,
 	    :data => data 
 	  }.to_json, 
-	  :content_type => :json
+	  {:content_type => :json,
+	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 
-### `get_adapter`
-Returns the url of the source adapter from the RhoConnect server.
 
-	:::ruby
-	adapter_url = RestClient.post(
-	  "#{server}/api/get_adapter",
-      {
-        :api_token => token
-      }.to_json, 
-      :content_type => :json
-    ).body
 
-### `save_adapter`
-Saves the url of the source adapter to the RhoConnect server.
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/save_adapter",
-      {
-        :api_token => token,
-        :adapter_url => url
-      }.to_json,
-      :content_type => :json
-    )
-
-### `upload_file`
-Upload a file to the RhoConnect server.
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/upload_file",
-	  {
-	    :api_token => token,
-	    :upload_file => path_to_file
-	  }.to_json,
-	  :content_type => :json
-	)
-
-### `list_users`
-List users registered with this RhoConnect application.
-
-	:::ruby
- 	users = RestClient.post(
-	  "#{server}/api/list_users",
-      { :api_token => token }.to_json, 
-      :content_type => :json
-    ).body
-
-### `create_user`
-Create a user in this RhoConnect application.
-
-	:::ruby
-	RestClient.post("#{server}/api/create_user",
-	  { 
-		:api_token => token,
-	    :attributes => { 
-		  :login => login, 
-		  :password => password 
-		} 
-	  }.to_json, 
-	  :content_type => :json
-	)
-
-### `delete_user`
-Delete User and all associated devices from the RhoConnect application.
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/delete_user",
-	  { 
-		:api_token => token, 
-		:user_id => user_id 
-	  }.to_json, 
-	 :content_type => :json
-	)
-
-### `update_user`
-Update attributes for a user on this RhoConnect application.
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/update_user",
-	  { 
-		:api_token => token,
-		:user_id => user_id 
-		:attributes => {
-		  :a_user_specific_attribute => a_user_specific_attribute_value
-		} 
-	  }.to_json, 
-	 :content_type => :json
-	)
-
-### `list_clients`
-List clients (devices) associated with given user.
-
-	:::ruby
-	clients = RestClient.post("#{server}/api/list_clients", 
-	  { 
-		:api_token => token, 
-		:user_id => user_id 
-	  }.to_json, 
-	 :content_type => :json
-	).body
-
-Returns list of client ids.
-
-### `create_client`
-Creates a client (device) for a given user.
- 
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/create_client",
-	  { 
-		:api_token => token, 
-		:user_id => user_id 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `delete_client`
-Deletes the specified client (device).
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/delete_client",
-	  { 
-		:api_token => token, 
-		:user_id => user_id,  
-		:client_id => client_id 
-	  }.to_json, 
-	 :content_type => :json
-    )    
-
-### `get_client_params`
-Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes used by [RhoConnect push](/rhoconnect/push). 
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/get_client_params", 
-	  { 
-		:api_token => token, 
-		:client_id => client_id 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `list_client_docs`
-Returns list of document keys associated with particular client. These documents are used by the server to sync data with the client. 
-CD (:cd) - client document; represents the state of the client (set of all objects on the given client).
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/list_client_docs", 
-	  { 
-		:api_token => token, 
-		:source_id => source_id, 
-		:client_id => client_id 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `list_sources`
-Return list of source adapters for this RhoConnect application.
-
-	:::ruby
-	sources = RestClient.post("#{server}/api/list_sources", 
-	  { 
-		:api_token => token, 
-		:partition_type => partition 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `get_source_params`
-Return attributes associated with a given source:
-
-* `name` - name of the data source
-* `poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll
-* `partition_type` - to share data across all users, set partition to :app; otherwise use `:user` partition (default)  
-* `sync_type` - set to `:bulk_only` to disable `:incremental` sync; regular sync is `:incremental` (default) 
-* `queue` - name of the queue for both query and create/update/delete (CUD) jobs (used if no specific queues not specified)
-* `query_queue` - name of query queue
-* `cud_queue` - name of CUD queue
-
-**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](/rhoconnect/async-jobs) if a queue name is defined.**
-
-	:::ruby
-	attributes = RestClient.post("#{server}/api/get_source_params", 
-	  { 
-		:api_token => token, 
-		:source_id => source_id 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `update_source_params`
-Updates attributes associated with a given source:
-
-`poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll.
-
-	:::ruby
-	attributes = RestClient.post("#{server}/api/update_source_params", 
-	  { 
-		:api_token => token, 
-		:source_name => source_name,
-		:user_name => user,
-		:data => {:poll_interval => 25} 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `set_refresh_time`
-Sets source poll interval to "current time plus x seconds".
-
-	:::ruby
-	RestClient.post(
-	  "/api/set_refresh_time", 
-	  { 
-		:api_token => @api_token, 
-	    :source_name => source_name, 
-	    :user_name => user, 
-	    :refresh_time => 100 
-	  }.to_json, 
-	  :content_type => :json
-	)
-
-This will set the refresh time to 100 seconds from the current time.  Calling `set_refresh_time` with no `:refresh_time` will trigger a refresh on the sync request for the source.
-
-### `list_source_docs`
-Return list of document keys associated with given source and user. 
-
-If `:user_id` set to '*', this call will return list of keys for 'shared' documents. 
-
-MD(:md) - master document; represents state of the backend (set of all objects for the given app/user/source on the backend service).
-
-	:::ruby
-	docs = RestClient.post(
-	  "#{server}/api/list_source_docs", 
-	  { 
-		:api_token => token, 
-		:source_id => source_id, 
-		:user_id => user_id 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-### `get_db_doc`
-Return content of a given document (client or source).
-
-	:::ruby
-	res = RestClient.post(
-	  "#{server}/api/get_db_doc", 
-	  { 
-		:api_token => token, 
-		:doc => doc, 
-		:data_type => data_type 
-	  }.to_json, 
-	  :content_type => :json
-	).body
-
-`:data_type` should be 'string' for the documents containing single string (size or token docs); otherwise this call will return hash of hashes.
-
-### `set_db_doc`
-Sets the content of the specified server document. Data should be either a string or hash of hashes. Data type should be set accordingly.
-If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/set_db_doc", 
-	  { 
-		:api_token => token, 
-		:doc => doc, 
-		:data => data, 
-		:data_type => data_type,
-		:append => false
-	  }.to_json, 
-	  :content_type => :json
-    )
-
-### `stats`
-Retrieves stats for a given metric key:
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/stats", 
-	  { 
-		:api_token => @api_token, 
-		:metric => 'foo', 
-		:start => 0, 
-		:finish => -1 
-	  }.to_json, 
-	  :content_type => :json
-	)
-
-Retrieves a list of metric keys matching a given pattern.  This supports 'glob' or '*' style pattern matching.  For example, all metric keys associated with 'Product' source adapter methods:
-
-	:::ruby
-	RestClient.post(
-	  "#{server}/api/stats", 
-	  { 
-		:api_token => @api_token, 
-		:names => 'sources:*:Product' 
-	  }.to_json, 
-	  :content_type => :json
-	)

@@ -1,22 +1,37 @@
 # RhoElements-Enabling Your Web App
 
-If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to install a RhoElements runtime application on the device and configure it to point to your web server.
+If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.
+
+To enable your web app for RhoElements, perform these steps.
+
+1. [Install the RhoElements Runtime](#installing-the-rhoelements-runtime).
+2. [Write your web app](#writing-your-rhoElements-web-app) (HTML, CSS, and JavaScript). Call the RhoElements JavaScript APIs for mobile device functionality.
+3. Install your web app on your mobile device.
+4. Edit the RhoElements config.xml file to point to your web app start page.
+
+In order for RhoElements to start with your web app, you need to configure RhoElements so that it knows which URL to start with. This can be accomplished in multiple ways.
+
+* [Creating a shortcut](#creating-shortcuts-for-your-web-app) that changes the default URL that is loaded to your web app URL.
+* Modifying the <StartPage> parameter in the default [config.xml file](#understanding-rhoelements-configuration-parameters) to point to your web app URL.
 
 ## Installing the RhoElements Runtime
 
-**NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Developement Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
+**NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Development Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
 
-After [Installing Motorola RhoMobile Suite](/rhoelements/rhoelements-install), there will be a set of executables (runtimes) for Windows Mobile, Windows CE and Android found in subfolder of where you installed RhoMobile Suite. You will need to install these executables on each device that will be used for your application. In order for RhoElements to start with your web app, you need to configure it so that it knows which URL to start with. This can be accomplished in multiple ways:
+After you [install Motorola RhoMobile Suite](/rhoelements/rhoelements-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
-1. Creating a shortcut that changes the default URL that is loaded.
-2. Modifying the &lt;StartPage&gt; parameter in the default config.xml file.
+* On Windows, you can find the RhoElements Runtimes in the Start Menu, under Motorola RhoMobile Suite.
+* On Macintosh, they are located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
 
+On Windows Mobile/CE devices, install the RhoElements Runtime.cab to \Program Files\RhoElements using ActiveSync or Windows Mobile Device Center. On Android, install the RhoElements Runtime.apk using the Android SDK.
 
-##Writing Your First RhoElements Application
+Once installed, you will have access to the RhoElements config.xml file.
 
-This section will take you step by step through creating your first web based scanning application for your Motorola Device using RhoElements. The tutorial is based on the ubiquitous "Hello World" application but instead of simply displaying this message, it will enable the scanner and display a message when a barcode is decoded.&nbsp;Once you have completed this tutorial you should be familiar with the RhoElements language, "EMML" and how this applies to the other features of RhoElements such as the Signature Capture or Gesture modules.
+## Writing Your RhoElements Web App
 
-###Hello Scan
+This section will take you step by step through creating your first web-based scanning application for your Motorola mobile device using RhoElements. The tutorial is based on the ubiquitous "Hello World" application but instead of simply displaying this message, it will enable the scanner on the mobile device and display a message when a barcode is decoded. Once you have completed this tutorial you should be familiar with the RhoElements language "EMML" and how this applies to the other features of RhoElements such as the Signature Capture or Gesture modules.
+
+### Hello Scan
 
 1) Using your favorite text editor, create a blank text
 document and save it as HelloScan.html.
@@ -64,7 +79,7 @@ NOTE: Although RhoElements does not have a title bar due to it providing you wit
 	   </body>
 	</html>
 
-When this tag is parsed, two actions will be performed: firstly, the decode event will be setup to call the doScanDecode function, and then the scanner will be enabled. The parameters and their values and methods are written as they would be in CSS, with parameters and values separated by a colon ":" and pairs separated by semi-colons ";". When setting up the decodeevent, you will see that we have chosen to retrieve parameters 1, 2 and 6 from the decode event. If you take a look at the scanner section of the help file you will see that these correspond to the data decoded, the source of the code and the event type. 
+When this tag is parsed, two actions will be performed: firstly, the decode event will be setup to call the doScanDecode function, and then the scanner will be enabled. The parameters and their values and methods are written as they would be in CSS, with parameters and values separated by a colon ":" and pairs separated by semi-colons ";". When setting up the decode event, you will see that we have chosen to retrieve parameters 1, 2 and 6 from the decode event. If you take a look at the scanner section of the help file you will see that these correspond to the data decoded, the source of the code and the event type. 
 
 The [Retrieval Events](/rhoelements/RetrievalEvents) help section explains how to specify the returned parameters to be sequential or returned as a JSON object.
 
@@ -101,59 +116,65 @@ We could have simply displayed the message in a JavaScript alert box; however th
 
 Your first application is now complete. For the purpose of this tutorial, we will copy the file to the device; however, if you have a web server at hand and you have configured the device to communicate on the network, you could equally view the page from there.
 
-##Setting RhoElements to Start With Your Application
-<ol class="firstParagraph">
-<li>Copy the file HelloScan.html to the root folder of your device using ActiveSync.</li>
-<li>Find the file "\Program Files\RhoElements\config\Config.xml" and copy it to your PC.</li>
-<li>Open config.xml in your text editor.</li>
-<li>Find the "Application" entry in the xml file and change its startPage parameter to "file://\helloscan.html".</li>
-<li>Start RhoElements using the icon in the programs group.</li>
-</ol>
+## Setting RhoElements to Start With Your Application
 
-NOTE: If you are using a localized variant of the operating system you may need to edit the default config.xml and plugin.xml shipped with RhoElements to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files\.
+This section assumes you have created your application on a Motorola Windows Mobile or CE device; you can create on an Android device also.
 
-## Configuration Parameters
+1. Copy the file HelloScan.html to the root folder of your device using ActiveSync or Windows Mobile Device Center.
+2. Find the file "\Program Files\RhoElements\config\Config.xml" on your Motorola Windows Mobile/CE device and copy it to your PC.
+3. Open config.xml in your PC's text editor.
+4. Find the "Application" entry in the config.xml file and change its startPage parameter to "file://\helloscan.html".
+5. Copy the config.xml file on your PC back to your mobile device.
+6. Start RhoElements using the icon in the Programs Group.
 
-It is recommended that you get familiar with the [Configuration Parameters](/rhoelements/ConfigurationSettings) both for developing/debugging as well as deployment. 
+NOTE: If you are using a localized variant of the operating system, you may need to edit the default config.xml and plugin.xml shipped with RhoElements to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files\.
+
+## Understanding RhoElements Configuration Parameters
+
+It is recommended that you get familiar with the [Configuration Parameters](/rhoelements/ConfigurationSettings) in the configuration file config.xml, both for developing/debugging as well as deployment. 
+
+The location of the configuration file loaded by RhoElements is dependent on the mobile device.
+ * When running on the Android Enterprise Tablet, the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
+ * When running on all other devices, RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
 
 If you wish to keep all default parameters and just change the starting url, then it is recommended that you simply create a shortcut as described below. 
 
-If you wish to modify other parameters in the config.xml then you should replace the config.xml file after the RhoElements Runtime is installed. Locate the file from the instructions below, copy it to your desktop for modification and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
+If you wish to modify other parameters in the config.xml, you should replace the config.xml file after the RhoElements Runtime is installed. Locate the config.xml file, copy it to your desktop for modification, and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
 
-The location of the configuration file loaded by RhoElements is dependent on a number of factors:
- * When running on the Enterprise Tablet, the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
- * When running on all other devices, RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
+## Creating Shortcuts for Your Web App
 
-## Creating Shortcuts on Windows Mobile/CE
+You can create a shortcut file to have the RhoElements Runtime launch with your web app.
 
-You can setup Windows Mobile shortcut files to launch the RhoElements runtime with different startup options that will override the default settings. You set these parameters in a shortcut (.lnk) file for Windows Mobile/CE; you must create this file. You can use a text editor such as Notepad on Windows CE, or use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu. This will put the shortcut at the top level in your Start Menu.
+### Creating Shortcuts on Windows Mobile/CE
+
+You can setup Windows Mobile shortcut files to launch the RhoElements runtime with different startup options that will override the default settings. You set these parameters in a shortcut (.lnk) file for Windows Mobile/CE; you must create this shortcut file. You can use a text editor such as Notepad on Windows CE, or use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu. This will put the shortcut at the top level in your Start Menu.
 
 The RhoElements runtime installation path on Windows CE/Mobile devices is `\Program Files\RhoElements` and the path to the executable is `\Program Files\RhoElements\RhoElements.exe`.
 
-The following command line parameters are supported:
+The shortcut file supports the following command line parameters.
 
-    /C: Specifies the location of the configuration file for the
-        RhoElements v1.0 application. This will override all default
-		configuration settings.
+`/C:` specifies the location of the configuration file for the RhoElements v1.0 application. This will override all default configuration settings.
+
         e.g. /C:file://\application\config.xml
         
-    /S: Specifies the start page of the RhoElements v1.0 application,
-	    Other configuration parameters will be used from the default
-		config.xml file
+`/S:` specifies the start page of the RhoElements v1.0 application. Other configuration parameters will be used from the default config.xml file.
+
         e.g. /S:file://\HTML\index.html
         e.g. /S:http://www.motorola.com
 
-If neither the `/S` nor `/C` parameters are present, then the default values will be used. 
+If neither the `/S` nor `/C` parameters are specified in the shortcut file, then the default values for the location of the configuration file and the start page of the RhoElements application will be used. 
+
+NOTE: Urls that contain query string parameters (?name=value) can not be used within a shortcut on Windows Mobile / CE. This is a limitation on Windows Mobile/CE for creating shortcuts.
 
 The format in the .lnk file is:
 
-	<line-length>#"<runtime-exe>" <command-line-parameter>"<app-folder>"
+	<line-length>#<runtime-exe> <command-line-parameter> <app-folder>
 
-For example, this code will change the startup page to be a local HTML file:
+For example, this code in the startup file will change the startup page to be a local HTML file.
 
-	89#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\Demos\AttendeeTracker\index.html
+	68#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
 
-## Creating Shortcuts on Android Enterprise Tablet
+### Creating Shortcuts on Android Enterprise Tablet
 
 The Motorola Solutions Enterprise Tablet (ET1) has been customized so that android shortcuts can be created very easily. Once RhoElements is installed on the ET1:
 
@@ -167,36 +188,47 @@ The Motorola Solutions Enterprise Tablet (ET1) has been customized so that andro
 The shortcut will be placed on the ET1 home screen. At this time there is no way to provision an ET1 with this shortcut file, as you can with Windows Mobile.
 <!-- PLACEHOLDER SCREEN SHOTS NEEDED -->
 
-## Running Multiple Applications
+## Running Multiple Web Apps
 
-If you have multiple web apps that you would like to point RhoElements Runtime to, you would create multiple shortcuts as described above. 
+If you have multiple web apps that you would like to point RhoElements Runtime to, you can create multiple shortcuts as described above. FOr example, one startup file could be:
+
+	68#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
+
+And another could be:
+
+	66#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
 
 NOTE: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL.
-
 	
 ## Customizing the RhoElements Runtime
-The RhoElements runtime is a prebuilt Rhodes application that simply launches in full screen mode and loads configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, such as change the startup screen or icon, then load the Rhodes project into RhoStudio from the following location: 
-	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
-To build the Shared Runtime Application, perform the following steps.
+The RhoElements Runtime is a prebuilt Rhodes application that launches in full screen mode and loads the configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, such as change the startup screen or icon, then load the Rhodes project from which you can build a RhoElements Runtime into RhoStudio.
+
+**NOTE: The RhoElements Runtime is only available for [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices).**
+
+*** Building Custom RhoElements Runtime for Windows Mobile/CE
 
 On the command line on your Windows PC, navigate to this folder:
 
 	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
 
-To build for Windows Mobile or Windows CE, run this command.
+To build, run this command.
 
         rake device:wm:production
 
 The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
 
-To build for Android, run this command.
+*** Building Custom RhoElements Runtime for Android
+
+On the Macintosh, the RhoElements Runtime project is located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 folder. 
+
+Copy the RhoElements2 project folder to your Macintosh at a location where you can run your RhoElements/Ruby rake commands. One way you can do this is to import this project into RhoStudio.
+
+To build for Android, run this command from the RhoElements2 directory on your Windows PC (`<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2`) or the location where you imported the RhoElements2 project from the RhoMobile Suite Installer for Mac.
 
         rake device:android:production
 
-The resulting `apk` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`
-
-**NOTE: The RhoElements Runtime is only available on [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices).**
+The resulting `apk` file can be found in the RhoElements2 project `\bin\target folder`, such as at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`.
 
 ### Deploying The Customized Runtime 
 
@@ -208,7 +240,7 @@ On Windows CE, the default path (`\Program Files\RhoElements`) must be selected.
 
 ## Logging a RhoElements WebApp Application
 
-The RhoElements WebApp (hybrid) application log file is configured at [Config.xml](/rhoelements/ConfigurationSettings).
+The RhoElements WebApp (hybrid) application log file is configured in the configuration file [Config.xml](/rhoelements/ConfigurationSettings).
 
 The location of the log file of a RhoElements WebApp (hybrid) application is defined by the following rules (in the order of priority):
 
@@ -225,10 +257,10 @@ This rule is not applied to Android.
  * Windows Mobile/CE: `rho` folder of the Runtime installation folder.
  * Android: `rhodata` folder of the Runtime installation folder (accessible at emulator or rooted device only).
 
-##RhoElements Web Server
+## RhoElements Web Server
 If you are planning on having local HTML files reside on the device and you are not building a [native RhoElements application](/rhoelements/rhoelements2-native), you should consider enabling a local web server on the device. The benefits of this are that Javascript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues.
 	
-###Setting up the web server
+### Setting up the web server
 By default the local web server is switched off, you will need to manually enable and configure the server using the RhoElements configuration file.  See the [Configuration Settings help page](/rhoelements/ConfigurationSettings) for the server options, specifically those under the &lt;WebServer&gt; hierarchy.
 
 **NOTE: This option is only available for Windows Mobile/CE. As an alternative you should consider building a native application. RhoElements [native applications](/rhoelements/rhoelements2-native) have a built in web server that runs on all platforms. The HTML files could be placed in the /public folder of the native application folder and the application would use the [Webview API](/rhodesapi/webview-api) to load the initial starting html page.**
@@ -245,16 +277,15 @@ Navigating to <b>file://\myWeb\index.htm</b> will load the page from the file sy
 
 Navigating to <b>http://localhost:8080/index.htm</b> will load the same page via the local web server.
 
-##Device Uninstallation
-###Regular Installation
+## Device Uninstallation
 
-To uninstall RhoElements on the device:
+To uninstall RhoElements on the Windows Mobile device:
 <ol>
 <li>
-Connect your device to your PC via the USB cable and wait for Microsoft ActiveSync to connect.
+Connect your device to your PC via the USB cable and wait for Microsoft ActiveSync or Windows Mobile Device Center to connect.
 </li>
 <li>
-From ActiveSync select the "Add/Remove Programs" dialog normally found in the Tools menu.
+From ActiveSync or Windows Mobile Device Center, select the "Add/Remove Programs" dialog normally found in the Tools menu.
 </li>
 <li>
 Uncheck the text box beside Motorola RhoElements x.x.x.x Runtime and click "OK".
@@ -265,7 +296,7 @@ RhoElements will now uninstall from your device.
 </ol>
 Any user generated files and folders and any log files in the \Program Files\RhoElements directory will not be deleted.
 
-##Conclusion and best practice
+## Conclusion and Best Practice
 
 By completing this tutorial you will now be familiar with EMML and having realized how simple it is to produce applications using RhoElements for Motorola mobile devices.
 
@@ -285,7 +316,7 @@ It's always best to start your application with a page that resides on the devic
 </ul>
 
 
-##Common Mistakes
+## Common Mistakes
 
 When writing your RhoElements application, be sure to avoid the following common mistakes:</p>
 <ul>

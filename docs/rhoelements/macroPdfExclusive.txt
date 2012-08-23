@@ -11,7 +11,7 @@ The MacroPdfExclusive Decoder Setting is used to set the macroPdfExclusive prope
 <table class="re-table"><tr><th class="tableHeading">macroPdfExclusive (Decoder Setting) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="macroPdfExclusive:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">macroPdfExclusive JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the macroPdfExclusive.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the macroPdfExclusive.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set macroPdfExclusive parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.macroPdfExclusive = Value;
@@ -24,6 +24,7 @@ To Set MacroPdfExclusive parameters via Ruby use the following syntax: Scanner.P
 </td></tr></table>
 
 
+
 ##Parameters
 
 
@@ -33,7 +34,12 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports MacroPDF.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports MacroPDF.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr></table>
 
 
 ##HTML/Javascript Examples

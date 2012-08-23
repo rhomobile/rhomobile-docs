@@ -85,3 +85,24 @@ Clear the signature in the window. Windows Mobile and Windows CE devices support
 	<td>color of background</td>
 </tr>
 </table>
+
+### Additional hash parameters for visible method
+
+<table border="1">
+<tr>
+	<td><code>left</code></td>
+	<td>Sets the top left horizontal position of the rectangular capture area in pixels</td>
+</tr>
+<tr>
+	<td><code>top</code></td>
+	<td>Sets the top left vertical position of the rectangular capture area in pixels</td>
+</tr>
+<tr>
+	<td><code>width</code></td>
+	<td>Sets the width of the rectangular capture area in pixels</td>
+</tr>
+<tr>
+	<td><code>height</code></td>
+	<td>Sets the height of the rectangular capture area in pixels</td>
+</tr>
+</table>

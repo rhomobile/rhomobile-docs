@@ -61,13 +61,111 @@ For those who interested in what this token means, the description is [here](htt
 
 Now start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
 
+## Setting up RhoConnect Server Push Service
+
+**NOTE: This option is still a _beta_ feature.  You may encounter issues using this service.**
+
+RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile. This service can be used instead of Google C2DM on Android.
+
+The typical flow of a message using RPS:
+
+	Device      RPS       	 RhoConnect        Backend App
+	+           +            +                 +
+	|           |            |                 |
+	|           |            | POST            |
+	|           | POST       |/rc/v1/users/ping|
+	|           |/instanceId |<----------------+
+	|           |<-----------+                 |
+	|<----------+            |                 |
+	|{"content"}|            |                 |
+	|           |            |                 |
+	+           +            +                 +
+
+### Download and Install Nodejs
+
+If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile SUtie for Windows includes Node.js in its installation.)
+
+### Starting the Push Service
+
+RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.
+
+First, create a file called "config.json" with the following content:
+
+	:::json
+	{
+		"httpSecure": "n",
+		"devAuthHost": "localhost", 
+		"devAuthUrl": "/rc/v1/app/ans_login", 
+		"devAuthPort": "9292",
+		"userAuthHost": "localhost", 
+		"userAuthUrl": "/rc/v1/app/ans_login", 
+		"userAuthPort": "9292",
+		"appAuthHost": "localhost", 
+		"appAuthUrl": "/rc/v1/app/ans_login",
+		"appAuthPort": "9292",
+		"ansResponseTimeout": "300000",
+		"ansServerPort": "8675",
+		"registrationTimeout": "2592000",
+		"clearDataBase": "n",
+		"socketPoolSize": 1,
+		"debugLevel": "3"
+	}
+
+The JSON file has the following parameters.
+
+* `httpSecure` - Specify whether the push server will be an https or http server (y/n).
+* `devAuthHost` - RhoConnect instance used to handle device credentials.
+* `devAuthUrl` - Path used on the RhoConnect instance to handle device credentials.
+* `devAuthPort` - Port used on the RhoConnect instance to handle device credentials.
+* `userAuthHost` - RhoConnect instance used to handle user credentials.
+* `userAuthUrl` - Path used on the RhoConnect instance to handle user credentials.
+* `userAuthPort` - Port used on the RhoConnect instance to handle user credentials.
+* `appAuthHost` - RhoConnect instance used to handle application credentials.
+* `appAuthUrl` - Path used on the RhoConnect instance to handle application credentials.
+* `appAuthPort` - Port used on the RhoConnect instance to handle application credentials.
+* `ansResponseTimeout` -  Time (in ms) that the push server will allow a message request from the client to go without a response. Upon expiration of this time, a 204 response will be issued and the request will be considered satisfied. If this parameter is set to 0, then this time limit will not be in effect - there is no limit to how long a client request will go without a response.
+* `ansServerPort` - Push server listening port
+* `registrationTimeout` - Expiration limit for registration tokens (in seconds), the client-side application is automatically unregistered if there is no activity related to its token for the registrationTimeout period. Activity related to its token consists of either attempted fetches of messages on its behalf by the push client or messages sent to the push server by RhoConnect.
+* `clearDataBase` - Clear the redis database containing tokens, instanceIds, etc. at the start of the push server (y/n).
+* `socketPoolSize` - The maximum number of sockets the push server will use when connecting to each of the authorization servers. This essentially caps the number of http requests to each authorization server that the push server can have outstanding at any given time.
+* `debugLevel` -  Print additional information to console to aid in debugging:
+  * 0 - print only error & warning info
+  * 1 - print error & warning info and message for each invoked ANS operation
+  * 2 - reserved for future use
+  * 3 - print everything
+
+
+Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis.
+
+	:::term
+	$ rake redis:start
+
+Now start RhoConnect Push by running the following in a command line:
+
+	:::term
+	$ rhoconnect-push -c /path/to/your/config.json
+
+For example:
+
+	:::term
+	$ rhoconnect-push -c C:/dev/config.json
+
+Next, make sure you have the following option in your RhoConnect application's `settings/settings.yml` file in the `:development:`, `:production:` and `:test:` sections:
+
+	:::yaml
+	:push_server: http://appname:secret@localhost:8675/
+
+**NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Make sure you change the password to something secure when you deploy to production.**
+
+Now perform setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
+
 ## Testing Push in the RhoConnect Web Console
 
 The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
 
 First, make sure you've logged in and performed a sync on the device/simulator you are going to test. 
 
-Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application.  For example, if you logged in as user 't', the url would be: 
+Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application. For example, if you logged in as user 't', the url would be: 
 
 	http://localhost:9292/console/user?user_id=t
 

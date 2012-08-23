@@ -74,7 +74,8 @@ xml_string +=  '      <opensearch:Query role="request" searchTerms="' + params[:
 search['results'].each do |result| 
 xml_string +=  '<item>'
 xml_string +=  '       <title><![CDATA[' + result['title'] + ']]></title>'
-xml_string +=  '       <link>http://edgedocs.rhomobile.com/' + result['docid'] + '</link>'
+xml_string +=  '       <link>' + request.base_url + '/' + result['docid'] + '</link>'
+xml_string +=  '<pubDate>' + File.mtime('docs/' + result['docid'] + '.txt').to_s + '</pubDate>'
 xml_string +=  '       <description><![CDATA['
 xml_string +=  result['snippet_text']
 xml_string +=  '       ]]></description>'

@@ -25,7 +25,7 @@ To Set gesture return events via JavaScript use the following syntax: gesture.ev
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: gesture.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: gesture.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>gesture</b>.setEMML("type:<i>value</i>;detected:url('JavaScript:doFunction(%json)');create");							
 </td></tr></table>
@@ -44,6 +44,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -56,12 +57,13 @@ N/A
 N/A
 </td></tr></table>
 
+
 ##Parameters
 
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>type:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Linear, Circle, Hold</td><td class="clsSyntaxCells clsOddRow">Specifies the type of gesture being created. Must be the first tag when creating a gesture.</td><td class="clsSyntaxCells clsOddRow">None</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>id:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">Linear, Circle, Hold, Tilt and Shake</td><td class="clsSyntaxCells clsOddRow">Specifies the type of gesture being created. Must be the first tag when creating a gesture.</td><td class="clsSyntaxCells clsOddRow">None</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>id:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Any string</td><td class="clsSyntaxCells clsEvenRow">ID used to identify gesture when detected.</td><td class="clsSyntaxCells clsEvenRow">Depends on gesture type and preset used, if any. See remarks.</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>preset:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Depends on gesture type. See remarks.</td><td class="clsSyntaxCells clsOddRow">Name of predefined set of parameter values.</td><td class="clsSyntaxCells clsOddRow">Depends on gesture type. See remarks.</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>diagnostics:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">TRUE, FALSE</td><td class="clsSyntaxCells clsEvenRow">Enables drawing of diagnostic information to provide guidance showing whether or not the gesture will be detected.  Note that by their very nature Diagnostics are not designed to be seen by the user.</td><td class="clsSyntaxCells clsEvenRow">FALSE</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>startX:[Value]
@@ -80,8 +82,16 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">0 to 10000</td><td class="clsSyntaxCells clsOddRow">Linear &amp; Circle Gestures: How far (in pixels) the mouse track can vary from the gesture path.</td><td class="clsSyntaxCells clsOddRow"> Linear: 25% of screen height. Circle: 16% of screen width.</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>sensitivity:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">0 to 100</td><td class="clsSyntaxCells clsEvenRow">Linear &amp; Circle Gestures: Percentage of gesture path which mouse track must cover. Rounds down if this results in a non-whole number of regions.</td><td class="clsSyntaxCells clsEvenRow">50</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>delay:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">&gt;=0</td><td class="clsSyntaxCells clsOddRow">Hold Gestures: Time (in milliseconds) that screen must be touched within gesture before first detected.</td><td class="clsSyntaxCells clsOddRow">1000</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>interval:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">&gt;=0</td><td class="clsSyntaxCells clsEvenRow">Hold Gestures: Time (in milliseconds) between subsequent detections while screen continues to be touched. Zero means no further detections.  This parameter is ignored if the detection event is not set to navigate to a new page.</td><td class="clsSyntaxCells clsEvenRow">0</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+</b></td><td class="clsSyntaxCells clsEvenRow">&gt;=0</td><td class="clsSyntaxCells clsEvenRow">Hold Gestures: Time (in milliseconds) between subsequent detections while screen continues to be touched. Zero means no further detections.  This parameter is ignored if the detection event is not set to navigate to a new page.</td><td class="clsSyntaxCells clsEvenRow">0</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>TargetX:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">-90 to 90</td><td class="clsSyntaxCells clsOddRow">Tilt Gestures: Target orientation of device on X-axis</td><td class="clsSyntaxCells clsOddRow">0</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>TargetY:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">-90 to 90</td><td class="clsSyntaxCells clsEvenRow">Tilt Gestures: Target orientation of device on Y-axis</td><td class="clsSyntaxCells clsEvenRow">0</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>TargetZ:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">-90 to 90</td><td class="clsSyntaxCells clsOddRow">Tilt Gestures: Target orientation of device on Z-axis</td><td class="clsSyntaxCells clsOddRow">90</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>TiltTolerance:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">0 to 90</td><td class="clsSyntaxCells clsEvenRow">Tilt Gestures: How close the device must be to the target orientation.</td><td class="clsSyntaxCells clsEvenRow">10</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>Hysteresis:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">0 to 90</td><td class="clsSyntaxCells clsOddRow">Tilt Gestures: How far the device must move away from the target orientation before the gesture can be detected again.</td><td class="clsSyntaxCells clsOddRow">10</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>Threshold:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">0 to 1000</td><td class="clsSyntaxCells clsEvenRow">Shake Gestures: How vigorously the device must be shaken. The smaller the value the more vigorous.</td><td class="clsSyntaxCells clsEvenRow">500</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>Quiet:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">&gt;=0</td><td class="clsSyntaxCells clsOddRow">Shake Gestures: Time (in milliseconds) that the device must be still before another shake gesture can be detected.</td><td class="clsSyntaxCells clsOddRow">1000</td></tr></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -89,6 +99,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###detected
+
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>id</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The ID string of the detected gesture.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>count</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The number of times a hold gesture has been detected for a single press of the screen. Returns zero when the screen touch stops. Only applies to hold gestures.</td></tr></table>
 
 
@@ -106,6 +117,8 @@ GESTURE          POSSIBLE VALUES                                         DEFAULT
 Linear           left-right, right-left, top-bottom, bottom-top          left-right
 Circle           happy*, sad*                                            happy
 Hold             center                                                  center
+Tilt             face-up, upright                                        face-up
+Shake            normal                                                  normal
       </pre>
 
 
@@ -130,28 +143,33 @@ Any parameter values out of the allowed range will be limited to the nearest all
 
 
 ###Diagnostics
-Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures.
+Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures. Diagnostics are not available for Tilt and Shake gestures.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples
 
 Create two gestures: a default left to right gesture with ID 'swipe', and a hold gesture at the top left of the screen which will fire one time after 500 milliseconds with ID 'press'. The Javascript function onGesture() is called when either gesture is detected.
 
-	        <META HTTP-Equiv="gesture" Content="type:linear">
-	        <META HTTP-Equiv="gesture" Content="id:swipe">
-	        <META HTTP-Equiv="gesture" Content="create">
-	        <META HTTP-Equiv="gesture" Content="type:hold">
-	        <META HTTP-Equiv="gesture" Content="center-x:60">
-	        <META HTTP-Equiv="gesture" Content="center-y:60">
-	        <META HTTP-Equiv="gesture" Content="radius:60">
-	        <META HTTP-Equiv="gesture" Content="delay:500">
-	        <META HTTP-Equiv="gesture" Content="interval:0">
-	        <META HTTP-Equiv="gesture" Content="id:press">
-	        <META HTTP-Equiv="gesture" Content="create">
-	        <META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture('%s','%s');')">
+	<META HTTP-Equiv="gesture" Content="type:linear">
+	<META HTTP-Equiv="gesture" Content="id:swipe">
+	<META HTTP-Equiv="gesture" Content="create">
+	<META HTTP-Equiv="gesture" Content="type:hold">
+	<META HTTP-Equiv="gesture" Content="center-x:60">
+	<META HTTP-Equiv="gesture" Content="center-y:60">
+	<META HTTP-Equiv="gesture" Content="radius:60">
+	<META HTTP-Equiv="gesture" Content="delay:500">
+	<META HTTP-Equiv="gesture" Content="interval:0">
+	<META HTTP-Equiv="gesture" Content="id:press">
+	<META HTTP-Equiv="gesture" Content="create">
+	<META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture('%s','%s');')">
 	      
 The following example deletes a gesture via a javascript function.
 
@@ -160,6 +178,25 @@ The following example deletes a gesture via a javascript function.
 	  gesture.id = gestureID;
 	  gesture.delete();
 	}	
+	      
+Create 3D gestures: a tilt gesture that is called when the device is placed in upright position and a shake gesture. The Javascript function onGesture() is called when either gesture is detected.
+
+	<META HTTP-Equiv="gesture" Content="type:tilt">
+	<META HTTP-Equiv="gesture" Content="id:swipe">
+	<META HTTP-Equiv="gesture" Content="create">
+	<META HTTP-Equiv="gesture" Content="type:shake">        
+	<META HTTP-Equiv="gesture" Content="id:shake">
+	<META HTTP-Equiv="gesture" Content="create">
+	<META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture(%json);')">
+	
+	<script type="text/javascript">	
+	function onGesture(jsonObject)
+	{
+	 var html = "<b>Gesture Detected: </b>" + jsonObject.id + "";	 
+	 gestureOut.innerHTML=html;	 
+	}      
+	</script> 
+	<DIV id="gestureOut">Gesture Output will appear here</div>
 	      
 
 

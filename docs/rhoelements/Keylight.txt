@@ -19,7 +19,7 @@ To Invoke keylight methods via JavaScript use the following syntax: keylight.met
 To Set keylight parameters via JavaScript use the following syntax: keylight.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>keylight</b>.intensity = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: keylight.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: keylight.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>keylight</b>.setEMML("intensity:<i>value</i>on");							
 </td></tr></table>
@@ -33,6 +33,7 @@ To Set Keylight parameters via Ruby use the following syntax: Keylight.parameter
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -40,6 +41,7 @@ To Set Keylight parameters via Ruby use the following syntax: Keylight.parameter
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>on</b></td><td class="clsSyntaxCells clsOddRow">Turns the keyboard backlight on.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>off</b></td><td class="clsSyntaxCells clsEvenRow">Turns the keyboard backlight off.</td><td class="clsSyntaxCells clsEvenRow">Device Dependant</td></tr></table>
+
 
 ##Parameters
 
@@ -62,7 +64,12 @@ The intensity tag will only have an observable effect if the keyboard backlight 
 The levels of supported keylight intensity is device dependant. When the Keylight module is first loaded it writes the supported levels to the log file as INFORMATION so you can determine the maximum setting from the log file.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware and drivers to run, i.e. a device with a keyboard backlight.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware and drivers to run, i.e. a device with a keyboard backlight.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

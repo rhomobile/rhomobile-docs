@@ -24,7 +24,12 @@ The History:Back Navigation instructs RhoElements to navigate to the previously 
 The browser component on Windows Mobile has no history stack other than that provided by RhoElements, so this History:Back tag is the only way to navigate to a previous page (as well as the Back Button). Windows CE's browser component has its own history stack accessed via Javascript's history.go(n), this is not compatible with RhoElements's history and the History:Back tag should be used in preference.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - This method is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - This method is actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

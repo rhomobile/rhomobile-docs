@@ -24,7 +24,7 @@ To Set cardReader return events via JavaScript use the following syntax: cardrea
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: cardreader.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: cardreader.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>cardReader</b>.setEMML("pinTimeout:<i>value</i>;readEvent:url('JavaScript:doFunction(%json)');open");							
 </td></tr></table>
@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -51,6 +52,7 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>open</b></td><td class="clsSyntaxCells clsOddRow">Opens the card reader. Resets the ReadEvent to "".</td><td class="clsSyntaxCells clsOddRow">Closed</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>close</b></td><td class="clsSyntaxCells clsEvenRow">Closes the card reader</td><td class="clsSyntaxCells clsEvenRow">Closed</td></tr></table>
 
+
 ##Parameters
 
 
@@ -58,11 +60,12 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>pinTimeout:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">0 - 65535</td><td class="clsSyntaxCells clsOddRow">PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite.</td><td class="clsSyntaxCells clsOddRow">30000-&gt;30s timeout</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>pinEntry:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">On, Off</td><td class="clsSyntaxCells clsEvenRow">Turns the PIN entry on or off.</td><td class="clsSyntaxCells clsEvenRow">OFF</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>panData:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Any 16 digit string</td><td class="clsSyntaxCells clsOddRow">Sets the card data without the need of a swipe. Invoked only.</td><td class="clsSyntaxCells clsOddRow">Empty String</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>autoTab:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">Any 16 digit number</td><td class="clsSyntaxCells clsOddRow">Sets the card data without the need of a swipe.  This parameter should not be called via a Meta tag as doing so simulates a card read.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>autoTab:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Enabled, Disabled</td><td class="clsSyntaxCells clsEvenRow">When enabled, appends a tab to any data returned as keystrokes by the cardreader. </td><td class="clsSyntaxCells clsEvenRow">"disabled"</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>autoEnter:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Enabled, Disabled</td><td class="clsSyntaxCells clsOddRow">When enabled, appends a carriage return to any data returned as keystrokes by the cardreader.</td><td class="clsSyntaxCells clsOddRow">"disabled"</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>moduleName:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">MSR9000, MSR9001, MSR9500, MSRCAMEO, MSR7000, DCR7000, MSR55, MSR3000</td><td class="clsSyntaxCells clsEvenRow">This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'</td><td class="clsSyntaxCells clsEvenRow">None</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -70,7 +73,8 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###readEvent
-readEvent:URL('URI') URI is either a URL or a javascript function. If a URL, the browser navigates to the URL when the attached card reader decodes some data. If a javascript function, the function is treated as a callback which is invoked when the card reader decodes data. Issuing this tag, automatically opens the card reader, if it has not been opened already.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>data</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Data read by the card reader. This may be card data, the PAN data extracted from the card data, encrypted PIN block data, or a message.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>mode</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Describes the data. This will be either: 'CR','ENCDATA','PAN', or 'MESSAGE'.  This equates to card data, encrypted PIN block data, PAN data, or a message, respectively.</td></tr></table>
+readEvent:URL('URI') URI is either a URL or a javascript function. If a URL, the browser navigates to the URL when the attached card reader decodes some data. If a javascript function, the function is treated as a callback which is invoked when the card reader decodes data. Issuing this tag, automatically opens the card reader, if it has not been opened already.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>data</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Data read by the card reader. This may be card data, the PAN data extracted from the card data, encrypted PIN block data, or a message.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>mode</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Describes the data. This will be either: 'CR','ENCDATA','PAN', or 'MESSAGE'.  This equates to card data, encrypted PIN block data, PAN data, or a message, respectively.</td></tr></table>
 
 
 
@@ -110,7 +114,12 @@ In certain circumstances it is possible that the card reader may return empty ca
 Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a card reader attachment.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">See Comment Above.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">You must have the appropriate drivers installed on your device to use the CardReader.  You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements.  All necessary drivers should be included as part of the platform for supported devices.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have a card reader attachment.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">You must have the appropriate drivers installed on your device to use the CardReader.  You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements.  All necessary drivers should be included as part of the platform for supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">See Comment Above.</td></tr></table>
 
 
 ##HTML/Javascript Examples

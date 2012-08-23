@@ -1,10 +1,9 @@
 development:
   dirs:
-    rhosync: '../rhosync/doc/'
+    rhosync: 'docs/rhosync/'
     rhodes: '../rhodes/doc/'
     rhodesapi: 'docs/rhodesapi/'
     rhoelements: 'docs/rhoelements/'
-    rhogallery: '../rhogallery/doc/'
     rhohub: 'docs/rhohub/'
     guides: 'docs/'
     rhoconnectjs: '../rhoconnect.js/doc/'
@@ -13,11 +12,10 @@ development:
   pdfkithost: 'localhost:9393'
 jenkins:
   dirs:
-    rhosync: '../../rhosync/workspace/doc/'
+    rhosync: 'docs/rhosync/'
     rhodes: '../../rhodes/workspace/doc/'
     rhodesapi: 'docs/rhodesapi/'
     rhoelements: 'docs/rhoelements/'
-    rhogallery: '../../rhogallery/workspace/doc/'
     rhohub: 'docs/rhohub/'
     guides: 'docs/'
     rhoconnectjs: '../../rhoconnect.js/workspace/doc/'
@@ -31,7 +29,6 @@ edge:
     rhodesapi: 'docs/rhodesapi/'
     rhoelements: 'docs/rhoelements/'
     rhohub: 'docs/rhohub/'
-    rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
     rhoconnectjs: 'docs/rhoconnectjs/'
     rhoconnect: 'docs/rhoconnect/'
@@ -44,7 +41,6 @@ production:
     rhodesapi: 'docs/rhodesapi/'
     rhoelements: 'docs/rhoelements/'
     rhohub: 'docs/rhohub/'
-    rhogallery: 'docs/rhogallery/'
     guides: 'docs/'
     rhoconnectjs: 'docs/rhoconnectjs/'
     rhoconnect: 'docs/rhoconnect/'

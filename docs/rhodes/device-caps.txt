@@ -49,7 +49,7 @@ To get value of a named system property:
 
 Properties:
 
-* platform - APPLE, Blackberry, WINDOWS, ANDROID, SYMBIAN
+* platform - APPLE, Blackberry, WINDOWS, ANDROID, WINDOWS_DESKTOP, SYMBIAN
 * has_camera - is camera available on the device
 * screen_width - screen width in logical pixels (used for set coordinates)
 * screen_height - screen height in logical pixels (used for set coordinates)
@@ -92,26 +92,61 @@ Open application associated with url; behavior may be different on different pla
 	System.open_url(url)
 **NOTE: On iPhone, if you post path of local file, then the specific iOS control (UIDocumentInteractionController) where file will previewed and user will be able open this file by selected application wich supported this filetype.**
 
-Run specified application. Note: appname is platform dependent
+Run specified application. Note: 
 	:::ruby
 	System.run_app(appname, params)
-**NOTE: On iPhone, appname is the same with registered application URL scheme. Params just string. Example : System.run_app('myapp', 'someparams'). Also this the same with : System.open_url('myapp:someparams')**
+	
+appname is platform dependent:
 
+* iPhone: appname is the same with registered application URL scheme. Params just string. Example : 
 
+    System.run_app('myapp', 'someparams'). 
+        
+  Also this the same with : 
+  
+    System.open_url('myapp:someparams')
+    
+* Android: appname is package name : com.<vendor>.<app_name> . For example:
+
+    System.run_app('com.rhomobile.store', 'someparams')
+
+* Windows Mobile, Windows CE: appname is path in registry: <vendor> <app_name>/<app_name>.exe . For example:
+
+    System.run_app('rhomobile store/store.exe', 'someparams')
+
+* Windows Desktop: appname is path in registry: <vendor>/<app_name>/<app_name>.exe . For example:
+
+    System.run_app('rhomobile/store/store.exe', 'someparams')
+
+* Blackberry: appname is <app_name> . For example:
+
+    System.run_app('store', 'someparams')
+        
 Install application from specified url
 	:::ruby
 	System.app_install(url) 
 
 Is specified application installed on device?
+
 	:::ruby
 	System.app_installed?(appname)
 
-**NOTE: On iPhone, appname is the same with registered application URL scheme.**
+**NOTE: see System.run_app for appname information **
 
 	
 Uninstall specified application	
 	:::ruby
 	System.app_uninstall(appname)
+
+**NOTE: see System.run_app for appname information **
+
+Zip one file to specified zip
+	:::ruby
+	System.zip_file(local_path_to_zip, local_path_to_file, password)
+
+Zip several files to specified zip
+	:::ruby
+	System.zip_files(local_path_to_zip, base_path, array_of_files_to_be_zipped, password)
 
 Unzip file to the same folder where zip file is	
 	:::ruby
@@ -134,6 +169,14 @@ This call does not change OS Locale, it will change only LocalizationSimplified 
 To get current application Locale:
 	:::ruby
     LocalizationSimplified::get_cur_locale #get current application locale
+
+To modify application window position and size:
+    :::ruby
+    System.set_window_frame(x,y,width,height) #change application window position and size
+    System.set_window_position(x,y) #change application window position
+    System.set_window_size(width,height) #change application window size
+
+**NOTE: These methods implemented only for Windows Desktop  **
 
 ### Sample
 See layout.erb of [System API Sample application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/layout.erb)  for some of the examples of how to use System class. There is also [system test](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/SystemTest/controller.rb) which demonstrate System class usage.
@@ -652,7 +695,7 @@ Choose a picture from Image Gallery (currently supported only on iPhone):
 	Camera::choose_picture('/app/model/camera_callback', options_hash)
 
 
-options_has - hash contain additional parameters :
+options_hash - hash contain additional parameters :
 
 * "camera_type" - "default"(is the same with "main"), "main", "front". Default value = "default"
 * "desired_width" - number, desired width in pixels. Default value = max camera width
@@ -682,6 +725,18 @@ In returned hash:
 
  * "max_resolution" - hash with "width" and "height" numeric values.
 
+### Extended API for Motorola devices (RhoElements applications)
+
+Take a picture:
+	:::ruby
+	Camera::take_picture('/app/model/camera_callback', options_hash)
+
+options_hash - hash contain additional parameters :
+
+* "left" - number, camera left position in pixels. Default value = 0
+* "top" - number, camera top position in pixels. Default value = 0
+* "desired_width" - number, desired width in pixels. Default value = max camera width
+* "desired_height" - number, desired height in pixels. Default value = max camera height
 
 ### Sample
 See controller and view in the /app/Image folder of the [ System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Image/controller.rb) for more information.
@@ -765,6 +820,13 @@ To display window hand writing, where user draw his signature call:
 Example :
 	:::ruby
 	Rho::SignatureCapture.visible(true, { :imageFormat => "jpg", :penColor => 0xff0000, :penWidth=>3, :bgColor => 0x00ff00 })
+
+`visible` uses the same hash parameters as `take`, with the following additional parameters.
+
+* left - Sets the top left horizontal position of the rectangular capture area in pixels
+* top - Sets the top left vertical position of the rectangular capture area in pixels
+* width - Sets the width of the rectangular capture area in pixels
+* height - Sets the height of the rectangular capture area in pixels
 
 To save Signature to an image file and call callback:
 	:::ruby
@@ -1208,7 +1270,7 @@ These parameters from [PushApplicationDescriptor](http://www.blackberry.com/deve
 In case of Blackberry, if the audio file is in the public folder, the file name will be `/apps/public/alerts/test-file.mp3`.
 
 ### Push Callback
-Rhodes applications can also handle PUSH notifications that didn't come from a RhoConnect application. 
+<a id="push-callback"></a>Rhodes applications can also handle PUSH notifications that didn't come from a RhoConnect application. 
 
 In this example, we will get the device ID so we can register the device with some push server:
 	:::ruby
@@ -1236,7 +1298,7 @@ Example:
 	end
 
 ### Push Payload
-The Rhodes push payload allows more than one operation in a single message. 
+<a id="push-payload"></a>The Rhodes push payload allows more than one operation in a single message. 
  
 There are no required operations. There are default operations - if operation is not specified, no default operation will be performed.
 
@@ -1368,7 +1430,13 @@ When user rotate device, Rhodes update view corresponding to new orientation. To
 	:::ruby
 	System.set_screen_rotation_notification(callback, params) 
 
-Callback will be called when screen rotate (available since Rhodes 2.0). Callback parameters will be: width, height, degrees
+Callback will be called when screen has rotated (available since Rhodes 2.0).
+Callback parameters are:
+- width - new screen width
+- height - new screen height
+- degrees - screen rotation relative to portrait position
+
+NOTE: On tablet devices with default landscape form factor degrees value in normal position will be 90
 
 ### Sample
 See controller and view in the /app/ScreenRotation folder of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/ScreenRotation/controller.rb) for more information.

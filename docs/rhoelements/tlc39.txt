@@ -11,7 +11,7 @@ The Tlc39 Decoder is used to enable or disable the tlc39 decoder.
 <table class="re-table"><tr><th class="tableHeading">tlc39 (Decoder) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="scanner" content="tlc39:[parameter]"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">tlc39 JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-XXXXXBy default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the tlc39.
+By default the JavaScript Object <b>'scanner'</b> will exist on the current page and can be used to interact directly with the tlc39.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set tlc39 parameters via JavaScript use the following syntax: scanner.Parameter = Value;
 <P />e.g. <b>scanner</b>.tlc39 = Value;
@@ -22,6 +22,7 @@ By default the Ruby Object <b>'Scanner'</b> will exist on the current page and c
 To Set Tlc39 parameters via Ruby use the following syntax: Scanner.Parameter = Value
 <P />e.g. <b>Scanner</b>.tlc39 = Value
 </td></tr></table>
+
 
 
 ##Parameters
@@ -41,7 +42,12 @@ Items listed in this section indicate parameters, or attributes which can be set
 In order to enable tlc39 barcode scanning, the code39 decoder must also be enabled.
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports tlc39.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Scanner or Imager module and device that supports tlc39.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - Decoder settings are only guaranteed to persist until the Scanner is disabled</td></tr></table>
 
 
 ##HTML/Javascript Examples

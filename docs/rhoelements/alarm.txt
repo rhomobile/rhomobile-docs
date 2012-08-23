@@ -24,7 +24,7 @@ To Set alarm return events via JavaScript use the following syntax: alarm.event 
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: alarm.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: alarm.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>alarm</b>.setEMML("interval:<i>value</i>;alarmTriggered:url('JavaScript:doFunction(%json)');clear");							
 </td></tr></table>
@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -55,6 +56,7 @@ N/A
 N/A
 </td></tr></table>
 
+
 ##Parameters
 
 
@@ -63,7 +65,8 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">Alarm Interval in the format HH-MM-SS</td><td class="clsSyntaxCells clsOddRow">Sets a time after which the Alarm will fire.  The delay cannot be set to less that 30 seconds, if a value of less than 30 seconds is supplied, the delay will be defaulted to 30 seconds.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>repeat:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">'true' or 'false'</td><td class="clsSyntaxCells clsEvenRow">Provided the alarm has been set using the Interval parameter the alarm will be reset once fired.  If the alarm is set using the 'Time' parameter then this value is ignored.</td><td class="clsSyntaxCells clsEvenRow">False</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>time:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Time in the format "YYYY-MM-DDtHH-MM-SStzd" (e.g. "2009-11-19t11-56-00+01-00"), See Remarks</td><td class="clsSyntaxCells clsOddRow">Sets the alarm to trigger at the specified time.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -102,7 +105,12 @@ Timezone: -5 (Eastern Time, 8:30am local time)
 			</pre>
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except kiosk devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

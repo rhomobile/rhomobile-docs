@@ -2252,6 +2252,13 @@ That's all there is to it!</pre>
  <b>pdf-writer</b> [http://ruby-pdf.rubyforge.org/pdf-writer/index.html](http://ruby-pdf.rubyforge.org/pdf-writer/index.html)<br/>
  License: MIT-Style [http://ruby-pdf.rubyforge.org/pdf-writer/licence.html](http://ruby-pdf.rubyforge.org/pdf-writer/licence.html)
 
+ <b>OpenSSL</b> [(http://www.openssl.org) based on SSLeay library (license of OpenSSL contains both licenses - see link below)](http://www.openssl.org)
+ License: BSD-style [http://www.openssl.org/source/license.html](http://www.openssl.org/source/license.html)
+ 
+ <b>EzCrypto</b> [http://ezcrypto.rubyforge.org/](http://ezcrypto.rubyforge.org/)
+ License: MIT [http://ezcrypto.rubyforge.org/](http://ezcrypto.rubyforge.org/)
+
+
 ###RhoConnect uses following other projects:
 
  <b>Ruby language 1.9.3</b> [http://www.ruby-lang.org/en/downloads/](http://www.ruby-lang.org/en/downloads/)<br/>
@@ -2418,3 +2425,18 @@ That's all there is to it!</pre>
  
  <b>warbler 1.3.5</b> [https://github.com/jruby/warbler](https://github.com/jruby/warbler)<br/>
  License: MIT license [http://caldersphere.rubyforge.org/warbler/LICENSE_txt.html](http://caldersphere.rubyforge.org/warbler/LICENSE_txt.html)
+
+ <b>nodejs 0.8.1</b> [http://nodejs.org/](http://nodejs.org/)<br/>
+ License: MIT License (https://github.com/joyent/node/blob/master/LICENSE)
+
+ <b>node_redis 0.7.1</b> [http://search.npmjs.org/#/redis](http://search.npmjs.org/#/redis)<br/>
+ License: MIT License (https://github.com/mranney/node_redis#license---mit-license)
+ 
+ <b>redis-url 0.1.0</b> [http://search.npmjs.org/#/redis-url](http://search.npmjs.org/#/redis-url)<br/>
+ License: MIT License (https://github.com/ddollar/redis-url#license)
+ 
+ <b>npm 1.1.30</b> [http://npmjs.org/](http://npmjs.org/)<br/>
+ License: MIT License (https://github.com/isaacs/npm/blob/master/LICENSE)
+ 
+ <b>commander.js 1.0.0</b> [http://visionmedia.github.com/commander.js/](http://npmjs.org/)<br/>
+ License: MIT License (https://github.com/visionmedia/commander.js/#license)

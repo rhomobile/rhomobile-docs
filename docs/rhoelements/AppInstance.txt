@@ -24,7 +24,7 @@ To Set Module return events via JavaScript use the following syntax: module.even
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: module.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: module.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>Module</b>.setEMML("iD:<i>value</i>;enumApplications:url('JavaScript:doFunction(%json)');newInstance");							
 </td></tr></table>
@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -57,6 +58,7 @@ N/A
 N/A
 </td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 ##Parameters
 
 
@@ -78,7 +80,8 @@ Items listed in this section indicate parameters, or attributes which can be set
                 HOME, which switches to the application launcher; LOCK, which locks the device and UNLOCK which unlocks the device if called from the Lock application.</td><td class="clsSyntaxCells clsOddRow">
                     Switches to the application with the specified ID or pre-defined application.  No action will be taken if there is no application with the specified ID.
                 </td><td class="clsSyntaxCells clsOddRow">No Default parameter defined, failing to specify an Application will have no effect.</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -86,6 +89,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###enumApplications
+
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>applicationArray</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2 dimensional array of data relating to each application running on the device.  See the Remarks section for the format of this array.</td></tr></table>
 
 
@@ -98,7 +102,12 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 The ApplicationArray attribute returned from EnumApplications will enumerate each Application running on the device in a 2D array, associating each application's name with its attributes as follows: ApplicationName, ApplicationID, LocationOfIcon e.g. "LockScreen", -1, "LockScreen.gif" "AppSwitcher", -2, "AppSwitcher.gif" "AppLauncher", -3, "AppLauncher.gif" "PickingApp", 1, "file://\icons\pickApp.gif" "MedicalApp", 2, "file://\icons\medicalApp.gif"
 
 
-<table class="re-table"><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+
+
+##Requirements
+
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">N/A or above
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples
