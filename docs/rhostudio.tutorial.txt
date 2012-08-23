@@ -349,41 +349,14 @@ Use RhoStudio preferences to edit the rhobuild.yml file, which manages the locat
 
 ## Using Intellisense for Autocompletion
 
-IntelliSense is Microsoft's implementation of autocompletion, best known for its use in the Microsoft Visual Studio integrated development environment. In addition to completing the symbol names the programmer is typing, IntelliSense serves as documentation and disambiguation for variable names, functions and methods using reflection.	
+IntelliSense is Microsoft's implementation of autocompletion, best known for its use in the Microsoft Visual Studio integrated development environment. In addition to completing the symbol names the programmer is typing, IntelliSense serves as documentation and disambiguation for variable names, functions and methods using reflection.
 
-The RhoStudio DLTK implementation supports the following aspects of Intellisense.
-
-* Ruby keyword completion
-* `include` argument completion
-* Module/Class name completion
-* Class method/field name completion
-* Method parameter name completion
-* Local variable name completion
-* Block argument name completion
-* Completion after `::` operator
-* Completion after `.` operator
-* Local variable type determination
-* Method return type determination
-
-You can use Intellisense in RhoStudio to autocomplete your Ruby code by setting the cursor at a location in your code and pressing Ctrl+Space.
+The RhoStudio DLTK implementation supports aspects of Intellisense, such as Ruby keyword completion and block argument name completion. You can use Intellisense in RhoStudio to autocomplete your Ruby code by setting the cursor at a location in your code and pressing Ctrl+Space.
 
 For example, to complete a Ruby keyword beginning with "re", perform these steps.
 
 1. Enter "re".
-2. Press Ctrl+Space. The completion list includes “rescue” and “return”.
-
-You can complete an include argument; if you enter `include p` and press Ctrl+Space; the completion list includes “private”, “protected” and “public”. To autocomplete a module/class name starting with "Ap", enter "Ap" and press Ctrl+Space; the completion list includes “AppApplication”. If you enter “Rho::” and press Ctrl+Space, the completion list includes “AppManifest” and “AsyncHttp”.
-
-For class method/field names, suppose you have the following code. Set the cursor after "me" at line 5 and press Ctrl+Space; the completion list includes “method1” and “method2”.
-
-	:::ruby
-	class C
-	  def method1
-	  end
-	  def method2
-	    me
-	  end
-	end
+2. Press Ctrl+Space. The completion list includes "rescue" and "return".
 
 ## Checking Progress and Canceling an Operation
 
