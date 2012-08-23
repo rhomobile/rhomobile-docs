@@ -1,0 +1,126 @@
+RhoConnect Calculator
+==========
+ 1 core equals 1 medium server running two thin instances.
+
+
+<form id='calc-form' class='well form'>
+<label>Number of Objects</label>
+<input id='num_obj' type='number' class='input-xlarge' />
+<label>Number Attributes per Object</label>
+<input id='num_attr' type='number' class='input-xlarge' />
+<label>Number of Devices</label>
+<input id='num_devices' type='number' class='input-xlarge' />
+<label>Sync Frequency</label>
+<div class='input-append'>
+<input id='sync_freq' id='appendInput' type='number' class='span2' size='16'/>
+<span class='add-on' style='margin-top:2px'>device sync per day</span>
+</div>
+<label>Your Average Web Service Response Time</label>
+<input id='avg_resp' type='number' class='input-xlarge' value='0' disabled="disabled"/>
+<label>Number of Updates per Day</label>
+<input id='num_up' type='number' class='input-xlarge' disabled="disabled" value='0' /><br/>
+<button id='calc-submit' type'submit' class='btn btn-primary'>Submit</button>
+</form>
+
+<table id='table-res' class='table table=bordered' style='display:none'>
+<tr>
+	<td>Number of Cores:</td><td id='cores'></td>
+</tr>
+<tr>
+	<td>RAM:</td><td id='ram'></td><td id='ram_units'></td>
+</tr>
+</table>
+
+
+<script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){}"></iframe>
+<div style='display:none'>
+  <form id='gform' action="https://docs.google.com/a/rhomobile.com/spreadsheet/formResponse?formkey=dDBJeUVBQnNnTW1tWGZOSWNRbG84OFE6MQ&amp;ifq" method="post" target="hidden_iframe" onsubmit="submitted=true;" style='display:block'>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+ 	  <div class="ss-form-entry">
+	    <label class="ss-q-title" for="entry_0">Number of Objects</label>
+  		<label class="ss-q-help" for="entry_0"></label>
+  		<input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0">
+ 	  </div>
+     </div>
+  </div>
+  <br> 
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_2">Number of Attributes</label>
+  	    <label class="ss-q-help" for="entry_2"></label>
+        <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_3">Number of Devices</label>
+  	    <label class="ss-q-help" for="entry_3"></label>
+        <input type="text" name="entry.3.single" value="" class="ss-q-short" id="entry_3">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_4">Sync Freq</label>
+  	    <label class="ss-q-help" for="entry_4"></label>
+        <input type="text" name="entry.4.single" value="" class="ss-q-short" id="entry_4">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_5">key</label>
+  	    <label class="ss-q-help" for="entry_5"></label>
+        <input type="text" name="entry.5.single" value="" class="ss-q-short" id="entry_5">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_6">value</label>
+  	    <label class="ss-q-help" for="entry_6"></label>
+        <input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_7">ip</label>
+  	    <label class="ss-q-help" for="entry_7"></label>
+        <input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
+      </div>
+    </div>
+  </div>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_8">User Agent</label>
+  	    <label class="ss-q-help" for="entry_8"></label>
+        <input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8">
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="pageNumber" value="0">
+  <input type="hidden" name="backupCache" value="">
+  <div class="ss-item ss-navigate">
+	<div class="ss-form-entry">
+		<input type="submit" name="submit" value="Submit" id='submitme'>
+	</div>
+  </div>
+</form>
+</div>
