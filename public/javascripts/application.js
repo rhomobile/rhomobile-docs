@@ -2,12 +2,13 @@ var totalAttrRange = new Array(5000,25000,50000,125000,250000,500000);
 var totalSyncsRange = new Array(1000,10000,100000,500000,1000000,10000000);
 var coefficient = 1.2;
 var raw_data ={
-"5000:1000:0:0" : "3,500",
-"5000:10000:0:0" : "4,5000",
-"5000:100000:0:0" : "5,50000",
-"5000:50000:0:0" : "6,500000",
-"5000:1000000:0:0" : "7,5000000",
-"5000:10000000:0:0" : "8,50000000"}
+"5000:10000:0:0" : "2 cores,150 MB redis",
+"25000:10000:0:0" : "2 cores,300 MB redis",
+"50000:10000:0:0" : "4 cores,750 MB redis",
+"125000:10000:0:0" : "4 cores,2 GB redis",
+"250000:10000:0:0" : "2 cores,300 MB redis",
+"500000:10000:0:0" : "2 cores,300 MB redis",
+}
 
 $(document).ready(function() {
 	$(".js-pjax").pjax({
@@ -43,45 +44,63 @@ $(document).ready(function() {
 		var syncFreq = $("#sync_freq").val();
 		var numObj   = $("#num_obj").val();
 		var numUp    = $("#num_up").val();
-		var hash_res;
+		var res;
+		var cores;
+		var ram;
 		var key;
+		var arr_res;
 		
 		var total_attr  = numObj * numAttr;
 		var total_syncs = numDvces * syncFreq;
 		
 		if(total_attr < 1 || total_attr > totalAttrRange[totalAttrRange.length-1] || total_syncs < 1 || total_syncs > totalSyncsRange[totalSyncsRange.length-1]){
-			hash_res = "Data out of boundaries";
+			cores = "data not available";
+			ram   = "data not available";
+			res   = "data not available";
 		}
 		else{
-			key  = get_boundary('totalAttrRange',total_attr) + ":" + get_boundary('totalSyncsRange',total_syncs) + ':0:0'
-			hash_res = raw_data[key];;
+			key  = get_boundary('totalAttrRange',total_attr) + ":" + get_boundary('totalSyncsRange',total_syncs) + ':0:0';
+			res = raw_data[key];
+			if(res == undefined){
+				cores = "data not available";
+				ram   = "data not available";
+				res   = "data not available";
+			}
+			else{
+				arr_res  = res.split(',');
+				cores    = arr_res[0];
+				ram		 = arr_res[1];
+			}
 		}
 		
-		//var cores = 5;
-		//var ram   = 2000;
-		//var units = 'MB';
-		//if(ram > 1024){
-		//	ram     = ram/1024;
-		//	ram_res = Math.round(ram*100)/100
-		//	units   = 'GB';
-	   //	}
-		$("td#cores")[0].innerHTML = hash_res;
-		//$("td#ram")[0].innerHTML = ram_res;
-		//$("td#ram_units")[0].innerHTML = units;
+	
+		$("td#cores")[0].innerHTML = cores;
+		$("td#ram")[0].innerHTML   = ram;
 		$("table#table-res").css("display","block");
 		$("input#entry_0").val(numObj);
 		$("input#entry_2").val(numAttr);
 		$("input#entry_3").val(numDvces);
 		$("input#entry_4").val(syncFreq);
 		$("input#entry_5").val(key);
-		$("input#entry_6").val(hash_res);
+		$("input#entry_6").val(res);
 		$("input#entry_8").val(navigator.userAgent);
-		$.getJSON("http://jsonip.appspot.com?callback=?",
+		$.getJSON("http://h3manth.com/ip.php?callback=?",
 		    function(data){
 		       	$("input#entry_7").val(data.ip);
 				$('#submitme')[0].click();
 		 });
-		
+		$.ajax({
+		  url: "http://h3manth.com/ip.php?callback=?",
+		  dataType: 'json',
+		  success: function(data){
+			$("input#entry_7").val(data.ip);
+			$('#submitme')[0].click();
+		  },
+		  error: function(){
+			$("input#entry_7").val("error getting ip");
+			$('#submitme')[0].click();
+		  }
+		});
 	});
 });
 
@@ -91,7 +110,7 @@ function get_boundary(name,value){
 	arr   = eval(name);
 	
     for(var i=0;i < arr.length;i++){
-		if(value < arr[i+1] * coefficient){
+		if(value < arr[i] * coefficient){
 			result = arr[i];
 			break;
 		}
