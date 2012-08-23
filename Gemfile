@@ -9,8 +9,7 @@ gem 'json'
 gem 'coderay', '~>0.9.8'
 gem 'rack-codehighlighter'
 gem 'indextank'
-
+gem 'shotgun'
 group :development do
-  gem 'shotgun'
-  gem "rake", '>= 0.9.2'
+  gem "rake", '~> 0.9.2.2'
 end
