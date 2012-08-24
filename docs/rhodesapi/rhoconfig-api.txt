@@ -5,7 +5,7 @@ The RhoConfig API allow access to the configuration properties. Refer to [Run ti
 
 ## configuration property methods
 
-The properties in the rhoconfig.txt file for a Rhodes application are available through the RhoConfig API. To access the property, use the name of the property as the method name. For example, the following method returns the start path for your Rhodes applcation:
+The properties in the rhoconfig.txt file for a Rhodes application are available through the RhoConfig API. To access the property, use the name of the property as the method name. For example, the following method returns the start path for your Rhodes application:
 
 	:::ruby
 	Rho::RhoConfig.start_path

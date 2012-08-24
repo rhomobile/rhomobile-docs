@@ -69,7 +69,7 @@ map_params is a hash consisting of:
 </tr>
 <tr>
 	<td><code>longitudeDelta</code></td>
-	<td>Degrees of east-to-west distance. One degree of longitude is approximately 111 kilometers (69 milies) at the equator, and 0 kilometers at the poles.</td>
+	<td>Degrees of east-to-west distance. One degree of longitude is approximately 111 kilometers (69 miles) at the equator, and 0 kilometers at the poles.</td>
 </tr>
 </table>
 

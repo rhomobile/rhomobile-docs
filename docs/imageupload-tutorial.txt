@@ -175,7 +175,7 @@ Here is what is happening. In the code below from the index page, Image/index.er
 
 	<% end %>
 
-In the code below from the controller, Image/image\_controller.rb, we are saving to an image\_uri attribute on our model that we defined in the image model, Image/image/rb, as being a blob (property :imgae\_uri, :blob).
+In the code below from the controller, Image/image\_controller.rb, we are saving to an image\_uri attribute on our model that we defined in the image model, Image/image/rb, as being a blob (property :image\_uri, :blob).
 
 	:::ruby
 	def camera_callback
@@ -245,7 +245,7 @@ In the server's application.rb, set the filename as the blob filename that just 
 
 Back to the imageupload application. Another way we can upload images is to grab images directly off your device. Rather than use Rhosync to sync your data, grab the file directly off the device.
 
-Consider the difference between redirect and WebView.nagivate. Redirect is used in a method to display something, while you use WebView.navigate in a callback to load a specific uri (the camera\_callback method). In a callback, you are not in the process of loading a page so if you redirect, nothing will happen because the outputs from the callback are ignored because they are not being called through the web process it is on under the thread. Therefore, you need WebView.navgigate in the callback. In the upload method that you create here, you use redirect.
+Consider the difference between redirect and WebView.navigate. Redirect is used in a method to display something, while you use WebView.navigate in a callback to load a specific uri (the camera\_callback method). In a callback, you are not in the process of loading a page so if you redirect, nothing will happen because the outputs from the callback are ignored because they are not being called through the web process it is on under the thread. Therefore, you need WebView.navigate in the callback. In the upload method that you create here, you use redirect.
 
 In app/Image/index.erb, create another link in the image loop for uploading the image.
 

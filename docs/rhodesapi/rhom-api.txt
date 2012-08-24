@@ -108,7 +108,7 @@ The argument list can consist of the following arguments.
 </tr>
 <tr>
 	<td><code>:orderdir</code></td>
-	<td>(optional) Order direction: 'ASC' asending, 'DESC' descending. Default = 'ASC'.)</td>
+	<td>(optional) Order direction: 'ASC' ascending, 'DESC' descending. Default = 'ASC'.)</td>
 </tr>
 <tr>
 	<td><code>:select</code></td>

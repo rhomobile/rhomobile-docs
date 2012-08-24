@@ -49,7 +49,7 @@ To use JQuery Mobile in your Rhodes project, you must change several views on yo
 
 The changes you perform on the generated Rhodes projects to prepare them for JQuery Mobile are:
 
-* Delete the checks for the varous platforms.
+* Delete the checks for the various platforms.
 * Include the stylesheets for JQuery Mobile.
 * Wrap each erb file in a data-role div.
 * Wrap content and listviews in data-role.

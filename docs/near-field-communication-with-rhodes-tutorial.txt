@@ -145,7 +145,7 @@ In the Android emulator, the NFCDemo app should be running (9:09 in the webinar 
 
 ## Preparing the Rhodes Project to Receive NFC Tags
 
-The [Rhodes system API samples project](https://github.com/rhomobile/rhodes-system-api-samples) has  several aapplications, one of which is called [NFC](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Nfc). Copy the Rhodes system API samples project to your local computer; you will be using the NFC code.
+The [Rhodes system API samples project](https://github.com/rhomobile/rhodes-system-api-samples) has several applications, one of which is called [NFC](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Nfc). Copy the Rhodes system API samples project to your local computer; you will be using the NFC code.
 
 ### Checking the Rhodes Application for NFC
 
