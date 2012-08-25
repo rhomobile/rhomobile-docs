@@ -129,7 +129,7 @@ Now that the rhoconnect-java jar library is included in your Maven local reposit
     	<type>jar</type>
 	</dependency>
 
-### Creating the rhoconnect-java Pluigin Jar File from the rhoconnect-java Repository
+### Creating the rhoconnect-java Plugin Jar File from the rhoconnect-java Repository
 
 Instead of downloading the rhoconnect-java plugin jar file, you can generate it from sources by cloning the `rhoconnect-java` repository:
 
@@ -268,7 +268,7 @@ To help the rhoconnect-java plugin correctly map the model name to the service b
 * The service bean should be auto-wired into the corresponding controller via @Autowired annotation 
 
 Data partitioning in your code should be based on filtering data for unique user (i.e. your user name) or per application (shared dataset for all users).
-For more information about RhoConnect partitions, please refer to the [RhoConnect docs](http://docs.rhomobile.com/rhosync/source-adapters#data-partitioning).
+For more information about RhoConnect partitions, please refer to the [RhoConnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
 
 ## Establishing communication from java backend application to the RhoConnect server
 

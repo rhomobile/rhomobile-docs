@@ -562,7 +562,7 @@ Instance method. Returns a RhoConnectNotify object after running a sync on all t
 
 ### <a id="is_syncing">is_syncing
 
-Instance method. Returns TRUE if syncronization is in progress
+Instance method. Returns TRUE if synchronization is in progress
 
 	:::cplusplus
 	- (BOOL) is_syncing;

@@ -30,7 +30,7 @@ To handle a push message from a Rhodes application, you must register push callb
 
 Push callback is set up in the form of a local application URL and called as callback whether or not rho_callback=1 is specified in its parameters list.
 
-The parameters trigger certain operations in the Rhodes client when the callback returns "rho_push". (When the callback retuens an empty string, this automatic handling is not performed.) The operations are to show an alert, vibrate the device, play a sound, and perform a sync.
+The parameters trigger certain operations in the Rhodes client when the callback returns "rho_push". (When the callback returns an empty string, this automatic handling is not performed.) The operations are to show an alert, vibrate the device, play a sound, and perform a sync.
 
 To have your Rhodes app automatically perform the operations listed in the push message, you can write the callback as follows.
 

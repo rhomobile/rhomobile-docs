@@ -1,6 +1,6 @@
 Bulk Sync
 ===
-During the initial sync process in your applcation, you may need to deliver a large number of objects. This may result in many megabytes of data being sent to the device. In this case, incremental synchronization may take a while to complete since it uses JSON as the wire format. To significantly speed up this process you may use RhoConnect's "bulk sync" feature. 
+During the initial sync process in your application, you may need to deliver a large number of objects. This may result in many megabytes of data being sent to the device. In this case, incremental synchronization may take a while to complete since it uses JSON as the wire format. To significantly speed up this process you may use RhoConnect's "bulk sync" feature. 
 
 ## Bulk Sync Process
 

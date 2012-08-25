@@ -84,7 +84,7 @@ The server will show that it is running on the console.
 
 ### Start the Application
 
-Open a new console window (since the redis server is running in the previous console window). Then change directories to your rhoconnect applciation and start the application.
+Open a new console window (since the redis server is running in the previous console window). Then change directories to your rhoconnect application and start the application.
 
 	:::term
 	$ cd storeserver
@@ -159,7 +159,7 @@ Here is a complete list of the rake tasks available in a RhoConnect application:
 	rake redis:about                    # About redis
 	rake redis:attach                   # Attach to redis dtach socket
 	rake redis:download                 # Download package
-	rake redis:install                  # Install the latest verison of Redis from Github (requires git, duh)
+	rake redis:install                  # Install the latest version of Redis from Github (requires git, duh)
 	rake redis:restart                  # Restart redis
 	rake redis:start                    # Start redis
 	rake redis:stop                     # Stop redis
@@ -208,7 +208,7 @@ rhoconnect, simply type `rhoconnect` or `rhoconnect help`.
 	  rhoconnect redis-about            # About redis
 	  rhoconnect redis-attach           # Attach to redis dtach socket
 	  rhoconnect redis-download         # Download redis package
-	  rhoconnect redis-install          # Install the latest verison of Redis from Github (requires git, duh)
+	  rhoconnect redis-install          # Install the latest version of Redis from Github (requires git, duh)
 	  rhoconnect redis-restart          # Restart redis
 	  rhoconnect redis-start            # Start redis
 	  rhoconnect redis-stop             # Stop redis
@@ -244,7 +244,7 @@ The server will show that it is running on the console.
 
 ### Start the Application
 
-Open a new console window (since the redis server is running in the previous console window). Then change directories to your rhoconnect applciation and start the application.
+Open a new console window (since the redis server is running in the previous console window). Then change directories to your rhoconnect application and start the application.
 
 	:::term
 	$ cd storeserver
