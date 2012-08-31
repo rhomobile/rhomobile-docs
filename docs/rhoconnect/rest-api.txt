@@ -490,7 +490,7 @@ Use this method only when you can ensure the integrity of the data.
 	)
 	
 #### `POST /app/v1/:source_name/fast_update`
-Push object updates to RhoConnect. This method doesn't involve pulling the existing data out of Redis. Instead it required user to provide the previous state of the data. This way, this method allows for very fast updates (since it just removes the previous data from set and adds new ones). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. previous state must exist, otherwise it won't be properly deleted). Also, this method can be used to perform fast appends and deletes for any of the object's attributes (However, you shoudn't use this method to remove all of the attributes, `fast_delete` should be used instead.)
+Push object updates to RhoConnect. This method doesn't involve pulling the existing data out of Redis. Instead it required user to provide the previous state of the data. This way, this method allows for very fast updates (since it just removes the previous data from set and adds new ones). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. previous state must exist, otherwise it won't be properly deleted). Also, this method can be used to perform fast appends and deletes for any of the object's attributes (However, you shouldn't use this method to remove all of the attributes, `fast_delete` should be used instead.)
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client after the update and trigger sync.**
 

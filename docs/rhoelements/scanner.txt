@@ -186,7 +186,7 @@ alwaysOn:
   External illumination is always on.
 alwaysOff:
   External illumination is always off.
-NOTE: On Enterprise Tablet for Camera scanners this setting has to be enabled/disabled before starting the scanner.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
+   <br/><b>Note:</b> On Enterprise Tablet for Camera scanners this setting has to be enabled/disabled before starting the scanner.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance.  DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>inverse1dMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Allows the user to select inverse 1D barcodes for decoding.  Possible values:
 

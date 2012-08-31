@@ -83,7 +83,7 @@ The typical flow of a message using RPS:
 
 ### Download and Install Nodejs
 
-If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile SUtie for Windows includes Node.js in its installation.)
+If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile Suite for Windows includes Node.js in its installation.)
 
 ### Starting the Push Service
 

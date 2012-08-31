@@ -76,7 +76,7 @@ In the start\_nfc\_push controller action, for debugging purposes, the first lin
 
 Then it creates an NFC payload using the NFCManager.make\_payload\_with\_well\_known\_text method. Then you have to prepare the payload to assign it to the NFC chip on the device. You put the payload inside a hash, since this is an Ndef record.
 
-From that hash, it makes an Ndef record with the NFCManager.make\_NdefRecord\_from\_hash method. From that Ndef record, it creates a record array (with a single element, we have only one playload). From that record array, it creates an Ndef message with the NFCManager.make\_NdefMessage\_from\_array\_of\_NdefRecord method.
+From that hash, it makes an Ndef record with the NFCManager.make\_NdefRecord\_from\_hash method. From that Ndef record, it creates a record array (with a single element, we have only one payload). From that record array, it creates an Ndef message with the NFCManager.make\_NdefMessage\_from\_array\_of\_NdefRecord method.
 
 Now it uses the peer-to-peer API, specifically the NFCManager.p2p\_enable\_foreground\_nde\_push method, to push the Ndef message.
 

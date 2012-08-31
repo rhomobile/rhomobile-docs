@@ -101,7 +101,7 @@ Connect without user interface. Make the client connection to another device.
 </tr>
 <tr>
 	<td><code>callback_url</code></td>
-	<td>url to a callback method called after the Bluetooth session is created or canceled. Parameters received in the callback: status, OK or ERROR or CANCEL, and connected_device_name (name of the Bluetooh connected device).
+	<td>url to a callback method called after the Bluetooth session is created or canceled. Parameters received in the callback: status, OK or ERROR or CANCEL, and connected_device_name (name of the Bluetooth connected device).
 	</td>
 </tr>
 </table>

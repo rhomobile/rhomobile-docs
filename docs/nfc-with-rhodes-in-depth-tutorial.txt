@@ -268,7 +268,7 @@ Instead of having nfc-rhodes just show a timestamp, we can show the text associa
 
 The nfc\_tech\_callback method first assigns a message saying the nfc tag was received, and it calls the helper function add\_to\_log to update the view with that log message.
 
-Then it grabs the tag from the NFCmanager. If the tag is not nil (the Android device successfully read the tag), then process the tag in the test\_ndef\_read method to get the tag's text message, then update the log with the text message.
+Then it grabs the tag from the NFCManager. If the tag is not nil (the Android device successfully read the tag), then process the tag in the test\_ndef\_read method to get the tag's text message, then update the log with the text message.
 
 	:::ruby
 	def nfc_tech_callback
@@ -317,7 +317,7 @@ The test\_ndef\_read method assumes that the nfc tag is ndef technology. Connect
 	    msg_hash = { 'records' => r_a }
 	    puts "records after processing: #{msg_hash.inspect}"
       
-	    # Assign the string playload from the hash to the result
+	    # Assign the string payload from the hash to the result
 	    # Return the result to nfc_tech_callback for display in add_to_log
 	    result = "Tag Result: " + msg_hash['records'][0]['payload_as_string'] if msg_hash['records'].size > 0
 	    # Close connection to the tag

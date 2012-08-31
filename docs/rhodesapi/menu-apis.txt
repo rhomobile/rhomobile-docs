@@ -5,7 +5,7 @@ Customize the native application menu and controller menu items. Refer to [Appli
 
 ## @default_menu
 
-Set this paramter list in application.rb to customize the Rhodes default menu.
+Set this parameter list in application.rb to customize the Rhodes default menu.
 
 	:::ruby
 	@default_menu = { 

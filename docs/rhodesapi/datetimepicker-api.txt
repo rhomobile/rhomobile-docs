@@ -23,7 +23,7 @@ Opens a window where the user can choose date and time.
 </tr>
 <tr>
 	<td><code>initial_time</code></td>
-	<td>The inital time.</td>
+	<td>The initial time.</td>
 </tr>
 <tr>
 	<td><code>fmt</code></td>

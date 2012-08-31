@@ -258,7 +258,7 @@ You are charged for the stack that you have created, by the hour. When you no lo
 
 The described architecture has a weak spot: a single point of failure (SPOF). If the Redis server is down or stops responding, then the entire Rhoconnect stack stops functioning. To address this issue, we need to implement failover — the continuation of a service after the failure of one or more of its components. Redis provides a very simple solution to 
 configure master-slave replication that allows slave Redis servers to be exact copies of master servers. 
-So if the master server goes down, we can issue a `SLAVEOF NO ONE` comand to the slave and then switch RhoConnect apps to use the slave that is now the master. 
+So if the master server goes down, we can issue a `SLAVEOF NO ONE` command to the slave and then switch RhoConnect apps to use the slave that is now the master. 
 
 The following is a one possible scenario of how it might be done on the Amazon cloud.
 

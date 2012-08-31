@@ -249,7 +249,7 @@ Android uses these contact properties (stored in a hash).
 		<code>home_fax</code></br>
 		<code>work_fax</code></br>
 	</td>
-	<td>Strings. Additonal phone numbers for iPhone.</td>
+	<td>Strings. Additional phone numbers for iPhone.</td>
 </tr>
 </table>
 

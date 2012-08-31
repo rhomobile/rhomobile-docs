@@ -180,7 +180,7 @@ c) Make sure that your app is bundled properly
     
     :::term
     $ cd your_rhoconnect_app
-    $ sudo /opt/rhconnect/bin/bundle install
+    $ sudo /opt/rhoconnect/bin/bundle install
 
 d) Configure Nginx virtual host for your rhoconnect application. For that edit the file 
 `/opt/nginx/conf/conf.d/rhoconnect.conf`, so that it reflects your specifications (root directive)
@@ -264,7 +264,7 @@ Copy and paste these contents into the file.
 
 	:::term
 	[rhoconnect-redis]
-	name=Rhoconnec Redis	
+	name=Rhoconnect Redis
 	baseurl=http://rhoconnect-repo.s3.amazonaws.com/packages/rpm
 	enabled=1
 	gpgcheck=0

@@ -1,6 +1,6 @@
 
 #History:Back Navigation
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>  <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The History:Back Navigation instructs RhoElements to navigate to the previously visited address.

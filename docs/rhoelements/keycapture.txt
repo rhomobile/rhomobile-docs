@@ -94,7 +94,7 @@ If you have enabled the function key in the configuration settings and that func
 
 
 ###VC70 Hardware Keys
-The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module.
+The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behaviour (like volumeup/down) of hardware keys can not be blocked when RhoElements is running in fullscreen mode.
 
 
 ###ES400 Application Keys

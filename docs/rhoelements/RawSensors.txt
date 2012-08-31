@@ -1,6 +1,6 @@
 
 #RawSensors Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The RawSensors Module is used to retrieve the raw data values of the specified sensors.
@@ -28,19 +28,6 @@ To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events
 <P />
 e.g. <b>RawSensors</b>.setEMML("accelerometer:<i>value</i>;sensorEvent:url('JavaScript:doFunction(%json)');getSensorData");							
 </td></tr></table>
-
-<table class="re-table"><tr><th class="tableHeading">RawSensors Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'RawSensors'</b> will exist on the current page and can be used to interact directly with the RawSensors. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'RawSensors'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
-To Invoke RawSensors methods via Ruby use the following syntax: RawSensors.method()
-<P />e.g. <b>RawSensors</b>.getSensorData</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set RawSensors parameters via Ruby use the following syntax: RawSensors.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
-<P />e.g. <b>RawSensors</b>.accelerometer = 'value'
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set RawSensors return events via Ruby use the following syntax: RawSensors.event = url_for(:action =&gt; :event_callback) 
-<P />e.g. <b>RawSensors</b>.sensorEvent = url_for(:action =&gt; :rawsensors_event_callback)
-<P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	

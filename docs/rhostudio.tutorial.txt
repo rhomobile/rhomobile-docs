@@ -205,7 +205,7 @@ The RhoSimulator also brings up a Webkit Inspector window, allowing you to inspe
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/web-inspector.png"/>
 
-For example, you can see the web code for the listview. Here is the listview of the products for the storemanger example. You can see the link for the iPhone URL, and you could change the border color and thickness for the iPhone product (changing from 1px to 3px and solid #CCC to #111 would give the iPhone link a thicker, darker border).
+For example, you can see the web code for the listview. Here is the listview of the products for the storemanager example. You can see the link for the iPhone URL, and you could change the border color and thickness for the iPhone product (changing from 1px to 3px and solid #CCC to #111 would give the iPhone link a thicker, darker border).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhosim-product-list-dark.png"/>
 
@@ -215,7 +215,7 @@ You can use the RhoStudio debugger to debug the Ruby code in your RHodes or Rhoc
 
 ### Debugging a Rhodes Application
 
-To run the RhoSimulator debugger for the iPhone platform, select your Rhodes project from the Project Explorer (in this case, we use the storemanger project created earlier). Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
+To run the RhoSimulator debugger for the iPhone platform, select your Rhodes project from the Project Explorer (in this case, we use the storemanager project created earlier). Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
 
 Click Debug to start the debugger.
 
