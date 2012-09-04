@@ -68,7 +68,7 @@ task :archive do
 
   puts "Waiting 3 seconds for server to start..."
   sleep 3
-  
+
   `wget -mirror -k -E -nH -nv -P archive http://127.0.0.1:9393/`
 
   puts "Mirroring complete. Killing server."
@@ -124,8 +124,7 @@ desc 'Publish docs to production'
 task :publish_prod do
   `git pull`
   `git push production master`
-  sh "HEROKUTANK_API_URL=`heroku config --long --app rhodocs | 
-      grep HEROKUTANK_API_URL | awk -F '=> ' '{print $2}'` RACK_ENV=production rake index"
+  `heroku run rake index`
 end
 
 desc 'Alias for server'
