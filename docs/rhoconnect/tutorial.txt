@@ -33,7 +33,7 @@ Enter the name for your RhoConnect application in Project name; in this case, "s
 	:::term
 	$ rhoconnect app storeserver
 	$ cd storeserver
-	
+
 Next, install the application's dependencies. RhoConnect applications use [bundler](http://gembundler.com/) to manage dependencies, so you can install them with:
 
 	:::term
@@ -42,21 +42,21 @@ Next, install the application's dependencies. RhoConnect applications use [bundl
 **If you are running this for the first time on Mac or Linux**, you will need to install [dtach](http://dtach.sourceforge.net/):
 
 	:::term
-	$ [sudo] rake dtach:install  
+	$ [sudo] rhoconnect dtach-install
 
 Now you can run redis and your RhoConnect app:
 
 	:::term
-	$ rake redis:start
-	$ rake rhoconnect:start
+	$ rhoconnect redis-start
+	$ rhoconnect start
 
 If everything went well you should see:
 
-	[07:01:15 PM 2010-05-04] Rhoconnect Server v3.0.0 started...
+	[01:48:15 PM 2012-08-04] Rhoconnect Server v3.3.4 started...
 
 ## Defining RhoConnect Source Adapters
 
-Once RhoConnect is installed we're ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoConnect source adapter](/rhoconnect/source-adapters) documentation.  
+Once RhoConnect is installed we're ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoConnect source adapter](/rhoconnect/source-adapters) documentation.
 
 ### Generating the Source Adapter from RhoStudio
 
@@ -83,7 +83,7 @@ You can open these files for editing by clicking on them in the Project Explorer
 
 ### Generating the Source Adapter from the Command Line
 
-From the command line, navigate to the main folder for your RhoConnect app: in this case, storeserver. 
+From the command line, navigate to the main folder for your RhoConnect app: in this case, storeserver.
 
 Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](/rhostudio.tutorial) and the [documentation to generate a Rhodes application](/rhodes/generator).
 
@@ -107,47 +107,47 @@ The generated source adapter file (in this case, product.rb) is similar to the c
 	  def initialize(source)
 	    super(source)
 	  end
- 
+
 	  def login
 	    # TODO: Login to your data source here if necessary
 	  end
- 
+
 	  def query
-	    # TODO: Query your backend data source and assign the records 
+	    # TODO: Query your backend data source and assign the records
 	    # to a nested hash structure called @result. For example:
-	    # @result = { 
+	    # @result = {
 	    #   "1"=>{"name"=>"Acme", "industry"=>"Electronics"},
 	    #   "2"=>{"name"=>"Best", "industry"=>"Software"}
 	    # }
 	    raise SourceAdapterException.new("Please provide some code to read records from the backend data source")
 	  end
- 
+
 	  def sync
-	    # Manipulate @result before it is saved, or save it 
+	    # Manipulate @result before it is saved, or save it
 	    # yourself using the Rhoconnect::Store interface.
 	    # By default, super is called below which simply saves @result
 	    super
 	  end
- 
+
 	  def create(create_hash)
 	    # TODO: Create a new record in your backend data source
-	    # If your rhodes rhom object contains image/binary data 
+	    # If your rhodes rhom object contains image/binary data
 	    # (has the image_uri attribute), then a blob will be provided
 	    raise "Please provide some code to create a single record in the backend data source using the create_hash"
 	  end
- 
+
 	  def update(update_hash)
 	    # TODO: Update an existing record in your backend data source
 	    raise "Please provide some code to update a single record in the backend data source using the update_hash"
 	  end
- 
+
 	  def delete(delete_hash)
 	    # TODO: write some code here if applicable
 	    # be sure to have a hash key and value for "object"
 	    # for now, we'll say that its OK to not have a delete operation
 	    # raise "Please provide some code to delete a single object in the backend application using the object_id"
 	  end
- 
+
 	  def logoff
 	    # TODO: Logout from the data source if necessary
 	  end
@@ -156,12 +156,12 @@ The generated source adapter file (in this case, product.rb) is similar to the c
 The generator will also edit settings/settings.yml and add the product adapter to the sources section with some default options:
 
 	:::ruby
-	#Sources 
-	:sources: 
-  	  Product: 
+	#Sources
+	:sources:
+  	  Product:
         :poll_interval: 300
 
-The next step is for you to fill in the login, query, create, update, delete and logoff methods with your own code to call a backend service.  
+The next step is for you to fill in the login, query, create, update, delete and logoff methods with your own code to call a backend service.
 
 ## A RhoConnect Query
 
@@ -170,30 +170,30 @@ If you're doing a readonly non-authenticated source adapter, you can just write 
 For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](/rhoconnect/source-adapters#sample-adapter) in the RhoConnect Developer Reference.
 
 Our sample web service for returning all products in the catalog (http://rhostore.heroku.com/products.json) returns data like this:
-	
+
 	:::json
 	[
   	  {
 		"product": {
-		  "name": "iPhone", 
-		  "brand": "Apple", 
-		  "updated_at": "2010-05-11T02:04:57Z", 
-		  "price": "$299.99", 
-		  "quantity": "5", 
-		  "id": 649, 
-		  "sku": "1234", 
+		  "name": "iPhone",
+		  "brand": "Apple",
+		  "updated_at": "2010-05-11T02:04:57Z",
+		  "price": "$299.99",
+		  "quantity": "5",
+		  "id": 649,
+		  "sku": "1234",
 		  "created_at": "2010-05-11T02:04:57Z"
 		}
-	  }, 
+	  },
   	  {
 	    "product": {
-		  "name": "Accord", 
-		  "brand": "Honda", 
-		  "updated_at": "2010-05-13T22:24:48Z", 
-		  "price": "$6000", 
-		  "quantity": "", 
-		  "id": 648, 
-		  "sku": "123", 
+		  "name": "Accord",
+		  "brand": "Honda",
+		  "updated_at": "2010-05-13T22:24:48Z",
+		  "price": "$6000",
+		  "quantity": "",
+		  "id": 648,
+		  "sku": "123",
 		  "created_at": "2010-05-11T02:04:53Z"
 		}
 	  }
@@ -218,28 +218,28 @@ For convenience, we'll add an instance variable @base which contains the base UR
     end
 
 Then fill in the query method:
-	
+
 	:::ruby
   	def query
       parsed=JSON.parse(RestClient.get("#{@base}.json").body)
 
       @result={}
       if parsed
-        parsed.each do |item| 
+        parsed.each do |item|
           key = item["product"]["id"].to_s
           @result[key]=item["product"]
         end
-      end 
+      end
     end
 
-**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language. If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.  
+**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language. If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.
 Each hash key in the inner hash represents an attribute of an individual object.  All datatypes must be strings (so the hash values need to all be strings, not integers).**
 
 For example:
-	
+
 	:::ruby
   	@result = {
-	  "1" => { 
+	  "1" => {
 	    "name" => "inner tube",
 	    "brand" => "Michelin"
 	  },
@@ -247,19 +247,19 @@ For example:
 		"name" => "tire",
 		"brand" => "Michelin"
 	  }
-	}	
+	}
 
 ## Testing Sync from the Client
 
 Make sure you are running redis. From the folder in which you app is located, run this command.
 
 	:::term
-	$ rake redis:start
-	
+	$ rhoconnect redis-start
+
 Then start (or restart) your server:
-	
+
 	:::term
-   	$ rake rhoconnect:start
+   	$ rhoconnect start
 
 **Note: The RhoConnect application must be run from the command line. It does not run from RhoStudio.**
 
@@ -293,7 +293,7 @@ To sync with the RhoConnect server, the Rhodes client must log in. The Rhodes ge
 2. Login using any name & password. The generated code allows any login, but you can modify that in application.rb.
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhosimulator-login.png"/>
 
-3. If login is successful, you will see a Client ID in the settings screen. The ClientID is generated the first time you log in and is stored in the client database.  It serves as a unique identifier which is required for rhoconnect. (Note: this value will persist across logins, but if you reset the client database or the user re-installs the app, a new ClientID will be generated.)   
+3. If login is successful, you will see a Client ID in the settings screen. The ClientID is generated the first time you log in and is stored in the client database.  It serves as a unique identifier which is required for rhoconnect. (Note: this value will persist across logins, but if you reset the client database or the user re-installs the app, a new ClientID will be generated.)
 4. Sync is triggered automatically. Click on the home icon and then select "Products" and you should see the list of product records from the server.
 
 This example shows a couple of iPhone products.
@@ -303,7 +303,7 @@ This example shows a couple of iPhone products.
 ## Creating Objects with RhoConnect
 
 For your create method, the RhoConnect server will pass you a hash containing the new record, called "create_hash". For example, it might be:
-	
+
 	:::ruby
 	{
 	  "name" => "Hovercraft",
@@ -315,7 +315,7 @@ The RhoConnect sources/product.rb create method will be called once for every ob
 	:::ruby
 	def create(create_hash)
       result = RestClient.post(@base, :product => create_hash)
-    
+
       # after create we are redirected to the new record.
       # The URL of the new record is given in the location header
       location = "#{result.headers[:location]}.json"
@@ -323,7 +323,7 @@ The RhoConnect sources/product.rb create method will be called once for every ob
       # We need to get the id of that record and return it as part of create
       # so rhoconnect can establish a link from its temporary object on the
       # client to this newly created object on the server
-    
+
       new_record = RestClient.get(location).body
       JSON.parse(new_record)["product"]["id"].to_s
     end
@@ -340,18 +340,18 @@ The generated RhoConnect application code includes a file at the root of the dir
         def authenticate(username,password,session)
       	  true # do some interesting authentication here...
         end
-    
+
         # Add hooks for application startup here
         # Don't forget to call super at the end!
         def initializer(path)
           super
         end
-    
+
         # Calling super here returns rack tempfile path:
         # i.e. /var/folders/J4/J4wGJ-r6H7S313GEZ-Xx5E+++TI
         # Note: This tempfile is removed when server stops or crashes...
         # See http://rack.rubyforge.org/doc/Multipart.html for more info
-        # 
+        #
         # Override this by creating a copy of the file somewhere
         # and returning the path to that file (then don't call super!):
         # i.e. /mnt/myimages/soccer.png
@@ -367,7 +367,7 @@ If your back end web service requires authentication, add code to the authentica
 
 	:::ruby
 	def authenticate(username, password, session)
-  	  # ... connect to backend using API and authenticate ... 
+  	  # ... connect to backend using API and authenticate ...
   	  if success
         # save the data for later use in the source adapter
         Store.put_value("username:#{username}:token",username)
