@@ -81,6 +81,50 @@ When you start RhoStudio, you can set the location of the workspace directory. T
 
 Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in Rhodes applications.
 
+## Migrating to OS X Mountain Lion from the command line
+
+If you had workable RhoConnect environment on OS X Lion, then after upgrading to Mountain Lion you need to do some extra steps to get it back.
+
+### Getting Xcode and Command Line Tools Installed
+
+You can get Xcode from the Mac App Store. You’ll need at least version 4.4 of Xcode for it to work with OS X Mountain Lion. After the installation, open up Xcode in your /Applications folder. You’d want to go to Xcode -> Preferences -> Downloads tab then install the “Command Line Tools.”
+
+### Installing Homebrew and GCC
+
+If you need to install any Ruby that’s older than 1.9.3, such as 1.9.2, 1.8.7 or REE, you’ll need to install GCC 4.2. Apple does not ship the Command Line Tools with gcc-4.2 compiler anymore (you can check by running `which gcc-4.2`), so you need to install it via Homebrew by enabling [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes) repository and installing GCC
+ 
+	:::term
+	$ brew tap homebrew/dupes
+	$ brew install apple-gcc42
+
+Also Apple has already removed X11 support from their operating system, but X11 package is needed to 
+compile 1.8.7 or REE. You can still get the X11 package from [XQuartz]( http://xquartz.macosforge.org/landing). By default it goes to /opt/X11 directory.
+
+If you had Homebrew already installed, then you need only update it
+
+	:::term
+	$ brew update
+	$ brew doctor
+
+If `brew doctor` command complains about `/usr/local/bin` path, then edit `/etc/paths` file and move `/usr/local/bin` line to the top of it.	
+
+### Updating RVM (Ruby Version Manager) with Ruby 1.9.3
+
+Because OS X Mountain Lion toolchain is changed, you should reinstall existing Ruby 1.9.3
+
+	:::term
+	$ rvm get stable
+	$ rvm reinstall 1.9.3
+
+### Installing legacy rubies
+
+Run the following commands:
+
+	:::term
+	$ export CPPFLAGS=-I/opt/X11/include
+	$ CC=/usr/local/bin/gcc-4.2 rvm reinstall 1.8.7
+	$ CC=/usr/local/bin/gcc-4.2 rvm reinstall ree
+
 ## Upgrading an Existing Application
 
 If you have an existing application, upgrading to the latest version of RhoConnect is simple.
