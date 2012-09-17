@@ -440,7 +440,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >Scrolling\\ScrollTechnique</td>
 <td >SCROLLTECHNIQUE</td>
-<td >Specifies the technique used to scroll about the page:<br/><i>"FingerScroll"</i> - You can scroll around the page using finger swiping.<br/><i>"Scrollbars"</i> - When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page (Not available on Android)<br/><i>"None"</i> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/></td>
+<td >Specifies the technique used to scroll about the page:<br/><b>FingerScroll</b> - You can scroll around the page using finger swiping.<br/><b>Scrollbars</b> - When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page (Not available on Android)<br/><b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/><b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element</td>
 <td >See description</td>
 </tr>
 <tr>
@@ -605,7 +605,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td class="clsEvenRow">Navigation\\ViewportEnabled</td>
 <td class="clsEvenRow">VIEWPORTENABLED</td>
-<td class="clsEvenRow">Whether to enable or disable viewport meta tag processing (default is disabled)</td>
+<td class="clsEvenRow">Whether to enable or disable viewport meta tag processing (default is enabled)</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -617,7 +617,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td>Navigation\\CaFile</td>
 <td>CAFILE</td>
-<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a></td>
+<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>.  This is only supported on the ET1</td>
 <td>Local File name on the device.</td>
 </tr>
 <tr>
@@ -670,7 +670,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 </tr>
 </table>
 <a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="/rhoelements/generic">Generic</a> 
-</div>
+
 
 ##Substitution Variables
 The following substitution variables are available in the configuration file

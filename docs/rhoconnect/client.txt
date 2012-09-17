@@ -63,7 +63,7 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 	- (RhoConnectNotify*) loginWithUser: (NSString*) user pwd:(NSString*) pwd;
 
 	//login to rhoconnect server and keep login session in database and call selector when finish
-	// target is obejct where to call selector, selector calls in thread which make login call
+	// target is object where to call selector, selector calls in thread which make login call
 	- (void) loginWithUser: (NSString*) user pwd:(NSString*) pwd callback:(SEL) callback target:(id)target;
 
 	//set sync notification callback
@@ -232,7 +232,7 @@ To create schema model tables edit database schema file:
 
 * Copy file <rhoconnect-client>/shared/db/res/db/syncdb.schema to your project folder
 
-* Edit file syncdb.schema : add create table statment for each schema model. Note that mandatory object column should be in each table:
+* Edit file syncdb.schema : add create table statement for each schema model. Note that mandatory object column should be in each table:
 
     "object" varchar(255) PRIMARY KEY
 
@@ -464,13 +464,13 @@ These can be build from <rhodes>/rhoconnect-client directory with next command
 	    // Handle login event
 	}
 
-Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync methodin axample above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
+Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync method in example above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
 
 ### Object Model
 
 #### Intro
 
-RhoConnect Client Android Java API resides at com.rhomobile.rhoconnect pakage. It contains two main classes: RhoConnectClient and RhomModel. The package also contains two classes which represent results of call to the API. These are RhoConnectNotify and RhoConnectObjectNotify.
+RhoConnect Client Android Java API resides at com.rhomobile.rhoconnect package. It contains two main classes: RhoConnectClient and RhomModel. The package also contains two classes which represent results of call to the API. These are RhoConnectNotify and RhoConnectObjectNotify.
 Also several utility classes from com.rhomobile.rhodes package can be used. These are RhoConf, RhoLogConf, Logger.
 
 #### RhoConnectClient
@@ -478,7 +478,7 @@ Also several utility classes from com.rhomobile.rhodes package can be used. Thes
 	:::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectClient{
-        /// Call this method before create and use the client. It sets up directory structure and makes nessesary native library initialization.
+        /// Call this method before create and use the client. It sets up directory structure and makes necessary native library initialization.
     	public static native void nativeInit();
         /// Creates instance of RhoConnectClient singlethon (yes, it's only one instance of RhoConnectClient allowed).
 	    public RhoConnectClient();

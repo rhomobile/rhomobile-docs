@@ -28,7 +28,7 @@ The APD Preexisting JavaScript Object contains read only properties and methods 
 
 
 ###More Documentation
-For a full list of commands refer to the driver documentation (Motorola Adaptive Printer Driver for Portable Terminals using "PocketPC" Applications: Doc Ref:CPR361 available from printers@uk.Motorola.com) or refer to the APD documentation provided along with your RhoElements desktop installation
+More documentation on the APD is available at http://docs.rhomobile.com
 
 
 ###Backwards Compatibility
@@ -63,7 +63,7 @@ Additional steps are required to pair your MC2100 via Bluetooth for printing. Pl
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Executes immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

@@ -24,7 +24,7 @@ To Set rsm return events via JavaScript use the following syntax: rsm.event = Ja
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: rsm.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: rsm.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>rsm</b>.setEMML("bluetoothAuthentication:<i>value</i>;rsmGetEvent:url('JavaScript:doFunction(%json)');markForRetrievalModelNumber");							
 </td></tr></table>
@@ -43,6 +43,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -119,6 +120,7 @@ N/A
 N/A
 </td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>bluetoothDisconnect</b></td><td class="clsSyntaxCells clsOddRow">Instructs the Bluetooth scanner to disconnect from its associated device.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>bluetoothUnpair</b></td><td class="clsSyntaxCells clsEvenRow">Instructs the bluetooth scanner to unpair from its associated device.  Allows the scanner to be associated with a different device</td><td class="clsSyntaxCells clsEvenRow">Device Dependant</td></tr></table>
 
+
 ##Parameters
 
 
@@ -149,7 +151,8 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">See Remarks</td><td class="clsSyntaxCells clsOddRow">Sets the PagingEnable of the connected BT Scanner to the stated value.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>pagingBeepSequence:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">See Remarks</td><td class="clsSyntaxCells clsEvenRow">Sets the PagingBeepSequence of the connected BT Scanner to the stated value.</td><td class="clsSyntaxCells clsEvenRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>pagingActivate:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">See Remarks</td><td class="clsSyntaxCells clsOddRow">Sets the PagingActivate of the connected BT Scanner to the stated value.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -157,6 +160,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###rsmGetEvent
+
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>attributeArray</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Array of attribute values.  The attributes returned in this array are those
 						registered for by calls to markForRetrievalXXX prior to calling RSMGetEvent.  
 						The table in the remarks section gives the possible values associated with 
@@ -248,7 +252,7 @@ If you press the trigger on an RSM scanner proximity enabled will be turned off,
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have the ability to connect to remote scanners.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware to run, i.e. a remote scanner and a device which supports it.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices that have the ability to connect to remote scanners.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware to run, i.e. a remote scanner and a device which supports it.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - The RSM parameters are volatile and only the current value of the RSM attribute will be altered.  Changes to RSM attributes will persist until the scanner is disabled or a navigation occurs.  rsmGetEvent will persist until a navigation occurs.</td></tr></table>
 
 
 ##HTML/Javascript Examples

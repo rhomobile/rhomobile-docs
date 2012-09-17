@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'sipButton'</b> will exist on the current pa
 To Set sipButton parameters via JavaScript use the following syntax: sipbutton.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>sipButton</b>.left = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: sipbutton.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: sipbutton.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>sipButton</b>.setEMML("left:<i>value</i>");							
 </td></tr></table>
@@ -26,6 +26,7 @@ By default the Ruby Object <b>'SipButton'</b> will exist on the current page and
 To Set SipButton parameters via Ruby use the following syntax: SipButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>SipButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+
 
 
 
@@ -65,7 +66,7 @@ When the screen orientation changes, either using the ScreenOrientation tag or b
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

@@ -154,7 +154,7 @@ The event properties are stored in a hash.
 	<td>(iPhone and Android only).</td>
 </tr>
 <tr>
-	<td><code>oragnizer</code></td>
+	<td><code>organizer</code></td>
 	<td>(iPhone and Android only) String. The event organizer.</td>
 </tr>
 <tr>

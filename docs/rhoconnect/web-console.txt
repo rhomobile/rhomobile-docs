@@ -4,7 +4,7 @@ Web Console
 Your RhoConnect application exposes a web interface which runs on http://localhost:9292/console/ (port 80 on Windows) by default.  You can open the console by running the following in your application directory:
 
 	:::term
-  	$ rake rhoconnect:web
+	$ rhoconnect web
 
 To login to the console:
 
@@ -13,11 +13,15 @@ To login to the console:
 3. Default username is 'rhoadmin' and the password is empty
 4. Now you will be presented with a page showing your current license, for example:
 
-  		
-		Licensed to Rhomobile on Fri Apr 23 17:20:13 -0700 2010, 
+
+		Licensed to Rhomobile on Fri Apr 23 17:20:13 -0700 2010,
 			available 9 of 10 devices
 
 It will also show a link to "Application Users" where you can view users of the system as well as devices they have registered.
+
+To reset the server, you can click on the "Reset" button at the bottom.
+
+**NOTE: Resetting the server will remove all data from redis including registered devices, this cannot be undone.**
 
 If you want to disable this web interface, you can do so by editing the rackup file, config.ru:
 

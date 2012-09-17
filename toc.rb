@@ -70,7 +70,6 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/application',      'Application'
   topic 'rhodesapi/appapplication-api',             'AppApplication'
   topic 'rhodesapi/asynchttp-api',             'AsyncHttp'
-  topic 'rhoelements/AudioCapture',             'AudioCapture'
   topic 'rhoelements/backbutton',      'BackButton'
   topic 'rhoelements/backlight',      'Backlight'
   topic 'rhodesapi/barcode-api',             'Barcode'
@@ -81,11 +80,9 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhodesapi/camera-api',             'Camera'
   topic 'rhoelements/cardreader',      'CardReader'
   topic 'rhoelements/comm','Comm'
-  topic 'rhoelements/cradle',      'Cradle'
   topic 'rhodesapi/datetimepicker-api',             'DateTimePicker'
   topic 'rhoelements/toc_decoders',      'Decoders'
   topic 'rhoelements/device',      'Device'
-  topic 'rhoelements/eink',      'EInk'
   topic 'rhoelements/EMMLProfile',      'EMMLProfile'
   topic 'rhodesapi/file-api',             'File'
   topic 'rhoelements/FileTransfer',      'FileTransfer'
@@ -101,7 +98,6 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/keycapture',      'KeyCapture'
   topic 'rhoelements/keystate',      'KeyState'
   topic 'rhoelements/Keylight',      'Key Light'
-  topic 'rhoelements/LightSensor',             'LightSensor'
   topic 'rhodesapi/mapview-api',             'MapView'
   topic 'rhoelements/memory',             'Memory'
   topic 'rhoelements/minimizebutton',      'MinimizeButton'
@@ -165,7 +161,6 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/topcommandarea',      'TopCommandArea'
   topic 'rhoelements/volume',      'Volume'
   topic 'rhodesapi/webview-api',             'WebView'
-  topic 'rhoelements/wlan',             'WLan'
   topic 'rhoelements/quitbutton',      'Quit Button'
   topic 'rhoelements/zoom',      'Zoom'
   topic 'rhoelements/zoomTextButton',      'ZoomTextButton'
@@ -178,7 +173,6 @@ section 'rhoelementsapi-ui', 'User Interface' do
   topic 'rhoelements/backbutton',      'BackButton'
   topic 'rhoelements/battery',      'Battery'
   topic 'rhoelements/bottomcommandarea',      'BottomCommandArea'
-  topic 'rhoelements/eink',      'EInk'
   topic 'rhoelements/forwardbutton',      'ForwardButton'
   topic 'rhoelements/gobutton',      'GoButton'
   topic 'rhoelements/HomeButton',      'HomeButton'
@@ -206,7 +200,6 @@ section 'rhoelementsapi-device', 'Device Capabilities' do
 
   topic 'rhoelements/alarm',      'Alarm'
   topic 'rhoelements/application',      'Application'
-  topic 'rhoelements/AudioCapture',             'AudioCapture'
   topic 'rhoelements/backlight',      'Backlight'
   topic 'rhodesapi/camera-api',             'Camera'
   topic 'rhoelements/comm','Comm'
@@ -220,7 +213,6 @@ section 'rhoelementsapi-device', 'Device Capabilities' do
   topic 'rhoelements/key_capture_overview',      'Key Capture Overview'
   topic 'rhoelements/keycapture',      'KeyCapture'
   topic 'rhoelements/Keylight',      'Key Light'
-  topic 'rhoelements/LightSensor',             'LightSensor'
   topic 'rhoelements/memory',             'Memory'
   topic 'rhoelements/notification',      'Notification'
   topic 'rhoelements/nosip',      'NoSIP'
@@ -242,7 +234,6 @@ section 'rhoelementsapi-device', 'Device Capabilities' do
   topic 'rhodesapi/timer-api',             'Timer API'
   topic 'rhoelements/timer',      'Timer'
   topic 'rhoelements/volume',      'Volume'
-  topic 'rhoelements/wlan',             'WLan'
   topic 'rhoelements/zoom',      'Zoom'
 end
 
@@ -258,7 +249,6 @@ section 'rhoelementsapi-attached', 'Accessories' do
   topic 'rhodesapi/bluetoothmanager-api',             'BluetoothManager'
   topic 'rhodesapi/bluetoothsession-api',             'BluetoothSession'
   topic 'rhoelements/cardreader',      'CardReader'
-  topic 'rhoelements/cradle',      'Cradle'
 end
 
 section 'rhodesapi-application', 'Configuration and Logging' do

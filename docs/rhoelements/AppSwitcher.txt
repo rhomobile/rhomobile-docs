@@ -16,7 +16,7 @@ By default the JavaScript Object <b>'appSwitcher'</b> will exist on the current 
 To Set appSwitcher parameters via JavaScript use the following syntax: appswitcher.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>appSwitcher</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: appswitcher.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: appswitcher.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>appSwitcher</b>.setEMML("visibility:<i>value</i>");							
 </td></tr></table>
@@ -26,6 +26,7 @@ By default the Ruby Object <b>'AppSwitcher'</b> will exist on the current page a
 To Set AppSwitcher parameters via Ruby use the following syntax: AppSwitcher.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>AppSwitcher</b>.visibility = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+
 
 
 
@@ -45,7 +46,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">N/A or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

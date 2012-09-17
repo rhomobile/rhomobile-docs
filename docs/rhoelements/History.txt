@@ -19,7 +19,7 @@ To Invoke history methods via JavaScript use the following syntax: history.metho
 To Set history parameters via JavaScript use the following syntax: history.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>history</b>.back = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: history.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: history.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>history</b>.setEMML("back:<i>value</i>back");							
 </td></tr></table>
@@ -33,6 +33,7 @@ To Set History parameters via Ruby use the following syntax: History.parameter =
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -45,6 +46,7 @@ N/A
 N/A
 </td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 ##Parameters
 
 
@@ -72,7 +74,7 @@ This tag deprecates the history:back URL
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">N/A or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">RhoElements</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">RhoElements</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

@@ -39,7 +39,7 @@ This is done with [`AsyncHttp`](/rhodes/connect-to-web-services).  You will then
 
 See the [`AsyncHttp` example code](/rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at <a href="http://rhostore.heroku.com/products.xml"/> and parses it with rexml.
 
-## How do I make a POST request to webservice?
+## How do I make a POST request to web service?
 To make a POST request, use the `AsyncHttp.post` method.  See the [`AsyncHttp.post` docs here](/rhodes/connect-to-web-services#asynchttp-api).
 
 
@@ -106,10 +106,10 @@ When controller action is called Ruby Garbage Collector is disabled. If you crea
         #Do some heavy operations
     end  
 
-To avoid UI block while controller action is performed, use AsyncHttp to make operation asynchronously(Local server will be blocked, but Html and Javacript does not):
+To avoid UI block while controller action is performed, use AsyncHttp to make operation asynchronously (Local server will be blocked, but Html and JavaScript are not):
     :::ruby
     def start_objects_generator
-        #callback has to be provided, overwise operation will be syncronouse
+        #callback has to be provided, otherwise operation will be synchronized
         AsyncHttp.get( :url => url_for(:action => do_objects_generation), :callback => (url_for :action => :generation_callback) )
         render page_with_progress_updated_by_javascript
     end  
@@ -128,18 +128,18 @@ To avoid UI block while controller action is performed, use AsyncHttp to make op
 ## How do I customize the app name and icons?
 Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
 
-## How to improve application perfomance on Blackberry?
-* Before test application for perfomance set warning log level in rhoconfig.txt:
+## How to improve application performance on Blackberry?
+* Before test application for performance set warning log level in rhoconfig.txt:
 
         MinSeverity = 3
     
-* Database is most critical part for perfomance improvement. See [Database Perfomance Tips](/rhodes/rhom#perfomance-tips)
+* Database is most critical part for performance improvement. See [Database Performance Tips](/rhodes/rhom#performance-tips)
 * If possible, do not use complex regular expressions - they slow works slow on Blackberry
 * If possible, do not use images in html body(single or tiled) - use solid color
 * If possible, do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
 * If possible, do not use Date/Time parse method. Use strptime instead. Use time as number when possible
 * Move require of big ruby files to methods when they used. This is true for locally used classes. Add system check for platform dependent code.
-* Exclude unused files from build(images, libraries etc). It will decrease application size and improve startup perfomance.Edit build.yml:
+* Exclude unused files from build(images, libraries etc). It will decrease application size and improve startup performance.Edit build.yml:
       excludedirs: 
       bb: 
       - public/images/iphone
@@ -158,7 +158,7 @@ If you are loading javascript, consider doing it at the very end of your page; t
 ## How to pre-populate client database
 * Run application on target emulator, insert objects to database(locally or get data from server)
 * Copy all files from 'db' folder on emulator to '<rhodes>/platform\shared\db\res\db'. Here is how to find 'db' emulator folder:
-    * iPhone: look inside log to find paths with guid - this is there application store files on emulator. Or run search by 'syncdbuser.sqlite' from disk root
+    * iPhone: look inside log to find paths with guid - this is where application store files on emulator. Or run search by 'syncdbuser.sqlite' from disk root
     * Android: difficult since emulator is virtual machine and files stored inside emulator. Use adb command line to find path to application package
     * Windows Mobile: open device explorer from ActiveSync or 'Mobile Device center', navigate to 'Program Files/<application name>/rho/db'
     * Blackberry: open on computer file system  - '<jde>/components/simulator/sdcard/Rho/<appname>/db
@@ -251,7 +251,7 @@ Use system memory.  Here is the notes about Sqlite memory usage:
 
 * In some cases it may take more memory then Ruby VM : it depends of the database size. 
 * Rhodes use unchanged Sqlite, so all documentation about Sqlite memory usage are correct for Rhodes Sqlite database. 
-* Here is the [database perfomance tips](/rhodes/rhom#perfomance-tips)
+* Here is the [database performance tips](/rhodes/rhom#performance-tips)
 
 ###	Native controls like TabBar, Toolbar, Map etc
 

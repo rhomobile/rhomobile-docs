@@ -21,7 +21,7 @@ To Set application return events via JavaScript use the following syntax: applic
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: application.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: application.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>application</b>.setEMML("applicationEvent:url('JavaScript:doFunction(%json)');quit");							
 </td></tr></table>
@@ -37,6 +37,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -44,6 +45,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>quit</b></td><td class="clsSyntaxCells clsOddRow">Quits RhoElements</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>minimize</b></td><td class="clsSyntaxCells clsEvenRow">Minimizes RhoElements</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>restore</b></td><td class="clsSyntaxCells clsOddRow">Restores RhoElements to full screen</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>getVersion</b></td><td class="clsSyntaxCells clsEvenRow">Returns the version of all installed components via a 'VersionEvent'</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr></table>
+	
 
 ##Events
 
@@ -52,10 +54,12 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###applicationEvent
-The ApplicationEvent is triggered when a RhoElements application is minimized or restored.<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>applicationState</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">"Minimized" or "Restored"</td></tr></table>
+The ApplicationEvent is triggered when a RhoElements application is minimized or restored.
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>applicationState</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">"Minimized" or "Restored"</td></tr></table>
 <br />
 ###versionEvent
-The version of RhoElements installed on the device<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>productVersion</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A string defining the released version running on the device, this will be in the form v.w.x.y.  E.g. 1.0.0.0</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>hotFixes</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of strings containing the hot fixes applied.  There may have been multiple hot fixes applied, e.g. ['1','3']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>componentVersions (module, version)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A 2 dimensional array of strings which defined a mapping between each of the installed plugins' name and their version.  See remarks</td></tr></table>
+The version of RhoElements installed on the device
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>productVersion</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A string defining the released version running on the device, this will be in the form v.w.x.y.  E.g. 1.0.0.0</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>hotFixes</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of strings containing the hot fixes applied.  There may have been multiple hot fixes applied, e.g. ['1','3']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>componentVersions (module, version)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A 2 dimensional array of strings which defined a mapping between each of the installed plugins' name and their version.  See remarks</td></tr></table>
 
 
 
@@ -86,7 +90,7 @@ The ComponentVersions parameter in the VersionEvent is defined as a 2D array:
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet - does not support "Restore" method.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet - does not support "Restore" method.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

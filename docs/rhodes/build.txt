@@ -226,12 +226,12 @@ The default build.yml settings generated for iphone are:
 * emulatortarget: device family for simulator (iphone/ipad)
 * BundleIdentifier: bundle identifier - used in provisioning profile 
 * BundleURLScheme: bundle URL scheme of your app (used for opening your application from another application by using custom URL scheme)
-* entitlements_file: path of your custom Entitlements.plist (if you want use own instead of default) - you also can just put Entitlements.plist file into root folder of your application and it will be automaticallly used during build
+* entitlements_file: path of your custom Entitlements.plist (if you want use own instead of default) - you also can just put Entitlements.plist file into root folder of your application and it will be automatically used during build
 * production: section used only for Ad Hoc distribution, contain some specific options for prepare .plist and *.ipa files etc.
 * app_plist_title: title in plist file (application name by default)
 * app_plist_subtitle: subtitle in plist file (application name by default)
-* app_plist_icon_url: icon url writed in plist file
-* app_plist_ipa_url: IPA file url writed in plist file
+* app_plist_icon_url: icon url written in plist file
+* app_plist_ipa_url: IPA file url written in plist file
 * ipa_itunesartwork_image: path to iTunesArtwork image included into IPA file (must be 512x512 JPG image) 
 
 
@@ -296,7 +296,7 @@ Download and unzip the [Android NDK](http://developer.android.com/sdk/ndk/index.
 
 ** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new rhodes **
 
-In RhoStudio -> Preferences on the Macintosh or Winndows -> Preferences on Windows, open Rhomobile->Android and set the paths to your Android SDK and NDK installations.
+In RhoStudio -> Preferences on the Macintosh or Windows -> Preferences on Windows, open Rhomobile->Android and set the paths to your Android SDK and NDK installations.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/preferences-android-sdk.png"/>
 
@@ -311,7 +311,7 @@ In case you are planning to work with native geo mapping (the MapView interface)
 	android:
 	  apikey: "GOOGLE-API-KEY-FOR-ANDROID"
 
-* Enable 'mapping' in your application's `build.yml` (or in `<rhodes-root>/rhobuild.yml`). In RhoStudio, you can double-click on your application's build.yml and edit from the text editor; otherwise, you can edit rhobuil.yml or build.yml from another text editor.
+* Enable 'mapping' in your application's `build.yml` (or in `<rhodes-root>/rhobuild.yml`). In RhoStudio, you can double-click on your application's build.yml and edit from the text editor; otherwise, you can edit rhobuild.yml or build.yml from another text editor.
 
 	android:
 	  mapping: yes
@@ -335,13 +335,13 @@ Otherwise your css files will not be loaded in Android 1.5 (and higher).
 
 ### Device capabilities settings in build.yml
 
-On Android, you must specify your device capabilities the your application will use. By default, these capabiliteis are NOT enabled.
+On Android, you must specify your device capabilities the your application will use. By default, these capabilities are NOT enabled.
 
 In RhoStudio, you can double-click on your application's build.yml file, then click the Rhobuild setting tab, then click the Capabilities: Add button. You will see a list of capabilities you can check to activate for your application.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/select-capabilities.png"/>
 
-You can also edit the build.yml file directly with a text editor. Here is a list of capabilites you can add to the capabilities section in your application build.yml file.
+You can also edit the build.yml file directly with a text editor. Here is a list of capabilities you can add to the capabilities section in your application build.yml file.
 
 	audio
   	camera
@@ -363,6 +363,13 @@ You can set a greater minimal API level in build.yml. For example, the following
 
    android:
      minSDK: 11
+
+### Customizing application's AndroidManifest.xml
+
+In case of urgent need to make some AndroidManifest.xml changes that is not supported by build settings you may edit a manifest template located at <Rhodes>/platform/android/Rhodes/AndroidManifest.xml.erb
+Please pay attention that this template does not relate to particular application and is used for every Android application build.
+
+** NOTE: To study how to change AndroidManifest.xml at extension build see [Extending the Rhodes Framework](extensions#rewriting-the-generated-native-extension-source-code-for-android)  
 
 ### Building and Running Your Android Application with RhoStudio
 
@@ -394,7 +401,7 @@ In the Run Configurations window, select Android in Platform, and Device in Simu
 
 #### Reading the Log File with RhoStudio
 
-After you run your applciation in RhoStudio, your application log file, rholog.txt, is stored in your application directory. You can open and read rholog.txt in RhoStudio by double-clicking on it in the Project Explorer.
+After you run your application in RhoStudio, your application log file, rholog.txt, is stored in your application directory. You can open and read rholog.txt in RhoStudio by double-clicking on it in the Project Explorer.
 
 ### Building and Running Your Android Application from the Command Line
 
@@ -518,7 +525,7 @@ Now you are ready to install your application on your device and/or emulator.
 
 In case of troubles in Eclipse while setting up the Android SDK and target, try "Rhodes project context menu" > "Android Tools" > "Fix Project Properties".
 
-It is possible your application has stopped unexpectedly just after the first build. In this case try to copy autogenerated java source files from the application folder <app>/bin/tmp to the Rhodes project.
+It is possible your application has stopped unexpectedly just after the first build. In this case try to copy auto-generated java source files from the application folder <app>/bin/tmp to the Rhodes project.
 
 ### Getting application log from device or emulator
 
@@ -565,7 +572,7 @@ Before you build edit build.yml from the application directory. Set the bbver to
 	bbver: 5.0
 
 #### To build and run using Blackberry simulator 5.0 and higher
-Starting from  Blackberry JDE 5.0, simulator supports loading application cod-files to simulator without restart. This feature greatly improve Blackberry development perfomance.
+Starting from  Blackberry JDE 5.0, simulator supports loading application cod-files to simulator without restart. This feature greatly improve Blackberry development performance.
 There are 2 possible scenarios available:
 
 * Load application cod-file manually using Simulator menu: 'File\Load Blackberry application or theme...':
@@ -725,7 +732,7 @@ The log.txt file is the extracted log and should appear on the `C:\` drive.
 	
 * Run eclipse and choose rhodes\platform\bb as a workspace directory. Do not create workspace!
 * Open menu Window\Preferences
-    * Blackberry java plug-in\Warnings - check all 3 chekboxes to suppress all warnings
+    * Blackberry java plug-in\Warnings - check all 3 checkboxes to suppress all warnings
     * Java\Compiler - set Compiler compliance level to 1.4
 * Go to File\Import... menu. Select `General\Existing projects into Workspace` workspace node. Press Next. 
     * Browse for `<rhodes>\platform\bb\RubyVM`. Press Finish. The project will be automatically build.
@@ -794,7 +801,7 @@ You can find installation files in QT SDK folder like below:
         For Symbian 9.4
 
         QT - C:/QtSDK/Symbian/sis/Symbian1/Qt/4.7.3/qt.sis
-        (install it only on disc C:, before install pls close all opened applications)
+        (install it only on disc C:, before install please close all open applications)
 
         QT WebKit - C:/QtSDK/Symbian/sis/Symbian1/Qt/4.7.3/qtwebkit.sis
         QT Mobility - C:/QtSDK/Symbian/sis/Symbian1/QtMobility/1.1.3/qtmobility.sis
@@ -819,7 +826,7 @@ NOTE: You have to install Rhodes on the same local disk with QtSDK!
 
 ### Build application from the command line
 
-Add pathes to Qt SDK and MS Visual Studio 2005 to rhobuild.yml in the Rhodes folder:
+Add paths to Qt SDK and MS Visual Studio 2005 to rhobuild.yml in the Rhodes folder:
 
         env:
           paths:
@@ -861,7 +868,9 @@ Follow [All Platforms Prerequisites](#all-platforms-prerequisites).
 Make sure you have installed the following software.
 
 * .NET Compact Framework
-* Windows Mobile 6 Professional SDK(s) 
+* For Windows Mobile 6: Windows Mobile 6 Professional SDK Refresh
+* For Windows Mobile 6.5.3: Windows Mobile 6.5.3 Professional DTK
+* For Windows CE 5.0: MC3000c50b PSDK from [Motorola Support Central](http://support.symbol.com/support/supportcentral/supportcentral.do?id=m1)
 * Microsoft Active Sync 4.5 for Windows XP; Windows Mobile Device Center for Windows Vista or higher
 * Microsoft Device Emulator 3.0 for Windows Vista or higher
 * Visual Studio 2008. 
@@ -938,6 +947,8 @@ To start the build process, create a Run Configuration: select your project in t
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
 
 The Run Configurations window appears.
+
+**NOTE: In the RhoStudio Run Configurations window, when you choose the Windows Mobile platform and any of the platform types (such as 6.0, 6.5.3, CE5.0), this platform setting overrides the SDK settings for Windows Mobile in the application build.yml file. This override does NOT affect RhoMobile Production Build, or using rake (without RhoStudio) to build and run a Windows Mobile app; these options use the Windows Mobile SDK settings in the build.yml file.**
 
 #### Running on the Windows Mobile Simulator in RhoStudio
 
@@ -1114,7 +1125,7 @@ On 64-bit platform:
 * Application Readme file can be provided by application developer. If file with README.html name exists in the root of application folder when Installer will display show readme at the final page of the Installer
 * Application Icon should be used for Installer and application exe
 
-To build intaller bundle use command:
+To build installer bundle use command:
 
 	:::term
 	$ rake device:win32:production 

@@ -83,7 +83,7 @@ The typical flow of a message using RPS:
 
 ### Download and Install Nodejs
 
-If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile SUtie for Windows includes Node.js in its installation.)
+If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile Suite for Windows includes Node.js in its installation.)
 
 ### Starting the Push Service
 
@@ -103,17 +103,37 @@ First, create a file called "config.json" with the following content:
 		"appAuthHost": "localhost", 
 		"appAuthUrl": "/rc/v1/app/ans_login",
 		"appAuthPort": "9292",
-		"appCredentials": "appname:secret",
 		"ansResponseTimeout": "300000",
 		"ansServerPort": "8675",
 		"registrationTimeout": "2592000",
 		"clearDataBase": "n",
 		"socketPoolSize": 1,
-		"debugLevel": "3",
-		"numClients": "2",
-		"maxCollapseId": 20,
-		"messagePeriod": 0
+		"debugLevel": "3"
 	}
+
+The JSON file has the following parameters.
+
+* `httpSecure` - Specify whether the push server will be an https or http server (y/n).
+* `devAuthHost` - RhoConnect instance used to handle device credentials.
+* `devAuthUrl` - Path used on the RhoConnect instance to handle device credentials.
+* `devAuthPort` - Port used on the RhoConnect instance to handle device credentials.
+* `userAuthHost` - RhoConnect instance used to handle user credentials.
+* `userAuthUrl` - Path used on the RhoConnect instance to handle user credentials.
+* `userAuthPort` - Port used on the RhoConnect instance to handle user credentials.
+* `appAuthHost` - RhoConnect instance used to handle application credentials.
+* `appAuthUrl` - Path used on the RhoConnect instance to handle application credentials.
+* `appAuthPort` - Port used on the RhoConnect instance to handle application credentials.
+* `ansResponseTimeout` -  Time (in ms) that the push server will allow a message request from the client to go without a response. Upon expiration of this time, a 204 response will be issued and the request will be considered satisfied. If this parameter is set to 0, then this time limit will not be in effect - there is no limit to how long a client request will go without a response.
+* `ansServerPort` - Push server listening port
+* `registrationTimeout` - Expiration limit for registration tokens (in seconds), the client-side application is automatically unregistered if there is no activity related to its token for the registrationTimeout period. Activity related to its token consists of either attempted fetches of messages on its behalf by the push client or messages sent to the push server by RhoConnect.
+* `clearDataBase` - Clear the redis database containing tokens, instanceIds, etc. at the start of the push server (y/n).
+* `socketPoolSize` - The maximum number of sockets the push server will use when connecting to each of the authorization servers. This essentially caps the number of http requests to each authorization server that the push server can have outstanding at any given time.
+* `debugLevel` -  Print additional information to console to aid in debugging:
+  * 0 - print only error & warning info
+  * 1 - print error & warning info and message for each invoked ANS operation
+  * 2 - reserved for future use
+  * 3 - print everything
+
 
 Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis.
 

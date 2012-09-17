@@ -1,6 +1,6 @@
 
 #History:Back Navigation
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
+<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span>  <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The History:Back Navigation instructs RhoElements to navigate to the previously visited address.
@@ -29,7 +29,7 @@ The browser component on Windows Mobile has no history stack other than that pro
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - This method is actioned immediately.</td></tr></table>
 
 
 ##HTML/Javascript Examples

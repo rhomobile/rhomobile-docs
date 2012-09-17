@@ -25,7 +25,7 @@ To Set gesture return events via JavaScript use the following syntax: gesture.ev
 <P />
 For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
-To set multiple <a href="../Resources/../Getting Started/EMMLOverview.html">EMML</a> parameters / events on a single line use the following syntax: gesture.setEMML("[Your EMML Tags]");
+To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: gesture.setEMML("[Your EMML Tags]");
 <P />
 e.g. <b>gesture</b>.setEMML("type:<i>value</i>;detected:url('JavaScript:doFunction(%json)');create");							
 </td></tr></table>
@@ -44,6 +44,7 @@ For more details on the event syntax and parameters see the <a href="RetrievalEv
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
+	
 
 ##Methods
 
@@ -55,6 +56,7 @@ N/A
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>delete</b></td><td class="clsSyntaxCells clsEvenRow">Deletes the gesture last defined by the ID property.  See example.</td><td class="clsSyntaxCells clsEvenRow">
 N/A
 </td></tr></table>
+
 
 ##Parameters
 
@@ -88,7 +90,8 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">0 to 90</td><td class="clsSyntaxCells clsOddRow">Tilt Gestures: How far the device must move away from the target orientation before the gesture can be detected again.</td><td class="clsSyntaxCells clsOddRow">10</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>Threshold:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">0 to 1000</td><td class="clsSyntaxCells clsEvenRow">Shake Gestures: How vigorously the device must be shaken. The smaller the value the more vigorous.</td><td class="clsSyntaxCells clsEvenRow">500</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>Quiet:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">&gt;=0</td><td class="clsSyntaxCells clsOddRow">Shake Gestures: Time (in milliseconds) that the device must be still before another shake gesture can be detected.</td><td class="clsSyntaxCells clsOddRow">1000</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+
 ##Events
 
 
@@ -96,6 +99,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 <br />
 ###detected
+
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>id</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The ID string of the detected gesture.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>count</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The number of times a hold gesture has been detected for a single press of the screen. Returns zero when the screen touch stops. Only applies to hold gestures.</td></tr></table>
 
 
@@ -147,7 +151,7 @@ Note that diagnostics exist only for the purpose of understanding and evaluating
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

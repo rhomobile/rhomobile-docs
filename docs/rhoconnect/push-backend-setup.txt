@@ -7,7 +7,7 @@ A RhoConnect push to the client consists of executing a RhoConnect ping call. Th
 
 You can trigger a push remotely using the [RhoConnect API Ping method](/rhoconnect/rest-api). This is useful if you want to fully control the push process from a remote server, such as when you use a RhoConnect plugin to connect your backend application to the RhoConnect server application.
 
-**NOTE: If you want to sync all the sources, use 'all' for the source list (the soure_name parameter) instead of a comma-separated list of the RhoConnect application source names to sync.**
+**NOTE: If you want to sync all the sources, use 'all' for the source list (the source_name parameter) instead of a comma-separated list of the RhoConnect application source names to sync.**
 
 ### Example of Ping for Ruby Backend Application
 

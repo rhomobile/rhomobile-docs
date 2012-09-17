@@ -191,7 +191,7 @@ This change prompts the browser to recreate the image from its base64 representa
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image021.png"/>
  
 ##Adding The Inventory Data Model
-Now that we have our ProductCatalog created and pre-populated, let’s add a second model that will hold our Inventory information. For this model we will keep track of the what SKU is scanned as well as the total amount of times it was scanned. Right click on the project’s ‘app’ folder and select ‘New/RhoMobile Model’ and call it ‘Inventory’ with attributes SKU and Quantity. 
+Now that we have our ProductCatalog created and pre-populated, let’s add a second model that will hold our Inventory information. For this model we will keep track of what SKU is scanned as well as the total amount of times it was scanned. Right click on the project’s ‘app’ folder and select ‘New/RhoMobile Model’ and call it ‘Inventory’ with attributes SKU and Quantity. 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image022.png"/>
  

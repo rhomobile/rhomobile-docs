@@ -208,7 +208,7 @@ Saves the current state of `@result` to redis and assigns it to `nil`.  Typicall
 	  ('a'..'z').each_with_index do |letter,i|
 		@result ||= {}
 	    @result.merge!( DictionaryService.get_records_for(letter) )
-		stash_result if i % 2
+		stash_result if i % 2 == 0
 	  end
 	end
 

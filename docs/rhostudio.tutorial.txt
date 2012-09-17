@@ -42,6 +42,8 @@ If you're running Windows, ensure that Java Development Kit is installed. The Su
 
 Download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
 
+**NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
+
 On Windows XP reduce JVM heap size:<br>
 Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86\RhoStudio.ini</tt> file in editor.<br>
 Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
@@ -53,6 +55,8 @@ Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
 If you're running Windows, ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp).
 
 Download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windows) and run the download file to install RhoStudio.
+
+**NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
 **NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
 Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
@@ -175,6 +179,8 @@ To create a new build configuration for your application, select Rhodes Applicat
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/run-config-rhodes-new-rhodes.png"/>
 
+**NOTE: In the RhoStudio Run Configurations window, when you choose the Windows Mobile platform and any of the platform types (such as 6.0, 6.5.3, CE5.0), this platform setting overrides the SDK settings for Windows Mobile in the application build.yml file. This override does NOT affect RhoMobile Production Build, or using rake (without RhoStudio) to build and run a Windows Mobile app; these options use the Windows Mobile SDK settings in the build.yml file.**
+
 ### Building and Running with RhoSimulator
 
 You can run your project in RhoSimulator, a simulator type available only in RhoStudio. RhoSimulator allows you to build and run your project on the platform of your choice without having to install the SDK for that platform. Instead, RhoSImulator will mimic the platform. RhoSimulator builds and runs your application quickly, making it useful for testing and debugging.
@@ -201,7 +207,7 @@ The RhoSimulator also brings up a Webkit Inspector window, allowing you to inspe
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/web-inspector.png"/>
 
-For example, you can see the web code for the listview. Here is the listview of the products for the storemanger example. You can see the link for the iPhone URL, and you could change the border color and thickness for the iPhone product (changing from 1px to 3px and solid #CCC to #111 would give the iPhone link a thicker, darker border).
+For example, you can see the web code for the listview. Here is the listview of the products for the storemanager example. You can see the link for the iPhone URL, and you could change the border color and thickness for the iPhone product (changing from 1px to 3px and solid #CCC to #111 would give the iPhone link a thicker, darker border).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhosim-product-list-dark.png"/>
 
@@ -211,7 +217,7 @@ You can use the RhoStudio debugger to debug the Ruby code in your RHodes or Rhoc
 
 ### Debugging a Rhodes Application
 
-To run the RhoSimulator debugger for the iPhone platform, select your Rhodes project from the Project Explorer (in this case, we use the storemanger project created earlier). Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
+To run the RhoSimulator debugger for the iPhone platform, select your Rhodes project from the Project Explorer (in this case, we use the storemanager project created earlier). Then select Run -> Debug Configurations from the main menu.  The Debug Configurations window appears.
 
 Click Debug to start the debugger.
 
@@ -345,41 +351,14 @@ Use RhoStudio preferences to edit the rhobuild.yml file, which manages the locat
 
 ## Using Intellisense for Autocompletion
 
-IntelliSense is Microsoft's implementation of autocompletion, best known for its use in the Microsoft Visual Studio integrated development environment. In addition to completing the symbol names the programmer is typing, IntelliSense serves as documentation and disambiguation for variable names, functions and methods using reflection.	
+IntelliSense is Microsoft's implementation of autocompletion, best known for its use in the Microsoft Visual Studio integrated development environment. In addition to completing the symbol names the programmer is typing, IntelliSense serves as documentation and disambiguation for variable names, functions and methods using reflection.
 
-The RhoStudio DLTK implementation supports the following aspects of Intellisense.
-
-* Ruby keyword completion
-* `include` argument completion
-* Module/Class name completion
-* Class method/field name completion
-* Method parameter name completion
-* Local variable name completion
-* Block argument name completion
-* Completion after `::` operator
-* Completion after `.` operator
-* Local variable type determination
-* Method return type determination
-
-You can use Intellisense in RhoStudio to autocomplete your Ruby code by setting the cursor at a location in your code and pressing Ctrl+Space.
+The RhoStudio DLTK implementation supports aspects of Intellisense, such as Ruby keyword completion and block argument name completion. You can use Intellisense in RhoStudio to autocomplete your Ruby code by setting the cursor at a location in your code and pressing Ctrl+Space.
 
 For example, to complete a Ruby keyword beginning with "re", perform these steps.
 
 1. Enter "re".
-2. Press Ctrl+Space. The completion list includes “rescue” and “return”.
-
-You can complete an include argument; if you enter `include p` and press Ctrl+Space; the completion list includes “private”, “protected” and “public”. To autocomplete a module/class name starting with "Ap", enter "Ap" and press Ctrl+Space; the completion list includes “AppApplication”. If you enter “Rho::” and press Ctrl+Space, the completion list includes “AppManifest” and “AsyncHttp”.
-
-For class method/field names, suppose you have the following code. Set the cursor after "me" at line 5 and press Ctrl+Space; the completion list includes “method1” and “method2”.
-
-	:::ruby
-	class C
-	  def method1
-	  end
-	  def method2
-	    me
-	  end
-	end
+2. Press Ctrl+Space. The completion list includes "rescue" and "return".
 
 ## Checking Progress and Canceling an Operation
 
