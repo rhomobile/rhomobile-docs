@@ -131,7 +131,8 @@ Default setup of Nginx server is to deal with back-end servers (called "upstream
     
     server {
       listen      80;
-      root  /opt/nginx/html/rhoapp/public; # <-- be sure to point to 'public' folder of your application!
+      # Be sure to point to 'public' folder of your application!
+      root  /opt/nginx/html/rhoapp/public; 
       # ...
 
     }
@@ -189,8 +190,9 @@ d) Configure Nginx virtual host for your rhoconnect application. For that edit t
     # ...
     server {
       listen      80;
-      root  /opt/nginx/html/your_rhoconnect_app/public; # Be sure your app have 'public' folder and root directive 
-                                                        # point to it!
+      # Be sure your app have 'public' folder and root directive 
+      # point to it!
+      root  /opt/nginx/html/your_rhoconnect_app/public;
       # ...
     }
 
@@ -213,13 +215,15 @@ e) Edit Thin `/etc/thin/rhoapp.yml` configuration file directly
 f) As root user restart Nginx, and Thin servers
    
     :::term
-     /etc/init.d/nginx restart
-     /etc/init.d/thin restart
+    /etc/init.d/nginx restart
+    /etc/init.d/thin restart
 
 For monitoring and troubleshooting purposes visit web console of your app and look at log files in `/opt/nginx/logs`.
 
 Also you can use RhoConnect `/opt/nginx/html/rhoapp` application as a template and modify it as you wanted. 
 
+**NOTE: You should pay attentions to situations, if you have already Ruby installed on system level. Avoid usage of system gems in your application. It might lead to unpredictable results, if ruby versions are different. Either set up path to rhoconnect binaries for root user, 
+or install required gems as `sudo /opt/rhoconnect/bin/gem install gem_name`**
 
 ## Deploying RhoConnect Redis and Push packages on Linux servers
 
