@@ -1,8 +1,8 @@
 
-	
+
 /* header */
 #rhomobile-header ul#rhomobile-section-nav li a#rhomobile-header-link-docs {
-	color:#A6FE4C; 
+	color:#A6FE4C;
 }
 
 /* basic
@@ -91,6 +91,11 @@ form {
 	line-height: 1px;
 }
 
+pre {
+	white-space: pre;
+	word-wrap: normal;
+}
+
 pre code {
 	background: #302F39;
 	color: #fff;
@@ -128,9 +133,9 @@ p, ul, blockquote, pre, table {
 	width:218px;
 	font-size: 13px;
 	margin-right: 3px;
-	-moz-border-radius:     5px; 
+	-moz-border-radius:     5px;
 	-webkit-border-radius:  5px;
-	-moz-box-shadow:    0px 0px 3px #ddd; 
+	-moz-box-shadow:    0px 0px 3px #ddd;
 	-webkit-box-shadow: 0px 0px 3px #ddd;
 	position: absolute;
 }
@@ -148,9 +153,9 @@ p, ul, blockquote, pre, table {
 	line-height: 30px;
 	height: 30px;
 	padding: 0px 10px 10px 10px;
-	-moz-border-radius:     14px; 
-	-webkit-border-radius:  14px; 
-	-moz-box-shadow:    2px 2px 5px #ddd; 
+	-moz-border-radius:     14px;
+	-webkit-border-radius:  14px;
+	-moz-box-shadow:    2px 2px 5px #ddd;
 	-webkit-box-shadow: 2px 2px 5px #ddd;
 	background-image: url(/images/button-smooth.png);
 	background-repeat: repeat-x;
@@ -303,7 +308,7 @@ h3 {
 }
 
 
-/* RhoElements documentation styles 
+/* RhoElements documentation styles
 */
 table.re-table
 {
@@ -347,10 +352,10 @@ table.device-caps th {
 }
 table.device-caps tr {
 	background-color: lightgreen;
-}	
+}
 table.device-caps tr.tbd {
 	background-color: yellow;
-}	
+}
 table.device-caps td {
 	border-width: 1px;
 	padding: 1px;
@@ -362,7 +367,7 @@ table.device-caps td {
 table.device-caps td.cap {
 	background-color: lightgreen;
 	text-align:left;
-	padding: 0.2em 0.5em;	
+	padding: 0.2em 0.5em;
 }
 table.device-caps td.tbd {
 	background-color: yellow;
@@ -419,11 +424,11 @@ div#container {min-height: 100%;overflow: hidden;position: relative;}
 }
 
 table.apicompat td.start1 {
-	padding-left: 20px !important; 
-	
+	padding-left: 20px !important;
+
 }
 
 table.apicompat td.start2 {
-	padding-left: 39px !important; 
-	
+	padding-left: 39px !important;
+
 }
