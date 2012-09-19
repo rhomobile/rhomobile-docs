@@ -1,15 +1,17 @@
+
+
 <script type='text/javascript'>
+$(function(){
+	var fileRef = document.createElement('script'); 
+	fileRef.setAttribute("type","text/javascript"); 
+	fileRef.setAttribute("src", "https://s3.amazonaws.com/rhoconnect-calc/raw_data.js"); 	  
+	document.body.appendChild(fileRef);
+});
+
 var totalAttrRange = new Array(5000,25000,50000,125000,250000,500000);
 var totalSyncsRange = new Array(1000,10000,100000,500000,1000000,10000000);
 var coefficient = 1.2;
-var raw_data ={
-"5000:10000:0:0" : "2 cores,150 MB redis",
-"25000:10000:0:0" : "2 cores,300 MB redis",
-"50000:10000:0:0" : "4 cores,750 MB redis",
-"125000:10000:0:0" : "4 cores,2 GB redis",
-"250000:10000:0:0" : "4 cores,5 GB redis",
-"500000:10000:0:0" : "8 cores,5 GB redis",
-}
+
 $('#calc-submit').live('click',function(e){
 	e.preventDefault();
 	var numObj   = $("#num_obj").val();
