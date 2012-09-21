@@ -10,7 +10,7 @@ Full documentation of all capabilities of RhoConnect is in the [RhoConnect Devel
 
 ## Installing the RhoConnect Dependencies
 
-* Install RhoConnect as described [here](/rhoconnect/install).
+* Install RhoConnect [from the command line](/rhoconnect/install) or by installing [RhoMobile Suite](/rhomobile-install).
 
 * If you have a RhoConnect license that has been sent to you, you can replace the settings/license.yml file as described [here](/rhoconnect/licensing).
 

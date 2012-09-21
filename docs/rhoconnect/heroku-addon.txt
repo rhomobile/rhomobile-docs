@@ -28,7 +28,7 @@ RhoConnect is now setup with your backend service.
 
 Connecting a simple rhodes app
 -------------------------------
-To view a full tutorial about creating a rhodes application and the features of rhodes see [RhoStudio tutorial](http://docs.rhomobile.com/rhostudio.tutorial).
+To view a full tutorial about creating a rhodes application and the features of rhodes see [RhoStudio tutorial](/rhostudio.tutorial).
 
 ##Gem installation:
 
@@ -46,10 +46,12 @@ To get the value for the url_of_rhoconnect_instance argument, go to the RhoConne
  
 
 ##Other Resources
-[RhoConnect Introduction](http://docs.rhomobile.com/rhoconnect/introduction)
+[RhoConnect Introduction](/rhoconnect/introduction)
 
-[RhoConnect Installation](http://docs.rhomobile.com/rhoconnect/install)
+[RhoMobile Suite install](/rhomobile-install)
 
-[RhoConnect Tutorial](http://docs.rhomobile.com/rhoconnect/tutorial)
+[RhoConnect Installation from command line](/rhoconnect/install)
 
-[Using RhoConnect from Rails/Sinatra](http://docs.rhomobile.com/rhoconnect/rails-plugin)
+[RhoConnect Tutorial](/rhoconnect/tutorial)
+
+[Using RhoConnect from Rails/Sinatra](/rhoconnect/rails-plugin)

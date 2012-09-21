@@ -2,61 +2,27 @@
 
 This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](/rhoconnect/preparing-production) and [deploying a RhoConnect application](/rhoconnect/deploying).
 
-On Windows and Mac OS, the usual way to install the RhoConnect development environment is to install RhoStudio. 
+## Installing RhoConnect with RhoStudio
 
-On Linux, you install the RhoConnect gem from the command line; you can also do this from Windows or Mac OS.
+The most common way to install RhoConnect on a Windows or Macintosh platform is to install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-## Mac OS
+[Click here for the RhoMobile Suite installation instructions](/rhomobile-install). 
 
-If you're running Mac OS, download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
-
-Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, the official way to install Ruby for RhoStudio is to install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
-
-Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:
-
-<img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
-
-Run "Install gems" (this requires that you have installed Ruby Version Manager). A terminal window will open; wait for the gems install process to complete.
-
-Then drag Motorola RhoStudio to the Applications folder.
-
-**NOTE: Installing Ruby into the System folder is not supported by RhoMobile; the official RhoMobile way to install and use Ruby on the Macintosh is with Ruby Version Manager.**
-
-## Windows
-
-If you're running Windows, download the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows) and run it. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction), and [Rhodes](/rhodes/introduction).
-
-If you are running Windows 64-bit, you need to use 32-bit Java when you run RhoStudio. You can include the 32-bit Java in the PATH, or you can run RhoStudio with a link to 32-bit Java:
-
-	C:\RhoStudio\eclipse\RhoStudio.exe -vm "<32-bit java path>\bin\javaw.exe"
-
-## Java Development Kit (JDK)
-
-You need to have the Java Development Kit (JDK) installed for RhoStudio. If you are planning to build for Blackberry or Android, make sure you have JDK version 1.6.0_2 or higher installed; the 32-bit Windows version of the JDK is required for Blackberry tools.
-
-### Installing the Java Development Kit
-
-The Sun JDK for Windows or Linux is available [here](http://java.sun.com/javase/downloads/index.jsp). For Windows, install the 32-bit version of the JDK; RhoStudio needs the 32-bit version.
-
-For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install Java.
-
-### Setting the JDK Path
-
-On Windows installs for RhoMobile, go to RhoStudio Preferences (Windows -> Preferences) and set the JDK path in the rhobuild.yml file. On Windows 64-bit installations, you must set this path to the 32-bit version of the JDK, such as `C:/Program Files (x86)/Java/jdk<version number>/bin`.
-
-On Mac OS, the path to the JDK is automatically set once Java is installed.
-
-For Linux and for RhoConnect installs from the command line, set the JDK path in JAVA_HOME and PATH.
+NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you intalled using the RhoMobile Suite installer.
 
 ## Installing RhoConnect from the Command Line
 
 To install RhoConnect on Linux, and to install RhoConnect on Windows or Mac OS using the command line (this does not install RhoStudio), you need to install the Rhodes gem. Download and install:
 
-1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/) (On Windows, [RubyInstaller](http://rubyinstaller.org) is a convenient way to install Ruby; you should check "Add Ruby executables to your PATH" and "Associate .rb and .rbw files with this Ruby installation".)
+1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
+
+	* On Windows, [RubyInstaller](http://rubyinstaller.org) is a convenient way to install Ruby; you should check "Add Ruby executables to your PATH" and "Associate .rb and .rbw files with this Ruby installation".
+    
+	* On Macintosh, Ruby is already installed, but this version is outdated and isn't compatible with RhoStudio: install [Ruby Version Manager](https://rvm.io//) (RVM) and then use RVM to install Ruby version 1.9.3.
 
 2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-3. [Redis](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the [Rake Tasks section](rhoconnect/command-line#rake-tasks). Alternatively, you can [install redis directly](http://redis.io/download).
+3. [Redis](http://redis.io/) - RhoConnect includes a simple [rake task](/rhoconnect/command-line#rake-tasks) `redis:install` to install redis, covered in the [Rake Tasks section](/rhoconnect/command-line#rake-tasks). Alternatively, you can [install redis directly](http://redis.io/download).
 
 4. Install the RhoConnect Gem. 
 
@@ -69,10 +35,6 @@ NOTE: If you get any `no such file to load -- something` messages while running 
 
 NOTE: Windows doesn't come with the necessary build tools to install gems ('make', for example). There are various ways to get these tools, but the GnuWin32 project at http://gnuwin32.sourceforge.net/ provides the tools, and can be conveniently installed via the GetGnuWin32 installer at http://sourceforge.net/projects/getgnuwin32/files/. You should follow the GetGnuWin32 instructions carefully.
 
-**NOTE: Installing RhoStudio as a plugin for Eclipse is currently disabled.**
-
-RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
-
 ## Setting the Location of the RhoStudio Workspace Directory
 
 When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
@@ -83,22 +45,22 @@ Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) t
 
 ## Migrating to OS X Mountain Lion from the command line
 
-If you had workable RhoConnect environment on OS X Lion, then after upgrading to Mountain Lion you need to do some extra steps to get it back.
+If you had a workable RhoConnect environment on Macintosh OS X Lion, then after you upgrade to Mountain Lion, you need to do some extra steps to restore your workable environment.
 
 ### Getting Xcode and Command Line Tools Installed
 
-You can get Xcode from the Mac App Store. You’ll need at least version 4.4 of Xcode for it to work with OS X Mountain Lion. After the installation, open up Xcode in your /Applications folder. You’d want to go to Xcode -> Preferences -> Downloads tab then install the “Command Line Tools.”
+You can get Xcode from the Mac App Store. You’ll need at least version 4.4 of Xcode for it to work with OS X Mountain Lion. After the installation, open Xcode in your /Applications folder. Then go to Xcode -> Preferences -> Downloads tab and install the “Command Line Tools.”
 
 ### Installing Homebrew and GCC
 
-If you need to install any Ruby that’s older than 1.9.3, such as 1.9.2, 1.8.7 or REE, you’ll need to install GCC 4.2. Apple does not ship the Command Line Tools with gcc-4.2 compiler anymore (you can check by running `which gcc-4.2`), so you need to install it via Homebrew by enabling [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes) repository and installing GCC
+If you need to install any Ruby that’s older than 1.9.3, such as 1.9.2, 1.8.7 or REE, you’ll need to install GCC 4.2. Apple does not ship the Command Line Tools with gcc-4.2 compiler anymore (you can check by running `which gcc-4.2`), so you need to install it via Homebrew by enabling [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes) repository and installing GCC.
  
 	:::term
 	$ brew tap homebrew/dupes
 	$ brew install apple-gcc42
 
-Also Apple has already removed X11 support from their operating system, but X11 package is needed to 
-compile 1.8.7 or REE. You can still get the X11 package from [XQuartz]( http://xquartz.macosforge.org/landing). By default it goes to /opt/X11 directory.
+Apple has removed X11 support from their operating system, but the X11 package is needed to 
+compile 1.8.7 or REE. You can get the X11 package from [XQuartz]( http://xquartz.macosforge.org/landing). By default, it installs in the /opt/X11 folder.
 
 If you had Homebrew already installed, then you need only update it
 
@@ -106,11 +68,11 @@ If you had Homebrew already installed, then you need only update it
 	$ brew update
 	$ brew doctor
 
-If `brew doctor` command complains about `/usr/local/bin` path, then edit `/etc/paths` file and move `/usr/local/bin` line to the top of it.	
+If the `brew doctor` command complains about the `/usr/local/bin` path, then edit the `/etc/paths` file to move `/usr/local/bin` line to the top of it.	
 
 ### Updating RVM (Ruby Version Manager) with Ruby 1.9.3
 
-Because OS X Mountain Lion toolchain is changed, you should reinstall existing Ruby 1.9.3
+Because the OS X Mountain Lion toolchain is changed, you should use Ruby Version Manager to reinstall existing Ruby 1.9.3.
 
 	:::term
 	$ rvm get stable
@@ -118,7 +80,7 @@ Because OS X Mountain Lion toolchain is changed, you should reinstall existing R
 
 ### Installing legacy rubies
 
-Run the following commands:
+Run the following commands to install legacy rubies:
 
 	:::term
 	$ export CPPFLAGS=-I/opt/X11/include
