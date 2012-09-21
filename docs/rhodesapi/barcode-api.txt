@@ -3,7 +3,7 @@
 
 Allows the device to recognize a barcode. See the controller and view in the /app/BarcodeRecognizer folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/BarcodeRecognizer/controller.rb) for an example.
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/ rhoelements/rhoelements-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements']( /rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally,  a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
 
 ## Enabling Barcode Recognition
 

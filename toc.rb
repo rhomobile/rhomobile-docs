@@ -2,6 +2,7 @@ section 'intro', 'Introduction'
 
 section 'getting-started', 'Getting Started' do
   topic 'home',                 'Home'
+  topic 'rhomobile-install',   'RhoMobile Suite Install'
   topic 'rhoelements/rhoelements-tutorial',   'RhoElements Tutorial'
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'

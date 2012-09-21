@@ -4,7 +4,7 @@ RhoStudio lets you build your apps on RhoHub without leaving the RhosStudio IDE.
 
 NOTE: This is a Beta feature. It is not complete and it is subject to change.
 
-You will need a [RhoHub](/rhohub/tutorial) account. You will also use the [RhoStudio] IDE(/rhostudio.tutorial).
+You will need a [RhoHub](/rhohub/tutorial) account. You will also use the [RhoStudio IDE](/rhostudio.tutorial).
 
 ## Setting Up Connection from RhoHub to RhoStudio
 

@@ -18,7 +18,7 @@ In order for RhoElements to start with your web app, you need to configure RhoEl
 
 **NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Development Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
 
-After you [install Motorola RhoMobile Suite](/rhoelements/rhoelements-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
+After you [install Motorola RhoMobile Suite](/rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
 * On Windows, you can find the RhoElements Runtimes in the Start Menu, under Motorola RhoMobile Suite.
 * On Macintosh, they are located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.

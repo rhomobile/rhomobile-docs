@@ -11,7 +11,7 @@ This tutorial shows you how to build a simple product inventory application that
 
 ## Setup
 
-Before using your RhoHub account, you should [install RhoStudio](/rhodes/install). This will install Rhodes and RhoConnect, and Git on Windows.
+Before using your RhoHub account, you should [install RhoMobile SUite](/rhomobile-install). This will install Rhodes, RhoConnect, RhoStudio, and Git on Windows.
 
 You need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3) or [Linux](http://git-scm.com/download).
 
