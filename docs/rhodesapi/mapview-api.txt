@@ -15,7 +15,7 @@ map_params is a hash consisting of:
 <table border="1">
 <tr>
 	<td><code>provider</code></td>
-	<td>The map provider. 'Google' supported on iPhone, Android and Blackberry. 'ESRI' supported on iPhone, Android, Blackberry, and Windows Mobile.</td>
+	<td>'Google' supported on iPhone, Android and BB. 'ESRI' supported on iPhone, Android, BB and WM. 'RhoGoogle' supported on Android and WM, Rho's own GoogleMap provider based on Google Static Map API, has additional features (offline caching, for example). 'OSM' - Open Street Map - supported on Android and WM, supports only 'roadmap' map type.</td>
 </tr>
 <tr>
 	<td><code>settings</code></td>
