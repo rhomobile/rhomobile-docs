@@ -304,7 +304,7 @@ section 'rhoconnect', 'RhoConnect'
 section 'rhoconnect-reference', 'Getting Started' do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/install',           'Installation'
-  topic 'rhoconnect/command-line',      'App Generator and Rake Tasks'
+  topic 'rhoconnect/command-line',      'App Generator and Command Line'
   topic 'rhoconnect/supported-platforms', 'Supported Platforms'
   topic 'rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
 end
