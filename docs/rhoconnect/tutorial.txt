@@ -280,7 +280,7 @@ Enable sync in your corresponding Rhodes app, storemanager/app/Product/product.r
   	  enable :sync
 	end
 
-To get a feel for what is happening, it is helpful to watch the server log (the output of rake rhoconnect:start) in one window, and tail the client log in another window. For example, on the iPhone, display the end of the client log with:
+To get a feel for what is happening, it is helpful to watch the server log (the output of `rhoconnect start`) in one window, and tail the client log in another window. For example, on the iPhone, display the end of the client log with:
 
 	:::term
    	$ tail -f rholog-User.txt

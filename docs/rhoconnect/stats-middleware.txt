@@ -46,12 +46,12 @@ A complete config.ru might look like:
 Now just restart your rhoconnect application:
 
 	:::term
-  	$ rake rhoconnect:restart
+  	$ rhoconnect restart
 
 And navigate to the 'Statistics' tab in your RhoConnect console:
 
 	:::term
-  	$ rake rhoconnect:web
+  	$ rhoconnect web
 
 ## Stats Console
 You should see graphs, organized by categories:

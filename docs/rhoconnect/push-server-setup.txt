@@ -138,7 +138,7 @@ The JSON file has the following parameters.
 Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis.
 
 	:::term
-	$ rake redis:start
+	$ rhoconnect redis-start
 
 Now start RhoConnect Push by running the following in a command line:
 

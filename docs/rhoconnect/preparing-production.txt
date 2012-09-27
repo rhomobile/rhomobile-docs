@@ -18,17 +18,17 @@ If you don't change the `:secret` setting, RhoConnect automatically warns you ea
 
  	[11:34:56 AM 2011-01-12] ************************************************************
 
-	[11:34:56 AM 2011-01-12] WARNING: Change the session secret in config.ru from <changeme> to something secure.
-	[11:34:56 AM 2011-01-12]   i.e. running `rake rhoconnect:secret` in your app will generate a secret you could use.
+	[11:34:56 AM 2012-01-12] WARNING: Change the session secret in config.ru from <changeme> to something secure.
+	[11:34:56 AM 2012-01-12]   i.e. running `rhoconnect secret` in your app will generate a secret you could use.
 
 	[11:34:56 AM 2011-01-12] ************************************************************
 	
 
-As this warning states, a good way to generate a cryptographically secure secret is by running `rake rhoconnect:secret` in your RhoConnect  application.
+As this warning states, a good way to generate a cryptographically secure secret is by running `rhoconnect secret` in your RhoConnect application.
 
 	:::term
 	$ cd storemanager-server
-	$ rake rhoconnect:secret
+	$ rhoconnect secret
 	040a2355475e9d0fb591ef78d5b9ca61a34cbcfd3f11942b18bc1d91f1ca66c27b2e0386333843a7efa29f40fff03624cd908d0883364ffbfa3208ab23fa2664
 	
 Then plug this secret into your `config.ru`:
