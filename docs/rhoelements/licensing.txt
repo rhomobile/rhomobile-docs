@@ -61,9 +61,11 @@ There are three ways to apply a device license via a file.
 
 Via a Registry key: From the Motorola Software licensing site, after you have applied for your license you are able to download a registry key file (.reg) containing the company name and license key.  On Windows Mobile and Windows CE devices, you can license the device via this registry key.
 
-Via a file on Android devices when developing hybrid applications: Create the file `/mnt/sdcard/keys/rhoelements`. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key.
+Via a file on Android devices when developing hybrid applications: Create the file `/mnt/sdcard/keys/rhoelements`. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key. The easiest way to do this is to manually license one device and then the use the file `/mnt/sdcard/keys/rhoelements` that was created.
 
-Via build.yml for Native Applications: If you are developing native applications, you can provide the deployment license information in the build.yml file.
+NOTE: Currently this is the recommended approach for deploying a license on the Motorola Solutions ET1 and MC40 without manual intervention.
+
+Via build.yml for Native Applications (iOS and Non-MSI Android): If you are developing native applications for iOS or Android hardware that is not Motorola Solutions, you can provide the deployment license information in the build.yml file.
 
 	:::term
 	motorola_license_company: 'Deployment License Company name'
@@ -71,46 +73,7 @@ Via build.yml for Native Applications: If you are developing native applications
 
 Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. For development purposes on a single device, a device specific license can be used in the build.yml.  
 
-## Application Licensing
 
-An application license is a completely separate concept from a device license and should be used when you only want to license a single RhoElements application without wanting to license RhoElements across the entire device.  Application licenses take precedence over device licenses and will prevent the splash screen from being displayed.
-
-Application licenses are currently only applicable for Android, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
-
-For hybrid applications, the license will define a series of URLs which are navigable from the application, these URLs can also include wildcards so it is not necessary to specify every file which comprises the app. When an application license is in effect, the following URLs are exempt from licensing:
-
-* Files resident on the local file system
-* The local web server running on 127.0.0.1 (if used)
-* Native applications. Note that native applications attempting to access remote resources will be subject to the set of allowed URLs defined in the application license. Also note that only page browsing is affected, application licensing does not apply to RhoConnect.
-
-For native applications, the application license uses the name of the application as defined in the build.yml file to determine if the application license is valid.
-
-Application Licenses are encoded by the Motorola Software License team on allocation but an unencrypted license will look like the following:
-
-	Company Name: Motorola Solutions
-	PackageName: Warehouse Picking	//  As defined in the build.yml file
-	For Version: 2.*.*			//  Application licenses can be version specific, this one is valid for any 2.x version of RhoElements
-	URL Mask: *motorolasolutions.com/apps/warehouse/*	//  Any URL in the motorolasolutions.com/apps/warehouse folder is allowed, all others are disallowed.  These URLs are currently case sensitive on Android but case insensitive on all other applicable platforms.
-
-### Applying an Application License
-
-There are two ways to apply an application license.
-
-For native applications, you should define your application license in your build.yml file as follows:
-
-	motorola_license: '@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq'
-
-NOTE: Do not include 	motorola_license_company to build.yml, overwise application license will not be used.
-
-For hybrid applications, you should define your application license in your config.xml file as follows:
-
-	  <Applications>
-	    <Application > 
-	       <LicenseKeyCompany value=" Company Name"/>
-	       <LicenseKey value="@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq"/>
-	       ...
-	    </Application > 
-	  </Applications>
 
 
 

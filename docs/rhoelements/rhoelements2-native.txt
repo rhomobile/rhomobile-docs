@@ -66,7 +66,7 @@ After you generate a RhoElements native application in RhoStudio, you can add a 
 
 ## Managing the Build Configuration from RhoStudio
 
-The build.yml file for your application manages your RhoElements build time configuration. Double click on ‘build.yml’ item in your project tree to open the build.yml editor. In the editor you’ll see two tabs: Rhobuild setting for the WYSIWIG editor, and build.yml for the text editor.
+The `build.yml` file for your application manages your RhoElements build time configuration. Double click on ‘build.yml’ item in your project tree to open the build.yml editor. In the editor you’ll see two tabs: Rhobuild setting for the WYSIWIG editor, and build.yml for the text editor.
 
 Rhobuild setting WYSIWIG editor:
 
@@ -251,17 +251,24 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 	81#"\Program Files\Rhoelements2\rhoelements2.exe" -approot='\Program Files\myre2app'
 
-## Customizing the RhoElements Configuration File
+## Including a Customized RhoElements Configuration File
 
-It is possible to include a custom RhoElements configuration file `Config.xml` to the application bundle.
-If the configuration file is the same for all supported platforms, then add to the `build.yml` file:
+You can include a custom [RhoElements configuration file](/rhoelements/ConfigurationSettings) `Config.xml` in your native application bundle.
+
+The only sections of `Config.xml` used in a native application are related to webkit and plug-in, such as specifying a user agent string. The Logger section and the startpath are ignored.
+
+Copy the original `Config.xml` file from the RhoElements gem: `gems\rhoelements-<version number>\libs\data\Config\Config.xml`. Place the copy of `Config.xml` into your application folder and customize it as needed. 
+
+Then in your application's `build.yml` file, add a path to the `Config.xml` file.
+
+NOTE: You must specify the path to <code>Config.xml</code> relative to the application root folder. For example, if your application is named Store, <code>Config/Config.xml</code> means you placed <code>Config.xml</code> in <code>Store/Config/Config.xml</code>.
+
+If the configuration file is the same for all supported platforms, add to the `build.yml` file:
 
     rhoelements:
       config: <relative-path-to-Config.xml>
 
-NOTE: The path to <code>Config.xml</code> must be specified relative to the application root folder, e.g. <code>Config/Config.xml</code>.
-
-If configuration file differs for each platform, then add the following lines to `wm` and `android` sections of `build.yml` accordingly:
+If the configuration file differs for each platform, then add the following lines to the `wm` and `android` sections of `build.yml` to point to each configuration file:
 
     wm:
       rhoelements:
