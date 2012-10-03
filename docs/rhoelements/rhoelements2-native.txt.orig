@@ -255,6 +255,15 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 You can include a custom [RhoElements configuration file](/rhoelements/ConfigurationSettings) `Config.xml` in your native application bundle.
 
+<<<<<<< HEAD
+NOTE: This only works on Windows Mobile and Android with Motorola WebKit. It does not work with RhoSimulator.
+
+The only sections of `Config.xml` used in a native application are related to webkit and plug-in, such as specifying a user agent string. The Logger section and the startpath are ignored.
+
+Copy the original `Config.xml` file from the RhoElements gem on your devlopment computer: `gems\rhoelements-<version number>\libs\data\Config\Config.xml`. Place the copy into another location on your development computer, such as in your application root directory. Customize the copied `Config.xml` as needed.
+
+Then in `build.yml` file, add a path to the customized copy of the `Config.xml` file. You must specify the path relative to your application root directory. For example, if your application is located at `c:/store/` on your development computer, and you copied Config.xml into `c:/store/Config/Config.xml`, then `build.yml` should have the following lines:
+=======
 The only sections of `Config.xml` used in a native application are related to webkit and plug-in, such as specifying a user agent string. The Logger section and the startpath are ignored.
 
 Copy the original `Config.xml` file from the RhoElements gem: `gems\rhoelements-<version number>\libs\data\Config\Config.xml`. Place the copy of `Config.xml` into your application folder and customize it as needed. 
@@ -264,15 +273,19 @@ Then in your application's `build.yml` file, add a path to the `Config.xml` file
 NOTE: You must specify the path to <code>Config.xml</code> relative to the application root folder. For example, if your application is named Store, <code>Config/Config.xml</code> means you placed <code>Config.xml</code> in <code>Store/Config/Config.xml</code>.
 
 If the configuration file is the same for all supported platforms, add to the `build.yml` file:
+>>>>>>> c20c335... updated RhoElemetns licensing doc, and the rhoelements native app doc in the custom configuration file section
 
     rhoelements:
       config: Config/Config.xml
 
+<<<<<<< HEAD
 If the configuration file is the same for all supported platforms, add to the `build.yml` file:
 
     rhoelements:
       config: <relative-path-to-Config.xml>
 
+=======
+>>>>>>> c20c335... updated RhoElemetns licensing doc, and the rhoelements native app doc in the custom configuration file section
 If the configuration file differs for each platform, then add the following lines to the `wm` and `android` sections of `build.yml` to point to each configuration file:
 
     wm:
@@ -309,6 +322,19 @@ You can use the `logserver` parameter to send the log to the host via HTTP. Ther
 If you start your application with rake, then the log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter (by default the log file name is `rholog.txt`).
 
 **NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**
+
+### Accessing the rhodata Folder on Non-Rooted Devices
+
+On devices that are not rooted, like the Motorola ET1, the rhodata folder is not typically accessible through USB. You can change the location of the log file if you wish to have easy access to it.
+
+Add the LogFilePath parameter to rhoconfig.txt (feel free to change the path).
+
+	LogFilePath = '/mnt/sdcard/myapp.log'
+
+Then in build.yml, add the sd card to capabilities.
+ 
+	capabilities:
+	  - sdcard
 
 ## Setting the Application Name and Icon, Upgrading the Application
 
