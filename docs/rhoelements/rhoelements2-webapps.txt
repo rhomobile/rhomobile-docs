@@ -134,8 +134,9 @@ NOTE: If you are using a localized variant of the operating system, you may need
 It is recommended that you get familiar with the [Configuration Parameters](/rhoelements/ConfigurationSettings) in the configuration file config.xml, both for developing/debugging as well as deployment. 
 
 The location of the configuration file loaded by RhoElements is dependent on the mobile device.
- * When running on the Android Enterprise Tablet, the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
- * When running on all other devices, RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
+
+* When running on the Android Enterprise Tablet, the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
+* When running on all other devices, RhoElements will attempt to launch the configuration file 'Config.xml' located in the folder 'Config' off the installation root.
 
 If you wish to keep all default parameters and just change the starting url, then it is recommended that you simply create a shortcut as described below. 
 
@@ -206,7 +207,7 @@ The RhoElements Runtime is a prebuilt Rhodes application that launches in full s
 
 **NOTE: The RhoElements Runtime is only available for [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices).**
 
-*** Building Custom RhoElements Runtime for Windows Mobile/CE
+### Building Custom RhoElements Runtime for Windows Mobile/CE
 
 On the command line on your Windows PC, navigate to this folder:
 
@@ -218,7 +219,7 @@ To build, run this command.
 
 The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
 
-*** Building Custom RhoElements Runtime for Android
+### Building Custom RhoElements Runtime for Android
 
 On the Macintosh, the RhoElements Runtime project is located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 folder. 
 
