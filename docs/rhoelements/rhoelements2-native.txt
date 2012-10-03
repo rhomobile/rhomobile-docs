@@ -270,9 +270,12 @@ If the configuration file is the same for all supported platforms, add to the `b
 
 If the configuration file is the same for all supported platforms, add to the `build.yml` file:
 
+<<<<<<< HEAD
     rhoelements:
       config: <relative-path-to-Config.xml>
 
+=======
+>>>>>>> c20c335... updated RhoElemetns licensing doc, and the rhoelements native app doc in the custom configuration file section
 If the configuration file differs for each platform, then add the following lines to the `wm` and `android` sections of `build.yml` to point to each configuration file:
 
     wm:
