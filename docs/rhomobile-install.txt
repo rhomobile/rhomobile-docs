@@ -12,6 +12,10 @@ RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is
 
 Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, this version is outdated and isn't compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
+**NOTE: If you upgrade your OS X from Lion to Mountain Lion or upgrade XCode or both you have to do the following:<br>
+1. Run XCode, goto "XCode"->"Preferences..."->"Downloads"->"Components" and install "Command Line Tools" component.<br>
+2. Run "<tt>rvm reinstall &lt;ruby_version&gt;</tt>" for all versions of Ruby installed in RVM (run "<tt>rvm list</tt>" to get this list).**
+
 Download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
 ### Download and Install
