@@ -145,3 +145,13 @@ To queue a ping that is executed asynchronously in a job, you can have PingJob q
 	)
 
 **Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](/rhoconnect/async-jobs) for more information.**
+
+## Triggering Push automatically after updating RhoConnect data from plugins
+
+Whenever backend application modifies RhoConnect data for one of the sources, you can trigger the automatic Push notification to be sent to the user whose data was modified.
+It will force the client application to perform sync on the modified source.
+To enable this, you need to specify the following setting in the `settings.yml` file:
+
+`:push_notify:` 'true'
+
+**Note: automatic push notify will be applied only to the user-partitioned sources. App-partitioned sources can not trigger the Automatic Push notification. **
