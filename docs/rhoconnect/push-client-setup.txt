@@ -86,32 +86,20 @@ If you are using a Windows Mobile or CE device, install the following runtime ap
 
 In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
 
-	push_options = ('rhoconnect_push' or 'legacy' or empty. `legacy` is default.)
-	push_service_appname = (your RhoConnect application name)
-	push_service_username = (user name for connecting to the RhoConnect server)
-	push_service_userpassword = (user password for connecting to the RhoConnect server)
-
-You can set `push_service_username` and `push_service_userpassword` from your application controller at runtime, before it calls `System.set_push_notification`.
-
+    syncserver = 'http://<hostname>:<port>/application'
+    rhoconnect_push_server = (Push server url)
+    rhoconnect_push_appname = (your RhoConnect application name)
+    
 Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN and setup your application rhoconfig.txt syncserver as follows:
 
 Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (push_service_notification_server) and the RhoConnect server.
 
 	# rhoconnect sync server url, typically this will look like 'http://<hostname>:<port>/application'
+    syncserver = 'http://192.168.1.10:9292/application'
+
+	rhoconnect_push_server='http://appname:secret@localhost:8675'
+	rhoconnect_push_appname='your-app-name-for-rhoconnect-push-service'
 	
-	# for example: 'http://192.168.1.10:9292/application'
-
-	push_service_notification_server='http://appname:secret@localhost:8675'
-	push_service_notification_username='http://your-username-for-rhoconnect-push-service'
-	push_service_notification_userpassword='your-password-for-rhoconnect-push-service'
-
-	push_service_appname='your-app-name-for-rhoconnect-push-service'
-	
-	# Fill the credentials below if you wish; same as you use to login to RhoConnect
-	# Or set these at runtime from your controller before calling System.set_push_notification
-	push_service_username=''
-	push_service_userpassword=''
-
 ### Configuring build.yml
 
 When you configure your application `build.yml` file for RhoConnect Server Push Service, you do not add `push` under `capabilities` for RhoConnect Server Push Service. Instead, you add rhoconnect-push to extensions.
@@ -121,20 +109,19 @@ When you configure your application `build.yml` file for RhoConnect Server Push 
 You can still enable vibrate in `build.yml` capabilities.
 
 	capabilities:
-	  - push
 	  - vibrate #=> if you want to enable vibrate in your push messages
 
 ### Registering a Push Callback in your Client Application with RhoConnect Server Push Service 
 
 To handle a RhoConnect Server Push Service push message from your Rhodes/RhoElements application, you must register callback with the set_push_notification method. 
 
-You must also set the push service to `rhoconnect-push`, either by setting `push-options` in `rhoconfig.txt` to `rhoconnect-push`, or by setting the push service parameter in your `set_push_notification` call. In the example below, you set `System.set_push_notification` to use RhoConnect Server Push Service.
+To get push messages from RhoConnect server, user has to login to RhoConnect server.
 
 In application.rb:
 
 	:::ruby
 	if SyncEngine::logged_in > 0 
-	   System.set_push_notification("/app/Settings/your_rhoconnect_callback",'', 'rhoconnect_push')
+	   System.set_push_notification("/app/Settings/your_rhoconnect_callback",'')
    	end
 
 [Understanding the Rhodes Push Message Payload](/rhoconnect/push-client-setup#understanding-the-rhodes-push-message-payload) shows the structure of the hash for the callback push message. You can write the push callback to automatically perform some of the operations in the hash by using "rho_push", as shown in [Registering a Push Callback in the Rhodes Application](/rhoconnect/push-client-setup#registering-a-push-callback-in-the-rhodes-application). 
