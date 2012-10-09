@@ -90,7 +90,7 @@ In your client application `rhoconfig.txt` file, set the following options to co
     rhoconnect_push_server = (Push server url)
     rhoconnect_push_appname = (your RhoConnect application name)
     
-Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN and setup your application rhoconfig.txt syncserver as follows:
+Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN and set up your application rhoconfig.txt syncserver as follows:
 
 Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (push_service_notification_server) and the RhoConnect server.
 
@@ -115,7 +115,7 @@ You can still enable vibrate in `build.yml` capabilities.
 
 To handle a RhoConnect Server Push Service push message from your Rhodes/RhoElements application, you must register callback with the set_push_notification method. 
 
-To get push messages from RhoConnect server, user has to login to RhoConnect server.
+To get push messages from RhoConnect server, the user must be logged into the RhoConnect server.
 
 In application.rb:
 

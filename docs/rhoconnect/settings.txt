@@ -34,9 +34,9 @@ In addition, you can specify the following settings:
 
 `:connection_pool_size`: By default, RhoConnect maintains multiple concurrent connections to Redis organized in Connection Pool. This setting allows you to specify the size of the pool. By default, RhoConnect starts with five (5) Redis connections.
 
-`:connection_pool_timeout`: timeout value for the Redis Connection Pool, in seconds. This settings specifies how much time request will wait for the available Redis connection. By default, it is set to 30 seconds.
+`:connection_pool_timeout`: The timeout value for the Redis Connection Pool, in seconds. Specifies how much time a request will wait for an available Redis connection. Default is 30 seconds.
 
-`:redis_timeout:` - timeout setting for Redis commands. By default, it is set to 30 seconds.
+`:redis_timeout:` - timeout setting for Redis commands. Default is 30 seconds.
 
 `:poll_interval_default`: default sync poll interval setting for source adapters, in seconds. This setting is used as a default if source doesn't specify its own value. Also, it is applied to dynamic adapters as a default sync poll interval.
 
