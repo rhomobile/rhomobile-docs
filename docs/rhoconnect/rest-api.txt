@@ -97,24 +97,28 @@ Saves the url of the plugin's backend to the RhoConnect server.
 Retrieves stats for a given metric key:
 
 	:::ruby
-	RestClient.post(
+	RestClient.get(
 	  "#{server}/rc/v1/system/stats", 
-	  {
-		'X-RhoConnect-API-TOKEN' => @api_token, 
+	  { 
 		:params => {:metric => 'foo', 
 					:start => 0, 
 					:finish => -1} 
+	  },
+	  {
+		'X-RhoConnect-API-TOKEN' => @api_token
 	  }
 	)
 
 Retrieves a list of metric keys matching a given pattern.  This supports 'glob' or '*' style pattern matching.  For example, all metric keys associated with 'Product' source adapter methods:
 
 	:::ruby
-	RestClient.post(
+	RestClient.get(
 	  "#{server}/rc/v1/system/stats", 
 	  { 
-		'X-RhoConnect-API-TOKEN' => @api_token,
 		:params => {:names => 'sources:*:Product'}
+	  },
+	  {
+		'X-RhoConnect-API-TOKEN' => @api_token
 	  }
 	)
 	
