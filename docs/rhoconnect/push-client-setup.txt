@@ -97,7 +97,7 @@ Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. T
 	# rhoconnect sync server url, typically this will look like 'http://<hostname>:<port>/application'
     syncserver = 'http://192.168.1.10:9292/application'
 
-	rhoconnect_push_server='http://appname:secret@localhost:8675'
+	rhoconnect_push_server='http://localhost:8675'
 	rhoconnect_push_appname='your-app-name-for-rhoconnect-push-service'
 	
 ### Configuring build.yml
