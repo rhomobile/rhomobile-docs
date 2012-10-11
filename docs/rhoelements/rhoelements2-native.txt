@@ -308,6 +308,19 @@ If you start your application with rake, then the log file is additionally store
 
 **NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**
 
+### Accessing the rhodata Folder on Non-Rooted Devices
+
+On devices that are not rooted, like the Motorola ET1, the rhodata folder is not typically accessible through USB. You can change the location of the log file if you wish to have easy access to it.
+
+Add the LogFilePath parameter to rhoconfig.txt (feel free to change the path).
+
+	LogFilePath = '/mnt/sdcard/myapp.log'
+
+Then in build.yml, add the sd card to capabilities.
+ 
+	capabilities:
+	  - sdcard
+
 ## Setting the Application Name and Icon, Upgrading the Application
 
 You can use the Rhodes instructions for [how to set application name and icon](/rhodes/build#how-to-set-application-name-and-icon) and [upgrading an application](/rhodes/build#upgrade-application).

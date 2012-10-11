@@ -66,51 +66,51 @@ NOTE: Although RhoElements does not have a title bar due to it providing you wit
 4) We are now going to add a couple of &lt;meta&gt; tags that will contain the EMML to [enable the scanner and call a JavaScript function](/rhoelements/scanner) when a barcode is decoded. Add this tag to the head section of your code. The second tag will simply display a button on the screen over the top of your web content which will allow you to quit the browser when clicked, this is extremely useful during development but is probably something you would want to remove for production.
 
 	<html>
-	   <head>
-		  <title>Hello Scan</title>
-		  <meta http-equiv="scanner" 
-						 content="DecodeEvent:url('Javascript:doScanDecode('%1', '%2', '%6');'); enabled" />
-		  <meta http-equiv="quitbutton" content="visibility:visible;" />
-	   </head>
-	   <body>
-		  <h2>This is my first RhoElements application!</h2>
-
-		  <p>Please scan a barcode...</p>
-	   </body>
+		<head>
+		<title>Hello Scan</title>
+			<meta http-equiv="scanner"
+				content="DecodeEvent:url('Javascript:doScanDecode(%json);'); enabled" />
+			<meta http-equiv="quitbutton" content="visibility:visible;" />
+		</head>
+		<body>
+			<h2>This is my first RhoElements application!</h2>
+			
+			<p>Please scan a barcode...</p>
+		</body>
 	</html>
 
-When this tag is parsed, two actions will be performed: firstly, the decode event will be setup to call the doScanDecode function, and then the scanner will be enabled. The parameters and their values and methods are written as they would be in CSS, with parameters and values separated by a colon ":" and pairs separated by semi-colons ";". When setting up the decode event, you will see that we have chosen to retrieve parameters 1, 2 and 6 from the decode event. If you take a look at the scanner section of the help file you will see that these correspond to the data decoded, the source of the code and the event type. 
+When this tag is parsed, two actions will be performed: firstly, the decode event will be setup to call the doScanDecode function, and then the scanner will be enabled. The parameters and their values and methods are written as they would be in CSS, with parameters and values separated by a colon ":" and pairs separated by semi-colons ";". When setting up the decode event, you will see that we have chosen to retrieve the parameters vis JSON object.
 
 The [Retrieval Events](/rhoelements/RetrievalEvents) help section explains how to specify the returned parameters to be sequential or returned as a JSON object.
 
 NOTE: It is not entirely necessary to add the code to call the JavaScript; without the code, this RhoElements will output any decoded barcodes as keyboard presses as if the code has been typed on the device keypad. However, this has its drawbacks. For example, if the user has clicked out of the focus of a text box, the decoded barcode will simply be lost causing confusion to the user. Also, by handling the decoded barcode in JavaScript, you can perform validation on the code before proceeding after which you can update a label on the screen, call an Ajax function, or simply populate a text box as best suits your application design.
 
 5) We must now write the JavaScript function doScanDecode. Here we will check that the event is a decoded barcode (there are other event types when used in conjunction with the Bluetooth scanners), then we will display a message on the screen.
-	 
-	<html>
-	   <head>
-		  <title>Hello Scan</title>
-		  <meta http-equiv="scanner" 
-						 content="DecodeEvent:url('Javascript:doScanDecode('%1', '%2', '%6');'); enabled" />
-		  <meta http-equiv="quitbutton" content="visibility:visible;" />
-	   <script>
-		  function doScanDecode(data, source, eventtype)
-		  {
-			 if(eventtype != 'Decode')
-				return;
-				   
-			 var divEl = document.getElementById('divOutput');
-			 divEl.innerHTML = 'Hello ' + data + '<br/>From: ' + source;
-		  }
-	   </script>
-	   </head>
-	   <body>
-		  <h2>This is my first RhoElements application!</h2>
 
-		  <p>Please scan a barcode...</p>
-		  <div id='divOutput'></div>
-	   </body>
+	<html>
+		<head>
+		<title>Hello Scan</title>
+			<meta http-equiv="scanner"
+				content="DecodeEvent:url('Javascript:doScanDecode(%json);'); enabled" />
+			<meta http-equiv="quitbutton" content="visibility:visible;" />
+			<script>
+				function doScanDecode(jdata)
+				{
+					if(jdata.event != 'Decode')
+						return;
+					var divEl = document.getElementById('divOutput');
+					divEl.innerHTML = 'Hello ' + jdata.data + '<br/>From: ' + jdata.source;
+				}
+			</script>
+		</head>
+		<body>
+			<h2>This is my first RhoElements application!</h2>
+			<p>Please scan a barcode...</p>
+			<div id='divOutput'></div>
+		</body>
 	</html>
+
+In the decode event, you will see that we retrieve from the JSON object the parameters for the data decoded, the source of the code, and the event type. If you take a look at the scanner section of the help file, you will see the parameters listed.
 
 We could have simply displayed the message in a JavaScript alert box; however this can cause problems if the user continues to scan more barcodes whilst the alert box is visible.
 
