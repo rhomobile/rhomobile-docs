@@ -8,7 +8,7 @@ To set up your RhoConnect server application for delivering push messages, you n
 To set up your RhoConnect application for pushing to an iOS client, you will need to update `settings/settings.yml` to include the following:
 
 	:::yaml
-	:development: 
+	:development:
 	  :redis: localhost:6379
 	  :iphonecertfile: settings/apple_push_cert.pem
 	  :iphonepassphrase: #=> empty or put password for your certificate
@@ -27,7 +27,7 @@ This is for running your application in development mode; for production, you wi
 To set up your RhoConnect application for pushing to a BlackBerry client, you will need to update `settings/settings.yml` to include the following:
 
 	:::yaml
-	:development: 
+	:development:
 	  :redis: localhost:6379
 	  :mdsserver: 192.168.1.110
 	  :mdsserverport: 8080
@@ -36,9 +36,25 @@ To set up your RhoConnect application for pushing to a BlackBerry client, you wi
 
 Replace `:mdsserver:` and `:mdsserverport:` with the hostname/IP and port of your machine (default port is 8080).
 
-## Setting up RhoConnect Server Push for Android
+## Setting up RhoConnect Server Push for Android (GCM)
 
-To set up your RhoConnect application for Android push, you will need to update `settings/settings.yml` to include the following:
+To set up your RhoConnect application for Android Google Cloud Messaging (GCM), you will need to update `settings/settings.yml` to include your GCM API key:
+
+	:::yaml
+	:development:
+	  :redis: localhost:6379
+	  :syncserver: http://localhost:9292/application/
+	  :licensefile: settings/license.key
+	  :gcm_api_key: your_gcm_api_key_here
+
+ For information on setting up GCM developer access, please see the [GCM documentation](http://developer.android.com/guide/google/gcm/gs.html#create-proj).  You can optionally stop in the GCM instructions once you complete the [Obtaining an API Key](http://developer.android.com/guide/google/gcm/gs.html#access-key) section.  Now your GCM API key can be found in your [Google apis dashboard](https://code.google.com/apis/console).
+Finally, start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
+
+## Setting up RhoConnect Server Push for Android (C2DM)
+
+**NOTE: Google has officially deprecated the C2DM service and requires you now use Google Cloud Messaging (GCM).  Please see [Google's announcement](https://developers.google.com/android/c2dm/) for more details.**
+
+To set up your RhoConnect application for Android C2DM push, you will need to update `settings/settings.yml` to include the following:
 
 	:::yaml
 	:development:
@@ -49,7 +65,7 @@ To set up your RhoConnect application for Android push, you will need to update 
 	  :c2dm_passwd: passwd
 	  :authtoken: authtoken
 
-In order to push messages to the Android device, your server needs to obtain Google's C2DM authentication token associated with the trusted google account.
+In order to push messages to an Android device, your server needs to obtain Google's C2DM authentication token associated with the trusted google account.
 For this purpose, you can specify C2DM Google account's username/password combo via the `:c2dm_username` and `:c2dm_passwd` settings.
 At run-time, the system will use these credentials to obtain the C2DM token and store it in the Redis for the future use.
 Once the token is expired, the system will automatically connect to the Google C2DM service to renew the token.
@@ -94,13 +110,13 @@ First, create a file called "config.json" with the following content:
 	:::json
 	{
 		"httpSecure": "n",
-		"devAuthHost": "localhost", 
-		"devAuthUrl": "/rc/v1/app/ans_login", 
+		"devAuthHost": "localhost",
+		"devAuthUrl": "/rc/v1/app/ans_login",
 		"devAuthPort": "9292",
-		"userAuthHost": "localhost", 
-		"userAuthUrl": "/rc/v1/app/ans_login", 
+		"userAuthHost": "localhost",
+		"userAuthUrl": "/rc/v1/app/ans_login",
 		"userAuthPort": "9292",
-		"appAuthHost": "localhost", 
+		"appAuthHost": "localhost",
 		"appAuthUrl": "/rc/v1/app/ans_login",
 		"appAuthPort": "9292",
 		"ansResponseTimeout": "300000",
@@ -161,11 +177,11 @@ Now perform setup [push notifications](/rhoconnect/push-client-setup#configuring
 
 ## Testing Push in the RhoConnect Web Console
 
-The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
+The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.
 
-First, make sure you've logged in and performed a sync on the device/simulator you are going to test. 
+First, make sure you've logged in and performed a sync on the device/simulator you are going to test.
 
-Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application. For example, if you logged in as user 't', the url would be: 
+Next, once you've logged into the web console, navigate to the user's page you used to login in the Rhodes application. For example, if you logged in as user 't', the url would be:
 
 	http://localhost:9292/console/user?user_id=t
 
