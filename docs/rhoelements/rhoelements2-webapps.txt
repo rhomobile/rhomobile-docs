@@ -154,14 +154,18 @@ The RhoElements runtime installation path on Windows CE/Mobile devices is `\Prog
 
 The shortcut file supports the following command line parameters.
 
-`/C:` specifies the location of the configuration file for the RhoElements v1.0 application. This will override all default configuration settings.
+`/C:` specifies the location of the configuration file for the RhoElements v1.0 application. This will override all default configuration settings. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
 
-        e.g. /C:file://\application\config.xml
+        /C:file://\application\config.xml
+        /C:'file://\Program Files\application\Config.xml'
+        /C:"file://\Program Files\My Application\config.xml"
         
-`/S:` specifies the start page of the RhoElements v1.0 application. Other configuration parameters will be used from the default config.xml file.
+`/S:` specifies the start page of the RhoElements v1.0 application. Other configuration parameters will be used from the default config.xml file. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
 
-        e.g. /S:file://\HTML\index.html
-        e.g. /S:http://www.motorola.com
+        /S:file://\HTML\index.html
+        /S:'file://\RE App\index.html'
+        /S:"file://\Program Files\MyApp\index.html"
+        /S:http://www.motorola.com
 
 If neither the `/S` nor `/C` parameters are specified in the shortcut file, then the default values for the location of the configuration file and the start page of the RhoElements application will be used. 
 
@@ -171,9 +175,9 @@ The format in the .lnk file is:
 
 	<line-length>#<runtime-exe> <command-line-parameter> <app-folder>
 
-For example, this code in the startup file will change the startup page to be a local HTML file.
+For example, this code in the .lnk file will change the startup page to be a local HTML file.
 
-	68#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
+	70#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\helloscan.html
 
 ### Creating Shortcuts on Android Enterprise Tablet
 
