@@ -165,11 +165,11 @@ The next step is for you to fill in the login, query, create, update, delete and
 
 ## A RhoConnect Query
 
-If you're doing a readonly non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.heroku.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common. The RhoConnect source adapter is Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.
+If you're doing a readonly non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.herokuapp.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common. The RhoConnect source adapter is Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.
 
 For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](/rhoconnect/source-adapters#sample-adapter) in the RhoConnect Developer Reference.
 
-Our sample web service for returning all products in the catalog (http://rhostore.heroku.com/products.json) returns data like this:
+Our sample web service for returning all products in the catalog (http://rhostore.herokuapp.com/products.json) returns data like this:
 
 	:::json
 	[
@@ -213,7 +213,7 @@ For convenience, we'll add an instance variable @base which contains the base UR
 
 	:::ruby
   	def initialize(source)
-      @base = 'http://rhostore.heroku.com/products'
+      @base = 'http://rhostore.herokuapp.com/products'
       super(source)
     end
 
@@ -310,7 +310,7 @@ For your create method, the RhoConnect server will pass you a hash containing th
 	  "brand" => "Acme"
 	}
 
-The RhoConnect sources/product.rb create method will be called once for every object that has been created on the client since the last sync.  Your code for create (or edit or delete) needs to use this populated array to do its work.  Below is an example of a create method against the [rhostore](http://rhostore.heroku.com), which accepts an HTTP POST to perform a create action. The create method should return a unique id string for the object for it to be later modifiable by the client. If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
+The RhoConnect sources/product.rb create method will be called once for every object that has been created on the client since the last sync.  Your code for create (or edit or delete) needs to use this populated array to do its work.  Below is an example of a create method against the [rhostore](http://rhostore.herokuapp.com), which accepts an HTTP POST to perform a create action. The create method should return a unique id string for the object for it to be later modifiable by the client. If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
 
 	:::ruby
 	def create(create_hash)
