@@ -15,13 +15,19 @@ To use the camera API, you need to enable the camera on the device. Do this by a
 
 Get camera information. Returns max_resolution: a hash with width and height numeric values (returns NIL if the camera_type is not supported).
 
+Ruby syntax:
+
 	:::ruby
 	Camera::get_camera_info(camera_type)
+
+JavaScript syntax:
+
+	Rho.Camera.get_camera_info(camera_type)
 
 <table border="1">
 <tr>
 	<td><code>camera_type</code></td>
-	<td>"main" or "front". Default = "main".</td>
+	<td>String. "main" or "front". Default = "main".</td>
 </tr>
 </table>
 
@@ -31,6 +37,10 @@ Choose a picture from an album.
 
 	:::ruby
 	Camera::choose_picture(callback_url)
+
+JavaScript syntax:
+
+	Rho.Camera.choose_picture(callback_function)
 
 <table border="1">
 <tr>
@@ -56,8 +66,14 @@ Parameters in the camera callback method:
 
 Take a picture.
 
+Ruby syntax:
+
 	:::ruby
 	Camera::take_picture(callback_url, settings)
+
+JavaScript syntax:
+
+	Rho.Camera.take_picture(callback_function, settings)
 
 <table border="1">
 <tr>

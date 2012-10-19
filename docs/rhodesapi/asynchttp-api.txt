@@ -3,12 +3,35 @@
 
 Asynchronously make calls to http services.
 
+## Using JavaScript API
+
+You can call the AsyncHttp methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API. And the app_type should be set to rhoelements in build.yml.
+
+	:::yaml
+	app_type: rhoelements
+
+
 ## cancel
 
 Cancel the current AsyncHttp call.
 
+Ruby syntax:
+
 	:::ruby
 	Rho::AsyncHttp.cancel
+
+JavaScript syntax:
+
+	Rho.AsyncHttp.cancel()
 
 ## download_file
 
@@ -16,13 +39,19 @@ Download a file to the specified filename.
 
 [Click for an example of download_file.](/rhodes/connect-to-web-services#asynchttp-download_file-ex)
 
+Ruby syntax:
+
 	:::ruby
-	Rho::AsyncHttp.download_file(:url, :headers, :filename, :callback, :callback_param)
+	Rho::AsyncHttp.download_file(:url, :headers, :filename, :callback, :callback_params)
+
+JavaScript syntax:
+
+	Rho.AsyncHttp.download_file(url, headers, fileName, callback, callback_params)
 
 <table border="1">
 <tr>
 	<td><code>:url</code></td>
-	<td>url of the request.</td>
+	<td>String. url of the request.</td>
 </tr>
 <tr>
 	<td><code>:headers</code></td>
@@ -30,15 +59,15 @@ Download a file to the specified filename.
 </tr>
 <tr>
 	<td><code>:filename</code></td>
-	<td>The path and name where the downloaded file is received.</td>
+	<td>String. The path and name where the downloaded file is received.</td>
 </tr>
 <tr>
 	<td><code>:callback</code></td>
-	<td>Callback action to execute when the request is done.</td>
+	<td>Callback function to execute when the request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_param</code></td>
-	<td>(optional) Parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
+	<td><code>:callback_params</code></td>
+	<td>(optional) Hash of parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
 </tr>
 </table>
 
@@ -162,13 +191,19 @@ Upload the specified file using HTTP POST.
 
 [Click for examples of upload_file.](/rhodes/connect-to-web-services#asynchttp-upload_file-ex)
 
+Ruby syntax:
+
 	:::ruby
-	Rho::AsyncHttp.upload_file(:url, :headers, :filename, :body, :callback, :callback_param)
+	Rho::AsyncHttp.upload_file(:url, :headers, :filename, :body, :callback, :callback_params)
+
+JavaScriupt syntax:
+
+	Rho.AsyncHttp.upload_file(url, headers, fileName, body, callback, callback_params)
 
 <table border="1">
 <tr>
 	<td><code>:url</code></td>
-	<td>URL of the request.</td>
+	<td>String. URL of the request.</td>
 </tr>
 <tr>
 	<td><code>:headers</code></td>
@@ -176,7 +211,7 @@ Upload the specified file using HTTP POST.
 </tr>
 <tr>
 	<td><code>:filename</code></td>
-	<td>The path and name of the file to be uploaded.</td>
+	<td>String. The path and name of the file to be uploaded.</td>
 </tr>
 <tr>
 	<td><code>:body</code></td>
@@ -184,11 +219,11 @@ Upload the specified file using HTTP POST.
 </tr>
 <tr>
 	<td><code>:callback</code></td>
-	<td>Callback action to execute when the upload request is done.</td>
+	<td>Callback function to execute when the upload request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_param</code></td>
-	<td>(optional) Parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
+	<td><code>:callback_params</code></td>
+	<td>(optional) hash of parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
 </tr>
 </table>
 

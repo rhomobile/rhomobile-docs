@@ -5,6 +5,26 @@ Allows the device to recognize a barcode. See the controller and view in the /ap
 
 **NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
 
+## Using JavaScript API
+
+You can call some of the Barcode methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+
+All API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API. And the app_type should be set to rhoelements in build.yml.
+
+	:::yaml
+	app_type: rhoelements
+
 ## Enabling Barcode Recognition
 
 You need to enable the camera on the device. Do this by adding that capability to the build.yml file:
@@ -23,13 +43,20 @@ On iPhone, Android, Windows Mobile, and Blackberry (`iphone`, `android`, `wm`, `
 
 Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.
 
+Ruby Syntax:
+
 	:::ruby
 	Barcode.barcode_recognize(image_file_full_path)
+
+JavaScript syntax:
+
+	:::html
+	Rho.Barcode.barcode_recognize(image_file_full_path)
 
 <table border="1">
 <tr>
 	<td><code>image_file_full_path</code></td>
-	<td>Path to the image that contains the barcode to be recognized.</td>
+	<td>String. Path to the image that contains the barcode to be recognized.</td>
 </tr>
 </table>
 
@@ -37,8 +64,17 @@ Recognizes a barcode on an image. Returns a string with recognized code, or empt
 
 iPhone and Android only. Open a user interface for real-time barcode recognition from the device camera. If a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.
 
+Ruby syntax:
+
 	:::ruby
 	Barcode.take_barcode(url_for :action => :take_callback)
+
+JavaScript syntax:
+
+	Rho.Barcode.take_barcode(callback_function)
+	Rho.Barcode.take_barcode(callback_function, params)
+
+An example of params (camera or deviceName) can be `camera: "front"`.
 
 Android only. You can also use the front camera for take_barcode.
 

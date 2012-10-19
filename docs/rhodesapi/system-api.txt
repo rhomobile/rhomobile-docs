@@ -5,12 +5,39 @@ Provides access to system information.
 
 For code examples, see [Rhodes System API Samples view file](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/layout.erb) and [Rhodes System API Samples System Test](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/SystemTest/controller.rb).
 
+## Using JavaScript API
+
+You can call some of the System methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+
+All API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API. And the app_type should be set to rhoelements in build.yml.
+
+	:::yaml
+	app_type: rhoelements
+
+
 ## get_property
 
 Get the value of a system property.
 
+Ruby syntax:
+
 	:::ruby
 	System.get_property(system_property)
+
+JavaScript syntax:
+
+	Rho.System.get_property(system_property)
 
 system_property can be any of the properties below:
 
@@ -90,15 +117,21 @@ Return the command line parameters as a string (iPhone only).
 
 ## open_url
 
-Open the application associated with the URL.
+Open the application associated with the URL. Used to prepare for printing.
+
+Ruby syntax:
 
 	:::ruby
 	System.open_url(url)
 
+JavaScript syntax:
+
+	Rho.System.open_url(url)
+
 <table border="1">
 <tr>
 	<td><code>url</code></td>
-	<td>Open the application at this url; behavior may be different on different platforms and depend on installed software.</td>
+	<td>String. Open the application at this url; behavior may be different on different platforms and depend on installed software.</td>
 </tr>
 </table>
 
@@ -235,13 +268,19 @@ Change application window size. Implemented only for Windows desktop.
 
 ## unzip_file
 
+Ruby syntax:
+
 	:::ruby
 	System.unzip_file(local_path_to_zip)
+
+JavaScript syntax:
+
+	Rho.System.unzip_file(local_path_to_zip)
 
 <table border="1">
 <tr>
 	<td><code>local_path_to_zip</code></td>
-	<td>The path to the file to be zipped.</td>
+	<td>String. The path to the file to be zipped.</td>
 </tr>
 </table>
 
@@ -249,21 +288,27 @@ Change application window size. Implemented only for Windows desktop.
 
 Zip one file to a specified zip.
 
+Ruby syntax:
+
 	:::ruby
 	System.zip_file(local_path_to_zip, local_path_to_file, password)
+
+JavaScript syntax:
+
+	Rho.System.zip_files(local_path_to_zip, local_path_to_file, password)
 
 <table border="1">
 <tr>
 	<td><code>local_path_to_zip</code></td>
-	<td>The path to the specified zip.</td>
+	<td>String. The path to the specified zip.</td>
 </tr>
 <tr>
 	<td><code>local_path_to_file</code></td>
-	<td>The path to the file to be zipped.</td>
+	<td>String. The path to the file to be zipped.</td>
 </tr>
 <tr>
 	<td><code>password</code></td>
-	<td>Optional. Password for the zip.</td>
+	<td>String. Optional. Password for the zip.</td>
 </tr>
 </table>
 
@@ -271,25 +316,31 @@ Zip one file to a specified zip.
  
 Zip several files to a specified zip.
 
+Ruby syntax:
+
 	:::ruby
 	System.zip_files(local_path_to_zip, base_path, array_of_files_to_be_zipped, password)
+
+JavaScript syntax:
+
+	Rho.System.zip_files(local_path_to_zip, base_path, array_of_files_to_be_zipped, password)
 
 <table border="1">
 <tr>
 	<td><code>local_path_to_zip</code></td>
-	<td>The path to the specified zip.</td>
+	<td>String. The path to the specified zip.</td>
 </tr>
 <tr>
 	<td><code>base_path</code></td>
-	<td>Base path to the files to be zipped.</td>
+	<td>String. Base path to the files to be zipped.</td>
 </tr>
 <tr>
 	<td><code>array_of_files_to_be_zipped</code></td>
-	<td>An array of files to be zipped.</td>
+	<td>Array of strings. An array of files to be zipped.</td>
 </tr>
 <tr>
 	<td><code>password</code></td>
-	<td>Optional. Password for the zip.</td>
+	<td>String. Optional. Password for the zip.</td>
 </tr>
 </table>
 

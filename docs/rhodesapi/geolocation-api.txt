@@ -13,26 +13,64 @@ To use the geolocation API, you need to enable geolocation on the device. Do thi
 	capabilities:
 	  - gps
 
+## Using JavaScript API
+
+You can call the GeoLocation methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+
+All API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API. And the app_type should be set to rhoelements in build.yml.
+
+	:::yaml
+	app_type: rhoelements
+
 ## latitude
 
 Returns current latitude in degrees.
 
+Ruby syntax:
+
 	:::ruby
 	GeoLocation.latitude
+
+JavaScript syntax:
+
+	Rho.GeoLocation.latitude()
 
 ## longitude
 
 Returns current longitude in degrees.
 
+Ruby syntax:
+
 	:::ruby
 	GeoLocation.latitude
+
+javaScript syntax:
+
+	Rho.GeoLocation.latitude()
 
 ## known_position?
 
 Returns true if the location system is up and running, false otherwise.
 
+Ruby syntax:
+
 	:::ruby
 	GeoLocation.known_position?
+
+JavaScript syntax:
+
+	Rho.GeoLocation.is_known_position()
 
 ## set_notification
 
@@ -40,8 +78,14 @@ Set callback to track location changes.
 
 **NOTE: You only need to call GeoLocation.set_notification once. The current behavior of the callback is that it will be called forever until it is stopped; you need to call `GeoLocation.turnoff` to stop it. The previous behavior was that the callback was called once and needed to be reset.**
 
+Ruby syntax:
+
 	:::ruby
-	GeoLocation.set_notification(callback, callback_params, ping_gpssystem_interval)
+	GeoLocation.set_notification(callback_url, callback_params, ping_gpssystem_interval)
+
+JavaScript syntax:
+
+	Rho.GeoLocation.set_notification(callback, callback_params, ping_gpssystem_interval)
 
 <table border="1">
 <tr>
@@ -95,10 +139,18 @@ When the GeoLocation.set_notification callback is called, it will receive a vari
 
 ## haversine_distance
 
-Get the distance between two points in miles.
+Returns the distance between two points in miles.
+
+Ruby syntax:
+
+Ruby syntax:
 
 	:::ruby
 	GeoLocation.haversine_distance(latitude1, longitude1, latitude2, longitude2)
+
+JavaScript syntax:
+
+	Rho.GeoLocation.haversine_distance(latitude1, longitude1, latitude2, longitude2)
 
 <table border="1">
 <tr>
@@ -123,5 +175,11 @@ Get the distance between two points in miles.
 
 Turn off GeoLocation.
 
+Ruby syntax:
+
 	:::ruby
 	GeoLocation.turnoff
+
+JavaScript syntax:
+
+	Rho.GeoLocation.turnoff()
