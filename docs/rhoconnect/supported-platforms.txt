@@ -19,7 +19,7 @@ Supported Platforms
     <td> ruby-1.8.7-p370 </td>
     <td> ree-1.8.7-2012.02 </td>
     <td> ruby-1.9.2-p320 </td>
-    <td> ruby-1.9.3-p194 </td>
+    <td> ruby-1.9.3-p286 </td>
     <td> jruby-1.6.7 </td>
     <td>Development &<br/>Production</td>
   </tr>
@@ -29,7 +29,7 @@ Supported Platforms
     <td> ruby-1.8.7-p370 </td>
     <td> ree-1.8.7-2012.02 </td>
     <td> ruby-1.9.2-p320 </td>
-    <td> ruby-1.9.3-p194 </td>
+    <td> ruby-1.9.3-p286 </td>
     <td> jruby-1.6.7 </td>
     <td>Development &<br/>Production</td>
   </tr>
@@ -39,7 +39,7 @@ Supported Platforms
     <td> ruby-1.8.7-p370 </td>
     <td class='tbd'> TBD </td>
     <td class='tbd'> TBD </td>
-    <td> ruby-1.9.3-p194 </td>
+    <td> ruby-1.9.3-p286 </td>
     <td class='tbd'> TBD </td>
     <td>Development</td>
   </tr>
