@@ -14,11 +14,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API. And the app_type should be set to rhoelements in build.yml.
-
-	:::yaml
-	app_type: rhoelements
-
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
 
 ## cancel
 

@@ -2,12 +2,31 @@
 
 Allows the device to take a signature and save it as an image. See the controller and view in the /app/SignatureUtil folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/SignatureUtil/controller.rb) for an example.
 
+## Using JavaScript API
+
+You can call the SignatureCapture methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+
 ## take
 
 Opens a window on the device where user draws his signature. Saves the  signature as an image.
 
+Ruby syntax:
+
 	:::ruby
 	Rho::SignatureCapture.take(callback_url, params)
+
+JavaScript syntax:
+
+	Rho.SignatureCapture.take(callback_function, params)
 
 <table border="1">
 <tr>
@@ -30,8 +49,14 @@ Windows Mobile and Windows CE devices support signature capture started in windo
 
 Display window hand writing, where user draw his signature. Windows Mobile and Windows CE devices support signature capture started in window, which you can show over current page (scrolling is not supported in this case).
 
+Ruby syntax:
+
 	:::ruby
 	Rho::SignatureCapture.visible(visibility, params)
+
+JavaScript syntax:
+
+	Rho.SignatureCapture.visible(visibility, params)
 
 <table border="1">
 <tr>
@@ -48,8 +73,14 @@ Display window hand writing, where user draw his signature. Windows Mobile and W
 
 Saves signature to an image file and calls a callback. Windows Mobile and Windows CE devices support signature capture started in window, which you can show over current page (scrolling is not supported in this case).
 
+Ruby syntax:
+
 	:::ruby
 	Rho::SignatureCapture.capture(callback_url)
+
+JavaScript syntax:
+
+	Rho.SignatureCapture.capture(callback_function)
 
 <table border="1">
 <tr>
@@ -62,8 +93,14 @@ Saves signature to an image file and calls a callback. Windows Mobile and Window
 
 Clear the signature in the window. Windows Mobile and Windows CE devices support signature capture started in window, which you can show over current page (scrolling is not supported in this case).
 
+Ruby syntax:
+
 	:::ruby
 	Rho::SignatureCapture.clear()
+
+JavaScript syntax:
+
+	Rho.SignatureCapture.clear()
 
 ## Hash parameters for take and visible methods
 

@@ -3,19 +3,42 @@
 
 Provides an embeddable map interface. See [GeoLocation/controller.rb of System API sample application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) for some examples of using the MapView class.
 
+## Using JavaScript API
+
+You can call the MapView methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+
+The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+
 ## create
 
 Create a map on your device.
 
+Ruby syntax:
+
 	:::ruby
 	MapView.create map_params
+
+JavaScript syntax:
+
+	Rho.MapView.create(map_params)
 
 map_params is a hash consisting of:
 
 <table border="1">
 <tr>
 	<td><code>provider</code></td>
-	<td>'Google' supported on iPhone, Android and BB. 'ESRI' supported on iPhone, Android, BB and WM. 'RhoGoogle' supported on Android and WM, Rho's own GoogleMap provider based on Google Static Map API, has additional features (offline caching, for example). 'OSM' - Open Street Map - supported on Android and WM, supports only 'roadmap' map type.</td>
+	<td>'Google' supported on iPhone, Android and BB. 'ESRI' supported on iPhone, Android, BB and WM. 'RhoGoogle' supported on Android and WM, Rho's own GoogleMap provider based on Google Static Map API, has additional features (offline caching, for example). 'OSM' - Open Street Map - supported on Android and WM, supports only "roadmap" map type.</td>
 </tr>
 <tr>
 	<td><code>settings</code></td>
@@ -32,7 +55,7 @@ map_params is a hash consisting of:
 <table border="1">
 <tr>
 	<td><code>map_type</code></td>
-	<td>Display "standard", "satellite", or "hybrid" map.</td>
+	<td>Display "standard", "satellite", or "hybrid". You can use "roadmap" in place of "standard".</td>
 </tr>
 <tr>
 	<td><code>region</code></td>
@@ -111,7 +134,9 @@ map_params is a hash consisting of:
 </tr>
 </table>
 
-## Sample MapView.create call
+### Sample MapView.create call
+
+Ruby sample:
 
 	:::ruby
 	map_params = {
@@ -126,5 +151,126 @@ map_params is a hash consisting of:
                        :url => "/app/GeoLocation/show?city=Santa%20Clara"}]
 	}
 	MapView.create map_params
+
+JavaScript sample:
+
+	var map_params = {
+	  provider: 'Google',
+	  settings: {
+	    map_type: 'hybrid',
+	    region: [@params['latitude'], @params['longitude'], 0.2, 0.2],
+	    zoom_enabled: true,
+	    scroll_enabled: true,
+	    shows_user_location: false,
+	    api_key: 'Google Maps API Key'
+	    }, 
+	  annotations: [
+	    {latitude: @params['latitude'], longitude: @params['longitude'], title: "Current location", subtitle: ""},
+	    {street_address: "Cupertino, CA 95014", title: "Cupertino", subtitle: "zip: 95014", url: "/app/GeoLocation/show?city=Cupertino"},
+	    {street_address: "Santa Clara, CA 95051", title: "Santa Clara", subtitle: "zip: 95051", url: "/app/GeoLocation/show?city=Santa%20Clara"}
+	    ]
+	  };
+	Rho.MapView.create(map_params);
+
+## set_file_caching_enable
+
+Enable file caching for map tiles. The file cache can be used for offline map browsing.
+
+Caching saves map tiles to your device. It increases performance of map view: when the device user scrolls map view to an already viewed map area, the device does not have to reload the map tiles. Tiles take up memory, so the developer should decide when to use caching.
+
+Ruby syntax:
+
+	:::ruby
+	MapView.set_file_caching_enable(enable)
+
+JavaScript syntax:
+
+	Rho.MapView.set_file_caching_enable(enable)
+
+<table border="1">
+<tr>
+	<td><code>enable</code></td>
+	<td>1: enable file caching. 0: do not enable file caching.</td>
+</tr>
+</table>
+
+## preload_map_tiles
+
+Preload a map tiles for a region defined by a zoom level range (0<=zoom<=18). This function requires some understanding about map engine funtionality, such as map tiles.
+
+When the map view is opened after preload_map_tiles is called, the preloaded area can display more quickly because the only map tiles displayed are in the defined zoom range.
+
+Ruby syntax:
+
+	:::ruby
+	MapView.preload_map_tiles(options_hash, url_for(:action => :preload_callback))
+
+JavaScript Syntax:
+
+	Rho.MapView.preload_map_tiles(options_hash, callback)
+
+Returns the total number of tiles for this preload. You can use this total to calculate the required space, predict the required time, etc.
+
+<table border="1">
+<tr>
+	<td><code>options_hash</code></td>
+	<td>A hash containing parameters.</td>
+</tr>
+</table>
+
+### options_hash
+
+`options_hash` is a hash containing the following parameters for `preload_map_tiles`.
+
+<table border="1">
+<tr>
+	<td><code>engine</code></td>
+	<td>'Google' supported on iPhone, Android and BB. 'ESRI' supported on iPhone, Android, BB and WM. 'RhoGoogle' supported on Android and WM, Rho's own GoogleMap provider based on Google Static Map API, has additional features (offline caching, for example). 'OSM' - Open Street Map - supported on Android and WM, supports only "roadmap" map type.</td>
+</tr>
+<tr>
+	<td><code>map_type</code></td>
+	<td>Display "standard", "satellite", or "hybrid". You can use "roadmap" in place of "standard".</td>
+</tr>
+<tr>
+	<td><code>:top_latitude</code></td>
+	<td>the top latitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:left_longitude</code></td>
+	<td>the left longitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:bottom_latitude</code></td>
+	<td>the bottom latitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:right_longitude</code></td>
+	<td>the right longitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:min_zoom</code></td>
+	<td>the minimum zoom the user can do to the map region. 0 to 18. A larger min_zoom (and max_zoom) means you can see more map tiles. Each next larger zoom level requires 4 times more tiles for the same map region.</td>
+</tr>
+<tr>
+	<td><code>:max_zoom</code></td>
+	<td>the maximum zoom the user can do to the map region. 0 to 18.</td>
+</tr>
+</table>
+
+### preload_callback
+
+The preloading process can take a long time. Write the preload_callback method to get periodic information about the process, using the parameters "status" and "progress".
+
+<table border="1">
+<tr>
+	<td><code>status</code></td>
+	<td>"DONE" when the preloading process is complete.</td>
+</tr>
+<tr>
+	<td><code>progress</code></td>
+	<td>the current preloading progress as a percentage (0..100).</td>
+</tr>
+</table>
+
 
 
