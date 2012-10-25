@@ -6,9 +6,9 @@ This section discusses how to install the development environment for RhoConnect
 
 The most common way to install RhoConnect on a Windows or Macintosh platform is to install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-[Click here for the RhoMobile Suite installation instructions](/rhomobile-install). 
+[Click here for the RhoMobile Suite installation instructions](/rhomobile-install).
 
-NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer. 
+NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
 
 ## Installing RhoConnect from the Command Line
 
@@ -17,14 +17,14 @@ To install RhoConnect on Linux, and to install RhoConnect on Windows or Mac OS u
 1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
 
 	* On Windows, [RubyInstaller](http://rubyinstaller.org) is a convenient way to install Ruby; you should check "Add Ruby executables to your PATH" and "Associate .rb and .rbw files with this Ruby installation".
-    
+
 	* On Macintosh, Ruby is already installed, but this version is outdated and isn't compatible with RhoStudio: install [Ruby Version Manager](https://rvm.io//) (RVM) and then use RVM to install Ruby version 1.9.3.
 
 2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
 3. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
 
-4. Install the RhoConnect Gem. 
+4. Install the RhoConnect Gem.
 
 Run this command to install the RhoConnect Gem.
 
@@ -54,12 +54,12 @@ You can get Xcode from the Mac App Store. You’ll need at least version 4.4 of 
 ### Installing Homebrew and GCC
 
 If you need to install any Ruby that’s older than 1.9.3, such as 1.9.2, 1.8.7 or REE, you’ll need to install GCC 4.2. Apple does not ship the Command Line Tools with gcc-4.2 compiler anymore (you can check by running `which gcc-4.2`), so you need to install it via Homebrew by enabling [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes) repository and installing GCC.
- 
+
 	:::term
 	$ brew tap homebrew/dupes
 	$ brew install apple-gcc42
 
-Apple has removed X11 support from their operating system, but the X11 package is needed to 
+Apple has removed X11 support from their operating system, but the X11 package is needed to
 compile 1.8.7 or REE. You can get the X11 package from [XQuartz]( http://xquartz.macosforge.org/landing). By default, it installs in the /opt/X11 folder.
 
 If you had Homebrew already installed, then you need only update it
@@ -68,7 +68,7 @@ If you had Homebrew already installed, then you need only update it
 	$ brew update
 	$ brew doctor
 
-If the `brew doctor` command complains about the `/usr/local/bin` path, then edit the `/etc/paths` file to move `/usr/local/bin` line to the top of it.	
+If the `brew doctor` command complains about the `/usr/local/bin` path, then edit the `/etc/paths` file to move `/usr/local/bin` line to the top of it.
 
 ### Updating RVM (Ruby Version Manager) with Ruby 1.9.3
 
@@ -107,3 +107,38 @@ Run the following command from the root application directory:
 	$ bundle install
 
 Restart your application and verify the latest version is being used by going to the web console, for example [http://localhost:9292/](http://localhost:9292/)
+
+## RhoConnect 3.4 Release Notes
+
+If you have an existing RhoConnect application and want to upgrade it to rhoconnect 3.4, then
+you need update the Gemfile file to properly use the latest runtime dependencies for RhoConnect.
+
+First, follow the instructions described in previous section.
+
+Then run `rhoconnect update` command from the root application directory.
+It will add to your project a hidden `.rcgemfile` file with all of the required 3.4 runtime dependencies.
+The `rhoconnect update` command also can be used in future releases to update your app's runtime dependencies.
+
+Next, make sure your `Gemfile` looks like the following example.  The `rhoconnect update` command created a `Gemfile.new` for reference:
+
+  :::ruby
+	source 'http://rubygems.org'
+
+	gem 'rhoconnect', '~> 3.4.0'
+	gemfile_path = File.join(File.dirname(__FILE__), ".rcgemfile")
+
+	begin
+		eval(IO.read(gemfile_path))
+	rescue Exception => e
+		puts "ERROR: Couldn't find RhoConnect .rcgemfile"
+		puts e.message
+		exit 1
+	end
+
+	# DON'T FORGET to add your application specific gems after this line ...
+	# ...
+
+Finally, run `bundle install` to install any missing dependencies:
+
+	:::term
+	$ bundle install
