@@ -1,13 +1,13 @@
 # Rho::AsyncHttp API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
+<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Asynchronously make calls to http services.
 
 ## Using JavaScript API
 
-You can call the AsyncHttp methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+You can call the AsyncHttp methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
 
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
+JavaScript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins JavaScript API.
 
 You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
@@ -73,8 +73,14 @@ Perform an HTTP GET request to the specified URL.
 
 [Click for an example of get.](/rhodes/connect-to-web-services#asynchttp-get-ex)
 
+Ruby syntax:
+
 	:::ruby
-	Rho::AsyncHttp.get(:url, :headers, :callback, :callback_param)
+	Rho::AsyncHttp.get(:url, :headers, :callback, :callback_params)
+
+JavaScript syntax:
+
+	Rho.AsyncHttp.get(url, headers, callback_function, callback_params)
 
 <table border="1">
 <tr>
@@ -90,7 +96,7 @@ Perform an HTTP GET request to the specified URL.
 	<td>Callback action to execute when the request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_param</code></td>
+	<td><code>:callback_params</code></td>
 	<td>(optional) Parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
 </tr>
 <tr>
@@ -126,8 +132,13 @@ Perform HTTP POST request to the specified URL.
 
 [Click for an example of post.](/rhodes/connect-to-web-services#asynchttp-post-ex)
 
+Ruby syntax:
+
 	:::ruby
-	Rho::AsyncHttp.post(:url, :headers, :body, :callback, :callback_param)
+	Rho::AsyncHttp.post(:url, :headers, :body, :callback, :callback_params)
+
+JavaScript syntax:
+	Rho.AsyncHttp.post(url, headers, body, callback_function, callback_params)
 
 <table border="1">
 <tr>
@@ -147,7 +158,7 @@ Perform HTTP POST request to the specified URL.
 	<td>Callback action to execute when the request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_param</code></td>
+	<td><code>:callback_params</code></td>
 	<td>(optional) Parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
 </tr>
 <tr>
@@ -192,7 +203,7 @@ Ruby syntax:
 	:::ruby
 	Rho::AsyncHttp.upload_file(:url, :headers, :filename, :body, :callback, :callback_params)
 
-JavaScriupt syntax:
+JavaScript syntax:
 
 	Rho.AsyncHttp.upload_file(url, headers, fileName, body, callback, callback_params)
 
@@ -262,7 +273,7 @@ The :multipart hash contains the following parameters.
 
 ## Callback Parameters
 
-The :callback for the AsyncHttp methods executes when the AsyncHttp request is completed. The following parameters are available in an AsyncHttp callback.
+The callback for the AsyncHttp methods executes when the AsyncHttp request is completed. The following parameters are available in an AsyncHttp callback.
 
 <table border="1">
 <tr>

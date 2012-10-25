@@ -1,5 +1,5 @@
 # GeoLocation API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
+<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Access geolocation information from your device.
 
@@ -137,8 +137,6 @@ When the GeoLocation.set_notification callback is called, it will receive a vari
 ## haversine_distance
 
 Returns the distance between two points in miles.
-
-Ruby syntax:
 
 Ruby syntax:
 

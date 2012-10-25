@@ -1,5 +1,5 @@
 # Camera API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
+<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Use the camera on a device. See the controller and view in the /app/Image folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Image/controller.rb) for an example.
 
@@ -31,7 +31,7 @@ To use the camera API, you need to enable the camera on the device. Do this by a
 
 ## get_camera_info
 
-Get camera information. Returns max_resolution: a hash with width and height numeric values (returns NIL if the camera_type is not supported).
+Get camera information. Returns max_resolution: a hash with width and height numeric values (returns NIL if the camera_type is not supported). iOS and Android only.
 
 Ruby syntax:
 
@@ -140,7 +140,9 @@ Parameters in the camera callback method:
 </tr>
 </table>
 
-`settings` is a hash used only on iOS and Android. Parameters:
+## settings hash for iOS and Android
+
+`settings` is a hash used with `take_picture` and `choose_picture` on iOS and Android.
 
 <table border="1">
 <tr>
@@ -170,5 +172,32 @@ Parameters in the camera callback method:
 <tr>
 	<td><code>flash_mode</code></td>
 	<td>(Android only) String. "off", "on", "auto", "red-eye", "torch".</td>
+</tr>
+<tr>
+	<td><code>save_to_shared_gallery</code></td>
+	<td>(iOS only) if true, picture you take will be added to the camera roll. Default value = false.</td>
+</tr>
+</table>
+
+## settings hash for RhoElements Motorola devices
+
+`settings` is a hash used with `take_picture` on RhoElements Motorola devices.
+
+<table border="1">
+<tr>
+	<td><code>left</code></td>
+	<td>camera left position in pixels. Default value = 0.</td>
+</tr>
+<tr>
+	<td><code>top</code></td>
+	<td>camera top position in pixels. Default value = 0.</td>
+</tr>
+<tr>
+	<td><code>desired_width</code></td>
+	<td>desired width in pixels. Default value = max camera width.</td>
+</tr>
+<tr>
+	<td><code>desired_height</code></td>
+	<td>desired width in pixels. Default value = max camera height.</td>
 </tr>
 </table>

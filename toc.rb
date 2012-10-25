@@ -81,6 +81,7 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhodesapi/camera-api',             'Camera'
   topic 'rhoelements/cardreader',      'CardReader'
   topic 'rhoelements/comm','Comm'
+  topic 'rhodesapi/database-api',             'Database'
   topic 'rhodesapi/datetimepicker-api',             'DateTimePicker'
   topic 'rhoelements/toc_decoders',      'Decoders'
   topic 'rhoelements/device',      'Device'
@@ -290,6 +291,7 @@ end
 section 'rhodesapi-web-sync', 'File Management and Syncing' do
   topic 'rhoelements/airbeam',      'Airbeam'
   topic 'rhodesapi/asynchttp-api',             'AsyncHttp'
+  topic 'rhodesapi/database-api',             'Database'
   topic 'rhodesapi/file-api',             'File'
   topic 'rhoelements/FileTransfer',      'FileTransfer'
   topic 'rhoelements/network',      'Network'
