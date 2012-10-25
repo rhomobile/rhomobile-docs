@@ -121,7 +121,7 @@ The `rhoconnect update` command also can be used in future releases to update yo
 
 Next, make sure your `Gemfile` looks like the following example.  The `rhoconnect update` command created a `Gemfile.new` for reference:
 
-  :::ruby
+  	:::ruby
 	source 'http://rubygems.org'
 
 	gem 'rhoconnect', '~> 3.4.0'
