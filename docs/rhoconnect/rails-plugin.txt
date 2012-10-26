@@ -321,6 +321,10 @@ The Resource class is used for API calls to user defined dynamic or source adapt
 	data = {:user_id=>'user_id',:objects=>data}
 	Rhoconnectrb::API::Resource.post_fast_delete('source_name',data)
 
+## Example of Usage Plugin with Fat Free CRM Backend
+
+You can find a real-world example based on Fat Free CRM Rails backend, RhoConnect app, RhoConnect-rb plugin, and Rhodes client application here: [rhoconnect-ffcrm](https://github.com/rhomobile/rhoconnect-ffcrm)
+
 
 ## Meta
 Created and maintained by Lucas Campbell-Rossen, Vladimir Tarasov and Lars Burgess.
