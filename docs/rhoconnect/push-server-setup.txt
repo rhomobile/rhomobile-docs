@@ -38,7 +38,13 @@ Replace `:mdsserver:` and `:mdsserverport:` with the hostname/IP and port of you
 
 ## Setting up RhoConnect Server Push for Android (GCM)
 
-To set up your RhoConnect application for Android Google Cloud Messaging (GCM), you will need to update `settings/settings.yml` to include your GCM API key:
+To set up your RhoConnect application for Android Google Cloud Messaging (GCM), you need to obtain a GCM API key.
+
+To do so, set up GCM developer access. Follow the [Getting Started instructions in the GCM documentation](http://developer.android.com/guide/google/gcm/gs.html#create-proj). You can optionally stop in these instructions once you complete the [Obtaining an API Key](http://developer.android.com/guide/google/gcm/gs.html#access-key) section.
+
+Your GCM API key will be found in your [Google apis dashboard](https://code.google.com/apis/console). 
+
+Update `settings/settings.yml` to include your GCM API key:
 
 	:::yaml
 	:development:
@@ -47,12 +53,11 @@ To set up your RhoConnect application for Android Google Cloud Messaging (GCM), 
 	  :licensefile: settings/license.key
 	  :gcm_api_key: your_gcm_api_key_here
 
- For information on setting up GCM developer access, please see the [GCM documentation](http://developer.android.com/guide/google/gcm/gs.html#create-proj).  You can optionally stop in the GCM instructions once you complete the [Obtaining an API Key](http://developer.android.com/guide/google/gcm/gs.html#access-key) section.  Now your GCM API key can be found in your [Google apis dashboard](https://code.google.com/apis/console).
-Finally, start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
+Start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
 
 ## Setting up RhoConnect Server Push for Android (C2DM)
 
-**NOTE: Google has officially deprecated the C2DM service and requires you now use Google Cloud Messaging (GCM).  Please see [Google's announcement](https://developers.google.com/android/c2dm/) for more details.**
+**NOTE: Google has officially deprecated the C2DM service and requires that you now use Google Cloud Messaging (GCM). Please see [Google's announcement](https://developers.google.com/android/c2dm/) for more details. Follow the instructions at [Setting up RhoConnect Server Push for Android (GCM)](/rhoconnect/push-server-setup#setting-up-rhoconnect-server-push-for-android-gcm) to set up your RhoConnect Application for GCM push.**
 
 To set up your RhoConnect application for Android C2DM push, you will need to update `settings/settings.yml` to include the following:
 
