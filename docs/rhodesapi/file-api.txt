@@ -1,5 +1,5 @@
 # File API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
+<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for an example.
 
@@ -82,13 +82,995 @@ Close a file.
 	  apps         # Rho::RhoApplication::get_base_app_path
 	    app        # Rho::RhoApplication::get_app_path('app') - contain models
 	      model1   # Rho::RhoApplication::get_model_path('app','model1')
-	  public       # contains files from application public folder
-	  db           # contains schema and data files
-	    db-files   # contains files stored in database(blobs)
+	    public     # contains files from application public folder
+	    db         # contains schema and data files
+	      db-files # contains files stored in database(blobs)
 	               # for file paths from camera callback etc: Rho::RhoApplication::get_blob_path(relative_file_path); 
 	               # to create file path for blob: Rho::RhoApplication::get_blob_folder()
-	  lib          # contains rho framework library files. Blackberry does not 
+	    lib        # contains rho framework library files. Blackberry does not 
 	               # have this folder, library files are stored in jar
-	  RhoLog.txt   #application log
+	    RhoLog.txt #application log
 
 [Click here to see the RhoApplication methods.](rhoapplication-api)
+
+## absolute_path
+
+Returns the absolute pathname for the given fileName. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.absolute_path(fileName, dirString)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name .</td>
+</tr>
+<tr>
+	<td><code>dirString</code></td>
+	<td>String. Optional. If given, the relative path starts from this path rather than from the current working directory.</td>
+</tr>
+</table>
+
+## atime
+
+Returns a Date object of the last time access for the given fileName. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.atime(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## basename
+
+Returns the last component of the filename given in fileName, which must be formed using forward slashes ("/"). For example, returns "ruby.rb" when fileName is "/home/gumby/work/ruby.rb". A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.basename(fileName, suffix)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+<tr>
+	<td><code>suffix</code></td>
+	<td>String. Optional. When this is set to the suffix at the end of fileName, basename returns the last component of fileName without the suffix.</td>
+</tr>
+</table>
+
+## is_blockdev
+
+Returns true if the given fileName is a block device. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_blockdev(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_chardev
+
+Returns true if the given fileName is a character device. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_chardev(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## chmod
+
+Changes permission bits on the named file(s) to the bit pattern represented by mode. Returns the number of files processed. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.chmod(mode, fileName, fileName2, ...)
+
+<table border="1">
+<tr>
+	<td><code>mode</code></td>
+	<td>Bit pattern for the permission bits.</td>
+</tr>
+<tr>
+	<td><code>fileName, fileName2, ...</code></td>
+	<td>String. The file name(s) to be processed. fileName2 ... are optional.</td>
+</tr>
+</table>
+
+## chown
+
+Changes the owner and group of the named file(s) to the given numeric owner and group id’s. Only a process with superuser privileges may change the owner of a file. The current owner of a file may change the file’s group to any group to which the owner belongs. A nil or -1 owner or group id is ignored. Returns the number of files processed. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.chown(owner, group, fileName, fileName2, ...)
+
+<table border="1">
+<tr>
+	<td><code>owner</code></td>
+	<td>Integer. The owner id.</td>
+</tr>
+<tr>
+	<td><code>group</code></td>
+	<td>Integer. The group id.</td>
+</tr>
+<tr>
+	<td><code>fileName, fileName2, ...</code></td>
+	<td>String. The file name(s) to be processed. fileName2 ... are optional.</td>
+</tr>
+</table>
+
+## ctime
+
+Returns the change time for the named file (the time at which directory information about the file was changed, not the file itself). On Windows (NTFS), returns creation time (birth time). A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.ctime(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## do_delete
+
+Deletes the named files, returning the number of names passed as arguments. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.do_delete(fileName, fileName2, ...)
+
+<table border="1">
+<tr>
+	<td><code>fileName, fileName2, ...</code></td>
+	<td>String. The names of the file(s) to be deleted. fileName2 ... are optional.</td>
+</tr>
+</table>
+
+## is_directory
+
+Returns true if the named file is a directory, or a symlink that points at a directory, and false otherwise. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_directory(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file (or directory).</td>
+</tr>
+</table>
+
+## dirname
+
+Returns a String of all components of the filename given in fileName except the last one ("/home/gumby/work/ruby.rb" => "/home/gumby/work"). The filename must be formed using forward slashes ("/") regardless of the separator used on the local file system. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.dirname(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_executable
+
+Returns true if the named file is executable by the effective user id of this process. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_executable(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_executable_real
+
+Returns true if the named file is executable by the real user id of this process. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_executable_real(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_exist
+
+Returns true if the named file exists. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_exist(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## expand_path
+
+Converts a pathname to an absolute pathname, which is returned as a String. Relative paths are referenced from the current working directory of the process unless dir_string is given, in which case it will be used as the starting point. The given pathname may start with a "~", which expands to the process owner's home directory (the environment variable HOME must be set correctly). "~user" expands to the named user’s home directory. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.expand_path(fileName, dirString)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+<tr>
+	<td><code>dirName</code></td>
+	<td>String. Optional. The name of the file.</td>
+</tr>
+</table>
+
+## extname
+
+Returns the extension (the portion of file name in path after the period), such as ".rb" from "a/b/d/test.rb". A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.extname(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_file
+
+Returns true if the named file exists and is a regular file. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_file(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_fnmatch
+
+Returns true if path matches against pattern. The pattern is not a regular expression; instead, it follows rules similar to shell filename globbing. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+The pattern may contain the following metacharacters:
+
+<table border="1">
+<tr>
+	<td><code>*</code></td>
+	<td>Matches any file. Can be restricted by other values in the glob. * will match all files; c* will match all files beginning with c; *c will match all files ending with c; and *c* will match all files that have c in them (including at the beginning or end). Equivalent to / .* /x in regexp.</td>
+</tr>
+<tr>
+	<td><code>**</code></td>
+	<td>Matches directories recursively or files expansively.</td>
+</tr>
+<tr>
+	<td><code>?</code></td>
+	<td>Matches any one character. Equivalent to /.{1}/ in regexp.</td>
+</tr>
+<tr>
+	<td><code>[set]</code></td>
+	<td>Matches any one character in set. Behaves exactly like character sets in Regexp, including set negation ([^a-z]).</td>
+</tr>
+<tr>
+	<td>&lt;code&gt;&lt;&#47;code&gt;</td>
+	<td>Escapes the next metacharacter.</td>
+</tr>
+</table>
+
+JavaScript syntax:
+
+	Rho.File.is_fnmatch(pattern, path)
+
+<table border="1">
+<tr>
+	<td><code>pattern</code></td>
+	<td>String. The path to match against the pattern.</td>
+</tr>
+<tr>
+	<td><code>path</code></td>
+	<td>String. The pattern.</td>
+</tr>
+</table>
+
+## ftype
+
+Identifies the type of the named file; the return string is one of "file", "directory", "characterSpecial", "blockSpecial", "fifo", "link", "socket", or "unknown". A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.ftype(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_grpowned
+
+Returns true if the named file exists and the effective group id of the calling process is the owner of the file. Returns false on Windows. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_grpowned(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_identical
+
+Returns true if the named files are identical. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_identical(fileName, fileName2)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the first file.</td>
+</tr>
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the second file.</td>
+</tr>
+</table>
+
+## join
+
+Returns a new string formed by joining the given strings. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_identical(part1, part2, ...)
+
+<table border="1">
+<tr>
+	<td><code>part1, part2, ...</code></td>
+	<td>Strings. The parts of the string to form.</td>
+</tr>
+</table>
+
+## lchmod
+
+Equivalent to [File.chmod](/rhodesapi/file-api#chmod), but does not follow symbolic links (so it will change the permissions associated with the link, not the file referenced by the link). Often not available. Returns the number of files processed. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.lchmod(mode, fileName, fileName2, ...)
+
+<table border="1">
+<tr>
+	<td><code>mode</code></td>
+	<td>Bit pattern for the permission bits.</td>
+</tr>
+<tr>
+	<td><code>fileName, fileName2, ...</code></td>
+	<td>String. The file name(s) to be processed. fileName2 ... are optional.</td>
+</tr>
+</table>
+
+## lchown
+
+Equivalent to File.chown, but does not follow symbolic links (so it will change the owner associated with the link, not the file referenced by the link). Often not available. Returns number of files in the argument list. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.lchown(user, group, fileName, fileName2, ...)
+
+<table border="1">
+<tr>
+	<td><code>owner</code></td>
+	<td>Integer. The user id.</td>
+</tr>
+<tr>
+	<td><code>group</code></td>
+	<td>Integer. The group id.</td>
+</tr>
+<tr>
+	<td><code>fileName, fileName2, ...</code></td>
+	<td>String. The file name(s) to be processed. fileName2 ... are optional.</td>
+</tr>
+</table>
+
+## link
+
+Creates a new name for an existing file using a hard link. Will not overwrite newName if it already exists (raising a subclass of SystemCallError). Not available on all platforms. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.link(oldName, newName)
+
+<table border="1">
+<tr>
+	<td><code>oldName</code></td>
+	<td>String. The old file name.</td>
+</tr>
+<tr>
+	<td><code>newName</code></td>
+	<td>Integer. The new file name.</td>
+</tr>
+</table>
+
+## lstat
+
+Same as [File.stat](/rhodesapi/file-api#stat), but does not follow the last symbolic link. Instead, reports on the link itself. Returns a hash object of Strings: the path and the file.extension. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.lstat(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## mtime
+
+Returns the modification time for the named file as a Date object. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.mtime(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## open
+
+Opens the file named by fileName according to mode (default is "r") and returns a new File object. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.open(fileName, mode, permission)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+<tr>
+	<td><code>mode</code></td>
+	<td>Optional. The mode in which to open the file. Platform dependent.</td>
+</tr>
+<tr>
+	<td><code>permission</code></td>
+	<td>Optional. Permission bits. Platform dependent.</td>
+</tr>
+</table>
+
+mode values:
+
+<table border="1">
+<tr>
+	<td><code>r</code></td>
+	<td>Read-only, starts at beginning of file  (default mode).</td>
+</tr>
+<tr>
+	<td><code>r+</code></td>
+	<td>Read-write, starts at beginning of file</td>
+</tr>
+<tr>
+	<td><code>w</code></td>
+	<td>Write-only, truncates existing file to zero length or creates a new file for writing.</td>
+</tr>
+<tr>
+	<td><code>w+</code></td>
+	<td>Read-Write, truncates existing file to zero length or creates a new file for reading and writing.</td>
+</tr>
+<tr>
+	<td><code>a</code></td>
+	<td>Write-only, starts at end of file if file exists, otherwise creates a new file for writing.</td>
+</tr>
+<tr>
+	<td><code>a+</code></td>
+	<td>Read-write, starts at end of file if file exists, otherwise creates a new file for writing.</td>
+</tr>
+<tr>
+	<td><code>t</code></td>
+	<td>Text file mode (may appear with any of the key letters listed above). Forced.</td>
+</tr>
+</table>
+
+## is_owned
+
+Returns true if the named file exists and the effective used id of the calling process is the owner of the file. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_owned(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## path
+
+Returns the string representation of the path to the named file. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.path(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_pipe
+
+Returns true if the named file is a pipe. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_pipe(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_readable
+
+Returns true if the named file is readable by the effective user id of this process. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_readable(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_readable_real
+
+Returns true if the named file is readable by the real user id of this process. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_readable_real(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## readlink
+
+Returns a String: the name of the file referenced by the given link. Not available on all platforms. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.readlink(link)
+
+<table border="1">
+<tr>
+	<td><code>link</code></td>
+	<td>String. The link.</td>
+</tr>
+</table>
+
+## realdirpath
+
+Returns a String: the real (absolute) pathname of pathName in the actual filesystem. The real pathname doesn't contain symlinks or useless dots. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.realdirpath(pathName, dirString)
+
+<table border="1">
+<tr>
+	<td><code>link</code></td>
+	<td>String. The path name. The last component of the path name can be nonexistent.</td>
+</tr>
+<tr>
+	<td><code>link</code></td>
+	<td>String. Optional. Used as a base directory for interpreting relative pathname instead of the current directory.</td>
+</tr>
+</table>
+
+## realpath
+
+Returns a String: the real (absolute) pathname of pathname in the actual filesystem not containing symlinks or useless dots. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.realpath(pathName, dirString)
+
+<table border="1">
+<tr>
+	<td><code>link</code></td>
+	<td>String. The path name. All components of the path name must exist when this method is called.</td>
+</tr>
+<tr>
+	<td><code>link</code></td>
+	<td>String. Optional. Used as a base directory for interpreting relative pathname instead of the current directory.</td>
+</tr>
+</table>
+
+## rename
+
+Renames the given file to the new name. Returns a SystemCallError if the file cannot be renamed. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.rename(oldName, newName)
+
+<table border="1">
+<tr>
+	<td><code>oldName</code></td>
+	<td>String. The file name.</td>
+</tr>
+<tr>
+	<td><code>link</code></td>
+	<td>String. The new file name.</td>
+</tr>
+</table>
+
+## is_setgid
+
+Returns true if the named file has the setgid bit set. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_setgid(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_setuid
+
+Returns true if the named file has the setuid bit set. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_setuid(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## size
+
+Returns the size of the named file. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.size(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_size
+
+Returns nil if the named file doesn't exist or has zero size, the size of the file otherwise. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_size(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_socket
+
+Returns true if the named file is a socket. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_socket(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## split
+
+Splits the given string into a directory and a file component and returns them in a two-element array. See also [File.dirname](/rhodesapi/file-api#dirname) and [File.basename](/rhodesapi/file-api#basename). A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.split(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## stat
+
+Returns a hash object of Strings: the path and the file.extension. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.stat(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_sticky
+
+Returns true if the named file has the sticky bit set. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_sticky(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## symlink
+
+Creates a symbolic link called newName for the existing file oldName. Returns a NotImplemented exception on platforms that do not support symbolic links. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.symlink(oldName, newName)
+
+<table border="1">
+<tr>
+	<td><code>oldName</code></td>
+	<td>String. The file name.</td>
+</tr>
+<tr>
+	<td><code>newName</code></td>
+	<td>String. The symbolic link to create.</td>
+</tr>
+</table>
+
+## is_symlink
+
+Returns true if the named file is a symbolic link. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_symlink(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## truncate
+
+Truncates the file fileName to be at most integer bytes long. Not available on all platforms. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.truncate(fileName, length)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+<tr>
+	<td><code>length</code></td>
+	<td>Number. The number of bytes in the truncated file.</td>
+</tr>
+</table>
+
+## unmask
+
+Returns the current umask value for this process. Umask values are subtracted from the default permissions, so a umask of 0222 would make a file read-only for everyone. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.umask(mask)
+
+<table border="1">
+<tr>
+	<td><code>mask</code></td>
+	<td>Number. Optional. If the optional mask argument is given, set the umask to that value and return the previous value.</td>
+</tr>
+</table>
+
+## unlink
+
+An alias method to do_delete: deletes the named files, returning the number of names passed as arguments. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.unlink(fileName, fileName2, ...)
+
+<table border="1">
+<tr>
+	<td><code>fileName, fileName2, ...</code></td>
+	<td>String. The names of the file(s) to be deleted. fileName2 ... are optional.</td>
+</tr>
+</table>
+
+## utime
+
+Sets the access and modification times of the named file to the first two arguments. Returns the number of file names in the argument list. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.utime(atime, mtime, fileName)
+
+<table border="1">
+<tr>
+	<td><code>atime</code></td>
+	<td>Date. The access time.</td>
+</tr>
+<tr>
+	<td><code>mtime</code></td>
+	<td>Date. The modification time.</td>
+</tr>
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The name of the file.</td>
+</tr>
+</table>
+
+## is_world_readable
+
+If fileName is readable by others, returns an integer representing the file permission bits of fileName. Returns nil otherwise. The meaning of the bits is platform dependent; on Unix systems, see stat(2). A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_world_readable(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_world_writable
+
+If fileName is writable by others, returns an integer representing the file permission bits of fileName. Returns nil otherwise. The meaning of the bits is platform dependent; on Unix systems, see stat(2). A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_world_writable(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_writable
+
+Returns true if the named file is writable by the effective user id of this process. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_writable(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_writable_real
+
+Returns true if the named file is writable by the effective user id of this process. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_writable_real(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
+
+## is_zero
+
+Returns true if the named file exists and has a zero size. A JavaScript implementation of the [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html).
+
+JavaScript syntax:
+
+	Rho.File.is_zero(fileName)
+
+<table border="1">
+<tr>
+	<td><code>fileName</code></td>
+	<td>String. The file name.</td>
+</tr>
+</table>
