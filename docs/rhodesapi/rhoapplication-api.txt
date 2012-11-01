@@ -82,7 +82,7 @@ JavaScript syntax:
 
 ## get_blob_folder
 
-Returns the absolute path to the folder where blobs (such as digital photos) are created in this application.
+Returns the absolute path to the folder where blobs, such as digital photos, are created in this application.
 
 Ruby syntax:
 
