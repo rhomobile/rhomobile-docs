@@ -42,7 +42,7 @@ To set up your RhoConnect application for Android Google Cloud Messaging (GCM), 
 
 To do so, set up GCM developer access. Follow the [Getting Started instructions in the GCM documentation](http://developer.android.com/guide/google/gcm/gs.html#create-proj). You can optionally stop in these instructions once you complete the [Obtaining an API Key](http://developer.android.com/guide/google/gcm/gs.html#access-key) section.
 
-Your GCM API key will be found in your [Google apis dashboard](https://code.google.com/apis/console). 
+Your GCM API key will be found in your [Google apis dashboard](https://code.google.com/apis/console).
 
 Update `settings/settings.yml` to include your GCM API key:
 
@@ -174,11 +174,13 @@ For example:
 Next, make sure you have the following option in your RhoConnect application's `settings/settings.yml` file in the `:development:`, `:production:` and `:test:` sections:
 
 	:::yaml
-	:push_server: http://appname:secret@localhost:8675/
+	:push_server: http://someappname@localhost:8675/
 
-**NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Make sure you change the password to something secure when you deploy to production.**
+Where `someappname` is a shared secret between your RhoConnect application and your mobile application.
 
-Now perform setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
+**NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this in your [mobile app's 'rhoconnect_push_appname' setting](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service). **
+
+Now setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
 
 ## Testing Push in the RhoConnect Web Console
 
