@@ -1,7 +1,7 @@
 Setting Up for RhoConnect Push on Client Application
 ===
 
-Push notification support (receiving push notifications from the RhoConnect server/backend) is currently available for Android, Blackberry and iPhone. 
+Push notification support (receiving push notifications from the RhoConnect server/backend) is currently available for Android, Blackberry and iPhone.
 
 ## Configuring a Rhodes Application to Receive Push
 
@@ -68,7 +68,7 @@ NOTE: You do not perform the setup steps in the Rhodes Device Capabilities chapt
 
 ### Installing the rhoconnect-push-service Runtime Apps
 
-To use the RhoConnect Push Service in your client application, you must install the rhoconnect-push-service runtime app(s) on your mobile device. 
+To use the RhoConnect Push Service in your client application, you must install the rhoconnect-push-service runtime app(s) on your mobile device.
 
 On the Macintosh, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation package, in a folder called rhoconnect-push-service.
 
@@ -87,19 +87,17 @@ If you are using a Windows Mobile or CE device, install the following runtime ap
 In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
 
     syncserver = 'http://<hostname>:<port>/application'
-    rhoconnect_push_server = (Push server url)
-    rhoconnect_push_appname = (your RhoConnect application name)
-    
+    rhoconnect_push_server = 'http://<hostname>:<port>'
+    rhoconnect_push_appname = 'someappname'
+
 Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN and set up your application rhoconfig.txt syncserver as follows:
 
-Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (push_service_notification_server) and the RhoConnect server.
+Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (rhoconnect_push_server) and the RhoConnect server running on the same host.
 
-	# rhoconnect sync server url, typically this will look like 'http://<hostname>:<port>/application'
     syncserver = 'http://192.168.1.10:9292/application'
+  	rhoconnect_push_server = 'http://192.168.1.10:8675'
+  	rhoconnect_push_appname = 'someappname'
 
-	rhoconnect_push_server='http://localhost:8675'
-	rhoconnect_push_appname='your-app-name-for-rhoconnect-push-service'
-	
 ### Configuring build.yml
 
 When you configure your application `build.yml` file for RhoConnect Server Push Service, you do not add `push` under `capabilities` for RhoConnect Server Push Service. Instead, you add rhoconnect-push to extensions.
@@ -111,20 +109,20 @@ You can still enable vibrate in `build.yml` capabilities.
 	capabilities:
 	  - vibrate #=> if you want to enable vibrate in your push messages
 
-### Registering a Push Callback in your Client Application with RhoConnect Server Push Service 
+### Registering a Push Callback in your Client Application with RhoConnect Server Push Service
 
-To handle a RhoConnect Server Push Service push message from your Rhodes/RhoElements application, you must register callback with the set_push_notification method. 
+To handle a RhoConnect Server Push Service push message from your Rhodes/RhoElements application, you must register callback with the set_push_notification method.
 
 To get push messages from RhoConnect server, the user must be logged into the RhoConnect server.
 
 In application.rb:
 
 	:::ruby
-	if SyncEngine::logged_in > 0 
-	   System.set_push_notification("/app/Settings/your_rhoconnect_callback",'')
-   	end
+  if SyncEngine::logged_in > 0
+    System.set_push_notification("/app/Settings/your_rhoconnect_callback",'')
+  end
 
-[Understanding the Rhodes Push Message Payload](/rhoconnect/push-client-setup#understanding-the-rhodes-push-message-payload) shows the structure of the hash for the callback push message. You can write the push callback to automatically perform some of the operations in the hash by using "rho_push", as shown in [Registering a Push Callback in the Rhodes Application](/rhoconnect/push-client-setup#registering-a-push-callback-in-the-rhodes-application). 
+[Understanding the Rhodes Push Message Payload](/rhoconnect/push-client-setup#understanding-the-rhodes-push-message-payload) shows the structure of the hash for the callback push message. You can write the push callback to automatically perform some of the operations in the hash by using "rho_push", as shown in [Registering a Push Callback in the Rhodes Application](/rhoconnect/push-client-setup#registering-a-push-callback-in-the-rhodes-application).
 
 ### Push Callback, Push Payload
 
