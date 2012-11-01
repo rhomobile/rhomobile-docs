@@ -25,32 +25,24 @@ $('#calc-submit').live('click',function(e){
 	var cores;
 	var ram;
 	var key;
-	var arr_res;
-
+	
 	var total_attr  = numObj * numAttr;
 	var total_syncs = numDvces * syncFreq;
-
-	if(total_attr < 1 || total_attr > totalAttrRange[totalAttrRange.length-1] || total_syncs < 1 || total_syncs > totalSyncsRange[totalSyncsRange.length-1]){
+	
+	key = get_boundary('totalAttrRange',total_attr) + ":" + get_boundary('totalSyncsRange',total_syncs) + ':0:0';
+	res = raw_data[key];
+	ram = (total_attr/10000) * numDvces * 1.2* 0.001;
+	ram = Math.round(ram * 100)/100;
+	ram += " GB"; 
+	if(res == undefined){
 		cores = "data not available";
-		ram   = "data not available";
-		res   = "data not available";
+		result   = ram + ",data not available";
 	}
 	else{
-		key  = get_boundary('totalAttrRange',total_attr) + ":" + get_boundary('totalSyncsRange',total_syncs) + ':0:0';
-		res = raw_data[key];
-		if(res == undefined){
-			cores = "data not available";
-			ram   = "data not available";
-			res   = "data not available";
-		}
-		else{
-			arr_res  = res.split(',');
-			cores    = arr_res[0];
-			ram		 = arr_res[1];
-		}
+		cores  = res;
+		result = ram + ", " + cores; 
 	}
-
-
+	
 	$("td#cores")[0].innerHTML = cores;
 	$("td#ram")[0].innerHTML   = ram;
 	$("#output").css("display","block");
@@ -60,7 +52,7 @@ $('#calc-submit').live('click',function(e){
 	$("input#entry_3").val(numDvces);
 	$("input#entry_4").val(syncFreq);
 	$("input#entry_5").val(key);
-	$("input#entry_6").val(res);
+	$("input#entry_6").val(result);
 	$("input#entry_8").val(navigator.userAgent);
 	$.getJSON("http://h3manth.com/ip.php?callback=?",
 	    function(data){
@@ -84,14 +76,14 @@ function get_boundary(name,value){
 	var result = undefined;
 	value = parseInt(value);
 	arr   = eval(name);
-
+	
     for(var i=0;i < arr.length;i++){
 		if(value < arr[i] * coefficient){
 			result = arr[i];
 			break;
 		}
 	}
-
+	
 	return result;
 }
 </script>
