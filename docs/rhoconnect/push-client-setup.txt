@@ -117,10 +117,10 @@ To get push messages from RhoConnect server, the user must be logged into the Rh
 
 In application.rb:
 
-	:::ruby
-  if SyncEngine::logged_in > 0
-    System.set_push_notification("/app/Settings/your_rhoconnect_callback",'')
-  end
+  	:::ruby
+    if SyncEngine::logged_in > 0
+      System.set_push_notification("/app/Settings/your_rhoconnect_callback",'')
+    end
 
 [Understanding the Rhodes Push Message Payload](/rhoconnect/push-client-setup#understanding-the-rhodes-push-message-payload) shows the structure of the hash for the callback push message. You can write the push callback to automatically perform some of the operations in the hash by using "rho_push", as shown in [Registering a Push Callback in the Rhodes Application](/rhoconnect/push-client-setup#registering-a-push-callback-in-the-rhodes-application).
 
