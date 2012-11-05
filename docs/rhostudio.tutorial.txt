@@ -179,6 +179,8 @@ To create a new build configuration for your application, select Rhodes Applicat
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/run-config-rhodes-new-rhodes.png"/>
 
+**NOTE: In the RhoStudio Run Configurations window, when you choose the Windows Mobile platform and any of the platform types (such as 6.0, 6.5.3, CE5.0), this platform setting overrides the SDK settings for Windows Mobile in the application build.yml file. This override does NOT affect RhoMobile Production Build, or using rake (without RhoStudio) to build and run a Windows Mobile app; these options use the Windows Mobile SDK settings in the build.yml file.**
+
 ### Building and Running with RhoSimulator
 
 You can run your project in RhoSimulator, a simulator type available only in RhoStudio. RhoSimulator allows you to build and run your project on the platform of your choice without having to install the SDK for that platform. Instead, RhoSImulator will mimic the platform. RhoSimulator builds and runs your application quickly, making it useful for testing and debugging.

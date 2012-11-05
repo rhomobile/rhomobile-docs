@@ -21,6 +21,11 @@ Set this parameter list in application.rb to customize the Rhodes default menu.
 </tr>
 </table>
 
+To disable the Rhodes default menu, use an empty parameter list, as below.
+
+	:::ruby
+	@default_menu = {}
+
 ## @menu
 
 Set this parameter list in a controller.rb file to customize a controller menu.

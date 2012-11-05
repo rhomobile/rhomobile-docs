@@ -364,6 +364,13 @@ You can set a greater minimal API level in build.yml. For example, the following
    android:
      minSDK: 11
 
+### Customizing application's AndroidManifest.xml
+
+In case of urgent need to make some AndroidManifest.xml changes that is not supported by build settings you may edit a manifest template located at <Rhodes>/platform/android/Rhodes/AndroidManifest.xml.erb
+Please pay attention that this template does not relate to particular application and is used for every Android application build.
+
+** NOTE: To study how to change AndroidManifest.xml at extension build see [Extending the Rhodes Framework](extensions#rewriting-the-generated-native-extension-source-code-for-android)  
+
 ### Building and Running Your Android Application with RhoStudio
 
 To start the build process, create a Run Configuration: select your project in the Project Explorer, and either:
@@ -861,7 +868,9 @@ Follow [All Platforms Prerequisites](#all-platforms-prerequisites).
 Make sure you have installed the following software.
 
 * .NET Compact Framework
-* Windows Mobile 6 Professional SDK(s) 
+* For Windows Mobile 6: Windows Mobile 6 Professional SDK Refresh
+* For Windows Mobile 6.5.3: Windows Mobile 6.5.3 Professional DTK
+* For Windows CE 5.0: MC3000c50b PSDK from [Motorola Support Central](http://support.symbol.com/support/supportcentral/supportcentral.do?id=m1)
 * Microsoft Active Sync 4.5 for Windows XP; Windows Mobile Device Center for Windows Vista or higher
 * Microsoft Device Emulator 3.0 for Windows Vista or higher
 * Visual Studio 2008. 
@@ -938,6 +947,8 @@ To start the build process, create a Run Configuration: select your project in t
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
 
 The Run Configurations window appears.
+
+**NOTE: In the RhoStudio Run Configurations window, when you choose the Windows Mobile platform and any of the platform types (such as 6.0, 6.5.3, CE5.0), this platform setting overrides the SDK settings for Windows Mobile in the application build.yml file. This override does NOT affect RhoMobile Production Build, or using rake (without RhoStudio) to build and run a Windows Mobile app; these options use the Windows Mobile SDK settings in the build.yml file.**
 
 #### Running on the Windows Mobile Simulator in RhoStudio
 
