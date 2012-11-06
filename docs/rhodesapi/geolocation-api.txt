@@ -56,9 +56,9 @@ javaScript syntax:
 
 	Rho.GeoLocation.latitude()
 
-## known_position?
+## known_position?, is_known_position
 
-Returns true if the location system is up and running, false otherwise.
+Returns true if the location system is up and running, false otherwise. is_known_position returns null if this feature is not supported on the device platform.
 
 Ruby syntax:
 
