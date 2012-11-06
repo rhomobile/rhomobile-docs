@@ -29,7 +29,7 @@ To install RhoConnect on Linux, and to install RhoConnect on Windows or Mac OS u
 Run this command to install the RhoConnect Gem.
 
 	:::term
-	$ [sudo] gem install rhoconnect
+	$ gem install rhoconnect
 
 NOTE: If you get any `no such file to load -- something` messages while running the rhoconnect or rhodes commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
 
@@ -94,43 +94,43 @@ If you have an existing application, upgrading to the latest version of RhoConne
 Open the `Gemfile` of your application and find the rhoconnect line, it should look something like:
 
 	:::ruby
-	gem 'rhoconnect', '3.3.1'
+	gem 'rhoconnect', '3.3.6'
 
-Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 3.3.2:
+Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 3.4.0:
 
 	:::ruby
-	gem 'rhoconnect', '3.3.2'
+	gem 'rhoconnect', '3.4.0'
 
 Run the following command from the root application directory:
 
 	:::term
 	$ bundle install
 
-Restart your application and verify the latest version is being used by going to the web console, for example [http://localhost:9292/](http://localhost:9292/)
+Now update your application's RhoConnect dependency manifest:
 
-## RhoConnect 3.4 Release Notes
+	:::term
+	$ rhoconnect update
 
-If you have an existing RhoConnect application and want to upgrade it to rhoconnect 3.4, then
-you need update the Gemfile file to properly use the latest runtime dependencies for RhoConnect.
+## Upgrading previous versions to RhoConnect 3.4+
 
-First, follow the instructions described in previous section.
+If you have an existing RhoConnect application using version < 3.4 and want to upgrade it to RhoConnect 3.4+, then
+you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
 
-Then run `rhoconnect update` command from the root application directory.
-It will add to your project a hidden `.rcgemfile` file with all of the required 3.4 runtime dependencies.
-The `rhoconnect update` command also can be used in future releases to update your app's runtime dependencies.
+First, follow the instructions described in the [previous section](/rhoconnect/install#upgrading-an-existing-application).
 
-Next, make sure your `Gemfile` looks like the following example.  The `rhoconnect update` command created a `Gemfile.new` for reference:
+Next, make sure your `Gemfile` looks like the following example, replacing the version as necessary.
+The `rhoconnect update` command will generate a reference `Gemfile.new` which you can use to replace your `Gemfile`:
 
-  	:::ruby
+	:::ruby
 	source 'http://rubygems.org'
 
-	gem 'rhoconnect', '~> 3.4.0'
+	gem 'rhoconnect', '<put correct version here>'
 	gemfile_path = File.join(File.dirname(__FILE__), ".rcgemfile")
 
 	begin
 		eval(IO.read(gemfile_path))
 	rescue Exception => e
-		puts "ERROR: Couldn't find RhoConnect .rcgemfile"
+		puts "ERROR: Couldn't read RhoConnect .rcgemfile"
 		puts e.message
 		exit 1
 	end
