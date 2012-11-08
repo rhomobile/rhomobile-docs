@@ -64,7 +64,7 @@ N/A
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>enabled:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Enables the specified scanner.<br />Possible Values:ID of Scanner, obtained via EnumScanner<br /><br /><i>Default: SCN1</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>[Decoder Name]:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">Enables the specified scanner.  The non-default scanner should only be used on licensed devices.<br />Possible Values:ID of Scanner, obtained via EnumScanner<br /><br /><i>Default: SCN1</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>[Decoder Name]:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Sets each Decoders' parameters.  Refer to the "Decoders" Section of this help file to know available decoders and Their Parameters<br />Possible Values:Decoder Property<br /><br /><i>Default: Refer to the "Decoders" Section</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>autoEnter:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">If "enabled" then automatically append an Enter to the end of any barcodes scanned.  This feature is only available when a decodeEvent is not specified and is useful for submitting forms.  See Remarks.<br />Possible Values:'enabled' / 'disabled'<br /><br /><i>Default: 'Disabled'</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>autoTab:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">If "enabled" then automatically appends a Tab to the end of any barcodes scanned.  This feature is only available when a decodeEvent is not specified and is useful for advancing to the next input field.  See Remarks.<br />Possible Values:'enabled' / 'disabled'<br /><br /><i>Default: Disabled</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>linearSecurityLevel:[Value]
@@ -186,7 +186,7 @@ alwaysOn:
   External illumination is always on.
 alwaysOff:
   External illumination is always off.
-   <br/><b>Note:</b> On Enterprise Tablet for Camera scanners this setting has to be enabled/disabled before starting the scanner.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
+Note: On Enterprise Tablet for Camera scanners this setting has to be enabled/disabled before starting the scanner.<i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance.  DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>inverse1dMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Allows the user to select inverse 1D barcodes for decoding.  Possible values:
 
@@ -195,7 +195,7 @@ enabled:
 disabled:
   Inverse 1D symbology decoding is disabled.
 auto:  
-  Allows decoding of both positive and inverse 1D symbologies<i>Applicable scanner types: Imager / Camera Only.</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>poorQuality1dMode:[Value]
+  Allows decoding of both positive and inverse 1D symbologies<i>Applicable scanner types: Imager / Camera Only and a scanning engine which supports Inverse barcodes.</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>poorQuality1dMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Allows poor quality 1D barcodes to be read when true but this will adversely affect the overall decoding performance.<br />Possible Values:true / false<br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>beamWidth:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Specifies the width of the laser beam.<br />Possible Values:normal / narrow / wide<br /><i>Applicable scanner types: Laser Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dbpMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.  Possible values:

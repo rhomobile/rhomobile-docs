@@ -62,7 +62,7 @@ N/A
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>port:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">0 - 65535 in Windows and 1025 - 65535 in Android</td><td class="clsSyntaxCells clsOddRow">Port number to listen on.</td><td class="clsSyntaxCells clsOddRow">80 in Windows and 8081 in Android</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>passKey:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">0 - 65535 in Windows and 1025 - 65535 in Android</td><td class="clsSyntaxCells clsOddRow">Port number to listen on.</td><td class="clsSyntaxCells clsOddRow">8081</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>passKey:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Any string</td><td class="clsSyntaxCells clsEvenRow">If specified then the client must include passkey=value in the passed parameters. Case sensitive.</td><td class="clsSyntaxCells clsEvenRow">Empty (no passkey required)</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>response:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Filename</td><td class="clsSyntaxCells clsOddRow">Name of the HTML file to return to the client after a successful request.</td><td class="clsSyntaxCells clsOddRow">Empty (a short default HTML response is sent)</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>path:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Virtual path</td><td class="clsSyntaxCells clsEvenRow">The client must include this in the HTTP request (after the address and before the parameters).  The forward slash '/' should be used as the directory delimiter.</td><td class="clsSyntaxCells clsEvenRow">Empty (any path is accepted)</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>unattended:[Value]
@@ -99,6 +99,10 @@ Only alphanumeric characters and the characters $-_.!*'(), are allowed in a URL 
 
 ###Unattended mode
 Normally when a device enters suspend mode, either because it has been idle for a certain time or because the power key was pressed, all the device subsystems are switched off, including the wireless network. When unattended mode is enabled however the device keeps enough subsystems powered that applications continue to run, and it can still respond to Push requests. Note that unattended mode uses significantly more battery power.
+
+
+###Windows Mobile / CE Backwards compatibility
+In version 2.2 of RhoElements for WM / CE the default push port was changed from '80' to '8081' to match RhoElements for Android. Applications developed for RhoElements 2.1 and previous which rely on the default port number being 80 should add the default meta tag &lt;MetaTag VALUE="Push~port:80"&gt; to their configuration.
 
 
 

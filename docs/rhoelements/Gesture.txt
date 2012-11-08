@@ -113,12 +113,14 @@ The 'preset' tag is used to specify one of the preset values below. When a gestu
 
 <pre>
 
-GESTURE          POSSIBLE VALUES                                         DEFAULT
-Linear           left-right, right-left, top-bottom, bottom-top          left-right
-Circle           happy*, sad*                                            happy
-Hold             center                                                  center
-Tilt             face-up, upright                                        face-up
-Shake            normal                                                  normal
+GESTURE          POSSIBLE VALUES                                         		DEFAULT
+Linear           left-right, right-left, top-bottom, bottom-top          		left-right
+Circle           happy*, sad*                                            		happy
+Hold             center                                                  		center
+Tilt             face-up   (0, 0, 90), face-down  (0, 0, -90), 				face-up
+		 upright   (0, 90, 0), turn-down  (0, -90, 0),
+		 turn-left (90, 0, 0), turn-right (-90, 0, 0)
+Shake            normal                                                  		normal
       </pre>
 
 
@@ -151,7 +153,7 @@ Note that diagnostics exist only for the purpose of understanding and evaluating
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. On Windows the tilt and shake gestures are supported only on MPA3.0 devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

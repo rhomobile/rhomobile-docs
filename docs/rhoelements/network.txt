@@ -62,7 +62,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsEvenRow">Any valid port</td><td class="clsSyntaxCells clsEvenRow">The port on the host on which to connect to</td><td class="clsSyntaxCells clsEvenRow">80</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>networkPollInterval:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Milliseconds</td><td class="clsSyntaxCells clsOddRow">The time, in milliseconds, between each check for a connection.  Note that the actual connection report interval will be the sum of the NetworkPollInterval and the ConnectionTimeout.</td><td class="clsSyntaxCells clsOddRow">5000</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>connectionTimeout:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Milliseconds</td><td class="clsSyntaxCells clsEvenRow">The amount of time the network plugin will attempt to connect to the specified URL before it gives up and assumes 'disconnected'</td><td class="clsSyntaxCells clsEvenRow">1000</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>connectWan:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Connection Destination</td><td class="clsSyntaxCells clsOddRow">Connects RhoElements through a Wide Area Network.  The connection destionation must be first configured through the Connection Manager and the destination name provided as the value to this parameter.  If a connection is already established, you must first call disconnectWan before attempting another connection.  A list of available connection destinations is written to the log file when either connectWan, disconnectWan or wanStatusEvent are first specified.  Specify the connection as 'Internet' to use the default internet connection defined on the device.  If the specified destination does not exist no connection attempt will be made and an entry will be made in the log file.</td><td class="clsSyntaxCells clsOddRow">Not Specified</td></tr></table>
+</b></td><td class="clsSyntaxCells clsOddRow">Connection Destination</td><td class="clsSyntaxCells clsOddRow">Connects RhoElements through a Wide Area Network.  The connection destination must be first configured through the Connection Manager and the destination name provided as the value to this parameter.  If a connection is already established, you must first call disconnectWan before attempting another connection.  A list of available connection destinations is written to the log file when either connectWan, disconnectWan or wanStatusEvent are first specified.  Specify the connection as 'Internet' to use the default internet connection defined on the device.  If the specified destination does not exist no connection attempt will be made and an entry will be made in the log file.</td><td class="clsSyntaxCells clsOddRow">Not Specified</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
 
 ##Events
@@ -106,6 +106,10 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
 "HardwareStartKeyEnabled"=dword:00000001                    Prevents the Start icon from appearing in the bottom left
 "HardwareDoneKeyEnabled"=dword:00000001                     Prevents the 'X' icon from appearing in the bottom right
 				</pre>
+
+
+###Platform differences
+On Android connectWan can be treated as a method with no parameters as its only effect is enabling mobile data from the device general settings; any parameter passed to connectWan is ignored. Likewise, disconnectWan disables mobile data from the general settings, therefore executing disconnectWan on Android is not restricted to the scope of a RhoElements application, but may affect the connectivity of any other running application using mobile data.
 
 
 
