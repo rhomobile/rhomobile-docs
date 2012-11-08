@@ -1,0 +1,55 @@
+Setting Up for RhoConnect Push on Android Client
+===
+
+You need to have performed the steps to set up your [RhoConnect client application to receive push messages](/rhoconnect/push-client-setup). Then, for Android, you need to perform the additional steps in this chapter to set up an Android RhoConnect client application.
+
+## Enabling for RhoConnect Server Push
+
+Enable push in your rhodes application in build.yml.
+
+	:::yaml
+	capabilities:
+	  - push
+
+## Setting up the Rhodes Client for Android (C2DM)
+
+**NOTE: Google has officially deprecated the C2DM service and requires that you now use Google Cloud Messaging (GCM). Please see [Google's announcement](https://developers.google.com/android/c2dm/) for more details.**
+
+Android PUSH support uses the Android Cloud to Device Messaging (C2DM) system introduced in Android 2.2 (Froyo). In order to use the service, you will need to register your role-based google account (or use an existing one) and then register this account in [Google C2DM program](http://code.google.com/android/c2dm/signup.html).
+
+### Guidelines
+
+Here are some guidelines for developing and testing an Android application that uses the C2DM feature:
+
+* To develop and test your C2DM applications, you need to run and debug the applications on an Android 2.2 system image that includes the necessary underlying Google services. 
+* To develop and debug on an actual device, you need a device running an Android 2.2 system image that includes the Market application. 
+* To develop and test on the Android Emulator, you need to download the Android 2.2 version of the Google APIs Add-On into your SDK using the Android SDK and AVD Manager. Specifically, you need to download the component named "Google APIs by Google Inc, Android API 8". Then, you need to set up an AVD that uses that system image.
+* Android C2DM system uses an existing connection for Google services. This requires users to set up their Google account on their mobile devices (and on emulator!).
+
+### Register the Google Account for Your Application
+
+Register the role-based google account for your application. Here, for example, it will be referred as push-app@gmail.com. Modify your application's build.yml to specify the google account used to send PUSH messages:
+
+	:::yaml
+	android:
+	  push:
+	    sender: push-app@gmail.com
+
+This is the same address used by RhoConnect to retrieve authtoken. See [here](/rhoconnect/push-server-setup#testing-push-in-the-rhoconnect-web-console) for more information.
+
+**NOTE: WARNING! This e-mail address MUST NOT be the same as origin of google account on phone! This mean that google account registered on your phone/emulator MUST NOT be push-app@gmail.com; it MUST be another one. This is known bug in Android C2DM implementation - if sender and receiver are the same, underlying android service crash and lose message. More details [here](http://groups.google.com/group/android-c2dm/browse_thread/thread/128790789c4e9d6a/67aca1e1764724d4). This is actual not for all Android versions.**
+
+## Setting up Status Bar Notifications for PUSH Messages
+
+At Android it is possible to set up status bar notifications for PUSH messages. In this case, push notification can be shown on the Android status bar after ruby callback. The user can activate application by touching this notification.
+There are two modes available for push notifications:
+ - <i>always</i> - push notification is shown always
+ - <i>background</i> - push notification is shown only if application is backgrounded (not started)
+If no push notification mode is specified in build.yml then no notifications are shown at all.
+
+	:::yaml
+	android:
+	  push:
+	    notifications: background
+
+

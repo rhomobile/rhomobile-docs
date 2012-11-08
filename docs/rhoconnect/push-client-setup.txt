@@ -1,18 +1,17 @@
 Setting Up for RhoConnect Push on Client Application
 ===
 
-Push notification support (receiving push notifications from the RhoConnect server/backend) is currently available for Android, Blackberry and iPhone.
+To set up your RhoConnect client application for receiving push messages, first perform the steps in this chapter. Then perform the steps in the subsequent chapter for either your mobile device platform, or for the RhoConnect Push Service.
 
-## Configuring a Rhodes Application to Receive Push
+## Configuring a Rhodes Application for RhoConnect Push
 
-Enable push in your rhodes application in build.yml.
+If you want your device to vibrate when it receives a push message, enable vibration in your RHodes/RhoElements application in build.yml.
 
 	:::yaml
 	capabilities:
-	  - push
 	  - vibrate #=> if you want to enable vibrate in your push messages
 
-Set up your application [rhoconfig.txt](configuration#run-time-configuration) syncserver to point to your RhoConnect server:
+Set up your application [rhoconfig.txt](/rhodes/configuration#run-time-configuration) syncserver to point to your RhoConnect server:
 
 	syncserver = 'http://<rhoconnect_server_url>/application'
 
@@ -39,80 +38,6 @@ To have your Rhodes app automatically perform the operations listed in the push 
       "rho_push"
     end
 
-## Understanding the Rhodes Push Message Payload
-
-From Rhodes 2.0.4 on, the callback push message parameters are in the form of a hash. This hash contains parameters and values for the operation to perform. If the parameter for that operation is not listed, the operation is not performed.
-
-The hash payload may include the parameters of alert, do_sync, sound, and vibrate which perform operations that the client performs when it receives the PUSH message. Here is an example of a push message body with the parameter names and values. It will have a popup alert message of "some message", play a sound of alert.mp3, will vibrate the device, and will sync the product and customer sources.
-
-    :::text
-    alert=some message here&sound=alert.mp3&vibrate=2000&do_sync=product,customer
-
-To sync all the sources with do_sync, the source name list would specified as 'all' in the ping call, instead of 'product,customer' as in this example.
-
-The sound file should be included in the Rhodes application bundle in the `/public/alerts` folder.
-
-## Setting up the Rhodes Client for iPhone, Android, and Blackberry
-
-To set up your Rhodes client for push, refer to these links for your respective platforms.
-
-* [Setting up iPhone Client for Push](/rhodes/device-caps#iphone-push-setup)
-* [Setting up Android Client for Push](/rhodes/device-caps#android-push-setup)
-* [Setting up Blackberry Client for Push](/rhodes/device-caps#blackberry-push-setup)
-
-## Configuring a Rhodes Application to Receive Push with RhoConnect Push Service
-
-RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered Android and Windows Mobile/CE devices.
-
-NOTE: You do not perform the setup steps in the Rhodes Device Capabilities chapter when you use the RhoConnect Server Push Service. That setup is for regular RhoConnect push, not for the RhoConnect Server Push Service.
-
-### Installing the rhoconnect-push-service Runtime Apps
-
-To use the RhoConnect Push Service in your client application, you must install the rhoconnect-push-service runtime app(s) on your mobile device.
-
-On the Macintosh, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation package, in a folder called rhoconnect-push-service.
-
-On Windows, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation, in a directory called rhoconnect-push-service.
-
-If you are using an Android device, install `rhoconnect_push_service.apk` to your device.
-
-If you are using a Windows Mobile or CE device, install the following runtime apps on your device.
-
-* `rhoconnect-push-service.CAB`
-* `NETCFv35.Messages.EN.wm.cab`
-* `NETCFv35.Messages.EN.cab`
-
-### Configuring rhoconfig.txt
-
-In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
-
-    syncserver = 'http://<hostname>:<port>/application'
-    rhoconnect_push_server = 'http://<hostname>:<port>'
-    rhoconnect_push_appname = 'someappname'
-
-Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN and set up your application rhoconfig.txt syncserver as follows:
-
-Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (rhoconnect_push_server) and the RhoConnect server running on the same host.
-
-    syncserver = 'http://192.168.1.10:9292/application'
-  	rhoconnect_push_server = 'http://192.168.1.10:8675'
-  	rhoconnect_push_appname = 'someappname'
-
-### Configuring build.yml
-
-When you configure your application `build.yml` file for RhoConnect Server Push Service, you do not add `push` under `capabilities` for RhoConnect Server Push Service. Instead, you add rhoconnect-push to extensions.
-
-	extensions: ["rhoconnect-push"]
-
-You can still enable vibrate in `build.yml` capabilities.
-
-	capabilities:
-	  - vibrate #=> if you want to enable vibrate in your push messages
-
-### Registering a Push Callback in your Client Application with RhoConnect Server Push Service
-
-To handle a RhoConnect Server Push Service push message from your Rhodes/RhoElements application, you must register callback with the set_push_notification method.
-
 To get push messages from RhoConnect server, the user must be logged into the RhoConnect server.
 
 In application.rb:
@@ -122,10 +47,88 @@ In application.rb:
       System.set_push_notification("/app/Settings/your_rhoconnect_callback",'')
     end
 
-[Understanding the Rhodes Push Message Payload](/rhoconnect/push-client-setup#understanding-the-rhodes-push-message-payload) shows the structure of the hash for the callback push message. You can write the push callback to automatically perform some of the operations in the hash by using "rho_push", as shown in [Registering a Push Callback in the Rhodes Application](/rhoconnect/push-client-setup#registering-a-push-callback-in-the-rhodes-application).
+## Understanding the Rhodes Push Message Payload
 
-### Push Callback, Push Payload
+From Rhodes 2.0.4 on, the callback push message parameters are in the form of a hash. This hash contains parameters and values for the operation to perform. If the parameter for that operation is not listed, the operation is not performed.
 
-Refer to [Rhodes Device Capabilities - Push Notifications - Push Callback](/rhodes/device-caps#push-callback) for more information about setting up a push callback.
+The hash payload may include the parameters of alert, do_sync, sound, and vibrate which perform operations that the client performs when it receives the PUSH message. Here is an example of a push message body with the parameter names and values. It will have a popup alert message of "some message", play a sound of alert.mp3, will vibrate the device, and will sync the product and customer sources.
 
-Refer to [Rhodes Device Capabilities - Push Notifications - Push Payload](/rhodes/device-caps#push-payload) for more information about setting up the push payload.
+    :::text
+    alert=some message here&sound=alert.mp3&vibrate=2000&do_sync=product,customer
+
+To sync all the sources with do_sync, the source name list would be specified as 'all' in the ping call, instead of 'product,customer' as in this example.
+
+The Rhodes push payload allows more than one operation in a single message. 
+ 
+There are no required operations. There are default operations - if operation is not specified, no default operation will be performed.
+
+Payload may include following operations which client will perform when it receives the PUSH message:
+
+do_sync - do sync on spec specified sync source; use "all" to sync all sources  
+	:::ruby
+	# one or more sources, or "all" can be specified
+	do_sync = "Product,Customer" 
+
+alert - bring app upfront and show specified message
+	:::ruby
+	alert = "Some message"
+
+vibrate - vibrate for the specified number of milliseconds, up to 25500; if 0 or no duration is specified, it will vibrate for 2500 millisecond.
+
+To enable vibrate in your rhodes application in build.yml:
+
+	capabilities:
+	 - vibrate
+    	  
+Example of vibrate call:
+     
+	vibrate = 2000 #=> duration in milliseconds
+
+sound - play specified file if media type supported by the phone. iPhone will ignore media-type parameter.
+	:::ruby
+	sound = "hello.mp3"
+
+The sound file should be included to the application bundle in `/public/alerts` folder.
+
+Media type should be either specified explicitly or may be recognized from file extension. Known file extensions are: .mp3 - audio/mpeg; .wav - audio/x-wav.
+
+## Handling Push Notifications from a non-RhoConnect Application
+
+Rhodes applications can also handle PUSH notifications that didn't come from a RhoConnect application. 
+
+In this example, we will get the device ID so we can register the device with some push server:
+	:::ruby
+	System.get_property('device_id')
+
+Application can set push callback to process any commands from server:
+	:::ruby
+	System.set_push_notification("/app/Settings/push_notify", '')
+
+Callback parameters:
+
+* since Rhodes 2.0.4 : contain push message parameters as hash
+* rhodes  < 2.0.4 : message - contain server push message body
+
+Callback return:
+
+* empty string - do not run Rhodes push command processing
+* "rho_push" - to run rhodes push command processing (for alerts, sounds, etc...)
+
+Example:
+	:::ruby
+	def push_notify
+	  puts 'push_notify: ' + @params.inspect  
+	  "rho_push"
+	end
+
+## Setting up to Receive Push Messages
+
+After you have performed the steps in this chapter, you need to perform additional steps for your moblie platform or for the RhoConnect Push Service. You perfrom one of the following set of steps.
+
+ * Go here to set up an [Android RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-android),
+
+ * or go here to set up a [BlackBerry RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-bb),
+
+ * or go here to set up an [iOS RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-ios).
+
+ * or go here to set up a [RhoConnect client for push messages brokered by the RhoConnect Push Service](/rhoconnect/push-client-setup-rps).

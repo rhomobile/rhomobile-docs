@@ -1,0 +1,47 @@
+Setting Up for RhoConnect Push Service on Client Application
+===
+
+RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered Android and Windows Mobile/CE devices.
+
+You need to have performed the steps to set up your [RhoConnect client application to receive push messages](/rhoconnect/push-client-setup). Then, for RhoConnect Push Service, you need to perform the additional steps in this chapter.
+
+**NOTE: You do not perform the steps in the chapter for setting up for RhoConnect push on Android client when you are using RhoConnect Push Service.**
+
+## Installing the rhoconnect-push-service Runtime Apps
+
+To use the RhoConnect Push Service in your client application, you must install the rhoconnect-push-service runtime app(s) on your mobile device.
+
+On the Macintosh, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation package, in a folder called rhoconnect-push-service.
+
+On Windows, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation, in a directory called rhoconnect-push-service.
+
+If you are using an Android device, install `rhoconnect_push_service.apk` to your device.
+
+If you are using a Windows Mobile or CE device, install the following runtime apps on your device.
+
+* `rhoconnect-push-service.CAB`
+* `NETCFv35.Messages.EN.wm.cab`
+* `NETCFv35.Messages.EN.cab`
+
+## Configuring rhoconfig.txt
+
+In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
+
+    syncserver = 'http://<hostname>:<port>/application'
+    rhoconnect_push_server = 'http://<hostname>:<port>'
+    rhoconnect_push_appname = 'someappname'
+
+Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN.
+
+Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (rhoconnect_push_server) and the RhoConnect server are running on the same host.
+
+    syncserver = 'http://192.168.1.10:9292/application'
+  	rhoconnect_push_server = 'http://192.168.1.10:8675'
+  	rhoconnect_push_appname = 'someappname'
+
+## Configuring build.yml
+
+When you configure your application `build.yml` file for RhoConnect Push Service, do not add `push` under `capabilities`. Instead, add rhoconnect-push to extensions.
+
+	extensions: ["rhoconnect-push"]
+

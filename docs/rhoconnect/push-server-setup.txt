@@ -1,7 +1,10 @@
 Setting Up Push on RhoConnect Server
 ===
 
-To set up your RhoConnect server application for delivering push messages, you need to set up the application settings configurations for the operating system of your mobile client.
+To set up your RhoConnect server application for delivering push messages, you need to either:
+
+* set up to deliver push messages in your RhoConnect server application settings for the operating system of your mobile client,
+* or set up the RhoConnect Push Service to broker push messages between your RhoConnect server and your mobile client.
 
 ## Setting up RhoConnect Server Push for iOS
 
@@ -53,8 +56,6 @@ Update `settings/settings.yml` to include your GCM API key:
 	  :licensefile: settings/license.key
 	  :gcm_api_key: your_gcm_api_key_here
 
-Start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
-
 ## Setting up RhoConnect Server Push for Android (C2DM)
 
 **NOTE: Google has officially deprecated the C2DM service and requires that you now use Google Cloud Messaging (GCM). Please see [Google's announcement](https://developers.google.com/android/c2dm/) for more details. Follow the instructions at [Setting up RhoConnect Server Push for Android (GCM)](/rhoconnect/push-server-setup#setting-up-rhoconnect-server-push-for-android-gcm) to set up your RhoConnect Application for GCM push.**
@@ -80,13 +81,9 @@ However, this approach will not allow the server to connect to the C2DM service 
 
 For those who interested in what this token means, the description is [here](http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html).
 
-Now start up your RhoConnect application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
+## Setting up RhoConnect Push Service
 
-## Setting up RhoConnect Server Push Service
-
-**NOTE: This option is still a _beta_ feature.  You may encounter issues using this service.**
-
-RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile. This service can be used instead of Google C2DM on Android.
+RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile. This service can be used instead of Google GCM or C2DM on Android.
 
 The typical flow of a message using RPS:
 

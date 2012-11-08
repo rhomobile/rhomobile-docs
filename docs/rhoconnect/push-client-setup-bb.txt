@@ -1,0 +1,66 @@
+Setting Up for RhoConnect Push on BlackBerry Client
+===
+
+You need to have performed the steps to set up your [RhoConnect client application to receive push messages](/rhoconnect/push-client-setup). Then, for BlackBerry, you need to perform the additional steps in this chapter to set up a BlackBerry RhoConnect client application.
+
+## Enabling for RhoConnect Server Push
+
+Enable push in your rhodes application in build.yml.
+
+	:::yaml
+	capabilities:
+	  - push
+
+## Setting up the Rhodes Client for BlackBerry
+
+Notifications to BlackBerry are sent using PAP 2.0 message through a BES/MDS server.
+
+On the simulator, this is done via the MDS simulator tool (which you've probably already seen in the form of a console window every time you do 'rake run:bb'). On the device, this is done through the BES/MDS server that the phone is configured to use.  
+
+These instructions assume you are familiar with BES/MDS concepts (for more information please see [here](http://na.blackberry.com/eng/services/business/server/full/)).
+
+In case of Blackberry, if the application is in the background, an alert operation will bring the application upfront; other operations will not. 
+
+## Setup MDS Simulator
+
+<i>Make sure you close the BlackBerry simulator and MDS simulator before continuing for your changes to take effect!</i>
+
+To enable the push port in your MDS simulator, edit the following file:
+
+	C:\Program Files\Research In Motion\BlackBerry JDE <VERSION YOU ARE BUILDING>\MDS\config\rimpublic.property
+
+Uncomment the last line of the file, which should be 'push.application.reliable.ports=100':
+
+  push.application.reliable.ports=100
+
+## Setup BlackBerry Simulator
+
+To listen for incoming messages on BlackBerry, the Rhodes application will start when device powers on and will run a listener thread in the background. You will use the "push_port" option in the [rhoconfig.txt](configuration#run-time-configuration) to specify the listening port for incoming push messages. If "push_port" is not specified, default will be 100 as shown in the previous section.
+
+**NOTE: For testing push, the BlackBerry simulator requires a 'kickstart' process.  When the simulator starts, open the web browser on the simulator and navigate to any web page (i.e. http://m.google.com/). Now your simulator is ready to receive push messages.**
+
+Now you are ready to [testing Push in the RhoConnect Web Console](/rhoconnect/push-server-setup#testing-push-in-the-rhoconnect-web-console).
+
+## Setup BlackBerry Device
+
+To test push on a BlackBerry device, you will need to use a device that is configured with a BES server. Then, all you need to do is [build your Rhodes application for the device](build#build-for-blackberry).
+
+## BlackBerry 5.0 Push service
+
+Rhodes 2.2 and higher support new [Blackberry Push Service](http://na.blackberry.com/eng/developers/javaappdev/pushapi.jsp)
+
+Define in [rhoconfig.txt](configuration#run-time-configuration) which push to use (if empty or missed only MDS push is supported).	
+
+	push_options = 'mds;push_service'
+
+These parameters from [PushApplicationDescriptor](http://www.blackberry.com/developers/docs/5.0.0api/net/rim/blackberry/api/push/PushApplicationDescriptor.html). Set them in [rhoconfig.txt](configuration#run-time-configuration):
+
+	push_service_url  = 'https://pushapi.eval.blackberry.com/'
+	push_service_port = 20558
+	push_service_appname = 'RhoTest'
+	push_service_type = 'BPAS'
+
+## Alert Audio File Setup for Blackberry
+
+In case of Blackberry, if the audio file is in the public folder, the file name will be `/apps/public/alerts/test-file.mp3`.
+
