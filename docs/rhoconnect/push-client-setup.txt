@@ -3,6 +3,8 @@ Setting Up for RhoConnect Push on Client Application
 
 To set up your RhoConnect client application for receiving push messages, first perform the steps in this chapter. Then perform the steps in the subsequent chapter for either your mobile device platform, or for the RhoConnect Push Service.
 
+Then perform the steps in the subsequent chapter for setting up your client for either the RhoConnect Push Service or RhoConnect push to a specific mobile device platform.
+
 ## Configuring a Rhodes Application for RhoConnect Push
 
 If you want your device to vibrate when it receives a push message, enable vibration in your RHodes/RhoElements application in build.yml.
@@ -125,10 +127,10 @@ Example:
 
 After you have performed the steps in this chapter, you need to perform additional steps for your moblie platform or for the RhoConnect Push Service. You perfrom one of the following set of steps.
 
- * Go here to set up an [Android RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-android),
+ * Go here to set up a [RhoConnect client for push messages brokered by the RhoConnect Push Service](/rhoconnect/push-client-setup-rps),
+
+ * or go here to set up an [Android RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-android),
 
  * or go here to set up a [BlackBerry RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-bb),
 
  * or go here to set up an [iOS RhoConnect client to receive push messages from RhoConnect server](/rhoconnect/push-client-setup-ios).
-
- * or go here to set up a [RhoConnect client for push messages brokered by the RhoConnect Push Service](/rhoconnect/push-client-setup-rps).
