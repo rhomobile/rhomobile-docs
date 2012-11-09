@@ -5,6 +5,7 @@ require 'coderay'
 require 'rack/codehighlighter'
 
 require './topic'
+require './indicators'
 require './lib/term.rb'
 require './pdfmaker'
 
@@ -136,10 +137,15 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0)
-  		source = File.read(topic_file(topic, subpath))
+      if topic_file(topic,subpath) == 'docs/rhoelements/apicompatibility.txt'
+        source = Indicators.apimatrix_markdown()  
+      else        
+        source = File.read(topic_file(topic, subpath))
+      end
+      source = source
   		@topic = Topic.load(topic, source)
 		
-  		@title   = @topic.title
+  		@title   = @topic.title  + Indicators.load(topic_file(topic, subpath))
   		@content = @topic.content
   		@intro   = @topic.intro
   		@toc     = @topic.toc
