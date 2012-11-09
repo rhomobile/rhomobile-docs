@@ -251,7 +251,15 @@ For example:
 
 ## Testing Sync from the Client
 
-Make sure you are running redis. From the folder in which you app is located, run this command.
+From RhoStudio, select your RhoConnect project in the Project Explorer, and select Run->Run Configurations… from the menu. The Run Configurations window appears.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/run-configurations-rc.png"/>
+
+To create a new build configuration for your application, select RhoConnect Application. Then either right-click on RhoConnect Application or click the New button. A new configuration appears under RhoConnect Application. Click the Run button to run it.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/run-config-rhoconnect-new-rc.png"/>
+
+If you are working from the command line, first make sure you are running redis. From the folder in which your app is located, run this command.
 
 	:::term
 	$ rhoconnect redis-start
@@ -260,8 +268,6 @@ Then start (or restart) your server:
 
 	:::term
    	$ rhoconnect start
-
-**Note: The RhoConnect application must be run from the command line. It does not run from RhoStudio.**
 
 The code for the source adapter loads when the server starts. If you have a syntax error in your Ruby code, it will be reported and the server will not start; however, if you have a runtime error, that will not be reported until the source adapter is called.
 
