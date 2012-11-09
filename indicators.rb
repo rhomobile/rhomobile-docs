@@ -117,6 +117,7 @@ class Indicators
       if @api["msionly"]
         html = html + '<img src="/img/motowebkit.png">&nbsp;'
       end
+      html = html + "</p><p>"
       if @api["ios"]
         html = html + '<img src="/img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
       end
