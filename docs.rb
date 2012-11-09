@@ -145,7 +145,7 @@ xml_string +=  ' </rss>	'
       source = source
   		@topic = Topic.load(topic, source)
 		
-  		@title   = @topic.title  + Indicators.load(topic_file(topic, subpath))
+  		@title   = @topic.title  + Indicators.load('/' + subpath + '/' + topic + '/') 
   		@content = @topic.content
   		@intro   = @topic.intro
   		@toc     = @topic.toc
