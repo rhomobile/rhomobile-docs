@@ -1,5 +1,4 @@
 # Database API
-<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Access the Rho database. This is a JavaScript implementation of a subset of the [HTML5 WebSQL API](http://www.w3.org/TR/webdatabase/).
 

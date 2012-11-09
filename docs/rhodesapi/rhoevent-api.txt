@@ -1,5 +1,4 @@
 # Rho::RhoEvent API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Access a device's calendar and events.
 

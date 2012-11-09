@@ -1,5 +1,4 @@
 # Rho::RhoUtils API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Seed the Rhom database. For an example, see [Seeding the Database in Using the Local Database with Rhom](/rhodes/rhom#seeding-the-database).
 

@@ -1,5 +1,4 @@
 # Rhom API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Allows access to the Rhodes mini database object mapper, performing database operation on Rhodes model objects.
 

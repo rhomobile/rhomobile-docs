@@ -1,5 +1,4 @@
 # Rho::NFCTagTechnology Class API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;
 
 Use the NFCTagTechnology to connect to NFC tags and to determine their type. 
 

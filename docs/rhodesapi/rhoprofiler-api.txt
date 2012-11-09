@@ -1,5 +1,4 @@
 # RhoProfiler API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 To perform performance measurements or to find applications bottlenecks, you can use the RhoMobile Profiler API.
 
