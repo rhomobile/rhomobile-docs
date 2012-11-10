@@ -1,6 +1,5 @@
 
 #Code39code32prefix Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code39code32prefix Decoder Setting is used to set the Code39Code32prefix property which enables reporting of the Code32 prefix when a Code39 bar code is converted.

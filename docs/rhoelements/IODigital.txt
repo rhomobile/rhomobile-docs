@@ -1,6 +1,5 @@
 
 #IoDigital Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The IoDigital Module is used to interface with the device digital input and output ports. The IODigital class provides an interface for two IO subsystems: * Digital Inputs: up to 8 general purpose external input ports that may sense an external short either to the vehicle ground or to the vehicle battery voltage. * Digital Outputs: up to 8 general purpose external output ports (relay drive) that may be controlled to close or release an external short circuit.

@@ -1,6 +1,5 @@
 
 #I2of5convertToEan13 Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The I2of5convertToEan13 Decoder Setting is used to enable conversion from i2of5 to EAN13 bar code. If this flag is set, the bar code is converted to EAN13, and EAN13 parameters are used.

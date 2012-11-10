@@ -1,6 +1,5 @@
 
 #Code128ean128 Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code128ean128 Decoder Setting is used to set the code128-ean128 property to enable the EAN128 subtype.

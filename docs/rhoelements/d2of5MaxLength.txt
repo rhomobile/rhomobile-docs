@@ -1,6 +1,5 @@
 
 #D2of5maxLength Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The D2of5maxLength Decoder Setting is used to set the d2of5 MaxLength property. Setting this property will help prevent partial decoding of barcodes.

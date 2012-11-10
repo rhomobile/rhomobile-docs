@@ -1,6 +1,5 @@
 
 #Upce1convertToUpca Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Upce1convertToUpca Decoder Setting is used to enable conversion from upce1 to upca bar code. If this flag is set, the bar code is converted to upca, and upca parameters are used.

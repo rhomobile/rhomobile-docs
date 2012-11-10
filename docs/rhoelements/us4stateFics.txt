@@ -1,6 +1,5 @@
 
 #Us4stateFics Decoder
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Us4stateFics Decoder is used to enable or disable the US 4-state FICS decoder.

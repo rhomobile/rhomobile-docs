@@ -1,6 +1,5 @@
 
 #Registry Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Registry Module is used to write and delete registry settings, and create corresponding merge files.

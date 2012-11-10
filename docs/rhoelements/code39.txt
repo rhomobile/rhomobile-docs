@@ -1,6 +1,5 @@
 
 #Code39 Decoder
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code39 Decoder is used to enable or disable the Code39 decoder.

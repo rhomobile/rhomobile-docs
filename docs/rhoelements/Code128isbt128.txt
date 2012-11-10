@@ -1,6 +1,5 @@
 
 #Code128isBt128 Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code128isBt128 Decoder Setting is used to set the code128-isbt128 property to enable the isbt128 subtype.

@@ -1,6 +1,5 @@
 
 #FileTransfer Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The FileTransfer Module is used to send or receive files between the local filestore and either an FTP or HTTP site.

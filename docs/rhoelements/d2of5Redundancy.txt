@@ -1,6 +1,5 @@
 
 #D2of5redundancy Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The D2of5redundancy Decoder Setting is used to set the d2of5 Redundancy property. If this flag is set, the bar code must be decoded twice before being accepted.

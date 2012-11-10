@@ -1,6 +1,5 @@
 
 #UpcEanBooklandFormat Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The UpcEanBooklandFormat Decoder Setting is used to specify the bookland format to use for UPC EAN bookland barcodes.

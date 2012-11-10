@@ -1,6 +1,5 @@
 
 #Code39verifyCheckDigit Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code39verifyCheckDigit Decoder Setting is used to set the Code39 VerifyCheckDigit property which enables verification of the bar code check digit.

@@ -1,6 +1,5 @@
 
 #Upca Decoder
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Upca Decoder is used to enable or disable the upca decoder.

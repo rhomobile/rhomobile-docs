@@ -1,6 +1,5 @@
 
 #UpcEanRandomWeightCheckDigit Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The UpcEanRandomWeightCheckDigit Decoder Setting is used to enable or disable the upcEanRandomWeightCheckDigit property for random weight check digit verification.

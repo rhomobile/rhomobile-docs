@@ -1,6 +1,5 @@
 
 #MinimizeButton Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The MinimizeButton Module is used to set the parameters of the minimize button. When this button is clicked RhoElements will minimize and lose focus.

@@ -1,6 +1,5 @@
 
 #Code128other128 Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code128other128 Decoder Setting is used to set the code128other128 property to enable other (non EAN or ISBT) 128 subtype

@@ -1,6 +1,5 @@
 
 #Trioptic39 Decoder
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Trioptic39 Decoder is used to enable or disable the Trioptic39 decoder.

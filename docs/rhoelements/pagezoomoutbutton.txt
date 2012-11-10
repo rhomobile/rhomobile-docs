@@ -1,6 +1,5 @@
 
 #ZoomOutPageButton Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The ZoomOutPageButton Module is used to set the parameters of the ZoomOutPageButton. When clicked, the ZoomOutPage button zooms out the web page. There is a default zoom out step and a maximum zoom out level.

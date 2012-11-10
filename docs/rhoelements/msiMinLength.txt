@@ -1,6 +1,5 @@
 
 #MsiMinLength Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The MsiMinLength Decoder Setting is used to set the msi MinLength property. Setting this property will help prevent partial decoding of barcodes.

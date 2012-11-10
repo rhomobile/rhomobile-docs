@@ -1,6 +1,5 @@
 
 #StopButton Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The StopButton Module is used to set the parameters of the Stop Button. The Stop Button will only be displayed whilst a page is loading and when clicked will cease the current navigation and navigate to the badlink page (if defined), this prevents partially rendered pages being displayed in the browser.

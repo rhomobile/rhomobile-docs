@@ -1,6 +1,5 @@
 
 #Code128checkIsBtTable Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code128checkIsBtTable Decoder Setting decodes concatenated output only if the pair belongs to one of the commonly concatenated pairs as defined by the standard.

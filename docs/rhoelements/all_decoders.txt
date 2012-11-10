@@ -1,6 +1,5 @@
 
 #AllDecoders Decoder
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The AllDecoders Decoder is used to set the set the barcode scanner to read all barcode types that the scanner is capable of reading*.

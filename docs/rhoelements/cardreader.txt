@@ -1,6 +1,5 @@
 
 #CardReader Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The CardReader Module is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.

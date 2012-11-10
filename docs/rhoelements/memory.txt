@@ -1,6 +1,5 @@
 
 #Memory Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Memory Module is used to to retrieve the current available memory or notification of memory dropping below a user defined value.

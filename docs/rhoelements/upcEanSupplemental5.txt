@@ -1,6 +1,5 @@
 
 #UpcEanSupplemental5 Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The UpcEanSupplemental5 Decoder Setting is used to enable or disable upcEanSupplemental5 supplemental barcodes.

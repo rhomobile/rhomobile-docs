@@ -1,6 +1,5 @@
 
 #Upce1preamble Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Upce1preamble Decoder Setting is used to set the upce1-preamble property which controls the preamble applied to the bar code.

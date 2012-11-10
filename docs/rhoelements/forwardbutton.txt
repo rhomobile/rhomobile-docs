@@ -1,6 +1,5 @@
 
 #ForwardButton Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The ForwardButton Module is used to set the parameters of the Forward Button. When clicked the Forward button will navigate forward to the browser history, if possible.

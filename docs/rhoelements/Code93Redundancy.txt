@@ -1,6 +1,5 @@
 
 #Code93redundancy Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code93redundancy Decoder Setting is used to set the Code93 Redundancy property. If this flag is set, the bar code must be decoded twice before being accepted.

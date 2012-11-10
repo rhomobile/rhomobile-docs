@@ -1,6 +1,5 @@
 
 #Backlight Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Backlight Module is used to illuminate / extinguish the display backlight as well as setting the intensity of the backlight.

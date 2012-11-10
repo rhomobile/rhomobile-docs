@@ -1,6 +1,5 @@
 
 #Alarm Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Alarm Module is used to set an alarm and register an action to perform when that alarm fires.

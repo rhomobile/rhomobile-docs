@@ -1,6 +1,5 @@
 
 #Code39fullAscii Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Code39fullAscii Decoder Setting is used to set the Code39fullascii property which enables or disables full ASCII conversion of the bar code.

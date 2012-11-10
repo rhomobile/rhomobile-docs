@@ -1,6 +1,5 @@
 
 #Module META Tag
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Module META Tag is an action tag used to manage the applications running on your device.
