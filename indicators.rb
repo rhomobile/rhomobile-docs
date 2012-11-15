@@ -191,7 +191,7 @@ The following table shows the compatibility for each Mobile API.
   </tr>
 
   <tr>
-  <th></th>
+  <th>Click this row for sorting</th>
   <th></th>
   <th style="text-align:center">3.0+</th>
   <th style="text-align:center">2.3+</th>
