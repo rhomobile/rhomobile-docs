@@ -107,7 +107,57 @@ If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), 
 
 RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.
 
-First, create a file called "config.json" with the following content:
+Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis using:
+
+	:::term
+	$ rhoconnect redis-start
+
+Now start RhoConnect push by running the following:
+
+	:::term
+	$ rhoconnect-push
+	RhoConnect push server started...
+
+You can also start the server with more verbose logging (see next section for more details):
+
+	:::term
+	$ rhoconnect-push -d 3
+
+Next, make sure you have the following option in your RhoConnect application's `settings/settings.yml` file in the `:development:`, `:production:` and `:test:` sections:
+
+	:::yaml
+	:push_server: http://someappname@localhost:8675/
+
+Where `someappname` is a shared secret between your RhoConnect application and your mobile application.
+
+**NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this in your [mobile app's 'rhoconnect_push_appname' setting](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service). **
+
+Now setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
+
+#### Configuring RhoConnect Push
+
+You can control basic settings for RhoConnect push using the command line arguments:
+
+	:::term
+	$ rhoconnect-push --help
+
+	Usage: rhoconnect-push [options]
+
+	Available options:
+	  -c, --config FILE           Path to configuration (config.json) file
+	  -d, --debug LEVEL           Specify server debug level: 0 (errors) - 3 (everything)
+	  -e, --rcPort PORT           Specify RhoConnect instance port
+	  -h, --help                  Print this help message
+	  -i, --rcHost HOST           Host for the RhoConnect instance
+	  -k, --keyFile FILE          Path to private SSL keyfile (https only)
+	  -p, --port                  Run the server on this port (defaults to 8675)
+	  -r, --redis REDIS           Redis connection string (i.e. redis://localhost:6379)
+	  -s, --httpSecure            Specify if this server is running over https or http
+	  -t, --timeout TIMEOUT       Time (in ms) before timeout is sent to client
+	  -T, --registrationTimeout   Expiration limit for client registration tokens
+	  -v, --version               Display server version
+
+You can also configure more advanced settings in RhoConnect push by creating a config.json file:
 
 	:::json
 	{
@@ -129,7 +179,12 @@ First, create a file called "config.json" with the following content:
 		"debugLevel": "3"
 	}
 
-The JSON file has the following parameters.
+To start the server using a config.json file:
+
+	:::term
+	$ rhoconnect-push -c /path/to/config.json
+
+The JSON file has the following parameters:
 
 * `httpSecure` - Specify whether the push server will be an https or http server (y/n).
 * `devAuthHost` - RhoConnect instance used to handle device credentials.
@@ -152,33 +207,6 @@ The JSON file has the following parameters.
   * 2 - reserved for future use
   * 3 - print everything
 
-
-Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis.
-
-	:::term
-	$ rhoconnect redis-start
-
-Now start RhoConnect Push by running the following in a command line:
-
-	:::term
-	$ rhoconnect-push -c /path/to/your/config.json
-
-For example:
-
-	:::term
-	$ rhoconnect-push -c C:/dev/config.json
-
-Next, make sure you have the following option in your RhoConnect application's `settings/settings.yml` file in the `:development:`, `:production:` and `:test:` sections:
-
-	:::yaml
-	:push_server: http://someappname@localhost:8675/
-
-Where `someappname` is a shared secret between your RhoConnect application and your mobile application.
-
-**NOTE: This ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this in your [mobile app's 'rhoconnect_push_appname' setting](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service). **
-
-Now setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
-
 ## Testing Push in the RhoConnect Web Console
 
 The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.
@@ -191,7 +219,7 @@ Next, once you've logged into the web console, navigate to the user's page you u
 
 You should see a registered device for this user, for example: "c92e36874bc74f39a8fbd7c1a86f9e0e".  Click on the link for this device and you will see the device attributes:
 
-  	device_type: APPLE
+  device_type: APPLE
 	device_pin:	10fd92abfa8ee48155d9af6e7329086322b323fd0d18fdbd19e92d03c0fef7c8
 	device_port: 100
 	user_id: t
