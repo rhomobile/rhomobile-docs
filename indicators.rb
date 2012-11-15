@@ -175,7 +175,7 @@ The following table shows the compatibility for each Mobile API.
         "bAutoWidth": false});
 			} );
 		</script>
-<table class="table table-striped table-bordered table-condensed apicompat" width="120%" id="matrix">
+<table class="table table-striped table-bordered table-condensed apicompat" width="130%" id="matrix">
 <thead>
   <tr>
   <th style="text-align:center;vertical-align: middle;">API Name</th>
@@ -188,7 +188,8 @@ The following table shows the compatibility for each Mobile API.
   <th><img src="../img/bb.png"  style="width:30px;padding-top:6px;" rel="tooltip" title="BlackBerry Devices"></th>
   <th style="text-align:center;vertical-align: middle;"><img src="../img/rhodes.png" rel="tooltip" title="RhoMobile Simulator Included with RhoStudio">SIM</th>
   <th></th>
-  </tr>
+ <th></th>
+   </tr>
 
   <tr>
   <th>Click this row for sorting</th>
@@ -203,6 +204,7 @@ The following table shows the compatibility for each Mobile API.
   <th style="text-align:center">4.6+</th>
   <th></th>
   <th></th>
+  <th>Ver</th>
   </tr></thead><tbody>'
 
   @apidata.each { |api|  
@@ -287,6 +289,7 @@ The following table shows the compatibility for each Mobile API.
 	    <td style="text-align:center">' + bb + '</td>
 	    <td style="text-align:center">' + rhosim + '</td>
 	     <td> ' + msi + '</td>
+	     <td> ' + api["version_supported"] + '</td>
 	   </tr>'
 	    md = md + mdrow
 	end
