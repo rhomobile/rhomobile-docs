@@ -210,68 +210,68 @@ The following table shows the compatibility for each Mobile API.
   @apidata.each { |api|  
   	if api["visible"]
       if api["html"] == "true" or api["html"] == "lic"
-        html = '<span class="label label-info">H</span>&nbsp;'
+        html = '<span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements</span>'
       else
         html = ''
       end
       if api["js"]== "true" or api["js"] == "lic"
-        js = '<span class="label label-warning">J</span>&nbsp;'
+        js = '<span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements</span>'
       else
         js = ''
       end
       langclass = 'start1'
       if api["ruby"] == "lic"
-        ruby = '<span class="label label-important">R</span>&nbsp;'
+        ruby = '<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements</span>'
 
       else
         if api["ruby"]== "true"
-          ruby = '<span class="label">R</span>&nbsp;'
+          ruby = '<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>'
         else
           ruby = ''
           langclass = 'start2'
         end
       end
       if api["msionly"]
-        msi = "<img src='../img/motowebkit.png'><span style='display:none'>a</span>"
+        msi = "<img src='../img/motowebkit.png'><span style='display:none'>msi</span>"
       else msi = ''
       end
       if api["ios"]
-        ios = '<span class="icon-star"></span><span style="display:none">a</span>'
+        ios = '<span class="icon-star"></span><span style="display:none">ios</span>'
       else
         ios = ''
       end
       if api["android"]
-        android=  '<span class="icon-star"></span><span style="display:none">a</span>'
+        android=  '<span class="icon-star"></span><span style="display:none">android</span>'
       else
         android = ''
       end
       if api["win32"]
-        win32 = '<span class="icon-star"></span><span style="display:none">a</span>'
+        win32 = '<span class="icon-star"></span><span style="display:none">win32/span>'
       else
         win32 = ''
       end
       if api["win7"]
-        win7 =  '<span class="icon-star"></span><span style="display:none">a</span>'
+        win7 =  '<span class="icon-star"></span><span style="display:none">win7</span>'
       else
         win7 = ''
       end
       if api["wm"]
-        wm = '<span class="icon-star"></span><span style="display:none">a</span>'
+        wm = '<span class="icon-star"></span><span style="display:none">windows mobile</span>'
       else
         wm = ''
       end
       if api["wm"] or api["wince"]
-        wince = '<span class="icon-star"></span><span style="display:none">a</span>'
+        wince = '<span class="icon-star"></span><span style="display:none">ce wince</span>'
       else
         wince = ''
       end
       if api["bb"]
-        bb = '<span class="icon-star"></span><span style="display:none">a</span>'
+        bb = '<span class="icon-star"></span><span style="display:none">blackberry</span>'
       else
         bb = ''
       end
       if api["rhosim"]
-        rhosim = '<span class="icon-star"></span><span style="display:none">a</span>'
+        rhosim = '<span class="icon-star"></span><span style="display:none">simulator</span>'
       else
         rhosim = ''
       end
