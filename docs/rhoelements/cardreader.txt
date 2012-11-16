@@ -77,6 +77,9 @@ readEvent:URL('URI') URI is either a URL or a javascript function. If a URL, the
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader.  When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
+
 
 ##Remarks
 

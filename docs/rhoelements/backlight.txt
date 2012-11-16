@@ -76,6 +76,9 @@ The backlight display settings
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The backlight settings are application specific.  Switching to another application which uses the backlight module will cause the screen illumination settings to change to those of the application with focus. Only the application with Focus will have the ability to change the backlight settings. 
+
 
 ##Remarks
 

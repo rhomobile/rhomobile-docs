@@ -79,6 +79,9 @@ The Audio Save Event is called when the captured audio has been successfully tra
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to capture audio, when an application is sent to the background any capture that is in progress will be cancelled and it will automatically relinquish control of the Audio hardware.  When brought back to the foreground, an application previously using the audio capture will have its previous configuration (eg. name etc.) reapplied to the plugin automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.
+
 
 ##Remarks
 

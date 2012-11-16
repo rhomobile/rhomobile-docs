@@ -54,6 +54,9 @@ N/A
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to play the media files, when an application is sent to the background any playback that is in progress will be stopped and it will automatically relinquish control of the Audio/Video hardware.  When brought back to the foreground, an application previously using the media player will have its previous configuration (eg. name etc.) reapplied to the plugin automatically.
+
 
 ##Remarks
 

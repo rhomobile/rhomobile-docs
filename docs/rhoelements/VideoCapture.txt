@@ -78,6 +78,9 @@ The Video Save Event is called when the captured video has been successfully tra
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to capture video, when an application is sent to the background any capture that is in progress will be cancelled and it will automatically relinquish control of the video hardware.  When brought back to the foreground, an application previously using the video capture will have its previous configuration (eg. name etc.) reapplied to the plugin automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.
+
 
 ##Remarks
 

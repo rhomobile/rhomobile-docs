@@ -40,6 +40,9 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The hourglass settings are application specific.  Switching to another application which uses the hourglass module will apply the focused application's settings to it, e.g. it may move position or be shown / hidden.  Applications which do not have focus will not have their hourglass shown.
+
 
 ##Remarks
 

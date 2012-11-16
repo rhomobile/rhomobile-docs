@@ -138,6 +138,7 @@ Returns the current connection status
 
 
 
+
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">2.2 or above

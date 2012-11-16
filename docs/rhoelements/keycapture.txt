@@ -67,6 +67,9 @@ The TriggerEvent is invoked whenever a device hardware trigger is pressed or rel
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the application with Focus will have the ability to intercept or override keys.
+
 
 ##Remarks
 

@@ -88,6 +88,7 @@ Returns various parameters relating to battery charge and battery hardware. Not 
 
 
 
+
 ##Remarks
 
 

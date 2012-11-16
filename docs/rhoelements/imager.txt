@@ -110,6 +110,9 @@ Specifying an ImagerCaptureEvent will cause the captured image to be returned as
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to the imaging hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the imager.  When brought back to the foreground, an application previously using the imager will have its previous configuration (eg. whether it was enabled or not) reapplied to the imager automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background and capture will not have any effect on an application that is in the background.
+
 
 ##Remarks
 

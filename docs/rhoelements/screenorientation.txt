@@ -72,6 +72,9 @@ The screen orientation event is sent when the current RhoElements application ch
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The screen orientation settings are application specific.  Switching to another application which uses the ScreenOrientation module will cause the screen to be rotated automatically if necessary
+
 
 ##Remarks
 

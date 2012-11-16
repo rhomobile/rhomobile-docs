@@ -81,6 +81,9 @@ The EnumNotificationsEvent is triggered in response to calling the 'Enumerate' m
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the application with Focus will have the ability to enable/disable notifications. When an application is sent to background if there are any notifications in progress (vibrator, beeper etc.) they would be stopped.
+
 
 ##Remarks
 

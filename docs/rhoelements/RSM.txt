@@ -168,6 +168,9 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 
 
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to the device scanner, when an application is sent to the background its state will be saved and it will automatically relinquish control of the Scanner.  When brought back to the foreground, an application previously using the scanner will have its previous configuration (eg. selected decoders) reapplied to the scanner automatically.
+
 
 ##Remarks
 
