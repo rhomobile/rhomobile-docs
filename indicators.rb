@@ -315,7 +315,7 @@ The following table shows the compatibility for each Mobile API.
    </tbody></table>"
 
     md = md + '
-##API Matrix (MSI Devices)
+##API Matrix (MSI Devices)&nbsp;<img src="../img/motowebkit.png"/>
 <table class="table table-striped table-bordered table-condensed apicompat" width="130%" id="matrixmsi">
 <thead>
   <tr>
@@ -349,9 +349,7 @@ md = md +  mdmsirows + "</tbody></table>
 <tr><td><span class='label label-important'>R</span></td><td>Ruby API supported - license required</td></tr>
 <tr><td><span class='label label-warning'>J</span></td><td>Javascript API supported - license required</td></tr>
 <tr><td><span class='label label-info'>H</span></td><td>HTML META Tag API supported - license required</td></tr>
-<tr><td style='padding-top:20px;'>
-<img src='../img/motowebkit.png'/></td><td> APIs are only accesible when running on <a href='/rhoelements/rhoelements-introduction#_motdevices'>Motorola Devices</a>  
-</td></tr>  
+ 
 </table>
   "
   return md
