@@ -210,18 +210,18 @@ The following table shows the compatibility for each Mobile API.
   @apidata.each { |api|  
   	if api["visible"]
       if api["html"] == "true" or api["html"] == "lic"
-        html = '<span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements</span>'
+        html = '<span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>'
       else
         html = ''
       end
       if api["js"]== "true" or api["js"] == "lic"
-        js = '<span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements</span>'
+        js = '<span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>'
       else
         js = ''
       end
       langclass = 'start1'
       if api["ruby"] == "lic"
-        ruby = '<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements</span>'
+        ruby = '<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span>'
 
       else
         if api["ruby"]== "true"
@@ -246,22 +246,22 @@ The following table shows the compatibility for each Mobile API.
         android = ''
       end
       if api["win32"]
-        win32 = '<span class="icon-star"></span><span style="display:none">win32/span>'
+        win32 = '<span class="icon-star"></span><span style="display:none">win32 windows</span>'
       else
         win32 = ''
       end
       if api["win7"]
-        win7 =  '<span class="icon-star"></span><span style="display:none">win7</span>'
+        win7 =  '<span class="icon-star"></span><span style="display:none">win7 windows</span>'
       else
         win7 = ''
       end
       if api["wm"]
-        wm = '<span class="icon-star"></span><span style="display:none">windows mobile</span>'
+        wm = '<span class="icon-star"></span><span style="display:none">windows mobile windows</span>'
       else
         wm = ''
       end
       if api["wm"] or api["wince"]
-        wince = '<span class="icon-star"></span><span style="display:none">ce wince</span>'
+        wince = '<span class="icon-star"></span><span style="display:none">ce wince windows</span>'
       else
         wince = ''
       end
