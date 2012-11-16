@@ -193,6 +193,8 @@ JavaScript syntax:
 </tr>
 </table>
 
+NOTE: This API has no effect when running on the Blackberry platform. Map files are not cached.
+
 ## preload_map_tiles
 
 Preload a map tiles for a region defined by a zoom level range (0<=zoom<=18). This function requires some understanding about map engine funtionality, such as map tiles.
