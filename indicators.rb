@@ -13,8 +13,7 @@ class Indicators
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"AsyncHttp", "file"=>"/rhodesapi/asynchttp-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.2", "api"=>"AudioCapture", "file"=>"/rhoelements/AudioCapture/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>false,"rhosim"=>false},
 
-{"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BackButton", "file"=>"/rhoelements/backbutton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "
-  msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
+{"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BackButton", "file"=>"/rhoelements/backbutton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, " msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BackLight", "file"=>"/rhoelements/backlight/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Barcode", "file"=>"/rhodesapi/barcode-api/", "description"=>"", "html"=>"false", "js"=>"false", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Battery", "file"=>"/rhoelements/battery/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
@@ -50,10 +49,10 @@ class Indicators
 
 {"visible" => true, "category" => "", "version_supported" => "2.1", "api"=>"Memory", "file"=>"/rhoelements/memory/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Menu Apis", "file"=>"/rhodesapi/menu-apis/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Menu-Toolbar-Tabbar", "file"=>"/rhodesapi/menu-toolbar-tabbar-apis/", "description"=>"", "html"=>"true", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>true, "msionly"=>true,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Model Controller", "file"=>"/rhodesapi/model-controller-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>true},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"NativeTabbar", "file"=>"/rhodesapi/nativetabbar-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>true,"ios" => true,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>true},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"NativeToolbar", "file"=>"/rhodesapi/nativetoolbar-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>true,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Menu-Toolbar-Tabbar", "file"=>"/rhodesapi/menu-toolbar-tabbar-apis/", "description"=>"", "html"=>"true", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Model Controller", "file"=>"/rhodesapi/model-controller-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"NativeTabbar", "file"=>"/rhodesapi/nativetabbar-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"NativeToolbar", "file"=>"/rhodesapi/nativetoolbar-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"NavBar", "file"=>"/rhodesapi/navigationbar-iphone-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>false,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Network", "file"=>"/rhoelements/network/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"NdefMessage", "file"=>"/rhodesapi/NdefMessage-api/", "description"=>"", "html"=>"false", "js"=>"false", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => false,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
@@ -70,8 +69,7 @@ class Indicators
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Reload Button", "file"=>"/rhoelements/reloadbutton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.2", "api"=>"Rfid", "file"=>"/rhoelements/rfid/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 
-{"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Reboot", "file"=>"/rhoelements/reboot/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>
-  true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
+{"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Reboot", "file"=>"/rhoelements/reboot/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"RhoApplication", "file"=>"/rhodesapi/rhoapplication-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"RhoConfig", "file"=>"/rhodesapi/rhoconfig-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"RhoContact", "file"=>"/rhodesapi/rhocontact-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
@@ -107,7 +105,7 @@ class Indicators
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"WebView", "file"=>"/rhodesapi/webview-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Quit Button", "file"=>"/rhoelements/quitbutton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Zoom", "file"=>"/rhoelements/zoom/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
-{"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"ZoomTextButton", "file"=>"/rhoelements/zoomTextButton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true},
+{"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"ZoomTextButton", "file"=>"/rhoelements/zoomTextButton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 ];
 
   def self.load(fileid)
@@ -162,11 +160,18 @@ class Indicators
     md = '#Mobile API Compatibility 
 The following table shows the compatibility for each Mobile API.
 
-##API Matrix
+##API Matrix (All Devices)
 <script type="text/javascript" charset="utf-8">
 			/* Table initialisation */
 			$(document).ready(function() {
 				$("#matrix").dataTable({
+					"bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": false});
+				$("#matrixmsi").dataTable({
 					"bPaginate": false,
         "bLengthChange": false,
         "bFilter": true,
@@ -187,7 +192,6 @@ The following table shows the compatibility for each Mobile API.
   <th style="text-align:center"><img src="../img/wp7.png"  style="padding-top:6px;" rel="tooltip" title="Windows Phone 7 Devices"></th>
   <th><img src="../img/bb.png"  style="width:30px;padding-top:6px;" rel="tooltip" title="BlackBerry Devices"></th>
   <th style="text-align:center;vertical-align: middle;"><img src="../img/rhodes.png" rel="tooltip" title="RhoMobile Simulator Included with RhoStudio">SIM</th>
-  <th></th>
  <th></th>
    </tr>
 
@@ -203,10 +207,10 @@ The following table shows the compatibility for each Mobile API.
   <th style="text-align:center">7.0+</th>
   <th style="text-align:center">4.6+</th>
   <th></th>
-  <th></th>
   <th>Ver</th>
   </tr></thead><tbody>'
 
+	mdmsirows = ""
   @apidata.each { |api|  
   	if api["visible"]
       if api["html"] == "true" or api["html"] == "lic"
@@ -233,7 +237,7 @@ The following table shows the compatibility for each Mobile API.
       end
       if api["msionly"]
         msi = "<img src='../img/motowebkit.png'><span style='display:none'>msi</span>"
-      else msi = ''
+      else msi = '<span style="display:none">nonmsi</span>'
       end
       if api["ios"]
         ios = '<span class="icon-star"></span><span style="display:none">ios</span>'
@@ -276,7 +280,7 @@ The following table shows the compatibility for each Mobile API.
         rhosim = ''
       end
 
-
+      if !api["msionly"]
 	    mdrow = '<tr><td> <a href="' + api["file"] + '" rel="tooltip">' + api["api"] + '</a> </td>
 	    <td class="' + langclass + '">' + ruby + js + html +'</td>
 	    <td style="text-align:center">' + ios + '</td>
@@ -288,16 +292,53 @@ The following table shows the compatibility for each Mobile API.
 	    <td style="text-align:center">' + win7 + '</td>
 	    <td style="text-align:center">' + bb + '</td>
 	    <td style="text-align:center">' + rhosim + '</td>
-	     <td> ' + msi + '</td>
 	     <td> ' + api["version_supported"] + '</td>
 	   </tr>'
 	    md = md + mdrow
+      	
+      else
+	    mdrow = '<tr><td> <a href="' + api["file"] + '" rel="tooltip">' + api["api"] + '</a> </td>
+	    <td class="' + langclass + '">' + ruby + js + html +'</td>
+	    <td style="text-align:center">' + android + '</td>
+	    <td style="text-align:center">' + wm + '</td>
+	    <td style="text-align:center">' + wm + '</td>
+	    <td style="text-align:center">' + wince + '</td>
+	    <td> ' + api["version_supported"] + '</td>
+	   </tr>'
+	    mdmsirows = mdmsirows + mdrow
+      	
+      end
 	end
    }  
 
    md = md + "
-   </tbody></table>
+   </tbody></table>"
 
+    md = md + '
+##API Matrix (MSI Devices)
+<table class="table table-striped table-bordered table-condensed apicompat" width="130%" id="matrixmsi">
+<thead>
+  <tr>
+  <th style="text-align:center;vertical-align: middle;">API Name</th>
+  <th style="text-align:center;vertical-align: middle;">Languages</th>
+  <th style="text-align:center"><img src="../img/android.png" rel="tooltip" title="ET1 and Consumer Android Devices" style="width: 33px;padding-top: 6px;"></th>
+  <th colspan="3" style="text-align:center"><img src="../img/windowsembedded.png" style="width: 180px;padding-top: 10px" rel="tooltip" title="Windows Mobile/CE from any manufacturer"></th>
+  <th></th>
+   </tr>
+
+  <tr>
+  <th>Click this row for sorting</th>
+  <th></th>
+  <th style="text-align:center">2.3+</th>
+  <th style="text-align:center">WM6.1+</th>
+  <th style="text-align:center">WM6.5+</th>
+  <th style="text-align:center">CE6.0+</th>
+  <th>Ver</th>
+  </tr></thead><tbody>'
+
+
+
+md = md +  mdmsirows + "</tbody></table>
 
 **NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodes/device-caps#barcode), [NFC](/rhodes/device-caps#nfc), and [Inline Signature Capture](/rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](/rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements']( /rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
 
