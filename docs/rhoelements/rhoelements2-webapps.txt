@@ -215,7 +215,7 @@ The RhoElements Runtime is a prebuilt Rhodes application that launches in full s
 
 On the command line on your Windows PC, navigate to this folder:
 
-	<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2
+	<RhoMobile Suite Install Folder>\Rhoelements2
 
 To build, run this command.
 
