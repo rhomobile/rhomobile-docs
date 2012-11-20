@@ -1,12 +1,10 @@
 # Rho::AsyncHttp API
 
-Asynchronously make calls to http services.
+Asynchronously make calls to http services. For a discussion of connecting to web services, and for examples of AsyncHttp API methods, refer to [Connecting Directly to Web Services with Rhodes](/rhodes/connect-to-web-services).
 
 ## Using JavaScript API
 
 You can call the AsyncHttp methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
-
-JavaScript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins JavaScript API.
 
 You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
@@ -37,11 +35,11 @@ Download a file to the specified filename.
 Ruby syntax:
 
 	:::ruby
-	Rho::AsyncHttp.download_file(:url, :headers, :filename, :callback, :callback_params)
+	Rho::AsyncHttp.download_file(:url, :headers, :filename, :callback, :callback_param)
 
 JavaScript syntax:
 
-	Rho.AsyncHttp.download_file(url, headers, fileName, callback, callback_params)
+	Rho.AsyncHttp.download_file(url, headers, fileName, callback, callback_param)
 
 <table border="1">
 <tr>
@@ -61,8 +59,8 @@ JavaScript syntax:
 	<td>Callback function to execute when the request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_params</code></td>
-	<td>(optional) Hash of parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
+	<td><code>:callback_param</code></td>
+	<td>(optional) Hash of parameters to send to the callback. Parameters values should be url encoded, such as <code>:callback_param => "action=text&title=#{Rho::RhoSupport.url_encode(@params['page_title'])}"</code>. Values will be decoded automatically in callback</td>	
 </tr>
 </table>
 
@@ -75,11 +73,11 @@ Perform an HTTP GET request to the specified URL.
 Ruby syntax:
 
 	:::ruby
-	Rho::AsyncHttp.get(:url, :headers, :callback, :callback_params)
+	Rho::AsyncHttp.get(:url, :headers, :callback, :callback_param)
 
 JavaScript syntax:
 
-	Rho.AsyncHttp.get(url, headers, callback_function, callback_params)
+	Rho.AsyncHttp.get(url, headers, callback_function, callback_param)
 
 <table border="1">
 <tr>
@@ -95,8 +93,8 @@ JavaScript syntax:
 	<td>Callback action to execute when the request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_params</code></td>
-	<td>(optional) Parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
+	<td><code>:callback_param</code></td>
+	<td>(optional) Hash of parameters to send to the callback. Parameters values should be url encoded, such as <code>:callback_param => "action=text&title=#{Rho::RhoSupport.url_encode(@params['page_title'])}"</code>. Values will be decoded automatically in callback</td>	
 </tr>
 <tr>
 	<td><code>:authentication</code></td>
@@ -108,7 +106,7 @@ JavaScript syntax:
 </tr>
 </table>
 
-The authentication parameter is a hash with parameters such as the following.
+The authentication parameter is a hash with parameters such as the following. [Click for an example of setting the authentication parameter in get.](/rhodes/connect-to-web-services#asynchttp-get-ex)
 
 <table border="1">
 <tr>
@@ -134,10 +132,10 @@ Perform HTTP POST request to the specified URL.
 Ruby syntax:
 
 	:::ruby
-	Rho::AsyncHttp.post(:url, :headers, :body, :callback, :callback_params)
+	Rho::AsyncHttp.post(:url, :headers, :body, :callback, :callback_param)
 
 JavaScript syntax:
-	Rho.AsyncHttp.post(url, headers, body, callback_function, callback_params)
+	Rho.AsyncHttp.post(url, headers, body, callback_function, callback_param)
 
 <table border="1">
 <tr>
@@ -157,8 +155,8 @@ JavaScript syntax:
 	<td>Callback action to execute when the request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_params</code></td>
-	<td>(optional) Parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
+	<td><code>:callback_param</code></td>
+	<td>(optional) Hash of parameters to send to the callback. Parameters values should be url encoded, such as <code>:callback_param => "action=text&title=#{Rho::RhoSupport.url_encode(@params['page_title'])}"</code>. Values will be decoded automatically in callback</td>	
 </tr>
 <tr>
 	<td><code>:authentication</code></td>
@@ -174,7 +172,7 @@ JavaScript syntax:
 </tr>
 </table>
 
-The authentication parameter is a hash with parameters such as the following.
+The authentication parameter is a hash with parameters such as the following. [Click for an example of setting the authentication parameter in get.](/rhodes/connect-to-web-services#asynchttp-get-ex)
 
 <table border="1">
 <tr>
@@ -200,11 +198,11 @@ Upload the specified file using HTTP POST.
 Ruby syntax:
 
 	:::ruby
-	Rho::AsyncHttp.upload_file(:url, :headers, :filename, :body, :callback, :callback_params)
+	Rho::AsyncHttp.upload_file(:url, :headers, :filename, :body, :callback, :callback_param)
 
 JavaScript syntax:
 
-	Rho.AsyncHttp.upload_file(url, headers, fileName, body, callback, callback_params)
+	Rho.AsyncHttp.upload_file(url, headers, fileName, body, callback, callback_param)
 
 <table border="1">
 <tr>
@@ -228,8 +226,8 @@ JavaScript syntax:
 	<td>Callback function to execute when the upload request is done.</td>
 </tr>
 <tr>
-	<td><code>:callback_params</code></td>
-	<td>(optional) hash of parameters to send to the callback. Parameters values should be url encoded with [RhoSupport.url_encode](/rhodes/application#rhosupport-class).</td>
+	<td><code>:callback_param</code></td>
+	<td>(optional) Hash of parameters to send to the callback. Parameters values should be url encoded, such as <code>:callback_param => "action=text&title=#{Rho::RhoSupport.url_encode(@params['page_title'])}"</code>. Values will be decoded automatically in callback</td>	
 </tr>
 </table>
 
@@ -297,17 +295,4 @@ In the case of a JSON response (Content-Type=“application/json”), the `@para
 
 In the case of an XML response (Content-Type=“application/xml”), Rhodes can automatically parse the @params["body"] as well if you enable the “rexml extension” in your application.
 
-## Sample call
-
-	:::ruby
-	Rho::AsyncHttp.get(
-	  :url => "http://www.example.com",
-	  :headers => {"Cookie" => cookie},
-	  :callback => (url_for :action => :httpget_callback),
-	  :authentication => {
-	    :type => :basic, 
-	    :username => "john", 
-	    :password => "secret"
-	  }
-	)
 
