@@ -157,6 +157,8 @@ You can control basic settings for RhoConnect push using command line arguments.
 	  -T, --registrationTimeout   Expiration limit for client registration tokens
 	  -v, --version               Display server version
 
+#### Configuring and Running with config.json Advanced Options
+
 You can also configure more advanced settings in RhoConnect push by creating a config.json file.
 
 	:::json
