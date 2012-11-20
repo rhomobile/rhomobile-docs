@@ -6,8 +6,6 @@ Allows the device to take a signature and save it as an image. See the controlle
 
 You can call the SignatureCapture methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
 
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
-
 You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
 	:::yaml

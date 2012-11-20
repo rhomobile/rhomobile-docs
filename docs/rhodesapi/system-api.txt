@@ -8,8 +8,6 @@ For code examples, see [Rhodes System API Samples view file](https://github.com/
 
 You can call some of the System methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
 
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
-
 The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
 
 	Rho.Class.method(params).done(function(handler) { /* handler... */ })
@@ -20,7 +18,6 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	extensions: ["rho-javascript"]
 
 You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
-
 
 ## get_property
 
