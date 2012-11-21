@@ -73,6 +73,16 @@ Via build.yml for Native Applications (iOS and Non-MSI Android): If you are deve
 
 Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. For development purposes on a single device, a device specific license can be used in the build.yml.  
 
+For hybrid applications, you can define your device license and company name in your config.xml file as follows:
+
+	  <Applications>
+	    <Application > 
+	       <LicenseKeyCompany value="Deployment License Company name"/>
+	       <LicenseKey value="Deployment License Number"/>
+
+	       ...
+	    </Application > 
+	  </Applications>
 
 ## Application Licensing
 
@@ -110,26 +120,20 @@ For native applications, you should define your application license in your buil
 
 NOTE: Do not include motorola_license_company to build.yml, overwise application license will not be used.
 
-For hybrid applications, you should define your application license in your config.xml file as follows:
+For hybrid applications, you should define your application license and application name in your config.xml file as follows:
 
 	  <Applications>
 	    <Application > 
-	       <LicenseKeyCompany value=" Company Name"/>
 	       <LicenseKey value="@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq"/>
+           <General>
+              <Name value="Menu"/> set to the application name you applied for.
+              <StartPage value="file://%INSTALLDIR%\HTML\Menu.htm" name="Menu"/> THIS FIELD HAS NO EFFECT ON THE APPLICATION LICENSE. The Name=Menu here should be removed from future versions, it has been there since PocketBrowser 3.0 and serves no purpose.
+           </General>
+
 	       ...
 	    </Application > 
 	  </Applications>
 
-For Windows and Android applications, you should define your application license in your config.xml file as follows:
-
-      <General>
-        <Name value="Menu"/> set to the application name you applied for.
-        
-        <StartPage value="file://%INSTALLDIR%\HTML\Menu.htm" name="Menu"/> THIS FIELD HAS NO EFFECT ON THE APPLICATION LICENSE. The Name=Menu here should be removed from future versions, it has been there since PocketBrowser 3.0 and serves no purpose.
-        
-        <LicenseKey value="`3L-r]lQ`*kba9tBPg1`@uQ;WeqM7c/5v/0m`bR1`Wt;jQErbhF@aM7;LMlZjhV_`ycprRpuLxU-WgODH#jFb-UAWYwOcL0^/EFw2ygyIrs2mt5XTgVedgo7az.qP/FF_01XJitYm4BYS*E``?Ukbjsi6y0vT0V5dBoRqF..P:Fc_45#Jb4oKMF+ag19b$1+7Yw%7407XVsva6jCvj0LX*tAJkt|L]k;J/lzICpHTFlJ.[;a"/>
-        
-      </General>
  
 
 
