@@ -4,6 +4,21 @@ Access geolocation information from your device.
 
 See the controller and view in the [/app/GeoLocation folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) application for an example.
 
+## Using JavaScript API
+
+You can call the MapView methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+
 ## Enabling Geolocation
 
 To use the geolocation API, you need to enable geolocation on the device. Do this by adding that capability to the build.yml file:
@@ -15,8 +30,6 @@ To use the geolocation API, you need to enable geolocation on the device. Do thi
 ## Using JavaScript API
 
 You can call the GeoLocation methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
-
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
 
 The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
 

@@ -71,6 +71,7 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/application',      'Application'
   topic 'rhodesapi/appapplication-api',             'AppApplication'
   topic 'rhodesapi/asynchttp-api',             'AsyncHttp'
+  topic 'rhoelements/AudioCapture',      'AudioCapture'
   topic 'rhoelements/backbutton',      'BackButton'
   topic 'rhoelements/backlight',      'Backlight'
   topic 'rhodesapi/barcode-api',             'Barcode'
