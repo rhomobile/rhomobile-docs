@@ -4,6 +4,8 @@ Allows the user to choose date and time.
 
 See controller.rb and index.erb view in the [/app/DateTime folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/DateTime) application for an example.
 
+You can also execute DataTimePicker via AJAX call for set date/time without leaving the page. (Currently implemented for Android, iPhone and Blackberry.) See controller.rb and index.erb view in the /app/DateTimeAJ folder of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/DateTimeAJ) for more information about execute Date/Time Picker via AJAX call. This example demonstrates setting date/time without leaving the page.
+
 ## choose
 
 Opens a window where the user can choose date and time.
@@ -36,6 +38,8 @@ Opens a window where the user can choose date and time.
 
 ## choose_with_range
 
+Opens a window where the user can choose date and time from a range.
+
 	:::ruby
 	DateTimePicker.choose_with_range(callback, title, initial_time, fmt, user_data, mindatetime, maxdatetime)
 
@@ -58,7 +62,7 @@ Opens a window where the user can choose date and time.
 </tr>
 <tr>
 	<td><code>user_data</code></td>
-	<td>(optional) </td>
+	<td>(optional) This string is non-interpreted and will be returned in the callback, unmodified.</td>
 </tr>
 <tr>
 	<td><code>mindatetime</code></td>
@@ -85,6 +89,8 @@ Opens a window where the user can choose date and time.
 </table>
 
 ## callback method
+
+Once the user chooses a date/time and presses OK or Cancel, the callback URL you specified will be called. The callback is a POST message; the body of the message contains 'status', 'result', and if provided, 'user_data'.
 
 The callback method uses the following parameters.
 
