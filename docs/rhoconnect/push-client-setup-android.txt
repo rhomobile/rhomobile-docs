@@ -13,18 +13,18 @@ Enable push in your rhodes application in build.yml.
 
 ## Setting up the Rhodes Client for Android (GCM)
 
-You may read common [GCM docs](http://developer.android.com/guide/google/gcm/index.html) at google developer site.
-In order to use the service, you need to create your Google API project (or use an existing one). To do so please follow Google [GCM Getting Started](http://developer.android.com/guide/google/gcm/gs.html) guide. Here you need to follow
+You may read common [GCM docs](http://developer.android.com/guide/google/gcm/index.html) at the Google developer site.
+In order to use the service, you need to create your Google API project (or use an existing one). To do so, please follow Google [GCM Getting Started](http://developer.android.com/guide/google/gcm/gs.html) guide. You need to perform the following instructions from Getting Started.
 
-1. Creating a Google API project
-2. Enabling the GCM Service
-3. Obtaining an API Key
+1. Creating a Google API project.
+2. Enabling the GCM Service.
+3. Obtaining an API Key.
 
-All other staff is done for you by Rhodes.
+All other setup is done for you by Rhodes.
 
 ### Guidelines
 
-Here are some guidelines for developing and testing an Android application that uses the C2DM feature:
+Here are some guidelines for developing and testing an Android application that uses the GCM feature.
 
 * To develop and test your GCM applications, you need to run and debug the applications on an Android 2.2 system image that includes the necessary underlying Google services. 
 * To develop and debug on an actual device, you need a device running an Android 2.2 system image that includes the Market application. 
