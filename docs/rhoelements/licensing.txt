@@ -26,7 +26,7 @@ To obtain a license for RhoElements, you should contact us or your resell partne
 
 An application license is a completely separate concept from a device license and should be used when you only want to license a single RhoElements application without wanting to license RhoElements across the entire device.  Application licenses take precedence over device licenses and will prevent the splash screen from being displayed.
 
-Application licenses are currently only applicable for Android, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
+Application licenses are currently only applicable for Android, iPhone, Windows Mobile, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
 
 For hybrid applications, the license will define a series of URLs which are navigable from the application, these URLs can also include wildcards so it is not necessary to specify every file which comprises the app. When an application license is in effect, the following URLs are exempt from licensing:
 
