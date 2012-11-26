@@ -221,7 +221,7 @@ To build, run this command.
 
         rake device:wm:production
 
-The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
+The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\RhoElements2\bin\target\<platform_id>\RhoElements2.cab`.
 
 ### Building Custom RhoElements Runtime for Android
 
@@ -229,11 +229,11 @@ On the Macintosh, the RhoElements Runtime project is located in the Motorola Rho
 
 Copy the RhoElements2 project folder to your Macintosh at a location where you can run your RhoElements/Ruby rake commands. One way you can do this is to import this project into RhoStudio.
 
-To build for Android, run this command from the RhoElements2 directory on your Windows PC (`<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2`) or the location where you imported the RhoElements2 project from the RhoMobile Suite Installer for Mac.
+To build for Android, run this command from the RhoElements2 directory on your Windows PC (`<RhoMobile Suite Install Folder>\RhoElements2`) or the location where you imported the RhoElements2 project from the RhoMobile Suite Installer for Mac.
 
         rake device:android:production
 
-The resulting `apk` file can be found in the RhoElements2 project `\bin\target folder`, such as at `<RhoMobile Suite Install Folder>\ruby\lib\ruby\gems\1.8\gems\rhoelements-2.0.0\RhoElements2\bin\target\RhoElements2.apk`.
+The resulting `apk` file can be found in the RhoElements2 project `\bin\target folder`, such as at `<RhoMobile Suite Install Folder>\RhoElements2\bin\target\RhoElements2.apk`.
 
 ### Deploying The Customized Runtime 
 
