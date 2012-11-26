@@ -171,6 +171,10 @@ The following table shows the compatibility for each Mobile API.
         "bFilter": true,
         "bSort": true,
         "bInfo": false,
+        "bRetrieve": true, 
+  		"bProcessing": true,
+  		"bDestroy": true,
+  		"bStateSave": true,
         "bAutoWidth": false});
 				$("#matrixmsi").dataTable({
 					"bPaginate": false,
@@ -178,6 +182,10 @@ The following table shows the compatibility for each Mobile API.
         "bFilter": true,
         "bSort": true,
         "bInfo": false,
+        "bRetrieve": true, 
+  		"bProcessing": true,
+  		"bDestroy": true,
+  		"bStateSave": true,
         "bAutoWidth": false});
 			} );
 		</script>
