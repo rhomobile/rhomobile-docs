@@ -102,6 +102,7 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhoelements/keystate',      'KeyState'
   topic 'rhoelements/Keylight',      'Key Light'
   topic 'rhodesapi/mapview-api',             'MapView'
+  topic 'rhoelements/mediaPlayer',             'MediaPlayer'
   topic 'rhoelements/memory',             'Memory'
   topic 'rhoelements/minimizebutton',      'MinimizeButton'
   topic 'rhodesapi/menu-apis',            'Menu APIs'
@@ -162,7 +163,9 @@ section 'rhodesapi-reference', 'API List' do
   topic 'rhodesapi/timer-api',             'Timer API'
   topic 'rhoelements/timer',      'Timer'
   topic 'rhoelements/topcommandarea',      'TopCommandArea'
+  topic 'rhoelements/VideoCapture',             'VideoCapture'
   topic 'rhoelements/volume',      'Volume'
+  topic 'rhoelements/wake',             'Wake'
   topic 'rhodesapi/webview-api',             'WebView'
   topic 'rhoelements/quitbutton',      'Quit Button'
   topic 'rhoelements/zoom',      'Zoom'
@@ -203,6 +206,7 @@ section 'rhoelementsapi-device', 'Device Capabilities' do
 
   topic 'rhoelements/alarm',      'Alarm'
   topic 'rhoelements/application',      'Application'
+  topic 'rhoelements/AudioCapture',      'AudioCapture'
   topic 'rhoelements/backlight',      'Backlight'
   topic 'rhodesapi/camera-api',             'Camera'
   topic 'rhoelements/comm','Comm'
@@ -216,6 +220,7 @@ section 'rhoelementsapi-device', 'Device Capabilities' do
   topic 'rhoelements/key_capture_overview',      'Key Capture Overview'
   topic 'rhoelements/keycapture',      'KeyCapture'
   topic 'rhoelements/Keylight',      'Key Light'
+  topic 'rhoelements/mediaPlayer',             'MediaPlayer'
   topic 'rhoelements/memory',             'Memory'
   topic 'rhoelements/notification',      'Notification'
   topic 'rhoelements/nosip',      'NoSIP'
@@ -236,6 +241,7 @@ section 'rhoelementsapi-device', 'Device Capabilities' do
   topic 'rhoelements/systemTime',      'SystemTime'
   topic 'rhodesapi/timer-api',             'Timer API'
   topic 'rhoelements/timer',      'Timer'
+  topic 'rhoelements/VideoCapture',             'VideoCapture'
   topic 'rhoelements/volume',      'Volume'
   topic 'rhoelements/zoom',      'Zoom'
 end
@@ -300,6 +306,7 @@ section 'rhodesapi-web-sync', 'File Management and Syncing' do
   topic 'rhoelements/push',      'Push'
   topic 'rhodesapi/rhomsource-api',             'RhomSource'
   topic 'rhodesapi/syncengine-api',             'SyncEngine'
+  topic 'rhoelements/wake',             'Wake'
 end
 
 section 'rhoconnect', 'RhoConnect'

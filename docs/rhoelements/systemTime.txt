@@ -53,6 +53,10 @@ Once the sntpServerIp tag is parsed RhoElements will request the time from the S
 Windows Mobile 5.0 will not allow you to obtain SNTP time when requesting via a proxy server, it is recommended the proxy is bypassed for this to work.
 
 
+###Time Zone
+The Time Zone location string (Windows CE) is not supported. The timezone offset from GMT will be correctly set, but the geographical location will not be set.
+
+
 
 
 ##Requirements
