@@ -81,7 +81,11 @@
 									<% if topic_path == slug %>
 										<li class="current"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
 									<% else %>
+										<% if slug != 'rhoelements/apicompatibility' %>
 										<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
+										<%else%>
+										<li><a  href="/<%= slug %>"><%=h title %></a></li>
+										<%end %>
 									<% end %>
 								<% end %>
 							</ul>

@@ -188,6 +188,7 @@ The following table shows the compatibility for each Mobile API.
   		"bStateSave": true,
         "bAutoWidth": false});
 			} );
+
 		</script>
 <table class="table table-striped table-bordered table-condensed apicompat" width="130%" id="matrix">
 <thead>
