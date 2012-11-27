@@ -2,7 +2,7 @@ $(document).ready(function() {
 	$(".js-pjax").pjax({
 		container: "#t_content",
 		fragment: "#rendered_topic",
-		timeout: 4000,
+		timeout: 4000
 	});
 	// Update the current topic
 	$("#t_content").live('pjax:end', function(e, xhr, err) {
