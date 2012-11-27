@@ -1,20 +1,15 @@
 # RhomSource API
 
-Exposes sync information, which you can use for alerts, status pages, and so on. For some examples, refer to [Accessing Sync Info with RhomSource in Using the Local Database with Rhom](/rhodes/rhom#accessing-sync-info-with-rhomsource).
+Exposes sync information, which you can use for alerts, status pages, and so on. 
 
-## distinct_objects
-
-Returns the number of records for this source.
-
-	:::ruby
-	RhomSource.distinct_objects
+For some examples, refer to [Accessing Sync Info with RhomSource in Using the Local Database with Rhom](/rhodes/rhom#accessing-sync-info-with-rhomsource).
 
 ## find
 
-Returns a RhomSource object.
+Returns a RhomSource object. Refer to [Accessing Sync Info with RhomSource](/rhodes/rhom#accessing-sync-info-with-rhomsource) for an example.
 
 	:::ruby
-	RhomSource.find(source_name)
+	@source = RhomSource.find(source_name)
 
 <table border="1">
 <tr>
@@ -23,51 +18,58 @@ Returns a RhomSource object.
 </tr>
 </table>
 
-## last_deleted_size
+## distinct_objects
 
-Returns the number of records deleted on last sync.
+Returns the number of records for this source.
 
 	:::ruby
-	RhomSource.last_deleted_size
+	@source.distinct_objects
+
+## last_deleted_size
+
+Returns the number of records deleted on the last sync.
+
+	:::ruby
+	@source.last_deleted_size
 
 ## last_inserted_size
 
 Returns the number of records inserted on last sync.
 
 	:::ruby
-	RhomSource.last_inserted_size
+	@source.last_inserted_size
 
 ## last_sync_duration
 
-Returns the duration in seconds of the last sync for this source.
+Returns the duration in milliseconds of the last sync for this source.
 
 	:::ruby
-	RhomSource.last_sync_duration
+	@source.last_sync_duration
 
 ## last_sync_success
 
 Returns 1 if last sync was successful, 0 if it failed.
 
 	:::ruby
-	RhomSource.last_sync_success
+	@source.last_sync_success
 
 ## last_updated
 
-Returns the last time the source was synchronized, in `Time.at` format.
+Returns the last time the source was synchronized in `Time.at` format, such as "Wed Jan 19 18:35:05 -0800 2011". Refer to [Accessing Sync Info with RhomSource](/rhodes/rhom#accessing-sync-info-with-rhomsource) for examples.
 
 	:::ruby
-	RhomSource.last_updated
+	@source.last_updated
 
 ## name
 
-Returns the name of the source.
+Returns a string: the name of the source (such as "Product").
 
 	:::ruby
-	RhomSource.name
+	@source.name
 
 ## source_id
 
-Returns the id of a source.
+Returns the id number of a source.
 
 	:::ruby
-	RhomSource.source_id
+	@source.source_id
