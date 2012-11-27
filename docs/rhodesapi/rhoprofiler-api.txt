@@ -2,6 +2,8 @@
 
 To perform performance measurements or to find applications bottlenecks, you can use the RhoMobile Profiler API.
 
+Refer to [RhoProfiler Ruby API Examples](/rhodes/test-log-debug#rhomsource-examples) for examples.
+
 To enable RhoProfiler, set this in your application build.yml.
 
 	profiler: 1
@@ -28,10 +30,9 @@ Sqlite database (Native).
 
 * ‘SQLITE_EXEC’ – sqlite3_step time only.
 
-To Enable Ruby Garbage collector logging modify rhoconfig.txt(set log level to Trace):
+To Enable Ruby Garbage collector logging modify rhoconfig.txt (set log level to Trace):
 
 	MinSeverity = 0
-
 
 ## create_counter
 
@@ -107,7 +108,7 @@ Get the log information from a counter (Local or Global). The counter does not h
 </tr>
 </table>
 
-# start_created_counter
+## start_created_counter
 
 Start a global counter. The counter will start only if it is a previously created global counter.
 
