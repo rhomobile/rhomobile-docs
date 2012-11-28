@@ -1,3 +1,5 @@
+# RhoConnect Heroku Addon
+
 RhoConnect is a data synchronization server and client library that keeps enterprise app data current and available on users’ mobile devices.
 
 The information is stored locally on a user’s device, and is available even when disconnected and offline.
