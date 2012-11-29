@@ -86,6 +86,10 @@ When multiple RhoElememts applications are running the following considerations 
 ##Remarks
 
 
+###Rhodes Applications
+If your application is a 'Rhodes' application then AudioCapture will create a WAV format file with 22050 Hz 16 bit MONO. The destination property only supports a local path. The Code and Username/Password properties are not used. If your application is 'rhoelements' type application, then AudioCapture is automatically added to the application. If your application is built for Android and your application is 'rhoelements' type and you do not setup 'non_motorola_device' capability, then the AudioCapture native extension is removed from the application automatically because in this case, the application already has Motorola rhoelements extension with implementation of the same AudioCapture API.
+
+
 ###Buffer full
 Once duration has been reached the audio file will be saved or transferred. Calling 'stop' once this has occurred will have no effect.
 

@@ -107,6 +107,10 @@ As some of the sensor values change rapidly the minimum interval between two upd
 As this plugin returns the raw sensor values reported by the operating system the values might differ between platforms.
 
 
+###Javascript and Meta-Tag Support
+On iOS devices and non Motorola Solutions Windows Mobile/CE devices, only the Ruby interface is currently available. On all Android and Motorola Solutions devices all language interfaces are supported.
+
+
 
 
 ##Requirements
