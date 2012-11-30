@@ -21,7 +21,8 @@ To Set rfid parameters via JavaScript use the following syntax: rfid.parameter =
 To Set rfid return events via JavaScript use the following syntax: rfid.event = Javascript Function;
 <P />e.g. <b>rfid</b>.enumRFIDEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: rfid.setEMML("[Your EMML Tags]");
 <P />
@@ -38,8 +39,8 @@ To Set Rfid parameters via Ruby use the following syntax: Rfid.parameter = 'valu
 To Set Rfid return events via Ruby use the following syntax: Rfid.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Rfid</b>.enumRFIDEvent = url_for(:action =&gt; :rfid_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	

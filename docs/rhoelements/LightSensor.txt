@@ -21,7 +21,8 @@ To Set lightsensor parameters via JavaScript use the following syntax: lightsens
 To Set lightsensor return events via JavaScript use the following syntax: lightsensor.event = Javascript Function;
 <P />e.g. <b>lightsensor</b>.LightSensorEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: lightsensor.setEMML("[Your EMML Tags]");
 <P />
@@ -38,8 +39,8 @@ To Set Lightsensor parameters via Ruby use the following syntax: Lightsensor.par
 To Set Lightsensor return events via Ruby use the following syntax: Lightsensor.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Lightsensor</b>.LightSensorEvent = url_for(:action =&gt; :lightsensor_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	

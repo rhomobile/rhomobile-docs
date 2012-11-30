@@ -18,7 +18,8 @@ To Invoke cradle methods via JavaScript use the following syntax: cradle.method(
 To Set cradle return events via JavaScript use the following syntax: cradle.event = Javascript Function;
 <P />e.g. <b>cradle</b>.cradleEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: cradle.setEMML("[Your EMML Tags]");
 <P />
@@ -32,8 +33,8 @@ To Invoke Cradle methods via Ruby use the following syntax: Cradle.method()
 To Set Cradle return events via Ruby use the following syntax: Cradle.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Cradle</b>.cradleEvent = url_for(:action =&gt; :cradle_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
 	

@@ -18,7 +18,8 @@ To Set keyCapture parameters via JavaScript use the following syntax: keycapture
 To Set keyCapture return events via JavaScript use the following syntax: keycapture.event = Javascript Function;
 <P />e.g. <b>keyCapture</b>.keyEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: keycapture.setEMML("[Your EMML Tags]");
 <P />
@@ -33,8 +34,8 @@ To Set KeyCapture parameters via Ruby use the following syntax: KeyCapture.param
 To Set KeyCapture return events via Ruby use the following syntax: KeyCapture.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>KeyCapture</b>.keyEvent = url_for(:action =&gt; :keycapture_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
 
