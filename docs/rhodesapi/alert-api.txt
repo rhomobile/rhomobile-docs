@@ -3,6 +3,8 @@
 
 Call system alert methods for popup, vibrate, or playing audio files.
 
+For examples of using the Alert API methods, refer to [Alerts in Device Capabilities](/rhodes/device-caps#alerts).
+
 ## Enabling Vibration
 
 To use the vibrate method, you need to enable vibration on the device. Do this by adding that capability to the build.yml file:
@@ -38,7 +40,7 @@ Play an audio file if that media type is supported by the device.
 
 ## show_popup
 
-Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash.
+Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on the button.
 
 [Click for an example of show_popup with a button and callback.](/rhodes/device-caps#alerts)
 
@@ -71,11 +73,11 @@ Bring the application up front and show a message in a popup window. The message
 	</tr>
 	<tr>
 		<td><code>:icon</code></td>
-		<td>path to an image, or :alert for ! icon, :question for ? icon, :info for information icon.</td>
+		<td>Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon.</td>
 	</tr>
 	<tr>
 		<td><code>:buttons</code></td>
-		<td>array of buttons. Specify each button either by hash with :id and :title keys, or by a string.</td>
+		<td>array of buttons. Specify each button either by hash with :id and :title keys, or by a string where id and title are set to the string value.</td>
 	</tr>
 	<tr>
 		<td><code>:callback</code></td>
@@ -83,22 +85,9 @@ Bring the application up front and show a message in a popup window. The message
 	</tr>
 </table>
 
-Example call:
-
-	:::ruby
-	Alert.show_popup( {
-	    :message => 'Some message', 
-	    :title => 'Custom title', 
-	    :icon => '/public/images/icon.png',
-	    :buttons => ["Yes", "No", 
-	        {:id => 'cancel', :title => 'Cancel all'}],
-	    :callback => url_for(:action => :on_dismiss_popup) } )
-
 ## show_status
 
 Display a window containing a status message. The window closes after the user clicks on its hide button.
-
-[Click for an example of show_status.](/rhodes/device-caps#alert-show-status-ex)
 
 	:::ruby
 	Alert.show_status(title, status_text, hide_button_label)

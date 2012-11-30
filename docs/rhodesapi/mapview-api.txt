@@ -2,6 +2,8 @@
 
 Provides an embeddable map interface. See [GeoLocation/controller.rb of System API sample application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) for some examples of using the MapView class.
 
+There are several settings you should know when you use the MapView API, such as setting . Refer to the [MapView settings in Device Capabilities](/rhodes/device-caps#mapview-settings).
+
 ## Using JavaScript API
 
 You can call the MapView methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
@@ -19,7 +21,7 @@ You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScr
 
 ## create
 
-Create a map on your device.
+Create a map on your device. [Click here for an example of MapView create](/rhodes/device-caps#mapview-example-create).
 
 Ruby syntax:
 
@@ -29,6 +31,10 @@ Ruby syntax:
 JavaScript syntax:
 
 	Rho.MapView.create(map_params)
+
+### map_params hash
+
+[Click here for an example of MapView create, which sets the map_params hash](/rhodes/device-caps#mapview-example-create).
 
 map_params is a hash consisting of:
 
@@ -47,66 +53,16 @@ map_params is a hash consisting of:
 </tr>
 </table>
 
-### map_params: settings hash
+To use ESRI maps in your projects on iPhone:
 
-<table border="1">
-<tr>
-	<td><code>map_type</code></td>
-	<td>Display "standard", "satellite", or "hybrid". You can use "roadmap" in place of "standard".</td>
-</tr>
-<tr>
-	<td><code>region</code></td>
-	<td>two types allowed: [latitude,longitude,latitudeDelta,longitudeDelta] or {:center => center, :radius => radius}.</td>
-</tr>
-<tr>
-	<td><code>zoom_enabled</code></td>
-	<td>true to enable zoom of the map</td>
-</tr>
-<tr>
-	<td><code>scroll_enabled</code></td>
-	<td>true to enable scroll of the map</td>
-</tr>
-<tr>
-	<td><code>shows_user_location</code></td>
-	<td>true to display current user location on the map</td>
-</tr>
-<tr>
-	<td><code>api_key</code></td>
-	<td>Maps JavaScript API Key (sign up for it here). (Ignored in Android; for Android you should get another key and specify it in the app's build.yml as described here).</td>
-</tr>
-</table>
+* Install [ESRI iOS SDK](http://resources.arcgis.com/content/arcgis-iphone/api) - use default folders during installations !
+* Add "esri" to your applications extensions list in build.yml file.
 
-### region type [latitude,longitude,latitudeDelta,longitudeDelta]:
+### annotations array (in map_params hash)
 
-<table border="1">
-<tr>
-	<td><code>latitude,longitude</code></td>
-	<td>the map coordinate of the region center.</td>
-</tr>
-<tr>
-	<td><code>latitudeDelta</code></td>
-	<td>Degrees of north-to-south distance. One degree of latitude is approximately 111 kilometers (69 miles).</td>
-</tr>
-<tr>
-	<td><code>longitudeDelta</code></td>
-	<td>Degrees of east-to-west distance. One degree of longitude is approximately 111 kilometers (69 miles) at the equator, and 0 kilometers at the poles.</td>
-</tr>
-</table>
+The annotations parameter within the map_params hash is an array. [Click here for an example of MapView create, which sets this array](/rhodes/device-caps#mapview-example-create).
 
-### region type {:center => center, :radius => radius}:
-
-<table border="1">
-<tr>
-	<td><code>center</code></td>
-	<td>string describing center of area that is allowed by google geocoding service. Examples: “1 infinite loop, cupertino, ca 95014”, “California, USA”, “37.365519,-121.982918”</td>
-</tr>
-<tr>
-	<td><code>radius</code></td>
-	<td>radius of displayed area measured in degrees</td>
-</tr>
-</table>
-
-### annotations parameters array
+The annotations array has the following format.
 
 <table border="1">
 <tr>
@@ -131,43 +87,76 @@ map_params is a hash consisting of:
 </tr>
 </table>
 
-### Sample MapView.create call
+### settings hash (in map_params hash)
 
-Ruby sample:
+The settings parameter within the map_params hash is also a hash. [Click here for an example of MapView create, which sets this hash](/rhodes/device-caps#mapview-example-create).
 
-	:::ruby
-	map_params = {
-	     :provider => 'Google',
-	     :settings => {:map_type => "hybrid",:region => [@params['latitude'], @params['longitude'], 0.2, 0.2],
-                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
-                   :api_key => 'Google Maps API Key'},
-	     :annotations => [{:latitude => @params['latitude'], :longitude => @params['longitude'], :title => "Current location", :subtitle => ""},
-                      {:street_address => "Cupertino, CA 95014", :title => "Cupertino", :subtitle => "zip: 95014", 
-                       :url => "/app/GeoLocation/show?city=Cupertino"},
-                      {:street_address => "Santa Clara, CA 95051", :title => "Santa Clara", :subtitle => "zip: 95051", 
-                       :url => "/app/GeoLocation/show?city=Santa%20Clara"}]
-	}
-	MapView.create map_params
+The settings hash has the following format.
 
-JavaScript sample:
+<table border="1">
+<tr>
+	<td><code>map_type</code></td>
+	<td>Display "standard", "satellite", or "hybrid". You can use "roadmap" in place of "standard".</td>
+</tr>
+<tr>
+	<td><code>region</code></td>
+	<td>two types allowed: [latitude,longitude,latitudeDelta,longitudeDelta] or {:center => center, :radius => radius}.</td>
+</tr>
+<tr>
+	<td><code>zoom_enabled</code></td>
+	<td>true to enable zoom of the map</td>
+</tr>
+<tr>
+	<td><code>scroll_enabled</code></td>
+	<td>true to enable scroll of the map</td>
+</tr>
+<tr>
+	<td><code>shows_user_location</code></td>
+	<td>true to display current user location on the map</td>
+</tr>
+<tr>
+	<td><code>api_key</code></td>
+	<td>Maps JavaScript API Key <a href="https://developers.google.com/maps/signup">(sign up for it here)</a>. (Ignored in Android).</td>
+</tr>
+</table>
 
-	var map_params = {
-	  provider: 'Google',
-	  settings: {
-	    map_type: 'hybrid',
-	    region: [@params['latitude'], @params['longitude'], 0.2, 0.2],
-	    zoom_enabled: true,
-	    scroll_enabled: true,
-	    shows_user_location: false,
-	    api_key: 'Google Maps API Key'
-	    }, 
-	  annotations: [
-	    {latitude: @params['latitude'], longitude: @params['longitude'], title: "Current location", subtitle: ""},
-	    {street_address: "Cupertino, CA 95014", title: "Cupertino", subtitle: "zip: 95014", url: "/app/GeoLocation/show?city=Cupertino"},
-	    {street_address: "Santa Clara, CA 95051", title: "Santa Clara", subtitle: "zip: 95051", url: "/app/GeoLocation/show?city=Santa%20Clara"}
-	    ]
-	  };
-	Rho.MapView.create(map_params);
+**NOTE: `api_key` is ignored in Android; get another key and specify it in the app's build.yml [as described here](/rhodes/build#build-for-android).**
+
+### region (in settings hash)
+
+In the settings hash (settings ia a parameter within the map_params hash), the region can be of two types: `[latitude,longitude,latitudeDelta,longitudeDelta]` or `{:center => center, :radius => radius}`.
+
+#### region type [latitude,longitude,latitudeDelta,longitudeDelta]
+
+[Click here for an example of MapView create, which sets this region type](/rhodes/device-caps#mapview-example-create).
+
+<table border="1">
+<tr>
+	<td><code>latitude,longitude</code></td>
+	<td>the map coordinate of the region center.</td>
+</tr>
+<tr>
+	<td><code>latitudeDelta</code></td>
+	<td>Degrees of north-to-south distance. One degree of latitude is approximately 111 kilometers (69 miles).</td>
+</tr>
+<tr>
+	<td><code>longitudeDelta</code></td>
+	<td>Degrees of east-to-west distance. One degree of longitude is approximately 111 kilometers (69 miles) at the equator, and 0 kilometers at the poles.</td>
+</tr>
+</table>
+
+#### region type {:center => center, :radius => radius}
+
+<table border="1">
+<tr>
+	<td><code>center</code></td>
+	<td>string describing center of area that is allowed by google geocoding service. Examples: “1 infinite loop, cupertino, ca 95014”, “California, USA”, “37.365519,-121.982918”</td>
+</tr>
+<tr>
+	<td><code>radius</code></td>
+	<td>radius of displayed area measured in degrees</td>
+</tr>
+</table>
 
 ## set_file_caching_enable
 
@@ -191,11 +180,11 @@ JavaScript syntax:
 </tr>
 </table>
 
-NOTE: This API has no effect when running on the Blackberry platform. Map files are not cached.
-
 ## preload_map_tiles
 
 Preload a map tiles for a region defined by a zoom level range (0<=zoom<=18). This function requires some understanding about map engine funtionality, such as map tiles.
+
+[Click here for an example of MapView preload_map_tiles](/rhodes/device-caps#mapview-example-preload).
 
 When the map view is opened after preload_map_tiles is called, the preloaded area can display more quickly because the only map tiles displayed are in the defined zoom range.
 

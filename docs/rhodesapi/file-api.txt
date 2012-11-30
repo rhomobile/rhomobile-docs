@@ -1,6 +1,6 @@
 # File API
 
-The subset of the [Ruby File methods](http://www.ruby-doc.org/core-1.9.3/File.html) that allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for an example.
+The subset of the [Ruby File methods](http://www.ruby-doc.org/core-1.9.3/File.html) that allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for examples and for information on file access on different device platforms.
 
 ## Using JavaScript API
 
