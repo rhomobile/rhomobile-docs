@@ -316,7 +316,7 @@ Enable/disable phone sleeping; return to the previous state.
 Register push callback, the method to call upon receiving a push message.
 
 	:::ruby
-	System.set_push_notification(url, url_params, push_service)
+	System.set_push_notification(url, url_params, push_client)
 
 <table border="1">
 <tr>
@@ -328,8 +328,8 @@ Register push callback, the method to call upon receiving a push message.
 	<td>string with optional params which will be added to callback URL.</td>
 </tr>
 <tr>
-	<td><code>push_service</code></td>
-	<td>string with name of a push service. Current values can be 'rhoconnect_push' or 'legacy' or empty. If empty, then the call will be applied to every service listed in the push_options rhoconfig.txt parameter. It the rhoconfig.txt parameter is empty, then default value is 'legacy'. (Not implemented on bb and wp7)</td>
+	<td><code>push_client</code></td>
+	<td>string with name of a push service client. Current values can be 'rhoconnect_push' or 'gcm' or 'legacy' or empty. If empty, then the call will be applied to every push client. (Not implemented on bb and wp7)</td>
 </tr>
 </table>
 
