@@ -1,6 +1,5 @@
 
 #IoSystem Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The IoSystem Module is used to interface with the device system input ports. System input ports provide the ability to retrieve system information on the vehicle ignition state and current device power source.
@@ -22,7 +21,8 @@ To Set ioSystem parameters via JavaScript use the following syntax: iosystem.par
 To Set ioSystem return events via JavaScript use the following syntax: iosystem.event = Javascript Function;
 <P />e.g. <b>ioSystem</b>.portEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: iosystem.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set IoSystem parameters via Ruby use the following syntax: IoSystem.parameter
 To Set IoSystem return events via Ruby use the following syntax: IoSystem.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>IoSystem</b>.portEvent = url_for(:action =&gt; :iosystem_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -71,6 +71,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###portEvent
 See Remarks
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>type</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The type of the port a value is being received for, one of: Digital1 to Digital8, the 8 digital input ports; GeneralVoltage1; GeneralVoltage2; BatteryVoltage; BatteryCurrent; AmbientTemperature; HeaterTemperature; Ignition and PowerSource</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>value</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The value of the input port, this will depend on the type of the associated port.  For the ignition the value will be "on" or "off"; For the power source the value will be "Car Battery", "Wall Adapter" or "Cigarette Lighter"</td></tr></table>
+
 
 
 

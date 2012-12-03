@@ -26,7 +26,7 @@ Download the latest [RhoStudio for Macintosh](http://rhomobile.com/rhostudio-mac
 When the download finishes, click on the RMS_&lt;version&gt;.dmg file to open it. You will get a window similar to this:<br>
 <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
-Run the "Install gems" to install gems into selected version of Ruby. 
+Run the "Install gems" to install gems into selected version of Ruby. Run "Install rhoconnect-push" to install RhoConnect Push Service.
 
 Then drag RhoStudio to the Applications folder.
 
@@ -70,6 +70,8 @@ In RhoStudio Preferences, open RhoMobile and check that the path is set to your 
 ## Generating a Rhodes Application
 
 **NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](/rhoconnect/tutorial).**
+
+**NOTE: Motorola RhoMobile Suite installs into a Motorola RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Motorola RhoStudio.**
 
 In RhoStudio, select File->New->Project...
 

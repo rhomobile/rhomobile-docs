@@ -1,6 +1,5 @@
 
 #Keylight Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Keylight Module is used to illuminate / extinguish the keyboard backlight as well as setting the intensity of the keylight.
@@ -51,6 +50,9 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">Positive Number, see remarks for range</td><td class="clsSyntaxCells clsOddRow">Sets the keyboard backlight to the specified intensity.</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The keylight settings are application specific.  Switching to another application which uses the keylight module will cause the keyboard illumination settings to change to those of the application with focus. Only the application with Focus will have the ability to change the keylight settings.
 
 
 ##Remarks

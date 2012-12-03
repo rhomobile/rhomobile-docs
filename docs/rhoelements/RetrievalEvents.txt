@@ -61,7 +61,7 @@ Most events have parameters associated with them and these are detailed alongsid
 </tr>
 </table>
 
-###JSON Objects:
+##JSON Objects:
 To access the event parameters via a JSON object use the %json placeholder when declaring the event, e.g.
 	<META HTTP-Equiv="Application" content="VersionEvent:url('Javascript:doVersion(%json);')">
 
@@ -85,9 +85,9 @@ will call the function 'doVersion' as follows:
 		//  Use parameters in this function
 	}
 
-Note that string parameters are declared as '%s' and JS arrays are declared as %s (without quotes).  In order to maintain compatibility with URLs, any data in the return event containing a '%' sign will be escaped to '%25', the Javascript function 'unescape()' can be used to undo this on your returned data.
+Note that string parameters are declared as '%s' and JS arrays are declared as %s (without quotes).  In order to maintain compabitility with URLs, any data in the return event containing a '%' sign will be escaped to '%25', the Javascript function 'unescape()' can be used to undo this on your returned data.
 
-###%number Notation:
+##%number Notation:
 To access the event parameters directly the %number placeholder can be used when declaring the event, e.g.
 	<META HTTP-Equiv="Application" content="VersionEvent:url('Javascript:doVersion('%1', %3);')">
 
@@ -99,7 +99,7 @@ will call the function 'doVersion' as follows:
 
 note that string parameters are declared as '%number' and JS arrays are declared as %number (without quotes).
 
-###@params Object:
+##@params Object:
 To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" => "parameter1 value", "parameter2 name" => "parameter2 value", ...}
 	def object_init
 		Application.versionEvent=url_for(:action => :versionEvent_callback)

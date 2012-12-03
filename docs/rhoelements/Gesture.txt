@@ -1,6 +1,5 @@
 
 #Gesture Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Gesture Module is used to define touch screen.
@@ -23,7 +22,8 @@ To Set gesture parameters via JavaScript use the following syntax: gesture.param
 To Set gesture return events via JavaScript use the following syntax: gesture.event = Javascript Function;
 <P />e.g. <b>gesture</b>.detected = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: gesture.setEMML("[Your EMML Tags]");
 <P />
@@ -40,8 +40,8 @@ To Set Gesture parameters via Ruby use the following syntax: Gesture.parameter =
 To Set Gesture return events via Ruby use the following syntax: Gesture.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Gesture</b>.detected = url_for(:action =&gt; :gesture_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -105,6 +105,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 
 
 
+
 ##Remarks
 
 
@@ -113,12 +114,14 @@ The 'preset' tag is used to specify one of the preset values below. When a gestu
 
 <pre>
 
-GESTURE          POSSIBLE VALUES                                         DEFAULT
-Linear           left-right, right-left, top-bottom, bottom-top          left-right
-Circle           happy*, sad*                                            happy
-Hold             center                                                  center
-Tilt             face-up, upright                                        face-up
-Shake            normal                                                  normal
+GESTURE          POSSIBLE VALUES                                         		DEFAULT
+Linear           left-right, right-left, top-bottom, bottom-top          		left-right
+Circle           happy*, sad*                                            		happy
+Hold             center                                                  		center
+Tilt             face-up   (0, 0, 90), face-down  (0, 0, -90), 				face-up
+		 upright   (0, 90, 0), turn-down  (0, -90, 0),
+		 turn-left (90, 0, 0), turn-right (-90, 0, 0)
+Shake            normal                                                  		normal
       </pre>
 
 
@@ -151,7 +154,7 @@ Note that diagnostics exist only for the purpose of understanding and evaluating
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. The tilt and shake gestures are supported only on Android devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. On Windows the tilt and shake gestures are supported only on MPA3.0 devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
 
 
 ##HTML/Javascript Examples

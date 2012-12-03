@@ -1,6 +1,5 @@
 
 #Telemetry Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Telemetry Module is used to interface with vehicle telemetry.
@@ -22,7 +21,8 @@ To Set telemetry parameters via JavaScript use the following syntax: telemetry.p
 To Set telemetry return events via JavaScript use the following syntax: telemetry.event = Javascript Function;
 <P />e.g. <b>telemetry</b>.telemetryDataEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: telemetry.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Telemetry parameters via Ruby use the following syntax: Telemetry.paramet
 To Set Telemetry return events via Ruby use the following syntax: Telemetry.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Telemetry</b>.telemetryDataEvent = url_for(:action =&gt; :telemetry_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -76,6 +76,7 @@ The TelemetryDataEvent is used to obtain filter values. Every x milliseconds (as
 ###telemetryArrayEvent
 The TelemetryArrayEvent is similar to the TelemetryDataEvent but all enabled filters are returned in a 2 dimensional array. Every x milliseconds (as specified by the QueryFrequency parameter) or when 'Invoked' the TelemetryArrayEvent is called once.
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>filterValueArray (filterName, filterValue, unitOfMeasurement, lastUpdate)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2 Dimensional array of filter values, see Remarks.  Note if you have enabled lots of filters you may receive two or more TelemetryArrayEvents per update as to deliver all filters in a single 2D array would exceed the maximum URL length allowed in IE.</td></tr></table>
+
 
 
 

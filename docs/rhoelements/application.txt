@@ -1,6 +1,5 @@
 
 #Application Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Application Module is to adjust the running state of RhoElements applications.
@@ -19,7 +18,8 @@ To Invoke application methods via JavaScript use the following syntax: applicati
 To Set application return events via JavaScript use the following syntax: application.event = Javascript Function;
 <P />e.g. <b>application</b>.applicationEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: application.setEMML("[Your EMML Tags]");
 <P />
@@ -33,8 +33,8 @@ To Invoke Application methods via Ruby use the following syntax: Application.met
 To Set Application return events via Ruby use the following syntax: Application.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Application</b>.applicationEvent = url_for(:action =&gt; :application_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
 	
@@ -60,6 +60,7 @@ The ApplicationEvent is triggered when a RhoElements application is minimized or
 ###versionEvent
 The version of RhoElements installed on the device
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>productVersion</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A string defining the released version running on the device, this will be in the form v.w.x.y.  E.g. 1.0.0.0</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>hotFixes</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of strings containing the hot fixes applied.  There may have been multiple hot fixes applied, e.g. ['1','3']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>componentVersions (module, version)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">A 2 dimensional array of strings which defined a mapping between each of the installed plugins' name and their version.  See remarks</td></tr></table>
+
 
 
 

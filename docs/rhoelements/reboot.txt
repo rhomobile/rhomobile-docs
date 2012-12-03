@@ -1,6 +1,5 @@
 
 #Reboot Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Reboot Module is used to reboot the terminal immediately.
@@ -37,6 +36,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>bootType:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">"Warm", "Cold" or "ColdCAD"</td><td class="clsSyntaxCells clsOddRow">Reboots the terminal using either a Warm or Cold software boot (as specified).  Note on CE6 devices a 'ColdCAD' boot is required to replicate the Coldboot key sequence, e.g. 1+9+Power on an MC3000.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

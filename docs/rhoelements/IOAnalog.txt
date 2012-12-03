@@ -1,6 +1,5 @@
 
 #IoAnalog Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The IoAnalog Module is used to interface with the device analog input ports. Analog ports provide the ability to read 2 general purpose external analog voltage input ports and an additional 4 internal analog ports, i.e. ambient temperature, heater temperature, battery voltage and battery current.
@@ -22,7 +21,8 @@ To Set ioAnalog parameters via JavaScript use the following syntax: ioanalog.par
 To Set ioAnalog return events via JavaScript use the following syntax: ioanalog.event = Javascript Function;
 <P />e.g. <b>ioAnalog</b>.portEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: ioanalog.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set IoAnalog parameters via Ruby use the following syntax: IoAnalog.parameter
 To Set IoAnalog return events via Ruby use the following syntax: IoAnalog.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>IoAnalog</b>.portEvent = url_for(:action =&gt; :ioanalog_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -93,6 +93,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###portEvent
 
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>type</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The type of the port a value is being received for, one of: Digital1 to Digital8, the 8 digital input ports; GeneralVoltage1; GeneralVoltage2; BatteryVoltage; BatteryCurrent; AmbientTemperature; HeaterTemperature; Ignition and PowerSource</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>value</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The value of the input port, this will depend on the type of the associated port. For analog ports representing a voltage the value will be the text representation of a float in the range 0.0 to 32.5; For analog ports representing an electrical current the value will be the text representation of a float in the range 0.0 to 6.25; For analog ports representing temperature the value will be the text representation of an integer in the range -127 to 128. Float precision will always be given to two decimal places</td></tr></table>
+
 
 
 

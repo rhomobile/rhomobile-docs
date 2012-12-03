@@ -1,6 +1,5 @@
 
 #AddressBar Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The AddressBar Module is used to set the parameters of the address bar. The address bar is similar to the address bar provided by Internet Explorer and stores a history of visited URLs. Press the 'Go' button or enter key to navigate to the typed URI.
@@ -40,6 +39,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">Positive number, representing pixels</td><td class="clsSyntaxCells clsOddRow">Sets the width of the address bar.</td><td class="clsSyntaxCells clsOddRow">Most of the screen width</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>visibility:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">visible, hidden</td><td class="clsSyntaxCells clsEvenRow">Sets the visibility of the address bar</td><td class="clsSyntaxCells clsEvenRow">Hidden</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

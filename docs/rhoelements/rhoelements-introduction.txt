@@ -50,4 +50,4 @@ As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), [NFC](/rhodes
 NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
 
 ## Validated MSI Hardware
-* <a name="_motdevices"></a>ET1, ES400, MC2100, MC2180, MC3100, MC3100(R/S/G), MC3190(R/S), MC5574, MC5590, MC55A0, MC55N0, MC659B, MC7506, MC7508, MC7596, MC7598, MC75A0, MC75A6, MC75A8, MC9190-G, MC9190, MC9590, MC9596, MC9598, MC959B, VC6090, VC6096
+* <a name="_motdevices"></a>ET1, ET1 (WAN), ES400, MC2100, MC2180, MC3100, MC3100(R/S), MC3190(R/S/G), MC5574, MC5590, MC55A0, MC55N0, MC659B, MC7506, MC7598, MC7596, MC7598, MC75A0, MC75A6, MC75A8, MC9190-G, MC9590, MC9596, MC9598, MC959B (WM 6.1), VC6090, VC6096

@@ -1,6 +1,5 @@
 
 #MacroMicroPdfBufferLabels Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The MacroMicroPdfBufferLabels Decoder Setting is used to set the macroMicroPdfBufferLabels property.
@@ -32,6 +31,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>macroMicroPdfBufferLabels:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">true / false</td><td class="clsSyntaxCells clsOddRow">If true, the scanner driver will return the barcode data only after the complete macroMicroPdf sequence has been read.  If false, the scanner driver will return each barcode in the macroMicroPdf sequence as it is read.</td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

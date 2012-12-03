@@ -1,6 +1,5 @@
 
 #ODAX Preexisting JavaScript Object
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The ODAX Preexisting JavaScript Object contains read methods to provide offline data access. ODAX uses either a CSV or XML file on the device to provide rudimentary offline capabilities and should only be used to provide backward compatibility with legacy applications. RhoElements supports Application cache and Web SQL implementations which should be used in preference to ODAX in new applications. If you have configured 'PreloadLegacyODAX' to be '1' the Javascript object 'odax' will be inserted automatically into your page's DOM by RhoElements. The result set is stored internally in the 'odax' object and is created and manipulated using the exposed methods below
@@ -31,6 +30,7 @@ The ODAX Preexisting JavaScript Object contains read methods to provide offline 
 <b>Values: </b>String<br /><b>Description: </b>String representing the SELECT SQL statement to be executed.<P /><b>Name: </b>Delimiter, 
 <b>Values: </b>Character<br /><b>Description: </b>Delimiter which is used in CSV files as a column separator. Even though there is no special use for this in XML files you cannot leave this blank, hence you need to provide a valid value.<P /><b>Name: </b>First Row, 
 <b>Values: </b>'True' or 'False'<br /><b>Description: </b>This denotes that the first row of a CSV file contain the Column Names. If set to false in CSV mode it will retrieve columns as column1, column2 etc.<P /></td><td style="text-align:left;" valign="top" class="clsSyntaxCells clsOddRow">The number of records in the result set or a negative number to indicate an error (see GetLastErrorString).</td></tr></table>
+
 
 
 

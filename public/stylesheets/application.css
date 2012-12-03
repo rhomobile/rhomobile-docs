@@ -423,6 +423,10 @@ div#container {min-height: 100%;overflow: hidden;position: relative;}
   overflow:hidden;
 }
 
+table.apicompat
+{
+	width:120% !important;
+}
 table.apicompat td.start1 {
 	padding-left: 20px !important;
 

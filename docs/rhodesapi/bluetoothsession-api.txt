@@ -1,5 +1,4 @@
 # Rho::BluetoothSession API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Manages a connection session between your Bluetooth-equipped device and another Bluetooth-equipped device. [Click for a short example of using bluetooth](/rhodes/device-caps#bluetooth-ex), or here for [Rhodes-System-Api-Samples – BluetoothChat](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BluetoothChat/).
 
@@ -25,7 +24,7 @@ Set the Bluetooth session callback. Returns OK or ERROR.
 </tr>
 <tr>
 	<td><code>session_callback_url</code></td>
-	<td>url to a callback method. Parameters received in the callback: connected_device_name - name of connected device; event_type - SESSION_INPUT_DATA_RECEIVED or ERROR or SESSION_DISCONNECT
+	<td>url to a callback method. Parameters received in the callback: <code>connected_device_name</code> - name of connected device; <code>event_type</code> - SESSION_INPUT_DATA_RECEIVED or ERROR or SESSION_DISCONNECT
 	</td>
 </tr>
 </table>
@@ -54,7 +53,7 @@ Disconnect from the device. Returns OK or ERROR.
 </tr>
 </table>
 
-## get_status(connected_device_name)
+## get_status
 
 Get the session status. Returns the size of the data received by the bluetooth connection (data has not been read or parsed yet); or -1 if error; or 0 if empty (did not receive data).
 

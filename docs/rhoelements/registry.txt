@@ -1,6 +1,5 @@
 
 #Registry Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Registry Module is used to write and delete registry settings, and create corresponding merge files.
@@ -57,6 +56,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">TRUE or FALSE</td><td class="clsSyntaxCells clsOddRow">Whether to create the corresponding merge file.</td><td class="clsSyntaxCells clsOddRow">FALSE</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>value:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Valid string for the setting type specified - see remarks</td><td class="clsSyntaxCells clsEvenRow">Value for the setting.</td><td class="clsSyntaxCells clsEvenRow">None</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

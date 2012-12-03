@@ -1,6 +1,5 @@
 
 #Notification Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Notification Module is used to control the notification objects on the device. There are three types of notification object (LEDs, Beeper and Pager) and a device may have more than one of any object type, though in practise devices will have multiple LEDs and a maximum of one beeper and pager. In order to control the notification objects it is first necessary to query the device to discover which objects are available, this is done through the Enumerate method and EnumNotificationsEvent. The EnumNotificationsEvent will return a unique identifier for each available notification and this will be used to set the notification state. Notifications can be set to either on, off or cycling with the behaviour of 'on' or 'off' notification objects self explanatory; when set to cyclic LEDs will flash for the specified number of times whereas the beeper and pager will only activate once for the specified duration.
@@ -22,7 +21,8 @@ To Set notification parameters via JavaScript use the following syntax: notifica
 To Set notification return events via JavaScript use the following syntax: notification.event = Javascript Function;
 <P />e.g. <b>notification</b>.enumNotificationsEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: notification.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Notification parameters via Ruby use the following syntax: Notification.p
 To Set Notification return events via Ruby use the following syntax: Notification.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Notification</b>.enumNotificationsEvent = url_for(:action =&gt; :notification_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -65,7 +65,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">Number between 0 and 3</td><td class="clsSyntaxCells clsOddRow">When the beeper next sounds it will do so at the specified volume.  0 represents minimum volume and 3 is maximum volume, the decibels each volume level represents is device dependant</td><td class="clsSyntaxCells clsOddRow">0</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>setBeeperDuration:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Milliseconds</td><td class="clsSyntaxCells clsEvenRow">When the beeper is next instructed to cycle it will sound for the specified number of milliseconds</td><td class="clsSyntaxCells clsEvenRow">1000</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>setVibrateDuration:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Milliseconds</td><td class="clsSyntaxCells clsOddRow">When the pager is next instructed to cycle it will vibrate the device for the specified number of milliseconds</td><td class="clsSyntaxCells clsOddRow">1000</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>stateOn:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">The index of the notification, obtained via the EnumNotificationsEvent</td><td class="clsSyntaxCells clsEvenRow">Turns the specified notification object on.  This will either light an LED, sound the beeper or vibrate the device depending on the type of the notification</td><td class="clsSyntaxCells clsEvenRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>stateOff:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">The index of the notification, obtained via the EnumNotificationsEvent</td><td class="clsSyntaxCells clsEvenRow">Turns the specified notification object on.  This will either light an LED, sound the beeper or vibrate the device depending on the type of the notification. Please note that some platforms may not allow you to continuously vibrate the pager to conserve battery. </td><td class="clsSyntaxCells clsEvenRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>stateOff:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">The index of the notification, obtained via the EnumNotificationsEvent</td><td class="clsSyntaxCells clsOddRow">Turns the specified notification object off.  This will either extinguish an LED, silence the beeper or stop the device from vibrating</td><td class="clsSyntaxCells clsOddRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>stateCycle:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">The index of the notification, obtained via the EnumNotificationsEvent</td><td class="clsSyntaxCells clsEvenRow">Cycles the specified notification object.  LEDs will alternate between on and off for the specified number of cycles.  The beeper and pager will be invoked once for the specified number of milliseconds.</td><td class="clsSyntaxCells clsEvenRow">Device Specific</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
@@ -81,6 +81,9 @@ The EnumNotificationsEvent is triggered in response to calling the 'Enumerate' m
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>notificationsArray (notificationIndex, notificationType, notificationName)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2 Dimensional array of notifications, see remarks</td></tr></table>
 
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the application with Focus will have the ability to enable/disable notifications. When an application is sent to background if there are any notifications in progress (vibrator, beeper etc.) they would be stopped.
 
 
 ##Remarks

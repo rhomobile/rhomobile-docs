@@ -1,11 +1,25 @@
 # RhoApplication API
-<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
-Access methods for Rhodes applications. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for an example using file access.
+Access methods for Rhodes applications. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for examples using file access and for information on file access on different device platforms.
+
+## Using JavaScript API
+
+You can call the RhoApplication methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+
+The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
 
 ## get_base_app_path
 
-Returns a string that contains the absolute path to the application.
+Returns a string that contains the absolute path to the application. See [get_user_path](/rhodesapi/rhoapplication-api#getuserpath) for information about getting paths with iOS.
 
 Ruby syntax:
 

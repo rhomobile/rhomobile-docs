@@ -25,6 +25,8 @@ Click on the Motorola RhoMobile Suite Installer for Mac download file to open it
 
 Run "Install gems". A terminal window will open. Select suitable Ruby version and whether to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
 
+Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
+
 Drag Motorola RhoStudio to the Applications folder.
 
 **NOTE: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.**
@@ -34,16 +36,23 @@ Drag Motorola RhoStudio to the Applications folder.
 In addition to RhoStudio, the Motorola RhoMobile Suite Installer for Macintosh also contains:
 
 * A folder containing a RhoElements application.
-* A folder containing the Rhodes system api sample application.
+* A folder containing sample applications.
+* A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
 * A folder containing the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
 * A link to the Launchpad Developer Community.
 * A link to the RhoMobile documentation website.
 
 ### Git
 
-The RhoMobile Suite installer does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
+The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
 
 ## Windows 32-bit
+
+### Ruby
+
+RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This Ruby used for rake commands on developer computer and to run RhoConnect applications.
+
+RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby used on devices.
 
 ### Java Development Kit
 
@@ -76,6 +85,7 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 * A launcher for RhoStudio.
 * A link to the readme file.
 * A link to the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
+* A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
 * An uninstaller for RhoMobile Suite.
 
 ### Troubleshooting
@@ -87,6 +97,12 @@ RhoStudio doesn't start with message "Failed to create the Java Virtual Machine"
   Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
 
 ## Windows 64-bit
+
+### Ruby
+
+RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This Ruby used for rake commands on developer computer and to run RhoConnect applications.
+
+RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby used on devices.
 
 ### Java Development Kit
 
@@ -114,6 +130,7 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 * A launcher for RhoStudio.
 * A link to the readme file.
 * A link to the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
+* A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
 * An uninstaller for RhoMobile Suite.
 
 ### Troubleshooting
@@ -130,9 +147,13 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 	32-bit launcher is compatible with x86 JDK.<br>
 	64-bit launcher is compatible with x64 JDK.
 
-## Setting the Location of the RhoStudio Workspace Directory
+## Removing Spaces from the Workspace Path for RhoConnect Applications
 
-When you start RhoStudio, you can set the location of the workspace directory. The path to the workspace directory should not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
+When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
+
+## Checking for the Motorola RhoStudio Installation
+
+Motorola RhoMobile Suite installs into a Motorola RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Motorola RhoStudio.
 
 ## Setup Rhodes SDKs
 

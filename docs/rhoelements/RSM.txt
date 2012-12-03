@@ -1,6 +1,5 @@
 
 #Rsm Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Rsm Module is used to configure or to retrieve attributes relating to a remote scanner either tethered to the device or connected via Bluetooth. The properties of the scanner which can be configured are detailed in the 'Remarks' section. When used for retrieval navigation to URL or call to javascript function happens immediately.
@@ -22,7 +21,8 @@ To Set rsm parameters via JavaScript use the following syntax: rsm.parameter = '
 To Set rsm return events via JavaScript use the following syntax: rsm.event = Javascript Function;
 <P />e.g. <b>rsm</b>.rsmGetEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: rsm.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Rsm parameters via Ruby use the following syntax: Rsm.parameter = 'value'
 To Set Rsm return events via Ruby use the following syntax: Rsm.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Rsm</b>.rsmGetEvent = url_for(:action =&gt; :rsm_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -168,6 +168,9 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 						will be returned in that attribute's array position.</td></tr></table>
 
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to the device scanner, when an application is sent to the background its state will be saved and it will automatically relinquish control of the Scanner.  When brought back to the foreground, an application previously using the scanner will have its previous configuration (eg. selected decoders) reapplied to the scanner automatically.
 
 
 ##Remarks

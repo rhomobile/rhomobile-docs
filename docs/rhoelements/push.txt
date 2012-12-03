@@ -1,6 +1,5 @@
 
 #Push Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Push Module is used to receive data over an HTTP connection.
@@ -22,7 +21,8 @@ To Set push parameters via JavaScript use the following syntax: push.parameter =
 To Set push return events via JavaScript use the following syntax: push.event = Javascript Function;
 <P />e.g. <b>push</b>.detected = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: push.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Push parameters via Ruby use the following syntax: Push.parameter = 'valu
 To Set Push return events via Ruby use the following syntax: Push.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Push</b>.detected = url_for(:action =&gt; :push_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -62,7 +62,7 @@ N/A
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>port:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">0 - 65535 in Windows and 1025 - 65535 in Android</td><td class="clsSyntaxCells clsOddRow">Port number to listen on.</td><td class="clsSyntaxCells clsOddRow">80 in Windows and 8081 in Android</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>passKey:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">0 - 65535 in Windows and 1025 - 65535 in Android</td><td class="clsSyntaxCells clsOddRow">Port number to listen on.</td><td class="clsSyntaxCells clsOddRow">8081</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>passKey:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Any string</td><td class="clsSyntaxCells clsEvenRow">If specified then the client must include passkey=value in the passed parameters. Case sensitive.</td><td class="clsSyntaxCells clsEvenRow">Empty (no passkey required)</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>response:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Filename</td><td class="clsSyntaxCells clsOddRow">Name of the HTML file to return to the client after a successful request.</td><td class="clsSyntaxCells clsOddRow">Empty (a short default HTML response is sent)</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>path:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Virtual path</td><td class="clsSyntaxCells clsEvenRow">The client must include this in the HTTP request (after the address and before the parameters).  The forward slash '/' should be used as the directory delimiter.</td><td class="clsSyntaxCells clsEvenRow">Empty (any path is accepted)</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>unattended:[Value]
@@ -78,6 +78,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###detected
 
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>Whatever is defined as 'name' in each name=value pair in the HTTP request.</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">One value is returned for each name=value pair in the HTTP request, you access this in JSON using the names you provided in the request.  An example is provided in the examples section below.</td></tr></table>
+
 
 
 
@@ -101,6 +102,10 @@ Only alphanumeric characters and the characters $-_.!*'(), are allowed in a URL 
 Normally when a device enters suspend mode, either because it has been idle for a certain time or because the power key was pressed, all the device subsystems are switched off, including the wireless network. When unattended mode is enabled however the device keeps enough subsystems powered that applications continue to run, and it can still respond to Push requests. Note that unattended mode uses significantly more battery power.
 
 
+###Windows Mobile / CE Backwards compatibility
+In version 2.2 of RhoElements for WM / CE the default push port was changed from '80' to '8081' to match RhoElements for Android. Applications developed for RhoElements 2.1 and previous which rely on the default port number being 80 should add the default meta tag &lt;MetaTag VALUE="Push~port:80"&gt; to their configuration.
+
+
 
 
 ##Requirements
@@ -111,16 +116,16 @@ Normally when a device enters suspend mode, either because it has been idle for 
 
 ##HTML/Javascript Examples
 
-The code below configures the server to listen on port 8080, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the Javascript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8080/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
+The code below configures the server to listen on port 8081, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the Javascript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8081/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
 
-	<META HTTP-Equiv="Push" Content="Port:8080">
+	<META HTTP-Equiv="Push" Content="Port:8081">
 	<META HTTP-Equiv="Push" Content="Passkey:secret">
 	<META HTTP-Equiv="Push" Content="Path:/push">
 	<META HTTP-Equiv="Push" Content="Response:/ok.html">
 	<META HTTP-Equiv="Push-detected" Content="url('Javascript:onPush('%s','%s');')">
 	<META HTTP-Equiv="Push" Content="Start">
 	      
-The following code shows a very simple push server which just responds by executing a javascript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8080/push?name1=hello&amp;myname=world
+The following code shows a very simple push server which just responds by executing a javascript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
 
 	<HEAD>
 	<META HTTP-Equiv="Push" Content="Port:1234">

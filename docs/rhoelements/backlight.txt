@@ -1,6 +1,5 @@
 
 #Backlight Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Backlight Module is used to illuminate / extinguish the display backlight as well as setting the intensity of the backlight.
@@ -22,7 +21,8 @@ To Set backlight parameters via JavaScript use the following syntax: backlight.p
 To Set backlight return events via JavaScript use the following syntax: backlight.event = Javascript Function;
 <P />e.g. <b>backlight</b>.backlightSettingsEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: backlight.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Backlight parameters via Ruby use the following syntax: Backlight.paramet
 To Set Backlight return events via Ruby use the following syntax: Backlight.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Backlight</b>.backlightSettingsEvent = url_for(:action =&gt; :backlight_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -76,6 +76,9 @@ The backlight display settings
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>intensity</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight intensity value E.g. 2</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>intensityRange</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of integers contanining the valid range of intensity values.  e.g. ['0','1','2']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>state</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight state "on" or "off" or "timeout"</td></tr></table>
 
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The backlight settings are application specific.  Switching to another application which uses the backlight module will cause the screen illumination settings to change to those of the application with focus. Only the application with Focus will have the ability to change the backlight settings. 
 
 
 ##Remarks

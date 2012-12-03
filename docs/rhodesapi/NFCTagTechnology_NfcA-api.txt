@@ -1,5 +1,4 @@
 # Rho::NFCTagTechnology_NfcA API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;
 	    
 Subset of NFCTagTechnology class.
 

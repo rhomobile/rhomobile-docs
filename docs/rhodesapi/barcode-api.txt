@@ -1,15 +1,14 @@
 # Barcode API
-<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;
 
 Allows the device to recognize a barcode. See the controller and view in the /app/BarcodeRecognizer folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/BarcodeRecognizer/controller.rb) for an example.
+
+See [Barcode in Device Capabilities](/rhodes/device-caps#barcode) for a discussion of barcode recognition.
 
 **NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
 
 ## Using JavaScript API
 
 You can call some of the Barcode methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
-
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
 
 The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
 
@@ -59,12 +58,13 @@ JavaScript syntax:
 
 ## take_barcode
 
-iPhone and Android only. Open a user interface for real-time barcode recognition from the device camera. If a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.
+iPhone and Android only (not supported on iPhone 2G and iPhone 3G). Open a user interface for real-time barcode recognition from the device camera. If a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.
 
 Ruby syntax:
 
 	:::ruby
 	Barcode.take_barcode(url_for :action => :take_callback)
+	Barcode.take_barcode(url_for(:action => :take_callback), {hash_of_params})
 
 JavaScript syntax:
 
@@ -133,7 +133,7 @@ Performs a soft trigger start. If the scan does not result in a decode it is nec
     :::ruby    
     Barcode.start
 
-### stop
+## stop
 
 Performs a soft trigger stop.
 

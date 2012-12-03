@@ -1,5 +1,4 @@
 # Rho::NFCManager API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;
 
 Manage near field communications messages and records that your NFC application sends and receives. For code examples, see [Rhodes Webinar Sample: NFC](https://github.com/rhomobile/webinar-samples/blob/master/nfc-rhodes/app/Nfc/nfc_controller.rb) and [Rhodes System API Samples: NFC](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Nfc/controller.rb).
 

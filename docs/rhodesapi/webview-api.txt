@@ -1,7 +1,10 @@
 # WebView API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Call on the WebView directly from your controller.
+
+Refer to [Rhodes Application User Interface](/rhodes/ui) for a general discussion of the Rhodes application user interface.
+
+WebView does not support opening internet URLs required authentification. Use the [AsyncHTTP/AsyncHTTPS API](/rhodesapi/asynchttp-api) for access to URL required authentification.
 
 ## refresh
 
@@ -25,6 +28,8 @@ Force WebView to navigate to a URL.
 	:::ruby
 	WebView.navigate(url, index)
 
+**NOTE: White page flickering during transition may happen if a controller action method doesn't return any rendered value, but instead performs a WebView.navigate(someUrl) call. It is important to avoid using WebView.navigate in action methods because WebView.navigate is intended to be used in callback methods asynchronously.**
+
 <table border="1">
 <tr>
 	<td><code>url</code></td>
@@ -36,9 +41,18 @@ Force WebView to navigate to a URL.
 </tr>
 </table>
 
+## navigate_back
+
+Force WebView to navigate to the previous page using Browser back.
+
+	:::ruby
+	WebView.navigate_back
+
 ## current_location
 
-Returns the url (location) of the current page.
+Returns the url (location) of the current page; the last URL loaded to WebView by Rhodes.
+
+**NOTE: f you open your page in WebView, and after it makes a few jumps by linking (for example, to outside web adresses for example), `current_location` will still return the initial url opened in WebView. Also, if you use QJMobile, `current_location` has the initial URL, but does not reflect the actual window.location containing the JQMobile additional address by adding #, etc. See get_current_url.**
 
 	:::ruby
 	WebView.current_location
@@ -57,6 +71,10 @@ Execute JavaScript on the current page from your controller. Supported on iPhone
 
 	:::ruby
 	WebView.execute_js(string)
+
+**NOTE: For most mobile platforms, WebView.execute_js has been implemented via redirection to URL with 'javascript:' schema. If WebView.execute_js used in an AJAX call handler method in the controller, it may lead to the situation where the *success* javascript handler will never be executed. This may happen because, at the moment of *success* handler should be executed, a URL of the page already has been changed. This means no handlers from the previous page are valid.**
+
+Refer to [Control WebView from controller actions](/rhodes/ui#control-webview-from-controller-actions) for an example.
 
 <table border="1">
 <tr>
@@ -100,6 +118,17 @@ When WebView loads the specified url (either by selecting link or from calling W
 </tr>
 <tr>
 	<td><code>cookie</code></td>
-	<td>One or more name/value pairs of the format "NAME=VALUE". Separate multiple name/value pairs with a semicolon.</td>
+	<td>One or more name/value pairs of the format "NAME=VALUE". Separate multiple name/value pairs with a semicolon, such as "NAME1=VALUE1; NAME2=VALUE2”.</td>
 </tr>
 </table>
+
+## get_current_url
+
+Returns the actual URL in WebView. This works the same as the JavaScript `window.location.href`.
+
+	:::ruby
+	WebView.get_current_url()
+
+
+
+

@@ -1,6 +1,5 @@
 
 #ScreenOrientation Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The ScreenOrientation Module is used to control the screen orientation/layout and register to receive an event when it changes.
@@ -22,7 +21,8 @@ To Set screenOrientation parameters via JavaScript use the following syntax: scr
 To Set screenOrientation return events via JavaScript use the following syntax: screenorientation.event = Javascript Function;
 <P />e.g. <b>screenOrientation</b>.screenOrientationEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: screenorientation.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set ScreenOrientation parameters via Ruby use the following syntax: ScreenOri
 To Set ScreenOrientation return events via Ruby use the following syntax: ScreenOrientation.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>ScreenOrientation</b>.screenOrientationEvent = url_for(:action =&gt; :screenorientation_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -72,6 +72,9 @@ The screen orientation event is sent when the current RhoElements application ch
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>orientation</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Either 'normal', 'rightHanded', 'leftHanded' or 'upsideDown'</td></tr></table>
 
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The screen orientation settings are application specific.  Switching to another application which uses the ScreenOrientation module will cause the screen to be rotated automatically if necessary
 
 
 ##Remarks

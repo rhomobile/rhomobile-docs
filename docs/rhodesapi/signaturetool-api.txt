@@ -1,5 +1,4 @@
 # SignatureTool API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;
 
 Allows the device to take a signature and save it as an image with the method take_signature. See the controller and view in the /app/SignatureUtil folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/SignatureUtil/controller.rb) for an example.
 

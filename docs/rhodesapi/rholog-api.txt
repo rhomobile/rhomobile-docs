@@ -1,13 +1,10 @@
 # RhoLog Class
-<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Print messages in the log file rholog.txt.
 
 ## Using JavaScript API
 
 You can call the RhoLog methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
-
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
 
 You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 

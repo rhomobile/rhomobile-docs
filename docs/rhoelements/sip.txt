@@ -1,6 +1,5 @@
 
 #Sip Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the address bar
@@ -52,6 +51,9 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsEvenRow">Vertical position, in pixels</td><td class="clsSyntaxCells clsEvenRow">Sets the vertical position of the SIP in pixels. (Not supported on Enterprise Tablet.  Not compatible with Finger Scrolling on Windows devices)</td><td class="clsSyntaxCells clsEvenRow">Bottom of the screen</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: The SIP settings are application specific.  Switching to another application which uses the SIP module will apply the focused application's settings to it, e.g. the SIP may move position.
 
 
 ##Remarks

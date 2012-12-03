@@ -1,6 +1,5 @@
 
 #I2of5verifyCheckDigit Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The I2of5verifyCheckDigit Decoder Setting is used to set the i2of5 VerifyCheckDigit property which enables verification of the bar code check digit.
@@ -33,6 +32,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">none/USS/OPCC</td><td class="clsSyntaxCells clsOddRow">if value is "none" Disables verification of the check digit.if value is "USS" Enables the USS format for the check digit.
                                 .if value is OPCC Enables the OPCC format for the check digit. </td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

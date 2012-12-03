@@ -1,6 +1,5 @@
 
 #Comm Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Comm Module is used to control the functionality of the devices communication (serial) port; the way RhoElements interacts with that port and the data it provides.
@@ -22,7 +21,8 @@ To Set comm parameters via JavaScript use the following syntax: comm.parameter =
 To Set comm return events via JavaScript use the following syntax: comm.event = Javascript Function;
 <P />e.g. <b>comm</b>.commEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: comm.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Comm parameters via Ruby use the following syntax: Comm.parameter = 'valu
 To Set Comm return events via Ruby use the following syntax: Comm.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Comm</b>.commEvent = url_for(:action =&gt; :comm_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -90,6 +90,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###commEvent
 This event is used to read data from the COM port and is triggered in response to a port event. Port events can be one of 'Chars', 'EndChar' or 'Time' as described in the Parameters section. If no CommEvent is defined the associated data is output as keystrokes.
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>data</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The data that has been accumulated from the open communications port since the last time data was returned.</td></tr></table>
+
 
 
 

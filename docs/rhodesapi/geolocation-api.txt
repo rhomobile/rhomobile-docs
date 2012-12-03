@@ -1,9 +1,10 @@
 # GeoLocation API
-<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Access geolocation information from your device.
 
 See the controller and view in the [/app/GeoLocation folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) application for an example.
+
+Refer to [GeoLocation in Device Capabilites](/rhodes/device-caps#geolocation) for more discussion of GeoLocation, and for examples.
 
 ## Enabling Geolocation
 
@@ -13,11 +14,11 @@ To use the geolocation API, you need to enable geolocation on the device. Do thi
 	capabilities:
 	  - gps
 
+**NOTE: We do not have a timeout parameter to automatically turn off the GPS system. If you want to turn off the GPS system, call GeoLocation.turnoff.**
+
 ## Using JavaScript API
 
 You can call the GeoLocation methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
-
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
 
 The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
 
@@ -75,6 +76,8 @@ Set callback to track location changes.
 
 **NOTE: You only need to call GeoLocation.set_notification once. The current behavior of the callback is that it will be called forever until it is stopped; you need to call `GeoLocation.turnoff` to stop it. The previous behavior was that the callback was called once and needed to be reset.**
 
+Refer to [Device Capabilities - GeoLocation](/rhodes/device-caps#geolocation-setnotification-ex) for examples of set_notification. 
+
 Ruby syntax:
 
 	:::ruby
@@ -116,7 +119,7 @@ When the GeoLocation.set_notification callback is called, it will receive a vari
 </tr>
 <tr>
 	<td><code>available</code></td>
-	<td>true if geolocation is available, false otherwise.</td>
+	<td>1 if geolocation is available, 0 otherwise. For 1, not only does the hardware exist, but also the user can turn GPS off in phone settings, or not allow GPS activity on iPhone, etc.</td>
 </tr>
 <tr>
 	<td><code>status</code></td>
@@ -169,6 +172,8 @@ JavaScript syntax:
 ## turnoff
 
 Turn off GeoLocation.
+
+**NOTE: When you call GeoLocation.turnoff, after the GPS is switched off, you might still receive a few callbacks (this depends on the platform; iOS and Android does not receive callbacks after turnoff).**
 
 Ruby syntax:
 

@@ -1,6 +1,5 @@
 
 #CardReader Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The CardReader Module is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.
@@ -22,7 +21,8 @@ To Set cardReader parameters via JavaScript use the following syntax: cardreader
 To Set cardReader return events via JavaScript use the following syntax: cardreader.event = Javascript Function;
 <P />e.g. <b>cardReader</b>.readEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: cardreader.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set CardReader parameters via Ruby use the following syntax: CardReader.param
 To Set CardReader return events via Ruby use the following syntax: CardReader.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>CardReader</b>.readEvent = url_for(:action =&gt; :cardreader_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -77,6 +77,9 @@ readEvent:URL('URI') URI is either a URL or a javascript function. If a URL, the
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>data</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Data read by the card reader. This may be card data, the PAN data extracted from the card data, encrypted PIN block data, or a message.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>mode</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Describes the data. This will be either: 'CR','ENCDATA','PAN', or 'MESSAGE'.  This equates to card data, encrypted PIN block data, PAN data, or a message, respectively.</td></tr></table>
 
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader.  When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
 
 
 ##Remarks

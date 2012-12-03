@@ -1,6 +1,5 @@
 
 #AppSwitcher Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The AppSwitcher Module is used to show or hide the application switcher.
@@ -39,6 +38,7 @@ Items listed in this section indicate parameters, or attributes which can be set
                     Setting the visibility to 'visible' will show the application switcher.  Setting the visibility to 'hidden' will hide the application switcher.  Developers can design their own custom application switchers, see the Remarks section for information on how to do this.
                 </td><td class="clsSyntaxCells clsOddRow">The visibility of the switcher will remain unchanged if given an invalid parameter.</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

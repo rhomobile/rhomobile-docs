@@ -1,6 +1,5 @@
 
 #Signal Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Signal Module is used to set positional and display parameters of the wireless signal indicator on the screen.
@@ -20,7 +19,8 @@ To Set signal parameters via JavaScript use the following syntax: signal.paramet
 To Set signal return events via JavaScript use the following syntax: signal.event = Javascript Function;
 <P />e.g. <b>signal</b>.signalEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: signal.setEMML("[Your EMML Tags]");
 <P />
@@ -35,8 +35,8 @@ To Set Signal parameters via Ruby use the following syntax: Signal.parameter = '
 To Set Signal return events via Ruby use the following syntax: Signal.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Signal</b>.signalEvent = url_for(:action =&gt; :signal_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
 
 
@@ -62,6 +62,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###signalEvent
 The SignalEvent gives an indication of the signal level and other associated information. Once registered for you will receive a SignalEvent at regular intervals, as specified by the SignalRefresh configuration setting.
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>signalStrength</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Signal strength value as a percentage</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>essid</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Current ESSID</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>macAddress</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Device's MAC address</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">4</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>adapterName</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Device's adapter name</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">5</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>dhcpServer</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Current DHCP servers address</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">6</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>dhcpStatic</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Whether the unit has a static or DHCP address</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">7</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>gateway</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Current gateway IP address</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">8</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>ipAddress</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Current IP address</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">9</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>rssi</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Signal strength in RSSI terms</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">10</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>subnetMask</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">Current subnet mask</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">11</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>wins</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Current WINs server IP address</td></tr></table>
+
 
 
 

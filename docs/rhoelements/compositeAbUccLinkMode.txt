@@ -1,6 +1,5 @@
 
 #CompositeAbUccLinkMode Decoder Setting
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The CompositeAbUccLinkMode Decoder Setting describes whether the UCC link mode is enabled.
@@ -31,15 +30,16 @@ To Set CompositeAbUccLinkMode parameters via Ruby use the following syntax: Scan
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>compositeAbUccLinkMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">See Description</td><td class="clsSyntaxCells clsOddRow">Describes the UCC link mode.  Possible values:
-
+<DESCDETAIL>
 never:
   Link flag ignored.
 always:
   Always linked.
 auto:  
   Auto-discriminate
-  </td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
+  </DESCDETAIL></td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

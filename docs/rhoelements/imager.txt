@@ -1,6 +1,5 @@
 
 #Imager Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Imager Module controls the imager functions and navigates to a URL or calls a javascript function in response to an HTTP image transfer carried out by the imager meta tag.
@@ -22,7 +21,8 @@ To Set imager parameters via JavaScript use the following syntax: imager.paramet
 To Set imager return events via JavaScript use the following syntax: imager.event = Javascript Function;
 <P />e.g. <b>imager</b>.imagerEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: imager.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Imager parameters via Ruby use the following syntax: Imager.parameter = '
 To Set Imager return events via Ruby use the following syntax: Imager.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Imager</b>.imagerEvent = url_for(:action =&gt; :imager_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -68,7 +68,9 @@ Items listed in this section indicate parameters, or attributes which can be set
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>enabled:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">enables referenced Imager. Imager IDs can be obtained via ImagerEnumEvent</td><td class="clsSyntaxCells clsOddRow">enables the referenced imager device and shows the viewer window</td><td class="clsSyntaxCells clsOddRow">
 N/A
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>left:[Value]
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>desiredWidth:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">numeric Value</td><td class="clsSyntaxCells clsEvenRow">Sets the desired width of the output image, in pixels.  Depending on the camera hardware in use the closest matching image size will be chosen; the width of the chosen image will equal or exceed the value specified up to the capabilities of the hardware.  On Motorola devices the imaging hardware (that hardware shared by the imager scanner) can not have its output image width configured.  This parameter is only available in version 2.2 and higher</td><td class="clsSyntaxCells clsEvenRow">Hardware Specific</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>desiredHeight:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">numeric Value</td><td class="clsSyntaxCells clsOddRow">Sets the desired height of the output image, in pixels.  Depending on the camera hardware in use the closest matching image size will be chosen; the height of the chosen image will equal or exceed the value specified up to the capabilities of the hardware.  On Motorola devices the imaging hardware (that hardware shared by the imager scanner) can not have its output image height configured.  This parameter is only available in version 2.2 and higher</td><td class="clsSyntaxCells clsOddRow">Hardware Specific</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>left:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">numeric Value (0 - ScreenWidth)</td><td class="clsSyntaxCells clsEvenRow">Sets the top left horizontal position of the viewer window in pixels</td><td class="clsSyntaxCells clsEvenRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>top:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Numeric values (0 - ScreenHeight)</td><td class="clsSyntaxCells clsOddRow">Sets the top left vertical position of the viewer window in pixels</td><td class="clsSyntaxCells clsOddRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>width:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Numeric values (0 - ScreenWidth)</td><td class="clsSyntaxCells clsEvenRow">Sets the width of the viewer window in pixels</td><td class="clsSyntaxCells clsEvenRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>height:[Value]
@@ -108,6 +110,9 @@ Specifying an ImagerCaptureEvent will cause the captured image to be returned as
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>imagerArray (deviceName, friendlyName)</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">Two dimensional array of imagers present on the device</td></tr></table>
 
 
+
+##Multi Instance
+When multiple RhoElememts applications are running the following considerations should be made: Only the foreground RhoElements application is given access to the imaging hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the imager.  When brought back to the foreground, an application previously using the imager will have its previous configuration (eg. whether it was enabled or not) reapplied to the imager automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background and capture will not have any effect on an application that is in the background.
 
 
 ##Remarks
@@ -149,6 +154,10 @@ The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
    )
 )
 </pre>
+
+
+###Platform differences
+On Android the height of the viewfinder cannot be set to any value less than 200.
 
 
 

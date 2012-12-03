@@ -1,6 +1,5 @@
 
 #Stylus Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Stylus Module is used to enable or disable the touch screen.
@@ -35,6 +34,7 @@ To Invoke Stylus methods via Ruby use the following syntax: Stylus.method()
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.
 
 <table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>enable</b></td><td class="clsSyntaxCells clsOddRow">Enables the touch screen</td><td class="clsSyntaxCells clsOddRow">Device Dependant</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>disable</b></td><td class="clsSyntaxCells clsEvenRow">Disables the touch screen</td><td class="clsSyntaxCells clsEvenRow">Device Dependant</td></tr></table>
+
 
 
 

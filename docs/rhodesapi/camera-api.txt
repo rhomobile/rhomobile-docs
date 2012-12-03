@@ -1,13 +1,12 @@
 # Camera API
-<span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
-Use the camera on a device. See the controller and view in the /app/Image folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Image/controller.rb) for an example.
+Use the camera on a device. 
+
+See the controller and view in the /app/Image folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Image/controller.rb) for an example.
 
 ## Using JavaScript API
 
 You can call the Camera methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
-
-Javascript callback supports JSON syntax and %s syntax, like the RhoElements plug-ins Javascript API.
 
 The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
 
@@ -19,7 +18,6 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	extensions: ["rho-javascript"]
 
 You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
-
 
 ## Enabling the Camera
 
@@ -51,23 +49,27 @@ JavaScript syntax:
 
 ## choose_picture
 
-Choose a picture from an album.
+Choose a picture from an album. `options_hash` is only used with iOS.
 
 	:::ruby
-	Camera::choose_picture(callback_url)
+	Camera::choose_picture(callback_url, options_hash)
 
 JavaScript syntax:
 
-	Rho.Camera.choose_picture(callback_function)
+	Rho.Camera.choose_picture(callback_function, options_hash)
 
 <table border="1">
 <tr>
 	<td><code>callback_url</code></td>
-	<td>url to the callback method.</td>
+	<td>url to the callback method, such as '/app/model/camera_callback'. </td>
+</tr>
+<tr>
+	<td><code>options_hash</code></td>
+	<td>(iOS only) a hash of additional parameters.</td>
 </tr>
 </table>
 
-Parameters in the camera callback method:
+The callback is a POST message; the body of the message contains the return status and image_uri.
 
 <table border="1">
 <tr>
@@ -82,36 +84,51 @@ Parameters in the camera callback method:
 
 ## take_picture
 
-Take a picture.
+Take a picture. `options_hash` is used with iOS, Android, and RhoElements Motorola devices.
 
 Ruby syntax:
 
 	:::ruby
-	Camera::take_picture(callback_url, settings)
+	Camera::take_picture(callback_url, options_hash)
 
 JavaScript syntax:
 
-	Rho.Camera.take_picture(callback_function, settings)
+	Rho.Camera.take_picture(callback_function, options_hash)
 
 <table border="1">
 <tr>
 	<td><code>callback_url</code></td>
-	<td>url to the callback method.</td>
+	<td>url to the callback method, such as '/app/model/camera_callback'.</td>
 </tr>
 <tr>
-	<td><code>settings</code></td>
-	<td>(Android and iOS only) a hash of additional parameters.</td>
+	<td><code>options_hash</code></td>
+	<td>(Android, iOS, Motorola devices only) a hash of additional parameters.</td>
 </tr>
 </table>
 
-Sample call:
-	:::ruby
-	settings = { :camera_type => @params['camera_type'], 
-	  :color_model => @params['color_model'], :enable_editing => en_ed, 
-	  :desired_width => width, :desired_height => height, :flash_mode => 'auto' }
-    Camera::take_picture(url_for(:action => :camera_callback), settings)
+## save_image_to_device_gallery
 
-Parameters in the camera callback method:
+Save an image to the device gallery.
+
+Ruby syntax:
+
+	:::ruby
+	Camera::save_image_to_device_gallery(path_to_image)
+
+JavaScript syntax:
+
+	Rho.Camera.save_image_to_device_gallery(path_to_image)
+
+<table border="1">
+<tr>
+	<td><code>path_to_image</code></td>
+	<td>The real path to the image that is to be saved in the device gallery. You need to use the RhoApplication method get_blob_path to have the real path, such as Rho::RhoApplication::get_blob_path(img.image_uri).</td>
+</tr>
+</table>
+
+## Callback Parameters
+
+Once the user has taken/chosen a picture (`take_picture`, `choose_picture`), the callback URL you specified will be called. The callback is a POST message; the body of the message contains the following parameters.
 
 <table border="1">
 <tr>
@@ -140,9 +157,9 @@ Parameters in the camera callback method:
 </tr>
 </table>
 
-## settings hash for iOS and Android
+## options_hash for iOS and Android Devices
 
-`settings` is a hash used with `take_picture` and `choose_picture` on iOS and Android.
+`options_hash` is a hash used with `take_picture` and `choose_picture` on iOS and Android.
 
 <table border="1">
 <tr>
@@ -163,7 +180,7 @@ Parameters in the camera callback method:
 </tr>
 <tr>
 	<td><code>format</code></td>
-	<td>"png" or "jpg". Default = "jpg".</td>
+	<td>"png" or "jpg". Default = "jpg". If you do not define this property when you use choose_picture with iOS, the type of image in Gallery will be recognized, and the same format will be used for saving the image to applications data.</td>
 </tr>
 <tr>
 	<td><code>enable_editing</code></td>
@@ -179,9 +196,9 @@ Parameters in the camera callback method:
 </tr>
 </table>
 
-## settings hash for RhoElements Motorola devices
+## options_hash for RhoElements Motorola Devices
 
-`settings` is a hash used with `take_picture` on RhoElements Motorola devices.
+`options_hash` is a hash used with `take_picture` on RhoElements Motorola devices, 
 
 <table border="1">
 <tr>

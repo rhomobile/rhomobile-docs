@@ -1,6 +1,5 @@
 
 #Module META Tag
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Module META Tag is an action tag used to manage the applications running on your device.
@@ -22,7 +21,8 @@ To Set Module parameters via JavaScript use the following syntax: module.paramet
 To Set Module return events via JavaScript use the following syntax: module.event = Javascript Function;
 <P />e.g. <b>Module</b>.enumApplications = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: module.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set Module parameters via Ruby use the following syntax: Module.parameter = '
 To Set Module return events via Ruby use the following syntax: Module.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>Module</b>.enumApplications = url_for(:action =&gt; :module_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -91,6 +91,7 @@ Values are returned to the caller in RhoElements via Events.  Most modules conta
 ###enumApplications
 
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>applicationArray</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">2 dimensional array of data relating to each application running on the device.  See the Remarks section for the format of this array.</td></tr></table>
+
 
 
 

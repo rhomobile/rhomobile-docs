@@ -1,6 +1,5 @@
 
 #SignatureCapture Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The SignatureCapture Module creates a rectangular box that the user can draw within using the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.
@@ -22,7 +21,8 @@ To Set signatureCapture parameters via JavaScript use the following syntax: sign
 To Set signatureCapture return events via JavaScript use the following syntax: signaturecapture.event = Javascript Function;
 <P />e.g. <b>signatureCapture</b>.signatureSaveEvent = 'doFunction(%json)';
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
+
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">							
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: signaturecapture.setEMML("[Your EMML Tags]");
 <P />
@@ -39,8 +39,8 @@ To Set SignatureCapture parameters via Ruby use the following syntax: SignatureC
 To Set SignatureCapture return events via Ruby use the following syntax: SignatureCapture.event = url_for(:action =&gt; :event_callback) 
 <P />e.g. <b>SignatureCapture</b>.signatureSaveEvent = url_for(:action =&gt; :signaturecapture_event_callback)
 <P />
-For more details on the event syntax and parameters see the <a href="RetrievalEvents">Retrieval Events</a> page.
-</td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
+For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
+<p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
 
 	
@@ -94,6 +94,7 @@ Specifying a SignatureCaptureEvent will cause the signature to be returned as a 
 ###vectorEvent
 Signature data is formatted into a series of vectors and returned to the application via this callback function. The received data may not represent the entire signature as the vectors will be sent in batches if the signature is large. A single vector (array entry) contains an X, Y coordinate and the beginning / end of the signature is defined by (0xFFFF, 0xFFFF). This event is independent of the SignatureSaveEvent or capture method, when specified the event will be called whenever a 'pen up' occurs in the signature box.
 <table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>vectorArray</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">JavaScript array of vectors which represent the signature.</td></tr></table>
+
 
 
 

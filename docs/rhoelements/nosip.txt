@@ -1,6 +1,5 @@
 
 #NoSIP Preexisting JavaScript Object
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The NoSIP Preexisting JavaScript Object contains methods which can be used to control the Soft Input Panel (on screen keyboard). If you have configured 'PreloadLegacyNoSIP' to be '1' the Javascript object 'nosip' will be inserted automatically into your page's DOM by RhoElements. These methods should be used in conjunction with the SIP module to provide full control over the SIP
@@ -18,6 +17,7 @@ The NoSIP Preexisting JavaScript Object contains methods which can be used to co
 
 <table class="re-table"><col width="40%" /><col width="40%" /><col width="20%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Parameters</th><th class="tableHeading">Returns</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>ShowSIP<br /></b>Shows or Hides the SIP.</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>Name: </b>bShowSIP, 
 <b>Values: </b>Boolean<br /><b>Description: </b>Set to true to show the SIP, set to false to hide the SIP.<P /></td><td style="text-align:left;" valign="top" class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
+
 
 
 

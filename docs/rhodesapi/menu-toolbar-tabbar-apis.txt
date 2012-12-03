@@ -1,5 +1,4 @@
 # User-Defined Menu-Toolbar-Tabbar Actions
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
 
 Perform actions on menus, toolbars, and tabbars.
 

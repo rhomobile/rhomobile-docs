@@ -1,6 +1,5 @@
 
 #Wake Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The Wake Module is used to keep the display and wifi ON as long as RhoElements is active
@@ -38,6 +37,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">Enabled, disabled</td><td class="clsSyntaxCells clsOddRow">Enables / disables the screen</td><td class="clsSyntaxCells clsOddRow">Disabled</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>wifiLock:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Enabled, disabled</td><td class="clsSyntaxCells clsEvenRow">Enables / disables the network</td><td class="clsSyntaxCells clsEvenRow">Disabled</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 

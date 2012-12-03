@@ -1,6 +1,5 @@
 
 #KeyState Module
-<span class="label label-info">HTML</span> <span class="label label-warning">JAVASCRIPT</span> <span class="label label-important">RUBY</span> <span class="label label-inverse">RHOELEMENTS</span>
 
 <b>
 The KeyState Module is used to set the parameters of the KeyState indicator. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states. It grows from the right as necessary if more than one key state is set at once.
@@ -42,6 +41,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </b></td><td class="clsSyntaxCells clsOddRow">Positive number, representing pixels</td><td class="clsSyntaxCells clsOddRow">Sets the width of each KeyState indicator.</td><td class="clsSyntaxCells clsOddRow">Dependant on screen resolution</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>visibility:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Visible, Hidden</td><td class="clsSyntaxCells clsEvenRow">Sets the visibility of the keystate indicators.</td><td class="clsSyntaxCells clsEvenRow">Hidden.</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
+
 
 
 
