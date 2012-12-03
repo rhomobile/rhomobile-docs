@@ -48,6 +48,12 @@ The RhoMobile Suite installer for Macintosh does not install Git. Although you c
 
 ## Windows 32-bit
 
+### Ruby
+
+RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This Ruby used for rake commands on developer computer and to run RhoConnect applications.
+
+RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby used on devices.
+
 ### Java Development Kit
 
 Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp).
@@ -91,6 +97,12 @@ RhoStudio doesn't start with message "Failed to create the Java Virtual Machine"
   Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
 
 ## Windows 64-bit
+
+### Ruby
+
+RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This Ruby used for rake commands on developer computer and to run RhoConnect applications.
+
+RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby used on devices.
 
 ### Java Development Kit
 
