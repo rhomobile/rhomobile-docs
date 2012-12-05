@@ -359,7 +359,7 @@ md = md +  mdmsirows + "</tbody></table>
 <table class='table' >
 <tr><td><span class='label'>R</span></td><td>Ruby API supported - license not required (non Windows Embedded)</td></tr>
 <tr><td><span class='label label-important'>R</span></td><td>Ruby API supported - license required</td></tr>
-<tr><td><span class='label label-warning'>J</span></td><td>Javascript API supported - license required</td></tr>
+<tr><td><span class='label label-warning'>J</span></td><td>Javascript API supported - license required (Not Supported on Blackberry)</td></tr>
 <tr><td><span class='label label-info'>H</span></td><td>HTML META Tag API supported - license required</td></tr>
  
 </table>
