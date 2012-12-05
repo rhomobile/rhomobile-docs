@@ -72,7 +72,7 @@ For hybrid applications, you should define your application license and applicat
 	    </Application >
 	  </Applications>
 
-**NOTE: On Android, the 'Name' value is case sensitive. Be sure the case matches. Otherwise the application will not launch.
+**NOTE: Android is a case-sensitive operating system, as such be sure the case matches on all parameters. Otherwise the application will not launch.
 
 ## Device Licensing
 
