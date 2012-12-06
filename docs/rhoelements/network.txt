@@ -125,6 +125,7 @@ On Android connectWan can be treated as a method with no parameters as its only 
 
 The following example checks for a connection to motorola.com on the default port and notifies the user when connection is gained / lost:
 
+	<meta http-equiv="Network" content="Host:url('http://www.motorola.com')">
 	<meta http-equiv="Network" content="networkEvent:url('Javascript:onNetworkEvent(%json);');Start">
 	<SCRIPT>
 	  function onNetworkEvent(jsonObject)
