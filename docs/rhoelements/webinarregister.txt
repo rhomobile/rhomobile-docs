@@ -1,0 +1,36 @@
+
+#Webinar Registration Form
+
+<b>
+Complete the following form and click Submit to received email notifications about RhoMobile Webinars. You may always opt-out at any time.
+</b>
+
+<form class="form-horizontal">
+<div class="control-group">
+<label class="control-label" for="inputName">Name:</label>
+<div class="controls">
+<input type="text" id="inputName" placeholder="Name">
+</div>
+<div class="control-group">
+<label class="control-label" for="inputCompany">Company</label>
+<div class="controls">
+<input type="text" id="inputCompany" placeholder="Company">
+</div>
+<div class="control-group">
+<label class="control-label" for="inputEmail">Email</label>
+<div class="controls">
+<input type="text" id="inputEmail" placeholder="Email">
+</div>
+</div>
+
+</div>
+<div class="controls">
+
+<button type="submit" class="btn">Submit</button>
+</div>
+</div>
+</div>
+</form>
+<div>
+<a href="https://developer.motorolasolutions.com/community/rhomobile-suite/videos" class="">View Webinar Schedule & Replays</a>
+</div>
