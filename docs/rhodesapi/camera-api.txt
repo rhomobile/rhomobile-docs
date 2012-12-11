@@ -115,10 +115,6 @@ Ruby syntax:
 	:::ruby
 	Camera::save_image_to_device_gallery(path_to_image)
 
-JavaScript syntax:
-
-	Rho.Camera.save_image_to_device_gallery(path_to_image)
-
 <table border="1">
 <tr>
 	<td><code>path_to_image</code></td>
