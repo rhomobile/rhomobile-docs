@@ -306,7 +306,7 @@ Notify (call a callback method) when the screen rotates.
 
 ## set_sleeping
 
-Enable/disable phone sleeping; return to the previous state.
+Set to true/false (0/1) to enable/disable phone sleeping. For iOS, Android, and Blackberry.
 
 	:::ruby
 	System.set_sleeping
