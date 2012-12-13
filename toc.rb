@@ -337,13 +337,13 @@ end
 
 section 'rhoconnect-push-reference', 'Push Sychronization' do
   topic 'rhoconnect/push',      'Introduction to Push'
-  topic 'rhoconnect/push-server-setup',      'Setup on Server'
+  topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
+  topic 'rhoconnect/push-client-setup-android',       'Setup for Android'
+  topic 'rhoconnect/push-client-setup-bb',       'Setup for BlackBerry'
+  topic 'rhoconnect/push-client-setup-ios',       'Setup for iOS'
+  topic 'rhoconnect/push-client-setup',       'Finishing Setup for all Clients'
   topic 'rhoconnect/push-backend-setup',        'Setup on Backend'
-  topic 'rhoconnect/push-client-setup',       'Setup on all Clients'
-  topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service Client'
-  topic 'rhoconnect/push-client-setup-android',       'Setup on Android Client'
-  topic 'rhoconnect/push-client-setup-bb',       'Setup on BlackBerry Client'
-  topic 'rhoconnect/push-client-setup-ios',       'Setup on iOS Client'
+  topic 'rhoconnect/push-testing',      'Testing Push'
 end
 
 section 'rhoconnect-administration', 'Administration' do
