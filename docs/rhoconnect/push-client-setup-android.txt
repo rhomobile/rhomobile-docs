@@ -13,7 +13,7 @@ To set up your Android Rhodes client application and RhoConnect server applicati
 
 To do so, perform the following sections from the [GCM Getting Started](http://developer.android.com/google/gcm/gs.html) guide.
 
-1. Creating a Google API project. (This gets a Google API project number which you will set in your Android client applciation.)
+1. Creating a Google API project. (This gets a Google API project number which you will set in your Android client application.)
 2. Enabling the GCM Service.
 3. Obtaining an API Key. (You will set this key in your RhoConnect application.)
 
