@@ -335,7 +335,7 @@ section 'rhoconnect-plugin-reference', 'Plugins' do
   topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
-section 'rhoconnect-push-reference', 'Push Sychronization' do
+section 'rhoconnect-push-reference', 'Push Synchronization' do
   topic 'rhoconnect/push',      'Introduction to Push'
   topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
   topic 'rhoconnect/push-client-setup-android',       'Setup for Android'
