@@ -158,6 +158,65 @@ class Indicators
     end
     return html
   end
+
+  def self.languages(fileid)
+    @api = @apidata.detect {|a| a["file"] == fileid }
+    html = ""
+    if @api.nil?
+      html = ""
+    else
+    	html = "<ul id='toc'>"
+      
+      if @api["html"] == "true" or @api["html"] == "lic"
+        html = html + '<li><span class="label label-info">HTML</span></li>'
+      end
+      if @api["js"]== "true" or @api["js"] == "lic"
+        html = html +  '<li><span class="label label-warning">JAVASCRIPT</span></li>'
+      end
+      if @api["ruby"] == "lic"
+        html = html +  '<li><span class="label label-important">RUBY</span></li>'
+      end
+      if @api["ruby"]== "true"
+        html = html +  '<li><span class="label">RUBY (No License Required)</span></li>'
+      end
+      html = html + "</ul>"
+    end
+    return html
+  end
+   def self.oslist(fileid)
+    @api = @apidata.detect {|a| a["file"] == fileid }
+    if @api.nil?
+      html = ""
+    else
+      html = "<ul id='toc'>"
+      if @api["ios"]
+        html = html + '<li>iOS</li>'
+      end
+      if @api["android"]
+        html = html + '<li>Android</li>'
+      end
+      if @api["wm"] or @api["wince"]
+        html = html + '<li>Windows Embedded Handheld</li>'
+      end
+      if @api["win7"]
+        html = html + '<li>Window Phone 7</li>'
+      end
+      if @api["win32"]
+        html = html + '<li>Windows 32/64</li>'
+      end
+      if @api["bb"]
+        html = html + '<li>Blackberry</li>'
+
+      end
+      if @api["rhosim"]
+        html = html + '<li>RhoSimulator</li>'
+
+      end
+      html += "</ul>"
+    end
+    return html
+  end
+ 
   
   def self.apimatrix_markdown()
     md = '#Mobile API Compatibility 

@@ -64,7 +64,7 @@
   
 <div id="container">
 	<div id="doc_container">
-	<div id="docsnav" <% if @print != 0 %> style="display:none" <% end %> >
+	<div id="docsnav"<% if @print != 0 %> style="display:none" <% end %> >
 		
 		<ul>
 			<% collapsed = true %>
@@ -104,7 +104,7 @@
 		</ul>
 	</div>
 
-	<div id="content">
+	<div class="span12">
 		<div id="t_content" class="topic_content">
 			<%= yield %>
 		</div>

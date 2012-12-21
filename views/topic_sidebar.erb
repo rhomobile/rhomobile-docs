@@ -1,0 +1,55 @@
+<div id="rendered_topic_container">
+	<div class="span12" data-title="Rhomobile | <%=h @title %>">
+		<h1><%= @title %></h1>
+	</div>
+	<div class="span12" data-title="Rhomobile | <%=h @title %>">
+		<div class="span8">
+
+		<%= @intro %>
+
+
+		<%= @body %>
+
+		<% if ns = next_section(topic_path) %>
+		    <% if @print == 0 %>
+		      <div id="next_section">Next: <a class='js-pjax' href="/<%= ns[0] %>"><%=h ns[1] %> &rarr;</div>
+		      <a href="/<%= topic_path%>.print"><img src="/images/print.png"> Print this page</a><br/>
+		      <a href="/<%= topic_path%>.pdf"><img src="/images/pdf.png"> View as a PDF</a>
+		    <% end %>
+		<% end %>
+		</div>
+		<% if (@toc.size > 0 || !@topicmodel.nil?) && @print == 0 %>
+
+		<div id="sidebar" class="span3 well">
+			
+			<% if @toc.size > 0 && @print == 0 %>
+			<h4>IN THIS DOCUMENT</h4>
+			
+				<ul id="toc">
+					<% @toc.each do |section| %>
+						<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
+					<% end %>
+				</ul>
+			<% end %>
+			<% if !@topicmodel.nil? %>
+				<h4>SEE ALSO</h4>
+				<ul id="toc">
+					<% @topicmodel["seealso"].each do |sa| %>
+						<li><a href="<%= sa['url'] %>"><%= sa['name'] %></a></li>
+					<% end %>
+				</ul>
+			<% end %> 
+			<%if @indicatorslang != ""%>
+			<h4>LANGUAGE INTERFACES</h4>
+			<%=@indicatorslang%>
+			<%end%>
+
+			<%if @oslist != ""%>
+			<h4>OPERATING SYSTEMS</h4>
+			<%=@oslist%>
+			<%end%>
+	
+		</div>
+		<%end%>
+	</div>
+</div>
