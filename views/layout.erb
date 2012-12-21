@@ -65,43 +65,35 @@
 <div id="container">
 	<div id="doc_container">
 	<div id="docsnav"<% if @print != 0 %> style="display:none" <% end %> >
-		
-		<ul>
+		<ul class="nav nav-list">
 			<% collapsed = true %>
-			<% sections.each do |slug, title, topics| %>
-				<% if topics and topics.length > 0 %>
-					<% collapsed = false if TOC.find(request.path_info) == slug %>
-					<div class="accordion-group">
-						<li>
-						<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-target="#<%=slug%>">
-							  <i class="<%= collapsed ? 'icon-plus' : 'icon-minus'%> pull-right"></i>
-								<h3><%= title %></h3>
-							</a>
-						</div>
-						<div id="<%=slug%>" class="accordion-body <%=collapsed ? 'collapse' : 'in'%>">
-							<ul>
-								<% topics.each do |slug, title, _| %>
-									<% if topic_path == slug %>
-										<li class="current"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
-									<% else %>
-										<% if slug != 'rhoelements/apicompatibility' %>
-										<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
-										<%else%>
-										<li><a  href="/<%= slug %>"><%=h title %></a></li>
-										<%end %>
-									<% end %>
-								<% end %>
-							</ul>
-						</div>
-						</li>
-					</div>
-					<% collapsed = true %>
+			
+	<% sections.each do |slug, title, topics| %>
+		<% if topics and topics.length > 0 %>
+			<% collapsed = false if TOC.find(request.path_info) == slug %>
+					
+			<li class="nav-header" data-target="#<%=slug%>" data-toggle="collapse">
+				<%= title %>
+				
+			</li>
+			<ul class="nav nav-list  <%=collapsed ? 'collapse' : 'in'%>" id="<%=slug%>" >
+    
+			<% topics.each do |slug, title, _| %>
+				<% if topic_path == slug %>
+					<li class="active"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
 				<% else %>
-					<h2><%= title %></h2>
+					<% if slug != 'rhoelements/apicompatibility' %>
+					<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
+					<%else%>
+					<li><a  href="/<%= slug %>"><%=h title %></a></li>
+					<%end %>
 				<% end %>
 			<% end %>
-		</ul>
+			</ul>
+			<% collapsed = true %>
+		<% end %>
+	<% end %>
+		</ul>	
 	</div>
 
 	<div class="span12">

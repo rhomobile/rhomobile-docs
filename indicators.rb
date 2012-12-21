@@ -165,7 +165,7 @@ class Indicators
     if @api.nil?
       html = ""
     else
-    	html = "<ul id='toc'>"
+    	html = "<ul class='nav nav-list'><li class='nav-header'>LANGUAGE SUPPORT</li>"
       
       if @api["html"] == "true" or @api["html"] == "lic"
         html = html + '<li><span class="label label-info">HTML</span></li>'
@@ -188,7 +188,7 @@ class Indicators
     if @api.nil?
       html = ""
     else
-      html = "<ul id='toc'>"
+      html = "<ul class='nav nav-list'><li class='nav-header'>OPERATING SYSTEMS</li>"
       if @api["ios"]
         html = html + '<li>iOS</li>'
       end

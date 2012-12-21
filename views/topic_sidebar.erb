@@ -23,29 +23,29 @@
 		<div id="sidebar" class="span3 well">
 			
 			<% if @toc.size > 0 && @print == 0 %>
-			<h4>IN THIS DOCUMENT</h4>
+
 			
-				<ul id="toc">
+				<ul class="nav nav-list">
+					<li class="nav-header">IN THIS DOCUMENT</li>
+  
 					<% @toc.each do |section| %>
 						<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
 					<% end %>
 				</ul>
 			<% end %>
 			<% if !@topicmodel.nil? %>
-				<h4>SEE ALSO</h4>
-				<ul id="toc">
-					<% @topicmodel["seealso"].each do |sa| %>
+				<ul class="nav nav-list">
+					<li class="nav-header">SEE ALSO</li>
+  					<% @topicmodel["seealso"].each do |sa| %>
 						<li><a href="<%= sa['url'] %>"><%= sa['name'] %></a></li>
 					<% end %>
 				</ul>
 			<% end %> 
 			<%if @indicatorslang != ""%>
-			<h4>LANGUAGE INTERFACES</h4>
 			<%=@indicatorslang%>
 			<%end%>
 
 			<%if @oslist != ""%>
-			<h4>OPERATING SYSTEMS</h4>
 			<%=@oslist%>
 			<%end%>
 	
