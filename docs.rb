@@ -137,7 +137,8 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0)
-      if topic_file(topic,subpath) == 'docs/rhoelements/apicompatibility.txt'
+      @topic_file = topic_file(topic,subpath)
+      if  @topic_file == 'docs/rhoelements/apicompatibility.txt'
         source = Indicators.apimatrix_markdown()  
       else        
         source = File.read(topic_file(topic, subpath))
@@ -148,16 +149,22 @@ xml_string +=  ' </rss>	'
   		@title   = @topic.title
   		@content = @topic.content
       @intro   = @topic.intro
+      @indicatorslang = ""
+      @oslist = ""
+
       if(subpath and topic)
   		  # @title  += Indicators.load('/' + subpath + '/' + topic + '/') 
-         @intro  = Indicators.load('/' + subpath + '/' + topic + '/') + @intro
+         @indicatorslang = Indicators.languages('/' + subpath + '/' + topic + '/')
+         @oslist = Indicators.oslist('/' + subpath + '/' + topic + '/')
+      
 		  end
   		@toc     = @topic.toc
   		@body    = @topic.body
       		
   		@print = print
       
-  		erb :topic, :layout => !pjax?
+      @topicmodel = Topic.model(topic_file(topic,subpath))
+      erb :topic_sidebar, :layout => !pjax?
   	rescue Errno::ENOENT
   		status 404
   	end
