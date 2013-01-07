@@ -48,6 +48,9 @@ div#doc_container{
   font-size:11px;
 }
 
+#sidebar {
+  font-size:11px;
+}
 
 
 a {
@@ -167,11 +170,11 @@ p, ul, blockquote, pre, table {
 /* docsnav
 --------------------------------------------------*/
 
-
 #docsnav ul {
 	margin:0;
 	padding:0;
 }
+/*
 #docsnav li {
 	list-style-type:none;
 	margin:0 0 3px 0;
@@ -195,6 +198,7 @@ p, ul, blockquote, pre, table {
 	color:white;
 	font-weight:bold;
 }
+
 #docsnav h3 {
 	color:#666;
 	margin:0 0 0 0;
@@ -203,7 +207,7 @@ p, ul, blockquote, pre, table {
 	float: left;
   width: 200px;
 }
-
+*/
 
 /* content
 --------------------------------------------------*/

@@ -1,10 +1,8 @@
 <div id="rendered_topic_container">
-	<div class="span12" data-title="Rhomobile | <%=h @title %>">
-		<h1><%= @title %></h1>
-	</div>
+	
 	<div class="span12" data-title="Rhomobile | <%=h @title %>">
 		<div class="span8">
-
+		<h1><%= @title %></h1>
 		<%= @intro %>
 
 
@@ -37,6 +35,12 @@
 				<ul class="nav nav-list">
 					<li class="nav-header">SEE ALSO</li>
   					<% @topicmodel["seealso"].each do |sa| %>
+						<li><a href="<%= sa['url'] %>"><%= sa['name'] %></a></li>
+					<% end %>
+				</ul>
+				<ul class="nav nav-list">
+					<li class="nav-header">KEY CLASSES</li>
+  					<% @topicmodel["keyclasses"].each do |sa| %>
 						<li><a href="<%= sa['url'] %>"><%= sa['name'] %></a></li>
 					<% end %>
 				</ul>

@@ -8,7 +8,7 @@ class Models
 		"type"=>"devguide", 
 		"keywords"=>"ios, android, blackberry, windows mobile,", 
 		"categories"=>"", 
-		"contentfile"=>"../rhodes/doc/sample.txt", 
+		"contentfile"=>"../rhodes/doc/build.txt", 
 		"description"=>"This page describes how to build Rhodes Application on all of our supported platforms: iPhone, RIM Blackberry, Windows Mobile and Android.", 
 		"keyclasses"=>[{"name"=>"External Blog 1","url"=>"http://developer.motorolasolutions.com"},
 			       {"name"=>"Install Rhodes","url"=>"/rhodes/install"}], 
