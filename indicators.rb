@@ -19,8 +19,8 @@ class Indicators
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Barcode", "file"=>"/rhodesapi/barcode-api/", "description"=>"", "html"=>"false", "js"=>"true", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Battery", "file"=>"/rhoelements/battery/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BottomCommandArea", "file"=>"/rhoelements/bottomcommandarea/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothManager", "file"=>"/rhodesapi/bluetoothmanager-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothSession", "file"=>"/rhodesapi/bluetoothsession-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothManager", "file"=>"/rhodesapi/bluetoothmanager-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>false,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothSession", "file"=>"/rhodesapi/bluetoothsession-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>false,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Camera", "file"=>"/rhodesapi/camera-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"CardReader", "file"=>"/rhoelements/cardreader/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Comm", "file"=>"/rhoelements/comm/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
@@ -335,7 +335,7 @@ The following table shows the compatibility for each Mobile API.
       else
         wm = ''
       end
-      if api["wm"] or api["wince"]
+      if api["wince"]
         wince = '<span class="icon-star"></span><span style="display:none">ce wince windows</span>'
       else
         wince = ''
