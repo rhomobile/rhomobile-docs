@@ -134,7 +134,7 @@ Due to the different SIP layout on Windows and Android, the following keys will 
 
 
 ###Device Specific Exceptions
-Certain devices may map their function keys to apparently normal keys, for example the VC6090 maps the '{' key to F12 and the '}' key to 14. In order to capture those two keys it is necessary to enable F12 and F14 in the Configuration Settings.
+Certain devices may map their function keys to apparently normal keys, for example the VC6090 maps the '{' key to F12 and the '}' key to F14. In order to capture those two keys it is necessary to enable F12 and F14 in the Configuration Settings. You may also find on some devices special keys like 'OK' return the same code as a function key, depending on your keyboard layout.
 
 
 ###Use of Key Capture module on Localized Operating Systems

@@ -2,7 +2,7 @@
 #Rfid Module
 
 <b>
-The Rfid Module Provides access to control the functionality of the device's RFID reader.Currently the plugin is supported on MC 3190Z and MC 9190Z devices.
+The Rfid Module is not included in the default RhoElements/RhoStudio installers. To be able to use the RFID module, a separate package must be downloaded and installed - please SEE REMARKS for how this can be obtained. Provides access to control the functionality of the device's RFID reader. Currently the plugin is supported on MC 3190Z and MC 9190Z devices.
 </b>
 
 ##Syntax
@@ -254,7 +254,7 @@ Returns results of the last Access operation
 
 ##Requirements
 
-<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">2.2 or above
+<table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">2.2 SP1 - Additional Download Required or above
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Hardware for reading RFID Tags</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr></table>
 
 

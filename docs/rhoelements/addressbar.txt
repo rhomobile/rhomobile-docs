@@ -2,7 +2,7 @@
 #AddressBar Module
 
 <b>
-The AddressBar Module is used to set the parameters of the address bar. The address bar is similar to the address bar provided by Internet Explorer and stores a history of visited URLs. Press the 'Go' button or enter key to navigate to the typed URI.
+The AddressBar Module is used to set the parameters of the address bar. The address bar should only be used for debugging Hybrid applications and is not designed to be used as a replacement for a web browser address bar. Press the 'Go' button or enter key to navigate to the typed URI.
 </b>
 
 ##Syntax
