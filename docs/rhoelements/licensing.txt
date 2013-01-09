@@ -123,7 +123,7 @@ Via build.yml for Native Applications (iOS and Non-MSI Android): If you are deve
 	motorola_license_company: 'Deployment License Company name'
 	motorola_license: 'Deployment License Number'
 
-Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. For development purposes on a single device, a device specific license can be used in the build.yml.  
+Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. 
 
 For hybrid applications, you can define your device license and company name in your config.xml file as follows:
 
