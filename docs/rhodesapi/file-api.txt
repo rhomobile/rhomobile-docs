@@ -1137,9 +1137,6 @@ Ruby syntax:
 
 	File.utime(atime, mtime, fileName, fileName2, ...)
 
-JavaScript syntax:
-
-	Rho.File.utime(atime, mtime, fileName, fileName2, ...)
 
 <table border="1">
 <tr>
@@ -1150,7 +1147,7 @@ JavaScript syntax:
 	<td><code>mtime</code></td>
 	<td>Date. The modification time.</td>
 </tr>
-tr>
+<tr>
 	<td><code>fileName, fileName2, ...</code></td>
 	<td>String. The names of the file(s). fileName2 ... are optional.</td>
 </tr>
