@@ -132,6 +132,7 @@ section 'rhodesapi-reference', 'Mobile API List' do
   topic 'rhoelements/registry',      'Registry'
   topic 'rhoelements/reloadbutton',      'ReloadButton'
   topic 'rhoelements/reboot',      'Reboot'
+  topic 'rhoelements/rfid',      'Rfid'
   topic 'rhodesapi/rhoapplication-api',             'RhoApplication'
   topic 'rhodesapi/rhoconfig-api',             'RhoConfig'
   topic 'rhodesapi/rhocontact-api',             'RhoContact'
