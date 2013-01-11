@@ -66,16 +66,26 @@
 	<div id="doc_container">
 	<div id="docsnav"<% if @print != 0 %> style="display:none" <% end %> >
 		<ul class="nav nav-list">
-			<% collapsed = true %>
+			<% collapsed = true 
+			%>
 			
 	<% sections.each do |slug, title, topics| %>
 		<% if topics and topics.length > 0 %>
 			<% collapsed = false if TOC.find(request.path_info) == slug %>
+			<%
+			if collapsed
+				header_icon = "icon-chevron-down"
+
+			else
+				header_icon = "icon-chevron-up"				
+			end		
+			%>
+			<div class="accordion-heading">			
+				<li class="nav-header" data-target="#<%=slug%>" data-toggle="collapse">
+					<%= title %><i class="<%=header_icon%>" style="float:right"></i>
 					
-			<li class="nav-header" data-target="#<%=slug%>" data-toggle="collapse">
-				<%= title %>
-				
-			</li>
+				</li>
+			</div>
 			<ul class="nav nav-list  <%=collapsed ? 'collapse' : 'in'%>" id="<%=slug%>" >
     
 			<% topics.each do |slug, title, _| %>

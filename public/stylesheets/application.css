@@ -187,11 +187,15 @@ p, ul, blockquote, pre, table {
 	font-weight: normal;
 	color: #777;
 }
-#docsnav a:hover {
+*/
+#docsnav li:hover {
 	color: #555;
 	cursor:pointer;
+    background-color: #EEE;
+
 }
-#docsnav .current  {
+
+/*#docsnav .current  {
 	background-color:#222;
 }
 #docsnav .current a {
