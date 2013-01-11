@@ -1,6 +1,4 @@
 #Alert API
-<span class="label label-important">RUBY</span>&nbsp;<span class="label label-inverse">RHOELEMENTS</span>&nbsp;<span class="label">RHODES</span>&nbsp;
-
 Call system alert methods for popup, vibrate, or playing audio files.
 
 For examples of using the Alert API methods, refer to [Alerts in Device Capabilities](/rhodes/device-caps#alerts).
