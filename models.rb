@@ -2,18 +2,17 @@ class Models
 @docs = [
 	{"source_id"=>40003, 
 		"object"=>"125247353762549.02", 
-		"docid"=>"rhodes/build", 
-		"title"=>"Build Rhodes Application", 
+		"docid"=>"rhodes/extensions", 
+		"title"=>"Extending the Rhodes Framework", 
 		"menutitle"=>"Build Application", 
 		"type"=>"devguide", 
 		"keywords"=>"ios, android, blackberry, windows mobile,", 
 		"categories"=>"", 
-		"contentfile"=>"../rhodes/doc/build.txt", 
-		"description"=>"This page describes how to build Rhodes Application on all of our supported platforms: iPhone, RIM Blackberry, Windows Mobile and Android.", 
-		"keyclasses"=>[{"name"=>"External Blog 1","url"=>"http://developer.motorolasolutions.com"},
-			       {"name"=>"Install Rhodes","url"=>"/rhodes/install"}], 
-		"seealso"=>[{"name"=>"External Blog 1","url"=>"http://developer.motorolasolutions.com"},
-			       {"name"=>"Install Rhodes","url"=>"/rhodes/install"}], 
+		"contentfile"=>"../rhodes/doc/extensions.txt", 
+		"description"=>"There are three ways to extend Rhodes. You can add to the Ruby gems supported by Rhodes ('Rhodes extensions'). You can create new 'native extensions' in the underlying SDK for a given smartphone operating system. You can extend the types of views available in Rhodes ('native extensions').", 
+		"keyclasses"=>[], 
+		"seealso"=>[{"name"=>"Native Extensions Webinar","url"=>"https://developer.motorolasolutions.com/docs/DOC-1722"},
+			{"name"=>"Native View Sample","url"=>"https://github.com/rhomobile/rhodes-system-api-samples/tree/master/extensions/rainbow/"}], 
 		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true}]
 
 def self.docs()	

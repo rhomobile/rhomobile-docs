@@ -33,16 +33,20 @@
 			<% end %>
 			<% if !@topicmodel.nil? %>
 				<ul class="nav nav-list">
+					<% if @topicmodel["seealso"].length >0 %>
 					<li class="nav-header">SEE ALSO</li>
   					<% @topicmodel["seealso"].each do |sa| %>
 						<li><a href="<%= sa['url'] %>"><%= sa['name'] %></a></li>
 					<% end %>
+					<%end%>
 				</ul>
 				<ul class="nav nav-list">
-					<li class="nav-header">KEY CLASSES</li>
+					<% if @topicmodel["keyclasses"].length >0 %>
+					<li class="nav-header">KEY APIs</li>
   					<% @topicmodel["keyclasses"].each do |sa| %>
 						<li><a href="<%= sa['url'] %>"><%= sa['name'] %></a></li>
 					<% end %>
+					<%end%>		
 				</ul>
 			<% end %> 
 			<%if @indicatorslang != ""%>
