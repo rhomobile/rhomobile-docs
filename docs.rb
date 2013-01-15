@@ -146,7 +146,7 @@ xml_string +=  ' </rss>	'
       source = source
   		@topic = Topic.load(topic, source)
 		
-  		@title   = @topic.title
+  		@title   = @topic.title + ' Topic:' + topic + " SP:" + subpath
   		@content = @topic.content
       @intro   = @topic.intro
       @indicatorslang = ""
@@ -163,7 +163,7 @@ xml_string +=  ' </rss>	'
       		
   		@print = print
       
-      @topicmodel = Topic.model(topic_file(topic,subpath))
+      @topicmodel = Topic.model(subpath + '/' + topic)
       erb :topic_sidebar, :layout => !pjax?
   	rescue Errno::ENOENT
   		status 404
