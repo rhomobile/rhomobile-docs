@@ -62,6 +62,10 @@ When the screen orientation changes, either using the ScreenOrientation tag or b
 The address bar is not compatible with named anchors (page bookmarks) eg. &lt;a name="bookmark"/&gt;
 
 
+###Use in Production
+This API is designed for debugging your application only and should not be used in production
+
+
 
 
 ##Requirements

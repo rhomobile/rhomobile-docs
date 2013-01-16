@@ -253,7 +253,7 @@ Returns results of the last Access operation
 
 
 ###Installation
-The RFID plugin package for RhoElements 2.2 SP1 must be [downloaded separately](https://support.symbol.com/support/search.do?cmd=displayKC&amp;docType=kc&amp;externalId=13856&amp;sliceId=&amp;dialogID=470318458&amp;stateId=1%200%20470304681) from and installed on the device. Please refer to the RFID plugin release notes for installation instructions.
+The RFID plugin package for RhoElements 2.2 SP1 must be &lt;a href="https://support.symbol.com/support/search.do?cmd=displayKC&amp;docType=kc&amp;externalId=13856&amp;sliceId=&amp;dialogID=470318458&amp;stateId=1%200%20470304681"&gt;downloaded separately&lt;/a&gt; from and installed on the device. Please refer to the RFID plugin release notes for installation instructions.
 
 
 ###General
