@@ -345,7 +345,7 @@ To start the device build process, create a Run Configuration: select your proje
 
 Press the Run button to build and run your application. The build output will appear in the Rhodes build output console. The application log will be available in the Rhodes application output console, and will be written into your application folder.
 
-For complete instructions on setting up the SDKs in RhoStudio for each platform, refer to [the Build instructions for Rhodes](build).
+For complete instructions on setting up the SDKs in RhoStudio for each platform, refer to [the Build instructions for Rhodes](/rhodes/build).
 
 ### Editing the SDK Locations in rhobuild.yml
 
