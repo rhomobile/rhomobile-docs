@@ -13,7 +13,23 @@ class Models
 		"keyclasses"=>[], 
 		"seealso"=>[{"name"=>"Native Extensions Webinar","url"=>"https://developer.motorolasolutions.com/docs/DOC-1722"},
 			{"name"=>"Native View Sample","url"=>"https://github.com/rhomobile/rhodes-system-api-samples/tree/master/extensions/rainbow/"}], 
-		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true}]
+		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true},
+	{"source_id"=>40003, 
+		"object"=>"", 
+		"docid"=>"rhoelements/rfid", 
+		"title"=>"", 
+		"menutitle"=>"", 
+		"type"=>"apiref", 
+		"keywords"=>"", 
+		"categories"=>"", 
+		"contentfile"=>"rhoelements/rfid", 
+		"description"=>"", 
+		"keyclasses"=>[], 
+		"seealso"=>[{"name"=>"RFID PlugIn","url"=>"https://support.symbol.com/support/search.do?cmd=displayKC&docType=kc&externalId=13856&sliceId=&dialogID=470318458&stateId=1%200%20470304681
+"},
+			{"name"=>"RhoMobile Suite SP1","url"=>"http://developer.motorolasolutions.com"}], 
+		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true}
+	]
 
 def self.docs()	
 
