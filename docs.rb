@@ -162,7 +162,7 @@ xml_string +=  ' </rss>	'
   		@body    = @topic.body
       		
   		@print = print
-      if subpath.nil?
+      if subpath.nil? || subpath == ''
         @topicmodel = Topic.model('/' + topic)
       else
         @topicmodel = Topic.model(subpath + '/' + topic)
