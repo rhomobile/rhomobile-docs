@@ -258,20 +258,21 @@ h3 {
 	color: #777;
 }
 
-#content .note {
+#t_content .note {
 	background:#eef;
 	border:1px solid #dde;
 	color:#223;
+	width:100%;
 }
 
-#content .note td.icon {
+#t_content .note td.icon {
 	background:url(/images/note.png) no-repeat;
 	background-position:5px 3px;
 	width:47px;
 	height:47px;
 	padding:5px;
 }
-#content .note td.content {
+#t_content .note td.content {
 	padding-left: 8px;
 }
 

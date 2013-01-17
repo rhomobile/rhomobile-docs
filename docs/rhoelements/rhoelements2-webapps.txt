@@ -16,7 +16,9 @@ In order for RhoElements to start with your web app, you need to configure RhoEl
 
 ## Installing the RhoElements Runtime
 
+
 **NOTE: If you do not plan on [building native apps](/rhoelements/rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Development Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
+
 
 After you [install Motorola RhoMobile Suite](/rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
@@ -27,7 +29,7 @@ On Windows Mobile/CE devices, install the RhoElements Runtime.cab to \Program Fi
 
 Once installed, you will have access to the RhoElements config.xml file. 
 
-Note: When installing a newer version of the runtime on Windows the existing config.xml will be overwritten with the default one. You should redeploy your customized config.xml along with an upgrade of the runtime. On Android, the config.xml is not overwritten on upgrades of the runtime.
+**NOTE: When installing a newer version of the runtime on Windows the existing config.xml will be overwritten with the default one. You should redeploy your customized config.xml along with an upgrade of the runtime. On Android, the config.xml is not overwritten on upgrades of the runtime.**
 
 ## Writing Your RhoElements Web App
 
