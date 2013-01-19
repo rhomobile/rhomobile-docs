@@ -4,7 +4,7 @@ The NativeTabbar methods let you customize the Rhodes tabbar at runtime. Refer t
 
 ## Tab Elements
 
-Several of the NativeTabbar use a tabs parameter, which is a list of name/value pairs from the following list of tab elements.
+Several of the NativeTabbar methods use a tabs parameter, which is a list of name/value pairs from the following list of tab elements.
 
 <table border="1">
 <tr>

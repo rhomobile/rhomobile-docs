@@ -1,6 +1,6 @@
 # Rho::RhoContact API
 
-Provides access to a device's phone book and contacts. For a code example, see the view and controller in the [/app/Contacts folder in the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Contacts/controller.rb) application.
+Provides access to a device's phone book and contacts. For a code example, see the view and controller in the [/app/Contacts folder in the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Contacts/controller.rb) application. For other examples, refer to [PIM Contacts in Rhodes Device Capabilities](/rhodes/device-caps#pim-contacts).
 
 ## Enabling the Contacts
 
@@ -30,7 +30,10 @@ The argument list can consist of the following arguments.
 </tr>
 </table>
 
-For Android, you can have the following arguments.
+**NOTE: It is allowed to pass additional params hash on all platforms. Platforms that do not have the extended functionality will just skip these.**
+
+
+For Android and iOS, you can have the following arguments.
 
 <table border="1">
 <tr>
@@ -65,15 +68,12 @@ When you use the `:all`, `:first`, or `:count` arguments with Android or iOS, yo
 </tr>
 <tr>
 	<td><code>:conditions</code></td>
-	<td>Android only. A hash of conditions. </code>
+	<td>Android only. A hash of conditions.</code>
 	</td>	
 </tr>
 </table>
 
-The :conditions argument will select all contacts that have at least one phone number. The conditions supported are not_nil and is_nil.
-
-	:::ruby
-	@count = Rho::RhoContact.find(:count, :conditions => {:phone => 'not_nil'})
+Refer to [Find Conditions](/rhodesapi/rhocontact-api#find-conditions) for the :conditions settings.
 
 ## create!
 
@@ -152,7 +152,7 @@ The contact properties are stored in a hash.
 </tr>
 </table>
 
-### Additional Contact Properties for Android Nexus
+## Additional Contact Properties for Android Nexus
 
 Android uses these contact properties (stored in a hash).
 
@@ -167,7 +167,7 @@ Android uses these contact properties (stored in a hash).
 </tr>
 </table>
 
-### Additional Contact Properties for iPhone
+## Additional Contact Properties for iPhone
 
 <table border="1">
 <tr>
@@ -252,7 +252,7 @@ Android uses these contact properties (stored in a hash).
 </tr>
 </table>
 
-### Additional Address Properties for iPhone
+## Additional Address Properties for iPhone
 
 <table border="1">
 <tr>
@@ -268,3 +268,25 @@ Android uses these contact properties (stored in a hash).
 	<td>Strings. "street_address_3", "city_3", "state_3", "zip_3", "country_3"</td>
 </tr>
 </table>
+
+## Find Conditions
+
+The `:conditions` parameter, for Android platforms, is a hash of conditions. The keys of the hash are contact property selectors (condition to be applied to), and the values are the conditions.
+
+The property selectors are:
+- :phone
+- :email
+
+The following conditions are currently supported:
+- 'not_nil'
+- 'is_nil'
+
+A property selector has no one-to-one relation to a single contact property like mobile_phone or email_address. The selectors are mapped to a whole property group, like all phones or all emails (support for several emails may be implemented in future).
+
+A condition like the following code will select all contacts which have at least one phone.
+	:::ruby
+	@count = Rho::RhoContact.find(:count, :conditions => {:phone => 'not_nil'})
+
+**NOTE: It may be useful to sort received contacts (especially if paginated). Contacts is ordered by 'display_name' column and then split for pages. Unfortunately, the order inside the page is lost while passing the list to ruby.**
+
+
