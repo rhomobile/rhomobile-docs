@@ -100,11 +100,7 @@ Retrieves stats for a given metric key:
 	RestClient.get(
 	  "#{server}/rc/v1/system/stats", 
 	  { 
-		:params => {:metric => 'foo', 
-					:start => 0, 
-					:finish => -1} 
-	  },
-	  {
+		:params => {:metric => 'foo', :start => 0, :finish => -1},
 		'X-RhoConnect-API-TOKEN' => @api_token
 	  }
 	)
@@ -115,9 +111,7 @@ Retrieves a list of metric keys matching a given pattern.  This supports 'glob' 
 	RestClient.get(
 	  "#{server}/rc/v1/system/stats", 
 	  { 
-		:params => {:names => 'sources:*:Product'}
-	  },
-	  {
+		:params => {:names => 'sources:*:Product'},
 		'X-RhoConnect-API-TOKEN' => @api_token
 	  }
 	)
