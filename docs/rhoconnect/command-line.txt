@@ -95,7 +95,7 @@ rhoconnect, type `rhoconnect` or `rhoconnect help`.
 	  rhoconnect war                    # Build executable WAR file to be used in Java App Servers
 	  rhoconnect web                    # Launch the web console in a browser
 
-**NOTE: The `rhoconnect war` command is available only if you switch to jruby, such as enterign teh command `rvm use jruby`.**
+**NOTE: The `rhoconnect war` command is available only if you switch to jruby, such as using the command `rvm use jruby`.**
 
 `rhoconnect start` and `rhoconnect restart` have the following options.
 
