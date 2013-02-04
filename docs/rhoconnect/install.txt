@@ -185,7 +185,7 @@ And replace your existing `Rakefile` with the following:
 	  require './application'
 
 	  Resque.after_fork do
-	    Store.db.client.reconnect
+	    Store.reconnect
 	  end
 	end  
 

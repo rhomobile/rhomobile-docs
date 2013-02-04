@@ -159,6 +159,7 @@ Search your backend based on params and build a hash of hashes (optional).  Simi
 	      @result[item["product"]["id"].to_s] = item["product"]
 	    end
 	  end if parsed
+	  @result
 	end
 
 Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/rhodes/synchronization#filtering-datasets-with-search).
