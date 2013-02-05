@@ -11,12 +11,12 @@ Each of the environment categories must have the following entries:
 	
 	:::yaml
 	:syncserver: <url>
-	:redis: <url>
+	:redis: <url|array_of_urls>
 	:licensefile: <filename>
 
 `:syncserver`: application's base url.
 
-`:redis`: Redis url.
+`:redis`: Redis url. Can be specified as an Array of URLs. In that case, RhoConnect will use several Redis servers (this can be used in case of high-volume data)
 
 `:licensefile`: application's license file.
 
