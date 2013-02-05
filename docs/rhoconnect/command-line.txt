@@ -39,10 +39,10 @@ For example:
 			 [ADDED]  storeserver/Rakefile
 			 [ADDED]  storeserver/Gemfile
 			 [ADDED]  storeserver/spec/spec_helper.rb
-	
+
 Here's a basic rundown of each of the files that were just generated:
-	
-	
+
+
 * **config.ru** - This is a rackup file which will load your application.  RhoConnect uses the excellent [sinatra](http://www.sinatrarb.com/) web framework to run the application.
 * **settings/settings.yml** - This contains settings such as your redis connection, which source adapters exist and their parameters.  You can also put custom settings here.
 * **settings/license.key** - The RhoConnect [license](/rhoconnect/licensing) associated with your application.  The default license allows up to 10 devices to synchronize with the application.
@@ -78,21 +78,18 @@ rhoconnect, type `rhoconnect` or `rhoconnect help`.
 	  rhoconnect redis-about            # About redis
 	  rhoconnect redis-attach           # Attach to redis dtach socket
 	  rhoconnect redis-download         # Download redis release 2.4.10
-	  rhoconnect redis-install          # Install the latest verison of Redis from Github (requires git, ...
-	  rhoconnect redis-restart          # Restart redis
-	  rhoconnect redis-start            # Start redis
-	  rhoconnect redis-stop             # Stop redis
+	  rhoconnect redis-install          # Install the latest verison of Redis from Github (requires git, duh)
+	  rhoconnect redis-restart          # Restart redis on localhost:6379
+	  rhoconnect redis-start            # Start redis on localhost:6379
+	  rhoconnect redis-stop             # Stop redis running on localhost:6379
 	  rhoconnect restart [options]      # Alias for `rhoconnect stop; rhoconnect start`
 	  rhoconnect secret                 # Generate a cryptographically secure secret session key
 	  rhoconnect set-admin-password     # Set the admin password
 	  rhoconnect source NAME            # Generate a new source adapter
-	  rhoconnect spec                   # Run source adapter specs
 	  rhoconnect start [options]        # Start rhoconnect server
 	  rhoconnect stop                   # Stop rhoconnect server
 	  rhoconnect update                 # Update an existing application to the latest rhoconnect release
 	  rhoconnect version                # Display rhoconnect version
-	  rhoconnect war                    # Build executable WAR file to be used in Java App Servers
-	  rhoconnect war                    # Build executable WAR file to be used in Java App Servers
 	  rhoconnect web                    # Launch the web console in a browser
 
 **NOTE: The `rhoconnect war` command is available only if you switch to jruby, such as using the command `rvm use jruby`.**
@@ -148,7 +145,7 @@ When you start RhoConnect in a directory that does not contain a rhoconnect sour
 	  :push_server: http://someappname@localhost:8675/
 	  :api_token: my-rhoconnect-token
 	  :secret: !binary |-
-	    ... 
+	    ...
 	:test: *70196107903780
 	:production: *70196107903780
 
@@ -161,21 +158,21 @@ Running RhoConnect this way uses the default license key in the RhoConnect gem. 
 If everything went well when you started RhoConnect, you should see the following in your console:
 
 	[05:47:10 PM 2011-04-19] Rhoconnect Server v3.0.0 started...
-	
+
 To open the web console, navigate to [http://localhost:9292/](http://localhost:9292) in your browser or run:
 
 	:::term
 	$ rhoconnect web
-	
+
 ### Creating executable WAR containers (JRuby environment only)
 
 It is possible to create Java WAR containers for your Rhoconnect application that can be deployed into the
 Java App Servers (for example, JBoss). To create the executable WAR container, execute the following command in your app's root directory:
-	
+
 	:::term
 	$ cd storeserver
 	$ rhoconnect war
-	
+
 This will build the WAR file named <your_app>.war that can be deployed into the Java App Server.
 
 ### Common Tasks
@@ -184,17 +181,17 @@ RhoConnect applications come with many useful rhoconnect tasks for administrativ
 
 * 	`rhoconnect dtach-install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
 
-* 	`rhoconnect redis-install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead. 
+* 	`rhoconnect redis-install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead.
 If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](/rhoconnect/install).
-	
+
 * 	`rhoconnect set-admin-password` - Set the RhoConnect administrator password.  The default password is blank ''.
 
 *	`rhoconnect get-token` - Get a RhoConnect API token to use for calling the RhoConnect REST API.
-		
+
 **NOTE: On Mac OS / Linux, you need to install dtach (i.e. by running `rhoconnect dtach-install`) to run the following tasks: **
 
 * 	`rhoconnect redis-start` - This will launch a redis server in a new console.
-	
+
 * 	`rhoconnect redis-stop` - Stop the currently-running redis server.
 
 *	`rhoconnect redis:attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
@@ -202,25 +199,25 @@ If you cannot install redis on Linux due to insufficient user permissions, then 
 * 	`rhoconnect start` - Start the RhoConnect application in a new console.  This requires a running redis server.
 
 * 	`rhoconnect stop` - Stop the currently-running RhoConnect application.
-	
-*	`rhoconnect attach` - (Mac OS / Linux only) Attach to a currently-running RhoConnect application. 
+
+*	`rhoconnect attach` - (Mac OS / Linux only) Attach to a currently-running RhoConnect application.
 
 Some other useful development tasks:
 
 *	`rhoconnect spec` - Run all source adapter specs in spec/sources/.
-	
+
 *	`rhoconnect web` - Open the RhoConnect web console in a browser.
 
 ## Generate Source
 
 Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. The collection of the code for these operations is called a source. You can create source for your RhoConnect application two ways:
- 
+
  * [RhoConnect source adapter](/rhoconnect/source-adapters): generate a Ruby code source adapter from RhoStudio or from the command line, similar to how you generate a RhoConnect app. This source adapter contains code for the query, create, update and delete operations.
- 
+
  * [RhoConnect plugin](/rhoconnect/plugin-intro): write the source code (the query, create, update and delete operations) into your backend application, and plug a RhoConnect plugin in the application. The plugin is written in the language that matchs your backend application, such as Java or .NET.
 
 ## Rake Tasks (Rhoconnect v.3.1 and lower)
-<span class="label label-important">As of version 4.0 of rhoconnect, rake tasks will be deprecated!!</span> 
+<span class="label label-important">As of version 4.0 of rhoconnect, rake tasks will be deprecated!!</span>
 
 Each RhoConnect (v.3.1 and lower) application uses [rake](https://github.com/jimweirich/rake) to manage development tasks such as starting/stopping the app, starting resque workers, and running specs.
 
