@@ -166,6 +166,8 @@ to your bash scripts (i.e. `~/.profile` on Ubuntu; `~/.bash_profile` on CentOS) 
     :::text
     export PATH=/opt/rhoconnect/bin:$PATH
 
+#### Deploying a rhoconnect app
+
 To deploy and develop your rhoconnect app on nginx and thin servers
 
 a) Copy your rhoconnect project (lets name it as `your_rhoconnect_app`) to default location to `/opt/nginx/html` directory
@@ -216,6 +218,20 @@ f) As root user restart Nginx, and Thin servers
     :::term
     /etc/init.d/nginx restart
     /etc/init.d/thin restart
+
+
+#### Deploying multiple rhoconnect apps
+
+**NOTE: Deploying multiple rhoconnect apps on nginx has not yet been tested. Perform these steps only if you are experienced with nginx.**
+
+To deploy and develop two rhoconnect applications on nginx and thin servers, 
+refer to the nginx documentation on [nginx server blocks](http://wiki.nginx.org/ServerBlockExample) to see how to configure an nginx sever for multiple host names.
+
+For each rhoconnect app, you need to set up its own redis instance. Refer to [the redis quick start documentation](http://redis.io/topics/quickstart).
+
+If you have questions on setting this up, contact your system administrator.
+
+#### Monitoring and Logging
 
 For monitoring and troubleshooting purposes visit web console of your app and look at log files in `/opt/nginx/logs`.
 
