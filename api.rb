@@ -36,6 +36,13 @@ class Api
 			end
 		end
 		
+		if element.attributes["default"].nil?
+			propdefault= ""
+		else
+			propdefault= element.attributes["default"]
+			
+		end
+		
 		@propdesc = ""
 		element.elements.each("DESC") { |delement|
 			@propdesc = delement.text
@@ -43,9 +50,11 @@ class Api
 		
 		@propvalues = ""
 		@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
+		@seperator = ""
 		element.elements.each("VALUES") { |velement|
 			velement.elements.each("VALUE") { |vaelement|
-				@propvalues += vaelement.attributes["value"] + ', '
+				@propvalues += @seperator + vaelement.attributes["value"]
+				@seperator = ', '
 				if !vaelement.attributes["type"].nil?
 					@propvaluetype = !vaelement.attributes["type"]
 				end
@@ -56,10 +65,11 @@ class Api
 			@propvalues = "<br/><br/><b>Possible Values (#{@propvaluetype}):<br/></b> " + @propvalues
 		end
 
-  		md += "<tr>"
-  		md += "<td><b>#{propname}</b><br/><i>#{@propdesc}</i>#{@propvalues}"
-  		md += "<td>#{proptype}<br/>#{propreadOnly}</td>" 
-  		md += "</tr>" 
+		md += "\n" + '###' + "#{propname}\n"
+  		md += "<table width='100%'><tr>"
+  		md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>#{@propvalues}"
+  		md += "<td>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</td>" 
+  		md += "</tr></table>\n\n" 
 
   	}
   	return md
@@ -89,6 +99,7 @@ class Api
 
 		@methparams = ""
 		@methparamsdetails = ""
+		@seperator = ""
 		element.elements.each("PARAMS") { |params|
 			params.elements.each("PARAM") { |param|
 				@methparamsdetailsdesc=""
@@ -108,7 +119,8 @@ class Api
 				
 
 
-				@methparams += param.attributes["name"] + ', '
+				@methparams += @seperator + param.attributes["name"]
+				@seperator =  ', '
 				if param.attributes["type"].nil?
 					param.attributes["type"] = "STRING"
 				end
@@ -120,16 +132,17 @@ class Api
 			# @methvalues = "<br/><b>Possible Values:</b> " + @methvalues
 		end
 
-  		md += "<tr>"
-  		md += "<td><b>#{methname}(#{@methparams})</b><br/>#{@methdesc}"
+		md += "\n" + '###' + "#{methname}\n"
+  		md += "<table class='table  table-condensed'><tr>"
+  		md += "<td><b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>#{@methdesc}"
+  		md += "</td><td>#{@methreturn}<br/>#{@methreturndesc}</td>" 
   		if @methparamsdetails != ""
-  			md += "<br/><table class='table table-bordered'>"
+  			md += "<tr><td colspan='2'><table class='table table-bordered'>"
   			md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td><td>Can Be Nil</td></tr></thead>"
   			md += @methparamsdetails
-  			md += "</table><br/>"
+  			md += "</table></td></tr>"
   		end
-  		md += "</td><td>#{@methreturn}<br/>#{@methreturndesc}</td>" 
-  		md += "</tr>" 
+  		md += "</tr></table>\n\n" 
 
   	}
   	return md
@@ -147,9 +160,9 @@ class Api
 
   	md += "#" + getApiName(doc) + "\n" 
   	 md += "##Properties" + "\n\n" 
-  	 md += "<table class='table table-striped table-condensed'>" + getproperties(doc) + "</table>\n\n"
+  	 md += "" + getproperties(doc) + ""
 	 md += "##Methods" + "\n\n" 
-  	 md += "<table class='table  table-condensed'>" + getmethods(doc) + "</table>\n\n"
+  	 md += "" + getmethods(doc) + ""
 
   	puts md
 
