@@ -1,5 +1,6 @@
 development:
   dirs:
+    api: 'docs/api/'
     rhosync: 'docs/rhosync/'
     rhodes: '../rhodes/doc/'
     rhodesapi: 'docs/rhodesapi/'
@@ -12,6 +13,7 @@ development:
   pdfkithost: 'localhost:9393'
 jenkins:
   dirs:
+    api: 'docs/api/'
     rhosync: 'docs/rhosync/'
     rhodes: '../../rhodes/workspace/doc/'
     rhodesapi: 'docs/rhodesapi/'
@@ -24,6 +26,7 @@ jenkins:
   pdfkithost: 'localhost:9393'
 edge:
   dirs:
+    api: 'docs/api/'
     rhosync: 'docs/rhosync/'
     rhodes: 'docs/rhodes/'
     rhodesapi: 'docs/rhodesapi/'
@@ -36,6 +39,7 @@ edge:
   pdfkithost: 'edgedocs.rhomobile.com'
 production:
   dirs:
+    api: 'docs/api/'
     rhosync: 'docs/rhosync/'
     rhodes: 'docs/rhodes/'
     rhodesapi: 'docs/rhodesapi/'

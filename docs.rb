@@ -6,6 +6,7 @@ require 'rack/codehighlighter'
 
 require './topic'
 require './indicators'
+require './api'
 require './lib/term.rb'
 require './pdfmaker'
 
@@ -137,11 +138,16 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0)
+      puts subpath
       @topic_file = topic_file(topic,subpath)
       if  @topic_file == 'docs/rhoelements/apicompatibility.txt'
         source = Indicators.apimatrix_markdown()  
-      else        
-        source = File.read(topic_file(topic, subpath))
+      else
+        if(subpath == 'api')
+          source = Api.markdown(@topic_file)
+        else        
+          source = File.read(topic_file(topic, subpath))
+        end
       end
       source = source
   		@topic = Topic.load(topic, source)
@@ -192,7 +198,12 @@ xml_string +=  ' </rss>	'
   	  if topic.include?('/')
   	    topic
   		elsif subpath
-  		  File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+        if subpath == 'api'
+          extension = '.xml'
+        else
+          extension = '.txt'
+        end
+        File.join(AppConfig['dirs'][subpath], "#{topic}#{extension}")
   		else
   			"#{settings.root}/docs/#{topic}.txt"
   		end
