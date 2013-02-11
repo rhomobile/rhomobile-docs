@@ -41,11 +41,11 @@ div#doc_container{
 }
 
 #docsnav {
-  padding: 0px 30px 30px 30px;
+  /*padding: 0px 30px 30px 30px;
   border-right: 1px solid #ddd;
   width: 250px;
   float: left;
-  font-size:11px;
+  font-size:11px;*/
 }
 
 #sidebar {
@@ -172,14 +172,14 @@ p, ul, blockquote, pre, table {
 --------------------------------------------------*/
 
 #docsnav ul {
-	margin:0;
+	margin: 0px 0px 0px 10px;
 	padding:0;
 }
-/*
+
 #docsnav li {
-	list-style-type:none;
-	margin:0 0 3px 0;
+	font-size: 11px;
 }
+/*
 #docsnav ul li ul li {
 	padding-left: 1.5em;
 }
