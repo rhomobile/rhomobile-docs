@@ -27,7 +27,22 @@
 					<li class="nav-header">IN THIS DOCUMENT</li>
   
 					<% @toc.each do |section| %>
-						<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
+						<% if @toc_sub.length >0 %>
+							<li class="nav-header" data-target="#toc_<%= slugify(section) %>" data-toggle="collapse"><%= section %><i class="icon-chevron-down" style="float:right"></i></li>
+
+							<ul class="nav nav-list collapse" id="toc_<%= slugify(section) %>" style="margin-top:0px !important">
+								<% @toc_sub.each do |subsection| %>
+									<% if slugify(section) == subsection["h2"] %>
+										<li><a href='#<%= slugify(subsection["h3"]) %>'><%= subsection["h3"] %></a></li>
+										
+									<% end %>
+								<% end %>
+							</ul>
+						<% else %>
+							<li><a href="#<%= slugify(section) %>"><%= section %></a></li>
+						
+						<% end %>
+						
 					<% end %>
 				</ul>
 			<% end %>

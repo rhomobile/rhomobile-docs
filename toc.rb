@@ -58,7 +58,13 @@ section 'rhodes-reference', 'Rhodes Reference' do
   topic 'rhodes/contributing',      'Contributing'
 end
 
-section 'rhodesapi-reference', 'Mobile API List' do
+section 'rhodescommonapi-reference', '4.0 Mobile API List' do
+  topic 'api/barcode',      'Barcode'
+  topic 'api/process',      'Process'
+  topic 'api/system',      'System'
+end
+
+section 'rhodesapi-reference', 'Legacy Mobile API List' do
   topic 'rhoelements/apicompatibility',      'API Compatibility Matrix'
   topic 'rhoelements/addressbar',      'AddressBar'
   topic 'rhoelements/airbeam',      'Airbeam'

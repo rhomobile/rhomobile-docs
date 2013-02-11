@@ -1,5 +1,6 @@
 source :gemcutter
 
+gem 'xml-simple'
 gem 'pdfkit'
 gem 'rack', '~>1.3.0'
 gem 'sinatra', '~>1.3.0'
@@ -10,6 +11,7 @@ gem 'coderay', '~>0.9.8'
 gem 'rack-codehighlighter'
 gem 'indextank'
 gem 'shotgun'
+
 group :development do
   gem "rake", '~> 0.9.2.2'
 end

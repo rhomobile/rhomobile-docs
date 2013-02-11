@@ -20,7 +20,7 @@ class Topic
     FileList[paths]
   end
   
-  attr_reader :topic, :title, :content, :toc, :intro, :body
+  attr_reader :topic, :title, :content, :toc, :toc_sub, :intro, :body
   
   def initialize(name, source)
     @topic = name
@@ -32,6 +32,8 @@ class Topic
     @content = markdown(source)
     @title, @content = _title(@content)
     @toc, @content = _toc(@content)
+    @toc_sub, @content = _tocSub(@content)
+    
     if @toc.any?
       @intro, @body = @content.split('<h2>', 2)
       @body = "<h2>#{@body}"
@@ -76,6 +78,20 @@ class Topic
 		end
 		return toc, content_with_anchors
 	end
+
+  def _tocSub(content)
+    toc = []
+    content.scan(/<h3 data-h2="([^<]+)">([^<]+)<\/h3>/m).each {|m|
+      hash = { "h2" => m[0], "h3" => m[1] }
+      toc.push(hash)
+  
+    } #.to_a #.map #{ |m| m.first }
+    # puts toc
+    content_with_anchors = content.gsub(/(<h3 data-h2="([^<]+)">[^<]+<\/h3>)/m) do |m|
+      "<a name=\"#{slugify(m.gsub(/<[^>]+>/, ''))}\"></a>#{m}"
+    end
+    return toc, content_with_anchors
+  end
 
   def self.model(topicfile)
     model = nil

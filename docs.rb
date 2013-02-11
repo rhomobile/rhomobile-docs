@@ -138,7 +138,7 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0)
-      puts subpath
+      # puts subpath
       @topic_file = topic_file(topic,subpath)
       if  @topic_file == 'docs/rhoelements/apicompatibility.txt'
         source = Indicators.apimatrix_markdown()  
@@ -165,7 +165,8 @@ xml_string +=  ' </rss>	'
       
 		  end
   		@toc     = @topic.toc
-  		@body    = @topic.body
+  		@toc_sub     = @topic.toc_sub
+      @body    = @topic.body
       		
   		@print = print
       if subpath.nil? || subpath == ''

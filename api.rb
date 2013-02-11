@@ -1,4 +1,4 @@
-require 'rexml/document'
+require 'xmlsimple'
 
 class Api
 
@@ -6,133 +6,143 @@ class Api
 #returns markdown for the name of the API 
   def self.getApiName(doc)
   	md=""
-  	doc.elements.each("//MODULE") { |element| 
-  		md = element.attributes["name"] 
-  	}
+  	md = doc["MODULE"][0]["name"]
+  	# doc.elements.each("//MODULE") { |element| 
+  	# 	md = element.attributes["name"] 
+  	# }
   	return md
   end
   
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
   	md = ""
-	doc.elements.each("//PROPERTIES/PROPERTY") { |element| 
-		propname = element.attributes["name"]
-		# type is optional default is STRING
-		if element.attributes["name"].nil?
-			proptype= "STRING"
-		else
-			proptype= element.attributes["type"]
-		end
+  	if !doc["MODULE"][0]["PROPERTIES"].nil?
+	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 
-		# readOnly is optional default is false
-		if element.attributes["readOnly"].nil?
-			propreadOnly= ""
-		else
-			propreadOnly= element.attributes["readOnly"]
-			if propreadOnly=="true"
-				propreadOnly="Read Only"
+
+	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
+	  	# puts a
+		s.each() { |element| 
+			propname = element["name"]
+			# type is optional default is STRING
+			if element["name"].nil?
+				proptype= "STRING"
 			else
-				propreadOnly=""
+				proptype= element["type"]
 			end
-		end
-		
-		if element.attributes["default"].nil?
-			propdefault= ""
-		else
-			propdefault= element.attributes["default"]
-			
-		end
-		
-		@propdesc = ""
-		element.elements.each("DESC") { |delement|
-			@propdesc = delement.text
-		}
-		
-		@propvalues = ""
-		@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
-		@seperator = ""
-		element.elements.each("VALUES") { |velement|
-			velement.elements.each("VALUE") { |vaelement|
-				@propvalues += @seperator + vaelement.attributes["value"]
-				@seperator = ', '
-				if !vaelement.attributes["type"].nil?
-					@propvaluetype = !vaelement.attributes["type"]
+
+			# readOnly is optional default is false
+			if element["readOnly"].nil?
+				propreadOnly= ""
+			else
+				propreadOnly= element["readOnly"]
+				if propreadOnly=="true"
+					propreadOnly="Read Only"
+				else
+					propreadOnly=""
 				end
-			}
+			end
+			
+			if element["default"].nil?
+				propdefault= ""
+			else
+				propdefault= element["default"]
+				
+			end
+			
+			@propdesc = element["DESC"][0]
+			
+			@propvalues = ""
+			@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
+			@seperator = ""
+			if !element["VALUES"].nil?
+				element["VALUES"].each() { |velement|
 
-		}
-		if @propvalues != ""
-			@propvalues = "<br/><br/><b>Possible Values (#{@propvaluetype}):<br/></b> " + @propvalues
-		end
+					velement["VALUE"].each() { |vaelement|
+						@propvalues += @seperator + vaelement["value"]
+						@seperator = ', '
+						if !vaelement["type"].nil?
+							@propvaluetype = !vaelement["type"]
+						end
+					}
 
-		md += "\n" + '###' + "#{propname}\n"
-  		md += "<table width='100%'><tr>"
-  		md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>#{@propvalues}"
-  		md += "<td>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</td>" 
-  		md += "</tr></table>\n\n" 
+				}
+			end
+			if @propvalues != ""
+				@propvalues = "<br/><br/><b>Possible Values (#{@propvaluetype}):<br/></b> " + @propvalues
+			end
 
-  	}
+			md += "\n" + '<h3 data-h2="properties">' + "#{propname}</h3>\n"
+	  		md += "<table width='100%'><tr>"
+	  		md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>#{@propvalues}"
+	  		md += "<td>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</td>" 
+	  		md += "</tr></table>\n\n" 
+
+	  	}
+	end
   	return md
   end
 
 #returns Markdown for the <Properties section
   def self.getmethods(doc)
   	md = ""
-	doc.elements.each("//METHODS/METHOD") { |element| 
-		methname = element.attributes["name"]
+  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
+
+	s.each() { |element| 
+		methname = element["name"]
 		
 		
-		@methdesc = ""
-		element.elements.each("DESC") { |delement|
-			@methdesc = delement.text
-		}
+		@methdesc = element["DESC"][0]
 		
 		@methreturn = "Void"
 		@methreturndesc=""
-		element.elements.each("RETURN") { |relement|
-			@methreturn = relement.attributes["type"]
-			@methreturndesc=""
-				relement.elements.each("DESC") { |paramsreturndesc|
-					@methreturndesc=paramsreturndesc.text
-				}
-		}
-
+		if !element["RETURN"].nil?
+			element["RETURN"].each() { |relement|
+				@methreturn = relement["type"]
+				# puts relement
+		
+				if !relement["DESC"].nil?
+					@methreturndesc=relement["DESC"][0]
+				end
+			}
+		end
 		@methparams = ""
 		@methparamsdetails = ""
 		@seperator = ""
-		element.elements.each("PARAMS") { |params|
-			params.elements.each("PARAM") { |param|
-				@methparamsdetailsdesc=""
-				param.elements.each("DESC") { |paramsdesc|
-					@methparamsdetailsdesc=paramsdesc.text
+		if !element["PARAMS"].nil?
+			element["PARAMS"].each { |params|
+				params["PARAM"].each { |param|
+
+					if !param["DESC"].nil?
+						@methparamsdetailsdesc=param["DESC"][0]
+					end
+
+					@methparamsnil="No"
+					if !param["CAN_BE_NIL"].nil?
+						param["CAN_BE_NIL"].each { |paramsnil|
+							@methparamsnil="Yes"
+							if !paramsnil["DESC"].nil?
+								@methparamsnil += "<BR/>" + paramsnil["DESC"][0]
+							end
+							
+						}
+					end
+					
+					@methparams += @seperator + param["name"]
+					@seperator =  ', '
+					if param["type"].nil?
+						param["type"] = "STRING"
+					end
+					@methparamsdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methparamsdetailsdesc + "</td><td>" + @methparamsnil + "</td></tr>"
 				}
 
-				@methparamsnil="No"
-				param.elements.each("CAN_BE_NIL") { |paramsnil|
-					@methparamsnil="Yes"
-					@methparamsnildesc=""
-					paramsnil.elements.each("DESC") { |paramsnildesc|
-						@methparamsnildesc="<BR/>" + paramsnildesc.text
-					}
-					@methparamsnil += @methparamsnildesc
-				}
-				
-
-
-				@methparams += @seperator + param.attributes["name"]
-				@seperator =  ', '
-				if param.attributes["type"].nil?
-					param.attributes["type"] = "STRING"
-				end
-				@methparamsdetails += "<tr><td>" + param.attributes["name"] + "</td><td>" + param.attributes["type"] + "</td><td>" + @methparamsdetailsdesc + "</td><td>" + @methparamsnil + "</td></tr>"
 			}
-
-		}
+		end
 		if @methparams != ""
 			# @methvalues = "<br/><b>Possible Values:</b> " + @methvalues
 		end
 
-		md += "\n" + '###' + "#{methname}\n"
+		md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
   		md += "<table class='table  table-condensed'><tr>"
   		md += "<td><b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>#{@methdesc}"
   		md += "</td><td>#{@methreturn}<br/>#{@methreturndesc}</td>" 
@@ -152,19 +162,24 @@ class Api
   def self.markdown(topic)
     md = ''
 
-  	xml = File.read(topic)
-  	doc = REXML::Document.new xml
+  	# xml = File.read(topic)
+  	# doc = REXML::Document.new xml
   	
+  	doc = XmlSimple.xml_in(topic)
+
   	#get api name from <MODULE name="" ...
   	# need to figure out what to do if multiple <MODULE tags in one physical file
 
+  	docproperties = getproperties(doc)
   	md += "#" + getApiName(doc) + "\n" 
-  	 md += "##Properties" + "\n\n" 
-  	 md += "" + getproperties(doc) + ""
+  	if docproperties !=""
+	  	 md += "##Properties" + "\n\n" 
+	  	 md += "" + getproperties(doc) + ""
+  	end 
 	 md += "##Methods" + "\n\n" 
   	 md += "" + getmethods(doc) + ""
 
-  	puts md
+  	# puts md
 
   return md
   end
