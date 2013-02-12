@@ -46,7 +46,7 @@ class Api
 			if element["default"].nil?
 				propdefault= ""
 			else
-				propdefault= element["default"]
+				propdefault= "Default: " + element["default"]
 				
 			end
 			
@@ -56,15 +56,17 @@ class Api
 			@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
 			@seperator = ""
 			if !element["VALUES"].nil?
+				@propvalues = "<ul>"
 				element["VALUES"].each() { |velement|
 
 					velement["VALUE"].each() { |vaelement|
-						@propvalues += @seperator + vaelement["value"]
+						@propvalues += "<li>#{vaelement["value"]}</li>" 
 						@seperator = ', '
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
 						end
 					}
+				@propvalues += "</ul>"
 
 				}
 			end
