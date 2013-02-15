@@ -1,0 +1,109 @@
+RhoConnect REST API
+===
+Your RhoConnect source adapter application can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/rhoconnect/source-adapters#sample-adapter) for a complete example.
+
+## login
+
+Login to your backend service (optional).
+
+	:::ruby
+	def login
+	  MyWebService.login(current_user.login)
+	end
+
+## logoff
+
+Logoff from your backend service (optional).
+
+	:::ruby
+	def logoff
+	  MyWebService.logoff(current_user.login)
+	end
+
+## query
+
+Query your backend service and build a hash of hashes (required).
+
+**NOTE: This method must assign `@result` to a hash of hashes.  If @result is `nil` or `{}`, the master document will be erased from redis.**
+
+	:::ruby
+	def query
+	  parsed = JSON.parse(RestClient.get("#{@base}.json").body)
+
+      @result = {}
+	  parsed.each do |item|
+	    @result[item["product"]["id"].to_s] = item["product"]
+	  end if parsed
+	end
+
+## search
+
+Search your backend based on params and build a hash of hashes (optional).  Similar to query, however the master document accumulates the data in `@result` instead of replacing when it runs.
+
+	:::ruby
+	def search(params)
+	  parsed = JSON.parse(RestClient.get("#{@base}.json").body)
+
+      @result = {}
+	  parsed.each do |item|
+		if item["product"]["name"].downcase == params['name'].downcase
+	      @result[item["product"]["id"].to_s] = item["product"]
+	    end
+	  end if parsed
+	end
+
+Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/rhodes/synchronization#filtering-datasets-with-search).
+
+## create
+
+Create a new record in the backend (optional).
+
+**NOTE: RhoConnect can establish a 'link' between the local record id provided by the client and the new record id provided by the backend service.  To enable this link, return the new record id as a string.**
+
+	:::ruby
+	def create(create_hash)
+	  res = MyWebService.create(create_hash)
+
+	  # return new product id so we establish a client link
+	  res.new_id
+	end
+
+## update
+
+Update an existing record in the backend (optional).
+
+	:::ruby
+	def update(update_hash)
+	end
+
+## delete
+
+Delete an existing record in the backend (optional).
+
+	:::ruby
+	def delete(delete_hash)
+	  MyWebService.delete(delete_hash['id'])
+	end
+
+## current_user
+
+Returns the current user which called the adapter.  For example, you could filter results for a specific user in  your query method:
+
+	:::ruby
+	def query
+	  @result = MyWebService.get_records_for_user(current_user.login)
+	end
+
+## stash_result
+
+Saves the current state of `@result` to redis and assigns it to `nil`.  Typically this is used when your adapter has to paginate through backend service data.
+
+ 	:::ruby
+	def query
+	  @result = {}
+	  ('a'..'z').each_with_index do |letter,i|
+		@result ||= {}
+	    @result.merge!( DictionaryService.get_records_for(letter) )
+		stash_result if i % 2 == 0
+	  end
+	end

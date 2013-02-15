@@ -230,9 +230,14 @@ section 'rhoconnect-deployment', 'RhoConnect Deployment' do
   topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
 
+section 'rhoconnect-api-reference', 'RhoConnect API' do
+  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'rhoconnectapi/source-adapter-api', 'Source Adapter API'
+  topic 'rhoconnectapi/test-api',     'Source Adapter Test API'
+end
+
 section 'rhoconnect-advanced', 'RhoConnect Advanced Topics' do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
-  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
   topic 'rhoconnect/cud-conflicts',     'Resolving Conflicts'
   topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
