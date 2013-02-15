@@ -1,8 +1,6 @@
 # Building RhoStudio Apps on RhoHub
 
-RhoStudio lets you build your apps on RhoHub without leaving the RhosStudio IDE.  Just select the remote build option when building in RhoStudio and RhoHub will perform the build for you.
-
-NOTE: This is a Beta feature. It is not complete and it is subject to change.
+RhoStudio lets you build your apps on RhoHub without leaving the RhoStudio IDE.  Just select the remote build option when building in RhoStudio and RhoHub will perform the build for you.
 
 You will need a [RhoHub](/rhohub/tutorial) account. You will also use the [RhoStudio IDE](/rhostudio.tutorial).
 

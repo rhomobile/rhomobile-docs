@@ -7,6 +7,7 @@ section 'getting-started', 'Getting Started' do
   topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
   topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
   topic 'rhohub/tutorial',      'RhoHub Tutorial'
+  topic 'rhostudio-rhohub',      'Building RhoStudio Apps on RhoHub'
   topic 'tutorials',            'How To'
   topic 'architecturefaq',      'Architecture FAQ'
   topic 'faq',                  'Programming FAQ'
