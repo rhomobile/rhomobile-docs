@@ -27,8 +27,55 @@ class Models
 		"keyclasses"=>[], 
 		"seealso"=>[{"name"=>"RFID PlugIn","url"=>"https://support.symbol.com/support/search.do?cmd=displayKC&docType=kc&externalId=13856&sliceId=&dialogID=470318458&stateId=1%200%20470304681
 "},
+
 			{"name"=>"RhoMobile Suite SP1","url"=>"http://developer.motorolasolutions.com"}], 
+		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true},
+	{"source_id"=>40003, 
+		"object"=>"", 
+		"docid"=>"api/barcode", 
+		"title"=>"", 
+		"menutitle"=>"", 
+		"type"=>"apiref", 
+		"keywords"=>"", 
+		"categories"=>"", 
+		"contentfile"=>"api/barcode", 
+		"description"=>"", 
+		"keyclasses"=>[], 
+		"seealso"=>[{"name"=>"Legacy Mobile APIs","url"=>"/rhoelements/apicompatibility"},
+
+			], 
+		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true},
+	{"source_id"=>40003, 
+		"object"=>"", 
+		"docid"=>"api/system", 
+		"title"=>"", 
+		"menutitle"=>"", 
+		"type"=>"apiref", 
+		"keywords"=>"", 
+		"categories"=>"", 
+		"contentfile"=>"api/system", 
+		"description"=>"", 
+		"keyclasses"=>[], 
+		"seealso"=>[{"name"=>"Legacy Mobile APIs","url"=>"/rhoelements/apicompatibility"},
+
+			], 
+		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true},
+	{"source_id"=>40003, 
+		"object"=>"", 
+		"docid"=>"api/process", 
+		"title"=>"", 
+		"menutitle"=>"", 
+		"type"=>"apiref", 
+		"keywords"=>"", 
+		"categories"=>"", 
+		"contentfile"=>"api/process", 
+		"description"=>"", 
+		"keyclasses"=>[], 
+		"seealso"=>[{"name"=>"Legacy Mobile APIs","url"=>"/rhoelements/apicompatibility"},
+
+			], 
 		"sampleapp"=>"", "products"=>"", "visiblemenu"=>true, "visibledoc"=>true}
+
 	]
 
 def self.docs()	
