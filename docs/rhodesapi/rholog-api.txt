@@ -4,7 +4,7 @@ Print messages in the log file rholog.txt.
 
 ## Using JavaScript API
 
-You can call the RhoLog methods from JavaScript as well as Ruby. To use the Javascript API, add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file calling the JavaScript method.
+You can call the RhoLog methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method.
 
 You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
