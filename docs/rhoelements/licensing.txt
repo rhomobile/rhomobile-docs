@@ -28,17 +28,10 @@ An application license is a completely separate concept from a device license an
 
 Application licenses are currently only applicable for Android, iPhone, Windows Mobile, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
 
-For hybrid applications, the license will define a series of URLs which are navigable from the application, these URLs can also include wildcards so it is not necessary to specify every file which comprises the app. When an application license is in effect, the following URLs are exempt from licensing:
-
-* Files resident on the local file system
-* The local web server running on 127.0.0.1 (if used)
-* Native applications. Note that native applications attempting to access remote resources will be subject to the set of allowed URLs defined in the application license. Also note that only page browsing is affected, application licensing does not apply to RhoConnect.
-
 When you get an application license from Motorola Solutions for a hybrid application, you will need to provide Motorola Solutions with the following information.
 
 * Your company name.
 * The name of your application.
-* The URLs your application needs to access.
 * The version of RhoElements for which you want the license.
 
 Application Licenses are encoded by the Motorola Solutions Software License team on allocation but an unencrypted license will look like the following:
@@ -46,7 +39,6 @@ Application Licenses are encoded by the Motorola Solutions Software License team
 	Company Name: Motorola Solutions
 	PackageName: Warehouse Picking	//  As defined in the build.yml file
 	For Version: 2.*.*			//  Application licenses can be version specific, this one is valid for any 2.x version of RhoElements
-	URL Mask: *motorolasolutions.com/apps/warehouse/*	//  Any URL in the motorolasolutions.com/apps/warehouse folder is allowed, all others are disallowed.  These URLs are currently case sensitive on Android but case insensitive on all other applicable platforms.
 
 ### Applying an Application License
 
