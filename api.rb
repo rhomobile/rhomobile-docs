@@ -56,17 +56,24 @@ class Api
 			@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
 			@seperator = ""
 			if !element["VALUES"].nil?
-				@propvalues = "<ul>"
+				@propvalues = "<table class='table-condensed'>"
 				element["VALUES"].each() { |velement|
 
 					velement["VALUE"].each() { |vaelement|
-						@propvalues += "<li>#{vaelement["value"]}</li>" 
+						@propvaldesc = ""
+						if !vaelement["DESC"].nil?
+							if vaelement["DESC"][0].to_s.length > 0
+								@propvaldesc = vaelement["DESC"][0].to_s
+							end 
+						end	
 						@seperator = ', '
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
 						end
+						@propvalues += "<tr><td><b>#{vaelement["value"]}</b></td><td>#{@propvaldesc}</td></tr>" 
+						
 					}
-				@propvalues += "</ul>"
+				@propvalues += "</table>"
 
 				}
 			end
@@ -76,9 +83,9 @@ class Api
 
 			md += "\n" + '<h3 data-h2="properties">' + "#{propname}</h3>\n"
 	  		md += "<table width='100%'><tr>"
-	  		md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>#{@propvalues}"
-	  		md += "<td>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</td>" 
-	  		md += "</tr></table>\n\n" 
+	  		md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>"
+	  		md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
+	  		md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
 
 	  	}
 	end
@@ -147,7 +154,7 @@ class Api
 		md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
   		md += "<table class='table  table-condensed'><tr>"
   		md += "<td><b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>#{@methdesc}"
-  		md += "</td><td>#{@methreturn}<br/>#{@methreturndesc}</td>" 
+  		md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>" 
   		if @methparamsdetails != ""
   			md += "<tr><td colspan='2'><table class='table table-bordered'>"
   			md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td><td>Can Be Nil</td></tr></thead>"

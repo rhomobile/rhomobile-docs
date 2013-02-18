@@ -2,8 +2,15 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Barcode" parent="Rho">
-        <HELP_OVERVIEW>is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.</HELP_OVERVIEW>
-        <MORE_HELP>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader.  When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</MORE_HELP>
+
+      <ALIASES>
+        <!--ALIAS new="scanner" existing="scanner" deprecated="true"/-->
+        <ALIAS new="RemoteScannerManagement" existing="RemoteScannerManagement"/>
+        <!--ALIAS new="rsm" existing="rsm" deprecated="true" /-->
+      </ALIASES>
+	  
+      <HELP_OVERVIEW>Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary from device to device.  In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera.  If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device.  In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback).</HELP_OVERVIEW>
+        <MORE_HELP>Only the foreground RhoElements application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner.  When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.</MORE_HELP>
     
         <TEMPLATES>
             <SINGLETON_INSTANCES/>   <!-- produce enumerate() fabric method, all instances is singletones by ID, add ID property -->
@@ -11,46 +18,37 @@
             <PROPERTY_BAG/> <!-- object has properties, produce getProps(), setProps() methods -->
         </TEMPLATES>
 
-        <!-- <PROPERTIES usePropertyBag="accessorsViaPropertyBag"> -->
-        <!-- <PROPERTIES usePropertyBag="PropertyBagViaAccessors"> -->
         <PROPERTIES>
-            <DESC>object supports this properties bla bla bla :</DESC>
-			
-			<ALIASES>
-                <ALIAS new="scanner" existing="scanner" deprecated="true"/>
-                <ALIAS new="RemoteScannerManagement" existing="RemoteScannerManagement" deprecated="true"/>
-                <ALIAS new="rsm" existing="rsm" deprecated="true" />
-            </ALIASES>
-			
+            <DESC>These properties are used to configure the barcode scanner or barcode decoding algorithms, depending on your device.</DESC>
 			
             <PROPERTY name="autoEnter" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>When true, automatically appends the character code for 'enter' to the end of any barcodes scanned.  This is most useful to submit forms following a scan.  This property will only take effect if you have not specified a callback to the enable method.</DESC>
+				<DESC>When true, automatically appends the character code for 'enter' to the end of any barcodes scanned.  This is most useful to submit forms following a scan.  This property will only take effect if you have not specified a callback to the enable method.  AutoEnter and AutoTab are mutually exclusive</DESC>
             </PROPERTY>
             <PROPERTY name="autoTab" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>When true, automatically appends the tab character to the end of any barcodes scanned.  This is most useful if you are populating a form.  This property will only take effect if you have not specified a callback to the enable method.</DESC>
+				<DESC>When true, automatically appends the tab character to the end of any barcodes scanned.  This is most useful if you are populating a form.  This property will only take effect if you have not specified a callback to the enable method.  AutoEnter and AutoTab are mutually exclusive</DESC>
             </PROPERTY>
             <PROPERTY name="linearSecurityLevel" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Describes the linear security level used during decoding.</DESC>
                 <VALUES>
-                    <VALUE const_name="REDUNDANCY_AND_LENGTH" value="redundancyAndLength">
-                        <DESC>Two times redundancy based on redundancy flags and code length.</DESC>
+                    <VALUE constName="REDUNDANCY_AND_LENGTH" value="redundancyAndLength">
+                        <DESC>Two times redundancy based on redundancy flags and code length.  Only applicable to laser scanners, not BlockBuster imager scanners.</DESC>
                     </VALUE>
-                    <VALUE const_name="SHORT_OR_CODABAR" value="shortOrCodabar">
+                    <VALUE constName="SHORT_OR_CODABAR" value="shortOrCodabar">
                         <DESC>Two times redundancy if short barcode or Codabar.</DESC>
                     </VALUE>
-                    <VALUE const_name="LONG_AND_SHORT" value="longAndShort">
+                    <VALUE constName="LONG_AND_SHORT" value="longAndShort">
                         <DESC>Two times redundancy for long barcodes, three times for short barcodes.</DESC>
                     </VALUE>
-                    <VALUE const_name="ALL_TWICE" value="allTwice">
+                    <VALUE constName="ALL_TWICE" value="allTwice">
                         <DESC>Two times redundancy for all barcodes.</DESC>
                     </VALUE>
-                    <VALUE const_name="ALL_THRICE" value="allThrice">
+                    <VALUE constName="ALL_THRICE" value="allThrice">
                         <DESC>Three times redundancy for all barcodes.</DESC>
                     </VALUE>
                 </VALUES>
@@ -64,16 +62,16 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>Describes the type of vertical rastering to use. </DESC>
                 <VALUES>
-                    <VALUE const_name="RASTER_NONE" value="none">
+                    <VALUE constName="RASTER_NONE" value="none">
                         <DESC>No vertical rastering</DESC>
                     </VALUE>
-                    <VALUE const_name="RASTER_OPEN_ALWAYS" value="openAlways">
+                    <VALUE constName="RASTER_OPEN_ALWAYS" value="openAlways">
                         <DESC> Vertical rastering is always full open.  To adjust the rastering height use the rasterHeight property.</DESC>
                     </VALUE>
-                    <VALUE const_name="RASTER_SMART" value="smart">
+                    <VALUE constName="RASTER_SMART" value="smart">
                         <DESC>Vertical rastering mode is 'Smart'.</DESC>
                     </VALUE>
-                    <VALUE const_name="RASTER_CYCLONE" value="cyclone">
+                    <VALUE constName="RASTER_CYCLONE" value="cyclone">
                         <DESC>Vertical rastering mode is 'Cyclone'.</DESC>
                     </VALUE>
                 </VALUES>
@@ -88,22 +86,22 @@
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Describes the type of aiming to use. </DESC>
                 <VALUES>
-                    <VALUE const_name="AIMTYPE_TRIGGER" value="trigger">
+                    <VALUE constName="AIMTYPE_TRIGGER" value="trigger">
                         <DESC>Standard trigger mode.  Holding the trigger will start a decoding session.</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMTYPE_TIMED_HOLD" value="timedHold">
+                    <VALUE constName="AIMTYPE_TIMED_HOLD" value="timedHold">
                         <DESC> Aiming lasts for the time specified by 'timedAimDuration' before decoding.  The decode will last until the barcode is decoded or scanTimeout occurs.</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMTYPE_TIMED_RELEASE" value="timedRelease">
+                    <VALUE constName="AIMTYPE_TIMED_RELEASE" value="timedRelease">
                         <DESC> Aiming lasts until trigger is released.  If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMTYPE_PRESENTATION" value="presentation">
+                    <VALUE constName="AIMTYPE_PRESENTATION" value="presentation">
                         <DESC>Provided to support Kiosk devices.  The scanner illuminates when movement is detected in the range of the scanner window.  In order to use this mode the scanner must be initiated with a softscan using the scanner.start() method and again after each decode.  The device must be equipped with a sensor to detect movement to use presentation mode. </DESC>
                     </VALUE>
-                    <VALUE const_name="AIMTYPE_PRESS_AND_RELEASE" value="pressAndRelease">
+                    <VALUE constName="AIMTYPE_PRESS_AND_RELEASE" value="pressAndRelease">
                         <DESC>Scan will continue after the trigger is released until scanTimeout occurs.</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMTYPE_CONTINUOUS_READ" value="continuousRead">
+                    <VALUE constName="AIMTYPE_CONTINUOUS_READ" value="continuousRead">
                         <DESC>Once the trigger is pulled barcodes will continue to be scanned whilst the trigger is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout and differentSymbolTimeout.  This value is ignored if viewfinderMode is set to 'dynamicReticle'</DESC>
                     </VALUE>
                 </VALUES>
@@ -128,16 +126,16 @@
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Describes the aiming mode to used. </DESC>
                 <VALUES>
-                    <VALUE const_name="AIMMODE_NONE" value="none">
+                    <VALUE constName="AIMMODE_NONE" value="none">
                         <DESC>No Aiming (Can be overridden by picklistMode).</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMMODE_DOT" value="dot">
+                    <VALUE constName="AIMMODE_DOT" value="dot">
                         <DESC>Laser barcode readers will show a dot for aiming.</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMMODE_SLAB" value="slab">
+                    <VALUE constName="AIMMODE_SLAB" value="slab">
                         <DESC>Laser barcode readers will show a slab for aiming.</DESC>
                     </VALUE>
-                    <VALUE const_name="AIMMODE_RETICLE" value="reticle">
+                    <VALUE constName="AIMMODE_RETICLE" value="reticle">
                         <DESC>Imager barcode readers will show a reticle for aiming.</DESC>
                     </VALUE>
                 </VALUES>
@@ -147,13 +145,13 @@
 				<APPLIES>Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode if no aiming is chosen and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.</DESC>
                 <VALUES>
-                    <VALUE const_name="PICKLIST_DISABLED" value="disabled">
+                    <VALUE constName="PICKLIST_DISABLED" value="disabled">
                         <DESC>Disables picklist mode so any barcode within the field of view can be decoded.</DESC>
                     </VALUE>
-                    <VALUE const_name="PICKLIST_HARDWARE_RETICLE" value="hardwareReticle">
+                    <VALUE constName="PICKLIST_HARDWARE_RETICLE" value="hardwareReticle">
                         <DESC>Enables picklist mode so that only the barcode under the projected reticle can be decoded.  If the imager does not support a projected reticle then the behaviour is the same as softwareReticle.</DESC>
                     </VALUE>
-                    <VALUE const_name="PICKLIST_SOFTWARE_RETICLE" value="softwareReticle">
+                    <VALUE constName="PICKLIST_SOFTWARE_RETICLE" value="softwareReticle">
                         <DESC>Enables picklist mode so that only the barcode in the center of the image is decoded.  This is most useful when used in conjunction with static and dynamic reticle viewfinder modes.</DESC>
                     </VALUE>
                 </VALUES>
@@ -163,16 +161,16 @@
 				<APPLIES>Camera Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Configures the mode of the scanner viewfinder window. This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.</DESC>
                 <VALUES>
-                    <VALUE const_name="VIEWFINDER_ENABLED" value="enabled">
+                    <VALUE constName="VIEWFINDER_ENABLED" value="enabled">
                         <DESC>Only the viewfinder is enabled (not the reticle).  Displays a viewfinder on the screen showing the image being captured by the camera.</DESC>
                     </VALUE>
-                    <VALUE const_name="VIEWFINDER_DISABLED" value="disabled">
+                    <VALUE constName="VIEWFINDER_DISABLED" value="disabled">
                         <DESC> The viewfinder will not be displayed during aiming or scanning.  Not supported on Android.</DESC>
                     </VALUE>
-                    <VALUE const_name="VIEWFINDER_STATIC_RETICLE" value="staticReticle">
+                    <VALUE constName="VIEWFINDER_STATIC_RETICLE" value="staticReticle">
                         <DESC> Displays the viewfinder as well as draws a red reticle in the center of the image which helps with tracking the barcode.</DESC>
                     </VALUE>
-                    <VALUE const_name="VIEWFINDER_DYNAMIC_RETICLE" value="dynamicReticle">
+                    <VALUE constName="VIEWFINDER_DYNAMIC_RETICLE" value="dynamicReticle">
                         <DESC>Displays the viewfinder as well as draws a red reticle in the center of the image.  If the barcode in the image is 'decodable' the reticle turns green to indicate this.  This mode requires a second trigger press to decode the barcode after the reticle turns green.  Not supported on Android</DESC>
                     </VALUE>
                 </VALUES>
@@ -202,13 +200,13 @@
 				<APPLIES>Camera Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Configures the feedback given after a successful scan in milliseconds. This value is ignored if aimType is set to continuousRead and no feedback will be given.</DESC>
                 <VALUES>
-                    <VALUE const_name="VF_FEEDBACK_ENABLED" value="enabled">
+                    <VALUE constName="VF_FEEDBACK_ENABLED" value="enabled">
                         <DESC>The last image that was successfully decoded is displayed.  The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</DESC>
                     </VALUE>
-                    <VALUE const_name="VF_FEEDBACK_DISABLED" value="disabled">
+                    <VALUE constName="VF_FEEDBACK_DISABLED" value="disabled">
                         <DESC>No feedback is given in the viewfinder after a successful decode.</DESC>
                     </VALUE>
-                    <VALUE const_name="VF_FEEDBACK_RETICLE" value="reticle">
+                    <VALUE constName="VF_FEEDBACK_RETICLE" value="reticle">
                         <DESC>The last image that was successfully decoded is displayed along with a red reticle in the center of the image.  The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</DESC>
                     </VALUE>
                 </VALUES>
@@ -223,10 +221,10 @@
 				<APPLIES>Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Sets the focus mode in use.</DESC>
                 <VALUES>
-                    <VALUE const_name="FOCUS_FIXED" value="fixed">
+                    <VALUE constName="FOCUS_FIXED" value="fixed">
                         <DESC>Use fixed focus.</DESC>
                     </VALUE>
-                    <VALUE const_name="FOCUS_AUTO" value="auto">
+                    <VALUE constName="FOCUS_AUTO" value="auto">
                         <DESC>Use auto focus.</DESC>
                     </VALUE>
                 </VALUES>
@@ -236,13 +234,13 @@
 				<APPLIES>Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Selects the illumination mode to use.</DESC>
                 <VALUES>
-                    <VALUE const_name="ILLUMINATION_AUTO" value="auto">
+                    <VALUE constName="ILLUMINATION_AUTO" value="auto">
                         <DESC>Auto-exposure algorithms will decide whether illumination is required or not.  Not available on Android.</DESC>
                     </VALUE>
-                    <VALUE const_name="ILLUMINATION_ALWAYS_ON" value="alwaysOn">
+                    <VALUE constName="ILLUMINATION_ALWAYS_ON" value="alwaysOn">
                         <DESC>External illumination is always on.</DESC>
                     </VALUE>
-                    <VALUE const_name="ILLUMINATION_ALWAYS_OFF" value="alwaysOff">
+                    <VALUE constName="ILLUMINATION_ALWAYS_OFF" value="alwaysOff">
                         <DESC>External illumination is always off.</DESC>
                     </VALUE>
                 </VALUES>
@@ -257,13 +255,13 @@
 				<APPLIES>Scanners on Motorola Solutions' devices.  The scanning engine must support inverse barcodes</APPLIES>
 				<DESC>Allows the user to select inverse 1D barcodes for decoding.</DESC>
                 <VALUES>
-                    <VALUE const_name="INVERSE_ENABLED" value="enabled">
+                    <VALUE constName="INVERSE_ENABLED" value="enabled">
                         <DESC>Auto-exposure algorithms will decide whether illumination is required or not.  Not available on Android.</DESC>
                     </VALUE>
-                    <VALUE const_name="INVERSE_DISABLED" value="disabled">
+                    <VALUE constName="INVERSE_DISABLED" value="disabled">
                         <DESC>External illumination is always on.</DESC>
                     </VALUE>
-                    <VALUE const_name="INVERSE_AUTO" value="auto">
+                    <VALUE constName="INVERSE_AUTO" value="auto">
                         <DESC>External illumination is always off.</DESC>
                     </VALUE>
                 </VALUES>            
@@ -274,17 +272,17 @@
 				<DESC>Allows poor quality 1D barcodes to be read when true but this will adversely affect the overall decoding performance.</DESC>
             </PROPERTY>
             <PROPERTY name="beamWidth" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Laser Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Specifies the width of the laser beam.  All devices will support normal beam widths but other widths may not be supported on your device.</DESC>
                 <VALUES>
-                    <VALUE const_name="BEAM_NORMAL" value="normal">
+                    <VALUE constName="BEAM_NORMAL" value="normal">
                         <DESC>Laser beam width is normal</DESC>
                     </VALUE>
-                    <VALUE const_name="BEAM_WIDE" value="wide">
+                    <VALUE constName="BEAM_WIDE" value="wide">
                         <DESC>Laser beam width is wide.</DESC>
                     </VALUE>
-                    <VALUE const_name="BEAM_NARROW" value="narrow">
+                    <VALUE constName="BEAM_NARROW" value="narrow">
                         <DESC>Laser beam width is narrow.</DESC>
                     </VALUE>
                 </VALUES>            
@@ -294,10 +292,10 @@
 				<APPLIES>Laser Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine. </DESC>
                 <VALUES>
-                    <VALUE const_name="DBP_NORMAL" value="normal">
+                    <VALUE constName="DBP_NORMAL" value="normal">
                         <DESC>Tells the scan engine to produce normal DBP.</DESC>
                     </VALUE>
-                    <VALUE const_name="DBP_COMPOSITE" value="composite">
+                    <VALUE constName="DBP_COMPOSITE" value="composite">
                         <DESC>Tells the scan engine to produce composite DBP, which is 2 different sets of DBP data multiplexed together for better decode performance.  In order to enable this mode it must be supported by the scanner.</DESC>
                     </VALUE>
                 </VALUES>            
@@ -318,20 +316,20 @@
 				<DESC>Enables or disables bidirectional redundancy.</DESC>
             </PROPERTY>
             <PROPERTY name="barcodeDataFormat" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Camera / Imager Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Specifies the format in which the barcode data is returned, binary data is returned in Data URI format with the appropriate mime type. This parameter is designed to be used primarily with image based symbologies (eg. Signature). Binary data will not be output as keystrokes, you must set a decode callback in order to receive scanned data.</DESC>
                 <VALUES>
-                    <VALUE const_name="FORMAT_DATA" value="normal">
+                    <VALUE constName="FORMAT_BINARY" value="binary">
                         <DESC>Scanned data will be returned in Data URI format</DESC>
                     </VALUE>
-                    <VALUE const_name="FORMAT_TEXT" value="composite">
+                    <VALUE constName="FORMAT_TEXT" value="text">
                         <DESC>Scanned data will be returned in Text format</DESC>
                     </VALUE>
                 </VALUES>            
             </PROPERTY>
             <PROPERTY name="dataBufferSize" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Specifies the number of bytes allocated to receive the scanned barcode. This parameter is designed to be used primarily with image based symbologies and should not be modified unless absolutely necessary (eg. Signature).</DESC>
             </PROPERTY>
@@ -346,12 +344,12 @@
 				<DESC>Forces the scanner to disconnect from the terminal when it is 'disabled'. Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.</DESC>
             </PROPERTY>
             <PROPERTY name="displayBtAddressBarcodeOnEnable" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Bluetooth Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling 'enable' on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to 'enable'.</DESC>
             </PROPERTY>
             <PROPERTY name="enableTimeout" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Bluetooth Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the 'enable()' method. You must specify this parameter before calling 'enable' to change the default.</DESC>
             </PROPERTY>
@@ -366,7 +364,7 @@
 				<DESC>Set to false to disable scanning when the battery is low or set to true to enable it. Once disabled the scanner can be enabled again by calling enable().</DESC>
             </PROPERTY>
             <PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" default="true">
-				<VER_INTRODUCED>2.2.0</VER_INTRODUCED>
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<APPLIES>Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>By default if you have enabled the Scanner on a page, through either JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behaviour you can set this option to false and once enabled the Scanner will remain so in the foreground application ultil you disable it.</DESC>
             </PROPERTY>
@@ -455,13 +453,13 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Specifies whether to verify 0, 1 or 2 check digits.</DESC>
                 <VALUES>
-                    <VALUE const_name="CODE11_CHECKDIGIT_NONE" value="none">
+                    <VALUE constName="CODE11_CHECKDIGIT_NONE" value="none">
                         <DESC>Scanning engine will verify no Code 11 check digits</DESC>
                     </VALUE>
-                    <VALUE const_name="CODE11_CHECKDIGIT_ONE" value="one">
+                    <VALUE constName="CODE11_CHECKDIGIT_ONE" value="one">
                         <DESC>Scanning engine will verify one Code 11 check digit</DESC>
                     </VALUE>
-                    <VALUE const_name="CODE11_CHECKDIGIT_TWO" value="two">
+                    <VALUE constName="CODE11_CHECKDIGIT_TWO" value="two">
                         <DESC>Scanning engine will verify two Code 11 check digits</DESC>
                     </VALUE>
                 </VALUES>            
@@ -492,7 +490,7 @@
 				<DESC>Enables or disables the symbology for Code128 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="code128checkIsBtTable" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true, decodes concatenated Code128 output only if the pair belongs to one of the commonly concatenated pairs as defined by the standard.</DESC>
             </PROPERTY>
@@ -501,23 +499,23 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true, barcodes with the EAN128 subtype property set will be read.</DESC>
             </PROPERTY>
-            <PROPERTY name="code128isbt128" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+            <PROPERTY name="code128isbt128" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true, barcodes with the isbt128 subtype property set will be read.</DESC>
             </PROPERTY>
-            <PROPERTY name="code128isbtConcatMode" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+            <PROPERTY name="code128isbt128ConcatMode" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Sets the Code128 ISBT concatenation mode property.  This feature allows a pair of barcodes which meet certain criteria defined in teh ISBT128 spec to be reported as a single barcode.  This paramter describes the different concatenation modes available for ISBT128</DESC>
                 <VALUES>
-                    <VALUE const_name="CODE128ISBT_NEVER" value="never">
+                    <VALUE constName="CODE128ISBT_NEVER" value="never">
                         <DESC>Will ignore the barcode pair and only output decode data for one of the barcodes</DESC>
                     </VALUE>
-                    <VALUE const_name="CODE128ISBT_ALWAYS" value="always">
+                    <VALUE constName="CODE128ISBT_ALWAYS" value="always">
                         <DESC>Will not decode if both barcodes are not present or if one of them can not be decoded</DESC>
                     </VALUE>
-                    <VALUE const_name="CODE128ISBT_AUTO" value="auto">
+                    <VALUE constName="CODE128ISBT_AUTO" value="auto">
                         <DESC>Auto-Discriminate</DESC>
                     </VALUE>
                 </VALUES>  
@@ -553,23 +551,23 @@
 				<DESC>Enables or disables the symbology for Composite AB barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="compositeAbUccLinkMode" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Describes whether UCC link mode is enabled</DESC>
                 <VALUES>
-                    <VALUE const_name="UCC_NEVER" value="never">
+                    <VALUE constName="UCC_NEVER" value="never">
                         <DESC>Link flag is ignored</DESC>
                     </VALUE>
-                    <VALUE const_name="UCC_ALWAYS" value="always">
+                    <VALUE constName="UCC_ALWAYS" value="always">
                         <DESC>Composite AB barcodes are always linked</DESC>
                     </VALUE>
-                    <VALUE const_name="UCC_AUTO" value="auto">
+                    <VALUE constName="UCC_AUTO" value="auto">
                         <DESC>Auto-discriminate whether Composite AB barcodes are linked</DESC>
                     </VALUE>
                 </VALUES> 
             </PROPERTY>
             <PROPERTY name="compositeAbUseUpcPreambleCheckDigitRules" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>This setting causes the UPC rules specified in teh UPC EAN parameters to be used when reporting composite decode data.</DESC>
             </PROPERTY>
@@ -718,19 +716,19 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables the verification of the I2of5 check digit</DESC>
                 <VALUES>
-                    <VALUE const_name="I2OF5_VERIFY_NONE" value="none">
+                    <VALUE constName="I2OF5_VERIFY_NONE" value="none">
                         <DESC>Disables verification of the check digit.</DESC>
                     </VALUE>
-                    <VALUE const_name="I2OF5_VERIFY_USS" value="uss">
+                    <VALUE constName="I2OF5_VERIFY_USS" value="uss">
                         <DESC>Enables the USS format for the check digit.</DESC>
                     </VALUE>
-                    <VALUE const_name="I2OF5_VERIFY_OPCC" value="opcc">
+                    <VALUE constName="I2OF5_VERIFY_OPCC" value="opcc">
                         <DESC>Enables the OPCC format for the check digit.</DESC>
                     </VALUE>
                 </VALUES> 
             </PROPERTY>
             <PROPERTY name="korean3of5" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for Korean 3of5 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
@@ -755,17 +753,17 @@
 				<DESC>Enables or disables the symbology for Macro PDF barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="macroPdfBufferLabels" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true, the scanner driver will return  he barcode data only after the complete macroPdf sequence has been read. If false, the scan driver will return each barcode in the macroPdf sequence as it is read.</DESC>
             </PROPERTY>
             <PROPERTY name="macroPdfConvertToPdf417" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, MacroPDF barcodes will be converted to PDF417 codes.</DESC>
             </PROPERTY>
             <PROPERTY name="macroPdfExclusive" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, the scanner driver will not complete read requests while in the middle of a macroPdf sequence. Once a macroPdf sequence has been started it must be completed or cancelled before the scan driver will complete other read requests.</DESC>
             </PROPERTY>
@@ -775,47 +773,47 @@
 				<DESC>Enables or disables the symbology for Macro Micro PDF barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="macroMicroPdfBufferLabels" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, the scanner driver will return the barcode data only after the complete macroMicroPdf sequence has been read. If false, the scanner driver will return each barcode in the macroMicroPdf sequence as it is read.</DESC>
             </PROPERTY>
             <PROPERTY name="macroMicroPdfConvertToMicroPdf" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.</DESC>
             </PROPERTY>
             <PROPERTY name="macroMicroPdfExclusive" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, the scanner driver will not complete read requests while in the middle of a macroMicroPdf sequence. Once a macroMicroPdf sequence has been started it must be completed or cancelled before the scan driver will complete other read requests.</DESC>
             </PROPERTY>
-            <PROPERTY name="macroMicroPdfReportAppendedInfo" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+            <PROPERTY name="macroMicroPdfReportAppendInfo" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, the appended info is concatenated to the decoded data before being returned.</DESC>
             </PROPERTY>
             <PROPERTY name="matrix2of5" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for Matrix 2of5 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="matrix2of5maxLength" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Specifies the maximum number of allowable characters in a Matrix 2of5 barcode.  If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance.  Allowed values are 0 to 55</DESC>
             </PROPERTY>
             <PROPERTY name="matrix2of5minLength" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Specifies the minimum number of allowable characters in a Matrix 2of5 barcode.  If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance.  Allowed values are 0 to 55</DESC>
             </PROPERTY>
             <PROPERTY name="matrix2of5reportCheckDigit" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned Matrix 2of5 barcodes.</DESC>
             </PROPERTY>
             <PROPERTY name="matrix2of5verifyCheckDigit" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables verification of the Matrix 2of5 symbology check digit.</DESC>
             </PROPERTY>
@@ -844,10 +842,10 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Sets the number of MSI check digits to use</DESC>
                 <VALUES>
-                    <VALUE const_name="MSI_CHECKDIGITS_ONE" value="one">
+                    <VALUE constName="MSI_CHECKDIGITS_ONE" value="one">
                         <DESC>Use one check digit for MSI barcodes.</DESC>
                     </VALUE>
-                    <VALUE const_name="MSI_CHECKDIGITS_TWO" value="two">
+                    <VALUE constName="MSI_CHECKDIGITS_TWO" value="two">
                         <DESC>Use two check digits for MSI barcodes.</DESC>
                     </VALUE>
                 </VALUES> 
@@ -857,10 +855,10 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Specifies the check digit scheme used to verify MSI barcodes</DESC>
                 <VALUES>
-                    <VALUE const_name="MSI_CHECKDIGITS_MOD11" value="mod11">
+                    <VALUE constName="MSI_CHECKDIGITS_MOD11" value="mod11">
                         <DESC>The first check digit is MOD 11, the second is MOD 10.</DESC>
                     </VALUE>
-                    <VALUE const_name="MSI_CHECKDIGITS_MOD10" value="mod10">
+                    <VALUE constName="MSI_CHECKDIGITS_MOD10" value="mod10">
                         <DESC>Both check digits are MOD 10.</DESC>
                     </VALUE>
                 </VALUES> 
@@ -889,6 +887,26 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for PDF 417 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
+            </PROPERTY>
+            <PROPERTY name="signature" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Enables or disables the symbology for Signature barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.  Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.</DESC>
+            </PROPERTY>
+            <PROPERTY name="signatureImageHeight" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Specifies the output height of the captured signature barcode.  Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.  Provide a number greater than or equal to 20.</DESC>
+            </PROPERTY>
+            <PROPERTY name="signatureImageWidth" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Specifies the output width of the captured signature barcode.  Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.  Provide a number greater than or equal to 20.</DESC>
+            </PROPERTY>
+            <PROPERTY name="signatureImageQuality" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Specifies the output quality of the captured signature barcode.  Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.  Provide a value between 1 and 100 inclusive</DESC>
             </PROPERTY>
             <PROPERTY name="ausPostal" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -920,13 +938,13 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned UK Postal barcodes.</DESC>
             </PROPERTY>
-            <PROPERTY name="us4State" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+            <PROPERTY name="us4state" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for US 4-State barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
-            <PROPERTY name="us4StateFics" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+            <PROPERTY name="us4stateFics" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for US 4-State FICS barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
@@ -945,7 +963,7 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for US Post Net barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
-            <PROPERTY name="usPostNetReportCheckDigit" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+            <PROPERTY name="usPostNetReportCheckDigit" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned US Post Net barcodes</DESC>
@@ -956,17 +974,17 @@
 				<DESC>Enables or disables the symbology for QR Code barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="gs1dataBar" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for GS1 DataBar barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.  This symbology was previously known as rss.</DESC>
             </PROPERTY>
             <PROPERTY name="gs1dataBarExpanded" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for GS1 Databar Expanded barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.  This symbology was previously known as rssExp.</DESC>
             </PROPERTY>
             <PROPERTY name="gs1dataBarLimited" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for GS1 Databar Limited barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.  This symbology was previously known as rssLim.</DESC>
             </PROPERTY>
@@ -976,7 +994,7 @@
 				<DESC>Enables or disables the symbology for TLC 39 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="upcEanBookland" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables decoding of UPC EAN Bookland barcodes.</DESC>
             </PROPERTY>
@@ -985,16 +1003,16 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Specifies the bookland format to use when decoding UPC EAN Bookland barcodes</DESC>
                 <VALUES>
-                    <VALUE const_name="BOOKLAND_ISBN10" value="mod11">
+                    <VALUE constName="BOOKLAND_ISBN10" value="isbn10">
                         <DESC>Causes 978 bookland barcodes to be reported in 10 digit mode.</DESC>
                     </VALUE>
-                    <VALUE const_name="BOOKLAND_ISBN13" value="mod10">
+                    <VALUE constName="BOOKLAND_ISBN13" value="isbn13">
                         <DESC>Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 protocol.</DESC>
                     </VALUE>
                 </VALUES> 
             </PROPERTY>
             <PROPERTY name="upcEanConvertGs1dataBarToUpcEan" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, RSS barcodes will be converted to UPC/EAN format. For this setting to work UPC/EAN symbologies must be enabled.</DESC>
             </PROPERTY>
@@ -1019,7 +1037,7 @@
 				<DESC>Sets the retry count for auto-discriminating for supplementals.  The value must be between 2 - 20 inclusive.</DESC>
             </PROPERTY>
             <PROPERTY name="upcEanSecurityLevel" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Sets the Security level for decoding UPC EAN barcodes and accepts a value between 0 and 3 inclusive.  0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</DESC>
             </PROPERTY>
@@ -1038,25 +1056,25 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Describes the UPC EAN Supplemental mode.</DESC>
                 <VALUES>
-                    <VALUE const_name="UPCEAN_NONE" value="none">
+                    <VALUE constName="UPCEAN_NONE" value="none">
                         <DESC>Supplementals are ignored.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCEAN_AUTO" value="auto">
+                    <VALUE constName="UPCEAN_AUTO" value="auto">
                         <DESC>Auto-discriminates supplementals.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCEAN_ALWAYS" value="always">
+                    <VALUE constName="UPCEAN_ALWAYS" value="always">
                         <DESC>Will not decode upc/ean without supplementals</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCEAN_SMART" value="smart">
+                    <VALUE constName="UPCEAN_SMART" value="smart">
                         <DESC>The decoder will return the decoded value of the main block right away if it does not belong to any of the supplemental types.  If the barcode starts with one of the prefixes it will search the image more aggressively for a supplemental.  The scanner will try to scan the supplemental if it is present but if that fails, the main barcode will be returned.  </DESC>
                     </VALUE>
-                    <VALUE const_name="UPCEAN_379" value="378or379">
+                    <VALUE constName="UPCEAN_379" value="378or379">
                         <DESC>Auto-discriminates supplemental for upc/ean codes starting with 378 or 379.  Will disable reading of supplementals for any other upc/ean barcodes not starting with these values.  The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCEAN_979" value="978or979">
+                    <VALUE constName="UPCEAN_979" value="978or979">
                         <DESC>Auto-discriminates supplemental for upc/ean codes starting with 978 or 979.  Will disable reading of supplementals for any other upc/ean barcodes not starting with these values.  The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCEAN_439" value="414or419or434or439">
+                    <VALUE constName="UPCEAN_439" value="414or419or434or439">
                         <DESC>Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 434 or 439.  Will disable reading of supplementals for any other upc/ean barcodes not starting with these values.  The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</DESC>
                     </VALUE>
                 </VALUES> 
@@ -1071,18 +1089,18 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Controls the preamble applied to the UPCA barcode.</DESC>
                 <VALUES>
-                    <VALUE const_name="UPCA_PREAMBLE_NONE" value="none">
+                    <VALUE constName="UPCA_PREAMBLE_NONE" value="none">
                         <DESC>Applies no preamble to the bar code.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCA_PREAMBLE_SYSTEMCHAR" value="systemChar">
+                    <VALUE constName="UPCA_PREAMBLE_SYSTEMCHAR" value="systemChar">
                         <DESC>Applies system character preamble to the bar code.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCA_PREAMBLE_COUNTRY" value="countryAndSystemChars">
+                    <VALUE constName="UPCA_PREAMBLE_COUNTRY" value="countryAndSystemChars">
                         <DESC>Applies both system and country code preamble to the bar code</DESC>
                     </VALUE>
                 </VALUES> 
             </PROPERTY>
-            <PROPERTY name="upcaReportCheckDigit" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+            <PROPERTY name="upcaReportCheckDigit" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned UPCA barcodes</DESC>
@@ -1102,18 +1120,18 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Controls the preamble applied to the UPCE0 barcode.</DESC>
                 <VALUES>
-                    <VALUE const_name="UPCE0_PREAMBLE_NONE" value="none">
+                    <VALUE constName="UPCE0_PREAMBLE_NONE" value="none">
                         <DESC>Applies no preamble to the bar code.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCE0_PREAMBLE_SYSTEMCHAR" value="systemChar">
+                    <VALUE constName="UPCE0_PREAMBLE_SYSTEMCHAR" value="systemChar">
                         <DESC>Applies system character preamble to the bar code.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCE0_PREAMBLE_COUNTRY" value="countryAndSystemChars">
+                    <VALUE constName="UPCE0_PREAMBLE_COUNTRY" value="countryAndSystemChars">
                         <DESC>Applies both system and country code preamble to the bar code</DESC>
                     </VALUE>
                 </VALUES> 
             </PROPERTY>
-            <PROPERTY name="upce0reportCheckDigit" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+            <PROPERTY name="upce0reportCheckDigit" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned UPCE0 barcodes.</DESC>
@@ -1133,18 +1151,18 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Controls the preamble applied to the UPCE1 barcode.</DESC>
                 <VALUES>
-                    <VALUE const_name="UPCE1_PREAMBLE_NONE" value="none">
+                    <VALUE constName="UPCE1_PREAMBLE_NONE" value="none">
                         <DESC>Applies no preamble to the bar code.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCE1_PREAMBLE_SYSTEMCHAR" value="systemChar">
+                    <VALUE constName="UPCE1_PREAMBLE_SYSTEMCHAR" value="systemChar">
                         <DESC>Applies system character preamble to the bar code.</DESC>
                     </VALUE>
-                    <VALUE const_name="UPCE1_PREAMBLE_COUNTRY" value="countryAndSystemChars">
+                    <VALUE constName="UPCE1_PREAMBLE_COUNTRY" value="countryAndSystemChars">
                         <DESC>Applies both system and country code preamble to the bar code</DESC>
                     </VALUE>
                 </VALUES> 
             </PROPERTY>
-            <PROPERTY name="upce1reportCheckDigit" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+            <PROPERTY name="upce1reportCheckDigit" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned UPCE1 barcodes.</DESC>
@@ -1155,56 +1173,297 @@
 				<DESC>Enables or disables the symbology for Webcode barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
             <PROPERTY name="webcodeDecodeGtSubtype" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>If true, the GT Webcode subtype will be decoded</DESC>
             </PROPERTY>
-
+			
+			<!--  RSM Properties  -->
+            <PROPERTY name="rsmModelNumber" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>The ring scanner model number.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmSerialNumber" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>The ring scanner serial number</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmDateOfManufacture" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Ring scanner date of manufacture as DDMMYY</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmDateOfService" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Ring scanner date of service as DDMMYY</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothAddress" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmFirmwareVersion" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Scanner's operating system version.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmDeviceClass" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>The device class of the ring scanner</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBatteryStatus" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Indicates the status of the remote scanner's battery, will be one of 'Unknown', 'Full', 'Medium', 'Empty', 'Charging-FullRate', 'Charging-HalfRate', 'Charging-Trickle' or 'Discharging'</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBatteryCapacity" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>The remaining capacity of the battery, in the range 0 to 100.  'Unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBatteryId" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true" readOnly="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>One of 'Simple', 'Double', 'Cabled' or 'Unknown'</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothAuthentication" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>True if authentication is required</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothEncryption" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>True if encryption is required.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothPinCode" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Up to 5 character PIN code used for Bluetooth authentication</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothPinCodeType" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>'PromptUser' to prompt the user for the PIN code or 'UseStored' to use the code stored in memory.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothReconnectionAttempts" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>How long the scanner tries to re-establish connection if it goes out of range, in seconds.  This value must be a multiple of 5 and in the range 30 to 60 seconds.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothBeepOnReconnectAttempt" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC></DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothHidAutoReconnect" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>'NeverReconnect', 'ReconnectOnData' or 'ReconnectImmediately'</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothFriendlyName" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Friendly Bluetooth name, e.g. 'MyBTScanner'</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothInquiryMode" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>'General' to use a general inquiry mode, else 'Limited'</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmBluetoothAutoReconnect" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC></DESC>
+				<VALUES>
+                    <VALUE constName="RSM_AUTORECONNECT_NONE" value="none">
+                        <DESC>No scheme.</DESC>
+                    </VALUE>
+                    <VALUE constName="RSM_AUTORECONNECT_ON_POWER" value="onPower">
+                        <DESC>When powered on.</DESC>
+                    </VALUE>
+                    <VALUE constName="RSM_AUTORECONNECT_ON_OUT_OF_RANGE" value="onOutOfRange">
+                        <DESC>When device goes out of range.</DESC>
+                    </VALUE>
+                    <VALUE constName="RSM_AUTORECONNECT_ON_POWER_OUT_OF_RANGE" value="onPowerOutOfRange">
+                        <DESC>When powered on or when the device goes out of range.</DESC>
+                    </VALUE>
+                </VALUES> 
+            </PROPERTY>
+            <PROPERTY name="rsmForceSavePairingBarcode" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Force saving the barcode assigned to the device to which the scanner has been paired</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmLowBatteryIndication" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Whether or not the ring scanner should give a low battery indication</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmLowBatteryIndicationCycle" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Low battery indication cycle time, in seconds.  Must be one of 10, 20, 30, 40 or 50</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmScanLineWidth" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>The laser scan line width, 'Wide' or 'Narrow'.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmGoodScansDelay" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000.  This value must be a multiple of 100.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmDecodeFeedback" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>If true, the remote scanner beeps and illuminates its green LED on a successful decode.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmIgnoreCode128Usps" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Feature for ignoring Code 128 barcodes beginning with 420 and 421</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmScanTriggerWakeup" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Scanner trigger will wakeup the device from a low power state</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmMems" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmProximityEnable" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmProximityContinuous" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Proximity continuous mode</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmProximityDistance" type="STRING" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Specify the distance for the proximity feature as 'Short', 'Medium' or 'Long' </DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmPagingEnable" type="BOOLEAN" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Specify whether paging the device is enabled</DESC>
+            </PROPERTY>
+            <PROPERTY name="rsmPagingBeepSequence" type="INTEGER" usePropertyBag="accessorsViaPropertyBag" generateAccessors="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+				<DESC>Range 0 to 15 to specify the pattern for the paging beep sequence. </DESC>
+            </PROPERTY>
 			
         </PROPERTIES>
 
         <METHODS>
-            <METHOD name="enable" hasCallback="mandatory">
+            <METHOD name="enable" hasCallback="optional">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
-                <DESC>This is documentation</DESC>
-    
+				<APPLIES>Motorola Solutions' Scanners which support a hardware or software trigger to invoke the scan.</APPLIES>
+                <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method).  Scanned barcodes will be available to the application through the callback provided to this method.  Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner.  If specifying a callback it is recommended to have it called asynchronously.</DESC>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH">
-                        <DESC>Map of properties I want to set</DESC>
-    
+                        <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
-                            <DESC>Use already set properties</DESC>
+                            <DESC>Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance</DESC>
                         </CAN_BE_NIL>
                     </PARAM>
                 </PARAMS>
-    
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="data" type="STRING">
+							<DESC>The data decoded by the scanner or imaging device</DESC>
+						</PARAM>
+						<PARAM name="source" type="STRING">
+							<DESC>The source device and human readable decoder type of the decoded barcode or symbol</DESC>
+						</PARAM>
+						<PARAM name="type" type="STRING">
+							<DESC>Hex value representing the decoder type</DESC>
+						</PARAM>
+						<PARAM name="time" type="STRING">
+							<DESC>The time at which the decode occurred (hh:mm:ss)</DESC>
+						</PARAM>
+						<PARAM name="length" type="STRING">
+							<DESC>The length of the decoded barcode or symbol</DESC>
+						</PARAM>
+						<PARAM name="direction" type="STRING">
+							<DESC>The direction the barcode was scanned, either forward or reverse</DESC>
+						</PARAM>
+					</PARAMS>
+					<CAN_BE_NIL>
+						<DESC>Not providing a callback to be invoked when a barcode is scanned will result in that barcode being output as keystrokes.</DESC>
+					</CAN_BE_NIL>
+				</CALLBACK>    
             </METHOD>
+			
             <METHOD name="registerBluetoothStatus" hasCallback="mandatory">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
-                <DESC>This is documentation</DESC>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <DESC>If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.</DESC>
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="status" type="STRING">
+							<DESC>The message describing the bluetooth connection: BluetoothConnected, BluetoothDisconnected or BTScanAssociationBarcode.  See below for further descriptions.</DESC>
+						</PARAM>
+					</PARAMS>
+				</CALLBACK>
             </METHOD>
     
-            <METHOD name="start" runInThread="module">
-                <DESC>This is documentation</DESC>
+            <METHOD name="start" hasCallback="none">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' scanners</APPLIES>
+                <DESC>Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.</DESC>
             </METHOD>
-            <METHOD name="stop">
-                <DESC>This is documentation</DESC>
+            <METHOD name="stop" hasCallback="none">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' scanners</APPLIES>
+                <DESC>Performs a soft trigger stop</DESC>
             </METHOD>
-            <METHOD name="disable">
+            <METHOD name="disable" hasCallback="none">
                 <DESC>This is documentation</DESC>
             </METHOD>
     
             <METHOD name="take" hasCallback="mandatory">
-                <DESC>Enable and start automatically</DESC>
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES>All Scanners</APPLIES>
+                <DESC>Enable the scanner and start capturing the barcode automatically.  On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property.  On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.  Once the callback has been called the barcode hardware is disabled.</DESC>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH">
-                        <DESC>Map of properties I want to set</DESC>
-                        
+                        <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
-                            <DESC>Use already set properties</DESC>
+                            <DESC>Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance</DESC>
                         </CAN_BE_NIL>
+                    </PARAM>
+                </PARAMS>
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="barcode" type="STRING">
+							<DESC>The data decoded by the scanner or imaging device</DESC>
+						</PARAM>
+						<PARAM name="status" type="STRING">
+							<DESC>Whether or not the barcode was successfully scanned, status will be 'ok' or 'cancel'</DESC>
+						</PARAM>
+					</PARAMS>
+				</CALLBACK>    
+            </METHOD>
+			
+			<METHOD name="CommandRemoteScanner" hasCallback="none">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<APPLIES>Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <DESC>Instruct the connected RS507 scanner to perform some action</DESC>
+                <PARAMS>
+                    <PARAM name="command" type="STRING">
+                        <DESC>The action the RS507 scanner should perform, can be 'Disconnect' which disconnects the bluetooth RS507; 'unpair' which unpairs the RS507 from the device for association with another device; 'StartPaging' or 'StopPaging' which will cause the RS507 scanner to start or stop emitting a beep, to allow it to be located.</DESC>
                     </PARAM>
                 </PARAMS>
             </METHOD>
@@ -1214,39 +1473,57 @@
         <USER_OVERVIEW>
             <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
             <![CDATA[
-    	The following example sets up the card reader to call a javascript function upon successful decoding. The javascript
-    					function will be called 3 times, once with the raw card data, once with just the pan data extracted
-    					from the raw card data, and once with the encrypted pan data if the pin has been supplied by the
-    					user within 10s.:</DESC>
-    				<html><head>
-    
-    				<script language="javascript" type="text/javascript">
-    					function doTransaction(data, mode)
-    					{
-    						switch(mode) {
-    						case 'CR':
-    							alert('Card: '+data);
-    							break;
-    						case 'ENCDATA':
-    							alert('Encoded data: '+data);
-    							break;
-    						case 'MESSAGE':
-    							alert('Error: '+data);
-    							break;
-    						case 'PAN':
-    							alert('PAN data: '+data);
-    							alert('Please turn the unit over and enter the PIN');
-    							break;
-    						}
-    					}
-    				</script>
-    				</head>
-    				<body>
-    				</body>
-    				</html>
-    
-    				You must have the appropriate drivers installed on your device to use the CardReader.  You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements.  All necessary drivers should be included as part of the platform for supported devices.
-    
+Bluetooth Scanner Overview
+==========================
+Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behaviour using the disconnectBtOnDisable property.
+
+The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
+
+**'BTScanAssociationBarcode'** 
+   Means the device is ready to be associated with a BT scanner.  You must scan the 
+   association barcode.  It is only necessary to scan the association 
+   barcode when you first associate a scanner with the device, this pairing will be remembered until
+   you scan the unpairing barcode.
+
+** 'BluetoothConnected'**
+   The remote scanner has successfully connected to the device.
+	
+** 'BluetoothDisconnected'**
+   The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
+   of range or scanning the 'unpairing' barcode.  The scanner will attempt to reconnect automatically for
+   a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
+   timeout the reconnect button on the device should be pushed.  Once the unpairing barcode is scanned
+   it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
+   
+Viewfinder Position Parameters
+==============================
+On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
+			
+Scanning and Camera Interaction
+===============================
+In some device configurations the scanner and camera share the same hardware.  Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
+
+DataWedge Interaction With Native Apps
+======================================
+In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app. 
+**Disabling Datawedge**
+1.	Start the DataWedge app
+2.	Click the menu button > "Settings" and untick "DataWedge enabled". 
+**RhoElements Datawedge Profile**
+1.	Install your RhoElements native app,
+2.	Start the DataWedge app
+3.	Click the menu button > "New Profile" and enter a name,
+4.	Click on the link to the new profile in the profile list,
+5.	Click on "Associated apps" in the "Applications" section,
+6.	Click the menu button > "New app/activity",
+7.	Select the package name for your app,
+8.	Select "*",
+9.	Click the "Back" capacitive button,
+10.	Make sure the "Profile enabled" checkbox is ticked.
+11.	Uncheck all three "Enabled" checkboxes under the sections of:
+	"Barcode input", "Keystroke output" and "Intent output".
+
+
     				]]>
     
         </USER_OVERVIEW>
