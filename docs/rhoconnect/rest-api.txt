@@ -4,7 +4,11 @@ The RhoConnect REST API allows you to control, monitor, and debug a running RhoC
 
 Below we describe the REST API using ruby sample code.
 
+NOTE: All routes that require admin privileges must pass the API token using the special header
+ 	  'X-RhoConnect-API-TOKEN':api_token_string
+
 ## API Errors
+
 All API calls will return http 200 and requested data (if applied). Otherwise, API will return http error code and specific error message in the http message body.
 
 	:::ruby
@@ -32,14 +36,10 @@ All API calls will return http 200 and requested data (if applied). Otherwise, A
 	  )
 	end
 
-## API Methods (REST API version 1)
+## System Resource - POST login
 
-NOTE: All routes that require admin privileges must pass the API token using the special header
- 	  'X-RhoConnect-API-TOKEN':api_token_string
+	POST /rc/v1/system/login
 
-### System Resource (requires API token)
-
-#### `POST /rc/v1/system/login`
 Before you can use RhoConnect API you should login to the RhoConnect server and get API token:
 
 	:::ruby
@@ -52,7 +52,10 @@ Before you can use RhoConnect API you should login to the RhoConnect server and 
 
 	@api_token = RestClient.post("#{server}/rc/v1/system/login", { :login => login, :password => password }.to_json, :content_type => :json)
 
-#### `GET /rc/v1/system/license`
+## System Resource - GET license
+
+	GET /rc/v1/system/license
+
 Returns license information of the currently used license
 
 	:::ruby
@@ -61,7 +64,10 @@ Returns license information of the currently used license
       {'X-RhoConnect-API-TOKEN' => @api_token}
     ).body
 
-#### `POST /rc/v1/system/reset`
+## System Resource - POST reset
+
+	POST /rc/v1/system/reset
+
 Reset the server: flush db and re-bootstrap server
 
 	:::ruby
@@ -71,7 +77,10 @@ Reset the server: flush db and re-bootstrap server
 	   'X-RhoConnect-API-TOKEN' => @api_token}
     )
 
-#### `GET /rc/v1/system/appserver`
+## System  Resource - GET appserver
+
+	GET /rc/v1/system/appserver
+
 Returns the url of the plugin's backend from the RhoConnect server.
 
 	:::ruby
@@ -80,7 +89,10 @@ Returns the url of the plugin's backend from the RhoConnect server.
       {'X-RhoConnect-API-TOKEN' => @api_token}
     ).body
 
-#### `POST /rc/v1/system/appserver`
+## System Resource - POST appserver
+
+	POST /rc/v1/system/appserver
+
 Saves the url of the plugin's backend to the RhoConnect server.
 
 	:::ruby
@@ -93,7 +105,10 @@ Saves the url of the plugin's backend to the RhoConnect server.
        'X-RhoConnect-API-TOKEN' => @api_token}
     )
 	
-#### `GET /rc/v1/system/stats`
+## System Resource - GET stats
+
+	GET /rc/v1/system/stats
+
 Retrieves stats for a given metric key:
 
 	:::ruby
@@ -115,10 +130,11 @@ Retrieves a list of metric keys matching a given pattern.  This supports 'glob' 
 		'X-RhoConnect-API-TOKEN' => @api_token
 	  }
 	)
-	
-### Store Resource (requires API token)
 
-#### `GET /rc/v1/store/:doc`
+## Store Resource - GET doc
+
+	GET /rc/v1/store/:doc
+
 Return content of a given document stored in Redis.
 
 	:::ruby
@@ -129,7 +145,10 @@ Return content of a given document stored in Redis.
 	  }
 	).body
 
-#### `POST /rc/v1/store/:doc`
+## Store Resource - POST doc
+
+	POST /rc/v1/store/:doc
+
 Sets the content of the specified server document. Data should be either a string or hash of hashes.
 If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
 
@@ -144,9 +163,10 @@ If `append` flag is set to `true` , the data is appended to the current doc (if 
 	   'X-RhoConnect-API-TOKEN' => @api_token}
     )
 
-### User Resource (requires API token)
+## User Resource - POST user
 
-#### `POST /rc/v1/users`
+	POST /rc/v1/users
+
 Create a user in this RhoConnect application.
 
 	:::ruby
@@ -161,7 +181,10 @@ Create a user in this RhoConnect application.
 	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 
-#### `DELETE /rc/v1/users/:user_id`
+## User Resource - DELETE user_id
+
+	DELETE /rc/v1/users/:user_id
+
 Delete User and all associated devices from the RhoConnect application.
 
 	:::ruby
@@ -172,7 +195,10 @@ Delete User and all associated devices from the RhoConnect application.
 	  }
 	)
 
-#### `PUT /rc/v1/users/:user_id`
+## User Resource - PUT user_id
+
+	PUT /rc/v1/users/:user_id
+
 Update attributes for a user on this RhoConnect application.
 
 	:::ruby
@@ -187,7 +213,10 @@ Update attributes for a user on this RhoConnect application.
 	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 
-#### `GET /rc/v1/users`
+## User Resource - GET users
+
+	GET /rc/v1/users
+
 List users registered with this RhoConnect application.
 
 	:::ruby
@@ -198,7 +227,10 @@ List users registered with this RhoConnect application.
 	  }
     ).body
 
-#### `GET /rc/v1/users/:user_id`
+## User Resource - GET user_id
+
+	GET /rc/v1/users/:user_id
+
 Returns the information for the specified user.
 
 	:::ruby
@@ -209,7 +241,10 @@ Returns the information for the specified user.
 	  }
 	).body
 
-#### `GET /rc/v1/users/:user_id/clients`
+## User Resource - GET clients
+
+	GET /rc/v1/users/:user_id/clients
+
 List clients (devices) associated with given user.
 
 	:::ruby
@@ -221,7 +256,10 @@ List clients (devices) associated with given user.
 
 Returns list of client ids.
 
-#### `DELETE /rc/v1/users/:user_id/clients/:client_id`
+## User Resource - DELETE client_id
+
+	DELETE /rc/v1/users/:user_id/clients/:client_id
+
 Deletes the specified client (device) for the given user.
 
 	:::ruby
@@ -232,7 +270,10 @@ Deletes the specified client (device) for the given user.
 	  }
     )    
 
-#### `GET /rc/v1/users/:user_id/sources/:source_id/docnames`
+## User Resource - GET source_id docnames
+
+	GET /rc/v1/users/:user_id/sources/:source_id/docnames
+
 Return list of document keys associated with given source and user. 
 
 If `:user_id` set to '*', this call will return list of keys for 'shared' documents. 
@@ -245,8 +286,10 @@ If `:user_id` set to '*', this call will return list of keys for 'shared' docume
 	  }
 	).body
 
+## User Resource - POST ping
 
-#### `POST /rc/v1/users/ping`
+	POST /rc/v1/users/ping
+
 Sends PUSH message to all devices of the specified user(s):
 
 	:::ruby
@@ -270,7 +313,10 @@ Sends PUSH message to all devices of the specified user(s):
 		'X-RhoConnect-API-TOKEN' => @api_token }
 	) 
 
-#### `GET /rc/v1/users/:user_id/sources/:source_id/docs/:doc`
+## User Resource - GET source_id doc
+
+	GET /rc/v1/users/:user_id/sources/:source_id/docs/:doc
+
 Return content of a given source document for the specified user.
 
 	:::ruby
@@ -281,7 +327,10 @@ Return content of a given source document for the specified user.
 	  }
 	).body
 
-#### `POST /rc/v1/users/:user_id/sources/:source_id/docs/:doc`
+## User Resource - POST source_id doc
+
+	POST /rc/v1/users/:user_id/sources/:source_id/docs/:doc
+
 Sets the content of the specified source document for the given user. Data should be either a string or hash of hashes.
 If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
 
@@ -296,9 +345,10 @@ If `append` flag is set to `true` , the data is appended to the current doc (if 
 	   'X-RhoConnect-API-TOKEN' => @api_token}
     )
 
-### Read State Resource (requires API token)
+## Read State - POST user source_id
 
-#### `POST /rc/v1/read_state/users/:user_id/sources/:source_id`
+	POST /rc/v1/read_state/users/:user_id/sources/:source_id
+
 Sets source poll interval to "current time plus x seconds".
 
 	:::ruby
@@ -313,9 +363,10 @@ Sets source poll interval to "current time plus x seconds".
 
 This will set the refresh time to 100 seconds from the current time.  Calling `set_refresh_time` with no `:refresh_time` will trigger a refresh on the sync request for the source.
 
-### Source Controller (requires API token)
+## Source Controller - GET partition_type
 
-#### `GET /rc/v1/sources/type/:partition_type`
+	GET /rc/v1/sources/type/:partition_type
+
 Return list of source adapters for this RhoConnect application for the given partition type.
 Partition type can be either `app` or `user`.
 
@@ -326,7 +377,10 @@ Partition type can be either `app` or `user`.
 	  }
 	).body
 
-#### `GET /rc/v1/sources/:source_id`
+## Source Controller - GET source_id
+
+	GET /rc/v1/sources/:source_id
+
 Return attributes associated with a given source:
 
 * `name` - name of the data source
@@ -346,7 +400,10 @@ Return attributes associated with a given source:
 	  }
 	).body
 
-#### `PUT /rc/v1/sources/:source_id`
+## Source Controller - PUT source_id
+
+	PUT /rc/v1/sources/:source_id
+
 Updates attributes associated with a given source:
 
 `poll_interval` - query poll interval; defines how often RhoConnect will call source adapter to query for new data, set to -1 to disable polling, 0 to always poll.
@@ -361,10 +418,11 @@ Updates attributes associated with a given source:
 	   'X-RhoConnect-API-TOKEN' => @api_token}
 	).body
 
-### Client Resource (requires API token)
+## Client Resource - GET client_id
 
-#### `GET /rc/v1/clients/:client_id`
-Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes used by [RhoConnect push](/rhoconnect/push). 
+	GET /rc/v1/clients/:client_id
+
+Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes are used by [RhoConnect push](/rhoconnect/push). 
 
 	:::ruby
 	client_attributes = RestClient.get(
@@ -374,7 +432,10 @@ Returns client (device) attributes, such as `device_type`, `device_pin`, `device
 	  }
 	).body
 
-#### `GET /rc/v1/clients/:client_id/sources/:source_id/docnames`
+## Client Resource - GET source_id docnames
+
+	GET /rc/v1/clients/:client_id/sources/:source_id/docnames
+
 Returns list of document keys associated with particular client for a given source. These documents are used by the server to sync data with the client. 
 
 	:::ruby
@@ -385,7 +446,10 @@ Returns list of document keys associated with particular client for a given sour
 	  }
 	).body
 
-#### `GET /rc/v1/clients/:client_id/sources/:source_id/docs/:doc`
+## Client Resource - GET source_id doc
+
+	GET /rc/v1/clients/:client_id/sources/:source_id/docs/:doc
+
 Return content of a given source document for the specified client.
 
 	:::ruby
@@ -396,7 +460,10 @@ Return content of a given source document for the specified client.
 	  }
 	).body
 
-#### `POST /rc/v1/clients/:client_id/sources/:source_id/docs/:doc`
+## Client Resource - POST source_id doc
+
+	POST /rc/v1/clients/:client_id/sources/:source_id/docs/:doc
+
 Sets the content of the specified source document for the given client. Data should be either a string or hash of hashes.
 If `append` flag is set to `true` , the data is appended to the current doc (if it exists) instead of replacing it.
 
@@ -411,11 +478,11 @@ If `append` flag is set to `true` , the data is appended to the current doc (if 
 	   'X-RhoConnect-API-TOKEN' => @api_token}
     )
 
+## Plugin source_name - POST push_objects
 
-### Plugin methods (requires API token)
+	POST /app/v1/:source_name/push_objects
 
-#### `POST /app/v1/:source_name/push_objects`
-Push new objects or object updates to RhoConnect. These changes will be sent to device next time it synchronizes.
+Push new objects or object updates to RhoConnect. These changes will be sent to the device the next time it synchronizes.
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client and trigger sync.**
 
@@ -441,7 +508,10 @@ documents, `push_objects` method can be optimized by invoking only the necessary
 the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
 in the `push_objects` parameters hash.**
 
-#### `POST /app/v1/:source_name/push_deletes`
+## Plugin source_name - POST delete_objects
+
+	POST /app/v1/:source_name/push_deletes
+
 Delete objects from RhoConnect. These objects will be deleted from the device the next time it synchronizes.
 
 **NOTE: You may use [ping](/rhoconnect/push) to notify client and trigger sync.**
@@ -463,7 +533,10 @@ documents, `push_deletes` method can be optimized by invoking only the necessary
 the number of transactions with Redis. To force the optimization, user can use the `:rebuild_md => false` flag
 in the `push_deletes` parameters hash.**
 
-#### `POST /app/v1/:source_name/fast_insert`
+## Plugin sourece_name - POST fast_insert
+
+	POST /app/v1/:source_name/fast_insert
+
 Push new objects to RhoConnect. Changes are inserted into the Redis set without any checking for previous existence.
 This way, the insert is very fast, but user must ensure that the object didn't exist before. No safeguards are implemented. 
 Use this method only when you can ensure the integrity of the data.
@@ -487,7 +560,10 @@ Use this method only when you can ensure the integrity of the data.
 	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 	
-#### `POST /app/v1/:source_name/fast_update`
+## Plugin source_name - POST fast_update
+
+	POST /app/v1/:source_name/fast_update
+
 Push object updates to RhoConnect. This method doesn't involve pulling the existing data out of Redis. Instead it required user to provide the previous state of the data. This way, this method allows for very fast updates (since it just removes the previous data from set and adds new ones). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. previous state must exist, otherwise it won't be properly deleted). Also, this method can be used to perform fast appends and deletes for any of the object's attributes (However, you shouldn't use this method to remove all of the attributes, `fast_delete` should be used instead.)
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client after the update and trigger sync.**
@@ -518,8 +594,11 @@ Push object updates to RhoConnect. This method doesn't involve pulling the exist
 	   'X-RhoConnect-API-TOKEN' => @api_token}
 	)
 
-#### `POST /app/v1/:source_name/fast_delete`
-Push object deletes to RhoConnect. This method doesn't involve pulling the existing data out of Redis and removing all of its attributes. Instead it required user to provide all of the object's data in the hash to be removed. This way, this method allows for very fast deletes (since it just removes the object's data from set). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. supply all of the object's data to be removed, otherwise some object's data will remain in Redis).
+## Plugin source_name - POST fast_delete
+
+	POST /app/v1/:source_name/fast_delete
+
+Push object deletes to RhoConnect. This method doesn't involve pulling the existing data out of Redis and removing all of its attributes. Instead it requires the user to provide all of the object's data in the hash to be removed. This way, this method allows for very fast deletes (since it just removes the object's data from set). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. supply all of the object's data to be removed, otherwise some object's data will remain in Redis).
 
 **NOTE: you may use [ping](/rhoconnect/push) to notify client after the delete and trigger sync.**
 
