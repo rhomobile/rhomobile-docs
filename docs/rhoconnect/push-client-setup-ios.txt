@@ -1,9 +1,28 @@
 Setting Up for RhoConnect Push on iOS Client
 ===
 
-You need to have performed the steps to set up your [RhoConnect client application to receive push messages](/rhoconnect/push-client-setup). Then, for iOS, you need to perform the additional steps in this chapter to set up an iOS RhoConnect client application.
+This chapter contains the steps you need to set up your iOS Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
 
-## Enabling for RhoConnect Server Push
+## Setting up RhoConnect Server Application for Push to iOS Clients
+
+To set up your RhoConnect application for pushing to an iOS client, you will need to update `settings/settings.yml` to include the following:
+
+	:::yaml
+	:development:
+	  :redis: localhost:6379
+	  :iphonecertfile: settings/apple_push_cert.pem
+	  :iphonepassphrase: #=> empty or put password for your certificate
+	  :iphoneserver: gateway.sandbox.push.apple.com
+	  :iphoneport: 2195
+	  :syncserver: http://localhost:9292/application/
+	  :licensefile: settings/license.key
+
+This is for running your application in development mode; for production, you will need all of the iphone settings, and you change the `:iphoneserver:` to:
+
+	:::yaml
+  	:iphoneserver: gateway.push.apple.com
+
+## Enabling Rhodes Client for RhoConnect Server Push
 
 Enable push in your rhodes application in build.yml.
 
@@ -11,7 +30,7 @@ Enable push in your rhodes application in build.yml.
 	capabilities:
 	  - push
 
-## Setting up the Rhodes Client for iOS
+## Setting up the Rhodes iOS Client for Push
 
 iOS PUSH support uses the Apple Push Notification Service (APNS) introduced in iOS SDK 3.0.  In order to use the service, you will need to obtain a push-enabled provisioning profile and a server-side push certificate used for encrypting RhoConnect->APNS traffic.
 
@@ -46,3 +65,6 @@ This confirms that your application is running with push enabled. Once you login
 ### Alert Audio File Setup for iOS
 In case of iOS, audio files for the push alert should be placed in the `/public/alerts` folder and build script will copy them into root of the application main bundle (iOS wouldn't play file from any other place).
 
+## Finishing Client Setup
+
+Once you have completed the above steps for setting up push on iOS client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](/rhoconnect/push-client-setup).

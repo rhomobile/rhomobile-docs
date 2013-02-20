@@ -20,7 +20,7 @@ $(document).ready(function() {
 		cur.parent().attr('class', 'current');
 		$(window).scrollTop(0);
 	});
-	$('.accordion-heading > a').live('click',function(){
-	  $(this).find('i').toggleClass('icon-minus').toggleClass('icon-plus');
+	$('.accordion-heading > li').live('click',function(){
+		$(this).find('i').toggleClass('icon-chevron-up').toggleClass('icon-chevron-down');
 	});
 });

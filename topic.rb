@@ -1,4 +1,5 @@
 require 'rdiscount'
+require './models'
 
 class Topic
   
@@ -75,5 +76,13 @@ class Topic
 		end
 		return toc, content_with_anchors
 	end
+
+  def self.model(topicfile)
+    model = nil
+    model = Models.docmodel(topicfile)
+    
+    
+    return model 
+  end 
 	
 end

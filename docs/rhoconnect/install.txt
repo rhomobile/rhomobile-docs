@@ -138,7 +138,58 @@ The `rhoconnect update` command will generate a reference `Gemfile.new` which yo
 	# DON'T FORGET to add your application specific gems after this line ...
 	# ...
 
-Finally, run `bundle install` to install any missing dependencies:
+You must update `config.ru` and `Rakefile` files to match RhoConnect 3.4+ gem requirements.
+
+Replace your existing `config.ru` with the listing below. Save your old `config.ru` since you will use values within it in the new `config.ru`. 
+
+	:::ruby
+	# config.ru file
+	
+	#!/usr/bin/env ruby
+	require 'rhoconnect/application/init'
+
+	# secret is generated along with the app
+	# NOTE:
+	# Substitude 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru	
+	Rhoconnect::Server.set     :secret, 'REPLACE_ME'
+
+	# !!! Add your custom initializers and overrides here !!!
+	# For example, uncomment the following line to enable Stats
+	#Rhoconnect::Server.enable  :stats
+	# uncomment the following line to disable Resque Front-end console
+	#Rhoconnect.disable_resque_console = true
+	# uncomment the following line to disable Rhoconnect Front-end console
+	#Rhoconnect.disable_rc_console = true
+
+	# Load RhoConnect application
+	require './application'
+
+
+	# run RhoConnect Application
+	run Rhoconnect.app	
+
+And replace your existing `Rakefile` with the following:
+
+	:::ruby
+	require 'rubygems'
+	require 'bundler/setup'
+	require 'rhoconnect/tasks'
+	require 'rhoconnect'
+	require 'resque/tasks'
+
+	ROOT_PATH = File.expand_path(File.dirname(__FILE__))
+
+	task 'resque:setup' do
+	  # The number of redis connections you want a job to have
+	  Rhoconnect.connection_pool_size = 1
+	  require './application'
+
+	  Resque.after_fork do
+	    Store.db.client.reconnect
+	  end
+	end  
+
+Finally, run `bundle install` to install any missing dependencies in your RhoConnect directory:
 
 	:::term
 	$ bundle install

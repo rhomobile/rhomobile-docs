@@ -345,7 +345,7 @@ To start the device build process, create a Run Configuration: select your proje
 
 Press the Run button to build and run your application. The build output will appear in the Rhodes build output console. The application log will be available in the Rhodes application output console, and will be written into your application folder.
 
-For complete instructions on setting up the SDKs in RhoStudio for each platform, refer to [the Build instructions for Rhodes](build).
+For complete instructions on setting up the SDKs in RhoStudio for each platform, refer to [the Build instructions for Rhodes](/rhodes/build).
 
 ### Editing the SDK Locations in rhobuild.yml
 
@@ -392,4 +392,44 @@ To create a production build for your application, perform these steps.
 2. Select RhoMobile->Production Build from the main menu.
 3. From the Select platform pop-up box, select the platform to which you wish to build and click "Ok".
 
+## Running a Unit Test in RhoStudio
 
+When you generate a model for your RhoMobile application, you will have a spec.rb file generated along with your controller. For example, if you have a model named product, your RhoMobile application's app folder will contain a test folder containing the spec.rb file for the product model.
+
+	app/test/product_spec.rb
+
+This file is a template of a test for the controller. This template always returns false, so you should write a more extensive test.
+
+	:::ruby
+	describe "Product" do
+	  #this test always fails, you really should have tests!
+	
+	  it "should have tests" do
+	    true.should == false
+	  end
+	end
+
+The [Rhodes testing](/rhodes/test-log-debug#testing) chapter contains this [link  to our specs for the core framework](https://github.com/rhomobile/rhodes/tree/1.4.0/spec/framework_spec/app/spec/). You can use these as examples for writing your own test.
+
+Once you have written your test, you need to generate a testing framework to run the test. To generate the testing framework, right-click on your application in the Project Explorer and select RhoMobile spec.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhomobile-spec.png"/>
+
+This will create the following files in your app folder.
+
+	app/SpecRunner/controller.rb
+	app/SpecRunner/index.erb
+	app/mspec.rb
+	app/spec_runner.rb
+
+**NOTE: When you generate this test framework from RhoStudio, you do not need to set "fileutils" or "mspec" in build.yml extensions.**
+
+To create a run configuration and run the test for your application, perform these steps.
+
+1. Select your application in the Project Explorer.
+2. Select Run->Debug Configurations...-> from the main menu. The Debug Configurations window appears.
+3. Right-click RhoMobile applications test and select New.
+4. Create the run cofiguration you want for this test. Choose the platform, and if needed, the simulator type. Click the Apply button when done.
+5. Click the Debug button to run the test.
+
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/debug-config-test.png"/>

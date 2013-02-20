@@ -16,7 +16,7 @@ If you have included any of the following features in your application, your app
 * [Inline Signature Capture](/rhodes/device-caps#signature-capture)
 * [Windows Desktop](/rhodes/build#build-for-windows)
 
-Note that the "shared runtime" requires a license to run since it uses Motorola Solutions WebKit and RhoElements APIs.
+**NOTE: that the "shared runtime" requires a license to run since it uses Motorola Solutions WebKit and RhoElements APIs.**
 
 ## Obtaining a License
 
@@ -48,7 +48,7 @@ For native applications, you should define your application license in your buil
 
 	motorola_license: '@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq'
 
-**NOTE: Do not include `motorola_license_company` in build.yml, otherwise the application license will not be used.
+**NOTE: Do not include `motorola_license_company` in build.yml, otherwise the application license will not be used.**
 
 For hybrid applications, you should define your application license and application name in your config.xml file as follows. Define your application name in the configuration file under the General section, this must match the application name you provided when you applied for your license.
 
@@ -64,7 +64,7 @@ For hybrid applications, you should define your application license and applicat
 	    </Application >
 	  </Applications>
 
-**NOTE: Android is a case-sensitive operating system, as such be sure the case matches on all parameters. Otherwise the application will not launch.
+**NOTE: Android is a case-sensitive operating system, as such be sure the case matches on all parameters. Otherwise the application will not launch.**
 
 ## Device Licensing
 
@@ -115,7 +115,7 @@ Via build.yml for Native Applications (iOS and Non-MSI Android): If you are deve
 	motorola_license_company: 'Deployment License Company name'
 	motorola_license: 'Deployment License Number'
 
-Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. For development purposes on a single device, a device specific license can be used in the build.yml.  
+Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. 
 
 For hybrid applications, you can define your device license and company name in your config.xml file as follows:
 

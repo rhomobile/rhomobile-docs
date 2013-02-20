@@ -16,11 +16,11 @@ class Indicators
 
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BackButton", "file"=>"/rhoelements/backbutton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BackLight", "file"=>"/rhoelements/backlight/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Barcode", "file"=>"/rhodesapi/barcode-api/", "description"=>"", "html"=>"false", "js"=>"false", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>false},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Barcode", "file"=>"/rhodesapi/barcode-api/", "description"=>"", "html"=>"false", "js"=>"true", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Battery", "file"=>"/rhoelements/battery/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"BottomCommandArea", "file"=>"/rhoelements/bottomcommandarea/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothManager", "file"=>"/rhodesapi/bluetoothmanager-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
-{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothSession", "file"=>"/rhodesapi/bluetoothsession-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothManager", "file"=>"/rhodesapi/bluetoothmanager-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>false,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
+{"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"BluetoothSession", "file"=>"/rhodesapi/bluetoothsession-api/", "description"=>"", "html"=>"false", "js"=>"none", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>false,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"Camera", "file"=>"/rhodesapi/camera-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"CardReader", "file"=>"/rhoelements/cardreader/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Comm", "file"=>"/rhoelements/comm/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
@@ -43,7 +43,7 @@ class Indicators
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"KeyCapture", "file"=>"/rhoelements/keycapture/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"KeyState", "file"=>"/rhoelements/keystate/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Keylight", "file"=>"/rhoelements/Keylight/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
-{"visible" => true, "category" => "", "version_supported" => "2.1", "api"=>"LightSensor", "file"=>"/rhoelements/LightSensor/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
+{"visible" => true, "category" => "", "version_supported" => "2.1", "api"=>"LightSensor", "file"=>"/rhoelements/LightSensor/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 
 {"visible" => true, "category" => "", "version_supported" => "2.2", "api"=>"Magnetometer", "file"=>"/rhoelements/RawSensors/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"MapView", "file"=>"/rhodesapi/mapview-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>true,"bb"=>true,"rhosim"=>true},
@@ -70,7 +70,7 @@ class Indicators
 {"visible" => true, "category" => "", "version_supported" => "2.2", "api"=>"RawSensors", "file"=>"/rhoelements/RawSensors/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>false, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>false,"wince"=>false,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Registry", "file"=>"/rhoelements/registry/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Reload Button", "file"=>"/rhoelements/reloadbutton/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
-{"visible" => false, "category" => "", "version_supported" => "2.2", "api"=>"Rfid", "file"=>"/rhoelements/rfid/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
+{"visible" => true, "category" => "", "version_supported" => "2.2 SP1", "api"=>"Rfid", "file"=>"/rhoelements/rfid/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 
 {"visible" => true, "category" => "", "version_supported" => "1.0", "api"=>"Reboot", "file"=>"/rhoelements/reboot/", "description"=>"", "html"=>"lic", "js"=>"lic", "ruby"=>"lic", "rhoe"=>true, "rhodes"=>false, "msionly"=>true,"ios" => false,"android"=>false,"wm"=>true,"wince"=>true,"win32"=>false,"win7"=>false,"bb"=>false,"rhosim"=>false},
 {"visible" => true, "category" => "", "version_supported" => "2.0", "api"=>"RhoApplication", "file"=>"/rhodesapi/rhoapplication-api/", "description"=>"", "html"=>"false", "js"=>"lic", "ruby"=>"true", "rhoe"=>true, "rhodes"=>true, "msionly"=>false,"ios" => true,"android"=>true,"wm"=>true,"wince"=>true,"win32"=>true,"win7"=>true,"bb"=>true,"rhosim"=>true},
@@ -158,6 +158,65 @@ class Indicators
     end
     return html
   end
+
+  def self.languages(fileid)
+    @api = @apidata.detect {|a| a["file"] == fileid }
+    html = ""
+    if @api.nil?
+      html = ""
+    else
+    	html = "<ul class='nav nav-list'><li class='nav-header'>LANGUAGE SUPPORT</li>"
+      
+      if @api["html"] == "true" or @api["html"] == "lic"
+        html = html + '<li><span class="label label-info">HTML</span></li>'
+      end
+      if @api["js"]== "true" or @api["js"] == "lic"
+        html = html +  '<li><span class="label label-warning">JAVASCRIPT</span></li>'
+      end
+      if @api["ruby"] == "lic"
+        html = html +  '<li><span class="label label-important">RUBY</span></li>'
+      end
+      if @api["ruby"]== "true"
+        html = html +  '<li><span class="label">RUBY (No License Required)</span></li>'
+      end
+      html = html + "</ul>"
+    end
+    return html
+  end
+   def self.oslist(fileid)
+    @api = @apidata.detect {|a| a["file"] == fileid }
+    if @api.nil?
+      html = ""
+    else
+      html = "<ul class='nav nav-list'><li class='nav-header'>OPERATING SYSTEMS</li>"
+      if @api["ios"]
+        html = html + '<li>iOS</li>'
+      end
+      if @api["android"]
+        html = html + '<li>Android</li>'
+      end
+      if @api["wm"] or @api["wince"]
+        html = html + '<li>Windows Embedded Handheld</li>'
+      end
+      if @api["win7"]
+        html = html + '<li>Window Phone 7</li>'
+      end
+      if @api["win32"]
+        html = html + '<li>Windows 32/64</li>'
+      end
+      if @api["bb"]
+        html = html + '<li>Blackberry</li>'
+
+      end
+      if @api["rhosim"]
+        html = html + '<li>RhoSimulator</li>'
+
+      end
+      html += "</ul>"
+    end
+    return html
+  end
+ 
   
   def self.apimatrix_markdown()
     md = '#Mobile API Compatibility 
@@ -276,7 +335,7 @@ The following table shows the compatibility for each Mobile API.
       else
         wm = ''
       end
-      if api["wm"] or api["wince"]
+      if api["wince"]
         wince = '<span class="icon-star"></span><span style="display:none">ce wince windows</span>'
       else
         wince = ''

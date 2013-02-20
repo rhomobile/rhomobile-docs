@@ -274,8 +274,8 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >WebServer\\Port</td>
 <td >WEBSPORT</td>
-<td >By default should be left at 80, This specifies the IP port the Web Server is running on.</td>
-<td >80</td>
+<td >By default should be left at 8080, This specifies the IP port the Web Server is running on.</td>
+<td >8080</td>
 </tr>
 <tr>
 <td class="clsEvenRow">WebServer\\WebFolder</td>
@@ -409,7 +409,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td class="clsEvenRow">NPAPI\\Preloads\\PreloadLegacyNoSIP</td>
 <td class="clsEvenRow">PRELOADLEGACYNOSIP</td>
-<td class="clsEvenRow">Not applicable to the Enterprise Tablet:<br>Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit</td>
+<td class="clsEvenRow">Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit</td>
 <td class="clsEvenRow">0 - Do Not Preload<br>1 - Preload</td>
 </tr>
 <tr>

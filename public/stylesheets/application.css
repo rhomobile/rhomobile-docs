@@ -17,7 +17,7 @@ body {
 	background: #fff;
 	min-width: 1000px;
 	margin: 0;
-	background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;
+	/*background:url("/images/header_background.jpg") repeat-x scroll 0 0 transparent;color:#000000;*/
 }
 
 div#container {
@@ -48,6 +48,10 @@ div#doc_container{
   font-size:11px;
 }
 
+#sidebar {
+  font-size:11px;
+  float:right;
+}
 
 
 a {
@@ -167,11 +171,11 @@ p, ul, blockquote, pre, table {
 /* docsnav
 --------------------------------------------------*/
 
-
 #docsnav ul {
 	margin:0;
 	padding:0;
 }
+/*
 #docsnav li {
 	list-style-type:none;
 	margin:0 0 3px 0;
@@ -184,17 +188,22 @@ p, ul, blockquote, pre, table {
 	font-weight: normal;
 	color: #777;
 }
-#docsnav a:hover {
+*/
+#docsnav li:hover {
 	color: #555;
 	cursor:pointer;
+    background-color: #EEE;
+
 }
-#docsnav .current  {
+
+/*#docsnav .current  {
 	background-color:#222;
 }
 #docsnav .current a {
 	color:white;
 	font-weight:bold;
 }
+
 #docsnav h3 {
 	color:#666;
 	margin:0 0 0 0;
@@ -203,7 +212,7 @@ p, ul, blockquote, pre, table {
 	float: left;
   width: 200px;
 }
-
+*/
 
 /* content
 --------------------------------------------------*/
@@ -249,20 +258,21 @@ h3 {
 	color: #777;
 }
 
-#content .note {
+#t_content .note {
 	background:#eef;
 	border:1px solid #dde;
 	color:#223;
+	width:100%;
 }
 
-#content .note td.icon {
+#t_content .note td.icon {
 	background:url(/images/note.png) no-repeat;
 	background-position:5px 3px;
 	width:47px;
 	height:47px;
 	padding:5px;
 }
-#content .note td.content {
+#t_content .note td.content {
 	padding-left: 8px;
 }
 

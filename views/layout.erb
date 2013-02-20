@@ -15,12 +15,15 @@
 	<script type="text/javascript" src="/javascripts/application.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.dataTables.min.js"></script>
-	
+
 </head>
 <body >
 
+
 <div class="navbar">
 	<header id="j-header">
+	
+
 	<a href="http://developer.motorolasolutions.com" target="_blank" class="j-header-logo">
 				<img src="http://developer.motorolasolutions.com/skinfile?filename=skin_basic_logo" alt="">
 
@@ -29,7 +32,7 @@
 
 
 	</header>
-
+	
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -56,51 +59,54 @@
       </div>
     </div><!-- /navbar-inner -->
   </div>
-  
+
+ 
   
 <div id="container">
 	<div id="doc_container">
-	<div id="docsnav" <% if @print != 0 %> style="display:none" <% end %> >
-		
-		<ul>
-			<% collapsed = true %>
-			<% sections.each do |slug, title, topics| %>
-				<% if topics and topics.length > 0 %>
-					<% collapsed = false if TOC.find(request.path_info) == slug %>
-					<div class="accordion-group">
-						<li>
-						<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-target="#<%=slug%>">
-							  <i class="<%= collapsed ? 'icon-plus' : 'icon-minus'%> pull-right"></i>
-								<h3><%= title %></h3>
-							</a>
-						</div>
-						<div id="<%=slug%>" class="accordion-body <%=collapsed ? 'collapse' : 'in'%>">
-							<ul>
-								<% topics.each do |slug, title, _| %>
-									<% if topic_path == slug %>
-										<li class="current"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
-									<% else %>
-										<% if slug != 'rhoelements/apicompatibility' %>
-										<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
-										<%else%>
-										<li><a  href="/<%= slug %>"><%=h title %></a></li>
-										<%end %>
-									<% end %>
-								<% end %>
-							</ul>
-						</div>
-						</li>
-					</div>
-					<% collapsed = true %>
+	<div id="docsnav"<% if @print != 0 %> style="display:none" <% end %> >
+		<ul class="nav nav-list">
+			<% collapsed = true 
+			%>
+			
+	<% sections.each do |slug, title, topics| %>
+		<% if topics and topics.length > 0 %>
+			<% collapsed = false if TOC.find(request.path_info) == slug %>
+			<%
+			if collapsed
+				header_icon = "icon-chevron-down"
+
+			else
+				header_icon = "icon-chevron-up"				
+			end		
+			%>
+			<div class="accordion-heading">			
+				<li class="nav-header" data-target="#<%=slug%>" data-toggle="collapse">
+					<%= title %><i class="<%=header_icon%>" style="float:right"></i>
+					
+				</li>
+			</div>
+			<ul class="nav nav-list  <%=collapsed ? 'collapse' : 'in'%>" id="<%=slug%>" >
+    
+			<% topics.each do |slug, title, _| %>
+				<% if topic_path == slug %>
+					<li class="active"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
 				<% else %>
-					<h2><%= title %></h2>
+					<% if slug != 'rhoelements/apicompatibility' %>
+					<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
+					<%else%>
+					<li><a  href="/<%= slug %>"><%=h title %></a></li>
+					<%end %>
 				<% end %>
 			<% end %>
-		</ul>
+			</ul>
+			<% collapsed = true %>
+		<% end %>
+	<% end %>
+		</ul>	
 	</div>
 
-	<div id="content">
+	<div class="span12">
 		<div id="t_content" class="topic_content">
 			<%= yield %>
 		</div>

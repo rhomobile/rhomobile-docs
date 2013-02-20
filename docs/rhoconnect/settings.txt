@@ -28,9 +28,7 @@ In addition, you can specify the following settings:
 	:redis_timeout: <secs>
 	:poll_interval_default: <secs>
 	:bulk_sync_poll_interval: <secs>
-	:c2dm_username: <google's email>
-	:c2dm_passwd: <passwd>                       
-	:authtoken: <authtoken>
+	:gcm_api_key: your_gcm_api_key_here
 
 `:connection_pool_size`: By default, RhoConnect maintains multiple concurrent connections to Redis organized in Connection Pool. This setting allows you to specify the size of the pool. By default, RhoConnect starts with five (5) Redis connections.
 
@@ -42,13 +40,7 @@ In addition, you can specify the following settings:
 
 `:bulk_sync_poll_interval`: poll interval setting for bulk data sync, in seconds.
 
-`:c2dm_username`: The email address for the C2DM Google account.
-
-`:c2dm_passwd`: The password for the C2DM Google account.
-
-`:authtoken`: these settings are used specifically for Android push notifications. In order to push messages to the Android device, your server needs to obtain Google's C2DM authentication token associated with the trusted google account. For this purpose, you can specify C2DM Google account's username/password combo via the `:c2dm_username` and `:c2dm_passwd` settings. At run-time, the system will use these credentials to obtain the C2DM token and store it in the Redis for the future use. Once the token is expired, the system will automatically connect to the Google C2DM service to renew the token.
-
-Alternatively, you can use the `:authtoken` setting to specify the pre-defined authentication token. This token MUST be related to the role-based google account registered for your application. See [the rhodes push instructions](/rhodes/device-caps#push-notifications) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout. This approach, however, will not allow the server to connect to the C2DM service and renew the token once it is expired.
+`:gcm_api_key`: The [API key for Google Cloud Messaging](/rhoconnect/push-client-setup-android#setting-up-android-google-cloud-messaging).
 
 ## Source settings
 
