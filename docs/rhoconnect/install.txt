@@ -10,15 +10,35 @@ The most common way to install RhoConnect on a Windows or Macintosh platform is 
 
 NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
 
+## Setting the HTTP_PROXY Environment Variable
+
+If you are using RestClient, you should set the HTTP_PROXY environment variable to your proxy server URL. This allows the bundler to work from behind a proxy.
+
+From Linux or OSX, you can use the following command.
+
+	$ export http_proxy=http://{username}:{password}@{proxy-server-name}
+
+From Windows:
+
+	$ SET HTTP_PROXY=http://{username}:{password}@{proxy-server-name}
+
+Then you can set the RestClient proxy using http_proxy.
+
+	RestClient.proxy = ENV['http_proxy']
+
 ## Installing RhoConnect from the Command Line
 
-To install RhoConnect on Linux, and to install RhoConnect on Windows or Mac OS using the command line (this does not install RhoStudio), you need to install the Rhodes gem. Download and install:
+On Macintosh and Linux, you need the following setup before redis is installed.
+
+ * The `/usr/local` directory exists and is recursively writable by the current user.
+ * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
+ * You have a gcc toolchain installed (i.e. via homebrew on OSX or build-essential package on Ubuntu/Debian).
+
+To install RhoConnect on Linux, and to install RhoConnect on Mac OS using the command line (this does not install RhoStudio), you need to install the RhoConnect gem. (RhoConnect for Windows should only be installed via [RhoMobile Suite](/rhomobile-install). Download and install:
 
 1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
 
-	* On Windows, [RubyInstaller](http://rubyinstaller.org) is a convenient way to install Ruby; you should check "Add Ruby executables to your PATH" and "Associate .rb and .rbw files with this Ruby installation".
-
-	* On Macintosh, Ruby is already installed, but this version is outdated and isn't compatible with RhoStudio: install [Ruby Version Manager](https://rvm.io//) (RVM) and then use RVM to install Ruby version 1.9.3.
+	On Macintosh, Ruby is already installed, but this version is outdated and isn't compatible with RhoStudio: install [Ruby Version Manager](https://rvm.io//) (RVM) into your home directory and then use RVM to install Ruby version 1.9.3. Do not use `sudo` when you install RVM: that can cause problems with file permissions when you run bundle commands within RhoStudio.
 
 2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
@@ -31,9 +51,7 @@ Run this command to install the RhoConnect Gem.
 	:::term
 	$ gem install rhoconnect
 
-NOTE: If you get any `no such file to load -- something` messages while running the rhoconnect or rhodes commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
-
-NOTE: Windows doesn't come with the necessary build tools to install gems ('make', for example). There are various ways to get these tools, but the GnuWin32 project at http://gnuwin32.sourceforge.net/ provides the tools, and can be conveniently installed via the GetGnuWin32 installer at http://sourceforge.net/projects/getgnuwin32/files/. You should follow the GetGnuWin32 instructions carefully.
+NOTE: If you get any `no such file to load -- something` messages while running the rake tasks or rhoconnect commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
 
 ## Removing Spaces from the Workspace Path for RhoConnect Applications
 
@@ -41,7 +59,7 @@ When you start RhoStudio, you set the location of the workspace directory. Set t
 
 ## Standalone Ruby Installation and Ruby Version Manager
 
-Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in Rhodes applications.
+Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.
 
 ## Migrating to OS X Mountain Lion from the command line
 
@@ -150,7 +168,7 @@ Replace your existing `config.ru` with the listing below. Save your old `config.
 
 	# secret is generated along with the app
 	# NOTE:
-	# Substitude 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru	
+	# Substitute 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru	
 	Rhoconnect::Server.set     :secret, 'REPLACE_ME'
 
 	# !!! Add your custom initializers and overrides here !!!
