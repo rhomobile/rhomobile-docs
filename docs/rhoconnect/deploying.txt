@@ -10,13 +10,13 @@ for Ubuntu and CentOS respectively. At this moment supported formats are Debian 
 
 Every package provides the following components:
 
-* Ruby 1.9.3-p194
+* Ruby 1.9.3-p374
 
 * Nginx HTTP server, release 1.2.x
 
 * Thin application server, release 1.3.1
 
-* Redis data store, release 2.4.x
+* Redis data store, release 2.6.x
 
 * Latest RhoConnect gem with all required dependencies
 
@@ -299,13 +299,20 @@ You can start a redis server using the following command.
 	$ sudo /etc/init.d/redis start
 
 ### RhoConnect Push Service
-You can create a RhoConnect Push production environment on Linux servers by installing prepackaged software for Ubuntu (12.x) and CentOS (6.x). In a few clicks, you will have installed on your Linux server.
+You can create a RhoConnect Push production environment on Linux servers by installing prepackaged software for 
+Ubuntu (12.x) and CentOS (5.x/6.x). In a few clicks, you will have installed on your Linux server.
 
 * Node.js with Npm package manager
 
 * RhoConnect Push service
 
-* Upstart script to start, stop, and control Push service
+* Upstart script to start, stop, and control Push service  (for Ubuntu and CentOS 6.x)
+
+* `/etc/init.d/rhoconnect-push` init script to start, stop, and restart Push service  (CentOS 5.x)
+
+Prerequisites:
+
+    * Python 2.6 or 2.7
 
 #### Steps for Debian-Based Linux Users
 Add the following line to the end of your /etc/apt/sources.list.
@@ -320,7 +327,16 @@ Then update the repo list and install RhoConnect Push.
 	$ sudo apt-get install rhoconnect-push
 
 #### Steps for RedHat-Based Linux Users
-Create a file named rhoconnect-repo.repo in the /etc/yum.repos.d/ directory.
+Node.js requires python 2.6 which is not available for CentOS 5 stock version.
+For this flavor of linux you need to manually install EPEL repo and install python26 RPM out of it:
+
+	:::term
+    $ wget http://mirror.chpc.utah.edu/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+    $ rpm -i epel-release-5-4.noarch.rpm 
+    $ yum install python26
+
+
+Now create a file named rhoconnect-repo.repo in the /etc/yum.repos.d/ directory.
 
 	:::term
 	$ sudo nano /etc/yum.repos.d/rhoconnect-repo.repo
