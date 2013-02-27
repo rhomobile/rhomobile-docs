@@ -6,11 +6,11 @@ Motorola Adaptive Printer Driver (APD) is a small executable program that runs o
 
 APD takes care of connectivity. APD takes care of different printer command languages. This means your application doesn't need to know what type of printer is being used, or how it is connected. You application only has to decide what to print, and to which printer.
 
-## What ADB Prints and What ADB Prints With
+## What APD Prints and What APD Prints With
 
-ADB can print receipts, labels, tags, tickets, whatever the printer can print.
+APD can print receipts, labels, tags, tickets, whatever the printer can print.
 
-ADB can use virtually any portable printer, and many desktop and industrial printers. Here's some that we have tried: Zebra (includes Comtec and Eltron printers), O'Neil, Paxar-Monarch, Toshiba-TEC, Brother, Citizen Business Machines, Citizen Watch Co, Cognitive, Extech, Printronix, Sato, Seiko, S'Print.
+APD can use virtually any portable printer, and many desktop and industrial printers. Here's some that we have tried: Zebra (includes Comtec and Eltron printers), O'Neil, Paxar-Monarch, Toshiba-TEC, Brother, Citizen Business Machines, Citizen Watch Co, Cognitive, Extech, Printronix, Sato, Seiko, S'Print.
 
 ## Step 1: Define the Printer Type and Connection
 
