@@ -157,7 +157,7 @@ Motorola RhoMobile Suite installs into a Motorola RhoStudio folder. Old versions
 
 ## Setup Rhodes SDKs
 
-If you develop Rhodes apps (or RhoElements native apps), you will need the SDKs for the platform you want to build your app on. These instructions are found [here](build).
+If you develop Rhodes apps (or RhoElements native apps), you will need the SDKs for the platform you want to build your app on. These instructions are found [here](rhodes/build).
 
 You can either run [rhodes-setup](rhodes/install#setup-rhodes-sdks), or you can set the SDK paths in RhoStudio Preferences.
 
