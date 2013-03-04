@@ -4,41 +4,25 @@ This section discusses how to install the development environment for RhoConnect
 
 ## Installing RhoConnect with RhoStudio
 
-The most common way to install RhoConnect on a Windows or Macintosh platform is to install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
+To install RhoConnect on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
 [Click here for the RhoMobile Suite installation instructions](/rhomobile-install).
 
+When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
+
 NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
 
-## Setting the HTTP_PROXY Environment Variable
+## Installing RhoConnect on Linux
 
-If you are using RestClient, you should set the HTTP_PROXY environment variable to your proxy server URL. This allows the bundler to work from behind a proxy.
-
-From Linux or OSX, you can use the following command.
-
-	$ export http_proxy=http://{username}:{password}@{proxy-server-name}
-
-From Windows:
-
-	$ SET HTTP_PROXY=http://{username}:{password}@{proxy-server-name}
-
-Then you can set the RestClient proxy using http_proxy.
-
-	RestClient.proxy = ENV['http_proxy']
-
-## Installing RhoConnect from the Command Line
-
-On Macintosh and Linux, you need the following setup before redis is installed.
+On Linux, you need the following setup before redis is installed.
 
  * The `/usr/local` directory exists and is recursively writable by the current user.
  * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
- * You have a gcc toolchain installed (i.e. via homebrew on OSX or build-essential package on Ubuntu/Debian).
+ * You need a gcc toolchain installed, i.e. via build-essential package on Ubuntu/Debian.
 
-To install RhoConnect on Linux, and to install RhoConnect on Mac OS using the command line (this does not install RhoStudio), you need to install the RhoConnect gem. (RhoConnect for Windows should only be installed via [RhoMobile Suite](/rhomobile-install). Download and install:
+To install RhoConnect on Linux, you need to install the RhoConnect gem. Download and install:
 
 1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
-
-	On Macintosh, Ruby is already installed, but this version is outdated and isn't compatible with RhoStudio: install [Ruby Version Manager](https://rvm.io//) (RVM) into your home directory and then use RVM to install Ruby version 1.9.3. Do not use `sudo` when you install RVM: that can cause problems with file permissions when you run bundle commands within RhoStudio.
 
 2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
@@ -53,57 +37,24 @@ Run this command to install the RhoConnect Gem.
 
 NOTE: If you get any `no such file to load -- something` messages while running the rake tasks or rhoconnect commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
 
-## Removing Spaces from the Workspace Path for RhoConnect Applications
+NOTE: Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.
 
-When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
+## Setting the HTTP_PROXY Environment Variable
 
-## Standalone Ruby Installation and Ruby Version Manager
+If you are using RestClient, you should set the HTTP_PROXY environment variable to your proxy server URL. This allows the bundler to work from behind a proxy.
 
-Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.
+From Linux or OSX, you can use the following command.
 
-## Migrating to OS X Mountain Lion from the command line
+	$ export http_proxy=http://{username}:{password}@{proxy-server-name}
 
-If you had a workable RhoConnect environment on Macintosh OS X Lion, then after you upgrade to Mountain Lion, you need to do some extra steps to restore your workable environment.
+From Windows:
 
-### Getting Xcode and Command Line Tools Installed
+	$ SET HTTP_PROXY=http://{username}:{password}@{proxy-server-name}
 
-You can get Xcode from the Mac App Store. You’ll need at least version 4.4 of Xcode for it to work with OS X Mountain Lion. After the installation, open Xcode in your /Applications folder. Then go to Xcode -> Preferences -> Downloads tab and install the “Command Line Tools.”
+This allows you to set the RestClient proxy using the HTTP_PROXY environment variable in your RhoConnect code.
 
-### Installing Homebrew and GCC
-
-If you need to install any Ruby that’s older than 1.9.3, such as 1.9.2, 1.8.7 or REE, you’ll need to install GCC 4.2. Apple does not ship the Command Line Tools with gcc-4.2 compiler anymore (you can check by running `which gcc-4.2`), so you need to install it via Homebrew by enabling [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes) repository and installing GCC.
-
-	:::term
-	$ brew tap homebrew/dupes
-	$ brew install apple-gcc42
-
-Apple has removed X11 support from their operating system, but the X11 package is needed to
-compile 1.8.7 or REE. You can get the X11 package from [XQuartz]( http://xquartz.macosforge.org/landing). By default, it installs in the /opt/X11 folder.
-
-If you had Homebrew already installed, then you need only update it
-
-	:::term
-	$ brew update
-	$ brew doctor
-
-If the `brew doctor` command complains about the `/usr/local/bin` path, then edit the `/etc/paths` file to move `/usr/local/bin` line to the top of it.
-
-### Updating RVM (Ruby Version Manager) with Ruby 1.9.3
-
-Because the OS X Mountain Lion toolchain is changed, you should use Ruby Version Manager to reinstall existing Ruby 1.9.3.
-
-	:::term
-	$ rvm get stable
-	$ rvm reinstall 1.9.3
-
-### Installing legacy rubies
-
-Run the following commands to install legacy rubies:
-
-	:::term
-	$ export CPPFLAGS=-I/opt/X11/include
-	$ CC=/usr/local/bin/gcc-4.2 rvm reinstall 1.8.7
-	$ CC=/usr/local/bin/gcc-4.2 rvm reinstall ree
+	:::ruby
+	RestClient.proxy = ENV['http_proxy']
 
 ## Upgrading an Existing Application
 
