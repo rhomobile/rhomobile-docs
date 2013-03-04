@@ -6,19 +6,45 @@ The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect,
 
 ### Java Development Kit
 
-RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install Java.
+RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7 and 10.8, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://www.java.com/en/download/index.jsp) and install Java 6 or higher.
 
-### Ruby Version Manager
+### Setup for RhoConnect
 
-Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, this version is outdated and isn't compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io//) into your home directory and then install Ruby version 1.9.3. Do not install RVM using `sudo`: that can cause file permission problems when you run bundle commands within RhoStudio.
+On Macintosh, you need the following setup before redis is installed.
 
-**NOTE: If you upgrade your OS X from Lion to Mountain Lion or upgrade XCode or both you have to do the following:<br>
-1. Run XCode, goto "XCode"->"Preferences..."->"Downloads"->"Components" and install "Command Line Tools" component.<br>
-2. Run "<tt>rvm reinstall &lt;ruby_version&gt;</tt>" for all versions of Ruby installed in RVM (run "<tt>rvm list</tt>" to get this list).**
+ * The `/usr/local` directory exists and is recursively writable by the current user.
+ * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
 
-Download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+### Setup for Xcode, Commend Line Tools, and Homebrew
+
+If you do not have the latest Xcode and command line tools, you need to install them. Install the latest [Xcode](https://developer.apple.com/xcode/). 
+
+Then install the command line tools: go to Xcode –> Preferences –> Downloads tab and install the "Command Line Tools."
+
+Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
+
+### Setup for RhoConnect Push
+
+To use RhoConnect Push, you need to install Node.js.
+
+Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
+
+	:::term
+	$ brew install node
+
+### Setup for Ruby
+
+If you do not have Ruby Version Manager and Ruby 1.9.3 installed, you must install them.
+
+On Macintosh, Ruby is already installed, but this version is outdated and isn’t compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io/) (RVM) into your home directory. Do not use `sudo` when you install RVM: that can cause problems with file permissions when you run bundle commands within RhoStudio.
+
+Install Ruby 1.9.3 with the following RVM command.
+
+	$ rvm install 1.9.3
 
 ### Download and Install
+
+Download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
 
 Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
   <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
