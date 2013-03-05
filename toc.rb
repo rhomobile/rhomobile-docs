@@ -61,8 +61,12 @@ end
 
 section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/barcode',      'Barcode'
+  topic 'api/camera',      'Camera'
+  topic 'api/NetworkAccess',      'NetworkAccess'
   topic 'api/process',      'Process'
+  topic 'api/Sqlite3',      'Sqlite3'
   topic 'api/system',      'System'
+  topic 'api/webview',      'Webview'
 end
 
 section 'rhoconnect', 'RhoConnect'
