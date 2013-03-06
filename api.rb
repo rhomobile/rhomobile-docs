@@ -23,7 +23,7 @@ class Api
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
   	# }
-  	puts md
+  	#puts md
   	return md
   end
  
@@ -111,11 +111,17 @@ class Api
   def self.getmethods(doc)
   	md = ""
   	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
-
+    
+    #puts methodaliases
+		
 	s.each() { |element| 
-		puts element
-		puts "\n\n"
+		#puts element
+		#puts "\n\n"
 		methname = element["name"]
+		methdeprecated = ""
+		if !element["deprecated"].nil?
+			methdeprecated = element["deprecated"]
+		end
 		@methhascallback = ""
 		if !element["hasCallback"].nil?
 		
@@ -123,6 +129,16 @@ class Api
 		end 
 		
 		@methdesc = element["DESC"][0]
+		methreplaces = ""
+		#Check to see if need to add to description about this method replacing a deprecated one
+		if !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?
+	    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+				#puts a
+				if a["existing"] == element["name"]
+					methreplaces += a["new"]
+				end
+			}
+		end
 		
 		@methreturn = "Void"
 		@methreturndesc=""
@@ -185,7 +201,14 @@ class Api
 			end
 			
   		end
+  		if methdeprecated == "true"
+			methname = methname + ' <span class="pull-right label label-important">deprecated</span>'
+		end
+		if methreplaces != ""
+			methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
+		end
 		md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
+
   		md += "<table class='table  table-condensed'><tr>"
   		md += "<td>#{@methsample}#{@methdesc}"
   		md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>" 
