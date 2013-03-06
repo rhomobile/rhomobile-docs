@@ -32,8 +32,8 @@ Add the following line to the end of your <b>/etc/apt/sources.list</b>:
 	:::text
 	deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
 	
-**NOTE: If you wanted get package with new cool features from <b>Beta</b> repository, then define repourl like	
-`http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
+**NOTE: If you want to get the package with cool new features from the Beta repository, then define 
+repo url as `http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
 
 Once the repo is added apt-get needs to be updated:
 
@@ -86,7 +86,8 @@ Copy and paste these contents into the file.
 	enabled=1
 	gpgcheck=0
 
-**NOTE: If you wanted get package from <b>Beta</b> repository, then set `baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`** 
+**NOTE: If you want to get the package with cool new features from the Beta repository, then define baseurl as
+`baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`** 
 
 Once that is done, it is time to install RhoConnect:
 
