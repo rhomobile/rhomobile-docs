@@ -12,7 +12,22 @@ class Api
   	# }
   	return md
   end
-  
+ 
+ def self.getApiDesc(doc)
+  	md=""
+  	if !doc["MODULE"][0]["HELP_OVERVIEW"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW"][0].length >0
+
+	  	md = doc["MODULE"][0]["HELP_OVERVIEW"][0]
+  	end
+  	#md += "\n\n" + doc["MODULE"][0]["MORE_HELP"][0]
+  	# doc.elements.each("//MODULE") { |element| 
+  	# 	md = element.attributes["name"] 
+  	# }
+  	puts md
+  	return md
+  end
+ 
+
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
   	md = ""
@@ -98,8 +113,14 @@ class Api
   	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
 
 	s.each() { |element| 
+		puts element
+		puts "\n\n"
 		methname = element["name"]
+		@methhascallback = ""
+		if !element["hasCallback"].nil?
 		
+			@methhascallback = element["hasCallback"]
+		end 
 		
 		@methdesc = element["DESC"][0]
 		
@@ -147,19 +168,59 @@ class Api
 
 			}
 		end
+		@methsample = "<b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>"
 		if @methparams != ""
 			# @methvalues = "<br/><b>Possible Values:</b> " + @methvalues
 		end
-
+		if @methhascallback !="" && @methhascallback != "none"
+			@callbackrubysample = "url_for :action => :take_callback"
+			@callbackjssample = "callback_function"
+			if @methparams != ""
+				@methparams = ", " + @methparams
+			end
+			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@callbackrubysample}#{@methparams})</b><br/>"
+			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@callbackjssample}#{@methparams})</b><br/><br/>"
+			if @methhascallback == "optional"
+				@methsample += "Callback function is optional.<br/><br/>"
+			end
+			
+  		end
 		md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
   		md += "<table class='table  table-condensed'><tr>"
-  		md += "<td><b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>#{@methdesc}"
+  		md += "<td>#{@methsample}#{@methdesc}"
   		md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>" 
   		if @methparamsdetails != ""
-  			md += "<tr><td colspan='2'><table class='table table-bordered'>"
+  			md += "<tr><td colspan='2'><b>Parameters</b><br/><table class='table table-bordered'>"
   			md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td><td>Can Be Nil</td></tr></thead>"
   			md += @methparamsdetails
   			md += "</table></td></tr>"
+  		end
+  		if @methhascallback !="" && @methhascallback != "none"
+  			md += "<tr><td colspan='2'><b>Callback Return Values</b><br/><table class='table table-bordered'>"
+  			md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td></tr></thead>"
+			@methcallbackdetails = ""
+			
+			if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
+				element["CALLBACK"][0]["PARAMS"].each { |params|
+					params["PARAM"].each { |param|
+
+						if !param["DESC"].nil?
+							@methcallbackdetailsdesc=param["DESC"][0]
+						end
+
+						
+						
+						if param["type"].nil?
+							param["type"] = "STRING"
+						end
+						@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
+					}
+
+				}
+			end  			
+  			md += @methcallbackdetails
+  			md += "</table></td></tr>"
+
   		end
   		md += "</tr></table>\n\n" 
 
@@ -175,12 +236,13 @@ class Api
   	# doc = REXML::Document.new xml
   	
   	doc = XmlSimple.xml_in(topic)
-
   	#get api name from <MODULE name="" ...
   	# need to figure out what to do if multiple <MODULE tags in one physical file
+  	#puts doc
 
   	docproperties = getproperties(doc)
   	md += "#" + getApiName(doc) + "\n" 
+  	md += "\n" + getApiDesc(doc) + "\n" 
   	if docproperties !=""
 	  	 md += "##Properties" + "\n\n" 
 	  	 md += "" + getproperties(doc) + ""
