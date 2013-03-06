@@ -10,11 +10,11 @@ for Ubuntu and CentOS respectively. At this moment supported formats are Debian 
 
 Every package provides the following components:
 
-* Ruby 1.9.3-p374
+* Ruby 1.9.3-p392
 
-* Nginx HTTP server, release 1.2.x
+* Nginx HTTP server, release 1.3.x
 
-* Thin application server, release 1.3.1
+* Thin application server, release 1.5.x
 
 * Redis data store, release 2.6.x
 
@@ -31,6 +31,9 @@ Add the following line to the end of your <b>/etc/apt/sources.list</b>:
 
 	:::text
 	deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
+	
+**NOTE: If you wanted get package with new cool features from <b>Beta</b> repository, then define repourl like	
+`http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
 
 Once the repo is added apt-get needs to be updated:
 
@@ -43,26 +46,31 @@ Once that is done, it is time to install RhoConnect:
 	$ sudo apt-get install rhoconnect
 
 #### Steps for RedHat-Based Linux Users
-Vanilla CentOS distribution does not include some packages required by RhoConnect installer. To resolve dependencies you might wanted to use either
-[RPMForge](http://wiki.centos.org/AdditionalResources/Repositories/RPMForge) or [Extra Packages for Enterprise Linux (EPEL) ](http://fedoraproject.org/wiki/EPEL)
+Prerequisites: target Linux server should include CentOS Development tools. 
+To install them, use the this command
+
+ 	:::term	
+	$ yum groupinstall 'Development Tools'
+	
+It will install for you such tools as GNU GCC C/C++ compiler, make and others.
+
+Vanilla CentOS distribution does not include some packages required by RhoConnect installer. To resolve dependencies you 
+might wanted to use [Extra Packages for Enterprise Linux (EPEL) ](http://fedoraproject.org/wiki/EPEL)
 repository.
 
-For example, to add rpmforge repository for CentOS 5.8 release and x86_64 architecture execute this command:
+For example, to enable EPEL repository for CentOS 5.x release execute these commands:
 
     :::term
-    $ wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm; rpm -Uhv rpmforge*
+	$ wget http://mirror.us.leaseweb.net/epel/5/i386/epel-release-5-4.noarch.rpm
+	$ rpm -i epel-release-5-4.noarch.rpm
+	$ yum update
 
-For CentOS 6.2 release:
-
-    :::term
-    $ wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm; rpm -Uhv rpmforge*
-
-If you'd rather prefer EPEL repo, then run one of
+For CentOS 6.x release:
 
     :::term
-    $ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
-    $ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm
-
+	$ wget http://ftp.osuosl.org/pub/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
+	$ rpm -i epel-release-6-8.noarch.rpm
+	$ yum update
 
 Now you can create a file named <b>rhoconnect.repo</b> in the <b>/etc/yum.repos.d/</b> directory:
 
@@ -78,6 +86,7 @@ Copy and paste these contents into the file.
 	enabled=1
 	gpgcheck=0
 
+**NOTE: If you wanted get package from <b>Beta</b> repository, then set `baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`** 
 
 Once that is done, it is time to install RhoConnect:
 
@@ -363,7 +372,7 @@ and deploy it into the J2EE App Server.
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
 
-## Deploying on Heroku Cedar
+## Deploying on Heroku
 
 #### Prerequisites
 
@@ -377,25 +386,6 @@ Create your Rhoconnect app and make sure that it's up and running in your develo
     :::term
     $ cd your_rhoconnect_app
     $ bundle exec thin start
-
-#### Declare `Procfile`
-This step is optional, but it will give you more control and flexibility when application deployed on Heroku.
-Create in your rhoconnect project file named `Procfile`:
-
-    :::term
-    web: bundle exec thin start -p $PORT
-
-If your application is using resque worker, then you should specify it in the `Procfile` as well:
-
-	:::term
-	web: bundle exec thin start -p $PORT
-    worker: bundle exec rake resque:work
-
-Now you can run your app locally:
-
-	:::term
-    $ gem install foreman
-    $ foreman start
 
 
 #### Deploy to Heroku
