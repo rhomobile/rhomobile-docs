@@ -27,7 +27,59 @@ class Api
   	return md
   end
  
+  def self.getpropusagetext(model,property,type)
+  	defval = ''
+  	if type == 'STRING'
+  		defval = "'some string'"
+  	end
+  	if type == 'BOOLEAN'
+  		defval = "true"
+  	end
+  	if type == 'INTEGER'
+  		defval = "0"
+  	end
+  	if type == 'FLOAT'
+  		defval = "1.0"
+  	end
+  	md = "\n\n<strong>Ruby Usage</strong>"
+  	md += "\n\n<pre>"
+  	md += "\n# Setting directly"
+  	md += "\n"
+  	md += "#{model}.#{property}=#{defval}"
+  	md += "\n# Setting one property"
+  	md += "\n"
+  	md += "#{model}.setProperty " + ":#{property}, #{defval} "
+  	md += "\n# Setting multiple properties using HASH"
+  	md += "\n"
+  	md += "#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
+  	md += "\n\n# Getting one property"
+  	md += "\n"
+  	md += "myvar = #{model}.getProperty(" + "'#{property}')"
+  	md += "\n# Getting multiple properties"
+  	md += "\n"
+  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property'])"
+  	md += "</pre>" 
 
+  	md += "\n\n<strong>Javascript Usage</strong>"
+  	md += "\n\n<pre>"
+  	md += "\n# Setting directly"
+  	md += "\n"
+  	md += "#{model}.#{property}=#{defval};"
+  	md += "\n# Setting one property"
+  	md += "\n"
+  	md += "#{model}.setProperty(" + "'#{property}',#{defval});"
+  	md += "\n# Setting multiple properties using JSON object"
+  	md += "\n"
+  	md += "#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
+  	md += "\n\n# Getting one property"
+  	md += "\n"
+  	md += "myvar = #{model}.getProperty(" + "'#{property}');"
+  	md += "\n# Getting multiple properties"
+  	md += "\n"
+  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property']);"
+  	md += "</pre>" 
+
+  end
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
   	md = ""
@@ -39,11 +91,14 @@ class Api
 	  	# puts a
 		s.each() { |element| 
 			propname = element["name"]
+			propusage = ""
 			# type is optional default is STRING
-			if element["name"].nil?
-				proptype= "STRING"
+			if element["type"].nil?
+				proptype= " : <span class='text-info'>STRING</span>"
+				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING')
 			else
-				proptype= element["type"]
+				proptype= " : <span class='text-info'>" + element["type"] + "</span>"
+				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"])
 			end
 
 			# readOnly is optional default is false
@@ -52,7 +107,7 @@ class Api
 			else
 				propreadOnly= element["readOnly"]
 				if propreadOnly=="true"
-					propreadOnly="Read Only"
+					propreadOnly="<span class='label'>Read Only</span>"
 				else
 					propreadOnly=""
 				end
@@ -61,7 +116,7 @@ class Api
 			if element["default"].nil?
 				propdefault= ""
 			else
-				propdefault= "Default: " + element["default"]
+				propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
 				
 			end
 			
@@ -71,11 +126,11 @@ class Api
 			@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
 			@seperator = ""
 			if !element["VALUES"].nil?
-				@propvalues = "<table class='table-condensed'>"
+				@propvalues = ""
 				element["VALUES"].each() { |velement|
 
 					velement["VALUE"].each() { |vaelement|
-						@propvaldesc = ""
+						@propvaldesc = "<dl>"
 						if !vaelement["DESC"].nil?
 							if vaelement["DESC"][0].to_s.length > 0
 								@propvaldesc = vaelement["DESC"][0].to_s
@@ -85,23 +140,41 @@ class Api
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
 						end
-						@propvalues += "<tr><td><b>#{vaelement["value"]}</b></td><td>#{@propvaldesc}</td></tr>" 
+						@propvalues += "<dt>#{vaelement["constName"]}</dt><dd>#{@propvaldesc}<dt>" 
 						
 					}
-				@propvalues += "</table>"
+				@propvalues += "</dl>"
 
 				}
 			end
 			if @propvalues != ""
-				@propvalues = "<br/><br/><b>Possible Values (#{@propvaluetype}):<br/></b> " + @propvalues
+				@propvalues = "<p><strong>Possible Values</strong> (<span class='text-info'>#{@propvaluetype}</span>):</p> " + @propvalues 
 			end
 
-			md += "\n" + '<h3 data-h2="properties">' + "#{propname}</h3>\n"
-	  		md += "<table width='100%'><tr>"
-	  		md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>"
-	  		md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
-	  		md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
+			# md += "\n" + '<h3 data-h2="properties">' + "#{propname}</h3>\n"
+	  		# md += "<table width='100%'><tr>"
+	  		# md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>"
+	  		# md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
+	  		# md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
+  	
+  	md += "<div class='accordion property' id='p"+ propname + "'>"
+    md += '<div class="accordion-group">'
+    md += '<div class="accordion-heading">'
+    
+    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
+    md += '<strong>' + propname  + '</strong>' + "#{proptype} #{propreadOnly}"
+	md += '<i class="icon-chevron-down pull-left"></i></span>'
+    md += '</div>'
+    md += '<div id="cProperty' + propname + '" class="accordion-body collapse">'
+    md +='  <div class="accordion-inner">'
 
+  	md += "#{@propdesc}#{propdefault}"
+  	md += @propvalues
+  	md += "<p>" + propusage + "</p>"
+    md += '  </div>'
+    md += '</div>'
+    md += '</div>'
+	md += '</div>'
 	  	}
 	end
   	return md
@@ -110,6 +183,7 @@ class Api
 #returns Markdown for the <Properties section
   def self.getmethods(doc)
   	md = ""
+  	@methsectionparams= ""
   	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
     
     #puts methodaliases
@@ -154,8 +228,13 @@ class Api
 		end
 		@methparams = ""
 		@methparamsdetails = ""
+		@methsectionparams = ""
+			
 		@seperator = ""
 		if !element["PARAMS"].nil?
+			@methsectionparams = "<div>"
+			@methsectionparams += "<p><strong>Parameters</strong></p><ul>"
+			
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
 
@@ -163,26 +242,33 @@ class Api
 						@methparamsdetailsdesc=param["DESC"][0]
 					end
 
-					@methparamsnil="No"
+					@methparamsnil=""
+					@methparamsnildesc=""
 					if !param["CAN_BE_NIL"].nil?
 						param["CAN_BE_NIL"].each { |paramsnil|
-							@methparamsnil="Yes"
+							@methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								@methparamsnil += "<BR/>" + paramsnil["DESC"][0]
+								@methparamsnildesc =  paramsnil["DESC"][0]
 							end
 							
 						}
 					end
 					
-					@methparams += @seperator + param["name"]
-					@seperator =  ', '
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
+					@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
+					@seperator =  ', '
+					
 					@methparamsdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methparamsdetailsdesc + "</td><td>" + @methparamsnil + "</td></tr>"
+
+					@methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{@methparamsnil}<p>" + @methparamsdetailsdesc + " " + @methparamsnildesc + "</p></li>"
+
 				}
 
 			}
+			@methsectionparams += "</ul></div>"
+			
 		end
 		@methsample = "<b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>"
 		if @methparams != ""
@@ -192,38 +278,49 @@ class Api
 			@callbackrubysample = "url_for :action => :take_callback"
 			@callbackjssample = "callback_function"
 			if @methparams != ""
-				@methparams = ", " + @methparams
+				@methparams = @methparams + ", <span class='text-info'>Callback &lt;Object&gt;</span> callback"
 			end
-			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@callbackrubysample}#{@methparams})</b><br/>"
-			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@callbackjssample}#{@methparams})</b><br/><br/>"
+			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
+			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
 			if @methhascallback == "optional"
 				@methsample += "Callback function is optional.<br/><br/>"
 			end
 			
   		end
   		if methdeprecated == "true"
-			methname = methname + ' <span class="pull-right label label-important">deprecated</span>'
+			#methname = methname + ' <span class="pull-right label label-important">deprecated</span>'
+			methname = '<span class="text-error">' + methname + '</span>'
+			@methdesc = "<span class='label label-important'>deprecated</span> " + @methdesc
 		end
 		if methreplaces != ""
-			methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
-		end
-		md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
+			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
+			# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
+			methname = '<span class="text-info">' + methname + '</span>'
+			@methdesc = "<span class='label label-info'>Replaces:#{methreplaces}</span> " + @methdesc
 
-  		md += "<table class='table  table-condensed'><tr>"
-  		md += "<td>#{@methsample}#{@methdesc}"
-  		md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>" 
+		end
+		# md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
+
+  		# md += "<table class='table  table-condensed'><tr>"
+  		# md += "<td>#{@methsample}#{@methdesc}"
+  		# md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>" 
   		if @methparamsdetails != ""
-  			md += "<tr><td colspan='2'><b>Parameters</b><br/><table class='table table-bordered'>"
-  			md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td><td>Can Be Nil</td></tr></thead>"
-  			md += @methparamsdetails
-  			md += "</table></td></tr>"
+  			# md += "<tr><td colspan='2'><b>Parameters</b><br/><table class='table table-bordered'>"
+  			# md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td><td>Can Be Nil</td></tr></thead>"
+  			# md += @methparamsdetails
+  			# md += "</table></td></tr>"
   		end
+  		@methsectioncallbackparams = ""
+		
   		if @methhascallback !="" && @methhascallback != "none"
-  			md += "<tr><td colspan='2'><b>Callback Return Values</b><br/><table class='table table-bordered'>"
-  			md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td></tr></thead>"
+  			# md += "<tr><td colspan='2'><b>Callback Return Values</b><br/><table class='table table-bordered'>"
+  			# md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td></tr></thead>"
 			@methcallbackdetails = ""
 			
 			if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
+				@methsectioncallbackparams = "<div>"
+				@methsectioncallbackparams += "<p><strong>Callback Parameters</strong></p><ul>"
+			
 				element["CALLBACK"][0]["PARAMS"].each { |params|
 					params["PARAM"].each { |param|
 
@@ -237,17 +334,40 @@ class Api
 							param["type"] = "STRING"
 						end
 						@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
+						@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
+
 					}
 
 				}
+				@methsectioncallbackparams += "</ul></div>"
 			end  			
-  			md += @methcallbackdetails
-  			md += "</table></td></tr>"
+  			# md += @methcallbackdetails
+  			# md += "</table></td></tr>"
 
   		end
-  		md += "</tr></table>\n\n" 
+  		# md += "</tr></table>\n\n" 
+
+  	md += "<div class='accordion method' id='m"+ element["name"] + "'>"
+    md += '<div class="accordion-group">'
+    md += '<div class="accordion-heading">'
+    
+    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
+    md += '<strong data-toggle="tooltip" title data-original-title="' + @methdesc + '">' + methname + '</strong>' + "(#{@methparams})"
+	md += '<i class="icon-chevron-down pull-right"></i></span>'
+    md += '</div>'
+    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse">'
+    md +='  <div class="accordion-inner">'
+
+  	md += "" + @methdesc + ""
+  	md += "" + @methsectionparams + ""
+  	md += @methsectioncallbackparams
+    md += '  </div>'
+    md += '</div>'
+    md += '</div>'
+	md += '</div>'
 
   	}
+
   	return md
   end
 
@@ -270,8 +390,12 @@ class Api
 	  	 md += "##Properties" + "\n\n" 
 	  	 md += "" + getproperties(doc) + ""
   	end 
-	 md += "##Methods" + "\n\n" 
-  	 md += "" + getmethods(doc) + ""
+  	md += "\n\n" + "<h2>Methods</h2>" + "\n\n" 
+	
+  	md += '<div class="accordion" id="accordion">'
+    
+  	md += "" + getmethods(doc) + ""
+   md += '</div>'
 
   	# puts md
 
