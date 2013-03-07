@@ -80,6 +80,28 @@ class Api
   	md += "</pre>" 
 
   end
+  def self.getpropertieslinks(doc)
+  	md = ""
+  	if !doc["MODULE"][0]["PROPERTIES"].nil?
+	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
+	  	s.each() { |element|
+	  		md += '<li><a href="#p' + element["name"] + '">' + element["name"] + "</a></li>" 
+		}
+  	end
+  	return md
+  end
+
+  def self.getmethodslinks(doc)
+  	md = ""
+  	if !doc["MODULE"][0]["PROPERTIES"].nil?
+	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
+	  	s.each() { |element|
+	  		md += '<li><a href="#m' + element["name"] + '">' + element["name"] + "</a></li>" 
+		}
+  	end
+  	return md
+  end
+
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
   	md = ""
@@ -157,7 +179,7 @@ class Api
 	  		# md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
 	  		# md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
   	
-  	md += "<div class='accordion property' id='p"+ propname + "'>"
+  	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
     
@@ -218,14 +240,23 @@ class Api
 		@methreturndesc=""
 		if !element["RETURN"].nil?
 			element["RETURN"].each() { |relement|
-				@methreturn = relement["type"]
+				if element["type"].nil? || element["type"]==''
+					@methreturn="Void"
+				else
+					@methreturn = relement["type"]
+				end	
+				
 				# puts relement
 		
 				if !relement["DESC"].nil?
-					@methreturndesc=relement["DESC"][0]
+					@methreturndesc=" : " + relement["DESC"][0]
 				end
 			}
 		end
+		@methsectionreturns = "<div>"
+		@methsectionreturns += "<p><strong>Return:</strong></p><ul>"
+		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}</li></ul></div>"
+			
 		@methparams = ""
 		@methparamsdetails = ""
 		@methsectionparams = ""
@@ -267,6 +298,30 @@ class Api
 				}
 
 			}
+			#add generic syntax for callback param
+			if @methhascallback !="" && @methhascallback != "none"
+				@methcallbackoptional= ""
+				if @methhascallback == "optional"
+					@methcallbackoptional = " <span class='label label-info'>Optional</span> "
+				end
+				@methcallbackparamdesc = "<p>The callback parameter can take on one of three forms</p><ol>"
+				@methcallbackparamdesc += "<li>Controller action URL"
+				@methcallbackparamdesc += "<p>Ruby</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + " url_for :action => :mycallback)</pre>"
+				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "'/app/model/mycallback');</pre>"
+				@methcallbackparamdesc += "</li>"
+				@methcallbackparamdesc += "<li>Anonymous function:"
+				@methcallbackparamdesc += "<p>Ruby</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ \n|params| }\nProc.new{\n |params| })</pre>"
+				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "function(params){\n//Your code here\n};);</pre>"
+				@methcallbackparamdesc += "</li>"
+				@methcallbackparamdesc += "<li>Function"
+				@methcallbackparamdesc += "<p>Ruby</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback() )</pre>"
+				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback());</pre>"
+				@methcallbackparamdesc += "</li>"
+				@methcallbackparamdesc += "</ol>"
+				
+				@methsectionparams += "<li>callback : <span class='text-info'>Callback &lt;Object&gt;</span>#{@methcallbackoptional}<p>#{@methcallbackparamdesc}" +  "</p></li>"
+
+  			end
 			@methsectionparams += "</ul></div>"
 			
 		end
@@ -319,7 +374,7 @@ class Api
 			
 			if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
 				@methsectioncallbackparams = "<div>"
-				@methsectioncallbackparams += "<p><strong>Callback Parameters</strong></p><ul>"
+				@methsectioncallbackparams += "<p><strong>Callback Returning Parameters</strong></p><ul>"
 			
 				element["CALLBACK"][0]["PARAMS"].each { |params|
 					params["PARAM"].each { |param|
@@ -360,6 +415,7 @@ class Api
 
   	md += "" + @methdesc + ""
   	md += "" + @methsectionparams + ""
+  	md += @methsectionreturns
   	md += @methsectioncallbackparams
     md += '  </div>'
     md += '</div>'
@@ -385,18 +441,38 @@ class Api
 
   	docproperties = getproperties(doc)
   	md += "#" + getApiName(doc) + "\n" 
+  	md += '<div class="navbar"><div class="navbar-inner"><ul class="nav">'
+  	md += '<li class="dropdown">'
+    md += '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'
+    md += '  <i class="icon-list"></i>Properties'
+    md += '  <b class="caret"></b>'
+    md += '</a>'
+    md += '<ul class="dropdown-menu">'
+    md += getpropertieslinks(doc)
+    md += '</ul>'
+  	md += '</li>'
+  	md += '<li class="dropdown">'
+    md += '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
+    md += '  <i class="icon-cog"></i>Methods'
+    md += '  <b class="caret"></b>'
+    md += '</a>'
+    md += '<ul class="dropdown-menu">'
+    md += getmethodslinks(doc)
+    md += '</ul>'
+  	md += '</li>'
+	md += '</ul></div></div><div data-spy="scroll"  >'
+
   	md += "\n" + getApiDesc(doc) + "\n" 
   	if docproperties !=""
-	  	 md += "##Properties" + "\n\n" 
+	  	 md += "<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
 	  	 md += "" + getproperties(doc) + ""
   	end 
-  	md += "\n\n" + "<h2>Methods</h2>" + "\n\n" 
+  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
 	
   	md += '<div class="accordion" id="accordion">'
     
   	md += "" + getmethods(doc) + ""
-   md += '</div>'
-
+    md += "</div></div>"
   	# puts md
 
   return md
