@@ -27,7 +27,7 @@ class Api
   	return md
   end
  
-  def self.getpropusagetext(model,property,type)
+  def self.getpropusagetext(model,property,type,ro)
   	defval = ''
   	if type == 'STRING'
   		defval = "'some string'"
@@ -41,17 +41,29 @@ class Api
   	if type == 'FLOAT'
   		defval = "1.0"
   	end
+	if ro.nil?
+		readonly = false
+	else
+		if ro=="true"
+			readonly = true
+		else
+			readonly = false
+		end
+	end
+
   	md = "\n\n<strong>Ruby Usage</strong>"
   	md += "\n\n<pre>"
-  	md += "\n# Setting directly"
-  	md += "\n"
-  	md += "#{model}.#{property}=#{defval}"
-  	md += "\n# Setting one property"
-  	md += "\n"
-  	md += "#{model}.setProperty " + ":#{property}, #{defval} "
-  	md += "\n# Setting multiple properties using HASH"
-  	md += "\n"
-  	md += "#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
+  	if !ro
+	  	md += "\n# Setting directly"
+	  	md += "\n"
+	  	md += "#{model}.#{property}=#{defval}"
+	  	md += "\n# Setting one property"
+	  	md += "\n"
+	  	md += "#{model}.setProperty " + ":#{property}, #{defval} "
+	  	md += "\n# Setting multiple properties using HASH"
+	  	md += "\n"
+  		md += "#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
+  	end
   	md += "\n\n# Getting one property"
   	md += "\n"
   	md += "myvar = #{model}.getProperty(" + "'#{property}')"
@@ -62,15 +74,17 @@ class Api
 
   	md += "\n\n<strong>Javascript Usage</strong>"
   	md += "\n\n<pre>"
-  	md += "\n# Setting directly"
-  	md += "\n"
-  	md += "#{model}.#{property}=#{defval};"
-  	md += "\n# Setting one property"
-  	md += "\n"
-  	md += "#{model}.setProperty(" + "'#{property}',#{defval});"
-  	md += "\n# Setting multiple properties using JSON object"
-  	md += "\n"
-  	md += "#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
+  	if !ro
+	  	md += "\n# Setting directly"
+	  	md += "\n"
+	  	md += "#{model}.#{property}=#{defval};"
+	  	md += "\n# Setting one property"
+	  	md += "\n"
+	  	md += "#{model}.setProperty(" + "'#{property}',#{defval});"
+	  	md += "\n# Setting multiple properties using JSON object"
+	  	md += "\n"
+	  	md += "#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
+  	end 
   	md += "\n\n# Getting one property"
   	md += "\n"
   	md += "myvar = #{model}.getProperty(" + "'#{property}');"
@@ -117,10 +131,10 @@ class Api
 			# type is optional default is STRING
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING')
+				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"])
 			else
 				proptype= " : <span class='text-info'>" + element["type"] + "</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"])
+				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"],element["readOnly"])
 			end
 
 			# readOnly is optional default is false
@@ -310,7 +324,7 @@ class Api
 				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "'/app/model/mycallback');</pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
-				@methcallbackparamdesc += "<p>Ruby</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ \n|params| }\nProc.new{\n |params| })</pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre>\n" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ \n|params| }\nProc.new{\n |params| })</pre>"
 				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "function(params){\n//Your code here\n};);</pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
@@ -441,30 +455,30 @@ class Api
 
   	docproperties = getproperties(doc)
   	md += "#" + getApiName(doc) + "\n" 
-  	md += '<div class="navbar"><div class="navbar-inner"><ul class="nav">'
-  	md += '<li class="dropdown">'
-    md += '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'
-    md += '  <i class="icon-list"></i>Properties'
-    md += '  <b class="caret"></b>'
-    md += '</a>'
+  	md += '<div class="btn-group">'
+  	md += ''
+  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i>Properties</a>'
+    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+    md += '  <span class="caret"></span>&nbsp;'
+    md += '</button>'
     md += '<ul class="dropdown-menu">'
     md += getpropertieslinks(doc)
     md += '</ul>'
-  	md += '</li>'
-  	md += '<li class="dropdown">'
-    md += '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
-    md += '  <i class="icon-cog"></i>Methods'
-    md += '  <b class="caret"></b>'
+  	md += '</div>'
+  	md += '<div class="btn-group">'
+    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i>Methods</a>'
+    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
+    md += '  <span class="caret"></span>&nbsp;'
     md += '</a>'
     md += '<ul class="dropdown-menu">'
     md += getmethodslinks(doc)
     md += '</ul>'
-  	md += '</li>'
-	md += '</ul></div></div><div data-spy="scroll"  >'
+  	md += ''
+	md += '</div><div data-spy="scroll"  >'
 
   	md += "\n" + getApiDesc(doc) + "\n" 
   	if docproperties !=""
-	  	 md += "<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+	  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
 	  	 md += "" + getproperties(doc) + ""
   	end 
   	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
