@@ -530,6 +530,10 @@ class Api
   	
   	#puts topic
   	doc = XmlSimple.xml_in(topic)
+  	templatePropBag = true
+  	if doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+  		templatePropBag = false
+  	end
   	templateDefault = true
   	if doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
   		templateDefault = false
@@ -538,17 +542,26 @@ class Api
   	if doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
   		templateSingleton = false
   	end
+  	if templateDefault
+  		#get xml from file and put it in main array so it is handled like other methods
+  		defaultdoc = XmlSimple.xml_in('docs/api/default_instance.xml')
+		defaultdoc["METHODS"][0]["METHOD"].each { |m|
+			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+		}
+  	end
   	if templateSingleton
   		#get xml from file and put it in main array so it is handled like other methods
   		singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
-  		#puts "********************* JUST SINGLETON *************"
-		#puts singletondoc["METHODS"][0]["METHOD"]
 		singletondoc["METHODS"][0]["METHOD"].each { |m|
 			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
 		}
-  		#puts "********************* COMBINED *************"
-		#puts doc["MODULE"][0]["METHODS"][0]
-  	
+  	end
+  	if templatePropBag
+  		#get xml from file and put it in main array so it is handled like other methods
+  		propbagdoc = XmlSimple.xml_in('docs/api/property_bag.xml')
+		propbagdoc["METHODS"][0]["METHOD"].each { |m|
+			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+		}
   	end
   	#get api name from <MODULE name="" ...
   	# need to figure out what to do if multiple <MODULE tags in one physical file
@@ -566,6 +579,25 @@ class Api
 	    md += '  <span class="caret"></span>&nbsp;'
 	    md += '</button>'
 	    md += '<ul class="dropdown-menu">'
+	    md += '<li class="dropdown-submenu">
+                  <a href="#">More options</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                  <a href="#">More options</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                  </ul>
+                </li>'
 	    md += proplinks
 	    md += '</ul>'
 	  	md += '</div>'
