@@ -27,7 +27,7 @@ class Api
   	return md
   end
  
-  def self.getpropusagetext(model,property,type,ro)
+  def self.getpropusagetext(model,property,type,ro,propbag)
   	defval = ''
   	if type == 'STRING'
   		defval = "'some string'"
@@ -54,52 +54,80 @@ class Api
   	md = "\n\n<strong>Ruby Usage</strong>"
   	md += "\n\n<pre>"
   	if !ro
-	  	md += "\n# Setting directly"
+	  	md += "# Setting directly"
 	  	md += "\n"
 	  	md += "#{model}.#{property}=#{defval}"
-	  	md += "\n# Setting one property"
-	  	md += "\n"
-	  	md += "#{model}.setProperty " + ":#{property}, #{defval} "
-	  	md += "\n# Setting multiple properties using HASH"
-	  	md += "\n"
-  		md += "#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
+	  	if propbag
+		  	md += "\n# Setting one property"
+		  	md += "\n"
+		  	md += "#{model}.setProperty " + ":#{property}, #{defval} "
+		  	md += "\n# Setting multiple properties using HASH"
+		  	md += "\n"
+	  		md += "#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
+  		end
   	end
-  	md += "\n\n# Getting one property"
-  	md += "\n"
-  	md += "myvar = #{model}.getProperty(" + "'#{property}')"
-  	md += "\n# Getting multiple properties"
-  	md += "\n"
-  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property'])"
+  	if propbag
+	  	md += "\n\n# Getting one property"
+	  	md += "\n"
+	  	md += "myvar = #{model}.getProperty(" + "'#{property}')"
+	  	md += "\n# Getting multiple properties"
+	  	md += "\n"
+	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property'])"
+  	end
   	md += "</pre>" 
-
   	md += "\n\n<strong>Javascript Usage</strong>"
   	md += "\n\n<pre>"
   	if !ro
 	  	md += "\n# Setting directly"
 	  	md += "\n"
 	  	md += "#{model}.#{property}=#{defval};"
-	  	md += "\n# Setting one property"
-	  	md += "\n"
-	  	md += "#{model}.setProperty(" + "'#{property}',#{defval});"
-	  	md += "\n# Setting multiple properties using JSON object"
-	  	md += "\n"
-	  	md += "#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
+	  	if propbag
+		  	md += "\n# Setting one property"
+		  	md += "\n"
+		  	md += "#{model}.setProperty(" + "'#{property}',#{defval});"
+		  	md += "\n# Setting multiple properties using JSON object"
+		  	md += "\n"
+		  	md += "#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
+		end
   	end 
-  	md += "\n\n# Getting one property"
-  	md += "\n"
-  	md += "myvar = #{model}.getProperty(" + "'#{property}');"
-  	md += "\n# Getting multiple properties"
-  	md += "\n"
-  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property']);"
-  	md += "</pre>" 
-
+  	if propbag
+	  	md += "\n\n# Getting one property"
+	  	md += "\n"
+	  	md += "myvar = #{model}.getProperty(" + "'#{property}');"
+	  	md += "\n# Getting multiple properties"
+	  	md += "\n"
+	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property']);"
+	end
+	md += "</pre>" 
+  	
+  	return md
   end
   def self.getpropertieslinks(doc)
   	md = ""
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	s.each() { |element|
-	  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + element["name"] + "</a></li>" 
+		propreplaces = ""
+		#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
+		#Check to see if need to add to description about this method replacing a deprecated one
+		if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
+	    	doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+				#puts a
+				if a["existing"] == element["name"]
+					propreplaces += a["new"]
+				end
+			}
+		end
+		
+	  	propdisplayname = element["name"]
+	  	if propreplaces != ""
+				#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
+				# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
+				propdisplayname = '<span class="text-info">' + element["name"] + '</span>'
+
+		end
+
+	  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>" 
 		}
   	end
   	return md
@@ -107,19 +135,27 @@ class Api
 
   def self.getmethodslinks(doc)
   	md = ""
-  	if !doc["MODULE"][0]["PROPERTIES"].nil?
+  	if !doc["MODULE"][0]["METHODS"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
 	  	s.each() { |element|
+  			methname = element["name"]
+
+	  		if !doc["MODULE"][0]["METHODS"].nil? && !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["METHODS"][0]["ALIASES"][0].empty?
+	    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+				#puts a
+				if a["existing"] == element["name"]
+					methname = "<span class='text-info'>" + element["name"] + "</span>"
+	  			end
+			}
+			end
 	  		methdeprecated = ""
 			if !element["deprecated"].nil?
 				methdeprecated = element["deprecated"]
 			end
 	  		if methdeprecated == "true"
 	  			methname = "<span class='text-error'>" + element["name"] + "</span>"
-	  		else
-	  			methname = element["name"]
-
 			end
+			
 	  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
 		}
   	end
@@ -129,6 +165,11 @@ class Api
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
   	md = ""
+  	templatePropBag = true
+
+  	if doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+  		templatePropBag = false
+  	end
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 
@@ -141,10 +182,10 @@ class Api
 			# type is optional default is STRING
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"])
+				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"],templatePropBag)
 			else
 				proptype= " : <span class='text-info'>" + element["type"] + "</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"],element["readOnly"])
+				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"],element["readOnly"],templatePropBag)
 			end
 
 			# readOnly is optional default is false
@@ -178,15 +219,17 @@ class Api
 					velement["VALUE"].each() { |vaelement|
 						@propvaldesc = "<dl>"
 						if !vaelement["DESC"].nil?
-							if vaelement["DESC"][0].to_s.length > 0
+							if !vaelement["DESC"][0].empty?
 								@propvaldesc = vaelement["DESC"][0].to_s
+							else
+								@propvaldesc = ""
 							end 
 						end	
 						@seperator = ', '
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
 						end
-						@propvalues += "<dt>#{vaelement["constName"]}</dt><dd>#{@propvaldesc}<dt>" 
+						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}<dt>" 
 						
 					}
 				@propvalues += "</dl>"
@@ -196,22 +239,40 @@ class Api
 			if @propvalues != ""
 				@propvalues = "<p><strong>Possible Values</strong> (<span class='text-info'>#{@propvaluetype}</span>):</p> " + @propvalues 
 			end
-
+		propreplaces = ""
+		#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
+		#puts "***" + doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].to_s + "***"
+		#Check to see if need to add to description about this method replacing a deprecated one
+		if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
+	    	doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+				#puts a
+				if a["existing"] == element["name"]
+					propreplaces += a["new"]
+				end
+			}
+		end
 			# md += "\n" + '<h3 data-h2="properties">' + "#{propname}</h3>\n"
 	  		# md += "<table width='100%'><tr>"
 	  		# md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>"
 	  		# md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
 	  		# md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
-  	
+  	propdisplayname = propname
+  	if propreplaces != ""
+			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
+			# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
+			propdisplayname = '<span class="text-info">' + propname + '</span>'
+			@propdesc = "<span class='label label-info'>Replaces:#{propreplaces}</span> " + @propdesc
+
+	end
   	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
-    md += '<strong>' + propname  + '</strong>' + "#{proptype} #{propreadOnly}"
+    md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly}"
 	md += '<i class="icon-chevron-down pull-left"></i></span>'
     md += '</div>'
-    md += '<div id="cProperty' + propname + '" class="accordion-body collapse">'
+    md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
   	md += "#{@propdesc}#{propdefault}"
@@ -228,7 +289,11 @@ class Api
 
 #returns Markdown for the <Properties section
   def self.getmethods(doc)
+  	#puts "********************* METHODS *************"
+	#puts doc["MODULE"][0]["METHODS"][0]
   	md = ""
+
+  	
   	@methsectionparams= ""
   	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
     
@@ -251,7 +316,7 @@ class Api
 		@methdesc = element["DESC"][0]
 		methreplaces = ""
 		#Check to see if need to add to description about this method replacing a deprecated one
-		if !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?
+		if !doc["MODULE"][0]["METHODS"].nil? && !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["METHODS"][0]["ALIASES"][0].empty?
 	    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
 				#puts a
 				if a["existing"] == element["name"]
@@ -412,6 +477,11 @@ class Api
 						if param["type"].nil?
 							param["type"] = "STRING"
 						end
+						if !param["deprecated"].nil?  && param["deprecated"]== "true"
+							param["name"] = '<span class="text-error">' + param["name"] + '</span>'
+			
+							param["type"] += " <span class='label label-important'>deprecated</span> "
+						end
 						@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
 						@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
 
@@ -434,7 +504,7 @@ class Api
     md += '<strong data-toggle="tooltip" title data-original-title="' + @methdesc + '">' + methname + '</strong>' + "(#{@methparams})"
 	md += '<i class="icon-chevron-down pull-right"></i></span>'
     md += '</div>'
-    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse">'
+    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
   	md += "" + @methdesc + ""
@@ -458,41 +528,68 @@ class Api
   	# xml = File.read(topic)
   	# doc = REXML::Document.new xml
   	
+  	#puts topic
   	doc = XmlSimple.xml_in(topic)
+  	templateDefault = true
+  	if doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+  		templateDefault = false
+  	end
+  	templateSingleton = true
+  	if doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+  		templateSingleton = false
+  	end
+  	if templateSingleton
+  		#get xml from file and put it in main array so it is handled like other methods
+  		singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
+  		#puts "********************* JUST SINGLETON *************"
+		#puts singletondoc["METHODS"][0]["METHOD"]
+		singletondoc["METHODS"][0]["METHOD"].each { |m|
+			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+		}
+  		#puts "********************* COMBINED *************"
+		#puts doc["MODULE"][0]["METHODS"][0]
+  	
+  	end
   	#get api name from <MODULE name="" ...
   	# need to figure out what to do if multiple <MODULE tags in one physical file
   	#puts doc
 
   	docproperties = getproperties(doc)
+  	proplinks = getpropertieslinks(doc)
+  	methlinks = getmethodslinks(doc)
   	md += "#" + getApiName(doc) + "\n" 
-  	md += '<div class="btn-group">'
-  	md += ''
-  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a>'
-    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
-    md += '  <span class="caret"></span>&nbsp;'
-    md += '</button>'
-    md += '<ul class="dropdown-menu">'
-    md += getpropertieslinks(doc)
-    md += '</ul>'
-  	md += '</div>'
-  	md += '<div class="btn-group">'
-    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a>'
-    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
-    md += '  <span class="caret"></span>&nbsp;'
-    md += '</a>'
-    md += '<ul class="dropdown-menu">'
-    md += getmethodslinks(doc)
-    md += '</ul>'
-  	md += '</div>'
-	md += '<div class="btn-group pull-right">'
-    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
-  	md += '</div>'
+  	if !proplinks.empty?
+	  	md += '<div class="btn-group">'
+	  	md += ''
+	  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a>'
+	    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+	    md += '  <span class="caret"></span>&nbsp;'
+	    md += '</button>'
+	    md += '<ul class="dropdown-menu">'
+	    md += proplinks
+	    md += '</ul>'
+	  	md += '</div>'
+  	end 
+  	if !methlinks.empty?
+	  	md += '<div class="btn-group">'
+	    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a>'
+	    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
+	    md += '  <span class="caret"></span>&nbsp;'
+	    md += '</a>'
+	    md += '<ul class="dropdown-menu">'
+	    md += methlinks
+	    md += '</ul>'
+	  	md += '</div>'
+		md += '<div class="btn-group pull-right">'
+	    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
+	  	md += '</div>'
+  	end
 	md += '<div data-spy="scroll"  >'
 
   	md += "\n" + getApiDesc(doc) + "\n" 
   	if docproperties !=""
 	  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
-	  	 md += "" + getproperties(doc) + ""
+	  	 md += "" + docproperties + ""
   	end 
   	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
 	

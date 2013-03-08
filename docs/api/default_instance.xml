@@ -1,0 +1,24 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+
+<DEFAULT_INSTANCE>
+	<METHODS>
+	    <METHOD name="default" access="STATIC" factory="true" nativeName="getDefaultID">
+			<DESC>This is documentation</DESC>
+            <RETURN type="SELF_INSTANCE">
+                <DESC>Default object of Module.</DESC>
+            </RETURN>
+
+        </METHOD>
+
+        <METHOD name="setDefault" access="STATIC" nativeName="setDefaultID">
+            <DESC>This is documentation</DESC>
+            <PARAMS>
+                <PARAM name="defaultInstance" type="SELF_INSTANCE">
+                    <DESC>Default instance I want to set</DESC>
+                </PARAM>
+            </PARAMS>
+        </METHOD>
+
+    </METHODS>
+</DEFAULT_INSTANCE>
