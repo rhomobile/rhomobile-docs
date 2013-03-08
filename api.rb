@@ -579,25 +579,25 @@ class Api
 	    md += '  <span class="caret"></span>&nbsp;'
 	    md += '</button>'
 	    md += '<ul class="dropdown-menu">'
-	    md += '<li class="dropdown-submenu">
-                  <a href="#">More options</a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-submenu">
-                  <a href="#">More options</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                    <li><a href="#">Second level link</a></li>
-                  </ul>
-                </li>'
+	    # md += '<li class="dropdown-submenu">
+     #              <a href="#">More options</a>
+     #              <ul class="dropdown-menu">
+     #                <li class="dropdown-submenu">
+     #              <a href="#">More options</a>
+     #              <ul class="dropdown-menu">
+     #                <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #              </ul>
+     #            </li>
+     #            <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #                <li><a href="#">Second level link</a></li>
+     #              </ul>
+     #            </li>'
 	    md += proplinks
 	    md += '</ul>'
 	  	md += '</div>'
