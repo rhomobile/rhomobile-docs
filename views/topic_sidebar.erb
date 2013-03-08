@@ -7,6 +7,12 @@ $(document).ready(function() {
 	    $("#" + this.attributes["data-target"].nodeValue).collapse('show');
 	    
 	});	
+
+	$('#expandAll').click(function(e) {
+	    //auto expand the collapse section
+	    $(".accordion-body").collapse('toggle');
+	    
+	});	
  });
 
 </script>

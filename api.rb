@@ -467,7 +467,7 @@ class Api
   	md += "#" + getApiName(doc) + "\n" 
   	md += '<div class="btn-group">'
   	md += ''
-  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i>Properties</a>'
+  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a>'
     md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
     md += '  <span class="caret"></span>&nbsp;'
     md += '</button>'
@@ -476,15 +476,18 @@ class Api
     md += '</ul>'
   	md += '</div>'
   	md += '<div class="btn-group">'
-    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i>Methods</a>'
+    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a>'
     md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
     md += '  <span class="caret"></span>&nbsp;'
     md += '</a>'
     md += '<ul class="dropdown-menu">'
     md += getmethodslinks(doc)
     md += '</ul>'
-  	md += ''
-	md += '</div><div data-spy="scroll"  >'
+  	md += '</div>'
+	md += '<div class="btn-group pull-right">'
+    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
+  	md += '</div>'
+	md += '<div data-spy="scroll"  >'
 
   	md += "\n" + getApiDesc(doc) + "\n" 
   	if docproperties !=""
