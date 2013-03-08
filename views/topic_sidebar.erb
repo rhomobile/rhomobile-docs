@@ -1,5 +1,15 @@
 <div id="rendered_topic_container">
-	
+<script type="text/javascript">
+$(document).ready(function() {
+     
+	$('.autouncollapse').click(function(e) {
+	    //auto expand the collapse section
+	    $("#" + this.attributes["data-target"].nodeValue).collapse('show');
+	    
+	});	
+ });
+
+</script>
 	<div class="span12" data-title="Rhomobile | <%=h @title %>">
 		<div class="span12">
 		<h1><%= @title %></h1>

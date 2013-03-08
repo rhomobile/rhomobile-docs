@@ -99,7 +99,7 @@ class Api
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	s.each() { |element|
-	  		md += '<li><a href="#p' + element["name"] + '">' + element["name"] + "</a></li>" 
+	  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + element["name"] + "</a></li>" 
 		}
   	end
   	return md
@@ -110,7 +110,17 @@ class Api
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
 	  	s.each() { |element|
-	  		md += '<li><a href="#m' + element["name"] + '">' + element["name"] + "</a></li>" 
+	  		methdeprecated = ""
+			if !element["deprecated"].nil?
+				methdeprecated = element["deprecated"]
+			end
+	  		if methdeprecated == "true"
+	  			methname = "<span class='text-error'>" + element["name"] + "</span>"
+	  		else
+	  			methname = element["name"]
+
+			end
+	  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
 		}
   	end
   	return md
