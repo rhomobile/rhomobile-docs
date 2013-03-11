@@ -53,7 +53,7 @@ class Api
 	end
 
   	md = "\n\n<strong>Ruby Usage</strong>"
-  	md += "\n\n<pre>"
+  	md += "\n\n<pre class='CodeRay'><code>:::ruby\n"
   	if !ro
 	  	md += "# Setting directly"
 	  	md += "\n"
@@ -75,9 +75,9 @@ class Api
 	  	md += "\n"
 	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property'])"
   	end
-  	md += "</pre>" 
+  	md += "</code></pre>" 
   	md += "\n\n<strong>Javascript Usage</strong>"
-  	md += "\n\n<pre>"
+  	md += "\n\n<pre class='CodeRay'><code>:::javascript\n"
   	if !ro
 	  	md += "\n# Setting directly"
 	  	md += "\n"
@@ -99,7 +99,7 @@ class Api
 	  	md += "\n"
 	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property']);"
 	end
-	md += "</pre>" 
+	md += "</code></pre>" 
   	
   	return md
   end
@@ -202,11 +202,20 @@ class Api
 	  			#puts section
 	  			examplesections += "\n"
 	  			examplesections += section["DESC"][0]
-	  			examplesections += "\n<pre>"
-	  			cleanCode = section["CODE"][0].gsub('<','&lt;')
+	  			codelang = 'ruby'
+	  			codesnip = section["CODE"]
+	  			# puts codesnip
+	  			 if !codesnip[0]["lang"].nil?
+	  			 	codelang = codesnip[0]["lang"]
+	  			 	if codelang.empty?
+	  			 		codelang = 'ruby'
+	  			 	end
+	  			 end
+	  			examplesections += "\n<pre class='CodeRay'><code>:::#{codelang}"
+	  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
 	  			cleanCode = cleanCode.gsub('>','&gt;')
 	  			examplesections += cleanCode
-				examplesections += "</pre>"
+				examplesections += "<\n></code></pre>"
 
 
 	  		}
@@ -329,7 +338,7 @@ class Api
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
 						end
-						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}<dt>" 
+						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>" 
 						
 					}
 				@propvalues += "</dl>"
@@ -495,16 +504,16 @@ class Api
 				end
 				@methcallbackparamdesc = "<p>The callback parameter can take on one of three forms</p><ol>"
 				@methcallbackparamdesc += "<li>Controller action URL"
-				@methcallbackparamdesc += "<p>Ruby</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + " url_for :action => :mycallback)</pre>"
-				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "'/app/model/mycallback');</pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + " url_for :action => :mycallback)</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "'/app/model/mycallback');</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre>\n" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ \n|params| }\nProc.new{\n |params| })</pre>"
-				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + "function(params){\n//Your code here\n};);</pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ \n|params| }\nProc.new{\n |params| })</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "function(params){\n//Your code here\n};);</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
-				@methcallbackparamdesc += "<p>Ruby</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback() )</pre>"
-				@methcallbackparamdesc += "<p>Javascript</p><pre>" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback());</pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback() )</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback());</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "</ol>"
 				

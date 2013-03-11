@@ -1617,7 +1617,7 @@ In order to use the scanner with RhoElements Native Apps you will need to either
                 <DESC>
                     The default barcode reader on the device is enabled when the index view is loaded. It is enabled so when a barcode is red the decodeEvent is called.
                 </DESC>
-                <CODE>
+                <CODE lang='ruby'>
             <![CDATA[
 #/app/Model
 def index
@@ -1639,7 +1639,7 @@ end
                 <DESC>
                     Then in index.erb file:.
                 </DESC>
-                <CODE>
+                <CODE lang='html'>
             <![CDATA[
 <script type="text/javascript" charset="utf-8" src="/public/js/application.js"></script>
 <div data-role="page">

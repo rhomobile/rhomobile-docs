@@ -8,6 +8,7 @@ require './environment'
 desc 'Start a development server'
 task :server do
   if which('shotgun')
+    process_xml
 		exec 'shotgun -O config.ru'
 	else
 		warn 'warn: shotgun not installed; reloading is disabled.'
@@ -81,9 +82,8 @@ task :archive do
 
 end
 
-desc 'generate API docs from XML'
-task :process_xml do
-
+def process_xml
+  puts 'rebuilding API docs'
   apiXML = File.join(AppConfig['dirs']['api'],"**","*.xml")
   
   apiFiles = Dir.glob(apiXML)
@@ -99,6 +99,11 @@ task :process_xml do
     end
   end
 
+end
+
+desc 'generate API docs from XML'
+task :process_xml do
+  process_xml
 end
 
 desc 'Apply inline CSS styling to offline archive files'

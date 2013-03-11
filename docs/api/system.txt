@@ -9,7 +9,8 @@ is used to either navigate to a URL or call a javascript function when an attach
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.applicationIconBadge=0
 # Setting one property
 System.setProperty :applicationIconBadge, 0 
@@ -19,11 +20,12 @@ System.setProperties { :applicationIconBadge => 0 , :another_property => 0}
 # Getting one property
 myvar = System.getProperty('applicationIconBadge')
 # Getting multiple properties
-myvar = System.getProperties(['applicationIconBadge' , 'another_property'])</pre>
+myvar = System.getProperties(['applicationIconBadge' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.applicationIconBadge=0;
 # Setting one property
@@ -34,245 +36,272 @@ System.setProperties({ :applicationIconBadge:0 , :another_property:0});
 # Getting one property
 myvar = System.getProperty('applicationIconBadge');
 # Getting multiple properties
-myvar = System.getProperties(['applicationIconBadge' , 'another_property']);</pre></p>  </div></div></div></div><a name='pcountry'></a><div class='accordion property' id='pcountry'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycountry"><strong>country</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycountry" class="accordion-body collapse in">  <div class="accordion-inner">Current device country code.<p>
+myvar = System.getProperties(['applicationIconBadge' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcountry'></a><div class='accordion property' id='pcountry'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycountry"><strong>country</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycountry" class="accordion-body collapse in">  <div class="accordion-inner">Current device country code.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('country')
 # Getting multiple properties
-myvar = System.getProperties(['country' , 'another_property'])</pre>
+myvar = System.getProperties(['country' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('country');
 # Getting multiple properties
-myvar = System.getProperties(['country' , 'another_property']);</pre></p>  </div></div></div></div><a name='pdeviceName'></a><div class='accordion property' id='pdeviceName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceName"><strong>deviceName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceName" class="accordion-body collapse in">  <div class="accordion-inner">Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).<p>
+myvar = System.getProperties(['country' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceName'></a><div class='accordion property' id='pdeviceName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceName"><strong>deviceName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceName" class="accordion-body collapse in">  <div class="accordion-inner">Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('deviceName')
 # Getting multiple properties
-myvar = System.getProperties(['deviceName' , 'another_property'])</pre>
+myvar = System.getProperties(['deviceName' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('deviceName');
 # Getting multiple properties
-myvar = System.getProperties(['deviceName' , 'another_property']);</pre></p>  </div></div></div></div><a name='pdeviceOwnerEmail'></a><div class='accordion property' id='pdeviceOwnerEmail'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerEmail"><strong>deviceOwnerEmail</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerEmail" class="accordion-body collapse in">  <div class="accordion-inner">Primary email of phone owner (works only on Android).<p>
+myvar = System.getProperties(['deviceName' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceOwnerEmail'></a><div class='accordion property' id='pdeviceOwnerEmail'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerEmail"><strong>deviceOwnerEmail</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerEmail" class="accordion-body collapse in">  <div class="accordion-inner">Primary email of phone owner (works only on Android).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('deviceOwnerEmail')
 # Getting multiple properties
-myvar = System.getProperties(['deviceOwnerEmail' , 'another_property'])</pre>
+myvar = System.getProperties(['deviceOwnerEmail' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('deviceOwnerEmail');
 # Getting multiple properties
-myvar = System.getProperties(['deviceOwnerEmail' , 'another_property']);</pre></p>  </div></div></div></div><a name='pdeviceOwnerName'></a><div class='accordion property' id='pdeviceOwnerName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerName"><strong>deviceOwnerName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerName" class="accordion-body collapse in">  <div class="accordion-inner">Name(account name) of phone owner (works only on Android).<p>
+myvar = System.getProperties(['deviceOwnerEmail' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceOwnerName'></a><div class='accordion property' id='pdeviceOwnerName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerName"><strong>deviceOwnerName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerName" class="accordion-body collapse in">  <div class="accordion-inner">Name(account name) of phone owner (works only on Android).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('deviceOwnerName')
 # Getting multiple properties
-myvar = System.getProperties(['deviceOwnerName' , 'another_property'])</pre>
+myvar = System.getProperties(['deviceOwnerName' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('deviceOwnerName');
 # Getting multiple properties
-myvar = System.getProperties(['deviceOwnerName' , 'another_property']);</pre></p>  </div></div></div></div><a name='pdevicePushId'></a><div class='accordion property' id='pdevicePushId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydevicePushId"><strong><span class="text-info">devicePushId</span></strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydevicePushId" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:deviceId</span> Push notifications device ID which may be used to receive push messages.<p>
+myvar = System.getProperties(['deviceOwnerName' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdevicePushId'></a><div class='accordion property' id='pdevicePushId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydevicePushId"><strong><span class="text-info">devicePushId</span></strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydevicePushId" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:deviceId</span> Push notifications device ID which may be used to receive push messages.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('devicePushId')
 # Getting multiple properties
-myvar = System.getProperties(['devicePushId' , 'another_property'])</pre>
+myvar = System.getProperties(['devicePushId' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('devicePushId');
 # Getting multiple properties
-myvar = System.getProperties(['devicePushId' , 'another_property']);</pre></p>  </div></div></div></div><a name='pfreeServerPort'></a><div class='accordion property' id='pfreeServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyfreeServerPort"><strong>freeServerPort</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyfreeServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Get free local server port, available for binding.<p>
+myvar = System.getProperties(['devicePushId' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pfreeServerPort'></a><div class='accordion property' id='pfreeServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyfreeServerPort"><strong>freeServerPort</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyfreeServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Get free local server port, available for binding.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('freeServerPort')
 # Getting multiple properties
-myvar = System.getProperties(['freeServerPort' , 'another_property'])</pre>
+myvar = System.getProperties(['freeServerPort' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('freeServerPort');
 # Getting multiple properties
-myvar = System.getProperties(['freeServerPort' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasCalendar'></a><div class='accordion property' id='phasCalendar'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCalendar"><strong>hasCalendar</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCalendar" class="accordion-body collapse in">  <div class="accordion-inner">Is calendar support is available.<p>
+myvar = System.getProperties(['freeServerPort' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCalendar'></a><div class='accordion property' id='phasCalendar'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCalendar"><strong>hasCalendar</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCalendar" class="accordion-body collapse in">  <div class="accordion-inner">Is calendar support is available.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasCalendar')
 # Getting multiple properties
-myvar = System.getProperties(['hasCalendar' , 'another_property'])</pre>
+myvar = System.getProperties(['hasCalendar' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasCalendar');
 # Getting multiple properties
-myvar = System.getProperties(['hasCalendar' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasCamera'></a><div class='accordion property' id='phasCamera'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCamera"><strong>hasCamera</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCamera" class="accordion-body collapse in">  <div class="accordion-inner">Is camera available on the device.<p>
+myvar = System.getProperties(['hasCalendar' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCamera'></a><div class='accordion property' id='phasCamera'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCamera"><strong>hasCamera</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCamera" class="accordion-body collapse in">  <div class="accordion-inner">Is camera available on the device.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasCamera')
 # Getting multiple properties
-myvar = System.getProperties(['hasCamera' , 'another_property'])</pre>
+myvar = System.getProperties(['hasCamera' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasCamera');
 # Getting multiple properties
-myvar = System.getProperties(['hasCamera' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasCellNetwork'></a><div class='accordion property' id='phasCellNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCellNetwork"><strong>hasCellNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCellNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasCellNetwork: Is device connected to the cell network.<p>
+myvar = System.getProperties(['hasCamera' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCellNetwork'></a><div class='accordion property' id='phasCellNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCellNetwork"><strong>hasCellNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCellNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasCellNetwork: Is device connected to the cell network.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasCellNetwork')
 # Getting multiple properties
-myvar = System.getProperties(['hasCellNetwork' , 'another_property'])</pre>
+myvar = System.getProperties(['hasCellNetwork' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasCellNetwork');
 # Getting multiple properties
-myvar = System.getProperties(['hasCellNetwork' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasNetwork'></a><div class='accordion property' id='phasNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasNetwork"><strong>hasNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasNetwork: Is device connected to the network.<p>
+myvar = System.getProperties(['hasCellNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasNetwork'></a><div class='accordion property' id='phasNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasNetwork"><strong>hasNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasNetwork: Is device connected to the network.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasNetwork')
 # Getting multiple properties
-myvar = System.getProperties(['hasNetwork' , 'another_property'])</pre>
+myvar = System.getProperties(['hasNetwork' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasNetwork');
 # Getting multiple properties
-myvar = System.getProperties(['hasNetwork' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasSqlite'></a><div class='accordion property' id='phasSqlite'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasSqlite"><strong>hasSqlite</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasSqlite" class="accordion-body collapse in">  <div class="accordion-inner">Does sqlite used on this platform.<p>
+myvar = System.getProperties(['hasNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasSqlite'></a><div class='accordion property' id='phasSqlite'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasSqlite"><strong>hasSqlite</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasSqlite" class="accordion-body collapse in">  <div class="accordion-inner">Does sqlite used on this platform.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasSqlite')
 # Getting multiple properties
-myvar = System.getProperties(['hasSqlite' , 'another_property'])</pre>
+myvar = System.getProperties(['hasSqlite' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasSqlite');
 # Getting multiple properties
-myvar = System.getProperties(['hasSqlite' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasTouchscreen'></a><div class='accordion property' id='phasTouchscreen'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasTouchscreen"><strong>hasTouchscreen</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasTouchscreen" class="accordion-body collapse in">  <div class="accordion-inner">Is device has touch screen.<p>
+myvar = System.getProperties(['hasSqlite' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasTouchscreen'></a><div class='accordion property' id='phasTouchscreen'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasTouchscreen"><strong>hasTouchscreen</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasTouchscreen" class="accordion-body collapse in">  <div class="accordion-inner">Is device has touch screen.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasTouchscreen')
 # Getting multiple properties
-myvar = System.getProperties(['hasTouchscreen' , 'another_property'])</pre>
+myvar = System.getProperties(['hasTouchscreen' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasTouchscreen');
 # Getting multiple properties
-myvar = System.getProperties(['hasTouchscreen' , 'another_property']);</pre></p>  </div></div></div></div><a name='phasWifiNetwork'></a><div class='accordion property' id='phasWifiNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasWifiNetwork"><strong>hasWifiNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasWifiNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasWifiNetwork: Is device connected to the wifi network<p>
+myvar = System.getProperties(['hasTouchscreen' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasWifiNetwork'></a><div class='accordion property' id='phasWifiNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasWifiNetwork"><strong>hasWifiNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasWifiNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasWifiNetwork: Is device connected to the wifi network<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('hasWifiNetwork')
 # Getting multiple properties
-myvar = System.getProperties(['hasWifiNetwork' , 'another_property'])</pre>
+myvar = System.getProperties(['hasWifiNetwork' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('hasWifiNetwork');
 # Getting multiple properties
-myvar = System.getProperties(['hasWifiNetwork' , 'another_property']);</pre></p>  </div></div></div></div><a name='phttpProxyURI'></a><div class='accordion property' id='phttpProxyURI'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpProxyURI"><strong><span class="text-info">httpProxyURI</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpProxyURI" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_proxy_url</span> Client HTTP proxy.<p>
+myvar = System.getProperties(['hasWifiNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phttpProxyURI'></a><div class='accordion property' id='phttpProxyURI'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpProxyURI"><strong><span class="text-info">httpProxyURI</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpProxyURI" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_proxy_url</span> Client HTTP proxy.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.httpProxyURI='some string'
 # Setting one property
 System.setProperty :httpProxyURI, 'some string' 
@@ -282,11 +311,12 @@ System.setProperties { :httpProxyURI => 'some string' , :another_property => 'so
 # Getting one property
 myvar = System.getProperty('httpProxyURI')
 # Getting multiple properties
-myvar = System.getProperties(['httpProxyURI' , 'another_property'])</pre>
+myvar = System.getProperties(['httpProxyURI' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.httpProxyURI='some string';
 # Setting one property
@@ -297,47 +327,52 @@ System.setProperties({ :httpProxyURI:'some string' , :another_property:'some str
 # Getting one property
 myvar = System.getProperty('httpProxyURI');
 # Getting multiple properties
-myvar = System.getProperties(['httpProxyURI' , 'another_property']);</pre></p>  </div></div></div></div><a name='pisEmulator'></a><div class='accordion property' id='pisEmulator'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisEmulator"><strong>isEmulator</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisEmulator" class="accordion-body collapse in">  <div class="accordion-inner">Is application is running on emulator.<p>
+myvar = System.getProperties(['httpProxyURI' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pisEmulator'></a><div class='accordion property' id='pisEmulator'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisEmulator"><strong>isEmulator</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisEmulator" class="accordion-body collapse in">  <div class="accordion-inner">Is application is running on emulator.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('isEmulator')
 # Getting multiple properties
-myvar = System.getProperties(['isEmulator' , 'another_property'])</pre>
+myvar = System.getProperties(['isEmulator' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('isEmulator');
 # Getting multiple properties
-myvar = System.getProperties(['isEmulator' , 'another_property']);</pre></p>  </div></div></div></div><a name='pisMotorolaDevice'></a><div class='accordion property' id='pisMotorolaDevice'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisMotorolaDevice"><strong>isMotorolaDevice</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisMotorolaDevice" class="accordion-body collapse in">  <div class="accordion-inner">Is device supports Motorola device capabilities, such as Scanner, etc.<p>
+myvar = System.getProperties(['isEmulator' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pisMotorolaDevice'></a><div class='accordion property' id='pisMotorolaDevice'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisMotorolaDevice"><strong>isMotorolaDevice</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisMotorolaDevice" class="accordion-body collapse in">  <div class="accordion-inner">Is device supports Motorola device capabilities, such as Scanner, etc.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('isMotorolaDevice')
 # Getting multiple properties
-myvar = System.getProperties(['isMotorolaDevice' , 'another_property'])</pre>
+myvar = System.getProperties(['isMotorolaDevice' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('isMotorolaDevice');
 # Getting multiple properties
-myvar = System.getProperties(['isMotorolaDevice' , 'another_property']);</pre></p>  </div></div></div></div><a name='plocalServerPort'></a><div class='accordion property' id='plocalServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocalServerPort"><strong>localServerPort</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocalServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, application will use dynamically selected one.<p><strong>Default:</strong> 8080</p><p>
+myvar = System.getProperties(['isMotorolaDevice' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plocalServerPort'></a><div class='accordion property' id='plocalServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocalServerPort"><strong>localServerPort</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocalServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, application will use dynamically selected one.<p><strong>Default:</strong> 8080</p><p>
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.localServerPort=0
 # Setting one property
 System.setProperty :localServerPort, 0 
@@ -347,11 +382,12 @@ System.setProperties { :localServerPort => 0 , :another_property => 0}
 # Getting one property
 myvar = System.getProperty('localServerPort')
 # Getting multiple properties
-myvar = System.getProperties(['localServerPort' , 'another_property'])</pre>
+myvar = System.getProperties(['localServerPort' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.localServerPort=0;
 # Setting one property
@@ -362,29 +398,32 @@ System.setProperties({ :localServerPort:0 , :another_property:0});
 # Getting one property
 myvar = System.getProperty('localServerPort');
 # Getting multiple properties
-myvar = System.getProperties(['localServerPort' , 'another_property']);</pre></p>  </div></div></div></div><a name='plocale'></a><div class='accordion property' id='plocale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocale"><strong>locale</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocale" class="accordion-body collapse in">  <div class="accordion-inner">Current device locale.Like 'en', 'ru' etc.<p>
+myvar = System.getProperties(['localServerPort' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plocale'></a><div class='accordion property' id='plocale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocale"><strong>locale</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocale" class="accordion-body collapse in">  <div class="accordion-inner">Current device locale.Like 'en', 'ru' etc.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('locale')
 # Getting multiple properties
-myvar = System.getProperties(['locale' , 'another_property'])</pre>
+myvar = System.getProperties(['locale' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('locale');
 # Getting multiple properties
-myvar = System.getProperties(['locale' , 'another_property']);</pre></p>  </div></div></div></div><a name='plockWindowSize'></a><div class='accordion property' id='plockWindowSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylockWindowSize"><strong>lockWindowSize</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylockWindowSize" class="accordion-body collapse in">  <div class="accordion-inner">Lock/unlock the window size change by the user. Implemented only for Windows desktop.<p><strong>Default:</strong> false</p><p>
+myvar = System.getProperties(['locale' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plockWindowSize'></a><div class='accordion property' id='plockWindowSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylockWindowSize"><strong>lockWindowSize</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylockWindowSize" class="accordion-body collapse in">  <div class="accordion-inner">Lock/unlock the window size change by the user. Implemented only for Windows desktop.<p><strong>Default:</strong> false</p><p>
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.lockWindowSize=true
 # Setting one property
 System.setProperty :lockWindowSize, true 
@@ -394,11 +433,12 @@ System.setProperties { :lockWindowSize => true , :another_property => true}
 # Getting one property
 myvar = System.getProperty('lockWindowSize')
 # Getting multiple properties
-myvar = System.getProperties(['lockWindowSize' , 'another_property'])</pre>
+myvar = System.getProperties(['lockWindowSize' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.lockWindowSize=true;
 # Setting one property
@@ -409,173 +449,192 @@ System.setProperties({ :lockWindowSize:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('lockWindowSize');
 # Getting multiple properties
-myvar = System.getProperties(['lockWindowSize' , 'another_property']);</pre></p>  </div></div></div></div><a name='poemInfo'></a><div class='accordion property' id='poemInfo'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoemInfo"><strong>oemInfo</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoemInfo" class="accordion-body collapse in">  <div class="accordion-inner">The OEM Information string for the terminal.<p>
+myvar = System.getProperties(['lockWindowSize' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='poemInfo'></a><div class='accordion property' id='poemInfo'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoemInfo"><strong>oemInfo</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoemInfo" class="accordion-body collapse in">  <div class="accordion-inner">The OEM Information string for the terminal.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('oemInfo')
 # Getting multiple properties
-myvar = System.getProperties(['oemInfo' , 'another_property'])</pre>
+myvar = System.getProperties(['oemInfo' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('oemInfo');
 # Getting multiple properties
-myvar = System.getProperties(['oemInfo' , 'another_property']);</pre></p>  </div></div></div></div><a name='posVersion'></a><div class='accordion property' id='posVersion'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyosVersion"><strong>osVersion</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyosVersion" class="accordion-body collapse in">  <div class="accordion-inner">Version OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android).<p>
+myvar = System.getProperties(['oemInfo' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='posVersion'></a><div class='accordion property' id='posVersion'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyosVersion"><strong>osVersion</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyosVersion" class="accordion-body collapse in">  <div class="accordion-inner">Version OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('osVersion')
 # Getting multiple properties
-myvar = System.getProperties(['osVersion' , 'another_property'])</pre>
+myvar = System.getProperties(['osVersion' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('osVersion');
 # Getting multiple properties
-myvar = System.getProperties(['osVersion' , 'another_property']);</pre></p>  </div></div></div></div><a name='pphoneId'></a><div class='accordion property' id='pphoneId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneId"><strong>phoneId</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneId" class="accordion-body collapse in">  <div class="accordion-inner">Hardware based ID. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.<p>
+myvar = System.getProperties(['osVersion' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pphoneId'></a><div class='accordion property' id='pphoneId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneId"><strong>phoneId</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneId" class="accordion-body collapse in">  <div class="accordion-inner">Hardware based ID. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('phoneId')
 # Getting multiple properties
-myvar = System.getProperties(['phoneId' , 'another_property'])</pre>
+myvar = System.getProperties(['phoneId' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('phoneId');
 # Getting multiple properties
-myvar = System.getProperties(['phoneId' , 'another_property']);</pre></p>  </div></div></div></div><a name='pphoneNumber'></a><div class='accordion property' id='pphoneNumber'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneNumber"><strong>phoneNumber</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneNumber" class="accordion-body collapse in">  <div class="accordion-inner">Device phone number.<p>
+myvar = System.getProperties(['phoneId' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pphoneNumber'></a><div class='accordion property' id='pphoneNumber'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneNumber"><strong>phoneNumber</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneNumber" class="accordion-body collapse in">  <div class="accordion-inner">Device phone number.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('phoneNumber')
 # Getting multiple properties
-myvar = System.getProperties(['phoneNumber' , 'another_property'])</pre>
+myvar = System.getProperties(['phoneNumber' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('phoneNumber');
 # Getting multiple properties
-myvar = System.getProperties(['phoneNumber' , 'another_property']);</pre></p>  </div></div></div></div><a name='pplatform'></a><div class='accordion property' id='pplatform'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyplatform"><strong>platform</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyplatform" class="accordion-body collapse in">  <div class="accordion-inner">Platform where application is running.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>WINDOWS</dt><dd><dt><dt>ANDROID</dt><dd><dt><dt>APPLE</dt><dd><dt><dt>WP8</dt><dd><dt><dt>WINDOWS_DESKTOP</dt><dd><dt></dl><p>
+myvar = System.getProperties(['phoneNumber' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pplatform'></a><div class='accordion property' id='pplatform'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyplatform"><strong>platform</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyplatform" class="accordion-body collapse in">  <div class="accordion-inner">Platform where application is running.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>WINDOWS</dt><dd></dt><dt>ANDROID</dt><dd></dt><dt>APPLE</dt><dd></dt><dt>WP8</dt><dd></dt><dt>WINDOWS_DESKTOP</dt><dd></dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('platform')
 # Getting multiple properties
-myvar = System.getProperties(['platform' , 'another_property'])</pre>
+myvar = System.getProperties(['platform' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('platform');
 # Getting multiple properties
-myvar = System.getProperties(['platform' , 'another_property']);</pre></p>  </div></div></div></div><a name='pppiX'></a><div class='accordion property' id='pppiX'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiX"><strong>ppiX</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiX" class="accordion-body collapse in">  <div class="accordion-inner">Horizontal PPI (Pixels Per Inch).<p>
+myvar = System.getProperties(['platform' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pppiX'></a><div class='accordion property' id='pppiX'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiX"><strong>ppiX</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiX" class="accordion-body collapse in">  <div class="accordion-inner">Horizontal PPI (Pixels Per Inch).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('ppiX')
 # Getting multiple properties
-myvar = System.getProperties(['ppiX' , 'another_property'])</pre>
+myvar = System.getProperties(['ppiX' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('ppiX');
 # Getting multiple properties
-myvar = System.getProperties(['ppiX' , 'another_property']);</pre></p>  </div></div></div></div><a name='pppiY'></a><div class='accordion property' id='pppiY'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiY"><strong>ppiY</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiY" class="accordion-body collapse in">  <div class="accordion-inner">Vertical PPI (Pixels Per Inch).<p>
+myvar = System.getProperties(['ppiX' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pppiY'></a><div class='accordion property' id='pppiY'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiY"><strong>ppiY</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiY" class="accordion-body collapse in">  <div class="accordion-inner">Vertical PPI (Pixels Per Inch).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('ppiY')
 # Getting multiple properties
-myvar = System.getProperties(['ppiY' , 'another_property'])</pre>
+myvar = System.getProperties(['ppiY' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('ppiY');
 # Getting multiple properties
-myvar = System.getProperties(['ppiY' , 'another_property']);</pre></p>  </div></div></div></div><a name='prealScreenHeight'></a><div class='accordion property' id='prealScreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenHeight"><strong>realScreenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in real pixels.<p>
+myvar = System.getProperties(['ppiY' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='prealScreenHeight'></a><div class='accordion property' id='prealScreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenHeight"><strong>realScreenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in real pixels.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('realScreenHeight')
 # Getting multiple properties
-myvar = System.getProperties(['realScreenHeight' , 'another_property'])</pre>
+myvar = System.getProperties(['realScreenHeight' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('realScreenHeight');
 # Getting multiple properties
-myvar = System.getProperties(['realScreenHeight' , 'another_property']);</pre></p>  </div></div></div></div><a name='prealScreenWidth'></a><div class='accordion property' id='prealScreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenWidth"><strong>realScreenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in real pixels.<p>
+myvar = System.getProperties(['realScreenHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='prealScreenWidth'></a><div class='accordion property' id='prealScreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenWidth"><strong>realScreenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in real pixels.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('realScreenWidth')
 # Getting multiple properties
-myvar = System.getProperties(['realScreenWidth' , 'another_property'])</pre>
+myvar = System.getProperties(['realScreenWidth' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('realScreenWidth');
 # Getting multiple properties
-myvar = System.getProperties(['realScreenWidth' , 'another_property']);</pre></p>  </div></div></div></div><a name='pscreenAutoRotate'></a><div class='accordion property' id='pscreenAutoRotate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenAutoRotate"><strong>screenAutoRotate</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenAutoRotate" class="accordion-body collapse in">  <div class="accordion-inner">Screen auto rotate.<p><strong>Default:</strong> true</p><p>
+myvar = System.getProperties(['realScreenWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenAutoRotate'></a><div class='accordion property' id='pscreenAutoRotate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenAutoRotate"><strong>screenAutoRotate</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenAutoRotate" class="accordion-body collapse in">  <div class="accordion-inner">Screen auto rotate.<p><strong>Default:</strong> true</p><p>
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.screenAutoRotate=true
 # Setting one property
 System.setProperty :screenAutoRotate, true 
@@ -585,11 +644,12 @@ System.setProperties { :screenAutoRotate => true , :another_property => true}
 # Getting one property
 myvar = System.getProperty('screenAutoRotate')
 # Getting multiple properties
-myvar = System.getProperties(['screenAutoRotate' , 'another_property'])</pre>
+myvar = System.getProperties(['screenAutoRotate' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.screenAutoRotate=true;
 # Setting one property
@@ -600,47 +660,52 @@ System.setProperties({ :screenAutoRotate:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('screenAutoRotate');
 # Getting multiple properties
-myvar = System.getProperties(['screenAutoRotate' , 'another_property']);</pre></p>  </div></div></div></div><a name='pscreenHeight'></a><div class='accordion property' id='pscreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenHeight"><strong>screenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in logical pixels (used for set coordinates).<p>
+myvar = System.getProperties(['screenAutoRotate' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenHeight'></a><div class='accordion property' id='pscreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenHeight"><strong>screenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in logical pixels (used for set coordinates).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('screenHeight')
 # Getting multiple properties
-myvar = System.getProperties(['screenHeight' , 'another_property'])</pre>
+myvar = System.getProperties(['screenHeight' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('screenHeight');
 # Getting multiple properties
-myvar = System.getProperties(['screenHeight' , 'another_property']);</pre></p>  </div></div></div></div><a name='pscreenOrientation'></a><div class='accordion property' id='pscreenOrientation'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenOrientation"><strong>screenOrientation</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenOrientation" class="accordion-body collapse in">  <div class="accordion-inner">Current screen orientation.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>portrait</dt><dd><dt><dt>landscape</dt><dd><dt></dl><p>
+myvar = System.getProperties(['screenHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenOrientation'></a><div class='accordion property' id='pscreenOrientation'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenOrientation"><strong>screenOrientation</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenOrientation" class="accordion-body collapse in">  <div class="accordion-inner">Current screen orientation.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>portrait</dt><dd></dt><dt>landscape</dt><dd></dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('screenOrientation')
 # Getting multiple properties
-myvar = System.getProperties(['screenOrientation' , 'another_property'])</pre>
+myvar = System.getProperties(['screenOrientation' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('screenOrientation');
 # Getting multiple properties
-myvar = System.getProperties(['screenOrientation' , 'another_property']);</pre></p>  </div></div></div></div><a name='pscreenSleeping'></a><div class='accordion property' id='pscreenSleeping'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenSleeping"><strong>screenSleeping</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenSleeping" class="accordion-body collapse in">  <div class="accordion-inner">Should screen go to sleep by timeout.<p>
+myvar = System.getProperties(['screenOrientation' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenSleeping'></a><div class='accordion property' id='pscreenSleeping'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenSleeping"><strong>screenSleeping</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenSleeping" class="accordion-body collapse in">  <div class="accordion-inner">Should screen go to sleep by timeout.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.screenSleeping=true
 # Setting one property
 System.setProperty :screenSleeping, true 
@@ -650,11 +715,12 @@ System.setProperties { :screenSleeping => true , :another_property => true}
 # Getting one property
 myvar = System.getProperty('screenSleeping')
 # Getting multiple properties
-myvar = System.getProperties(['screenSleeping' , 'another_property'])</pre>
+myvar = System.getProperties(['screenSleeping' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.screenSleeping=true;
 # Setting one property
@@ -665,47 +731,52 @@ System.setProperties({ :screenSleeping:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('screenSleeping');
 # Getting multiple properties
-myvar = System.getProperties(['screenSleeping' , 'another_property']);</pre></p>  </div></div></div></div><a name='pscreenWidth'></a><div class='accordion property' id='pscreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenWidth"><strong>screenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in logical pixels (used for set coordinates).<p>
+myvar = System.getProperties(['screenSleeping' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenWidth'></a><div class='accordion property' id='pscreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenWidth"><strong>screenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in logical pixels (used for set coordinates).<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('screenWidth')
 # Getting multiple properties
-myvar = System.getProperties(['screenWidth' , 'another_property'])</pre>
+myvar = System.getProperties(['screenWidth' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('screenWidth');
 # Getting multiple properties
-myvar = System.getProperties(['screenWidth' , 'another_property']);</pre></p>  </div></div></div></div><a name='psecurityTokenNotPassed'></a><div class='accordion property' id='psecurityTokenNotPassed'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysecurityTokenNotPassed"><strong>securityTokenNotPassed</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysecurityTokenNotPassed" class="accordion-body collapse in">  <div class="accordion-inner">Is the security token check was failed.<p>
+myvar = System.getProperties(['screenWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='psecurityTokenNotPassed'></a><div class='accordion property' id='psecurityTokenNotPassed'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysecurityTokenNotPassed"><strong>securityTokenNotPassed</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysecurityTokenNotPassed" class="accordion-body collapse in">  <div class="accordion-inner">Is the security token check was failed.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('securityTokenNotPassed')
 # Getting multiple properties
-myvar = System.getProperties(['securityTokenNotPassed' , 'another_property'])</pre>
+myvar = System.getProperties(['securityTokenNotPassed' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('securityTokenNotPassed');
 # Getting multiple properties
-myvar = System.getProperties(['securityTokenNotPassed' , 'another_property']);</pre></p>  </div></div></div></div><a name='pshowKeyboard'></a><div class='accordion property' id='pshowKeyboard'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyshowKeyboard"><strong>showKeyboard</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyshowKeyboard" class="accordion-body collapse in">  <div class="accordion-inner">Display\hide software keyboard.<p>
+myvar = System.getProperties(['securityTokenNotPassed' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pshowKeyboard'></a><div class='accordion property' id='pshowKeyboard'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyshowKeyboard"><strong>showKeyboard</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyshowKeyboard" class="accordion-body collapse in">  <div class="accordion-inner">Display\hide software keyboard.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre># Setting directly
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
 System.showKeyboard=true
 # Setting one property
 System.setProperty :showKeyboard, true 
@@ -715,11 +786,12 @@ System.setProperties { :showKeyboard => true , :another_property => true}
 # Getting one property
 myvar = System.getProperty('showKeyboard')
 # Getting multiple properties
-myvar = System.getProperties(['showKeyboard' , 'another_property'])</pre>
+myvar = System.getProperties(['showKeyboard' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 # Setting directly
 System.showKeyboard=true;
 # Setting one property
@@ -730,58 +802,82 @@ System.setProperties({ :showKeyboard:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('showKeyboard');
 # Getting multiple properties
-myvar = System.getProperties(['showKeyboard' , 'another_property']);</pre></p>  </div></div></div></div><a name='puuid'></a><div class='accordion property' id='puuid'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyuuid"><strong>uuid</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyuuid" class="accordion-body collapse in">  <div class="accordion-inner">The Unique Unit IDentifier for the terminal.<p>
+myvar = System.getProperties(['showKeyboard' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='puuid'></a><div class='accordion property' id='puuid'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyuuid"><strong>uuid</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyuuid" class="accordion-body collapse in">  <div class="accordion-inner">The Unique Unit IDentifier for the terminal.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('uuid')
 # Getting multiple properties
-myvar = System.getProperties(['uuid' , 'another_property'])</pre>
+myvar = System.getProperties(['uuid' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('uuid');
 # Getting multiple properties
-myvar = System.getProperties(['uuid' , 'another_property']);</pre></p>  </div></div></div></div><a name='pwebviewFramework'></a><div class='accordion property' id='pwebviewFramework'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertywebviewFramework"><strong>webviewFramework</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertywebviewFramework" class="accordion-body collapse in">  <div class="accordion-inner">Browser framework identity string.<p>
+myvar = System.getProperties(['uuid' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pwebviewFramework'></a><div class='accordion property' id='pwebviewFramework'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertywebviewFramework"><strong>webviewFramework</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertywebviewFramework" class="accordion-body collapse in">  <div class="accordion-inner">Browser framework identity string.<p>
 
 <strong>Ruby Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::ruby
+
 
 # Getting one property
 myvar = System.getProperty('webviewFramework')
 # Getting multiple properties
-myvar = System.getProperties(['webviewFramework' , 'another_property'])</pre>
+myvar = System.getProperties(['webviewFramework' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
-<pre>
+<pre class='CodeRay'><code>:::javascript
+
 
 # Getting one property
 myvar = System.getProperty('webviewFramework');
 # Getting multiple properties
-myvar = System.getProperties(['webviewFramework' , 'another_property']);</pre></p>  </div></div></div></div>
+myvar = System.getProperties(['webviewFramework' , 'another_property']);</code></pre></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 
-<div class="accordion" id="accordion"><div class='accordion method' id='mapplicationInstall'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodapplicationInstall"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:app_install</span> Install an application."><span class="text-info">applicationInstall</span></strong>(<span class="text-info">STRING</span> applicationUrl)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodapplicationInstall" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:app_install</span> Install an application.<div><p><strong>Parameters</strong></p><ul><li>applicationUrl : <span class='text-info'>STRING</span><p>The url of an application to install on the device. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mapplicationUninstall'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodapplicationUninstall"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:app_uninstall</span> Uninstall the application."><span class="text-info">applicationUninstall</span></strong>(<span class="text-info">STRING</span> applicationName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodapplicationUninstall" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:app_uninstall</span> Uninstall the application.<div><p><strong>Parameters</strong></p><ul><li>applicationName : <span class='text-info'>STRING</span><p>The name of the application. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mbringToFront'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodbringToFront"><strong data-toggle="tooltip" title data-original-title="Bring application window to the top of the screen.">bringToFront</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodbringToFront" class="accordion-body collapse in">  <div class="accordion-inner">Bring application window to the top of the screen.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">clearAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearNetworkStatusNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearNetworkStatusNotify"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Clear network status callback."><span class="text-error">clearNetworkStatusNotify</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearNetworkStatusNotify" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Clear network status callback.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdeleteFolder'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddeleteFolder"><strong data-toggle="tooltip" title data-original-title="Delete folder.">deleteFolder</strong>(<span class="text-info">STRING</span> pathToFolder)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddeleteFolder" class="accordion-body collapse in">  <div class="accordion-inner">Delete folder.<div><p><strong>Parameters</strong></p><ul><li>pathToFolder : <span class='text-info'>STRING</span><p>Path to folder. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mexit'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodexit"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Application.quit: exit application."><span class="text-error">exit</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodexit" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Application.quit: exit application.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperties</strong>(<span class="text-info">ARRAY</span> arrayofNames, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>System.getProperties(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>System.getProperties(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
-<pre>
+<div class="accordion" id="accordion"><div class='accordion method' id='mapplicationInstall'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodapplicationInstall"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:app_install</span> Install an application."><span class="text-info">applicationInstall</span></strong>(<span class="text-info">STRING</span> applicationUrl)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodapplicationInstall" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:app_install</span> Install an application.<div><p><strong>Parameters</strong></p><ul><li>applicationUrl : <span class='text-info'>STRING</span><p>The url of an application to install on the device. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mapplicationUninstall'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodapplicationUninstall"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:app_uninstall</span> Uninstall the application."><span class="text-info">applicationUninstall</span></strong>(<span class="text-info">STRING</span> applicationName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodapplicationUninstall" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:app_uninstall</span> Uninstall the application.<div><p><strong>Parameters</strong></p><ul><li>applicationName : <span class='text-info'>STRING</span><p>The name of the application. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mbringToFront'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodbringToFront"><strong data-toggle="tooltip" title data-original-title="Bring application window to the top of the screen.">bringToFront</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodbringToFront" class="accordion-body collapse in">  <div class="accordion-inner">Bring application window to the top of the screen.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">clearAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearNetworkStatusNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearNetworkStatusNotify"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Clear network status callback."><span class="text-error">clearNetworkStatusNotify</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearNetworkStatusNotify" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Clear network status callback.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdeleteFolder'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddeleteFolder"><strong data-toggle="tooltip" title data-original-title="Delete folder.">deleteFolder</strong>(<span class="text-info">STRING</span> pathToFolder)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddeleteFolder" class="accordion-body collapse in">  <div class="accordion-inner">Delete folder.<div><p><strong>Parameters</strong></p><ul><li>pathToFolder : <span class='text-info'>STRING</span><p>Path to folder. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mexit'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodexit"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Application.quit: exit application."><span class="text-error">exit</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodexit" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Application.quit: exit application.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperties</strong>(<span class="text-info">ARRAY</span> arrayofNames, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+System.getProperties(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+System.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
 System.getProperties(....,lambda{ 
 |params| }
 Proc.new{
- |params| })</pre><p>Javascript</p><pre>System.getProperties(....,function(params){
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+System.getProperties(....,function(params){
 //Your code here
-};);</pre></li><li>Function<p>Ruby</p><pre>System.getProperties(...., mycallback() )</pre><p>Javascript</p><pre>System.getProperties(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperty"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:get_property</span> This is documentation"><span class="text-info">getProperty</span></strong>(<span class="text-info">STRING</span> propertyName, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperty" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:get_property</span> This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property that I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>System.getProperty(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>System.getProperty(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
-<pre>
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+System.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+System.getProperties(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperty"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:get_property</span> This is documentation"><span class="text-info">getProperty</span></strong>(<span class="text-info">STRING</span> propertyName, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperty" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:get_property</span> This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property that I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+System.getProperty(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+System.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
 System.getProperty(....,lambda{ 
 |params| }
 Proc.new{
- |params| })</pre><p>Javascript</p><pre>System.getProperty(....,function(params){
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+System.getProperty(....,function(params){
 //Your code here
-};);</pre></li><li>Function<p>Ruby</p><pre>System.getProperty(...., mycallback() )</pre><p>Javascript</p><pre>System.getProperty(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : The one property that I want to know about</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>value : <span class='text-info'>STRING</span><p>The one property that I want to know about</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetRegistrySetting'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetRegistrySetting"><strong data-toggle="tooltip" title data-original-title="getRegistrySetting">getRegistrySetting</strong>(<span class="text-info">INTEGER</span> hive, <span class="text-info">STRING</span> subKey, <span class="text-info">STRING</span> setting)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetRegistrySetting" class="accordion-body collapse in">  <div class="accordion-inner">getRegistrySetting<div><p><strong>Parameters</strong></p><ul><li>hive : <span class='text-info'>INTEGER</span><p>The hive name </p></li><li>subKey : <span class='text-info'>STRING</span><p>The name of the sub key to be retrieved </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the setting within the sub key </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : Regsitry value of the key.</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetStartParams'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetStartParams"><strong data-toggle="tooltip" title data-original-title="Return the command line parameters.">getStartParams</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetStartParams" class="accordion-body collapse in">  <div class="accordion-inner">Return the command line parameters.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mget_locale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodget_locale"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.locale property: Current device locale."><span class="text-error">get_locale</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodget_locale" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.locale property: Current device locale.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='misApplicationInstalled'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodisApplicationInstalled"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:app_installed?</span> Is application installed on the device?"><span class="text-info">isApplicationInstalled</span></strong>(<span class="text-info">STRING</span> applicationName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodisApplicationInstalled" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:app_installed?</span> Is application installed on the device?<div><p><strong>Parameters</strong></p><ul><li>applicationName : <span class='text-info'>STRING</span><p>The name of the application. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='misBlobAttr'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodisBlobAttr"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Database.isBlobAttr: is model attribute is blob."><span class="text-error">isBlobAttr</span></strong>(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID, <span class="text-info">STRING</span> attrName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodisBlobAttr" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Database.isBlobAttr: is model attribute is blob.<div><p><strong>Parameters</strong></p><ul><li>partition : <span class='text-info'>STRING</span><p>The name of the application. </p></li><li>sourceID : <span class='text-info'>INTEGER</span><p>The name of the application. </p></li><li>attrName : <span class='text-info'>STRING</span><p>The name of the application. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mopenUrl'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodopenUrl"><strong data-toggle="tooltip" title data-original-title="Open the application associated with the URL.">openUrl</strong>(<span class="text-info">STRING</span> url)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodopenUrl" class="accordion-body collapse in">  <div class="accordion-inner">Open the application associated with the URL.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>Open the application at this url; behavior may be different on different platforms and depend on installed software. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mreplaceCurrentBundle'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodreplaceCurrentBundle"><strong data-toggle="tooltip" title data-original-title="Replace application bundle.">replaceCurrentBundle</strong>(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodreplaceCurrentBundle" class="accordion-body collapse in">  <div class="accordion-inner">Replace application bundle.<div><p><strong>Parameters</strong></p><ul><li>pathToBundle : <span class='text-info'>STRING</span><p>Path to bundle. </p></li><li>params : <span class='text-info'>HASH</span><p>Update parameters. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mrunApplication'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodrunApplication"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:run_app</span> <span class='label label-important'>deprecated</span> Use System.Process.runApplication: Run an application."><span class="text-info"><span class="text-error">runApplication</span></span></strong>(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodrunApplication" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:run_app</span> <span class='label label-important'>deprecated</span> Use System.Process.runApplication: Run an application.<div><p><strong>Parameters</strong></p><ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. False by default</p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetDoNotBackupAttribute'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetDoNotBackupAttribute"><strong data-toggle="tooltip" title data-original-title="Set do not backup aiitribute for file. iOS only.">setDoNotBackupAttribute</strong>(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetDoNotBackupAttribute" class="accordion-body collapse in">  <div class="accordion-inner">Set do not backup aiitribute for file. iOS only.<div><p><strong>Parameters</strong></p><ul><li>pathToFile : <span class='text-info'>STRING</span><p>Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>true set doNotBakup attribute to file (exlude this file from bakup), false for remove doNotBakup attribute from file </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetNetworkStatusNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetNetworkStatusNotify"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Network.setNotify: set network notification callback."><span class="text-error">setNetworkStatusNotify</span></strong>(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetNetworkStatusNotify" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Network.setNotify: set network notification callback.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>iOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperties</strong>(<span class="text-info">HASH</span> propertyMap)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetPushNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetPushNotification"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Push.setPushNotification: Register push callback, the method to call upon receiving a push message."><span class="text-error">setPushNotification</span></strong>(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params, <span class="text-info">STRING</span> push_client)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetPushNotification" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Push.setPushNotification: Register push callback, the method to call upon receiving a push message.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. If empty, unregisters rhoconnect-push. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Params which will be added to callback URL. </p></li><li>push_client : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Name of a push service client. Current values can be 'rhoconnect_push' or 'gcm' or 'legacy' or empty. The call will be applied to every push client.</p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetRegistrySetting'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetRegistrySetting"><strong data-toggle="tooltip" title data-original-title="setRegistrySetting">setRegistrySetting</strong>(<span class="text-info">INTEGER</span> hive, <span class="text-info">INTEGER</span> type, <span class="text-info">STRING</span> subKey, <span class="text-info">STRING</span> setting, <span class="text-info">STRING</span> value)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetRegistrySetting" class="accordion-body collapse in">  <div class="accordion-inner">setRegistrySetting<div><p><strong>Parameters</strong></p><ul><li>hive : <span class='text-info'>INTEGER</span><p>The hive name </p></li><li>type : <span class='text-info'>INTEGER</span><p>The hive name </p></li><li>subKey : <span class='text-info'>STRING</span><p>The name of the sub key to set </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the setting within the sub key </p></li><li>value : <span class='text-info'>STRING</span><p>The string value to be set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetScreenRotationNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetScreenRotationNotification"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use ScreenOrientation.setNotification: Notify (call a callback method) when the screen rotates."><span class="text-error">setScreenRotationNotification</span></strong>(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetScreenRotationNotification" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use ScreenOrientation.setNotification: Notify (call a callback method) when the screen rotates.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. If empty, unregisters notification callback. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Params which will be added to callback URL. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetWindowFrame'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetWindowFrame"><strong data-toggle="tooltip" title data-original-title="Change application window position and size. Implemented only for Windows desktop.">setWindowFrame</strong>(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetWindowFrame" class="accordion-body collapse in">  <div class="accordion-inner">Change application window position and size. Implemented only for Windows desktop.<div><p><strong>Parameters</strong></p><ul><li>x : <span class='text-info'>INTEGER</span><p>Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>Top corner of window. </p></li><li>width : <span class='text-info'>INTEGER</span><p>Width of window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>Height of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetWindowPosition'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetWindowPosition"><strong data-toggle="tooltip" title data-original-title="Change application window position. Implemented only for Windows desktop.">setWindowPosition</strong>(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetWindowPosition" class="accordion-body collapse in">  <div class="accordion-inner">Change application window position. Implemented only for Windows desktop.<div><p><strong>Parameters</strong></p><ul><li>x : <span class='text-info'>INTEGER</span><p>Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>Top corner of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetWindowSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetWindowSize"><strong data-toggle="tooltip" title data-original-title="Change application window size. Implemented only for Windows desktop.">setWindowSize</strong>(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetWindowSize" class="accordion-body collapse in">  <div class="accordion-inner">Change application window size. Implemented only for Windows desktop.<div><p><strong>Parameters</strong></p><ul><li>width : <span class='text-info'>INTEGER</span><p>Width of the window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_application_icon_badge'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_application_icon_badge"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only."><span class="text-error">set_application_icon_badge</span></strong>(<span class="text-info">INTEGER</span> badgeNumber)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_application_icon_badge" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.<div><p><strong>Parameters</strong></p><ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_http_proxy_url'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_http_proxy_url"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.httpProxyURI property: To use client with the HTTP proxy"><span class="text-error">set_http_proxy_url</span></strong>(<span class="text-info">STRING</span> proxyURI)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_http_proxy_url" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.httpProxyURI property: To use client with the HTTP proxy<div><p><strong>Parameters</strong></p><ul><li>proxyURI : <span class='text-info'>STRING</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_locale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_locale"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Application.locale property: set application specific locale"><span class="text-error">set_locale</span></strong>(<span class="text-info">STRING</span> locale_code, <span class="text-info">STRING</span> country_code)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_locale" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Application.locale property: set application specific locale<div><p><strong>Parameters</strong></p><ul><li>locale_code : <span class='text-info'>STRING</span><p>Width of the of window. </p></li><li>country_code : <span class='text-info'>STRING</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_sleeping'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_sleeping"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.screenSleeping property: enable/disable phone sleeping."><span class="text-error">set_sleeping</span></strong>(<span class="text-info">BOOLEAN</span> enable)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_sleeping" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.screenSleeping property: enable/disable phone sleeping.<div><p><strong>Parameters</strong></p><ul><li>enable : <span class='text-info'>BOOLEAN</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstartTimer'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstartTimer"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Timer.start: start timer."><span class="text-error">startTimer</span></strong>(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstartTimer" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Timer.start: start timer.<div><p><strong>Parameters</strong></p><ul><li>interval : <span class='text-info'>INTEGER</span><p>Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Params which will be added to callback URL. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstopTimer'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstopTimer"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Timer.stop: stop timer."><span class="text-error">stopTimer</span></strong>(<span class="text-info">STRING</span> url)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstopTimer" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Timer.stop: stop timer.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='munset_http_proxy'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodunset_http_proxy"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url."><span class="text-error">unset_http_proxy</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodunset_http_proxy" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='munzipFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodunzipFile"><strong data-toggle="tooltip" title data-original-title="Unzip file.">unzipFile</strong>(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodunzipFile" class="accordion-body collapse in">  <div class="accordion-inner">Unzip file.<div><p><strong>Parameters</strong></p><ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mupdateBlobAttribs'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodupdateBlobAttribs"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Database.updateBlobAttribs: update model blob attributes list."><span class="text-error">updateBlobAttribs</span></strong>(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodupdateBlobAttribs" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Database.updateBlobAttribs: update model blob attributes list.<div><p><strong>Parameters</strong></p><ul><li>partition : <span class='text-info'>STRING</span><p>Password for the zip. </p></li><li>sourceID : <span class='text-info'>INTEGER</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mzipFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodzipFile"><strong data-toggle="tooltip" title data-original-title="Zip one file.">zipFile</strong>(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> localPathToFile, <span class="text-info">STRING</span> password)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodzipFile" class="accordion-body collapse in">  <div class="accordion-inner">Zip one file.<div><p><strong>Parameters</strong></p><ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the specified zip. </p></li><li>localPathToFile : <span class='text-info'>STRING</span><p>The path to the file to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mzipFiles'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodzipFiles"><strong data-toggle="tooltip" title data-original-title="Zip list of files.">zipFiles</strong>(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> basePath, <span class="text-info">ARRAY</span> filePathsToZip, <span class="text-info">STRING</span> password)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodzipFiles" class="accordion-body collapse in">  <div class="accordion-inner">Zip list of files.<div><p><strong>Parameters</strong></p><ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the specified zip. </p></li><li>basePath : <span class='text-info'>STRING</span><p>Base path to the files to be zipped. </p></li><li>filePathsToZip : <span class='text-info'>ARRAY</span><p>List of file paths to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div></div></div>
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+System.getProperty(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+System.getProperty(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : The one property that I want to know about</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>value : <span class='text-info'>STRING</span><p>The one property that I want to know about</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetRegistrySetting'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetRegistrySetting"><strong data-toggle="tooltip" title data-original-title="getRegistrySetting">getRegistrySetting</strong>(<span class="text-info">INTEGER</span> hive, <span class="text-info">STRING</span> subKey, <span class="text-info">STRING</span> setting)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetRegistrySetting" class="accordion-body collapse in">  <div class="accordion-inner">getRegistrySetting<div><p><strong>Parameters</strong></p><ul><li>hive : <span class='text-info'>INTEGER</span><p>The hive name </p></li><li>subKey : <span class='text-info'>STRING</span><p>The name of the sub key to be retrieved </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the setting within the sub key </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : Regsitry value of the key.</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetStartParams'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetStartParams"><strong data-toggle="tooltip" title data-original-title="Return the command line parameters.">getStartParams</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetStartParams" class="accordion-body collapse in">  <div class="accordion-inner">Return the command line parameters.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mget_locale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodget_locale"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.locale property: Current device locale."><span class="text-error">get_locale</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodget_locale" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.locale property: Current device locale.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='misApplicationInstalled'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodisApplicationInstalled"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:app_installed?</span> Is application installed on the device?"><span class="text-info">isApplicationInstalled</span></strong>(<span class="text-info">STRING</span> applicationName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodisApplicationInstalled" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:app_installed?</span> Is application installed on the device?<div><p><strong>Parameters</strong></p><ul><li>applicationName : <span class='text-info'>STRING</span><p>The name of the application. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='misBlobAttr'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodisBlobAttr"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Database.isBlobAttr: is model attribute is blob."><span class="text-error">isBlobAttr</span></strong>(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID, <span class="text-info">STRING</span> attrName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodisBlobAttr" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Database.isBlobAttr: is model attribute is blob.<div><p><strong>Parameters</strong></p><ul><li>partition : <span class='text-info'>STRING</span><p>The name of the application. </p></li><li>sourceID : <span class='text-info'>INTEGER</span><p>The name of the application. </p></li><li>attrName : <span class='text-info'>STRING</span><p>The name of the application. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mopenUrl'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodopenUrl"><strong data-toggle="tooltip" title data-original-title="Open the application associated with the URL.">openUrl</strong>(<span class="text-info">STRING</span> url)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodopenUrl" class="accordion-body collapse in">  <div class="accordion-inner">Open the application associated with the URL.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>Open the application at this url; behavior may be different on different platforms and depend on installed software. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mreplaceCurrentBundle'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodreplaceCurrentBundle"><strong data-toggle="tooltip" title data-original-title="Replace application bundle.">replaceCurrentBundle</strong>(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodreplaceCurrentBundle" class="accordion-body collapse in">  <div class="accordion-inner">Replace application bundle.<div><p><strong>Parameters</strong></p><ul><li>pathToBundle : <span class='text-info'>STRING</span><p>Path to bundle. </p></li><li>params : <span class='text-info'>HASH</span><p>Update parameters. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mrunApplication'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodrunApplication"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:run_app</span> <span class='label label-important'>deprecated</span> Use System.Process.runApplication: Run an application."><span class="text-info"><span class="text-error">runApplication</span></span></strong>(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodrunApplication" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:run_app</span> <span class='label label-important'>deprecated</span> Use System.Process.runApplication: Run an application.<div><p><strong>Parameters</strong></p><ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. False by default</p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetDoNotBackupAttribute'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetDoNotBackupAttribute"><strong data-toggle="tooltip" title data-original-title="Set do not backup aiitribute for file. iOS only.">setDoNotBackupAttribute</strong>(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetDoNotBackupAttribute" class="accordion-body collapse in">  <div class="accordion-inner">Set do not backup aiitribute for file. iOS only.<div><p><strong>Parameters</strong></p><ul><li>pathToFile : <span class='text-info'>STRING</span><p>Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>true set doNotBakup attribute to file (exlude this file from bakup), false for remove doNotBakup attribute from file </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetNetworkStatusNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetNetworkStatusNotify"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Network.setNotify: set network notification callback."><span class="text-error">setNetworkStatusNotify</span></strong>(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetNetworkStatusNotify" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Network.setNotify: set network notification callback.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>iOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperties</strong>(<span class="text-info">HASH</span> propertyMap)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetPushNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetPushNotification"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Push.setPushNotification: Register push callback, the method to call upon receiving a push message."><span class="text-error">setPushNotification</span></strong>(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params, <span class="text-info">STRING</span> push_client)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetPushNotification" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Push.setPushNotification: Register push callback, the method to call upon receiving a push message.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. If empty, unregisters rhoconnect-push. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Params which will be added to callback URL. </p></li><li>push_client : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Name of a push service client. Current values can be 'rhoconnect_push' or 'gcm' or 'legacy' or empty. The call will be applied to every push client.</p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetRegistrySetting'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetRegistrySetting"><strong data-toggle="tooltip" title data-original-title="setRegistrySetting">setRegistrySetting</strong>(<span class="text-info">INTEGER</span> hive, <span class="text-info">INTEGER</span> type, <span class="text-info">STRING</span> subKey, <span class="text-info">STRING</span> setting, <span class="text-info">STRING</span> value)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetRegistrySetting" class="accordion-body collapse in">  <div class="accordion-inner">setRegistrySetting<div><p><strong>Parameters</strong></p><ul><li>hive : <span class='text-info'>INTEGER</span><p>The hive name </p></li><li>type : <span class='text-info'>INTEGER</span><p>The hive name </p></li><li>subKey : <span class='text-info'>STRING</span><p>The name of the sub key to set </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the setting within the sub key </p></li><li>value : <span class='text-info'>STRING</span><p>The string value to be set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetScreenRotationNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetScreenRotationNotification"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use ScreenOrientation.setNotification: Notify (call a callback method) when the screen rotates."><span class="text-error">setScreenRotationNotification</span></strong>(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetScreenRotationNotification" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use ScreenOrientation.setNotification: Notify (call a callback method) when the screen rotates.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. If empty, unregisters notification callback. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Params which will be added to callback URL. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetWindowFrame'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetWindowFrame"><strong data-toggle="tooltip" title data-original-title="Change application window position and size. Implemented only for Windows desktop.">setWindowFrame</strong>(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetWindowFrame" class="accordion-body collapse in">  <div class="accordion-inner">Change application window position and size. Implemented only for Windows desktop.<div><p><strong>Parameters</strong></p><ul><li>x : <span class='text-info'>INTEGER</span><p>Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>Top corner of window. </p></li><li>width : <span class='text-info'>INTEGER</span><p>Width of window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>Height of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetWindowPosition'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetWindowPosition"><strong data-toggle="tooltip" title data-original-title="Change application window position. Implemented only for Windows desktop.">setWindowPosition</strong>(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetWindowPosition" class="accordion-body collapse in">  <div class="accordion-inner">Change application window position. Implemented only for Windows desktop.<div><p><strong>Parameters</strong></p><ul><li>x : <span class='text-info'>INTEGER</span><p>Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>Top corner of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetWindowSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetWindowSize"><strong data-toggle="tooltip" title data-original-title="Change application window size. Implemented only for Windows desktop.">setWindowSize</strong>(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetWindowSize" class="accordion-body collapse in">  <div class="accordion-inner">Change application window size. Implemented only for Windows desktop.<div><p><strong>Parameters</strong></p><ul><li>width : <span class='text-info'>INTEGER</span><p>Width of the window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_application_icon_badge'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_application_icon_badge"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only."><span class="text-error">set_application_icon_badge</span></strong>(<span class="text-info">INTEGER</span> badgeNumber)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_application_icon_badge" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.<div><p><strong>Parameters</strong></p><ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_http_proxy_url'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_http_proxy_url"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.httpProxyURI property: To use client with the HTTP proxy"><span class="text-error">set_http_proxy_url</span></strong>(<span class="text-info">STRING</span> proxyURI)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_http_proxy_url" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.httpProxyURI property: To use client with the HTTP proxy<div><p><strong>Parameters</strong></p><ul><li>proxyURI : <span class='text-info'>STRING</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_locale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_locale"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Application.locale property: set application specific locale"><span class="text-error">set_locale</span></strong>(<span class="text-info">STRING</span> locale_code, <span class="text-info">STRING</span> country_code)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_locale" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Application.locale property: set application specific locale<div><p><strong>Parameters</strong></p><ul><li>locale_code : <span class='text-info'>STRING</span><p>Width of the of window. </p></li><li>country_code : <span class='text-info'>STRING</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mset_sleeping'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodset_sleeping"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.screenSleeping property: enable/disable phone sleeping."><span class="text-error">set_sleeping</span></strong>(<span class="text-info">BOOLEAN</span> enable)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodset_sleeping" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.screenSleeping property: enable/disable phone sleeping.<div><p><strong>Parameters</strong></p><ul><li>enable : <span class='text-info'>BOOLEAN</span><p>Width of the of window. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstartTimer'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstartTimer"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Timer.start: start timer."><span class="text-error">startTimer</span></strong>(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstartTimer" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Timer.start: start timer.<div><p><strong>Parameters</strong></p><ul><li>interval : <span class='text-info'>INTEGER</span><p>Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Params which will be added to callback URL. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstopTimer'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstopTimer"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Timer.stop: stop timer."><span class="text-error">stopTimer</span></strong>(<span class="text-info">STRING</span> url)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstopTimer" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Timer.stop: stop timer.<div><p><strong>Parameters</strong></p><ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='munset_http_proxy'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodunset_http_proxy"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url."><span class="text-error">unset_http_proxy</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodunset_http_proxy" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='munzipFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodunzipFile"><strong data-toggle="tooltip" title data-original-title="Unzip file.">unzipFile</strong>(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodunzipFile" class="accordion-body collapse in">  <div class="accordion-inner">Unzip file.<div><p><strong>Parameters</strong></p><ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mupdateBlobAttribs'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodupdateBlobAttribs"><strong data-toggle="tooltip" title data-original-title="<span class='label label-important'>deprecated</span> Use Database.updateBlobAttribs: update model blob attributes list."><span class="text-error">updateBlobAttribs</span></strong>(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodupdateBlobAttribs" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-important'>deprecated</span> Use Database.updateBlobAttribs: update model blob attributes list.<div><p><strong>Parameters</strong></p><ul><li>partition : <span class='text-info'>STRING</span><p>Password for the zip. </p></li><li>sourceID : <span class='text-info'>INTEGER</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mzipFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodzipFile"><strong data-toggle="tooltip" title data-original-title="Zip one file.">zipFile</strong>(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> localPathToFile, <span class="text-info">STRING</span> password)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodzipFile" class="accordion-body collapse in">  <div class="accordion-inner">Zip one file.<div><p><strong>Parameters</strong></p><ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the specified zip. </p></li><li>localPathToFile : <span class='text-info'>STRING</span><p>The path to the file to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mzipFiles'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodzipFiles"><strong data-toggle="tooltip" title data-original-title="Zip list of files.">zipFiles</strong>(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> basePath, <span class="text-info">ARRAY</span> filePathsToZip, <span class="text-info">STRING</span> password)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodzipFiles" class="accordion-body collapse in">  <div class="accordion-inner">Zip list of files.<div><p><strong>Parameters</strong></p><ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the specified zip. </p></li><li>basePath : <span class='text-info'>STRING</span><p>Base path to the files to be zipped. </p></li><li>filePathsToZip : <span class='text-info'>ARRAY</span><p>List of file paths to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div></div></div>
