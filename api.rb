@@ -102,6 +102,30 @@ class Api
   	
   	return md
   end
+
+  def self.getexamplelinks(doc)
+  	md = ""
+  	if !doc["MODULE"][0]["EXAMPLES"].nil?
+	  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
+	  	s.each_with_index() { |element,index|
+	  	md += '<li><a href="#e' + index.to_s + '" data-target="eExample' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>" 
+		}
+  	end
+  	return md
+  end
+
+  def self.getremarklinks(doc)
+  	md = ""
+  	if !doc["MODULE"][0]["REMARKS"].nil?
+	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
+	  	s.each_with_index() { |element,index|
+	  	md += '<li><a href="#r' + index.to_s + '" data-target="rRemark' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>" 
+		}
+  	end
+  	return md
+  end
+
+
   def self.getpropertieslinks(doc)
   	md = ""
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
@@ -161,6 +185,80 @@ class Api
   	end
   	return md
   end
+
+  def self.getexamples(doc)
+  	md = ""
+  	# puts doc["MODULE"][0]["EXAMPLES"]
+  	if !doc["MODULE"][0]["EXAMPLES"].nil?
+	  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
+	  	s.each_with_index() { |element,index|
+	  		examplename = ""
+  			examplesections = ""
+	  		examplename = element["title"]
+	  		sect=element["SECTIONS"][0]["SECTION"]
+	  		sect.each() { |section|
+	  			puts "**********"
+	  			puts section
+	  			examplesections += "\n"
+	  			examplesections += section["DESC"][0]
+	  			examplesections += "\n<pre>"
+	  			cleanCode = section["CODE"][0].gsub('<','&lt;')
+	  			cleanCode = cleanCode.gsub('>','&gt;')
+	  			examplesections += cleanCode
+				examplesections += "</pre>"
+
+
+	  		}
+	  	
+			md += "<a name='e#{index.to_s}'></a><div class='accordion property' id='e"+ index.to_s + "'>"
+		    md += '<div class="accordion-group">'
+		    md += '<div class="accordion-heading">'
+		    
+		    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cExample' + index.to_s + '">'
+		    md += '<strong>' + element["title"]  + '</strong>'
+			md += '<i class="icon-chevron-down pull-left"></i></span>'
+		    md += '</div>'
+		    md += '<div id="cExample' + index.to_s + '" class="accordion-body collapse in">'
+		    md +='  <div class="accordion-inner">'
+
+		  	md += examplesections
+		  	md += '  </div>'
+		    md += '</div>'
+		    md += '</div>'
+			md += '</div>'
+	  	}
+
+	end
+	return md
+  end
+
+  def self.getremarks(doc)
+  	md = ""
+  	if !doc["MODULE"][0]["REMARKS"].nil?
+	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
+	  	s.each_with_index() { |element,index|
+	  		md += "<a name='r#{index.to_s}'></a><div class='accordion property' id='r"+ index.to_s + "'>"
+		    md += '<div class="accordion-group">'
+		    md += '<div class="accordion-heading">'
+		    
+		    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cRemark' + index.to_s + '">'
+		    md += '<strong>' + element["title"]  + '</strong>'
+			md += '<i class="icon-chevron-down pull-left"></i></span>'
+		    md += '</div>'
+		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body collapse in">'
+		    md +='  <div class="accordion-inner">'
+
+		  	md += element["DESC"][0]
+		  	md += '  </div>'
+		    md += '</div>'
+		    md += '</div>'
+			md += '</div>'
+	  	}
+
+	end
+	return md
+  end
+
 
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
@@ -568,9 +666,25 @@ class Api
   	#puts doc
 
   	docproperties = getproperties(doc)
+  	docexamples = getexamples(doc)
+  	docremarks = getremarks(doc)
+  	examplelinks = getexamplelinks(doc)
+  	remarklinks = getremarklinks(doc)
   	proplinks = getpropertieslinks(doc)
   	methlinks = getmethodslinks(doc)
   	md += "#" + getApiName(doc) + "\n" 
+  	if !examplelinks.empty?
+	  	md += '<div class="btn-group">'
+	  	md += ''
+	  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples</a>'
+	    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+	    md += '  <span class="caret"></span>&nbsp;'
+	    md += '</button>'
+	    md += '<ul class="dropdown-menu">'
+	    md += examplelinks
+	    md += '</ul>'
+	  	md += '</div>'
+  	end 
   	if !proplinks.empty?
 	  	md += '<div class="btn-group">'
 	  	md += ''
@@ -616,9 +730,25 @@ class Api
 	    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
 	  	md += '</div>'
   	end
+  	if !remarklinks.empty?
+	  	md += '<div class="btn-group">'
+	  	md += ''
+	  	md += '<a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks</a>'
+	    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+	    md += '  <span class="caret"></span>&nbsp;'
+	    md += '</button>'
+	    md += '<ul class="dropdown-menu">'
+	    md += remarklinks
+	    md += '</ul>'
+	  	md += '</div>'
+  	end 
 	md += '<div data-spy="scroll"  >'
 
   	md += "\n" + getApiDesc(doc) + "\n" 
+  	if docexamples !=""
+	  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n" 
+	  	 md += "" + docexamples + ""
+  	end 
   	if docproperties !=""
 	  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
 	  	 md += "" + docproperties + ""
@@ -628,9 +758,15 @@ class Api
   	md += '<div class="accordion" id="accordion">'
     
   	md += "" + getmethods(doc) + ""
-    md += "</div></div>"
+    md += "</div>"
+    if docremarks !=""
+	  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
+	  	 md += "" + docremarks + ""
+  	end 
+  	
+    md += "</div>"
   	# puts md
-
+  	File.open("#{topic}.txt", 'w') {|f| f.write(md) }
   return md
   end
 	

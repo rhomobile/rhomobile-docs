@@ -1535,5 +1535,138 @@ In order to use the scanner with RhoElements Native Apps you will need to either
         <PLATFORM>
             <!--  This section is used for the supported platform images at the top -->
         </PLATFORM>
+        <REMARKS>
+            <REMARK title="Bluetooth Scanner Overview">
+                <DESC>
+                    <![CDATA[
+Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behaviour using the disconnectBtOnDisable property.
+
+The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
+
+**'BTScanAssociationBarcode'** 
+Means the device is ready to be associated with a BT scanner.  You must scan the 
+association barcode.  It is only necessary to scan the association 
+barcode when you first associate a scanner with the device, this pairing will be remembered until
+you scan the unpairing barcode.
+
+** 'BluetoothConnected'**
+The remote scanner has successfully connected to the device.
+    
+** 'BluetoothDisconnected'**
+The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
+of range or scanning the 'unpairing' barcode.  The scanner will attempt to reconnect automatically for
+a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
+timeout the reconnect button on the device should be pushed.  Once the unpairing barcode is scanned
+it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
+                ]]>
+
+                </DESC>
+            </REMARK>
+            <REMARK title="Viewfinder Position Parameters">
+                <DESC>
+                    <![CDATA[
+On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
+
+                    ]]>
+
+                </DESC>
+            </REMARK>
+            <REMARK title="Scanning and Camera Interaction">
+                <DESC>
+                    <![CDATA[
+In some device configurations the scanner and camera share the same hardware.  Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
+
+                    ]]>
+
+                </DESC>
+            </REMARK>
+            <REMARK title="DataWedge Interaction With Native Apps">
+                <DESC>
+                    <![CDATA[
+In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
+
+**Disabling Datawedge**
+
+1.  Start the DataWedge app
+2.  Click the menu button > "Settings" and untick "DataWedge enabled". 
+
+**RhoElements Datawedge Profile**
+
+1.  Install your RhoElements native app,
+2.  Start the DataWedge app
+3.  Click the menu button > "New Profile" and enter a name,
+4.  Click on the link to the new profile in the profile list,
+5.  Click on "Associated apps" in the "Applications" section,
+6.  Click the menu button > "New app/activity",
+7.  Select the package name for your app,
+8.  Select "*",
+9.  Click the "Back" capacitive button,
+10. Make sure the "Profile enabled" checkbox is ticked.
+11. Uncheck all three "Enabled" checkboxes under the sections of:
+    "Barcode input", "Keystroke output" and "Intent output".
+
+                    ]]>
+
+                </DESC>
+            </REMARK>
+        </REMARKS>
+        <EXAMPLES >
+            <EXAMPLE title="Basic Example">
+                <SECTIONS>
+                <SECTION>
+                <DESC>
+                    The default barcode reader on the device is enabled when the index view is loaded. It is enabled so when a barcode is red the decodeEvent is called.
+                </DESC>
+                <CODE>
+            <![CDATA[
+#/app/Model
+def index
+    Rho::Barcode.enable( url_for(:action => :decodeEvent)
+end
+
+ def decodeEvent
+    puts "Scanned Barcode #{@params}"
+    decodeHash = @params['body']
+    puts "Data is #{decodeHash['data']}"
+    WebView.execute_js("onDecodeEventRuby('#{decodeHash['data']}','#{decodeHash['source']}','#{decodeHash['type']}','#{decodeHash['time']}','#{decodeHash['length']}','Decode','#{decodeHash['direction']}');")
+  end
+
+                    ]]>
+
+                </CODE>
+                </SECTION>
+                <SECTION>
+                <DESC>
+                    Then in index.erb file:.
+                </DESC>
+                <CODE>
+            <![CDATA[
+<script type="text/javascript" charset="utf-8" src="/public/js/application.js"></script>
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Barcode Extension Test</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse"
+       <%= "data-ajax='false'" if is_bb6 %>>Home</a>
+      
+  </div>
+    <div id='output1'>Output goes here</div>
+  <div data-role="content">
+    <ul data-role="listview">
+        <%= link_to 'Run Test', { :action => :run_test }%>
+        <a href="javascript:dcTest()">Run Test JS</a>
+        <a href="scanner_ajax.htm">Scanner (Ajax Requests)</a>
+    </ul>
+  </div>
+
+</div>
+
+                    ]]>
+
+                </CODE>
+                </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES>
     </MODULE>
 </API>    

@@ -1,0 +1,117 @@
+#NetworkAccess
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu"><li><a href="#pauthPassword" data-target="cPropertyauthPassword" class="autouncollapse">authPassword</a></li><li><a href="#pauthType" data-target="cPropertyauthType" class="autouncollapse">authType</a></li><li><a href="#pauthUser" data-target="cPropertyauthUser" class="autouncollapse">authUser</a></li><li><a href="#pheaders" data-target="cPropertyheaders" class="autouncollapse">headers</a></li><li><a href="#phttpVerb" data-target="cPropertyhttpVerb" class="autouncollapse"><span class="text-info">httpVerb</span></a></li><li><a href="#purl" data-target="cPropertyurl" class="autouncollapse">url</a></li><li><a href="#pverifyPeerCertificate" data-target="cPropertyverifyPeerCertificate" class="autouncollapse"><span class="text-info">verifyPeerCertificate</span></a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu"><li><a href="#mcancel" data-target="cMethodcancel" class="autouncollapse">cancel</a></li><li><a href="#mdownloadFile" data-target="cMethoddownloadFile" class="autouncollapse">downloadFile</a></li><li><a href="#mget" data-target="cMethodget" class="autouncollapse">get</a></li><li><a href="#mpost" data-target="cMethodpost" class="autouncollapse">post</a></li><li><a href="#muploadFile" data-target="cMethoduploadFile" class="autouncollapse">uploadFile</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button></div><div data-spy="scroll"  >
+is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.
+
+<a name='Properties'></a>
+<h2><i class='icon-list'></i>Properties</h2>
+
+<a name='pauthPassword'></a><div class='accordion property' id='pauthPassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthPassword"><strong>authPassword</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthPassword" class="accordion-body collapse in">  <div class="accordion-inner">Password for basic authentication.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.authPassword='some string'</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.authPassword='some string';</pre></p>  </div></div></div></div><a name='pauthType'></a><div class='accordion property' id='pauthType'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthType"><strong>authType</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthType" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>basic</dt><dd><dt></dl><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.authType='some string'</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.authType='some string';</pre></p>  </div></div></div></div><a name='pauthUser'></a><div class='accordion property' id='pauthUser'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthUser"><strong>authUser</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthUser" class="accordion-body collapse in">  <div class="accordion-inner">User name for basic authentication.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.authUser='some string'</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.authUser='some string';</pre></p>  </div></div></div></div><a name='pheaders'></a><div class='accordion property' id='pheaders'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyheaders"><strong>headers</strong> : <span class='text-info'>HASH</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyheaders" class="accordion-body collapse in">  <div class="accordion-inner">Request HTTP headers.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.headers=</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.headers=;</pre></p>  </div></div></div></div><a name='phttpVerb'></a><div class='accordion property' id='phttpVerb'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpVerb"><strong><span class="text-info">httpVerb</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpVerb" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_command</span> Password for basic authentication.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.httpVerb='some string'</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.httpVerb='some string';</pre></p>  </div></div></div></div><a name='purl'></a><div class='accordion property' id='purl'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyurl"><strong>url</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyurl" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.url='some string'</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.url='some string';</pre></p>  </div></div></div></div><a name='pverifyPeerCertificate'></a><div class='accordion property' id='pverifyPeerCertificate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyverifyPeerCertificate"><strong><span class="text-info">verifyPeerCertificate</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyverifyPeerCertificate" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:ssl_verify_peer</span> Verify SSL certificates.<p><strong>Default:</strong> true</p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+NetworkAccess.verifyPeerCertificate=true</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+NetworkAccess.verifyPeerCertificate=true;</pre></p>  </div></div></div></div>
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='mcancel'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodcancel"><strong data-toggle="tooltip" title data-original-title="Cancel the request identified by callback. If callback is mossed then all requests will be cancelled.">cancel</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodcancel" class="accordion-body collapse in">  <div class="accordion-inner">Cancel the request identified by callback. If callback is mossed then all requests will be cancelled.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdownloadFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddownloadFile"><strong data-toggle="tooltip" title data-original-title="Download a file to the specified filename.">downloadFile</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddownloadFile" class="accordion-body collapse in">  <div class="accordion-inner">Download a file to the specified filename.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>NetworkAccess.downloadFile(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>NetworkAccess.downloadFile(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+NetworkAccess.downloadFile(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>NetworkAccess.downloadFile(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>NetworkAccess.downloadFile(...., mycallback() )</pre><p>Javascript</p><pre>NetworkAccess.downloadFile(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>body : <span class='text-info'>STRING</span><p>The body of the HTTP response.</p></li><li>headers : <span class='text-info'>HASH</span><p>A hash containing the response headers.</p></li><li>cookies : <span class='text-info'>STRING</span><p>The server cookies, parsed and usable for subsequent requests.</p></li><li>http_error : <span class='text-info'>INTEGER</span><p>HTTP error code if response code was not 200.</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='mget'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodget"><strong data-toggle="tooltip" title data-original-title="Perform an HTTP GET request.">get</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodget" class="accordion-body collapse in">  <div class="accordion-inner">Perform an HTTP GET request.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>NetworkAccess.get(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>NetworkAccess.get(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+NetworkAccess.get(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>NetworkAccess.get(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>NetworkAccess.get(...., mycallback() )</pre><p>Javascript</p><pre>NetworkAccess.get(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>body : <span class='text-info'>STRING</span><p>The body of the HTTP response.</p></li><li>headers : <span class='text-info'>HASH</span><p>A hash containing the response headers.</p></li><li>cookies : <span class='text-info'>STRING</span><p>The server cookies, parsed and usable for subsequent requests.</p></li><li>http_error : <span class='text-info'>INTEGER</span><p>HTTP error code if response code was not 200.</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='mpost'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodpost"><strong data-toggle="tooltip" title data-original-title="Download a file to the specified filename.">post</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodpost" class="accordion-body collapse in">  <div class="accordion-inner">Download a file to the specified filename.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>NetworkAccess.post(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>NetworkAccess.post(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+NetworkAccess.post(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>NetworkAccess.post(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>NetworkAccess.post(...., mycallback() )</pre><p>Javascript</p><pre>NetworkAccess.post(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>body : <span class='text-info'>STRING</span><p>The body of the HTTP response.</p></li><li>headers : <span class='text-info'>HASH</span><p>A hash containing the response headers.</p></li><li>cookies : <span class='text-info'>STRING</span><p>The server cookies, parsed and usable for subsequent requests.</p></li><li>http_error : <span class='text-info'>INTEGER</span><p>HTTP error code if response code was not 200.</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='muploadFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoduploadFile"><strong data-toggle="tooltip" title data-original-title="Upload the specified file using HTTP POST.">uploadFile</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoduploadFile" class="accordion-body collapse in">  <div class="accordion-inner">Upload the specified file using HTTP POST.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>NetworkAccess.uploadFile(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>NetworkAccess.uploadFile(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+NetworkAccess.uploadFile(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>NetworkAccess.uploadFile(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>NetworkAccess.uploadFile(...., mycallback() )</pre><p>Javascript</p><pre>NetworkAccess.uploadFile(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>body : <span class='text-info'>STRING</span><p>The body of the HTTP response.</p></li><li>headers : <span class='text-info'>HASH</span><p>A hash containing the response headers.</p></li><li>cookies : <span class='text-info'>STRING</span><p>The server cookies, parsed and usable for subsequent requests.</p></li><li>http_error : <span class='text-info'>INTEGER</span><p>HTTP error code if response code was not 200.</p></li></ul></div>  </div></div></div></div></div></div>

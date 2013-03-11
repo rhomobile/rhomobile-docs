@@ -1,0 +1,410 @@
+#Camera
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu"><li><a href="#pcaptureSound" data-target="cPropertycaptureSound" class="autouncollapse">captureSound</a></li><li><a href="#pcolorModel" data-target="cPropertycolorModel" class="autouncollapse"><span class="text-info">colorModel</span></a></li><li><a href="#pcompressionFormat" data-target="cPropertycompressionFormat" class="autouncollapse"><span class="text-info">compressionFormat</span></a></li><li><a href="#pdesiredHeight" data-target="cPropertydesiredHeight" class="autouncollapse"><span class="text-info">desiredHeight</span></a></li><li><a href="#pdesiredWidth" data-target="cPropertydesiredWidth" class="autouncollapse"><span class="text-info">desiredWidth</span></a></li><li><a href="#penableEditing" data-target="cPropertyenableEditing" class="autouncollapse"><span class="text-info">enableEditing</span></a></li><li><a href="#pflashMode" data-target="cPropertyflashMode" class="autouncollapse"><span class="text-info">flashMode</span></a></li><li><a href="#poutputFormat" data-target="cPropertyoutputFormat" class="autouncollapse">outputFormat</a></li><li><a href="#ppreviewHeight" data-target="cPropertypreviewHeight" class="autouncollapse">previewHeight</a></li><li><a href="#ppreviewLeft" data-target="cPropertypreviewLeft" class="autouncollapse"><span class="text-info">previewLeft</span></a></li><li><a href="#ppreviewTop" data-target="cPropertypreviewTop" class="autouncollapse"><span class="text-info">previewTop</span></a></li><li><a href="#ppreviewWidth" data-target="cPropertypreviewWidth" class="autouncollapse">previewWidth</a></li><li><a href="#psaveToSharedGallery" data-target="cPropertysaveToSharedGallery" class="autouncollapse"><span class="text-info">saveToSharedGallery</span></a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu"><li><a href="#mchoosePicture" data-target="cMethodchoosePicture" class="autouncollapse"><span class='text-info'>choosePicture</span></a></li><li><a href="#mclearAllProperties" data-target="cMethodclearAllProperties" class="autouncollapse">clearAllProperties</a></li><li><a href="#mdefault" data-target="cMethoddefault" class="autouncollapse">default</a></li><li><a href="#menumerate" data-target="cMethodenumerate" class="autouncollapse">enumerate</a></li><li><a href="#mgetAllProperties" data-target="cMethodgetAllProperties" class="autouncollapse">getAllProperties</a></li><li><a href="#mgetCameraInfo" data-target="cMethodgetCameraInfo" class="autouncollapse"><span class='text-info'>getCameraInfo</span></a></li><li><a href="#mgetProperties" data-target="cMethodgetProperties" class="autouncollapse">getProperties</a></li><li><a href="#mgetProperty" data-target="cMethodgetProperty" class="autouncollapse">getProperty</a></li><li><a href="#msaveImageToDeviceGallery" data-target="cMethodsaveImageToDeviceGallery" class="autouncollapse"><span class='text-info'>saveImageToDeviceGallery</span></a></li><li><a href="#msetDefault" data-target="cMethodsetDefault" class="autouncollapse">setDefault</a></li><li><a href="#msetProperties" data-target="cMethodsetProperties" class="autouncollapse">setProperties</a></li><li><a href="#msetProperty" data-target="cMethodsetProperty" class="autouncollapse">setProperty</a></li><li><a href="#mtakePicture" data-target="cMethodtakePicture" class="autouncollapse"><span class='text-info'>takePicture</span></a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button></div><div data-spy="scroll"  >
+The Camera API provides access to your device's Camera(s)
+
+<a name='Properties'></a>
+<h2><i class='icon-list'></i>Properties</h2>
+
+<a name='pcaptureSound'></a><div class='accordion property' id='pcaptureSound'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycaptureSound"><strong>captureSound</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycaptureSound" class="accordion-body collapse in">  <div class="accordion-inner">Path to a sound file resident on the device which will be played when the image is captured.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.captureSound='some string'
+# Setting one property
+Camera.setProperty :captureSound, 'some string' 
+# Setting multiple properties using HASH
+Camera.setProperties { :captureSound => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = Camera.getProperty('captureSound')
+# Getting multiple properties
+myvar = Camera.getProperties(['captureSound' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.captureSound='some string';
+# Setting one property
+Camera.setProperty('captureSound','some string');
+# Setting multiple properties using JSON object
+Camera.setProperties({ :captureSound:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = Camera.getProperty('captureSound');
+# Getting multiple properties
+myvar = Camera.getProperties(['captureSound' , 'another_property']);</pre></p>  </div></div></div></div><a name='pcolorModel'></a><div class='accordion property' id='pcolorModel'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycolorModel"><strong><span class="text-info">colorModel</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycolorModel" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:color_model</span> Where supported by the hardware this property can be used to select whether to capture a color or a grayscale image.<p><strong>Default:</strong> RGB</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>rgb</dt><dd>A colour image is captured.<dt><dt>grayscale</dt><dd>A grayscale image is captured.<dt></dl><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.colorModel='some string'
+# Setting one property
+Camera.setProperty :colorModel, 'some string' 
+# Setting multiple properties using HASH
+Camera.setProperties { :colorModel => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = Camera.getProperty('colorModel')
+# Getting multiple properties
+myvar = Camera.getProperties(['colorModel' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.colorModel='some string';
+# Setting one property
+Camera.setProperty('colorModel','some string');
+# Setting multiple properties using JSON object
+Camera.setProperties({ :colorModel:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = Camera.getProperty('colorModel');
+# Getting multiple properties
+myvar = Camera.getProperties(['colorModel' , 'another_property']);</pre></p>  </div></div></div></div><a name='pcompressionFormat'></a><div class='accordion property' id='pcompressionFormat'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycompressionFormat"><strong><span class="text-info">compressionFormat</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycompressionFormat" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:format</span> The format of the captured image in subsequent calls to takePicture().  If you do not define this property when you use choose_picture with iOS, the type of image in Gallery will be recognized, and the same format will be used for saving the image to applications data.<p><strong>Default:</strong> jpg</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>jpg</dt><dd>JPG compression<dt><dt>png</dt><dd>PNG compression<dt></dl><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.compressionFormat='some string'
+# Setting one property
+Camera.setProperty :compressionFormat, 'some string' 
+# Setting multiple properties using HASH
+Camera.setProperties { :compressionFormat => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = Camera.getProperty('compressionFormat')
+# Getting multiple properties
+myvar = Camera.getProperties(['compressionFormat' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.compressionFormat='some string';
+# Setting one property
+Camera.setProperty('compressionFormat','some string');
+# Setting multiple properties using JSON object
+Camera.setProperties({ :compressionFormat:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = Camera.getProperty('compressionFormat');
+# Getting multiple properties
+myvar = Camera.getProperties(['compressionFormat' , 'another_property']);</pre></p>  </div></div></div></div><a name='pdesiredHeight'></a><div class='accordion property' id='pdesiredHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydesiredHeight"><strong><span class="text-info">desiredHeight</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydesiredHeight" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:desired_height</span> Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc.  Specifying a desiredHeight will request to take the photo with the specified height but if it is not supported by the hardware then the closest match will be selected.  The callback received when a photo is taken contains the actual resolution of the captured photo.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.desiredHeight=0
+# Setting one property
+Camera.setProperty :desiredHeight, 0 
+# Setting multiple properties using HASH
+Camera.setProperties { :desiredHeight => 0 , :another_property => 0}
+
+# Getting one property
+myvar = Camera.getProperty('desiredHeight')
+# Getting multiple properties
+myvar = Camera.getProperties(['desiredHeight' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.desiredHeight=0;
+# Setting one property
+Camera.setProperty('desiredHeight',0);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :desiredHeight:0 , :another_property:0});
+
+# Getting one property
+myvar = Camera.getProperty('desiredHeight');
+# Getting multiple properties
+myvar = Camera.getProperties(['desiredHeight' , 'another_property']);</pre></p>  </div></div></div></div><a name='pdesiredWidth'></a><div class='accordion property' id='pdesiredWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydesiredWidth"><strong><span class="text-info">desiredWidth</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydesiredWidth" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:desired_width</span> Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc.  Specifying a desiredWidth will request to take the photo with the specified width but if it is not supported by the hardware then the closest match will be selected.  The callback received when a photo is taken contains the actual resolution of the captured photo.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.desiredWidth=0
+# Setting one property
+Camera.setProperty :desiredWidth, 0 
+# Setting multiple properties using HASH
+Camera.setProperties { :desiredWidth => 0 , :another_property => 0}
+
+# Getting one property
+myvar = Camera.getProperty('desiredWidth')
+# Getting multiple properties
+myvar = Camera.getProperties(['desiredWidth' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.desiredWidth=0;
+# Setting one property
+Camera.setProperty('desiredWidth',0);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :desiredWidth:0 , :another_property:0});
+
+# Getting one property
+myvar = Camera.getProperty('desiredWidth');
+# Getting multiple properties
+myvar = Camera.getProperties(['desiredWidth' , 'another_property']);</pre></p>  </div></div></div></div><a name='penableEditing'></a><div class='accordion property' id='penableEditing'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyenableEditing"><strong><span class="text-info">enableEditing</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyenableEditing" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:enable_editing</span> Enables post photo capture image customizing; image will captured reduced to screen size (not full size).<p><strong>Default:</strong> true</p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.enableEditing=true
+# Setting one property
+Camera.setProperty :enableEditing, true 
+# Setting multiple properties using HASH
+Camera.setProperties { :enableEditing => true , :another_property => true}
+
+# Getting one property
+myvar = Camera.getProperty('enableEditing')
+# Getting multiple properties
+myvar = Camera.getProperties(['enableEditing' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.enableEditing=true;
+# Setting one property
+Camera.setProperty('enableEditing',true);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :enableEditing:true , :another_property:true});
+
+# Getting one property
+myvar = Camera.getProperty('enableEditing');
+# Getting multiple properties
+myvar = Camera.getProperties(['enableEditing' , 'another_property']);</pre></p>  </div></div></div></div><a name='pflashMode'></a><div class='accordion property' id='pflashMode'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyflashMode"><strong><span class="text-info">flashMode</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyflashMode" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:flash_mode</span> Specifies the flash behaviour when taking a picture<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>on</dt><dd>Flash will be used<dt><dt>off</dt><dd>Flash will not be used<dt><dt>auto</dt><dd>Flash will be used if lighting conditions deem it necessary<dt><dt>redEye</dt><dd>Flash with red eye reduction is used<dt><dt>torch</dt><dd>The flash is turned on in torch mode<dt></dl><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.flashMode='some string'
+# Setting one property
+Camera.setProperty :flashMode, 'some string' 
+# Setting multiple properties using HASH
+Camera.setProperties { :flashMode => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = Camera.getProperty('flashMode')
+# Getting multiple properties
+myvar = Camera.getProperties(['flashMode' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.flashMode='some string';
+# Setting one property
+Camera.setProperty('flashMode','some string');
+# Setting multiple properties using JSON object
+Camera.setProperties({ :flashMode:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = Camera.getProperty('flashMode');
+# Getting multiple properties
+myvar = Camera.getProperties(['flashMode' , 'another_property']);</pre></p>  </div></div></div></div><a name='poutputFormat'></a><div class='accordion property' id='poutputFormat'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoutputFormat"><strong>outputFormat</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoutputFormat" class="accordion-body collapse in">  <div class="accordion-inner">Specifies the way to return the captured image to the application<p><strong>Default:</strong> image</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>image</dt><dd>The captured image is stored on the device.  The callback associated with takePicture will contain the location of the image.<dt><dt>dataUri</dt><dd>Image will be returned as a Data URI object, this is a base 64 encoding of the image and can be used to easily embed the image on the page or store the image in a database.<dt></dl><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.outputFormat='some string'
+# Setting one property
+Camera.setProperty :outputFormat, 'some string' 
+# Setting multiple properties using HASH
+Camera.setProperties { :outputFormat => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = Camera.getProperty('outputFormat')
+# Getting multiple properties
+myvar = Camera.getProperties(['outputFormat' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.outputFormat='some string';
+# Setting one property
+Camera.setProperty('outputFormat','some string');
+# Setting multiple properties using JSON object
+Camera.setProperties({ :outputFormat:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = Camera.getProperty('outputFormat');
+# Getting multiple properties
+myvar = Camera.getProperties(['outputFormat' , 'another_property']);</pre></p>  </div></div></div></div><a name='ppreviewHeight'></a><div class='accordion property' id='ppreviewHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewHeight"><strong>previewHeight</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewHeight" class="accordion-body collapse in">  <div class="accordion-inner">In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.previewHeight=0
+# Setting one property
+Camera.setProperty :previewHeight, 0 
+# Setting multiple properties using HASH
+Camera.setProperties { :previewHeight => 0 , :another_property => 0}
+
+# Getting one property
+myvar = Camera.getProperty('previewHeight')
+# Getting multiple properties
+myvar = Camera.getProperties(['previewHeight' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.previewHeight=0;
+# Setting one property
+Camera.setProperty('previewHeight',0);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :previewHeight:0 , :another_property:0});
+
+# Getting one property
+myvar = Camera.getProperty('previewHeight');
+# Getting multiple properties
+myvar = Camera.getProperties(['previewHeight' , 'another_property']);</pre></p>  </div></div></div></div><a name='ppreviewLeft'></a><div class='accordion property' id='ppreviewLeft'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewLeft"><strong><span class="text-info">previewLeft</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewLeft" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:left</span> In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.previewLeft=0
+# Setting one property
+Camera.setProperty :previewLeft, 0 
+# Setting multiple properties using HASH
+Camera.setProperties { :previewLeft => 0 , :another_property => 0}
+
+# Getting one property
+myvar = Camera.getProperty('previewLeft')
+# Getting multiple properties
+myvar = Camera.getProperties(['previewLeft' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.previewLeft=0;
+# Setting one property
+Camera.setProperty('previewLeft',0);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :previewLeft:0 , :another_property:0});
+
+# Getting one property
+myvar = Camera.getProperty('previewLeft');
+# Getting multiple properties
+myvar = Camera.getProperties(['previewLeft' , 'another_property']);</pre></p>  </div></div></div></div><a name='ppreviewTop'></a><div class='accordion property' id='ppreviewTop'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewTop"><strong><span class="text-info">previewTop</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewTop" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:top</span> In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.previewTop=0
+# Setting one property
+Camera.setProperty :previewTop, 0 
+# Setting multiple properties using HASH
+Camera.setProperties { :previewTop => 0 , :another_property => 0}
+
+# Getting one property
+myvar = Camera.getProperty('previewTop')
+# Getting multiple properties
+myvar = Camera.getProperties(['previewTop' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.previewTop=0;
+# Setting one property
+Camera.setProperty('previewTop',0);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :previewTop:0 , :another_property:0});
+
+# Getting one property
+myvar = Camera.getProperty('previewTop');
+# Getting multiple properties
+myvar = Camera.getProperties(['previewTop' , 'another_property']);</pre></p>  </div></div></div></div><a name='ppreviewWidth'></a><div class='accordion property' id='ppreviewWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewWidth"><strong>previewWidth</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewWidth" class="accordion-body collapse in">  <div class="accordion-inner">In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.previewWidth=0
+# Setting one property
+Camera.setProperty :previewWidth, 0 
+# Setting multiple properties using HASH
+Camera.setProperties { :previewWidth => 0 , :another_property => 0}
+
+# Getting one property
+myvar = Camera.getProperty('previewWidth')
+# Getting multiple properties
+myvar = Camera.getProperties(['previewWidth' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.previewWidth=0;
+# Setting one property
+Camera.setProperty('previewWidth',0);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :previewWidth:0 , :another_property:0});
+
+# Getting one property
+myvar = Camera.getProperty('previewWidth');
+# Getting multiple properties
+myvar = Camera.getProperties(['previewWidth' , 'another_property']);</pre></p>  </div></div></div></div><a name='psaveToSharedGallery'></a><div class='accordion property' id='psaveToSharedGallery'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysaveToSharedGallery"><strong><span class="text-info">saveToSharedGallery</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysaveToSharedGallery" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:save_to_shared_gallery</span> If true, the picture you take will be added to the camera roll. <p><strong>Default:</strong> false</p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre># Setting directly
+Camera.saveToSharedGallery=true
+# Setting one property
+Camera.setProperty :saveToSharedGallery, true 
+# Setting multiple properties using HASH
+Camera.setProperties { :saveToSharedGallery => true , :another_property => true}
+
+# Getting one property
+myvar = Camera.getProperty('saveToSharedGallery')
+# Getting multiple properties
+myvar = Camera.getProperties(['saveToSharedGallery' , 'another_property'])</pre>
+
+<strong>Javascript Usage</strong>
+
+<pre>
+# Setting directly
+Camera.saveToSharedGallery=true;
+# Setting one property
+Camera.setProperty('saveToSharedGallery',true);
+# Setting multiple properties using JSON object
+Camera.setProperties({ :saveToSharedGallery:true , :another_property:true});
+
+# Getting one property
+myvar = Camera.getProperty('saveToSharedGallery');
+# Getting multiple properties
+myvar = Camera.getProperties(['saveToSharedGallery' , 'another_property']);</pre></p>  </div></div></div></div>
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='mchoosePicture'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodchoosePicture"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:choose_picture</span> Choose a picture from the album"><span class="text-info">choosePicture</span></strong>(<span class="text-info">HASH</span> propertyMap)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodchoosePicture" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:choose_picture</span> Choose a picture from the album<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the camera, for example to specify the flashMode or compressionFormat Not providing properties to this function will use the Camera's default properties, or those previlusly set on the Camera instance</p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">clearAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdefault'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddefault"><strong data-toggle="tooltip" title data-original-title="This is documentation">default</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddefault" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Default object of Module.</li></ul></div>  </div></div></div></div><div class='accordion method' id='menumerate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodenumerate"><strong data-toggle="tooltip" title data-original-title="This is documentation">enumerate</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodenumerate" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Array of objects.</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetCameraInfo'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetCameraInfo"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:get_camera_info</span> Retrieves camera information, this will return the maximum resolution supported by the camera hardware, or nil if there is no camera.  This information can be used as the desiredWidth and desiredHeight parameters."><span class="text-info">getCameraInfo</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetCameraInfo" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:get_camera_info</span> Retrieves camera information, this will return the maximum resolution supported by the camera hardware, or nil if there is no camera.  This information can be used as the desiredWidth and desiredHeight parameters.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>maxHeight : <span class='text-info'>INTEGER</span><p>The maximum height of images which can be captured.</p></li><li>maxWidth : <span class='text-info'>INTEGER</span><p>The maximum width of images which can be captured.</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperties</strong>(<span class="text-info">ARRAY</span> arrayofNames, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>Camera.getProperties(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>Camera.getProperties(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+Camera.getProperties(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>Camera.getProperties(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>Camera.getProperties(...., mycallback() )</pre><p>Javascript</p><pre>Camera.getProperties(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property that I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>Camera.getProperty(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>Camera.getProperty(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+Camera.getProperty(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>Camera.getProperty(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>Camera.getProperty(...., mycallback() )</pre><p>Javascript</p><pre>Camera.getProperty(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : The one property that I want to know about</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>value : <span class='text-info'>STRING</span><p>The one property that I want to know about</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='msaveImageToDeviceGallery'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsaveImageToDeviceGallery"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:save_image_to_device_gallery</span> Save an image to the device gallery"><span class="text-info">saveImageToDeviceGallery</span></strong>(<span class="text-info">STRING</span> pathToImage)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsaveImageToDeviceGallery" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:save_image_to_device_gallery</span> Save an image to the device gallery<div><p><strong>Parameters</strong></p><ul><li>pathToImage : <span class='text-info'>STRING</span><p>The real path to the image that is to be saved in the device gallery. You need to use the RhoApplication method get_blob_path to have the real path, such as Rho::RhoApplication::get_blob_path(img.image_uri). </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetDefault'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetDefault"><strong data-toggle="tooltip" title data-original-title="This is documentation">setDefault</strong>(<span class="text-info">SELF_INSTANCE</span> defaultInstance)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetDefault" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE</span><p>Default instance I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperties</strong>(<span class="text-info">HASH</span> propertyMap)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mtakePicture'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodtakePicture"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:take_picture</span> Start the camera appliction to take a picture.  The user can capture the displayed image either by interacting with the resident camera app or pressing the trigger or enter key, depending on the device in use."><span class="text-info">takePicture</span></strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodtakePicture" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:take_picture</span> Start the camera appliction to take a picture.  The user can capture the displayed image either by interacting with the resident camera app or pressing the trigger or enter key, depending on the device in use.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the camera, for example to specify the flashMode or compressionFormat Not providing properties to this function will use the Camera's default properties, or those previlusly set on the Camera instance</p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span><p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p><pre>Camera.takePicture(...., url_for :action => :mycallback)</pre><p>Javascript</p><pre>Camera.takePicture(....,'/app/model/mycallback');</pre></li><li>Anonymous function:<p>Ruby</p>
+<pre>
+Camera.takePicture(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</pre><p>Javascript</p><pre>Camera.takePicture(....,function(params){
+//Your code here
+};);</pre></li><li>Function<p>Ruby</p><pre>Camera.takePicture(...., mycallback() )</pre><p>Javascript</p><pre>Camera.takePicture(...., mycallback());</pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>status : <span class='text-info'>STRING</span><p>Whether or not the image was successfully captured.  The returned string will be one of 'ok', 'cancel' or 'error'.</p></li><li>imageUri : <span class='text-info'>STRING</span><p>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device, this image will have an auto-generated name.  If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI.</p></li><li>imageHeight : <span class='text-info'>INTEGER</span><p>The actual height of the image that was captured, this may differ from the requested height as the Camera will only support a finite number of resolutions.</p></li><li>imageWidth : <span class='text-info'>INTEGER</span><p>The actual width of the image that was captured, this may differ from the requested width as the Camera will only support a finite number of resolutions.</p></li><li>imageFormat : <span class='text-info'>STRING</span><p>The format in which the image was captured, either 'png' or 'jpg'.</p></li><li>message : <span class='text-info'>STRING</span><p>If the returned status is 'error' then this field will contain more information on the error.</p></li><li><span class="text-error">image_uri</span> : <span class='text-info'>STRING <span class='label label-important'>deprecated</span> </span><p>It is recommended to use imageUri in preference to this parameter</p></li><li><span class="text-error">image_height</span> : <span class='text-info'>INTEGER <span class='label label-important'>deprecated</span> </span><p>It is recommended to use imageHeight in preference to this parameter</p></li><li><span class="text-error">image_width</span> : <span class='text-info'>INTEGER <span class='label label-important'>deprecated</span> </span><p>It is recommended to use imageWidth in preference to this parameter</p></li><li><span class="text-error">image_format</span> : <span class='text-info'>STRING <span class='label label-important'>deprecated</span> </span><p>It is recommended to use imageFormat in preference to this parameter</p></li></ul></div>  </div></div></div></div></div></div>
