@@ -1,4 +1,5 @@
 require 'xmlsimple'
+require 'rdiscount'
 
 class Api
 
@@ -197,8 +198,8 @@ class Api
 	  		examplename = element["title"]
 	  		sect=element["SECTIONS"][0]["SECTION"]
 	  		sect.each() { |section|
-	  			puts "**********"
-	  			puts section
+	  			#puts "**********"
+	  			#puts section
 	  			examplesections += "\n"
 	  			examplesections += section["DESC"][0]
 	  			examplesections += "\n<pre>"
@@ -247,8 +248,9 @@ class Api
 		    md += '</div>'
 		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body collapse in">'
 		    md +='  <div class="accordion-inner">'
-
-		  	md += element["DESC"][0]
+		    html = RDiscount.new(element["DESC"][0], :smart).to_html
+		
+		  	md += html
 		  	md += '  </div>'
 		    md += '</div>'
 		    md += '</div>'
@@ -766,7 +768,7 @@ class Api
   	
     md += "</div>"
   	# puts md
-  	File.open("#{topic}.txt", 'w') {|f| f.write(md) }
+  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
   return md
   end
 	

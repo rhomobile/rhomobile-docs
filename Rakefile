@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require './api'
 Bundler.setup
 
 require './environment'
@@ -77,6 +78,26 @@ task :archive do
   Rake::Task['process_archive'].invoke
 
   puts "Done"
+
+end
+
+desc 'generate API docs from XML'
+task :process_xml do
+
+  apiXML = File.join(AppConfig['dirs']['api'],"**","*.xml")
+  
+  apiFiles = Dir.glob(apiXML)
+
+  # Links that go to 127.0.0.1:9393 (where no server is running) get styled dark red
+  # Links that go to external sites (may not be reachable if user is truly offline) get italics
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['dirs']['api'],'')
+    if basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
+      puts "Processing " + basename
+    
+      Api.markdown(fileName)
+    end
+  end
 
 end
 

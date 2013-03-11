@@ -143,11 +143,11 @@ xml_string +=  ' </rss>	'
       if  @topic_file == 'docs/rhoelements/apicompatibility.txt'
         source = Indicators.apimatrix_markdown()  
       else
-        if(subpath == 'api')
-          source = Api.markdown(@topic_file)
-        else        
+        # if(subpath == 'api')
+          # source = Api.markdown(@topic_file)
+        # else        
           source = File.read(topic_file(topic, subpath))
-        end
+        # end
       end
       source = source
   		@topic = Topic.load(topic, source)
@@ -199,11 +199,11 @@ xml_string +=  ' </rss>	'
   	  if topic.include?('/')
   	    topic
   		elsif subpath
-        if subpath == 'api'
-          extension = '.xml'
-        else
+        # if subpath == 'api'
+          # extension = '.xml'
+        # else
           extension = '.txt'
-        end
+        # end
         File.join(AppConfig['dirs'][subpath], "#{topic}#{extension}")
   		else
   			"#{settings.root}/docs/#{topic}.txt"
