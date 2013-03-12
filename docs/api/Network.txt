@@ -5,7 +5,7 @@
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pauthPassword'></a><div class='accordion property' id='pauthPassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthPassword"><strong>authPassword</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthPassword" class="accordion-body collapse in">  <div class="accordion-inner">Password for basic authentication.<p>
+<a name='pauthPassword'></a><div class='accordion property' id='pauthPassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthPassword"><strong>authPassword</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthPassword" class="accordion-body collapse in">  <div class="accordion-inner">Password for basic authentication.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -18,7 +18,7 @@ Network.authPassword='some string'</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.authPassword='some string';</code></pre></p>  </div></div></div></div><a name='pauthType'></a><div class='accordion property' id='pauthType'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthType"><strong>authType</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthType" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>basic</dt><dd></dt></dl><p>
+Network.authPassword='some string';</code></pre></p>  </div></div></div></div><a name='pauthType'></a><div class='accordion property' id='pauthType'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthType"><strong>authType</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthType" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>basic</dt><dd></dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -31,7 +31,7 @@ Network.authType='some string'</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.authType='some string';</code></pre></p>  </div></div></div></div><a name='pauthUser'></a><div class='accordion property' id='pauthUser'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthUser"><strong>authUser</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthUser" class="accordion-body collapse in">  <div class="accordion-inner">User name for basic authentication.<p>
+Network.authType='some string';</code></pre></p>  </div></div></div></div><a name='pauthUser'></a><div class='accordion property' id='pauthUser'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthUser"><strong>authUser</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthUser" class="accordion-body collapse in">  <div class="accordion-inner">User name for basic authentication.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -44,7 +44,7 @@ Network.authUser='some string'</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.authUser='some string';</code></pre></p>  </div></div></div></div><a name='pheaders'></a><div class='accordion property' id='pheaders'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyheaders"><strong>headers</strong> : <span class='text-info'>HASH</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyheaders" class="accordion-body collapse in">  <div class="accordion-inner">Request HTTP headers.<p>
+Network.authUser='some string';</code></pre></p>  </div></div></div></div><a name='pheaders'></a><div class='accordion property' id='pheaders'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyheaders"><strong>headers</strong> : <span class='text-info'>HASH</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyheaders" class="accordion-body collapse in">  <div class="accordion-inner">Request HTTP headers.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -57,7 +57,7 @@ Network.headers=</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.headers=;</code></pre></p>  </div></div></div></div><a name='phttpVerb'></a><div class='accordion property' id='phttpVerb'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpVerb"><strong><span class="text-info">httpVerb</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpVerb" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_command</span> Password for basic authentication.<p>
+Network.headers=;</code></pre></p>  </div></div></div></div><a name='phttpVerb'></a><div class='accordion property' id='phttpVerb'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpVerb"><strong><span class="text-info">httpVerb</span></strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpVerb" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_command</span> Password for basic authentication.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -70,7 +70,7 @@ Network.httpVerb='some string'</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.httpVerb='some string';</code></pre></p>  </div></div></div></div><a name='presponseTimeout'></a><div class='accordion property' id='presponseTimeout'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyresponseTimeout"><strong>responseTimeout</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyresponseTimeout" class="accordion-body collapse in">  <div class="accordion-inner">Timeout of network requests in seconds.<p><strong>Default:</strong> 30</p><p>
+Network.httpVerb='some string';</code></pre></p>  </div></div></div></div><a name='presponseTimeout'></a><div class='accordion property' id='presponseTimeout'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyresponseTimeout"><strong>responseTimeout</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyresponseTimeout" class="accordion-body collapse in">  <div class="accordion-inner">Timeout of network requests in seconds.<p><strong>Default:</strong> 30</p><p>
 
 <strong>Ruby Usage</strong>
 
@@ -83,7 +83,7 @@ Network.responseTimeout=0</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.responseTimeout=0;</code></pre></p>  </div></div></div></div><a name='purl'></a><div class='accordion property' id='purl'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyurl"><strong>url</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyurl" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p>
+Network.responseTimeout=0;</code></pre></p>  </div></div></div></div><a name='purl'></a><div class='accordion property' id='purl'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyurl"><strong>url</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyurl" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -96,7 +96,7 @@ Network.url='some string'</code></pre>
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Network.url='some string';</code></pre></p>  </div></div></div></div><a name='pverifyPeerCertificate'></a><div class='accordion property' id='pverifyPeerCertificate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyverifyPeerCertificate"><strong><span class="text-info">verifyPeerCertificate</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyverifyPeerCertificate" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:ssl_verify_peer</span> Verify SSL certificates.<p><strong>Default:</strong> true</p><p>
+Network.url='some string';</code></pre></p>  </div></div></div></div><a name='pverifyPeerCertificate'></a><div class='accordion property' id='pverifyPeerCertificate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyverifyPeerCertificate"><strong><span class="text-info">verifyPeerCertificate</span></strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyverifyPeerCertificate" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:ssl_verify_peer</span> Verify SSL certificates.<p><strong>Default:</strong> true</p><p>
 
 <strong>Ruby Usage</strong>
 

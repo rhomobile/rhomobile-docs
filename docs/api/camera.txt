@@ -5,7 +5,12 @@ The Camera API provides access to your device's Camera(s)
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pcaptureSound'></a><div class='accordion property' id='pcaptureSound'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycaptureSound"><strong>captureSound</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycaptureSound" class="accordion-body collapse in">  <div class="accordion-inner">Path to a sound file resident on the device which will be played when the image is captured.<p>
+<a name='pcaptureSound'></a><div class='accordion property' id='pcaptureSound'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycaptureSound"><strong>captureSound</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycaptureSound" class="accordion-body collapse in">  <div class="accordion-inner">Path to a sound file resident on the device which will be played when the image is captured.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: All devices except iOS</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -36,7 +41,12 @@ Camera.setProperties({ :captureSound:'some string' , :another_property:'some str
 # Getting one property
 myvar = Camera.getProperty('captureSound');
 # Getting multiple properties
-myvar = Camera.getProperties(['captureSound' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcolorModel'></a><div class='accordion property' id='pcolorModel'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycolorModel"><strong><span class="text-info">colorModel</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycolorModel" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:color_model</span> Where supported by the hardware this property can be used to select whether to capture a color or a grayscale image.<p><strong>Default:</strong> RGB</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>rgb</dt><dd>A colour image is captured.</dt><dt>grayscale</dt><dd>A grayscale image is captured.</dt></dl><p>
+myvar = Camera.getProperties(['captureSound' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcolorModel'></a><div class='accordion property' id='pcolorModel'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycolorModel"><strong><span class="text-info">colorModel</span></strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycolorModel" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:color_model</span> Where supported by the hardware this property can be used to select whether to capture a color or a grayscale image.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: iOS and Android devices</td>
+</table>
+
+<p><strong>Default:</strong> RGB</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>rgb</dt><dd>A colour image is captured.</dt><dt>grayscale</dt><dd>A grayscale image is captured.</dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -67,7 +77,12 @@ Camera.setProperties({ :colorModel:'some string' , :another_property:'some strin
 # Getting one property
 myvar = Camera.getProperty('colorModel');
 # Getting multiple properties
-myvar = Camera.getProperties(['colorModel' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcompressionFormat'></a><div class='accordion property' id='pcompressionFormat'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycompressionFormat"><strong><span class="text-info">compressionFormat</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycompressionFormat" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:format</span> The format of the captured image in subsequent calls to takePicture().  If you do not define this property when you use choose_picture with iOS, the type of image in Gallery will be recognized, and the same format will be used for saving the image to applications data.<p><strong>Default:</strong> jpg</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>jpg</dt><dd>JPG compression</dt><dt>png</dt><dd>PNG compression</dt></dl><p>
+myvar = Camera.getProperties(['colorModel' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcompressionFormat'></a><div class='accordion property' id='pcompressionFormat'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycompressionFormat"><strong><span class="text-info">compressionFormat</span></strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycompressionFormat" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:format</span> The format of the captured image in subsequent calls to takePicture().  If you do not define this property when you use choose_picture with iOS, the type of image in Gallery will be recognized, and the same format will be used for saving the image to applications data.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: JPG is supported on all devices, Windows Mobile does not support PNG images</td>
+</table>
+
+<p><strong>Default:</strong> jpg</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>jpg</dt><dd>JPG compression</dt><dt>png</dt><dd>PNG compression</dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -98,7 +113,12 @@ Camera.setProperties({ :compressionFormat:'some string' , :another_property:'som
 # Getting one property
 myvar = Camera.getProperty('compressionFormat');
 # Getting multiple properties
-myvar = Camera.getProperties(['compressionFormat' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdesiredHeight'></a><div class='accordion property' id='pdesiredHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydesiredHeight"><strong><span class="text-info">desiredHeight</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydesiredHeight" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:desired_height</span> Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc.  Specifying a desiredHeight will request to take the photo with the specified height but if it is not supported by the hardware then the closest match will be selected.  The callback received when a photo is taken contains the actual resolution of the captured photo.<p>
+myvar = Camera.getProperties(['compressionFormat' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdesiredHeight'></a><div class='accordion property' id='pdesiredHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydesiredHeight"><strong><span class="text-info">desiredHeight</span></strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydesiredHeight" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:desired_height</span> Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc.  Specifying a desiredHeight will request to take the photo with the specified height but if it is not supported by the hardware then the closest match will be selected.  The callback received when a photo is taken contains the actual resolution of the captured photo.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: All devices</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -129,7 +149,12 @@ Camera.setProperties({ :desiredHeight:0 , :another_property:0});
 # Getting one property
 myvar = Camera.getProperty('desiredHeight');
 # Getting multiple properties
-myvar = Camera.getProperties(['desiredHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdesiredWidth'></a><div class='accordion property' id='pdesiredWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydesiredWidth"><strong><span class="text-info">desiredWidth</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydesiredWidth" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:desired_width</span> Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc.  Specifying a desiredWidth will request to take the photo with the specified width but if it is not supported by the hardware then the closest match will be selected.  The callback received when a photo is taken contains the actual resolution of the captured photo.<p>
+myvar = Camera.getProperties(['desiredHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdesiredWidth'></a><div class='accordion property' id='pdesiredWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydesiredWidth"><strong><span class="text-info">desiredWidth</span></strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydesiredWidth" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:desired_width</span> Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc.  Specifying a desiredWidth will request to take the photo with the specified width but if it is not supported by the hardware then the closest match will be selected.  The callback received when a photo is taken contains the actual resolution of the captured photo.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: All devices</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -160,7 +185,12 @@ Camera.setProperties({ :desiredWidth:0 , :another_property:0});
 # Getting one property
 myvar = Camera.getProperty('desiredWidth');
 # Getting multiple properties
-myvar = Camera.getProperties(['desiredWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='penableEditing'></a><div class='accordion property' id='penableEditing'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyenableEditing"><strong><span class="text-info">enableEditing</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyenableEditing" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:enable_editing</span> Enables post photo capture image customizing; image will captured reduced to screen size (not full size).<p><strong>Default:</strong> true</p><p>
+myvar = Camera.getProperties(['desiredWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='penableEditing'></a><div class='accordion property' id='penableEditing'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyenableEditing"><strong><span class="text-info">enableEditing</span></strong> : <span class='text-info'>BOOLEAN</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyenableEditing" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:enable_editing</span> Enables post photo capture image customizing; image will captured reduced to screen size (not full size).
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: iPhone only</td>
+</table>
+
+<p><strong>Default:</strong> true</p><p>
 
 <strong>Ruby Usage</strong>
 
@@ -191,7 +221,12 @@ Camera.setProperties({ :enableEditing:true , :another_property:true});
 # Getting one property
 myvar = Camera.getProperty('enableEditing');
 # Getting multiple properties
-myvar = Camera.getProperties(['enableEditing' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pflashMode'></a><div class='accordion property' id='pflashMode'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyflashMode"><strong><span class="text-info">flashMode</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyflashMode" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:flash_mode</span> Specifies the flash behaviour when taking a picture<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>on</dt><dd>Flash will be used</dt><dt>off</dt><dd>Flash will not be used</dt><dt>auto</dt><dd>Flash will be used if lighting conditions deem it necessary</dt><dt>redEye</dt><dd>Flash with red eye reduction is used</dt><dt>torch</dt><dd>The flash is turned on in torch mode</dt></dl><p>
+myvar = Camera.getProperties(['enableEditing' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pflashMode'></a><div class='accordion property' id='pflashMode'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyflashMode"><strong><span class="text-info">flashMode</span></strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyflashMode" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:flash_mode</span> Specifies the flash behaviour when taking a picture
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: Android only</td>
+</table>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>on</dt><dd>Flash will be used</dt><dt>off</dt><dd>Flash will not be used</dt><dt>auto</dt><dd>Flash will be used if lighting conditions deem it necessary</dt><dt>redEye</dt><dd>Flash with red eye reduction is used</dt><dt>torch</dt><dd>The flash is turned on in torch mode</dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -222,7 +257,12 @@ Camera.setProperties({ :flashMode:'some string' , :another_property:'some string
 # Getting one property
 myvar = Camera.getProperty('flashMode');
 # Getting multiple properties
-myvar = Camera.getProperties(['flashMode' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='poutputFormat'></a><div class='accordion property' id='poutputFormat'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoutputFormat"><strong>outputFormat</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoutputFormat" class="accordion-body collapse in">  <div class="accordion-inner">Specifies the way to return the captured image to the application<p><strong>Default:</strong> image</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>image</dt><dd>The captured image is stored on the device.  The callback associated with takePicture will contain the location of the image.</dt><dt>dataUri</dt><dd>Image will be returned as a Data URI object, this is a base 64 encoding of the image and can be used to easily embed the image on the page or store the image in a database.</dt></dl><p>
+myvar = Camera.getProperties(['flashMode' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='poutputFormat'></a><div class='accordion property' id='poutputFormat'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoutputFormat"><strong>outputFormat</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoutputFormat" class="accordion-body collapse in">  <div class="accordion-inner">Specifies the way to return the captured image to the application
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: All devices</td>
+</table>
+
+<p><strong>Default:</strong> image</p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>image</dt><dd>The captured image is stored on the device.  The callback associated with takePicture will contain the location of the image.</dt><dt>dataUri</dt><dd>Image will be returned as a Data URI object, this is a base 64 encoding of the image and can be used to easily embed the image on the page or store the image in a database.</dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -253,7 +293,12 @@ Camera.setProperties({ :outputFormat:'some string' , :another_property:'some str
 # Getting one property
 myvar = Camera.getProperty('outputFormat');
 # Getting multiple properties
-myvar = Camera.getProperties(['outputFormat' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewHeight'></a><div class='accordion property' id='ppreviewHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewHeight"><strong>previewHeight</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewHeight" class="accordion-body collapse in">  <div class="accordion-inner">In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+myvar = Camera.getProperties(['outputFormat' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewHeight'></a><div class='accordion property' id='ppreviewHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewHeight"><strong>previewHeight</strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewHeight" class="accordion-body collapse in">  <div class="accordion-inner">In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: Windows Embedded Handheld 6.5 devices only</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -284,7 +329,12 @@ Camera.setProperties({ :previewHeight:0 , :another_property:0});
 # Getting one property
 myvar = Camera.getProperty('previewHeight');
 # Getting multiple properties
-myvar = Camera.getProperties(['previewHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewLeft'></a><div class='accordion property' id='ppreviewLeft'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewLeft"><strong><span class="text-info">previewLeft</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewLeft" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:left</span> In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+myvar = Camera.getProperties(['previewHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewLeft'></a><div class='accordion property' id='ppreviewLeft'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewLeft"><strong><span class="text-info">previewLeft</span></strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewLeft" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:left</span> In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: Windows Embedded Handheld 6.5 devices only</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -315,7 +365,12 @@ Camera.setProperties({ :previewLeft:0 , :another_property:0});
 # Getting one property
 myvar = Camera.getProperty('previewLeft');
 # Getting multiple properties
-myvar = Camera.getProperties(['previewLeft' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewTop'></a><div class='accordion property' id='ppreviewTop'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewTop"><strong><span class="text-info">previewTop</span></strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewTop" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:top</span> In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+myvar = Camera.getProperties(['previewLeft' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewTop'></a><div class='accordion property' id='ppreviewTop'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewTop"><strong><span class="text-info">previewTop</span></strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewTop" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:top</span> In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: Windows Embedded Handheld 6.5 devices only</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -346,7 +401,12 @@ Camera.setProperties({ :previewTop:0 , :another_property:0});
 # Getting one property
 myvar = Camera.getProperty('previewTop');
 # Getting multiple properties
-myvar = Camera.getProperties(['previewTop' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewWidth'></a><div class='accordion property' id='ppreviewWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewWidth"><strong>previewWidth</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewWidth" class="accordion-body collapse in">  <div class="accordion-inner">In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.<p>
+myvar = Camera.getProperties(['previewTop' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppreviewWidth'></a><div class='accordion property' id='ppreviewWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypreviewWidth"><strong>previewWidth</strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypreviewWidth" class="accordion-body collapse in">  <div class="accordion-inner">In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: Windows Embedded Handheld 6.5 devices only</td>
+</table>
+
+<p>
 
 <strong>Ruby Usage</strong>
 
@@ -377,7 +437,12 @@ Camera.setProperties({ :previewWidth:0 , :another_property:0});
 # Getting one property
 myvar = Camera.getProperty('previewWidth');
 # Getting multiple properties
-myvar = Camera.getProperties(['previewWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='psaveToSharedGallery'></a><div class='accordion property' id='psaveToSharedGallery'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysaveToSharedGallery"><strong><span class="text-info">saveToSharedGallery</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysaveToSharedGallery" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:save_to_shared_gallery</span> If true, the picture you take will be added to the camera roll. <p><strong>Default:</strong> false</p><p>
+myvar = Camera.getProperties(['previewWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='psaveToSharedGallery'></a><div class='accordion property' id='psaveToSharedGallery'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysaveToSharedGallery"><strong><span class="text-info">saveToSharedGallery</span></strong> : <span class='text-info'>BOOLEAN</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysaveToSharedGallery" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:save_to_shared_gallery</span> If true, the picture you take will be added to the camera roll. 
+<table class='note'>
+<td class='icon'></td><td class='content'>Applies to: iOS only</td>
+</table>
+
+<p><strong>Default:</strong> false</p><p>
 
 <strong>Ruby Usage</strong>
 

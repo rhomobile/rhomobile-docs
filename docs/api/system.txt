@@ -5,7 +5,7 @@ is used to either navigate to a URL or call a javascript function when an attach
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='papplicationIconBadge'></a><div class='accordion property' id='papplicationIconBadge'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyapplicationIconBadge"><strong>applicationIconBadge</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyapplicationIconBadge" class="accordion-body collapse in">  <div class="accordion-inner">Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.<p>
+<a name='papplicationIconBadge'></a><div class='accordion property' id='papplicationIconBadge'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyapplicationIconBadge"><strong>applicationIconBadge</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyapplicationIconBadge" class="accordion-body collapse in">  <div class="accordion-inner">Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -36,7 +36,7 @@ System.setProperties({ :applicationIconBadge:0 , :another_property:0});
 # Getting one property
 myvar = System.getProperty('applicationIconBadge');
 # Getting multiple properties
-myvar = System.getProperties(['applicationIconBadge' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcountry'></a><div class='accordion property' id='pcountry'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycountry"><strong>country</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycountry" class="accordion-body collapse in">  <div class="accordion-inner">Current device country code.<p>
+myvar = System.getProperties(['applicationIconBadge' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pcountry'></a><div class='accordion property' id='pcountry'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertycountry"><strong>country</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertycountry" class="accordion-body collapse in">  <div class="accordion-inner">Current device country code.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -56,7 +56,7 @@ myvar = System.getProperties(['country' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('country');
 # Getting multiple properties
-myvar = System.getProperties(['country' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceName'></a><div class='accordion property' id='pdeviceName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceName"><strong>deviceName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceName" class="accordion-body collapse in">  <div class="accordion-inner">Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).<p>
+myvar = System.getProperties(['country' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceName'></a><div class='accordion property' id='pdeviceName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceName"><strong>deviceName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceName" class="accordion-body collapse in">  <div class="accordion-inner">Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -76,7 +76,7 @@ myvar = System.getProperties(['deviceName' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('deviceName');
 # Getting multiple properties
-myvar = System.getProperties(['deviceName' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceOwnerEmail'></a><div class='accordion property' id='pdeviceOwnerEmail'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerEmail"><strong>deviceOwnerEmail</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerEmail" class="accordion-body collapse in">  <div class="accordion-inner">Primary email of phone owner (works only on Android).<p>
+myvar = System.getProperties(['deviceName' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceOwnerEmail'></a><div class='accordion property' id='pdeviceOwnerEmail'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerEmail"><strong>deviceOwnerEmail</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerEmail" class="accordion-body collapse in">  <div class="accordion-inner">Primary email of phone owner (works only on Android).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -96,7 +96,7 @@ myvar = System.getProperties(['deviceOwnerEmail' , 'another_property'])</code></
 # Getting one property
 myvar = System.getProperty('deviceOwnerEmail');
 # Getting multiple properties
-myvar = System.getProperties(['deviceOwnerEmail' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceOwnerName'></a><div class='accordion property' id='pdeviceOwnerName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerName"><strong>deviceOwnerName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerName" class="accordion-body collapse in">  <div class="accordion-inner">Name(account name) of phone owner (works only on Android).<p>
+myvar = System.getProperties(['deviceOwnerEmail' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdeviceOwnerName'></a><div class='accordion property' id='pdeviceOwnerName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydeviceOwnerName"><strong>deviceOwnerName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydeviceOwnerName" class="accordion-body collapse in">  <div class="accordion-inner">Name(account name) of phone owner (works only on Android).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -116,7 +116,7 @@ myvar = System.getProperties(['deviceOwnerName' , 'another_property'])</code></p
 # Getting one property
 myvar = System.getProperty('deviceOwnerName');
 # Getting multiple properties
-myvar = System.getProperties(['deviceOwnerName' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdevicePushId'></a><div class='accordion property' id='pdevicePushId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydevicePushId"><strong><span class="text-info">devicePushId</span></strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydevicePushId" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:deviceId</span> Push notifications device ID which may be used to receive push messages.<p>
+myvar = System.getProperties(['deviceOwnerName' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pdevicePushId'></a><div class='accordion property' id='pdevicePushId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydevicePushId"><strong><span class="text-info">devicePushId</span></strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydevicePushId" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:deviceId</span> Push notifications device ID which may be used to receive push messages.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -136,7 +136,7 @@ myvar = System.getProperties(['devicePushId' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('devicePushId');
 # Getting multiple properties
-myvar = System.getProperties(['devicePushId' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pfreeServerPort'></a><div class='accordion property' id='pfreeServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyfreeServerPort"><strong>freeServerPort</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyfreeServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Get free local server port, available for binding.<p>
+myvar = System.getProperties(['devicePushId' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pfreeServerPort'></a><div class='accordion property' id='pfreeServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyfreeServerPort"><strong>freeServerPort</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyfreeServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Get free local server port, available for binding.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -156,7 +156,7 @@ myvar = System.getProperties(['freeServerPort' , 'another_property'])</code></pr
 # Getting one property
 myvar = System.getProperty('freeServerPort');
 # Getting multiple properties
-myvar = System.getProperties(['freeServerPort' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCalendar'></a><div class='accordion property' id='phasCalendar'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCalendar"><strong>hasCalendar</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCalendar" class="accordion-body collapse in">  <div class="accordion-inner">Is calendar support is available.<p>
+myvar = System.getProperties(['freeServerPort' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCalendar'></a><div class='accordion property' id='phasCalendar'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCalendar"><strong>hasCalendar</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCalendar" class="accordion-body collapse in">  <div class="accordion-inner">Is calendar support is available.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -176,7 +176,7 @@ myvar = System.getProperties(['hasCalendar' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('hasCalendar');
 # Getting multiple properties
-myvar = System.getProperties(['hasCalendar' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCamera'></a><div class='accordion property' id='phasCamera'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCamera"><strong>hasCamera</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCamera" class="accordion-body collapse in">  <div class="accordion-inner">Is camera available on the device.<p>
+myvar = System.getProperties(['hasCalendar' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCamera'></a><div class='accordion property' id='phasCamera'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCamera"><strong>hasCamera</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCamera" class="accordion-body collapse in">  <div class="accordion-inner">Is camera available on the device.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -196,7 +196,7 @@ myvar = System.getProperties(['hasCamera' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('hasCamera');
 # Getting multiple properties
-myvar = System.getProperties(['hasCamera' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCellNetwork'></a><div class='accordion property' id='phasCellNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCellNetwork"><strong>hasCellNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCellNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasCellNetwork: Is device connected to the cell network.<p>
+myvar = System.getProperties(['hasCamera' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasCellNetwork'></a><div class='accordion property' id='phasCellNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasCellNetwork"><strong>hasCellNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasCellNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasCellNetwork: Is device connected to the cell network.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -216,7 +216,7 @@ myvar = System.getProperties(['hasCellNetwork' , 'another_property'])</code></pr
 # Getting one property
 myvar = System.getProperty('hasCellNetwork');
 # Getting multiple properties
-myvar = System.getProperties(['hasCellNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasNetwork'></a><div class='accordion property' id='phasNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasNetwork"><strong>hasNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasNetwork: Is device connected to the network.<p>
+myvar = System.getProperties(['hasCellNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasNetwork'></a><div class='accordion property' id='phasNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasNetwork"><strong>hasNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasNetwork: Is device connected to the network.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -236,7 +236,7 @@ myvar = System.getProperties(['hasNetwork' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('hasNetwork');
 # Getting multiple properties
-myvar = System.getProperties(['hasNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasSqlite'></a><div class='accordion property' id='phasSqlite'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasSqlite"><strong>hasSqlite</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasSqlite" class="accordion-body collapse in">  <div class="accordion-inner">Does sqlite used on this platform.<p>
+myvar = System.getProperties(['hasNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasSqlite'></a><div class='accordion property' id='phasSqlite'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasSqlite"><strong>hasSqlite</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasSqlite" class="accordion-body collapse in">  <div class="accordion-inner">Does sqlite used on this platform.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -256,7 +256,7 @@ myvar = System.getProperties(['hasSqlite' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('hasSqlite');
 # Getting multiple properties
-myvar = System.getProperties(['hasSqlite' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasTouchscreen'></a><div class='accordion property' id='phasTouchscreen'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasTouchscreen"><strong>hasTouchscreen</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasTouchscreen" class="accordion-body collapse in">  <div class="accordion-inner">Is device has touch screen.<p>
+myvar = System.getProperties(['hasSqlite' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasTouchscreen'></a><div class='accordion property' id='phasTouchscreen'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasTouchscreen"><strong>hasTouchscreen</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasTouchscreen" class="accordion-body collapse in">  <div class="accordion-inner">Is device has touch screen.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -276,7 +276,7 @@ myvar = System.getProperties(['hasTouchscreen' , 'another_property'])</code></pr
 # Getting one property
 myvar = System.getProperty('hasTouchscreen');
 # Getting multiple properties
-myvar = System.getProperties(['hasTouchscreen' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasWifiNetwork'></a><div class='accordion property' id='phasWifiNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasWifiNetwork"><strong>hasWifiNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasWifiNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasWifiNetwork: Is device connected to the wifi network<p>
+myvar = System.getProperties(['hasTouchscreen' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phasWifiNetwork'></a><div class='accordion property' id='phasWifiNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhasWifiNetwork"><strong>hasWifiNetwork</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhasWifiNetwork" class="accordion-body collapse in">  <div class="accordion-inner">USE Network.hasWifiNetwork: Is device connected to the wifi network<p>
 
 <strong>Ruby Usage</strong>
 
@@ -296,7 +296,7 @@ myvar = System.getProperties(['hasWifiNetwork' , 'another_property'])</code></pr
 # Getting one property
 myvar = System.getProperty('hasWifiNetwork');
 # Getting multiple properties
-myvar = System.getProperties(['hasWifiNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phttpProxyURI'></a><div class='accordion property' id='phttpProxyURI'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpProxyURI"><strong><span class="text-info">httpProxyURI</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpProxyURI" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_proxy_url</span> Client HTTP proxy.<p>
+myvar = System.getProperties(['hasWifiNetwork' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='phttpProxyURI'></a><div class='accordion property' id='phttpProxyURI'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpProxyURI"><strong><span class="text-info">httpProxyURI</span></strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpProxyURI" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_proxy_url</span> Client HTTP proxy.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -327,7 +327,7 @@ System.setProperties({ :httpProxyURI:'some string' , :another_property:'some str
 # Getting one property
 myvar = System.getProperty('httpProxyURI');
 # Getting multiple properties
-myvar = System.getProperties(['httpProxyURI' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pisEmulator'></a><div class='accordion property' id='pisEmulator'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisEmulator"><strong>isEmulator</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisEmulator" class="accordion-body collapse in">  <div class="accordion-inner">Is application is running on emulator.<p>
+myvar = System.getProperties(['httpProxyURI' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pisEmulator'></a><div class='accordion property' id='pisEmulator'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisEmulator"><strong>isEmulator</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisEmulator" class="accordion-body collapse in">  <div class="accordion-inner">Is application is running on emulator.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -347,7 +347,7 @@ myvar = System.getProperties(['isEmulator' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('isEmulator');
 # Getting multiple properties
-myvar = System.getProperties(['isEmulator' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pisMotorolaDevice'></a><div class='accordion property' id='pisMotorolaDevice'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisMotorolaDevice"><strong>isMotorolaDevice</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisMotorolaDevice" class="accordion-body collapse in">  <div class="accordion-inner">Is device supports Motorola device capabilities, such as Scanner, etc.<p>
+myvar = System.getProperties(['isEmulator' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pisMotorolaDevice'></a><div class='accordion property' id='pisMotorolaDevice'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyisMotorolaDevice"><strong>isMotorolaDevice</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyisMotorolaDevice" class="accordion-body collapse in">  <div class="accordion-inner">Is device supports Motorola device capabilities, such as Scanner, etc.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -367,7 +367,7 @@ myvar = System.getProperties(['isMotorolaDevice' , 'another_property'])</code></
 # Getting one property
 myvar = System.getProperty('isMotorolaDevice');
 # Getting multiple properties
-myvar = System.getProperties(['isMotorolaDevice' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plocalServerPort'></a><div class='accordion property' id='plocalServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocalServerPort"><strong>localServerPort</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocalServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, application will use dynamically selected one.<p><strong>Default:</strong> 8080</p><p>
+myvar = System.getProperties(['isMotorolaDevice' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plocalServerPort'></a><div class='accordion property' id='plocalServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocalServerPort"><strong>localServerPort</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocalServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, application will use dynamically selected one.<p><strong>Default:</strong> 8080</p><p>
 
 <strong>Ruby Usage</strong>
 
@@ -398,7 +398,7 @@ System.setProperties({ :localServerPort:0 , :another_property:0});
 # Getting one property
 myvar = System.getProperty('localServerPort');
 # Getting multiple properties
-myvar = System.getProperties(['localServerPort' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plocale'></a><div class='accordion property' id='plocale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocale"><strong>locale</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocale" class="accordion-body collapse in">  <div class="accordion-inner">Current device locale.Like 'en', 'ru' etc.<p>
+myvar = System.getProperties(['localServerPort' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plocale'></a><div class='accordion property' id='plocale'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocale"><strong>locale</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocale" class="accordion-body collapse in">  <div class="accordion-inner">Current device locale.Like 'en', 'ru' etc.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -418,7 +418,7 @@ myvar = System.getProperties(['locale' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('locale');
 # Getting multiple properties
-myvar = System.getProperties(['locale' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plockWindowSize'></a><div class='accordion property' id='plockWindowSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylockWindowSize"><strong>lockWindowSize</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylockWindowSize" class="accordion-body collapse in">  <div class="accordion-inner">Lock/unlock the window size change by the user. Implemented only for Windows desktop.<p><strong>Default:</strong> false</p><p>
+myvar = System.getProperties(['locale' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='plockWindowSize'></a><div class='accordion property' id='plockWindowSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylockWindowSize"><strong>lockWindowSize</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylockWindowSize" class="accordion-body collapse in">  <div class="accordion-inner">Lock/unlock the window size change by the user. Implemented only for Windows desktop.<p><strong>Default:</strong> false</p><p>
 
 <strong>Ruby Usage</strong>
 
@@ -449,7 +449,7 @@ System.setProperties({ :lockWindowSize:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('lockWindowSize');
 # Getting multiple properties
-myvar = System.getProperties(['lockWindowSize' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='poemInfo'></a><div class='accordion property' id='poemInfo'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoemInfo"><strong>oemInfo</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoemInfo" class="accordion-body collapse in">  <div class="accordion-inner">The OEM Information string for the terminal.<p>
+myvar = System.getProperties(['lockWindowSize' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='poemInfo'></a><div class='accordion property' id='poemInfo'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyoemInfo"><strong>oemInfo</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyoemInfo" class="accordion-body collapse in">  <div class="accordion-inner">The OEM Information string for the terminal.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -469,7 +469,7 @@ myvar = System.getProperties(['oemInfo' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('oemInfo');
 # Getting multiple properties
-myvar = System.getProperties(['oemInfo' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='posVersion'></a><div class='accordion property' id='posVersion'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyosVersion"><strong>osVersion</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyosVersion" class="accordion-body collapse in">  <div class="accordion-inner">Version OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android).<p>
+myvar = System.getProperties(['oemInfo' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='posVersion'></a><div class='accordion property' id='posVersion'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyosVersion"><strong>osVersion</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyosVersion" class="accordion-body collapse in">  <div class="accordion-inner">Version OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -489,7 +489,7 @@ myvar = System.getProperties(['osVersion' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('osVersion');
 # Getting multiple properties
-myvar = System.getProperties(['osVersion' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pphoneId'></a><div class='accordion property' id='pphoneId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneId"><strong>phoneId</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneId" class="accordion-body collapse in">  <div class="accordion-inner">Hardware based ID. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.<p>
+myvar = System.getProperties(['osVersion' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pphoneId'></a><div class='accordion property' id='pphoneId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneId"><strong>phoneId</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneId" class="accordion-body collapse in">  <div class="accordion-inner">Hardware based ID. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -509,7 +509,7 @@ myvar = System.getProperties(['phoneId' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('phoneId');
 # Getting multiple properties
-myvar = System.getProperties(['phoneId' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pphoneNumber'></a><div class='accordion property' id='pphoneNumber'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneNumber"><strong>phoneNumber</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneNumber" class="accordion-body collapse in">  <div class="accordion-inner">Device phone number.<p>
+myvar = System.getProperties(['phoneId' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pphoneNumber'></a><div class='accordion property' id='pphoneNumber'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyphoneNumber"><strong>phoneNumber</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyphoneNumber" class="accordion-body collapse in">  <div class="accordion-inner">Device phone number.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -529,7 +529,7 @@ myvar = System.getProperties(['phoneNumber' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('phoneNumber');
 # Getting multiple properties
-myvar = System.getProperties(['phoneNumber' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pplatform'></a><div class='accordion property' id='pplatform'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyplatform"><strong>platform</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyplatform" class="accordion-body collapse in">  <div class="accordion-inner">Platform where application is running.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>WINDOWS</dt><dd></dt><dt>ANDROID</dt><dd></dt><dt>APPLE</dt><dd></dt><dt>WP8</dt><dd></dt><dt>WINDOWS_DESKTOP</dt><dd></dt></dl><p>
+myvar = System.getProperties(['phoneNumber' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pplatform'></a><div class='accordion property' id='pplatform'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyplatform"><strong>platform</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyplatform" class="accordion-body collapse in">  <div class="accordion-inner">Platform where application is running.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>WINDOWS</dt><dd></dt><dt>ANDROID</dt><dd></dt><dt>APPLE</dt><dd></dt><dt>WP8</dt><dd></dt><dt>WINDOWS_DESKTOP</dt><dd></dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -549,7 +549,7 @@ myvar = System.getProperties(['platform' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('platform');
 # Getting multiple properties
-myvar = System.getProperties(['platform' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pppiX'></a><div class='accordion property' id='pppiX'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiX"><strong>ppiX</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiX" class="accordion-body collapse in">  <div class="accordion-inner">Horizontal PPI (Pixels Per Inch).<p>
+myvar = System.getProperties(['platform' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pppiX'></a><div class='accordion property' id='pppiX'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiX"><strong>ppiX</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiX" class="accordion-body collapse in">  <div class="accordion-inner">Horizontal PPI (Pixels Per Inch).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -569,7 +569,7 @@ myvar = System.getProperties(['ppiX' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('ppiX');
 # Getting multiple properties
-myvar = System.getProperties(['ppiX' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pppiY'></a><div class='accordion property' id='pppiY'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiY"><strong>ppiY</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiY" class="accordion-body collapse in">  <div class="accordion-inner">Vertical PPI (Pixels Per Inch).<p>
+myvar = System.getProperties(['ppiX' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pppiY'></a><div class='accordion property' id='pppiY'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyppiY"><strong>ppiY</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyppiY" class="accordion-body collapse in">  <div class="accordion-inner">Vertical PPI (Pixels Per Inch).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -589,7 +589,7 @@ myvar = System.getProperties(['ppiY' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('ppiY');
 # Getting multiple properties
-myvar = System.getProperties(['ppiY' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='prealScreenHeight'></a><div class='accordion property' id='prealScreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenHeight"><strong>realScreenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in real pixels.<p>
+myvar = System.getProperties(['ppiY' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='prealScreenHeight'></a><div class='accordion property' id='prealScreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenHeight"><strong>realScreenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in real pixels.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -609,7 +609,7 @@ myvar = System.getProperties(['realScreenHeight' , 'another_property'])</code></
 # Getting one property
 myvar = System.getProperty('realScreenHeight');
 # Getting multiple properties
-myvar = System.getProperties(['realScreenHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='prealScreenWidth'></a><div class='accordion property' id='prealScreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenWidth"><strong>realScreenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in real pixels.<p>
+myvar = System.getProperties(['realScreenHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='prealScreenWidth'></a><div class='accordion property' id='prealScreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrealScreenWidth"><strong>realScreenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrealScreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in real pixels.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -629,7 +629,7 @@ myvar = System.getProperties(['realScreenWidth' , 'another_property'])</code></p
 # Getting one property
 myvar = System.getProperty('realScreenWidth');
 # Getting multiple properties
-myvar = System.getProperties(['realScreenWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenAutoRotate'></a><div class='accordion property' id='pscreenAutoRotate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenAutoRotate"><strong>screenAutoRotate</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenAutoRotate" class="accordion-body collapse in">  <div class="accordion-inner">Screen auto rotate.<p><strong>Default:</strong> true</p><p>
+myvar = System.getProperties(['realScreenWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenAutoRotate'></a><div class='accordion property' id='pscreenAutoRotate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenAutoRotate"><strong>screenAutoRotate</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenAutoRotate" class="accordion-body collapse in">  <div class="accordion-inner">Screen auto rotate.<p><strong>Default:</strong> true</p><p>
 
 <strong>Ruby Usage</strong>
 
@@ -660,7 +660,7 @@ System.setProperties({ :screenAutoRotate:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('screenAutoRotate');
 # Getting multiple properties
-myvar = System.getProperties(['screenAutoRotate' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenHeight'></a><div class='accordion property' id='pscreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenHeight"><strong>screenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in logical pixels (used for set coordinates).<p>
+myvar = System.getProperties(['screenAutoRotate' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenHeight'></a><div class='accordion property' id='pscreenHeight'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenHeight"><strong>screenHeight</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenHeight" class="accordion-body collapse in">  <div class="accordion-inner">Screen height in logical pixels (used for set coordinates).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -680,7 +680,7 @@ myvar = System.getProperties(['screenHeight' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('screenHeight');
 # Getting multiple properties
-myvar = System.getProperties(['screenHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenOrientation'></a><div class='accordion property' id='pscreenOrientation'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenOrientation"><strong>screenOrientation</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenOrientation" class="accordion-body collapse in">  <div class="accordion-inner">Current screen orientation.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>portrait</dt><dd></dt><dt>landscape</dt><dd></dt></dl><p>
+myvar = System.getProperties(['screenHeight' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenOrientation'></a><div class='accordion property' id='pscreenOrientation'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenOrientation"><strong>screenOrientation</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenOrientation" class="accordion-body collapse in">  <div class="accordion-inner">Current screen orientation.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>portrait</dt><dd></dt><dt>landscape</dt><dd></dt></dl><p>
 
 <strong>Ruby Usage</strong>
 
@@ -700,7 +700,7 @@ myvar = System.getProperties(['screenOrientation' , 'another_property'])</code><
 # Getting one property
 myvar = System.getProperty('screenOrientation');
 # Getting multiple properties
-myvar = System.getProperties(['screenOrientation' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenSleeping'></a><div class='accordion property' id='pscreenSleeping'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenSleeping"><strong>screenSleeping</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenSleeping" class="accordion-body collapse in">  <div class="accordion-inner">Should screen go to sleep by timeout.<p>
+myvar = System.getProperties(['screenOrientation' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenSleeping'></a><div class='accordion property' id='pscreenSleeping'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenSleeping"><strong>screenSleeping</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenSleeping" class="accordion-body collapse in">  <div class="accordion-inner">Should screen go to sleep by timeout.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -731,7 +731,7 @@ System.setProperties({ :screenSleeping:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('screenSleeping');
 # Getting multiple properties
-myvar = System.getProperties(['screenSleeping' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenWidth'></a><div class='accordion property' id='pscreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenWidth"><strong>screenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in logical pixels (used for set coordinates).<p>
+myvar = System.getProperties(['screenSleeping' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pscreenWidth'></a><div class='accordion property' id='pscreenWidth'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyscreenWidth"><strong>screenWidth</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyscreenWidth" class="accordion-body collapse in">  <div class="accordion-inner">Screen width in logical pixels (used for set coordinates).<p>
 
 <strong>Ruby Usage</strong>
 
@@ -751,7 +751,7 @@ myvar = System.getProperties(['screenWidth' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('screenWidth');
 # Getting multiple properties
-myvar = System.getProperties(['screenWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='psecurityTokenNotPassed'></a><div class='accordion property' id='psecurityTokenNotPassed'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysecurityTokenNotPassed"><strong>securityTokenNotPassed</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysecurityTokenNotPassed" class="accordion-body collapse in">  <div class="accordion-inner">Is the security token check was failed.<p>
+myvar = System.getProperties(['screenWidth' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='psecurityTokenNotPassed'></a><div class='accordion property' id='psecurityTokenNotPassed'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysecurityTokenNotPassed"><strong>securityTokenNotPassed</strong> : <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysecurityTokenNotPassed" class="accordion-body collapse in">  <div class="accordion-inner">Is the security token check was failed.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -771,7 +771,7 @@ myvar = System.getProperties(['securityTokenNotPassed' , 'another_property'])</c
 # Getting one property
 myvar = System.getProperty('securityTokenNotPassed');
 # Getting multiple properties
-myvar = System.getProperties(['securityTokenNotPassed' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pshowKeyboard'></a><div class='accordion property' id='pshowKeyboard'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyshowKeyboard"><strong>showKeyboard</strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyshowKeyboard" class="accordion-body collapse in">  <div class="accordion-inner">Display\hide software keyboard.<p>
+myvar = System.getProperties(['securityTokenNotPassed' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pshowKeyboard'></a><div class='accordion property' id='pshowKeyboard'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyshowKeyboard"><strong>showKeyboard</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyshowKeyboard" class="accordion-body collapse in">  <div class="accordion-inner">Display\hide software keyboard.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -802,7 +802,7 @@ System.setProperties({ :showKeyboard:true , :another_property:true});
 # Getting one property
 myvar = System.getProperty('showKeyboard');
 # Getting multiple properties
-myvar = System.getProperties(['showKeyboard' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='puuid'></a><div class='accordion property' id='puuid'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyuuid"><strong>uuid</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyuuid" class="accordion-body collapse in">  <div class="accordion-inner">The Unique Unit IDentifier for the terminal.<p>
+myvar = System.getProperties(['showKeyboard' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='puuid'></a><div class='accordion property' id='puuid'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyuuid"><strong>uuid</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyuuid" class="accordion-body collapse in">  <div class="accordion-inner">The Unique Unit IDentifier for the terminal.<p>
 
 <strong>Ruby Usage</strong>
 
@@ -822,7 +822,7 @@ myvar = System.getProperties(['uuid' , 'another_property'])</code></pre>
 # Getting one property
 myvar = System.getProperty('uuid');
 # Getting multiple properties
-myvar = System.getProperties(['uuid' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pwebviewFramework'></a><div class='accordion property' id='pwebviewFramework'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertywebviewFramework"><strong>webviewFramework</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertywebviewFramework" class="accordion-body collapse in">  <div class="accordion-inner">Browser framework identity string.<p>
+myvar = System.getProperties(['uuid' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pwebviewFramework'></a><div class='accordion property' id='pwebviewFramework'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertywebviewFramework"><strong>webviewFramework</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertywebviewFramework" class="accordion-body collapse in">  <div class="accordion-inner">Browser framework identity string.<p>
 
 <strong>Ruby Usage</strong>
 

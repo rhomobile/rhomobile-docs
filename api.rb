@@ -288,7 +288,17 @@ class Api
 		s.each() { |element| 
 			propname = element["name"]
 			propusage = ""
+			propver = ""
+			propnote = ""
 			# type is optional default is STRING
+			 #puts element
+			if !element["VER_INTRODUCED"].nil?
+				propver= "<span class='muted pull-right'>" + element["VER_INTRODUCED"][0] + "</span>"
+				
+			end
+			if !element["APPLIES"].nil? 
+				propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
+			end
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
 				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"],templatePropBag)
@@ -296,7 +306,6 @@ class Api
 				proptype= " : <span class='text-info'>" + element["type"] + "</span>"
 				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"],element["readOnly"],templatePropBag)
 			end
-
 			# readOnly is optional default is false
 			if element["readOnly"].nil?
 				propreadOnly= ""
@@ -378,13 +387,13 @@ class Api
     md += '<div class="accordion-heading">'
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
-    md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly}"
+    md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
 	md += '<i class="icon-chevron-down pull-left"></i></span>'
     md += '</div>'
     md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
-  	md += "#{@propdesc}#{propdefault}"
+  	md += "#{@propdesc}#{propnote}#{propdefault}"
   	md += @propvalues
   	md += "<p>" + propusage + "</p>"
     md += '  </div>'
