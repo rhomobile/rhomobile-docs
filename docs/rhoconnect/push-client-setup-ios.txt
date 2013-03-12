@@ -1,4 +1,4 @@
-Setting Up for RhoConnect Push on iOS Client
+Setting Up RhoConnect Push-Based Synchronization with Apple Push Notification Service
 ===
 
 This chapter contains the steps you need to set up your iOS Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
@@ -30,7 +30,7 @@ Enable push in your rhodes application in build.yml.
 	capabilities:
 	  - push
 
-## Setting up the Rhodes iOS Client for Push
+## Setting up the Rhodes iOS (APNS) Client for Push
 
 iOS PUSH support uses the Apple Push Notification Service (APNS) introduced in iOS SDK 3.0.  In order to use the service, you will need to obtain a push-enabled provisioning profile and a server-side push certificate used for encrypting RhoConnect->APNS traffic.
 
@@ -39,7 +39,7 @@ In case of iOS, regardless of the operation, the user will be presented with the
 **NOTE: For testing push, you will need to build and deploy your application to a physical iPhone (or iPad) device. Apple does not support testing push on simulators.**
 
 ### Setup Push Certificate
-The first step to setting up your environment is to create an APNS push certificate. To create the SSL certificate, follow the "Creating the SSL Certificate and Keys" section on the 
+The first step to setting up your environment is to create an APNS push certificate. To create the SSL certificate, follow the "Creating the SSL Certificate and Keys" section on the
 [developer site](https://developer.apple.com/iphone/library/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ProvisioningDevelopment/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW4).
 
 Once you have the certificate, you will need to export it to a .pem format using [these instructions](https://developer.apple.com/iphone/library/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ProvisioningDevelopment/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW6). Make sure to name the output file 'apple_push_cert.pem' file from these instructions, since this is what we configured in our RhoConnect application.
