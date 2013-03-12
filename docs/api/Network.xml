@@ -1,0 +1,256 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Network" parent="Rho">
+        <HELP_OVERVIEW></HELP_OVERVIEW>
+        <MORE_HELP></MORE_HELP>
+        
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <PROPERTIES access="STATIC" generateAccessors="false">
+            <DESC>object supports this properties bla bla bla :</DESC>
+
+            <ALIASES>
+                <ALIAS new="ssl_verify_peer" existing="verifyPeerCertificate" deprecated="true"/>
+                <ALIAS new="http_command" existing="httpVerb" deprecated="true"/>
+            </ALIASES>
+
+            <PROPERTY name="url" type="STRING">
+                <DESC>URL of the request.</DESC>
+            </PROPERTY>
+
+            <PROPERTY name="authType" type="STRING">
+                <DESC>URL of the request.</DESC>
+                <VALUES>
+                    <VALUE constName="AUTH_BASIC" value ="basic">
+                        <DESC></DESC>
+                    </VALUE>
+                </VALUES>
+            </PROPERTY>
+            <PROPERTY name="authUser" type="STRING">
+                <DESC>User name for basic authentication.</DESC>
+            </PROPERTY>
+            <PROPERTY name="authPassword" type="STRING">
+                <DESC>Password for basic authentication.</DESC>
+            </PROPERTY>
+            <PROPERTY name="verifyPeerCertificate" type="BOOLEAN" default="true">
+                <DESC>Verify SSL certificates.</DESC>
+            </PROPERTY>
+            <PROPERTY name="httpVerb" type="STRING">
+                <DESC>Password for basic authentication.</DESC>
+            </PROPERTY>
+            <PROPERTY name="headers" type="HASH">
+                <DESC>Request HTTP headers.</DESC>
+            </PROPERTY>
+            
+            <PROPERTY name="responseTimeout" type="INTEGER" default="30">
+                <DESC>Timeout of network requests in seconds.</DESC>
+            </PROPERTY>
+
+        </PROPERTIES>
+
+        <METHODS  access="STATIC">
+            <ALIASES>
+            </ALIASES>
+
+            <METHOD name="cancel" hasCallback="optional" runInThread="none">
+                <DESC>Cancel the request identified by callback. If callback is mossed then all requests will be cancelled.</DESC>
+            </METHOD>
+
+            <METHOD name="downloadFile" hasCallback="optional">
+                <DESC>Download a file to the specified filename.</DESC>
+                <PARAMS>
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
+                        <DESC>Properties map.</DESC>
+                        <PARAMS>
+                            <PARAM name="filename" type="STRING">
+                                <DESC>The path and name of the file to be uploaded.</DESC>
+                            </PARAM>
+                            <PARAM name="overWriteFile" type="BOOLEAN" default="false">
+                                <DESC>overWriteFile will overwrite the destination file if it already exists.</DESC>
+                            </PARAM>
+                            <PARAM name="createFolders" type="BOOLEAN" default="false">
+                                <DESC>createFolders can automatically create the directory path.</DESC>
+                            </PARAM>
+                            
+                        </PARAMS>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="body" type="STRING">
+                            <DESC>The body of the HTTP response.</DESC>
+                        </PARAM>
+                        <PARAM name="headers" type="HASH">
+                            <DESC>A hash containing the response headers.</DESC>
+                        </PARAM>
+                        <PARAM name="cookies" type="STRING">
+                            <DESC>The server cookies, parsed and usable for subsequent requests.</DESC>
+                        </PARAM>
+                        <PARAM name="http_error" type="INTEGER">
+                            <DESC>HTTP error code if response code was not 200.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+
+            </METHOD>
+
+            <METHOD name="get" hasCallback="optional">
+                <DESC>Perform an HTTP GET request.</DESC>
+                <PARAMS>
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
+                        <DESC>Properties map.</DESC>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="body" type="STRING">
+                            <DESC>The body of the HTTP response.</DESC>
+                        </PARAM>
+                        <PARAM name="headers" type="HASH">
+                            <DESC>A hash containing the response headers.</DESC>
+                        </PARAM>
+                        <PARAM name="cookies" type="STRING">
+                            <DESC>The server cookies, parsed and usable for subsequent requests.</DESC>
+                        </PARAM>
+                        <PARAM name="http_error" type="INTEGER">
+                            <DESC>HTTP error code if response code was not 200.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+
+            </METHOD>
+
+            <METHOD name="post" hasCallback="optional">
+                <DESC>Download a file to the specified filename.</DESC>
+                <PARAMS>
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
+                        <DESC>Properties map.</DESC>
+                        <PARAMS>
+                            <PARAM name="body" type="STRING">
+                                <DESC>The message body of the HTTP request.</DESC>
+                            </PARAM>
+                        </PARAMS>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="body" type="STRING">
+                            <DESC>The body of the HTTP response.</DESC>
+                        </PARAM>
+                        <PARAM name="headers" type="HASH">
+                            <DESC>A hash containing the response headers.</DESC>
+                        </PARAM>
+                        <PARAM name="cookies" type="STRING">
+                            <DESC>The server cookies, parsed and usable for subsequent requests.</DESC>
+                        </PARAM>
+                        <PARAM name="http_error" type="INTEGER">
+                            <DESC>HTTP error code if response code was not 200.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+
+            </METHOD>
+
+            <METHOD name="uploadFile" hasCallback="optional">
+                <DESC>Upload the specified file using HTTP POST.</DESC>
+                <PARAMS>
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
+                        <DESC>Properties map.</DESC>
+                        <PARAMS>
+                            <PARAM name="filename" type="STRING">
+                                <DESC>The path and name of the file to be uploaded.</DESC>
+                            </PARAM>
+                            <PARAM name="body" type="STRING">
+                                <DESC>The message body of the HTTP request.</DESC>
+                            </PARAM>
+                            <PARAM name="fileContentType" type="STRING">
+                                <DESC>Content-Type header for the file, defaults to "application/octet-stream".</DESC>
+                            </PARAM>
+                            <PARAM name="multipart" type="ARRAY">
+                                <DESC>Array of hashes containing file information.</DESC>
+                                <PARAM type="HASH">
+                                    <DESC>Multipart properties.</DESC>
+                                    <PARAMS>
+                                        <PARAM name="filename" type="STRING">
+                                            <DESC>The path and name of the file to be uploaded.</DESC>
+                                        </PARAM>
+                                        <PARAM name="contentType" type="STRING">
+                                            <DESC>Content-Type header, defaults to "application/octet-stream".</DESC>
+                                        </PARAM>
+                                        <PARAM name="filenameBase" type="STRING">
+                                            <DESC>Base directory containing the :filename.</DESC>
+                                        </PARAM>
+                                        <PARAM name="name" type="STRING">
+                                            <DESC>File type, defaults to "blob".</DESC>
+                                        </PARAM>
+                                    </PARAMS>
+                                </PARAM>
+                            </PARAM>    
+                        </PARAMS>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="body" type="STRING">
+                            <DESC>The body of the HTTP response.</DESC>
+                        </PARAM>
+                        <PARAM name="headers" type="HASH">
+                            <DESC>A hash containing the response headers.</DESC>
+                        </PARAM>
+                        <PARAM name="cookies" type="STRING">
+                            <DESC>The server cookies, parsed and usable for subsequent requests.</DESC>
+                        </PARAM>
+                        <PARAM name="http_error" type="INTEGER">
+                            <DESC>HTTP error code if response code was not 200.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+
+            </METHOD>
+
+            <METHOD name="hasNetwork">
+                <DESC>Is device connected to the network.</DESC>
+                <RETURN  type="BOOLEAN"/>
+            </METHOD>
+            <METHOD name="hasWifiNetwork">
+                <DESC>Is device connected to the wifi network</DESC>
+                <RETURN  type="BOOLEAN"/>
+            </METHOD>
+            <METHOD name="hasCellNetwork">
+                <DESC>Is device connected to the cell network.</DESC>
+                <RETURN  type="BOOLEAN"/>
+            </METHOD>
+
+            <METHOD name="startStatusNotify" hasCallback="mandatory" runInThread="none">
+                <DESC>Start network status notifications.</DESC>
+                <PARAMS>
+                    <PARAM name="pollInterval" type="INTEGER" default="20">
+                        <DESC>The network status polling period for systems that can not notify network status change immediately.</DESC>
+                        <CAN_BE_NIL/>
+                    </PARAM>
+                </PARAMS>
+            </METHOD>
+
+            <METHOD name="stopStatusNotify">
+                <DESC>Stop network status notifications.</DESC>
+            </METHOD>
+
+        </METHODS>
+        
+        <USER_OVERVIEW>
+            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+            <![CDATA[]]>
+    
+        </USER_OVERVIEW>
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+            <!--  This section is used for the supported platform images at the top -->
+        </PLATFORM>
+    </MODULE>
+</API>    

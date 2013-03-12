@@ -1,0 +1,232 @@
+#VideoCapture
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu"><li><a href="#pdestination" data-target="cPropertydestination" class="autouncollapse">destination</a></li><li><a href="#pduration" data-target="cPropertyduration" class="autouncollapse">duration</a></li><li><a href="#pname" data-target="cPropertyname" class="autouncollapse">name</a></li><li><a href="#ppassword" data-target="cPropertypassword" class="autouncollapse">password</a></li><li><a href="#pusername" data-target="cPropertyusername" class="autouncollapse">username</a></li><li><a href="#pvideoSaveEvent" data-target="cPropertyvideoSaveEvent" class="autouncollapse">videoSaveEvent</a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu"><li><a href="#mcancel" data-target="cMethodcancel" class="autouncollapse">cancel</a></li><li><a href="#mclearAllProperties" data-target="cMethodclearAllProperties" class="autouncollapse">clearAllProperties</a></li><li><a href="#mdefault" data-target="cMethoddefault" class="autouncollapse">default</a></li><li><a href="#menumerate" data-target="cMethodenumerate" class="autouncollapse">enumerate</a></li><li><a href="#mgetAllProperties" data-target="cMethodgetAllProperties" class="autouncollapse">getAllProperties</a></li><li><a href="#mgetProperties" data-target="cMethodgetProperties" class="autouncollapse">getProperties</a></li><li><a href="#mgetProperty" data-target="cMethodgetProperty" class="autouncollapse">getProperty</a></li><li><a href="#msetDefault" data-target="cMethodsetDefault" class="autouncollapse">setDefault</a></li><li><a href="#msetProperties" data-target="cMethodsetProperties" class="autouncollapse">setProperties</a></li><li><a href="#msetProperty" data-target="cMethodsetProperty" class="autouncollapse">setProperty</a></li><li><a href="#mstart" data-target="cMethodstart" class="autouncollapse">start</a></li><li><a href="#mstop" data-target="cMethodstop" class="autouncollapse">stop</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button></div><div data-spy="scroll"  >
+The VideoCapture Module captures video files from the default camera device.
+
+<a name='Properties'></a>
+<h2><i class='icon-list'></i>Properties</h2>
+
+<a name='pdestination'></a><div class='accordion property' id='pdestination'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydestination"><strong>destination</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydestination" class="accordion-body collapse in">  <div class="accordion-inner">Sets the destination path and name for the captured video file. Fully qualified URL or file name. Supports HTTP, FTP and File protocols.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+VideoCapture.destination='some string'
+# Setting one property
+VideoCapture.setProperty :destination, 'some string' 
+# Setting multiple properties using HASH
+VideoCapture.setProperties { :destination => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = VideoCapture.getProperty('destination')
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['destination' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+VideoCapture.destination='some string';
+# Setting one property
+VideoCapture.setProperty('destination','some string');
+# Setting multiple properties using JSON object
+VideoCapture.setProperties({ :destination:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = VideoCapture.getProperty('destination');
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['destination' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pduration'></a><div class='accordion property' id='pduration'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyduration"><strong>duration</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyduration" class="accordion-body collapse in">  <div class="accordion-inner">Specifies the number of milliseconds of video to capture. It is the maximum number of milliseconds of video to capture when the 'start' method is called if not interrupted with the 'stop' method.<p><strong>Default:</strong> 5000</p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+VideoCapture.duration=0
+# Setting one property
+VideoCapture.setProperty :duration, 0 
+# Setting multiple properties using HASH
+VideoCapture.setProperties { :duration => 0 , :another_property => 0}
+
+# Getting one property
+myvar = VideoCapture.getProperty('duration')
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['duration' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+VideoCapture.duration=0;
+# Setting one property
+VideoCapture.setProperty('duration',0);
+# Setting multiple properties using JSON object
+VideoCapture.setProperties({ :duration:0 , :another_property:0});
+
+# Getting one property
+myvar = VideoCapture.getProperty('duration');
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['duration' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pname'></a><div class='accordion property' id='pname'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyname"><strong>name</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyname" class="accordion-body collapse in">  <div class="accordion-inner">When the video capture completes a video file is saved in the root directory of the device (package directory in case of Android). This parameter is used to specify the filename when storing the file locally.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+VideoCapture.name='some string'
+# Setting one property
+VideoCapture.setProperty :name, 'some string' 
+# Setting multiple properties using HASH
+VideoCapture.setProperties { :name => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = VideoCapture.getProperty('name')
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['name' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+VideoCapture.name='some string';
+# Setting one property
+VideoCapture.setProperty('name','some string');
+# Setting multiple properties using JSON object
+VideoCapture.setProperties({ :name:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = VideoCapture.getProperty('name');
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['name' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='ppassword'></a><div class='accordion property' id='ppassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypassword"><strong>password</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypassword" class="accordion-body collapse in">  <div class="accordion-inner">The password for the HTTP or FTP server if required.<p><strong>Default:</strong> </p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+VideoCapture.password='some string'
+# Setting one property
+VideoCapture.setProperty :password, 'some string' 
+# Setting multiple properties using HASH
+VideoCapture.setProperties { :password => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = VideoCapture.getProperty('password')
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['password' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+VideoCapture.password='some string';
+# Setting one property
+VideoCapture.setProperty('password','some string');
+# Setting multiple properties using JSON object
+VideoCapture.setProperties({ :password:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = VideoCapture.getProperty('password');
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['password' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pusername'></a><div class='accordion property' id='pusername'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyusername"><strong>username</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyusername" class="accordion-body collapse in">  <div class="accordion-inner">The username for the HTTP or FTP server if required.<p><strong>Default:</strong> </p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+VideoCapture.username='some string'
+# Setting one property
+VideoCapture.setProperty :username, 'some string' 
+# Setting multiple properties using HASH
+VideoCapture.setProperties { :username => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = VideoCapture.getProperty('username')
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['username' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+VideoCapture.username='some string';
+# Setting one property
+VideoCapture.setProperty('username','some string');
+# Setting multiple properties using JSON object
+VideoCapture.setProperties({ :username:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = VideoCapture.getProperty('username');
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['username' , 'another_property']);</code></pre></p>  </div></div></div></div><a name='pvideoSaveEvent'></a><div class='accordion property' id='pvideoSaveEvent'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyvideoSaveEvent"><strong>videoSaveEvent</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyvideoSaveEvent" class="accordion-body collapse in">  <div class="accordion-inner">The Video Save Event is called when the captured video has been successfully transfered to the specified destination. When a capture is started with the HTTP protocol, the destination server message is returned. When it is called with the FTP protocol, either ‘OK: File Sent’, ‘OK: File Received’ or ‘ERROR’ is returned. This tag should be used in conjunction with the Start method.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+VideoCapture.videoSaveEvent='some string'
+# Setting one property
+VideoCapture.setProperty :videoSaveEvent, 'some string' 
+# Setting multiple properties using HASH
+VideoCapture.setProperties { :videoSaveEvent => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = VideoCapture.getProperty('videoSaveEvent')
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['videoSaveEvent' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+VideoCapture.videoSaveEvent='some string';
+# Setting one property
+VideoCapture.setProperty('videoSaveEvent','some string');
+# Setting multiple properties using JSON object
+VideoCapture.setProperties({ :videoSaveEvent:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = VideoCapture.getProperty('videoSaveEvent');
+# Getting multiple properties
+myvar = VideoCapture.getProperties(['videoSaveEvent' , 'another_property']);</code></pre></p>  </div></div></div></div>
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='mcancel'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodcancel"><strong data-toggle="tooltip" title data-original-title="Stops capturing video and discards any captured video data. NOTE: This is not applicable for Android as the video capture window is full screen and displays a cancel button.">cancel</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodcancel" class="accordion-body collapse in">  <div class="accordion-inner">Stops capturing video and discards any captured video data. NOTE: This is not applicable for Android as the video capture window is full screen and displays a cancel button.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">clearAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdefault'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddefault"><strong data-toggle="tooltip" title data-original-title="This is documentation">default</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddefault" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Default object of Module.</li></ul></div>  </div></div></div></div><div class='accordion method' id='menumerate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodenumerate"><strong data-toggle="tooltip" title data-original-title="This is documentation">enumerate</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodenumerate" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Array of objects.</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperties</strong>(<span class="text-info">ARRAY</span> arrayofNames, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+VideoCapture.getProperties(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+VideoCapture.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+VideoCapture.getProperties(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+VideoCapture.getProperties(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+VideoCapture.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+VideoCapture.getProperties(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property that I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+VideoCapture.getProperty(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+VideoCapture.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+VideoCapture.getProperty(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+VideoCapture.getProperty(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+VideoCapture.getProperty(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+VideoCapture.getProperty(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void : The one property that I want to know about</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>value : <span class='text-info'>STRING</span><p>The one property that I want to know about</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='msetDefault'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetDefault"><strong data-toggle="tooltip" title data-original-title="This is documentation">setDefault</strong>(<span class="text-info">SELF_INSTANCE</span> defaultInstance)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetDefault" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE</span><p>Default instance I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperties</strong>(<span class="text-info">HASH</span> propertyMap)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstart'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstart"><strong data-toggle="tooltip" title data-original-title="Starts capturing video until either 'stop' is received, or 'duration' is reached. NOTE: On Android this meta tag wouldn't immediately start recording and presents a preview window with controls (Start, stop and cancel) for recording.">start</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstart" class="accordion-body collapse in">  <div class="accordion-inner">Starts capturing video until either 'stop' is received, or 'duration' is reached. NOTE: On Android this meta tag wouldn't immediately start recording and presents a preview window with controls (Start, stop and cancel) for recording.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstop'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstop"><strong data-toggle="tooltip" title data-original-title="Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android as the video capture window is full screen and displays a stop button. Please note that the file transfer happens as specified even if we dont use the stop meta tag.">stop</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstop" class="accordion-body collapse in">  <div class="accordion-inner">Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android as the video capture window is full screen and displays a stop button. Please note that the file transfer happens as specified even if we dont use the stop meta tag.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div></div></div>

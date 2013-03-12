@@ -1,0 +1,201 @@
+#Network
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu"><li><a href="#pauthPassword" data-target="cPropertyauthPassword" class="autouncollapse">authPassword</a></li><li><a href="#pauthType" data-target="cPropertyauthType" class="autouncollapse">authType</a></li><li><a href="#pauthUser" data-target="cPropertyauthUser" class="autouncollapse">authUser</a></li><li><a href="#pheaders" data-target="cPropertyheaders" class="autouncollapse">headers</a></li><li><a href="#phttpVerb" data-target="cPropertyhttpVerb" class="autouncollapse"><span class="text-info">httpVerb</span></a></li><li><a href="#presponseTimeout" data-target="cPropertyresponseTimeout" class="autouncollapse">responseTimeout</a></li><li><a href="#purl" data-target="cPropertyurl" class="autouncollapse">url</a></li><li><a href="#pverifyPeerCertificate" data-target="cPropertyverifyPeerCertificate" class="autouncollapse"><span class="text-info">verifyPeerCertificate</span></a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu"><li><a href="#mcancel" data-target="cMethodcancel" class="autouncollapse">cancel</a></li><li><a href="#mdownloadFile" data-target="cMethoddownloadFile" class="autouncollapse">downloadFile</a></li><li><a href="#mget" data-target="cMethodget" class="autouncollapse">get</a></li><li><a href="#mhasCellNetwork" data-target="cMethodhasCellNetwork" class="autouncollapse">hasCellNetwork</a></li><li><a href="#mhasNetwork" data-target="cMethodhasNetwork" class="autouncollapse">hasNetwork</a></li><li><a href="#mhasWifiNetwork" data-target="cMethodhasWifiNetwork" class="autouncollapse">hasWifiNetwork</a></li><li><a href="#mpost" data-target="cMethodpost" class="autouncollapse">post</a></li><li><a href="#mstartStatusNotify" data-target="cMethodstartStatusNotify" class="autouncollapse">startStatusNotify</a></li><li><a href="#mstopStatusNotify" data-target="cMethodstopStatusNotify" class="autouncollapse">stopStatusNotify</a></li><li><a href="#muploadFile" data-target="cMethoduploadFile" class="autouncollapse">uploadFile</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button></div><div data-spy="scroll"  >
+
+
+<a name='Properties'></a>
+<h2><i class='icon-list'></i>Properties</h2>
+
+<a name='pauthPassword'></a><div class='accordion property' id='pauthPassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthPassword"><strong>authPassword</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthPassword" class="accordion-body collapse in">  <div class="accordion-inner">Password for basic authentication.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.authPassword='some string'</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.authPassword='some string';</code></pre></p>  </div></div></div></div><a name='pauthType'></a><div class='accordion property' id='pauthType'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthType"><strong>authType</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthType" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>basic</dt><dd></dt></dl><p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.authType='some string'</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.authType='some string';</code></pre></p>  </div></div></div></div><a name='pauthUser'></a><div class='accordion property' id='pauthUser'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyauthUser"><strong>authUser</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyauthUser" class="accordion-body collapse in">  <div class="accordion-inner">User name for basic authentication.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.authUser='some string'</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.authUser='some string';</code></pre></p>  </div></div></div></div><a name='pheaders'></a><div class='accordion property' id='pheaders'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyheaders"><strong>headers</strong> : <span class='text-info'>HASH</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyheaders" class="accordion-body collapse in">  <div class="accordion-inner">Request HTTP headers.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.headers=</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.headers=;</code></pre></p>  </div></div></div></div><a name='phttpVerb'></a><div class='accordion property' id='phttpVerb'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhttpVerb"><strong><span class="text-info">httpVerb</span></strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhttpVerb" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:http_command</span> Password for basic authentication.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.httpVerb='some string'</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.httpVerb='some string';</code></pre></p>  </div></div></div></div><a name='presponseTimeout'></a><div class='accordion property' id='presponseTimeout'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyresponseTimeout"><strong>responseTimeout</strong> : <span class='text-info'>INTEGER</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyresponseTimeout" class="accordion-body collapse in">  <div class="accordion-inner">Timeout of network requests in seconds.<p><strong>Default:</strong> 30</p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.responseTimeout=0</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.responseTimeout=0;</code></pre></p>  </div></div></div></div><a name='purl'></a><div class='accordion property' id='purl'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyurl"><strong>url</strong> : <span class='text-info'>STRING</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyurl" class="accordion-body collapse in">  <div class="accordion-inner">URL of the request.<p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.url='some string'</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.url='some string';</code></pre></p>  </div></div></div></div><a name='pverifyPeerCertificate'></a><div class='accordion property' id='pverifyPeerCertificate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyverifyPeerCertificate"><strong><span class="text-info">verifyPeerCertificate</span></strong> : <span class='text-info'>BOOLEAN</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyverifyPeerCertificate" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:ssl_verify_peer</span> Verify SSL certificates.<p><strong>Default:</strong> true</p><p>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Network.verifyPeerCertificate=true</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Network.verifyPeerCertificate=true;</code></pre></p>  </div></div></div></div>
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='mcancel'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodcancel"><strong data-toggle="tooltip" title data-original-title="Cancel the request identified by callback. If callback is mossed then all requests will be cancelled.">cancel</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodcancel" class="accordion-body collapse in">  <div class="accordion-inner">Cancel the request identified by callback. If callback is mossed then all requests will be cancelled.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdownloadFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddownloadFile"><strong data-toggle="tooltip" title data-original-title="Download a file to the specified filename.">downloadFile</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddownloadFile" class="accordion-body collapse in">  <div class="accordion-inner">Download a file to the specified filename.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.downloadFile(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.downloadFile(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.downloadFile(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.downloadFile(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.downloadFile(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+Network.downloadFile(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mget'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodget"><strong data-toggle="tooltip" title data-original-title="Perform an HTTP GET request.">get</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodget" class="accordion-body collapse in">  <div class="accordion-inner">Perform an HTTP GET request.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.get(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.get(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.get(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.get(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.get(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+Network.get(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mhasCellNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodhasCellNetwork"><strong data-toggle="tooltip" title data-original-title="Is device connected to the cell network.">hasCellNetwork</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodhasCellNetwork" class="accordion-body collapse in">  <div class="accordion-inner">Is device connected to the cell network.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mhasNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodhasNetwork"><strong data-toggle="tooltip" title data-original-title="Is device connected to the network.">hasNetwork</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodhasNetwork" class="accordion-body collapse in">  <div class="accordion-inner">Is device connected to the network.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mhasWifiNetwork'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodhasWifiNetwork"><strong data-toggle="tooltip" title data-original-title="Is device connected to the wifi network">hasWifiNetwork</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodhasWifiNetwork" class="accordion-body collapse in">  <div class="accordion-inner">Is device connected to the wifi network<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mpost'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodpost"><strong data-toggle="tooltip" title data-original-title="Download a file to the specified filename.">post</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodpost" class="accordion-body collapse in">  <div class="accordion-inner">Download a file to the specified filename.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.post(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.post(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.post(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.post(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.post(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+Network.post(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstartStatusNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstartStatusNotify"><strong data-toggle="tooltip" title data-original-title="Start network status notifications.">startStatusNotify</strong>(<span class="text-info">INTEGER</span> pollInterval, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstartStatusNotify" class="accordion-body collapse in">  <div class="accordion-inner">Start network status notifications.<div><p><strong>Parameters</strong></p><ul><li>pollInterval : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>The network status polling period for systems that can not notify network status change immediately. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span><p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.startStatusNotify(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.startStatusNotify(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.startStatusNotify(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.startStatusNotify(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.startStatusNotify(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+Network.startStatusNotify(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstopStatusNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstopStatusNotify"><strong data-toggle="tooltip" title data-original-title="Stop network status notifications.">stopStatusNotify</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstopStatusNotify" class="accordion-body collapse in">  <div class="accordion-inner">Stop network status notifications.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='muploadFile'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoduploadFile"><strong data-toggle="tooltip" title data-original-title="Upload the specified file using HTTP POST.">uploadFile</strong>(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoduploadFile" class="accordion-body collapse in">  <div class="accordion-inner">Upload the specified file using HTTP POST.<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.uploadFile(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.uploadFile(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.uploadFile(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Network.uploadFile(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Network.uploadFile(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+Network.uploadFile(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div></div></div>

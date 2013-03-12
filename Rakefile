@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 require './api'
+
 Bundler.setup
 
 require './environment'
@@ -101,9 +102,38 @@ def process_xml
 
 end
 
+def update_xml
+ apiSources = ['../rhodes/lib/commonAPI/','../Motorola-Extensions/lib/commonAPI/','../rhodes/res/generators/templates/api/xml_templates/'] 
+ 
+ apiSources.each do |s|
+   apiSourceFolder = File.join(s,"**","*.xml")
+   # puts apiSourceFolder
+   Dir.glob(apiSourceFolder).each do|f|
+    filename = File.basename(f)
+    dest = File.join(AppConfig['dirs']['api'],filename)
+    if !File.exists?(dest)
+      puts "New: #{filename}"
+    end
+    # puts filename
+    fileContents = IO.read(f)
+    File.open(dest,"w") do |fd|
+      fd.write(fileContents)
+    end
+    
+   end
+ end
+
+end
+
+
 desc 'generate API docs from XML'
 task :process_xml do
   process_xml
+end
+
+desc 'get updated XMl from other Git Repos '
+task :update_xml do
+  update_xml
 end
 
 desc 'Apply inline CSS styling to offline archive files'

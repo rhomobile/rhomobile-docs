@@ -204,7 +204,7 @@ class Api
 	  			examplesections += section["DESC"][0]
 	  			codelang = 'ruby'
 	  			codesnip = section["CODE"]
-	  			# puts codesnip
+	  			 # puts codesnip
 	  			 if !codesnip[0]["lang"].nil?
 	  			 	codelang = codesnip[0]["lang"]
 	  			 	if codelang.empty?
@@ -276,7 +276,7 @@ class Api
   	md = ""
   	templatePropBag = true
 
-  	if doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+  	if !doc["MODULE"][0]["TEMPLATES"].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
   		templatePropBag = false
   	end
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
@@ -640,15 +640,15 @@ class Api
   	#puts topic
   	doc = XmlSimple.xml_in(topic)
   	templatePropBag = true
-  	if doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
   		templatePropBag = false
   	end
   	templateDefault = true
-  	if doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
   		templateDefault = false
   	end
   	templateSingleton = true
-  	if doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
   		templateSingleton = false
   	end
   	if templateDefault
