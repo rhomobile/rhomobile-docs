@@ -447,7 +447,7 @@ class Api
 		@methreturndesc=""
 		if !element["RETURN"].nil?
 			element["RETURN"].each() { |relement|
-				if element["type"].nil? || element["type"]==''
+				if relement["type"].nil? || relement["type"]==''
 					@methreturn="Void"
 				else
 					@methreturn = relement["type"]
@@ -472,12 +472,16 @@ class Api
 		if !element["PARAMS"].nil?
 			@methsectionparams = "<div>"
 			@methsectionparams += "<p><strong>Parameters</strong></p><ul>"
-			
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
-
+					@methparamsdetailsdesc = ''
+			
+					# puts param
 					if !param["DESC"].nil?
 						@methparamsdetailsdesc=param["DESC"][0]
+						if @methparamsdetailsdesc.to_s == '{}'
+							@methparamsdetailsdesc= ''
+						end
 					end
 
 					@methparamsnil=""

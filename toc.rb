@@ -62,7 +62,7 @@ end
 section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/barcode',      'Barcode'
   topic 'api/camera',      'Camera'
-  topic 'api/javascriptvm',      'JavascriptVM'
+  topic 'api/Database',      'Database '
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/NetworkAccess',      'NetworkAccess'
