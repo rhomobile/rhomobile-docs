@@ -96,12 +96,12 @@ Once that is done, it is time to install RhoConnect:
 
 ### Final Steps (After the installer is finished)
 Installer also created and configured RhoConnect <b>rhoapp</b> application in <b>/opt/nginx/html</b> directory.
-To test it you need to as a root user start redis, nginx, and thin servers:
+To test it you need to as a root user start redis, thin, and nginx servers:
 
 	:::term
 	$ sudo /etc/init.d/redis start
-	$ sudo /etc/init.d/nginx start
     $ sudo /etc/init.d/thin start
+	$ sudo /etc/init.d/nginx start
 
 And verify that it's up and running by visiting application web console in your browser:
 
@@ -223,11 +223,11 @@ e) Edit Thin `/etc/thin/rhoapp.yml` configuration file directly
     --user nginx --group nginx \
     --pid /var/run/thin/thin.pid -e production
 
-f) As root user restart Nginx, and Thin servers
+f) As root user restart Thin, and Nginx servers
 
     :::term
-    /etc/init.d/nginx restart
     /etc/init.d/thin restart
+    /etc/init.d/nginx restart
 
 
 #### Deploying multiple rhoconnect apps
@@ -249,6 +249,122 @@ Also you can use RhoConnect `/opt/nginx/html/rhoapp` application as a template a
 
 **NOTE: You should pay attentions to situations, if you have already Ruby installed on system level. Avoid usage of system gems in your application. It might lead to unpredictable results, if ruby versions are different. Either set up path to rhoconnect binaries for root user,
 or install required gems as `sudo /opt/rhoconnect/bin/gem install gem_name`**
+
+## Nginx configuration for SSL with self-signed certificate
+
+### About Self-Signed Certificates
+A SSL certificate is a way to encrypt a site's information and create a more secure connection. 
+This chapter will take you through generating a self-signed certificate to use with Nginx.
+
+### Create a Directory for the Certificate
+The SSL certificate has 2 main parts: the certificate itself and the public key. To make all of the relevant files easy to access, you should create a directory to store them in: 
+
+	:::term
+	$ sudo mkdir /opt/nginx/ssl
+
+We will perform the next few steps within the directory: 
+
+	:::term
+	$ cd /opt/nginx/ssl
+
+
+### Create the Server Key and Certificate Signing Request
+Start by creating the private server key. During this process, you will be asked to enter a specific passphrase. Be sure to note this phrase carefully, if you forget it or lose it, you will not be able to access the certificate.
+
+	:::term
+	$ openssl genrsa -des3 -out server.key 1024  
+	Generating RSA private key, 1024 bit long modulus
+	..........++++++
+	..................++++++
+	e is 65537 (0x10001)
+	Enter pass phrase for server.key:
+	Verifying - Enter pass phrase for server.key:
+	
+Follow up by creating a certificate signing request: 
+
+	:::term
+	$ openssl req -new -key server.key -out server.csr
+
+This command will prompt terminal to display a lists of fields that need to be filled in. 
+The most important line is "Common Name". Enter your official domain name here or, 
+if you don't have one yet, your site's IP address. Leave the challenge password and optional company name blank.
+	:::term
+	Enter pass phrase for server.key:
+	You are about to be asked to enter information that will be incorporated
+	into your certificate request.
+	What you are about to enter is what is called a Distinguished Name or a DN.
+	There are quite a few fields but you can leave some blank
+	For some fields there will be a default value,
+	If you enter '.', the field will be left blank.
+	-----
+	Country Name (2 letter code) [AU]:YOUR_COUNTRY
+	State or Province Name (full name) [Some-State]:YOUR_STATE
+	Locality Name (eg, city) []:YOUR_CITY
+	Organization Name (eg, company) [Internet Widgits Pty Ltd]:YOUR_COMPANY
+	Organizational Unit Name (eg, section) []:YOUR_UNIT
+	Common Name (eg, YOUR name) []:YOUR_DOMAINNAME_HERE
+	Email Address []:YOUR_EMAIL
+
+	Please enter the following 'extra' attributes
+	to be sent with your certificate request
+	A challenge password []:
+	An optional company name []:	
+		
+### Remove the Passphrase
+We are almost finished creating the certificate. However, it would serve us to remove the passphrase. Although having the passphrase in place does provide heightened security, the issue starts when one tries to reload nginx. In the event that nginx crashes or needs to reboot, you will always have to re-enter your passphrase to get your entire web server back online.
+
+Use these commands to remove the password:
+	:::term
+	$ cp server.key server.key.org
+	$ openssl rsa -in server.key.org -out server.key
+
+
+### Sign your SSL Certificate
+Your certificate is all but done, and you just have to sign it.
+
+Keep in mind that you can specify how long the certificate should remain valid by changing the 365 to the number of days you prefer. As it stands this certificate will expire after one year.
+	:::term
+	$ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+	Signature ok
+	subject= ... 
+	Getting Private key
+
+### Set Up the Certificate
+Now we have all of the required components of the finished certificate.
+The next thing to do is to set up the virtual host to serve your domain from HTTS connection.
+
+Update existing Nginx `/opt/nginx/conf/conf.d/https_rhoconnect.conf` configuration file by including the newly signed certificate and private key: 
+	:::term
+	upstream thin_cluster {
+	  # ...
+	}
+
+	# HTTPS server
+	server {
+	        listen 443;
+	        server_name YOUR_DOMAINNAME_HERE;
+		  	root  /opt/nginx/html/#{app_name}/public;
+
+			location / {
+			  # ...
+			    proxy_pass http://thin_cluster;
+			}
+
+	        ssl on;
+	        ssl_certificate /opt/nginx/ssl/server.crt;
+	        ssl_certificate_key /opt/nginx/ssl/server.key; 
+	}
+	
+
+### Activate the Virtual Host
+Restart nginx: 
+	:::term
+	$ /etc/init.d/nginx restart
+
+Now we're ready to access the above host using:
+	:::term
+	https://YOUR_DOMAINNAME_HERE
+
 
 ## Deploying RhoConnect Redis and Push packages on Linux servers
 
