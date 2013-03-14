@@ -20,8 +20,8 @@ The full code listing for this product_spec is available [on github](http://gith
 From your application's root folder:
 	
 	:::term
-  	$ rake rhoconnect:spec
-	[05:51:48 PM 2011-04-19] Rhoconnect Server v3.0.0 started...
+  	$ rhoconnect spec
+	[05:51:48 PM 2012-04-19] Rhoconnect Server v3.2.0 started...
 	Product
 	  it should behave like SpecHelper
 	    should process Product query (PENDING: No reason given)

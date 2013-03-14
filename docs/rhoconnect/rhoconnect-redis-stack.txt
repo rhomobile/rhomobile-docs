@@ -254,6 +254,41 @@ You are charged for the stack that you have created, by the hour. When you no lo
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/delete-stack.png" alt="Delete Stack" />
 
+## High Availability/Failover for Redis server
+
+The described architecture has a weak spot: a single point of failure (SPOF). If the Redis server is down or stops responding, then the entire Rhoconnect stack stops functioning. To address this issue, we need to implement failover — the continuation of a service after the failure of one or more of its components. Redis provides a very simple solution to 
+configure master-slave replication that allows slave Redis servers to be exact copies of master servers. 
+So if the master server goes down, we can issue a `SLAVEOF NO ONE` command to the slave and then switch RhoConnect apps to use the slave that is now the master. 
+
+The following is a one possible scenario of how it might be done on the Amazon cloud.
+
+Redis High Availability proposal:
+
+* RhoConnect applications do not send queries directly to the Redis server, but communicate with the Redis Elastic Load Balancer (RELB).
+* RELB has 2 monitor servers, both running Haproxy and Monit services. RELB responsibility is to do a health check of monitor servers and to distribute incoming traffic to TCP proxy service.
+* Each monitor machine has a TCP proxy which relays its traffic to the master redis server.
+* Monit service role is to detect failure of redis servers and start recovery process.
+* Monit checks redises on a regular basis. It runs a failover script `/home/ubuntu/failover` if there is an failure to get a valid response upon performing a PING command three times in a row.
+* Failover script does automatic slave -> master promotion in the case of master failure, and reconfigures Haproxy service to relay traffic to the new master redis. It spins up a new Redis EC2 instance and sets it as slave on the new master.
+* The failover script uses AWS `simpleBD` service to store current redis servers configuration (master/slave/backup). So,
+if another instance of monitor server detects failure and calls the failover script, it will know the current status of the redis servers
+and will wait until the recovery process that was initiated by another Monit service is over. Finally, the failover script reconfigures and restarts the Monit service to track a new pair of master/slave redis servers.
+* 1 Redis master
+* 1 Redis slave
+
+The URL for the CloudFormation template that implements the described proposal is available here 
+[https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect-ha.txt](https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect-ha.txt)
+and can be used for evaluation purposes. 
+
+The template will create a sample scalable rhoconnect stack with 2 elastic load balancers and 5 EC2 instances.
+
+* RhoConnect Load Balancer
+* 1 EC2 instance of RhoConnect application  
+* Redis Load Balancer
+* 2 EC2 instances of monitor servers (Haproxy/Monit) 
+* 2 EC2 instances of redis servers (master/slave)
+
+
 
 
 
