@@ -166,7 +166,7 @@ Edit your `spec/spec_helper.rb` file to contain the following:
 	  include Rhoconnect::TestMethods
   
 	  before(:each) do
-	    Store.flush_all
+	    Store.db.flushdb
 	    Application.initializer(ROOT_PATH)
 	  end  
 	end

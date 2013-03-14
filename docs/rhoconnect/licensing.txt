@@ -2,7 +2,7 @@ Licensing Your RhoConnect Application
 ===
 
 ## RhoHub License
-If you plan to deploy your RhoConnect application on RhoHub under a premium or enterprise plan, just click on the **"Live app ON/OFF"** button on the RhoHub page for that RhoConnect app to enable your paid-level license.
+If you plan to deploy your RhoConnect application on RhoHub under a premium or enterprise plan, just click on the **"Production app?"** button to enable your paid-level license.
 
 **NOTE: Toggling this button will re-deploy your RhoConnect application to a new redis database.  Make sure you __backup all critical data__ before doing this!**
 

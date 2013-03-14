@@ -146,7 +146,7 @@ sudo chown -R www-data:www-data blobapp/
 
 Edit <b>Nginx</b> configuration file, set server_name and root properties to public DNS server name 
 and bench application public folder respectively. After restarting server make sure that bench application is
-running by visiting its web console, i.e. : 
+running by visiting its web concole, i.e. : 
 <pre>
 http://server_dns_public_name/console/ 
 </pre>
@@ -164,7 +164,7 @@ Edit rhoconnect/bench/benchapp/settings/settings.yml and set redis and syncserve
 
 Do the same for blobapp settings.yml file.
 
-Then from rhoconnect/bench directory execute run_cud_script.sh and run_blob_script.sh scripts respectively.
+Then from rhoconnect/becnh directory execute run_cud_script.sh and run_blob_script.sh scripts respectively.
 
 ## Multi-core Amazon EC2 server environments
 

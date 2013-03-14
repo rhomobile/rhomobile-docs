@@ -49,7 +49,7 @@ For example, suppose you have a Rhodes app with a Product model. To use a custom
 	  # Uncomment the following line to enable sync with Product.
 	  enable :sync
 
-	  #add model specific code here
+	  #add model specifc code here
 	  property :my_custom_blob_field, :blob, :overwrite 
 	end
 	

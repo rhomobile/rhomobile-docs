@@ -2,38 +2,44 @@ Supported Platforms
 ===
 ## Support Matrix
 
-RhoConnect gem is available on the following platforms: 
-
 <table class="device-caps">
   <tr>
     <th>OS</th>
     <th>Distribution</th>
+    <th>Ruby 1.8.7</th>
+    <th>Ruby Enterprise</th>
+    <th>Ruby 1.9.2</th>
     <th>Ruby 1.9.3</th>
-    <th>Ruby 2.0.0</th>
     <th>JRuby</th>
     <th>Environment</th>    
   </tr>
   <tr>
     <td class='cap'>Linux</td>
-    <td> CentOS / RHEL 5.x & 6.x,<br/>Ubuntu 12.04 </td>
-    <td> ruby-1.9.3-p392 </td>
-    <td class='tbd'> TBD </td>
-    <td class='tbd'> TBD </td>
+    <td> CentOS / RHEL 5 & 6,<br/>Ubuntu 11,<br/>Amazon Linux</td>
+    <td> ruby-1.8.7-p358 </td>
+    <td> ree-1.8.7-2012.02 </td>
+    <td> ruby-1.9.2-p320 </td>
+    <td> ruby-1.9.3-p194 </td>
+    <td> jruby-1.6.7 </td>
     <td>Development &<br/>Production</td>
   </tr>
   <tr>
     <td class='cap'>Mac OS </td>
-    <td> Mac OS X 10.7/10.8 </td>
-    <td> ruby-1.9.3-p392 </td>
-    <td class='tbd'> TBD </td>
-    <td class='tbd'> TBD </td>
-    <td> Development </td>
+    <td> Mac OS X 10.6/10.7 </td>
+    <td> ruby-1.8.7-p358 </td>
+    <td> ree-1.8.7-2012.02 </td>
+    <td> ruby-1.9.2-p320 </td>
+    <td> ruby-1.9.3-p194 </td>
+    <td> jruby-1.6.7 </td>
+    <td>Development &<br/>Production</td>
   </tr>
   <tr>
     <td class='cap'>Windows</td>
     <td> Windows 7 </td>
-    <td> ruby-1.9.3-p374 </td>
+    <td> ruby-1.8.7-p358 </td>
     <td class='tbd'> TBD </td>
+    <td class='tbd'> TBD </td>
+    <td> ruby-1.9.3-p194 </td>
     <td class='tbd'> TBD </td>
     <td>Development</td>
   </tr>
@@ -46,19 +52,22 @@ Other Ruby versions and releases might work with RhoConnect gem, but there are n
 RhoConnect for Windows is supported only in development environments. The components you should have for this environment are:
 
 * Ruby 1.9.3
-* Redis 2.6.x
+* Redis 2.4.x
 * Latest RhoConnect and Rhodes gems
 * Eclipse 3.6 with latest RhoStudio plugin, or RhoStudio for Windows 32-bit
-* Make 3.81
+* Make 3.18
 * DevKit for Windows (or other Windows development environment)
 
-RhoConnect for Linux is supported for both development and production environments. 
-On Linux servers RhoConnect is available in the format of [Debian (deb) and Red Hat (rpm) packages](http://edgedocs.rhomobile.com/rhoconnect/deploying) for Ubuntu and CentOS respectively.
-RhoConnect Mac OS X is supported in development environment. 
-The components you should have for this environment are:
+RhoConnect for Linux and Mac OS X is supported for both development and production environments. The components you should have for this environment are:
 
-* Ruby 1.9.3
-* Nginx HTTP server (1.3.x)
-* Redis data store (2.6.x)
+* Ruby 1.9.3-p194
+* Nginx HTTP server (1.2.x)
+* Redis data store (2.4.x)
 * Thin application server
 * RhoConnect gem with all required dependencies
+
+## Known Issues
+
+* Windows platform: only pre-release (~> 1.0.0.beta) of <b>eventmachine</b> is working on Windows  
+* If you deploy your RhoConnect application deploy on <b>Heroku</b>, then use new [Cedar](http://devcenter.heroku.com/articles/cedar) stack. The Bamboo stack is older than the widespread adoption of bundler, 
+so on Bamboo your application is not invoked in the context of your bundle and might not works properly.

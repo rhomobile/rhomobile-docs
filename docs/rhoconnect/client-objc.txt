@@ -7,7 +7,7 @@ Source Code
 -----------
 The source code for the RhoConnect client store example is located here.
 
- * [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rhoconnect-client/tree/master/rhoconnect-client/Samples/ObjectiveC/store/)
+ * [rhoconnect-client\Samples\ObjectiveC\store](http://github.com/rhomobile/rhodes/tree/master/rhoconnect-client/Samples/ObjectiveC/store/)
 
 Pre-requisite Reading
 ---------------------
@@ -31,7 +31,7 @@ Pre-requisite Reading
 
 ## Setup
 
-The RhoConnect Client is part of the Rhoconnect-client repository; it contains files that you will need to add to your Xcode project. You can get the client [on github](https://github.com/rhomobile/rhodes/downloads). (Select the latest 'rhoconnect-client' package).
+The RhoConnect Client is part of the Rhodes repository; it contains files that you will need to add to your Xcode project. You can get the client [on github](https://github.com/rhomobile/rhodes/downloads). (Select the latest 'rhoconnect-client' package).
 
 Create a new Xcode project or open an existing one in Xcode.
 
@@ -562,7 +562,7 @@ Instance method. Returns a RhoConnectNotify object after running a sync on all t
 
 ### <a id="is_syncing">is_syncing
 
-Instance method. Returns TRUE if synchronization is in progress
+Instance method. Returns TRUE if syncronization is in progress
 
 	:::cplusplus
 	- (BOOL) is_syncing;

@@ -3,13 +3,11 @@ Setting Up Push on Backend Application
 
 A RhoConnect push to the client consists of executing a RhoConnect ping call. There are three ways to execute a ping call: you can use the RhoConnect REST API to remotely call the ping, perform the ping job directly in a blocking ruby call, or enqueue a resque job to ping asynchronously.
 
-The push message can trigger the following actions in the Rhodes client application: alert with a message, sync one or more sources, vibrate, display a badge, and play a sound file.
-
 ## Pushing Remotely with the RhoConnect REST API
 
 You can trigger a push remotely using the [RhoConnect API Ping method](/rhoconnect/rest-api). This is useful if you want to fully control the push process from a remote server, such as when you use a RhoConnect plugin to connect your backend application to the RhoConnect server application.
 
-**NOTE: If you want to sync all the sources, use 'all' for the source list (the source_name parameter) instead of a comma-separated list of the RhoConnect application source names to sync.**
+**NOTE: If you want to sync all the sources, use 'all' for the source list (the soure_name parameter) instead of a comma-separated list of the RhoConnect application source names to sync.**
 
 ### Example of Ping for Ruby Backend Application
 
@@ -31,10 +29,9 @@ As an example, here is how to send a PUSH message to all the devices of the spec
     }
 
 	RestClient.post(
-	  "#{server}/rc/v1/users/ping", ping_params.to_json, 
-	  { :content_type => :json,
-		'X-RhoConnect-API-TOKEN' => @api_token }
-	)
+	  "#{server}/api/client/ping",ping_params.to_json, 
+	  :content_type => :json
+	) 
 
 ### Example of Ping for .NET Backend Application
 
@@ -43,7 +40,8 @@ As an example, here is how to send a PUSH message to all the devices of the spec
     private static bool perform_ping(String method, String source_name, String the_message, String vibrate_time, String sound_file,  Hashtable reqHash)
         {
             // add meta information
-            reqHash.Add("user_id", [array of users]);
+            reqHash.Add("api_token", _api_token);
+            reqHash.Add("user_id", [array of users]); // not sure how I do this
             reqHash.Add("source_id", source_name);
             reqHash.Add("message", the_message);
             reqHash.Add("vibrate", vibrate_time);
@@ -52,11 +50,12 @@ As an example, here is how to send a PUSH message to all the devices of the spec
             JavaScriptSerializer js = new JavaScriptSerializer();
             string requestBody = js.Serialize(reqHash);
             
-            Uri address = new Uri(_endpoint_url + "/rc/v1/users /ping");
+            
+            // Uri address = new Uri(_endpoint_url + "/api/source/" + method);
+            Uri address = new Uri(_endpoint_url + "/api/client/ping");
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
             request.ContentType = "application/json";
             request.Method = "POST";
-			request.Headers.Add("X-RhoConnect-API-TOKEN", _api_token);
 
             byte[] byteData = UTF8Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = byteData.Length;
@@ -91,7 +90,7 @@ As an example, here is how to send a PUSH message to all the devices of the spec
 		HttpEntity<Map> entity = new HttpEntity<Map>(hash, headers);
 
 		ResponseEntity<String> response = restTemplate.exchange(
-				endpointUrl + "/rc/v1/users/ping", 
+				endpointUrl + "/api/client/ping", 
 				HttpMethod.POST,
 				entity,
 				String.class);
@@ -147,13 +146,3 @@ To queue a ping that is executed asynchronously in a job, you can have PingJob q
 	)
 
 **Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](/rhoconnect/async-jobs) for more information.**
-
-## Triggering Push Automatically after Updating RhoConnect Data from Plugins
-
-Whenever a backend application modifies RhoConnect data for one of the sources, you can trigger an automatic push notification to be sent to the user's device(s) whose source data was modified. This will force the user's client application to perform a sync on the modified source.
-To enable this, you need to specify the following setting in the `settings.yml` file:
-
-	:::yaml
-	:push_notify: 'true'
-
-**Note: The automatic push notification will be applied only to the user-partitioned sources. App-partitioned sources can not trigger an automatic push notification.**
