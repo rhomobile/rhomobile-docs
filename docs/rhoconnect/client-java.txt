@@ -2,7 +2,7 @@
 
 ## Getting started
 
-* The RhoConnect Client is part of the Rhodes repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhoconnect-client' package). 
+* The RhoConnect Client is part of the Rhoconnect-client repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhoconnect-client' package). 
 
 * The RhoConnect Client for Android contains two files:
 
@@ -10,14 +10,14 @@
 
 ** librhoconnectclient.so - native part of RhoConnect Client library
 
-These can be build from <rhodes>/rhoconnect-client directory with next command
+These can be build from <rhoconnect-client>/rhoconnect-client directory with next command
 
     :::shell
     $>rake android:default
 
 * Create new Android project or open existing one in Eclipse. Add rhoimple.jar to your project build path and copy librhoconnectclient.so to <project_root>/libs/armeabi, so both Java and native parts of RhoConnect Client library will link with your project.
 
-* Copy all files and subfolders from <rhodes>/rhoconnect-client/Java/RhoConnect/assets to assets folder of your Android project.
+* Copy all files and subfolders from <rhoconnect-client>/rhoconnect-client/Java/RhoConnect/assets to assets folder of your Android project.
 
 ## RhoConnectClient initialization
 

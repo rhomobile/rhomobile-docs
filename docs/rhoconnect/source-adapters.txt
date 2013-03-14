@@ -113,106 +113,21 @@ It also adds a corresponding [rspec](http://rspec.info/) file `spec/sources/prod
     	:poll_interval: 300
 
 ## Source Adapter API
-The source adapter interface is described below, your source adapter can use any of these methods to interact with your backend service.
 
-### `login`
-Login to your backend service (optional).
+You can write the following methods for your source adapter. These methods allow your source adapter to interact with your backend service.
 
-	:::ruby
-	def login
-	  MyWebService.login(current_user.login)
-	end
-
-### `logoff`
-Logoff from your backend service (optional).
-
-	:::ruby
-	def logoff
-	  MyWebService.logoff(current_user.login)
-	end
-
-### `query(params = nil)`
-Query your backend service and build a hash of hashes (required).
-
-**NOTE: This method must assign `@result` to a hash of hashes.  If @result is `nil` or `{}`, the master document will be erased from redis.**
-
-	:::ruby
-	def query
-	  parsed = JSON.parse(RestClient.get("#{@base}.json").body)
-
-      @result = {}
-	  parsed.each do |item|
-	    @result[item["product"]["id"].to_s] = item["product"]
-	  end if parsed
-	end
-
-### `search(params)`
-Search your backend based on params and build a hash of hashes (optional).  Similar to query, however the master document accumulates the data in `@result` instead of replacing when it runs.
-
-	:::ruby
-	def search(params)
-	  parsed = JSON.parse(RestClient.get("#{@base}.json").body)
-
-      @result = {}
-	  parsed.each do |item|
-		if item["product"]["name"].downcase == params['name'].downcase
-	      @result[item["product"]["id"].to_s] = item["product"]
-	    end
-	  end if parsed
-	end
-
-Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/rhodes/synchronization#filtering-datasets-with-search).
-
-### `create(create_hash)`
-Create a new record in the backend (optional).
-
-**NOTE: RhoConnect can establish a 'link' between the local record id provided by the client and the new record id provided by the backend service.  To enable this link, return the new record id as a string.**
-
-	:::ruby
-	def create(create_hash)
-	  res = MyWebService.create(create_hash)
-
-	  # return new product id so we establish a client link
-	  res.new_id
-	end
-
-### `update(update_hash)`
-Update an existing record in the backend (optional).
-
-	:::ruby
-	def update(update_hash)
-	end
-
-### `delete(delete_hash)`
-Delete an existing record in the backend (optional).
-
-	:::ruby
-	def delete(delete_hash)
-	  MyWebService.delete(delete_hash['id'])
-	end
-
-### `current_user`
-Returns the current user which called the adapter.  For example, you could filter results for a specific user in  your query method:
-
-	:::ruby
-	def query
-	  @result = MyWebService.get_records_for_user(current_user.login)
-	end
-
-### `stash_result`
-Saves the current state of `@result` to redis and assigns it to `nil`.  Typically this is used when your adapter has to paginate through backend service data.
-
- 	:::ruby
-	def query
-	  @result = {}
-	  ('a'..'z').each_with_index do |letter,i|
-		@result ||= {}
-	    @result.merge!( DictionaryService.get_records_for(letter) )
-		stash_result if i % 2 == 0
-	  end
-	end
+* [login](/rhoconnectapi/source-adapter-api#login) - Login to your backend service (optional).
+* [logoff](/rhoconnectapi/source-adapter-api#logoff) - Logoff from your backend service (optional).
+* [query](/rhoconnectapi/source-adapter-api#query) - Query your backend service and build a hash of hashes (required).
+* [search](/rhoconnectapi/source-adapter-api#search) - Search your backend based on params and build a hash of hashes (optional).
+* [create](/rhoconnectapi/source-adapter-api#create) - Create a new record in the backend (optional).
+* [update](/rhoconnectapi/source-adapter-api#update) - Update an existing record in the backend.
+* [delete](/rhoconnectapi/source-adapter-api#delete) - Delete an existing record in the backend.
+* [current_user](/rhoconnectapi/source-adapter-api#currentuser) - Returns the current user which called the adapter.
+* [stash_result](/rhoconnectapi/source-adapter-api#stashresult) - Saves the current state of `@result` to redis and assigns it to `nil`.
 
 ## Data Partitioning
+
 Data is stored in RhoConnect using [redis sets](http://redis.io/commands#set).  The `@result` hash from the `query` method is stored in redis and referred to as the Master Document or MD.
 
 The MD is referenced in RhoConnect by a corresponding partition.  Source adapters can partition data in two ways: user and app.  As you might have guessed, user partitioning stores a copy of the source adapter MD for each user (one copy shared across all devices for a user).

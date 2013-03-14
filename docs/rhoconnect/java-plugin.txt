@@ -1,88 +1,40 @@
 RhoConnect-Java
 ===
 
-The RhoConnect-Java library is designed for the [RhoConnect](http://rhomobile.com/products/rhoconnect/) Application Integration Server.
+RhoConnect-Java library is designed for the [RhoConnect](http://rhomobile.com/products/rhoconnect/) Application Integration Server.
 
-Using the RhoConnect-Java plugin jar file, your [Spring 3 MVC](http://www.springsource.org/) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [RhoConnect clients](http://rhomobile.com/products/rhoconnect/).
-
-<img src='https://s3.amazonaws.com/rhodocs/rhoconnect-service/rhoconnect-plugin-java.jpg' alt='image' />
+Using the RhoConnect-Java plugin, your [Spring 3 MVC](http://www.springsource.org/) application's data will transparently synchronize with a mobile application built on the [Rhodes framework](http://rhomobile.com/products/rhodes), or any of the available [RhoConnect clients](http://rhomobile.com/products/rhoconnect/).
 
 ## Prerequisites
 
 * Java (1.6)
-* Maven2 (2.2.1)
+* Maven
 * Git
-* [Rhoconnect-java](https://github.com/downloads/rhomobile/rhoconnect-java/rhoconnect-java-1.0.1.jar) plugin jar file
+* [rhoconnect-java](https://s3.amazonaws.com/rhoconnect-java/rhoconnect-java-1.0.2.jar) RhoConnect Java plugin jar
+* [rhoconnect-java-api](https://s3.amazonaws.com/rhoconnect-java/rhoconnect-java-api-1.0.0.jar) RhoConnect Java API jar
 
-## Getting Started
+## Getting started
 
-We assume that you have a complete java end-to-end application using Spring 3.0 MVC as the front end technology and Hibernate as the backend ORM. For this application, we will also use Maven2 for build and dependency management and a database to persist the data. The database is accessed by a Data Access (DAO) layer.
+We assume that you have a complete java end-to-end application using Spring 3.0 MVC as the front end technology and Hibernate as backend ORM. For this application we will also use Maven for build and dependency management and some database to persist the data. The database is accessed by a Data Access (DAO) layer.
 
-## A Sample Java Spring 3.0 MVC Backend Application
+Copy [rhoconnect-java](https://s3.amazonaws.com/rhoconnect-java/rhoconnect-java-1.0.2.jar) and [rhoconnect-java-api](https://s3.amazonaws.com/rhoconnect-java/rhoconnect-java-api-1.0.0.jar) jar files to your PC.
+You can also create target rhoconnect-java plugin jar from sources by cloning rhoconnect-java repository 
 
-The instructions in the following steps show how to install the `rhoconnect-java` plugin jar file into an existing Java end-to-end application using Sprint 3.0 MVC as the front end technology, and Hibernate as the backend ORM. For an example, you can download and install the [RhoconnectJavaSample](https://github.com/shurab/RhoconnectJavaSample) application.
+    :::term
+    $ git clone git@github.com:rhomobile/rhoconnect-java.git
 
-This sample Java application was created using Sprint 3.0 MVC, using [this tutorial to Create Spring 3 MVC Hibernate 3 Example using Maven in Eclipse](http://viralpatel.net/blogs/2010/11/spring3-mvc-hibernate-maven-tutorial-eclipse-example.html).
+and executing in cloned project directory the following commands:
 
-To install this sample application, navigate in your web browser to [https://github.com/shurab/RhoconnectJavaSample](https://github.com/shurab/RhoconnectJavaSample) and download it as a zip file. Unzip it and rename the unzipped folder to RhoconnectJavaSample.
+    :::term
+	$ mvn package
 
-Navigate into the `RhoconnectJavaSample` folder and run these commands to run the sample Java application.
+The archived rhoconnect-java-x.y.z.jar file will be created in the project java-plugin/target/ directory. The accompanying rhoconnect-java-api-x.y.z.jar file will be created in the project java-api/target/ directory. 
 
-	:::term
-	$ mvn clean
-	$ mvn jetty:run
+For testing and evaluation purposes you can use [RhoconnectJavaSample](https://github.com/shurab/RhoconnectJavaSample) application as a starting point before continuing with the following steps. 
 
-When you see `[INFO] Started Jetty Server`, open a web browser and navigate to `http://localhost:8080/contacts/index` to see this application running.
+### Adding Dependencies to Your Maven Project
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-plugin/java-backend-running.png">
-
-## Settings for the Client App
-
-Your client application needs to have its model match the model used in your Java Sprint 3.0 MVC backend application. For example, you can generate a Rhodes application for a Contact model to match the RhoconnectJavaSample application:
-
-	:::term 
-	$ rhodes app contact-app
-	$ cd contact-app
-	$ rhodes model contact lastname,firstname,email,telephone
-
-
-Edit the `rhoconfig.txt` configuration file to point to your RhoConnect server, where <your_rhoconnect_server_url> is the url for your RhoConnect server.
-
-	:::term
-	syncserver = 'http://<your_rhoconnect_server_url>/application'
-
-And edit the `app/index.erb` view file to say Contacts:
-
-	:::html
-	...
-	<li><a href="Contact">Contacts</a></li>
-	...
-
-And edit `app/Contact/contact.rb` file to enable sync.
-
-	:::ruby
-	...
-	enable :sync
-	...
-
-## Settings for the RhoConnect Server App
-
-You must generate a RhoConnect server application and edit its settings for the RhoConnect Java plugin.
-
-	:::term 
-	$ rhoconnect app syncserver
-	$ cd syncserver; bundle install
-
-Edit the `settings/settings.yml` development section to add an api\_token key/value pair. This value is the same as the api\_token that you will set in the `WEB-INF/spring-servlet.xml` file for your Java backend application.
-
-	:::term
-	:development:
-	   ...
-	   :api_token: rhoconnect_api_token
-
-## Adding Dependencies to Your Java Application Maven 2 POM
-
-Add dependencies to the Apache Maven 2 project object model (POM) in your Java application by plugging the code below into the `pom.xml` file. This adds dependencies for log4j, Apache common beanutils, and Jackson JSON mapper.
+Add dependencies to your Apache Maven project object model (POM): log4j, Apache common beanutils, and Jackson JSON mapper. In the RhoconnectJavaSample application, this code is in the pom.xml file.
 
     :::xml
     <!-- Log4j -->
@@ -107,18 +59,16 @@ Add dependencies to the Apache Maven 2 project object model (POM) in your Java a
         <optional>false</optional>  
     </dependency>
 
-## Adding the rhoconnect-java Plugin Jar File to Your Java Backend Application
-
-At this time, the rhoconnect-java plugin jar file is not available in Maven public repositories, so you need to manually install this jar into your Maven's local repository. 
-
-Download the [Rhoconnect-java](https://github.com/downloads/rhomobile/rhoconnect-java/rhoconnect-java-1.0.1.jar) plugin jar file to your PC.
-
-Use the following Maven command to add the rhoconnect-java plugin jar file to your Java backend application. Replace `path-to-jar` with the path to where you have the rhoconnect-java plugin jar file.
+You must also add the rhoconnect-java and rhoconnect-java-api jars to your Maven project. At this moment they are not available in Maven public repositories and you need install the jar manually into your Maven's local repository.
 
     :::term
-	$ mvn install:install-file -Dfile=/path-to-jar/rhoconnect-java-1.0.1.jar -DgroupId=com.rhomobile.rhoconnect  -DartifactId=rhoconnect-java -Dversion=1.0.1 -Dpackaging=jar
+	$ mvn install:install-file -Dfile=/path-to-jar/rhoconnect-java-api-1.0.0.jar -DgroupId=com.msi.rhoconnect.api \
+	  -DartifactId=rhoconnect-java-api -Dversion=1.0.0 -Dpackaging=jar
+	$ mvn install:install-file -Dfile=/path-to-jar/rhoconnect-java-1.0.2.jar \
+	  -DgroupId=com.rhomobile.rhoconnect  -DartifactId=rhoconnect-java -Dversion=1.0.2 -Dpackaging=jar
 
-Now that the rhoconnect-java jar library is included in your Maven local repository, you must add it as a dependency by adding the following code to the `pom.xml` file. Make sure the version number matches the version number in the jar file name.
+Now, the `rhoconnect-java` jar library is included into your Maven local repository.
+In the RhoconnectJavaSample application, you would add this code to the pom.xml file.
 
     :::xml
     <!-- Rhoconnect-java plugin -->
@@ -128,26 +78,27 @@ Now that the rhoconnect-java jar library is included in your Maven local reposit
     	<version>1.0.1</version>
     	<type>jar</type>
 	</dependency>
+    <!-- Rhoconnect-java-api and its dependencies -->
+    <dependency>
+        <groupId>com.msi.rhoconnect.api</groupId>
+        <artifactId>rhoconnect-java-api</artifactId>
+        <version>1.0.0</version>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-bundle</artifactId>
+      <version>1.17</version>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+	
+### Updating Your Servlet XML Configuration File
 
-### Creating the rhoconnect-java Plugin Jar File from the rhoconnect-java Repository
-
-Instead of downloading the rhoconnect-java plugin jar file, you can generate it from sources by cloning the `rhoconnect-java` repository:
-
-    :::term
-    $ git clone https://github.com/rhomobile/rhoconnect-java.git
-
-and executing the following commands in your cloned rhoconnect-java project directory:
-
-    :::term
-    $ mvn clean
-    $ mvn compile
-    $ mvn jar:jar
-
-The archived `rhoconnect-java-x.y.z.jar` file will be created in the project's `target` directory.
-
-## Updating Your Servlet XML Configuration File
-
-Update your servlet xml configuration file in your Java backend application folder to include rhoconnect-java metadata: the packages, converters, and beans. In your Java application folder (such as the RhoconnectJavaSample folder), add the following code to `src/main/webapp/WEB-INF/spring-servlet.xml`.
+Update your servlet xml configuration file to include rhoconnect-java metadata: the packages, converters, and beans. In the RhoconnectJavaSample, the following code is added to src/main/webapp/WEB-INF/spring-servlet.xml file.
 
     :::xml
     <!-- rhoconnect-java plugin packages -->
@@ -180,46 +131,43 @@ Update your servlet xml configuration file in your Java backend application fold
     <!-- rhoconnect-java plugin beans -->
     <bean id="dispatcher" class = "com.rhomobile.rhoconnect.RhoconnectDispatcher"></bean>
     <bean id="rhoconnectClient" class = "com.rhomobile.rhoconnect.RhoconnectClient" init-method="setAppEndpoint" >
-     	<property name="restTemplate"><ref bean="restTemplate"/></property>
-     	<property name="endpointUrl" value="<your_rhoconnect_server_url>" />
-     	<property name="appEndpoint" value=app_endpoint_url" />
-     	<property name="apiToken" value="api_token" />
+     	<property name="endpointUrl" value="your_rhoconnect_server_url" />
+     	<property name="appEndpoint" value="your_spring_app_url" />
+     	<property name="apiToken" value="my-rhoconnect-token" />
     </bean>
     
     <!--The following bean handles the application's authentication routine and should be implemented by you -->
     <bean id="authenticate" class = "com.rhomobile.contact.ContactAuthenticate" />
 
-### Configuring Properties in the setAppEndpoint Method
-
 The `setAppEndpoint` method in the `rhoconnectClient` bean in the above code sample is a main point in establishing the communication 
-link between the `Rhoconnect` server and your Java Spring 3 MVC backend application. It has the following properties that you need to configure.
+link between the `Rhoconnect` server and the Spring 3 MVC application. It has the following properties that you need to configure.
 
 <table border="1">
   <tr>
-	<td><code>your_rhoconnect_server_url</code></td>
+	<td><code>endpointUrl</code></td>
 	<td>rhoconnect server's url, for example <code>http://localhost:9292</code></td>
   </tr>
   <tr>
-	<td><code>app_endpoint_url</code></td>
+	<td><code>appEndpoint</code></td>
 	<td>your Spring 3 MVC app url, for example <code>http://localhost:8080/contacts</code></td>
   </tr>
   <tr>
 	<td><code>apiToken</code></td>
-	<td>rhoconnect server's api_token, for example <code>rhoconnect_api_token</code></td>
+	<td>rhoconnect server's api_token, for example <code>my-rhoconnect-token</code></td>
   </tr>
 </table>
 
-The `authenticate` bean will be called by the RhoConnect server to authenticate users, so it has to implement the `Rhoconnect` interface provided by the rhoconnect-java plugin: 
+The `authenticate` bean will be called by rhoconnect server to authenticate users, and has to implement `Rhoconnect` interface provided by rhoconnect-java plugin: 
 
     :::java
     package com.rhomobile.rhoconnect;
     import java.util.Map;
 
     public interface Rhoconnect {
-        String authenticate(String userName, String password, Map<String, Object> attributes);
+	    String authenticate(String userName, String password, Map<String, Object> attributes);
     }
 
-For example, in the RhoConnectJavaSample example, in `src/main/java/com/rhomobile/contact/ContactAuthenticate.java`, you can code the ContactAuthentication class as follows, replacing the TODO comment with authentication code (this example just returns "app").
+For example:
 
     :::java
     package com.rhomobile.contact;
@@ -233,22 +181,22 @@ For example, in the RhoConnectJavaSample example, in `src/main/java/com/rhomobil
 
         @Override
         public String authenticate(String login, String password, Map<String, Object> attributes) {
-            logger.debug("ContactAuthenticate#authenticate: implement your authentication code!");
-            // TODO: your authentication code goes here ...     
-            // Return null value if authentication fails.
+			logger.debug("ContactAuthenticate#authenticate: implement your authentication code!");
+	        // TODO: your authentication code goes here ...		
+			// Return null value if authentication fails.
 
-            // Otherwise, returned value is data partitioning: i.e. user name for filtering data on per user basis
-            //return login;
+			// Otherwise, returned value is data partitioning: i.e. user name for filtering data on per user basis
+			//return login;
 
-            // But if you want your data to be partitioned by 'app' (i.e. the data will be shared among all users),
-            // you should return string "app": it will instruct Rhoconnect to partition the data accordingly.
-            return "app";
+			// But if you want your data to be partitioned by ‘app’ (i.e. the data will be shared among all users),
+	        // you should return string "app": it will instruct Rhoconnect to partition the data accordingly.
+	        return "app";
         }
     }
 
-## Establishing communication from the RhoConnect server to the java backend application
+### Establishing communication from the RhoConnect server to java back-end application
 
-You need to establish communication from the RhoConnect instance to your java backend application by mixing the RhoconnectResource interface in your data access (DAO) service class. This interface is in the Java plugin, `rhoconnect-java/src/main/java/com/rhomobile/rhoconnect/RhoconnectResource.java`. (Note that you do not change the code in `RhoconnectResource.java`.)
+You need to establish communication from the RhoConnect instance to your java back-end application by mixing RhoconnectResource interface in your data access (DAO) service class:
 
     :::java
 	package com.rhomobile.rhoconnect;
@@ -259,84 +207,37 @@ You need to establish communication from the RhoConnect instance to your java ba
 		Map<String, Object> rhoconnectQuery(String partition);
 		Integer rhoconnectCreate(String partition, Map<String, Object> attributes);
 		Integer rhoconnectUpdate(String partition, Map<String, Object> attributes);
-		Integer rhoconnectDelete(String partition, Map<String, Object> attributes);
+		Integer rhoconnetDelete(String partition, Map<String, Object> attributes);
 	}
 
-To help the rhoconnect-java plugin correctly map the model name to the service bean, you should take into account the following conventions when you write the code in your Java backend application to establish communication to the RhoConnect server:
+To help rhoconnect-java plugin correctly do mapping of model name to service bean you should take into account the following conventions:
 
-* The name of the DAO service bean (class) in your java backend application should be the model name followed by `ServiceImpl` suffix (i. e. `ContactServiceImpl` for model `Contact`)  
-* The service bean should be auto-wired into the corresponding controller via @Autowired annotation 
+* Name of the DAO service bean (class) should be model name followed by `ServiceImpl` suffix (i. e. `ContactServiceImpl` for model `Contact`)  
+* Service bean should be auto-wired into corresponding controller via @Autowired annotation 
 
 Data partitioning in your code should be based on filtering data for unique user (i.e. your user name) or per application (shared dataset for all users).
-For more information about RhoConnect partitions, please refer to the [RhoConnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
+For more information about RhoConnect partitions, please refer to the [RhoConnect docs](http://docs.rhomobile.com/rhosync/source-adapters#data-partitioning).
 
-## Establishing communication from java backend application to the RhoConnect server
+### Establishing communication from java back-end application to the RhoConnect server
 
-You must establish the communication from your java backend application to the RhoConnect server by auto-wiring the `RhoconnectClient` bean into your DAO service class and inserting notifications hooks into the data access (create/update/delete) methods. 
-
-After you generate a Sprint 3.0 MVC application, you have a DAO service class similar to the RhoconnectJavaSample file of `ContactServiceImpl.java`, located in `src/main/java/com/rhomobile/contact/service`.
-
-	:::java
-	package com.rhomobile.contact.service;
-	
-	import java.util.List;
-	
-	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.stereotype.Service;
-	import org.springframework.transaction.annotation.Transactional;
-	
-	import com.rhomobile.contact.dao.ContactDAO;
-	import com.rhomobile.contact.form.Contact;
-	
-	@Service
-	public class ContactServiceImpl implements ContactService {
-	
-		@Autowired
-		private ContactDAO contactDAO;
-	
-		@Transactional
-		public int addContact(Contact contact) {
-			return contactDAO.addContact(contact);
-		}
-	
-		@Transactional
-		public List<Contact> listContact() {
-			return contactDAO.listContact();
-		}
-	
-		@Transactional
-		public void removeContact(Integer id) {
-			contactDAO.removeContact(id);
-		}
-	
-		@Transactional
-		public Contact getContact(Integer id) {
-	        return contactDAO.getContact(id);
-		}
-	
-		@Transactional
-		public void updateContact(Contact contact) {
-			contactDAO.updateContact(contact);		
-		}
-	}
-
+You also must to establish the communication from your java back-end application to the RhoConnect instance by auto-wiring `RhoconnectClient` bean into your DAO service class and inserting notifications hooks into data access (create/update/delete) methods. 
 `RhoconnectClient` bean is provided by rhoconnect-java plugin and responds to the following methods you have to call:
 
 * boolean notifyOnCreate(String sourceName, Object objId, Object object)
 * boolean notifyOnUpdate(String sourceName, Object objId, Object object)
 * boolean notifyOnDelete(String sourceName, Object objId)
 
-Here is an example of how you would recode the ContactServiceImpl.java for the `RhoconnectJavaSample` application. Comments are added to show where you add new code to import libraries such as `RhoconnectClient` and `RhoconnectResource`, and where you call the notifyOnCreate, notifyOnDelete, and notifyOnUpdate methods to tell the backend about changes from the RhoConnect server, and where you implement the rhoconnectQuery, rhoconnectCreate, rhoconnectUpdate, and rhoconnectDelete methods to communicate changes in the backend to the RhoConnect server.
+Example for `RhoconnectJavaSample` application:
 
-	:::java
+    :::java
 	package com.rhomobile.contact.service;
 
-	import java.util.HashMap;		/* import HashMap */
-	import java.util.Iterator;		/* import Iterator */
+	import java.util.HashMap;
+	import java.util.Iterator;
 	import java.util.List;
-	import java.util.Map;			/* import Map */
+	import java.util.Map;
 
-	import org.apache.commons.beanutils.BeanUtils;	/* import BeanUtils */
+	import org.apache.commons.beanutils.BeanUtils;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.Service;
 	import org.springframework.transaction.annotation.Transactional;
@@ -344,24 +245,19 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	import com.rhomobile.contact.dao.ContactDAO;
 	import com.rhomobile.contact.form.Contact;
 
-	/* import RhoconnectClient bean and RhoconnectResource bean */
 	import com.rhomobile.rhoconnect.RhoconnectClient;
 	import com.rhomobile.rhoconnect.RhoconnectResource;
 
-	/* add RhoConnectResource to class implementation */
 	@Service
 	public class ContactServiceImpl implements ContactService, RhoconnectResource {
 	    //private static final Logger logger = Logger.getLogger(ContactServiceImpl.class);
 
 	    @Autowired
 	    private ContactDAO contactDAO;
-	    
-	    /* Add the RhoconnectClient bean via autowire */
 	    @Autowired
 	    private RhoconnectClient client;
 	    private static final String sourceName  = "Contact"; // name of DAO model
 
-		/* Call the notifyOnCreate method from RhoconnectClient bean to tell the backend of changes from RhoConnect server */
 	    @Transactional
 	    public int addContact(Contact contact) {
 	        int id = contactDAO.addContact(contact);
@@ -369,14 +265,12 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	        return id;
 	    }
 
-		/* Call the notifyOnUpdate method from RhoconnectClient bean to tell the backend of changes from RhoConnect server  */
 	    @Transactional
 	    public void updateContact(Contact contact) {
 	        contactDAO.updateContact(contact);
 	        client.notifyOnUpdate(sourceName, Integer.toString(contact.getId()), contact);       
 	    }
 
-		/* Call the notifyOnDelete method from RhoconnectClient bean to tell the backend of changes from RhoConnect server  */
 	    @Transactional
 	    public void removeContact(Integer id) {
 	        contactDAO.removeContact(id);
@@ -393,7 +287,6 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	        return contactDAO.getContact(id);
 	    }
 
-		/* Implement the rhoconnectQuery method to communicate query in backend to the RhoConnect server */
 	    @Override
 	    @Transactional
 	    public Map<String, Object> rhoconnectQuery(String partition) {
@@ -408,7 +301,6 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	        return h;
 	    }
 
-		/* Implement the rhoconnectCreate method to communicate create in backend to the RhoConnect server */
 	    @Override
 	    @Transactional
 	    public Integer rhoconnectCreate(String partition, Map<String, Object> attributes) {
@@ -423,7 +315,6 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	        return null;
 	    }
 
-		/* Implement the rhoconnectUpdate method to communicate updates in backend to the RhoConnect server */
 	    @Override
 	    @Transactional
 		public Integer rhoconnectUpdate(String partition, Map<String, Object> attributes) {
@@ -439,10 +330,9 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	        return null;
 	    }
 
-		/* Implement the rhoconnectDelete method to communicate delete in backend to the RhoConnect server */
 	    @Override
 	    @Transactional
-	    public Integer rhoconnectDelete(String partition, Map<String, Object> attributes) {
+	    public Integer rhoconnetDelete(String partition, Map<String, Object> attributes) {
 	        String objId = (String)attributes.get("id");
 	        Integer id = Integer.parseInt(objId);
 	        removeContact(id);       
@@ -450,7 +340,292 @@ Here is an example of how you would recode the ContactServiceImpl.java for the `
 	    }
 	 }
 
-Click [here](https://github.com/shurab/RhoconnectJavaPluginDemo) to download the full source code of a Contact manager application with rhoconnect-java plugin.
+Click [here](https://github.com/shurab/RhoconnectJavaPluginDemo) to download full source code of Contact manager application with rhoconnect-java plugin.
+
+## RhoConnect-Java-API
+
+The rhoconnect-java project contains `java-api` module that provides Java API to all resources available in <a href='http://docs.rhomobile.com/rhoconnect/rest-api'>Rhoconnect</a>.  
+The `rhoconnect-java-api`is a generic Java library for communicating with RhoConnect RESTful API and it might be used to implement java client apps or components of back-end servers. 
+This library also is used by RhoConnect-Java plugin to directly access RhoConnect resources.
+
+The library has the following dependencies:
+
+* [jersey java](http://jersey.java.net/)
+* [json-simple](http://code.google.com/p/json-simple)
+
+Every usage of API call follows this pattern:
+
+	:::java
+	ClientResponse response = NameOfResource.method(serverUrl, params);
+	// Every call returns as a response Jersey object 
+	// To get status code call `response.getStatus()`
+	// To get body as a jason string  call `response.getEntity(String.class)` 
+	
+### SystemResource
+
+#### `POST /rc/v1/system/login`
+Login to the RhoConnect server and get API token.
+
+    :::java
+	public static ClientResponse login(String url, String password);
+
+#### `POST /rc/v1/system/reset`
+Reset the server: flush db and re-bootstrap server.
+
+	:::java
+	public static ClientResponse reset(String url, String token);
+
+#### `GET /rc/v1/system/license`
+Returns license information of the currently used license.
+
+	:::java
+	public static ClientResponse license(String url, String token);
+
+#### `GET /rc/v1/system/appserver`
+Returns the url of the plugin’s backend from the RhoConnect server.
+
+	:::java
+	public static ClientResponse getAppserver(String url, String token);
+	
+#### `POST /rc/v1/system/appserver`
+Saves the url of the plugin’s backend to the RhoConnect server.
+	
+    :::java
+	public static ClientResponse setAppserver(String url, String token, String adapterUrl)
+
+#### `GET /rc/v1/system/stats`
+Retrieves stats for a given metric key.
+
+	:::java
+	public static ClientResponse statsMetricKey(String url, String token, String metricKey, int start, int finish)
+	
+Retrieves a list of metric keys matching a given pattern. This supports ‘glob’ or ‘*’ style pattern matching.
+
+	:::java
+	public static ClientResponse statsMetricPattern(String url, String token, String pattern);	
+
+
+### StoreResource
+
+#### `GET /rc/v1/store/:doc`
+Return content of a given document stored in Redis.
+
+	:::java
+	public static ClientResponse get(String url, String token, String docname);
+
+
+#### `POST /rc/v1/store/:doc`
+Sets the content of the specified server document. Data should be a string. 
+If append flag is set to true , the data is appended to the current doc (if it exists) 
+instead of replacing it.
+
+	:::java
+	public static ClientResponse set(String url, String token, String docname, String data, boolean append);
+
+### UserResource
+
+#### `GET /rc/v1/users`
+List users registered with this RhoConnect application.
+
+	:::java
+	public static ClientResponse list(String url, String token);
+	
+#### `POST /rc/v1/users`
+Create a user in this RhoConnect application.
+
+	:::java
+	public static ClientResponse create(String url, String token, String login, String password);
+	
+#### `DELETE /rc/v1/users/:user_id`
+Delete User and all associated devices from the RhoConnect application.
+
+	:::java
+	public static ClientResponse delete(String url, String token, String userId);
+		
+#### `PUT /rc/v1/users/:user_id`
+Update attributes for a user on this RhoConnect application.
+userAttributes is a hash of attribute/value pairs:
+{:a_user_specific_attribute => a_user_specific_attribute_value}.
+
+	:::java
+	public static ClientResponse update(String url, String token, String userId, JSONObject userAttributes);
+	
+#### `GET /rc/v1/users/:user_id`
+Returns the information for the specified user.
+
+	:::java
+	public static ClientResponse show(String url, String token, String userId);
+		
+#### `GET /rc/v1/users/:user_id/clients`
+List clients (devices) associated with given user.
+
+	:::java
+	public static ClientResponse listClients(String url, String token, String userId);
+	
+#### `DELETE /rc/v1/users/:user_id/clients/:client_id`
+Deletes the specified client (device) for the given user.
+
+	:::java
+	public static ClientResponse deleteClient(String url, String token, String userId, String clientId);
+		
+#### `GET /rc/v1/users/:user_id/sources/:source_id/docnames`
+Return list of document keys associated with given source and user.
+If userId set to '*', this call will return list of keys for 'shared' documents.
+
+	:::java
+	public static ClientResponse sourcesDocnames(String url, String token, String userId, String sources);
+		
+#### `POST /rc/v1/users/ping`
+Sends PUSH message to all devices of the specified user(s).
+pingParams is a hash of the following attribute/pairs:
+{ "user_id":[array_of_users], "sources":"source_name", 
+"message": "hello world", "vibrate": 2000, "sound": "hello.mp3" }
+
+	:::java
+	public static ClientResponse ping(String url, String token, JSONObject pingParams);
+		
+#### `GET /rc/v1/users/:user_id/sources/:source_id/docs/:doc`
+Return content of a given source document for the specified user.
+
+	:::java
+	public static ClientResponse getSourcesDocs(String url, String token, String userId, String sourceId, String docname);
+		
+#### `POST /rc/v1/users/:user_id/sources/:source_id/docs/:doc`
+Sets the content of the specified source document for the given user. 
+Data should be either a string or hash of hashes. 
+If append flag is set to true , the data is appended to the current doc (if it exists) 
+instead of replacing it.
+
+	:::java
+	public static ClientResponse setSourcesDocs(String url, String token, String userId, String sourceId, 
+			String docname, String data, boolean append);
+	public static ClientResponse setSourcesDocs(String url, String token, String userId, String sourceId,
+			String docname, JSONObject data, boolean append);
+					
+### SourceResource
+
+#### `GET /rc/v1/sources/type/:partition_type`
+Return list of source adapters for this RhoConnect application for the given partition type. 
+Partition type is one of PartitionType.App, PartitionType.User, PartitionType.All.
+
+	:::java
+	public static ClientResponse getSources(String url, String token, PartitionType partitionType);
+	
+#### `GET /rc/v1/sources/:source_id`
+Return attributes associated with a given source.
+
+	:::java
+	public static ClientResponse getAttributes(String url, String token, String sourceId);
+	
+#### `PUT /rc/v1/sources/:source_id`
+Updates attributes associated with a given source. Attributes defined as a hash of attribute/value pair(s).
+
+	:::java
+	public static ClientResponse setAttributes(String url, String token, String sourceId, JSONObject sourceParams);
+
+### ClientResource
+
+#### `GET /rc/v1/clients/:client_id`
+Returns client (device) attributes, such as device_type, device_pin, device_port.
+
+	:::java
+	public static ClientResponse getAttributes(String url, String token, String clientId);
+
+#### `GET /rc/v1/clients/:client_id/sources/:source_id/docnames`
+Returns list of document keys associated with particular client for a given source.
+
+	:::java
+	public static ClientResponse getSourcesDocnames(String url, String token, String clientId, String sourceId);
+	
+#### `GET /rc/v1/clients/:client_id/sources/:source_id/docs/:doc`
+Return content of a given source document for the specified client.
+
+	:::java
+	public static ClientResponse getSourceDocument(String url, String token, String clientId, String sourceId, String docname);
+	
+#### `POST /rc/v1/clients/:client_id/sources/:source_id/docnames`
+Sets the content of the specified source document for the given client. 
+Data should be either a string or hash of hashes. If append flag is set to true, 
+the data is appended to the current doc (if it exists) instead of replacing it.
+
+	:::java
+	public static ClientResponse setSourcesDocnames(String url, String token, String clientId, String sourceId, 
+			String data, boolean append);
+	public static ClientResponse setSourcesDocnames(String url, String token, String clientId, String sourceId, 
+			JSONObject data, boolean append);
+				
+### PluginResource
+
+#### `POST /app/v1/:source_name/push_objects`
+Push new objects or object updates to RhoConnect.
+	
+	:::java
+	public static ClientResponse pushObjects(String url, String token, String userId, String sourceName, JSONObject data);
+	
+#### `POST /app/v1/:source_name/push_deletes`
+Delete objects from RhoConnect.
+	
+	:::java
+	public static ClientResponse deleteObjects(String url, String token, String userId, String sourceName, JSONArray objectIds);
+
+### ReadStateResource
+
+#### `PUT /rc/v1/readstate/users/:user_id/sources/:source_id`
+Sets source poll interval to “current time plus x seconds”.
+Calling method with refreshTime = null will trigger a refresh on the sync request for the source.
+
+	:::java
+	public static ClientResponse setPollInterval(String url, String token, String userId, String sourceName, Integer refreshTime);
+
+
+### Sample of Java RhoConnect client app
+  
+	:::java
+	import com.msi.rhoconnect.api.SystemResource;
+	import com.msi.rhoconnect.api.UserResource;
+	import com.sun.jersey.api.client.ClientResponse;
+	import org.json.simple.JSONArray;
+	import org.json.simple.JSONValue;
+
+	public class JavaClient {
+		static String URL = "http://localhost:9292";
+
+		public static void main(String[] args) {
+			try {
+				ClientResponse response = SystemResource.login(URL, "");
+				if(response.getStatus() == 200) {
+					String token = response.getEntity(String.class);
+					System.out.println("Login to server. Got API token: " + token);
+
+					// List users registered with this RhoConnect application
+					response = UserResource.list(URL, token);
+					JSONArray users = (JSONArray)JSONValue.parse(response.getEntity(String.class));
+					System.out.println(users);
+
+					// Create "testuser" in this RhoConnect application
+					response = UserResource.create(URL, token, "testuser", "password");
+
+					// Make sure that 'testuser' is registered
+					response = UserResource.list(URL, token);
+					users = (JSONArray)JSONValue.parse(response.getEntity(String.class));
+					if(users.contains("testuser")) 
+						System.out.println("User 'testuser' created");
+					System.out.println(users);
+
+					// ....
+
+					// Delete "testuser" from this rhoconnect app
+					response = UserResource.delete(URL, token, "testuser");
+					if (response.getStatus() == 200) 
+						System.out.println("User 'testuser' deleted");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+		}
+	}
+ 
 
 ## Meta
 Created and maintained by Alexander Babichev.

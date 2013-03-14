@@ -6,7 +6,7 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 ## Objective-C Client
 
 ### Getting started
-* The RhoConnect Client is part of the Rhodes repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhoconnect-client' package). 
+* The RhoConnect Client is part of the Rhoconnect-client repository. You can get it [on github](https://github.com/rhomobile/rhodes/downloads) (select the latest 'rhoconnect-client' package). 
 
 * Create new project or open existing one in XCode. Add `<rhoconnect-client>/objectivec/RhoConnectClient.xcodeproj` as dependency to your project, so the RhoConnectClient library will link with your project.
 
@@ -410,7 +410,7 @@ These can be build from <rhodes>/rhoconnect-client directory with next command
 
 * Create new Android project or open existing one in Eclipse. Add rhoimple.jar to your project build path and copy librhoconnectclient.so to <project_root>/libs/armeabi, so both Java and native parts of RhoConnect Client library will link with your project.
 
-* Copy all files and subfolders from <rhodes>/rhoconnect-client/Java/RhoConnect/assets to assets folder of your Android project.
+* Copy all files and subfolders from <rhoconnect-client>/rhoconnect-client/Java/RhoConnect/assets to assets folder of your Android project.
 
 ### RhoConnectClient initialization
 
@@ -610,8 +610,8 @@ Also several utility classes from com.rhomobile.rhodes package can be used. Thes
 
 ### Samples
 
-* See android_store sample [rhoconnect-client\Samples\Java\android_store](http://github.com/rhomobile/rhodes/tree/master/rhoconnect-client/Samples/Java/android_store/) as an example.
-* See android test Eclipse project [rhoconnect-client\Java\Android\test](http://github.com/rhomobile/rhodes/tree/master/rhoconnect-client/Java/Android/test/) as another example.
+* See android_store sample [rhoconnect-client\Samples\Java\android_store](http://github.com/rhomobile/rhoconnect-client/tree/master/rhoconnect-client/Samples/Java/android_store/) as an example.
+* See android test Eclipse project [rhoconnect-client\Java\Android\test](http://github.com/rhomobile/rhoconnect-client/tree/master/rhoconnect-client/Java/Android/test/) as another example.
 
 ## Packaging RhoConnect Client
 To package the RhoConnect Client archive for distribution, go to the top of the rhodes repository and run:

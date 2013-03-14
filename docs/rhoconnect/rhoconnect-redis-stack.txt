@@ -288,6 +288,126 @@ The template will create a sample scalable rhoconnect stack with 2 elastic load 
 * 2 EC2 instances of monitor servers (Haproxy/Monit) 
 * 2 EC2 instances of redis servers (master/slave)
 
+## Setting up Redis Servers Horizontal Scaling
+
+Under heavy load single Redis server might be a bottleneck in RhoConnect stack performance due to high network traffic, 
+large memory footprints of stored data in server instance. To address redis server performance issues RhoConnect (>= v4.0.0)
+ supports multiple Redis instances per app, and evenly distributing load across available Redis server instances. 
+
+### Configure RhoConnect app to support multiple Redis instances
+
+Edit your app `settings/settings.yml` file and replace :redis one liner by array of redis servers you are going to use: 
+
+	:::yaml
+	# ...
+	:production: 
+	  :licensefile: settings/license.key
+	  :syncserver: http://localhost:9292/api/application/
+	  :push_server: http://appname:secret@localhost:8675/
+	  # Two or more redis servers per app 
+	  :redis:
+	    - localhost:6379
+	    - localhost:6380
+	    - localhost:6381
+	    - localhost:6382
+	    # ...
+
+
+### Create a custom Amazon Image with multiple Redis instances
+
+The following recommendations are based on Ubuntu Amazon image, where [RhoConnect Redis](http://docs.rhomobile.com/rhoconnect/deploying#deploying-rhoconnect-redis-and-push-packages-on-linux-servers) package installed and you wanted host 4 redis instances on ports 6379, 6380, 6381, and 6382 respectively. 
+
+Rename `/opt/rhoconnect/etc/redis.conf` configuration file to `/opt/rhoconnect/etc/redis-6379.conf` and make sure that it has settings for the 1st instance: 
+
+	:::text
+	...
+	daemonize yes
+	pidfile /var/run/redis/redis6379.pid
+	port 6379
+
+	# DO NOT FORGET comment persistence cmds
+	# save ...
+	...
+
+For other servers create `/opt/rhoconnect/etc/redis-6380.conf`, `/opt/rhoconnect/etc/redis-6381.conf` and `/opt/rhoconnect/etc/redis-6382.conf` 
+ files and do similar setting for corresponding redis instances: 
+
+	:::text
+	# File /opt/rhoconnect/etc/redis-6380.conf
+	...
+	daemonize yes
+	pidfile /var/run/redis/redis6380.pid
+	port 6380
+	# DO NOT FORGET comment persistence cmds
+	...
+
+	# File /opt/rhoconnect/etc/redis-6381.conf
+	...
+	daemonize yes
+	pidfile /var/run/redis/redis6381.pid
+	port 6381
+	# DO NOT FORGET comment persistence cmds
+	...
+	
+	# File /opt/rhoconnect/etc/redis-6382.conf
+	...
+	daemonize yes
+	pidfile /var/run/redis/redis6382.pid
+	port 6382
+	# DO NOT FORGET comment persistence cmds
+	...
+
+
+Delete `/etc/init/rhoconnect-redis.conf` file if it's there.
+Create upstart script `/etc/init/rhoconnect-redis-6379.conf` for the 1-st instance:
+
+	:::text
+	# /etc/init/rhoconnect-redis-6379.conf 
+	
+	description "Redis Datastore Server"
+	# Redis is a key value in memory persistent datastore
+
+	start on (local-filesystems and runlevel [2345])
+	stop on runlevel [016]
+	expect fork
+	respawn
+
+	pre-start script
+	  mkdir -p /var/run/redis
+	  chown redis:redis /var/run/redis
+	end script
+
+	exec start-stop-daemon --start --chuid redis:redis --pidfile /var/run/redis/redis6379.pid --umask 007 \ 
+	--exec  /opt/rhoconnect/bin/redis-server -- /opt/rhoconnect/etc/redis-6379.conf
+
+Define upstart scripts `/etc/init/rhoconnect-redis-6380.conf`, `/etc/init/rhoconnect-redis-6381.conf`, and `/etc/init/rhoconnect-redis-6382.conf`  for other instances:
+
+	:::text
+	# /etc/init/rhoconnect-redis-6380.conf
+	# ...
+	exec start-stop-daemon --start --chuid redis:redis --pidfile /var/run/redis/redis6380.pid --umask 007  \
+	--exec /opt/rhoconnect/bin/redis-server -- /opt/rhoconnect/etc/redis-6380.conf
+
+	# /etc/init/rhoconnect-redis-6381.conf
+	# ...
+	exec start-stop-daemon --start --chuid redis:redis --pidfile /var/run/redis/redis6381.pid --umask 007  \
+	--exec /opt/rhoconnect/bin/redis-server -- /opt/rhoconnect/etc/redis-6381.conf
+
+	# /etc/init/rhoconnect-redis-6382.conf
+	# ...
+	exec start-stop-daemon --start --chuid redis:redis --pidfile /var/run/redis/redis6382.pid --umask 007  \
+	--exec /opt/rhoconnect/bin/redis-server -- /opt/rhoconnect/etc/redis-6382.conf
+
+		
+We provide a public preconfigured image with above settings for Us `West N. California` region:	
+
+* `ami-94b496d1` (Redis-Server-2.6.7 with 4 instances on ports 6379, 6380, 6381, and 6382)
+
+### Amazon CloudFormation Template File
+
+This Amazon CloudFormation [template file](https://s3.amazonaws.com/rhoconnect-deploy/rhoconnect-template-2-redises-4-instances.txt)
+ shows how 2 redis servers with 4 instances per server might be used for a typical rhoconncect application.
+
 
 
 

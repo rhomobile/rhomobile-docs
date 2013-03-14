@@ -3,6 +3,8 @@ Setting Up Push on Backend Application
 
 A RhoConnect push to the client consists of executing a RhoConnect ping call. There are three ways to execute a ping call: you can use the RhoConnect REST API to remotely call the ping, perform the ping job directly in a blocking ruby call, or enqueue a resque job to ping asynchronously.
 
+The push message can trigger the following actions in the Rhodes client application: alert with a message, sync one or more sources, vibrate, display a badge, and play a sound file.
+
 ## Pushing Remotely with the RhoConnect REST API
 
 You can trigger a push remotely using the [RhoConnect API Ping method](/rhoconnect/rest-api). This is useful if you want to fully control the push process from a remote server, such as when you use a RhoConnect plugin to connect your backend application to the RhoConnect server application.
