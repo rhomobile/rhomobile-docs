@@ -93,7 +93,7 @@ def process_xml
   # Links that go to external sites (may not be reachable if user is truly offline) get italics
   apiFiles.each do |fileName|
     basename = fileName.gsub(AppConfig['dirs']['api'],'')
-    if basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
+    if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
       puts "Processing " + basename
     
       Api.markdown(fileName)
