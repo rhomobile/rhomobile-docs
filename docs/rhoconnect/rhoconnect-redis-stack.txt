@@ -27,11 +27,10 @@ In the AWS Management Console, change the Region to US West (N. California).
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/cloudformation-tab-ncalif-crop.png" alt="Cloud Formation page N California region" />
 
-We provide a few public preconfigured images that contains a blank RhoConnect app for `Us West N. California` region:
+We provide a public preconfigured image that contains a blank RhoConnect app:
 
- * `ami-cbc59e8e` (RhoConnect-3.1.2 with Nginx and phusion passenger)
- * `ami-0dfca748` (RhoConnect-3.2.0 with Nginx and cluster of thin servers)
- 
+ * `ami-cbc59e8e` (Us West N. California)
+
 ### Launching an Instance
 
 To create your own RhoConnect Image, launch an EC2 Image:
@@ -47,7 +46,7 @@ Click the Launch Classic Wizard radio button. Click Continue.
 ### Requesting the Instance
 
 In the Choose an AMI section, click the Community AMIs tab.
-Then paste in the AMI ID, i. e. `ami-cbc59e8e`. When the preconfigured RhoConnect AMI appears, click Select.
+Then paste in the AMI `ami-cbc59e8e`. When the preconfigured RhoConnect AMI appears, click Select.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/request-instances-wizard-community-AMIs.png" alt="request instances - choose AMI" />
 
@@ -77,7 +76,7 @@ Click the Add Rule button to add each port.
  * Add port 80 for HTTP.
  * Add port 6379 for redis.
 
-**NOTE: You may use a preexisting security group if it has ports 22, 80, and 6379 open. **
+**NOTE:** You may use a preexisting security group if it has ports 22, 80, and 6379 open.
 
 Enter a firewall name and a group description, then click Continue.
 
@@ -121,21 +120,11 @@ You can test the application.
 	$ sudo /etc/init.d/redis start
 	$ sudo /etc/init.d/nginx start
 
-**NOTE: If your instance based on `ami-0dfca748` (RhoConnect-3.2.0) image, then you need to do one more step:**
-
-    :::term
-    $ sudo /etc/init.d/thin start
-
 If everything is configured properly, then you can login to the RhoConnect web console in your browser by using the instance's public DNS name as the URL in your browser. When you are done, you can stop the application.
 
 	:::term
 	$ sudo /etc/init.d/nginx stop
 	$ sudo /etc/init.d/redis stop
-	
-**NOTE: Do not forget also stop cluster of thin servers if your instance based on `ami-0dfca748` (RhoConnect-3.2.0):**
-
-    :::term
-    $ sudo /etc/init.d/thin stop
 
 ## Create the Image
 
@@ -179,23 +168,15 @@ Now get the template by either providing the URL for the template file, or by up
 
 Click the Provide a Template URL radio button.
 
-If your custom image based on `ami-cbc59e8e`(RhoConnect-3.1.2) image, then copy the following URL and paste it into the text field below the Provide a Template URL radio button:
+Copy the following URL and paste it into the text field below the Provide a Template URL radio button.
 
 `https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt`
-
-If your custom image based on `ami-0dfca748` (RhoConnect-3.2.0), then use this URL:
-
- `https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template-3.2.txt`
 
 #### Uploading the Template File
 
 Click the Upload a Template File radio button.
 
-In another browser window, go to [https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt](https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt)
-if your custom image based on `ami-cbc59e8e` (RhoConnect-3.1.2). 
-
-If your custom image based on `ami-0dfca748` (RhoConnect-3.2.0), then to go
-[https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template-3.2.txt](https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template-3.2.txt).
+In another browser window, go to [https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt](https://s3-us-west-1.amazonaws.com/rhoconnect-ca-deploy/rhoconnect_template.txt).
 
 Save that text file to your computer.
 

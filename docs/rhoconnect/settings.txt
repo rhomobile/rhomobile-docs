@@ -52,13 +52,7 @@ Typical source settings include:
 	:::yaml
 	:poll_interval: <secs> - source's sync poll interval.
 	:force_default: <true|false> - if specified, this setting forces to use 
-								   default application poll interval
-								   even if source has its own setting.
+									 default application poll interval
+								     even if source has its own setting.
     :partition_type: <app|user> - default partition type for the source
-    :priority: <num> - these settings are used to determine the order the models 
-                       are processed and synchronized. They might be useful when 
-                       there are a set of linked together sources and client need
-                       to know in which order to process them. 
-                       Priority starts from lower value 1. If priorities are not
-                       specified, then there are no guarantee that models will be 
-                       listed and processed in natural order.  
+	

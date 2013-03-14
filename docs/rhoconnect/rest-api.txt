@@ -36,7 +36,7 @@ All API calls will return http 200 and requested data (if applied). Otherwise, A
 ## API Methods
 
 ### `login`
-Before you can use RhoConnect API you should login to the RhoConnect server and get API token:
+Login to the RhoConnect server.
 
 	:::ruby
 	require 'rest_client'
@@ -46,8 +46,23 @@ Before you can use RhoConnect API you should login to the RhoConnect server and 
 	login = "rhoadmin"
 	password = ""
 
-	token = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
+	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
 
+### `get_api_token`
+Before you can use RhoConnect API you should get API token:
+
+	:::ruby
+	require 'rest_client'
+	require 'json'
+
+	server = "http://localhost:9292"
+	login = "rhoadmin"
+	password = ""
+
+	res = RestClient.post("#{server}/login", { :login => login, :password => password }.to_json, :content_type => :json)
+	rhoconnect_session_cookie = 'rhoconnect_session='  + res.cookies['rhoconnect_session']
+	token = RestClient.post("#{server}/api/get_api_token",'',{ 'Cookie' => rhoconnect_session_cookie })
+      	
 ### `get_license_info`
 Returns license information of the currently used license
 

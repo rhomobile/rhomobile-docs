@@ -93,7 +93,7 @@ To test it you need to as a root user start redis, nginx, and thin servers:
 	:::term
 	$ sudo /etc/init.d/redis start
 	$ sudo /etc/init.d/nginx start
-    $ sudo /etc/init.d/thin start
+    	$ sudo /etc/init.d/thin start
 
 And verify that it's up and running by visiting application web console in your browser:
 
@@ -165,11 +165,9 @@ and deploy it into the J2EE App Server.
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
  
-## Deploying on Heroku Cedar
 
-#### Prerequisites
 
-* [Heroku account](https://api.heroku.com/login) and [Heroku Toolbelt](https://toolbelt.heroku.com/) 
+
  
 * Rhoconnect gem version >= 3.2.0
 
@@ -189,20 +187,20 @@ Create in your rhoconnect project file named `Procfile`:
 
 If your application is using resque worker, then you should specify it in the `Procfile` as well:
 
-	:::term
-	web: bundle exec thin start -p $PORT
+    :::term
+    web: bundle exec thin start -p $PORT
     worker: bundle exec rake resque:work 
 
-Now you can run your app locally:
+Now you can run your app locally 
 
-	:::term
+    :::term
     $ gem install foreman
     $ foreman start
 
 
 #### Deploy to Heroku
 Before moving your code to Git you need comment in your project's `Gemfile` declaration of `sqlite3` gem, because target 
-Heroku server has no development libraries required to build that gem.
+Heroku server has no devel libraries required to build that gem.
 
 	:::term
 	$ git init
@@ -211,21 +209,21 @@ Heroku server has no development libraries required to build that gem.
 	$ heroku create --stack cedar
 	$ heroku addons:add redistogo:nano
 	$ git push heroku master
-    $ heroku open
+    	$ heroku open
      
 #### Monitoring app on Heroku
 Use `heroku ps` to determine the number of processes that are executing.
 Use `heroku logs` to view an aggregated list of log messages from all process types.
 
 	:::term
-    $ heroku ps
-    $ heroku logs
+    	$ heroku ps
+    	$ heroku logs
  
 #### Get connected with Rhodes client
-If you have a rhodes client and wanted to sync it with rhoconnect app on Heroku, then set proper `syncserver` URL in `rhoconfig.txt` file:
+If you have rhodes client and wanted to sync it with rhoconnect app on Heroku, then set proper sync server URL in `rhoconfig.txt` file
 
 	:::term
- 	syncserver = 'http://<your-heroku-app-here>.herokuapp.com/application'
+ 	syncserver = 'http://<your-app-here>.herokuapp.com/application'
 
 
 
