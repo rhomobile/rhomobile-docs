@@ -52,7 +52,7 @@ To sync all the sources with do_sync, the source name list would specified as 'a
 
 The sound file should be included in the Rhodes application bundle in the `/public/alerts` folder.
 
-### Setting up the Rhodes Client for iPhone, Android, and Blackberry
+## Setting up the Rhodes Client for iPhone, Android, and Blackberry
 
 To set up your Rhodes client for push, refer to these links for your respective platforms.
 
