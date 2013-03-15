@@ -77,11 +77,12 @@ rhoconnect, type `rhoconnect` or `rhoconnect help`.
 	  rhoconnect help [TASK]            # Describe available tasks or one specific task
 	  rhoconnect redis-about            # About redis
 	  rhoconnect redis-attach           # Attach to redis dtach socket
-	  rhoconnect redis-download         # Download redis release 2.4.10
+	  rhoconnect redis-download         # Download redis release 2.6.11
 	  rhoconnect redis-install          # Install the latest verison of Redis from Github (requires git, duh)
-	  rhoconnect redis-restart          # Restart redis on localhost:6379
-	  rhoconnect redis-start            # Start redis on localhost:6379
-	  rhoconnect redis-stop             # Stop redis running on localhost:6379
+	  rhoconnect redis-restart          # Restart redis on localhost
+	  rhoconnect redis-start            # Start redis on localhost
+	  rhoconnect redis-status           # Show status of redis servers
+	  rhoconnect redis-stop             # Stop redis running on localhost
 	  rhoconnect restart [options]      # Alias for `rhoconnect stop; rhoconnect start`
 	  rhoconnect secret                 # Generate a cryptographically secure secret session key
 	  rhoconnect set-admin-password     # Set the admin password
@@ -121,6 +122,26 @@ Next, you will need to setup and start a [redis](http://redis.io/) server:
 
 The server will show that it is running on the console.
 
+### Redis Horizontal Scaling
+
+Starting from v4.0, RhoConnect supports multiple Redis instances per app.
+To enable this feature, edit your app `settings/settings.yml` file and replace the `:redis:` configuration
+with an array of redis servers you are going to use:
+
+	:::yaml
+	# ...
+	:production:
+	  :licensefile: settings/license.key
+	  :syncserver: http://localhost:9292/api/application/
+	  :push_server: http://appname:secret@localhost:8675/
+	  # One or more redis servers
+	  :redis:
+	    - localhost:6379
+	    - localhost:6380
+	    - localhost:6381
+	    - localhost:6382
+	    # ...
+
 ### Start the Application
 
 Open a new console window (since the redis server is running in the previous console window). Then change directories to your rhoconnect application and start the application.
@@ -157,7 +178,7 @@ Running RhoConnect this way uses the default license key in the RhoConnect gem. 
 
 If everything went well when you started RhoConnect, you should see the following in your console:
 
-	[05:47:10 PM 2011-04-19] Rhoconnect Server v3.0.0 started...
+	[03:52:15 PM 2013-03-12] Rhoconnect Server v4.0.0 started...
 
 To open the web console, navigate to [http://localhost:9292/](http://localhost:9292) in your browser or run:
 
@@ -190,11 +211,13 @@ If you cannot install redis on Linux due to insufficient user permissions, then 
 
 **NOTE: On Mac OS / Linux, you need to install dtach (i.e. by running `rhoconnect dtach-install`) to run the following tasks: **
 
-* 	`rhoconnect redis-start` - This will launch a redis server in a new console.
+* 	`rhoconnect redis-start` - Start redis on localhost.
 
-* 	`rhoconnect redis-stop` - Stop the currently-running redis server.
+* 	`rhoconnect redis-stop` - Stop redis running on localhost.
 
-*	`rhoconnect redis:attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
+* 	`rhoconnect redis-status` - Show status of redis servers.
+
+*	`rhoconnect redis-attach` - (Mac OS / Linux only) Attach to a currently-running redis server.
 
 * 	`rhoconnect start` - Start the RhoConnect application in a new console.  This requires a running redis server.
 
@@ -216,156 +239,5 @@ Connecting to a backend service with RhoConnect requires that you write a small 
 
  * [RhoConnect plugin](/rhoconnect/plugin-intro): write the source code (the query, create, update and delete operations) into your backend application, and plug a RhoConnect plugin in the application. The plugin is written in the language that matchs your backend application, such as Java or .NET.
 
-## Rake Tasks (Rhoconnect v.3.1 and lower)
-<span class="label label-important">As of version 4.0 of rhoconnect, rake tasks will be deprecated!!</span>
-
-Each RhoConnect (v.3.1 and lower) application uses [rake](https://github.com/jimweirich/rake) to manage development tasks such as starting/stopping the app, starting resque workers, and running specs.
-
-To run a RhoConnect rake task, simply type `rake the-task-to-run` in your RhoConnect application's root directory.
-
-Here is a complete list of the rake tasks available in a RhoConnect v.3.1 and lower application:
-
-	:::term
-	$ cd storeserver
-	$ rake -T
-	(in ~/storeserver)
-	rake dtach:about                    # About dtach
-	rake dtach:install                  # Install dtach 0.8 from source
-	rake redis:about                    # About redis
-	rake redis:attach                   # Attach to redis dtach socket
-	rake redis:download                 # Download package
-	rake redis:install                  # Install the latest version of Redis from Github (requires git, duh)
-	rake redis:restart                  # Restart redis
-	rake redis:start                    # Start redis
-	rake redis:stop                     # Stop redis
-	rake resque:work                    # Start a Resque worker
-	rake resque:workers                 # Start multiple Resque workers.
-	rake rhoconnect:attach              # Attach to rhoconnect console
-	rake rhoconnect:clean_start         # Clean rhoconnect, get token, and create new user
-	rake rhoconnect:create_user         # Creates and subscribes user for application in rhoconnect
-	rake rhoconnect:delete_device       # Deletes a device from rhoconnect
-	rake rhoconnect:delete_user         # Deletes a user from rhoconnect
-	rake rhoconnect:flushdb             # Flush data store - WARNING: THIS REMOVES ALL DATA IN RHOCONNECT
-	rake rhoconnect:get_token           # Fetches current api token from rhoconnect
-	rake rhoconnect:reset               # Reset the rhoconnect database (you will need to run rhoconnect:get_token afterwards)
-	rake rhoconnect:reset_refresh       # Reset source refresh time
-	rake rhoconnect:restart             # Alias for `rake rhoconnect:stop; rake rhoconnect:start`
-	rake rhoconnect:set_admin_password  # Sets the admin password
-	rake rhoconnect:spec                # Run source adapter specs
-	rake rhoconnect:start               # Start rhoconnect server
-	rake rhoconnect:stop                # Stop rhoconnect server
-	rake rhoconnect:war                 # Build executable WAR file to be used in Java App Servers
-	rake rhoconnect:web                 # Launch the web console in a browser - uses :syncserver: in settings.yml
-
-Below is provided a list of rake tasks and their corresponding RhoConnect v.3.2+ command.
-
-<table border="1", cellpadding="5", width="100%">
-	<tr>
-		<th>rake Command</th>
-		<th>rhoconnect command</th>
-	</tr>
-	<tr>
-		<td>rake -T</td>
-		<td>rhoconnect help</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:attach</td>
-		<td>rhoconnect attach</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:clean_start</td>
-		<td>rhoconnect clean-start (not available for v.4.0 or above)</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:clean_user</td>
-		<td>rhoconnect clean-user (not available for v.4.0 or above)</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:delete_device</td>
-		<td>rhoconnect delete-device (not available for v.4.0 or above)</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:delete_user</td>
-		<td>rhoconnect delete-user (not available for v.4.0 or above)</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:flushdb</td>
-		<td>rhoconnect flushdb</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:get_token</td>
-		<td>rhoconnect get-token</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:reset</td>
-		<td>rhoconnect reset (not available for v.4.0 or above)</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:reset_refresh</td>
-		<td>rhoconnect reset-refresh (not available for v.4.0 or above)</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:restart</td>
-		<td>rhoconnect restart</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:set_admin_password</td>
-		<td>rhoconnect set-admin-password</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:spec</td>
-		<td>rhoconnect spec</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:start</td>
-		<td>rhoconnect start</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:stop</td>
-		<td>rhoconnect stop</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:war</td>
-		<td>rhoconnect war</td>
-	</tr>
-	<tr>
-		<td>rake rhoconnect:web</td>
-		<td>rhoconnect web</td>
-	</tr>
-	<tr>
-		<td>rake dtach:about</td>
-		<td>rhoconnect dtach-about</td>
-	</tr>
-	<tr>
-		<td>rake dtach:install</td>
-		<td>rhoconnect dtach-install</td>
-	</tr>
-	<tr>
-		<td>rake redis:about</td>
-		<td>rhoconnect redis-about</td>
-	</tr>
-	<tr>
-		<td>rake redis:attach</td>
-		<td>rhoconnect redis-attach</td>
-	</tr>
-	<tr>
-		<td>rake redis:download</td>
-		<td>rhoconnect redis-download</td>
-	</tr>
-	<tr>
-		<td>rake redis:install</td>
-		<td>rhoconnect redis-install</td>
-	</tr>
-	<tr>
-		<td>rake redis:restart</td>
-		<td>rhoconnect redis-restart</td>
-	</tr>
-	<tr>
-		<td>rake redis:start</td>
-		<td>rhoconnect redis-start</td>
-	</tr>
-	<tr>
-		<td>rake redis:stop</td>
-		<td>rhoconnect redis-stop</td>
-	</tr>
-</table>
+## Rake Tasks (Removed)
+<span class="label label-important">As of version 4.0, the rhoconnect rake tasks have been removed.  You can use `rhoconnect --help` to see the list of available rhoconnect commands.</span>
