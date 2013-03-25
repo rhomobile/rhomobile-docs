@@ -132,27 +132,30 @@ class Api
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	s.each() { |element|
-		propreplaces = ""
-		#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
-		#Check to see if need to add to description about this method replacing a deprecated one
-		if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
-	    	doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0]["ALIAS"].each() { |a|
-				#puts a
-				if a["existing"] == element["name"]
-					propreplaces += a["new"]
+	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
+
+				propreplaces = ""
+				#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
+				#Check to see if need to add to description about this method replacing a deprecated one
+				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
+			    	doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+						#puts a
+						if a["existing"] == element["name"]
+							propreplaces += a["new"]
+						end
+					}
 				end
-			}
-		end
-		
-	  	propdisplayname = element["name"]
-	  	if propreplaces != ""
-				#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
-				# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
-				propdisplayname = '<span class="text-info">' + element["name"] + '</span>'
+				
+			  	propdisplayname = element["name"]
+			  	if propreplaces != ""
+						#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
+						# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
+						propdisplayname = '<span class="text-info">' + element["name"] + '</span>'
 
-		end
+				end
 
-	  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>" 
+			  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>" 
+	  		end
 		}
   	end
   	return md
@@ -163,25 +166,28 @@ class Api
   	if !doc["MODULE"][0]["METHODS"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
 	  	s.each() { |element|
-  			methname = element["name"]
+	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
+	 
+	  			methname = element["name"]
 
-	  		if !doc["MODULE"][0]["METHODS"].nil? && !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["METHODS"][0]["ALIASES"][0].empty?
-	    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
-				#puts a
-				if a["existing"] == element["name"]
-					methname = "<span class='text-info'>" + element["name"] + "</span>"
-	  			end
-			}
+		  		if !doc["MODULE"][0]["METHODS"].nil? && !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["METHODS"][0]["ALIASES"][0].empty?
+		    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+					#puts a
+					if a["existing"] == element["name"]
+						methname = "<span class='text-info'>" + element["name"] + "</span>"
+		  			end
+				}
+				end
+		  		methdeprecated = ""
+				if !element["deprecated"].nil?
+					methdeprecated = element["deprecated"]
+				end
+		  		if methdeprecated == "true"
+		  			methname = "<span class='text-error'>" + element["name"] + "</span>"
+				end
+				
+		  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
 			end
-	  		methdeprecated = ""
-			if !element["deprecated"].nil?
-				methdeprecated = element["deprecated"]
-			end
-	  		if methdeprecated == "true"
-	  			methname = "<span class='text-error'>" + element["name"] + "</span>"
-			end
-			
-	  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
 		}
   	end
   	return md
@@ -285,7 +291,9 @@ class Api
 
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
-		s.each() { |element| 
+		s.each() { |element|
+			if element["generateDoc"].nil? || element["generateDoc"] == "true"
+ 
 			propname = element["name"]
 			propusage = ""
 			propver = ""
@@ -400,6 +408,7 @@ class Api
     md += '</div>'
     md += '</div>'
 	md += '</div>'
+			end
 	  	}
 	end
   	return md
@@ -502,6 +511,8 @@ end
     #puts methodaliases
 		
 	s.each() { |element| 
+		if element["generateDoc"].nil? || element["generateDoc"] == "true"
+	
 		#puts element
 		#puts "\n\n"
 		methname = element["name"]
@@ -685,7 +696,7 @@ end
     md += '</div>'
     md += '</div>'
 	md += '</div>'
-
+		end 
   	}
 
   	return md

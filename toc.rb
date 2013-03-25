@@ -71,7 +71,7 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/NetworkAccess',      'NetworkAccess'
   topic 'api/process',      'Process'
   topic 'api/Signal',      'Signal'
-  topic 'api/Sqlite3',      'Sqlite3'
+  topic 'api/Signature',      'Signature'
   topic 'api/system',      'System'
   topic 'api/videocapture',      'VideoCapture'
   topic 'api/webview',      'Webview'
