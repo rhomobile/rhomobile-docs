@@ -1,0 +1,127 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Battery" parent="Rho">
+        <HELP_OVERVIEW>is used to notify the user of the strength of the battery.</HELP_OVERVIEW>
+        <MORE_HELP>.</MORE_HELP>
+    
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <METHODS>
+            <METHOD name="batteryStatus" hasCallback="optional">
+                <DESC>todo.</DESC>
+                <PARAMS>
+                    <PARAM name="trigger" type="STRING">
+                        <DESC>todo.</DESC>
+						<VALUES>
+							<VALUE constName="BATTERY_TRIGGER_PERIODIC" value ="periodic">
+								<DESC>todo</DESC>
+							</VALUE>
+							<VALUE constName="BATTERY_TRIGGER_SYSTEM" value ="system">
+								<DESC>todo</DESC>
+							</VALUE>
+							<VALUE constName="BATTERY_TRIGGER_PERIODIC_AND_SYSTEM" value ="periodicAndSystem">
+								<DESC>todo</DESC>
+							</VALUE>
+						</VALUES>
+                    </PARAM>
+                    <PARAM name="refreshInterval" type="INTEGER">
+                        <DESC>todo.  Also TODO CAN BE NIL if using system above</DESC>
+						<CAN_BE_NIL/>
+                    </PARAM>
+                </PARAMS>
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="acLineStatus" type="BOOLEAN">
+                            <DESC>todo</DESC>
+                        </PARAM>
+                        <PARAM name="batteryLifePercent" type="INTEGER">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="backupBatteryLifePercent" type="INTEGER">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="trigger" type="STRING">
+                            <DESC>todo.  OS dependant. Might be 'Timed Interval'.  On Windows it will be low battery, critical battery, ac connect or ac disconnect.</DESC>
+                        </PARAM>
+                        <PARAM name="batteryLifeKnown" type="BOOLEAN">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="backupBatteryLifeKnown" type="BOOLEAN">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+            </METHOD>
+
+			<METHOD name="smartBatteryStatus" hasCallback="optional">
+                <DESC>todo.</DESC>
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="serialNumber" type="STRING">
+                            <DESC>todo</DESC>
+                        </PARAM>
+                        <PARAM name="partNumber" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="batteryChargeCycles" type="INTEGER">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="ratedCapacity" type="INTEGER">
+                            <DESC>todo. .</DESC>
+                        </PARAM>
+                        <PARAM name="manufactureDate" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="stateOfHealth" type="STRING">
+                            <DESC>todo.</DESC>
+							<VALUES>
+								<VALUE constName="SMART_BATTERY_HEALTHY" value ="healthy">
+									<DESC>todo</DESC>
+								</VALUE>
+								<VALUE constName="SMART_BATTERY_UNHEALTHY" value ="unhealthy">
+									<DESC>todo</DESC>
+								</VALUE>
+								<VALUE constName="SMART_BATTERY_UNKNOWN" value ="unknown">
+									<DESC>todo</DESC>
+								</VALUE>
+							</VALUES>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+            </METHOD>
+
+            <METHOD name="showIcon">
+                <DESC>todo</DESC>
+				<PARAMS>
+					<PARAM name="left" type="INTEGER">
+						<DESC>todo</DESC>
+					</PARAM>
+					<PARAM name="top" type="INTEGER">
+						<DESC>todo.</DESC>
+					</PARAM>
+					<PARAM name="layout" type="STRING">
+						<DESC>todo.</DESC>
+					</PARAM>
+					<PARAM name="color" type="STRING">
+						<DESC>todo.</DESC>
+					</PARAM>
+					<PARAM name="refreshInterval" type="INTEGER">
+						<DESC>todo.</DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+
+            <METHOD name="hideIcon">
+                <DESC>todo.</DESC>
+            </METHOD>
+
+        </METHODS>
+        
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+            <!--  This section is used for the supported platform images at the top -->
+        </PLATFORM>
+    </MODULE>
+</API>    

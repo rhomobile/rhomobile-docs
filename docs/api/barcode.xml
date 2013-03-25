@@ -88,7 +88,7 @@
                         <DESC>Standard trigger mode.  Holding the trigger will start a decoding session.</DESC>
                     </VALUE>
                     <VALUE constName="AIMTYPE_TIMED_HOLD" value="timedHold">
-                        <DESC> Aiming lasts for the time specified by 'timedAimDuration' before decoding.  The decode will last until the barcode is decoded or scanTimeout occurs.</DESC>
+                        <DESC> Aiming lasts for the time specified by 'timedAimDuration' before decoding.  The opportunity to scan will last until the barcode is decoded or scanTimeout occurs.</DESC>
                     </VALUE>
                     <VALUE constName="AIMTYPE_TIMED_RELEASE" value="timedRelease">
                         <DESC> Aiming lasts until trigger is released.  If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.</DESC>
@@ -254,13 +254,13 @@
 				<DESC>Allows the user to select inverse 1D barcodes for decoding.</DESC>
                 <VALUES>
                     <VALUE constName="INVERSE_ENABLED" value="enabled">
-                        <DESC>Auto-exposure algorithms will decide whether illumination is required or not.  Not available on Android.</DESC>
+                        <DESC>Inverse 1D symbology decoding is enabled.</DESC>
                     </VALUE>
                     <VALUE constName="INVERSE_DISABLED" value="disabled">
-                        <DESC>External illumination is always on.</DESC>
+                        <DESC>Inverse 1D symbology decoding is disabled.</DESC>
                     </VALUE>
                     <VALUE constName="INVERSE_AUTO" value="auto">
-                        <DESC>External illumination is always off.</DESC>
+                        <DESC>Allows decoding of both positive and inverse 1D symbologies.</DESC>
                     </VALUE>
                 </VALUES>            
 			</PROPERTY>
@@ -674,6 +674,11 @@
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for Datamatrix barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
             </PROPERTY>
+            <PROPERTY name="ean13" type="BOOLEAN" generateAccessors="true">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Enables or disables the symbology for EAN 13 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
+            </PROPERTY>
             <PROPERTY name="ean8" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
@@ -995,6 +1000,16 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Enables or disables the symbology for TLC 39 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
+            </PROPERTY>
+            <PROPERTY name="trioptic39" type="BOOLEAN" generateAccessors="true">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Enables or disables the symbology for Trioptic 39 barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
+            </PROPERTY>
+            <PROPERTY name="trioptic39Redundancy" type="BOOLEAN" generateAccessors="true">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES>Not all scanning engines support all symbologies or all symbology properties</APPLIES>
+				<DESC>Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twice before being accepted.  This will slow scanning but improve reliability.</DESC>
             </PROPERTY>
             <PROPERTY name="upcEanBookland" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
@@ -1371,10 +1386,12 @@
 
         <METHODS>
             <METHOD name="enumerate" access="STATIC" hasCallback="optional">
-                <DESC>This is documentation</DESC>
-
+                <DESC>Used to gain access to all scanner objects present on the device.  For consumer devices you will most likely only have a single scanner, your device's camera but Enterprise grade hardware may have two or more scanners attached.</DESC>
+				<BACKWARDS_COMPATIBILITY state="false">
+					<DESC>This method replaces Barcode.enumerate from RhoElements 2.2 and takes a different prototype.  Enumerate now returns an array of objects which can be used to control the specific scanner instance whereas previously it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC>
+				</BACKWARDS_COMPATIBILITY>
                 <RETURN type="ARRAY">
-                    <DESC>Array of objects.</DESC>
+                    <DESC>Array of Barcode objects, one for each hardware scanner on the device.  Methdods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
                     <PARAM name="scannerArray" type="SELF_INSTANCE"/>
                 </RETURN>
             </METHOD>
@@ -1383,6 +1400,9 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>Motorola Solutions' Scanners which support a hardware or software trigger to invoke the scan.</APPLIES>
                 <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method).  Scanned barcodes will be available to the application through the callback provided to this method.  Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner.  If specifying a callback it is recommended to have it called asynchronously.</DESC>
+				<BACKWARDS_COMPATIBILITY state="false">
+					<DESC>This method replaces Barcode.enable from RhoElements 2.2 and takes a different prototype, no longer taking a 'deviceName' parameter this method can now be called on the individual scanner instances returned by Barcode.enumerate to control which hardware scanner on the device is enabled.  Please consider using Barcode.take if you only require a 'single shot' scan and Barcode.enable if your user will be using the trigger to return scan events.</DESC>
+				</BACKWARDS_COMPATIBILITY>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH">
                         <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
@@ -1482,63 +1502,6 @@
     
         </METHODS>
         
-        <USER_OVERVIEW>
-            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
-            <![CDATA[
-Bluetooth Scanner Overview
-==========================
-Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behaviour using the disconnectBtOnDisable property.
-
-The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
-
-**'BTScanAssociationBarcode'** 
-   Means the device is ready to be associated with a BT scanner.  You must scan the 
-   association barcode.  It is only necessary to scan the association 
-   barcode when you first associate a scanner with the device, this pairing will be remembered until
-   you scan the unpairing barcode.
-
-** 'BluetoothConnected'**
-   The remote scanner has successfully connected to the device.
-	
-** 'BluetoothDisconnected'**
-   The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
-   of range or scanning the 'unpairing' barcode.  The scanner will attempt to reconnect automatically for
-   a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
-   timeout the reconnect button on the device should be pushed.  Once the unpairing barcode is scanned
-   it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
-   
-Viewfinder Position Parameters
-==============================
-On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
-			
-Scanning and Camera Interaction
-===============================
-In some device configurations the scanner and camera share the same hardware.  Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
-
-DataWedge Interaction With Native Apps
-======================================
-In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app. 
-**Disabling Datawedge**
-1.	Start the DataWedge app
-2.	Click the menu button > "Settings" and untick "DataWedge enabled". 
-**RhoElements Datawedge Profile**
-1.	Install your RhoElements native app,
-2.	Start the DataWedge app
-3.	Click the menu button > "New Profile" and enter a name,
-4.	Click on the link to the new profile in the profile list,
-5.	Click on "Associated apps" in the "Applications" section,
-6.	Click the menu button > "New app/activity",
-7.	Select the package name for your app,
-8.	Select "*",
-9.	Click the "Back" capacitive button,
-10.	Make sure the "Profile enabled" checkbox is ticked.
-11.	Uncheck all three "Enabled" checkboxes under the sections of:
-	"Barcode input", "Keystroke output" and "Intent output".
-
-
-    				]]>
-    
-        </USER_OVERVIEW>
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>
             <!--  This section is used for the supported platform images at the top -->
@@ -1634,9 +1597,8 @@ end
 
  def decodeEvent
     puts "Scanned Barcode #{@params}"
-    decodeHash = @params['body']
-    puts "Data is #{decodeHash['data']}"
-    WebView.execute_js("onDecodeEventRuby('#{decodeHash['data']}','#{decodeHash['source']}','#{decodeHash['type']}','#{decodeHash['time']}','#{decodeHash['length']}','Decode','#{decodeHash['direction']}');")
+    puts "Data is #{@params['data']}"
+    WebView.execute_js("onDecodeEventRuby('#{@params['data']}','#{@params['source']}','#{@params['type']}','#{@params['time']}','#{@params['length']}','Decode','#{@params['direction']}');")
   end
 
                     ]]>

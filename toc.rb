@@ -60,13 +60,17 @@ section 'rhodes-reference', 'Rhodes Reference' do
 end
 
 section 'rhodescommonapi-reference', 'Mobile APIs' do
+  topic 'api/application',      'Application'
   topic 'api/barcode',      'Barcode'
+  topic 'api/battery',      'Battery'
   topic 'api/camera',      'Camera'
+  topic 'api/cardreader',      'Cardreader'
   topic 'api/Database',      'Database '
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/NetworkAccess',      'NetworkAccess'
   topic 'api/process',      'Process'
+  topic 'api/Signal',      'Signal'
   topic 'api/Sqlite3',      'Sqlite3'
   topic 'api/system',      'System'
   topic 'api/videocapture',      'VideoCapture'

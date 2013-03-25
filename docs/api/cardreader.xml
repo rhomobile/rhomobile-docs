@@ -1,0 +1,147 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Cardreader" parent="Rho">
+	
+		<ALIASES>
+            <ALIAS new="Cardreader" deprecated="true"/>        
+        </ALIASES>
+		
+        <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.</HELP_OVERVIEW>
+        <MORE_HELP>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader.  When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</MORE_HELP>
+    
+        <TEMPLATES>
+            <SINGLETON_INSTANCES/>   <!-- produce enumerate() fabric method, all instances is singletones by ID, add ID property -->
+            <DEFAULT_INSTANCE/> <!-- object has default static property, all methods can be call by static way (called from default instance), produce default(), set_default() methods -->
+            <PROPERTY_BAG/> <!-- object has properties, produce getProps(), setProps() methods -->
+        </TEMPLATES>
+
+        <PROPERTIES usePropertyBag="accessorsViaPropertyBag">
+            <DESC>These properties are used to configure the card reader.</DESC>
+			
+			 <PROPERTY name="pinTimeout" type="INTEGER" generateAccessors="true" default="30000">				
+				<!-- <VALUES>0 - 65535</VALUES> -->
+				<DESC>PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.</DESC>				
+            </PROPERTY>
+			<PROPERTY name="pinEntry" type="BOOLEAN" generateAccessors="true">								
+				<DESC>Turns the PIN entry on or off.</DESC>				
+			</PROPERTY>
+			<PROPERTY name="panData" type="INTEGER" generateAccessors="true">								
+				<DESC>Sets the card data without the need of a swipe.  This accepts any 16 digit number as the value.</DESC>				
+			</PROPERTY>
+			<PROPERTY name="autoTab" type="BOOLEAN" generateAccessors="true" default="false">								
+				<DESC>When enabled, appends a tab to any data returned as keystrokes by the cardreader.</DESC>				
+			</PROPERTY>
+			<PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true" default="false">								
+				<DESC>When enabled, appends a carriage return to any data returned as keystrokes by the cardreader.</DESC>				
+			</PROPERTY>
+            <PROPERTY name="moduleName" type="STRING" generateAccessors="true">				
+                <DESC>This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'</DESC>
+				<VALUES>
+                    <VALUE constName="MSR9000" value="fixed">
+                        <DESC>MSR9000 drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="MSR9001" value="fixed">
+                        <DESC>MSR9001 drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="MSR9500" value="fixed">
+                        <DESC>MSR9500 drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="MSRCAMEO" value="fixed">
+                        <DESC>MSRCAMEO drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="MSR7000" value="fixed">
+                        <DESC>MSR7000 drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="DCR7000" value="fixed">
+                        <DESC>DCR7000 drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="MSR55" value="fixed">
+                        <DESC>MSR55 drivers</DESC>
+                    </VALUE> 
+                    <VALUE constName="MSR3000" value="fixed">
+                        <DESC>MSR3000 drivers</DESC>
+                    </VALUE>                     					
+                </VALUES>                
+            </PROPERTY>
+        </PROPERTIES>
+
+        <METHODS>
+            <METHOD name="open" hasCallback="optional">
+                <DESC>Opens the card reader.</DESC>
+				<RETURN>
+					<DESC>Not providing a callback to be invoked when a card is swiped will result in that card data being output as keystrokes.</DESC>
+				</RETURN>	
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="data" type="STRING">
+							<DESC>Data read by the card reader. This may be card data, the PAN data extracted from the card data, encrypted PIN block data, or a message. In case of an ISO/ABA card [eg: a financial card], data is encrypted. For other cards, data is in the clear.</DESC>
+						</PARAM>
+						<PARAM name="mode" type="STRING">
+							<DESC>Describes the data. This will be either: 'CR','ENCDATA','PAN', or 'MESSAGE'.  This equates to card data, encrypted PIN block data, PAN data, or a message, respectively.</DESC>
+						</PARAM>
+						<PARAM name="encryption" type="BOOLEAN">
+							<DESC>This provides the information regarding the card reader head configuration. Available only on Android.</DESC>
+						</PARAM>	
+						<PARAM name="rawData" type="STRING">
+							<DESC>This is the raw data read by the card reader from all the tracks. Available only on Android and the value is in HEX format.</DESC>
+						</PARAM>	
+						<PARAM name="track1" type="STRING">
+							<DESC>The track1 clear/masked data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track1Status value returned is true.</DESC>
+						</PARAM>	
+						<PARAM name="track2" type="STRING">
+							<DESC>The track2 clear/masked data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track2Status value returned is true.</DESC>
+						</PARAM>
+						<PARAM name="track3" type="STRING">
+							<DESC>The track3 clear/masked data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track3Status value returned is true.</DESC>
+						</PARAM>	
+						<PARAM name="track1Status" type="BOOLEAN">
+							<DESC>The status of the track1 clear/masked data read by the card reader. Available only on Android.</DESC>
+						</PARAM>	
+						<PARAM name="track2Status" type="BOOLEAN">
+							<DESC>The status of the track2 clear/masked data read by the card reader. Available only on Android.</DESC>
+						</PARAM>
+						<PARAM name="track3Status" type="BOOLEAN">
+							<DESC>The status of the track3 clear/masked data read by the card reader. Available only on Android.</DESC>
+						</PARAM>
+						<PARAM name="track1Encrypted" type="STRING">
+							<DESC>The track1 encrypted data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track1EncryptedStatus value returned is true.</DESC>
+						</PARAM>	
+						<PARAM name="track2Encrypted" type="STRING">
+							<DESC>The track2 encrypted data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track2EncryptedStatus value returned is true.</DESC>
+						</PARAM>
+						<PARAM name="track3Encrypted" type="STRING">
+							<DESC>The track3 encrypted data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track3EncryptedStatus value returned is true.</DESC>
+						</PARAM>	
+						<PARAM name="track1EncryptedStatus" type="BOOLEAN">
+							<DESC>The status of the track1 encrypted data read by the card reader. Available only on Android.</DESC>
+						</PARAM>	
+						<PARAM name="track2EncryptedStatus" type="BOOLEAN">
+							<DESC>The status of the track2 encrypted data read by the card reader. Available only on Android.</DESC>
+						</PARAM>
+						<PARAM name="track3EncryptedStatus" type="BOOLEAN">
+							<DESC>The status of the track3 encrypted data read by the card reader. Available only on Android.</DESC>
+						</PARAM>
+						<PARAM name="ksn" type="STRING">
+							<DESC>The encrypted KSN serial number read by the card reader. Available only on Android and the value is in HEX format.</DESC>
+						</PARAM>									
+					</PARAMS>					
+				</CALLBACK> 
+            </METHOD>
+            <METHOD name="close">
+                <DESC>Closes the card reader</DESC>
+            </METHOD> 
+			
+        </METHODS>
+        
+		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>	
+		
+        <USER_OVERVIEW>
+            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+        </USER_OVERVIEW>
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+            <!--  This section is used for the supported platform images at the top -->
+        </PLATFORM>
+    </MODULE>
+</API>    

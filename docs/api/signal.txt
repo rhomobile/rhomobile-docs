@@ -1,0 +1,25 @@
+#Signal
+<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu"><li><a href="#mhideIcon" data-target="cMethodhideIcon" class="autouncollapse">hideIcon</a></li><li><a href="#mshowIcon" data-target="cMethodshowIcon" class="autouncollapse">showIcon</a></li><li><a href="#mwlanStatus" data-target="cMethodwlanStatus" class="autouncollapse">wlanStatus</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button></div><div data-spy="scroll"  >
+is used to notify the user of the strength of the WLAN signal.
+
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='mhideIcon'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodhideIcon"><strong data-toggle="tooltip" title data-original-title="todo.">hideIcon</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodhideIcon" class="accordion-body collapse in">  <div class="accordion-inner">todo.<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mshowIcon'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodshowIcon"><strong data-toggle="tooltip" title data-original-title="todo">showIcon</strong>(<span class="text-info">INTEGER</span> left, <span class="text-info">INTEGER</span> top, <span class="text-info">STRING</span> layout, <span class="text-info">STRING</span> color, <span class="text-info">INTEGER</span> refreshInterval)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodshowIcon" class="accordion-body collapse in">  <div class="accordion-inner">todo<div><p><strong>Parameters</strong></p><ul><li>left : <span class='text-info'>INTEGER</span><p>todo </p></li><li>top : <span class='text-info'>INTEGER</span><p>todo. </p></li><li>layout : <span class='text-info'>STRING</span><p>todo. </p></li><li>color : <span class='text-info'>STRING</span><p>todo. </p></li><li>refreshInterval : <span class='text-info'>INTEGER</span><p>todo. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mwlanStatus'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodwlanStatus"><strong data-toggle="tooltip" title data-original-title="todo.">wlanStatus</strong>(<span class="text-info">INTEGER</span> refreshInterval, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodwlanStatus" class="accordion-body collapse in">  <div class="accordion-inner">todo.<div><p><strong>Parameters</strong></p><ul><li>refreshInterval : <span class='text-info'>INTEGER</span><p>todo. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Signal.wlanStatus(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Signal.wlanStatus(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Signal.wlanStatus(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+Signal.wlanStatus(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+Signal.wlanStatus(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+Signal.wlanStatus(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div></div></div>

@@ -1,0 +1,90 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Signal" parent="Rho">
+        <HELP_OVERVIEW>is used to notify the user of the strength of the WLAN signal.</HELP_OVERVIEW>
+        <MORE_HELP>.</MORE_HELP>
+    
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <METHODS>
+            <METHOD name="wlanStatus" hasCallback="optional">
+                <DESC>todo.</DESC>
+                <PARAMS>
+                    <PARAM name="refreshInterval" type="INTEGER">
+                        <DESC>todo.</DESC>
+                    </PARAM>
+                </PARAMS>
+                <RETURN>
+                    <PARAMS>
+                        <PARAM name="signalStrength" type="INTEGER">
+                            <DESC></DESC>
+                        </PARAM>
+                        <PARAM name="essid" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="macAddress" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="adapterName" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="dhcpServer" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="dhcpStatic" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="gateway" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="ipAddress" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="rssi" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="subnetMask" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                        <PARAM name="wins" type="STRING">
+                            <DESC>todo.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </RETURN>
+            </METHOD>
+
+            <METHOD name="showIcon">
+                <DESC>todo</DESC>
+				<PARAMS>
+					<PARAM name="left" type="INTEGER">
+						<DESC>todo</DESC>
+					</PARAM>
+					<PARAM name="top" type="INTEGER">
+						<DESC>todo.</DESC>
+					</PARAM>
+					<PARAM name="layout" type="STRING">
+						<DESC>todo.</DESC>
+					</PARAM>
+					<PARAM name="color" type="STRING">
+						<DESC>todo.</DESC>
+					</PARAM>
+					<PARAM name="refreshInterval" type="INTEGER">
+						<DESC>todo.</DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+
+            <METHOD name="hideIcon">
+                <DESC>todo.</DESC>
+            </METHOD>
+
+        </METHODS>
+        
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+            <!--  This section is used for the supported platform images at the top -->
+        </PLATFORM>
+    </MODULE>
+</API>    
