@@ -171,10 +171,16 @@ xml_string +=  ' </rss>	'
   		@print = print
       if subpath.nil? || subpath == ''
         @topicmodel = Topic.model('/' + topic)
+        erb :topic, :layout => !pjax?
       else
         @topicmodel = Topic.model(subpath + '/' + topic)
+        if topic == 'api'
+          erb :topic_sidebar, :layout => !pjax?
+        else
+          erb :topic, :layout => !pjax?
+        end
       end
-      erb :topic_sidebar, :layout => !pjax?
+      
   	rescue Errno::ENOENT
   		status 404
   	end
