@@ -405,28 +405,32 @@ class Api
   	return md
   end
 
-def self.getparams(element)
-	@methsectionparams = ""
+def self.getparams(element,toplevel)
+	methparamsdetails = ""
+	methsectionparams = ""
 		if !element["PARAMS"].nil?
+			if !toplevel
+				methsectionparams += "<ul>"
+			end
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
-					@methparamsdetailsdesc = ''
+					methparamsdetailsdesc = ''
 			
 					# puts param
 					if !param["DESC"].nil?
-						@methparamsdetailsdesc=param["DESC"][0]
-						if @methparamsdetailsdesc.to_s == '{}'
-							@methparamsdetailsdesc= ''
+						methparamsdetailsdesc=param["DESC"][0]
+						if methparamsdetailsdesc.to_s == '{}'
+							methparamsdetailsdesc= ''
 						end
 					end
 
-					@methparamsnil=""
-					@methparamsnildesc=""
+					methparamsnil=""
+					methparamsnildesc=""
 					if !param["CAN_BE_NIL"].nil?
 						param["CAN_BE_NIL"].each { |paramsnil|
-							@methparamsnil=" <span class='label label-info'>Optional</span>"
+							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								@methparamsnildesc =  paramsnil["DESC"][0]
+								methparamsnildesc =  paramsnil["DESC"][0]
 							end
 							
 						}
@@ -435,20 +439,54 @@ def self.getparams(element)
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
-					@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
-					@seperator =  ', '
-					
-					@methparamsdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methparamsdetailsdesc + "</td><td>" + @methparamsnil + "</td></tr>"
+					if toplevel
 
-					@methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{@methparamsnil}<p>" + @methparamsdetailsdesc + " " + @methparamsnildesc + "</p></li>"
-					# @methsectioncallbackparams += getparams(element)
+						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
+						@seperator =  ', '
+					end 
+					
+					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
+					values = ""
+					valuetype = param["type"]
+								
+					if !param["VALUES"].nil?
+						param["VALUES"].each() { |velement|
+							velement["VALUE"].each() { |vaelement|
+								valdesc = "<dl>"
+								if !vaelement["DESC"].nil?
+									if !vaelement["DESC"][0].empty?
+										valdesc = vaelement["DESC"][0].to_s
+									else
+										valdesc = ""
+									end 
+								end	
+								@seperator = ', '
+								if !vaelement["type"].nil?
+									valuetype = !vaelement["type"]
+								end
+								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
+								
+							}
+						values += "</dl>"
+
+						}
+					end
+					if values != ""
+						values = "<p><strong>Possible Values</strong> :</p> " + values 
+					end
+
+					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
+					methsectionparams += getparams(param,false)
 				}
 
 			}
+			if !toplevel
+				methsectionparams += "</ul>"
+			end
 			
 			
 		end
-	return @methsectionparams
+	return methsectionparams
 end
 
 #returns Markdown for the <Properties section
@@ -517,7 +555,7 @@ end
 			@methsectionparams = "<div>"
 			@methsectionparams += "<p><strong>Parameters</strong></p><ul>"
 		
-			@methsectionparams += getparams(element)
+			@methsectionparams += getparams(element,true)
 		#add generic syntax for callback param
 			if @methhascallback !="" && @methhascallback != "none"
 				@methcallbackoptional= ""
