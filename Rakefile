@@ -110,16 +110,28 @@ def update_xml
    # puts apiSourceFolder
    Dir.glob(apiSourceFolder).each do|f|
     filename = File.basename(f)
-    dest = File.join(AppConfig['dirs']['api'],filename)
-    if !File.exists?(dest)
-      puts "New: #{filename}"
-    end
-    # puts filename
-    fileContents = IO.read(f)
-    File.open(dest,"w") do |fd|
-      fd.write(fileContents)
-    end
+    puts filename
+    doc = XmlSimple.xml_in(f)
+    gendoc = "true"
+    if filename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
     
+      gendoc = doc["MODULE"][0]["generateDoc"]
+    end
+    puts gendoc
+    if gendoc.nil? || gendoc == "true"
+  
+      dest = File.join(AppConfig['dirs']['api'],filename)
+      if !File.exists?(dest)
+        puts "New: #{filename}"
+      end
+      # puts filename
+      fileContents = IO.read(f)
+      File.open(dest,"w") do |fd|
+        fd.write(fileContents)
+      end
+    else
+
+    end  
    end
  end
 

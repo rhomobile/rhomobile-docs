@@ -174,7 +174,7 @@ xml_string +=  ' </rss>	'
         erb :topic, :layout => !pjax?
       else
         @topicmodel = Topic.model(subpath + '/' + topic)
-        if topic == 'api'
+        if subpath == 'api'
           erb :topic_sidebar, :layout => !pjax?
         else
           erb :topic, :layout => !pjax?

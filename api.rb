@@ -700,145 +700,149 @@ end
   	
   	#puts topic
   	doc = XmlSimple.xml_in(topic)
-  	templatePropBag = true
-  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
-  		templatePropBag = false
-  	end
-  	templateDefault = true
-  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
-  		templateDefault = false
-  	end
-  	templateSingleton = true
-  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
-  		templateSingleton = false
-  	end
-  	if templateDefault
-  		#get xml from file and put it in main array so it is handled like other methods
-  		defaultdoc = XmlSimple.xml_in('docs/api/default_instance.xml')
-		defaultdoc["METHODS"][0]["METHOD"].each { |m|
-			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-		}
-  	end
-  	if templateSingleton
-  		#get xml from file and put it in main array so it is handled like other methods
-  		singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
-		singletondoc["METHODS"][0]["METHOD"].each { |m|
-			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-		}
-  	end
-  	if templatePropBag
-  		#get xml from file and put it in main array so it is handled like other methods
-  		propbagdoc = XmlSimple.xml_in('docs/api/property_bag.xml')
-		propbagdoc["METHODS"][0]["METHOD"].each { |m|
-			doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-		}
-  	end
-  	#get api name from <MODULE name="" ...
-  	# need to figure out what to do if multiple <MODULE tags in one physical file
-  	#puts doc
+  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
+	  	templatePropBag = true
+	  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+	  		templatePropBag = false
+	  	end
+	  	templateDefault = true
+	  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+	  		templateDefault = false
+	  	end
+	  	templateSingleton = true
+	  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+	  		templateSingleton = false
+	  	end
+	  	if templateDefault
+	  		#get xml from file and put it in main array so it is handled like other methods
+	  		defaultdoc = XmlSimple.xml_in('docs/api/default_instance.xml')
+			defaultdoc["METHODS"][0]["METHOD"].each { |m|
+				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+			}
+	  	end
+	  	if templateSingleton
+	  		#get xml from file and put it in main array so it is handled like other methods
+	  		singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
+			singletondoc["METHODS"][0]["METHOD"].each { |m|
+				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+			}
+	  	end
+	  	if templatePropBag
+	  		#get xml from file and put it in main array so it is handled like other methods
+	  		propbagdoc = XmlSimple.xml_in('docs/api/property_bag.xml')
+			propbagdoc["METHODS"][0]["METHOD"].each { |m|
+				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+			}
+	  	end
+	  	#get api name from <MODULE name="" ...
+	  	# need to figure out what to do if multiple <MODULE tags in one physical file
+	  	#puts doc
 
-  	docproperties = getproperties(doc)
-  	docexamples = getexamples(doc)
-  	docremarks = getremarks(doc)
-  	examplelinks = getexamplelinks(doc)
-  	remarklinks = getremarklinks(doc)
-  	proplinks = getpropertieslinks(doc)
-  	methlinks = getmethodslinks(doc)
-  	md += "#" + getApiName(doc) + "\n" 
-  	if !examplelinks.empty?
-	  	md += '<div class="btn-group">'
-	  	md += ''
-	  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples</a>'
-	    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
-	    md += '  <span class="caret"></span>&nbsp;'
-	    md += '</button>'
-	    md += '<ul class="dropdown-menu">'
-	    md += examplelinks
-	    md += '</ul>'
-	  	md += '</div>'
-  	end 
-  	if !proplinks.empty?
-	  	md += '<div class="btn-group">'
-	  	md += ''
-	  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a>'
-	    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
-	    md += '  <span class="caret"></span>&nbsp;'
-	    md += '</button>'
-	    md += '<ul class="dropdown-menu">'
-	    # md += '<li class="dropdown-submenu">
-     #              <a href="#">More options</a>
-     #              <ul class="dropdown-menu">
-     #                <li class="dropdown-submenu">
-     #              <a href="#">More options</a>
-     #              <ul class="dropdown-menu">
-     #                <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #              </ul>
-     #            </li>
-     #            <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #                <li><a href="#">Second level link</a></li>
-     #              </ul>
-     #            </li>'
-	    md += proplinks
-	    md += '</ul>'
-	  	md += '</div>'
-  	end 
-  	if !methlinks.empty?
-	  	md += '<div class="btn-group">'
-	    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a>'
-	    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
-	    md += '  <span class="caret"></span>&nbsp;'
-	    md += '</a>'
-	    md += '<ul class="dropdown-menu">'
-	    md += methlinks
-	    md += '</ul>'
-	  	md += '</div>'
-		md += '<div class="btn-group pull-right">'
-	    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
-	  	md += '</div>'
-  	end
-  	if !remarklinks.empty?
-	  	md += '<div class="btn-group">'
-	  	md += ''
-	  	md += '<a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks</a>'
-	    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
-	    md += '  <span class="caret"></span>&nbsp;'
-	    md += '</button>'
-	    md += '<ul class="dropdown-menu">'
-	    md += remarklinks
-	    md += '</ul>'
-	  	md += '</div>'
-  	end 
-	md += '<div data-spy="scroll"  >'
+	  	docproperties = getproperties(doc)
+	  	docexamples = getexamples(doc)
+	  	docremarks = getremarks(doc)
+	  	examplelinks = getexamplelinks(doc)
+	  	remarklinks = getremarklinks(doc)
+	  	proplinks = getpropertieslinks(doc)
+	  	methlinks = getmethodslinks(doc)
+	  	md += "#" + getApiName(doc) + "\n" 
+	  	if !examplelinks.empty?
+		  	md += '<div class="btn-group">'
+		  	md += ''
+		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples</a>'
+		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</button>'
+		    md += '<ul class="dropdown-menu">'
+		    md += examplelinks
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end 
+	  	if !proplinks.empty?
+		  	md += '<div class="btn-group">'
+		  	md += ''
+		  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a>'
+		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</button>'
+		    md += '<ul class="dropdown-menu">'
+		    # md += '<li class="dropdown-submenu">
+	     #              <a href="#">More options</a>
+	     #              <ul class="dropdown-menu">
+	     #                <li class="dropdown-submenu">
+	     #              <a href="#">More options</a>
+	     #              <ul class="dropdown-menu">
+	     #                <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #              </ul>
+	     #            </li>
+	     #            <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #                <li><a href="#">Second level link</a></li>
+	     #              </ul>
+	     #            </li>'
+		    md += proplinks
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end 
+	  	if !methlinks.empty?
+		  	md += '<div class="btn-group">'
+		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a>'
+		    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</a>'
+		    md += '<ul class="dropdown-menu">'
+		    md += methlinks
+		    md += '</ul>'
+		  	md += '</div>'
+			md += '<div class="btn-group pull-right">'
+		    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
+		  	md += '</div>'
+	  	end
+	  	if !remarklinks.empty?
+		  	md += '<div class="btn-group">'
+		  	md += ''
+		  	md += '<a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks</a>'
+		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</button>'
+		    md += '<ul class="dropdown-menu">'
+		    md += remarklinks
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end 
+		md += '<div data-spy="scroll"  >'
 
-  	md += "\n" + getApiDesc(doc) + "\n" 
-  	if docexamples !=""
-	  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n" 
-	  	 md += "" + docexamples + ""
-  	end 
-  	if docproperties !=""
-	  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
-	  	 md += "" + docproperties + ""
-  	end 
-  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
-	
-  	md += '<div class="accordion" id="accordion">'
-    
-  	md += "" + getmethods(doc) + ""
-    md += "</div>"
-    if docremarks !=""
-	  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
-	  	 md += "" + docremarks + ""
-  	end 
-  	
-    md += "</div>"
-  	# puts md
-  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
+	  	md += "\n" + getApiDesc(doc) + "\n" 
+	  	if docexamples !=""
+		  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n" 
+		  	 md += "" + docexamples + ""
+	  	end 
+	  	if docproperties !=""
+		  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+		  	 md += "" + docproperties + ""
+	  	end 
+	  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
+		
+	  	md += '<div class="accordion" id="accordion">'
+	    
+	  	md += "" + getmethods(doc) + ""
+	    md += "</div>"
+	    if docremarks !=""
+		  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
+		  	 md += "" + docremarks + ""
+	  	end 
+	  	
+	    md += "</div>"
+	  	# puts md
+	  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
+	else
+		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
+	end
   return md
   end
 	
