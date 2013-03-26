@@ -495,7 +495,7 @@ to place the WAR file into the server's deploy directory.
 
 * [Heroku account](https://api.heroku.com/login) and [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
-* Rhoconnect gem version >= 3.2.0
+* Rhoconnect version >= 3.4
 
 #### Create Rhoconnect application
 Create your Rhoconnect app and make sure that it's up and running in your development environment using thin:
@@ -506,14 +506,13 @@ Create your Rhoconnect app and make sure that it's up and running in your develo
 
 
 #### Deploy to Heroku
-Before moving your code to Git you need comment in your project's `Gemfile` declaration of `sqlite3` gem, because target
-Heroku server has no development libraries required to build that gem.
+Heroku uses git as its deployment interface.  To create and deploy your application on Heroku, use the the following steps:
 
 	:::term
 	$ git init
 	$ git add .
-	$ git commit -m ' ... '
-	$ heroku create --stack cedar
+	$ git commit -m 'initial commit'
+	$ heroku create
 	$ heroku addons:add redistogo:nano
 	$ git push heroku master
     $ heroku open
@@ -527,10 +526,10 @@ Use `heroku logs` to view an aggregated list of log messages from all process ty
     $ heroku logs
 
 #### Get connected with Rhodes client
-If you have a rhodes client and wanted to sync it with rhoconnect app on Heroku, then set proper `syncserver` URL in `rhoconfig.txt` file:
+If you have a rhodes client and want to sync it with your rhoconnect app on Heroku, then set the proper `syncserver` URL in `rhoconfig.txt`:
 
 	:::term
- 	syncserver = 'http://<your-heroku-app-here>.herokuapp.com/application'
+ 	syncserver = 'https://<your-heroku-app-here>.herokuapp.com/application'
 
 
 
