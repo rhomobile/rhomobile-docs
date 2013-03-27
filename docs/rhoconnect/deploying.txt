@@ -489,6 +489,42 @@ and deploy it into the J2EE App Server.
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
 
+#### Deploying warbler package on Apache Tomcat web server 
+To successfully deploy warbler package on Tomcat you need to make rhoconnect app be the default app. There are a few ways to reach 
+this goal and we describe only a couple of them. 
+
+##### Method 1
+
+1) Stop Tomcat `shutdown.sh`
+
+2) Delete the `ROOT` directory under `$CATALINA_BASE/webapps`
+
+3) Name your war file as `ROOT.war` (capitals mandatory)
+
+4) Drop the `ROOT.war` file directly in the `$CATALINA_BASE/webapps` directory
+
+5) Start Tomcat `startup.sh`
+  
+##### Method 2
+
+1) Stop Tomcat
+
+2) Copy your war file in `$CATALINA_BASE/webapps`, under its original name
+
+3) Turn off autoDeploy and deployOnStartup in your Host element in the server.xml file.
+
+4) Explicitly define your application context in server.xml, specifying both path (must be empty!) and docBase.
+    
+	:::xml
+	<Host name="localhost"  appBase="webapps"
+		 unpackWARs="true" autoDeploy="false" deployOnStartup="false">
+		 <!-- ...  -->
+		 <Context docBase="your-app.war" path=""/>
+		 <!-- ...  -->
+	</Host>
+
+5) Start Tomcat	
+	
 ## Deploying on Heroku
 
 #### Prerequisites

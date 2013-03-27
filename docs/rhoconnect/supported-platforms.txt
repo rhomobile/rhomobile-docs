@@ -18,7 +18,7 @@ RhoConnect gem is available on the following platforms:
     <td> CentOS / RHEL 5.x & 6.x,<br/>Ubuntu 12.04 </td>
     <td> ruby-1.9.3-p392 </td>
     <td class='tbd'> TBD </td>
-    <td class='tbd'> TBD </td>
+    <td class='tbd'> jruby-1.7.3 </td>
     <td>Development &<br/>Production</td>
   </tr>
   <tr>
@@ -26,15 +26,15 @@ RhoConnect gem is available on the following platforms:
     <td> Mac OS X 10.7/10.8 </td>
     <td> ruby-1.9.3-p392 </td>
     <td class='tbd'> TBD </td>
-    <td class='tbd'> TBD </td>
+    <td class='tbd'> jruby-1.7.3 </td>
     <td> Development </td>
   </tr>
   <tr>
     <td class='cap'>Windows</td>
     <td> Windows 7 </td>
-    <td> ruby-1.9.3-p374 </td>
+    <td> ruby-1.9.3-p392 </td>
     <td class='tbd'> TBD </td>
-    <td class='tbd'> TBD </td>
+    <td class='tbd'> jruby-1.7.3 </td>
     <td>Development</td>
   </tr>
 </table>

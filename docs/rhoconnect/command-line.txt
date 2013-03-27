@@ -188,13 +188,18 @@ To open the web console, navigate to [http://localhost:9292/](http://localhost:9
 ### Creating executable WAR containers (JRuby environment only)
 
 It is possible to create Java WAR containers for your Rhoconnect application that can be deployed into the
-Java App Servers (for example, JBoss). To create the executable WAR container, execute the following command in your app's root directory:
+Java App Servers (for example, Tomcat, JBoss). To create the executable WAR container, execute the following command in your app's root directory:
 
 	:::term
 	$ cd storeserver
 	$ rhoconnect war
 
-This will build the WAR file named <your_app>.war that can be deployed into the Java App Server.
+This will build the WAR file named `storeserver.war` that can be deployed into the Java App Server. Also warbler package includes 
+ an application launcher script,  so you can run it standalone on port 8080 in java environment:
+	:::term
+	$ java -jar storeserver.war
+
+To open the web console, navigate to [http://localhost:8080/](http://localhost:8080) in your browser.
 
 ### Common Tasks
 
