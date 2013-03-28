@@ -51,8 +51,13 @@ class Api
 			readonly = false
 		end
 	end
+md='<div id="' + property + 'Usage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
+md+='  <div class="modal-header">'
+md+='    <h3 id="myModalLabel">' + model + '.' + property + '</h3>'
+md+='  </div>'
+md+='  <div class="modal-body">'
 
-  	md = "\n\n<strong>Ruby Usage</strong>"
+  	md += "\n\n<strong>Ruby Usage</strong>"
   	md += "\n\n<pre class='CodeRay'><code>:::ruby\n"
   	if !ro
 	  	md += "# Setting directly"
@@ -100,6 +105,11 @@ class Api
 	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property']);"
 	end
 	md += "</code></pre>" 
+md+='  </div>'
+md+='  <div class="modal-footer">'
+md+='    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>'
+md+='  </div>'
+md+='</div>'
   	
   	return md
   end
@@ -401,7 +411,8 @@ class Api
   	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
-    
+    md += '<a href="#' + propname + 'Usage" class="button icon-cog pull-right" data-toggle="modal" title="Code Example"></a>'
+	
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
     md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
 	md += '<i class="icon-chevron-down pull-left"></i></span>'
@@ -772,7 +783,7 @@ end
 		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</button>'
-		    md += '<ul class="dropdown-menu">'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
 		    md += examplelinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
@@ -784,7 +795,7 @@ end
 		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</button>'
-		    md += '<ul class="dropdown-menu">'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
 		    # md += '<li class="dropdown-submenu">
 	     #              <a href="#">More options</a>
 	     #              <ul class="dropdown-menu">
@@ -814,12 +825,12 @@ end
 		    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</a>'
-		    md += '<ul class="dropdown-menu">'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
 		    md += methlinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
 			md += '<div class="btn-group pull-right">'
-		    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
+		    md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
 		  	md += '</div>'
 	  	end
 	  	if remarklinks["count"]>0
@@ -829,7 +840,7 @@ end
 		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</button>'
-		    md += '<ul class="dropdown-menu">'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
 		    md += remarklinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
