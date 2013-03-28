@@ -111,6 +111,10 @@ The maximum file size which can be transferred is about 4MB but is also dependan
 Although the file transfer functionality has the same behavior on all supported platforms the vast majority of the times, there might be scenarios where the Android version may return different error codes when compared to the Windows (CE, Mobile) version.
 
 
+###File transfer result code received in Javascipt or JASON events
+If an invalid username or password are used on an FTP transfer to a remote server the response returned is 0 instead of the expected 12014
+
+
 
 
 ##Requirements

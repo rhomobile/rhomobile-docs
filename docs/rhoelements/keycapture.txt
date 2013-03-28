@@ -96,8 +96,12 @@ Because the Home key cannot be captured on the ET1 it is possible for users to r
 If you have enabled the function key in the configuration settings and that function key has some special behaviour in the Operating system the key will not be capturable unless you also set the 'InterceptAllKeys' option. An example of special behaviour is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'InterceptAllKeys' will allow you to capture Function keys it will also disable the special Function key behaviour. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labelled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
 
 
+###VC70 Hardware Keys
+The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behaviour (like volumeup/down) of hardware keys can not be blocked when RhoElements is running in fullscreen mode.
+
+
 ###ES400 Application Keys
-The ES400 has a hardware messaging key with an envelope icon on it that does not function like a standard Applicaiton Key. To disable this key go to 'Settings' on the device, then 'Personal', then 'KeyRemap' and remap it to a key not in use.
+The ES400 has a hardware messaging key with an envelope icon on it that does not function like a standard Applicaiton Key. To disable this key go to 'Settings' on the device, then 'Personal', then 'KeyRemap' and remap it to a key not in use. Also note that the 'Sym' key on the ES400 is not capturable.
 
 
 ###F5 Key
