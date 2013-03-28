@@ -106,31 +106,37 @@ class Api
 
   def self.getexamplelinks(doc)
   	md = ""
+  	ctr = 0
   	if !doc["MODULE"][0]["EXAMPLES"].nil?
 	  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
+	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
 	  	md += '<li><a href="#e' + index.to_s + '" data-target="eExample' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>" 
 		}
   	end
-  	return md
+  	return { "md" => md, "count" => ctr}
   end
 
   def self.getremarklinks(doc)
   	md = ""
+  	ctr = 0 
   	if !doc["MODULE"][0]["REMARKS"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
+	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
 	  	md += '<li><a href="#r' + index.to_s + '" data-target="rRemark' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>" 
 		}
   	end
-  	return md
+  	return {"md" => md, "count" => ctr}
   end
 
 
   def self.getpropertieslinks(doc)
   	md = ""
+  	ctr =0
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
+	  	ctr = s.count()
 	  	s.each() { |element|
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 
@@ -158,13 +164,15 @@ class Api
 	  		end
 		}
   	end
-  	return md
+  	return { "md" => md, "count" => ctr}
   end
 
   def self.getmethodslinks(doc)
   	md = ""
+  	ctr = 0 
   	if !doc["MODULE"][0]["METHODS"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
+	  	ctr = s.count()
 	  	s.each() { |element|
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	 
@@ -190,7 +198,7 @@ class Api
 			end
 		}
   	end
-  	return md
+  	return { "md" => md, "count" => ctr}
   end
 
   def self.getexamples(doc)
@@ -757,22 +765,22 @@ end
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
 	  	md += "#" + getApiName(doc) + "\n" 
-	  	if !examplelinks.empty?
+	  	if examplelinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
-		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples</a>'
+		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;' + examplelinks["count"].to_s + '</sup></a>'
 		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</button>'
 		    md += '<ul class="dropdown-menu">'
-		    md += examplelinks
+		    md += examplelinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
-	  	if !proplinks.empty?
+	  	if proplinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
-		  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties</a>'
+		  	md += '<a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;' + proplinks["count"].to_s + '</sup></a>'
 		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</button>'
@@ -796,37 +804,37 @@ end
 	     #                <li><a href="#">Second level link</a></li>
 	     #              </ul>
 	     #            </li>'
-		    md += proplinks
+		    md += proplinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
-	  	if !methlinks.empty?
+	  	if methlinks["count"]>0
 		  	md += '<div class="btn-group">'
-		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods</a>'
+		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;' + methlinks["count"].to_s + '</sub></a>'
 		    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</a>'
 		    md += '<ul class="dropdown-menu">'
-		    md += methlinks
+		    md += methlinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
 			md += '<div class="btn-group pull-right">'
 		    md += '<button class="btn" id="expandAll" tooltip="Expand all"><i class="icon-th-list "></i>&nbsp;</button>'
 		  	md += '</div>'
 	  	end
-	  	if !remarklinks.empty?
+	  	if remarklinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
-		  	md += '<a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks</a>'
+		  	md += '<a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;' + remarklinks["count"].to_s + '</sup></a>'
 		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
 		    md += '  <span class="caret"></span>&nbsp;'
 		    md += '</button>'
 		    md += '<ul class="dropdown-menu">'
-		    md += remarklinks
+		    md += remarklinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
-		md += '<div data-spy="scroll"  >'
+		md += '<div  >'
 
 	  	md += "\n" + getApiDesc(doc) + "\n" 
 	  	if docexamples !=""

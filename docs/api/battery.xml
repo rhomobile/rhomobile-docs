@@ -1,5 +1,4 @@
 <?xml version = "1.0"?>
-<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Battery" parent="Rho">
         <HELP_OVERVIEW>is used to notify the user of the strength of the battery.</HELP_OVERVIEW>
@@ -8,30 +7,40 @@
         <TEMPLATES>
         </TEMPLATES>
 
-        <METHODS>
+		<PROPERTIES access="STATIC">
+			<PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
+				<DESC>todo.</DESC>
+			</PROPERTY>
+		</PROPERTIES>	
+		
+        <METHODS access="STATIC">
             <METHOD name="batteryStatus" hasCallback="optional">
-                <DESC>todo.</DESC>
-                <PARAMS>
-                    <PARAM name="trigger" type="STRING">
-                        <DESC>todo.</DESC>
-						<VALUES>
-							<VALUE constName="BATTERY_TRIGGER_PERIODIC" value ="periodic">
-								<DESC>todo</DESC>
-							</VALUE>
-							<VALUE constName="BATTERY_TRIGGER_SYSTEM" value ="system">
-								<DESC>todo</DESC>
-							</VALUE>
-							<VALUE constName="BATTERY_TRIGGER_PERIODIC_AND_SYSTEM" value ="periodicAndSystem">
-								<DESC>todo</DESC>
-							</VALUE>
-						</VALUES>
+                <DESC>todo.  can be sync or async - give example</DESC>
+				<PARAMS>
+					<PARAM name="propertyMap" type="HASH" propertyHash="true">
+					<DESC>todo</DESC>
+						<PARAMS>
+							<PARAM name="trigger" type="STRING">
+							<DESC>todo.</DESC>
+							<VALUES>
+								<VALUE constName="BATTERY_TRIGGER_PERIODIC" value ="periodic">
+									<DESC>todo.  periodidic and system are mutually exclusive</DESC>
+								</VALUE>
+								<VALUE constName="BATTERY_TRIGGER_SYSTEM" value ="system">
+									<DESC>todo</DESC>
+								</VALUE>
+							</VALUES>
+                    	    </PARAM>
+							<PARAM name="refreshInterval" type="INTEGER">
+									<DESC>todo.  Also TODO CAN BE NIL if using system above</DESC>
+							</PARAM>
+						</PARAMS>  
+					<CAN_BE_NIL>
+						<DESC>todo</DESC>
+					</CAN_BE_NIL>
                     </PARAM>
-                    <PARAM name="refreshInterval" type="INTEGER">
-                        <DESC>todo.  Also TODO CAN BE NIL if using system above</DESC>
-						<CAN_BE_NIL/>
-                    </PARAM>
-                </PARAMS>
-                <RETURN>
+		</PARAMS>
+                <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="acLineStatus" type="BOOLEAN">
                             <DESC>todo</DESC>
@@ -55,7 +64,7 @@
                 </RETURN>
             </METHOD>
 
-			<METHOD name="smartBatteryStatus" hasCallback="optional">
+		<METHOD name="smartBatteryStatus" hasCallback="optional">
                 <DESC>todo.</DESC>
                 <RETURN>
                     <PARAMS>
@@ -91,29 +100,49 @@
                     </PARAMS>
                 </RETURN>
             </METHOD>
+			
+	    <METHOD name="stopBatteryStatus" hasCallback="none">
+                <DESC>todo.</DESC>
+            </METHOD>
 
-            <METHOD name="showIcon">
+            <METHOD name="showIcon" hasCallback="none" runInThread="ui">
                 <DESC>todo</DESC>
 				<PARAMS>
-					<PARAM name="left" type="INTEGER">
+					<PARAM name="propertyMap" type="HASH" propertyHash="true">
 						<DESC>todo</DESC>
-					</PARAM>
-					<PARAM name="top" type="INTEGER">
-						<DESC>todo.</DESC>
-					</PARAM>
-					<PARAM name="layout" type="STRING">
-						<DESC>todo.</DESC>
-					</PARAM>
-					<PARAM name="color" type="STRING">
-						<DESC>todo.</DESC>
-					</PARAM>
-					<PARAM name="refreshInterval" type="INTEGER">
-						<DESC>todo.</DESC>
+						<PARAMS>
+							<PARAM name="left" type="INTEGER">
+								<DESC>todo</DESC>
+							</PARAM>
+							<PARAM name="top" type="INTEGER">
+								<DESC>todo.</DESC>
+							</PARAM>
+							<PARAM name="layout" type="STRING">
+								<DESC>todo.</DESC>
+								<VALUES>
+									<VALUE constName="BATTERY_LAYOUT_LEFT" value ="left">
+										<DESC>todo</DESC>
+									</VALUE>
+									<VALUE constName="BATTERY_LAYOUT_RIGHT" value ="right">
+										<DESC>todo</DESC>
+									</VALUE>
+									<VALUE constName="BATTERY_LAYOUT_UP" value ="up">
+										<DESC>todo</DESC>
+									</VALUE>
+									<VALUE constName="BATTERY_LAYOUT_DOWN" value ="down">
+										<DESC>todo</DESC>
+									</VALUE>
+								</VALUES>
+							</PARAM>
+							<PARAM name="color" type="STRING">
+								<DESC>todo.</DESC>
+							</PARAM>
+						</PARAMS>
 					</PARAM>
 				</PARAMS>
             </METHOD>
 
-            <METHOD name="hideIcon">
+            <METHOD name="hideIcon" hasCallback="none" runInThread="ui">
                 <DESC>todo.</DESC>
             </METHOD>
 
