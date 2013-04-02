@@ -1,0 +1,107 @@
+<?xml version = "1.0"?>
+
+<API>
+    <MODULE name="KeyCapture" parent="Rho">
+        <HELP_OVERVIEW>todo.  This is for hardware keys, not software keys... note recommended to use with SIP.</HELP_OVERVIEW>
+        <MORE_HELP>.</MORE_HELP>
+    
+        <TEMPLATES>
+        </TEMPLATES>
+		
+		<PROPERTIES access="STATIC">
+			<PROPERTY name="homeKeyValue" type="STRING" default="Disabled" generateAccessors="true">
+				<DESC>todo - Set to Disabled or the HomeKeyValue to be used.</DESC>
+			</PROPERTY>
+		</PROPERTIES>
+
+		<METHODS access="STATIC">
+            <METHOD name="captureKey" hasCallback="optional">
+				<APPLIES>todo - Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
+                <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section.  </DESC>
+				<PARAMS>
+					<PARAM name="dispatch" type="BOOLEAN">
+							<DESC>todo</DESC>
+						</PARAM>
+					<PARAM name="keyValue" type="STRING">
+						<DESC>todo - (string.  Accept keys specified in hex or ALL).  Has to be a string for backwards compatibility.  Must be the numeric representation of that key, for hardware reasons. - use all keys to determine which key it is.</DESC>
+					</PARAM>
+				</PARAMS>
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="keyValue" type="INTEGER">
+							<DESC>todo</DESC>
+						</PARAM>
+					</PARAMS>
+				</CALLBACK>    
+            </METHOD>
+
+            <METHOD name="remapKey" hasCallback="none">
+				<APPLIES>todo - Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
+                <DESC>todo.</DESC>
+				<PARAMS>
+					<PARAM name="keyValue" type="STRING">
+						<DESC>todo - (string.  Accept keys specified in hex NOT ALL)</DESC>
+					</PARAM>
+					<PARAM name="remapTo" type="STRING">
+						<DESC>todo - (string.  Accept keys specified in hex NOT ALL)</DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+
+            <METHOD name="captureTrigger" hasCallback="optional">
+				<APPLIES>todo - Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
+                <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section</DESC>
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="triggerFlag" type="INTEGER">
+							<DESC>todo</DESC>
+						</PARAM>
+					</PARAMS>
+				</CALLBACK>    
+            </METHOD>
+
+		</METHODS>
+        
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>           
+        </PLATFORM>
+        <EXAMPLES>
+            <EXAMPLE title="TODO - ADD EXAMPLES - THERE ARE LOTS IN THE RE1 HELP FILE">
+                <SECTIONS>
+					<SECTION>
+					<DESC>
+						If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows
+					</DESC>
+					<CODE lang='ruby'>
+				<![CDATA[
+	  def show_keystates
+		Rho::Keystate.showStates({width:25;height:25})
+	  end
+						]]>
+					</CODE>
+					</SECTION>
+                </SECTIONS>
+            </EXAMPLE>			
+        </EXAMPLES>
+        <REMARKS>
+            <REMARK title="TODO - Include key capture table for function keys that is currently just under the configuration settings 
+
+page.">
+                <DESC>
+                    <![CDATA[
+                    To Do
+                ]]>
+
+                </DESC>
+            </REMARK>
+            <REMARK title="TODO - ENSURE ALL OTHER REMARKS FROM RE1 HELP FILE ARE CAPTURED">
+                <DESC>
+                    <![CDATA[
+                    To Do
+                ]]>
+
+                </DESC>
+            </REMARK>
+		</REMARKS>
+	</MODULE>
+</API>    

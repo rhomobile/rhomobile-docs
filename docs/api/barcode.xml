@@ -1392,7 +1392,7 @@
 				</BACKWARDS_COMPATIBILITY>
                 <RETURN type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device.  Methdods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
-                    <PARAM name="scannerArray" type="SELF_INSTANCE"/>
+                    <PARAM type="SELF_INSTANCE"/>
                 </RETURN>
             </METHOD>
 
@@ -1464,7 +1464,29 @@
             <METHOD name="disable" hasCallback="none">
                 <DESC>This is documentation</DESC>
             </METHOD>
-    
+            
+            <METHOD name="recognize" hasCallback="optional">
+                <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+                <APPLIES>iOS/Android software recognizer</APPLIES>
+                <DESC>Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.</DESC>
+                <PARAMS>
+                    <PARAM name="imageFilePath" type="STRING">
+                        <DESC>String. Path to the image that contains the barcode to be recognized.</DESC>
+                    </PARAM>
+                </PARAMS>
+                <RETURN type="STRING">
+                    <DESC>string with recognized code, or empty string if the barcode is not recognized</DESC>
+                </RETURN>
+            </METHOD>    
+            
+            <METHOD name="getSupportedProperties" hasCallback="optional">
+                <DESC>return array of properties supported by this scaner</DESC>
+                <RETURN type="ARRAY">
+                    <DESC>array of property names supported by this scaner</DESC>
+                    <PARAM type="STRING"/>
+                </RETURN>
+            </METHOD>
+            
             <METHOD name="take" hasCallback="mandatory">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES>All Scanners</APPLIES>
@@ -1488,6 +1510,24 @@
 					</PARAMS>
 				</CALLBACK>    
             </METHOD>
+            
+            <METHOD name="take_barcode"  deprecated="true" >
+                <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+                <APPLIES>iOS/Android software recognizer</APPLIES>
+                <DESC>deprecated old method for taking barcode</DESC>
+                <PARAMS>
+                    <PARAM name="rubyCallbackURL" type="STRING">
+                        <DESC>Ruby callbacl URL</DESC>
+                    </PARAM>    
+                    <PARAM name="propertyMap" type="HASH">
+                        <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
+                        <CAN_BE_NIL>
+                            <DESC>Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance</DESC>
+                        </CAN_BE_NIL>
+                    </PARAM>
+                </PARAMS>
+            </METHOD>
+            
 			
 			<METHOD name="commandRemoteScanner" hasCallback="none">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1499,7 +1539,12 @@
                     </PARAM>
                 </PARAMS>
             </METHOD>
-    
+            <ALIASES>
+                <ALIAS new="barcode_recognize" existing="recognize" deprecated="true" >
+                    <DESC>old deprecated recognize barcode on image method</DESC>
+                </ALIAS>
+            </ALIASES>
+            
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>

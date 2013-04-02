@@ -144,9 +144,11 @@ md+='</div>'
   def self.getpropertieslinks(doc)
   	md = ""
   	ctr =0
+  	groupctr = 0
   	if !doc["MODULE"][0]["PROPERTIES"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	ctr = s.count()
+	  	# md += "<ul>"
 	  	s.each() { |element|
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 
@@ -169,10 +171,15 @@ md+='</div>'
 						propdisplayname = '<span class="text-info">' + element["name"] + '</span>'
 
 				end
-
+					groupctr +=1
+					if groupctr == 36
+						# md+="</ul><ul>"
+						groupctr = 0
+					end
 			  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>" 
 	  		end
 		}
+		# md += "</ul>"
   	end
   	return { "md" => md, "count" => ctr}
   end
@@ -776,18 +783,6 @@ end
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
 	  	md += "#" + getApiName(doc) + "\n" 
-	  	if examplelinks["count"]>0
-		  	md += '<div class="btn-group">'
-		  	md += ''
-		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;' + examplelinks["count"].to_s + '</sup></a>'
-		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
-		    md += '  <span class="caret"></span>&nbsp;'
-		    md += '</button>'
-		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
-		    md += examplelinks["md"]
-		    md += '</ul>'
-		  	md += '</div>'
-	  	end 
 	  	if proplinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -845,7 +840,19 @@ end
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
-		md += '<div  >'
+		if examplelinks["count"]>0
+		  	md += '<div class="btn-group">'
+		  	md += ''
+		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;' + examplelinks["count"].to_s + '</sup></a>'
+		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</button>'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
+		    md += examplelinks["md"]
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end 
+	  	md += '<div  >'
 
 	  	md += "\n" + getApiDesc(doc) + "\n" 
 	  	if docexamples !=""

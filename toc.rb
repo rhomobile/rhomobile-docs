@@ -66,6 +66,8 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/camera',      'Camera'
   topic 'api/cardreader',      'Cardreader'
   topic 'api/Database',      'Database '
+  topic 'api/keycapture',      'KeyCapture'
+  topic 'api/keystate',      'KeyState'
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/NetworkAccess',      'NetworkAccess'
