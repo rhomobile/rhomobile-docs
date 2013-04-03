@@ -418,8 +418,7 @@ md+='</div>'
   	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
-    md += '<a href="#' + propname + 'Usage" class="button icon-cog pull-right" data-toggle="modal" title="Code Example"></a>'
-	
+    
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
     md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
 	md += '<i class="icon-chevron-down pull-left"></i></span>'
@@ -428,6 +427,8 @@ md+='</div>'
     md +='  <div class="accordion-inner">'
 
   	md += "#{@propdesc}#{propnote}#{propdefault}"
+  	md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
+	
   	md += @propvalues
   	md += "<p>" + propusage + "</p>"
     md += '  </div>'
@@ -566,6 +567,7 @@ end
 		
 		@methreturn = "Void"
 		@methreturndesc=""
+		methreturnparams = ""
 		if !element["RETURN"].nil?
 			element["RETURN"].each() { |relement|
 				if relement["type"].nil? || relement["type"]==''
@@ -579,11 +581,12 @@ end
 				if !relement["DESC"].nil?
 					@methreturndesc=" : " + relement["DESC"][0]
 				end
+				methreturnparams =  getparams(relement,false)
 			}
 		end
 		@methsectionreturns = "<div>"
 		@methsectionreturns += "<p><strong>Return:</strong></p><ul>"
-		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}</li></ul></div>"
+		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}#{methreturnparams}</li></ul></div>"
 			
 		@methparams = ""
 		@methparamsdetails = ""
