@@ -103,7 +103,7 @@ def process_xml
 end
 
 def update_xml
- apiSources = ['../rhodes/lib/commonAPI/','../Motorola-Extensions/lib/commonAPI/','../rhodes/res/generators/templates/api/xml_templates/'] 
+ apiSources = ['../rhodes/lib/commonAPI/','../Motorola-Extensions/lib/commonAPI/','../rhodes/res/generators/templates/api/xml_templates/','../rhoconnect-client/ext/rhoconnect-client/ext/'] 
  
  apiSources.each do |s|
    apiSourceFolder = File.join(s,"**","*.xml")

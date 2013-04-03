@@ -1,0 +1,303 @@
+#RhoConnectClient
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;7</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#ppageSize" data-target="cPropertypageSize" class="autouncollapse">pageSize</a></li><li><a href="#ppollInterval" data-target="cPropertypollInterval" class="autouncollapse">pollInterval</a></li><li><a href="#pshowStatusPopup" data-target="cPropertyshowStatusPopup" class="autouncollapse">showStatusPopup</a></li><li><a href="#psslVerifyPeer" data-target="cPropertysslVerifyPeer" class="autouncollapse">sslVerifyPeer</a></li><li><a href="#psyncServer" data-target="cPropertysyncServer" class="autouncollapse">syncServer</a></li><li><a href="#pthreadedMode" data-target="cPropertythreadedMode" class="autouncollapse">threadedMode</a></li><li><a href="#puserName" data-target="cPropertyuserName" class="autouncollapse">userName</a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;25</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#maddObjectNotify" data-target="cMethodaddObjectNotify" class="autouncollapse"><span class='text-info'>addObjectNotify</span></a></li><li><a href="#mcleanObjectNotify" data-target="cMethodcleanObjectNotify" class="autouncollapse"><span class='text-info'>cleanObjectNotify</span></a></li><li><a href="#mclearAllProperties" data-target="cMethodclearAllProperties" class="autouncollapse">clearAllProperties</a></li><li><a href="#mclearNotification" data-target="cMethodclearNotification" class="autouncollapse">clearNotification</a></li><li><a href="#mdefault" data-target="cMethoddefault" class="autouncollapse">default</a></li><li><a href="#mdoSync" data-target="cMethoddoSync" class="autouncollapse"><span class='text-info'>doSync</span></a></li><li><a href="#mdoSyncSource" data-target="cMethoddoSyncSource" class="autouncollapse">doSyncSource</a></li><li><a href="#menumerate" data-target="cMethodenumerate" class="autouncollapse">enumerate</a></li><li><a href="#mgetAllProperties" data-target="cMethodgetAllProperties" class="autouncollapse">getAllProperties</a></li><li><a href="#mgetLastSyncObjectCount" data-target="cMethodgetLastSyncObjectCount" class="autouncollapse">getLastSyncObjectCount</a></li><li><a href="#mgetProperties" data-target="cMethodgetProperties" class="autouncollapse">getProperties</a></li><li><a href="#mgetProperty" data-target="cMethodgetProperty" class="autouncollapse">getProperty</a></li><li><a href="#mgetSourceProperty" data-target="cMethodgetSourceProperty" class="autouncollapse">getSourceProperty</a></li><li><a href="#mloggedIn?" data-target="cMethodloggedIn?" class="autouncollapse">loggedIn?</a></li><li><a href="#mlogin" data-target="cMethodlogin" class="autouncollapse">login</a></li><li><a href="#mlogout" data-target="cMethodlogout" class="autouncollapse">logout</a></li><li><a href="#msearch" data-target="cMethodsearch" class="autouncollapse">search</a></li><li><a href="#msetDefault" data-target="cMethodsetDefault" class="autouncollapse">setDefault</a></li><li><a href="#msetNotification" data-target="cMethodsetNotification" class="autouncollapse">setNotification</a></li><li><a href="#msetObjectNotification" data-target="cMethodsetObjectNotification" class="autouncollapse">setObjectNotification</a></li><li><a href="#msetProperties" data-target="cMethodsetProperties" class="autouncollapse">setProperties</a></li><li><a href="#msetProperty" data-target="cMethodsetProperty" class="autouncollapse">setProperty</a></li><li><a href="#msetSourceProperty" data-target="cMethodsetSourceProperty" class="autouncollapse">setSourceProperty</a></li><li><a href="#mstopSync" data-target="cMethodstopSync" class="autouncollapse"><span class='text-info'>stopSync</span></a></li><li><a href="#msyncing?" data-target="cMethodsyncing?" class="autouncollapse">syncing?</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button></div><div  >
+is used for syncronization with Rhoconnect servers.
+
+<a name='Properties'></a>
+<h2><i class='icon-list'></i>Properties</h2>
+
+<a name='ppageSize'></a><div class='accordion property' id='ppageSize'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypageSize"><strong>pageSize</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypageSize" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><a href="#pageSizeUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="pageSizeUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.pageSize</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+RhoConnectClient.pageSize=0
+# Setting one property
+RhoConnectClient.setProperty :pageSize, 0 
+# Setting multiple properties using HASH
+RhoConnectClient.setProperties { :pageSize => 0 , :another_property => 0}
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('pageSize')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['pageSize' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+RhoConnectClient.pageSize=0;
+# Setting one property
+RhoConnectClient.setProperty('pageSize',0);
+# Setting multiple properties using JSON object
+RhoConnectClient.setProperties({ :pageSize:0 , :another_property:0});
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('pageSize');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['pageSize' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppollInterval'></a><div class='accordion property' id='ppollInterval'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypollInterval"><strong>pollInterval</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypollInterval" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><strong>Default:</strong> 60</p><p><a href="#pollIntervalUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="pollIntervalUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.pollInterval</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+RhoConnectClient.pollInterval=0
+# Setting one property
+RhoConnectClient.setProperty :pollInterval, 0 
+# Setting multiple properties using HASH
+RhoConnectClient.setProperties { :pollInterval => 0 , :another_property => 0}
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('pollInterval')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['pollInterval' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+RhoConnectClient.pollInterval=0;
+# Setting one property
+RhoConnectClient.setProperty('pollInterval',0);
+# Setting multiple properties using JSON object
+RhoConnectClient.setProperties({ :pollInterval:0 , :another_property:0});
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('pollInterval');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['pollInterval' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pshowStatusPopup'></a><div class='accordion property' id='pshowStatusPopup'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyshowStatusPopup"><strong>showStatusPopup</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyshowStatusPopup" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><strong>Default:</strong> true</p><p><a href="#showStatusPopupUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="showStatusPopupUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.showStatusPopup</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+RhoConnectClient.showStatusPopup=true
+# Setting one property
+RhoConnectClient.setProperty :showStatusPopup, true 
+# Setting multiple properties using HASH
+RhoConnectClient.setProperties { :showStatusPopup => true , :another_property => true}
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('showStatusPopup')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['showStatusPopup' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+RhoConnectClient.showStatusPopup=true;
+# Setting one property
+RhoConnectClient.setProperty('showStatusPopup',true);
+# Setting multiple properties using JSON object
+RhoConnectClient.setProperties({ :showStatusPopup:true , :another_property:true});
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('showStatusPopup');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['showStatusPopup' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='psslVerifyPeer'></a><div class='accordion property' id='psslVerifyPeer'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysslVerifyPeer"><strong>sslVerifyPeer</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysslVerifyPeer" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><strong>Default:</strong> true</p><p><a href="#sslVerifyPeerUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="sslVerifyPeerUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.sslVerifyPeer</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+RhoConnectClient.sslVerifyPeer=true
+# Setting one property
+RhoConnectClient.setProperty :sslVerifyPeer, true 
+# Setting multiple properties using HASH
+RhoConnectClient.setProperties { :sslVerifyPeer => true , :another_property => true}
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('sslVerifyPeer')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['sslVerifyPeer' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+RhoConnectClient.sslVerifyPeer=true;
+# Setting one property
+RhoConnectClient.setProperty('sslVerifyPeer',true);
+# Setting multiple properties using JSON object
+RhoConnectClient.setProperties({ :sslVerifyPeer:true , :another_property:true});
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('sslVerifyPeer');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['sslVerifyPeer' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='psyncServer'></a><div class='accordion property' id='psyncServer'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertysyncServer"><strong>syncServer</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertysyncServer" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><a href="#syncServerUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="syncServerUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.syncServer</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+RhoConnectClient.syncServer='some string'
+# Setting one property
+RhoConnectClient.setProperty :syncServer, 'some string' 
+# Setting multiple properties using HASH
+RhoConnectClient.setProperties { :syncServer => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('syncServer')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['syncServer' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+RhoConnectClient.syncServer='some string';
+# Setting one property
+RhoConnectClient.setProperty('syncServer','some string');
+# Setting multiple properties using JSON object
+RhoConnectClient.setProperties({ :syncServer:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('syncServer');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['syncServer' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pthreadedMode'></a><div class='accordion property' id='pthreadedMode'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertythreadedMode"><strong>threadedMode</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertythreadedMode" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><strong>Default:</strong> true</p><p><a href="#threadedModeUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="threadedModeUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.threadedMode</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+RhoConnectClient.threadedMode=true
+# Setting one property
+RhoConnectClient.setProperty :threadedMode, true 
+# Setting multiple properties using HASH
+RhoConnectClient.setProperties { :threadedMode => true , :another_property => true}
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('threadedMode')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['threadedMode' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+RhoConnectClient.threadedMode=true;
+# Setting one property
+RhoConnectClient.setProperty('threadedMode',true);
+# Setting multiple properties using JSON object
+RhoConnectClient.setProperties({ :threadedMode:true , :another_property:true});
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('threadedMode');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['threadedMode' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='puserName'></a><div class='accordion property' id='puserName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyuserName"><strong>userName</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyuserName" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<p><a href="#userNameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="userNameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">RhoConnectClient.userName</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('userName')
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['userName' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+
+# Getting one property
+myvar = RhoConnectClient.getProperty('userName');
+# Getting multiple properties
+myvar = RhoConnectClient.getProperties(['userName' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='maddObjectNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodaddObjectNotify"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:add_objectnotify</span> This is documentation"><span class="text-info">addObjectNotify</span></strong>(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodaddObjectNotify" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:add_objectnotify</span> This is documentation<div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li><li>object : <span class='text-info'>STRING</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mcleanObjectNotify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodcleanObjectNotify"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:clean_objectnotify</span> This is documentation"><span class="text-info">cleanObjectNotify</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodcleanObjectNotify" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:clean_objectnotify</span> This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">clearAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearNotification"><strong data-toggle="tooltip" title data-original-title="This is documentation">clearNotification</strong>(<span class="text-info">STRING</span> sourceName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearNotification" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdefault'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddefault"><strong data-toggle="tooltip" title data-original-title="This is documentation">default</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddefault" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>SELF_INSTANCE : Default object of Module.</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdoSync'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddoSync"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:dosync</span> This is documentation"><span class="text-info">doSync</span></strong>(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddoSync" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:dosync</span> This is documentation<div><p><strong>Parameters</strong></p><ul><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p> </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p> </p></li><li>syncOnlyChangedSources : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>STRING</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdoSyncSource'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddoSyncSource"><strong data-toggle="tooltip" title data-original-title="This is documentation">doSyncSource</strong>(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddoSyncSource" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p> </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>STRING</li></ul></div>  </div></div></div></div><div class='accordion method' id='menumerate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodenumerate"><strong data-toggle="tooltip" title data-original-title="This is documentation">enumerate</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodenumerate" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>ARRAY : Array of objects.</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetAllProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetAllProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getAllProperties</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetAllProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>HASH : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetLastSyncObjectCount'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetLastSyncObjectCount"><strong data-toggle="tooltip" title data-original-title="This is documentation">getLastSyncObjectCount</strong>(<span class="text-info">STRING</span> sourceName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetLastSyncObjectCount" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>INTEGER</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperties</strong>(<span class="text-info">ARRAY</span> arrayofNames, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.getProperties(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.getProperties(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.getProperties(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.getProperties(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>HASH : Map of properties I want to know about</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">getProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property that I want to know about </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.getProperty(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.getProperty(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.getProperty(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.getProperty(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.getProperty(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>STRING : The one property that I want to know about</li></ul></div><div><p><strong>Callback Returning Parameters</strong></p><ul><li>value : <span class='text-info'>STRING</span><p>The one property that I want to know about</p></li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetSourceProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetSourceProperty"><strong data-toggle="tooltip" title data-original-title="">getSourceProperty</strong>(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> propertyName)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetSourceProperty" class="accordion-body collapse in">  <div class="accordion-inner"><div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li><li>propertyName : <span class='text-info'>STRING</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>STRING</li></ul></div>  </div></div></div></div><div class='accordion method' id='mloggedIn?'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodloggedIn?"><strong data-toggle="tooltip" title data-original-title="This is documentation">loggedIn?</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodloggedIn?" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>BOOLEAN</li></ul></div>  </div></div></div></div><div class='accordion method' id='mlogin'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodlogin"><strong data-toggle="tooltip" title data-original-title="This is documentation">login</strong>(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodlogin" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>login : <span class='text-info'>STRING</span><p> </p></li><li>password : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span><p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.login(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.login(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.login(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.login(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.login(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.login(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>INTEGER</li></ul></div>  </div></div></div></div><div class='accordion method' id='mlogout'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodlogout"><strong data-toggle="tooltip" title data-original-title="This is documentation">logout</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodlogout" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msearch'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsearch"><strong data-toggle="tooltip" title data-original-title="This is documentation">search</strong>(<span class="text-info">HASH</span> args, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsearch" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>args : <span class='text-info'>HASH</span><p> </p></li><ul><li>sourceNames : <span class='text-info'>ARRAY</span> <span class='label label-info'>Optional</span><p> </p></li><li>from : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p> </p></li><li>searchParams : <span class='text-info'>HASH</span><p> </p></li><li>offset : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p> </p></li><li>maxResults : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p> </p></li><li>progressStep : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p> </p></li><li>syncChanges : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p> </p></li></ul><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span> <span class='label label-info'>Optional</span> <p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.search(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.search(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.search(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.search(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.search(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.search(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>HASH</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetDefault'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetDefault"><strong data-toggle="tooltip" title data-original-title="This is documentation">setDefault</strong>(<span class="text-info">SELF_INSTANCE</span> defaultInstance)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetDefault" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE</span><p>Default instance I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetNotification"><strong data-toggle="tooltip" title data-original-title="This is documentation">setNotification</strong>(<span class="text-info">STRING</span> sourceName, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetNotification" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span><p><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.setNotification(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.setNotification(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.setNotification(....,lambda{ 
+|params| }
+Proc.new{
+ |params| })</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.setNotification(....,function(params){
+//Your code here
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+RhoConnectClient.setNotification(...., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+RhoConnectClient.setNotification(...., mycallback());</code></pre></li></ol></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetObjectNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetObjectNotification"><strong data-toggle="tooltip" title data-original-title="This is documentation">setObjectNotification</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetObjectNotification" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperties'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperties"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperties</strong>(<span class="text-info">HASH</span> propertyMap)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperties" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetProperty"><strong data-toggle="tooltip" title data-original-title="This is documentation">setProperty</strong>(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetProperty" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetSourceProperty'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetSourceProperty"><strong data-toggle="tooltip" title data-original-title="">setSourceProperty</strong>(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetSourceProperty" class="accordion-body collapse in">  <div class="accordion-inner"><div><p><strong>Parameters</strong></p><ul><li>sourceName : <span class='text-info'>STRING</span><p> </p></li><li>propertyName : <span class='text-info'>STRING</span><p> </p></li><li>propertyValue : <span class='text-info'>STRING</span><p> </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mstopSync'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodstopSync"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:stop_sync</span> This is documentation"><span class="text-info">stopSync</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodstopSync" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:stop_sync</span> This is documentation<div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msyncing?'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsyncing?"><strong data-toggle="tooltip" title data-original-title="This is documentation">syncing?</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsyncing?" class="accordion-body collapse in">  <div class="accordion-inner">This is documentation<div><p><strong>Return:</strong></p><ul><li>BOOLEAN</li></ul></div>  </div></div></div></div></div></div>

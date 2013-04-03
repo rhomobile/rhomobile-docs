@@ -553,7 +553,11 @@ end
 			@methhascallback = element["hasCallback"]
 		end 
 		
-		@methdesc = element["DESC"][0]
+		if !element["DESC"].nil?
+			@methdesc = element["DESC"][0]
+		else
+			@methdesc = ""
+		end
 		methreplaces = ""
 		#Check to see if need to add to description about this method replacing a deprecated one
 		if !doc["MODULE"][0]["METHODS"].nil? && !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["METHODS"][0]["ALIASES"][0].empty?
@@ -742,15 +746,15 @@ end
   	doc = XmlSimple.xml_in(topic)
   	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
 	  	templatePropBag = true
-	  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
 	  		templatePropBag = false
 	  	end
 	  	templateDefault = true
-	  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
 	  		templateDefault = false
 	  	end
 	  	templateSingleton = true
-	  	if !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
 	  		templateSingleton = false
 	  	end
 	  	if templateDefault

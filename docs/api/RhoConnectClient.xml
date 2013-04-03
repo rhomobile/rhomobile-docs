@@ -1,0 +1,283 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="RhoConnectClient" parent="Rho">
+        <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers.</HELP_OVERVIEW>
+		
+		<ALIASES>
+            <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
+        </ALIASES>
+
+		<PROPERTIES access="STATIC">
+			
+			<PROPERTY name="userName" type="STRING" readOnly="true">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+			
+			<PROPERTY name="pollInterval" type="INTEGER" default="60">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+			
+			<PROPERTY name="syncServer" type="STRING">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+			
+			<PROPERTY name="pageSize" type="INTEGER">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+			
+			<PROPERTY name="threadedMode" type="BOOLEAN" default="true">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+			
+			<PROPERTY name="showStatusPopup" type="BOOLEAN" default="true">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+
+			<PROPERTY name="sslVerifyPeer" type="BOOLEAN" default="true">
+				<DESC>This is documentation</DESC>
+			</PROPERTY>
+			
+		</PROPERTIES>
+		
+        <METHODS access="STATIC">
+			
+			<ALIASES>
+				<ALIAS new="dosync" existing="doSync" deprecated="true">
+					<DESC></DESC>
+				</ALIAS>
+
+				<ALIAS new="set_objectnotify_url" existing="SetObjectNotification" deprecated="true">
+					<DESC></DESC>
+				</ALIAS>
+
+				<ALIAS new="add_objectnotify" existing="addObjectNotify" deprecated="true">
+					<DESC></DESC>
+				</ALIAS>
+
+				<ALIAS new="clean_objectnotify" existing="cleanObjectNotify">
+					<DESC></DESC>
+				</ALIAS>
+				
+				<ALIAS new="stop_sync" existing="stopSync" deprecated="true">
+					<DESC></DESC>
+				</ALIAS>
+				
+			</ALIASES>
+			
+			<METHOD name="loggedIn?">
+				<DESC>This is documentation</DESC>
+				<RETURN type="BOOLEAN"/>
+			</METHOD>
+			
+			<METHOD name="syncing?">
+				<DESC>This is documentation</DESC>
+				<RETURN type="BOOLEAN"/>
+			</METHOD>
+
+			<METHOD name="search" hasCallback="optional" runInThread="none">
+				<DESC>This is documentation</DESC>
+				
+				<PARAMS>
+
+					<PARAM name="args" type="HASH" propertyHash="true">
+						<DESC></DESC>
+						<PARAMS>
+							<PARAM name="sourceNames" type="ARRAY">
+								<DESC></DESC>
+								<CAN_BE_NIL/>
+							</PARAM>
+							
+							<PARAM name="from" type="STRING">
+								<DESC></DESC>
+								<CAN_BE_NIL/>
+							</PARAM>
+							
+							<PARAM name="searchParams" type="HASH">
+								<DESC></DESC>
+							</PARAM>
+							
+							<PARAM name="offset" type="INTEGER">
+								<CAN_BE_NIL/>
+								<DESC></DESC>
+							</PARAM>
+							<PARAM name="maxResults" type="INTEGER">
+								<CAN_BE_NIL/>
+								<DESC></DESC>
+							</PARAM>
+							
+							<PARAM name="progressStep" type="INTEGER">
+								<DESC></DESC>
+								<CAN_BE_NIL/>
+							</PARAM>
+							
+							<PARAM name="syncChanges" type="BOOLEAN">
+								<DESC></DESC>
+								<CAN_BE_NIL/>
+							</PARAM>
+							
+						</PARAMS>
+					</PARAM>
+									
+				</PARAMS>
+				<RETURN type="HASH"/>
+            </METHOD>
+			<METHOD name="doSync">
+				<DESC>This is documentation</DESC>
+				<PARAMS>
+					<PARAM name="showStatusPopup" type="BOOLEAN">
+						<DESC></DESC>
+						<CAN_BE_NIL/>
+					</PARAM>
+					
+					<PARAM name="queryParams" type="STRING">
+						<DESC></DESC>
+						<CAN_BE_NIL/>
+					</PARAM>
+					
+					<PARAM name="syncOnlyChangedSources" type="BOOLEAN">
+						<DESC></DESC>
+						<CAN_BE_NIL/>
+					</PARAM>
+				</PARAMS>
+				<RETURN type="STRING"/>
+				
+            </METHOD>
+			
+			<METHOD name="doSyncSource">
+				<DESC>This is documentation</DESC>
+				
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					
+					<PARAM name="showStatusPopup" type="BOOLEAN">
+						<CAN_BE_NIL/>
+						<DESC></DESC>
+					</PARAM>
+					
+					<PARAM name="queryParams" type="STRING">
+						<CAN_BE_NIL/>
+						<DESC></DESC>
+					</PARAM>
+					
+				</PARAMS>
+				
+				<RETURN type="STRING"/>
+				
+            </METHOD>
+			
+			<METHOD name="login" runInThread="none" hasCallback="mandatory">
+				<DESC>This is documentation</DESC>
+				
+				<PARAMS>
+					<PARAM name="login" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					
+					<PARAM name="password" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					
+				</PARAMS>
+				
+				<RETURN type="INTEGER"/>
+				
+            </METHOD>
+						
+			<METHOD name="logout">
+				<DESC>This is documentation</DESC>
+            </METHOD>
+			
+			<METHOD name="stopSync">
+				<DESC>This is documentation</DESC>
+            </METHOD>
+			
+			<METHOD name="setNotification" hasCallback="mandatory" runInThread="none">
+				<DESC>This is documentation</DESC>
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+			
+			<METHOD name="clearNotification">
+				<DESC>This is documentation</DESC>
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+			
+			
+			<METHOD name="setObjectNotification" hasCallback="mandatory" runInThread="none">
+				<DESC>This is documentation</DESC>
+            </METHOD>
+			
+			<METHOD name="addObjectNotify">
+				<DESC>This is documentation</DESC>
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					<PARAM name="object" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+				</PARAMS>
+				
+            </METHOD>
+			
+			<METHOD name="cleanObjectNotify">
+				<DESC>This is documentation</DESC>
+            </METHOD>
+			
+			<METHOD name="getLastSyncObjectCount">
+				<DESC>This is documentation</DESC>
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+				</PARAMS>
+				<RETURN type="INTEGER"/>
+            </METHOD>
+												
+			<METHOD name="setSourceProperty">
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					
+					<PARAM name="propertyName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					
+					<PARAM name="propertyValue" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+			
+			<METHOD name="getSourceProperty">
+				<PARAMS>
+					<PARAM name="sourceName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+					
+					<PARAM name="propertyName" type="STRING">
+						<DESC></DESC>
+					</PARAM>
+				</PARAMS>
+				<RETURN type="STRING"/>
+            </METHOD>
+												
+        </METHODS>
+		
+		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+            <!--  This section is used for the supported platform images at the top -->
+        </PLATFORM>
+    </MODULE>
+</API>
