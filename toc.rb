@@ -72,7 +72,7 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/Network',      'Network'
   topic 'api/NetworkAccess',      'NetworkAccess'
   topic 'api/process',      'Process'
-  topic 'api/rhoconnectclient',      'RhoConnectClient'
+  topic 'api/RhoConnectClient',      'RhoConnectClient'
   topic 'api/Signal',      'Signal'
   topic 'api/Signature',      'Signature'
   topic 'api/system',      'System'
