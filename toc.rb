@@ -85,6 +85,7 @@ section 'rhoconnect', 'RhoConnect'
 section 'rhoconnect-reference', 'RhoConnect' do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/install',           'Installation'
+  topic 'rhoconnect/migration',     'Migrating to RhoConnect 4.0'
   topic 'rhoconnect/command-line',      'App Generator and Command Line'
   topic 'rhoconnect/supported-platforms', 'Supported Platforms'
   topic 'rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
@@ -143,7 +144,6 @@ section 'rhoconnect-advanced', 'RhoConnect Advanced Topics' do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
   topic 'rhoconnect/cud-conflicts',     'Resolving Conflicts'
-  topic 'rhoconnect/migration',         'Migrating from RhoSync to RhoConnect'
 end
 
 section 'rhoconnect-nonrhodes-client-reference', 'Other RhoConnect Clients' do
