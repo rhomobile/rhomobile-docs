@@ -68,7 +68,7 @@
 			<METHOD name="smartBatteryStatus" hasCallback="optional">
 				<APPLIES>Scanners on Motorola Solutions' Windows Mobile / CE / Embedded devices</APPLIES>
                 <DESC>Returns the various parameters relating to battery charge and battery hardware.  Not all return values may be supported by all batteries.</DESC>
-                <RETURN>
+                <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="serialNumber" type="STRING">
                             <DESC>The serial number of the battery</DESC>

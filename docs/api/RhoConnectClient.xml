@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="RhoConnectClient" parent="Rho">
-        <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers. Synchronization overview is avalable here: http://edgedocs.rhomobile.com/rhodes/synchronization</HELP_OVERVIEW>
 		
 		<ALIASES>
             <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
@@ -11,31 +11,31 @@
 		<PROPERTIES access="STATIC">
 			
 			<PROPERTY name="userName" type="STRING" readOnly="true">
-				<DESC>This is documentation</DESC>
+				<DESC>Current username of the RhoConnectClient session if loggedIn? is true, otherwise returns the last logged in username.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="pollInterval" type="INTEGER" default="60">
-				<DESC>This is documentation</DESC>
+				<DESC>Sync poll interval. Setting this to 0 will disable polling-based sync.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="syncServer" type="STRING">
-				<DESC>This is documentation</DESC>
+				<DESC>Sync server URL.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="pageSize" type="INTEGER">
-				<DESC>This is documentation</DESC>
+				<DESC>Page size for RhoConnectClient. Default size is 2000.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="threadedMode" type="BOOLEAN" default="true">
-				<DESC>This is documentation</DESC>
+				<DESC>Sets if RhoConnectClient will work in a separate thread.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="showStatusPopup" type="BOOLEAN" default="true">
-				<DESC>This is documentation</DESC>
+				<DESC>Enable or disable show status popup.</DESC>
 			</PROPERTY>
 
 			<PROPERTY name="sslVerifyPeer" type="BOOLEAN" default="true">
-				<DESC>This is documentation</DESC>
+				<DESC>Enable or disable verification of RhoConnect ssl certificates, true by default.</DESC>
 			</PROPERTY>
 			
 		</PROPERTIES>
@@ -66,35 +66,35 @@
 			</ALIASES>
 			
 			<METHOD name="loggedIn?">
-				<DESC>This is documentation</DESC>
+				<DESC>Returns true if the RhoConnectClient currently has a user session, false if not.</DESC>
 				<RETURN type="BOOLEAN"/>
 			</METHOD>
 			
 			<METHOD name="syncing?">
-				<DESC>This is documentation</DESC>
+				<DESC>Returns true if sync is currently in progress.</DESC>
 				<RETURN type="BOOLEAN"/>
 			</METHOD>
 
 			<METHOD name="search" hasCallback="optional" runInThread="none">
-				<DESC>This is documentation</DESC>
+				<DESC>If you have a large dataset in your backend service, you don't have to synchronize everything with the RhoConnectClient. Instead you can filter the synchronized dataset using the RhoConnectClient's search function.</DESC>
 				
 				<PARAMS>
 
 					<PARAM name="args" type="HASH" propertyHash="true">
-						<DESC></DESC>
+						<DESC>Hash of arguments passed to search</DESC>
 						<PARAMS>
 							<PARAM name="sourceNames" type="ARRAY">
-								<DESC></DESC>
+								<DESC>Array of source names to be included in search result.</DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
 							
 							<PARAM name="from" type="STRING">
-								<DESC></DESC>
+								<DESC>Default is 'search'</DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
 							
 							<PARAM name="searchParams" type="HASH">
-								<DESC></DESC>
+								<DESC>Hash of key-value pairs to be included in search result.</DESC>
 							</PARAM>
 							
 							<PARAM name="offset" type="INTEGER">
@@ -103,7 +103,7 @@
 							</PARAM>
 							<PARAM name="maxResults" type="INTEGER">
 								<CAN_BE_NIL/>
-								<DESC></DESC>
+								<DESC>Maximum number of results to be returned.</DESC>
 							</PARAM>
 							
 							<PARAM name="progressStep" type="INTEGER">
@@ -122,21 +122,22 @@
 				</PARAMS>
 				<RETURN type="HASH"/>
             </METHOD>
+            
 			<METHOD name="doSync">
-				<DESC>This is documentation</DESC>
+				<DESC>Start the SyncEngine process and display an optional status popup.</DESC>
 				<PARAMS>
 					<PARAM name="showStatusPopup" type="BOOLEAN">
-						<DESC></DESC>
+						<DESC>Set to true to show status popup.</DESC>
 						<CAN_BE_NIL/>
 					</PARAM>
 					
 					<PARAM name="queryParams" type="STRING">
-						<DESC></DESC>
+						<DESC>Params to be passed to server.</DESC>
 						<CAN_BE_NIL/>
 					</PARAM>
 					
 					<PARAM name="syncOnlyChangedSources" type="BOOLEAN">
-						<DESC></DESC>
+						<DESC>Sync only sources that have local changes.</DESC>
 						<CAN_BE_NIL/>
 					</PARAM>
 				</PARAMS>
@@ -145,21 +146,21 @@
             </METHOD>
 			
 			<METHOD name="doSyncSource">
-				<DESC>This is documentation</DESC>
+				<DESC>Start sync for a given source name.</DESC>
 				
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name.</DESC>
 					</PARAM>
 					
 					<PARAM name="showStatusPopup" type="BOOLEAN">
 						<CAN_BE_NIL/>
-						<DESC></DESC>
+						<DESC>Set to true to show status popup.</DESC>
 					</PARAM>
 					
 					<PARAM name="queryParams" type="STRING">
 						<CAN_BE_NIL/>
-						<DESC></DESC>
+						<DESC>Params to be passed to server.</DESC>
 					</PARAM>
 					
 				</PARAMS>
@@ -169,15 +170,15 @@
             </METHOD>
 			
 			<METHOD name="login" runInThread="none" hasCallback="mandatory">
-				<DESC>This is documentation</DESC>
+				<DESC>Authenticates the user with RhoConnect. The callback will be executed when it is finished.</DESC>
 				
 				<PARAMS>
 					<PARAM name="login" type="STRING">
-						<DESC></DESC>
+						<DESC>Login name</DESC>
 					</PARAM>
 					
 					<PARAM name="password" type="STRING">
-						<DESC></DESC>
+						<DESC>Password</DESC>
 					</PARAM>
 					
 				</PARAMS>
@@ -187,87 +188,91 @@
             </METHOD>
 						
 			<METHOD name="logout">
-				<DESC>This is documentation</DESC>
+				<DESC>Logout the user from the RhoConnect server. This removes the local user session.</DESC>
             </METHOD>
 			
 			<METHOD name="stopSync">
-				<DESC>This is documentation</DESC>
+				<DESC>Stops any sync operations currently in progress.</DESC>
             </METHOD>
 			
 			<METHOD name="setNotification" hasCallback="mandatory" runInThread="none">
-				<DESC>This is documentation</DESC>
+				<DESC>The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered. One a sync is processing for a model, notifications are called with parameters containing sync process state. Your application can use this information to display different wait pages, progress bars, etc. setNotification will set notification for a model.</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name for which notification will be enabled. Use '*' to set notification for all models.</DESC>
 					</PARAM>
 				</PARAMS>
             </METHOD>
 			
 			<METHOD name="clearNotification">
-				<DESC>This is documentation</DESC>
+				<DESC>Clears the sync notification for a given source</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name to clear notification.</DESC>
 					</PARAM>
 				</PARAMS>
             </METHOD>
 			
 			
 			<METHOD name="setObjectNotification" hasCallback="mandatory" runInThread="none">
-				<DESC>This is documentation</DESC>
+				<DESC>The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.</DESC>
             </METHOD>
 			
 			<METHOD name="addObjectNotify">
-				<DESC>This is documentation</DESC>
+				<DESC>Add the object notification by passing in an object ID</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name for object notification.</DESC>
 					</PARAM>
 					<PARAM name="object" type="STRING">
-						<DESC></DESC>
+						<DESC>Object ID to get notifications.</DESC>
 					</PARAM>
 				</PARAMS>
 				
             </METHOD>
 			
 			<METHOD name="cleanObjectNotify">
-				<DESC>This is documentation</DESC>
+				<DESC>Removes callback for object notifications.</DESC>
             </METHOD>
 			
 			<METHOD name="getLastSyncObjectCount">
-				<DESC>This is documentation</DESC>
+				<DESC>Returns number of synced objects for a given source.</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name.</DESC>
 					</PARAM>
 				</PARAMS>
 				<RETURN type="INTEGER"/>
             </METHOD>
 												
 			<METHOD name="setSourceProperty">
+                <DESC>Sets property value for a given source.</DESC>
+
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name.</DESC>
 					</PARAM>
 					
 					<PARAM name="propertyName" type="STRING">
-						<DESC></DESC>
+						<DESC>Property name.</DESC>
 					</PARAM>
 					
 					<PARAM name="propertyValue" type="STRING">
-						<DESC></DESC>
+						<DESC>Property value.</DESC>
 					</PARAM>
 				</PARAMS>
             </METHOD>
 			
 			<METHOD name="getSourceProperty">
+                <DESC>Gets property value for a given source.</DESC>
+
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC></DESC>
+						<DESC>Source name.</DESC>
 					</PARAM>
 					
 					<PARAM name="propertyName" type="STRING">
-						<DESC></DESC>
+						<DESC>Property name.</DESC>
 					</PARAM>
 				</PARAMS>
 				<RETURN type="STRING"/>
