@@ -418,7 +418,7 @@ myvar = System.getProperties(['isRhoSimulator' , 'another_property'])</code></pr
 # Getting one property
 myvar = System.getProperty('isRhoSimulator');
 # Getting multiple properties
-myvar = System.getProperties(['isRhoSimulator' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pkeyboardState'></a><div class='accordion property' id='pkeyboardState'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertykeyboardState"><strong>keyboardState</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertykeyboardState" class="accordion-body collapse in">  <div class="accordion-inner">For Windows Mobile and Windows CE the keyboard can be manually shown or hidden as required.  All other platforms only support 'Automatic'.<p><a href="#keyboardStateUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>shown</dt><dd>Shows the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic.</dt><dt>hidden</dt><dd>Hides the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic.  This is most useful if your device has a hardware keyboard or you are scanning / capturing data to an input field.</dt><dt>automatic</dt><dd>Automatically shows or hides the keyboard as needed by the application</dt></dl><p><div id="keyboardStateUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">System.keyboardState</h3>  </div>  <div class="modal-body">
+myvar = System.getProperties(['isRhoSimulator' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pkeyboardState'></a><div class='accordion property' id='pkeyboardState'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertykeyboardState"><strong>keyboardState</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertykeyboardState" class="accordion-body collapse in">  <div class="accordion-inner">For Windows Mobile and Windows CE the keyboard can be manually shown or hidden as required.  All other platforms only support 'automatic'.<p><strong>Default:</strong> automatic</p><p><a href="#keyboardStateUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>shown</dt><dd>Shows the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic.</dt><dt>hidden</dt><dd>Hides the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic.  This is most useful if your device has a hardware keyboard or you are scanning / capturing data to an input field.</dt><dt>automatic</dt><dd>Automatically shows or hides the keyboard as needed by the application</dt></dl><p><div id="keyboardStateUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">System.keyboardState</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
@@ -449,17 +449,12 @@ System.setProperties({ :keyboardState:'some string' , :another_property:'some st
 # Getting one property
 myvar = System.getProperty('keyboardState');
 # Getting multiple properties
-myvar = System.getProperties(['keyboardState' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='plocalServerPort'></a><div class='accordion property' id='plocalServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocalServerPort"><strong>localServerPort</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocalServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, application will use dynamically selected one.<p><strong>Default:</strong> 8080</p><p><a href="#localServerPortUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="localServerPortUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">System.localServerPort</h3>  </div>  <div class="modal-body">
+myvar = System.getProperties(['keyboardState' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='plocalServerPort'></a><div class='accordion property' id='plocalServerPort'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertylocalServerPort"><strong>localServerPort</strong> : <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertylocalServerPort" class="accordion-body collapse in">  <div class="accordion-inner">Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, application will use dynamically selected one.<p><strong>Default:</strong> 8080</p><p><a href="#localServerPortUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="localServerPortUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">System.localServerPort</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
-# Setting directly
-System.localServerPort=0
-# Setting one property
-System.setProperty :localServerPort, 0 
-# Setting multiple properties using HASH
-System.setProperties { :localServerPort => 0 , :another_property => 0}
+
 
 # Getting one property
 myvar = System.getProperty('localServerPort')
@@ -470,12 +465,6 @@ myvar = System.getProperties(['localServerPort' , 'another_property'])</code></p
 
 <pre class='CodeRay'><code>:::javascript
 
-# Setting directly
-System.localServerPort=0;
-# Setting one property
-System.setProperty('localServerPort',0);
-# Setting multiple properties using JSON object
-System.setProperties({ :localServerPort:0 , :another_property:0});
 
 # Getting one property
 myvar = System.getProperty('localServerPort');

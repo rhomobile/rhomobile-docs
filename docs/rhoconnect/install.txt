@@ -12,6 +12,46 @@ When you start RhoStudio, you set the location of the workspace directory. Set t
 
 NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
 
+## Installing Ruby on Linux and Mac OSX
+
+Mac OS X comes with Ruby already pre-installed, but it’s an older version (1.8.7) which not supported by RhoConnect.
+Every Linux distribution usually has Ruby packages and you should refer to your distribution's documentation and community forums for help installing it.
+But, usually, these packages are behind and don't include latest Ruby versions.
+
+In nutshell, to have latest Ruby version you either need build it from sources, or use one of Ruby installers:
+
+1. Manually download and install [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/). You ways might be vary, because you need to take care about dependencies and libraries required by Ruby binaries. 
+
+2. Use [Ruby Version Manager](https://rvm.io) (RVM). RVM starting from v1.19 includes new `autolibs` feature and allow you to automatically install all dependencies on your system. RVM with `autolibs` enabled works with the system package manager. But in the case for OSX
+there's no a default package manager, and you have to select what package manager will be installed with autolibs modes `osx_brew` (default), `osx_port`, `osx_fink` and `smf`.
+
+Type this command to install stable RVM release:
+
+	:::tesm
+	$ \curl -L https://get.rvm.io | bash -s stable
+
+If you want get the libraries installed automatically, then use autolibs mode 4 aka. enable
+
+	:::tesm
+	$ rvm autolibs 4
+
+On Mac OSX you can also optionally enforce a package manager of your choice:
+ 
+	:::tesm
+	$ rvm autolibs homebrew
+
+And, finally, install desired Ruby version:
+
+	:::tesm
+	$ rvm install 1.9.3
+	$ rvm install jruby
+	# rvm install 2.0.0
+
+NOTE: The full list of `autolibs` options is covered in RVM docs.
+
+NOTE: On Mac OSX to need to have `Xcode` and `Command Line Tools` installed.
+
+
 ## Installing RhoConnect on Linux
 
 On Linux, you need the following setup before redis is installed.
@@ -22,13 +62,12 @@ On Linux, you need the following setup before redis is installed.
 
 To install RhoConnect on Linux, you need to install the RhoConnect gem. Download and install:
 
-1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
 
-2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
+1. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-3. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
+2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
 
-4. Install the RhoConnect Gem.
+3. Install the RhoConnect Gem.
 
 Run this command to install the RhoConnect Gem.
 
