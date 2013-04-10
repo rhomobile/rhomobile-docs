@@ -1,194 +1,160 @@
-Migrating RhoSync application to RhoConnect
+Migrating your application to RhoConnect 4.0
 ===
 
-The best way of migrating your Rhosync app to Rhoconnect is to re-generate the application skeleton
+The best way of migrating your old RhoConnect app to Rhoconnect 4.0+ is to re-generate the application skeleton
 using Rhoconnect, then integrate all of your implementation specifics into it.
-However, if you prefer to migrate your Rhosync app manually, perform the steps in this document:
+However, if you prefer to migrate your RhoConnect app manually, perform the steps in this document.
 
-## Install the Bundler
-Install the `bundler` gem:
+## Upgrading dependency manifest
+
+Open the `Gemfile` of your application and find the `rhoconnect` line, it should look something like:
+
+	:::ruby
+	gem 'rhoconnect', '3.3.6'
+
+Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 4.0.1:
+
+	:::ruby
+	gem 'rhoconnect', '4.0.1'
+
+Run the following command from the root application directory:
 
 	:::term
-	$ [sudo] gem install bundler
+	$ bundle install
 
-## Create the Gemfile
-Create a new `Gemfile` file in your application directory with the following content:
+Now update your application's RhoConnect dependency manifest:
+
+	:::term
+	$ rhoconnect update
+
+## Migrating application files
+
+If you have an existing RhoConnect application using version < 4.0 and want to upgrade it to RhoConnect 4.0+, then
+you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
+
+First, follow the instructions described in the [previous section](/rhoconnect/migration#upgrading-dependency-manifest).
+
+Next, make sure your `Gemfile` looks like the following example, replacing the version as necessary.
+The `rhoconnect update` command will generate a reference `Gemfile.new` which you can use to replace your `Gemfile`:
 
 	:::ruby
 	source 'http://rubygems.org'
 
-	gem 'rhoconnect', '3.0.0'
+	gem 'rhoconnect', '<put correct version here>'
+	gemfile_path = File.join(File.dirname(__FILE__), ".rcgemfile")
 
-	# Helps with some of the limitations of green threads, not needed in ruby 1.9.x
-	gem 'SystemTimer', '~> 1.2.3', :platforms => :ruby_18
-
-	platforms :jruby do
-	  gem 'jdbc-sqlite3', ">= 3.7.2"
-	  gem 'dbi', ">= 0.4.5"
-	  gem 'dbd-jdbc', ">= 0.1.4"
-	  gem 'jruby-openssl', ">= 0.7.4"
-	  gem 'warbler'
-	end
-
-	gem 'sqlite3', ">= 1.3.3", :platforms => [:ruby, :mswin, :mingw]
-
-	# For jruby trinidad JRuby web server is used
-	gem 'trinidad',  :platforms => :jruby
-
-	group :development do
-	  # By default to run application thin web server is used
-	  gem 'thin', :platforms => [:ruby, :mswin, :mingw]
-	end
-
-	group :test do
-	  gem 'rack-test', '>= 0.5.3', :require => "rack/test"
-	  gem 'rspec', '~> 2.6.0'
-	  gem 'rcov', '>= 0.9.8'
-	end
-	
-
-## Edit the Rakefile
-
-Adjust the existing `Rakefile` by changing `rhosync` to `rhoconnect`.
-
-Change this:
-	
-	:::ruby
 	begin
-	  require 'vendor/rhosync/lib/rhosync/tasks'
-	  require 'vendor/rhosync/lib/rhosync'
-	rescue LoadError
-	  require 'rhosync/tasks'
-	  require 'rhosync'
-	end
-	
-to this:
-
-	:::ruby
-	begin
-	  require 'vendor/rhoconnect/lib/rhoconnect/tasks'
-	  require 'vendor/rhoconnect/lib/rhoconnect'
-	rescue LoadError
-	  require 'rhoconnect/tasks'
-	  require 'rhoconnect'
+		eval(IO.read(gemfile_path))
+	rescue Exception => e
+		puts "ERROR: Couldn't read RhoConnect .rcgemfile"
+		puts e.message
+		exit 1
 	end
 
-## Edit config.ru
+	# DON'T FORGET to add your application specific gems after this line ...
+	# ...
 
-Adjust `config.ru` file by performing the following steps:
+You must update `config.ru`, `Rakefile`, 'application.rb' and your source adapter files to match RhoConnect 4.0+ gem requirements.
 
-1) Change the section shown below to replace `rhosync` with `rhoconnect`.
-
-Change this:
-
-	:::ruby
-	begin
-	  require 'vendor/rhosync/lib/rhosync/tasks'
-	  require 'vendor/rhosync/lib/rhosync'
-	rescue LoadError
-	  require 'rhosync/tasks'
-	  require 'rhosync'
-	end
-
-to this:
+Replace your existing `config.ru` with the listing below. Save your old `config.ru` since you will use values within it in the new `config.ru`. 
 
 	:::ruby
-	begin
-	  require 'vendor/rhoconnect/lib/rhoconnect/tasks'
-	  require 'vendor/rhoconnect/lib/rhoconnect'
-	rescue LoadError
-	  require 'rhoconnect/tasks'
-	  require 'rhoconnect'
-	end
-
-2) Change all `Rhosync` references to `Rhoconnect`.
-
-For example, change this:
-
-	:::ruby
-	Rhosync::Server.disable :run
+	# config.ru file
 	
-to this:
+	#!/usr/bin/env ruby
+	require 'rhoconnect/application/init'
 
-	:::ruby
-	Rhoconnect::Server.disable :run
-	
-## Edit application.rb
+	# secret is generated along with the app
+	# NOTE:
+	# Substitute 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru	
+	Rhoconnect::Server.set     :secret, 'REPLACE_ME'
 
-Adjust `application.rb` file with the following steps:
+	# !!! Add your custom initializers and overrides here !!!
+	# For example, uncomment the following line to enable Stats
+	#Rhoconnect::Server.enable  :stats
+	# uncomment the following line to disable Resque Front-end console
+	#Rhoconnect.disable_resque_console = true
+	# uncomment the following line to disable Rhoconnect Front-end console
+	#Rhoconnect.disable_rc_console = true
 
-1) Change the name of the base class from:
+	# run RhoConnect Application
+	run Rhoconnect.app	
 
-	:::ruby
-	class Application < Rhosync::Base
-	
-to:
-
-	:::ruby
-	class Application < Rhoconnect::Base
-
-## Edit spec/spec_helper.rb
-
-Edit your `spec/spec_helper.rb` file to contain the following:
+And replace your existing `Rakefile` with the following:
 
 	:::ruby
 	require 'rubygems'
+	require 'bundler/setup'
+	require 'rhoconnect/tasks'
+	require 'rhoconnect'
+	require 'resque/tasks'
 
-	# Set environment to test
-	ENV['RHO_ENV'] = 'test'
-	ROOT_PATH = File.expand_path(File.join(File.dirname(__FILE__),'..'))
-	Bundler.require(:default, ENV['RHO_ENV'].to_sym)
+	ROOT_PATH = File.expand_path(File.dirname(__FILE__))
 
-	# Try to load vendor-ed rhoconnect, otherwise load the gem
-	begin
-	  require 'vendor/rhoconnect/lib/rhoconnect'
-	rescue LoadError
-	  require 'rhoconnect'
-	end
+	task 'resque:setup' do
+	  # The number of redis connections you want a job to have
+	  Rhoconnect.connection_pool_size = 1
+	  require 'rhoconnect/application/init'
 
-	# Load our rhoconnect application
-	require './application'
-	include Rhoconnect
-
-	require 'rhoconnect/test_methods'
-
-	module RSpec
-	  module Core
-	    module SharedExampleGroup
-	    private
-	      def ensure_shared_example_group_name_not_taken(name)
-	      end
-	    end
+	  Resque.after_fork do
+	    Store.reconnect
 	  end
 	end
 
-	shared_examples_for "SpecHelper" do
-	  include Rhoconnect::TestMethods
-  
-	  before(:each) do
-	    Store.flush_all
-	    Application.initializer(ROOT_PATH)
-	  end  
-	end
-
-## Edit spec files
-all of your spec files should be modified from:
+Move your existing `application.rb` file into `controllers/ruby/application_controller.rb` and update it with the following:
 
 	:::ruby
-	describe "<SampleSpec>" do
-  		it_should_behave_like "SpecHelper"
-		...
+	class ApplicationController < Rhoconnect::Controller::AppBase
+  		register Rhoconnect::EndPoint
+
+  		post "/login", :rc_handler => :authenticate,
+                 :deprecated_route => {:verb => :post, :url => ['/application/clientlogin', '/api/application/clientlogin']} do
+    		login = params[:login]
+    		password = params[:password]
+    		<INSERT YOUR AUTHENTICATION CODE HERE>
+  		end
+
+  		get "/rps_login", :rc_handler => :rps_authenticate, 
+        	            :login_required => true do
+    		login = params[:login]
+    		password = params[:password]
+    		<INSERT YOUR RPS AUTHENTICATION CODE HERE>
+  		end
+
+  		# <.... PLACE HERE ALL OF YOUR EXISTING APPLICATION CODE ...>
 	end
 
-to:
-	
+NOTE: You must remove `initializer` method from the ApplicationController class. It is no longer supported. 
+
+NOTE: If you had `store_blob` method overriden in the `application.rb` file - you will need to move it into the corresponding model class. Global `store_blob` method is no longer supported.
+See below for details.
+
+Re-generate your sources by running 'rhoconnect source YOUR_SOURCE' command for all of your application sources. This will create source's controller files in the `controllers/ruby` directory
+and source's model files in the `models/ruby` directory. After that, move your existing files from the `sources` directory into the `models/ruby` directory, replacing the generated model files. 
+Then, modify every file to make sure that your SourceAdapter classes now derive from the `Rhoconnect::Model::Base` class - SourceAdapters now became Models:
+
 	:::ruby
-	describe "<SampleSpec>" do
-  		it_should_behave_like "SpecHelper" do
-			...
+	class Product < Rhoconnect::Model::Base
+		# .... rest of your code
+	end
+
+If you had global `store_blob` method in the `application.rb` file - you need to move it into every model's class that supports blobs:
+
+	:::ruby
+	class Product < Rhoconnect::Model::Base
+		# ... your code here ....
+		def store_blob(object, field, blob)
+			<YOUR_STORE_BLOB_IMPLEMENTATION>
 		end
-	end
+	end 
+
+If you had source spec files in the `spec/sources` directory - you will need to move them into `spec/models/ruby` directory and adjust the top line of each spec file:
 	
-## Edit implementation files
-Modify all of your application implementation files by changing the `Rhosync` references
-to `Rhoconnect`.
+	:::ruby
+	require File.join(File.dirname(__FILE__),'..','..','spec_helper')
+
+
+Finally, run `bundle install` to install any missing dependencies in your RhoConnect directory:
+
+	:::term
+	$ bundle install
