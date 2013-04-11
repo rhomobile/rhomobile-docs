@@ -19,6 +19,9 @@ class Api
   	if !doc["MODULE"][0]["HELP_OVERVIEW"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW"][0].length >0
 
 	  	md = doc["MODULE"][0]["HELP_OVERVIEW"][0]
+	  	if !doc["MODULE"][0]["MORE_HELP"].nil? && !doc["MODULE"][0]["MORE_HELP"][0].nil? && doc["MODULE"][0]["MORE_HELP"][0].length >0
+	  		md +=doc["MODULE"][0]["MORE_HELP"][0]
+	  	end
   	end
   	#md += "\n\n" + doc["MODULE"][0]["MORE_HELP"][0]
   	# doc.elements.each("//MODULE") { |element| 
@@ -330,8 +333,17 @@ md+='</div>'
 				
 			end
 			if !element["APPLIES"].nil? 
-				propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
+				# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
+				propnote= "(" + element["APPLIES"][0] + ")"
 			end
+			@propplatforms = "All"
+			if !element["PLATFORM"].nil?
+				@propplatforms = element["PLATFORM"][0]
+			end
+			@propsectionplatforms = "<div>"
+			@propsectionplatforms += "<p><strong>Platforms: </strong>#{@propplatforms} #{propnote}</p></div>"
+			
+			
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
 				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"],templatePropBag)
@@ -426,7 +438,7 @@ md+='</div>'
     md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
-  	md += "#{@propdesc}#{propnote}#{propdefault}"
+  	md += "#{@propdesc}#{@propsectionplatforms}#{propdefault}"
   	md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
 	
   	md += @propvalues
@@ -588,6 +600,13 @@ end
 				methreturnparams =  getparams(relement,false)
 			}
 		end
+		@methplatforms = "All"
+		if !element["PLATFORM"].nil?
+			@methplatforms = element["PLATFORM"][0]
+		end
+		@methsectionplatforms = "<div>"
+		@methsectionplatforms += "<p><strong>Platforms: </strong>#{@methplatforms}</p></div>"
+		
 		@methsectionreturns = "<div>"
 		@methsectionreturns += "<p><strong>Return:</strong></p><ul>"
 		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}#{methreturnparams}</li></ul></div>"
@@ -722,6 +741,7 @@ end
     md +='  <div class="accordion-inner">'
 
   	md += "" + @methdesc + ""
+  	md += @methsectionplatforms
   	md += "" + @methsectionparams + ""
   	md += @methsectionreturns
   	md += @methsectioncallbackparams

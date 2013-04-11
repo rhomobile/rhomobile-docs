@@ -60,23 +60,18 @@ section 'rhodes-reference', 'Rhodes Reference' do
 end
 
 section 'rhodescommonapi-reference', 'Mobile APIs' do
+  topic 'rhoelements/apicompatibility',      'Legacy APIs'
   topic 'api/application',      'Application'
   topic 'api/barcode',      'Barcode'
-  topic 'api/battery',      'Battery'
   topic 'api/camera',      'Camera'
   topic 'api/cardreader',      'Cardreader'
   topic 'api/Database',      'Database '
-  topic 'api/keycapture',      'KeyCapture'
-  topic 'api/keystate',      'KeyState'
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/NetworkAccess',      'NetworkAccess'
-  topic 'api/process',      'Process'
   topic 'api/RhoConnectClient',      'RhoConnectClient'
-  topic 'api/Signal',      'Signal'
   topic 'api/Signature',      'Signature'
   topic 'api/system',      'System'
-  topic 'api/videocapture',      'VideoCapture'
   topic 'api/webview',      'Webview'
 end
 
