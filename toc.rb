@@ -16,7 +16,24 @@ end
 
 
 
-section 'rhoelements', 'RhoElements'
+section 'rhomobile', 'RhoMobile'
+
+section 'rhodescommonapi-reference', 'Mobile APIs' do
+  topic 'rhoelements/apicompatibility',      'Legacy APIs'
+  topic 'api/application',      'Application'
+  topic 'api/barcode',      'Barcode'
+  topic 'api/camera',      'Camera'
+  topic 'api/cardreader',      'Cardreader'
+  topic 'api/Database',      'Database '
+  topic 'api/Log',      'Log'
+  topic 'api/Network',      'Network'
+  topic 'api/RhoConnectClient',      'RhoConnectClient'
+  topic 'api/Signature',      'Signature'
+  topic 'api/system',      'System'
+  topic 'api/webview',      'Webview'
+end
+
+
 
 section 'rhoelements-devref', 'RhoElements Reference' do
   topic 'rhoelements/rhoelements-introduction', 'Introduction'
@@ -36,8 +53,6 @@ section 'rhoelements-devref', 'RhoElements Reference' do
   topic 'rhoelements/apd-printer-demo-user-notes','APD Printer Demo User Notes'
   topic 'rhoelements/apd-release-notes','APD Release Notes'
 end
-
-section 'rhodes', 'Rhodes'
 
 section 'rhodes-reference', 'Rhodes Reference' do
   topic 'rhodes/introduction',      'Introduction'
@@ -59,24 +74,9 @@ section 'rhodes-reference', 'Rhodes Reference' do
   topic 'rhodes/contributing',      'Contributing'
 end
 
-section 'rhodescommonapi-reference', 'Mobile APIs' do
-  topic 'rhoelements/apicompatibility',      'Legacy APIs'
-  topic 'api/application',      'Application'
-  topic 'api/barcode',      'Barcode'
-  topic 'api/camera',      'Camera'
-  topic 'api/cardreader',      'Cardreader'
-  topic 'api/Database',      'Database '
-  topic 'api/Log',      'Log'
-  topic 'api/Network',      'Network'
-  topic 'api/RhoConnectClient',      'RhoConnectClient'
-  topic 'api/Signature',      'Signature'
-  topic 'api/system',      'System'
-  topic 'api/webview',      'Webview'
-end
-
 section 'rhoconnect', 'RhoConnect'
 
-section 'rhoconnect-reference', 'RhoConnect: Getting Started' do
+section 'rhoconnect-reference', 'Getting Started' do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/install',           'Installation'
   topic 'rhoconnect/migration',         'Upgrading RhoConnect'
@@ -85,7 +85,7 @@ section 'rhoconnect-reference', 'RhoConnect: Getting Started' do
   topic 'rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
 end
 
-section 'rhoconnect-source-adapter-reference', 'RhoConnect: Source Adapters' do
+section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/source-adapters',   'Source Adapters'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/testing',           'Testing and Debugging'
@@ -94,14 +94,14 @@ section 'rhoconnect-source-adapter-reference', 'RhoConnect: Source Adapters' do
   topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
 end
 
-section 'rhoconnect-plugin-reference', 'RhoConnect: Plugins' do
+section 'rhoconnect-plugin-reference', 'Plugins' do
   topic 'rhoconnect/plugin-intro',      'Introduction'
   topic 'rhoconnect/rails-plugin',      'Rails Plugin'
   topic 'rhoconnect/net-plugin',        '.Net Plugin'
   topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
-section 'rhoconnect-push-reference', 'RhoConnect: Push Sync' do
+section 'rhoconnect-push-reference', 'Push Sync' do
   topic 'rhoconnect/push',      'Introduction to Push'
   topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
   topic 'rhoconnect/push-client-setup-android',       'Setup for Android'
@@ -112,7 +112,7 @@ section 'rhoconnect-push-reference', 'RhoConnect: Push Sync' do
   topic 'rhoconnect/push-testing',      'Testing Push'
 end
 
-section 'rhoconnect-administration', 'RhoConnect: Administration' do
+section 'rhoconnect-administration', 'Administration' do
   topic 'rhoconnect/settings',          'RhoConnect Settings'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
   topic 'rhoconnect/licensing',         'Licensing your App'
@@ -121,26 +121,26 @@ section 'rhoconnect-administration', 'RhoConnect: Administration' do
   topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
 end
 
-section 'rhoconnect-deployment', 'RhoConnect: Deployment' do
+section 'rhoconnect-deployment', 'Deployment' do
   topic 'rhoconnect/preparing-production',         'Preparing for Production'
   topic 'rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'rhoconnect/deploying',         'Deploying RhoConnect'
   topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
 
-section 'rhoconnect-api-reference', 'RhoConnect: APIs' do
+section 'rhoconnect-api-reference', 'APIs' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnectapi/source-adapter-api', 'Source Adapter API'
   topic 'rhoconnectapi/test-api',     'Source Adapter Test API'
 end
 
-section 'rhoconnect-advanced', 'RhoConnect: Advanced Topics' do
+section 'rhoconnect-advanced', 'Advanced Topics' do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
   topic 'rhoconnect/cud-conflicts',     'Resolving Conflicts'
 end
 
-section 'rhoconnect-nonrhodes-client-reference', 'RhoConnect: Clients' do
+section 'rhoconnect-nonrhodes-client-reference', 'Clients' do
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
   topic 'rhoconnect/client-objc',       'RhoConnect Client for iOS'
   topic 'rhoconnect/client-java',       'RhoConnect without Rhodes: Android Java'
@@ -151,11 +151,11 @@ section 'rhoconnect-nonrhodes-client-reference', 'RhoConnect: Clients' do
 end
 
 
-section 'rhoconnect-service-reference', 'RhoConnect: Hosted Services' do
+section 'rhoconnect-service-reference', 'Hosted Services' do
   topic 'rhoconnect/heroku-addon',      'Heroku Addon'
 end
 
-section 'rhoconnect-adapters-reference', 'RhoConnect: Vendor Adapters' do
+section 'rhoconnect-adapters-reference', 'Vendor Adapters' do
   topic 'rhoconnect/adapters-intro',    'Introduction'
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end

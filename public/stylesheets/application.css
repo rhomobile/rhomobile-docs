@@ -195,6 +195,13 @@ p, ul, blockquote, pre, table {
     background-color: #EEE;
 
 }
+#docsnav h3 {
+	color:#666;
+	margin:0 0 0 0;
+	font-size:15px;
+	line-height:1.25;
+	background-color: #fff;
+}
 
 /*#docsnav .current  {
 	background-color:#222;
@@ -204,14 +211,6 @@ p, ul, blockquote, pre, table {
 	font-weight:bold;
 }
 
-#docsnav h3 {
-	color:#666;
-	margin:0 0 0 0;
-	font-size:15px;
-	line-height:1.25;
-	float: left;
-  width: 200px;
-}
 */
 
 /* content
