@@ -1,0 +1,2 @@
+# PUSH Notifications
+Push notification support is currently available for Android, BlackBerry, iOS, and RoConnect Push Service on Android and Windows Mobile. Please refer to [RhoConnect Device Push](/rhoconnect/push) for information on setting up RhoConnect Push on the RhoConnect server and the Rhodes client.

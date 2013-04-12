@@ -20,7 +20,7 @@ section 'rhomobile', 'RhoMobile'
 
 section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'rhoelements/apicompatibility',      'Legacy APIs'
-  topic 'api/application',      'Application'
+  topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/camera',      'Camera'
   topic 'api/cardreader',      'Cardreader'
@@ -28,51 +28,72 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/RhoConnectClient',      'RhoConnectClient'
-  topic 'api/Signature',      'Signature'
+  topic 'api/signature',      'Signature'
   topic 'api/system',      'System'
   topic 'api/webview',      'Webview'
 end
 
 
-
-section 'rhoelements-devref', 'RhoElements Reference' do
-  topic 'rhoelements/rhoelements-introduction', 'Introduction'
-  topic 'rhoelements/rhoelements-app-models', 'Application Approaches'
-  topic 'rhoelements/rhoelements-install', 'Installation'
-  topic 'rhoelements/rhoelements2-webapps', 'Enabling Web Apps'
-  topic 'rhoelements/rhoelements2-native', 'Building Native Apps'
-  topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
-  topic 'rhoelements/licensing', 'Licensing'
-  topic 'rhoelements/EMMLOverview', 'EMML Overview'
-  topic 'rhoelements/FontsInRhoElements', 'Font Handling'
-  topic 'rhoelements/SVGvsHTML', 'SVG Applications'
-  topic 'rhoelements/RetrievalEvents', 'Retrieval Events'
-  topic 'rhoelements/apd-overview', 'APD Overview'
-  topic 'rhoelements/apd-printer-type-codes', 'APD Printer Type Codes'
-  topic 'rhoelements/apd-programmers-manual','APD Programmers Manual'
-  topic 'rhoelements/apd-printer-demo-user-notes','APD Printer Demo User Notes'
-  topic 'rhoelements/apd-release-notes','APD Release Notes'
-end
-
-section 'rhodes-reference', 'Rhodes Reference' do
+section 'rhomob-setup', 'Setup & Architecture' do
   topic 'rhodes/introduction',      'Introduction'
-  topic 'rhodes/install',           'Install Rhodes'
-  topic 'rhodes/generator',         'App Generator'
-  topic 'rhodes/rhodes-command-line',         'Rhodes from Command Line'
-  topic 'rhodes/build',             'Build Application'
+  topic 'rhomobile-install',   'RhoMobile Suite Install'
+  topic 'rhodes/build',             'Native SDK Setup'
+  topic 'rhoelements/rhoelements-app-models', 'Application Approaches'
+  topic 'rhoelements/rhoelements2-webapps', 'Enabling Web Apps'
+  topic 'rhoelements/rhoelements-introduction', 'Motorola Webkit'
   topic 'rhodes/application',       'App Structure'
   topic 'rhodes/ui',                'User Interface'
   topic 'rhodes/css-framework',     'CSS Framework'
+
+end
+
+section 'rhomob-apps', 'Developing Apps' do
+  topic 'rhodes/generator',         'App Generator'
+  topic 'rhoelements/rhoelements2-native', 'Building Apps With RhoStudio'
+  topic 'rhostudio-rhohub',      'Building Apps on RhoHub'
+  topic 'rhodes/rhodes-command-line',         'Rhodes from Command Line'
   topic 'rhodes/configuration',     'Configuration'
-  topic 'rhodes/device-caps',       'Device Capabilities'
+  topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
+  topic 'rhodes/extensions',        'Extending the Rhodes Framework'
+  topic 'rhoelements/licensing', 'Licensing'
+end
+
+section 'rhomob-test', 'Testing & Debugging' do
+  topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'
+  topic 'rhodes/simulator',         'Using RhoSimulator'
+end
+
+section 'rhomob-dev', 'Device Capabilities' do
+  topic 'guide/orientation',       'Accelerometer'
+  topic 'guide/alerts',       'Alerts'
+  topic 'guide/android',       'Android Usage'
+  topic 'guide/barcode',       'Barcode'
+  topic 'guide/blackberry',       'Blackberry Usage'
+  topic 'guide/bluetooth',       'Bluetooth'
+  topic 'guide/camera',       'Camera'
+  topic 'guide/pim',       'Contacts & Calendar'
+  topic 'guide/apps',       'External Apps'
+  topic 'guide/filesystem',       'File System'
+  topic 'guide/geolocation',       'Geolocation'
+  topic 'guide/html5',       'Html5 Features'
+  topic 'guide/localization',       'Localization'
+  topic 'guide/maps',       'Mapping'
+  topic 'guide/media',       'Media'
+  topic 'guide/nfc',       'NFC'
+  topic 'guide/printing',       'Printing'
+  topic 'guide/push',       'Push Notifications'
+  topic 'guide/ringtone',       'Ringtone'
+  topic 'guide/signature',       'Signature'
+  topic 'guide/system',       'System'
+  topic 'guide/timer',       'Timer'
+  
+end  
+
+section 'rhomob-data', 'Data Handling' do
   topic 'rhodes/rhom',              'Local Database and Rhom'
   topic 'rhodes/synchronization',   'Synchronization'
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
-  topic 'rhodes/extensions',        'Extending the Rhodes Framework'
-  topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'
-  topic 'rhodes/simulator',         'Using RhoSimulator'
-  topic 'rhodes/contributing',      'Contributing'
-end
+end  
 
 section 'rhoconnect', 'RhoConnect'
 

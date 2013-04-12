@@ -7,17 +7,17 @@ $(document).ready(function() {
 	// Update the current topic
 	$("#t_content").live('pjax:end', function(e, xhr, err) {
 		// Enable previous anchor
-		var prevAnchor = $('li.current a');
+		var prevAnchor = $('li.active a');
 		prevAnchor.removeAttr('onclick');
 		prevAnchor.attr('class', 'js-pjax');
 		
 		// Remove style of previous topic
-		$('li.current').removeClass('current');
+		$('li.active').removeClass('active');
 		
 		// Update style of current topic
 		var cur = $('a[href$="' + $(location).attr("pathname") + '"]');
 		cur.attr('onclick', 'return false');
-		cur.parent().attr('class', 'current');
+		cur.parent().attr('class', 'active');
 		$(window).scrollTop(0);
 	});
 	$('.accordion-heading > li').live('click',function(){

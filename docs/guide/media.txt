@@ -1,0 +1,9 @@
+# Media Support
+Rhodes can play video/audio files in native Internet Browser. So application developer can just add link to online or local audio/video file:
+	:::html
+	<a href="http://videos3.netprofesseur.com/1/videos/130/BRICOLAGE_Changer_un_joints.mp4">Play mp4 online video</a>
+
+Application can download file to file system using [AsyncHttp.download_file](call-web-services) and than put link [to this file](#file-system-access) to view.
+
+### Sample
+See app\Media of [System API Sample application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Media/controller.rb) as an example.

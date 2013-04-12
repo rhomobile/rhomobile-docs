@@ -1,6 +1,7 @@
 development:
   dirs:
     api: 'docs/api/'
+    guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
     rhodes: '../rhodes/doc/'
     rhodesapi: 'docs/rhodesapi/'
@@ -15,6 +16,7 @@ development:
 jenkins:
   dirs:
     api: 'docs/api/'
+    guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
     rhodes: '../../rhodes/workspace/doc/'
     rhodesapi: 'docs/rhodesapi/'
@@ -29,6 +31,7 @@ jenkins:
 edge:
   dirs:
     api: 'docs/api/'
+    guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
     rhodes: 'docs/rhodes/'
     rhodesapi: 'docs/rhodesapi/'
@@ -43,6 +46,7 @@ edge:
 production:
   dirs:
     api: 'docs/api/'
+    guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
     rhodes: 'docs/rhodes/'
     rhodesapi: 'docs/rhodesapi/'
