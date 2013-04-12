@@ -1,6 +1,6 @@
-RhoConnect REST API
+Source Adapter Model API (Ruby)
 ===
-Your RhoConnect source adapter application can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/rhoconnect/source-adapters#sample-adapter) for a complete example.
+Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/rhoconnect/source-adapters#sample-adapter) for a complete example.
 
 ## login
 
@@ -106,4 +106,27 @@ Saves the current state of `@result` to redis and assigns it to `nil`.  Typicall
 	    @result.merge!( DictionaryService.get_records_for(letter) )
 		stash_result if i % 2 == 0
 	  end
+	end
+
+## store_blob
+
+If your Rhodes application sends blobs as a part of the create/update operation - you must implement this method inside of your Source Adapter Model and do not use default implementation where blob is stored in the tempfile provided by Rack, because RhoConnect processing is asynchronous and there is no guarantee that the temporary file will exist at the actual time when `create` is called.  
+
+The following example stores the file permanently and keeps its `:filename` argument as another object attribute.
+
+	:::ruby
+	def store_blob(obj,field_name,blob)
+	  # ... custom code to store the blob file ... 
+	  my_stored_filename = do_custom_store[blob[:filename]]
+      obj['filename'] = my_stored_filename
+    end
+
+## get_data
+
+You can access your model's document data by with `get_data` method. By default, when called without arguments - it returns the Master Document (:md).
+
+	:::ruby
+	# some custom controller's method that has access to model
+	def my_custom_method
+	  my_model_md = @model.get_data
 	end

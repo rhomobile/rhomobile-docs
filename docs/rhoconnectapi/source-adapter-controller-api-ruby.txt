@@ -1,0 +1,58 @@
+Source Adapter Controller API (Ruby)
+===
+Your RhoConnect source adapter controller can use  model can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/rhoconnect/source-adapters#sample-adapter) for a complete example.
+
+## @model
+
+Access your source adapter model instance variable inside of the route:
+
+	:::ruby
+	post '/my_custom_route'
+	  "Hello! I am - #{@model.source.inspect}"
+	end
+
+## Sinatra context
+
+You can access and use any of the standard Sinatra objects defined in the context of the request: params, request, response, etc.
+
+	:::ruby
+	post '/my_custom_route'
+	  log params.inspect
+	  response.headers['my_ret_header'] = 'This is my response header'
+	  status 200
+	 end
+
+## Sinatra framework
+
+Source adapter controller is a Sinatra app - you can use any of the standard Sinatra features: 
+
+* extensions
+* middleware
+* conditions
+* helpers
+* `before` and `after` blocks
+
+Look for more info in the [Sinatra documentation](http://www.sinatrarb.com/)
+
+In the below example, you can register and use custom defined logger.
+
+	:::ruby
+	module MyCustomLogger
+	  def my_custom_log(message)
+	  	# do some interesting stuff here
+	  end
+	end
+
+	class Product < Rhoconnect::Controller::Base
+	  helpers MyCustomLogger
+
+	  # use my_custom_log before the route is called
+	  before '/my_custom_route' do
+	    my_custom_log("Calling from before")
+	  end
+
+	  # route definitions
+	  post '/my_custom_route' do
+	    'Hello World'
+	  end
+	end

@@ -130,8 +130,9 @@ end
 
 section 'rhoconnect-api-reference', 'RhoConnect: APIs' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API (Ruby)'
   topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API (Ruby)'
-  topic 'rhoconnectapi/test-api',     'Source Adapter Test API'
+  topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API (Ruby)'
 end
 
 section 'rhoconnect-advanced', 'RhoConnect: Advanced Topics' do
