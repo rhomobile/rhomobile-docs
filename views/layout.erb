@@ -66,8 +66,8 @@
 <div id="container" class="row-fluid">
 	<div id="doc_container" class="span12" >
 	<div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %> >
-		<ul class="nav nav-list">
 			<% collapsed = true 
+			 first = true
 			%>
 			
 	<% sections.each do |slug, title, topics| %>
@@ -102,6 +102,17 @@
 			<% end %>
 			</ul>
 			<% collapsed = true %>
+		<% else %>
+				<% if first 
+					first=false %>
+				<% else %>
+				<li class="divider"></li>
+				</ul>
+				<% end %>
+				<h3><%= title %></h3>
+				<ul class="nav nav-list">
+					
+				
 		<% end %>
 	<% end %>
 		</ul>	
