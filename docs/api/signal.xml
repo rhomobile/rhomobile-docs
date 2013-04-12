@@ -7,6 +7,8 @@
     
         <TEMPLATES>
         </TEMPLATES>
+		
+		<PLATFORM>WM, Android, iOS</PLATFORM>
 	
 		<PROPERTIES access="STATIC">
 			<PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
@@ -61,8 +63,9 @@
             </METHOD>
 
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
-				<APPLIES>Only available on Windows Mobile / CE / Embedded handheld devices.  All platforms support wlanStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
                 <DESC>Overlays a small signal icon on top of the view indicating the remaining signal strength.  This is particularly useful in full screen applications which cover the system signal level indicator.</DESC>
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true">All platforms support wlanStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
 						<DESC>The properties associated with the indicator, its position and colour.</DESC>
@@ -99,8 +102,9 @@
             </METHOD>
 
             <METHOD name="hideIcon" hasCallback="none" runInThread="ui">
-				<APPLIES>Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
                 <DESC>Hide the icon if it has been previously set by the 'showIcon' call.</DESC>
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true">All platforms support wlanStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
             </METHOD>
 
         </METHODS>

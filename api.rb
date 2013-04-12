@@ -304,6 +304,28 @@ md+='</div>'
 	return md
   end
 
+  def self.getplatformindicators (platforms,msionly)
+  	indicators = ""
+  	if msionly
+		indicators += '<img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+	end
+	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
+		indicators += '<img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android">'
+  	end
+  	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
+		indicators += '<img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
+  	end
+  	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
+		indicators += '<img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
+  	end
+  	if !platforms.downcase.index('wp8').nil? || !platforms.downcase.index('all').nil?
+		indicators += '<img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
+  	end
+  	if (!platforms.downcase.index('win32').nil? || !platforms.downcase.index('all').nil?) && !msionly
+		indicators += '<img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
+  	end
+  	return indicators		
+  end
 
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
@@ -332,14 +354,31 @@ md+='</div>'
 				propver= "<span class='muted pull-right'>" + element["VER_INTRODUCED"][0] + "</span>"
 				
 			end
+			msionly = false
+				
 			if !element["APPLIES"].nil? 
+
+				appliescontent = ""
+				if !element["APPLIES"][0]["msiOnly"].nil?
+					if element["APPLIES"][0]["msiOnly"] == "true"
+						msionly = true
+					end
+					if !element["APPLIES"][0]["content"].nil?
+						appliescontent = element["APPLIES"][0]["content"]
+					end
+				else
+					appliescontent = element["APPLIES"][0]	
+				end
+
 				# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
-				propnote= "(" + element["APPLIES"][0] + ")"
+				# puts appliescontent
+				propnote= "(" + appliescontent + ")"
 			end
 			@propplatforms = "All"
 			if !element["PLATFORM"].nil?
 				@propplatforms = element["PLATFORM"][0]
 			end
+			@propplatforms = getplatformindicators(@propplatforms,msionly)
 			@propsectionplatforms = "<div>"
 			@propsectionplatforms += "<p><strong>Platforms: </strong>#{@propplatforms} #{propnote}</p></div>"
 			
@@ -604,8 +643,32 @@ end
 		if !element["PLATFORM"].nil?
 			@methplatforms = element["PLATFORM"][0]
 		end
+		msionly = false
+		methnote = ""		
+		if !element["APPLIES"].nil? 
+
+			appliescontent = ""
+			if !element["APPLIES"][0]["msiOnly"].nil?
+				if element["APPLIES"][0]["msiOnly"] == "true"
+					msionly = true
+				end
+				if !element["APPLIES"][0]["content"].nil?
+					appliescontent = element["APPLIES"][0]["content"]
+				end
+			else
+				appliescontent = element["APPLIES"][0]	
+			end
+
+			# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
+			# puts appliescontent
+			methnote= "(" + appliescontent + ")"
+		end
+
+
+		@methplatforms = getplatformindicators(@methplatforms,msionly)
+			
 		@methsectionplatforms = "<div>"
-		@methsectionplatforms += "<p><strong>Platforms: </strong>#{@methplatforms}</p></div>"
+		@methsectionplatforms += "<p><strong>Platforms: </strong>#{@methplatforms}#{methnote}</p></div>"
 		
 		@methsectionreturns = "<div>"
 		@methsectionreturns += "<p><strong>Return:</strong></p><ul>"

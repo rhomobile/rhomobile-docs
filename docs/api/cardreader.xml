@@ -15,27 +15,41 @@
             <PROPERTY_BAG/> <!-- object has properties, produce getProps(), setProps() methods -->
         </TEMPLATES>
 
+		<PLATFORM>WM, Android</PLATFORM>
+		
         <PROPERTIES usePropertyBag="accessorsViaPropertyBag">
             <DESC>These properties are used to configure the card reader.</DESC>
 			
 			 <PROPERTY name="pinTimeout" type="INTEGER" generateAccessors="true" default="30000">				
 				<!-- <VALUES>0 - 65535</VALUES> -->
-				<DESC>PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.</DESC>				
+				<DESC>PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.</DESC>
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true">Only compatible with DCR7000-x00</APPLIES>
             </PROPERTY>
 			<PROPERTY name="pinEntry" type="BOOLEAN" generateAccessors="true">								
 				<DESC>Turns the PIN entry on or off.</DESC>				
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true">Only compatible with DCR7000-x00</APPLIES>
 			</PROPERTY>
 			<PROPERTY name="panData" type="INTEGER" generateAccessors="true">								
 				<DESC>Sets the card data without the need of a swipe.  This accepts any 16 digit number as the value.</DESC>				
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true">Only compatible with DCR7000-x00</APPLIES>
 			</PROPERTY>
 			<PROPERTY name="autoTab" type="BOOLEAN" generateAccessors="true" default="false">								
 				<DESC>When enabled, appends a tab to any data returned as keystrokes by the cardreader.</DESC>				
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
 			</PROPERTY>
 			<PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true" default="false">								
 				<DESC>When enabled, appends a carriage return to any data returned as keystrokes by the cardreader.</DESC>				
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
 			</PROPERTY>
-            <PROPERTY name="moduleName" type="STRING" generateAccessors="true">				
+            <PROPERTY name="moduleName" type="STRING" generateAccessors="true" deprecated="true">				
                 <DESC>This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'</DESC>
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
 				<VALUES>
                     <VALUE constName="MSR9000" value="msr9000">
                         <DESC>MSR9000 drivers</DESC>
@@ -68,6 +82,8 @@
         <METHODS>
             <METHOD name="open" hasCallback="optional">
                 <DESC>Opens the card reader.</DESC>
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
 				<RETURN>
 					<DESC>Not providing a callback to be invoked when a card is swiped will result in that card data being output as keystrokes.</DESC>
 				</RETURN>	
@@ -130,6 +146,8 @@
 			
             <METHOD name="close">
                 <DESC>Closes the card reader</DESC>
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
             </METHOD> 
 			
 			<METHOD name="enumerate" access="STATIC" hasCallback="optional">
@@ -155,13 +173,13 @@ If the CardReader open method is not specified with a callback, the cardreader d
                     ]]>
                 </DESC>
             </REMARK>
-            <REMARK title="AutoEnter and AccelerateKey">
+            <!--REMARK title="AutoEnter and AccelerateKey">
                 <DESC>
                     <![CDATA[
 The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either. 
                     ]]>
                 </DESC>
-            </REMARK>
+            </REMARK-->
 			<REMARK title="Operational Modes (Backwards compatibility with PocketBrowser)">
                 <DESC>
                     <![CDATA[
