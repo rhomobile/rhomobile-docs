@@ -136,7 +136,7 @@ end
 
 section 'rhoconnect-api-reference', 'RhoConnect API' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
-  topic 'rhoconnectapi/source-adapter-api', 'Source Adapter API'
+  topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API (Ruby)'
   topic 'rhoconnectapi/test-api',     'Source Adapter Test API'
 end
 
