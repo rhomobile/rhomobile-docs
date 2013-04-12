@@ -20,7 +20,7 @@ section 'rhomobile', 'RhoMobile'
 
 section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'rhoelements/apicompatibility',      'Legacy APIs'
-  topic 'api/application',      'Application'
+  topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/camera',      'Camera'
   topic 'api/cardreader',      'Cardreader'
@@ -28,7 +28,7 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/RhoConnectClient',      'RhoConnectClient'
-  topic 'api/Signature',      'Signature'
+  topic 'api/signature',      'Signature'
   topic 'api/system',      'System'
   topic 'api/webview',      'Webview'
 end
