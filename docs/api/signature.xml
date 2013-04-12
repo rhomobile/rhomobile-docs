@@ -20,12 +20,13 @@
             <PROPERTY name="compressionFormat" type="STRING" generateAccessors="false">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <DESC>Compression format of the image file for the captured signature.</DESC>
-                <VALUES>
+				<APPLIES>JPG and PNG compression are not supported on Windows devices, BMP will always be used.</APPLIES>
+				<VALUES>
                     <VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">
-                        <DESC>JPEG file format. Not supported on Windows Mobile/CE.</DESC>
+                        <DESC>JPEG file format,</DESC>
                     </VALUE>
                     <VALUE constName="COMPRESSION_FORMAT_PNG" value ="png">
-                        <DESC>Portable Network Graphics file. Not supported on Windows Mobile/CE.</DESC>
+                        <DESC>Portable Network Graphics file.</DESC>
                     </VALUE>
                     <VALUE constName="COMPRESSION_FORMAT_BMP" value ="bmp">
                         <DESC>Bitmap image file.</DESC>

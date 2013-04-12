@@ -7,21 +7,24 @@
     
         <TEMPLATES>
         </TEMPLATES>
-		
+			
+		<!--  TODO: When adding platforms other than WM, expand the PLATFORM Tags -->	
+			
 		<PROPERTIES access="STATIC">
 			<PROPERTY name="homeKeyValue" type="STRING" default="Disabled" generateAccessors="true">
 				<DESC>todo - Set to Disabled or the HomeKeyValue to be used.</DESC>
+				<PLATFORM>WM</PLATFORM>
 			</PROPERTY>
 		</PROPERTIES>
 
 		<METHODS access="STATIC">
             <METHOD name="captureKey" hasCallback="optional">
-				<APPLIES>todo - Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
                 <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section.  </DESC>
+				<PLATFORM>WM</PLATFORM>
 				<PARAMS>
 					<PARAM name="dispatch" type="BOOLEAN">
-							<DESC>todo</DESC>
-						</PARAM>
+						<DESC>todo</DESC>
+					</PARAM>
 					<PARAM name="keyValue" type="STRING">
 						<DESC>todo - (string.  Accept keys specified in hex or ALL).  Has to be a string for backwards compatibility.  Must be the numeric representation of that key, for hardware reasons. - use all keys to determine which key it is.</DESC>
 					</PARAM>
@@ -30,14 +33,15 @@
 					<PARAMS>
 						<PARAM name="keyValue" type="INTEGER">
 							<DESC>todo</DESC>
+							<PLATFORM>WM</PLATFORM>
 						</PARAM>
 					</PARAMS>
 				</CALLBACK>    
             </METHOD>
 
             <METHOD name="remapKey" hasCallback="none">
-				<APPLIES>todo - Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
                 <DESC>todo.</DESC>
+				<PLATFORM>WM</PLATFORM>
 				<PARAMS>
 					<PARAM name="keyValue" type="STRING">
 						<DESC>todo - (string.  Accept keys specified in hex NOT ALL)</DESC>
@@ -49,8 +53,9 @@
             </METHOD>
 
             <METHOD name="captureTrigger" hasCallback="optional">
-				<APPLIES>todo - Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
                 <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section</DESC>
+				<PLATFORM>WM, Android</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
 				<CALLBACK>
 					<PARAMS>
 						<PARAM name="triggerFlag" type="INTEGER">
@@ -89,7 +94,7 @@
 page.">
                 <DESC>
                     <![CDATA[
-To Do
+                    To Do
                 ]]>
 
                 </DESC>
@@ -97,7 +102,7 @@ To Do
             <REMARK title="TODO - ENSURE ALL OTHER REMARKS FROM RE1 HELP FILE ARE CAPTURED">
                 <DESC>
                     <![CDATA[
-To Do
+                    To Do
                 ]]>
 
                 </DESC>

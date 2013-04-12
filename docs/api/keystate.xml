@@ -4,13 +4,16 @@
     <MODULE name="KeyState" parent="Rho">
         <HELP_OVERVIEW>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard.  The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessry if more than one key state is set at once.  This API is only supported on a subset of Motorola Solutions' Windows Mobile / CE / Embedded handheld devices (see remarks).</HELP_OVERVIEW>
         <MORE_HELP>.</MORE_HELP>
+
+		<PLATFORM>WM</PLATFORM>
     
         <TEMPLATES>
         </TEMPLATES>
 		<METHODS access="STATIC">
             <METHOD name="showStates" hasCallback="none" runInThread="ui">
-				<APPLIES>Only available on Motorola Solutions' Windows Mobile / CE / Embedded handheld devices.</APPLIES>
                 <DESC>Display keystate icons representing the shifted state of the hardware keyboard.</DESC>
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
 						<DESC>The properties associated with the keystate indicator, its size and position.</DESC>
@@ -35,8 +38,9 @@
 				</PARAMS>
             </METHOD>
             <METHOD name="hideStates" hasCallback="none" runInThread="ui">
-				<APPLIES>Only available on Windows Mobile / CE / Embedded handheld devices.</APPLIES>
                 <DESC>Stops showing keystate icons representing the shifted state of the hardware keyboard.</DESC>
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true"></APPLIES>
             </METHOD>
 		</METHODS>
         
