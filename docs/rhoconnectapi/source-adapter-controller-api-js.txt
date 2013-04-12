@@ -1,0 +1,3 @@
+Source Adapter Controller API (JavaScript)
+===
+Your RhoConnect source adapter controller can use any of these methods to facilitate handling of the incoming requests.

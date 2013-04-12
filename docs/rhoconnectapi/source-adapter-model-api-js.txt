@@ -1,0 +1,3 @@
+Source Adapter Model API (JavaScript)
+===
+Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](/rhoconnect/source-adapters-js#sample-adapter) for a complete example.

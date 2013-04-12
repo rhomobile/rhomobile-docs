@@ -86,7 +86,8 @@ section 'rhoconnect-reference', 'Getting Started' do
 end
 
 section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
-  topic 'rhoconnect/source-adapters',   'Source Adapters'
+  topic 'rhoconnect/source-adapters',   'Source Adapters (Ruby)'
+  topic 'rhoconnect/source-adapters-js',   'Source Adapters (JavaSctipt)'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/testing',           'Testing and Debugging'
   topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
@@ -132,6 +133,8 @@ section 'rhoconnect-api-reference', 'APIs' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API (Ruby)'
   topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API (Ruby)'
+  topic 'rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API (JavaScript)'
+  topic 'rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API (JavaScript)'
   topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API (Ruby)'
 end
 

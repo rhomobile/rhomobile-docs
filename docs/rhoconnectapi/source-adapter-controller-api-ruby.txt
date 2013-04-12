@@ -1,6 +1,6 @@
 Source Adapter Controller API (Ruby)
 ===
-Your RhoConnect source adapter controller can use  model can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/rhoconnect/source-adapters#sample-adapter) for a complete example.
+Your RhoConnect source adapter controller can use any of these methods to facilitate handling of the incoming requests.
 
 ## @model
 
