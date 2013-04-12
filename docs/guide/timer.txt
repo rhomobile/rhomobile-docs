@@ -1,0 +1,11 @@
+# Timer
+
+In your controller, you may start timer using the [Rho::Timer API](/rhodesapi/timer-api).
+
+ * [start](/rhodesapi/timer-api#start) - Start the timer and call a callback after the timer completes.
+ * [stop](/rhodesapi/timer-api#stop) - Stop the timer by callback.
+
+For example:
+
+    :::ruby
+	Rho::Timer.start(5000, (url_for :action => :timer_callback), "test")
