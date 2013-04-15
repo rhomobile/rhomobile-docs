@@ -9,7 +9,7 @@ RhoConnect does not require use of Rhodes for the client app.  It can also be us
 
 RhoConnect consists of the following components:
 
-* Synchronization Framework - The core of RhoConnect, this facilitates data synchronization between the Rhodes / RhoConnect-Client and a 3rd party source (SOAP, REST, etc...). Each source is synchronized by implementing a simple "source adapter" class. The client connects with the embedded [sinatra](http://www.sinatrarb.com/) server to interact with the collection of source adapters.  RhoConnect uses [redis](http://redis.io/) to efficiently cache data to be synchronized.
+* Synchronization Framework - The core of RhoConnect, this facilitates data synchronization between the Rhodes / RhoConnect-Client and a 3rd party source (SOAP, REST, etc...). Each source is synchronized by implementing a "source adapter" which consists of model and controller. The client connects with the embedded [sinatra](http://www.sinatrarb.com/) server to interact with the collection of source adapters.  RhoConnect uses [redis](http://redis.io/) to efficiently cache data to be synchronized.
 
 * REST API - RhoConnect exposes a simple REST API for interacting with an application.  See the [REST API docs](/rhoconnect/rest-api) for more information.
 

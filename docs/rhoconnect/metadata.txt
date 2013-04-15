@@ -23,7 +23,7 @@ Then add `rhodes_translator` to your extensions in your Rhodes application's `bu
 	:::yaml
   	extensions: ["rhodes_translator"]
 
-Now define some metadata and add this to a `metadata` method your [source adapter](/rhoconnect/source-adapters).  For example:
+Now define some metadata and add this to a `metadata` method your [source adapter model](/rhoconnect/source-adapters).  For example:
 
 	:::ruby
 	def metadata

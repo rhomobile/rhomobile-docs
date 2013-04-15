@@ -4,7 +4,7 @@ RhoConnect provides a [spec](http://rspec.info/) framework for [behavior driven 
 
 ## Example Spec
 
-Here is a simple example spec for the [rhostore product adapter](http://github.com/rhomobile/store-server/blob/master/sources/product.rb):
+Here is a simple example model spec for the [rhostore product adapter](http://github.com/rhomobile/store-server/blob/master/sources/product.rb):
 
 	:::ruby
 	it "should process Product query" do
@@ -12,7 +12,7 @@ Here is a simple example spec for the [rhostore product adapter](http://github.c
 	  query_errors.should == {}
 	end
 
-This simple spec runs the query method of our product adapter and verifies the result is greater than one object and has no errors.
+This simple spec runs the query method of our product adapter model and verifies the result is greater than one object and has no errors.
 
 The full code listing for this product_spec is available [on github](http://github.com/rhomobile/store-server/blob/master/spec/sources/product_spec.rb).
 
@@ -21,7 +21,7 @@ From your application's root folder:
 	
 	:::term
   	$ rhoconnect spec
-	[05:51:48 PM 2012-04-19] Rhoconnect Server v3.2.0 started...
+	[05:51:48 PM 2012-04-19] Rhoconnect Server v4.0.1 started...
 	Product
 	  it should behave like SpecHelper
 	    should process Product query (PENDING: No reason given)
@@ -42,23 +42,23 @@ This will also automatically generate an rcov report under 'coverage' if you hav
 
 ## Test API
 
-The [RhoConnect Source Adapter Test API](/rhoconnectapi/test-api) provides the following methods to perform spec tests.
+The [RhoConnect Source Adapter Model Test API](/rhoconnectapi/test-api) provides the following methods to perform spec tests.
 
- * [setup_test_for](/rhoconnectapi/test-api#setuptestfor) - Executes the adapter's query method and returns the master document.
- * [test_query](/rhoconnectapi/test-api#testquery) - Executes the adapter's query method and returns the master document.
- * [query_errors](/rhoconnectapi/test-api#queryerrors) - Returns any errors stored in redis for the previous source adapter query.
- * [test_create](/rhoconnectapi/test-api#testcreate) - Executes the adapter's create method with a provided record and returns the object string from the create method.
- * [create_errors](/rhoconnectapi/test-api#createerrors) - Returns the result of the adapter's create method..
- * [test_update](/rhoconnectapi/test-api#testupdate) - Execute the source adapter's update method.
- * [update_errors](/rhoconnectapi/test-api#updateerrors) - Returns any errors stored in redis from the previous source adapter update.
- * [test_delete](/rhoconnectapi/test-api#testdelete) - Execute the source adapter's delete method.
- * [delete_errors](/rhoconnectapi/test-api#deleteerrors) - Returns any errors stored in redis from the previous source adapter delete.
- * [md](/rhoconnectapi/test-api#md) - Returns the master document (:md) for the source adapter stored in redis.
- * [cd](/rhoconnectapi/test-api#cd) - Returns the client document (:cd) for the source adapter + client under test.
+ * [setup_test_for](/rhoconnectapi/test-api-ruby#setuptestfor) - Executes the adapter's query method and returns the master document.
+ * [test_query](/rhoconnectapi/test-api-ruby#testquery) - Executes the adapter's query method and returns the master document.
+ * [query_errors](/rhoconnectapi/test-api-ruby#queryerrors) - Returns any errors stored in redis for the previous source adapter query.
+ * [test_create](/rhoconnectapi/test-api-ruby#testcreate) - Executes the adapter's create method with a provided record and returns the object string from the create method.
+ * [create_errors](/rhoconnectapi/test-api-ruby#createerrors) - Returns the result of the adapter's create method..
+ * [test_update](/rhoconnectapi/test-api-ruby#testupdate) - Execute the source adapter's update method.
+ * [update_errors](/rhoconnectapi/test-api-ruby#updateerrors) - Returns any errors stored in redis from the previous source adapter update.
+ * [test_delete](/rhoconnectapi/test-api-ruby#testdelete) - Execute the source adapter's delete method.
+ * [delete_errors](/rhoconnectapi/test-api-ruby#deleteerrors) - Returns any errors stored in redis from the previous source adapter delete.
+ * [md](/rhoconnectapi/test-api-ruby#md) - Returns the master document (:md) for the source adapter stored in redis.
+ * [cd](/rhoconnectapi/test-api-ruby#cd) - Returns the client document (:cd) for the source adapter + client under test.
 
 ## Example of setup_test_for
 
-This example initializes a source adapter named Product under test for a user named testuser.
+This example initializes a source adapter model named Product under test for a user named testuser.
 	
 	:::ruby
 	# 'testuser' will be used by rest of the specs
@@ -66,7 +66,7 @@ This example initializes a source adapter named Product under test for a user na
 
 ## Example of test_query
 
-The `test_query` method executes the adapter's query method and returns the master document (:md) stored in redis.
+The `test_query` method executes the model's query method and returns the master document (:md) stored in redis.
 
 For example, if your source adapter query method was:
 	
@@ -99,7 +99,7 @@ For example, if your source adapter query method was:
 
 ## Example of query_errors
 
-Returns any errors stored in redis for the previous source adapter query.
+Returns any errors stored in redis for the previous model's query.
 
 For example:  
 
@@ -112,7 +112,7 @@ For example:
 
 ## Example of test_create
 
-The `test_create` method executes the adapter's create method with a provided record and returns the object string from the create method. If the create method returns a string, then a link will be saved for the device next time it synchronizes.
+The `test_create` method executes the model's create method with a provided record and returns the object string from the create method. If the create method returns a string, then a link will be saved for the device next time it synchronizes.
 
 For example, in your spec:
 	:::ruby
@@ -144,7 +144,7 @@ For example, in your spec:
 
 ## Example of test_update
 
-This example executes the source adapter's update method, calling the adapter's update method for object_id '4'.
+This example executes the model's update method, calling the adapter's update method for object_id '4'.
 	
 	:::ruby
 	test_update({'4' => {'price' => '$199.99'}})
@@ -165,7 +165,7 @@ For example, in your spec:
 
 ## Example of test_delete
 
-This example executes the source adapter's delete method, calling the adapter's delete method for product '4'.
+This example executes the source model's delete method, calling the adapter's delete method for product '4'.
 	
 	:::ruby
 	@product = {
@@ -197,7 +197,7 @@ If you have set [pass through](http://docs.rhomobile.com/rhoconnect/source-adapt
 
 ## Example of md
 
-The md method returns the master document (:md) for the source adapter stored in redis. This is equivalent to the @result hash of hashes structure.
+The md method returns the master document (:md) for the source adapter model stored in redis. This is equivalent to the @result hash of hashes structure.
 	
 	:::ruby
 	md.should == { 

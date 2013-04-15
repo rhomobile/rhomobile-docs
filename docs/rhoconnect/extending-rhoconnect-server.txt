@@ -1,79 +1,62 @@
-Extending Rhoconnect Application with custom routes
+Extending RhoConnect Application with custom routes
 ===
 
-Extending Rhoconnect Application with custom routes
----
+You can provide custom routes support in your RhoConnect application and utilize all the powerful features of the typical Sinatra app. To do this, simply define your routes in the corresponding controller class. Endpoint URL for your routes will be relative to the controller's root.
 
-You can provide custom routes support in your Rhoconnect application while you still fully utilize the powerful features provided by the default Rhoconnect server implementation. To do this, create a custom server class inherited from `Rhoconnect::Server` and define all of your custom routes in this extended server class.
+The following example illustrates how to add a sample `my_custom_route' to the Product Controller:
 
-The following example illustrates how to add a sample `my_custom_route' to the existing Rhoconnect application.
+    :::ruby
+    class Product < Rhoconnect::Controller::Base
+      get '/my_custom_route', :login_required => true do
+        send_file 'public/my_file.png'
+      end
+    end
 
-1) create `my_server.rb` class in your Rhoconnect application's root directory:
+This route will have the following URL : GET '/app/v4/Product/my_custom_route'
 
-	:::ruby
-	class MyServer < Rhoconnect::Server
-	  get '/my_custom_route' do
-	    if current_user
-	      send_file 'public/my_file.png'
-	    end
-	    nil
-	  end
-	end
-
-The above custom route implementation will respond to client's GET request, verifies the current_user (which will be extracted from the Rhoconnect session cookie)
-and returns a static PNG file (which can be later used in BLOB syncs)
-
-
-2) Replace the default server instance with the new extended one in the `config.ru` file of your Rhoconnect application:
-
-	:::ruby
-	# Setup the url map
-	run Rack::URLMap.new \
-		"/"         => MyServer.new,
-		"/resque"   => Resque::Server.new, # If you don't want resque frontend, disable it here
-		"/console"  => RhoconnectConsole::Server.new # If you don't want rhoconnect frontend, disable it here
-		
+The above custom route implementation will respond to client's GET request, verifies the current_user (which will be extracted from the RHoConnect session cookie and checked for validity by the `:login_required` condition)
+and returns a static PNG file (which can be later used in BLOB syncs) 
 
 Using the New Custom route in BLOB syncs
 ---
 
-After you create the new custom routes and replace the default server instance with the new extended one, you can reference and use them from standard Rhodes applications.
+After you create the new custom routes you can reference and use them from standard Rhodes applications.
 For example, suppose you have a Rhodes app with a Product model. To use a custom route in BLOB syncs, define the following property in the Rhodes Product model (file: `app/Product/product.rb`):
 
-	:::ruby
-	# The model has already been created by the framework, and extends Rhom::RhomObject
-	# You can add more methods here
-	class Product
-	  include Rhom::PropertyBag
+    :::ruby
+    # The model has already been created by the framework, and extends Rhom::RhomObject
+    # You can add more methods here
+    class Product
+      include Rhom::PropertyBag
 
-	  # Uncomment the following line to enable sync with Product.
-	  enable :sync
+      # Uncomment the following line to enable sync with Product.
+      enable :sync
 
-	  #add model specific code here
-	  property :my_custom_blob_field, :blob, :overwrite 
-	end
-	
+      #add model specific code here
+      property :my_custom_blob_field, :blob, :overwrite 
+    end
+  
 To see the static image, modify the `app/Product/show.erb` file for the Product model in your Rhodes application:
 
-	:::html
-	<li>
-        <div class="itemLabel">My Static Field Image</div>
-        <div class="itemValue"><img src="<%=Rho::RhoApplication::get_blob_path(@product.my_custom_field)%>"></img></div>
+    :::html
+    <li>
+      <div class="itemLabel">My Static Field Image</div>
+      <div class="itemValue"><img src="<%=Rho::RhoApplication::get_blob_path(@product.my_custom_field)%>"></img></div>
     </li>
-	
-Then, modify your Rhoconnect source adapter (in `rhoconnect_app/sources/product.rb`) to provide BLOB's url for the `my_custom_blob_field`:
+  
+Then, modify your RhoConnect source adapter model (in `rhoconnect_app/models/ruby/product.rb`) to provide BLOB's url for the `my_custom_blob_field`:
 
-	:::ruby
-	def query(params=nil)
-    	parsed = JSON.parse(RestClient.get("#{@base}.json").body)
+    :::ruby
+    def query(params=nil)
+      parsed = JSON.parse(RestClient.get("#{@base}.json").body)
 
-	    @result={}
-	    parsed.each do |item|
-	      item["product"]["my_custom_field-rhoblob"] = "http://localhost:9292/my_custom_route"
-	      @result[item["product"]["id"].to_s] = item["product"]
-	    end if parsed    
-  	end
+      @result={}
+      parsed.each do |item|
+        item["product"]["my_custom_field-rhoblob"] = "http://localhost:9292/app/v4/Product/my_custom_route"
+        @result[item["product"]["id"].to_s] = item["product"]
+      end if parsed    
+    end
 
-This way, your `my_custom_field` would be getting the BLOB image data from the custom route defined in your Rhoconnect extension server.
+This way, your `my_custom_field` would be getting the BLOB image data from the custom route defined in your RhoConnect Source Adapter Controller.
 
 For more information on BLOB syncs, see [this section](http://docs.rhomobile.com/rhoconnect/blob-sync). 

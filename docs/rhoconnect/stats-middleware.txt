@@ -11,37 +11,17 @@ To enable stats in your RhoConnect application, simply turn on the stats middlew
 A complete config.ru might look like:
 
 	:::ruby
-	# Try to load vendor-ed rhoconnect, otherwise load the gem
-	begin
-	  require 'vendor/rhoconnect/lib/rhoconnect/server'
-	  require 'vendor/rhoconnect/lib/rhoconnect/console/server'
-	rescue LoadError
-	  require 'rhoconnect/server'
-	  require 'rhoconnect/console/server'
-	end
+	require 'rhoconnect/application/init'
 
-	# By default, turn on the resque web console
-	require 'resque/server'
+	# secret is generated along with the app
+	Rhoconnect::Server.set     :secret,      'my_secret'
 
-	ROOT_PATH = File.expand_path(File.dirname(__FILE__))
-
-	# Rhoconnect server flags
-	Rhoconnect::Server.disable :run
-	Rhoconnect::Server.disable :clean_trace
-	Rhoconnect::Server.enable  :raise_errors
-	Rhoconnect::Server.set     :secret,      '<changeme>'
-	Rhoconnect::Server.set     :root,        ROOT_PATH
+	# !!! Add your custom initializers and overrides here !!!
 	Rhoconnect::Server.enable  :stats
-	Rhoconnect::Server.use     Rack::Static, :urls => ["/data"], :root => Rhoconnect::Server.root
 
-	# Load our rhoconnect application
-	require './application'
-
-	# Setup the url map
-	run Rack::URLMap.new \
-		"/"         => Rhoconnect::Server.new,
-		"/resque"   => Resque::Server.new, # If you don't want resque frontend, disable it here
-		"/console"  => RhoconnectConsole::Server.new # If you don't want rhoconnect frontend, disable it here
+	# run RhoConnect Application
+	run Rhoconnect.app
+	
 
 Now just restart your rhoconnect application:
 
