@@ -107,6 +107,7 @@ section 'rhoconnect-reference', 'Getting Started' do
 end
 
 section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
+  topic 'rhoconnect/source-adapters-intro', 'Introduction'
   topic 'rhoconnect/source-adapters',   'Source Adapters (Ruby)'
   topic 'rhoconnect/source-adapters-js',   'Source Adapters (JavaSctipt)'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
@@ -114,6 +115,7 @@ section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
   topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
   topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
+  topic 'rhoconnect/data-partitioning',     'Data Partitioning & Pass-Through'
 end
 
 section 'rhoconnect-plugin-reference', 'Plugins' do
