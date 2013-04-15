@@ -20,36 +20,36 @@ But, usually, these packages are behind and don't include latest Ruby versions.
 
 In nutshell, to have latest Ruby version you either need build it from sources, or use one of Ruby installers:
 
-1. Manually download and install [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/). You ways might be vary, because you need to take care about dependencies and libraries required by Ruby binaries. 
-
-2. Use [Ruby Version Manager](https://rvm.io) (RVM). RVM starting from v1.19 includes new `autolibs` feature and allow you to automatically install all dependencies on your system. RVM with `autolibs` enabled works with the system package manager. But in the case for OSX
+1. Use [Ruby Version Manager](https://rvm.io) (RVM). RVM starting from v1.19 includes new `autolibs` feature and allow you to automatically install all dependencies on your system. RVM with `autolibs` enabled works with the system package manager. But in the case for OSX
 there's no a default package manager, and you have to select what package manager will be installed with autolibs modes `osx_brew` (default), `osx_port`, `osx_fink` and `smf`.
+
+2. Manually download and install [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).  Your mileage may vary depending on your machine, since you will need to resolve all build and install dependencies on your own.
 
 Type this command to install stable RVM release:
 
-	:::tesm
-	$ \curl -L https://get.rvm.io | bash -s stable
+	:::term
+	$ curl -L https://get.rvm.io | bash -s stable
 
-If you want get the libraries installed automatically, then use autolibs mode 4 aka. enable
+If you want get the libraries installed automatically, then use autolibs mode 4 a.k.a. enable.
 
-	:::tesm
+	:::term
 	$ rvm autolibs 4
 
 On Mac OSX you can also optionally enforce a package manager of your choice:
  
-	:::tesm
+	:::term
 	$ rvm autolibs homebrew
 
 And, finally, install desired Ruby version:
 
-	:::tesm
+	:::term
 	$ rvm install 1.9.3
 	$ rvm install jruby
 	# rvm install 2.0.0
 
-NOTE: The full list of `autolibs` options is covered in RVM docs.
+**NOTE: The full list of `autolibs` options is covered in the [RVM docs](https://rvm.io/rvm/autolibs/).**
 
-NOTE: On Mac OSX to need to have `Xcode` and `Command Line Tools` installed.
+**NOTE: On Mac OSX to need to have `Xcode` and `Command Line Tools` installed.**
 
 
 ## Installing RhoConnect on Linux
@@ -74,9 +74,7 @@ Run this command to install the RhoConnect Gem.
 	:::term
 	$ gem install rhoconnect
 
-NOTE: If you get any `no such file to load -- something` messages while running the rake tasks or rhoconnect commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
-
-NOTE: Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.
+**NOTE: Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.**
 
 ## Setting the HTTP_PROXY Environment Variable
 
