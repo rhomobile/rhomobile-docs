@@ -12,6 +12,8 @@ Every package provides the following components:
 
 * Ruby 1.9.3-p392
 
+* Node.js, version v0.10.4
+
 * Nginx HTTP server, release 1.3.x
 
 * Thin application server, release 1.5.x
@@ -31,8 +33,8 @@ Add the following line to the end of your <b>/etc/apt/sources.list</b>:
 
 	:::text
 	deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
-	
-**NOTE: If you want to get the package with cool new features from the Beta repository, then define 
+
+**NOTE: If you want to get the package with cool new features from the Beta repository, then define
 repo url as `http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
 
 Once the repo is added apt-get needs to be updated:
@@ -46,30 +48,31 @@ Once that is done, it is time to install RhoConnect:
 	$ sudo apt-get install rhoconnect
 
 #### Steps for RedHat-Based Linux Users
-Prerequisites: target Linux server should include CentOS Development tools. 
+Prerequisites: target Linux server should include CentOS Development tools.
 To install them, use the this command
 
- 	:::term	
+ 	:::term
 	$ yum groupinstall 'Development Tools'
-	
+
 It will install for you such tools as GNU GCC C/C++ compiler, make and others.
 
-Vanilla CentOS distribution does not include some packages required by RhoConnect installer. To resolve dependencies you 
+Vanilla CentOS distribution does not include some packages required by RhoConnect installer. To resolve dependencies you
 might wanted to use [Extra Packages for Enterprise Linux (EPEL) ](http://fedoraproject.org/wiki/EPEL)
-repository.
+repository and install Python26 out of it.
 
 For example, to enable EPEL repository for CentOS 5.x release execute these commands:
 
     :::term
-	$ wget http://mirror.us.leaseweb.net/epel/5/i386/epel-release-5-4.noarch.rpm
-	$ rpm -i epel-release-5-4.noarch.rpm
+  $ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+	$ rpm -i epel-release-5*.rpm
 	$ yum update
+  $ yum install python26
 
 For CentOS 6.x release:
 
     :::term
-	$ wget http://ftp.osuosl.org/pub/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
-	$ rpm -i epel-release-6-8.noarch.rpm
+  $ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+	$ rpm -i epel-release-6*.rpm
 	$ yum update
 
 Now you can create a file named <b>rhoconnect.repo</b> in the <b>/etc/yum.repos.d/</b> directory:
@@ -87,7 +90,7 @@ Copy and paste these contents into the file.
 	gpgcheck=0
 
 **NOTE: If you want to get the package with cool new features from the Beta repository, then define baseurl as
-`baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`** 
+`baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`**
 
 Once that is done, it is time to install RhoConnect:
 
@@ -234,7 +237,7 @@ f) As root user restart Thin, and Nginx servers
 
 **NOTE: Deploying multiple rhoconnect apps on nginx has not yet been tested. Perform these steps only if you are experienced with nginx.**
 
-To deploy and develop two rhoconnect applications on nginx and thin servers, 
+To deploy and develop two rhoconnect applications on nginx and thin servers,
 refer to the nginx documentation on [nginx server blocks](http://wiki.nginx.org/ServerBlockExample) to see how to configure an nginx sever for multiple host names.
 
 For each rhoconnect app, you need to set up its own redis instance. Refer to [the redis quick start documentation](http://redis.io/topics/quickstart).
@@ -253,16 +256,16 @@ or install required gems as `sudo /opt/rhoconnect/bin/gem install gem_name`**
 ## Nginx configuration for SSL with self-signed certificate
 
 ### About Self-Signed Certificates
-A SSL certificate is a way to encrypt a site's information and create a more secure connection. 
+A SSL certificate is a way to encrypt a site's information and create a more secure connection.
 This chapter will take you through generating a self-signed certificate to use with Nginx.
 
 ### Create a Directory for the Certificate
-The SSL certificate has 2 main parts: the certificate itself and the public key. To make all of the relevant files easy to access, you should create a directory to store them in: 
+The SSL certificate has 2 main parts: the certificate itself and the public key. To make all of the relevant files easy to access, you should create a directory to store them in:
 
 	:::term
 	$ sudo mkdir /opt/nginx/ssl
 
-We will perform the next few steps within the directory: 
+We will perform the next few steps within the directory:
 
 	:::term
 	$ cd /opt/nginx/ssl
@@ -272,21 +275,21 @@ We will perform the next few steps within the directory:
 Start by creating the private server key. During this process, you will be asked to enter a specific passphrase. Be sure to note this phrase carefully, if you forget it or lose it, you will not be able to access the certificate.
 
 	:::term
-	$ openssl genrsa -des3 -out server.key 1024  
+	$ openssl genrsa -des3 -out server.key 1024
 	Generating RSA private key, 1024 bit long modulus
 	..........++++++
 	..................++++++
 	e is 65537 (0x10001)
 	Enter pass phrase for server.key:
 	Verifying - Enter pass phrase for server.key:
-	
-Follow up by creating a certificate signing request: 
+
+Follow up by creating a certificate signing request:
 
 	:::term
 	$ openssl req -new -key server.key -out server.csr
 
-This command will prompt terminal to display a lists of fields that need to be filled in. 
-The most important line is "Common Name". Enter your official domain name here or, 
+This command will prompt terminal to display a lists of fields that need to be filled in.
+The most important line is "Common Name". Enter your official domain name here or,
 if you don't have one yet, your site's IP address. Leave the challenge password and optional company name blank.
 	:::term
 	Enter pass phrase for server.key:
@@ -308,8 +311,8 @@ if you don't have one yet, your site's IP address. Leave the challenge password 
 	Please enter the following 'extra' attributes
 	to be sent with your certificate request
 	A challenge password []:
-	An optional company name []:	
-		
+	An optional company name []:
+
 ### Remove the Passphrase
 We are almost finished creating the certificate. However, it would serve us to remove the passphrase. Although having the passphrase in place does provide heightened security, the issue starts when one tries to reload nginx. In the event that nginx crashes or needs to reboot, you will always have to re-enter your passphrase to get your entire web server back online.
 
@@ -326,14 +329,14 @@ Keep in mind that you can specify how long the certificate should remain valid b
 	:::term
 	$ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 	Signature ok
-	subject= ... 
+	subject= ...
 	Getting Private key
 
 ### Set Up the Certificate
 Now we have all of the required components of the finished certificate.
 The next thing to do is to set up the virtual host to serve your domain from HTTS connection.
 
-Update existing Nginx `/opt/nginx/conf/conf.d/https_rhoconnect.conf` configuration file by including the newly signed certificate and private key: 
+Update existing Nginx `/opt/nginx/conf/conf.d/https_rhoconnect.conf` configuration file by including the newly signed certificate and private key:
 	:::term
 	upstream thin_cluster {
 	  # ...
@@ -352,12 +355,12 @@ Update existing Nginx `/opt/nginx/conf/conf.d/https_rhoconnect.conf` configurati
 
 	        ssl on;
 	        ssl_certificate /opt/nginx/ssl/server.crt;
-	        ssl_certificate_key /opt/nginx/ssl/server.key; 
+	        ssl_certificate_key /opt/nginx/ssl/server.key;
 	}
-	
+
 
 ### Activate the Virtual Host
-Restart nginx: 
+Restart nginx:
 	:::term
 	$ /etc/init.d/nginx restart
 
@@ -425,7 +428,7 @@ You can start a redis server using the following command.
 	$ sudo /etc/init.d/redis start
 
 ### RhoConnect Push Service
-You can create a RhoConnect Push production environment on Linux servers by installing prepackaged software for 
+You can create a RhoConnect Push production environment on Linux servers by installing prepackaged software for
 Ubuntu (12.x) and CentOS (5.x/6.x). In a few clicks, you will have installed on your Linux server.
 
 * Node.js with Npm package manager
@@ -457,8 +460,8 @@ Node.js requires python 2.6 which is not available for CentOS 5 stock version.
 For this flavor of linux you need to manually install EPEL repo and install python26 RPM out of it:
 
 	:::term
-    $ wget http://mirror.chpc.utah.edu/pub/epel/5/i386/epel-release-5-4.noarch.rpm
-    $ rpm -i epel-release-5-4.noarch.rpm 
+    $ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+    $ rpm -i epel-release-5*.rpm
     $ yum install python26
 
 
@@ -489,9 +492,9 @@ and deploy it into the J2EE App Server.
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
 
-#### Deploying warbler package on Apache Tomcat web server 
-To successfully deploy warbler package on Tomcat you need to make rhoconnect app be the default app. There are a few ways to reach 
-this goal and we describe only a couple of them. 
+#### Deploying warbler package on Apache Tomcat web server
+To successfully deploy warbler package on Tomcat you need to make rhoconnect app be the default app. There are a few ways to reach
+this goal and we describe only a couple of them.
 
 ##### Method 1
 
@@ -504,7 +507,7 @@ this goal and we describe only a couple of them.
 4) Drop the `ROOT.war` file directly in the `$CATALINA_BASE/webapps` directory
 
 5) Start Tomcat `startup.sh`
-  
+
 ##### Method 2
 
 1) Stop Tomcat
@@ -514,7 +517,7 @@ this goal and we describe only a couple of them.
 3) Turn off autoDeploy and deployOnStartup in your Host element in the server.xml file.
 
 4) Explicitly define your application context in server.xml, specifying both path (must be empty!) and docBase.
-    
+
 	:::xml
 	<Host name="localhost"  appBase="webapps"
 		 unpackWARs="true" autoDeploy="false" deployOnStartup="false">
@@ -523,8 +526,8 @@ this goal and we describe only a couple of them.
 		 <!-- ...  -->
 	</Host>
 
-5) Start Tomcat	
-	
+5) Start Tomcat
+
 ## Deploying on Heroku
 
 #### Prerequisites
