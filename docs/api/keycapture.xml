@@ -68,8 +68,7 @@
 		</METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>           
-        </PLATFORM>
+        <PLATFORM>WM, Android</PLATFORM>
         <EXAMPLES>
             <EXAMPLE title="TODO - ADD EXAMPLES - THERE ARE LOTS IN THE RE1 HELP FILE">
                 <SECTIONS>
@@ -94,7 +93,7 @@
 page.">
                 <DESC>
                     <![CDATA[
-                    To Do
+                    To do
                 ]]>
 
                 </DESC>
@@ -102,7 +101,7 @@ page.">
             <REMARK title="TODO - ENSURE ALL OTHER REMARKS FROM RE1 HELP FILE ARE CAPTURED">
                 <DESC>
                     <![CDATA[
-                    To Do
+                    to do
                 ]]>
 
                 </DESC>

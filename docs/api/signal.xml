@@ -7,8 +7,6 @@
     
         <TEMPLATES>
         </TEMPLATES>
-		
-		<PLATFORM>WM, Android, iOS</PLATFORM>
 	
 		<PROPERTIES access="STATIC">
 			<PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
@@ -110,8 +108,7 @@
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>           
-        </PLATFORM>
+        <PLATFORM>WM, Android, iOS</PLATFORM>
         <EXAMPLES>
             <EXAMPLE title="Retrieve the WLAN status">
                 <SECTIONS>

@@ -2,20 +2,22 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="RhoConnectClient" parent="Rho">
-        <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers. Synchronization overview is avalable here: http://edgedocs.rhomobile.com/rhodes/synchronization</HELP_OVERVIEW>
+        <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers. Synchronization overview is avalable here: http://docs.rhomobile.com/rhodes/synchronization</HELP_OVERVIEW>
 		
 		<ALIASES>
             <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
         </ALIASES>
 
 		<PROPERTIES access="STATIC">
+            <DESC>These properties are used to configure RhoConnectClient global behavior or retreiving current configuration parameters.</DESC>
+
 			
 			<PROPERTY name="userName" type="STRING" readOnly="true">
-				<DESC>Current username of the RhoConnectClient session if loggedIn? is true, otherwise returns the last logged in username.</DESC>
+				<DESC>Current username of the RhoConnectClient session if isLoggedIn is true, otherwise returns the last logged in username.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="pollInterval" type="INTEGER" default="60">
-				<DESC>Sync poll interval. Setting this to 0 will disable polling-based sync.</DESC>
+				<DESC>Sync poll interval in seconds. Setting this to 0 will disable polling-based sync. Sync process will be triggered automatically according to this setting.</DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="syncServer" type="STRING">
@@ -27,7 +29,10 @@
 			</PROPERTY>
 			
 			<PROPERTY name="threadedMode" type="BOOLEAN" default="true">
-				<DESC>Sets if RhoConnectClient will work in a separate thread.</DESC>
+				<DESC>Sets if RhoConnectClient will work in a separate thread. If true then calls to login, doSync, doSyncSource and search will perform asynchronously without delaying calling thread. Results should be handled in provided callbacks.
+                    If false, all calls are blocking and resuls are returned directly from method calls.
+                    Default is true.
+                </DESC>
 			</PROPERTY>
 			
 			<PROPERTY name="showStatusPopup" type="BOOLEAN" default="true">
@@ -44,39 +49,43 @@
 			
 			<ALIASES>
 				<ALIAS new="dosync" existing="doSync" deprecated="true">
-					<DESC></DESC>
+					<DESC>Deprecated name of doSync method.</DESC>
 				</ALIAS>
 
-				<ALIAS new="set_objectnotify_url" existing="SetObjectNotification" deprecated="true">
-					<DESC></DESC>
+				<ALIAS new="set_objectnotify_url" existing="setObjectNotification" deprecated="true">
+					<DESC>Deprecated name of setObjectNotification method.</DESC>
 				</ALIAS>
 
 				<ALIAS new="add_objectnotify" existing="addObjectNotify" deprecated="true">
-					<DESC></DESC>
+					<DESC>Deprecated name of addObjectNotify method.</DESC>
 				</ALIAS>
 
 				<ALIAS new="clean_objectnotify" existing="cleanObjectNotify">
-					<DESC></DESC>
+					<DESC>Deprecated name of cleanObjectNotify method.</DESC>
 				</ALIAS>
 				
 				<ALIAS new="stop_sync" existing="stopSync" deprecated="true">
-					<DESC></DESC>
+					<DESC>Deprecated name of stopSync method.</DESC>
 				</ALIAS>
 				
 			</ALIASES>
 			
-			<METHOD name="loggedIn?">
+			<METHOD name="isLoggedIn">
 				<DESC>Returns true if the RhoConnectClient currently has a user session, false if not.</DESC>
-				<RETURN type="BOOLEAN"/>
+				<RETURN type="BOOLEAN">
+                    <DESC>True if have logged in user session, false if not.</DESC>
+                </RETURN>
 			</METHOD>
 			
-			<METHOD name="syncing?">
+			<METHOD name="isSyncing">
 				<DESC>Returns true if sync is currently in progress.</DESC>
-				<RETURN type="BOOLEAN"/>
+				<RETURN type="BOOLEAN">
+                    <DESC>True if sync has started but not finished yet, false otherwise</DESC>
+                </RETURN>
 			</METHOD>
 
 			<METHOD name="search" hasCallback="optional" runInThread="none">
-				<DESC>If you have a large dataset in your backend service, you don't have to synchronize everything with the RhoConnectClient. Instead you can filter the synchronized dataset using the RhoConnectClient's search function.</DESC>
+				<DESC>If you have a large dataset in your backend service, you don't have to synchronize everything with the RhoConnectClient. Instead you can filter the synchronized dataset using the RhoConnectClient's search function. Provide callback, which will be executed after search is completed.</DESC>
 				
 				<PARAMS>
 
@@ -120,7 +129,22 @@
 					</PARAM>
 									
 				</PARAMS>
-				<RETURN type="HASH"/>
+				<RETURN type="HASH">
+                    <DESC>Will return value only if threadedMode set to false. Otherwise search results returned in callback.</DESC>
+                </RETURN>
+                <CALLBACK>
+                    <PARAMS>
+                        <PARAM name="status" type="STRING">
+                            <DESC>Resulting status of search. 'ok' of completed successfully, 'error' otherwise.</DESC>
+                        </PARAM>
+                        
+                        <PARAM name="search_params" type="HASH">
+                            <DESC>search_params originally provided for the search call. Typically you want to forward the original search_params to your view that displays the results so you can perform the same query locally. Please see examples section.
+                            </DESC>
+                        </PARAM>
+
+                    </PARAMS>
+                </CALLBACK>
             </METHOD>
             
 			<METHOD name="doSync">
@@ -285,4 +309,129 @@
             <!--  This section is used for the supported platform images at the top -->
         </PLATFORM>
     </MODULE>
+    
+    <REMARKS>
+        <REMARK title="Backround synchronization on iOS">
+            <DESC>
+                <![CDATA[
+                    On iOS, if application is put to background, it will be suspended. To allow application finish sync after application goes to background, you can use 'finish_sync_in_background' parameter in rhoconfig.txt. When this parameter is set to '1', if sync is active in the time of background transition ( e.g. started from app_deactivate handler ), application will not be suspended until sync is finished.
+                ]]>
+                
+            </DESC>
+        </REMARK>
+    </REMARKS>
+    <EXAMPLES >
+        <EXAMPLE title="Sync Authentication">
+            <DESC>
+                Call login method and then handle login result in provided callback.
+            </DESC>
+            <SECTIONS>
+                <SECTION>
+                    <DESC>
+                        In your controller call login.
+                    </DESC>
+                    <CODE lang='ruby'>
+                        <![CDATA[
+                            SyncEngine.login(
+                                @params['login'],
+                                @params['password'],
+                                url_for(:action => :login_callback) 
+                            )
+                        ]]>
+                        
+                    </CODE>
+                </SECTION>
+                <SECTION>
+                    <DESC>
+                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
+                    </DESC>
+                    <CODE lang='ruby'>
+                        <![CDATA[
+                            def login_callback
+                                error_code = @params['error_code'].to_i
+                                if error_code == 0
+                                    # run sync if we were successful
+                                    WebView.navigate Rho::RhoConfig.options_path
+                                    RhoConnectClient.doSync
+                                else
+                                    if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
+                                        @msg = @params['error_message']
+                                    end
+                            
+                                    if not @msg or @msg.length == 0
+                                        @msg = Rho::RhoError.new(error_code).message
+                                    end
+                            
+                                    WebView.navigate(
+                                        url_for(:action => :login, :query => {:msg => @msg})
+                                    )
+                                end
+                            end
+                        ]]>
+                        
+                    </CODE>
+                </SECTION>
+            </SECTIONS>
+        </EXAMPLE>
+        
+        <EXAMPLE title="Notifications">
+            <DESC>In this example, once the sync process for the Account model is complete, the view will be directed to the sync_notify action (with params 'sync_complete=true') if user is on the same page.</DESC>
+            <SECTIONS>
+                <SECTION>
+                    <DESC>To set a notification for a model, you can use the following method:</DESC>
+                    <CODE lang='ruby'>
+                        <![CDATA[
+                            RhoConnectClient.setNotification(
+                                'Account',
+                                url_for(:action => :sync_notify),
+                                "sync_complete=true"
+                            )
+                        ]]>
+                    </CODE>
+                </SECTION>
+                
+                <SECTION>
+                    <DESC>Which is the same as:</DESC>
+                    <CODE lang='ruby'>
+                        <![CDATA[
+                            Account.setNotification(
+                                url_for(:action => :sync_notify),
+                                "sync_complete=true"
+                            )
+                        ]]>
+                    </CODE>
+                </SECTION>
+                
+                <SECTION>
+                    <DESC>You can also set a notification for all models:</DESC>
+                    <CODE lang='ruby'>
+                        <![CDATA[
+                            RhoConnectClient.setNotification(
+                                '*',
+                                url_for(:action => :sync_notify),
+                                "sync_complete=true"
+                            )
+                        ]]>
+                    </CODE>
+                </SECTION>
+
+            </SECTIONS>
+        </EXAMPLE>
+        
+        <EXAMPLE>
+            <DESC></DESC>
+            <SECTIONS>
+                <SECTION>
+                    <DESC></DESC>
+                    <CODE lang='ruby'>
+                        <![CDATA[
+                        ]]>
+                    </CODE>
+
+                </SECTION>
+            </SECTIONS>
+        </EXAMPLE>
+
+        
+    </EXAMPLES>
 </API>

@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="CardReader" parent="Rho">
-	
+		
 		<ALIASES>
             <ALIAS new="Cardreader" deprecated="true"/>        
         </ALIASES>
@@ -162,9 +162,7 @@
         </METHODS>
         
 		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>	
-        <PLATFORM>
-            <!--  This section is used for the supported platform images at the top -->
-        </PLATFORM>
+		<PLATFORM>Android, WM</PLATFORM>
 		<REMARKS>
             <REMARK title="General">
                 <DESC>
@@ -233,38 +231,7 @@ end
        puts "Swipe params: #{@params}"
        puts "Mode is #{@params['mode']}"
 	   puts "Data is #{@params['data']}"       
-       WebView.execute_js("onSwipeEventRuby('#{@params['data']}','#{@params['mode']}'}');")
   end 
-                    ]]>
-
-                </CODE>
-                </SECTION>
-                <SECTION>
-                <DESC>
-                    Then in index.erb file:.
-                </DESC>
-                <CODE lang='html'>
-            <![CDATA[
-<script type="text/javascript" charset="utf-8" src="/public/js/application.js"></script>
-<div data-role="page">
-
-  <div data-role="header" data-position="inline">
-    <h1>CardReader Extension Test</h1>
-    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse"
-       <%= "data-ajax='false'" if is_bb6 %>>Home</a>
-      
-  </div>
-    <div id='output'>Output goes here</div>
-  <div data-role="content">
-    <ul data-role="listview">
-        <%= link_to 'Run Test', { :action => :run_test }%>
-        <a href="javascript:Test()">Run Test JS</a>
-        <a href="cardreader_ajax.htm">CardReader (Ajax Requests)</a>
-    </ul>
-  </div>
-
-</div>
-
                     ]]>
 
                 </CODE>

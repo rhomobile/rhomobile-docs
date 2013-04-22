@@ -153,8 +153,7 @@
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>
-        </PLATFORM>
+        <PLATFORM>WM, WP8</PLATFORM>
         <EXAMPLES>
             <EXAMPLE title="Retrieve the Battery status">
                 <SECTIONS>

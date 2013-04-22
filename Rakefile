@@ -113,12 +113,12 @@ def update_xml
     # puts filename
     doc = XmlSimple.xml_in(f)
     gendoc = "true"
-    if filename != 'callback.xml' && filename != 'default_instance.xml' && filename != 'singleton_instances.xml' && filename != 'property_bag.xml' 
-    
+    if filename !='AndroidManifest_rhomobile.xml' && filename != 'callback.xml' && filename != 'default_instance.xml' && filename != 'singleton_instances.xml' && filename != 'property_bag.xml' 
+      # puts apiSourceFolder + filename
       gendoc = doc["MODULE"][0]["generateDoc"]
     end
     # puts gendoc
-    if gendoc.nil? || gendoc == "true"
+    if (gendoc.nil? || gendoc == "true") && filename !='AndroidManifest_rhomobile.xml'
   
       dest = File.join(AppConfig['dirs']['api'],filename)
       if !File.exists?(dest)

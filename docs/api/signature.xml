@@ -1,110 +1,112 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Signature" parent="Rho">
-        <HELP_OVERVIEW>creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.</HELP_OVERVIEW>
-        <MORE_HELP></MORE_HELP>
-    
-        <TEMPLATES>
-			<SINGLETON_INSTANCES/><!-- produce enumerate() fabric method, all instances is singletones by ID, add ID property -->
-            <DEFAULT_INSTANCE/> <!-- object has default static property, all methods can be call by static way (called from default instance), produce default(), set_default() methods -->
-            <PROPERTY_BAG/> <!-- object has properties, produce getProps(), setProps() methods -->
-        </TEMPLATES>
+	<MODULE name="Signature" parent="Rho">
+		<HELP_OVERVIEW>creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.</HELP_OVERVIEW>
+		<MORE_HELP></MORE_HELP>
+		<PLATFORM>iOS, Android, WM</PLATFORM>
+		<TEMPLATES>
+		</TEMPLATES>
 
-        <PROPERTIES usePropertyBag="accessorsViaPropertyBag">
-            <DESC>These properties are used to configure the appearance and the behaviour of the signature capture area.</DESC>
+		<PROPERTIES access="STATIC" generateAccessors="false">
+			<DESC>These properties are used to configure the appearance and the behaviour of the signature capture area.</DESC>
 			<ALIASES>
 				<ALIAS new="imageFormat" existing="compressionFormat" deprecated="true"/>
 			</ALIASES>
 
-            <PROPERTY name="compressionFormat" type="STRING" generateAccessors="false">
+			<PROPERTY name="compressionFormat" type="STRING" >
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-                <DESC>Compression format of the image file for the captured signature.</DESC>
+				<DESC>Compression format of the image file for the captured signature.</DESC>
 				<APPLIES>JPG and PNG compression are not supported on Windows devices, BMP will always be used.</APPLIES>
 				<VALUES>
-                    <VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">
-                        <DESC>JPEG file format,</DESC>
-                    </VALUE>
-                    <VALUE constName="COMPRESSION_FORMAT_PNG" value ="png">
-                        <DESC>Portable Network Graphics file.</DESC>
-                    </VALUE>
-                    <VALUE constName="COMPRESSION_FORMAT_BMP" value ="bmp">
-                        <DESC>Bitmap image file.</DESC>
-                    </VALUE>
-                </VALUES>
-            </PROPERTY>
+					<VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">
+						<DESC>JPEG file format,</DESC>
+					</VALUE>
+					<VALUE constName="COMPRESSION_FORMAT_PNG" value ="png">
+						<DESC>Portable Network Graphics file.</DESC>
+					</VALUE>
+					<VALUE constName="COMPRESSION_FORMAT_BMP" value ="bmp">
+						<DESC>Bitmap image file.</DESC>
+					</VALUE>
+				</VALUES>
+			</PROPERTY>
 			
-			<PROPERTY name="outputFormat" type="STRING" generateAccessors="false" default="image">
+			<PROPERTY name="outputFormat" type="STRING" default="image">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<DESC>The return type of the saved signature capture image.</DESC>
 				<VALUES>
-                    <VALUE constName="OUTPUT_FORMAT_IMAGE" value="image">
-                        <DESC>Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.</DESC>
-                    </VALUE>
-                    <VALUE constName="OUTPUT_FORMAT_DATAURI" value="dataUri">
-                        <DESC>Outputs the signature capture image as a DataURI string.</DESC>
-                    </VALUE>
-                </VALUES>
-            </PROPERTY>
+					<VALUE constName="OUTPUT_FORMAT_IMAGE" value="image">
+						<DESC>Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.</DESC>
+					</VALUE>
+					<VALUE constName="OUTPUT_FORMAT_DATAURI" value="dataUri">
+						<DESC>Outputs the signature capture image as a DataURI string.</DESC>
+					</VALUE>
+				</VALUES>
+			</PROPERTY>
 			
-			<PROPERTY name="border" type="BOOLEAN" generateAccessors="false" default="true">
+			<PROPERTY name="name" type="STRING" default="signature">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+                <DESC>The filename in which to store the signature image, if OUTPUT_FORMAT_IMAGE is used. The file extension is determined by the compressionFormat used.</DESC>
+            </PROPERTY>
+
+			<PROPERTY name="border" type="BOOLEAN" default="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>Shows or hides a border for the rectangular capture area. Not applicable to fullscreen signature capture area.</DESC>
 			</PROPERTY>
 
-			<PROPERTY name="penColor" type="STRING" generateAccessors="false" default="#000000FF">
+			<PROPERTY name="penColor" type="STRING" default="#000000FF">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>RGB or RGBA value that sets the color of the stylus pen ink using HTML web colors.</DESC>
-            </PROPERTY>
+				<DESC>RGB or RGBA value that sets the color of the stylus pen ink using HTML web colors.</DESC>
+			</PROPERTY>
 
-			<PROPERTY name="penWidth" type="INTEGER" generateAccessors="false">
+			<PROPERTY name="penWidth" type="INTEGER" >
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Sets the width of the pen line in pixels.</DESC>
-            </PROPERTY>
+				<DESC>Sets the width of the pen line in pixels.</DESC>
+			</PROPERTY>
 
-			<PROPERTY name="bgColor" type="STRING" generateAccessors="false" default="#FFFFFFFF">
+			<PROPERTY name="bgColor" type="STRING" default="#FFFFFFFF">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>RGB or RGBA value that sets the background color of the signature capture area.</DESC>
-            </PROPERTY>
+				<DESC>RGB or RGBA value that sets the background color of the signature capture area.</DESC>
+			</PROPERTY>
 
-			<PROPERTY name="left" type="INTEGER" generateAccessors="false" default="15">
+			<PROPERTY name="left" type="INTEGER" default="15">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>The coordinates in pixels of the left side of the signature capture area. Not applicable to fullscreen signature capture area.</DESC>
-            </PROPERTY>
+				<DESC>The coordinates in pixels of the left side of the signature capture area. Not applicable to fullscreen signature capture area.</DESC>
+			</PROPERTY>
 
-			<PROPERTY name="top" type="INTEGER" generateAccessors="false" default="60">
+			<PROPERTY name="top" type="INTEGER" default="60">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>The coordinates in pixels of the top side of the signature capture area. Not applicable to fullscreen signature capture area.</DESC>
-            </PROPERTY>
+				<DESC>The coordinates in pixels of the top side of the signature capture area. Not applicable to fullscreen signature capture area.</DESC>
+			</PROPERTY>
 
-			<PROPERTY name="width" type="INTEGER" generateAccessors="false" default="200">
+			<PROPERTY name="width" type="INTEGER" default="200">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>The width of the signature capture area in pixels. Not applicable to fullscreen signature capture area.</DESC>
-            </PROPERTY>
+				<DESC>The width of the signature capture area in pixels. Not applicable to fullscreen signature capture area.</DESC>
+			</PROPERTY>
 
-			<PROPERTY name="height" type="INTEGER" generateAccessors="false" default="150">
+			<PROPERTY name="height" type="INTEGER" default="150">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>The height of the signature capture area in pixels. Not applicable to fullscreen signature capture area.</DESC>
-            </PROPERTY>
+				<DESC>The height of the signature capture area in pixels. Not applicable to fullscreen signature capture area.</DESC>
+			</PROPERTY>
 			
-			<PROPERTY name="setFullscreen" type="BOOLEAN" generateAccessors="false" default="true">
+			<PROPERTY name="fullScreen" type="BOOLEAN" default="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-                <DESC>Sets whether the signature capture area should be fullscreen (true) or inline (false).</DESC>
-            </PROPERTY>
-        </PROPERTIES>
+				<DESC>Sets whether the signature capture area should be fullscreen (true) or inline (false).</DESC>
+			</PROPERTY>
+		</PROPERTIES>
 
-        <METHODS>
-			<METHOD name="take" hasCallback="mandatory" runInThread="ui">
+		<METHODS access="STATIC">
+			<METHOD name="takeFullScreen" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
-                <DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called.</DESC>
+				<DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called.</DESC>
 				<PARAMS>
-                    <PARAM name="propertyMap" type="HASH">
-                        <DESC>Map of signature properties to be set</DESC>
-                        <CAN_BE_NIL>
-                            <DESC>Use already set properties</DESC>
-                        </CAN_BE_NIL>
-                    </PARAM>
-                </PARAMS>
+					<PARAM name="propertyMap" type="HASH" propertyHash="true">
+						<DESC>Map of signature properties to be set</DESC>
+						<CAN_BE_NIL>
+							<DESC>Use already set properties</DESC>
+						</CAN_BE_NIL>
+					</PARAM>
+				</PARAMS>
 				<CALLBACK>
 					<PARAMS>
 						<PARAM name="status" type="STRING">
@@ -115,30 +117,46 @@
 						</PARAM>
 					</PARAMS>
 				</CALLBACK>
-            </METHOD>
-		
-		    <METHOD name="capture" runInThread="ui">
-				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Captures the signature area as an image.</DESC>
+			</METHOD>
+
+			<METHOD name="show" runInThread="ui">
+				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
+				<DESC>Show inline signature window</DESC>
 				<PARAMS>
-					<PARAM name="callback_url" type="STRING" deprecated="true">
-						<DESC>Deprecated. Use take callback instead. Url to callback method called after the user enters a signature.</DESC>
+					<PARAM name="propertyMap" type="HASH" propertyHash="true">
+						<DESC>Map of signature properties to be set</DESC>
 						<CAN_BE_NIL>
-                            <DESC>Parameter ignored.</DESC>
-                        </CAN_BE_NIL>
+							<DESC>Use already set properties</DESC>
+						</CAN_BE_NIL>
 					</PARAM>
 				</PARAMS>
-            </METHOD>
-
-            <METHOD name="clear" runInThread="ui">
+			</METHOD>
+		
+			<METHOD name="capture" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Clears the capture area</DESC>
-            </METHOD>
+				<DESC>Captures the signature area as an image.</DESC>
+
+				<CALLBACK>
+					<PARAMS>
+						<PARAM name="status" type="STRING">
+							<DESC>Whether a signature was captured or the signature capture area was dismissed (Fullscreen version only). Possible values:'ok' or 'cancel'</DESC>
+						</PARAM>
+						<PARAM name="imageUri" type="STRING">
+							<DESC>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image.</DESC>
+						</PARAM>
+					</PARAMS>
+				</CALLBACK>
+			</METHOD>
+
+			<METHOD name="clear" runInThread="ui">
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<DESC>Clears the capture area</DESC>
+			</METHOD>
 
 			<METHOD name="hide" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-                <DESC>Hides the signature capture area from view but doesnt clear the inputed signature data. In a hidden state, a user cannot interact with the signature capture area</DESC>
-            </METHOD>
+				<DESC>Hides the signature capture area from view but doesnt clear the inputed signature data. In a hidden state, a user cannot interact with the signature capture area</DESC>
+			</METHOD>
 			
 			<METHOD name="setVectorCallback" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -154,28 +172,11 @@
 					</PARAMS>
 				</CALLBACK>    
 			</METHOD>
-			
-			<METHOD name="visible" generateDoc="false" deprecated="true" runInThread="ui">
-				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
-				<DESC>Deprecated</DESC>
-				<PARAMS>
-					<PARAM name="visibility" type="BOOLEAN">
-                        <DESC>true or false</DESC>
-                    </PARAM>
-                    <PARAM name="params" type="HASH">
-                        <DESC>Map of signature properties to be set</DESC>
-    
-                        <CAN_BE_NIL>
-                            <DESC>Use already set properties</DESC>
-                        </CAN_BE_NIL>
-                    </PARAM>
-                </PARAMS>
-			</METHOD>
-        </METHODS>
-        
-        <USER_OVERVIEW>
-            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
-            <![CDATA[
+		</METHODS>
+		
+		<USER_OVERVIEW>
+			<!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+			<![CDATA[
 Fullscreen and Inline
 =====================
 The signature capture feature can work in two visual modes, Fullscreen and Inline. The fullscreen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the inline signature capture, there are no such buttons so these will have to be designed into the app itself.
@@ -183,12 +184,10 @@ The signature capture feature can work in two visual modes, Fullscreen and Inlin
 Parameters which clear the signature
 ====================================
 The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
-    	]]>
-    
-        </USER_OVERVIEW>
-        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>
-            <!--  This section is used for the supported platform images at the top -->
-        </PLATFORM>
-    </MODULE>
+		]]>
+	
+		</USER_OVERVIEW>
+		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+		<PLATFORM>WM</PLATFORM>
+	</MODULE>
 </API>    

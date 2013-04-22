@@ -531,7 +531,10 @@ def self.getparams(element,toplevel)
 						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
 						@seperator =  ', '
 					end 
-					
+					# puts param
+					if param["name"].nil?
+						param["name"] = ""
+					end
 					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
 					values = ""
 					valuetype = param["type"]
@@ -561,7 +564,7 @@ def self.getparams(element,toplevel)
 					if values != ""
 						values = "<p><strong>Possible Values</strong> :</p> " + values 
 					end
-
+					
 					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
 					methsectionparams += getparams(param,false)
 				}
@@ -591,7 +594,7 @@ end
 	s.each() { |element| 
 		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	
-		#puts element
+		# puts element["name"]
 		#puts "\n\n"
 		methname = element["name"]
 		methdeprecated = ""
@@ -764,8 +767,13 @@ end
 				element["CALLBACK"][0]["PARAMS"].each { |params|
 					params["PARAM"].each { |param|
 
-						if !param["DESC"].nil?
+						if !param["DESC"].nil? && !param["DESC"][0].nil?
 							@methcallbackdetailsdesc=param["DESC"][0]
+						else
+							@methcallbackdetailsdesc= ''
+						end
+						if @methcallbackdetailsdesc.class == Hash
+							@methcallbackdetailsdesc = ''
 						end
 
 						
@@ -778,6 +786,11 @@ end
 			
 							param["type"] += " <span class='label label-important'>deprecated</span> "
 						end
+						# puts param
+						# puts param["name"]
+						# puts param["type"]
+						# puts @methcallbackdetailsdesc
+						
 						@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
 						@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
 

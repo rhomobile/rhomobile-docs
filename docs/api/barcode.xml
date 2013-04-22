@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Barcode" parent="Rho">
-
+		
         <ALIASES>
             <ALIAS new="Barcode" deprecated="true"/>
         </ALIASES>
@@ -449,7 +449,7 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>Sets the barcode scanner to read all barcode types that the scanner is capable of reading.  Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: "canpostal" and "auspostal" both use a 4-state system, so devices will only enable either "canpostal" OR "auspostal" when "alldecoders" is enabled. Note that other symbologies also share the 4-state system.</DESC>
+				<DESC>When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading.  When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies.  The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be.   This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned.  Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: "canpostal" and "auspostal" both use a 4-state system, so devices will only enable either "canpostal" OR "auspostal" when "alldecoders" is enabled. Note that other symbologies also share the 4-state system.</DESC>
             </PROPERTY>
             <PROPERTY name="aztec" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1761,9 +1761,7 @@
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>
-            <!--  This section is used for the supported platform images at the top -->
-        </PLATFORM>
+        <PLATFORM>Android, iOS, WM</PLATFORM>
         <REMARKS>
             <REMARK title="Bluetooth Scanner Overview">
                 <DESC>
@@ -1840,7 +1838,7 @@ In order to use the scanner with RhoElements Native Apps you will need to either
             </REMARK>
         </REMARKS>
         <EXAMPLES >
-            <EXAMPLE title="Basic Example">
+            <EXAMPLE title="Basic Example for Enterprise Scanning in Ruby">
                 <SECTIONS>
                 <SECTION>
                 <DESC>
@@ -1850,51 +1848,41 @@ In order to use the scanner with RhoElements Native Apps you will need to either
             <![CDATA[
 #/app/Model
 def index
+	# Enable the Barcode scanner to listen for Trigger events
     Rho::Barcode.enable( url_for(:action => :decodeEvent)
 end
 
  def decodeEvent
+	# Take action when any barcode is scaned
     puts "Scanned Barcode #{@params}"
-    puts "Data is #{@params['data']}"
-    WebView.execute_js("onDecodeEventRuby('#{@params['data']}','#{@params['source']}','#{@params['type']}','#{@params['time']}','#{@params['length']}','Decode','#{@params['direction']}');")
   end
-
                     ]]>
-
-                </CODE>
-                </SECTION>
-                <SECTION>
-                <DESC>
-                    Then in index.erb file:.
-                </DESC>
-                <CODE lang='html'>
-            <![CDATA[
-<script type="text/javascript" charset="utf-8" src="/public/js/application.js"></script>
-<div data-role="page">
-
-  <div data-role="header" data-position="inline">
-    <h1>Barcode Extension Test</h1>
-    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse"
-       <%= "data-ajax='false'" if is_bb6 %>>Home</a>
-      
-  </div>
-    <div id='output1'>Output goes here</div>
-  <div data-role="content">
-    <ul data-role="listview">
-        <%= link_to 'Run Test', { :action => :run_test }%>
-        <a href="javascript:dcTest()">Run Test JS</a>
-        <a href="scanner_ajax.htm">Scanner (Ajax Requests)</a>
-    </ul>
-  </div>
-
-</div>
-
-                    ]]>
-
                 </CODE>
                 </SECTION>
                 </SECTIONS>
             </EXAMPLE>
-        </EXAMPLES>
+            <EXAMPLE title="Basic Example for Enterprise Scanning in Javascript">
+                <SECTIONS>
+                <SECTION>
+                <DESC>
+                    The default barcode reader on the device is enabled when the index view is loaded. It is enabled so when a barcode is red the decodeEvent is called.
+                </DESC>
+                <CODE lang='javascript'>
+            <![CDATA[
+    <script src="/public/jquery/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="/public/jquery/jquery.json-2.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
+	function enableScanner()
+	{
+		Rho.Barcode.enable({}, function (value) {
+                                    Rho.Log.info('callback','APZ');
+                                });
+	}
+                    ]]>
+                </CODE>
+                </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+		</EXAMPLES>
     </MODULE>
 </API>    
