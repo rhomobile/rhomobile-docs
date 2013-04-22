@@ -28,14 +28,14 @@ todo.  This is for hardware keys, not software keys... note recommended to use w
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-KeyCapture.homeKeyValue='some string'</code></pre>
+Rho::KeyCapture.homeKeyValue='some string'</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-KeyCapture.homeKeyValue='some string';</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+Rho.KeyCapture.homeKeyValue='some string';</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

@@ -65,23 +65,23 @@ md+='  <div class="modal-body">'
   	if !ro
 	  	md += "# Setting directly"
 	  	md += "\n"
-	  	md += "#{model}.#{property}=#{defval}"
+	  	md += "Rho::#{model}.#{property}=#{defval}"
 	  	if propbag
 		  	md += "\n# Setting one property"
 		  	md += "\n"
-		  	md += "#{model}.setProperty " + ":#{property}, #{defval} "
+		  	md += "Rho::#{model}.setProperty " + ":#{property}, #{defval} "
 		  	md += "\n# Setting multiple properties using HASH"
 		  	md += "\n"
-	  		md += "#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
+	  		md += "Rho::#{model}.setProperties { " + ":#{property} => #{defval} , :another_property => #{defval}}"
   		end
   	end
   	if propbag
 	  	md += "\n\n# Getting one property"
 	  	md += "\n"
-	  	md += "myvar = #{model}.getProperty(" + "'#{property}')"
+	  	md += "myvar = Rho::#{model}.getProperty(" + "'#{property}')"
 	  	md += "\n# Getting multiple properties"
 	  	md += "\n"
-	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property'])"
+	  	md += "myvar = Rho::#{model}.getProperties([" + "'#{property}' , 'another_property'])"
   	end
   	md += "</code></pre>" 
   	md += "\n\n<strong>Javascript Usage</strong>"
@@ -89,23 +89,23 @@ md+='  <div class="modal-body">'
   	if !ro
 	  	md += "\n# Setting directly"
 	  	md += "\n"
-	  	md += "#{model}.#{property}=#{defval};"
+	  	md += "Rho.#{model}.#{property}=#{defval};"
 	  	if propbag
 		  	md += "\n# Setting one property"
 		  	md += "\n"
-		  	md += "#{model}.setProperty(" + "'#{property}',#{defval});"
+		  	md += "Rho.#{model}.setProperty(" + "'#{property}',#{defval});"
 		  	md += "\n# Setting multiple properties using JSON object"
 		  	md += "\n"
-		  	md += "#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
+		  	md += "Rho.#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
 		end
   	end 
   	if propbag
 	  	md += "\n\n# Getting one property"
 	  	md += "\n"
-	  	md += "myvar = #{model}.getProperty(" + "'#{property}');"
+	  	md += "myvar = Rho.#{model}.getProperty(" + "'#{property}');"
 	  	md += "\n# Getting multiple properties"
 	  	md += "\n"
-	  	md += "myvar = #{model}.getProperties([" + "'#{property}' , 'another_property']);"
+	  	md += "myvar = Rho.#{model}.getProperties([" + "'#{property}' , 'another_property']);"
 	end
 	md += "</code></pre>" 
 md+='  </div>'

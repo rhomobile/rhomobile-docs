@@ -33,187 +33,187 @@ end
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-CardReader.autoEnter=true
+Rho::CardReader.autoEnter=true
 # Setting one property
-CardReader.setProperty :autoEnter, true 
+Rho::CardReader.setProperty :autoEnter, true 
 # Setting multiple properties using HASH
-CardReader.setProperties { :autoEnter => true , :another_property => true}
+Rho::CardReader.setProperties { :autoEnter => true , :another_property => true}
 
 # Getting one property
-myvar = CardReader.getProperty('autoEnter')
+myvar = Rho::CardReader.getProperty('autoEnter')
 # Getting multiple properties
-myvar = CardReader.getProperties(['autoEnter' , 'another_property'])</code></pre>
+myvar = Rho::CardReader.getProperties(['autoEnter' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-CardReader.autoEnter=true;
+Rho.CardReader.autoEnter=true;
 # Setting one property
-CardReader.setProperty('autoEnter',true);
+Rho.CardReader.setProperty('autoEnter',true);
 # Setting multiple properties using JSON object
-CardReader.setProperties({ :autoEnter:true , :another_property:true});
+Rho.CardReader.setProperties({ :autoEnter:true , :another_property:true});
 
 # Getting one property
-myvar = CardReader.getProperty('autoEnter');
+myvar = Rho.CardReader.getProperty('autoEnter');
 # Getting multiple properties
-myvar = CardReader.getProperties(['autoEnter' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pautoTab'></a><div class='accordion property' id='pautoTab'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyautoTab"><strong>autoTab</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyautoTab" class="accordion-body collapse in">  <div class="accordion-inner">When enabled, appends a tab to any data returned as keystrokes by the cardreader.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><strong>Default:</strong> false</p><p><a href="#autoTabUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="autoTabUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.autoTab</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['autoEnter' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pautoTab'></a><div class='accordion property' id='pautoTab'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyautoTab"><strong>autoTab</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyautoTab" class="accordion-body collapse in">  <div class="accordion-inner">When enabled, appends a tab to any data returned as keystrokes by the cardreader.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><strong>Default:</strong> false</p><p><a href="#autoTabUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="autoTabUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.autoTab</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-CardReader.autoTab=true
+Rho::CardReader.autoTab=true
 # Setting one property
-CardReader.setProperty :autoTab, true 
+Rho::CardReader.setProperty :autoTab, true 
 # Setting multiple properties using HASH
-CardReader.setProperties { :autoTab => true , :another_property => true}
+Rho::CardReader.setProperties { :autoTab => true , :another_property => true}
 
 # Getting one property
-myvar = CardReader.getProperty('autoTab')
+myvar = Rho::CardReader.getProperty('autoTab')
 # Getting multiple properties
-myvar = CardReader.getProperties(['autoTab' , 'another_property'])</code></pre>
+myvar = Rho::CardReader.getProperties(['autoTab' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-CardReader.autoTab=true;
+Rho.CardReader.autoTab=true;
 # Setting one property
-CardReader.setProperty('autoTab',true);
+Rho.CardReader.setProperty('autoTab',true);
 # Setting multiple properties using JSON object
-CardReader.setProperties({ :autoTab:true , :another_property:true});
+Rho.CardReader.setProperties({ :autoTab:true , :another_property:true});
 
 # Getting one property
-myvar = CardReader.getProperty('autoTab');
+myvar = Rho.CardReader.getProperty('autoTab');
 # Getting multiple properties
-myvar = CardReader.getProperties(['autoTab' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmoduleName'></a><div class='accordion property' id='pmoduleName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymoduleName"><strong>moduleName</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymoduleName" class="accordion-body collapse in">  <div class="accordion-inner">This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><a href="#moduleNameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>msr9000</dt><dd>MSR9000 drivers</dt><dt>msr9001</dt><dd>MSR9001 drivers</dt><dt>msr9500</dt><dd>MSR9500 drivers</dt><dt>msrcameo</dt><dd>MSRCAMEO drivers</dt><dt>msr7000</dt><dd>MSR7000 drivers</dt><dt>dcr7000</dt><dd>DCR7000 drivers</dt><dt>msr55</dt><dd>MSR55 drivers</dt><dt>msr3000</dt><dd>MSR3000 drivers</dt></dl><p><div id="moduleNameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.moduleName</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['autoTab' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmoduleName'></a><div class='accordion property' id='pmoduleName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymoduleName"><strong>moduleName</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymoduleName" class="accordion-body collapse in">  <div class="accordion-inner">This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><a href="#moduleNameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>msr9000</dt><dd>MSR9000 drivers</dt><dt>msr9001</dt><dd>MSR9001 drivers</dt><dt>msr9500</dt><dd>MSR9500 drivers</dt><dt>msrcameo</dt><dd>MSRCAMEO drivers</dt><dt>msr7000</dt><dd>MSR7000 drivers</dt><dt>dcr7000</dt><dd>DCR7000 drivers</dt><dt>msr55</dt><dd>MSR55 drivers</dt><dt>msr3000</dt><dd>MSR3000 drivers</dt></dl><p><div id="moduleNameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.moduleName</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-CardReader.moduleName='some string'
+Rho::CardReader.moduleName='some string'
 # Setting one property
-CardReader.setProperty :moduleName, 'some string' 
+Rho::CardReader.setProperty :moduleName, 'some string' 
 # Setting multiple properties using HASH
-CardReader.setProperties { :moduleName => 'some string' , :another_property => 'some string'}
+Rho::CardReader.setProperties { :moduleName => 'some string' , :another_property => 'some string'}
 
 # Getting one property
-myvar = CardReader.getProperty('moduleName')
+myvar = Rho::CardReader.getProperty('moduleName')
 # Getting multiple properties
-myvar = CardReader.getProperties(['moduleName' , 'another_property'])</code></pre>
+myvar = Rho::CardReader.getProperties(['moduleName' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-CardReader.moduleName='some string';
+Rho.CardReader.moduleName='some string';
 # Setting one property
-CardReader.setProperty('moduleName','some string');
+Rho.CardReader.setProperty('moduleName','some string');
 # Setting multiple properties using JSON object
-CardReader.setProperties({ :moduleName:'some string' , :another_property:'some string'});
+Rho.CardReader.setProperties({ :moduleName:'some string' , :another_property:'some string'});
 
 # Getting one property
-myvar = CardReader.getProperty('moduleName');
+myvar = Rho.CardReader.getProperty('moduleName');
 # Getting multiple properties
-myvar = CardReader.getProperties(['moduleName' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppanData'></a><div class='accordion property' id='ppanData'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypanData"><strong>panData</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypanData" class="accordion-body collapse in">  <div class="accordion-inner">Sets the card data without the need of a swipe.  This accepts any 16 digit number as the value.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> (Only compatible with DCR7000-x00)</p></div><p><a href="#panDataUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="panDataUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.panData</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['moduleName' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppanData'></a><div class='accordion property' id='ppanData'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypanData"><strong>panData</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypanData" class="accordion-body collapse in">  <div class="accordion-inner">Sets the card data without the need of a swipe.  This accepts any 16 digit number as the value.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> (Only compatible with DCR7000-x00)</p></div><p><a href="#panDataUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="panDataUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.panData</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-CardReader.panData=0
+Rho::CardReader.panData=0
 # Setting one property
-CardReader.setProperty :panData, 0 
+Rho::CardReader.setProperty :panData, 0 
 # Setting multiple properties using HASH
-CardReader.setProperties { :panData => 0 , :another_property => 0}
+Rho::CardReader.setProperties { :panData => 0 , :another_property => 0}
 
 # Getting one property
-myvar = CardReader.getProperty('panData')
+myvar = Rho::CardReader.getProperty('panData')
 # Getting multiple properties
-myvar = CardReader.getProperties(['panData' , 'another_property'])</code></pre>
+myvar = Rho::CardReader.getProperties(['panData' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-CardReader.panData=0;
+Rho.CardReader.panData=0;
 # Setting one property
-CardReader.setProperty('panData',0);
+Rho.CardReader.setProperty('panData',0);
 # Setting multiple properties using JSON object
-CardReader.setProperties({ :panData:0 , :another_property:0});
+Rho.CardReader.setProperties({ :panData:0 , :another_property:0});
 
 # Getting one property
-myvar = CardReader.getProperty('panData');
+myvar = Rho.CardReader.getProperty('panData');
 # Getting multiple properties
-myvar = CardReader.getProperties(['panData' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppinEntry'></a><div class='accordion property' id='ppinEntry'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypinEntry"><strong>pinEntry</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypinEntry" class="accordion-body collapse in">  <div class="accordion-inner">Turns the PIN entry on or off.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> (Only compatible with DCR7000-x00)</p></div><p><a href="#pinEntryUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="pinEntryUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.pinEntry</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['panData' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppinEntry'></a><div class='accordion property' id='ppinEntry'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypinEntry"><strong>pinEntry</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypinEntry" class="accordion-body collapse in">  <div class="accordion-inner">Turns the PIN entry on or off.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> (Only compatible with DCR7000-x00)</p></div><p><a href="#pinEntryUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="pinEntryUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.pinEntry</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-CardReader.pinEntry=true
+Rho::CardReader.pinEntry=true
 # Setting one property
-CardReader.setProperty :pinEntry, true 
+Rho::CardReader.setProperty :pinEntry, true 
 # Setting multiple properties using HASH
-CardReader.setProperties { :pinEntry => true , :another_property => true}
+Rho::CardReader.setProperties { :pinEntry => true , :another_property => true}
 
 # Getting one property
-myvar = CardReader.getProperty('pinEntry')
+myvar = Rho::CardReader.getProperty('pinEntry')
 # Getting multiple properties
-myvar = CardReader.getProperties(['pinEntry' , 'another_property'])</code></pre>
+myvar = Rho::CardReader.getProperties(['pinEntry' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-CardReader.pinEntry=true;
+Rho.CardReader.pinEntry=true;
 # Setting one property
-CardReader.setProperty('pinEntry',true);
+Rho.CardReader.setProperty('pinEntry',true);
 # Setting multiple properties using JSON object
-CardReader.setProperties({ :pinEntry:true , :another_property:true});
+Rho.CardReader.setProperties({ :pinEntry:true , :another_property:true});
 
 # Getting one property
-myvar = CardReader.getProperty('pinEntry');
+myvar = Rho.CardReader.getProperty('pinEntry');
 # Getting multiple properties
-myvar = CardReader.getProperties(['pinEntry' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppinTimeout'></a><div class='accordion property' id='ppinTimeout'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypinTimeout"><strong>pinTimeout</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypinTimeout" class="accordion-body collapse in">  <div class="accordion-inner">PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> (Only compatible with DCR7000-x00)</p></div><p><strong>Default:</strong> 30000</p><p><a href="#pinTimeoutUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="pinTimeoutUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.pinTimeout</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['pinEntry' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppinTimeout'></a><div class='accordion property' id='ppinTimeout'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypinTimeout"><strong>pinTimeout</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypinTimeout" class="accordion-body collapse in">  <div class="accordion-inner">PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> (Only compatible with DCR7000-x00)</p></div><p><strong>Default:</strong> 30000</p><p><a href="#pinTimeoutUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="pinTimeoutUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.pinTimeout</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-CardReader.pinTimeout=0
+Rho::CardReader.pinTimeout=0
 # Setting one property
-CardReader.setProperty :pinTimeout, 0 
+Rho::CardReader.setProperty :pinTimeout, 0 
 # Setting multiple properties using HASH
-CardReader.setProperties { :pinTimeout => 0 , :another_property => 0}
+Rho::CardReader.setProperties { :pinTimeout => 0 , :another_property => 0}
 
 # Getting one property
-myvar = CardReader.getProperty('pinTimeout')
+myvar = Rho::CardReader.getProperty('pinTimeout')
 # Getting multiple properties
-myvar = CardReader.getProperties(['pinTimeout' , 'another_property'])</code></pre>
+myvar = Rho::CardReader.getProperties(['pinTimeout' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-CardReader.pinTimeout=0;
+Rho.CardReader.pinTimeout=0;
 # Setting one property
-CardReader.setProperty('pinTimeout',0);
+Rho.CardReader.setProperty('pinTimeout',0);
 # Setting multiple properties using JSON object
-CardReader.setProperties({ :pinTimeout:0 , :another_property:0});
+Rho.CardReader.setProperties({ :pinTimeout:0 , :another_property:0});
 
 # Getting one property
-myvar = CardReader.getProperty('pinTimeout');
+myvar = Rho.CardReader.getProperty('pinTimeout');
 # Getting multiple properties
-myvar = CardReader.getProperties(['pinTimeout' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+myvar = Rho.CardReader.getProperties(['pinTimeout' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

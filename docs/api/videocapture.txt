@@ -11,187 +11,187 @@ The VideoCapture Module captures video files from the default camera device.Use 
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-VideoCapture.destination='some string'
+Rho::VideoCapture.destination='some string'
 # Setting one property
-VideoCapture.setProperty :destination, 'some string' 
+Rho::VideoCapture.setProperty :destination, 'some string' 
 # Setting multiple properties using HASH
-VideoCapture.setProperties { :destination => 'some string' , :another_property => 'some string'}
+Rho::VideoCapture.setProperties { :destination => 'some string' , :another_property => 'some string'}
 
 # Getting one property
-myvar = VideoCapture.getProperty('destination')
+myvar = Rho::VideoCapture.getProperty('destination')
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['destination' , 'another_property'])</code></pre>
+myvar = Rho::VideoCapture.getProperties(['destination' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-VideoCapture.destination='some string';
+Rho.VideoCapture.destination='some string';
 # Setting one property
-VideoCapture.setProperty('destination','some string');
+Rho.VideoCapture.setProperty('destination','some string');
 # Setting multiple properties using JSON object
-VideoCapture.setProperties({ :destination:'some string' , :another_property:'some string'});
+Rho.VideoCapture.setProperties({ :destination:'some string' , :another_property:'some string'});
 
 # Getting one property
-myvar = VideoCapture.getProperty('destination');
+myvar = Rho.VideoCapture.getProperty('destination');
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['destination' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pduration'></a><div class='accordion property' id='pduration'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyduration"><strong>duration</strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyduration" class="accordion-body collapse in">  <div class="accordion-inner">Specifies the number of milliseconds of video to capture. It is the maximum number of milliseconds of video to capture when the 'start' method is called if not interrupted with the 'stop' method.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> 5000</p><p><a href="#durationUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="durationUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.duration</h3>  </div>  <div class="modal-body">
+myvar = Rho.VideoCapture.getProperties(['destination' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pduration'></a><div class='accordion property' id='pduration'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyduration"><strong>duration</strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyduration" class="accordion-body collapse in">  <div class="accordion-inner">Specifies the number of milliseconds of video to capture. It is the maximum number of milliseconds of video to capture when the 'start' method is called if not interrupted with the 'stop' method.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> 5000</p><p><a href="#durationUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="durationUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.duration</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-VideoCapture.duration=0
+Rho::VideoCapture.duration=0
 # Setting one property
-VideoCapture.setProperty :duration, 0 
+Rho::VideoCapture.setProperty :duration, 0 
 # Setting multiple properties using HASH
-VideoCapture.setProperties { :duration => 0 , :another_property => 0}
+Rho::VideoCapture.setProperties { :duration => 0 , :another_property => 0}
 
 # Getting one property
-myvar = VideoCapture.getProperty('duration')
+myvar = Rho::VideoCapture.getProperty('duration')
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['duration' , 'another_property'])</code></pre>
+myvar = Rho::VideoCapture.getProperties(['duration' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-VideoCapture.duration=0;
+Rho.VideoCapture.duration=0;
 # Setting one property
-VideoCapture.setProperty('duration',0);
+Rho.VideoCapture.setProperty('duration',0);
 # Setting multiple properties using JSON object
-VideoCapture.setProperties({ :duration:0 , :another_property:0});
+Rho.VideoCapture.setProperties({ :duration:0 , :another_property:0});
 
 # Getting one property
-myvar = VideoCapture.getProperty('duration');
+myvar = Rho.VideoCapture.getProperty('duration');
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['duration' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pname'></a><div class='accordion property' id='pname'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyname"><strong>name</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyname" class="accordion-body collapse in">  <div class="accordion-inner">When the video capture completes a video file is saved in the root directory of the device (package directory in case of Android). This parameter is used to specify the filename when storing the file locally.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#nameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="nameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.name</h3>  </div>  <div class="modal-body">
+myvar = Rho.VideoCapture.getProperties(['duration' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pname'></a><div class='accordion property' id='pname'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyname"><strong>name</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyname" class="accordion-body collapse in">  <div class="accordion-inner">When the video capture completes a video file is saved in the root directory of the device (package directory in case of Android). This parameter is used to specify the filename when storing the file locally.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#nameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="nameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.name</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-VideoCapture.name='some string'
+Rho::VideoCapture.name='some string'
 # Setting one property
-VideoCapture.setProperty :name, 'some string' 
+Rho::VideoCapture.setProperty :name, 'some string' 
 # Setting multiple properties using HASH
-VideoCapture.setProperties { :name => 'some string' , :another_property => 'some string'}
+Rho::VideoCapture.setProperties { :name => 'some string' , :another_property => 'some string'}
 
 # Getting one property
-myvar = VideoCapture.getProperty('name')
+myvar = Rho::VideoCapture.getProperty('name')
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['name' , 'another_property'])</code></pre>
+myvar = Rho::VideoCapture.getProperties(['name' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-VideoCapture.name='some string';
+Rho.VideoCapture.name='some string';
 # Setting one property
-VideoCapture.setProperty('name','some string');
+Rho.VideoCapture.setProperty('name','some string');
 # Setting multiple properties using JSON object
-VideoCapture.setProperties({ :name:'some string' , :another_property:'some string'});
+Rho.VideoCapture.setProperties({ :name:'some string' , :another_property:'some string'});
 
 # Getting one property
-myvar = VideoCapture.getProperty('name');
+myvar = Rho.VideoCapture.getProperty('name');
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['name' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppassword'></a><div class='accordion property' id='ppassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypassword"><strong>password</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypassword" class="accordion-body collapse in">  <div class="accordion-inner">The password for the HTTP or FTP server if required.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> </p><p><a href="#passwordUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="passwordUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.password</h3>  </div>  <div class="modal-body">
+myvar = Rho.VideoCapture.getProperties(['name' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='ppassword'></a><div class='accordion property' id='ppassword'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertypassword"><strong>password</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertypassword" class="accordion-body collapse in">  <div class="accordion-inner">The password for the HTTP or FTP server if required.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> </p><p><a href="#passwordUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="passwordUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.password</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-VideoCapture.password='some string'
+Rho::VideoCapture.password='some string'
 # Setting one property
-VideoCapture.setProperty :password, 'some string' 
+Rho::VideoCapture.setProperty :password, 'some string' 
 # Setting multiple properties using HASH
-VideoCapture.setProperties { :password => 'some string' , :another_property => 'some string'}
+Rho::VideoCapture.setProperties { :password => 'some string' , :another_property => 'some string'}
 
 # Getting one property
-myvar = VideoCapture.getProperty('password')
+myvar = Rho::VideoCapture.getProperty('password')
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['password' , 'another_property'])</code></pre>
+myvar = Rho::VideoCapture.getProperties(['password' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-VideoCapture.password='some string';
+Rho.VideoCapture.password='some string';
 # Setting one property
-VideoCapture.setProperty('password','some string');
+Rho.VideoCapture.setProperty('password','some string');
 # Setting multiple properties using JSON object
-VideoCapture.setProperties({ :password:'some string' , :another_property:'some string'});
+Rho.VideoCapture.setProperties({ :password:'some string' , :another_property:'some string'});
 
 # Getting one property
-myvar = VideoCapture.getProperty('password');
+myvar = Rho.VideoCapture.getProperty('password');
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['password' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pusername'></a><div class='accordion property' id='pusername'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyusername"><strong>username</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyusername" class="accordion-body collapse in">  <div class="accordion-inner">The username for the HTTP or FTP server if required.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> </p><p><a href="#usernameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="usernameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.username</h3>  </div>  <div class="modal-body">
+myvar = Rho.VideoCapture.getProperties(['password' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pusername'></a><div class='accordion property' id='pusername'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyusername"><strong>username</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyusername" class="accordion-body collapse in">  <div class="accordion-inner">The username for the HTTP or FTP server if required.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> </p><p><a href="#usernameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="usernameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.username</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-VideoCapture.username='some string'
+Rho::VideoCapture.username='some string'
 # Setting one property
-VideoCapture.setProperty :username, 'some string' 
+Rho::VideoCapture.setProperty :username, 'some string' 
 # Setting multiple properties using HASH
-VideoCapture.setProperties { :username => 'some string' , :another_property => 'some string'}
+Rho::VideoCapture.setProperties { :username => 'some string' , :another_property => 'some string'}
 
 # Getting one property
-myvar = VideoCapture.getProperty('username')
+myvar = Rho::VideoCapture.getProperty('username')
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['username' , 'another_property'])</code></pre>
+myvar = Rho::VideoCapture.getProperties(['username' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-VideoCapture.username='some string';
+Rho.VideoCapture.username='some string';
 # Setting one property
-VideoCapture.setProperty('username','some string');
+Rho.VideoCapture.setProperty('username','some string');
 # Setting multiple properties using JSON object
-VideoCapture.setProperties({ :username:'some string' , :another_property:'some string'});
+Rho.VideoCapture.setProperties({ :username:'some string' , :another_property:'some string'});
 
 # Getting one property
-myvar = VideoCapture.getProperty('username');
+myvar = Rho.VideoCapture.getProperty('username');
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['username' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pvideoSaveEvent'></a><div class='accordion property' id='pvideoSaveEvent'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyvideoSaveEvent"><strong>videoSaveEvent</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyvideoSaveEvent" class="accordion-body collapse in">  <div class="accordion-inner">The Video Save Event is called when the captured video has been successfully transfered to the specified destination. When a capture is started with the HTTP protocol, the destination server message is returned. When it is called with the FTP protocol, either ‘OK: File Sent’, ‘OK: File Received’ or ‘ERROR’ is returned. This tag should be used in conjunction with the Start method.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#videoSaveEventUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="videoSaveEventUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.videoSaveEvent</h3>  </div>  <div class="modal-body">
+myvar = Rho.VideoCapture.getProperties(['username' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pvideoSaveEvent'></a><div class='accordion property' id='pvideoSaveEvent'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyvideoSaveEvent"><strong>videoSaveEvent</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyvideoSaveEvent" class="accordion-body collapse in">  <div class="accordion-inner">The Video Save Event is called when the captured video has been successfully transfered to the specified destination. When a capture is started with the HTTP protocol, the destination server message is returned. When it is called with the FTP protocol, either ‘OK: File Sent’, ‘OK: File Received’ or ‘ERROR’ is returned. This tag should be used in conjunction with the Start method.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#videoSaveEventUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="videoSaveEventUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">VideoCapture.videoSaveEvent</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-VideoCapture.videoSaveEvent='some string'
+Rho::VideoCapture.videoSaveEvent='some string'
 # Setting one property
-VideoCapture.setProperty :videoSaveEvent, 'some string' 
+Rho::VideoCapture.setProperty :videoSaveEvent, 'some string' 
 # Setting multiple properties using HASH
-VideoCapture.setProperties { :videoSaveEvent => 'some string' , :another_property => 'some string'}
+Rho::VideoCapture.setProperties { :videoSaveEvent => 'some string' , :another_property => 'some string'}
 
 # Getting one property
-myvar = VideoCapture.getProperty('videoSaveEvent')
+myvar = Rho::VideoCapture.getProperty('videoSaveEvent')
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['videoSaveEvent' , 'another_property'])</code></pre>
+myvar = Rho::VideoCapture.getProperties(['videoSaveEvent' , 'another_property'])</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-VideoCapture.videoSaveEvent='some string';
+Rho.VideoCapture.videoSaveEvent='some string';
 # Setting one property
-VideoCapture.setProperty('videoSaveEvent','some string');
+Rho.VideoCapture.setProperty('videoSaveEvent','some string');
 # Setting multiple properties using JSON object
-VideoCapture.setProperties({ :videoSaveEvent:'some string' , :another_property:'some string'});
+Rho.VideoCapture.setProperties({ :videoSaveEvent:'some string' , :another_property:'some string'});
 
 # Getting one property
-myvar = VideoCapture.getProperty('videoSaveEvent');
+myvar = Rho.VideoCapture.getProperty('videoSaveEvent');
 # Getting multiple properties
-myvar = VideoCapture.getProperties(['videoSaveEvent' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+myvar = Rho.VideoCapture.getProperties(['videoSaveEvent' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

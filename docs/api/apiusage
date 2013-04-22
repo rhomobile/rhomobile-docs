@@ -1,0 +1,74 @@
+#Api Usage
+
+RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby.
+
+## API Table
+
+<table class="table">
+<tr>
+<td>
+Class
+</td>
+<td>
+Description
+</td>
+<td>
+RhoMobile Suite 2.2 APIs replaced
+</td>
+</tr>
+<tr>
+<td>
+Barcode
+</td>
+<td>
+Description
+</td>
+<td>
+Barcode and Scanner have been amalgamated.  All decoders have now been brought into the same API rather than having a separate API for each.
+</td>
+</tr>
+<tr>
+<td>
+Camera
+</td>
+<td>
+Description
+</td>
+<td>
+Camera and Imager have been amalgamated
+</td>
+</tr>
+<tr>
+<td>
+CardReader
+</td>
+<td>
+Description
+</td>
+<td>
+CardReader
+</td>
+</tr>
+<tr>
+<td>
+Log
+</td>
+<td>
+Description
+</td>
+<td>
+Log
+</td>
+</tr>
+<tr>
+<td>
+Class
+</td>
+<td>
+Description
+</td>
+<td>
+RhoMobile Suite 2.2 APIs replaced
+</td>
+</tr>
+</table>

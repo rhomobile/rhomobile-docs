@@ -67,14 +67,14 @@ The Battery API is used to notify the user of the remaining power in the battery
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Battery.refreshInterval=0</code></pre>
+Rho::Battery.refreshInterval=0</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Battery.refreshInterval=0;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+Rho.Battery.refreshInterval=0;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

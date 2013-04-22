@@ -19,11 +19,11 @@ end
 section 'rhomobile', 'RhoMobile'
 
 section 'rhodescommonapi-reference', 'Mobile APIs' do
-  topic 'rhoelements/apicompatibility',      'Legacy APIs'
+  topic 'api/apiusage',      'API Summary'
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/camera',      'Camera'
-  topic 'api/cardreader',      'Cardreader'
+  topic 'api/cardreader',      'CardReader'
   topic 'api/Database',      'Database '
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
