@@ -1623,10 +1623,8 @@
                         </CAN_BE_NIL>
                     </PARAM>
                 </PARAMS>
-				<RETURN>
-					<DESC>Not providing a callback to be invoked when a barcode is scanned will result in that barcode being output as keystrokes.</DESC>
-				</RETURN>
-				<CALLBACK>
+				<CALLBACK type="HASH">
+                    <DESC>Not providing a callback to be invoked when a barcode is scanned will result in that barcode being output as keystrokes.</DESC>
 					<PARAMS>
 						<PARAM name="data" type="STRING">
 							<DESC>The data decoded by the scanner or imaging device</DESC>
@@ -1655,7 +1653,7 @@
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.</DESC>
-				<CALLBACK>
+				<CALLBACK type="HASH">
 					<PARAMS>
 						<PARAM name="status" type="STRING">
 							<DESC>The message describing the bluetooth connection: BluetoothConnected, BluetoothDisconnected or BTScanAssociationBarcode.  See below for further descriptions.</DESC>
@@ -1711,7 +1709,7 @@
                         </CAN_BE_NIL>
                     </PARAM>
                 </PARAMS>
-				<CALLBACK>
+				<CALLBACK type="HASH">
 					<PARAMS>
 						<PARAM name="barcode" type="STRING">
 							<DESC>The data decoded by the scanner or imaging device</DESC>
@@ -1842,42 +1840,20 @@ In order to use the scanner with RhoElements Native Apps you will need to either
                 <SECTIONS>
                 <SECTION>
                 <DESC>
-                    The default barcode reader on the device is enabled when the index view is loaded. It is enabled so when a barcode is red the decodeEvent is called.
+                    The default barcode reader on the device is enabled when the index action in the controller is called; a barcode scan will trigger the decodeReceived method.
                 </DESC>
                 <CODE lang='ruby'>
             <![CDATA[
 #/app/Model
 def index
 	# Enable the Barcode scanner to listen for Trigger events
-    Rho::Barcode.enable( url_for(:action => :decodeEvent)
+    Rho::Barcode.enable( url_for(:action => :decodeReceived)
 end
 
- def decodeEvent
+ def decodeReceived
 	# Take action when any barcode is scaned
     puts "Scanned Barcode #{@params}"
   end
-                    ]]>
-                </CODE>
-                </SECTION>
-                </SECTIONS>
-            </EXAMPLE>
-            <EXAMPLE title="Basic Example for Enterprise Scanning in Javascript">
-                <SECTIONS>
-                <SECTION>
-                <DESC>
-                    The default barcode reader on the device is enabled when the index view is loaded. It is enabled so when a barcode is red the decodeEvent is called.
-                </DESC>
-                <CODE lang='javascript'>
-            <![CDATA[
-    <script src="/public/jquery/jquery-1.6.4.min.js" type="text/javascript"></script>
-    <script src="/public/jquery/jquery.json-2.3.min.js" type="text/javascript"></script>
-    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
-	function enableScanner()
-	{
-		Rho.Barcode.enable({}, function (value) {
-                                    Rho.Log.info('callback','APZ');
-                                });
-	}
                     ]]>
                 </CODE>
                 </SECTION>

@@ -29,7 +29,7 @@
 						<DESC>todo - (string.  Accept keys specified in hex or ALL).  Has to be a string for backwards compatibility.  Must be the numeric representation of that key, for hardware reasons. - use all keys to determine which key it is.</DESC>
 					</PARAM>
 				</PARAMS>
-				<CALLBACK>
+				<CALLBACK  type="HASH">
 					<PARAMS>
 						<PARAM name="keyValue" type="INTEGER">
 							<DESC>todo</DESC>
@@ -56,7 +56,7 @@
                 <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section</DESC>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true"></APPLIES>
-				<CALLBACK>
+				<CALLBACK  type="HASH">
 					<PARAMS>
 						<PARAM name="triggerFlag" type="INTEGER">
 							<DESC>todo</DESC>
@@ -101,7 +101,7 @@ page.">
             <REMARK title="TODO - ENSURE ALL OTHER REMARKS FROM RE1 HELP FILE ARE CAPTURED">
                 <DESC>
                     <![CDATA[
-                    to do
+                    To do
                 ]]>
 
                 </DESC>

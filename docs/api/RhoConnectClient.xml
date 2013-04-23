@@ -308,130 +308,118 @@
         <PLATFORM>
             <!--  This section is used for the supported platform images at the top -->
         </PLATFORM>
-    </MODULE>
-    
-    <REMARKS>
-        <REMARK title="Backround synchronization on iOS">
-            <DESC>
-                <![CDATA[
-                    On iOS, if application is put to background, it will be suspended. To allow application finish sync after application goes to background, you can use 'finish_sync_in_background' parameter in rhoconfig.txt. When this parameter is set to '1', if sync is active in the time of background transition ( e.g. started from app_deactivate handler ), application will not be suspended until sync is finished.
-                ]]>
-                
-            </DESC>
-        </REMARK>
-    </REMARKS>
-    <EXAMPLES >
-        <EXAMPLE title="Sync Authentication">
-            <DESC>
-                Call login method and then handle login result in provided callback.
-            </DESC>
-            <SECTIONS>
-                <SECTION>
-                    <DESC>
-                        In your controller call login.
-                    </DESC>
-                    <CODE lang='ruby'>
-                        <![CDATA[
-                            SyncEngine.login(
+        
+        <REMARKS>
+            <REMARK title="Backround synchronization on iOS">
+                <DESC>
+                    <![CDATA[
+                        On iOS, if application is put to background, it will be suspended. To allow application finish sync after application goes to background, you can use 'finish_sync_in_background' parameter in rhoconfig.txt. When this parameter is set to '1', if sync is active in the time of background transition ( e.g. started from app_deactivate handler ), application will not be suspended until sync is finished.
+                    ]]>
+                    
+                </DESC>
+            </REMARK>
+        </REMARKS>
+        <EXAMPLES >
+            <EXAMPLE title="Sync Authentication">
+                <DESC>
+                    Call login method and then handle login result in provided callback.
+                </DESC>
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>
+                            In your controller call login.
+                        </DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                SyncEngine.login(
                                 @params['login'],
                                 @params['password'],
-                                url_for(:action => :login_callback) 
-                            )
-                        ]]>
-                        
-                    </CODE>
-                </SECTION>
-                <SECTION>
-                    <DESC>
-                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-                    </DESC>
-                    <CODE lang='ruby'>
-                        <![CDATA[
-                            def login_callback
+                                url_for(:action => :login_callback)
+                                )
+                            ]]>
+                            
+                        </CODE>
+                    </SECTION>
+                    <SECTION>
+                        <DESC>
+                            When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
+                        </DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                def login_callback
                                 error_code = @params['error_code'].to_i
                                 if error_code == 0
-                                    # run sync if we were successful
-                                    WebView.navigate Rho::RhoConfig.options_path
-                                    RhoConnectClient.doSync
+                                # run sync if we were successful
+                                WebView.navigate Rho::RhoConfig.options_path
+                                RhoConnectClient.doSync
                                 else
-                                    if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
-                                        @msg = @params['error_message']
-                                    end
-                            
-                                    if not @msg or @msg.length == 0
-                                        @msg = Rho::RhoError.new(error_code).message
-                                    end
-                            
-                                    WebView.navigate(
-                                        url_for(:action => :login, :query => {:msg => @msg})
-                                    )
+                                if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
+                                @msg = @params['error_message']
                                 end
-                            end
-                        ]]>
-                        
-                    </CODE>
-                </SECTION>
-            </SECTIONS>
-        </EXAMPLE>
-        
-        <EXAMPLE title="Notifications">
-            <DESC>In this example, once the sync process for the Account model is complete, the view will be directed to the sync_notify action (with params 'sync_complete=true') if user is on the same page.</DESC>
-            <SECTIONS>
-                <SECTION>
-                    <DESC>To set a notification for a model, you can use the following method:</DESC>
-                    <CODE lang='ruby'>
-                        <![CDATA[
-                            RhoConnectClient.setNotification(
+                                
+                                if not @msg or @msg.length == 0
+                                @msg = Rho::RhoError.new(error_code).message
+                                end
+                                
+                                WebView.navigate(
+                                url_for(:action => :login, :query => {:msg => @msg})
+                                )
+                                end
+                                end
+                            ]]>
+                            
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+            
+            <EXAMPLE title="Notifications">
+                <DESC>In this example, once the sync process for the Account model is complete, the view will be directed to the sync_notify action (with params 'sync_complete=true') if user is on the same page.</DESC>
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>To set a notification for a model, you can use the following method:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                RhoConnectClient.setNotification(
                                 'Account',
                                 url_for(:action => :sync_notify),
                                 "sync_complete=true"
-                            )
-                        ]]>
-                    </CODE>
-                </SECTION>
-                
-                <SECTION>
-                    <DESC>Which is the same as:</DESC>
-                    <CODE lang='ruby'>
-                        <![CDATA[
-                            Account.setNotification(
+                                )
+                            ]]>
+                        </CODE>
+                    </SECTION>
+                    
+                    <SECTION>
+                        <DESC>Which is the same as:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                Account.setNotification(
                                 url_for(:action => :sync_notify),
                                 "sync_complete=true"
-                            )
-                        ]]>
-                    </CODE>
-                </SECTION>
-                
-                <SECTION>
-                    <DESC>You can also set a notification for all models:</DESC>
-                    <CODE lang='ruby'>
-                        <![CDATA[
-                            RhoConnectClient.setNotification(
+                                )
+                            ]]>
+                        </CODE>
+                    </SECTION>
+                    
+                    <SECTION>
+                        <DESC>You can also set a notification for all models:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                RhoConnectClient.setNotification(
                                 '*',
                                 url_for(:action => :sync_notify),
                                 "sync_complete=true"
-                            )
-                        ]]>
-                    </CODE>
-                </SECTION>
-
-            </SECTIONS>
-        </EXAMPLE>
-        
-        <EXAMPLE>
-            <DESC></DESC>
-            <SECTIONS>
-                <SECTION>
-                    <DESC></DESC>
-                    <CODE lang='ruby'>
-                        <![CDATA[
-                        ]]>
-                    </CODE>
-
-                </SECTION>
-            </SECTIONS>
-        </EXAMPLE>
-
-        
-    </EXAMPLES>
+                                )
+                            ]]>
+                        </CODE>
+                    </SECTION>
+                    
+                </SECTIONS>
+            </EXAMPLE>
+            
+            
+            
+            
+        </EXAMPLES>
+    </MODULE>
 </API>

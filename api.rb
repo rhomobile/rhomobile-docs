@@ -235,7 +235,11 @@ md+='</div>'
 	  			#puts "**********"
 	  			#puts section
 	  			examplesections += "\n"
-	  			examplesections += section["DESC"][0]
+	  			# puts section["DESC"][0]
+	  			# if section["DESC"][0].class != Hash
+					examplesections += section["DESC"][0]
+				# end
+	  			
 	  			codelang = 'ruby'
 	  			codesnip = section["CODE"]
 	  			 # puts codesnip
