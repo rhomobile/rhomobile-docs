@@ -126,7 +126,7 @@ You can write the following methods for your source adapter model. These methods
 * [query](/rhoconnectapi/source-adapter-model-api-js#query) - Query your backend service and build a hash of hashes.
 * [create](/rhoconnectapi/source-adapter-model-api-js#create) - Create a new record in the backend.
 * [update](/rhoconnectapi/source-adapter-model-api-js#update) - Update an existing record in the backend.
-* [delete](/rhoconnectapi/source-adapter-model-api-js#delete) - Delete an existing record in the backend.
+* [del](/rhoconnectapi/source-adapter-model-api-js#del) - Delete an existing record in the backend.
 * [stashResult](/rhoconnectapi/source-adapter-model-api-js#stashresult) - Saves the current state of the result to redis and sets it `undefined`.
 * [getData](/rhoconnectapi/source-adapter-model-api-js#getdata) - Get the model document data from Store.
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
