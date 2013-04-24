@@ -66,14 +66,14 @@ The Signal API is used to notify the user of the strength of the WLAN signal.  W
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signal.refreshInterval=0</code></pre>
+Rho::Signal.refreshInterval=0myvar = Rho::Signal.refreshInterval</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Rho.Signal.refreshInterval=0;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+Rho.Signal.refreshInterval=0;myvar = Rho.Signal.refreshInterval;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

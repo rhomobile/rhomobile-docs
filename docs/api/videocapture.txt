@@ -201,13 +201,13 @@ VideoCapture.getProperties(...., url_for :action => :mycallback)</code></pre><p>
 <pre class='CodeRay'><code>:::javascript
 VideoCapture.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-VideoCapture.getProperties(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+VideoCapture.getProperties(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-VideoCapture.getProperties(....,function(params){
+VideoCapture.getProperties(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 VideoCapture.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
@@ -218,13 +218,13 @@ VideoCapture.getProperty(...., url_for :action => :mycallback)</code></pre><p>Ja
 <pre class='CodeRay'><code>:::javascript
 VideoCapture.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-VideoCapture.getProperty(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+VideoCapture.getProperty(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-VideoCapture.getProperty(....,function(params){
+VideoCapture.getProperty(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 VideoCapture.getProperty(...., mycallback() )</code></pre><p>Javascript</p>

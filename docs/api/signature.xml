@@ -12,6 +12,7 @@
 			<DESC>These properties are used to configure the appearance and the behaviour of the signature capture area.</DESC>
 			<ALIASES>
 				<ALIAS new="imageFormat" existing="compressionFormat" deprecated="true"/>
+                <ALIAS new="name" existing="fileName" deprecated="true"/>
 			</ALIASES>
 
 			<PROPERTY name="compressionFormat" type="STRING" >
@@ -44,7 +45,7 @@
 				</VALUES>
 			</PROPERTY>
 			
-			<PROPERTY name="name" type="STRING" default="signature">
+			<PROPERTY name="fileName" type="STRING" default="signature">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>The filename in which to store the signature image, if OUTPUT_FORMAT_IMAGE is used. The file extension is determined by the compressionFormat used.</DESC>
             </PROPERTY>
@@ -115,7 +116,10 @@
 						<PARAM name="imageUri" type="STRING">
 							<DESC>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image.</DESC>
 						</PARAM>
-					</PARAMS>
+                        <PARAM name="signature_uri" type="STRING" deprecated="true">
+                            <DESC>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image.</DESC>
+                        </PARAM>
+                    </PARAMS>
 				</CALLBACK>
 			</METHOD>
 
@@ -144,7 +148,10 @@
 						<PARAM name="imageUri" type="STRING">
 							<DESC>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image.</DESC>
 						</PARAM>
-					</PARAMS>
+                        <PARAM name="signature_uri" type="STRING" deprecated="true">
+                            <DESC>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image.</DESC>
+                        </PARAM>
+                    </PARAMS>
 				</CALLBACK>
 			</METHOD>
 

@@ -28,7 +28,7 @@
 				<DESC>Page size for RhoConnectClient. Default size is 2000.</DESC>
 			</PROPERTY>
 			
-			<PROPERTY name="threadedMode" type="BOOLEAN" default="true">
+			<PROPERTY name="threadedMode" type="BOOLEAN" default="true" generateDoc="false">
 				<DESC>Sets if RhoConnectClient will work in a separate thread. If true then calls to login, doSync, doSyncSource and search will perform asynchronously without delaying calling thread. Results should be handled in provided callbacks.
                     If false, all calls are blocking and resuls are returned directly from method calls.
                     Default is true.
@@ -94,7 +94,6 @@
 						<PARAMS>
 							<PARAM name="sourceNames" type="ARRAY">
 								<DESC>Array of source names to be included in search result.</DESC>
-								<CAN_BE_NIL/>
 							</PARAM>
 							
 							<PARAM name="from" type="STRING">
@@ -232,7 +231,7 @@
 				<DESC>Clears the sync notification for a given source</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
-						<DESC>Source name to clear notification.</DESC>
+						<DESC>Source name to clear notification. Use '*' to clear notification for all models.</DESC>
 					</PARAM>
 				</PARAMS>
             </METHOD>
@@ -240,6 +239,23 @@
 			
 			<METHOD name="setObjectNotification" hasCallback="mandatory" runInThread="none">
 				<DESC>The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.</DESC>
+                
+                <CALLBACK>
+                    <PARAMS>
+                        <PARAM name="created" type="ARRAY">
+                            <DESC>Array of created objects.</DESC>
+                        </PARAM>
+                        
+                        <PARAM name="updated" type="ARRAY">
+                            <DESC>Array of updated objects.</DESC>
+                        </PARAM>
+
+                        <PARAM name="deleted" type="ARRAY">
+                            <DESC>Array of deleted objects.</DESC>
+                        </PARAM>
+
+                    </PARAMS>
+                </CALLBACK>
             </METHOD>
 			
 			<METHOD name="addObjectNotify">
@@ -310,6 +326,71 @@
         </PLATFORM>
         
         <REMARKS>
+            
+            <REMARK title="Notification Parameters">
+                <DESC>
+                    <![CDATA[
+                        When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.
+                        
+                        Common Parameters
+                        These parameters are included in all notifications.
+                        
+                        @params["source_id"] - The id of the current model that is synchronizing.
+                        @params["source_name"] - Name of the model (i.e. "Product")
+                        @params["sync_type"] - Type of sync used for this model: "incremental" or "bulk"
+                        @params["status"] - Status of the current sync process: "in_progress", "error", "ok", "complete", "schema-changed"
+                        
+                        "in_progress" - incremental sync
+                        
+                        @params["total_count"] - Total number of records that exist for this RhoConnect source.
+                        @params["processed_count"] - Number of records included in the sync page.
+                        @params["cumulative_count"] - Number of records the SyncEngine has processed so far for this source.
+                        
+                        "in_progress" - bulk sync
+                        
+                        @params["bulk_status"] - The state of the bulk sync process:
+                        "start": when bulk sync start and when specific partition is start syncing
+                        
+                        "download": when client start downloading database from server
+                        
+                        "change_db": when client start applying new database
+                        
+                        "blobs": when client start downloading remote blob files
+                        
+                        "ok": when sync of partition finished without error
+                        
+                        "complete": when bulk sync finished for all partitions without errors
+                        
+                        @params["partition"] - Current bulk sync partition.
+                        
+                        "error"
+                        
+                        @params["error_code"] - HTTP response code of the RhoConnect server error: 401, 500, 404, etc.
+                        @params["error_message"] - Response body (if any)
+                        @params["server_errors"] - Hash of Type objects of RhoConnect adapter error (if exists): "login-error", "query-error", "create-error", "update-error", "delete-error", "logoff-error"
+                        For "login-error", "query-error", "logoff-error": Type object is hash contains 'message' from server: @params["server_errors"]["query-error"]['message']
+                        
+                        For "create-error", "update-error", "delete-error": Type object is hash each containing an "object" as a key (that failed to create) and a corresponding "message" and "attributes": @params["server_errors"]["create-error"][object]['message'], @params["server_errors"]["create-error"][object]['attributes']
+                        
+                        
+                        "create-error" has to be handled in sync callback. Otherwise sync will stop on this model. To fix create errors you should call Model.on_sync_create_error or SyncEngine.on_sync_create_error
+                        "ok"
+                        @params["total_count"] - Total number of records that exist for this RhoConnect source.
+                        @params["processed_count"] - Number of records included in the last sync page.
+                        @params["cumulative_count"] - Number of records the SyncEngine has processed so far for this source.
+                        "complete"
+                        This status returns only when the SyncEngine process is complete.
+                        
+                        "schema-changed"
+                        This status returns for bulk-sync models that use FixedSchema when the schema has changed in the RhoConnect server.
+                        
+                        
+                        In this scenario the sync callback should notify the user with a wait screen and start the bulk sync process.
+                    ]]>
+                    
+                </DESC>
+            </REMARK>
+            
             <REMARK title="Backround synchronization on iOS">
                 <DESC>
                     <![CDATA[
@@ -331,11 +412,11 @@
                         </DESC>
                         <CODE lang='ruby'>
                             <![CDATA[
-                                SyncEngine.login(
+                            SyncEngine.login(
                                 @params['login'],
                                 @params['password'],
                                 url_for(:action => :login_callback)
-                                )
+                            )
                             ]]>
                             
                         </CODE>
@@ -346,26 +427,26 @@
                         </DESC>
                         <CODE lang='ruby'>
                             <![CDATA[
-                                def login_callback
+                            def login_callback
                                 error_code = @params['error_code'].to_i
                                 if error_code == 0
-                                # run sync if we were successful
-                                WebView.navigate Rho::RhoConfig.options_path
-                                RhoConnectClient.doSync
+                                    # run sync if we were successful
+                                    WebView.navigate Rho::RhoConfig.options_path
+                                    RhoConnectClient.doSync
                                 else
-                                if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
-                                @msg = @params['error_message']
-                                end
+                                    if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
+                                        @msg = @params['error_message']
+                                    end
                                 
-                                if not @msg or @msg.length == 0
-                                @msg = Rho::RhoError.new(error_code).message
-                                end
+                                    if not @msg or @msg.length == 0
+                                        @msg = Rho::RhoError.new(error_code).message
+                                    end
                                 
-                                WebView.navigate(
-                                url_for(:action => :login, :query => {:msg => @msg})
-                                )
+                                    WebView.navigate(
+                                        url_for(:action => :login, :query => {:msg => @msg})
+                                    )
                                 end
-                                end
+                            end
                             ]]>
                             
                         </CODE>
@@ -380,11 +461,11 @@
                         <DESC>To set a notification for a model, you can use the following method:</DESC>
                         <CODE lang='ruby'>
                             <![CDATA[
-                                RhoConnectClient.setNotification(
+                            RhoConnectClient.setNotification(
                                 'Account',
                                 url_for(:action => :sync_notify),
                                 "sync_complete=true"
-                                )
+                            )
                             ]]>
                         </CODE>
                     </SECTION>
@@ -393,10 +474,10 @@
                         <DESC>Which is the same as:</DESC>
                         <CODE lang='ruby'>
                             <![CDATA[
-                                Account.setNotification(
+                            Account.setNotification(
                                 url_for(:action => :sync_notify),
                                 "sync_complete=true"
-                                )
+                            )
                             ]]>
                         </CODE>
                     </SECTION>
@@ -405,11 +486,11 @@
                         <DESC>You can also set a notification for all models:</DESC>
                         <CODE lang='ruby'>
                             <![CDATA[
-                                RhoConnectClient.setNotification(
+                            RhoConnectClient.setNotification(
                                 '*',
                                 url_for(:action => :sync_notify),
                                 "sync_complete=true"
-                                )
+                            )
                             ]]>
                         </CODE>
                     </SECTION>
@@ -417,7 +498,153 @@
                 </SECTIONS>
             </EXAMPLE>
             
+            <EXAMPLE title="Object notifications">
+                <DESC></DESC>
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>To use object notifications, first set the notification callback in application.rb#initialize</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                class AppApplication < Rho::RhoApplication
+                                    def initialize
+                                        super
+                                
+                                        RhoConnectClient.setObjectNotify(
+                                            url_for(
+                                                :controller => "Product",
+                                                :action => :sync_object_notify
+                                            )
+                                        )
+                                    end
+                                end
+                            ]]>
+                        </CODE>
+                        
+                    </SECTION>
+                    
+                    <SECTION>
+                        <DESC>Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                class ProductController < Rho::RhoController
+                                
+                                    # GET /Product
+                                    def index
+                                        @products = Product.find(:all)
+                                
+                                        RhoConnectClient.AddObjectnotify(@products)
+                                        render
+                                    end
+                                
+                                    # ...
+                                
+                                    def sync_object_notify
+                                        #... do something with notification data ...
+                                
+                                        # refresh the current page
+                                        WebView.refresh
+                                        # or call System.execute_js to call javascript function which will update list
+                                    end
+                                end
+                            ]]>
+                        </CODE>
+                        
+                    </SECTION>
+                    
+                </SECTIONS>
+            </EXAMPLE>
             
+            <EXAMPLE title="Using search">
+                <DESC></DESC>
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>First, call search from your controller action:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                def search
+                                    page = @params['page'] || 0
+                                    page_size = @params['page_size'] || 10
+                                    RhoConnectClient.search(
+                                        {
+                                            'Contact',
+                                            :from => 'search',
+                                            :search_params => {
+                                                :FirstName => @params['FirstName'],
+                                                :LastName => @params['LastName'],
+                                                :Company => @params['Company']
+                                            },
+                                            :offset => page * page_size,
+                                            :max_results => page_size
+                                        }
+                                        url_for(:action => :search_callback)
+                                    )
+                                    render :action => :search_wait
+                                end
+                            ]]>
+                        </CODE>
+                        
+                    </SECTION>
+                    
+                    <SECTION>
+                        <DESC>Your callback might look like:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                def search_callback
+                                    status = @params["status"]
+                                    if (status and status == "ok")
+                                    WebView.navigate(
+                                        url_for(
+                                            :action => :show_page,
+                                            :query => @params['search_params']
+                                        )
+                                    )
+                                    else
+                                        render :action => :search_error
+                                    end
+                                end
+                            ]]>
+                        </CODE>
+                        
+                    </SECTION>
+                    
+                    <SECTION>
+                        <DESC>Typically you want to forward the original search query @params['search_params'] to your view that displays the results so you can perform the same query locally. Next, the resulting action :show_page will be called. Here we demonstrate using Rhom's advanced find query syntax since we are filtering a very large dataset:</DESC>
+                        <CODE lang='ruby'>
+                            <![CDATA[
+                                def show_page
+                                    @contacts = Contact.find(
+                                        :all,
+                                        :conditions => {
+                                        {
+                                            :func => 'LOWER',
+                                            :name => 'FirstName',
+                                            :op => 'LIKE'
+                                        } => @params[:FirstName],
+                                        {
+                                            :func => 'LOWER',
+                                            :name=>'LastName',
+                                            :op=>'LIKE'
+                                        } => @params[:LastName],
+                                        {
+                                            :func=>'LOWER',
+                                            :name=>'Company',
+                                            :op=>'LIKE'
+                                        } => @params[:Company],
+                                        },
+                                        :op => 'OR',
+                                        :select => ['FirstName','LastName', 'Company'],
+                                        :per_page => page_size,
+                                        :offset => page * page_size
+                                    )
+                                    render :action => :show_page
+                                end
+                            ]]>
+                        </CODE>
+                        
+                    </SECTION>
+                    
+                </SECTIONS>
+            </EXAMPLE>
             
             
         </EXAMPLES>

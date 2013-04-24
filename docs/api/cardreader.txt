@@ -27,7 +27,7 @@ end
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pautoEnter'></a><div class='accordion property' id='pautoEnter'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyautoEnter"><strong>autoEnter</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyautoEnter" class="accordion-body collapse in">  <div class="accordion-inner">When enabled, appends a carriage return to any data returned as keystrokes by the cardreader.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><strong>Default:</strong> false</p><p><a href="#autoEnterUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="autoEnterUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.autoEnter</h3>  </div>  <div class="modal-body">
+<a name='pautoEnter'></a><div class='accordion property' id='pautoEnter'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyautoEnter"><strong>autoEnter</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyautoEnter" class="accordion-body collapse in">  <div class="accordion-inner">When enabled, appends a carriage return to any data returned as keystrokes by the cardreader.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><strong>Default:</strong> false</p><p><a href="#autoEnterUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="autoEnterUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.autoEnter</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
@@ -58,7 +58,7 @@ Rho.CardReader.setProperties({ :autoEnter:true , :another_property:true});
 # Getting one property
 myvar = Rho.CardReader.getProperty('autoEnter');
 # Getting multiple properties
-myvar = Rho.CardReader.getProperties(['autoEnter' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pautoTab'></a><div class='accordion property' id='pautoTab'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyautoTab"><strong>autoTab</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyautoTab" class="accordion-body collapse in">  <div class="accordion-inner">When enabled, appends a tab to any data returned as keystrokes by the cardreader.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><strong>Default:</strong> false</p><p><a href="#autoTabUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="autoTabUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.autoTab</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['autoEnter' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pautoTab'></a><div class='accordion property' id='pautoTab'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyautoTab"><strong>autoTab</strong> : <span class='text-info'>BOOLEAN</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyautoTab" class="accordion-body collapse in">  <div class="accordion-inner">When enabled, appends a tab to any data returned as keystrokes by the cardreader.<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><strong>Default:</strong> false</p><p><a href="#autoTabUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="autoTabUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.autoTab</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
@@ -89,7 +89,7 @@ Rho.CardReader.setProperties({ :autoTab:true , :another_property:true});
 # Getting one property
 myvar = Rho.CardReader.getProperty('autoTab');
 # Getting multiple properties
-myvar = Rho.CardReader.getProperties(['autoTab' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmoduleName'></a><div class='accordion property' id='pmoduleName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymoduleName"><strong>moduleName</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymoduleName" class="accordion-body collapse in">  <div class="accordion-inner">This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> ()</p></div><p><a href="#moduleNameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>msr9000</dt><dd>MSR9000 drivers</dt><dt>msr9001</dt><dd>MSR9001 drivers</dt><dt>msr9500</dt><dd>MSR9500 drivers</dt><dt>msrcameo</dt><dd>MSRCAMEO drivers</dt><dt>msr7000</dt><dd>MSR7000 drivers</dt><dt>dcr7000</dt><dd>DCR7000 drivers</dt><dt>msr55</dt><dd>MSR55 drivers</dt><dt>msr3000</dt><dd>MSR3000 drivers</dt></dl><p><div id="moduleNameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.moduleName</h3>  </div>  <div class="modal-body">
+myvar = Rho.CardReader.getProperties(['autoTab' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmoduleName'></a><div class='accordion property' id='pmoduleName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymoduleName"><strong>moduleName</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymoduleName" class="accordion-body collapse in">  <div class="accordion-inner">This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform.  If the device has multiple card reader drivers installed this parameter is used to select which driver to use.  The drivers present are output in the log file when the card reader is initialised.  This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'<div><p><strong>Platforms: </strong><img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><a href="#moduleNameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>msr9000</dt><dd>MSR9000 drivers</dt><dt>msr9001</dt><dd>MSR9001 drivers</dt><dt>msr9500</dt><dd>MSR9500 drivers</dt><dt>msrcameo</dt><dd>MSRCAMEO drivers</dt><dt>msr7000</dt><dd>MSR7000 drivers</dt><dt>dcr7000</dt><dd>DCR7000 drivers</dt><dt>msr55</dt><dd>MSR55 drivers</dt><dt>msr3000</dt><dd>MSR3000 drivers</dt></dl><p><div id="moduleNameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">CardReader.moduleName</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
@@ -223,13 +223,13 @@ CardReader.getProperties(...., url_for :action => :mycallback)</code></pre><p>Ja
 <pre class='CodeRay'><code>:::javascript
 CardReader.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-CardReader.getProperties(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+CardReader.getProperties(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-CardReader.getProperties(....,function(params){
+CardReader.getProperties(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 CardReader.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
@@ -240,13 +240,13 @@ CardReader.getProperty(...., url_for :action => :mycallback)</code></pre><p>Java
 <pre class='CodeRay'><code>:::javascript
 CardReader.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-CardReader.getProperty(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+CardReader.getProperty(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-CardReader.getProperty(....,function(params){
+CardReader.getProperty(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 CardReader.getProperty(...., mycallback() )</code></pre><p>Javascript</p>

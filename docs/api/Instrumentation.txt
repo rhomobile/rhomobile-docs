@@ -11,13 +11,13 @@ Instrumentation.getProperties(...., url_for :action => :mycallback)</code></pre>
 <pre class='CodeRay'><code>:::javascript
 Instrumentation.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Instrumentation.getProperties(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Instrumentation.getProperties(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Instrumentation.getProperties(....,function(params){
+Instrumentation.getProperties(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Instrumentation.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
@@ -28,13 +28,13 @@ Instrumentation.getProperty(...., url_for :action => :mycallback)</code></pre><p
 <pre class='CodeRay'><code>:::javascript
 Instrumentation.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Instrumentation.getProperty(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Instrumentation.getProperty(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Instrumentation.getProperty(....,function(params){
+Instrumentation.getProperty(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Instrumentation.getProperty(...., mycallback() )</code></pre><p>Javascript</p>

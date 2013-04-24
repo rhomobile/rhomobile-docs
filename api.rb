@@ -82,6 +82,9 @@ md+='  <div class="modal-body">'
 	  	md += "\n# Getting multiple properties"
 	  	md += "\n"
 	  	md += "myvar = Rho::#{model}.getProperties([" + "'#{property}' , 'another_property'])"
+ 	else
+  		md += "myvar = Rho::#{model}.#{property}"
+	
   	end
   	md += "</code></pre>" 
   	md += "\n\n<strong>Javascript Usage</strong>"
@@ -106,6 +109,9 @@ md+='  <div class="modal-body">'
 	  	md += "\n# Getting multiple properties"
 	  	md += "\n"
 	  	md += "myvar = Rho.#{model}.getProperties([" + "'#{property}' , 'another_property']);"
+	else
+	  	md += "myvar = Rho.#{model}.#{property};"
+
 	end
 	md += "</code></pre>" 
 md+='  </div>'
@@ -376,7 +382,9 @@ md+='</div>'
 
 				# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
 				# puts appliescontent
-				propnote= "(" + appliescontent + ")"
+				if appliescontent.size >0
+					propnote= "(" + appliescontent + ")"
+				end
 			end
 			@propplatforms = "All"
 			if !element["PLATFORM"].nil?
@@ -668,7 +676,11 @@ end
 
 			# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
 			# puts appliescontent
-			methnote= "(" + appliescontent + ")"
+			if appliescontent.size >0
+				
+				methnote= "(" + appliescontent + ")"
+			end
+
 		end
 
 
@@ -701,8 +713,8 @@ end
 				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "'/app/model/mycallback');</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ \n|params| }\nProc.new{\n |params| })</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "function(params){\n//Your code here\n};);</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ |e|\n puts e['propertyname'] }\n)</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "function(e){\n//Your code here\n alert(e.propertyname);\n};);</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
 				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback() )</code></pre>"

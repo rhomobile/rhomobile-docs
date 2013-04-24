@@ -28,14 +28,14 @@ todo.  This is for hardware keys, not software keys... note recommended to use w
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::KeyCapture.homeKeyValue='some string'</code></pre>
+Rho::KeyCapture.homeKeyValue='some string'myvar = Rho::KeyCapture.homeKeyValue</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Rho.KeyCapture.homeKeyValue='some string';</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+Rho.KeyCapture.homeKeyValue='some string';myvar = Rho.KeyCapture.homeKeyValue;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 
@@ -45,13 +45,13 @@ KeyCapture.captureKey(...., url_for :action => :mycallback)</code></pre><p>Javas
 <pre class='CodeRay'><code>:::javascript
 KeyCapture.captureKey(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-KeyCapture.captureKey(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+KeyCapture.captureKey(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-KeyCapture.captureKey(....,function(params){
+KeyCapture.captureKey(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 KeyCapture.captureKey(...., mycallback() )</code></pre><p>Javascript</p>

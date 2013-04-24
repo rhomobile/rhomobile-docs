@@ -67,14 +67,14 @@ The Battery API is used to notify the user of the remaining power in the battery
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Battery.refreshInterval=0</code></pre>
+Rho::Battery.refreshInterval=0myvar = Rho::Battery.refreshInterval</code></pre>
 
 <strong>Javascript Usage</strong>
 
 <pre class='CodeRay'><code>:::javascript
 
 # Setting directly
-Rho.Battery.refreshInterval=0;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+Rho.Battery.refreshInterval=0;myvar = Rho.Battery.refreshInterval;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 
@@ -84,13 +84,13 @@ Battery.batteryStatus(...., url_for :action => :mycallback)</code></pre><p>Javas
 <pre class='CodeRay'><code>:::javascript
 Battery.batteryStatus(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Battery.batteryStatus(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Battery.batteryStatus(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Battery.batteryStatus(....,function(params){
+Battery.batteryStatus(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Battery.batteryStatus(...., mycallback() )</code></pre><p>Javascript</p>

@@ -1,5 +1,5 @@
 #Camera
-<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;18</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#pcameraType" data-target="cPropertycameraType" class="autouncollapse"><span class="text-info">cameraType</span></a></li><li><a href="#pcaptureSound" data-target="cPropertycaptureSound" class="autouncollapse">captureSound</a></li><li><a href="#pcolorModel" data-target="cPropertycolorModel" class="autouncollapse"><span class="text-info">colorModel</span></a></li><li><a href="#pcompressionFormat" data-target="cPropertycompressionFormat" class="autouncollapse"><span class="text-info">compressionFormat</span></a></li><li><a href="#pdesiredHeight" data-target="cPropertydesiredHeight" class="autouncollapse"><span class="text-info">desiredHeight</span></a></li><li><a href="#pdesiredWidth" data-target="cPropertydesiredWidth" class="autouncollapse"><span class="text-info">desiredWidth</span></a></li><li><a href="#penableEditing" data-target="cPropertyenableEditing" class="autouncollapse"><span class="text-info">enableEditing</span></a></li><li><a href="#pflashMode" data-target="cPropertyflashMode" class="autouncollapse"><span class="text-info">flashMode</span></a></li><li><a href="#pmaxHeight" data-target="cPropertymaxHeight" class="autouncollapse">maxHeight</a></li><li><a href="#pmaxWidth" data-target="cPropertymaxWidth" class="autouncollapse">maxWidth</a></li><li><a href="#poutputFormat" data-target="cPropertyoutputFormat" class="autouncollapse">outputFormat</a></li><li><a href="#ppreviewHeight" data-target="cPropertypreviewHeight" class="autouncollapse">previewHeight</a></li><li><a href="#ppreviewLeft" data-target="cPropertypreviewLeft" class="autouncollapse"><span class="text-info">previewLeft</span></a></li><li><a href="#ppreviewTop" data-target="cPropertypreviewTop" class="autouncollapse"><span class="text-info">previewTop</span></a></li><li><a href="#ppreviewWidth" data-target="cPropertypreviewWidth" class="autouncollapse">previewWidth</a></li><li><a href="#psaveToDeviceGallery" data-target="cPropertysaveToDeviceGallery" class="autouncollapse"><span class="text-info">saveToDeviceGallery</span></a></li><li><a href="#psupportedSizeList" data-target="cPropertysupportedSizeList" class="autouncollapse">supportedSizeList</a></li><li><a href="#puseSystemViewfinder" data-target="cPropertyuseSystemViewfinder" class="autouncollapse">useSystemViewfinder</a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;13</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#mchoosePicture" data-target="cMethodchoosePicture" class="autouncollapse">choosePicture</a></li><li><a href="#mclearAllProperties" data-target="cMethodclearAllProperties" class="autouncollapse">clearAllProperties</a></li><li><a href="#menumerate" data-target="cMethodenumerate" class="autouncollapse">enumerate</a></li><li><a href="#mgetAllProperties" data-target="cMethodgetAllProperties" class="autouncollapse">getAllProperties</a></li><li><a href="#mgetCameraByType" data-target="cMethodgetCameraByType" class="autouncollapse">getCameraByType</a></li><li><a href="#mgetDefault" data-target="cMethodgetDefault" class="autouncollapse">getDefault</a></li><li><a href="#mgetProperties" data-target="cMethodgetProperties" class="autouncollapse">getProperties</a></li><li><a href="#mgetProperty" data-target="cMethodgetProperty" class="autouncollapse">getProperty</a></li><li><a href="#msaveImageToDeviceGallery" data-target="cMethodsaveImageToDeviceGallery" class="autouncollapse"><span class='text-info'>saveImageToDeviceGallery</span></a></li><li><a href="#msetDefault" data-target="cMethodsetDefault" class="autouncollapse">setDefault</a></li><li><a href="#msetProperties" data-target="cMethodsetProperties" class="autouncollapse">setProperties</a></li><li><a href="#msetProperty" data-target="cMethodsetProperty" class="autouncollapse">setProperty</a></li><li><a href="#mtakePicture" data-target="cMethodtakePicture" class="autouncollapse">takePicture</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button></div><div  >
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;19</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#pcameraType" data-target="cPropertycameraType" class="autouncollapse"><span class="text-info">cameraType</span></a></li><li><a href="#pcaptureSound" data-target="cPropertycaptureSound" class="autouncollapse">captureSound</a></li><li><a href="#pcolorModel" data-target="cPropertycolorModel" class="autouncollapse"><span class="text-info">colorModel</span></a></li><li><a href="#pcompressionFormat" data-target="cPropertycompressionFormat" class="autouncollapse"><span class="text-info">compressionFormat</span></a></li><li><a href="#pdesiredHeight" data-target="cPropertydesiredHeight" class="autouncollapse"><span class="text-info">desiredHeight</span></a></li><li><a href="#pdesiredWidth" data-target="cPropertydesiredWidth" class="autouncollapse"><span class="text-info">desiredWidth</span></a></li><li><a href="#penableEditing" data-target="cPropertyenableEditing" class="autouncollapse"><span class="text-info">enableEditing</span></a></li><li><a href="#pfileName" data-target="cPropertyfileName" class="autouncollapse">fileName</a></li><li><a href="#pflashMode" data-target="cPropertyflashMode" class="autouncollapse"><span class="text-info">flashMode</span></a></li><li><a href="#pmaxHeight" data-target="cPropertymaxHeight" class="autouncollapse">maxHeight</a></li><li><a href="#pmaxWidth" data-target="cPropertymaxWidth" class="autouncollapse">maxWidth</a></li><li><a href="#poutputFormat" data-target="cPropertyoutputFormat" class="autouncollapse">outputFormat</a></li><li><a href="#ppreviewHeight" data-target="cPropertypreviewHeight" class="autouncollapse">previewHeight</a></li><li><a href="#ppreviewLeft" data-target="cPropertypreviewLeft" class="autouncollapse"><span class="text-info">previewLeft</span></a></li><li><a href="#ppreviewTop" data-target="cPropertypreviewTop" class="autouncollapse"><span class="text-info">previewTop</span></a></li><li><a href="#ppreviewWidth" data-target="cPropertypreviewWidth" class="autouncollapse">previewWidth</a></li><li><a href="#psaveToDeviceGallery" data-target="cPropertysaveToDeviceGallery" class="autouncollapse"><span class="text-info">saveToDeviceGallery</span></a></li><li><a href="#psupportedSizeList" data-target="cPropertysupportedSizeList" class="autouncollapse">supportedSizeList</a></li><li><a href="#puseSystemViewfinder" data-target="cPropertyuseSystemViewfinder" class="autouncollapse">useSystemViewfinder</a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;13</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#mchoosePicture" data-target="cMethodchoosePicture" class="autouncollapse">choosePicture</a></li><li><a href="#mclearAllProperties" data-target="cMethodclearAllProperties" class="autouncollapse">clearAllProperties</a></li><li><a href="#menumerate" data-target="cMethodenumerate" class="autouncollapse">enumerate</a></li><li><a href="#mgetAllProperties" data-target="cMethodgetAllProperties" class="autouncollapse">getAllProperties</a></li><li><a href="#mgetCameraByType" data-target="cMethodgetCameraByType" class="autouncollapse">getCameraByType</a></li><li><a href="#mgetDefault" data-target="cMethodgetDefault" class="autouncollapse">getDefault</a></li><li><a href="#mgetProperties" data-target="cMethodgetProperties" class="autouncollapse">getProperties</a></li><li><a href="#mgetProperty" data-target="cMethodgetProperty" class="autouncollapse">getProperty</a></li><li><a href="#msaveImageToDeviceGallery" data-target="cMethodsaveImageToDeviceGallery" class="autouncollapse"><span class='text-info'>saveImageToDeviceGallery</span></a></li><li><a href="#msetDefault" data-target="cMethodsetDefault" class="autouncollapse">setDefault</a></li><li><a href="#msetProperties" data-target="cMethodsetProperties" class="autouncollapse">setProperties</a></li><li><a href="#msetProperty" data-target="cMethodsetProperty" class="autouncollapse">setProperty</a></li><li><a href="#mtakePicture" data-target="cMethodtakePicture" class="autouncollapse">takePicture</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button></div><div  >
 The Camera API provides access to your device's Camera(s)Use this API to give users the ability to take a photo via one of the device's cameras and return it to the application.  Photos can either be stored on the device and optionally transfered to an online server using the Network API or can be returned as a DataURI object for storing or display.
 
 <a name='Properties'></a>
@@ -211,7 +211,38 @@ Rho.Camera.setProperties({ :enableEditing:true , :another_property:true});
 # Getting one property
 myvar = Rho.Camera.getProperty('enableEditing');
 # Getting multiple properties
-myvar = Rho.Camera.getProperties(['enableEditing' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pflashMode'></a><div class='accordion property' id='pflashMode'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyflashMode"><strong><span class="text-info">flashMode</span></strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyflashMode" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:flash_mode</span> Specifies the flash behaviour when taking a picture<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"> </p></div><p><a href="#flashModeUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>on</dt><dd>Flash will be used</dt><dt>off</dt><dd>Flash will not be used</dt><dt>auto</dt><dd>Flash will be used if lighting conditions deem it necessary</dt><dt>redEye</dt><dd>Flash with red eye reduction is used</dt><dt>torch</dt><dd>The flash is turned on in torch mode</dt></dl><p><div id="flashModeUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">Camera.flashMode</h3>  </div>  <div class="modal-body">
+myvar = Rho.Camera.getProperties(['enableEditing' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pfileName'></a><div class='accordion property' id='pfileName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyfileName"><strong>fileName</strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>4.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyfileName" class="accordion-body collapse in">  <div class="accordion-inner">The path without filename extension to store captured image in subsequent calls to takePicture(). The filename extension will be added automatically according to compressionFormat property value.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#fileNameUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="fileNameUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">Camera.fileName</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::Camera.fileName='some string'
+# Setting one property
+Rho::Camera.setProperty :fileName, 'some string' 
+# Setting multiple properties using HASH
+Rho::Camera.setProperties { :fileName => 'some string' , :another_property => 'some string'}
+
+# Getting one property
+myvar = Rho::Camera.getProperty('fileName')
+# Getting multiple properties
+myvar = Rho::Camera.getProperties(['fileName' , 'another_property'])</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Rho.Camera.fileName='some string';
+# Setting one property
+Rho.Camera.setProperty('fileName','some string');
+# Setting multiple properties using JSON object
+Rho.Camera.setProperties({ :fileName:'some string' , :another_property:'some string'});
+
+# Getting one property
+myvar = Rho.Camera.getProperty('fileName');
+# Getting multiple properties
+myvar = Rho.Camera.getProperties(['fileName' , 'another_property']);</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pflashMode'></a><div class='accordion property' id='pflashMode'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyflashMode"><strong><span class="text-info">flashMode</span></strong> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>2.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyflashMode" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:flash_mode</span> Specifies the flash behaviour when taking a picture<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"> </p></div><p><a href="#flashModeUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>on</dt><dd>Flash will be used</dt><dt>off</dt><dd>Flash will not be used</dt><dt>auto</dt><dd>Flash will be used if lighting conditions deem it necessary</dt><dt>redEye</dt><dd>Flash with red eye reduction is used</dt><dt>torch</dt><dd>The flash is turned on in torch mode</dt></dl><p><div id="flashModeUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">Camera.flashMode</h3>  </div>  <div class="modal-body">
 
 <strong>Ruby Usage</strong>
 
@@ -529,13 +560,13 @@ Camera.choosePicture(...., url_for :action => :mycallback)</code></pre><p>Javasc
 <pre class='CodeRay'><code>:::javascript
 Camera.choosePicture(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Camera.choosePicture(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Camera.choosePicture(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Camera.choosePicture(....,function(params){
+Camera.choosePicture(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Camera.choosePicture(...., mycallback() )</code></pre><p>Javascript</p>
@@ -546,13 +577,13 @@ Camera.getCameraByType(...., url_for :action => :mycallback)</code></pre><p>Java
 <pre class='CodeRay'><code>:::javascript
 Camera.getCameraByType(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Camera.getCameraByType(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Camera.getCameraByType(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Camera.getCameraByType(....,function(params){
+Camera.getCameraByType(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Camera.getCameraByType(...., mycallback() )</code></pre><p>Javascript</p>
@@ -563,13 +594,13 @@ Camera.getProperties(...., url_for :action => :mycallback)</code></pre><p>Javasc
 <pre class='CodeRay'><code>:::javascript
 Camera.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Camera.getProperties(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Camera.getProperties(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Camera.getProperties(....,function(params){
+Camera.getProperties(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Camera.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
@@ -580,13 +611,13 @@ Camera.getProperty(...., url_for :action => :mycallback)</code></pre><p>Javascri
 <pre class='CodeRay'><code>:::javascript
 Camera.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Camera.getProperty(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Camera.getProperty(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Camera.getProperty(....,function(params){
+Camera.getProperty(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Camera.getProperty(...., mycallback() )</code></pre><p>Javascript</p>
@@ -597,13 +628,13 @@ Camera.takePicture(...., url_for :action => :mycallback)</code></pre><p>Javascri
 <pre class='CodeRay'><code>:::javascript
 Camera.takePicture(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Camera.takePicture(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Camera.takePicture(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Camera.takePicture(....,function(params){
+Camera.takePicture(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Camera.takePicture(...., mycallback() )</code></pre><p>Javascript</p>

@@ -6508,13 +6508,13 @@ Barcode.enable(...., url_for :action => :mycallback)</code></pre><p>Javascript</
 <pre class='CodeRay'><code>:::javascript
 Barcode.enable(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Barcode.enable(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Barcode.enable(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Barcode.enable(....,function(params){
+Barcode.enable(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Barcode.enable(...., mycallback() )</code></pre><p>Javascript</p>
@@ -6525,13 +6525,13 @@ Barcode.getProperties(...., url_for :action => :mycallback)</code></pre><p>Javas
 <pre class='CodeRay'><code>:::javascript
 Barcode.getProperties(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Barcode.getProperties(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Barcode.getProperties(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Barcode.getProperties(....,function(params){
+Barcode.getProperties(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Barcode.getProperties(...., mycallback() )</code></pre><p>Javascript</p>
@@ -6542,13 +6542,13 @@ Barcode.getProperty(...., url_for :action => :mycallback)</code></pre><p>Javascr
 <pre class='CodeRay'><code>:::javascript
 Barcode.getProperty(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Barcode.getProperty(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Barcode.getProperty(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Barcode.getProperty(....,function(params){
+Barcode.getProperty(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Barcode.getProperty(...., mycallback() )</code></pre><p>Javascript</p>
@@ -6559,13 +6559,13 @@ Barcode.recognize(...., url_for :action => :mycallback)</code></pre><p>Javascrip
 <pre class='CodeRay'><code>:::javascript
 Barcode.recognize(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Barcode.recognize(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Barcode.recognize(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Barcode.recognize(....,function(params){
+Barcode.recognize(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Barcode.recognize(...., mycallback() )</code></pre><p>Javascript</p>
@@ -6576,13 +6576,13 @@ Barcode.take(...., url_for :action => :mycallback)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
 Barcode.take(....,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
-Barcode.take(....,lambda{ 
-|params| }
-Proc.new{
- |params| })</code></pre><p>Javascript</p>
+Barcode.take(....,lambda{ |e|
+ puts e['propertyname'] }
+)</code></pre><p>Javascript</p>
 <pre class='CodeRay'><code>:::javascript
-Barcode.take(....,function(params){
+Barcode.take(....,function(e){
 //Your code here
+ alert(e.propertyname);
 };);</code></pre></li><li>Function<p>Ruby</p>
 <pre class='CodeRay'><code>:::ruby
 Barcode.take(...., mycallback() )</code></pre><p>Javascript</p>
