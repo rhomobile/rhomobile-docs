@@ -150,7 +150,7 @@ Delete an existing record in the backend (optional).
     };
 
 ## currentUser
-Returns the current user which called the adapter.  For example, you could filter results for a specific user in your query method.
+Returns the current user which called the adapter.  The current user is part of the [response object](/rhoconnectapi/source-adapter-response-api-js).  For example, you could filter results for a specific user in your query method.
 
     :::javascript
     this.query = function(resp){
@@ -163,7 +163,6 @@ Returns the current user which called the adapter.  For example, you could filte
 
 ## stashResult
 Saves a partial dataset to redis.  Typically this is used when your adapter has to paginate through backend service data.
-
 
 ## storeBlob
 
