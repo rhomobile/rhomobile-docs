@@ -132,18 +132,19 @@ You can write the following methods for your source adapter model. These methods
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
 
 ### Request API
-The [request object](/rhoconnectapi/source-adapter-controller-api-js#request) contains information about the HTTP request the app is receiving.
+The [request object](/rhoconnectapi/source-adapter-request-api-js) contains information about the HTTP request the app is receiving.
 
-* [params](/rhoconnectapi/source-adapter-controller-api-js#requestparams) - Access in the incoming request parameters (i.e. from the HTTP query string).
-* [header](/rhoconnectapi/source-adapter-controller-api-js#requestheader) - HTTP request headers.
-* [model](/rhoconnectapi/source-adapter-controller-api-js#requestmodel) - The corresponding model name of the request.
+* [params](/rhoconnectapi/source-adapter-request-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
+* [header](/rhoconnectapi/source-adapter-request-api-js#header) - HTTP request headers.
+* [model](/rhoconnectapi/source-adapter-request-api-js#model) - The corresponding model name of the request.
 
 ### Response API
-The [response](/rhoconnectapi/source-adapter-controller-api-js#response) is used to pass application control and return the `result` hash to RhoConnect.
+The [response](/rhoconnectapi/source-adapter-response-api-js) is used to pass application control and return the `result` hash to RhoConnect.
 
-* [params](/rhoconnectapi/source-adapter-controller-api-js#responseparams) - Access in the incoming request parameters (i.e. from the HTTP query string).
-* [header](/rhoconnectapi/source-adapter-controller-api-js#responseheader) - HTTP request headers.
-* [exception](/rhoconnectapi/source-adapter-controller-api-js#responseexception) - Holds the exception for the request (if one is raised).
+* [params](/rhoconnectapi/source-adapter-response-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
+* [header](/rhoconnectapi/source-adapter-response-api-js#header) - HTTP request headers.
+* [send](/rhoconnectapi/source-adapter-response-api-js#send) - Return program control (most controller and model methods will need to do this).
+* [exception](/rhoconnectapi/source-adapter-response-api-js#exception) - Holds the exception for the request (if one is raised).
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
 
 ## Redis Store API (JavaScript)
