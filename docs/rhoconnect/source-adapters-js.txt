@@ -143,7 +143,7 @@ The [response](/rhoconnectapi/source-adapter-response-api-js) is used to pass ap
 
 * [params](/rhoconnectapi/source-adapter-response-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
 * [header](/rhoconnectapi/source-adapter-response-api-js#header) - HTTP request headers.
-* [send](/rhoconnectapi/source-adapter-response-api-js#send) - Return program control (most controller and model methods will need to do this).
+* [send](/rhoconnectapi/source-adapter-response-api-js#sendvalue) - Return program control (most controller and model methods will need to do this).
 * [exception](/rhoconnectapi/source-adapter-response-api-js#exception) - Holds the exception for the request (if one is raised).
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
 
