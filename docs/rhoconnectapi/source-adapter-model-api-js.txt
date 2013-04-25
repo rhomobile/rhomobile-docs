@@ -1,3 +1,172 @@
 Source Adapter Model API (JavaScript)
 ===
-Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](/rhoconnect/source-adapters-js#sample-adapter) for a complete example.
+Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](/rhoconnect/source-adapters-js#sample-model) for a complete example.
+
+## login
+Login to your backend service (optional).
+
+    :::javascript
+    this.login = function(resp){
+      resp.send(true);
+    };
+
+## logoff
+Logoff from your backend service (optional).
+
+    :::javascript
+    this.logoff = function(resp){
+      resp.send(true);
+    };
+
+## query
+Query your backend service and build a hash of hashes (required).
+
+**NOTE: This method must call resp.send(data) where `data` is a hash of hashes.**
+
+    :::javascript
+    this.query = function(resp){
+      var result = {};
+      var str = '';
+
+      http.request('http://' + host + '/products.json', function(res){
+        res.on('data', function(chunk){
+          str += chunk;
+        });
+        res.on('end', function(){
+          var data = JSON.parse(str);
+          for(var i in data){
+            var item = data[i];
+            result[item.product.id.toString()] = item.product;
+          }
+          resp.send(result);
+        });
+      }).end();
+    };
+
+## search
+Search your backend based on params and build a hash of hashes (optional).  Similar to query, however the master document accumulates the data in redis instead of replacing each time it runs.
+
+    :::javascript
+    this.search = function(resp){
+      var result = {};
+      var str = '';
+      var name = resp.params.name;
+
+      http.request('http://' + host + '/products.json?name=' + name, function(res){
+        res.on('data', function(chunk){
+          str += chunk;
+        });
+        res.on('end', function(){
+          var data = JSON.parse(str);
+          for(var i in data){
+            var item = data[i];
+            result[item.product.id.toString()] = item.product;
+          }
+          resp.send(result);
+        });
+      }).end();
+    };
+
+Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/rhodes/synchronization#filtering-datasets-with-search).
+
+## create
+Create a new record in the backend (optional).
+
+**NOTE: RhoConnect can establish a 'link' between the local record id provided by the client and the new record id provided by the backend service.  To enable this link, return the new record id as a string.**
+
+    :::javascript
+    this.create = function(resp){
+      var postData = JSON.stringify({ 'product': resp.params.create_object });
+      var str = '';
+      var options = {
+        host: host,
+        path: '/products.json',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      };
+      var req = http.request(options, function(res){
+        res.on('data', function(chunk){
+          str += chunk;
+        });
+        res.on('end', function(){
+          var data = JSON.parse(str);
+          resp.send(data.product.id.toString());
+        });
+      });
+      req.write(postData);
+      req.end();
+    };
+
+## update
+Update an existing record in the backend (optional).
+
+    :::javascript
+    this.update = function(resp){
+      var objId = resp.params.update_object.id;
+      var putData = JSON.stringify({ "product": resp.params.update_object });
+      // Remove the id from the hash, we don't need it.
+      delete putData.id;
+      var options = {
+        host: host,
+        path: '/products/' + objId + '.json',
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' }
+      };
+      var req = http.request(options, function(res){
+        res.on('data', function(){});
+        res.on('end', function(){
+          resp.send(true);
+        });
+        res.on('error', function(){
+          resp.send(false);
+        });
+      });
+      req.write(putData);
+      req.end();
+    };
+
+## del
+Delete an existing record in the backend (optional).
+
+    :::javascript
+    this.del = function(resp){
+      var objId = resp.params.delete_object.id;
+      var options = {
+        host: host,
+        path: '/products/' + objId + '.json',
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      };
+      var req = http.request(options, function(res){
+        res.on('data', function(){});
+        res.on('end', function(){
+          resp.send(true);
+        });
+        res.on('error', function(){
+          resp.send(false);
+        });
+      });
+      req.end();
+    };
+
+## currentUser
+Returns the current user which called the adapter.  For example, you could filter results for a specific user in your query method.
+
+    :::javascript
+    this.query = function(resp){
+      var result = {};
+      var str = '';
+      var user = resp.currentUser;
+
+      // ...
+    };
+
+## stashResult
+Saves a partial dataset to redis.  Typically this is used when your adapter has to paginate through backend service data.
+
+
+## storeBlob
+
+## getData
+
+You can access your model's document data by with `getData` method. By default, when called without arguments - it returns the Master Document (:md).
