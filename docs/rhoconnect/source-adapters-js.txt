@@ -147,23 +147,13 @@ The [response](/rhoconnectapi/source-adapter-response-api-js) is used to pass ap
 * [exception](/rhoconnectapi/source-adapter-response-api-js#exception) - Holds the exception for the request (if one is raised).
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
 
-## Redis Store API (JavaScript)
-RhoConnect provides a simple redis interface for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
+## Store API
+RhoConnect provides a simple [redis interface](/rhoconnectapi/source-adapter-store-api-js) for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
 
-    :::javascript
-    resp.params = { 'hello': 'world' }
-    Store.putValue(resp, function(){
-      resp.send(true)
-    });
-
-
-    var value = '';
-    resp.params = 'hello';
-    Store.getValue(resp, function(){
-      value = resp.result;
-      // value is now 'world'
-      resp.send(resp.result);
-    });
+* [getValue](/rhoconnectapi/source-adapter-store-api-js#getvaluerespcallback) - Retrieve a simple value from redis.
+* [putValue](/rhoconnectapi/source-adapter-store-api-js#putvaluerespcallback) - Add a simple value to redis.
+* [getData](/rhoconnectapi/source-adapter-store-api-js#getdatarespcallback) - Retrieve an array or hash from redis.
+* [putData](/rhoconnectapi/source-adapter-store-api-js#putdatarespcallback) - Add an array or hash to redis.
 
 ## Sample Model
 Here's a complete example of how the completed [product model might look](https://gist.github.com/larsburgess/87753882f3a4a366b48b):
