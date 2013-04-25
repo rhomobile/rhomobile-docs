@@ -28,6 +28,7 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/Log',      'Log'
   topic 'api/Network',      'Network'
   topic 'api/Rohm',      'Rohm'
+  topic 'api/RohmObject',      'RohmObject'
   topic 'api/RhoConnectClient',      'RhoConnectClient'
   topic 'api/signature',      'Signature'
   topic 'api/system',      'System'
