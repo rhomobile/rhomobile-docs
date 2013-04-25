@@ -696,7 +696,7 @@ end
 		@methparams = ""
 		@methparamsdetails = ""
 		@methsectionparams = ""
-		if !element["PARAMS"].nil?
+		if !element["PARAMS"].nil? || (@methhascallback !="" && @methhascallback != "none")
 			@methsectionparams = "<div>"
 			@methsectionparams += "<p><strong>Parameters</strong></p><ul>"
 		
@@ -707,21 +707,44 @@ end
 				if @methhascallback == "optional"
 					@methcallbackoptional = " <span class='label label-info'>Optional</span> "
 				end
-				@methcallbackparamdesc = "<p>The callback parameter can take on one of three forms</p><ol>"
+				firstcallbackreturnparam = "calbackreturnparamname"
+				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
+					# puts element["CALLBACK"][0]["PARAMS"]
+					firstcallbackreturnparam = element["CALLBACK"][0]["PARAMS"][0]["PARAM"][0]["name"]
+				end
+				if !element["PARAMS"].nil?
+					prevparams = "...,"
+				else
+					prevparams = ""
+				end
+				@methcallbackparamdesc = '<p><a href="#' + methname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
+	
+				@methcallbackparamdesc +='<div id="' + methname + 'Usage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
+				@methcallbackparamdesc+='  <div class="modal-header">'
+				@methcallbackparamdesc+='    <h3 id="myModalLabel">' + methname + ' Callback</h3>'
+				@methcallbackparamdesc+='  </div>'
+				@methcallbackparamdesc+='  <div class="modal-body">'
+
+				@methcallbackparamdesc += "<p>The callback parameter can take on one of three forms</p><ol>"
 				@methcallbackparamdesc += "<li>Controller action URL"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + " url_for :action => :mycallback)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "'/app/model/mycallback');</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " url_for :action => :mycallback)</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + "lambda{ |e|\n puts e['propertyname'] }\n)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + "function(e){\n//Your code here\n alert(e.propertyname);\n};);</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "lambda{ |e|\n puts e['#{firstcallbackreturnparam}'] }\n)</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback() )</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(....," + " mycallback());</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " mycallback() )</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "</ol>"
-				
+				@methcallbackparamdesc+='  </div>'
+				@methcallbackparamdesc+='  <div class="modal-footer">'
+				@methcallbackparamdesc+='    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>'
+				@methcallbackparamdesc+='  </div>'
+				@methcallbackparamdesc+='</div>'
+
 				@methsectionparams += "<li>callback : <span class='text-info'>Callback &lt;Object&gt;</span>#{@methcallbackoptional}<p>#{@methcallbackparamdesc}" +  "</p></li>"
 
   			end
@@ -738,6 +761,9 @@ end
 			@callbackjssample = "callback_function"
 			if @methparams != ""
 				@methparams = @methparams + ", <span class='text-info'>Callback &lt;Object&gt;</span> callback"
+			else
+				@methparams = @methparams + "<span class='text-info'>Callback &lt;Object&gt;</span> callback"
+
 			end
 			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
 			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
