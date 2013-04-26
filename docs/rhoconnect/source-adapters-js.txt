@@ -130,6 +130,8 @@ You can write the following methods for your source adapter model. These methods
 * [stashResult](/rhoconnectapi/source-adapter-model-api-js#stashresultresp) - Saves the current state of the result to redis and sets it `undefined`.
 * [getData](/rhoconnectapi/source-adapter-model-api-js#getdataresp-callback) - Get the model document data from Store.
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
+* [storeBlob](/rhoconnectapi/source-adapter-model-api-js#storeblob) - Save the incoming blob data into permanent storage for the future processing.
+
 
 ### Request API
 The [request object](/rhoconnectapi/source-adapter-request-api-js) contains information about the HTTP request the app is receiving.
