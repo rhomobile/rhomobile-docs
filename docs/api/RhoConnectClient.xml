@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="RhoConnectClient" parent="Rho">
+    <MODULE name="RhoConnectClient" parent="Rho" generateUnderscoreRubyNames="true">
         <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers. Synchronization overview is avalable here: http://docs.rhomobile.com/rhodes/synchronization</HELP_OVERVIEW>
 		
 		<ALIASES>
@@ -120,7 +120,7 @@
 							</PARAM>
 							
 							<PARAM name="syncChanges" type="BOOLEAN">
-								<DESC></DESC>
+								<DESC>If true and have local changes, client sync will be triggered before search.</DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
 							
@@ -285,7 +285,7 @@
 				<RETURN type="INTEGER"/>
             </METHOD>
 												
-			<METHOD name="setSourceProperty">
+			<METHOD name="setSourceProperty" generateDoc="false">
                 <DESC>Sets property value for a given source.</DESC>
 
 				<PARAMS>
@@ -303,7 +303,7 @@
 				</PARAMS>
             </METHOD>
 			
-			<METHOD name="getSourceProperty">
+			<METHOD name="getSourceProperty" generateDoc="false">
                 <DESC>Gets property value for a given source.</DESC>
 
 				<PARAMS>
@@ -412,7 +412,7 @@
                         </DESC>
                         <CODE lang='ruby'>
                             <![CDATA[
-                            SyncEngine.login(
+                            RhoConnectClient.login(
                                 @params['login'],
                                 @params['password'],
                                 url_for(:action => :login_callback)
@@ -532,7 +532,7 @@
                                     def index
                                         @products = Product.find(:all)
                                 
-                                        RhoConnectClient.AddObjectnotify(@products)
+                                        RhoConnectClient.addObjectnotify('Product',@products)
                                         render
                                     end
                                 

@@ -1,0 +1,413 @@
+#OrmObject
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;2</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#pclientId" data-target="cPropertyclientId" class="autouncollapse">clientId</a></li><li><a href="#pmetadata" data-target="cPropertymetadata" class="autouncollapse">metadata</a></li></ul></div><div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;16</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#mcanModify" data-target="cMethodcanModify" class="autouncollapse">canModify</a></li><li><a href="#mclearNotification" data-target="cMethodclearNotification" class="autouncollapse">clearNotification</a></li><li><a href="#mcreate" data-target="cMethodcreate" class="autouncollapse">create</a></li><li><a href="#mdeleteAll" data-target="cMethoddeleteAll" class="autouncollapse">deleteAll</a></li><li><a href="#mdestroy" data-target="cMethoddestroy" class="autouncollapse">destroy</a></li><li><a href="#mfind" data-target="cMethodfind" class="autouncollapse">find</a></li><li><a href="#mfindAll" data-target="cMethodfindAll" class="autouncollapse">findAll</a></li><li><a href="#mfindBySql" data-target="cMethodfindBySql" class="autouncollapse">findBySql</a></li><li><a href="#mgetSourceName" data-target="cMethodgetSourceName" class="autouncollapse">getSourceName</a></li><li><a href="#misChanged" data-target="cMethodisChanged" class="autouncollapse"><span class='text-info'>isChanged</span></a></li><li><a href="#mnew" data-target="cMethodnew" class="autouncollapse">new</a></li><li><a href="#mpaginate" data-target="cMethodpaginate" class="autouncollapse">paginate</a></li><li><a href="#msave" data-target="cMethodsave" class="autouncollapse">save</a></li><li><a href="#msetNotification" data-target="cMethodsetNotification" class="autouncollapse">setNotification</a></li><li><a href="#msync" data-target="cMethodsync" class="autouncollapse">sync</a></li><li><a href="#mupdateAttributes" data-target="cMethodupdateAttributes" class="autouncollapse">updateAttributes</a></li></ul></div><div class="btn-group pull-right"><button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;9</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Orm Delete Method Examples</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Orm find Method Examples</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Orm New and Create Method Examples</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Orm Paginate Method Example</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Orm Sync and set_notification Method Example</a></li><li><a href="#e5" data-target="eExample5" class="autouncollapse">Orm update_attributes Method Example</a></li><li><a href="#e6" data-target="eExample6" class="autouncollapse">Orm can_modify Method Example</a></li><li><a href="#e7" data-target="eExample7" class="autouncollapse">Orm isChanged Method Example</a></li><li><a href="#e8" data-target="eExample8" class="autouncollapse">Orm metadata Method Examples</a></li></ul></div><div  >
+
+
+<a name='Examples'></a>
+<h2><i class='icon-edit'></i>Examples</h2>
+
+<a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Orm Delete Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
+
+              Ruby usage
+            
+<pre class='CodeRay'><code>:::ruby
+              
+# Deletes all Orm objects for a source, optionally filtering by conditions:
+Account.deleteAll(:conditions =&gt; {'industry'=&gt;'electronics'})
+
+# Delete a Orm object.
+@account = Account.find(:first)
+@account.destroy
+            <
+></code></pre>
+
+              Javascript usage
+            
+<pre class='CodeRay'><code>:::javascript
+              
+// Deletes all Orm objects for a source, optionally filtering by conditions:
+Account.deleteAll({industry: 'electronics'})
+
+//Delete a Orm object.
+var account = Account.find('first');
+account.destroy
+            <
+></code></pre>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Orm find Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
+
+              Ruby usage
+            
+<pre class='CodeRay'><code>:::ruby
+              
+# Find Orm objects:
+acct = Account.find "3560c0a0-ef58-2f40-68a5-48f39f63741b"
+
+acct.name
+  #=&gt; "A.G. Parr PLC 37862"
+
+accts = Account.find(:all, :select =&gt; ['name','address'])
+
+accts[0].name
+  #=&gt; "A.G. Parr PLC 37862"
+
+accts[0].telephone
+  #=&gt; nil
+
+# Order examples
+# The :order argument for find accepts several forms.
+# :order by one attribute.
+
+@accts = Account.find(
+      :all,
+      :order =&gt; 'name',
+      :orderdir =&gt; 'DESC'
+    )
+
+# :order by one attribute with a block.
+    @accts = Account.find(:all, :order =&gt; 'name') do |x,y|
+      y &lt;=&gt; x
+    end
+
+# :order with a block.
+    @accts = Account.find(:all) do |item1,item2|
+      item2.name &lt;=&gt; item1.name
+    end
+
+# :order by multiple attributes.
+    @accts = Account.find(
+      :all,
+      :order =&gt; ['name', 'industry'],
+      :orderdir =&gt; ['ASC', 'DESC']
+    )
+
+# findBySql(sql_query) returns Orm object(s) based on sql_query. This method works only for schema models.
+@accts = Account.findBySql("SELECT * FROM Account")
+
+  
+            <
+></code></pre>
+
+              Ruby usage
+            
+<pre class='CodeRay'><code>:::javascript
+              
+// Find Orm objects:
+vat accounts = Account.find('first')
+
+account.name // "A.G. Parr PLC 37862"
+
+var accounts = Account.find('all', {select: ['name','address']})
+
+accounts[0].name // "A.G. Parr PLC 37862"
+
+accounts[0].telephone // nil
+
+// Order examples
+// The order argument for find accepts several forms.
+// order by one attribute.
+
+var accounts = Account.find('all', {order: 'name', orderdir: 'DESC'})
+
+// order by one attribute with a block.
+var accounts = Account.find('all', {order: 'name') do |x,y|
+      y &lt;=&gt; x
+    end
+
+// order with a block.
+var accounts = Account.find('all') do |item1,item2|
+      item2.name &lt;=&gt; item1.name
+    end
+
+// order by multiple attributes.
+var accounts = Account.find('all', {order: ['name', 'industry'], orderdir: ['ASC', 'DESC']})
+
+// findBySql(sql_query) returns Orm object(s) based on sql_query. This method works only for schema models.
+var accounts = Account.findBySql("SELECT * FROM Account")
+
+  
+            <
+></code></pre>
+
+              Javascript usage
+            
+<pre class='CodeRay'><code>:::javascript
+              
+// Find Orm objects:
+var account = Account.find('first');
+account.name; // "A.G. Parr PLC 37862"
+
+var accounts = Account.find('all', {select: ['name','address']})
+accounts[0].name; // "A.G. Parr PLC 37862"
+accounts[0].telephone // nil
+
+// Order examples
+// The order argument for find accepts several forms.
+// order by one attribute.
+
+var accounts = Account.find('all', {order}
+      :all,
+      :order =&gt; 'name',
+      :orderdir =&gt; 'DESC'
+    )
+
+// order by one attribute with a block.
+    @accts = Account.find(:all, :order =&gt; 'name') do |x,y|
+      y &lt;=&gt; x
+    end
+
+// order with a block.
+    @accts = Account.find(:all) do |item1,item2|
+      item2.name &lt;=&gt; item1.name
+    end
+
+// order by multiple attributes.
+    @accts = Account.find(
+      :all,
+      :order =&gt; ['name', 'industry'],
+      :orderdir =&gt; ['ASC', 'DESC']
+    )
+
+// find_by_sql(sql_query) returns Orm object(s) based on sql_query. This method works only for schema models.
+@accts = Account.find_by_sql("SELECT * FROM Account")
+
+            <
+></code></pre>  </div></div></div></div><a name='e2'></a><div class='accordion property' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample2"><strong>Orm New and Create Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample2" class="accordion-body collapse in">  <div class="accordion-inner">
+
+              Ruby usage
+            
+<pre class='CodeRay'><code>:::ruby
+              
+# Create a new Orm object and assign given attributes.
+@account = Account.new(
+  {"name" =&gt; "ABC Inc.","address" =&gt; "555 5th St."}
+)
+@account.name
+  #=&gt; "ABC Inc."
+
+# Create a new Orm object and save to the database.
+@account = Account.create(
+  {"name" =&gt; "some new record", "industry" =&gt; "electronics"}
+)
+            <
+></code></pre>
+
+              Javascript usage
+            
+<pre class='CodeRay'><code>:::javascript
+              
+// Create a new Orm object and assign given attributes.
+var account = Account.new({name: "ABC Inc.", address: "555 5th St."})
+account.name // "ABC Inc."
+
+// Create a new Orm object and save to the database.
+account = Account.create({name: "some new record", industry: "electronics"})
+            <
+></code></pre>  </div></div></div></div><a name='e3'></a><div class='accordion property' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample3"><strong>Orm Paginate Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample3" class="accordion-body collapse in">  <div class="accordion-inner">
+
+              Paginate calls find with a limit on the # of records. This emulates rails' classic pagination syntax.
+              Default page size is 10.
+            
+<pre class='CodeRay'><code>:::ruby
+              
+Account.paginate(:page =&gt; 0)
+  #=&gt; returns first 10 records
+Account.paginate(:page =&gt; 1, :per_page =&gt; 20)
+  #=&gt; returns records 21-40
+Account.paginate(
+  :page =&gt; 5,
+  :conditions =&gt; {'industry' =&gt; 'Technology'},
+  :order =&gt; 'name'
+) #=&gt; you can have :conditions and :order as well 
+
+            <
+></code></pre>
+
+              javascript usage:
+            
+<pre class='CodeRay'><code>:::javascript
+               
+
+            <
+></code></pre>  </div></div></div></div><a name='e4'></a><div class='accordion property' id='e4'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample4"><strong>Orm Sync and set_notification Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample4" class="accordion-body collapse in">  <div class="accordion-inner">
+
+              Start the sync process for a model. In this example, the value for @params[“sku”] — the value of the sku — must be URL encoded.
+            
+<pre class='CodeRay'><code>:::ruby
+              
+Product.sync( url_for(:action =&gt; :sync_callback), "", false, "query=#{@params["sku"]}" ) 
+            <
+></code></pre>
+
+              Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the sync notification docs for more information.
+            
+<pre class='CodeRay'><code>:::ruby
+              Account.set_notification( url_for(:action =&gt; :sync_notify) )
+            <
+></code></pre>  </div></div></div></div><a name='e5'></a><div class='accordion property' id='e5'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample5"><strong>Orm update_attributes Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample5" class="accordion-body collapse in">  <div class="accordion-inner">
+Update the current Orm object’s attributes and saves it to the database.
+<pre class='CodeRay'><code>:::ruby
+            
+@account = Account.find(
+:all,
+:conditions =&gt; {'name' =&gt; 'ABC Inc.'}
+)
+@account.update_attributes(
+{"name" =&gt; "ABC Inc.", "industry" =&gt; "Technology"}
+)
+@account.industry
+#=&gt; "Technology" 
+          <
+></code></pre>
+Saves the current Orm object to the database.
+<pre class='CodeRay'><code>:::ruby
+            
+@account = Account.new(
+  {"name" =&gt; "some new record", "industry" =&gt; "electronics"}
+)
+@account.save 
+          <
+></code></pre>  </div></div></div></div><a name='e6'></a><div class='accordion property' id='e6'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample6"><strong>Orm can_modify Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample6" class="accordion-body collapse in">  <div class="accordion-inner">
+Before displaying an edit page for an object, your application can check if the object is currently being accessed by the sync process. If it is, you should disable editing of the object. can_modify could return true, for example, on a new local record that was created and sent to the RhoConnect application, but no response has been received yet.
+<pre class='CodeRay'><code>:::ruby
+           
+def edit
+  @product = Product.find(@params['id'])
+  if @product && !@product.can_modify
+    render :action =&gt; :show_edit_error
+  else
+    render :action =&gt; :edit
+  end
+end
+                   
+         <
+></code></pre>  </div></div></div></div><a name='e7'></a><div class='accordion property' id='e7'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample7"><strong>Orm isChanged Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample7" class="accordion-body collapse in">  <div class="accordion-inner">
+
+            Determine if a Orm model has local database changes that need to be synchronized.
+          
+<pre class='CodeRay'><code>:::ruby
+            
+                def should_sync_product_object
+  if Product.changed?
+    #... do stuff ...
+  end
+end
+          <
+></code></pre>  </div></div></div></div><a name='e8'></a><div class='accordion property' id='e8'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample8"><strong>Orm metadata Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample8" class="accordion-body collapse in">  <div class="accordion-inner">
+Returns the metadata for a given model.
+<pre class='CodeRay'><code>:::ruby
+            
+             Product.metadata
+#=&gt; {'foo' =&gt; 'bar'} 
+          <
+></code></pre>
+Assigns the metadata for a given model.
+<pre class='CodeRay'><code>:::ruby
+            
+             Product.metadata = { 'foo' =&gt; 'bar' } 
+          <
+></code></pre>  </div></div></div></div>
+<a name='Properties'></a>
+<h2><i class='icon-list'></i>Properties</h2>
+
+<a name='pclientId'></a><div class='accordion property' id='pclientId'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyclientId"><strong>clientId</strong> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyclientId" class="accordion-body collapse in">  <div class="accordion-inner">Returns the current sync client id.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#clientIdUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="clientIdUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">OrmObject.clientId</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+myvar = Rho::OrmObject.clientId</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+myvar = Rho.OrmObject.clientId;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmetadata'></a><div class='accordion property' id='pmetadata'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymetadata"><strong>metadata</strong> : <span class='text-info'>HASH</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymetadata" class="accordion-body collapse in">  <div class="accordion-inner">Returns the metadata definition for a given model as a hash. Click here for a Orm metadata example.
+          Assigns the hash metadata definition for a given model. Click here for a Orm metadata example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#metadataUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="metadataUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">OrmObject.metadata</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::OrmObject.metadata=myvar = Rho::OrmObject.metadata</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Rho.OrmObject.metadata=;myvar = Rho.OrmObject.metadata;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+<a name='Methods'></a>
+<h2><i class='icon-cog'></i>Methods</h2>
+
+<div class="accordion" id="accordion"><div class='accordion method' id='mcanModify'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodcanModify"><strong data-toggle="tooltip" title data-original-title="Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should
+          disable editing of the object). Click here for a Orm can_modify example.
+          Before displaying an edit page for an object, your application can check if the object is currently being
+          accessed by the sync process. If it is, you should disable editing of the object. can_modify could return
+          true, for example, on a new local record that was created and sent to the RhoConnect application, but no
+          response has been received yet.
+        ">canModify</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodcanModify" class="accordion-body collapse in">  <div class="accordion-inner">Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should
+          disable editing of the object). Click here for a Orm can_modify example.
+          Before displaying an edit page for an object, your application can check if the object is currently being
+          accessed by the sync process. If it is, you should disable editing of the object. can_modify could return
+          true, for example, on a new local record that was created and sent to the RhoConnect application, but no
+          response has been received yet.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>BOOLEAN</li></ul></div>  </div></div></div></div><div class='accordion method' id='mclearNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodclearNotification"><strong data-toggle="tooltip" title data-original-title="Clear notification for the object. See the sync notification section for more details.">clearNotification</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodclearNotification" class="accordion-body collapse in">  <div class="accordion-inner">Clear notification for the object. See the sync notification section for more details.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mcreate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodcreate"><strong data-toggle="tooltip" title data-original-title="Create a new Rhodes model object and save it to the database.Orm create example. This is the fastest way
+          to insert a single item into the database.
+        ">create</strong>(<span class="text-info">HASH</span> attributes)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodcreate" class="accordion-body collapse in">  <div class="accordion-inner">Create a new Rhodes model object and save it to the database.Orm create example. This is the fastest way
+          to insert a single item into the database.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>attributes : <span class='text-info'>HASH</span><p>List of attributes assigned to the new model object, such as {"name" => "ABC Inc.","address" => "555
+              5th St."}.
+             </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>OBJECT</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdeleteAll'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddeleteAll"><strong data-toggle="tooltip" title data-original-title="Delete all Rhodes model objects for a source, filtering by conditions. Click here for a Orm delete_all
+          example.
+        ">deleteAll</strong>(<span class="text-info">HASH</span> conditions, <span class="text-info">STRING</span> op)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddeleteAll" class="accordion-body collapse in">  <div class="accordion-inner">Delete all Rhodes model objects for a source, filtering by conditions. Click here for a Orm delete_all
+          example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>conditions : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>hash of attribute/values; delete only objects matching these criteria, such as :conditions =>
+              {'industry'=>'electronics'}.
+             </p></li><li>op : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>(optional) operator, such as "OR" or "IN". Allows you to have more than one set of conditions. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mdestroy'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethoddestroy"><strong data-toggle="tooltip" title data-original-title="Destroy a Rhodes model object. Click here for a Orm destroy example.">destroy</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethoddestroy" class="accordion-body collapse in">  <div class="accordion-inner">Destroy a Rhodes model object. Click here for a Orm destroy example.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mfind'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodfind"><strong data-toggle="tooltip" title data-original-title="Find Rhodes model objects. Click here for a Orm find example. For examples of find with advanced queries,
+          see Advanced Queries in Using the Local Database with Orm.
+        ">find</strong>(<span class="text-info">STRING</span> queryType, <span class="text-info">HASH</span> conditions, <span class="text-info">STRING</span> order, <span class="text-info">STRING</span> orderdir, <span class="text-info">ARRAY</span> select, <span class="text-info">INTEGER</span> perPage, <span class="text-info">INTEGER</span> offset, <span class="text-info">STRING</span> op)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodfind" class="accordion-body collapse in">  <div class="accordion-inner">Find Rhodes model objects. Click here for a Orm find example. For examples of find with advanced queries,
+          see Advanced Queries in Using the Local Database with Orm.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>queryType : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>all</dt><dd>returns all objects; can use optional :conditions.</dt><dt>first</dt><dd>returns first object matching :conditions.</dt><dt>count</dt><dd>returns the number of objects matching these :conditions.</dt></dl></li><li>conditions : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Hash of attribute/values. Also supports sql fragments (i.e. "name like 'Ormobile'") or sql fragment
+              with binding (you have to define :select with sql queries) (i.e. ["name like ?", "'#{company#}'"]) Use a
+              comma around string values.
+             </p></li><li>order : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Attribute(s) to order the list. </p></li><li>orderdir : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Order direction: 'ASC' ascending, 'DESC' descending. Default = 'ASC'.) </p></li><li>select : <span class='text-info'>ARRAY</span> <span class='label label-info'>Optional</span><p>Array of string attributes to return with the object. Useful if your model has many attributes and
+              your query only needs a few of them.
+             </p></li><li>perPage : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>Maximum number of items to return. </p></li><li>offset : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>Offset from beginning of the list. </p></li><li>op : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>(optional) operator, such as "OR" or "IN". Allows you to have more than one set of conditions. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>ARRAY</li></ul></div>  </div></div></div></div><div class='accordion method' id='mfindAll'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodfindAll"><strong data-toggle="tooltip" title data-original-title="Alias for modelname.find(:all, argument list).">findAll</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodfindAll" class="accordion-body collapse in">  <div class="accordion-inner">Alias for modelname.find(:all, argument list).<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>ARRAY</li></ul></div>  </div></div></div></div><div class='accordion method' id='mfindBySql'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodfindBySql"><strong data-toggle="tooltip" title data-original-title="Returns Rhodes model object(s) based on sql_query. This method works only for schema models. Click here
+          for a Orm find_by_sql example.
+        ">findBySql</strong>(<span class="text-info">STRING</span> query)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodfindBySql" class="accordion-body collapse in">  <div class="accordion-inner">Returns Rhodes model object(s) based on sql_query. This method works only for schema models. Click here
+          for a Orm find_by_sql example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>query : <span class='text-info'>STRING</span><p>An sql query, such as "SELECT * FROM Account". </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>ARRAY</li></ul></div>  </div></div></div></div><div class='accordion method' id='mgetSourceName'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodgetSourceName"><strong data-toggle="tooltip" title data-original-title="Returns the source name for this Rhodes model object.">getSourceName</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodgetSourceName" class="accordion-body collapse in">  <div class="accordion-inner">Returns the source name for this Rhodes model object.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>STRING</li></ul></div>  </div></div></div></div><div class='accordion method' id='misChanged'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodisChanged"><strong data-toggle="tooltip" title data-original-title="<span class='label label-info'>Replaces:changed</span> Returns true if a Rhodes model object has local database changes that need to be synchronized, false
+          otherwise. Click here for a Orm changed? example.
+        "><span class="text-info">isChanged</span></strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodisChanged" class="accordion-body collapse in">  <div class="accordion-inner"><span class='label label-info'>Replaces:changed</span> Returns true if a Rhodes model object has local database changes that need to be synchronized, false
+          otherwise. Click here for a Orm changed? example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>BOOLEAN</li></ul></div>  </div></div></div></div><div class='accordion method' id='mnew'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodnew"><strong data-toggle="tooltip" title data-original-title="Create a new Rhodes model object. Orm new example.">new</strong>(<span class="text-info">HASH</span> attributes)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodnew" class="accordion-body collapse in">  <div class="accordion-inner">Create a new Rhodes model object. Orm new example.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>attributes : <span class='text-info'>HASH</span><p>List of attributes assigned to the new model object, such as {"name" => "ABC Inc.","address" => "555
+              5th St."}.
+             </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>OBJECT</li></ul></div>  </div></div></div></div><div class='accordion method' id='mpaginate'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodpaginate"><strong data-toggle="tooltip" title data-original-title="Call find with a limit on the number of records. Default page size is 10. Orm paginate example.">paginate</strong>(<span class="text-info">INTEGER</span> page, <span class="text-info">INTEGER</span> perPage, <span class="text-info">HASH</span> conditions, <span class="text-info">STRING</span> order, <span class="text-info">ARRAY</span> select)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodpaginate" class="accordion-body collapse in">  <div class="accordion-inner">Call find with a limit on the number of records. Default page size is 10. Orm paginate example.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>page : <span class='text-info'>INTEGER</span><p>which page to return. </p></li><li>perPage : <span class='text-info'>INTEGER</span><p>with :page (used as offset), the number of records to return, such as :page => 1, :per_page => 20
+             </p></li><li>conditions : <span class='text-info'>HASH</span><p>same as find with :conditions </p></li><li>order : <span class='text-info'>STRING</span><p>same as find with :conditions </p></li><li>select : <span class='text-info'>ARRAY</span><p>same as find with :select </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>ARRAY</li></ul></div>  </div></div></div></div><div class='accordion method' id='msave'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsave"><strong data-toggle="tooltip" title data-original-title="Saves the current Rhodes model object to the database. Click here for a Orm save example.
+        ">save</strong>()<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsave" class="accordion-body collapse in">  <div class="accordion-inner">Saves the current Rhodes model object to the database. Click here for a Orm save example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msetNotification'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsetNotification"><strong data-toggle="tooltip" title data-original-title="Saves the current Rhodes model object to the database. Click here for a Orm save example.
+        ">setNotification</strong>(<span class="text-info">STRING</span> callbackUrl, <span class="text-info">STRING</span> params, <span class='text-info'>Callback &lt;Object&gt;</span> callback)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsetNotification" class="accordion-body collapse in">  <div class="accordion-inner">Saves the current Rhodes model object to the database. Click here for a Orm save example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>callbackUrl : <span class='text-info'>STRING</span><p>the url for your sync is finished notification callback method.
+             </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>parameters for the callback method. </p></li><li>callback : <span class='text-info'>Callback &lt;Object&gt;</span><p><p><a href="#setNotificationUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><div id="setNotificationUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">setNotification Callback</h3>  </div>  <div class="modal-body"><p>The callback parameter can take on one of three forms</p><ol><li>Controller action URL<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+OrmObject.setNotification(..., url_for :action => :mycallback)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+OrmObject.setNotification(...,'/app/model/mycallback');</code></pre></li><li>Anonymous function:<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+OrmObject.setNotification(...,lambda{ |e|
+ puts e['calbackreturnparamname'] }
+)</code></pre><p>Javascript</p>
+<pre class='CodeRay'><code>:::javascript
+OrmObject.setNotification(...,function(e){
+//Your code here
+ alert(e.calbackreturnparamname);
+};);</code></pre></li><li>Function<p>Ruby</p>
+<pre class='CodeRay'><code>:::ruby
+OrmObject.setNotification(..., mycallback() )</code></pre><p>Javascript</p>
+ok	<pre class='CodeRay'><code>:::javascript
+OrmObject.setNotification(..., mycallback());</code></pre></li></ol>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='msync'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodsync"><strong data-toggle="tooltip" title data-original-title="Start the sync process for a Rhodes model. Click here for a Orm sync example.">sync</strong>(<span class="text-info">STRING</span> callbackUrl, <span class="text-info">STRING</span> callbackData, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodsync" class="accordion-body collapse in">  <div class="accordion-inner">Start the sync process for a Rhodes model. Click here for a Orm sync example.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>callbackUrl : <span class='text-info'>STRING</span><p>the url for the sync callback method. If this is used, SyncEngine.set_notification is called before
+              SyncEngine.dosync.
+             </p></li><li>callbackData : <span class='text-info'>STRING</span><p>Data for the callback method. </p></li><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>true if you want to show a popup window upon sync, false otherwise. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>query to pass to the sync server. The query_params value must be URL encoded. </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div><div class='accordion method' id='mupdateAttributes'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cMethodupdateAttributes"><strong data-toggle="tooltip" title data-original-title="Updates the current Rho model object attributes and saves it to the database. This is the fastest way to
+          add or update model attributes. Click here for a Orm update_attributes example.
+        ">updateAttributes</strong>(<span class="text-info">HASH</span> attributes)<i class="icon-chevron-down pull-right"></i></span></div><div id="cMethodupdateAttributes" class="accordion-body collapse in">  <div class="accordion-inner">Updates the current Rho model object attributes and saves it to the database. This is the fastest way to
+          add or update model attributes. Click here for a Orm update_attributes example.
+        <div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div><div><p><strong>Parameters</strong></p><ul><li>attributes : <span class='text-info'>HASH</span><p>List of attributes and their updated values, such as {"name" => "ABC Inc.","address" => "555 5th
+              St."}.
+             </p></li></ul></div><div><p><strong>Return:</strong></p><ul><li>Void</li></ul></div>  </div></div></div></div></div></div>

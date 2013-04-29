@@ -7,30 +7,30 @@
 
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Detecting a Network Connection</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
-						This code example shows how you would detect if your device is connected to an external website
-					
+                        This code example shows how you would detect if your device is connected to an external website
+                    
 <pre class='CodeRay'><code>:::ruby
-				
-	#/app/Model
-	def index
-		networkProps = Hash.new
-		networkProps['host'] = 'www.motorolasolutions.com'
-		networkProps['port'] = '80'
-		networkProps['pollInterval'] = 10000
-		networkProps['detectionTimeout'] = 1000	
-		Rho::Network.detectConnection(networkProps, url_for(:action =&gt; :connectionEvent))  	
-	end
+                
+    #/app/Model
+    def index
+        networkProps = Hash.new
+        networkProps['host'] = 'www.motorolasolutions.com'
+        networkProps['port'] = '80'
+        networkProps['pollInterval'] = 10000
+        networkProps['detectionTimeout'] = 1000 
+        Rho::Network.detectConnection(networkProps, url_for(:action =&gt; :connectionEvent))   
+    end
 
-	 def connectionEvent
-		puts "ConnectionEvent Called #{@params}"
-		if @params['connectionInformation'] == 'Disconnected'
-			Alert.show_popup "Connection Lost"
-		else
-			Alert.show_popup "Connection Restored"
-		end
-	  end
-						
-					<
+     def connectionEvent
+        puts "ConnectionEvent Called #{@params}"
+        if @params['connectionInformation'] == 'Disconnected'
+            Alert.show_popup "Connection Lost"
+        else
+            Alert.show_popup "Connection Restored"
+        end
+      end
+                        
+                    <
 ></code></pre>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
