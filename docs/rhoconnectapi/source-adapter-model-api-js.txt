@@ -1,6 +1,6 @@
 Source Adapter Model API (JavaScript)
 ===
-Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](/rhoconnect/source-adapters-js#sample-model) for a complete example.
+Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](/rhoconnect/source-adapters-js#sample-model) for a complete example.  As with the [controller API](/rhoconnectapi/source-adapter-controller-api-js), each function that accepts a [response object](/rhoconnectapi/source-adapter-response-api-js) must call `.send()` on it to return control to RhoConnect.
 
 ## login
 Login to your backend service (optional).
@@ -161,11 +161,58 @@ Returns the current user which called the adapter.  The current user is part of 
       // ...
     };
 
-## stashResult
-Saves a partial dataset to redis.  Typically this is used when your adapter has to paginate through backend service data.
+## stashResult(resp)
+Saves a partial dataset to redis.  Typically this is used when your adapter has to paginate through data. The following example data to redis one item at a time.
+
+    :::javascript
+    this.query = function(resp){
+      var rc = require('rhoconnect_helpers');
+      var result = {};
+      var str = '';
+
+      http.request('http://' + host + '/products.json', function(res){
+        res.on('data', function(chunk){
+          str += chunk;
+        });
+        res.on('end', function(){
+          var data = JSON.parse(str);
+          for(var i in data){
+            var item = data[i];
+            resp.params = {};
+            resp.params[item.product.id.toString()] = item.product;
+            rc.stashResult(resp);
+          }
+          resp.send(true);
+        });
+      }).end();
+    };
 
 ## storeBlob
+If your Rhodes application sends blobs as a part of the create/update operation - you must implement this method inside of your Source Adapter Model.  We do not recommend using the default implementation where blob is stored in the tempfile provided by Rack, because RhoConnect processing is asynchronous and there is no guarantee that the temporary file will exist at the actual time when `create` is called.
 
-## getData
+The following example opens the file (contained in `resp.params.path`) if it exists.
 
-You can access your model's document data by with `getData` method. By default, when called without arguments - it returns the Master Document (:md).
+    :::javascript
+    this.storeBlob = function(resp){
+      var fs = require('fs');
+      if(fs.existsSync(resp.params.path)){
+
+        // read and process the file here ...
+
+        resp.send('some_filename');
+      } else{
+        resp.send(false);
+      }
+    };
+
+## getData(resp, callback)
+You can access your model's document data by with `getData` method. This will return the redis Master Document (:md).
+
+    :::javascript
+    var data = {};
+    var rc = require('rhoconnect_helpers');
+    rc.getData(resp, function(resp){
+      data = resp.result;
+      // data contains the model's Master Document.
+      resp.send(data);
+    });
