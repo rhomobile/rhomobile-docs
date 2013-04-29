@@ -126,7 +126,7 @@ md+='</div>'
   def self.getexamplelinks(doc)
   	md = ""
   	ctr = 0
-  	if !doc["MODULE"][0]["EXAMPLES"].nil?
+  	if !doc["MODULE"][0]["EXAMPLES"].nil? && !doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"].nil?
 	  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
 	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
@@ -139,7 +139,7 @@ md+='</div>'
   def self.getremarklinks(doc)
   	md = ""
   	ctr = 0 
-  	if !doc["MODULE"][0]["REMARKS"].nil?
+  	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
@@ -154,7 +154,7 @@ md+='</div>'
   	md = ""
   	ctr =0
   	groupctr = 0
-  	if !doc["MODULE"][0]["PROPERTIES"].nil?
+  	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	ctr = s.count()
 	  	# md += "<ul>"
@@ -230,7 +230,7 @@ md+='</div>'
   def self.getexamples(doc)
   	md = ""
   	# puts doc["MODULE"][0]["EXAMPLES"]
-  	if !doc["MODULE"][0]["EXAMPLES"].nil?
+  	if !doc["MODULE"][0]["EXAMPLES"].nil? && !doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"].nil?
 	  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
 	  	s.each_with_index() { |element,index|
 	  		examplename = ""
@@ -288,7 +288,7 @@ md+='</div>'
 
   def self.getremarks(doc)
   	md = ""
-  	if !doc["MODULE"][0]["REMARKS"].nil?
+  	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	s.each_with_index() { |element,index|
 	  		md += "<a name='r#{index.to_s}'></a><div class='accordion property' id='r"+ index.to_s + "'>"
@@ -345,8 +345,8 @@ md+='</div>'
   	if !doc["MODULE"][0]["TEMPLATES"].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
   		templatePropBag = false
   	end
-  	if !doc["MODULE"][0]["PROPERTIES"].nil?
-	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
+  	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
+  		s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 
 
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
