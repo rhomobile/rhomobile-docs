@@ -121,6 +121,20 @@ The following example stores the file permanently and keeps its `:filename` argu
       obj['filename'] = my_stored_filename
     end
 
+## self.partition_name
+
+Sometimes, different groups of users share the common source data. To leverage this, you can implement the following method in your Source Adapter Model to provide custom partition names for the users with shared data. In this case, RhoConnect will store the data for MD of the grouped users using your custom partition name, which will reduce the memory footprint in Redis. From this standpoint, `app` partition is the edge-case of the custom user partitioning where all users share the same data for the particular source. 
+
+To use the custom user partitioning, implement the following class method in your Source Adapter's model:
+
+	:::ruby
+	class Product < Rhoconnect::Model::Base
+		# group users by the first letter
+		def self.partition_name(user_id)
+		 	return user_id[0]
+		end
+	end
+
 ## get_data
 
 You can access your model's document data by with `get_data` method. By default, when called without arguments - it returns the Master Document (:md).
