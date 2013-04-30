@@ -148,6 +148,7 @@ You can write the following methods for your source adapter model. These methods
 * [current_user](/rhoconnectapi/source-adapter-model-api-ruby#currentuser) - Returns the current user which called the adapter's model.
 * [stash_result](/rhoconnectapi/source-adapter-model-api-ruby#stashresult) - Saves the current state of `@result` to redis and assigns it to `nil`.
 * [store_blob](/rhoconnectapi/source-adapter-model-api-ruby#store_blob) - Save the incoming blob data into permanent storage for the future processing.
+* [self.partition_name](/rhoconnectapi/source-adapter-model-api-ruby#self.partition_name) - Implement this class method to provide custom user partition.
 * [get_data](/rhoconnectapi/source-adapter-model-api-ruby#get_data) - Get the model document data from Store.
 
 ## Data Partitioning
