@@ -703,11 +703,19 @@ end
 			@methsectionparams += getparams(element,true)
 		#add generic syntax for callback param
 			if @methhascallback !="" && @methhascallback != "none"
+				# puts element["CALLBACK"]
+				
 				@methcallbackoptional= ""
 				if @methhascallback == "optional"
 					@methcallbackoptional = " <span class='label label-info'>Optional</span> "
 				end
 				firstcallbackreturnparam = "calbackreturnparamname"
+				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["type"].nil?
+				
+					callbacktype = element["CALLBACK"][0]["type"]
+				else
+					callbacktype = "OBJECT"
+				end
 				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
 					# puts element["CALLBACK"][0]["PARAMS"]
 					firstcallbackreturnparam = element["CALLBACK"][0]["PARAMS"][0]["PARAM"][0]["name"]
@@ -745,7 +753,7 @@ end
 				@methcallbackparamdesc+='  </div>'
 				@methcallbackparamdesc+='</div>'
 
-				@methsectionparams += "<li>callback : <span class='text-info'>Callback &lt;Object&gt;</span>#{@methcallbackoptional}<p>#{@methcallbackparamdesc}" +  "</p></li>"
+				@methsectionparams += "<li>callback : <span class='text-info'>#{callbacktype}</span>#{@methcallbackoptional}<p>#{@methcallbackparamdesc}" +  "</p></li>"
 
   			end
   			@methsectionparams += "</ul></div>"
@@ -760,9 +768,9 @@ end
 			@callbackrubysample = "url_for :action => :take_callback"
 			@callbackjssample = "callback_function"
 			if @methparams != ""
-				@methparams = @methparams + ", <span class='text-info'>Callback &lt;Object&gt;</span> callback"
+				@methparams = @methparams + ", <span class='text-info'>#{callbacktype}</span> callback"
 			else
-				@methparams = @methparams + "<span class='text-info'>Callback &lt;Object&gt;</span> callback"
+				@methparams = @methparams + "<span class='text-info'>#{callbacktype}</span> callback"
 
 			end
 			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
@@ -904,10 +912,14 @@ end
 	  	end
 	  	if templateSingleton
 	  		#get xml from file and put it in main array so it is handled like other methods
-	  		singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
-			singletondoc["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
+	  		puts topic + 'trying to use singleton'
+	  		# This was commented out as engineering changed their minds on singleton usage no longer used
+	  		# it use to be just enumerate, but now that is in indicidual api docs
+
+	  		# singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
+			# singletondoc["METHODS"][0]["METHOD"].each { |m|
+				# doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+			# }
 	  	end
 	  	if templatePropBag
 	  		#get xml from file and put it in main array so it is handled like other methods
