@@ -8,8 +8,7 @@ The Signal API is used to notify the user of the strength of the WLAN signal.  W
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Retrieve the WLAN status</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                     Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
   def signal_status_sync
 	signalValue = Rho::Signal.wlanStatus
@@ -17,12 +16,10 @@ The Signal API is used to notify the user of the strength of the WLAN signal.  W
 	puts "Signal Strength is: " + signalValue['signalStrength']
   end
                     
-                <
-></code></pre>
+                </code></pre></div></div>
 
                     Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
             
   def signal_status_async
 	puts "Registering Signal Callback"
@@ -33,30 +30,25 @@ The Signal API is used to notify the user of the strength of the WLAN signal.  W
 	puts "Signal Event: (Asynchronous).  Strength: #{@params["signalStrength"]}, ESS ID: #{@params["essid"]}, MacAddress: #{@params["macAddress"]}, AdapterName: #{@params["adapterName"]}, DHCP Server: #{@params["dhcpServer"]}, DHCP Static: #{@params["dhcpStatic"]}, Gateway: #{@params["gateway"]}, IP Address: #{@params["ipAddress"]}, RSSI: #{@params["rssi"]}, Subnet Mask: #{@params["subnetMask"]}, Wins: #{@params["wins"]}"
   end  
   
-                <
-></code></pre>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Working with the Signal indicator</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
+                </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Working with the Signal indicator</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
 
                     If you just want to display the signal indicator in the default position and default colour then call as follows
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
   def show_signal_icon
 	Rho::Signal.showIcon({})
   end
                     
-                <
-></code></pre>
+                </code></pre></div></div>
 
                     To display the signal icon at the default position but blue and vertical specify as follows
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
             
   def show_signal_icon
 	Rho::Signal.showIcon({color:'#0000FF',layout:'up'})
   end
   
-                <
-></code></pre>  </div></div></div></div>
+                </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 

@@ -237,7 +237,7 @@ md+='</div>'
   			examplesections = ""
 	  		examplename = element["title"]
 	  		sect=element["SECTIONS"][0]["SECTION"]
-	  		sect.each() { |section|
+	  		sect.each_with_index() { |section,si|
 	  			#puts "**********"
 	  			#puts section
 	  			examplesections += "\n"
@@ -245,9 +245,14 @@ md+='</div>'
 	  			# if section["DESC"][0].class != Hash
 					examplesections += section["DESC"][0]
 				# end
+				exampleid = "exI#{index.to_s}-S#{si.to_s}"
 	  			
-	  			codelang = 'ruby'
+				codelang = 'ruby'
 	  			codesnip = section["CODE"]
+	  			codejs = ''
+	  			coderuby = ''
+	  			# puts codesnip
+	  			if !codesnip[0]["content"].nil? #uses one code block
 	  			 # puts codesnip
 	  			 if !codesnip[0]["lang"].nil?
 	  			 	codelang = codesnip[0]["lang"]
@@ -255,12 +260,66 @@ md+='</div>'
 	  			 		codelang = 'ruby'
 	  			 	end
 	  			 end
-	  			examplesections += "\n<pre class='CodeRay'><code>:::#{codelang}"
-	  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
-	  			cleanCode = cleanCode.gsub('>','&gt;')
-	  			examplesections += cleanCode
-				examplesections += "<\n></code></pre>"
+	  			 if codelang == 'ruby'
+	  			 	coderuby = "<pre class='CodeRay'><code>:::#{codelang}"
+		  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
+		  			cleanCode = cleanCode.gsub('>','&gt;')
+		  			coderuby += cleanCode
+					coderuby += "</code></pre>"
+	  			 else
+	  			 	codejs = "<pre class='CodeRay'><code>:::#{codelang}"
+		  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
+		  			cleanCode = cleanCode.gsub('>','&gt;')
+		  			codejs += cleanCode
+					codejs += "</code></pre>"
+	  			 end
+	  			else
+	  			 if !codesnip[0]["RUBY"].nil?
+	  			 	coderuby = "<pre class='CodeRay'><code>:::ruby\n"
+		  			cleanCode = codesnip[0]["RUBY"][0].gsub('<','&lt;')
+		  			cleanCode = cleanCode.gsub('>','&gt;')
+		  			coderuby += cleanCode
+					coderuby += "</code></pre>"
+	  			 end
+	  			 if !codesnip[0]["JAVASCRIPT"].nil?
+	  			 	codejs = "<pre class='CodeRay'><code>:::javascript\n"
+		  			cleanCode = codesnip[0]["JAVASCRIPT"][0].gsub('<','&lt;')
+		  			cleanCode = cleanCode.gsub('>','&gt;')
+		  			codejs += cleanCode
+					codejs += "</code></pre>"
+	  			 end
 
+	  			end
+	  			
+				exampletabs = "<ul class='nav nav-tabs' id='#{exampleid}Tab'>"
+				activeindicator = "class='active'"
+				if codejs != ''
+					exampletabs +=  "<li #{activeindicator}><a href='##{exampleid}JS' data-toggle='tab'>Javascript</a></li>"
+					activeindicator = ''
+				end
+				if coderuby != ''
+					exampletabs +=  "<li #{activeindicator}><a href='##{exampleid}RUBY' data-toggle='tab'>Ruby</a></li>"
+				end
+				exampletabs += "</ul>"
+
+				activeindicator = "class='tab-pane active'"
+				
+				extabcontent = "<div class='tab-content'>"
+				exJSTabcontent = ''
+				exRubyTabcontent = ''
+				if codejs != ''
+					exJSTabcontent = "<div #{activeindicator} id='#{exampleid}JS'>#{codejs}</div>"
+					activeindicator = "class='tab-pane'"
+				end
+				if coderuby != ''
+					exRubyTabcontent = "<div #{activeindicator} id='#{exampleid}RUBY'>#{coderuby}</div>"
+				end
+				
+
+				extabcontent += exJSTabcontent + exRubyTabcontent + "</div>"
+				
+				examplesections += exampletabs
+	  			examplesections += extabcontent
 
 	  		}
 	  	
@@ -854,7 +913,10 @@ end
 
   		end
   		# md += "</tr></table>\n\n" 
-
+  		
+  	if !element["BACKWARDS_COMPATIBILITY"].nil?
+  		@methdesc += "\n\nNOTE: #{element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0]}\n\n"
+	end		
   	md += "<div class='accordion method' id='m"+ element["name"] + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'

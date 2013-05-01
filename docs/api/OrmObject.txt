@@ -8,8 +8,7 @@
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Orm Delete Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
               Ruby usage
-            
-<pre class='CodeRay'><code>:::ruby
+            <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
               
 # Deletes all Orm objects for a source, optionally filtering by conditions:
 Account.deleteAll(:conditions =&gt; {'industry'=&gt;'electronics'})
@@ -17,12 +16,10 @@ Account.deleteAll(:conditions =&gt; {'industry'=&gt;'electronics'})
 # Delete a Orm object.
 @account = Account.find(:first)
 @account.destroy
-            <
-></code></pre>
+            </code></pre></div></div>
 
               Javascript usage
-            
-<pre class='CodeRay'><code>:::javascript
+            <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
               
 // Deletes all Orm objects for a source, optionally filtering by conditions:
 Account.deleteAll({industry: 'electronics'})
@@ -30,12 +27,10 @@ Account.deleteAll({industry: 'electronics'})
 //Delete a Orm object.
 var account = Account.find('first');
 account.destroy
-            <
-></code></pre>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Orm find Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
+            </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Orm find Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
 
               Ruby usage
-            
-<pre class='CodeRay'><code>:::ruby
+            <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
               
 # Find Orm objects:
 acct = Account.find "3560c0a0-ef58-2f40-68a5-48f39f63741b"
@@ -82,12 +77,10 @@ accts[0].telephone
 @accts = Account.findBySql("SELECT * FROM Account")
 
   
-            <
-></code></pre>
+            </code></pre></div></div>
 
               Ruby usage
-            
-<pre class='CodeRay'><code>:::javascript
+            <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
               
 // Find Orm objects:
 vat accounts = Account.find('first')
@@ -123,12 +116,10 @@ var accounts = Account.find('all', {order: ['name', 'industry'], orderdir: ['ASC
 var accounts = Account.findBySql("SELECT * FROM Account")
 
   
-            <
-></code></pre>
+            </code></pre></div></div>
 
               Javascript usage
-            
-<pre class='CodeRay'><code>:::javascript
+            <ul class='nav nav-tabs' id='exI1-S2Tab'><li class='active'><a href='#exI1-S2JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S2JS'><pre class='CodeRay'><code>:::javascript
               
 // Find Orm objects:
 var account = Account.find('first');
@@ -168,12 +159,10 @@ var accounts = Account.find('all', {order}
 // find_by_sql(sql_query) returns Orm object(s) based on sql_query. This method works only for schema models.
 @accts = Account.find_by_sql("SELECT * FROM Account")
 
-            <
-></code></pre>  </div></div></div></div><a name='e2'></a><div class='accordion property' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample2"><strong>Orm New and Create Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample2" class="accordion-body collapse in">  <div class="accordion-inner">
+            </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class='accordion property' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample2"><strong>Orm New and Create Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample2" class="accordion-body collapse in">  <div class="accordion-inner">
 
               Ruby usage
-            
-<pre class='CodeRay'><code>:::ruby
+            <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
               
 # Create a new Orm object and assign given attributes.
 @account = Account.new(
@@ -186,12 +175,10 @@ var accounts = Account.find('all', {order}
 @account = Account.create(
   {"name" =&gt; "some new record", "industry" =&gt; "electronics"}
 )
-            <
-></code></pre>
+            </code></pre></div></div>
 
               Javascript usage
-            
-<pre class='CodeRay'><code>:::javascript
+            <ul class='nav nav-tabs' id='exI2-S1Tab'><li class='active'><a href='#exI2-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S1JS'><pre class='CodeRay'><code>:::javascript
               
 // Create a new Orm object and assign given attributes.
 var account = Account.new({name: "ABC Inc.", address: "555 5th St."})
@@ -199,13 +186,11 @@ account.name // "ABC Inc."
 
 // Create a new Orm object and save to the database.
 account = Account.create({name: "some new record", industry: "electronics"})
-            <
-></code></pre>  </div></div></div></div><a name='e3'></a><div class='accordion property' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample3"><strong>Orm Paginate Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample3" class="accordion-body collapse in">  <div class="accordion-inner">
+            </code></pre></div></div>  </div></div></div></div><a name='e3'></a><div class='accordion property' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample3"><strong>Orm Paginate Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample3" class="accordion-body collapse in">  <div class="accordion-inner">
 
               Paginate calls find with a limit on the # of records. This emulates rails' classic pagination syntax.
               Default page size is 10.
-            
-<pre class='CodeRay'><code>:::ruby
+            <ul class='nav nav-tabs' id='exI3-S0Tab'><li class='active'><a href='#exI3-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S0RUBY'><pre class='CodeRay'><code>:::ruby
               
 Account.paginate(:page =&gt; 0)
   #=&gt; returns first 10 records
@@ -217,33 +202,25 @@ Account.paginate(
   :order =&gt; 'name'
 ) #=&gt; you can have :conditions and :order as well 
 
-            <
-></code></pre>
+            </code></pre></div></div>
 
               javascript usage:
-            
-<pre class='CodeRay'><code>:::javascript
+            <ul class='nav nav-tabs' id='exI3-S1Tab'><li class='active'><a href='#exI3-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S1JS'><pre class='CodeRay'><code>:::javascript
                
 
-            <
-></code></pre>  </div></div></div></div><a name='e4'></a><div class='accordion property' id='e4'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample4"><strong>Orm Sync and set_notification Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample4" class="accordion-body collapse in">  <div class="accordion-inner">
+            </code></pre></div></div>  </div></div></div></div><a name='e4'></a><div class='accordion property' id='e4'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample4"><strong>Orm Sync and set_notification Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample4" class="accordion-body collapse in">  <div class="accordion-inner">
 
               Start the sync process for a model. In this example, the value for @params[“sku”] — the value of the sku — must be URL encoded.
-            
-<pre class='CodeRay'><code>:::ruby
+            <ul class='nav nav-tabs' id='exI4-S0Tab'><li class='active'><a href='#exI4-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI4-S0RUBY'><pre class='CodeRay'><code>:::ruby
               
 Product.sync( url_for(:action =&gt; :sync_callback), "", false, "query=#{@params["sku"]}" ) 
-            <
-></code></pre>
+            </code></pre></div></div>
 
               Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the sync notification docs for more information.
-            
-<pre class='CodeRay'><code>:::ruby
+            <ul class='nav nav-tabs' id='exI4-S1Tab'><li class='active'><a href='#exI4-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI4-S1RUBY'><pre class='CodeRay'><code>:::ruby
               Account.set_notification( url_for(:action =&gt; :sync_notify) )
-            <
-></code></pre>  </div></div></div></div><a name='e5'></a><div class='accordion property' id='e5'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample5"><strong>Orm update_attributes Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample5" class="accordion-body collapse in">  <div class="accordion-inner">
-Update the current Orm object’s attributes and saves it to the database.
-<pre class='CodeRay'><code>:::ruby
+            </code></pre></div></div>  </div></div></div></div><a name='e5'></a><div class='accordion property' id='e5'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample5"><strong>Orm update_attributes Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample5" class="accordion-body collapse in">  <div class="accordion-inner">
+Update the current Orm object’s attributes and saves it to the database.<ul class='nav nav-tabs' id='exI5-S0Tab'><li class='active'><a href='#exI5-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI5-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
 @account = Account.find(
 :all,
@@ -254,19 +231,15 @@ Update the current Orm object’s attributes and saves it to the database.
 )
 @account.industry
 #=&gt; "Technology" 
-          <
-></code></pre>
-Saves the current Orm object to the database.
-<pre class='CodeRay'><code>:::ruby
+          </code></pre></div></div>
+Saves the current Orm object to the database.<ul class='nav nav-tabs' id='exI5-S1Tab'><li class='active'><a href='#exI5-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI5-S1RUBY'><pre class='CodeRay'><code>:::ruby
             
 @account = Account.new(
   {"name" =&gt; "some new record", "industry" =&gt; "electronics"}
 )
 @account.save 
-          <
-></code></pre>  </div></div></div></div><a name='e6'></a><div class='accordion property' id='e6'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample6"><strong>Orm can_modify Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample6" class="accordion-body collapse in">  <div class="accordion-inner">
-Before displaying an edit page for an object, your application can check if the object is currently being accessed by the sync process. If it is, you should disable editing of the object. can_modify could return true, for example, on a new local record that was created and sent to the RhoConnect application, but no response has been received yet.
-<pre class='CodeRay'><code>:::ruby
+          </code></pre></div></div>  </div></div></div></div><a name='e6'></a><div class='accordion property' id='e6'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample6"><strong>Orm can_modify Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample6" class="accordion-body collapse in">  <div class="accordion-inner">
+Before displaying an edit page for an object, your application can check if the object is currently being accessed by the sync process. If it is, you should disable editing of the object. can_modify could return true, for example, on a new local record that was created and sent to the RhoConnect application, but no response has been received yet.<ul class='nav nav-tabs' id='exI6-S0Tab'><li class='active'><a href='#exI6-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI6-S0RUBY'><pre class='CodeRay'><code>:::ruby
            
 def edit
   @product = Product.find(@params['id'])
@@ -277,33 +250,26 @@ def edit
   end
 end
                    
-         <
-></code></pre>  </div></div></div></div><a name='e7'></a><div class='accordion property' id='e7'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample7"><strong>Orm isChanged Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample7" class="accordion-body collapse in">  <div class="accordion-inner">
+         </code></pre></div></div>  </div></div></div></div><a name='e7'></a><div class='accordion property' id='e7'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample7"><strong>Orm isChanged Method Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample7" class="accordion-body collapse in">  <div class="accordion-inner">
 
             Determine if a Orm model has local database changes that need to be synchronized.
-          
-<pre class='CodeRay'><code>:::ruby
+          <ul class='nav nav-tabs' id='exI7-S0Tab'><li class='active'><a href='#exI7-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI7-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
                 def should_sync_product_object
   if Product.changed?
     #... do stuff ...
   end
 end
-          <
-></code></pre>  </div></div></div></div><a name='e8'></a><div class='accordion property' id='e8'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample8"><strong>Orm metadata Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample8" class="accordion-body collapse in">  <div class="accordion-inner">
-Returns the metadata for a given model.
-<pre class='CodeRay'><code>:::ruby
+          </code></pre></div></div>  </div></div></div></div><a name='e8'></a><div class='accordion property' id='e8'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample8"><strong>Orm metadata Method Examples</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample8" class="accordion-body collapse in">  <div class="accordion-inner">
+Returns the metadata for a given model.<ul class='nav nav-tabs' id='exI8-S0Tab'><li class='active'><a href='#exI8-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI8-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
              Product.metadata
 #=&gt; {'foo' =&gt; 'bar'} 
-          <
-></code></pre>
-Assigns the metadata for a given model.
-<pre class='CodeRay'><code>:::ruby
+          </code></pre></div></div>
+Assigns the metadata for a given model.<ul class='nav nav-tabs' id='exI8-S1Tab'><li class='active'><a href='#exI8-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI8-S1RUBY'><pre class='CodeRay'><code>:::ruby
             
              Product.metadata = { 'foo' =&gt; 'bar' } 
-          <
-></code></pre>  </div></div></div></div>
+          </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 

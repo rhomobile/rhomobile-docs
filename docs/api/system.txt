@@ -8,8 +8,7 @@ The System API is used to control and modify core aspects of the device such as 
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Working with the Windows Registry</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                             On devices running Windows Mobile, Windows CE, Windows Embedded Handheld and Windows Embedded CE it is possible to interact with the registry, this example shows how to do that.
-                        
-<pre class='CodeRay'><code>:::ruby
+                        <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
 #/app/Model
 
@@ -30,8 +29,7 @@ def delete_registry_sync
     theRegSetting = Rho::System.deleteRegistrySetting({hive:'HKLM', key:'Software', setting:'RhoElementsTest', persistent:true})
     puts "Registry Deleting Success?: #{theRegSetting}"
 end
-                        <
-></code></pre>  </div></div></div></div>
+                        </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 

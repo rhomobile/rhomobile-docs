@@ -8,8 +8,7 @@ The Battery API is used to notify the user of the remaining power in the battery
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Retrieve the Battery status</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                     Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
   def battery_status_sync
 	batteryValues = Rho::Battery.batteryStatus
@@ -17,12 +16,10 @@ The Battery API is used to notify the user of the remaining power in the battery
 	puts "Battery Level is: " + batteryValues['batteryLifePercent']
   end
                     
-                <
-></code></pre>
+                </code></pre></div></div>
 
                     Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
             
   def battery_status_async
 	puts "Registering Battery Callback"
@@ -34,30 +31,25 @@ The Battery API is used to notify the user of the remaining power in the battery
 	puts "Battery Event (Asynchronous).  AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
   end  
   
-                <
-></code></pre>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Working with the Battery indicator</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
+                </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Working with the Battery indicator</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
 
                     If you just want to display the battery indicator in the default position and default colour then call as follows
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
   def show_battery_icon
 	Rho::Battery.showIcon({})
   end
                     
-                <
-></code></pre>
+                </code></pre></div></div>
 
                     To display the battery icon at the default position but blue and vertical specify as follows
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
             
   def show_battery_icon
 	Rho::Battery.showIcon({color:'#0000FF',layout:'up'})
   end
   
-                <
-></code></pre>  </div></div></div></div>
+                </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 

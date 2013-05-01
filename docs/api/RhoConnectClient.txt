@@ -8,8 +8,7 @@ is used for syncronization with Rhoconnect servers. Synchronization overview is 
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Sync Authentication</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                             In your controller call login.
-                        
-<pre class='CodeRay'><code>:::ruby
+                        <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
                             
                             RhoConnectClient.login(
                                 @params['login'],
@@ -18,12 +17,10 @@ is used for syncronization with Rhoconnect servers. Synchronization overview is 
                             )
                             
                             
-                        <
-></code></pre>
+                        </code></pre></div></div>
 
                             When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-                        
-<pre class='CodeRay'><code>:::ruby
+                        <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
                             
                             def login_callback
                                 error_code = @params['error_code'].to_i
@@ -47,10 +44,8 @@ is used for syncronization with Rhoconnect servers. Synchronization overview is 
                             end
                             
                             
-                        <
-></code></pre>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
-To set a notification for a model, you can use the following method:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
+To set a notification for a model, you can use the following method:<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
                             
                             RhoConnectClient.setNotification(
                                 'Account',
@@ -58,20 +53,16 @@ To set a notification for a model, you can use the following method:
                                 "sync_complete=true"
                             )
                             
-                        <
-></code></pre>
-Which is the same as:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>
+Which is the same as:<ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
                             
                             Account.setNotification(
                                 url_for(:action =&gt; :sync_notify),
                                 "sync_complete=true"
                             )
                             
-                        <
-></code></pre>
-You can also set a notification for all models:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>
+You can also set a notification for all models:<ul class='nav nav-tabs' id='exI1-S2Tab'><li class='active'><a href='#exI1-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S2RUBY'><pre class='CodeRay'><code>:::ruby
                             
                             RhoConnectClient.setNotification(
                                 '*',
@@ -79,10 +70,8 @@ You can also set a notification for all models:
                                 "sync_complete=true"
                             )
                             
-                        <
-></code></pre>  </div></div></div></div><a name='e2'></a><div class='accordion property' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample2"><strong>Object notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample2" class="accordion-body collapse in">  <div class="accordion-inner">
-To use object notifications, first set the notification callback in application.rb#initialize
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class='accordion property' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample2"><strong>Object notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample2" class="accordion-body collapse in">  <div class="accordion-inner">
+To use object notifications, first set the notification callback in application.rb#initialize<ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
                             
                                 class AppApplication &lt; Rho::RhoApplication
                                     def initialize
@@ -97,10 +86,8 @@ To use object notifications, first set the notification callback in application.
                                     end
                                 end
                             
-                        <
-></code></pre>
-Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>
+Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:<ul class='nav nav-tabs' id='exI2-S1Tab'><li class='active'><a href='#exI2-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S1RUBY'><pre class='CodeRay'><code>:::ruby
                             
                                 class ProductController &lt; Rho::RhoController
                                 
@@ -123,10 +110,8 @@ Next, in your controller action that displays the object(s), add the object noti
                                     end
                                 end
                             
-                        <
-></code></pre>  </div></div></div></div><a name='e3'></a><div class='accordion property' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample3"><strong>Using search</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample3" class="accordion-body collapse in">  <div class="accordion-inner">
-First, call search from your controller action:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>  </div></div></div></div><a name='e3'></a><div class='accordion property' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample3"><strong>Using search</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample3" class="accordion-body collapse in">  <div class="accordion-inner">
+First, call search from your controller action:<ul class='nav nav-tabs' id='exI3-S0Tab'><li class='active'><a href='#exI3-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S0RUBY'><pre class='CodeRay'><code>:::ruby
                             
                                 def search
                                     page = @params['page'] || 0
@@ -148,10 +133,8 @@ First, call search from your controller action:
                                     render :action =&gt; :search_wait
                                 end
                             
-                        <
-></code></pre>
-Your callback might look like:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>
+Your callback might look like:<ul class='nav nav-tabs' id='exI3-S1Tab'><li class='active'><a href='#exI3-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S1RUBY'><pre class='CodeRay'><code>:::ruby
                             
                                 def search_callback
                                     status = @params["status"]
@@ -167,10 +150,8 @@ Your callback might look like:
                                     end
                                 end
                             
-                        <
-></code></pre>
-Typically you want to forward the original search query @params['search_params'] to your view that displays the results so you can perform the same query locally. Next, the resulting action :show_page will be called. Here we demonstrate using Rhom's advanced find query syntax since we are filtering a very large dataset:
-<pre class='CodeRay'><code>:::ruby
+                        </code></pre></div></div>
+Typically you want to forward the original search query @params['search_params'] to your view that displays the results so you can perform the same query locally. Next, the resulting action :show_page will be called. Here we demonstrate using Rhom's advanced find query syntax since we are filtering a very large dataset:<ul class='nav nav-tabs' id='exI3-S2Tab'><li class='active'><a href='#exI3-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S2RUBY'><pre class='CodeRay'><code>:::ruby
                             
                                 def show_page
                                     @contacts = Contact.find(
@@ -200,8 +181,7 @@ Typically you want to forward the original search query @params['search_params']
                                     render :action =&gt; :show_page
                                 end
                             
-                        <
-></code></pre>  </div></div></div></div>
+                        </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 

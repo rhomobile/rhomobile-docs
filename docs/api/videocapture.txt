@@ -8,8 +8,7 @@ captures video files from the default camera device.Only the foreground RhoEleme
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Basic Example</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                     The default video capture object on the device is enabled when the index view is loaded. 
-                
-<pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
             
 #/app/Model
 def index
@@ -25,12 +24,10 @@ end
   end 
                     
 
-                <
-></code></pre>
+                </code></pre></div></div>
 
                     Then in index.erb file:.
-                
-<pre class='CodeRay'><code>:::html
+                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::html
             
 &lt;script type="text/javascript" charset="utf-8" src="/public/js/application.js"&gt;&lt;/script&gt;
 &lt;div data-role="page"&gt;
@@ -54,8 +51,7 @@ end
 
                     
 
-                <
-></code></pre>  </div></div></div></div>
+                </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 

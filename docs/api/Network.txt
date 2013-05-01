@@ -8,8 +8,7 @@
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Detecting a Network Connection</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                         This code example shows how you would detect if your device is connected to an external website
-                    
-<pre class='CodeRay'><code>:::ruby
+                    <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
                 
     #/app/Model
     def index
@@ -30,8 +29,7 @@
         end
       end
                         
-                    <
-></code></pre>  </div></div></div></div>
+                    </code></pre></div></div>  </div></div></div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
