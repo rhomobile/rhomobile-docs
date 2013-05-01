@@ -17,7 +17,7 @@
             </ALIASES>
 
             <METHOD name="create" hasCallback="optional" runInThread="UI">
-                <DESC>Removes the current tabbar and replaces it with this one. Callback willbe called when tab is switched.</DESC>
+                <DESC>Removes the current tabbar and replaces it with this one. Callback will be called when tab is switched.</DESC>
                 <PARAMS>
                     <PARAM name="tabElements" type="ARRAY">
                         <DESC>Array of Tab elements.</DESC>
@@ -29,7 +29,7 @@
                                     <DESC>Visible label to display on the tabbar.</DESC>
                                 </PARAM>
                                 <PARAM name="action" type="STRING">
-                                    <DESC>URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. ‘/app/Account’ would load the Account index action. Or javascript method to call: 'javascript: methodOnTab();'. Or path to html page to load.</DESC>
+                                    <DESC>URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or javascript method to call: 'javascript: methodOnTab();'. Or path to html page to load.</DESC>
                                 </PARAM>
                                 <PARAM name="icon" type="STRING">
                                     <DESC>Relative path to tabbar item icon in your rhodes app; typically located in /public/images/.</DESC>
@@ -104,6 +104,11 @@
                         <DESC>The index for this tab (index numbered from 0).</DESC>
                     </PARAM>
                 </PARAMS>
+            </METHOD>
+
+            <METHOD name="isCreated" generateDoc="false">
+                <DESC>If Tabbar already created.</DESC>
+                <RETURN type="BOOLEAN"/>
             </METHOD>
 
         </METHODS>
