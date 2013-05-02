@@ -131,7 +131,7 @@ You can write the following methods for your source adapter model. These methods
 * [getData](/rhoconnectapi/source-adapter-model-api-js#getdataresp-callback) - Get the model document data from Store.
 * [currentUser](/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
 * [storeBlob](/rhoconnectapi/source-adapter-model-api-js#storeblob) - Save the incoming blob data into permanent storage for the future processing.
-
+* [partitionName](/rhoconnectapi/source-adapter-model-api-js#partitionname) - Provide a custom user partition for a model.
 
 ### Request API
 The [request object](/rhoconnectapi/source-adapter-request-api-js) contains information about the HTTP request the app is receiving.
