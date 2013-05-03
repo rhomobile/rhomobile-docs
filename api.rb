@@ -243,6 +243,7 @@ md+='</div>'
 	  			examplesections += "\n"
 	  			# puts section["DESC"][0]
 	  			# if section["DESC"][0].class != Hash
+	  			# puts section
 					examplesections += section["DESC"][0]
 				# end
 				exampleid = "exI#{index.to_s}-S#{si.to_s}"
