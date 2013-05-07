@@ -3,7 +3,7 @@ Extending RhoConnect Application with custom routes
 
 You can provide custom routes support in your RhoConnect application and utilize all the powerful features of the typical Sinatra app. To do this, simply define your routes in the corresponding controller class. Endpoint URL for your routes will be relative to the controller's root.
 
-The following example illustrates how to add a sample `my_custom_route' to the Product Controller:
+The following example illustrates how to add a sample `my_custom_route` to the Product Controller:
 
     :::ruby
     class Product < Rhoconnect::Controller::Base
@@ -12,7 +12,7 @@ The following example illustrates how to add a sample `my_custom_route' to the P
       end
     end
 
-This route will have the following URL : GET '/app/v4/Product/my_custom_route'
+This route will have the following URL : GET '/app/v1/Product/my_custom_route'
 
 The above custom route implementation will respond to client's GET request, verifies the current_user (which will be extracted from the RHoConnect session cookie and checked for validity by the `:login_required` condition)
 and returns a static PNG file (which can be later used in BLOB syncs) 
@@ -52,7 +52,7 @@ Then, modify your RhoConnect source adapter model (in `rhoconnect_app/models/rub
 
       @result={}
       parsed.each do |item|
-        item["product"]["my_custom_field-rhoblob"] = "http://localhost:9292/app/v4/Product/my_custom_route"
+        item["product"]["my_custom_field-rhoblob"] = "http://localhost:9292/app/v1/Product/my_custom_route"
         @result[item["product"]["id"].to_s] = item["product"]
       end if parsed    
     end
