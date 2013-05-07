@@ -107,10 +107,10 @@ def update_xml
  
  apiSources.each do |s|
    apiSourceFolder = File.join(s,"**","*.xml")
-   # puts apiSourceFolder
+    puts apiSourceFolder
    Dir.glob(apiSourceFolder).each do|f|
     filename = File.basename(f)
-     # puts filename
+      puts filename
     doc = XmlSimple.xml_in(f)
     if !doc["MODULE"].nil?
       gendoc = "true"
