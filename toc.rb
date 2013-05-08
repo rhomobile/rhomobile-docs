@@ -112,7 +112,7 @@ end
 section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/source-adapters-intro', 'Introduction'
   topic 'rhoconnect/source-adapters',   'Source Adapters (Ruby)'
-  topic 'rhoconnect/source-adapters-js',   'Source Adapters (JavaSctipt)'
+  topic 'rhoconnect/source-adapters-js',   'Source Adapters (JavaScript)'
   topic 'rhoconnect/authentication',    'Adding Device Authentication'
   topic 'rhoconnect/testing',           'Testing and Debugging'
   topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
