@@ -401,13 +401,16 @@ md+='</div>'
   def self.getproperties(doc)
   	md = ""
   	templatePropBag = true
+	generateAccessors = true
 
   	if !doc["MODULE"][0]["TEMPLATES"].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
   		templatePropBag = false
   	end
+  	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
+  		generateAccessors = false
+  	end
   	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
   		s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
-
 
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
@@ -550,10 +553,16 @@ md+='</div>'
     md +='  <div class="accordion-inner">'
 
   	md += "#{@propdesc}#{@propsectionplatforms}#{propdefault}"
-  	md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
-	
+
+  	if !generateAccessors
+  		md += '<p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>'
+	else
+  		md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
+	end
   	md += @propvalues
-  	md += "<p>" + propusage + "</p>"
+  	if !generateAccessors
+  		md += "<p>" + propusage + "</p>"
+  	end
     md += '  </div>'
     md += '</div>'
     md += '</div>'
@@ -1081,6 +1090,9 @@ end
 	  	end 
 	  	if docproperties !=""
 		  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
+			  		md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods. However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
+				end
 		  	 md += "" + docproperties + ""
 	  	end 
 	  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 

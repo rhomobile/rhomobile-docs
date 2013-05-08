@@ -268,33 +268,24 @@ The signature capture area is designed to be set up prior to capturing the signa
                <DESC>
                    Several properties affect the appearance of the signature capture functionality. You can set their values before showing the capture interface:
                </DESC>
-               <CODE lang='ruby'>
+               <CODE>
+               	<RUBY>
            <![CDATA[ 
 	# Change fullscreen from true (default) to false           
-    Rho::Signature.fullScreen = false;
     # Change background color from white (default) to black
-    Rho::Signature.bgColor = "#000000"
     # Change pen color from blue (default) to white
-    Rho::Signature.penColor = "#FFFFFF"  
+    Rho::Signature.show {:fullScreen => false, :bgColor => "#000000", :penColor => "#FFFFFF"}
                    ]]>
-
-               </CODE>
-               </SECTION>
-               <SECTION>
-               <DESC>
-                   Properties can also be set from Javascript
-               </DESC>
-               <CODE lang='javascript'>
+                 </RUBY>
+                 <JAVASCRIPT>
            <![CDATA[
     // Change fullscreen from true (default) to false           
-    Rho.Signature.fullScreen = false;
     // Change background color from white (default) to black
-    Rho.Signature.bgColor = "#000000";
     // Change pen color from blue (default) to white
-    Rho.Signature.penColor = "#FFFFFF";  
+	Rho::Signature.show ({:fullScreen => false, :bgColor => "#000000", :penColor => "#FFFFFF"});
 
                    ]]>
-
+                 </JAVASCRIPT>  
                </CODE>
                </SECTION>
                </SECTIONS>

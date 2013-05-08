@@ -20,20 +20,7 @@ todo.  This is for hardware keys, not software keys... note recommended to use w
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='phomeKeyValue'></a><div class='accordion property' id='phomeKeyValue'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhomeKeyValue"><strong>homeKeyValue</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhomeKeyValue" class="accordion-body collapse in">  <div class="accordion-inner">todo - Set to Disabled or the HomeKeyValue to be used.<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><strong>Default:</strong> Disabled</p><p><a href="#homeKeyValueUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="homeKeyValueUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">KeyCapture.homeKeyValue</h3>  </div>  <div class="modal-body">
-
-<strong>Ruby Usage</strong>
-
-<pre class='CodeRay'><code>:::ruby
-# Setting directly
-Rho::KeyCapture.homeKeyValue='some string'myvar = Rho::KeyCapture.homeKeyValue</code></pre>
-
-<strong>Javascript Usage</strong>
-
-<pre class='CodeRay'><code>:::javascript
-
-# Setting directly
-Rho.KeyCapture.homeKeyValue='some string';myvar = Rho.KeyCapture.homeKeyValue;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+<a name='phomeKeyValue'></a><div class='accordion property' id='phomeKeyValue'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyhomeKeyValue"><strong>homeKeyValue</strong> : <span class='text-info'>STRING</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyhomeKeyValue" class="accordion-body collapse in">  <div class="accordion-inner">todo - Set to Disabled or the HomeKeyValue to be used.<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><strong>Default:</strong> Disabled</p><p><a href="#homeKeyValueUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

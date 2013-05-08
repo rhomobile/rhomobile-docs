@@ -53,20 +53,7 @@ The Battery API is used to notify the user of the remaining power in the battery
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='prefreshInterval'></a><div class='accordion property' id='prefreshInterval'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrefreshInterval"><strong>refreshInterval</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrefreshInterval" class="accordion-body collapse in">  <div class="accordion-inner">A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown.  Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> 5000</p><p><a href="#refreshIntervalUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="refreshIntervalUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">Battery.refreshInterval</h3>  </div>  <div class="modal-body">
-
-<strong>Ruby Usage</strong>
-
-<pre class='CodeRay'><code>:::ruby
-# Setting directly
-Rho::Battery.refreshInterval=0myvar = Rho::Battery.refreshInterval</code></pre>
-
-<strong>Javascript Usage</strong>
-
-<pre class='CodeRay'><code>:::javascript
-
-# Setting directly
-Rho.Battery.refreshInterval=0;myvar = Rho.Battery.refreshInterval;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+<a name='prefreshInterval'></a><div class='accordion property' id='prefreshInterval'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrefreshInterval"><strong>refreshInterval</strong> : <span class='text-info'>INTEGER</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrefreshInterval" class="accordion-body collapse in">  <div class="accordion-inner">A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown.  Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><strong>Default:</strong> 5000</p><p><a href="#refreshIntervalUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 
