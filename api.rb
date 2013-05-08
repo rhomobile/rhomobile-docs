@@ -400,8 +400,12 @@ md+='</div>'
   #returns Markdown for the <Properties section
   def self.getproperties(doc)
   	md = ""
-  	templatePropBag = true
-	generateAccessors = true
+  	generateAccessors = true
+
+	templatePropBag = false
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+	  		templatePropBag = true
+	  	end
 
   	if !doc["MODULE"][0]["TEMPLATES"].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
   		templatePropBag = false
@@ -963,17 +967,17 @@ end
   	#puts topic
   	doc = XmlSimple.xml_in(topic)
   	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
-	  	templatePropBag = true
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
-	  		templatePropBag = false
+	  	templatePropBag = false
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+	  		templatePropBag = true
 	  	end
-	  	templateDefault = true
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
-	  		templateDefault = false
+	  	templateDefault = false
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+	  		templateDefault = true
 	  	end
-	  	templateSingleton = true
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
-	  		templateSingleton = false
+	  	templateSingleton = false
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+	  		templateSingleton = true
 	  	end
 	  	if templateDefault
 	  		#get xml from file and put it in main array so it is handled like other methods
