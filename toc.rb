@@ -128,7 +128,7 @@ section 'rhoconnect-ruby-api-reference', 'Source Adapter Ruby APIs' do
   topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API'
 end
 
-section 'rhoconnect-js-api-reference', 'Source Adapter JavaScript APIs' do
+section 'rhoconnect-js-api-reference', 'Source Adapter JS APIs' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API'
   topic 'rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API'
