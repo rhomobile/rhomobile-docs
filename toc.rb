@@ -121,6 +121,23 @@ section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/data-partitioning',     'Data Partitioning & Pass-Through'
 end
 
+section 'rhoconnect-ruby-api-reference', 'Source Adapter Ruby APIs' do
+  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API'
+  topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API'
+  topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API'
+end
+
+section 'rhoconnect-js-api-reference', 'Source Adapter JavaScript APIs' do
+  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API'
+  topic 'rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API'
+  topic 'rhoconnectapi/source-adapter-request-api-js', 'Source Request API'
+  topic 'rhoconnectapi/source-adapter-response-api-js', 'Source Response API'
+  topic 'rhoconnectapi/source-adapter-store-api-js', 'Source Adapter Store API'
+  topic 'rhoconnectapi/source-adapter-exception-api-js', 'Source Adapter Exception API'
+end
+
 section 'rhoconnect-plugin-reference', 'Plugins' do
   topic 'rhoconnect/plugin-intro',      'Introduction'
   topic 'rhoconnect/rails-plugin',      'Rails Plugin'
@@ -153,15 +170,6 @@ section 'rhoconnect-deployment', 'Deployment' do
   topic 'rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'rhoconnect/deploying',         'Deploying RhoConnect'
   topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
-end
-
-section 'rhoconnect-api-reference', 'APIs' do
-  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
-  topic 'rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API (Ruby)'
-  topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API (Ruby)'
-  topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API (Ruby)'
-  topic 'rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API (JavaScript)'
-  topic 'rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API (JavaScript)'
 end
 
 section 'rhoconnect-advanced', 'Advanced Topics' do
