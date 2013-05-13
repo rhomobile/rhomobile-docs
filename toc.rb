@@ -29,7 +29,6 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
   topic 'api/Network',      'Network'
   topic 'api/Orm',      'Orm'
   topic 'api/OrmModel',      'OrmModel'
-  topic 'api/OrmObject',      'OrmObject'
   topic 'api/RhoConnectClient',      'RhoConnectClient'
   topic 'api/signature',      'Signature'
   topic 'api/system',      'System'
