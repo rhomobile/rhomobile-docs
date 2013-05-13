@@ -290,6 +290,29 @@ The signature capture area is designed to be set up prior to capturing the signa
                </SECTION>
                </SECTIONS>
            </EXAMPLE>
+           <EXAMPLE title="Capture as DataURI">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   By default, the Signature API returns the capture as an image. If you prefer a DataURI representation of the signature, use the "outputFormat" property
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+Rho::Signature.takeFullScreen({:outputFormat => "dataUri"}, url_for(:action => :signature_callback))
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+Rho.Signature.takeFullScreen({outputFormat : "dataUri"}, signature_callback)
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+           
        </EXAMPLES>
 
 	</MODULE>

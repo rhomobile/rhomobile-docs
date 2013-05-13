@@ -236,6 +236,75 @@ end
                 </SECTION>
                 </SECTIONS>
             </EXAMPLE>
+                       <EXAMPLE title="Connect to card reader">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   Enable card reader and receive a callback when a card is swiped
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+def connect
+  Rho::CardReader.open({}, url_for(:action => :cardreader_callback))
+  redirect :index
+end
+
+def cardreader_callback
+  Alert.show_popup("Received card reader data: #{@params[:data]}")
+end
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+function cardreader_callback(params) {
+  alert("Received data from card reader: "+params["data"]);
+}
+
+function connect() {
+  Rho.CardReader.open({}, cardreader_callback);
+}
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+           <EXAMPLE title="Set card reader properties">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   There are two ways to use the card reader. One is to receive a callback when a card is swiped, the other is to have it simulate keypresses. See below for an example of this second option
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+# Configure the MSR to output keystrokes instead of calling a function when a card is swiped
+# Note the absence of a callback parameter
+# Also, After emitting the keystrokes, automatically send a "Tab" keypress
+Rho::CardReader.open({:autoTab => true})
+
+# Instead of "Tab", we could request a simulated "Enter" 
+Rho::CardReader.open({:autoEnter => true})
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+// Configure the MSR to output keystrokes instead of calling a function when a card is swiped
+// Note the absence of a callback parameter
+// Also, After emitting the keystrokes, automatically send a "Tab" keypress
+Rho.CardReader.open({autoTab : true});
+
+Rho.CardReader.open({autoEnter : true});
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+
         </EXAMPLES>
     </MODULE>
 </API>    
