@@ -55,6 +55,8 @@ Its purpose is to define the RhoConnect application HTTP end point and to regist
 The generated source adapter's model file (in this case, `models/product.js`) is similar to the code listing below:
 
     :::javascript
+    var rc = require('rhoconnect_helpers');
+
     var Product = function(){
 
       this.login = function(resp){
@@ -98,9 +100,19 @@ The generated source adapter's model file (in this case, `models/product.js`) is
         // TODO: Logout from the data source if necessary.
         resp.send(true);
       };
+
+      this.storeBlob = function(resp){
+        // TODO: Handle post requests for blobs here.
+        // Reference the blob object's path with resp.params.path.
+        new rc.Exception(
+          "Please provide some code to handle blobs if you are using them."
+        );
+      };
     };
 
     module.exports = new Product();
+
+In this model you will need to implement the functions necessary for the create, query, update and delete sync operations.  Optionally you may implement functions for login, logoff and storeBlob (if your application uses blobs).
 
 ## Source Adapter API
 
@@ -156,6 +168,17 @@ RhoConnect provides a simple [redis interface](/rhoconnectapi/source-adapter-sto
 * [putValue](/rhoconnectapi/source-adapter-store-api-js#putvaluerespcallback) - Add a simple value to redis.
 * [getData](/rhoconnectapi/source-adapter-store-api-js#getdatarespcallback) - Retrieve an array or hash from redis.
 * [putData](/rhoconnectapi/source-adapter-store-api-js#putdatarespcallback) - Add an array or hash to redis.
+
+## Exception API
+Use the following exception types in your JavaScript application to handle any error conditions.  Don't worry, if your application throws an uncaught exception, the base `RhoConnect::Model::Exception` will automatically be used.
+
+* [Exception](/rhoconnectapi/source-adapter-exception-api-js#exceptionresponse-message) - Raise a `RhoConnect::Model::Exception`.
+* [LoginException](/rhoconnectapi/source-adapter-exception-api-js#loginexceptionresponse-message) - Raise a `RhoConnect::Model::LoginException`.
+* [LogoffException](/rhoconnectapi/source-adapter-exception-api-js#logoffexceptionresponse-message) - Raise a `RhoConnect::Model::LogoffException`.
+* [ServerTimeoutException](/rhoconnectapi/source-adapter-exception-api-js#servertimeoutexceptionresponse-message) - Raise a `RhoConnect::Model::ServerTimeoutException`.
+* [ServerErrorException](/rhoconnectapi/source-adapter-exception-api-js#servererrorexceptionresponse-message) - Raise a `RhoConnect::Model::ServerErrorException`.
+* [ObjectConflictErrorException](/rhoconnectapi/source-adapter-exception-api-js#objectconflicterrorexceptionresponse-message) - Raise a `RhoConnect::Model::ObjectConflictErrorException`.
+
 
 ## Sample Model
 Here's a complete example of how the completed [product model might look](https://gist.github.com/larsburgess/87753882f3a4a366b48b):
@@ -257,6 +280,14 @@ Here's a complete example of how the completed [product model might look](https:
 
       this.logoff = function(resp){
         resp.send(true);
+      };
+
+      this.storeBlob = function(resp){
+        // TODO: Handle post requests for blobs here.
+        // Reference the blob object's path with resp.params.path.
+        new rc.Exception(
+          resp, "Please provide some code to handle blobs if you are using them."
+        );
       };
     };
 
