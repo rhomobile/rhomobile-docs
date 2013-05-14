@@ -105,7 +105,7 @@ The generated source adapter's model file (in this case, `models/product.js`) is
         // TODO: Handle post requests for blobs here.
         // Reference the blob object's path with resp.params.path.
         new rc.Exception(
-          "Please provide some code to handle blobs if you are using them."
+          resp, "Please provide some code to handle blobs if you are using them."
         );
       };
     };
