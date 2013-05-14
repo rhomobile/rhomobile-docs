@@ -8,42 +8,42 @@ Make sure you have a Rhoconnect Helpers object in your model:
     :::javascript
     var rc = require('rhoconnect_helpers');
 
-## Exception(message)
+## Exception(response, message)
 Raise a generic RhoConnect adapter exception.
 
     :::javascript
-    throw new rc.Exception('Something went wrong!');
+    new rc.Exception(resp, 'Something went wrong!');
 
-## LoginException(message)
+## LoginException(response, message)
 Raise an exception on the login procedure.
 
     :::javascript
-    throw new rc.LoginException('A login error occured.');
+    new rc.LoginException(resp, 'A login error occured.');
 
-## LogoffException(message)
+## LogoffException(response, message)
 Raise an exception on the logoff procedure.
 
     :::javascript
-    throw new rc.LogoffException('A logoff error occured.');
+    new rc.LogoffException(resp, 'A logoff error occured.');
 
-## ServerTimeoutException(message)
+## ServerTimeoutException(response, message)
 Raise an exception indicating a timeout occured.
 
     :::javascript
-    throw new rc.ServerTimeoutException('A timeout occured.');
+    new rc.ServerTimeoutException(resp, 'A timeout occured.');
 
-## ServerErrorException(message)
+## ServerErrorException(response, message)
 Raise an exception concerning the backend service.
 
     :::javascript
-    throw new rc.ServerErrorException('An error occured with our systems, please try again.');
+    new rc.ServerErrorException(resp, 'An error occured with our systems, please try again.');
 
-## ObjectConflictErrorException(message)
+## ObjectConflictErrorException(response, message)
 Raise a [conflict exception](/rhoconnect/cud-conflicts) to indicate there was a conflict in handling the record. This will trigger RhoConnect's automatic processing for conflicts.
 
     :::javascript
-    throw new rc.ObjectConflictErrorException(
-      'A conflict error occured, please update your copy and try again'
+    new rc.ObjectConflictErrorException(
+      resp, 'A conflict error occured, please update your copy and try again'
     );
 
 
@@ -65,7 +65,7 @@ The following example raises a `ServerErrorException` in the [delete function](/
           resp.send(true);
         });
         res.on('error', function(){
-          throw new rc.ServerErrorException('There was an error deleting, please try again');
+          new rc.ServerErrorException(resp, 'There was an error deleting, please try again');
         });
       });
       req.end();
