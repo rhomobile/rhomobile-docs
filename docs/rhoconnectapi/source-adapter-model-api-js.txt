@@ -82,7 +82,10 @@ Create a new record in the backend (optional).
         host: host,
         path: '/products.json',
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': postData.length
+        }
       };
       var req = http.request(options, function(res){
         res.on('data', function(chunk){
@@ -110,7 +113,10 @@ Update an existing record in the backend (optional).
         host: host,
         path: '/products/' + objId + '.json',
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 
+          'Content-Type': 'application/json',
+          'Content-Length': putData.length
+        }
       };
       var req = http.request(options, function(res){
         res.on('data', function(){});
