@@ -580,6 +580,7 @@ md+='</div>'
   end
 
 def self.getparams(element,toplevel)
+	# puts element["name"]
 	methparamsdetails = ""
 	methsectionparams = ""
 		if !element["PARAMS"].nil?
@@ -657,12 +658,102 @@ def self.getparams(element,toplevel)
 				}
 
 			}
+
+
+
+
 			if !toplevel
 				methsectionparams += "</ul>"
 			end
 			
 			
 		end
+
+if !element["PARAM"].nil?
+			if !toplevel
+				methsectionparams += "<ul>"
+			end
+				element["PARAM"].each { |param|
+					methparamsdetailsdesc = ''
+			
+					# puts param
+					if !param["DESC"].nil?
+						methparamsdetailsdesc=param["DESC"][0]
+						if methparamsdetailsdesc.to_s == '{}'
+							methparamsdetailsdesc= ''
+						end
+					end
+
+					methparamsnil=""
+					methparamsnildesc=""
+					if !param["CAN_BE_NIL"].nil?
+						param["CAN_BE_NIL"].each { |paramsnil|
+							methparamsnil=" <span class='label label-info'>Optional</span>"
+							if !paramsnil["DESC"].nil?
+								methparamsnildesc =  paramsnil["DESC"][0]
+							end
+							
+						}
+					end
+					
+					if param["type"].nil?
+						param["type"] = "STRING"
+					end
+					if toplevel
+
+						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
+						@seperator =  ', '
+					end 
+					# puts param
+					if param["name"].nil?
+						param["name"] = ""
+					end
+					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
+					values = ""
+					valuetype = param["type"]
+								
+					if !param["VALUES"].nil?
+						param["VALUES"].each() { |velement|
+							velement["VALUE"].each() { |vaelement|
+								valdesc = "<dl>"
+								if !vaelement["DESC"].nil?
+									if !vaelement["DESC"][0].empty?
+										valdesc = vaelement["DESC"][0].to_s
+									else
+										valdesc = ""
+									end 
+								end	
+								@seperator = ', '
+								if !vaelement["type"].nil?
+									valuetype = !vaelement["type"]
+								end
+								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
+								
+							}
+						values += "</dl>"
+
+						}
+					end
+					if values != ""
+						values = "<p><strong>Possible Values</strong> :</p> " + values 
+					end
+					
+					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
+					methsectionparams += getparams(param,false)
+				}
+
+			
+
+
+
+			
+			if !toplevel
+				methsectionparams += "</ul>"
+			end
+			
+			
+		end
+
 	return methsectionparams
 end
 
@@ -967,7 +1058,7 @@ end
   	# xml = File.read(topic)
   	# doc = REXML::Document.new xml
   	
-  	#puts topic
+  	# puts topic
   	doc = XmlSimple.xml_in(topic)
   	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
 	  	templatePropBag = false
