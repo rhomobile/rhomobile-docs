@@ -31,6 +31,12 @@
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>When true, automatically appends the tab character to the end of any barcodes scanned.  This is most useful if you are populating a form.  This property will only take effect if you have not specified a callback to the enable method.  AutoEnter and AutoTab are mutually exclusive</DESC>
             </PROPERTY>
+			<PROPERTY name="hapticFeedback" type="BOOLEAN" generateAccessors="true" default="true">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<PLATFORM>Android</PLATFORM>
+				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+				<DESC>Controls the haptic feedback on decode. This means that if this is set to true, then the device will vibrate when a decode occurs.</DESC>
+			</PROPERTY>
             <PROPERTY name="linearSecurityLevel" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
@@ -424,21 +430,21 @@
             </PROPERTY>
             <PROPERTY name="invalidDecodeFrequency" type="INTEGER" generateAccessors="true" default="2500">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<PLATFORM>WM, Android</PLATFORM>
+				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535. Not applicable to Android.</DESC>
+				<DESC>The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</DESC>
             </PROPERTY>
             <PROPERTY name="decodeSound" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>Local path to a wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.  Not available on Android.</DESC>
+				<DESC>Local path to a wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<PLATFORM>WM, Android</PLATFORM>
+				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>Local path to a wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper. Not available on Android.</DESC>
+				<DESC>Local path to a wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.</DESC>
             </PROPERTY>
             <PROPERTY name="scannerType" type="STRING" generateAccessors="true" readOnly="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1617,7 +1623,7 @@
 					<DESC>This method replaces Barcode.enable from RhoElements 2.2 and takes a different prototype, no longer taking a 'deviceName' parameter this method can now be called on the individual scanner instances returned by Barcode.enumerate to control which hardware scanner on the device is enabled.  Please consider using Barcode.take if you only require a 'single shot' scan and Barcode.enable if your user will be using the trigger to return scan events.</DESC>
 				</BACKWARDS_COMPATIBILITY>
                 <PARAMS>
-                    <PARAM name="propertyMap" type="HASH">
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
                             <DESC>Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance</DESC>
@@ -1703,7 +1709,7 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Enable the scanner and start capturing the barcode automatically.  On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property.  On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.  Once the callback has been called the barcode hardware is disabled.</DESC>
                 <PARAMS>
-                    <PARAM name="propertyMap" type="HASH">
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
                             <DESC>Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance</DESC>
@@ -1730,7 +1736,7 @@
                     <PARAM name="rubyCallbackURL" type="STRING">
                         <DESC>Ruby callbacl URL</DESC>
                     </PARAM>    
-                    <PARAM name="propertyMap" type="HASH">
+                    <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
                             <DESC>Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance</DESC>

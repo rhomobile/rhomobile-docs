@@ -8,7 +8,7 @@
 		<TEMPLATES>
 		</TEMPLATES>
 
-		<PROPERTIES access="STATIC" generateAccessors="false">
+		<PROPERTIES access="STATIC" generateAccessors="true" >
 			<DESC>These properties are used to configure the appearance and the behaviour of the signature capture area.</DESC>
 			<ALIASES>
 				<ALIAS new="imageFormat" existing="compressionFormat" deprecated="true"/>
@@ -55,7 +55,7 @@
 				<DESC>Shows or hides a border for the rectangular capture area. Not applicable to fullscreen signature capture area.</DESC>
 			</PROPERTY>
 
-			<PROPERTY name="penColor" type="STRING" default="#000000FF">
+			<PROPERTY name="penColor" type="INTEGER" default="0x000000FF">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>RGB or RGBA value that sets the color of the stylus pen ink using HTML web colors.</DESC>
 			</PROPERTY>
@@ -65,7 +65,7 @@
 				<DESC>Sets the width of the pen line in pixels.</DESC>
 			</PROPERTY>
 
-			<PROPERTY name="bgColor" type="STRING" default="#FFFFFFFF">
+			<PROPERTY name="bgColor" type="INTEGER" default="0xFFFFFFFF">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>RGB or RGBA value that sets the background color of the signature capture area.</DESC>
 			</PROPERTY>

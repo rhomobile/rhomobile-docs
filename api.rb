@@ -244,7 +244,9 @@ md+='</div>'
 	  			# puts section["DESC"][0]
 	  			# if section["DESC"][0].class != Hash
 	  			# puts section
-					examplesections += section["DESC"][0]
+	  				if !section["DESC"].nil? && !section["DESC"][0].nil?
+						examplesections += section["DESC"][0]
+					end
 				# end
 				exampleid = "exI#{index.to_s}-S#{si.to_s}"
 	  			
@@ -936,6 +938,7 @@ end
     md += '<div class="accordion-heading">'
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
+    
     md += '<strong data-toggle="tooltip" title data-original-title="' + @methdesc + '">' + methname + '</strong>' + "(#{@methparams})"
 	md += '<i class="icon-chevron-down pull-right"></i></span>'
     md += '</div>'
