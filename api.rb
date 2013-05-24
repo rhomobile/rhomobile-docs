@@ -1009,6 +1009,35 @@ end
 						
 						@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
 						@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
+					values = ""
+					valuetype = param["type"]
+								
+					if !param["VALUES"].nil?
+						param["VALUES"].each() { |velement|
+							velement["VALUE"].each() { |vaelement|
+								valdesc = "<dl>"
+								if !vaelement["DESC"].nil?
+									if !vaelement["DESC"][0].empty?
+										valdesc = vaelement["DESC"][0].to_s
+									else
+										valdesc = ""
+									end 
+								end	
+								@seperator = ', '
+								if !vaelement["type"].nil?
+									valuetype = !vaelement["type"]
+								end
+								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
+								
+							}
+						values += "</dl>"
+
+						}
+					end
+					if values != ""
+						values = "<p><strong>Possible Values</strong> :</p> " + values 
+					end
+					@methsectioncallbackparams += values
 
 					}
 
