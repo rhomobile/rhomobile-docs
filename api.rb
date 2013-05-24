@@ -566,9 +566,9 @@ md+='</div>'
   		md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
 	end
   	md += @propvalues
-  	if !generateAccessors
+  	 if generateAccessors
   		md += "<p>" + propusage + "</p>"
-  	end
+  	 end
     md += '  </div>'
     md += '</div>'
     md += '</div>'
@@ -938,7 +938,7 @@ end
     md += '<div class="accordion-heading">'
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
-    
+
     md += '<strong data-toggle="tooltip" title data-original-title="' + @methdesc + '">' + methname + '</strong>' + "(#{@methparams})"
 	md += '<i class="icon-chevron-down pull-right"></i></span>'
     md += '</div>'
