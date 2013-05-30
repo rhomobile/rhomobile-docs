@@ -2,14 +2,99 @@ Source Adapter Controller API (Ruby)
 ===
 Your RhoConnect source adapter controller can use any of these methods to facilitate handling of the incoming requests.
 
+## register Rhoconnect::EndPoint
+
+Rhoconnect::EndPoint is a Sinatra extenstion which purpose is to add the Controller into the application's URLMap.
+Source Adapter Controller becomes available at the root `/app/v1/<Source Adapter's Name>`. 
+One exception here is the Application Controller - which has its own special root `/rc/v1/app`.
+All of the Controller's routes are registered relative to the its root, for example:
+
+  GET '/my_custom_route' declared unside of the Product Controller unfolds into GET '/app/v1/Product/my_custom_route'
+
+NOTE: You can see which routes are available for your application by using `rhoconnect routes` command inside of your app's root directory.
+
+## register Rhoconnect::Handler::Sync
+
+Rhoconnect::Handler::Sync is a Sinatra extenstion which purpose is to add default SYNC routes into your Source Adapter Controller. When used, it adds the following routes into the Source Adapter Controller:
+
+<table border="1">
+	<tr>
+		<td><code>GET '/'</code></td>
+		<td>Main SYNC route responsible for data query and downloading the changes to the client.</td>
+		<td>Handler: <code>:rc_handler => :query</code></td>
+		<td>Options: <code>:source_required => true, :client_required => true, :login_required => true</code></td>
+	</tr>
+	<tr>
+		<td><code>POST '/'</code></td>
+		<td>Create/Update/Delete route responsible for uploading changes (creates/updates/deletes) from the client.</td>
+		<td>Handler: <code>:rc_handler => :cud</code></td>
+		<td>Options: <code>:source_required => true, :client_required => true, :login_required => true</code></td>
+	</tr>
+	<tr>
+		<td><code>PUT '/:id'</code></td>
+		<td>Update route responsible for updating a single object from the client.</td>
+		<td>Handler: <code>:rc_handler => :update</code></td>
+		<td>Options: <code>:source_required => true, :client_required => true, :login_required => true</code></td>
+	</tr>
+	<tr>
+		<td><code>DELETE '/:id'</code></td>
+		<td>Update route responsible for deleting a single object from the client.</td>
+		<td>Handler: <code>:rc_handler => :delete</code></td>
+		<td>Options: <code>:source_required => true, :client_required => true, :login_required => true</code></td>
+	</tr>
+</table>
+
+Also, Rhoconnect::Handler::Sync extenstion add the following Plugin Callback routes (requires API Token):
+<table border="1">
+	<tr>
+		<td><code>POST '/push_objects'</code></td>
+		<td>This route is used to upload changes (creates or updates) from the plugin (or any 3rd party application).</td>
+		<td>Handler: <code>:rc_handler => :push_objects</code></td>
+		<td>Options: <code>:admin_required => true</code></td>
+	</tr>
+	<tr>
+		<td><code>POST '/push_deletes'</code></td>
+		<td>This route is used to delete objects (called from the plugin or any 3rd party application).</td>
+		<td>Handler: <code>:rc_handler => :push_deletes</code></td>
+		<td>Options: <code>:admin_required => true</code></td>
+	</tr>
+</table>
+
+
 ## @model
 
+@model variable is available implicitly only inside of the Source Adapter Controller's routes that enforce :source_required => true condition (which in turn requires valid session cookie upon the call).
 Access your source adapter model instance variable inside of the route:
 
 	:::ruby
-	post '/my_custom_route'
+	post '/my_custom_route', :source_required => true do
 	  "Hello! I am - #{@model.source.inspect}"
 	end
+
+NOTE: Application Controller doesn't have the @model variable available, since it is not a Source Adapter Controller.
+
+Alternatively, you can constuct the model's instance by using the following method inside of your route:
+
+	:::ruby
+	post '/my_custom_route' do
+		source_instance = Source.load('<source_name>',
+			{:user_id => '<username>', :app_id => Rhoconnect::APP_NAME}
+		@model = Rhoconnect::Model::Base.create(source_instance)
+		"Hello! I am - #{@model.source.inspect}"
+	end
+
+Here:
+
+<table border="1">
+	<tr>
+		<td><code>source_name</code></td>
+		<td>name of the source that you want to load (for example, <code>Product</code>). Source here can be considered as the model's run-time meta context.</td>
+	</tr>
+	<tr>
+		<td><code>username</code></td>
+		<td>name of the user whose source data you want to load. Source (and model) always operate in the context of a certain user.</td>
+	</tr>
+</table>
 
 ## Sinatra context
 
