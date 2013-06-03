@@ -185,7 +185,7 @@ task :process_archive do
 end
 
 desc 'Load latest docs and publish to edge'
-task :publish_edge => [:load, :update_xml, :process_xml] do
+task :publish_edge => :load do
   `git add .`
   `git commit -m "jenkins auto-commit"`
   `git push origin master`
