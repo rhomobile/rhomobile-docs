@@ -103,7 +103,7 @@ def process_xml
 end
 
 def update_xml
- apiSources = AppConfig['dirs']['api_sources'] || []
+ apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
    apiSourceFolder = File.join(s,"**","*.xml")
     puts apiSourceFolder
