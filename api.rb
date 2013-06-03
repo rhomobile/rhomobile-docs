@@ -197,7 +197,7 @@ md+='</div>'
   	md = ""
   	ctr = 0 
   	if !doc["MODULE"][0]["METHODS"].nil?
-	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
+	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
 	  	ctr = s.count()
 	  	s.each() { |element|
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
@@ -765,7 +765,7 @@ end
 
   	
   	@methsectionparams= ""
-  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]}
+  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
     
     #puts methodaliases
 		
