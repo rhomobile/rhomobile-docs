@@ -8,68 +8,106 @@ is used for syncronization with Rhoconnect servers. Synchronization overview is 
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Sync Authentication</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                             In your controller call login.
-                        <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
-                            
-                            RhoConnectClient.login(
-                                @params['login'],
-                                @params['password'],
-                                url_for(:action =&gt; :login_callback)
-                            )
-                            
-                            
-                        </code></pre></div></div>
+                        <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+
+
+Rho.RhoConnectClient.login('john','password',function(result){
+   loginCallback(result);
+});
+                          </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
+
+RhoConnectClient.login(
+  @params['login'],
+  @params['password'],
+  url_for(:action =&gt; :login_callback)
+)
+                          </code></pre></div></div>
 
                             When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-                        <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
-                            
-                            def login_callback
-                                error_code = @params['error_code'].to_i
-                                if error_code == 0
-                                    # run sync if we were successful
-                                    WebView.navigate Rho::RhoConfig.options_path
-                                    RhoConnectClient.doSync
-                                else
-                                    if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
-                                        @msg = @params['error_message']
-                                    end
-                                
-                                    if not @msg or @msg.length == 0
-                                        @msg = Rho::RhoError.new(error_code).message
-                                    end
-                                
-                                    WebView.navigate(
-                                        url_for(:action =&gt; :login, :query =&gt; {:msg =&gt; @msg})
-                                    )
-                                end
-                            end
-                            
-                            
-                        </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
+                        <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
+
+
+// Error codes:
+// ERR_NONE = 0
+// ERR_NETWORK = 1
+// ERR_REMOTESERVER = 2
+// ERR_RUNTIME = 3
+// ERR_UNEXPECTEDSERVERRESPONSE = 4
+// ERR_DIFFDOMAINSINSYNCSRC = 5
+// ERR_NOSERVERRESPONSE = 6
+// ERR_CLIENTISNOTLOGGEDIN = 7
+// ERR_CUSTOMSYNCSERVER = 8
+// ERR_UNATHORIZED = 9
+
+function loginCallback(result) {
+  var errorCode = result.error_code.toString();
+  var errorMessage = result.error_message.toString();
+  if(errorCode === 0 {
+    // process success
+  } else {
+    // process error with errorMessage
+  }
+}
+
+                          </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
+
+
+# Error codes:
+# ERR_NONE = 0
+# ERR_NETWORK = 1
+# ERR_REMOTESERVER = 2
+# ERR_RUNTIME = 3
+# ERR_UNEXPECTEDSERVERRESPONSE = 4
+# ERR_DIFFDOMAINSINSYNCSRC = 5
+# ERR_NOSERVERRESPONSE = 6
+# ERR_CLIENTISNOTLOGGEDIN = 7
+# ERR_CUSTOMSYNCSERVER = 8
+# ERR_UNATHORIZED = 9
+
+def login_callback
+  error_code = @params['error_code'].to_i
+  if error_code == Rho::RhoError::ERR_NONE
+    # run sync if we were successful
+    WebView.navigate Rho::RhoConfig.options_path
+    RhoConnectClient.doSync
+  else
+    if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
+      @msg = @params['error_message']
+    end
+  
+    if not @msg or @msg.length == 0
+      @msg = Rho::RhoError.new(error_code).message
+    end
+  
+    WebView.navigate(
+      url_for(:action =&gt; :login, :query =&gt; {:msg =&gt; @msg})
+    )
+  end
+end
+                          </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
 To set a notification for a model, you can use the following method:<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
-                            
-                            RhoConnectClient.setNotification(
-                                'Account',
-                                url_for(:action =&gt; :sync_notify),
-                                "sync_complete=true"
-                            )
-                            
+
+RhoConnectClient.setNotification(
+  'Account',
+  url_for(:action =&gt; :sync_notify),
+  "sync_complete=true"
+)
                         </code></pre></div></div>
 Which is the same as:<ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
-                            
-                            Account.setNotification(
-                                url_for(:action =&gt; :sync_notify),
-                                "sync_complete=true"
-                            )
-                            
+
+Account.setNotification(
+  url_for(:action =&gt; :sync_notify),
+  "sync_complete=true"
+)
                         </code></pre></div></div>
 You can also set a notification for all models:<ul class='nav nav-tabs' id='exI1-S2Tab'><li class='active'><a href='#exI1-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S2RUBY'><pre class='CodeRay'><code>:::ruby
-                            
-                            RhoConnectClient.setNotification(
-                                '*',
-                                url_for(:action =&gt; :sync_notify),
-                                "sync_complete=true"
-                            )
-                            
+
+RhoConnectClient.setNotification(
+  '*',
+  url_for(:action =&gt; :sync_notify),
+  "sync_complete=true"
+)
                         </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class='accordion property' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample2"><strong>Object notifications</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample2" class="accordion-body collapse in">  <div class="accordion-inner">
 To use object notifications, first set the notification callback in application.rb#initialize<ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
                             
@@ -337,63 +375,72 @@ RhoConnectClient.setObjectNotification( mycallback());</code></pre></li></ol>  <
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<a name='r0'></a><div class='accordion property' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cRemark0"><strong>Notification Parameters</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cRemark0" class="accordion-body collapse in">  <div class="accordion-inner"><pre><code>                    When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.
+<a name='r0'></a><div class='accordion property' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cRemark0"><strong>Notification Parameters</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cRemark0" class="accordion-body collapse in">  <div class="accordion-inner"><p>When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.</p>
 
-                    Common Parameters
-                    These parameters are included in all notifications.
+<h3>Common Parameters</h3>
 
-                    @params["source_id"] - The id of the current model that is synchronizing.
-                    @params["source_name"] - Name of the model (i.e. "Product")
-                    @params["sync_type"] - Type of sync used for this model: "incremental" or "bulk"
-                    @params["status"] - Status of the current sync process: "in_progress", "error", "ok", "complete", "schema-changed"
+<p>These parameters are included in all notifications.</p>
 
-                    "in_progress" - incremental sync
-
-                    @params["total_count"] - Total number of records that exist for this RhoConnect source.
-                    @params["processed_count"] - Number of records included in the sync page.
-                    @params["cumulative_count"] - Number of records the SyncEngine has processed so far for this source.
-
-                    "in_progress" - bulk sync
-
-                    @params["bulk_status"] - The state of the bulk sync process:
-                    "start": when bulk sync start and when specific partition is start syncing
-
-                    "download": when client start downloading database from server
-
-                    "change_db": when client start applying new database
-
-                    "blobs": when client start downloading remote blob files
-
-                    "ok": when sync of partition finished without error
-
-                    "complete": when bulk sync finished for all partitions without errors
-
-                    @params["partition"] - Current bulk sync partition.
-
-                    "error"
-
-                    @params["error_code"] - HTTP response code of the RhoConnect server error: 401, 500, 404, etc.
-                    @params["error_message"] - Response body (if any)
-                    @params["server_errors"] - Hash of Type objects of RhoConnect adapter error (if exists): "login-error", "query-error", "create-error", "update-error", "delete-error", "logoff-error"
-                    For "login-error", "query-error", "logoff-error": Type object is hash contains 'message' from server: @params["server_errors"]["query-error"]['message']
-
-                    For "create-error", "update-error", "delete-error": Type object is hash each containing an "object" as a key (that failed to create) and a corresponding "message" and "attributes": @params["server_errors"]["create-error"][object]['message'], @params["server_errors"]["create-error"][object]['attributes']
+<ul>
+<li>@params[&ldquo;source_id&rdquo;] &ndash; The id of the current model that is synchronizing.</li>
+<li>@params[&ldquo;source_name&rdquo;] &ndash; Name of the model (i.e. &ldquo;Product&rdquo;)</li>
+<li>@params[&ldquo;sync_type&rdquo;] &ndash; Type of sync used for this model: &ldquo;incremental&rdquo; or &ldquo;bulk&rdquo;</li>
+<li>@params[&ldquo;status&rdquo;] &ndash; Status of the current sync process: &ldquo;in_progress&rdquo;, &ldquo;error&rdquo;, &ldquo;ok&rdquo;, &ldquo;complete&rdquo;, &ldquo;schema-changed&rdquo;</li>
+</ul>
 
 
-                    "create-error" has to be handled in sync callback. Otherwise sync will stop on this model. To fix create errors you should call Model.on_sync_create_error or SyncEngine.on_sync_create_error
-                    "ok"
-                    @params["total_count"] - Total number of records that exist for this RhoConnect source.
-                    @params["processed_count"] - Number of records included in the last sync page.
-                    @params["cumulative_count"] - Number of records the SyncEngine has processed so far for this source.
-                    "complete"
-                    This status returns only when the SyncEngine process is complete.
+<h3>&ldquo;in_progress&rdquo; &ndash; incremental sync</h3>
 
-                    "schema-changed"
-                    This status returns for bulk-sync models that use FixedSchema when the schema has changed in the RhoConnect server.
+<ul>
+<li>@params[&ldquo;total_count&rdquo;] &ndash; Total number of records that exist for this RhoConnect source.</li>
+<li>@params[&ldquo;processed_count&rdquo;] &ndash; Number of records included in the sync page.</li>
+<li>@params[&ldquo;cumulative_count&rdquo;] &ndash; Number of records the SyncEngine has processed so far for this source.</li>
+</ul>
 
 
-                    In this scenario the sync callback should notify the user with a wait screen and start the bulk sync process.
-</code></pre>
-  </div></div></div></div><a name='r1'></a><div class='accordion property' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cRemark1"><strong>Backround synchronization on iOS</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cRemark1" class="accordion-body collapse in">  <div class="accordion-inner"><pre><code>                    On iOS, if application is put to background, it will be suspended. To allow application finish sync after application goes to background, you can use 'finish_sync_in_background' parameter in rhoconfig.txt. When this parameter is set to '1', if sync is active in the time of background transition ( e.g. started from app_deactivate handler ), application will not be suspended until sync is finished.
-</code></pre>
+<h3>&ldquo;in_progress&rdquo; &ndash; bulk sync</h3>
+
+<ul>
+<li><p>@params[&ldquo;bulk_status&rdquo;] &ndash; The state of the bulk sync process:</p>
+
+<ul>
+<li>&ldquo;start&rdquo;: when bulk sync start and when specific partition is start syncing</li>
+<li>&ldquo;download&rdquo;: when client start downloading database from server</li>
+<li>&ldquo;change_db&rdquo;: when client start applying new database</li>
+<li>&ldquo;blobs&rdquo;: when client start downloading remote blob files</li>
+<li>&ldquo;ok&rdquo;: when sync of partition finished without error</li>
+<li>&ldquo;complete&rdquo;: when bulk sync finished for all partitions without errors</li>
+</ul>
+</li>
+<li><p>@params[&ldquo;partition&rdquo;] &ndash; Current bulk sync partition.</p></li>
+</ul>
+
+
+<h3>&ldquo;error&rdquo;</h3>
+
+<ul>
+<li>@params[&ldquo;error_code&rdquo;] &ndash; HTTP response code of the RhoConnect server error: 401, 500, 404, etc.</li>
+<li>@params[&ldquo;error_message&rdquo;] &ndash; Response body (if any)</li>
+<li>@params[&ldquo;server_errors&rdquo;] &ndash; Hash of Type objects of RhoConnect adapter error (if exists): &ldquo;login-error&rdquo;, &ldquo;query-error&rdquo;, &ldquo;create-error&rdquo;, &ldquo;update-error&rdquo;, &ldquo;delete-error&rdquo;, &ldquo;logoff-error&rdquo;</li>
+</ul>
+
+
+<p>For &ldquo;login-error&rdquo;, &ldquo;query-error&rdquo;, &ldquo;logoff-error&rdquo;: Type object is hash contains &lsquo;message&rsquo; from server: @params[&ldquo;server_errors&rdquo;][&ldquo;query-error&rdquo;][&lsquo;message&rsquo;]</p>
+
+<p>For &ldquo;create-error&rdquo;, &ldquo;update-error&rdquo;, &ldquo;delete-error&rdquo;: Type object is hash each containing an &ldquo;object&rdquo; as a key (that failed to create) and a corresponding &ldquo;message&rdquo; and &ldquo;attributes&rdquo;: @params[&ldquo;server_errors&rdquo;][&ldquo;create-error&rdquo;][object][&lsquo;message&rsquo;], @params[&ldquo;server_errors&rdquo;][&ldquo;create-error&rdquo;][object][&lsquo;attributes&rsquo;]</p>
+
+<p>&ldquo;create-error&rdquo; has to be handled in sync callback. Otherwise sync will stop on this model. To fix create errors you should call Model.on_sync_create_error or SyncEngine.on_sync_create_error
+&ldquo;ok&rdquo;
+* @params[&ldquo;total_count&rdquo;] &ndash; Total number of records that exist for this RhoConnect source.
+* @params[&ldquo;processed_count&rdquo;] &ndash; Number of records included in the last sync page.
+* @params[&ldquo;cumulative_count&rdquo;] &ndash; Number of records the SyncEngine has processed so far for this source.</p>
+
+<h3>&ldquo;complete&rdquo;</h3>
+
+<p>This status returns only when the SyncEngine process is complete.</p>
+
+<h3>&ldquo;schema-changed&rdquo;</h3>
+
+<p>This status returns for bulk-sync models that use FixedSchema when the schema has changed in the RhoConnect server. In this scenario the sync callback should notify the user with a wait screen and start the bulk sync process.</p>
+  </div></div></div></div><a name='r1'></a><div class='accordion property' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cRemark1"><strong>Backround synchronization on iOS</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cRemark1" class="accordion-body collapse in">  <div class="accordion-inner"><p>On iOS, if application is put to background, it will be suspended. To allow application finish sync after application goes to background, you can use &lsquo;finish_sync_in_background&rsquo; parameter in rhoconfig.txt. When this parameter is set to &lsquo;1&rsquo;, if sync is active in the time of background transition ( e.g. started from app_deactivate handler ), application will not be suspended until sync is finished.</p>
   </div></div></div></div></div>
