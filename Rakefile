@@ -103,8 +103,7 @@ def process_xml
 end
 
 def update_xml
- apiSources = ['../rhodes/lib/commonAPI/','../Motorola-Extensions/lib/commonAPI/','../rhodes/res/generators/templates/api/xml_templates/','../rhoconnect-client/ext/rhoconnect-client/ext/'] 
- 
+ apiSources = AppConfig['dirs']['api_sources'] || []
  apiSources.each do |s|
    apiSourceFolder = File.join(s,"**","*.xml")
     puts apiSourceFolder
@@ -186,7 +185,7 @@ task :process_archive do
 end
 
 desc 'Load latest docs and publish to edge'
-task :publish_edge => :load do
+task :publish_edge => [:load, :update_xml, :process_xml] do
   `git add .`
   `git commit -m "jenkins auto-commit"`
   `git push origin master`
