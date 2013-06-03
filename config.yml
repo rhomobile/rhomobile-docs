@@ -1,10 +1,10 @@
 development:
+  api_sources: 
+    - '../rhodes/lib/commonAPI/'
+    - '../Motorola-Extensions/lib/commonAPI/'
+    - '../rhodes/res/generators/templates/api/xml_templates/'
+    - '../rhoconnect-client/ext/rhoconnect-client/ext/'
   dirs:
-    api_sources: 
-      - '../rhodes/lib/commonAPI/'
-      - '../Motorola-Extensions/lib/commonAPI/'
-      - '../rhodes/res/generators/templates/api/xml_templates/'
-      - '../rhoconnect-client/ext/rhoconnect-client/ext/'
     api: 'docs/api/'
     guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
@@ -19,12 +19,12 @@ development:
   index: 'rhodocs_edge'
   pdfkithost: 'localhost:9393'
 jenkins:
+  api_sources: 
+    - '../../rhodes/workspace/lib/commonAPI/'
+    - '../../Motorola-Extensions/workspace/lib/commonAPI/'
+    - '../../rhodes/workspace/res/generators/templates/api/xml_templates/'
+    - '../../rhoconnect-client/workspace/ext/rhoconnect-client/ext/'
   dirs:
-    api_sources: 
-      - '../../rhodes/workspace/lib/commonAPI/'
-      - '../../Motorola-Extensions/workspace/lib/commonAPI/'
-      - '../../rhodes/workspace/res/generators/templates/api/xml_templates/'
-      - '../../rhoconnect-client/workspace/ext/rhoconnect-client/ext/'
     api: 'docs/api/'
     guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
