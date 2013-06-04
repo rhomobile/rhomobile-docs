@@ -55,9 +55,9 @@
 				<DESC>Shows or hides a border for the rectangular capture area. Not applicable to fullscreen signature capture area.</DESC>
 			</PROPERTY>
 
-			<PROPERTY name="penColor" type="INTEGER" default="0x000000FF">
+			<PROPERTY name="penColor" type="STRING" default="#FF000000">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<DESC>RGB or RGBA value that sets the color of the stylus pen ink using HTML web colors.</DESC>
+				<DESC>RGB or ARGB value that sets the color of the stylus pen ink using HTML web colors.</DESC>
 			</PROPERTY>
 
 			<PROPERTY name="penWidth" type="INTEGER" >
@@ -65,9 +65,9 @@
 				<DESC>Sets the width of the pen line in pixels.</DESC>
 			</PROPERTY>
 
-			<PROPERTY name="bgColor" type="INTEGER" default="0xFFFFFFFF">
+			<PROPERTY name="bgColor" type="STRING" default="#FFFFFFFF">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<DESC>RGB or RGBA value that sets the background color of the signature capture area.</DESC>
+				<DESC>RGB or ARGB value that sets the background color of the signature capture area.</DESC>
 			</PROPERTY>
 
 			<PROPERTY name="left" type="INTEGER" default="15">
@@ -88,11 +88,6 @@
 			<PROPERTY name="height" type="INTEGER" default="150">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>The height of the signature capture area in pixels. Not applicable to fullscreen signature capture area.</DESC>
-			</PROPERTY>
-			
-			<PROPERTY name="fullScreen" type="BOOLEAN" default="true">
-				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Sets whether the signature capture area should be fullscreen (true) or inline (false).</DESC>
 			</PROPERTY>
 		</PROPERTIES>
 
@@ -162,12 +157,12 @@
 
 			<METHOD name="hide" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Hides the signature capture area from view but doesnt clear the inputed signature data. In a hidden state, a user cannot interact with the signature capture area</DESC>
 			</METHOD>
+				<DESC>Hides the signature capture area from view. Doesnt clear the inputed signature for inline signature areas (not for signatures shown using takeFullScreen). In a hidden state, a user cannot interact with the signature capture area.</DESC>
 			
 			<METHOD name="setVectorCallback" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<PLATFORM>WM</PLATFORM>
+				<PLATFORM>WM, Android</PLATFORM>
 				<DESC>Signature data is formatted into a series of vectors and returned to the application via this callback function. The received data may not represent the entire signature as the vectors will be sent in batches if the signature is large. A single vector (array entry) contains an X, Y coordinate and the beginning / end of the signature is defined by (65535, 65535). This callback is independent of the callback of the capture method, when specified the callback will be called whenever a 'pen up' occurs in the signature box.</DESC>
                 <CALLBACK  type="HASH">
                     <DESC>Not providing a callback will result in the vector callback being cleared</DESC>
