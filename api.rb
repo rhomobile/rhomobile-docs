@@ -1241,6 +1241,38 @@ end
 	end
   return md
   end
+
+
+def self.analyze(topic)
+    md = ''
+
+  	# xml = File.read(topic)
+  	# doc = REXML::Document.new xml
+  	
+  	doc = XmlSimple.xml_in(topic)
+  	# puts 'Analyzing: ' + doc["MODULE"][0]["name"]
+  	apiname = doc["MODULE"][0]["name"]
+  	# puts '    Checking Methods'
+  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
+    
+    #puts methodaliases
+		
+	s.each() { |element|
+		methodname = element["name"]
+		# puts '        ' + element["name"]
+		if !element["hasCallback"].nil? && element["hasCallback"] != "none"
+		
+			# puts '            callback: ' + element["hasCallback"]
+			if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
+				
+				element["CALLBACK"][0]["PARAMS"].each { |params|
+				}
+			else
+				puts "#{apiname}.#{methodname}: NO CALLBACK PARAMS - Callback:#{element['hasCallback']}"
+			end
+		end 
+	}
+  end
 	
 
 	

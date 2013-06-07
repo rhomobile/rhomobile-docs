@@ -1090,7 +1090,7 @@
             </PROPERTY>
             <PROPERTY name="ukPostalReportCheckDigit" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<PLATFORM>WM, Android</PLATFORM>
+				<PLATFORM>Android</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned UK Postal barcodes.</DESC>
             </PROPERTY>
@@ -1114,7 +1114,7 @@
             </PROPERTY>
             <PROPERTY name="usPlanetReportCheckDigit" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<PLATFORM>WM, Android</PLATFORM>
+				<PLATFORM>Android</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned US Planet barcodes.</DESC>
             </PROPERTY>

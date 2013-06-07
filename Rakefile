@@ -83,6 +83,22 @@ task :archive do
 
 end
 
+def analyze_xml
+  apiXML = File.join(AppConfig['dirs']['api'],"**","*.xml")
+  
+  apiFiles = Dir.glob(apiXML)
+
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['dirs']['api'],'')
+    if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
+      # puts "Processing " + basename
+    
+      Api.analyze(fileName)
+    end
+  end
+
+end
+
 def process_xml
   puts 'rebuilding API docs'
   apiXML = File.join(AppConfig['dirs']['api'],"**","*.xml")
@@ -150,6 +166,11 @@ end
 desc 'get updated XMl from other Git Repos '
 task :update_xml do
   update_xml
+end
+
+desc 'Analyze XMl from inconsistancy '
+task :analyze_xml do
+  analyze_xml
 end
 
 desc 'Apply inline CSS styling to offline archive files'

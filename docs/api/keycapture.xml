@@ -18,9 +18,9 @@
 		</PROPERTIES>
 
 		<METHODS access="STATIC">
-            <METHOD name="captureKey" hasCallback="optional">
+            <METHOD name="captureKey" hasCallback="optional" runInThread="ui">
                 <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section.  </DESC>
-				<PLATFORM>WM</PLATFORM>
+				<PLATFORM>WM, Android</PLATFORM>
 				<PARAMS>
 					<PARAM name="dispatch" type="BOOLEAN">
 						<DESC>todo</DESC>
@@ -39,9 +39,9 @@
 				</CALLBACK>    
             </METHOD>
 
-            <METHOD name="remapKey" hasCallback="none">
+            <METHOD name="remapKey" hasCallback="none" runInThread="ui">
                 <DESC>todo.</DESC>
-				<PLATFORM>WM</PLATFORM>
+				<PLATFORM>WM, Android</PLATFORM>
 				<PARAMS>
 					<PARAM name="keyValue" type="STRING">
 						<DESC>todo - (string.  Accept keys specified in hex NOT ALL)</DESC>
@@ -52,7 +52,7 @@
 				</PARAMS>
             </METHOD>
 
-            <METHOD name="captureTrigger" hasCallback="optional">
+            <METHOD name="captureTrigger" hasCallback="optional" runInThread="ui">
                 <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section</DESC>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true"></APPLIES>
