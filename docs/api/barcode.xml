@@ -1611,7 +1611,8 @@
 				</BACKWARDS_COMPATIBILITY>
                 <CALLBACK type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device.  Methdods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
-                    <PARAM type="SELF_INSTANCE"/>
+                    <PARAM  type="SELF_INSTANCE"/>
+                     
                 </CALLBACK>
             </METHOD>
 

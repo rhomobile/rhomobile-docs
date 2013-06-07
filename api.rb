@@ -772,7 +772,7 @@ end
 	s.each() { |element| 
 		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	
-		# puts element["name"]
+		 #puts element["name"]
 		#puts "\n\n"
 		methname = element["name"]
 		methdeprecated = ""
@@ -875,6 +875,9 @@ end
 				if @methhascallback == "optional"
 					@methcallbackoptional = " <span class='label label-info'>Optional</span> "
 				end
+				if @methhascallback == "mandatory"
+					@methcallbackoptional = " <span class='label label-warning'>Mandatory</span> "
+				end
 				firstcallbackreturnparam = "calbackreturnparamname"
 				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["type"].nil?
 				
@@ -919,7 +922,8 @@ end
 				@methcallbackparamdesc+='  </div>'
 				@methcallbackparamdesc+='</div>'
 
-				@methsectionparams += "<li>callback : <span class='text-info'>#{callbacktype}</span>#{@methcallbackoptional}<p>#{@methcallbackparamdesc}" +  "</p></li>"
+				# @methsectionparams += "<li>callback : <span class='text-info'>#{callbacktype}</span>#{@methcallbackoptional}<p>#{@methcallbackparamdesc}" +  "</p></li>"
+				 @methsectionparams += "<li>callback : <span class='text-info'>#{callbacktype}</span>#{@methcallbackoptional}</li>"
 
   			end
   			@methsectionparams += "</ul></div>"
@@ -976,72 +980,73 @@ end
   			# md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td></tr></thead>"
 			@methcallbackdetails = ""
 			
-			if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
+			if !element["CALLBACK"].nil? && !element["CALLBACK"][0].nil?
 				@methsectioncallbackparams = "<div>"
 				@methsectioncallbackparams += "<p><strong>Callback Returning Parameters</strong></p><ul>"
 			
-				element["CALLBACK"][0]["PARAMS"].each { |params|
-					params["PARAM"].each { |param|
+				# element["CALLBACK"][0]["PARAMS"].each { |params|
+				# 	params["PARAM"].each { |param|
 
-						if !param["DESC"].nil? && !param["DESC"][0].nil?
-							@methcallbackdetailsdesc=param["DESC"][0]
-						else
-							@methcallbackdetailsdesc= ''
-						end
-						if @methcallbackdetailsdesc.class == Hash
-							@methcallbackdetailsdesc = ''
-						end
+				# 		if !param["DESC"].nil? && !param["DESC"][0].nil?
+				# 			@methcallbackdetailsdesc=param["DESC"][0]
+				# 		else
+				# 			@methcallbackdetailsdesc= ''
+				# 		end
+				# 		if @methcallbackdetailsdesc.class == Hash
+				# 			@methcallbackdetailsdesc = ''
+				# 		end
 
 						
 						
-						if param["type"].nil?
-							param["type"] = "STRING"
-						end
-						if !param["deprecated"].nil?  && param["deprecated"]== "true"
-							param["name"] = '<span class="text-error">' + param["name"] + '</span>'
+				# 		if param["type"].nil?
+				# 			param["type"] = "STRING"
+				# 		end
+				# 		if !param["deprecated"].nil?  && param["deprecated"]== "true"
+				# 			param["name"] = '<span class="text-error">' + param["name"] + '</span>'
 			
-							param["type"] += " <span class='label label-important'>deprecated</span> "
-						end
-						# puts param
-						# puts param["name"]
-						# puts param["type"]
-						# puts @methcallbackdetailsdesc
+				# 			param["type"] += " <span class='label label-important'>deprecated</span> "
+				# 		end
+				# 		# puts param
+				# 		# puts param["name"]
+				# 		# puts param["type"]
+				# 		# puts @methcallbackdetailsdesc
 						
-						@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
-						@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
-					values = ""
-					valuetype = param["type"]
+				# 		@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
+				# 		@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
+				# 	values = ""
+				# 	valuetype = param["type"]
 								
-					if !param["VALUES"].nil?
-						param["VALUES"].each() { |velement|
-							velement["VALUE"].each() { |vaelement|
-								valdesc = "<dl>"
-								if !vaelement["DESC"].nil?
-									if !vaelement["DESC"][0].empty?
-										valdesc = vaelement["DESC"][0].to_s
-									else
-										valdesc = ""
-									end 
-								end	
-								@seperator = ', '
-								if !vaelement["type"].nil?
-									valuetype = !vaelement["type"]
-								end
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
+				# 	if !param["VALUES"].nil?
+				# 		param["VALUES"].each() { |velement|
+				# 			velement["VALUE"].each() { |vaelement|
+				# 				valdesc = "<dl>"
+				# 				if !vaelement["DESC"].nil?
+				# 					if !vaelement["DESC"][0].empty?
+				# 						valdesc = vaelement["DESC"][0].to_s
+				# 					else
+				# 						valdesc = ""
+				# 					end 
+				# 				end	
+				# 				@seperator = ', '
+				# 				if !vaelement["type"].nil?
+				# 					valuetype = !vaelement["type"]
+				# 				end
+				# 				values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
 								
-							}
-						values += "</dl>"
+				# 			}
+				# 		values += "</dl>"
 
-						}
-					end
-					if values != ""
-						values = "<p><strong>Possible Values</strong> :</p> " + values 
-					end
-					@methsectioncallbackparams += values
+				# 		}
+				# 	end
+				# 	if values != ""
+				# 		values = "<p><strong>Possible Values</strong> :</p> " + values 
+				# 	end
+				# 	@methsectioncallbackparams += values
 
-					}
+				# 	}
 
-				}
+				# }
+				@methsectioncallbackparams += getparams(element["CALLBACK"][0],false)
 				@methsectioncallbackparams += "</ul></div>"
 			end  			
   			# md += @methcallbackdetails
@@ -1068,9 +1073,9 @@ end
   	md += "" + @methdesc + ""
   	md += @methsectionplatforms
   	md += "" + @methsectionparams + ""
-  	md += @methsectionreturns
   	md += @methsectioncallbackparams
-    md += '  </div>'
+    md += @methsectionreturns
+  	md += '  </div>'
     md += '</div>'
     md += '</div>'
 	md += '</div>'
@@ -1268,7 +1273,14 @@ def self.analyze(topic)
 				element["CALLBACK"][0]["PARAMS"].each { |params|
 				}
 			else
-				puts "#{apiname}.#{methodname}: NO CALLBACK PARAMS - Callback:#{element['hasCallback']}"
+
+				if !element["RETURN"].nil?
+					hasReturn = " Has return"
+				else
+					hasReturn = " NO RETURN"
+				end
+				puts "#{apiname}.#{methodname}: NO CALLBACK PARAMS - Callback:#{element['hasCallback']} #{hasReturn}"
+
 			end
 		end 
 	}
