@@ -273,7 +273,7 @@
             <PROPERTY name="dpmMode" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
-				<APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
+				<APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices.  The scanning engine must support DPM barcodes.</APPLIES>
 				<DESC>Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance. DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.</DESC>
             </PROPERTY>
             <PROPERTY name="inverse1dMode" type="STRING" generateAccessors="true">
@@ -1056,7 +1056,7 @@
 				<VER_INTRODUCED>2.1.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
-				<DESC>Specifies the output quality of the captured signature barcode.  Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.  Provide a value between 1 and 100 inclusive</DESC>
+				<DESC>Specifies the output quality of the captured signature barcode.  Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.  Provide a value between 10 and 100 inclusive</DESC>
             </PROPERTY>
             <PROPERTY name="ausPostal" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1126,7 +1126,7 @@
             </PROPERTY>
             <PROPERTY name="usPostNetReportCheckDigit" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<PLATFORM>WM, Android</PLATFORM>
+				<PLATFORM>Android</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>When true the barcode check digit(s) will be reported for scanned US Post Net barcodes</DESC>
             </PROPERTY>
@@ -1222,7 +1222,7 @@
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
 				<DESC>Sets the retry count for auto-discriminating for supplementals.  The value must be between 2 - 20 inclusive.</DESC>
             </PROPERTY>
-            <PROPERTY name="upcEanSecurityLevel" type="STRING" generateAccessors="true">
+            <PROPERTY name="upcEanSecurityLevel" type="INTEGER" generateAccessors="true">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
@@ -1611,8 +1611,7 @@
 				</BACKWARDS_COMPATIBILITY>
                 <CALLBACK type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device.  Methdods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
-                    <PARAM  type="SELF_INSTANCE"/>
-                     
+                    <PARAM type="SELF_INSTANCE"/>
                 </CALLBACK>
             </METHOD>
 

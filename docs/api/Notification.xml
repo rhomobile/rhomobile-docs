@@ -1,33 +1,18 @@
 <?xml version = "1.0"?>
 <API>
 	<MODULE name="Notification" parent="Rho">
-		<HELP_OVERVIEW></HELP_OVERVIEW>
+		<HELP_OVERVIEW>The Notification API allows you to provide feedback to the user, either auditory, tactile or visual.  Use this API to give a visual popup window, sound the device beeper or illuminate the device LEDs (hardware permitting)</HELP_OVERVIEW>
 		<MORE_HELP></MORE_HELP>
-        <ALIASES>
-            <ALIAS new="Alert" deprecated="true"/>
-        </ALIASES>
 		<PLATFORM>iOS, Android, WM</PLATFORM>
 		<TEMPLATES>
 		</TEMPLATES>
 
-		<PROPERTIES generateAccessors="true">
-			<DESC></DESC>
-			<ALIASES>
-			</ALIASES>
-		
-		</PROPERTIES>
-
 		<METHODS access="STATIC">
-            <ALIASES>
-                <ALIAS new="hide_popup" existing="hidePopup" deprecated="true"/>
-                <ALIAS new="show_popup" existing="showPopup" deprecated="true"/>
-                <ALIAS new="show_status" existing="showStatus" deprecated="true"/>               
-            </ALIASES>
 
             <METHOD name="showPopup" access="STATIC" hasCallback="optional">
                 <DESC>Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on the button.</DESC>
 				<PARAMS>
-					<PARAM name="propertyMap" type="HASH" propertyHash="true">
+					<PARAM name="propertyMap" type="HASH">
 						<DESC>The properties associated with the popup.</DESC>
 						<PARAMS>
 							<PARAM name="message" type="String" default="">
@@ -46,7 +31,7 @@
 					</PARAM>
 				</PARAMS>
 				<CALLBACK type="HASH">
-                    <DESC>Not providing a callback to be invoked when a barcode is scanned will result in that barcode being output as keystrokes.</DESC>
+					<DESC>TODO</DESC>
 					<PARAMS>
 						<PARAM name="button_id" type="STRING">
 							<DESC>ID assigned to the button when showing the popup</DESC>
@@ -80,11 +65,24 @@
 				</PARAMS>
             </METHOD>
 		
+            <METHOD name="playFile" access="STATIC" hasCallback="none">
+                <DESC>Play an audio file if that media type is supported by the device.</DESC>
+				<PARAMS>
+					<PARAM name="path" type="STRING">
+						<DESC>The path to the file, ending in the file name and extension. The file must located in the application; for example, "/apps/public/test-file.mp3".</DESC>
+					</PARAM>
+					<PARAM name="media_type" type="STRING" default="">
+						<DESC>Media type can be specified explicitly, or can be recognized from the file extension. The known file extensions are ".mp3" - "audio/mpeg" and ".wav" - "audio/x-wav".</DESC>
+					</PARAM>
+				</PARAMS>
+            </METHOD>
+
             <METHOD name="beep" access="STATIC" hasCallback="none">
                 <DESC>If the device is equipped with a beeper then a beep will be emitted</DESC>
+				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<APPLIES msiOnly="true"></APPLIES>
 				<PARAMS>
-					<PARAM name="propertyMap" type="HASH" propertyHash="true">
+					<PARAM name="propertyMap" type="HASH">
 						<DESC>The properties associated with the beep.</DESC>
 						<PARAMS>
 							<PARAM name="frequency" type="Integer" default="2000">
@@ -103,6 +101,7 @@
 
             <METHOD name="vibrate" access="STATIC" hasCallback="none">
                 <DESC>Vibrate the device's pager hardware</DESC>
+				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<APPLIES msiOnly="true"></APPLIES>
 				<PARAMS>
 					<PARAM name="duration" type="Integer" default="1000">
@@ -125,6 +124,34 @@ If RhoElements is exited after applying notifications, the settings to LEDs will
 		</USER_OVERVIEW>
 		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 		<PLATFORM></PLATFORM>
-
+		<EXAMPLES>
+           <EXAMPLE title="Sound the device beeper">
+            <SECTIONS>
+              <SECTION>
+               <DESC>
+                   Not every device is equipped with a hardware beeper but if present this code snippet will cause the beeper to sound.
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+# ---------------
+# controller.rb  
+# ---------------
+         
+def sound_beeper
+  # Obtain list of available leds on the device. 
+  beeperProps = Hash.new
+  beeperProps['frequency'] = 3000;
+  beeperProps['volume'] = 2;
+  beeperProps['duration'] = 1500;
+  Rho::Notification.beep(beeperProps)
+end
+                   ]]>
+                 </RUBY>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+	   </EXAMPLES>
 	</MODULE>
 </API>    

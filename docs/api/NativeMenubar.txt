@@ -5,11 +5,69 @@ The NativeMenubar methods let you customize the Rhodes Menubar at runtime.
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
+<a name='pdefaultMainMenu'></a><div class='accordion property' id='pdefaultMainMenu'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydefaultMainMenu"><strong>defaultMainMenu</strong> : <span class='text-info'>ARRAY</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydefaultMainMenu" class="accordion-body collapse in">  <div class="accordion-inner">Default Main Menu items.<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#defaultMainMenuUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="defaultMainMenuUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">NativeMenubar.defaultMainMenu</h3>  </div>  <div class="modal-body">
 
+<strong>Ruby Usage</strong>
 
-NOTE: The properties of this API Class cannot be accessed via setter or getter methods. However they can be used in methods that allow a HASH or Array of properties to be passed in.
+<pre class='CodeRay'><code>:::ruby
+myvar = Rho::NativeMenubar.defaultMainMenu</code></pre>
 
-<a name='pdefaultMainMenu'></a><div class='accordion property' id='pdefaultMainMenu'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertydefaultMainMenu"><strong>defaultMainMenu</strong> : <span class='text-info'>ARRAY</span> <span class='label'>Read Only</span> <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertydefaultMainMenu" class="accordion-body collapse in">  <div class="accordion-inner">Default Main Menu items<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>  </div></div></div></div><a name='pextraButton'></a><div class='accordion property' id='pextraButton'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyextraButton"><strong>extraButton</strong> : <span class='text-info'>HASH</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyextraButton" class="accordion-body collapse in">  <div class="accordion-inner">Extra MenuBar button properties.This item will display when left menu button is selected (Windows Mobile only).<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>  </div></div></div></div><a name='pextraMenu'></a><div class='accordion property' id='pextraMenu'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyextraMenu"><strong>extraMenu</strong> : <span class='text-info'>ARRAY</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyextraMenu" class="accordion-body collapse in">  <div class="accordion-inner">Extra Native MenuBar items. This menu will display when left menu button is selected (Windows Mobile only).<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>  </div></div></div></div><a name='pmainButton'></a><div class='accordion property' id='pmainButton'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymainButton"><strong>mainButton</strong> : <span class='text-info'>HASH</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymainButton" class="accordion-body collapse in">  <div class="accordion-inner">Main MenuBar button properties<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>  </div></div></div></div><a name='pmainMenu'></a><div class='accordion property' id='pmainMenu'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymainMenu"><strong>mainMenu</strong> : <span class='text-info'>ARRAY</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymainMenu" class="accordion-body collapse in">  <div class="accordion-inner">Main Native MenuBar items<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>  </div></div></div></div>
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+myvar = Rho.NativeMenubar.defaultMainMenu;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pextraButton'></a><div class='accordion property' id='pextraButton'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyextraButton"><strong>extraButton</strong> : <span class='text-info'>HASH</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyextraButton" class="accordion-body collapse in">  <div class="accordion-inner">Extra MenuBar button properties.This item will display when left menu button is selected (Windows Mobile only).<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><a href="#extraButtonUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="extraButtonUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">NativeMenubar.extraButton</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::NativeMenubar.extraButton=myvar = Rho::NativeMenubar.extraButton</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Rho.NativeMenubar.extraButton=;myvar = Rho.NativeMenubar.extraButton;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pextraMenu'></a><div class='accordion property' id='pextraMenu'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyextraMenu"><strong>extraMenu</strong> : <span class='text-info'>ARRAY</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyextraMenu" class="accordion-body collapse in">  <div class="accordion-inner">Extra Native MenuBar items. This menu will display when left menu button is selected (Windows Mobile only).<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><a href="#extraMenuUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="extraMenuUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">NativeMenubar.extraMenu</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::NativeMenubar.extraMenu=myvar = Rho::NativeMenubar.extraMenu</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Rho.NativeMenubar.extraMenu=;myvar = Rho.NativeMenubar.extraMenu;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmainButton'></a><div class='accordion property' id='pmainButton'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymainButton"><strong>mainButton</strong> : <span class='text-info'>HASH</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymainButton" class="accordion-body collapse in">  <div class="accordion-inner">Main MenuBar button properties<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><a href="#mainButtonUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="mainButtonUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">NativeMenubar.mainButton</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::NativeMenubar.mainButton=myvar = Rho::NativeMenubar.mainButton</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Rho.NativeMenubar.mainButton=;myvar = Rho.NativeMenubar.mainButton;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div><a name='pmainMenu'></a><div class='accordion property' id='pmainMenu'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertymainMenu"><strong>mainMenu</strong> : <span class='text-info'>ARRAY</span>  <i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertymainMenu" class="accordion-body collapse in">  <div class="accordion-inner">Main Native MenuBar items<div><p><strong>Platforms: </strong><img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android"><img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div><p><a href="#mainMenuUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="mainMenuUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">NativeMenubar.mainMenu</h3>  </div>  <div class="modal-body">
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::NativeMenubar.mainMenu=myvar = Rho::NativeMenubar.mainMenu</code></pre>
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+# Setting directly
+Rho.NativeMenubar.mainMenu=;myvar = Rho.NativeMenubar.mainMenu;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 
