@@ -52,20 +52,7 @@ The Signal API is used to notify the user of the strength of the WLAN signal.  W
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='prefreshInterval'></a><div class='accordion property' id='prefreshInterval'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrefreshInterval"><strong>refreshInterval</strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>1.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrefreshInterval" class="accordion-body collapse in">  <div class="accordion-inner">A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown.<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><strong>Default:</strong> 5000</p><p><a href="#refreshIntervalUsage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p><p><div id="refreshIntervalUsage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  <div class="modal-header">    <h3 id="myModalLabel">Signal.refreshInterval</h3>  </div>  <div class="modal-body">
-
-<strong>Ruby Usage</strong>
-
-<pre class='CodeRay'><code>:::ruby
-# Setting directly
-Rho::Signal.refreshInterval=0myvar = Rho::Signal.refreshInterval</code></pre>
-
-<strong>Javascript Usage</strong>
-
-<pre class='CodeRay'><code>:::javascript
-
-# Setting directly
-Rho.Signal.refreshInterval=0;myvar = Rho.Signal.refreshInterval;</code></pre>  </div>  <div class="modal-footer">    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>  </div></div></p>  </div></div></div></div>
+<a name='prefreshInterval'></a><div class='accordion property' id='prefreshInterval'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cPropertyrefreshInterval"><strong>refreshInterval</strong> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>1.0.0</span><i class="icon-chevron-down pull-left"></i></span></div><div id="cPropertyrefreshInterval" class="accordion-body collapse in">  <div class="accordion-inner">A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown.<div><p><strong>Platforms: </strong><img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div><p><strong>Default:</strong> 5000</p>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>
 

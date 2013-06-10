@@ -558,16 +558,18 @@ md+='</div>'
     md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
-  	md += "#{@propdesc}#{@propsectionplatforms}#{propdefault}"
-
+  	md += "#{@propdesc}"
+    md += getparams(element,true)
+  	md += "#{@propsectionplatforms}#{propdefault}"
+  	# puts element["PARAM"]
   	if !generateAccessors
   		md += '<p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>'
 	else
-  		md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
+  		# md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
 	end
   	md += @propvalues
   	 if generateAccessors
-  		md += "<p>" + propusage + "</p>"
+  		# md += "<p>" + propusage + "</p>"
   	 end
     md += '  </div>'
     md += '</div>'
@@ -580,7 +582,9 @@ md+='</div>'
   end
 
 def self.getparams(element,toplevel)
-	# puts element["name"]
+	@seperator = ""
+		
+	#puts element
 	methparamsdetails = ""
 	methsectionparams = ""
 		if !element["PARAMS"].nil?
@@ -699,11 +703,10 @@ if !element["PARAM"].nil?
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
-					if toplevel
+					if param["name"].nil?
+						param["name"] = "<i>Object<i>"
+					end
 
-						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
-						@seperator =  ', '
-					end 
 					# puts param
 					if param["name"].nil?
 						param["name"] = ""
