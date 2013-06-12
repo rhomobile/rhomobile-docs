@@ -15,6 +15,18 @@
 				<DESC>todo - Set to Disabled or the HomeKeyValue to be used.</DESC>
 				<PLATFORM>WM</PLATFORM>
 			</PROPERTY>
+
+			<PROPERTY name="keyCode" type="INTEGER" generateAccessors="false">>
+                <DESC>Key codes for physical keys</DESC>
+                <VALUES>
+                    <VALUE constName="IPHONE_VOLUME_UP" value = "10">
+                        <DESC></DESC>
+                    </VALUE>
+                    <VALUE constName="IPHONE_VOLUME_DOWN" value = "11">
+                        <DESC></DESC>
+                    </VALUE>
+                </VALUES>
+            </PROPERTY>
 		</PROPERTIES>
 
 		<METHODS access="STATIC">
@@ -33,14 +45,14 @@
 					<PARAMS>
 						<PARAM name="keyValue" type="INTEGER">
 							<DESC>todo</DESC>
-							<PLATFORM>WM</PLATFORM>
+							<PLATFORM>WM, Android</PLATFORM>
 						</PARAM>
 					</PARAMS>
 				</CALLBACK>    
             </METHOD>
 
             <METHOD name="remapKey" hasCallback="none" runInThread="ui">
-                <DESC>todo.</DESC>
+                <DESC>Captures and consumes a specific key value and spawns a new key event with the remapped key code. If remapTo is empty or null, the remapping for this key value will be cleared</DESC>
 				<PLATFORM>WM, Android</PLATFORM>
 				<PARAMS>
 					<PARAM name="keyValue" type="STRING">
@@ -88,14 +100,14 @@
             </EXAMPLE>			
         </EXAMPLES>
         <REMARKS>
-            <REMARK title="TODO - Include key capture table for function keys that is currently just under the configuration settings 
-
-page.">
+            <REMARK title="Precedence of APIs using the same keyValue">
                 <DESC>
-                    <![CDATA[
-                    To do
-                ]]>
-
+					If captureKey and remapKey have been called with the same keyValue, the remapKey will take precedence. In this case this means that the keyEvent for the inputted key will not be fired as the remapping will occur and consume the key event.
+                </DESC>
+            </REMARK>
+			<REMARK title="Precedence of captureKey events">
+                <DESC>
+					If captureKey has been called with an 'all' value, only the captureKey callback associated with 'all' will be fired on a key press.
                 </DESC>
             </REMARK>
             <REMARK title="TODO - ENSURE ALL OTHER REMARKS FROM RE1 HELP FILE ARE CAPTURED">

@@ -376,26 +376,31 @@ md+='</div>'
 	return md
   end
 
-  def self.getplatformindicators (platforms,msionly)
+  def self.getplatformindicators (platforms,msionly,rubyonly)
   	indicators = ""
-  	if msionly
-		indicators += '<img src="../img/motowebkit.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+  	if !rubyonly
+		indicators += '<img src="../img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
 	end
+	indicators += '<img src="../img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
 	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="../img/android.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Android">'
+		indicators += '<img src="../img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
   	end
   	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="../img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
+		indicators += '<img src="../img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
   	end
   	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="../img/windowsmobile.png" style="height: 33px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
+		indicators += '<img src="../img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
   	end
   	if !platforms.downcase.index('wp8').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="../img/wp8.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
+		indicators += '<img src="../img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
   	end
   	if (!platforms.downcase.index('win32').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="../img/windows.jpg" style="width: 33px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
+		indicators += '<img src="../img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
   	end
+  	if msionly
+		indicators += '<img src="../img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+	end
+	
   	return indicators		
   end
 
@@ -434,21 +439,24 @@ md+='</div>'
 				
 			end
 			msionly = false
-				
+			rubyonly = false	
 			if !element["APPLIES"].nil? 
 
 				appliescontent = ""
+				# puts element["APPLIES"]
 				if !element["APPLIES"][0]["msiOnly"].nil?
 					if element["APPLIES"][0]["msiOnly"] == "true"
 						msionly = true
 					end
-					if !element["APPLIES"][0]["content"].nil?
-						appliescontent = element["APPLIES"][0]["content"]
-					end
-				else
-					appliescontent = element["APPLIES"][0]	
 				end
-
+				if !element["APPLIES"][0]["rubyOnly"].nil?
+					if element["APPLIES"][0]["rubyOnly"] == "true"
+						rubyonly = true
+					end
+				end
+				if !element["APPLIES"][0]["content"].nil?
+					appliescontent = element["APPLIES"][0]["content"]	
+				end	
 				# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
 				# puts appliescontent
 				if appliescontent.size >0
@@ -459,9 +467,9 @@ md+='</div>'
 			if !element["PLATFORM"].nil?
 				@propplatforms = element["PLATFORM"][0]
 			end
-			@propplatforms = getplatformindicators(@propplatforms,msionly)
+			@propplatforms = getplatformindicators(@propplatforms,msionly,rubyonly)
 			@propsectionplatforms = "<div>"
-			@propsectionplatforms += "<p><strong>Platforms: </strong>#{@propplatforms} #{propnote}</p></div>"
+			@propsectionplatforms += "<p>#{@propplatforms} #{propnote}</p></div>"
 			
 			
 			if element["type"].nil?
@@ -553,14 +561,14 @@ md+='</div>'
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
     md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
-	md += '<i class="icon-chevron-down pull-left"></i></span>'
+	md += '<i class="icon-chevron-down pull-right"></i></span>'
     md += '</div>'
     md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
   	md += "#{@propdesc}"
     md += getparams(element,true)
-  	md += "#{@propsectionplatforms}#{propdefault}"
+  	md += "#{propdefault}"
   	# puts element["PARAM"]
   	if !generateAccessors
   		md += '<p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>'
@@ -571,7 +579,7 @@ md+='</div>'
   	 if generateAccessors
   		# md += "<p>" + propusage + "</p>"
   	 end
-    md += '  </div>'
+    md += "#{@propsectionplatforms}  </div>"
     md += '</div>'
     md += '</div>'
 	md += '</div>'
@@ -828,20 +836,26 @@ end
 			@methplatforms = element["PLATFORM"][0]
 		end
 		msionly = false
+		rubyonly = false
 		methnote = ""		
 		if !element["APPLIES"].nil? 
 
-			appliescontent = ""
-			if !element["APPLIES"][0]["msiOnly"].nil?
-				if element["APPLIES"][0]["msiOnly"] == "true"
-					msionly = true
+				appliescontent = ""
+				# puts element["APPLIES"]
+				if !element["APPLIES"][0]["msiOnly"].nil?
+					if element["APPLIES"][0]["msiOnly"] == "true"
+						msionly = true
+					end
+				end
+				if !element["APPLIES"][0]["rubyOnly"].nil?
+					if element["APPLIES"][0]["rubyOnly"] == "true"
+						rubyonly = true
+					end
 				end
 				if !element["APPLIES"][0]["content"].nil?
-					appliescontent = element["APPLIES"][0]["content"]
-				end
-			else
-				appliescontent = element["APPLIES"][0]	
-			end
+					appliescontent = element["APPLIES"][0]["content"]	
+				end	
+
 
 			# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
 			# puts appliescontent
@@ -853,10 +867,10 @@ end
 		end
 
 
-		@methplatforms = getplatformindicators(@methplatforms,msionly)
+		@methplatforms = getplatformindicators(@methplatforms,msionly,rubyonly)
 			
 		@methsectionplatforms = "<div>"
-		@methsectionplatforms += "<p><strong>Platforms: </strong>#{@methplatforms}#{methnote}</p></div>"
+		@methsectionplatforms += "<p>#{@methplatforms}#{methnote}</p></div>"
 		
 		@methsectionreturns = "<div>"
 		@methsectionreturns += "<p><strong>Return:</strong></p><ul>"
@@ -1074,10 +1088,10 @@ end
     md +='  <div class="accordion-inner">'
 
   	md += "" + @methdesc + ""
-  	md += @methsectionplatforms
   	md += "" + @methsectionparams + ""
   	md += @methsectioncallbackparams
     md += @methsectionreturns
+  	md += @methsectionplatforms
   	md += '  </div>'
     md += '</div>'
     md += '</div>'

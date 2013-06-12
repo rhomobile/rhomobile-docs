@@ -438,7 +438,7 @@
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>Local path to a wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</DESC>
+				<DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
