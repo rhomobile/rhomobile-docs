@@ -289,7 +289,7 @@ module TOC
   def findGroup(path)
     compare = path.dup
     compare.slice!(0)
-    found = @sections[0][0] # Default to first section
+    found = 'Home' # Default to first section
     @sections.map do |section|
       section[3].map do |slug, title, group, _|
         
