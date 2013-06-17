@@ -1618,6 +1618,7 @@
             <METHOD name="enable" hasCallback="optional">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES msiOnly="true">Motorola Solutions' Scanners which support a hardware or software trigger to invoke the scan.</APPLIES>
+                <PLATFORM>WM,Android</PLATFORM>
                 <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method).  Scanned barcodes will be available to the application through the callback provided to this method.  Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner.  If you do not specify a callback to this method you will received the scanned data as keystrokes.</DESC>
 				<BACKWARDS_COMPATIBILITY state="false">
 					<DESC>This method replaces Barcode.enable from RhoElements 2.2 and takes a different prototype, no longer taking a 'deviceName' parameter this method can now be called on the individual scanner instances returned by Barcode.enumerate to control which hardware scanner on the device is enabled.  Please consider using Barcode.take if you only require a 'single shot' scan and Barcode.enable if your user will be using the trigger to return scan events.</DESC>
@@ -1673,14 +1674,17 @@
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
                 <DESC>Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.</DESC>
+                <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
             <METHOD name="stop" hasCallback="none">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
                 <DESC>Performs a soft trigger stop</DESC>
+                <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
             <METHOD name="disable" hasCallback="none">
                 <DESC>This is documentation</DESC>
+                <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
             
             <METHOD name="recognize" hasCallback="none" deprecated="true">

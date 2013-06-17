@@ -23,11 +23,7 @@
 			<PROPERTY name="syncServer" type="STRING">
 				<DESC>Sync server URL.</DESC>
 			</PROPERTY>
-
-      <PROPERTY name="bulksyncState" type="INTEGER" default="1">
-        <DESC>Set 0 to force bulk sync on next synchronization cycle.  After sync is complete, bulksyncState will be set to 1.</DESC>
-      </PROPERTY>
-
+			
 			<PROPERTY name="pageSize" type="INTEGER">
 				<DESC>Page size for RhoConnectClient. Default size is 2000.</DESC>
 			</PROPERTY>
@@ -150,7 +146,7 @@
         </CALLBACK>
       </METHOD>
             
-			<METHOD name="doSync" hasCallback="optional">
+			<METHOD name="doSync">
 				<DESC>Start the SyncEngine process and display an optional status popup.</DESC>
 				<PARAMS>
 					<PARAM name="showStatusPopup" type="BOOLEAN">
@@ -412,8 +408,8 @@ end]]>
 // ERR_UNATHORIZED = 9
 
 function loginCallback(result) {
-  var errorCode = parseInt(result.error_code);
-  var errorMessage = result.error_message;
+  var errorCode = result.error_code.toString();
+  var errorMessage = result.error_message.toString();
   if(errorCode === 0 {
     // process success
   } else {
