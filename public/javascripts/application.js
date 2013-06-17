@@ -8,11 +8,12 @@ $(document).ready(function() {
 	$("#t_content").live('pjax:end', function(e, xhr, err) {
 		// Enable previous anchor
 		var prevAnchor = $('li.active a');
+		console.log(prevAnchor);
 		prevAnchor.removeAttr('onclick');
 		prevAnchor.attr('class', 'js-pjax');
 		
 		// Remove style of previous topic
-		$('li.active').removeClass('active');
+		 $('ul.nav-list > li.active').removeClass('active');
 		
 		// Update style of current topic
 		var cur = $('a[href$="' + $(location).attr("pathname") + '"]');
