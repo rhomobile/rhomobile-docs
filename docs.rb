@@ -234,14 +234,14 @@ xml_string +=  ' </rss>	'
 
   	def next_section(current_slug, root=sections)
   		return sections.first if current_slug.nil?
-  		root.each_with_index do |(slug, title, topics), i|
-  			if current_slug == slug and i < root.length-1
-  				return root[i+1]
-  			elsif topics.any?
-  				res = next_section(current_slug, topics)
-  				return res if res
-  			end
-  		end
+  		# root.each_with_index do |(slug, title, group, topics), i|
+  		# 	if current_slug == slug and i < root.length-1
+  		# 		return root[i+1]
+  		# 	elsif topics.any?
+  		# 		res = next_section(current_slug, topics)
+  		# 		return res if res
+  		# 	end
+  		# end
   		nil
   	end
   
@@ -258,11 +258,12 @@ module TOC
 
 	def sections
 		@sections ||= []
+
 	end
 
 	# define a section
-	def section(name, title)
-		sections << [name, title, []]
+	def section(name, title,group)
+		sections << [name, title,group, []]
 		yield if block_given?
 	end
 
@@ -276,13 +277,43 @@ module TOC
     compare.slice!(0)
     found = @sections[0][0] # Default to first section
     @sections.map do |section|
-      section[2].map do |slug, title, _|
+      section[3].map do |slug, title, _|
+        
         found = section[0] if slug == compare
+
       end
     end
     found
   end
 
+  def findGroup(path)
+    compare = path.dup
+    compare.slice!(0)
+    found = @sections[0][0] # Default to first section
+    @sections.map do |section|
+      section[3].map do |slug, title, group, _|
+        
+        found = section[2] if slug == compare
+
+      end
+    end
+    found
+  end
+  def findGroupTab(path)
+    compare = path.dup
+    compare.slice!(0)
+    found = 1 # Default to first section
+    ctr = 1
+    @sections.map do |section|
+      section[3].map do |slug, title, group, _|
+        
+        found = ctr if slug == compare
+
+      end
+      ctr +=1
+    end
+    found
+  end
 	file = File.dirname(__FILE__) + '/toc.rb'
 	eval File.read(file), binding, file
 end

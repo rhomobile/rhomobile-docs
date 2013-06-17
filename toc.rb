@@ -1,6 +1,5 @@
-section 'intro', 'Introduction'
 
-section 'getting-started', 'Getting Started' do
+section 'getting-started', 'Getting Started','Home' do
   topic 'home',                 'Home'
   topic 'rhomobile-install',   'RhoMobile Suite Install'
   topic 'rhoelements/rhoelements-tutorial',   'RhoElements Tutorial'
@@ -16,9 +15,8 @@ end
 
 
 
-section 'rhomobile', 'RhoMobile'
 
-section 'rhodescommonapi-reference', 'Mobile APIs' do
+section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
   topic 'api/apiusage',      'API Summary'
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
@@ -52,7 +50,7 @@ section 'rhodescommonapi-reference', 'Mobile APIs' do
 end
 
 
-section 'rhomob-setup', 'Setup & Architecture' do
+section 'rhomob-setup', 'Setup & Architecture','Mobile Guides' do
   topic 'rhodes/introduction',      'Introduction'
   topic 'rhomobile-install',   'RhoMobile Suite Install'
   topic 'rhodes/build',             'Native SDK Setup'
@@ -65,7 +63,7 @@ section 'rhomob-setup', 'Setup & Architecture' do
 
 end
 
-section 'rhomob-apps', 'Developing Apps' do
+section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'rhodes/generator',         'App Generator'
   topic 'rhoelements/rhoelements2-native', 'Building Apps With RhoStudio'
   topic 'rhostudio-rhohub',      'Building Apps on RhoHub'
@@ -76,12 +74,12 @@ section 'rhomob-apps', 'Developing Apps' do
   topic 'rhoelements/licensing', 'Licensing'
 end
 
-section 'rhomob-test', 'Testing & Debugging' do
+section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
   topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'
   topic 'rhodes/simulator',         'Using RhoSimulator'
 end
 
-section 'rhomob-dev', 'Device Capabilities' do
+section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/orientation',       'Accelerometer'
   topic 'guide/alerts',       'Alerts'
   topic 'guide/android',       'Android Usage'
@@ -107,15 +105,14 @@ section 'rhomob-dev', 'Device Capabilities' do
   
 end  
 
-section 'rhomob-data', 'Data Handling' do
+section 'rhomob-data', 'Data Handling','Mobile Guides' do
   topic 'rhodes/rhom',              'Local Database and Rhom'
   topic 'rhodes/synchronization',   'Synchronization'
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
 end  
 
-section 'rhoconnect', 'RhoConnect'
 
-section 'rhoconnect-reference', 'Getting Started' do
+section 'rhoconnect-reference', 'Getting Started','RhoConnect Guides' do
   topic 'rhoconnect/introduction',      'Introduction'
   topic 'rhoconnect/install',           'Installation'
   topic 'rhoconnect/migration',     'Migrating to RhoConnect 4.0'
@@ -124,7 +121,7 @@ section 'rhoconnect-reference', 'Getting Started' do
   topic 'rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
 end
 
-section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
+section 'rhoconnect-source-adapter-reference', 'Source Adapters','RhoConnect Guides' do
   topic 'rhoconnect/source-adapters-intro', 'Introduction'
   topic 'rhoconnect/source-adapters',   'Source Adapters (Ruby)'
   topic 'rhoconnect/source-adapters-js',   'Source Adapters (JavaScript)'
@@ -136,14 +133,14 @@ section 'rhoconnect-source-adapter-reference', 'Source Adapters' do
   topic 'rhoconnect/data-partitioning',     'Data Partitioning & Pass-Through'
 end
 
-section 'rhoconnect-ruby-api-reference', 'Source Adapter Ruby APIs' do
+section 'rhoconnect-ruby-api-reference', 'Source Adapter Ruby APIs','RhoConnect Guides' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API'
   topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API'
   topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API'
 end
 
-section 'rhoconnect-js-api-reference', 'Source Adapter JS APIs' do
+section 'rhoconnect-js-api-reference', 'Source Adapter JS APIs','RhoConnect Guides' do
   topic 'rhoconnect/rest-api',          'RhoConnect REST API'
   topic 'rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API'
   topic 'rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API'
@@ -153,14 +150,14 @@ section 'rhoconnect-js-api-reference', 'Source Adapter JS APIs' do
   topic 'rhoconnectapi/source-adapter-exception-api-js', 'Source Adapter Exception API'
 end
 
-section 'rhoconnect-plugin-reference', 'Plugins' do
+section 'rhoconnect-plugin-reference', 'Plugins','RhoConnect Guides' do
   topic 'rhoconnect/plugin-intro',      'Introduction'
   topic 'rhoconnect/rails-plugin',      'Rails Plugin'
   topic 'rhoconnect/net-plugin',        '.Net Plugin'
   topic 'rhoconnect/java-plugin',       'Java Plugin'
 end
 
-section 'rhoconnect-push-reference', 'Push Sync' do
+section 'rhoconnect-push-reference', 'Push Sync','RhoConnect Guides' do
   topic 'rhoconnect/push',      'Introduction to Push'
   topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
   topic 'rhoconnect/push-client-setup-android',       'Setup for Android'
@@ -171,7 +168,7 @@ section 'rhoconnect-push-reference', 'Push Sync' do
   topic 'rhoconnect/push-testing',      'Testing Push'
 end
 
-section 'rhoconnect-administration', 'Administration' do
+section 'rhoconnect-administration', 'Administration','RhoConnect Guides' do
   topic 'rhoconnect/settings',          'RhoConnect Settings'
   topic 'rhoconnect/web-console',       'Admin Web Interface'
   topic 'rhoconnect/licensing',         'Licensing your App'
@@ -180,20 +177,20 @@ section 'rhoconnect-administration', 'Administration' do
   topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
 end
 
-section 'rhoconnect-deployment', 'Deployment' do
+section 'rhoconnect-deployment', 'Deployment','RhoConnect Guides' do
   topic 'rhoconnect/preparing-production',         'Preparing for Production'
   topic 'rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'rhoconnect/deploying',         'Deploying RhoConnect'
   topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
 
-section 'rhoconnect-advanced', 'Advanced Topics' do
+section 'rhoconnect-advanced', 'Advanced Topics','RhoConnect Guides' do
   topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
   topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
   topic 'rhoconnect/cud-conflicts',     'Resolving Conflicts'
 end
 
-section 'rhoconnect-nonrhodes-client-reference', 'Clients' do
+section 'rhoconnect-nonrhodes-client-reference', 'Clients','RhoConnect Guides' do
   topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
   topic 'rhoconnect/client-objc',       'RhoConnect Client for iOS'
   topic 'rhoconnect/client-java',       'RhoConnect without Rhodes: Android Java'
@@ -204,11 +201,11 @@ section 'rhoconnect-nonrhodes-client-reference', 'Clients' do
 end
 
 
-section 'rhoconnect-service-reference', 'Hosted Services' do
+section 'rhoconnect-service-reference', 'Hosted Services','RhoConnect Guides' do
   topic 'rhoconnect/heroku-addon',      'Heroku Addon'
 end
 
-section 'rhoconnect-adapters-reference', 'Vendor Adapters' do
+section 'rhoconnect-adapters-reference', 'Vendor Adapters','RhoConnect Guides' do
   topic 'rhoconnect/adapters-intro',    'Introduction'
   topic 'rhoconnect/adapters-crm',      'CRM adapters'
 end

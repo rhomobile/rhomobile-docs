@@ -21,7 +21,6 @@
 <body >
 
 
-<div class="navbar  navbar-inverse">
 	<header id="j-header">
 	
 
@@ -31,46 +30,46 @@
 	</a>
 
 
-
+<form class="form-search pull-right" action="/search">
+				<input type="text" class="search-query span2" placeholder="Search" name="q" size="31" value="">
+</form>
 	</header>
 	
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="active"><a href="/home">Docs Home</a></li>
-			<li class="divider-vertical"></li>
-            <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/discussions" target="_blank">Discussions</a></li>
-            <li class="divider-vertical"></li>
-			<li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/docs/developer-reference" target="_blank">Blogs</a></li>
-            <li class="divider-vertical"></li>
-			<li><a href="https://groups.google.com/forum/?fromgroups#!forum/rhomobile" target="_blank">Google Group</a></li>
-          
-		  </ul>
-		  <form class="navbar-search pull-right" action="/search">
-				<input type="text" class="search-query span2" placeholder="Search" name="q" size="31" value="<%= params[:q] || '' %>" />
-		  </form>
-          
-        </div><!-- /.nav-collapse -->
-      </div>
-    </div><!-- /navbar-inner -->
-  </div>
+    
 
- 
+<% sectionGroup  = TOC.findGroup(request.path_info) %>
+<% sectionTabindex = TOC.findGroupTab(request.path_info) %>
+	 
+<div class="row-fluid span12">
+<ul class="nav nav-tabs">
+  <li class="<%=sectionTabindex==1 ? 'active' : ''%>">
+    <a href="/home"><i class="icon-home"></i>Home</a>
+  </li>
+  <li class="<%=sectionTabindex==2 ? 'active' : ''%>">
+      <a href="/api/apiusage"><i class="icon-book"></i>API Docs</a>
+  </li>
+  <li class="<%=sectionTabindex==3 ? 'active' : ''%>">
+    <a href="/rhodes/introduction"><i class="icon-cog"></i>Mobile Guides</a>
+  </li>
+  <li class="<%=sectionTabindex==4 ? 'active' : ''%>">
+    <a href="/rhoconnect/introduction"><i class="icon-refresh"></i>RhoConnect Guides</a>
+  </li>
   
+</ul>
+
+</div>  
 <div id="container" class="row-fluid">
+	<div class="span12">
+
+	</div>
+
 	<div id="doc_container" class="span12" >
 	<div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %> >
 			<% collapsed = true 
 			 first = true
 			%>
-			
-	<% sections.each do |slug, title, topics| %>
+	<% sections.each do |slug, title, sectgroup, topics| %>
+	<% if sectionGroup == sectgroup %>
 		<% if topics and topics.length > 0 %>
 			<% collapsed = false if TOC.find(request.path_info) == slug %>
 			<%
@@ -113,6 +112,7 @@
 				<ul class="nav nav-list">
 					
 				
+		<% end %>
 		<% end %>
 	<% end %>
 		</ul>	
