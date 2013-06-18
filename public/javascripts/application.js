@@ -22,6 +22,6 @@ $(document).ready(function() {
 		$(window).scrollTop(0);
 	});
 	$('.accordion-heading > li').live('click',function(){
-		$(this).find('i').toggleClass('icon-chevron-up').toggleClass('icon-chevron-down');
+		$(this).find('i').toggleClass('icon-chevron-right').toggleClass('icon-chevron-down');
 	});
 });

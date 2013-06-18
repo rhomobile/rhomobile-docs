@@ -27,7 +27,7 @@ Class
 Description
 </th>
 <th>
-<a href="/rhoelements/apicompatibility">RhoMobile Suite 2.2 APIs replaced</a>
+<a href="/rhoelements/apicompatibility">Previous RhoMobile Suite 2.2 API</a>
 </th>
 </tr>
 </thead>
@@ -52,6 +52,17 @@ Scan bar codes using device's camera, laser or 2d imager
 </td>
 <td>
 <a href="/rhodesapi/barcode-api/">Barcode</a> and <a href="/rhoelements/scanner/">Scanner</a> have been amalgamated.  All decoders have now been brought into the same API rather than having a separate API for each.
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/battery">Battery</a>
+</td>
+<td>
+Displays a battery signal icon in a native window without requiring users to draw their own icon
+</td>
+<td>
+<a href="/rhoelements/battery">Battery</a> 
 </td>
 </tr>
 <tr>
@@ -91,6 +102,39 @@ Same as <a href="/rhodesapi/database-api/">Database</a> class in 2.2
 </tr>
 <tr>
 <td>
+<a href="/api/File">File
+</td>
+<td>
+Allows access to the device's file system.
+</td>
+<td>
+Mostly the same as the previous <a href="/rhodesapi/file-api">File</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/keycapture">KeyCapture
+</td>
+<td>
+Allows capturing hardware key events.
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/keystate">KeyState
+</td>
+<td>
+Indicator of jardware key state (Shift, Caps, Alt).
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
 <a href="/api/Log">Log
 </td>
 <td>
@@ -102,6 +146,61 @@ Rename of <a href="/rhodesapi/rholog-api/">RhoLog</a> as well as combine log set
 </tr>
 <tr>
 <td>
+<a href="/api/mediaplayer">Mediaplayer
+</td>
+<td>
+Playback audio and ringtones.
+</td>
+<td>
+Added functionality to <a href="/rhodesapi/ringtonemanager-api">RingtoneManager</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/NativeMenubar">NativeMenubar
+</td>
+<td>
+Defining custom menus for your application.
+</td>
+<td>
+Replaces <a href="/rhodesapi/menu-apis">@menu and @default_menu</a> api
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/NativeTabbar">NativeTabbar
+</td>
+<td>
+Provides native UI tabs with multiple webview instances.
+</td>
+<td>
+Similar to previous <a href="/rhodesapi/nativetabbar-api">NativeTabbar</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/NativeToolbar">NativeToolbar
+</td>
+<td>
+Provides a native toolbar UI element.
+</td>
+<td>
+Similar to previous <a href="/rhodesapi/nativetoolbar-api">NativeToolbar</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/Navbar">Navbar
+</td>
+<td>
+Native navigation for iOS applications.
+</td>
+<td>
+Similar to previous <a href="/rhodesapi/navigationbar-iphone-api">Navbar</a> class
+</td>
+</tr>
+<tr>
+<td>
 <a href="/api/Network">Network
 </td>
 <td>
@@ -109,6 +208,27 @@ See device's network status or make network connections
 </td>
 <td>
 <a href="/rhodesapi/asynchttp-api/">AsyncHTTP</a> and <a href="/rhoelements/network/">Network</a> have been amalgamated
+</td>
+</tr><tr>
+<td>
+<a href="/api/Orm">Orm</a> & <a href="/api/OrmModel">OrmModel</a>
+</td>
+<td>
+Api's for user defined Data models
+</td>
+<td>
+Previously Rhomobile Data Models were accessible only through the<a href="/rhodesapi/rhom-api/"> Rhom API via Ruby</a> 
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/push">Push
+</td>
+<td>
+HTTP based push messaging 
+</td>
+<td>
+RhoElemnents <a href="/rhoelements/push/">Push</a> API
 </td>
 </tr>
 <tr>

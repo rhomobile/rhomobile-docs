@@ -68,15 +68,15 @@
 			<% collapsed = false if TOC.find(request.path_info) == slug %>
 			<%
 			if collapsed
-				header_icon = "icon-chevron-down"
+				header_icon = "icon-chevron-right"
 
 			else
-				header_icon = "icon-chevron-up"				
+				header_icon = "icon-chevron-down"				
 			end		
 			%>
 			<div class="accordion-heading">			
 				<li class="nav-header" data-target="#<%=slug%>" data-toggle="collapse">
-					<%= title %><i class="<%=header_icon%>" style="float:right"></i>
+					<%= title %><i class="<%=header_icon%>" style="float:left"></i>
 					
 				</li>
 			</div>
