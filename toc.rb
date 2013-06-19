@@ -102,14 +102,14 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/signature',       'Signature'
   topic 'guide/system',       'System'
   topic 'guide/timer',       'Timer'
-  
-end  
+
+end
 
 section 'rhomob-data', 'Data Handling','Mobile Guides' do
   topic 'rhodes/rhom',              'Local Database and Rhom'
   topic 'rhodes/synchronization',   'Synchronization'
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
-end  
+end
 
 
 section 'rhoconnect-reference', 'Getting Started','RhoConnect Guides' do
@@ -161,7 +161,7 @@ section 'rhoconnect-push-reference', 'Push Sync','RhoConnect Guides' do
   topic 'rhoconnect/push',      'Introduction to Push'
   topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
   topic 'rhoconnect/push-client-setup-android',       'Setup for Android'
-  topic 'rhoconnect/push-client-setup-bb',       'Setup for BlackBerry'
+  # topic 'rhoconnect/push-client-setup-bb',       'Setup for BlackBerry'
   topic 'rhoconnect/push-client-setup-ios',       'Setup for iOS'
   topic 'rhoconnect/push-client-setup',       'Finishing Setup for all Clients'
   topic 'rhoconnect/push-backend-setup',        'Setup on Backend'
