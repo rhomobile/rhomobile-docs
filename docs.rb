@@ -299,21 +299,6 @@ module TOC
     end
     found
   end
-  def findGroupTab(path)
-    compare = path.dup
-    compare.slice!(0)
-    found = 1 # Default to first section
-    ctr = 1
-    @sections.map do |section|
-      section[3].map do |slug, title, group, _|
-        
-        found = ctr if slug == compare
-
-      end
-      ctr +=1
-    end
-    found
-  end
 	file = File.dirname(__FILE__) + '/toc.rb'
 	eval File.read(file), binding, file
 end

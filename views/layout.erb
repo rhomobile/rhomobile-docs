@@ -35,20 +35,19 @@
     
 
 <% sectionGroup  = TOC.findGroup(request.path_info) %>
-<% sectionTabindex = TOC.findGroupTab(request.path_info) %>
 	 
 <div class="row-fluid span12">
 <ul class="nav nav-tabs">
-  <li class="<%=sectionTabindex==1 ? 'active' : ''%>">
+  <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
     <a href="/home"><i class="icon-home"></i>Home</a>
   </li>
-  <li class="<%=sectionTabindex==2 ? 'active' : ''%>">
+  <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
       <a href="/api/apiusage"><i class="icon-cog"></i>API Docs</a>
   </li>
-  <li class="<%=sectionTabindex==3 ? 'active' : ''%>">
+  <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
     <a href="/rhodes/introduction"><i class="icon-book"></i>Mobile Guides</a>
   </li>
-  <li class="<%=sectionTabindex==4 ? 'active' : ''%>">
+  <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
     <a href="/rhoconnect/introduction"><i class="icon-refresh"></i>RhoConnect Guides</a>
   </li>
   

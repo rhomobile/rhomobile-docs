@@ -2,31 +2,27 @@
 
 <API>
     <MODULE name="KeyCapture" parent="Rho">
-        <HELP_OVERVIEW>todo.  This is for hardware keys, not software keys... note recommended to use with SIP.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The KeyCapture module is used to intercept or override hardware keys</HELP_OVERVIEW>
         <MORE_HELP>.</MORE_HELP>
     
         <TEMPLATES>
         </TEMPLATES>
 			
 		<!--  TODO: When adding platforms other than WM, expand the PLATFORM Tags -->	
+		<CONSTANTS>
+            <CONSTANT name="IPHONE_VOLUME_UP" value="10">
+                <DESC>iPhone volume up keyCode</DESC>
+            </CONSTANT>
+            <CONSTANT name="IPHONE_VOLUME_DOWN" value="11">
+                <DESC>iPhone volume down keyCode</DESC>
+            </CONSTANT>
+		</CONSTANTS>	
 			
 		<PROPERTIES access="STATIC">
 			<PROPERTY name="homeKeyValue" type="STRING" default="Disabled" generateAccessors="true">
-				<DESC>todo - Set to Disabled or the HomeKeyValue to be used.</DESC>
+				<DESC>Specifies a key which, when pressed, will navigate to the start page as defined in the RhoElements configuration. Set to 'Disabled' to prevent this behavior.</DESC>
 				<PLATFORM>WM</PLATFORM>
 			</PROPERTY>
-
-			<PROPERTY name="keyCode" type="INTEGER" generateAccessors="false">>
-                <DESC>Key codes for physical keys</DESC>
-                <VALUES>
-                    <VALUE constName="IPHONE_VOLUME_UP" value = "10">
-                        <DESC></DESC>
-                    </VALUE>
-                    <VALUE constName="IPHONE_VOLUME_DOWN" value = "11">
-                        <DESC></DESC>
-                    </VALUE>
-                </VALUES>
-            </PROPERTY>
 		</PROPERTIES>
 
 		<METHODS access="STATIC">
