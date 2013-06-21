@@ -1,0 +1,401 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Application" parent="Rho">
+        <HELP_OVERVIEW>The Application class is used for accessing or setting application level configuration settings.</HELP_OVERVIEW>
+        <MORE_HELP></MORE_HELP>
+        
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <PROPERTIES access="STATIC" generateAccessors="true">
+            <PROPERTY name="appBundleFolder" type="STRING" readOnly="true">
+                <DESC>Path to apps/app folder inside application bundle.</DESC>
+            </PROPERTY>
+            <PROPERTY name="appsBundleFolder" type="STRING" readOnly="true">
+                <DESC>Path to apps folder inside application bundle.</DESC>
+            </PROPERTY>
+            <PROPERTY name="userFolder" type="STRING" readOnly="true">
+                <DESC>Path to folder where application can write files and create subfolders.</DESC>
+            </PROPERTY>
+            <PROPERTY name="configPath" type="STRING" readOnly="true">
+                <DESC>Path to configuration file.</DESC>
+            </PROPERTY>
+            <PROPERTY name="modelsManifestPath" type="STRING" readOnly="true">
+                <DESC>Path to file with model list.</DESC>
+            </PROPERTY>
+            <PROPERTY name="databaseBlobFolder" type="STRING" readOnly="true">
+                <DESC>Path to folder where database blob files are stored.</DESC>
+            </PROPERTY>             
+            <PROPERTY name="publicFolder" type="STRING" readOnly="true">
+                <DESC>Path to application public folder.</DESC>
+            </PROPERTY>
+            
+            <PROPERTY name="startURI" type="STRING">
+                <DESC>Startup page for your application.</DESC>
+            </PROPERTY>
+            <PROPERTY name="settingsPageURI" type="STRING">
+                <DESC>Settings page URI. Will be used when Options menu or toolbar item is choosed by user.</DESC>
+            </PROPERTY>
+            <PROPERTY name="splash" type="STRING" readOnly="true">
+                <DESC>Splash screen image display options. This a string with several parameters divided by ';': delay=5;center;hcenter;vcenter;vzoom;hzoom;zoom</DESC>
+            </PROPERTY>
+            <PROPERTY name="version" type="STRING" readOnly="true">
+                <DESC>Version from build time configuration file.</DESC>
+            </PROPERTY>
+            <PROPERTY name="title" type="STRING">
+                <DESC>Define Window caption text.If missed - caption from page used.</DESC>
+                <PLATFORM>WM</PLATFORM>
+            </PROPERTY>
+            <PROPERTY name="name" type="STRING" readOnly="true">
+                <DESC>Application name.</DESC>
+            </PROPERTY>
+            <PROPERTY name="locale" type="STRING" readOnly="true" generateAPI="false">
+                <DESC>Current application locale.Like 'en', 'ru' etc.</DESC>
+                <APPLIES rubyOnly="true"/>
+            </PROPERTY>
+            <PROPERTY name="country" type="STRING" readOnly="true" generateAPI="false">
+                <DESC>Current application country code.</DESC>
+                <APPLIES rubyOnly="true"/>
+            </PROPERTY>
+
+            <PROPERTY name="nativeMenu" type="ARRAY">
+                <PARAM type="HASH">
+
+                    <PARAMS>
+                        <PARAM name="label" type="STRING">
+                            <DESC>Visible label.</DESC>
+                        </PARAM>
+                        <PARAM name="action" type="STRING">
+                            <DESC>URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or javascript method to call: 'javascript: methodOnTab();'. Or path to html page to load.</DESC>
+                        </PARAM>
+                    </PARAMS>
+
+                </PARAM>
+
+                <DESC>Native Menu items</DESC>
+                <PLATFORM>WM, Android, Win32, WP8</PLATFORM>
+            </PROPERTY>
+
+            <PROPERTY name="defaultNativeMenu" type="ARRAY" readOnly="true" generateAPI="false">
+                <DESC>Native Menu items</DESC>
+                <PARAM type="HASH">
+                    <DESC>Same values as for nativeMenu.</DESC>
+                </PARAM>
+                <PLATFORM>WM, Android, Win32, WP8</PLATFORM>
+                
+            </PROPERTY>
+            <PROPERTY name="securityTokenNotPassed" type="BOOLEAN" readOnly="true">
+                <DESC>Is the security token check was failed.Security token can be set in build.yml: security_token. Same security token should be passed as command line parameter '-security_token=token_value' to application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.</DESC>
+            </PROPERTY>
+            <PROPERTY name="invalidSecurityTokenStartPath" type="STRING" readOnly="true">
+                <DESC>Page to navigate in case of check of SecurityToken was failed.Can be set in rhoconfig.txt: invalid_security_token_start_path;</DESC>
+            </PROPERTY>
+            
+            <PROPERTY name="rhoPlatformVersion" type="STRING" readOnly="true" generateDoc="false">
+                <DESC>The version of RhoMobile platform, which was used to build the application.</DESC>
+            </PROPERTY>
+
+            <PROPERTY name="badLinkURI" type="STRING" readOnly="true">
+                <DESC>Bad link URI to navigate in browser.Defines in config.xml: Navigation\\BadLinkURI</DESC>
+                <PLATFORM>WM</PLATFORM>
+                <APPLIES>Motorola Solutions' WebKit</APPLIES>
+                <MORE_HELP>
+                    <![CDATA[ Navigates to the specified badlink uri when one of the following occurs:
+
+    * There is an error attempting to navigate to the page, e.g. the device has no network connection.
+    * The timeout occurs when navigating to the page. You can adjust the value of the timeout using the NavTimeout setting.
+    * The user presses the stop button.
+
+    The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the file:// protocol, this way the browser can always access the file. ]]></MORE_HELP>
+            </PROPERTY>
+
+        </PROPERTIES>
+
+        <METHODS  access="STATIC">
+            <ALIASES>
+            </ALIASES>
+
+            <METHOD name="modelFolderPath">
+                <DESC>Folder of the model by name.</DESC>
+
+                <PARAMS>
+                    <PARAM name="name" type="STRING">
+                        <DESC>Model name.</DESC>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN type="STRING"/>
+            </METHOD>
+
+            <METHOD name="databaseFilePath">
+                <DESC>Path to database file by partition name.</DESC>
+
+                <PARAMS>
+                    <PARAM name="partitionName" type="STRING">
+                        <DESC>Partition name.</DESC>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN type="STRING"/>
+            </METHOD>
+
+            <METHOD name="expandDatabaseBlobFilePath">
+                <DESC>Make absolute path to database blob file.</DESC>
+
+                <PARAMS>
+                    <PARAM name="relativePath" type="STRING">
+                        <DESC>Relative path to database blob file.</DESC>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN type="STRING"/>
+            </METHOD>
+
+            <METHOD name="relativeDatabaseBlobFilePath">
+                <DESC>Make relative path to database blob file.</DESC>
+
+                <PARAMS>
+                    <PARAM name="absolutePath" type="STRING">
+                        <DESC>Absolute path to database blob file.</DESC>
+                    </PARAM>
+                </PARAMS>
+
+                <RETURN type="STRING"/>
+            </METHOD>
+
+            <METHOD name="quit">
+                <DESC>Quit the application.</DESC>
+            </METHOD>
+
+            <METHOD name="minimize">
+                <DESC>Minimize or move application to background. RhoSimulator the method supported only for windows OS.</DESC>
+                <PLATFORM>WM, Win32</PLATFORM>
+            </METHOD>
+            <METHOD name="restore">
+                <DESC>Restore application on the screen. RhoSimulator the method supported only for windows OS.</DESC>
+                <PLATFORM>WM, Win32</PLATFORM>
+            </METHOD>
+
+            <METHOD name="setApplicationNotify" hasCallback="mandatory" runInThread="none">
+                <DESC>Set application activation/deactivation callback.</DESC>
+                <CALLBACK type="HASH">
+                    <DESC>Information related to the activation/deactivation of application.</DESC>
+                    <PARAMS>
+                        <PARAM name="applicationEvent" type="STRING">
+                            <DESC></DESC>
+                            <VALUES>
+                                <VALUE constName="APP_EVENT_ACTIVATED" value ="Activated">
+                                    <DESC></DESC>
+                                </VALUE>
+                                <VALUE constName="APP_EVENT_DEACTIVATED" value ="Deactivated">
+                                    <DESC></DESC>
+                                </VALUE>
+                                <VALUE constName="APP_EVENT_UICREATED" value ="UICreated">
+                                    <DESC></DESC>
+                                </VALUE>
+                                <VALUE constName="APP_EVENT_UIDESTROYED" value ="UIDestroyed">
+                                    <DESC></DESC>
+                                </VALUE>
+                                <VALUE constName="APP_EVENT_SYNCUSERCHANGED" value ="SyncUserChanged">
+                                    <DESC></DESC>
+                                </VALUE>
+                                <VALUE constName="APP_EVENT_CONFIGCONFLICT" value ="ConfigConflict">
+                                    <DESC></DESC>
+                                    <APPLIES rubyOnly="true"/>
+                                </VALUE>
+                                <VALUE constName="APP_EVENT_DBMIGRATESOURCE" value ="DBMigrateSource">
+                                    <DESC></DESC>
+                                    <APPLIES rubyOnly="true"/>
+                                </VALUE>
+                            </VALUES>
+                        </PARAM>
+                        <PARAM name="eventData" type="HASH">
+                            <DESC>Event specific data.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+
+            <METHOD name="processApplicationEvent" generateAPI="false">
+                <DESC>Default processing of application Event. May be called from setApplicationNotify callback.This method should be called for each event. The only exception is SyncUserChanged, where you can choose your own reset database logic.</DESC>
+                <APPLIES rubyOnly="true"/>
+                <PARAMS>
+                    <PARAM name="applicationEvent" type="STRING">
+                        <DESC>See setApplicationNotify for applicationEvent values.</DESC>
+                    </PARAM>
+                    <PARAM name="eventData" type="HASH">
+                        <DESC>Event specific data.</DESC>
+                    </PARAM>
+                </PARAMS>
+
+            </METHOD>
+
+            <METHOD name="setLocale" generateAPI="false" generateDoc="false" access="STATIC">
+                <DESC>Set application specific locale</DESC>
+                <APPLIES rubyOnly="true"/>
+                <PARAMS>
+                    <PARAM name="localeCode" type="STRING"/>
+                    <PARAM name="countryCode" type="STRING">
+                        <CAN_BE_NIL/>
+                    </PARAM>
+                </PARAMS>
+            </METHOD>
+
+        </METHODS>
+        
+        <USER_OVERVIEW>
+            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+            <![CDATA[]]>
+    
+        </USER_OVERVIEW>
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+            <!--  This section is used for the supported platform images at the top -->
+        </PLATFORM>
+<EXAMPLES >
+           <EXAMPLE title="Set the locale">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   If your application is internationalized, you may want to set the locale depending on the user's preference 
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+Rho::Application.setLocale('en')
+current_locale = Rho::Application.locale
+Alert.show_popup(current_locale)
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+Rho.Application.setLocale('en')
+var current_locale = Rho.Application.locale();
+alert(current_locale)
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+           <EXAMPLE title="Get folders where items are stored">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   There are times where you need access to files bundled with your application, or to write files to a safe folder. These examples show how to retrieve each of the several important folders available
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+# Get and show the various app folders
+appFolder = Rho::Application.appBundleFolder
+appsBundleFolder = Rho::Application.appsBundleFolder
+databaseBlobFolder = Rho::Application.databaseBlobFolder
+publicFolder = Rho::Application.publicFolder
+userFolder = Rho::Application.userFolder
+
+message = "App bundle folder: "+appFolder+"\n"+
+"Apps bundle folder: "+appsBundleFolder+"\n"+ 
+"Database blob folder: "+databaseBlobFolder+"\n"+ 
+"Public folder: "+publicFolder+"\n"+ 
+"User folder: "+userFolder
+    
+Alert.show_popup(message)
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+     // Get and show the various app folders
+     var appFolder = Rho.Application.appBundleFolder;
+     var appsBundleFolder = Rho.Application.appsBundleFolder;
+     var databaseBlobFolder = Rho.Application.databaseBlobFolder;
+     var publicFolder = Rho.Application.publicFolder;
+     var userFolder = Rho.Application.userFolder;
+     
+     var message = "App bundle folder: "+appFolder+"\n"+
+     "Apps bundle folder: "+appsBundleFolder+"\n"+ 
+     "Database blob folder: "+databaseBlobFolder+"\n"+ 
+     "Public folder: "+publicFolder+"\n"+ 
+     "User folder: "+userFolder;
+     
+     alert(message);
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+          <EXAMPLE title="Minimize your application">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   This will minimize your application.
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+Rho::Application.minimize
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+Rho.Application.minimize();
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+           <EXAMPLE title="Quit your application">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   This will exit your application.
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+Rho::Application.quit
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+Rho.Application.quit();
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+           <EXAMPLE title="Restore your application">
+            <SECTIONS>
+               
+              <SECTION>
+               <DESC>
+                   This will restore you application
+               </DESC>
+               <CODE>
+                <RUBY>
+           <![CDATA[
+Rho::Application.restore
+                   ]]>
+                 </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+Rho.Application.restore();
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>
+               </SECTION>
+               </SECTIONS>
+           </EXAMPLE>
+
+       </EXAMPLES>
+
+    </MODULE>
+</API>    

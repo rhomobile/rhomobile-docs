@@ -1,0 +1,56 @@
+RhoSync settings
+===
+
+All Rhosync application and source settings located in the *`settings/settings.yml`* file.
+There are two main categories: application environment settings and source settings.
+
+
+## Application settings
+
+Application-wide settings are specified per deployment environment (`:test`, `:development`, `:production`).
+Each of the environment categories must have the following entries:
+	
+	:::yaml
+	:syncserver: <url> - application's base url
+	:redis: <url> - Redis url
+	:licensefile: <filename> - application's license file
+	
+In addition, the following settings can be specified:
+
+	:::yaml
+	:bulk_sync_poll_interval: <secs> - poll interval setting for bulk data sync
+	
+## Source settings
+
+All source-specific settings are specified under the corresponding source name entry in the `:sources` category.
+Typical source settings include:
+
+	:::yaml
+	:poll_interval: <secs> - source's sync poll interval.
+    :partition_type: <app|user> - default partition type for the source
+	:retry_limit: <number_of_retries> - this option allows user to 
+									    perform sync upto <number_of_retries> times
+									    in case of previous sync failure before 
+										updating the refresh time. 
+										Normally, each sync resets the refresh time
+										according to the polling interval regardless
+										of the sync success or failure. In case of failure,
+										it may not be a desired scenario because user will
+										be getting an error on all sync attempts until 
+										the next polling interval will expire. This setting
+										allows to overcome this issue.The following flow
+										shows the algorithm in place:
+										
+										1) If sync fails and :retry_limit is set to N > 0,
+											refresh_time is not updated for next N retries 
+											(or until any of them succeeds). 
+											Here 'retry' means that user will be able 
+											to initiate another sync request 
+											(since refresh_time is not updated).
+										2) If one of the retry succeeds - source's refresh time 
+											is updated and retry counter is reset.
+										3) If the `:retry_limit` is reached and all attempts have failed - 
+											source's refresh time is updated to prevent 
+											excessive polling on the permanently down backend. 
+										4) Also, if more then `:poll_interval` seconds has elapsed 
+											since last refresh_time - source's retry counter is reset.

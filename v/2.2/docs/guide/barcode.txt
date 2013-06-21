@@ -1,0 +1,26 @@
+# Barcode
+
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodes/device-caps#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+
+You can use the [Barcode API](/rhodesapi/barcode-api) methods to recognize barcodes.
+
+ * [barcode_recognize](/rhodesapi/barcode-api#barcoderecognize) - Recognizes a barcode on an image.
+ * [take_barcode](/rhodesapi/barcode-api#takebarcode) - iPhone and Android only. Open a user interface for real-time barcode recognition from the device camera.
+ * [enumerate](/rhodesapi/barcode-api#enumerate) - Get a list of scanners present on the device.
+ * [enable](/rhodesapi/barcode-api#enable) - Enables the scanner.
+ * [disable](/rhodesapi/barcode-api#disable)- Disables the currently enabled scanner.
+ * [start](/rhodesapi/barcode-api#start) - Performs a soft trigger start.
+ * [stop](/rhodesapi/barcode-api#stop) - Performs a soft trigger stop.
+
+Barcode recognition functionality is realized as Rhode Native extension. You should add "Barcode" to extension list in build.yml, which is located in your application folder. `Barcode.barcode_recognize(image_file_full_path)` returns a string with recognized code, or an empty string if there are no recognized barcodes on the image. You can combine Camera for get picture with Barcode recognition for process barcode data - see sample below.
+
+For barcode recognition we use Zbar library (iPhone, and Windows Mobile platforms) and ZXing library (Android and BlackBerry platforms). In this case we support next barcode types :
+
+* WM platform: UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 128 .
+* iPhone platform: UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 128, QR Code .
+* Android and BlackBerry platforms: UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 128, Code 93, QR Code, ITF, Codabar
+
+**NOTE: We are very sorry, but we are removed ZBar source code from our project by ZBar license requirements. For build Barcode extension for WM, you should download ZBar sources from http://zbar.sourceforge.net/ and copy to [rhodes root]/lib/extensions/barcode/ext/barcode/shared/zbar/zbar/ folder "include" and "zbar" folders from ZBar sources. Also you should fix ZBar sources for building by Microsoft Visual Studio (move define of inner function variables to begin of functions, etc.). See detailed instructions in your Rhodes installation at /lib/extensions/barcode/ext/barcode/shared/zbar/zbar/README.TXT**
+
+### Sample
+See controller and view in the /app/BarcodeRecognizer folder of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BarcodeRecognizer/controller.rb) for more information.

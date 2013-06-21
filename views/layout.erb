@@ -34,21 +34,29 @@
 
     
 
-<% sectionGroup  = TOC.findGroup(request.path_info) %>
+<% sectionGroup  = TOC.findGroup(request.path_info) 
+
+puts "version#{@docversion}"
+if @docversion.nil?
+	vpath = ""
+else
+	vpath = "/v/#{@docversion}"
+end
+%>
 	 
 <div class="row-fluid span12">
 <ul class="nav nav-tabs">
   <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
-    <a href="/home"><i class="icon-home"></i>Home</a>
+    <a href="<%=vpath%>/home"><i class="icon-home"></i>Home</a>
   </li>
   <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
-      <a href="/api/apiusage"><i class="icon-cog"></i>API Docs</a>
+      <a href="<%=vpath%>/api/apiusage"><i class="icon-cog"></i>API Docs</a>
   </li>
   <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
-    <a href="/rhodes/introduction"><i class="icon-book"></i>Mobile Guides</a>
+    <a href="<%=vpath%>/rhodes/introduction"><i class="icon-book"></i>Mobile Guides</a>
   </li>
   <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
-    <a href="/rhoconnect/introduction"><i class="icon-refresh"></i>RhoConnect Guides</a>
+    <a href="<%=vpath%>/rhoconnect/introduction"><i class="icon-refresh"></i>RhoConnect Guides</a>
   </li>
   
 </ul>
@@ -61,7 +69,9 @@
 			<% collapsed = true 
 			 first = true
 			%>
-	<% sections.each do |slug, title, sectgroup, topics| %>
+	<% sections.each do |slug, title, sectgroup, topics| 
+		
+		%>
 	<% if sectionGroup == sectgroup %>
 		<% if topics and topics.length > 0 %>
 			<% collapsed = false if TOC.find(request.path_info) == slug %>
@@ -81,14 +91,15 @@
 			</div>
 			<ul class="nav nav-list  <%=collapsed ? 'collapse' : 'in'%>" id="<%=slug%>" >
     
-			<% topics.each do |slug, title, _| %>
+			<% topics.each do |slug, title, _|
+				 %>
 				<% if topic_path == slug %>
-					<li class="active"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
+					<li class="active"><a onclick="return false" href="<%=vpath%>/<%= slug %>"><%=h title %></a></li>
 				<% else %>
 					<% if slug != 'rhoelements/apicompatibility' %>
-					<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
+					<li><a class='js-pjax' href="<%=vpath%>/<%= slug %>"><%=h title %></a></li>
 					<%else%>
-					<li><a  href="/<%= slug %>"><%=h title %></a></li>
+					<li><a  href="<%=vpath%>/<%= slug %>"><%=h title %></a></li>
 					<%end %>
 				<% end %>
 			<% end %>

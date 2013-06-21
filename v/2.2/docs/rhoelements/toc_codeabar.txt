@@ -1,0 +1,18 @@
+Codeabar: RhoElements Barcode Capture Decoders
+===
+
+* ### [Codabar](/rhoelements/codabar)
+
+* ### [ClsiEditing](/rhoelements/CodabarCLSiEditing)
+
+* ### [Maxlength](/rhoelements/CodabarMaxLength)
+
+* ### [MinLength](/rhoelements/CodabarMinLength)
+
+* ### [NotisEditing](/rhoelements/CodabarNotisEditing)
+
+* ### [Redundancy](/rhoelements/CodabarRedundancy)
+
+###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
+
+

@@ -1,0 +1,231 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+  <MODULE name="Database" parent="Rho" generateUnderscoreRubyNames="true">
+    <HELP_OVERVIEW>Database is low-level API to access SQLite local database.</HELP_OVERVIEW>
+    <MORE_HELP>This API used internally by RHOM. To use RHOM, just define your models and partition databases will be created automatically.</MORE_HELP>
+
+    <ALIASES>
+    </ALIASES>
+    
+    <TEMPLATES>
+    </TEMPLATES>
+
+    <METHODS>
+      <ALIASES>
+        <ALIAS new="commit" existing="commitTransaction" deprecated="true"/>
+        <ALIAS new="rollback" existing="rollbackTransaction" deprecated="true"/>
+        <ALIAS new="table_exist?" existing="isTableExist" deprecated="true"/>
+        <ALIAS new="is_ui_waitfordb" existing="isUiWaitForDb" deprecated="true"/>
+        <ALIAS new="set_do_not_bakup_attribute" existing="setDoNotBackupAttribute" deprecated="true"/>
+      </ALIASES>
+
+      <METHOD name="initialize" constructor="true" generateAPI="false">
+        <DESC>Open or create database. If database file does not exist it will be created using SQL schema: rhodes\platform\shared\db\res\db\syncdb.schema. Do not use predefined partition names: app, user, local. Do not open the same database file in different partitions. Do not use the same partition for different database files. Do not open the same file twice.</DESC>
+        <PARAMS>
+          <PARAM name="dbPath" type="STRING">
+            <DESC>The path to the database. Databases stored at the path provided by Rho::Application.databaseFilePath</DESC>
+          </PARAM>
+          <PARAM name="dbPartition" type="STRING">
+            <DESC>The database partition. Used as a file name for database and when connecting to RhoConnect server.</DESC>
+          </PARAM>
+        </PARAMS>
+      </METHOD>
+
+      <METHOD name="close" destructor="true" generateAPI="false">
+        <DESC>Close database</DESC>
+      </METHOD>
+
+      <METHOD name="startTransaction" generateAPI="false">
+        <DESC>Start database transaction</DESC>
+      </METHOD>
+
+      <METHOD name="commitTransaction" generateAPI="false">
+        <DESC>Commit database transaction</DESC>
+      </METHOD>
+
+      <METHOD name="rollbackTransaction" generateAPI="false">
+        <DESC>Rollback database transaction</DESC>
+      </METHOD>
+
+      <METHOD name="lockDb" generateAPI="false" generateDoc="false">
+        <DESC>Lock database. This method should be used to syncronize Database access with RhoConnect client. startTransaction also locks the database but if you're going to read from database, lockDb is faster.</DESC>
+      </METHOD>
+
+      <METHOD name="unlockDb" generateAPI="false" generateDoc="false">
+        <DESC>Unlock database, previusly locked by lockDb.</DESC>
+      </METHOD>
+
+      <METHOD name="isUiWaitForDb" generateAPI="false" generateDoc="false">
+        <DESC>Is UI waiting for DB? Should be used in separate Ruby thread, which updates database(implementing custom data sync logic). Will be true when database method calls from Main Ruby thread and waits for database.></DESC>
+        <RETURN type="BOOLEAN"/>
+      </METHOD>
+
+      <METHOD name="executeSql" generateAPI="false" >
+        <DESC>Execute sql statement</DESC>
+        <PARAMS>
+          <PARAM name="sqlStmt" type="STRING">
+            <DESC>The SQL statement</DESC>
+          </PARAM>
+          <PARAM name="args" type="ARRAY">
+            <DESC>Array of the sql expressions</DESC>
+            <CAN_BE_NIL/>
+          </PARAM>
+        </PARAMS>
+
+        <RETURN type="ARRAY">
+            <DESC>Array of Hashes. Each Hash item represents record from Database.</DESC>
+        </RETURN>
+      </METHOD>
+
+      <METHOD name="executeBatchSql" generateAPI="false" >
+        <DESC>Execute sql statement</DESC>
+        <PARAMS>
+          <PARAM name="sqlStmt" type="STRING">
+            <DESC>The SQL statement</DESC>
+          </PARAM>
+          <PARAM name="args" type="ARRAY">
+            <DESC>Array of the sql expressions</DESC>
+            <CAN_BE_NIL/>
+          </PARAM>
+        </PARAMS>
+      </METHOD>
+
+      <METHOD name="import" deprecated="true" generateAPI="false">
+        <DESC>Import db</DESC>
+        <PARAMS>
+          <PARAM name="zipName" type="STRING">
+            <DESC>The name of the zip file</DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="BOOLEAN"/>
+      </METHOD>
+
+      <METHOD name="export" deprecated="true"  generateAPI="false">
+        <DESC>Export db</DESC>
+        <RETURN type="STRING"/>
+      </METHOD>
+
+      <METHOD name="destroyTable" generateAPI="false">
+        <DESC>Destroy database table</DESC>
+        <PARAMS>
+          <PARAM name="tableName" type="STRING">
+            <DESC>Table name to destroy</DESC>
+          </PARAM>
+        </PARAMS>
+      </METHOD>
+
+      <METHOD name="destroyTables" generateAPI="false">
+        <DESC>Destroy database tables.</DESC>
+        <PARAMS>
+          <PARAM name="propertyMap" type="HASH">
+            <PARAMS>
+              <PARAM name="include" type="ARRAY">
+                <DESC>include tables</DESC>
+              </PARAM>
+              <PARAM name="exclude" type="ARRAY">
+                <DESC>exclude tables</DESC>
+              </PARAM>
+            </PARAMS>
+          </PARAM>
+        </PARAMS>
+      </METHOD>
+
+      <METHOD name="isTableExist" generateAPI="false">
+        <DESC>Does table exist?</DESC>
+        <PARAMS>
+          <PARAM name="tableName" type="STRING">
+            <DESC>The name of the table</DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="BOOLEAN"/>
+      </METHOD>
+
+      <METHOD name="setDoNotBackupAttribute" generateAPI="false" >
+        <DESC>Set do not backup attribute for database file. This is special flag set on files, which will exclude it from iCloud service.</DESC>
+        <PLATFORM>iOS</PLATFORM>
+        <PARAMS>
+          <PARAM name="setFlag" type="BOOLEAN">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+      </METHOD>
+
+      
+    </METHODS>
+
+    <USER_OVERVIEW>
+      <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+      <![CDATA[]]>
+
+    </USER_OVERVIEW>
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+      <!--  This section is used for the supported platform images at the top -->
+    </PLATFORM>
+      
+    <EXAMPLES>
+      <EXAMPLE title="Open and close database">
+        <SECTIONS>
+          <SECTION>
+            <DESC> Closing a database </DESC>
+            <CODE>
+              <RUBY>
+                <![CDATA[
+db = Rho::Database.new(Rho::Application.databaseFilePath('test'), 'test')
+db.close()
+]]>
+              </RUBY>
+              <JAVASCRIPT>
+                <![CDATA[
+var db = new Rho.Database(Rho.Application.databaseFilePath('test'), 'test');
+db.close();
+]]>
+              </JAVASCRIPT>
+            </CODE>
+
+          </SECTION>
+        </SECTIONS>          
+      </EXAMPLE>
+      <EXAMPLE title="destroyTables">
+        <SECTIONS>
+          <SECTION>
+            <DESC>Destroy multiple tables.</DESC>
+            <CODE>
+              <RUBY>
+                <![CDATA[
+db = Rho::Database.new(...)
+
+# destroy all tables in database
+db.destroyTables(:include => [], :exclude => [])
+
+# destroy specified tables
+db.destroyTables(:include => ['table1', 'table2'], :exclude => [])
+
+# destroy all but specified tables
+db.destroyTables(:include => [], :exclude => ['table1', 'table2'])
+]]>
+              </RUBY>
+              <JAVASCRIPT>
+                <![CDATA[
+var db = new Rho.Database(...);
+
+// destroy all tables in database
+db.destroyTables({include: [], exclude: []});
+
+// destroy specified tables
+db.destroyTables({include: ['table1', 'table2'], exclude: []});
+
+// destroy all but specified tables
+db.destroyTables({include: [], exclude: ['table1', 'table2']});
+]]>
+              </JAVASCRIPT>
+            </CODE>
+
+          </SECTION>
+        </SECTIONS>          
+      </EXAMPLE>
+    </EXAMPLES>
+
+</MODULE>
+</API>

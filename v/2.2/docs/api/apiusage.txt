@@ -1,0 +1,279 @@
+#Api Summary
+
+RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby.
+
+##Javascript Usage
+In order to use the RhoMobile API's in Javascript you must include the following in your layout.erb file:
+
+ 	:::javascript
+	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>  
+ 
+This file automatically gets added to your application during compile time and will provide access to the RhoMobile API classes through the Rho object. Calling each APi class must be preceeded with a Rho.
+ 	
+ 	:::javascript
+	Rho.Barcode.enable();  
+
+
+
+## API Table
+
+<table class="table">
+<thead>	
+<tr>
+<th>
+Class
+</th>
+<th>
+Description
+</th>
+<th>
+<a href="/rhoelements/apicompatibility">Previous RhoMobile Suite 2.2 API</a>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="/api/Application">Application
+</td>
+<td>
+Interface with application level methods and properties
+</td>
+<td>
+Rename of <a href="/rhodesapi/rhoapplication-api/">RhoApplication</a> and will also contain the MSI specific <a href="/rhoelements/application/">Application</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/barcode">Barcode</a>
+</td>
+<td>
+Scan bar codes using device's camera, laser or 2d imager
+</td>
+<td>
+<a href="/rhodesapi/barcode-api/">Barcode</a> and <a href="/rhoelements/scanner/">Scanner</a> have been amalgamated.  All decoders have now been brought into the same API rather than having a separate API for each.
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/battery">Battery</a>
+</td>
+<td>
+Displays a battery signal icon in a native window without requiring users to draw their own icon
+</td>
+<td>
+<a href="/rhoelements/battery">Battery</a> 
+</td>
+</tr>
+<tr>
+<td>
+
+<a href="/api/camera">Camera</a>
+
+</td>
+<td>
+Access devices camera to take or choose pictures
+</td>
+<td>
+<a href="/rhodesapi/camera-api/">Camera</a> and <a href="/rhoelements/imager/">Imager</a> have been amalgamated
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/cardreader">CardReader
+</td>
+<td>
+Interface for device's Mag Stripe Reader (MSR)
+</td>
+<td>
+<a href="/rhoelements/cardreader/">CardReader</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/Database">Database
+</td>
+<td>
+Accessing RhoMobile's built in database
+</td>
+<td>
+Same as <a href="/rhodesapi/database-api/">Database</a> class in 2.2
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/File">File
+</td>
+<td>
+Allows access to the device's file system.
+</td>
+<td>
+Mostly the same as the previous <a href="/rhodesapi/file-api">File</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/keycapture">KeyCapture
+</td>
+<td>
+Allows capturing hardware key events.
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/keystate">KeyState
+</td>
+<td>
+Indicator of jardware key state (Shift, Caps, Alt).
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/Log">Log
+</td>
+<td>
+Interface for Rhomobile logging capabilities
+</td>
+<td>
+Rename of <a href="/rhodesapi/rholog-api/">RhoLog</a> as well as combine log settings from RhoElement's Config.xml file
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/mediaplayer">Mediaplayer
+</td>
+<td>
+Playback audio and ringtones.
+</td>
+<td>
+Added functionality to <a href="/rhodesapi/ringtonemanager-api">RingtoneManager</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/NativeMenubar">NativeMenubar
+</td>
+<td>
+Defining custom menus for your application.
+</td>
+<td>
+Replaces <a href="/rhodesapi/menu-apis">@menu and @default_menu</a> api
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/NativeTabbar">NativeTabbar
+</td>
+<td>
+Provides native UI tabs with multiple webview instances.
+</td>
+<td>
+Similar to previous <a href="/rhodesapi/nativetabbar-api">NativeTabbar</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/NativeToolbar">NativeToolbar
+</td>
+<td>
+Provides a native toolbar UI element.
+</td>
+<td>
+Similar to previous <a href="/rhodesapi/nativetoolbar-api">NativeToolbar</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/Navbar">Navbar
+</td>
+<td>
+Native navigation for iOS applications.
+</td>
+<td>
+Similar to previous <a href="/rhodesapi/navigationbar-iphone-api">Navbar</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/Network">Network
+</td>
+<td>
+See device's network status or make network connections
+</td>
+<td>
+<a href="/rhodesapi/asynchttp-api/">AsyncHTTP</a> and <a href="/rhoelements/network/">Network</a> have been amalgamated
+</td>
+</tr><tr>
+<td>
+<a href="/api/Orm">Orm</a> & <a href="/api/OrmModel">OrmModel</a>
+</td>
+<td>
+Api's for user defined Data models
+</td>
+<td>
+Previously Rhomobile Data Models were accessible only through the<a href="/rhodesapi/rhom-api/"> Rhom API via Ruby</a> 
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/push">Push
+</td>
+<td>
+HTTP based push messaging 
+</td>
+<td>
+RhoElemnents <a href="/rhoelements/push/">Push</a> API
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/RhoConnectClient">RhoConnectClient
+</td>
+<td>
+Synchronization interface with RhoConnect server applications
+</td>
+<td>
+Rename of <a href="/rhodesapi/syncengine-api/">SyncEngine</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/signature">Signature
+</td>
+<td>
+Signature capture
+</td>
+<td>
+<a href="/rhodesapi/signaturecapture-api/">Full screen signature</a>, <a href="/rhodesapi/signaturecapture-api/#inline-signature-api">inline signature</a> and <a href="/rhoelements/SignatureCapture/">Motorla specific signature capture</a> have been combined into a single API.
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/system">System
+</td>
+<td>
+Control and modify core aspects of the device such as the screen, OS and device capabilities.
+</td>
+<td>
+Amalgamation of <a href="/rhodesapi/system-api/">System</a> and <a href="/rhoelements/generic/">Generic</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/webview">Webview
+</td>
+<td>
+Interface with application's Webview container
+</td>
+<td>
+Same as <a href="/rhodesapi/webview-api/">Webview</a> class in 2.2
+</td>
+</tr>
+</tbody>
+</table>

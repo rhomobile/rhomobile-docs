@@ -1,0 +1,81 @@
+Msi: RhoElements Barcode Capture Decoders
+===
+
+* ### [Msi](/rhoelements/msi)
+
+* ### [MsiCheckDigits](/rhoelements/msicheckdigits)
+
+* ### [MsiCheckDigitScheme](/rhoelements/msiCheckDigitScheme)
+
+* ### [MsiMaxLength](/rhoelements/msiMaxLength)
+
+* ### [MsiMinLength](/rhoelements/msiMinLength)
+
+* ### [MsiRedundancy](/rhoelements/msiRedundancy)
+
+* ### [MsiReportCheckDigit](/rhoelements/msiReportCheckDigit)
+
+###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

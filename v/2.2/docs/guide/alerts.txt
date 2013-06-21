@@ -1,0 +1,47 @@
+# Alerts
+
+In your controller, you may call on the [Alert API](/rhodesapi/alert-api) to show popup, vibrate, or play audio file.
+
+The methods you can use are:
+
+ * [show_popup](/rhodesapi/alert-api#showpopup) - Bring the application up fromt and show a message.
+ * [hide_popup](/rhodesapi/alert-api#hidepopup) - Close the current opened popup window.
+ * [vibrate](/rhodesapi/alert-api#vibrate) - Vibrate the device.
+ * [play_file](/rhodesapi/alert-api#playfile) - Play specified media type.
+ * [show_status](/rhodesapi/alert-api#showstatus) - Show a status message.
+
+You can customize the popup window's title, icon, buttons and specify callback to be called on button click:
+
+	:::ruby
+	Alert.show_popup( {
+		:message => 'Some message', 
+		:title => 'Custom title', 
+		:icon => '/public/images/icon.png',
+	    :buttons => ["Yes", "No", 
+			{:id => 'cancel', :title => 'Cancel all'}],
+	    :callback => url_for(:action => :on_dismiss_popup) } )
+
+Callback Example:
+	:::ruby
+	def on_dismiss_popup
+	  id = @params['button_id']
+	  title = @params['button_title']
+	  index = @params['button_index']
+	  if id == 'Yes'
+	    # Handle 'Yes' button
+	  elsif id == 'No'
+	    # Handle 'No' button
+	  elsif id == 'cancel'
+	    # Handle 'Cancel all' button
+	  end
+	end
+
+You can use Alert.show_status in a sync notification callback:
+	:::ruby
+	def sync_notify
+	  status = @params['status'] ? @params['status'] : ""
+	  Alert.show_status( 
+		"Status", 
+		"#{@params['source_name']} : #{status}", 
+		Rho::RhoMessages.get_message('hide'))
+	end

@@ -1,0 +1,120 @@
+# DateTimePicker API
+
+Allows the user to choose date and time. 
+
+See controller.rb and index.erb view in the [/app/DateTime folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/DateTime) application for an example.
+
+You can also execute DataTimePicker via AJAX call for set date/time without leaving the page. (Currently implemented for Android, iPhone and Blackberry.) See controller.rb and index.erb view in the /app/DateTimeAJ folder of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/DateTimeAJ) for more information about execute Date/Time Picker via AJAX call. This example demonstrates setting date/time without leaving the page.
+
+## choose
+
+Opens a window where the user can choose date and time.
+
+	:::ruby
+	DateTimePicker.choose(callback, title, initial_time, fmt, opaque)
+
+<table border="1">
+<tr>
+	<td><code>callback</code></td>
+	<td>url to the callback method that is called when the user chooses a date/time and presses OK or Cancel.</td>
+</tr>
+<tr>
+	<td><code>title</code></td>
+	<td>The title of the date/time input window.</td>
+</tr>
+<tr>
+	<td><code>initial_time</code></td>
+	<td>The initial time.</td>
+</tr>
+<tr>
+	<td><code>fmt</code></td>
+	<td>The format of the input field: 0 - full date and time, 1 - date only, 2 - time only.</td>
+</tr>
+<tr>
+	<td><code>opaque</code></td>
+	<td>(optional) callback data (i.e. the state of the form) that you want to preserve so you can re-populate the page with data. For example, if your datetime field in a form is the 3rd out of 5 fields, once the user picks the datetime, you want to re-render the form with fields 1 and 2 still filled in.</td>
+</tr>
+</table>
+
+## choose_with_range
+
+Opens a window where the user can choose date and time from a range.
+
+	:::ruby
+	DateTimePicker.choose_with_range(callback, title, initial_time, fmt, user_data, mindatetime, maxdatetime)
+
+<table border="1">
+<tr>
+	<td><code>callback</code></td>
+	<td>url to callback method that is called when the user chooses a date/time and presses OK or Cancel.</td>
+</tr>
+<tr>
+	<td><code>title</code></td>
+	<td>The title of the date/time input field.</td>
+</tr>
+<tr>
+	<td><code>initial_time</code></td>
+	<td>The time.</td>
+</tr>
+<tr>
+	<td><code>fmt</code></td>
+	<td>The format of the input field: 0 - full date and time, 1 - date only, 2 - time only.</td>
+</tr>
+<tr>
+	<td><code>user_data</code></td>
+	<td>(optional) This string is non-interpreted and will be returned in the callback, unmodified.</td>
+</tr>
+<tr>
+	<td><code>mindatetime</code></td>
+	<td>minimum datetime for setup range. Setup to Time.at(0) for no limit.</td>
+</tr>
+<tr>
+	<td><code>maxdatetime</code></td>
+	<td>maximum datetime for setup range. Setup to Time.at(0) for no limit.</td>
+</tr>
+</table>
+
+## set_change_value_callback
+
+(only for iPhone + call DateTimePicker via Ajax call) Set a callback for every change of the date/time value in the DateTimePicker UI control. You can have DateTimePicker and current page on screen together, and you can use the callback to modify date/time value on the page during editing in DateTimePicker control. If you use this method, use it before each call of the choose methods.
+
+	:::ruby
+	DateTimePicker.set_change_value_callback(callback)
+
+<table border="1">
+<tr>
+	<td><code>callback</code></td>
+	<td>url to callback method that is called on the change event.</td>
+</tr>
+</table>
+
+## callback method
+
+Once the user chooses a date/time and presses OK or Cancel, the callback URL you specified will be called. The callback is a POST message; the body of the message contains 'status', 'result', and if provided, 'user_data'.
+
+The callback method uses the following parameters.
+
+<table border="1">
+<tr>
+	<td><code>status</code></td>
+	<td>"ok" or "cancel"</td>
+</tr>
+<tr>
+	<td><code>result</code></td>
+	<td>String. The selected date as the number of seconds since Epoch. Ruby time can be created from it using the Time::at method. No result if status = "cancel".</td>
+</tr>
+<tr>
+	<td><code>user_data</code></td>
+	<td>(optional) the same string that was passed into the choose method.</td>
+</tr>
+<tr>
+	<td><code>mindatetime</code></td>
+	<td>minimum datetime for setup range. Setup to Time.at(0) for no limit.</td>
+</tr>
+<tr>
+	<td><code>maxdatetime</code></td>
+	<td>maximum datetime for setup range. Setup to Time.at(0) for no limit.</td>
+</tr>
+</table>
+
+

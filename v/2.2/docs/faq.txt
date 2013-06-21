@@ -1,0 +1,301 @@
+Frequently Asked Questions
+===
+
+This page describes how to perform various functions using the Rhodes / RhoSync frameworks and RhoHub.
+
+## How do I write "Hello, world" in Rhodes?
+Edit the `app/index.erb` to create some content:
+	
+	:::html
+	<div class="toolbar">
+	  <h1 id="pageTitle">
+	    Small demo app
+	  </h1>
+	</div>
+
+	<ul id="home" selected="true" title="Hello">
+	  <li><a href="another.erb">Hello, world which links to another page</a></li>
+	</ul>
+
+## How do I add an OK button to my app?
+The generated code from running (`rhodes model <modelname> <attributelist>`) contains several samples. Here's a smaller fragment.
+	 
+	:::html
+	<form method="POST" action="<%= url_for(:action =>:update) %>">
+	<input type="submit" value="OK"/>
+	</form>
+
+## How do I insert a picture icon next to an element?
+Adding to the above example:
+	
+	:::html
+	<ul id="home" selected="true" title="Hello">
+	  <li><a href="another.erb"><img src="/public/images/bluebutton.png"></a></li>
+	</ul>
+
+## How do I call a web service and process the returned data?
+
+This is done with [`AsyncHttp`](/rhodes/connect-to-web-services).  You will then use either JSON (if its a JSON web service) or REXML (if the web service returns XML) to process the data. 
+
+See the [`AsyncHttp` example code](/rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at <a href="http://rhostore.heroku.com/products.xml"/> and parses it with rexml.
+
+## How do I make a POST request to web service?
+To make a POST request, use the `AsyncHttp.post` method.  See the [`AsyncHttp.post` docs here](/rhodes/connect-to-web-services#asynchttp-api).
+
+
+## Can I process XML with Rhodes?
+Yes, first add the following to your `build.yml`:
+
+	:::yaml
+	extensions: ["rexml", "set"]
+
+Now parse the xml in your controller action:
+
+	:::ruby
+	require 'rexml/document'
+	file = File.new("bibliography.xml")
+	doc = REXML::Document.new(file)
+	puts doc
+
+If you are planning to run your app on Blackberry, you should use the [`RhoXml` extension](/rhodes/extensions#rhodes-extensions). It has the same syntax as rexml, but has limited functionality and a much smaller memory footprint.  Enable it in your application by adding to `build.yml`:
+
+	:::ruby
+  	extensions: ["rhoxml"]
+
+Now parse the xml in your controller action:
+	require 'rexml/document'
+	file = File.new("bibliography.xml")
+	doc = REXML::Document.new(file)
+	puts doc
+
+If you have a very large XML document to parse, you should use the [XML stream parser extension](/rhodes/extensions#rhodes-extensions).
+
+## How can I seed a large amount of data into my application with Rhom?
+You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-database) or use a database transaction:
+
+	:::ruby
+	db = ::Rho::RHO.get_src_db('Model')
+	db.start_transaction
+	begin
+	  items.each do |item|
+		# create hash of attribute/value pairs
+	    data = {
+		  :field1 => item['value1'], 
+		  :field2 => item['value2'] 
+		} 
+		# Creates a new Model object and saves it
+	    new_item = Model.create(data)
+	  end
+	 db.commit
+	rescue
+	 db.rollback
+	end
+
+*NOTE: If ::Rho::RHO.get_src_db('Model') return nil, it means that you never call this models methods before(models are loaded by demand). To fix it call 'require_source': *
+
+	:::ruby
+    require_source 'Model'  
+
+
+## How can I create a lot of objects in controller action?
+When controller action is called Ruby Garbage Collector is disabled. If you create a lot of objects enable GC at the beginning of action:
+
+    :::ruby
+    def my_objects_generator
+        GC.enable
+        #Do some heavy operations
+    end  
+
+To avoid UI block while controller action is performed, use AsyncHttp to make operation asynchronously (Local server will be blocked, but Html and JavaScript are not):
+    :::ruby
+    def start_objects_generator
+        #callback has to be provided, otherwise operation will be synchronized
+        AsyncHttp.get( :url => url_for(:action => do_objects_generation), :callback => (url_for :action => :generation_callback) )
+        render page_with_progress_updated_by_javascript
+    end  
+    
+    def do_objects_generation
+        GC.enable
+        #Do some heavy operations
+        
+        #do not call render here, call WebView.navigate or do it in  generation_callback      
+    end
+    
+    def generation_callback
+        WebView.navigate ( url_for :action => :show_results  )
+    end
+     
+## How do I customize the app name and icons?
+Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
+
+## How to improve application performance on Blackberry?
+* Before test application for performance set warning log level in rhoconfig.txt:
+
+        MinSeverity = 3
+    
+* Database is most critical part for performance improvement. See [Database Performance Tips](/rhodes/rhom#performance-tips)
+* If possible, do not use complex regular expressions - they slow works slow on Blackberry
+* If possible, do not use images in html body(single or tiled) - use solid color
+* If possible, do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
+* If possible, do not use Date/Time parse method. Use strptime instead. Use time as number when possible
+* Move require of big ruby files to methods when they used. This is true for locally used classes. Add system check for platform dependent code.
+* Exclude unused files from build(images, libraries etc). It will decrease application size and improve startup performance.Edit build.yml:
+      excludedirs: 
+      bb: 
+      - public/images/iphone
+      - public/images/android
+* To parse XML use Stream parser: XML handling:XML Stream parser see - [Rhodes Extensions](/rhodes/extensions#rhodes-extensions)
+
+## White screen between pages
+It takes a bit of time for WebView to load and parse html/css of your page; meanwhile WebView show empty page which is white by default. Try setting default background color of the toolbar to the color of your pages:
+	:::ruby
+	Rho::NativeToolbar.create( :buttons => toolbar, 
+		:background_color => 0x0000FF )
+Please see more details about toolbar [here](/rhodes/ui#native-toolbar-control)
+
+If you are loading javascript, consider doing it at the very end of your page; this way WebView will not wait for JS before parsing css and showing html. 
+
+## How to pre-populate client database
+* Run application on target emulator, insert objects to database(locally or get data from server)
+* Copy all files from 'db' folder on emulator to '<rhodes>/platform\shared\db\res\db'. Here is how to find 'db' emulator folder:
+    * iPhone: look inside log to find paths with guid - this is where application store files on emulator. Or run search by 'syncdbuser.sqlite' from disk root
+    * Android: difficult since emulator is virtual machine and files stored inside emulator. Use adb command line to find path to application package
+    * Windows Mobile: open device explorer from ActiveSync or 'Mobile Device center', navigate to 'Program Files/<application name>/rho/db'
+    * Blackberry: open on computer file system  - '<jde>/components/simulator/sdcard/Rho/<appname>/db
+* Build application, now all db files are in the application package
+
+## How to remove toolbar from top-level index.erb
+Edit app/application.rb file: initialize method
+
+    :::ruby
+    class AppApplication < Rho::RhoApplication
+      
+      def initialize
+        #To remove default toolbar uncomment next line:
+        #it should be before super
+        @@toolbar = nil    
+        
+        super
+      end
+    end  
+
+## How to define controller for top-level index.erb
+There is no way to define controller for top-level index.erb, so create special model and put index.erb there:
+
+* Create special 'Home' model
+* in rhoconfig.txt modify 'start_path' :
+
+        start_path = '/app/Home'
+    
+* 'Home' model index method:
+
+        def index
+            #do something
+            render
+        end
+        
+## How to print document in Rhodes
+* Prepare file with printed content (html, pdf, image, etc.)
+* Open this file by 
+
+    System.open_url(file_path)
+    
+* Print document from document application
+
+## How to use native Google map view on Android
+
+* Get [Google Maps API key](http://code.google.com/android/maps-api-signup.html)
+* Add 'mapping' and 'apikey' parameters to your build.yml
+    
+        android:
+            mapping: yes
+            apikey: <YOUR-API-KEY>
+
+* Add 'network_state' to capabilities list in your build.yml.
+
+        capabilities:
+            - network_state
+
+## How to call Ruby controller from Web Page
+When one need to update some information on the page without any transition an AJAX call may be performed this way(using jquery library):
+
+    :::html
+    <div data-role="page">
+
+      <div data-role="header" data-position="inline">
+        <h1>AJAX sample</h1>
+      </div>
+
+      <div data-role="content">
+        <ul data-role="listview">
+          <li><p>To reset result just reload the page..</p></li>
+          <li>
+            <a href="#"
+               onclick="$.get('<%= url_for :action => :get_json %>').success(function(data){showResult(data)}); return false;">
+                    Read JSON object via AJAX call
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>A = <span id="result_a"></span></div>
+      <div>B = <span id="result_b"></span></div>
+      <div>C = <span id="result_c"></span></div>
+
+    </div>
+
+To handle AJAX request a controller action method can return JSON object this way:
+
+    :::ruby
+    def get_json
+      render :string => '{"a": 1, "b": 2, "c": 3}'
+    end
+
+
+## How to optimize memory usage in Rhodes
+There are several Rhodes components which consume system memory( list order by memory consumptions, bigger first):
+
+### Internet Browser
+
+Use system memory and a lot of graphics objects to display content. Rhodes Turn on Cache in Browser for static files like images, css, javascript etc
+
+Tips to optimize Browser performance and memory consumption:
+
+* Use simple css and javascript frameworks
+* Do not display big lists with images on one page: use pagination
+
+### Ruby Virtual Machine
+
+Use system memory. Here is the notes about RubyVM memory usage:
+
+*	When application bundle creates ruby files compiled to internal format(iseq), so at runtime RubyVM work with precompiled files and do not perform ruby text parsing
+*	RubyVM hold required Ruby files in memory. All required files keeps in memory till application exit
+*	RubyVM allocate memory application objects. All global and class variables will remain in memory till you nil them
+*	Controller object allocates/deallocates for each controller method request. So you cannot keep persistent information in Controller object
+*	Ruby Garbage Collector works automatically. But to improve performance and stability GC is disabled before controller action and enabled after controller action exit. So if you allocate/deallocate a lot of Ruby objects in controller action: call GC.enable at the beginning.
+*	Rhodes loads only framework ruby files at startup, all other libraries loads by demand including models 
+
+Tips to optimize RubyVM performance and memory consumption:
+
+*	Load only required libraries
+*	Do not load all ruby files at start: it will slow down application startup time. Load them by demand
+*	Do not use big global or class variables. Keep persistent objects in database
+
+###	Sqlite database
+
+Use system memory.  Here is the notes about Sqlite memory usage:
+
+* In some cases it may take more memory then Ruby VM : it depends of the database size. 
+* Rhodes use unchanged Sqlite, so all documentation about Sqlite memory usage are correct for Rhodes Sqlite database. 
+* Here is the [database performance tips](/rhodes/rhom#performance-tips)
+
+###	Native controls like TabBar, Toolbar, Map etc
+
+Use System memory and graphics objects.
+
+Tips to optimize Native Controls performance and memory consumption:
+
+*	Use low resolution camera images
+*	Do not put large amount of pins to one map view
+
+

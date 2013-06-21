@@ -1,0 +1,264 @@
+# MapView API 
+
+Provides an embeddable map interface. See [GeoLocation/controller.rb of System API sample application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) for some examples of using the MapView class.
+
+There are several settings you should know when you use the MapView API, such as setting . Refer to the [MapView settings in Device Capabilities](/rhodes/device-caps#mapview-settings).
+
+## Using JavaScript API
+
+You can call the MapView methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method.
+
+The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+
+## create
+
+Create a map on your device. [Click here for an example of MapView create](/rhodes/device-caps#mapview-example-create).
+
+Ruby syntax:
+
+	:::ruby
+	MapView.create map_params
+
+JavaScript syntax:
+
+	Rho.MapView.create(map_params)
+
+### map_params hash
+
+[Click here for an example of MapView create, which sets the map_params hash](/rhodes/device-caps#mapview-example-create).
+
+map_params is a hash consisting of:
+
+<table border="1">
+<tr>
+	<td><code>provider</code></td>
+	<td>'Google' supported on iPhone, Android and BB. 'ESRI' supported on iPhone, Android, BB and WM. 'RhoGoogle' supported on Android and WM, Rho's own GoogleMap provider based on Google Static Map API, has additional features (offline caching, for example). 'OSM' - Open Street Map - supported on Android and WM, supports only "roadmap" map type.</td>
+</tr>
+<tr>
+	<td><code>settings</code></td>
+	<td>A hash that provides map settings. See table below.</td>
+</tr>
+<tr>
+	<td><code>annotations</code></td>
+	<td>Array of map annotation objects (list of pins on the map). See table below.</td>
+</tr>
+</table>
+
+To use ESRI maps in your projects on iPhone:
+
+* Install [ESRI iOS SDK](http://resources.arcgis.com/content/arcgis-iphone/api) - use default folders during installations !
+* Add "esri" to your applications extensions list in build.yml file.
+
+### annotations array (in map_params hash)
+
+The annotations parameter within the map_params hash is an array. [Click here for an example of MapView create, which sets this array](/rhodes/device-caps#mapview-example-create).
+
+The annotations array has the following format.
+
+<table border="1">
+<tr>
+	<td><code>latitude,longitude</code></td>
+	<td>map coordinate of the annotation</td>
+</tr>
+<tr>
+	<td><code>street_address</code></td>
+	<td>if map coordinate is not specified, framework will attempt to obtain it using provided street address from google geo-coding service</td>
+</tr>
+<tr>
+	<td><code>title</code></td>
+	<td>title of the annotation callout</td>
+</tr>
+<tr>
+	<td><code>subtitle</code></td>
+	<td>subtitle of the annotation callout</td>
+</tr>
+<tr>
+	<td><code>url</code></td>
+	<td>url to follow when user clicks on the callout button</td>
+</tr>
+</table>
+
+### settings hash (in map_params hash)
+
+The settings parameter within the map_params hash is also a hash. [Click here for an example of MapView create, which sets this hash](/rhodes/device-caps#mapview-example-create).
+
+The settings hash has the following format.
+
+<table border="1">
+<tr>
+	<td><code>map_type</code></td>
+	<td>Display "standard", "satellite", or "hybrid". You can use "roadmap" in place of "standard".</td>
+</tr>
+<tr>
+	<td><code>region</code></td>
+	<td>two types allowed: [latitude,longitude,latitudeDelta,longitudeDelta] or {:center => center, :radius => radius}.</td>
+</tr>
+<tr>
+	<td><code>zoom_enabled</code></td>
+	<td>true to enable zoom of the map</td>
+</tr>
+<tr>
+	<td><code>scroll_enabled</code></td>
+	<td>true to enable scroll of the map</td>
+</tr>
+<tr>
+	<td><code>shows_user_location</code></td>
+	<td>true to display current user location on the map</td>
+</tr>
+<tr>
+	<td><code>api_key</code></td>
+	<td>Maps JavaScript API Key <a href="https://developers.google.com/maps/signup">(sign up for it here)</a>. (Ignored in Android).</td>
+</tr>
+</table>
+
+**NOTE: `api_key` is ignored in Android; get another key and specify it in the app's build.yml [as described here](/rhodes/build#build-for-android).**
+
+### region (in settings hash)
+
+In the settings hash (settings ia a parameter within the map_params hash), the region can be of two types: `[latitude,longitude,latitudeDelta,longitudeDelta]` or `{:center => center, :radius => radius}`.
+
+#### region type [latitude,longitude,latitudeDelta,longitudeDelta]
+
+[Click here for an example of MapView create, which sets this region type](/rhodes/device-caps#mapview-example-create).
+
+<table border="1">
+<tr>
+	<td><code>latitude,longitude</code></td>
+	<td>the map coordinate of the region center.</td>
+</tr>
+<tr>
+	<td><code>latitudeDelta</code></td>
+	<td>Degrees of north-to-south distance. One degree of latitude is approximately 111 kilometers (69 miles).</td>
+</tr>
+<tr>
+	<td><code>longitudeDelta</code></td>
+	<td>Degrees of east-to-west distance. One degree of longitude is approximately 111 kilometers (69 miles) at the equator, and 0 kilometers at the poles.</td>
+</tr>
+</table>
+
+#### region type {:center => center, :radius => radius}
+
+<table border="1">
+<tr>
+	<td><code>center</code></td>
+	<td>string describing center of area that is allowed by google geocoding service. Examples: “1 infinite loop, cupertino, ca 95014”, “California, USA”, “37.365519,-121.982918”</td>
+</tr>
+<tr>
+	<td><code>radius</code></td>
+	<td>radius of displayed area measured in degrees</td>
+</tr>
+</table>
+
+## set_file_caching_enable
+
+Enable file caching for map tiles. The file cache can be used for offline map browsing.
+
+Caching saves map tiles to your device. It increases performance of map view: when the device user scrolls map view to an already viewed map area, the device does not have to reload the map tiles. Tiles take up memory, so the developer should decide when to use caching.
+
+Ruby syntax:
+
+	:::ruby
+	MapView.set_file_caching_enable(enable)
+
+JavaScript syntax:
+
+	Rho.MapView.set_file_caching_enable(enable)
+
+<table border="1">
+<tr>
+	<td><code>enable</code></td>
+	<td>1: enable file caching. 0: do not enable file caching.</td>
+</tr>
+</table>
+
+## preload_map_tiles
+
+Preload a map tiles for a region defined by a zoom level range (0<=zoom<=18). This function requires some understanding about map engine funtionality, such as map tiles.
+
+[Click here for an example of MapView preload_map_tiles](/rhodes/device-caps#mapview-example-preload).
+
+When the map view is opened after preload_map_tiles is called, the preloaded area can display more quickly because the only map tiles displayed are in the defined zoom range.
+
+Ruby syntax:
+
+	:::ruby
+	MapView.preload_map_tiles(options_hash, url_for(:action => :preload_callback))
+
+JavaScript Syntax:
+
+	Rho.MapView.preload_map_tiles(options_hash, callback)
+
+Returns the total number of tiles for this preload. You can use this total to calculate the required space, predict the required time, etc.
+
+<table border="1">
+<tr>
+	<td><code>options_hash</code></td>
+	<td>A hash containing parameters.</td>
+</tr>
+</table>
+
+### options_hash
+
+`options_hash` is a hash containing the following parameters for `preload_map_tiles`.
+
+<table border="1">
+<tr>
+	<td><code>engine</code></td>
+	<td>'Google' supported on iPhone, Android and BB. 'ESRI' supported on iPhone, Android, BB and WM. 'RhoGoogle' supported on Android and WM, Rho's own GoogleMap provider based on Google Static Map API, has additional features (offline caching, for example). 'OSM' - Open Street Map - supported on Android and WM, supports only "roadmap" map type.</td>
+</tr>
+<tr>
+	<td><code>map_type</code></td>
+	<td>Display "standard", "satellite", or "hybrid". You can use "roadmap" in place of "standard".</td>
+</tr>
+<tr>
+	<td><code>:top_latitude</code></td>
+	<td>the top latitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:left_longitude</code></td>
+	<td>the left longitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:bottom_latitude</code></td>
+	<td>the bottom latitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:right_longitude</code></td>
+	<td>the right longitude of the map region</td>
+</tr>
+<tr>
+	<td><code>:min_zoom</code></td>
+	<td>the minimum zoom the user can do to the map region. 0 to 18. A larger min_zoom (and max_zoom) means you can see more map tiles. Each next larger zoom level requires 4 times more tiles for the same map region.</td>
+</tr>
+<tr>
+	<td><code>:max_zoom</code></td>
+	<td>the maximum zoom the user can do to the map region. 0 to 18.</td>
+</tr>
+</table>
+
+### preload_callback
+
+The preloading process can take a long time. Write the preload_callback method to get periodic information about the process, using the parameters "status" and "progress".
+
+<table border="1">
+<tr>
+	<td><code>status</code></td>
+	<td>"DONE" when the preloading process is complete.</td>
+</tr>
+<tr>
+	<td><code>progress</code></td>
+	<td>the current preloading progress as a percentage (0..100).</td>
+</tr>
+</table>
+
+
+

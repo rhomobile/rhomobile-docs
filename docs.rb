@@ -119,9 +119,10 @@ xml_string +=  ' </rss>	'
   
   #get '/:topic' do
   # TODO: use proper regex
-  ['/:topic/?', '/:subpath/:topic/?'].each do |path|
+  ['/:topic/?', '/:subpath/:topic/?','/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?'].each do |path|
     get path do
   	  cache_long
+      @docversion = nil
 
       # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
       if params[:topic] =~ /(\.pdf|\.print)$/
@@ -129,25 +130,26 @@ xml_string +=  ' </rss>	'
             render_topic newtopic, params[:subpath], 1
       
       else
-      
-        render_topic params[:topic], params[:subpath], 0
+        if params[:topic].nil?
+          render_topic params[:topic], params[:subpath], 0
+        else
+          @docversion = params[:vnum]
+          render_topic params[:topic], params[:subpath], 0, params[:vnum]
+        end          
 
       end
     end
   end
 
   helpers do
-  	def render_topic(topic, subpath = nil, print = 0)
-      # puts subpath
-      @topic_file = topic_file(topic,subpath)
-      if  @topic_file == 'docs/rhoelements/apicompatibility.txt'
+  	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
+      # puts "#{topic} : #{subpath} : #{docversion}"
+      @topic_file = topic_file(topic,subpath,docversion)
+      # puts @topic_file
+      if  topic == 'apicompatibility'
         source = Indicators.apimatrix_markdown()  
       else
-        # if(subpath == 'api')
-          # source = Api.markdown(@topic_file)
-        # else        
-          source = File.read(topic_file(topic, subpath))
-        # end
+        source = File.read(topic_file(topic, subpath,docversion))
       end
       source = source
   		@topic = Topic.load(topic, source)
@@ -201,18 +203,21 @@ xml_string +=  ' </rss>	'
       [search, prev_page, next_page]
   	end
 	
-  	def topic_file(topic, subpath = nil)
+  	def topic_file(topic, subpath = nil,docversion = nil )
   	  if topic.include?('/')
   	    topic
   		elsif subpath
-        # if subpath == 'api'
-          # extension = '.xml'
-        # else
-          extension = '.txt'
-        # end
-        File.join(AppConfig['dirs'][subpath], "#{topic}#{extension}")
+        if docversion.nil?
+          File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+        else
+          File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.txt")
+        end  
   		else
-  			"#{settings.root}/docs/#{topic}.txt"
+        if docversion.nil?
+  			 "#{settings.root}/docs/#{topic}.txt"
+        else
+         "#{settings.root}/v/#{docversion}/docs/#{topic}.txt"
+        end
   		end
   	end
 	
@@ -275,6 +280,7 @@ module TOC
   def find(path)
     compare = path.dup
     compare.slice!(0)
+    compare.gsub!(/v\/([^\/]+)\//,'')
     found = @sections[0][0] # Default to first section
     @sections.map do |section|
       section[3].map do |slug, title, _|
@@ -289,6 +295,8 @@ module TOC
   def findGroup(path)
     compare = path.dup
     compare.slice!(0)
+    compare.gsub!(/v\/([^\/]+)\//,'')
+    
     found = 'Home' # Default to first section
     @sections.map do |section|
       section[3].map do |slug, title, group, _|
@@ -299,6 +307,6 @@ module TOC
     end
     found
   end
-	file = File.dirname(__FILE__) + '/toc.rb'
+  	file = File.dirname(__FILE__) + '/toc.rb'
 	eval File.read(file), binding, file
 end
