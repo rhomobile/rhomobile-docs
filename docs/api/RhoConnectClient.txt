@@ -142,7 +142,7 @@ To use object notifications, first set the notification callback in application.
                                     def initialize
                                         super
                                 
-                                        RhoConnectClient.setObjectNotify(
+                                        RhoConnectClient.setObjectNotification(
                                             url_for(
                                                 :controller =&gt; "Product",
                                                 :action =&gt; :sync_object_notify

@@ -162,6 +162,7 @@ md+='</div>'
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 
 				propreplaces = ""
+				deprecated = ""
 				#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
 				#Check to see if need to add to description about this method replacing a deprecated one
 				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
@@ -170,16 +171,23 @@ md+='</div>'
 						if a["existing"] == element["name"]
 							propreplaces += a["new"]
 						end
+						if !element["deprecated"].nil?
+							deprecated = element["deprecated"]
+						end
 					}
 				end
 				
-			  	propdisplayname = element["name"]
+		  		propdisplayname = element["name"]
 			  	if propreplaces != ""
 						#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
 						# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
 						propdisplayname = '<span class="text-info">' + element["name"] + '</span>'
 
 				end
+				if deprecated == "true"
+		  			propdisplayname = "<span class='text-error'>" + element["name"] + "</span>"
+				end
+			  	
 					groupctr +=1
 					if groupctr == 36
 						# md+="</ul><ul>"
@@ -548,11 +556,23 @@ md+='</div>'
 	  		# md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
 	  		# md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
   	propdisplayname = propname
+  	deprecated = ""
+		if !element["deprecated"].nil?
+			deprecated = element["deprecated"]
+		end
+
   	if propreplaces != ""
 			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
 			# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
 			propdisplayname = '<span class="text-info">' + propname + '</span>'
 			@propdesc = "<span class='label label-info'>Replaces:#{propreplaces}</span> " + @propdesc
+
+	end
+	if deprecated != ""
+			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
+			# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
+			propdisplayname = '<span class="text-error">' + propname + '</span>'
+			@propdesc = "<span class='label label-important'>Deprecated</span> " + @propdesc
 
 	end
   	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
@@ -970,7 +990,7 @@ end
   		if methdeprecated == "true"
 			#methname = methname + ' <span class="pull-right label label-important">deprecated</span>'
 			methname = '<span class="text-error">' + methname + '</span>'
-			@methdesc = "<span class='label label-important'>deprecated</span> " + @methdesc
+			@methdesc = "<span class='label label-important'>Deprecated</span> " + @methdesc
 		end
 		if methreplaces != ""
 			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"

@@ -500,7 +500,7 @@ Rho.RhoConnectClient.setNotification('*', syncNotify);
                                     def initialize
                                         super
                                 
-                                        RhoConnectClient.setObjectNotify(
+                                        RhoConnectClient.setObjectNotification(
                                             url_for(
                                                 :controller => "Product",
                                                 :action => :sync_object_notify

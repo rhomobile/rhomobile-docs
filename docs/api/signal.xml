@@ -24,7 +24,7 @@
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="signalStrength" type="INTEGER">
-                            <DESC>The signal strength as a value between 0 and 100</DESC>
+                            <DESC>The signal strength as a value between 0 and 100. Not available on iOS</DESC>
                         </PARAM>
                         <PARAM name="essid" type="STRING">
                             <DESC>The current ESSID</DESC>

@@ -27,7 +27,7 @@
 						<DESC>Portable Network Graphics file.</DESC>
 					</VALUE>
 					<VALUE constName="COMPRESSION_FORMAT_BMP" value ="bmp">
-						<DESC>Bitmap image file.</DESC>
+						<DESC>Bitmap image file. Not supported on Android.</DESC>
 					</VALUE>
 				</VALUES>
 			</PROPERTY>
@@ -189,7 +189,6 @@ The signature capture area is designed to be set up prior to capturing the signa
 	
 		</USER_OVERVIEW>
 		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-		<PLATFORM>WM</PLATFORM>
 		<EXAMPLES >
            <EXAMPLE title="Capture signature to file (fullscreen) and display it in a view">
                <SECTIONS>

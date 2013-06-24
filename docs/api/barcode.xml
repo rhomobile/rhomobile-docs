@@ -69,6 +69,7 @@
             <PROPERTY name="rasterMode" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>Describes the type of vertical rastering to use. </DESC>
+				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
 				<PLATFORM>WM</PLATFORM>
                 <VALUES>
                     <VALUE constName="RASTER_NONE" value="none">
@@ -165,10 +166,10 @@
                         <DESC>Disables picklist mode so any barcode within the field of view can be decoded.</DESC>
                     </VALUE>
                     <VALUE constName="PICKLIST_HARDWARE_RETICLE" value="hardwareReticle">
-                        <DESC>Enables picklist mode so that only the barcode under the projected reticle can be decoded.  If the imager does not support a projected reticle then the behaviour is the same as softwareReticle.</DESC>
+                        <DESC>Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behaviour is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.</DESC>
                     </VALUE>
                     <VALUE constName="PICKLIST_SOFTWARE_RETICLE" value="softwareReticle">
-                        <DESC>Enables picklist mode so that only the barcode in the center of the image is decoded.  This is most useful when used in conjunction with static and dynamic reticle viewfinder modes.</DESC>
+                        <DESC>Enables picklist mode so that only the barcode in the center of the image is decoded.  This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. On Android, this is only supported for Camera (viewfinder) based scanners.</DESC>
                     </VALUE>
                 </VALUES>
             </PROPERTY>
@@ -397,6 +398,12 @@
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Returns the friendly name associated with the scanner.</DESC>
+            </PROPERTY>
+            <PROPERTY name="lcdMode" type="BOOLEAN" generateAccessors="true" default="false">
+				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+				<PLATFORM>Android</PLATFORM>
+				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+				<DESC>Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to scan barcodes off of LCD screens (like mobile device screens)</DESC>
             </PROPERTY>
             <PROPERTY name="lowBatteryScan" type="BOOLEAN" generateAccessors="true" default="false">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1683,7 +1690,9 @@
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
             <METHOD name="disable" hasCallback="none">
-                <DESC>This is documentation</DESC>
+				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+				<APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
+                <DESC>Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
             
