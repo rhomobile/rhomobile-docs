@@ -65,6 +65,7 @@ end
 
 section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'rhodes/generator',         'App Generator'
+  topic 'guide/models',         'Data Models'
   topic 'rhoelements/rhoelements2-native', 'Building Apps With RhoStudio'
   topic 'rhostudio-rhohub',      'Building Apps on RhoHub'
   topic 'rhodes/rhodes-command-line',         'Rhodes from Command Line'
