@@ -132,6 +132,7 @@ To start a Rhodes application from the command line, switch to the folder that c
 	rake run:<platform to be simulated>:rhosimulator
 
 where `<platform to be simulated>` can be one of
+
 * `android`
 * `bb`
 * `iphone`
