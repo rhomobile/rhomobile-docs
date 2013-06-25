@@ -1,7 +1,7 @@
-Setting Up RhoConnect Push-Based Synchronization with BlackBerry Enterprise Server
+Setting Up for RhoConnect Push on BlackBerry
 ===
 
-This chapter contains the steps you need to set up your BlackBerry Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+This chapter contains the steps you need to set up your Blackberry Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
 
 ## Setting up RhoConnect Server Application for Push to Blackberry Clients
 
@@ -29,11 +29,11 @@ Enable push in your rhodes application in build.yml.
 
 Notifications to BlackBerry are sent using PAP 2.0 message through a BES/MDS server.
 
-On the simulator, this is done via the MDS simulator tool (which you've probably already seen in the form of a console window every time you do 'rake run:bb'). On the device, this is done through the BES/MDS server that the phone is configured to use.
+On the simulator, this is done via the MDS simulator tool (which you've probably already seen in the form of a console window every time you do 'rake run:bb'). On the device, this is done through the BES/MDS server that the phone is configured to use.  
 
 These instructions assume you are familiar with BES/MDS concepts (for more information please see [here](http://na.blackberry.com/eng/services/business/server/full/)).
 
-In case of Blackberry, if the application is in the background, an alert operation will bring the application upfront; other operations will not.
+In case of Blackberry, if the application is in the background, an alert operation will bring the application upfront; other operations will not. 
 
 ### Setup MDS Simulator
 
@@ -61,7 +61,7 @@ To test push on a BlackBerry device, you will need to use a device that is confi
 
 Rhodes 2.2 and higher supports the [Blackberry Push Service](http://na.blackberry.com/eng/developers/javaappdev/pushapi.jsp).
 
-Define in [rhoconfig.txt](configuration#run-time-configuration) which push to use (if empty or missed, only MDS push is supported).
+Define in [rhoconfig.txt](configuration#run-time-configuration) which push to use (if empty or missed, only MDS push is supported).	
 
 	push_options = 'mds;push_service'
 

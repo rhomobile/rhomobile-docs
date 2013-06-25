@@ -24,4 +24,20 @@ $(document).ready(function() {
 	$('.accordion-heading > li').live('click',function(){
 		$(this).find('i').toggleClass('icon-chevron-right').toggleClass('icon-chevron-down');
 	});
+	//Change url to include version
+	$('#version_select').bind('change', function () {
+          var ver = $(this).val(); // get selected value
+          if (ver) { // require a URL
+          	  
+      	  		url = '/v/' + ver;
+	      	  
+	      	  window.location = url; // redirect
+          }
+          else
+          {
+          	url = '/';
+          	window.location = url; // redirect
+          }
+          return false;
+      });
 });

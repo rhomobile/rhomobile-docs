@@ -8,7 +8,7 @@ If and when the Rhodes application issues a request to get bulk data, the RhoCon
 
 * Queue a [resque background job](http://github.com/defunkt/resque) which will run the bulk sync process.
 
-* Execute the ['login,'query','logoff' methods](/rhoconnect/source-adapters#source-adapter-api) of all source adapter models matching the [requested data partition](/rhoconnect/source-adapters#data-partitioning) to get latest set of objects from the backend service
+* Execute the ['login,'query','logoff' methods](/rhoconnect/source-adapters#source-adapter-api) of all source adapters matching the [requested data partition](/rhoconnect/source-adapters#data-partitioning) to get latest set of objects from the backend service
 
 * Generate appropriate database files for the device - hsqldb for Blackberry and sqlite for the rest of them. RhoConnect will generate sqlite files for iOS, Android, and Windows Mobile clients and hsqldb files for Blackberry (if enabled).
  

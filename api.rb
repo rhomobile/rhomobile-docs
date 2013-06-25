@@ -387,14 +387,14 @@ md+='</div>'
   def self.getplatformindicators (platforms,msionly,rubyonly)
   	indicators = ""
   	if !rubyonly
-		indicators += '<img src="../img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
+		indicators += '<img src="/public/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
 	end
 	indicators += '<img src="../img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
 	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
 		indicators += '<img src="../img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
   	end
   	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="../img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
+		indicators += '<img src="/public/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
   	end
   	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
 		indicators += '<img src="../img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'

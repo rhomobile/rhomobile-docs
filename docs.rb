@@ -31,12 +31,16 @@ class Docs < Sinatra::Base
   	erb :not_found
   end
 
-  ['/', '/home'].each do |path|
+  ['/v/:vnum','/v/:vnum/','/v/:vnum/home','/', '/home'].each do |path|
     get path do
       @title = "Home"
       @print = 0
-  	  cache_long
+      @docversion = nil
+      @docversion = params[:vnum]
+      cache_long
     	erb :index
+
+
   	end
   end
 
@@ -119,7 +123,7 @@ xml_string +=  ' </rss>	'
   
   #get '/:topic' do
   # TODO: use proper regex
-  ['/:topic/?', '/:subpath/:topic/?','/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?'].each do |path|
+  ['/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?','/:topic/?', '/:subpath/:topic/?'].each do |path|
     get path do
   	  cache_long
       @docversion = nil
@@ -204,8 +208,9 @@ xml_string +=  ' </rss>	'
   	end
 	
   	def topic_file(topic, subpath = nil,docversion = nil )
+      # puts "Topic:#{topic} Subpath:#{subpath} DocVersion:#{docversion}"
   	  if topic.include?('/')
-  	    topic
+        topic
   		elsif subpath
         if docversion.nil?
           File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
@@ -234,6 +239,9 @@ xml_string +=  ' </rss>	'
   	end
 
   	def sections
+      #toc.rb in root will be latest TOC
+      #doc versions can have unique TOC found in /v/VERSION/toc.rb
+      TOC.reload(params[:vnum])
   		TOC.sections
   	end
 
@@ -261,6 +269,16 @@ end
 module TOC
 	extend self
 
+  def reload(docversion)
+    @sections = []
+    if docversion.nil?
+      file = File.dirname(__FILE__) + "/toc.rb"
+    else
+      file = File.dirname(__FILE__) + "/v/#{docversion}/toc.rb"
+    end
+    eval File.read(file), binding, file
+  end
+
 	def sections
 		@sections ||= []
 
@@ -269,7 +287,7 @@ module TOC
 	# define a section
 	def section(name, title,group)
 		sections << [name, title,group, []]
-		yield if block_given?
+    yield if block_given?
 	end
 
 	# define a topic

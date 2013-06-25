@@ -10,13 +10,11 @@ for Ubuntu and CentOS respectively. At this moment supported formats are Debian 
 
 Every package provides the following components:
 
-* Ruby 1.9.3-p392
+* Ruby 1.9.3-p374
 
-* Node.js, version v0.10.4
+* Nginx HTTP server, release 1.2.x
 
-* Nginx HTTP server, release 1.3.x
-
-* Thin application server, release 1.5.x
+* Thin application server, release 1.3.1
 
 * Redis data store, release 2.6.x
 
@@ -34,9 +32,6 @@ Add the following line to the end of your <b>/etc/apt/sources.list</b>:
 	:::text
 	deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
 
-**NOTE: If you want to get the package with cool new features from the Beta repository, then define
-repo url as `http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
-
 Once the repo is added apt-get needs to be updated:
 
 	:::term
@@ -48,32 +43,26 @@ Once that is done, it is time to install RhoConnect:
 	$ sudo apt-get install rhoconnect
 
 #### Steps for RedHat-Based Linux Users
-Prerequisites: target Linux server should include CentOS Development tools.
-To install them, use the this command
+Vanilla CentOS distribution does not include some packages required by RhoConnect installer. To resolve dependencies you might wanted to use either
+[RPMForge](http://wiki.centos.org/AdditionalResources/Repositories/RPMForge) or [Extra Packages for Enterprise Linux (EPEL) ](http://fedoraproject.org/wiki/EPEL)
+repository.
 
- 	:::term
-	$ yum groupinstall 'Development Tools'
-
-It will install for you such tools as GNU GCC C/C++ compiler, make and others.
-
-Vanilla CentOS distribution does not include some packages required by RhoConnect installer. To resolve dependencies you
-might wanted to use [Extra Packages for Enterprise Linux (EPEL) ](http://fedoraproject.org/wiki/EPEL)
-repository and install Python26 out of it.
-
-For example, to enable EPEL repository for CentOS 5.x release execute these commands:
+For example, to add rpmforge repository for CentOS 5.8 release and x86_64 architecture execute this command:
 
     :::term
-  $ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
-	$ rpm -i epel-release-5*.rpm
-	$ yum update
-  $ yum install python26
+    $ wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm; rpm -Uhv rpmforge*
 
-For CentOS 6.x release:
+For CentOS 6.2 release:
 
     :::term
-  $ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-	$ rpm -i epel-release-6*.rpm
-	$ yum update
+    $ wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm; rpm -Uhv rpmforge*
+
+If you'd rather prefer EPEL repo, then run one of
+
+    :::term
+    $ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+    $ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm
+
 
 Now you can create a file named <b>rhoconnect.repo</b> in the <b>/etc/yum.repos.d/</b> directory:
 
@@ -89,8 +78,6 @@ Copy and paste these contents into the file.
 	enabled=1
 	gpgcheck=0
 
-**NOTE: If you want to get the package with cool new features from the Beta repository, then define baseurl as
-`baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`**
 
 Once that is done, it is time to install RhoConnect:
 
@@ -99,12 +86,12 @@ Once that is done, it is time to install RhoConnect:
 
 ### Final Steps (After the installer is finished)
 Installer also created and configured RhoConnect <b>rhoapp</b> application in <b>/opt/nginx/html</b> directory.
-To test it you need to as a root user start redis, thin, and nginx servers:
+To test it you need to as a root user start redis, nginx, and thin servers:
 
 	:::term
 	$ sudo /etc/init.d/redis start
-    $ sudo /etc/init.d/thin start
 	$ sudo /etc/init.d/nginx start
+    $ sudo /etc/init.d/thin start
 
 And verify that it's up and running by visiting application web console in your browser:
 
@@ -226,18 +213,18 @@ e) Edit Thin `/etc/thin/rhoapp.yml` configuration file directly
     --user nginx --group nginx \
     --pid /var/run/thin/thin.pid -e production
 
-f) As root user restart Thin, and Nginx servers
+f) As root user restart Nginx, and Thin servers
 
     :::term
-    /etc/init.d/thin restart
     /etc/init.d/nginx restart
+    /etc/init.d/thin restart
 
 
 #### Deploying multiple rhoconnect apps
 
 **NOTE: Deploying multiple rhoconnect apps on nginx has not yet been tested. Perform these steps only if you are experienced with nginx.**
 
-To deploy and develop two rhoconnect applications on nginx and thin servers,
+To deploy and develop two rhoconnect applications on nginx and thin servers, 
 refer to the nginx documentation on [nginx server blocks](http://wiki.nginx.org/ServerBlockExample) to see how to configure an nginx sever for multiple host names.
 
 For each rhoconnect app, you need to set up its own redis instance. Refer to [the redis quick start documentation](http://redis.io/topics/quickstart).
@@ -252,122 +239,6 @@ Also you can use RhoConnect `/opt/nginx/html/rhoapp` application as a template a
 
 **NOTE: You should pay attentions to situations, if you have already Ruby installed on system level. Avoid usage of system gems in your application. It might lead to unpredictable results, if ruby versions are different. Either set up path to rhoconnect binaries for root user,
 or install required gems as `sudo /opt/rhoconnect/bin/gem install gem_name`**
-
-## Nginx configuration for SSL with self-signed certificate
-
-### About Self-Signed Certificates
-A SSL certificate is a way to encrypt a site's information and create a more secure connection.
-This chapter will take you through generating a self-signed certificate to use with Nginx.
-
-### Create a Directory for the Certificate
-The SSL certificate has 2 main parts: the certificate itself and the public key. To make all of the relevant files easy to access, you should create a directory to store them in:
-
-	:::term
-	$ sudo mkdir /opt/nginx/ssl
-
-We will perform the next few steps within the directory:
-
-	:::term
-	$ cd /opt/nginx/ssl
-
-
-### Create the Server Key and Certificate Signing Request
-Start by creating the private server key. During this process, you will be asked to enter a specific passphrase. Be sure to note this phrase carefully, if you forget it or lose it, you will not be able to access the certificate.
-
-	:::term
-	$ openssl genrsa -des3 -out server.key 1024
-	Generating RSA private key, 1024 bit long modulus
-	..........++++++
-	..................++++++
-	e is 65537 (0x10001)
-	Enter pass phrase for server.key:
-	Verifying - Enter pass phrase for server.key:
-
-Follow up by creating a certificate signing request:
-
-	:::term
-	$ openssl req -new -key server.key -out server.csr
-
-This command will prompt terminal to display a lists of fields that need to be filled in.
-The most important line is "Common Name". Enter your official domain name here or,
-if you don't have one yet, your site's IP address. Leave the challenge password and optional company name blank.
-	:::term
-	Enter pass phrase for server.key:
-	You are about to be asked to enter information that will be incorporated
-	into your certificate request.
-	What you are about to enter is what is called a Distinguished Name or a DN.
-	There are quite a few fields but you can leave some blank
-	For some fields there will be a default value,
-	If you enter '.', the field will be left blank.
-	-----
-	Country Name (2 letter code) [AU]:YOUR_COUNTRY
-	State or Province Name (full name) [Some-State]:YOUR_STATE
-	Locality Name (eg, city) []:YOUR_CITY
-	Organization Name (eg, company) [Internet Widgits Pty Ltd]:YOUR_COMPANY
-	Organizational Unit Name (eg, section) []:YOUR_UNIT
-	Common Name (eg, YOUR name) []:YOUR_DOMAINNAME_HERE
-	Email Address []:YOUR_EMAIL
-
-	Please enter the following 'extra' attributes
-	to be sent with your certificate request
-	A challenge password []:
-	An optional company name []:
-
-### Remove the Passphrase
-We are almost finished creating the certificate. However, it would serve us to remove the passphrase. Although having the passphrase in place does provide heightened security, the issue starts when one tries to reload nginx. In the event that nginx crashes or needs to reboot, you will always have to re-enter your passphrase to get your entire web server back online.
-
-Use these commands to remove the password:
-	:::term
-	$ cp server.key server.key.org
-	$ openssl rsa -in server.key.org -out server.key
-
-
-### Sign your SSL Certificate
-Your certificate is all but done, and you just have to sign it.
-
-Keep in mind that you can specify how long the certificate should remain valid by changing the 365 to the number of days you prefer. As it stands this certificate will expire after one year.
-	:::term
-	$ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
-	Signature ok
-	subject= ...
-	Getting Private key
-
-### Set Up the Certificate
-Now we have all of the required components of the finished certificate.
-The next thing to do is to set up the virtual host to serve your domain from HTTS connection.
-
-Update existing Nginx `/opt/nginx/conf/conf.d/https_rhoconnect.conf` configuration file by including the newly signed certificate and private key:
-	:::term
-	upstream thin_cluster {
-	  # ...
-	}
-
-	# HTTPS server
-	server {
-	        listen 443;
-	        server_name YOUR_DOMAINNAME_HERE;
-		  	root  /opt/nginx/html/#{app_name}/public;
-
-			location / {
-			  # ...
-			    proxy_pass http://thin_cluster;
-			}
-
-	        ssl on;
-	        ssl_certificate /opt/nginx/ssl/server.crt;
-	        ssl_certificate_key /opt/nginx/ssl/server.key;
-	}
-
-
-### Activate the Virtual Host
-Restart nginx:
-	:::term
-	$ /etc/init.d/nginx restart
-
-Now we're ready to access the above host using:
-	:::term
-	https://YOUR_DOMAINNAME_HERE
-
 
 ## Deploying RhoConnect Redis and Push packages on Linux servers
 
@@ -428,7 +299,7 @@ You can start a redis server using the following command.
 	$ sudo /etc/init.d/redis start
 
 ### RhoConnect Push Service
-You can create a RhoConnect Push production environment on Linux servers by installing prepackaged software for
+You can create a RhoConnect Push production environment on Linux servers by installing prepackaged software for 
 Ubuntu (12.x) and CentOS (5.x/6.x). In a few clicks, you will have installed on your Linux server.
 
 * Node.js with Npm package manager
@@ -460,8 +331,8 @@ Node.js requires python 2.6 which is not available for CentOS 5 stock version.
 For this flavor of linux you need to manually install EPEL repo and install python26 RPM out of it:
 
 	:::term
-    $ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
-    $ rpm -i epel-release-5*.rpm
+    $ wget http://mirror.chpc.utah.edu/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+    $ rpm -i epel-release-5-4.noarch.rpm 
     $ yum install python26
 
 
@@ -492,49 +363,13 @@ and deploy it into the J2EE App Server.
 Deploying the WAR container varies per J2EE App Server, for JBoss it is necessary
 to place the WAR file into the server's deploy directory.
 
-#### Deploying warbler package on Apache Tomcat web server
-To successfully deploy warbler package on Tomcat you need to make rhoconnect app be the default app. There are a few ways to reach
-this goal and we describe only a couple of them.
-
-##### Method 1
-
-1) Stop Tomcat `shutdown.sh`
-
-2) Delete the `ROOT` directory under `$CATALINA_BASE/webapps`
-
-3) Name your war file as `ROOT.war` (capitals mandatory)
-
-4) Drop the `ROOT.war` file directly in the `$CATALINA_BASE/webapps` directory
-
-5) Start Tomcat `startup.sh`
-
-##### Method 2
-
-1) Stop Tomcat
-
-2) Copy your war file in `$CATALINA_BASE/webapps`, under its original name
-
-3) Turn off autoDeploy and deployOnStartup in your Host element in the server.xml file.
-
-4) Explicitly define your application context in server.xml, specifying both path (must be empty!) and docBase.
-
-	:::xml
-	<Host name="localhost"  appBase="webapps"
-		 unpackWARs="true" autoDeploy="false" deployOnStartup="false">
-		 <!-- ...  -->
-		 <Context docBase="your-app.war" path=""/>
-		 <!-- ...  -->
-	</Host>
-
-5) Start Tomcat
-
-## Deploying on Heroku
+## Deploying on Heroku Cedar
 
 #### Prerequisites
 
 * [Heroku account](https://api.heroku.com/login) and [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
-* Rhoconnect version >= 3.4
+* Rhoconnect gem version >= 3.2.0
 
 #### Create Rhoconnect application
 Create your Rhoconnect app and make sure that it's up and running in your development environment using thin:
@@ -543,15 +378,35 @@ Create your Rhoconnect app and make sure that it's up and running in your develo
     $ cd your_rhoconnect_app
     $ bundle exec thin start
 
+#### Declare `Procfile`
+This step is optional, but it will give you more control and flexibility when application deployed on Heroku.
+Create in your rhoconnect project file named `Procfile`:
+
+    :::term
+    web: bundle exec thin start -p $PORT
+
+If your application is using resque worker, then you should specify it in the `Procfile` as well:
+
+	:::term
+	web: bundle exec thin start -p $PORT
+    worker: bundle exec rake resque:work
+
+Now you can run your app locally:
+
+	:::term
+    $ gem install foreman
+    $ foreman start
+
 
 #### Deploy to Heroku
-Heroku uses git as its deployment interface.  To create and deploy your application on Heroku, use the the following steps:
+Before moving your code to Git you need comment in your project's `Gemfile` declaration of `sqlite3` gem, because target
+Heroku server has no development libraries required to build that gem.
 
 	:::term
 	$ git init
 	$ git add .
-	$ git commit -m 'initial commit'
-	$ heroku create
+	$ git commit -m ' ... '
+	$ heroku create --stack cedar
 	$ heroku addons:add redistogo:nano
 	$ git push heroku master
     $ heroku open
@@ -565,10 +420,10 @@ Use `heroku logs` to view an aggregated list of log messages from all process ty
     $ heroku logs
 
 #### Get connected with Rhodes client
-If you have a rhodes client and want to sync it with your rhoconnect app on Heroku, then set the proper `syncserver` URL in `rhoconfig.txt`:
+If you have a rhodes client and wanted to sync it with rhoconnect app on Heroku, then set proper `syncserver` URL in `rhoconfig.txt` file:
 
 	:::term
- 	syncserver = 'https://<your-heroku-app-here>.herokuapp.com/application'
+ 	syncserver = 'http://<your-heroku-app-here>.herokuapp.com/application'
 
 
 

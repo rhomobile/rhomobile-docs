@@ -1128,11 +1128,6 @@ To build installer bundle use command:
 	:::term
 	$ rake device:win32:production 
 
-There is separate rake command for Windows XP Embedded platform. To build installer bundle use command:
-
-	:::term
-	$ rake device:winxpe:production 
-
 After the build process is finished you can find the installer bundle named `<application-name>-setup.exe` in `<application-root>/bin/target/win32` folder.
 
 ### Logging
@@ -1181,7 +1176,7 @@ Now when you build your application the usual way, the HTTPS protocol support wi
 * Visual Studio 2012 installed or VS Express 2012 for Windows Phone
     * [Windows Phone SDK 8.0](http://dev.windowsphone.com/en-us/downloadsdk)
     
-* Add path to `msbuild` to `rhobuild.yml` in rhodes folder. Use 32-bit version compiler to build for device.
+* Add path to `msbuild` to `rhobuild.yml` in rhodes folder. For example:
 
 	    env:
 	      paths:

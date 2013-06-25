@@ -23,7 +23,15 @@
 <div class="navbar">
   <div class="navbar-inner">
     <a class="brand"><img src="/images/bg/motorola-logo.png" style="width:32px"/>&nbsp;<strong>RhoMobile Suite Documentation</strong></a>
+    	<form class="navbar-search pull-left" action="">
+		
+    	<select id="version_select" class="input-medium">
+				  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>Version 4.x</option>
+				  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>Version 2.x</option>
+				</select>
+    	</form>
     	<form class="navbar-search pull-right" action="/search">
+				
 				<input type="text" class="search-query span4" placeholder="Search" name="q" size="31" value="">
     
 
@@ -36,27 +44,35 @@
 
 <% sectionGroup  = TOC.findGroup(request.path_info) 
 
-puts "version#{@docversion}"
+ # puts "version#{@docversion}"
 if @docversion.nil?
 	vpath = ""
+	homepath="/home"
+	mapipath="/api/apiusage"
+	mguidepath="/rhodes/introduction"
+	rcguidepath="/rhoconnect/introduction"
 else
 	vpath = "/v/#{@docversion}"
+	homepath="#{vpath}/home"
+	mapipath="#{vpath}/rhoelements/apicompatibility"
+	mguidepath="#{vpath}/rhodes/introduction"
+	rcguidepath="#{vpath}/rhoconnect/introduction"
 end
 %>
 	 
 <div class="row-fluid span12">
 <ul class="nav nav-tabs">
   <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
-    <a href="<%=vpath%>/home"><i class="icon-home"></i>Home</a>
+    <a href="<%=homepath%>"><i class="icon-home"></i>Home</a>
   </li>
   <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
-      <a href="<%=vpath%>/api/apiusage"><i class="icon-cog"></i>API Docs</a>
+      <a href="<%=mapipath%>"><i class="icon-cog"></i>API Docs</a>
   </li>
   <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
-    <a href="<%=vpath%>/rhodes/introduction"><i class="icon-book"></i>Mobile Guides</a>
+    <a href="<%=mguidepath%>"><i class="icon-book"></i>Mobile Guides</a>
   </li>
   <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
-    <a href="<%=vpath%>/rhoconnect/introduction"><i class="icon-refresh"></i>RhoConnect Guides</a>
+    <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>
   </li>
   
 </ul>

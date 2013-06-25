@@ -216,42 +216,6 @@ There is no way to define controller for top-level index.erb, so create special 
         capabilities:
             - network_state
 
-## How to call Ruby controller from Web Page
-When one need to update some information on the page without any transition an AJAX call may be performed this way(using jquery library):
-
-    :::html
-    <div data-role="page">
-
-      <div data-role="header" data-position="inline">
-        <h1>AJAX sample</h1>
-      </div>
-
-      <div data-role="content">
-        <ul data-role="listview">
-          <li><p>To reset result just reload the page..</p></li>
-          <li>
-            <a href="#"
-               onclick="$.get('<%= url_for :action => :get_json %>').success(function(data){showResult(data)}); return false;">
-                    Read JSON object via AJAX call
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div>A = <span id="result_a"></span></div>
-      <div>B = <span id="result_b"></span></div>
-      <div>C = <span id="result_c"></span></div>
-
-    </div>
-
-To handle AJAX request a controller action method can return JSON object this way:
-
-    :::ruby
-    def get_json
-      render :string => '{"a": 1, "b": 2, "c": 3}'
-    end
-
-
 ## How to optimize memory usage in Rhodes
 There are several Rhodes components which consume system memory( list order by memory consumptions, bigger first):
 

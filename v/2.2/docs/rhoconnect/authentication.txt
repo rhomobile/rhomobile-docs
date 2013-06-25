@@ -1,7 +1,7 @@
 Device Authentication in RhoConnect
 ===
 
-The generated RhoConnect application code includes a file called "application_controller.rb" which contains an implementation for the "login" route.  This route is called when a device first connects to the RhoConnect application and provides username/password credentials.
+The generated RhoConnect application code includes a file at the root called "application.rb" which contains an "authenticate" hook.  This method is called when a device first connects to the RhoConnect application and provides username/password credentials.
 
 ## Authentication Workflow
 	
@@ -10,12 +10,10 @@ The following diagram shows how this authenticate method is called:
 <img src="https://img.skitch.com/20110111-g2ujk785gak2kfgfrspq1w8u8j.png"/>
 
 ## Example
-If your backend service requires authentication, simply add code to the login route and return true if authentication was successful or false to deny access to the application from this device.  For example:
+If your backend service requires authentication, simply add code to the authenticate method and return true if authentication was successful or false to deny access to the application from this device.  For example:
 
 	:::ruby
-	post "/login", :rc_handler => :authenticate do
-      username = params[:login]
-      password = params[:password]
+	def authenticate(username, password, session)
 	  success = false 
 	  # ... connect to backend using API and authenticate ... 
 	  result = do_custom_authentication(username,password) 
@@ -31,10 +29,8 @@ If your backend service requires authentication, simply add code to the login ro
 If your actual user name is different than the username that is input into the client, you can change the username by returning a string instead of true if authentication was successful.
 
   	:::ruby
-	post "/login", :rc_handler => :authenticate do
-      username = params[:login]
-      password = params[:password]
-      success = false 
+	def authenticate(username, password, session)
+	  success = false 
 	  # ... connect to backend using API and authenticate ... 
 	  result = do_custom_authentication(username,password) 
 	  if result.code == 200
@@ -53,9 +49,7 @@ The code sample above demonstrates authentication by calling a method you would 
 	:::ruby
 	require 'net/ldap'
 
-    post "/login", :rc_handler => :authenticate do
-      username = params[:login]
-      password = params[:password]
+    def authenticate(username, password, session)
       success = false 
       ldap = Net::LDAP.new
       ldap.host = "localhost"
@@ -90,9 +84,8 @@ Inside of your rhoconnect app you can replace the password parameter with a pem 
 	require 'socket'
 	require 'openssl'
 
-    post "/login", :rc_handler => :authenticate do
-      username = params[:login]
-      pem = params[:password]
+    def authenticate(username,pem,session)
+      
       #assuming pem file has certificate and then private key below in pem format
       pem_arr = pem.split("-----END CERTIFICATE-----")
       pem_arr[0] << "-----END CERTIFICATE-----"

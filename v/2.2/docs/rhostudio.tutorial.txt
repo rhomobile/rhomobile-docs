@@ -1,4 +1,4 @@
-# RhoStudio 2.2
+# RhoStudio
 
 RhoStudio is an Eclipse installation that facilitates development of native smartphone applications. It installs all Rho products, such as Rhodes and RhoConnect. It provides an integrated development environment (IDE) for Rhodes and RhoConnect development.
 
