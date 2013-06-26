@@ -28,7 +28,7 @@
 		<METHODS access="STATIC">
             <METHOD name="captureKey" hasCallback="optional" runInThread="ui">
                 <DESC>todo.  If don't specify a callback then the value will be cleared - also add a return section.  </DESC>
-				<PLATFORM>WM, Android</PLATFORM>
+				<PLATFORM>iOS, WM, Android</PLATFORM>
 				<PARAMS>
 					<PARAM name="dispatch" type="BOOLEAN">
 						<DESC>todo</DESC>

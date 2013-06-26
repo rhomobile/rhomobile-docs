@@ -1,0 +1,30 @@
+#Inside a RhoMobile Application
+
+## Introduction
+
+RhoMobile is a framework for building locally executing, device-optimized mobile applications. These applications are optimized to interact with transactional enterprise application backends. They are also designed to work with synced local data using a local database, such as SQLite or HSQLDB, and a generic backend synchronization framework, such as [RhoConnect](/rhoconnect) 
+
+
+## Application Stack
+
+A RhoMobile application is a web application that runs locally on your mobile device. It is implemented with the standard MVC architecture:
+
+* Views are sets of ERB templates: HTML, CSS, and JavaScript files executed by the WebView control available on the device and served by the local web server. This server is a very lightweight web server running on the device. See [User Interface](ui) section for more details on [Layouts](ui#view-layouts), [CSS framework](ui#css-framework), [JavaScript frameworks](ui#javascript-frameworks), [Menus](ui#menu), and [Native UI elements](ui#native-toolbar-control) that you may use in the View.  
+* Controllers are sets of usually very simple Ruby scripts in controller.rb files. You have access to many [native device capabilities](device-caps) from your controllers.
+* Models are defined by a Ruby script in the model.rb file.
+
+See Rhodes [App Structure](application) for more details.
+
+
+## Supported Operating Systems
+
+* iOS 4.0 or greater (iPhone, iPod Touch, iPad)
+* Android 2.1 and greater
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
+* BlackBerry 4.6, 4.7, 5.0, 6.0, 7.0
+* Latest Windows Phone 7 devices
+
+NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
+
+## Validated MSI Hardware
+* <a name="_motdevices"></a>ET1, ET1 (WAN), ES400, MC2100, MC2180, MC3100, MC3100(R/S), MC3190(R/S/G), MC5574, MC5590, MC55A0, MC55N0, MC659B, MC7506, MC7598, MC7596, MC75A0, MC75A6, MC75A8, MC9190-G, MC9590, MC9596, MC9598, MC959B (WM 6.1), VC6090, VC6096

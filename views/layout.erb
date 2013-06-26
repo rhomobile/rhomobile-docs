@@ -20,8 +20,9 @@
 </head>
 <body >
 
-<div class="navbar">
+<div class="navbar ">
   <div class="navbar-inner">
+
     <a class="brand"><img src="/images/bg/motorola-logo.png" style="width:32px"/>&nbsp;<strong>RhoMobile Suite Documentation</strong></a>
     	<form class="navbar-search pull-left" action="">
 		
@@ -36,48 +37,53 @@
     
 
 		</form>
+
+		<% sectionGroup  = TOC.findGroup(request.path_info) 
+
+		 # puts "version#{@docversion}"
+		if @docversion.nil?
+			vpath = ""
+			homepath="/home"
+			mapipath="/api/apiusage"
+			mguidepath="/guide/welcome"
+			rcguidepath="/rhoconnect/introduction"
+		else
+			vpath = "/v/#{@docversion}"
+			homepath="#{vpath}/home"
+			mapipath="#{vpath}/rhoelements/apicompatibility"
+			mguidepath="#{vpath}/rhodes/introduction"
+			rcguidepath="#{vpath}/rhoconnect/introduction"
+		end
+		%>
+			 
+		<div class="row span12">
+		<ul class="nav nav-tabs">
+		  <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
+		    <a href="<%=homepath%>"><i class="icon-home"></i>Home</a>
+		  </li>
+		  <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
+		      <a href="<%=mapipath%>"><i class="icon-cog"></i>API Docs</a>
+		  </li>
+		  <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
+		    <a href="<%=mguidepath%>"><i class="icon-book"></i>Mobile Guides</a>
+		  </li>
+		  <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
+		    <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>
+		  </li>
+		  
+		</ul>
+
+		</div>
+
   </div>
+
+
 </div>	
 
 
     
 
-<% sectionGroup  = TOC.findGroup(request.path_info) 
-
- # puts "version#{@docversion}"
-if @docversion.nil?
-	vpath = ""
-	homepath="/home"
-	mapipath="/api/apiusage"
-	mguidepath="/rhodes/introduction"
-	rcguidepath="/rhoconnect/introduction"
-else
-	vpath = "/v/#{@docversion}"
-	homepath="#{vpath}/home"
-	mapipath="#{vpath}/rhoelements/apicompatibility"
-	mguidepath="#{vpath}/rhodes/introduction"
-	rcguidepath="#{vpath}/rhoconnect/introduction"
-end
-%>
-	 
-<div class="row-fluid span12">
-<ul class="nav nav-tabs">
-  <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
-    <a href="<%=homepath%>"><i class="icon-home"></i>Home</a>
-  </li>
-  <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
-      <a href="<%=mapipath%>"><i class="icon-cog"></i>API Docs</a>
-  </li>
-  <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
-    <a href="<%=mguidepath%>"><i class="icon-book"></i>Mobile Guides</a>
-  </li>
-  <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
-    <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>
-  </li>
   
-</ul>
-
-</div>  
 <div id="container" class="row-fluid">
 
 	<div id="doc_container" class="span12" >

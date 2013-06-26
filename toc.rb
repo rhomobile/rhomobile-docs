@@ -1,16 +1,12 @@
 
-section 'getting-started', 'Getting Started','Home' do
-  topic 'home',                 'Home'
-  topic 'rhomobile-install',   'RhoMobile Suite Install'
-  topic 'rhoelements/rhoelements-tutorial',   'RhoElements Tutorial'
-  topic 'rhostudio.tutorial',   'RhoStudio Tutorial'
-  topic 'rhoconnect/tutorial',  'RhoConnect Tutorial'
-  topic 'rhohub/tutorial',      'RhoHub Tutorial'
-  topic 'rhostudio-rhohub',      'Building RhoStudio Apps on RhoHub'
-  topic 'tutorials',            'How To'
-  topic 'architecturefaq',      'Architecture FAQ'
-  topic 'faq',                  'Programming FAQ'
-  topic 'credits',                  'Credits'
+section 'getting-started', 'Introduction','Mobile Guides' do
+  topic 'guide/welcome',                 'Welcome to RhoMobile Suite'
+  topic 'guide/rhoArchitecture',   'How a RhoMobile App Works'
+  topic 'guide/devskills',   'Developer Skills'
+  topic 'guide/devenvironment',  'Developer Environments'
+  topic 'guide/appdesign',   'App Architecture'
+  topic 'guide/uichoices',      'UI Architecture'
+  topic 'guide/licensing',      'Licensing'
 end
 
 
@@ -64,7 +60,7 @@ section 'rhomob-setup', 'Setup & Architecture','Mobile Guides' do
 end
 
 section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
-  topic 'rhodes/generator',         'App Generator'
+  topic 'guide/creating_a_project',         'Starting a New Project'
   topic 'guide/models',         'Data Models'
   topic 'rhoelements/rhoelements2-native', 'Building Apps With RhoStudio'
   topic 'rhostudio-rhohub',      'Building Apps on RhoHub'

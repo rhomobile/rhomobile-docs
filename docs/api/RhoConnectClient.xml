@@ -1,110 +1,105 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="RhoConnectClient" parent="Rho" generateUnderscoreRubyNames="true">
-        <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers. Synchronization overview is avalable here: http://docs.rhomobile.com/rhodes/synchronization</HELP_OVERVIEW>
-		
+  <MODULE name="RhoConnectClient" parent="Rho" generateUnderscoreRubyNames="true">
+  <HELP_OVERVIEW>is used for syncronization with Rhoconnect servers. Synchronization overview is avalable here: http://docs.rhomobile.com/rhodes/synchronization</HELP_OVERVIEW>
+  <ALIASES>
+    <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
+  </ALIASES>
+
+	<PROPERTIES access="STATIC">
+    <DESC>These properties are used to configure RhoConnectClient global behavior or retreiving current configuration parameters.</DESC>
+
+		<PROPERTY name="userName" type="STRING" readOnly="true">
+			<DESC>Current username of the RhoConnectClient session if isLoggedIn is true, otherwise returns the last logged in username.</DESC>
+		</PROPERTY>
+
+		<PROPERTY name="pollInterval" type="INTEGER" default="60">
+			<DESC>Sync poll interval in seconds. Setting this to 0 will disable polling-based sync. Sync process will be triggered automatically according to this setting.</DESC>
+		</PROPERTY>
+
+		<PROPERTY name="syncServer" type="STRING">
+			<DESC>Sync server URL.</DESC>
+		</PROPERTY>
+
+    <PROPERTY name="bulksyncState" type="INTEGER" default="1">
+      <DESC>Set 0 to force bulk sync on next synchronization cycle.  After sync is complete, bulksyncState will be set to 1.</DESC>
+    </PROPERTY>
+
+		<PROPERTY name="pageSize" type="INTEGER">
+			<DESC>Page size for RhoConnectClient. Default size is 2000.</DESC>
+		</PROPERTY>
+
+		<PROPERTY name="threadedMode" type="BOOLEAN" default="true" generateDoc="false">
+			<DESC>Sets if RhoConnectClient will work in a separate thread. If true then calls to login, doSync, doSyncSource and search will perform asynchronously without delaying calling thread. Results should be handled in provided callbacks. If false, all calls are blocking and resuls are returned directly from method calls. Default is true.</DESC>
+		</PROPERTY>
+
+		<PROPERTY name="showStatusPopup" type="BOOLEAN" default="true">
+			<DESC>Enable or disable show status popup.</DESC>
+		</PROPERTY>
+
+		<PROPERTY name="sslVerifyPeer" type="BOOLEAN" default="true">
+			<DESC>Enable or disable verification of RhoConnect ssl certificates, true by default.</DESC>
+		</PROPERTY>
+
+	</PROPERTIES>
+
+  <METHODS access="STATIC">
 		<ALIASES>
-            <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
-        </ALIASES>
+			<ALIAS new="dosync" existing="doSync" deprecated="true">
+				<DESC>Deprecated name of doSync method.</DESC>
+			</ALIAS>
 
-		<PROPERTIES access="STATIC">
-            <DESC>These properties are used to configure RhoConnectClient global behavior or retreiving current configuration parameters.</DESC>
+			<ALIAS new="set_objectnotify_url" existing="setObjectNotification" deprecated="true">
+				<DESC>Deprecated name of setObjectNotification method.</DESC>
+			</ALIAS>
 
-			
-			<PROPERTY name="userName" type="STRING" readOnly="true">
-				<DESC>Current username of the RhoConnectClient session if isLoggedIn is true, otherwise returns the last logged in username.</DESC>
-			</PROPERTY>
-			
-			<PROPERTY name="pollInterval" type="INTEGER" default="60">
-				<DESC>Sync poll interval in seconds. Setting this to 0 will disable polling-based sync. Sync process will be triggered automatically according to this setting.</DESC>
-			</PROPERTY>
-			
-			<PROPERTY name="syncServer" type="STRING">
-				<DESC>Sync server URL.</DESC>
-			</PROPERTY>
-			
-			<PROPERTY name="pageSize" type="INTEGER">
-				<DESC>Page size for RhoConnectClient. Default size is 2000.</DESC>
-			</PROPERTY>
-			
-			<PROPERTY name="threadedMode" type="BOOLEAN" default="true" generateDoc="false">
-				<DESC>Sets if RhoConnectClient will work in a separate thread. If true then calls to login, doSync, doSyncSource and search will perform asynchronously without delaying calling thread. Results should be handled in provided callbacks.
-                    If false, all calls are blocking and resuls are returned directly from method calls.
-                    Default is true.
-                </DESC>
-			</PROPERTY>
-			
-			<PROPERTY name="showStatusPopup" type="BOOLEAN" default="true">
-				<DESC>Enable or disable show status popup.</DESC>
-			</PROPERTY>
+			<ALIAS new="add_objectnotify" existing="addObjectNotify" deprecated="true">
+				<DESC>Deprecated name of addObjectNotify method.</DESC>
+			</ALIAS>
 
-			<PROPERTY name="sslVerifyPeer" type="BOOLEAN" default="true">
-				<DESC>Enable or disable verification of RhoConnect ssl certificates, true by default.</DESC>
-			</PROPERTY>
-			
-		</PROPERTIES>
-		
-        <METHODS access="STATIC">
-			
-			<ALIASES>
-				<ALIAS new="dosync" existing="doSync" deprecated="true">
-					<DESC>Deprecated name of doSync method.</DESC>
-				</ALIAS>
+			<ALIAS new="clean_objectnotify" existing="cleanObjectNotify">
+				<DESC>Deprecated name of cleanObjectNotify method.</DESC>
+			</ALIAS>
 
-				<ALIAS new="set_objectnotify_url" existing="setObjectNotification" deprecated="true">
-					<DESC>Deprecated name of setObjectNotification method.</DESC>
-				</ALIAS>
+			<ALIAS new="stop_sync" existing="stopSync" deprecated="true">
+				<DESC>Deprecated name of stopSync method.</DESC>
+			</ALIAS>
+		</ALIASES>
 
-				<ALIAS new="add_objectnotify" existing="addObjectNotify" deprecated="true">
-					<DESC>Deprecated name of addObjectNotify method.</DESC>
-				</ALIAS>
+		<METHOD name="isLoggedIn">
+			<DESC>Returns true if the RhoConnectClient currently has a user session, false if not.</DESC>
+			<RETURN type="BOOLEAN">
+        <DESC>True if have logged in user session, false if not.</DESC>
+      </RETURN>
+		</METHOD>
 
-				<ALIAS new="clean_objectnotify" existing="cleanObjectNotify">
-					<DESC>Deprecated name of cleanObjectNotify method.</DESC>
-				</ALIAS>
-				
-				<ALIAS new="stop_sync" existing="stopSync" deprecated="true">
-					<DESC>Deprecated name of stopSync method.</DESC>
-				</ALIAS>
-				
-			</ALIASES>
-			
-			<METHOD name="isLoggedIn">
-				<DESC>Returns true if the RhoConnectClient currently has a user session, false if not.</DESC>
-				<RETURN type="BOOLEAN">
-                    <DESC>True if have logged in user session, false if not.</DESC>
-                </RETURN>
-			</METHOD>
-			
-			<METHOD name="isSyncing">
-				<DESC>Returns true if sync is currently in progress.</DESC>
-				<RETURN type="BOOLEAN">
-                    <DESC>True if sync has started but not finished yet, false otherwise</DESC>
-                </RETURN>
-			</METHOD>
+    <METHOD name="isSyncing">
+    	<DESC>Returns true if sync is currently in progress.</DESC>
+    	<RETURN type="BOOLEAN">
+        <DESC>True if sync has started but not finished yet, false otherwise</DESC>
+      </RETURN>
+    </METHOD>
 
 			<METHOD name="search" hasCallback="optional" runInThread="none">
 				<DESC>If you have a large dataset in your backend service, you don't have to synchronize everything with the RhoConnectClient. Instead you can filter the synchronized dataset using the RhoConnectClient's search function. Provide callback, which will be executed after search is completed.</DESC>
-				
 				<PARAMS>
-
 					<PARAM name="args" type="HASH" propertyHash="true">
 						<DESC>Hash of arguments passed to search</DESC>
 						<PARAMS>
 							<PARAM name="sourceNames" type="ARRAY">
 								<DESC>Array of source names to be included in search result.</DESC>
 							</PARAM>
-							
+
 							<PARAM name="from" type="STRING">
 								<DESC>Default is 'search'</DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
-							
+
 							<PARAM name="searchParams" type="HASH">
 								<DESC>Hash of key-value pairs to be included in search result.</DESC>
 							</PARAM>
-							
+
 							<PARAM name="offset" type="INTEGER">
 								<CAN_BE_NIL/>
 								<DESC></DESC>
@@ -113,20 +108,20 @@
 								<CAN_BE_NIL/>
 								<DESC>Maximum number of results to be returned.</DESC>
 							</PARAM>
-							
+
 							<PARAM name="progressStep" type="INTEGER">
 								<DESC></DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
-							
+
 							<PARAM name="syncChanges" type="BOOLEAN">
 								<DESC>If true and have local changes, client sync will be triggered before search.</DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
-							
+
 						</PARAMS>
 					</PARAM>
-									
+
 				</PARAMS>
 				<RETURN type="HASH">
             <DESC>Will return value only if threadedMode set to false. Otherwise search results returned in callback.</DESC>
@@ -136,7 +131,7 @@
                 <PARAM name="status" type="STRING">
                     <DESC>Resulting status of search. 'ok' of completed successfully, 'error' otherwise.</DESC>
                 </PARAM>
-                
+
                 <PARAM name="search_params" type="HASH">
                     <DESC>search_params originally provided for the search call. Typically you want to forward the original search_params to your view that displays the results so you can perform the same query locally. Please see examples section.
                     </DESC>
@@ -145,7 +140,7 @@
             </PARAMS>
         </CALLBACK>
       </METHOD>
-            
+
 			<METHOD name="doSync">
 				<DESC>Start the SyncEngine process and display an optional status popup.</DESC>
 				<PARAMS>
@@ -153,71 +148,71 @@
 						<DESC>Set to true to show status popup.</DESC>
 						<CAN_BE_NIL/>
 					</PARAM>
-					
+
 					<PARAM name="queryParams" type="STRING">
 						<DESC>Params to be passed to server.</DESC>
 						<CAN_BE_NIL/>
 					</PARAM>
-					
+
 					<PARAM name="syncOnlyChangedSources" type="BOOLEAN">
 						<DESC>Sync only sources that have local changes.</DESC>
 						<CAN_BE_NIL/>
 					</PARAM>
 				</PARAMS>
 				<RETURN type="STRING"/>
-				
+
             </METHOD>
-			
+
 			<METHOD name="doSyncSource">
 				<DESC>Start sync for a given source name.</DESC>
-				
+
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
 						<DESC>Source name.</DESC>
 					</PARAM>
-					
+
 					<PARAM name="showStatusPopup" type="BOOLEAN">
 						<CAN_BE_NIL/>
 						<DESC>Set to true to show status popup.</DESC>
 					</PARAM>
-					
+
 					<PARAM name="queryParams" type="STRING">
 						<CAN_BE_NIL/>
 						<DESC>Params to be passed to server.</DESC>
 					</PARAM>
-					
+
 				</PARAMS>
-				
+
 				<RETURN type="STRING"/>
-				
+
             </METHOD>
-			
+
 			<METHOD name="login" runInThread="none" hasCallback="mandatory">
 				<DESC>Authenticates the user with RhoConnect. The callback will be executed when it is finished.</DESC>
-				
+
 				<PARAMS>
 					<PARAM name="login" type="STRING">
 						<DESC>Login name</DESC>
 					</PARAM>
-					
+
 					<PARAM name="password" type="STRING">
 						<DESC>Password</DESC>
 					</PARAM>
-					
+
 				</PARAMS>
-				
+
 				<RETURN type="INTEGER"/>
-				
+
             </METHOD>
-						
+
 			<METHOD name="logout">
 				<DESC>Logout the user from the RhoConnect server. This removes the local user session.</DESC>
             </METHOD>
-			
+
 			<METHOD name="stopSync">
 				<DESC>Stops any sync operations currently in progress.</DESC>
             </METHOD>
-			
+
 			<METHOD name="setNotification" hasCallback="mandatory" runInThread="none">
 				<DESC>The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered. One a sync is processing for a model, notifications are called with parameters containing sync process state. Your application can use this information to display different wait pages, progress bars, etc. setNotification will set notification for a model.</DESC>
 				<PARAMS>
@@ -226,7 +221,7 @@
 					</PARAM>
 				</PARAMS>
             </METHOD>
-			
+
 			<METHOD name="clearNotification">
 				<DESC>Clears the sync notification for a given source</DESC>
 				<PARAMS>
@@ -235,17 +230,17 @@
 					</PARAM>
 				</PARAMS>
             </METHOD>
-			
-			
+
+
 			<METHOD name="setObjectNotification" hasCallback="mandatory" runInThread="none">
 				<DESC>The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.</DESC>
-                
+
           <CALLBACK>
               <PARAMS>
                   <PARAM name="created" type="ARRAY">
                       <DESC>Array of created objects.</DESC>
                   </PARAM>
-                  
+
                   <PARAM name="updated" type="ARRAY">
                       <DESC>Array of updated objects.</DESC>
                   </PARAM>
@@ -257,7 +252,7 @@
               </PARAMS>
           </CALLBACK>
       </METHOD>
-			
+
 			<METHOD name="addObjectNotify">
 				<DESC>Add the object notification by passing in an object ID</DESC>
 				<PARAMS>
@@ -268,13 +263,13 @@
 						<DESC>Object ID to get notifications.</DESC>
 					</PARAM>
 				</PARAMS>
-				
+
             </METHOD>
-			
+
 			<METHOD name="cleanObjectNotify">
 				<DESC>Removes callback for object notifications.</DESC>
             </METHOD>
-			
+
 			<METHOD name="getLastSyncObjectCount">
 				<DESC>Returns number of synced objects for a given source.</DESC>
 				<PARAMS>
@@ -284,48 +279,41 @@
 				</PARAMS>
 				<RETURN type="INTEGER"/>
             </METHOD>
-												
-			<METHOD name="setSourceProperty" generateDoc="false">
-                <DESC>Sets property value for a given source.</DESC>
 
+			<METHOD name="setSourceProperty" generateDoc="false">
+        <DESC>Sets property value for a given source.</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
 						<DESC>Source name.</DESC>
 					</PARAM>
-					
+
 					<PARAM name="propertyName" type="STRING">
 						<DESC>Property name.</DESC>
 					</PARAM>
-					
+
 					<PARAM name="propertyValue" type="STRING">
 						<DESC>Property value.</DESC>
 					</PARAM>
 				</PARAMS>
-            </METHOD>
-			
+      </METHOD>
 			<METHOD name="getSourceProperty" generateDoc="false">
-                <DESC>Gets property value for a given source.</DESC>
-
+        <DESC>Gets property value for a given source.</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
 						<DESC>Source name.</DESC>
 					</PARAM>
-					
+
 					<PARAM name="propertyName" type="STRING">
 						<DESC>Property name.</DESC>
 					</PARAM>
 				</PARAMS>
 				<RETURN type="STRING"/>
-            </METHOD>
-												
-        </METHODS>
-		
-		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+      </METHOD>
+    </METHODS>
+		    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>
             <!--  This section is used for the supported platform images at the top -->
         </PLATFORM>
-        
-        
         <EXAMPLES>
             <EXAMPLE title="Sync Authentication">
                 <DESC>
@@ -382,11 +370,11 @@ def login_callback
     if error_code == Rho::RhoError::ERR_CUSTOMSYNCSERVER
       @msg = @params['error_message']
     end
-  
+
     if not @msg or @msg.length == 0
       @msg = Rho::RhoError.new(error_code).message
     end
-  
+
     WebView.navigate(
       url_for(:action => :login, :query => {:msg => @msg})
     )
@@ -408,8 +396,8 @@ end]]>
 // ERR_UNATHORIZED = 9
 
 function loginCallback(result) {
-  var errorCode = result.error_code.toString();
-  var errorMessage = result.error_message.toString();
+  var errorCode = parseInt(result.error_code);
+  var errorMessage = result.error_message;
   if(errorCode === 0 {
     // process success
   } else {
@@ -438,7 +426,7 @@ RhoConnectClient.setNotification(
                           </RUBY>
                           <JAVASCRIPT>
 <![CDATA[
-function syncNotify() {
+function syncNotify(params) {
   // handle notifications...
 }
 Rho.RhoConnectClient.setNotification('Account', syncNotify);
@@ -479,7 +467,7 @@ RhoConnectClient.setNotification(
                           </RUBY>
                           <JAVASCRIPT>
 <![CDATA[
-function syncNotify() {
+function syncNotify(params) {
   // handle notifications...
 }
 Rho.RhoConnectClient.setNotification('*', syncNotify);
@@ -510,140 +498,166 @@ Rho.RhoConnectClient.setNotification('*', syncNotify);
                                 end
                             ]]>
                         </CODE>
-                        
                     </SECTION>
-                    
                     <SECTION>
                         <DESC>Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:</DESC>
-                        <CODE lang='ruby'>
-                            <![CDATA[
-                                class ProductController < Rho::RhoController
-                                
-                                    # GET /Product
-                                    def index
-                                        @products = Product.find(:all)
-                                
-                                        RhoConnectClient.addObjectnotify('Product',@products)
-                                        render
-                                    end
-                                
-                                    # ...
-                                
-                                    def sync_object_notify
-                                        #... do something with notification data ...
-                                
-                                        # refresh the current page
-                                        WebView.refresh
-                                        # or call System.execute_js to call javascript function which will update list
-                                    end
-                                end
-                            ]]>
+                        <CODE>
+                          <RUBY>
+<![CDATA[
+class ProductController < Rho::RhoController
+  # GET /Product
+  def index
+    @product = Product.find(:first)
+
+    RhoConnectClient.addObjectNotify('Product', @product.id)
+    render
+  end
+
+  # ...
+
+  def sync_object_notified
+    # process notification data ...
+
+    # refresh the current page
+    WebView.refresh
+    # or call System.execute_js to update part of the page
+  end
+end
+]]>
+                          </RUBY>
+                          <JAVASCRIPT>
+<![CDATA[
+function syncObjectNotified(params) {
+  // handle notifications...
+}
+
+var product = Product.find('first');
+
+Rho.RhoConnectClient.addObjectNotify('Product', product.id);
+]]>
+                          </JAVASCRIPT>
                         </CODE>
-                        
                     </SECTION>
-                    
                 </SECTIONS>
             </EXAMPLE>
-            
             <EXAMPLE title="Using search">
                 <DESC></DESC>
                 <SECTIONS>
                     <SECTION>
                         <DESC>First, call search from your controller action:</DESC>
-                        <CODE lang='ruby'>
-                            <![CDATA[
-                                def search
-                                    page = @params['page'] || 0
-                                    page_size = @params['page_size'] || 10
-                                    RhoConnectClient.search(
-                                        {
-                                            'Contact',
-                                            :from => 'search',
-                                            :search_params => {
-                                                :FirstName => @params['FirstName'],
-                                                :LastName => @params['LastName'],
-                                                :Company => @params['Company']
-                                            },
-                                            :offset => page * page_size,
-                                            :max_results => page_size
-                                        }
-                                        url_for(:action => :search_callback)
-                                    )
-                                    render :action => :search_wait
-                                end
-                            ]]>
+                        <CODE>
+                          <RUBY>
+<![CDATA[
+def search
+  page = @params['page'] || 0
+  page_size = @params['page_size'] || 10
+  RhoConnectClient.search(
+    {
+      'Contact',
+      :from => 'search',
+      :search_params => {
+        :FirstName => @params['FirstName'],
+        :LastName => @params['LastName'],
+        :Company => @params['Company']
+      },
+      :offset => page * page_size,
+      :max_results => page_size
+    }
+    url_for(:action => :search_callback)
+  )
+  render :action => :search_wait
+end
+]]>
+                          </RUBY>
+                          <JAVASCRIPT>
+<![CDATA[
+var page = params.page || params.pageSize,
+    pageSize = 10;
+Rho.RhoConnectClient.search(
+  {
+    'Contact',
+    'from': 'search',
+    'search_params': {
+      'FirstName': params.FirstName,
+      'LastName': params.LastName,
+      'Company': params.Company
+    },
+    'offset': page,
+    'max_results': pageSize
+  },
+  searchCallback
+);
+]]>
+                          </JAVASCRIPT>
                         </CODE>
-                        
                     </SECTION>
-                    
                     <SECTION>
-                        <DESC>Your callback might look like:</DESC>
-                        <CODE lang='ruby'>
-                            <![CDATA[
-                                def search_callback
-                                    status = @params["status"]
-                                    if (status and status == "ok")
-                                    WebView.navigate(
-                                        url_for(
-                                            :action => :show_page,
-                                            :query => @params['search_params']
-                                        )
-                                    )
-                                    else
-                                        render :action => :search_error
-                                    end
-                                end
-                            ]]>
+                        <DESC>The `search_params` will be forwarded to your callback so you can update the view with the results:</DESC>
+                        <CODE>
+                          <RUBY>
+<![CDATA[
+def search_callback
+  status = @params["status"]
+  if (status and status == "ok")
+  WebView.navigate(
+    url_for(
+      :action => :show_page,
+      :query => @params['search_params']
+    )
+  )
+  else
+    render :action => :search_error
+  end
+end
+
+def show_page
+  @contacts = Contact.find(
+    :all,
+    :conditions => {
+    {
+      :func => 'LOWER',
+      :name => 'FirstName',
+      :op => 'LIKE'
+    } => @params[:FirstName],
+    {
+      :func => 'LOWER',
+      :name=>'LastName',
+      :op=>'LIKE'
+    } => @params[:LastName],
+    {
+      :func=>'LOWER',
+      :name=>'Company',
+      :op=>'LIKE'
+    } => @params[:Company],
+    },
+    :op => 'OR',
+    :select => ['FirstName','LastName', 'Company'],
+    :per_page => page_size,
+    :offset => page * page_size
+  )
+  render :action => :show_page
+end
+]]>
+                          </RUBY>
+                          <JAVASCRIPT>
+<![CDATA[
+function searchCallback(params) {
+  if(params.status && params.status === "ok") {
+    // TODO: Fill in JS Sample
+    // reload relevant sections of the page
+  }
+}
+]]>
+                          </JAVASCRIPT>
                         </CODE>
-                        
                     </SECTION>
-                    
-                    <SECTION>
-                        <DESC>Typically you want to forward the original search query @params['search_params'] to your view that displays the results so you can perform the same query locally. Next, the resulting action :show_page will be called. Here we demonstrate using Rhom's advanced find query syntax since we are filtering a very large dataset:</DESC>
-                        <CODE lang='ruby'>
-                            <![CDATA[
-                                def show_page
-                                    @contacts = Contact.find(
-                                        :all,
-                                        :conditions => {
-                                        {
-                                            :func => 'LOWER',
-                                            :name => 'FirstName',
-                                            :op => 'LIKE'
-                                        } => @params[:FirstName],
-                                        {
-                                            :func => 'LOWER',
-                                            :name=>'LastName',
-                                            :op=>'LIKE'
-                                        } => @params[:LastName],
-                                        {
-                                            :func=>'LOWER',
-                                            :name=>'Company',
-                                            :op=>'LIKE'
-                                        } => @params[:Company],
-                                        },
-                                        :op => 'OR',
-                                        :select => ['FirstName','LastName', 'Company'],
-                                        :per_page => page_size,
-                                        :offset => page * page_size
-                                    )
-                                    render :action => :show_page
-                                end
-                            ]]>
-                        </CODE>
-                        
-                    </SECTION>
-                    
                 </SECTIONS>
             </EXAMPLE>
-            
-            
         </EXAMPLES>
         <REMARKS>
-            
             <REMARK title="Notification Parameters">
                 <DESC>
-                  <![CDATA[
+<![CDATA[
 When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.
 
 ### Common Parameters
@@ -695,14 +709,14 @@ This status returns only when the SyncEngine process is complete.
 
 ### "schema-changed"
 This status returns for bulk-sync models that use FixedSchema when the schema has changed in the RhoConnect server. In this scenario the sync callback should notify the user with a wait screen and start the bulk sync process.
-                    ]]>
+]]>
                 </DESC>
             </REMARK>
             <REMARK title="Backround synchronization on iOS">
                 <DESC>
-                  <![CDATA[
+<![CDATA[
 On iOS, if application is put to background, it will be suspended. To allow application finish sync after application goes to background, you can use 'finish_sync_in_background' parameter in rhoconfig.txt. When this parameter is set to '1', if sync is active in the time of background transition ( e.g. started from app_deactivate handler ), application will not be suspended until sync is finished.
-                ]]>
+]]>
                 </DESC>
             </REMARK>
         </REMARKS>
