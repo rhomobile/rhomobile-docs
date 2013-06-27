@@ -46,17 +46,13 @@ section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
 end
 
 
-section 'rhomob-setup', 'Setup & Architecture','Mobile Guides' do
-  topic 'rhodes/introduction',      'Introduction'
-  topic 'rhomobile-install',   'RhoMobile Suite Install'
-  topic 'rhodes/build',             'Native SDK Setup'
-  topic 'rhoelements/rhoelements-app-models', 'Application Approaches'
-  topic 'rhoelements/rhoelements2-webapps', 'Enabling Web Apps'
-  topic 'rhoelements/rhoelements-introduction', 'Motorola Webkit'
-  topic 'rhodes/application',       'App Structure'
-  topic 'rhodes/ui',                'User Interface'
-  topic 'rhodes/css-framework',     'CSS Framework'
-
+section 'rhomob-setup', 'Dev Environment Setup','Mobile Guides' do
+  topic 'guide/rhomobile-install',   'RhoMobile Suite Install'
+  topic 'guide/nativesdksetup',             'Native SDK Setup'
+  topic 'guide/nonrhostudio',             'Developing Without RhoStudio'
+  topic 'guide/rhohubtutorial',             'Build In The Cloud With RhoHub'
+  topic 'guide/visualstudio',             'Developing with Visual Studio'
+  
 end
 
 section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
@@ -85,7 +81,8 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/bluetooth',       'Bluetooth'
   topic 'guide/camera',       'Camera'
   topic 'guide/pim',       'Contacts & Calendar'
-  topic 'guide/apps',       'External Apps'
+  topic 'guide/html5',       'Html5 Features'
+  topic 'guide/controlling_webview_behavior',       'Controllling Webview Behavior'
   topic 'guide/filesystem',       'File System'
   topic 'guide/geolocation',       'Geolocation'
   topic 'guide/html5',       'Html5 Features'
