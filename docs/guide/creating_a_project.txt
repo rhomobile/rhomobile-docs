@@ -52,7 +52,7 @@ To create a new application called `storemanager`, switch to the directory where
 
 The generated application has the following structure:
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/project_structure.png"/>
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/project_structure.png"/>
 
 Here is an overview of what each file and folder contains.
 
@@ -116,11 +116,11 @@ You can create any other folders and organize your files following any structure
 
 To start your application for the first time, right click your project, then click Run As -> Run Configurations...
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/running-application-context-menu.png"/>
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/running-application-context-menu.png"/>
 
 Select "RhoMobile Application" and click the "New" button, then click "Run"
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/run-configuration.png"/>
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/run-configuration.png"/>
 
 After a brief compilation period, the application will start in [RhoSimulator](../rhodes/simulator)
 
@@ -142,9 +142,9 @@ where `<platform to be simulated>` can be one of
 
 The application will start inside RhoSimulator with a different look depending on the selected platform
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/run-rhosimulator-iphone.png"/>
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/run-rhosimulator-iphone.png"/>
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhosimulator-web-inspector.png"/>
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/rhosimulator-web-inspector.png"/>
 
 ## Related reading
 
