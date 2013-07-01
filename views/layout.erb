@@ -44,7 +44,7 @@
 		if @docversion.nil?
 			vpath = ""
 			homepath="/home"
-			mapipath="/api/apiusage"
+			mapipath="/guide/api_js"
 			mguidepath="/guide/welcome"
 			rcguidepath="/rhoconnect/introduction"
 		else
@@ -62,10 +62,10 @@
 		    <a href="<%=homepath%>"><i class="icon-home"></i>Home</a>
 		  </li>
 		  <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
-		      <a href="<%=mapipath%>"><i class="icon-cog"></i>API Docs</a>
+		      <a href="<%=mapipath%>"><i class="icon-cog"></i>API Reference</a>
 		  </li>
 		  <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
-		    <a href="<%=mguidepath%>"><i class="icon-book"></i>Mobile Guides</a>
+		    <a href="<%=mguidepath%>"><i class="icon-book"></i>RhoMobile Guides</a>
 		  </li>
 		  <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
 		    <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>

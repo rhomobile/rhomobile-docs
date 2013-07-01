@@ -13,6 +13,7 @@ end
 
 
 section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
+  topic 'guide/api_js', 'RhoMobile Javascript Usage'
   topic 'api/apiusage',      'API Summary'
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
