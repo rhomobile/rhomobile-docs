@@ -1,0 +1,43 @@
+# Build for Windows Phone 8
+
+## Setup
+Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-windows-phone-8) for building Windows Phone 8 applications.
+
+## Application changes
+    
+* Add to application build.yml productid GUID. For example:
+
+        wp:
+          productid: 632621d0-5ecb-012e-2c97-482a1411c191
+NOTE: When you use rhodes command to generate application, productid is generated automatically
+
+## Build and run using Rhodes gem
+
+* Install Rhodes gem
+
+* Run application simulator:
+
+        $rake run:wp8
+
+NOTE: You may use your computer keyboard with Windows Phone 8 emulator. By default it is disabled, but you can enable it pressing **PgUp** key. While it is enabled a device rotation simulation is not supported. To rotate device you need to disable keyboard support pressing **PgDown** key.  Look [MSDN page](http://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) for much more details on this topic.
+
+* Run application device:
+
+        $rake run:wp8:device
+
+* See log in application folder : rholog.txt
+
+NOTE: When running on device you may need to disconnect USB cable from device to see log
+
+* After Application code modifications, run rake commands. DO NOT close simulator!
+
+## Build from sources
+* Checkout rhodes source code from github 
+
+## Build from IDE
+### Rhodes
+* Open `rhodes\platform\wp8\rhodes.sln` in VS 2012 or VS Express 2012 for Windows Phone.
+* Select Debug or Release configuration, Windows Phone 8 Emulator target and build solution.
+* Run emulator by pressing Start Debugging or Start Without Debugging
+* After Application code modifications , build Rhodes solution and Start Debugging. DO NOT close emulator!
+* See log in VS output console (Debug mode only)

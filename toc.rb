@@ -51,6 +51,7 @@ section 'rhomob-setup', 'Dev Environment Setup','Mobile Guides' do
   topic 'guide/nativesdksetup',             'Native SDK Setup'
   topic 'guide/nonrhostudio',             'Developing Without RhoStudio'
   topic 'guide/rhohubtutorial',             'Build In The Cloud With RhoHub'
+  topic 'rhostudio-rhohub',      'Using RhoStudio with RhoHub'
   topic 'guide/visualstudio',             'Developing with Visual Studio'
   
 end
@@ -58,18 +59,21 @@ end
 section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/creating_a_project',         'Starting a New Project'
   topic 'guide/models',         'Data Models'
-  topic 'rhoelements/rhoelements2-native', 'Building Apps With RhoStudio'
-  topic 'rhostudio-rhohub',      'Building Apps on RhoHub'
-  topic 'rhodes/rhodes-command-line',         'Rhodes from Command Line'
-  topic 'rhodes/configuration',     'Configuration'
-  topic 'rhoelements/ConfigurationSettings', 'Configuration Parameters'
-  topic 'rhodes/extensions',        'Extending the Rhodes Framework'
-  topic 'rhoelements/licensing', 'Licensing'
+  topic 'guide/runtime_config',             'Runtime Configuration'
+  topic 'guide/build_config',             'Buildtime Configuration'
+  topic 'guide/rhosimulator',             'Using RhoSimulator'
+  topic 'guide/build_ios',             'Build for iOS'
+  topic 'guide/build_android',             'Build for Android'
+  topic 'guide/build_wm',             'Build for Windows Mobile'
+  topic 'guide/visualstudio#launch-and-run',             'Build for Windows Phone 8'
+  topic 'guide/build_win',             'Build for Windows'
+  topic 'guide/app_icon_splash',        'Application Icon & Splash Screen'
 end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
-  topic 'rhodes/test-log-debug',    'Testing, Logging and Debugging'
-  topic 'rhodes/simulator',         'Using RhoSimulator'
+  topic 'guide/logging',    'Logging'
+  topic 'guide/testing',    'Testing'
+  topic 'guide/profiling',    'Performance Profiling'
 end
 
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
@@ -103,6 +107,10 @@ section 'rhomob-data', 'Data Handling','Mobile Guides' do
   topic 'rhodes/rhom',              'Local Database and Rhom'
   topic 'rhodes/synchronization',   'Synchronization'
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
+end
+
+section 'rhomob-ext', 'Extending','Mobile Guides' do
+  topic 'rhodes/extensions',        'Extending the Rhodes Framework'
 end
 
 

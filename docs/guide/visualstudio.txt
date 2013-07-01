@@ -42,6 +42,13 @@ This generates a set of files and folders to define an application structure. Th
 
 This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](/guide/models) about data models. 
 
+## Application changes
+    
+* Add to application build.yml productid GUID. For example:
+
+        wp:
+          productid: 632621d0-5ecb-012e-2c97-482a1411c191
+
 ## Windows Phone 8 User Interface
 Recall that RhoMobile applications utilize web languages like CSS, Javascript and HTMl to define it's interface and application behavior. Therefore, if you are looking to provide a native Windows Phone 8 (aka Metro) user interface, you may want to consider using one of the the Metro-like frameworks:
 
@@ -70,6 +77,21 @@ You can now launch your application inside of RhoSimulator for testing by:
 2. Click `Start`
 
 RhoSimulator launches. [Read more details]() about how to use RhoSimulator
+
+### Run application simulator using command line:
+
+        $rake run:wp8
+
+NOTE: You may use your computer keyboard with Windows Phone 8 emulator. By default it is disabled, but you can enable it pressing **PgUp** key. While it is enabled a device rotation simulation is not supported. To rotate device you need to disable keyboard support pressing **PgDown** key.  Look [MSDN page](http://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) for much more details on this topic.
+
+### Run application device using command line:
+
+        $rake run:wp8:device
+
+* See log in application folder : rholog.txt
+
+NOTE: When running on device you may need to disconnect USB cable from device to see log
+
 
 ## Future plugin features
 We will be adding this features to the plug-in soon. Check back for updates:

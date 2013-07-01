@@ -2,6 +2,43 @@
 
 You can create a Rhodes project either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent.
 
+## Prerequisites
+
+In order to build a Native Application, you will need to have the SDK environments setup on your machine for each targeted mobile platform that you wish to support. In order for RhoStudio to build the final application, these environments must be setup properly and then RhoStudio will need need to know the paths to the build components. 
+
+###1) Setup Mobile Development Environments</b>
+
+[Windows Mobile](/rhodes/build#build-for-windows-mobile)
+
+[iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad)
+
+[Android](/rhodes/build#build-for-android)
+
+[BlackBerry](/rhodes/build#build-for-blackberry)
+
+###2) Java Development Kit
+
+In the [RhoMobile Suite installation instructions](rhomobile-install), review the Java Development Kit instructions for your operating system.
+
+###3) Install RhoMobile Suite
+
+Follow operating specific instructions for your development machine:
+
+[Mac OS](/rhomobile-install#mac-os)
+
+[Windows 32-bit](/rhomobile-install#windows-32-bit)
+
+[Windows 64-bit](/rhomobile-install#windows-64-bit)
+
+
+###4) Setup RhoStudio Mobile SDK Paths
+
+Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](build).
+
+	C:\> rhodes-setup
+
+This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](build#all-platforms-prerequisites).
+
 
 ## Creating a project with RhoStudio
 

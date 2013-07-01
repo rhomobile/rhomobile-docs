@@ -1479,7 +1479,7 @@
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
 				<DESC>How long the scanner tries to re-establish connection if it goes out of range, in seconds.  This value must be a multiple of 5 and in the range 30 to 60 seconds.</DESC>
             </PROPERTY>
-            <PROPERTY name="rsmBluetoothBeepOnReconnectAttempt" type="STRING" generateAccessors="true">
+            <PROPERTY name="rsmBluetoothBeepOnReconnectAttempt" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>

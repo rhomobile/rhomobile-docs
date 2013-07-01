@@ -1,0 +1,200 @@
+# Building for iOS
+
+## Setup
+Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-ios) for building iOS applications.
+
+## Building and Running Your iOS Application with RhoStudio
+
+To start the build process, create a Run Configuration: select your project in the Project Explorer, and do one of the following actions.
+
+ * Select Run->Run Configurations... from the main menu,
+ * Or right-click on your project, and select Run As->Run Configurations from the popup menu.
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
+
+The Run Configurations window appears.
+
+To run on the iOS simulator, select iPhone in Platform, Simulator in Simulator type, and select iPhone or iPad. Then click the Run button.
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-ios.png"/>
+
+## Build an iOS App with Xcode
+
+If you wish to run your RhoMobile application on an iOS device, you need to build and run it using an Xcode project.
+
+Tell Rhomobile to build from your RhoMobile application. Within your RhoMobile project folder, run the following command:
+
+	:::term
+	$ rake switch_app
+
+The switch_app command changes the rhobuild.yml in the RhoMobile source code folder to point to your application, as in the following example for a RhoMobile application named Store in the user's home folder:
+
+	:::term
+	env: 
+	  app: /Users/NameOfUser/Store
+
+Note that the switch_app command is only used when you run a RhoMobile application within an IDE, such as Xcode: you run switch_app for each RhoMobile application that you run in Xcode. The switch_app command does not affect RhoMobile applications that you build and run on the command line or within RhoStudio.
+
+Now run the following command to tell RhoMobile to set up the Xcode environment for your RhoMobile application:
+
+	:::term
+	$ rake build:iphone:setup_xcode_project
+
+Then in the RhoMobile source code folder (the path in your RhoMobile application build.yml file), navigate to the /platform/iphone folder and open rhorunner.xcodeproj. This will open your RhoMobile application in Xcode.
+
+In the Xcode Scheme menu, select the proper scheme before you build and run your project. Click on the Scheme menu.
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme.png" alt="xcode scheme" />
+
+Select the Scheme for your project under rhorunner. You can select to run in the simulator.
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-simulator.png" alt="xcode scheme simulator" />
+
+Now you can build and run in Xcode to run your project in the iOS simulator.
+
+If you are an Apple developer, you can run your RhoMobile application on your iOS device. In Xcode, select your rhorunner target, click on the Build Settings tab, and see that your code signing information that you installed as an Apple developer is set up and selected.
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-build-device.png" alt="xcode build settings" />
+
+Plug in your iOS device. In Xcode, under Scheme, select iOS device under rhorunner. Then build and run.
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-device.png" alt="xcode scheme device" />
+
+For more information on running on your iOS device from Xcode, go to the [Apple developer site](http://developer.apple.com/), go to the iOS Developer Library, and search on "managing devices", or "run applications on a device," or similar.
+
+You can edit your RhoMobile code for your RhoMobile application in a text editor, save your changes, do a Clean in Xcode so that your changes will register in Xcode, and then rebuild and run your project from Xcode.
+
+The resulting application package (*.app) is located in your RhoMobile source code folder under /platform/iphone/build/, in a folder named like [Debug/Release]-[iphoneos/iphonesimulator]/rhorunner.app.
+
+## Building and Run on devices before iPhone4 and iPad
+
+From XCode 4.2 on, Apple removed default support of the armv6 architecture. In this case there are two issues.
+
+Your distribution build should include code for both armv6 and armv7. The XCode projects included with RhoMobile and used for build RhoMobile-based application for iOS are already fixed for this.
+
+If you want to build/run/debug your application on devices before iPhone4/iPad (for example, on iPhone 3G), you should manually path all your native extension xcode projects used in your application for Architecture settings. In your project, under Build Settings -> Architectures, click the Debug or Release row (depending on if you are debugging or releasing), and choose "Other". In the pop-up box, modify as follows.
+
+* Remove `$(ARCHS_STANDARD_32_BIT)` and replace by typing `armv6`.
+* Use the plus button to add a new row. Type `armv7`.
+* Click Done.
+
+## Building and Releasing on App Store
+
+Once you have the application building with Xcode as described above, it is treated as any other iPhone application when it comes to [signing and distributing to the app store](http://developer.apple.com/iphone/appstore/). 
+
+## Restoring rhorunner.xcodeproj
+
+To restore the Xcode rhorunner.xcodeproj to its original state:
+
+	:::term
+  	$ rake build:iphone:restore_xcode_project
+
+## Building iPhone Application from the Command Line
+
+Unlike building the application from the Xcode GUI, when you build the application from the command line, use the rake command from the directory of the application that you had just generated with rhogen.
+
+From the command line, navigate to the folder for your RhoMobile application.
+
+To run your RhoMobile application in the iPhone simulator, run this rake command:
+  
+	:::term
+	$ rake run:iphone
+
+## Building the Application for the iOS Device
+
+After you have modified and debugged your RhoMobile application, you can prepare your application to install to your iOS device. 
+
+### Modifying the build.yml
+
+First, in your application's build.yml file, change sdk to iphoneos instead of iphonesimulator, configuration to Release instead of Debug, and add information such as codesignidentity.
+
+	iphone:
+		sdk: iphoneos4.3
+		configuration: Release
+		codesignidentity: "iPhone Developer"
+		entitlements: ""
+
+### build.yml settings
+
+The default build.yml settings generated for iphone are:
+
+	name: myapp
+	version: 1.0
+	iphone: 
+	  provisionprofile: 
+	  sdk: iphonesimulator3.0
+	  entitlements: 
+	  codesignidentity: 
+	  configuration: Debug
+	  emulator: 3.0
+	  emulatortarget: iphone
+	  BundleIdentifier: com.yourcompany.yourapp
+	  BundleURLScheme: yourapp
+	  entitlements_file: "./production/Entitlements.plist"
+	  production:
+	    app_plist_title: "myapp"
+	    app_plist_subtitle: "myapp"
+	    app_plist_icon_url: "www.yourcompany.com/icon.png"
+	    app_plist_ipa_url: "www.yourcompany.com/myapp.ipa"
+	    ipa_itunesartwork_image: "./production/image.jpg"  
+
+
+* name: name of your application. Will show on screen (iPhone application bundle display name)
+* version: version of your application. iPhone application bundle version
+* provisionprofile: The UUID of your provisioning profile to use when signing. 
+* sdk: The version of sdk used to build. Typically iphonesimulatorX.X or iphoneosX.X
+* entitlements: propertylist file for entitlements for your build. Typically is Entitlements.plist
+* codesignidentity: The name of the code signing identity to use when signing for device.
+* configuration: Debug/Release/Distribution
+* emulator: version of emulator for run application
+* emulatortarget: device family for simulator (iphone/ipad)
+* BundleIdentifier: bundle identifier - used in provisioning profile 
+* BundleURLScheme: bundle URL scheme of your app (used for opening your application from another application by using custom URL scheme)
+* entitlements_file: path of your custom Entitlements.plist (if you want use own instead of default) - you also can just put Entitlements.plist file into root folder of your application and it will be automatically used during build
+* production: section used only for Ad Hoc distribution, contain some specific options for prepare .plist and *.ipa files etc.
+* app_plist_title: title in plist file (application name by default)
+* app_plist_subtitle: subtitle in plist file (application name by default)
+* app_plist_icon_url: icon url written in plist file
+* app_plist_ipa_url: IPA file url written in plist file
+* ipa_itunesartwork_image: path to iTunesArtwork image included into IPA file (must be 512x512 JPG image) 
+
+
+** NOTE: BundleIdentifier and BundleURLScheme can contain only next symbols : "a"-"z", "A"-"Z", "0"-"9", "-", "." !
+
+Here is an example of the iPhone settings in build.yml for a finished application:
+
+	name: JS App
+	version: 1.0
+	iphone: 
+	  provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6 
+	  sdk: iphoneos4.2
+	  codesignidentity: "iPhone Developer: John Smith (MF99RW67WY)"
+	  entitlements: ""
+	  configuration: Release
+	  emulator: 4.2
+	  emulatortarget: ipad
+	  BundleIdentifier: com.johnsmithcompany.jsapp
+	  BundleURLScheme: jsapp
+
+## Creating Your Application Package
+
+Now you can create your .app file with this rake command:
+
+	:::term
+  	$ rake device:iphone:production
+
+The package named <b>your application name.app</b> will be placed to `<your application folder>/bin/target/iOS/[sdkname]/[configuration]/[your application name].app` if you are using RhoMobile from 2.2.4 version.
+
+Result package named <b>rhorunner.app</b> will be placed to `<sdk directory>/platform/iphone/build/[Debug/Release/Distribution]-[iphoneos/iphonesimulator]/rhorunner.app` if you are using RhoMobile before 2.2.4 version.
+
+## Installing Your Application Package to Your iOS Device
+Use <b>iTunes</b> for installing your application package (your_application_name.app) to the iOS device:
+ 
+* Open iTunes.
+* Under Library, select <b>Apps</b>.
+* Drag and drop your application package into the Apps screen.
+* Connect your device to iTunes.
+* Under Library, select your device.
+* Select the <b>Apps</b> tab in your iTunes device screen.
+* In the Sync Apps list, check your application.
+* Perform a sync. Your application is installed to your device.

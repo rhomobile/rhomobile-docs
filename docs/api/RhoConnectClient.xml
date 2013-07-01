@@ -229,12 +229,11 @@
 						<DESC>Source name to clear notification. Use '*' to clear notification for all models.</DESC>
 					</PARAM>
 				</PARAMS>
-            </METHOD>
+      </METHOD>
 
 
 			<METHOD name="setObjectNotification" hasCallback="mandatory" runInThread="none">
 				<DESC>The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.</DESC>
-
           <CALLBACK>
               <PARAMS>
                   <PARAM name="created" type="ARRAY">
@@ -263,14 +262,13 @@
 						<DESC>Object ID to get notifications.</DESC>
 					</PARAM>
 				</PARAMS>
-
-            </METHOD>
+      </METHOD>
 
 			<METHOD name="cleanObjectNotify">
 				<DESC>Removes callback for object notifications.</DESC>
             </METHOD>
 
-			<METHOD name="getLastSyncObjectCount">
+			<METHOD name="getLastSyncObjectCount" generateDoc="false">
 				<DESC>Returns number of synced objects for a given source.</DESC>
 				<PARAMS>
 					<PARAM name="sourceName" type="STRING">
@@ -278,7 +276,7 @@
 					</PARAM>
 				</PARAMS>
 				<RETURN type="INTEGER"/>
-            </METHOD>
+      </METHOD>
 
 			<METHOD name="setSourceProperty" generateDoc="false">
         <DESC>Sets property value for a given source.</DESC>
