@@ -387,26 +387,26 @@ md+='</div>'
   def self.getplatformindicators (platforms,msionly,rubyonly)
   	indicators = ""
   	if !rubyonly
-		indicators += '<img src="/public/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
+		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
 	end
-	indicators += '<img src="../img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
+	indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
 	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="../img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
+		indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
   	end
   	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="/public/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
+		indicators += '<img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
   	end
   	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="../img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
+		indicators += '<img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
   	end
   	if !platforms.downcase.index('wp8').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="../img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
+		indicators += '<img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
   	end
   	if (!platforms.downcase.index('win32').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="../img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
+		indicators += '<img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
   	end
   	if msionly
-		indicators += '<img src="../img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+		indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
 	end
 	
   	return indicators		
