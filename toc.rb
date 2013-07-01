@@ -14,7 +14,8 @@ end
 
 section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
   topic 'guide/api_js', 'RhoMobile Javascript Usage'
-  topic 'api/apiusage',      'API Summary'
+  topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
+  topic 'guide/apiusage',      '2.2 Migration Guide'
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/battery',      'Battery'

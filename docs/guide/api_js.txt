@@ -20,7 +20,7 @@ If you are using a RhoMobile application or the RhoElements Shared Runtime to ac
 ## Using your own objects
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them.
 
-In the followin example we want to save a reference to the front facing camera of the device so that we can manipulate the front facinf camera properties seperate from the rear-facing camera:
+In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties seperate from the rear-facing camera:
 	
 	:::javascript
 	var desiredCamera;
@@ -104,7 +104,7 @@ You can also use the `getAllProperties` method to get all properties of an objec
 **NOTE: Some API's like Barcode have many properties and there may be an undesirable performance hit for reading all properties available. Use this method sparingly.**
 
 ### Reading values Asynchronously
-There are a few ways you can read properties in non-blocking asynhronously way by specifying a callback:
+There are a few ways you can read properties in non-blocking asynchronously way by specifying a callback:
 
 The following code snippet uses a self-describing autonomous function that will execute when the callback is executed
 
@@ -131,7 +131,7 @@ The following code snippet uses a function name for the callback instead of an a
 	Barcode.getAllProperties(fnPropertyPerser(e));
 
 ## Handling callbacks
-Some methods will support a callback for returning information in an unblocking aysnchronous way. This will be indicated in the documentation by a parameter named `callback`
+Some methods will support a callback for returning information in an unblocking asnychronous way. This will be indicated in the documentation by a parameter named `callback`
 
 	:::javascript
 	Barcode.take(HASH propertyMap, HASH callback)

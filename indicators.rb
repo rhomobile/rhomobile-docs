@@ -368,7 +368,7 @@ The following table shows the compatibility for each Mobile API.
 	    md = md + mdrow
       	
       else
-	    mdrow = '<tr><td> <a href="' + api["file"] + '" rel="tooltip">' + api["api"] + '</a> </td>
+	    mdrow = '<tr><td> <a href="/v/2.2' + api["file"] + '" rel="tooltip">' + api["api"] + '</a> </td>
 	    <td class="' + langclass + '">' + ruby + js + html +'</td>
 	    <td style="text-align:center">' + android + '</td>
 	    <td style="text-align:center">' + wm + '</td>
