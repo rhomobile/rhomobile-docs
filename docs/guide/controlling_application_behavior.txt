@@ -1,6 +1,44 @@
 # Controlling application behavior
 
-## 
+## The Application API and setNotifyCallback
+
+The [Application API](../api/Application) contains some useful methods to interact with the system at different points in time. Of particular importance is [setApplicationNotify](../Application) http://edgedocs.rhomobile.com/api/#cMethodsetApplicationNotify), which allows you to receive a callback when certain important events happen during the life cycle of the application. These are events like the application being activated or deactivated, configuration conflicts or database migration requests.
+
+	:::ruby
+	# Set callback
+	Rho::Application.setApplicationNotify(:application_callback)
+
+	
+	def application_callback(params)
+		event = params["applicationEvent"]
+		event_data = params["eventData"]
+		
+		# process only the event(s) we are interested in...
+		case event
+			when "Activated"
+				# ...
+			when "Deactivated"
+				# ...
+			when "UICreated"
+				# ...
+			when "UIDestroyed"
+				# ...
+			when "SyncUserChanged"
+				# ...
+			when "ConfigConflict"
+				# ...
+			when "DBMigrateSource"
+				# ...
+		end
+		
+		# invoke the platform's default handler to make sure the rest of the system knows about the event
+		
+		Rho::Application.processApplicationEvent(event,event_data)
+	end
+
+You callback does not need to handle all possible events, you can process only those that are meaningful for your application. What is important is calling `processApplicationEvent` at some point, otherwise the platform's default handlers will not have a chance to run; the only exception is `SyncUserChanged`: you can respond to it by resetting the database to a clean state and not need to call `processApplicationEvent`
+
+## Runtime configuration
 
 Apart from your source code, there are other important files that control how your application behaves at runtime: `rhoconfig.txt` and `Config.xml`
 
@@ -21,6 +59,11 @@ All values will be accessible at runtime via `Rho::RhoConfig`
 	:::ruby
 	foo = Rho::RhoConfig.bar
 	start_path = Rho::RhoConfig.start_path
+	
+You can also check if a configurtion property actually exists before accessing it
+
+	:::ruby
+	start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
 	
 		
 The `rhoconfig.txt` file generated with a new application contains the following default values, as well as descriptions of each setting:
