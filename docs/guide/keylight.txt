@@ -1,0 +1,32 @@
+# Keylight
+
+## What is Keylight
+
+[Keylight](../rhoelements/Keylight) refers to the keyboard backlight functionality. You can turn On/Off the keyboard backlight as well as setting the intensity of the backlight.
+
+NOTE: this functionality only applies to devices with hardware keyboards
+
+## How to use Keylight
+
+In the below example, we turn on the backlight and set the intensity to 3.
+
+In Ruby, we can do this as follows:
+
+    :::ruby
+    Keylight.on
+    Keylight.intensity = 3
+    
+The equivalent Javascript example would be
+
+    :::html    
+    keylight.on();
+    keylight.intensity = 3;
+
+## Example scenarios for using Keylight
+
+* turn backlight On/Off in a cyclic manner as a form of Notification
+* reduce/increase backlight intensity based on time of day or ambient light conditions.
+
+## Related reading
+
+* The [Keylight API reference](../rhoelements/Keylight) has the details on the parameters applicable to each notification type.
