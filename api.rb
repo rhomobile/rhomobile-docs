@@ -193,7 +193,20 @@ md+='</div>'
 						# md+="</ul><ul>"
 						groupctr = 0
 					end
-			  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>" 
+				if element["access"].nil?
+						#use global PROPERTIES field
+						propsAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
+				else
+						propsAccess = element["access"]
+				end
+				if propsAccess.nil? || propsAccess == 'INSTANCE' || propsAccess == ''
+					accesstype = '<i class="icon-file pull-right"></i>'
+				else
+					accesstype = '<i class="icon-book pull-right"></i>'
+
+				end	
+				
+			  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "#{accesstype}</a></li>" 
 	  		end
 		}
 		# md += "</ul>"
@@ -227,8 +240,20 @@ md+='</div>'
 		  		if methdeprecated == "true"
 		  			methname = "<span class='text-error'>" + element["name"] + "</span>"
 				end
-				
-		  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+				methtype=''
+				if element["access"].nil?
+						#use global methods field
+						methodsAccess = doc["MODULE"][0]["METHODS"][0]["access"]
+				else
+						methodsAccess = element["access"]
+				end
+				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
+					methtype = '<i class="icon-file pull-right"></i>'
+				else
+					methtype = '<i class="icon-book pull-right"></i>'
+
+				end
+		  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>" 
 			end
 		}
   	end
@@ -575,6 +600,29 @@ md+='</div>'
 			@propdesc = "<span class='label label-important'>Deprecated</span> " + @propdesc
 
 	end
+	templateDefault = false
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+	  		templateDefault = true
+	  	end
+	if element["access"].nil?
+			#use global PROPERTIES field
+			masterAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
+	else
+			masterAccess = element["access"]
+	end
+	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
+		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <code>myObject.' + element["name"] + '</code></li>'
+		if templateDefault
+		accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li></ul></li>'
+
+		end 
+	else
+		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li></ul></li>'
+
+	end	
+	@propsectionaccess = "<div><p><strong>Property Access:</strong></p><ul>#{accesstype}</ul></div>"
+
+
   	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
@@ -599,7 +647,7 @@ md+='</div>'
   	 if generateAccessors
   		# md += "<p>" + propusage + "</p>"
   	 end
-    md += "#{@propsectionplatforms}  </div>"
+    md += "#{@propsectionplatforms} #{@propsectionaccess} </div>"
     md += '</div>'
     md += '</div>'
 	md += '</div>'
@@ -1095,6 +1143,29 @@ end
   	if !element["BACKWARDS_COMPATIBILITY"].nil?
   		@methdesc += "\n\nNOTE: #{element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0]}\n\n"
 	end		
+	
+	templateDefault = false
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+	  		templateDefault = true
+	  	end
+	if element["access"].nil?
+			#use global PROPERTIES field
+			masterAccess = doc["MODULE"][0]["METHODS"][0]["access"]
+	else
+			masterAccess = element["access"]
+	end
+	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
+		accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <code>myObject.' + element["name"] + '(...)</code></li>'
+		if templateDefault
+		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li></ul></li>'
+
+		end 
+	else
+		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li></ul></li>'
+
+	end	
+	@methsectionaccess = "<div><p><strong>Method Access:</strong></p><ul>#{accesstype}</ul></div>"
+
   	md += "<div class='accordion method' id='m"+ element["name"] + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
@@ -1112,6 +1183,7 @@ end
   	md += @methsectioncallbackparams
     md += @methsectionreturns
   	md += @methsectionplatforms
+  	md += @methsectionaccess
   	md += '  </div>'
     md += '</div>'
     md += '</div>'
