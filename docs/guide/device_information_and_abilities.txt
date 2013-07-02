@@ -1,10 +1,10 @@
 # Device information and abilities
 
-When creating applications that need to run on varied range of device hardware and software versions, you might want to enable or disable features based on the presence or absence of certain abilities. You can do that by making use of the API to query for device information and various capabilities
+When creating applications that need to run on a varied range of device hardware and software versions, you might want to enable or disable features based on the presence of certain abilities in the device. You can do that by making use of the API to query for device information and various capabilities
 
 ## Platform and version
 
-Your Rho application can run without modifications on multiple platforms, but you may still want to add some platform specific enhancements or have to interact with the OS directly for certain functionality. In these circumstances, you can query the platform that the device is running and accordingly take actions.
+Your RhoMobile application can run without modifications on multiple platforms, but you may still want to add some platform specific enhancements or have to interact with the OS directly for certain functionality. In these circumstances, you can query the platform that the device is running on and take action accordingly.
 
 Ruby syntax:
     :::ruby
@@ -58,7 +58,7 @@ JavaScript syntax:
     var real_screen_width = Rho.System.get_property("real_screen_width");
     var real_screen_height = Rho.System.get_property("real_screen_height");
 
-It is also possible to calculate the physical size of the screen by querying for the PPI (Pixels Per Inch)
+It is also possible to calculate the physical size of the screen by querying for the PPI (Pixels Per Inch) value.
     
 Ruby syntax:
     :::ruby
@@ -183,7 +183,7 @@ The device might provide set of sensors from the types listed below:
 * rotation
 * orientation
 
-To check if a particular sensor is supported by the device try creating an instance of the sensor using the Sensor API, if the sensor exists in the device, return value will not be `nil`.
+To check if a particular sensor is supported by the device try creating an instance of the sensor using the [Sensor API](../api/sensor), if the sensor exists in the device, the return value will not be `nil`.
 
 For example:
 
@@ -199,7 +199,7 @@ Ruby syntax:
 
 ### Barcode
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodes/device-caps#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
 
 You can use the camera or dedicated barcode scanner in the device to scan barcodes.
 
@@ -229,7 +229,7 @@ JavaScript syntax:
 
 You can use the CardReader in the device to read data from magnetic strip cards (Currently this is available only on Motorola Solutions devices).
 
-Then you can use the CardReader API `enumerate` method to get a list of all the available card readers.
+Then you can use the [CardReader API](../api/cardreader) `enumerate` method to get a list of all the available card readers.
 
 Ruby syntax:
     :::ruby
@@ -259,9 +259,11 @@ JavaScript syntax:
     :::javascript
     Rho.BluetoothManager.is_bluetooth_available()
 
+**NOTE: on iOS, Bluetooth connectivity is only allowed with another device also running iOS or an accessory that has been officially approved by Apple**
+
 ### Motorola Device
 
-You can check if the device running the application is a Motorola device which has additional device capabilities such as Scanner, etc.
+You can check if the device running the application is a Motorola device which has additional device capabilities such as hardware barcode scanner, magnetic stripe reader, etc.
 
 Ruby syntax:
     :::ruby
