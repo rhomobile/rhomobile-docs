@@ -24,6 +24,7 @@
 
     <PROPERTY name="bulksyncState" type="INTEGER" default="1">
       <DESC>Set 0 to force bulk sync on next synchronization cycle.  After sync is complete, bulksyncState will be set to 1.</DESC>
+      <APPLIES rubyOnly="true">Not currently supported in JavaScript.</APPLIES>
     </PROPERTY>
 
 		<PROPERTY name="pageSize" type="INTEGER">
@@ -83,9 +84,10 @@
 
 			<METHOD name="search" hasCallback="optional" runInThread="none">
 				<DESC>If you have a large dataset in your backend service, you don't have to synchronize everything with the RhoConnectClient. Instead you can filter the synchronized dataset using the RhoConnectClient's search function. Provide callback, which will be executed after search is completed.</DESC>
+        <APPLIES rubyOnly="true">Not currently supported in JavaScript.</APPLIES>
 				<PARAMS>
 					<PARAM name="args" type="HASH" propertyHash="true">
-						<DESC>Hash of arguments passed to search</DESC>
+						<DESC>Hash of arguments passed to search.</DESC>
 						<PARAMS>
 							<PARAM name="sourceNames" type="ARRAY">
 								<DESC>Array of source names to be included in search result.</DESC>
@@ -115,7 +117,7 @@
 							</PARAM>
 
 							<PARAM name="syncChanges" type="BOOLEAN">
-								<DESC>If true and have local changes, client sync will be triggered before search.</DESC>
+								<DESC>If true and there are local changes, client sync will be triggered before search.</DESC>
 								<CAN_BE_NIL/>
 							</PARAM>
 
@@ -409,10 +411,10 @@ function loginCallback(result) {
                 </SECTIONS>
             </EXAMPLE>
             <EXAMPLE title="Notifications">
-                <DESC>In this example, once the sync process for the Account model is complete, the view will be directed to the sync_notify action (with params 'sync_complete=true') if user is on the same page.</DESC>
+                <DESC>In this example, once the sync process for the Account model is complete, a callback will be invoked (we define as `sync_notify here) with the status and errors (if any).</DESC>
                 <SECTIONS>
                     <SECTION>
-                        <DESC>To set a notification for a model, you can use the following method:</DESC>
+                        <DESC>First, assign a sync notification for the Account model:</DESC>
                         <CODE>
                           <RUBY>
 <![CDATA[
@@ -538,7 +540,31 @@ Rho.RhoConnectClient.addObjectNotify('Product', product.id);
                     </SECTION>
                 </SECTIONS>
             </EXAMPLE>
-            <EXAMPLE title="Using search">
+            <EXAMPLE title="Handling Callback Parameters">
+                <DESC>
+                  Sync callbacks are invoked with a hash parameter containing the status and relevant errors (if any) applicable for the current sync process.
+                </DESC>
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>
+                          First, assign the notification callback:
+                        </DESC>
+                        <CODE>
+                          <RUBY>
+<![CDATA[
+Foo = bar
+]]>
+                          </RUBY>
+                          <JAVASCRIPT>
+<![CDATA[
+Foo = bar
+]]>
+                          </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+            <EXAMPLE title="Using search (Ruby Only)">
                 <DESC></DESC>
                 <SECTIONS>
                     <SECTION>
@@ -567,26 +593,6 @@ def search
 end
 ]]>
                           </RUBY>
-                          <JAVASCRIPT>
-<![CDATA[
-var page = params.page || params.pageSize,
-    pageSize = 10;
-Rho.RhoConnectClient.search(
-  {
-    'Contact',
-    'from': 'search',
-    'search_params': {
-      'FirstName': params.FirstName,
-      'LastName': params.LastName,
-      'Company': params.Company
-    },
-    'offset': page,
-    'max_results': pageSize
-  },
-  searchCallback
-);
-]]>
-                          </JAVASCRIPT>
                         </CODE>
                     </SECTION>
                     <SECTION>
@@ -637,16 +643,6 @@ def show_page
 end
 ]]>
                           </RUBY>
-                          <JAVASCRIPT>
-<![CDATA[
-function searchCallback(params) {
-  if(params.status && params.status === "ok") {
-    // TODO: Fill in JS Sample
-    // reload relevant sections of the page
-  }
-}
-]]>
-                          </JAVASCRIPT>
                         </CODE>
                     </SECTION>
                 </SECTIONS>
