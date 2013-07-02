@@ -219,7 +219,7 @@ Then you can use the Barcode API `enumerate` method to get a list of barcode sca
 
 Ruby syntax:
     :::ruby
-    Barcode.enumerate(url_for(:action => :enumerate_callback))
+    Rho::Barcode.enumerate(url_for(:action => :enumerate_callback))
 
 JavaScript syntax:
     :::javascript
@@ -233,7 +233,7 @@ Then you can use the CardReader API `enumerate` method to get a list of all the 
 
 Ruby syntax:
     :::ruby
-    CardReader.enumerate(url_for(:action => :enumerate_callback))
+    Rho::CardReader.enumerate(url_for(:action => :enumerate_callback))
 
 JavaScript syntax:
     :::javascript
