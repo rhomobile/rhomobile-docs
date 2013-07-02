@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 
 <API>
-    <MODULE name="Signal" parent="Rho">
+    <MODULE name="Signal" parent="Rho" license="Required">
         <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  Windows Mobile / CE devices also support displaying a small indicator to show the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
         <MORE_HELP>.</MORE_HELP>
 		<!--  DEVELOPER NOTE: On WM/CE RE1 only ever implemented a periodic notification for WLAN signal strength, no API was available to retrieve it on change.  For Android / iOS you may wish to consider only updating the signal strength on change, in which case take a look at the Battery API which offers periodic and onChange notifications... it is recommended to use onChange notifications to save battery -->

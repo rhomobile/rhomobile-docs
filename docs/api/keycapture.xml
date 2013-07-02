@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 
 <API>
-    <MODULE name="KeyCapture" parent="Rho">
+    <MODULE name="KeyCapture" parent="Rho" license="Required">
         <HELP_OVERVIEW>The KeyCapture module is used to intercept or override hardware keys</HELP_OVERVIEW>
         <MORE_HELP>.</MORE_HELP>
     

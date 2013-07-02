@@ -1338,9 +1338,6 @@ end
 		    md += methlinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
-			md += '<div class="btn-group pull-right">'
-		    md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
-		  	md += '</div>'
 	  	end
 	  	if remarklinks["count"]>0
 		  	md += '<div class="btn-group">'
@@ -1366,6 +1363,15 @@ end
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
+	  	if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
+			md += '<div class="btn-group">'
+		    md += '<a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a>'
+		  	md += '</div>'
+	  	end
+			md += '<div class="btn-group pull-right">'
+		    md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
+		  	md += '</div>'
+
 	  	md += '<div  >'
 
 	  	md += "\n" + getApiDesc(doc) + "\n" 
@@ -1394,6 +1400,15 @@ end
 		  	
 		    md += "</div>"
 		end
+	  	if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
+			md += "\n<a name='License'></a>\n" + "<h2><i class='icon-shopping-cart'></i>Licensing</h2>" + "\n\n" 
+			
+		  	md += '<div class="accordion" id="accordion">'
+		    
+		  	md += "You can fully use all features of this API during evaluation, development or testing without obtaining a license. A message will be displayed on application startup and will also display a nag screen periodically. Before deploying an application to a production environment, you must obtain a license key. <a href='/guide/licensing'>Read more about licensing</a>."
+		    md += "</div>"
+	  	end
+
 	  	# puts md
 	  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
 	else
