@@ -409,12 +409,15 @@ md+='</div>'
 	return md
   end
 
-  def self.getplatformindicators (platforms,msionly,rubyonly)
+  def self.getplatformindicators (platforms,msionly,ruby,javascript)
   	indicators = ""
-  	if !rubyonly
+  	if javascript
 		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
 	end
+	if ruby
+	
 	indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
+	end 
 	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
 		indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
   	end
@@ -472,7 +475,9 @@ md+='</div>'
 				
 			end
 			msionly = false
-			rubyonly = false	
+			ruby = true
+			javascript = true
+		
 			if !element["APPLIES"].nil? 
 
 				appliescontent = ""
@@ -484,7 +489,12 @@ md+='</div>'
 				end
 				if !element["APPLIES"][0]["rubyOnly"].nil?
 					if element["APPLIES"][0]["rubyOnly"] == "true"
-						rubyonly = true
+						javascript = false
+					end
+				end
+				if !element["APPLIES"][0]["jsOnly"].nil?
+					if element["APPLIES"][0]["jsOnly"] == "true"
+						ruby = false
 					end
 				end
 				if !element["APPLIES"][0]["content"].nil?
@@ -500,7 +510,7 @@ md+='</div>'
 			if !element["PLATFORM"].nil?
 				@propplatforms = element["PLATFORM"][0]
 			end
-			@propplatforms = getplatformindicators(@propplatforms,msionly,rubyonly)
+			@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript)
 			@propsectionplatforms = "<div>"
 			@propsectionplatforms += "<p>#{@propplatforms} #{propnote}</p></div>"
 			
@@ -613,11 +623,25 @@ md+='</div>'
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
 		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <code>myObject.' + element["name"] + '</code></li>'
 		if templateDefault
-		accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li></ul></li>'
+			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
+			if javascript 
+				accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li>'
+			end
+			if ruby
+				accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li>'
+			end
+			accesstype += '</ul></li>'
 
 		end 
 	else
-		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li></ul></li>'
+		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul>'
+		if javascript
+			accesstype +='<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li>'
+		end
+		if ruby
+			accesstype +='<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li>'
+		end
+		accesstype +='</ul></li>'
 
 	end	
 	@propsectionaccess = "<div><p><strong>Property Access:</strong></p><ul>#{accesstype}</ul></div>"
@@ -904,7 +928,8 @@ end
 			@methplatforms = element["PLATFORM"][0]
 		end
 		msionly = false
-		rubyonly = false
+		ruby = true
+		javascript = true
 		methnote = ""		
 		if !element["APPLIES"].nil? 
 
@@ -917,7 +942,12 @@ end
 				end
 				if !element["APPLIES"][0]["rubyOnly"].nil?
 					if element["APPLIES"][0]["rubyOnly"] == "true"
-						rubyonly = true
+						javascript = false
+					end
+				end
+				if !element["APPLIES"][0]["jsOnly"].nil?
+					if element["APPLIES"][0]["jsOnly"] == "true"
+						ruby = false
 					end
 				end
 				if !element["APPLIES"][0]["content"].nil?
@@ -935,7 +965,7 @@ end
 		end
 
 
-		@methplatforms = getplatformindicators(@methplatforms,msionly,rubyonly)
+		@methplatforms = getplatformindicators(@methplatforms,msionly,ruby,javascript)
 			
 		@methsectionplatforms = "<div>"
 		@methsectionplatforms += "<p>#{@methplatforms}#{methnote}</p></div>"
@@ -1157,11 +1187,25 @@ end
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
 		accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <code>myObject.' + element["name"] + '(...)</code></li>'
 		if templateDefault
-		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li></ul></li>'
+		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
+		if javascript 
+			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li>'
+		end
+		if ruby 
+			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li>'
+		end
+		accesstype += '</ul></li>'
 
 		end 
 	else
-		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li><li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li></ul></li>'
+		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
+		if javascript 
+			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li>'
+		end
+		if ruby 
+			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li>'
+		end
+		accesstype += '</ul></li>'
 
 	end	
 	@methsectionaccess = "<div><p><strong>Method Access:</strong></p><ul>#{accesstype}</ul></div>"
