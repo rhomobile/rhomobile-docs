@@ -152,6 +152,7 @@ md+='</div>'
 
   def self.getpropertieslinks(doc)
   	md = ""
+  	mdgroups = {}
   	ctr =0
   	groupctr = 0
   	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
@@ -200,22 +201,40 @@ md+='</div>'
 						propsAccess = element["access"]
 				end
 				if propsAccess.nil? || propsAccess == 'INSTANCE' || propsAccess == ''
+					menuGroupName = "Instance Properties"
 					accesstype = '<i class="icon-file pull-right"></i>'
+
 				else
 					accesstype = '<i class="icon-book pull-right"></i>'
-
+					menuGroupName = "Class Properties"
 				end	
 				
-			  		md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "#{accesstype}</a></li>" 
+			  	md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "#{accesstype}</a></li>" 
+			  	if mdgroups[menuGroupName].nil?
+			  		mdgroups[menuGroupName] = '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>"
+			  	else
+			  		mdgroups[menuGroupName] += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>"
+			  	end 
 	  		end
 		}
 		# md += "</ul>"
   	end
-  	return { "md" => md, "count" => ctr}
+
+  	submenus = ""
+  	divider = ""
+  	mdgroups.sort_by { |key, value| key }.each { |k,v| 
+  		submenus += divider
+  		submenus += '<li class="disabled"><a tabindex="-1" href="#">' + k + '</a>' + v + '</li>'
+  		divider = '<li class="divider"></li>'
+  		 }
+  	
+  	return { "md" => submenus, "count" => ctr}
   end
 
   def self.getmethodslinks(doc)
   	md = ""
+  	mdgroups = {}
+  	
   	ctr = 0 
   	if !doc["MODULE"][0]["METHODS"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
@@ -249,15 +268,31 @@ md+='</div>'
 				end
 				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
 					methtype = '<i class="icon-file pull-right"></i>'
+					menuGroupName = "Instance Methods"
+					
 				else
 					methtype = '<i class="icon-book pull-right"></i>'
+					menuGroupName = "Class Methods"
 
 				end
 		  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>" 
+				if mdgroups[menuGroupName].nil?
+			  		mdgroups[menuGroupName] = '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+			  	else
+			  		mdgroups[menuGroupName] += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+			  	end
 			end
 		}
   	end
-  	return { "md" => md, "count" => ctr}
+  	submenus = ""
+  	divider = ""
+
+  	mdgroups.sort_by { |key, value| key }.each { |k,v| 
+  		submenus += divider
+  		submenus += '<li class="disabled"><a tabindex="-1" href="#">' + k + '</a>' + v + '</li>'
+  		divider = '<li class="divider"></li>'
+  		 }
+  	return { "md" => submenus, "count" => ctr}
   end
 
   def self.getexamples(doc)
