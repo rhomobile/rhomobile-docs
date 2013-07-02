@@ -1,4 +1,4 @@
-﻿# Notification
+# Notification
 
 ## What is Notification
 
