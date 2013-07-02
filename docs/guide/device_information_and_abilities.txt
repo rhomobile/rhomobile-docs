@@ -1,4 +1,4 @@
-﻿# Device information and abilities
+# Device information and abilities
 
 When creating applications that need to run on varied range of device hardware and software versions, you might want to enable or disable features based on the presence or absence of certain abilities. You can do that by making use of the API to query for device information and various capabilities
 
