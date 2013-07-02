@@ -1,17 +1,19 @@
-# Notification
+# Device Hardware Key Handling
 
-## What is Notification
+## Notification
+
+### What is Notification
 
 [Notification](../rhoelements/notification)  is the means of informing the user that some event has occurred that requires their attention. For example, it could be the arrival of a Email/SMS or a alarm clock going off. A notification could be in form of a sound played over the device speaker or using a hardware capability of the device or a combination of these.
 
-## The three types of Notification
+### The three types of Notification
 
 * LED - a LED on the device can be made to cycle "On" and "Off" a specified number of times
 * Beeper - the device can be made to sound at a specified frequency, volume and duration
 * Pager (Vibrator) - the device can be made to vibrate for a specified duration
 
 
-## Check which Notification types are available
+### Check which Notification types are available
 
 The `Notification` supported will vary from device to device. A device may or may not have a beeper or pager and it might have one or more LEDs.
 
@@ -81,7 +83,7 @@ The equivalent Javascript example would be:
     </BODY>
     </HTML>
 
-## How to activate a Notification
+### How to activate a Notification
 
 Once we have the index of the `Notification` types, we can activate the required type(s) by specifying the required parameters and then setting the state for the index. 
 
@@ -156,22 +158,55 @@ The equivalent Javascript example would be:
         }
     }
 
-## Example scenarios for using Notification
+### Example scenarios for using Notification
 
-### In a email/messaging/newsfeed/twitter or similar type of application
+#### In a email/messaging/newsfeed/twitter or similar type of application
 
 * Use the `Beeper` and/or `Pager` ONCE for notifying the user immediately on the arrival of a new message.
 * Use a flashing `LED` to serve as a reminder to the user about the message after the initial `Beeper`/`Pager` notification till the user views/acknowledges the message.
 
-### Alarm clock or countdown timer
+#### Alarm clock or countdown timer
 
 * Use a long `Beeper` and/or `Pager` till user stops/cancels the alarm/timer.
 
-## Best practices
+### Best practices
 
 * The `Beeper` and `Pager` notifications can be annoying to the user and others around them if used frequently or for prolonged durations, so use dont overuse them.
 * `LED` notification can be made to blink for a reasonably long time (like 1 hour after the event) unless it is cancelled by the user
 
-## Related reading
+### Related reading
 
 * The [Notification API reference](../rhoelements/notification) has all the details on the parameters applicable to each notification type.
+
+## Keylight
+
+### What is Keylight
+
+[Keylight](../rhoelements/Keylight) refers to the keyboard backlight functionality. You can turn On/Off the keyboard backlight as well as setting the intensity of the backlight.
+
+NOTE: this functionality only applies to devices with hardware keyboards
+
+### How to use Keylight
+
+In the below example, we turn on the backlight and set the intensity to 3.
+
+In Ruby, we can do this as follows:
+
+    :::ruby
+    Keylight.on
+    Keylight.intensity = 3
+    
+The equivalent Javascript example would be
+
+    :::html    
+    keylight.on();
+    keylight.intensity = 3;
+
+### Example scenarios for using Keylight
+
+* turn backlight On/Off in a cyclic manner as a form of Notification
+* reduce/increase backlight intensity based on time of day or ambient light conditions.
+
+### Related reading
+
+* The [Keylight API reference](../rhoelements/Keylight) has the details on the parameters applicable to each notification type.
