@@ -1,0 +1,279 @@
+# Device information and abilities
+
+When creating applications that need to run on varied range of device hardware and software versions, you might want to enable or disable features based on the presence or absence of certain abilities. You can do that by making use of the API to query for device information and various capabilities
+
+## Platform and version
+
+Your Rho application can run without modifications on multiple platforms, but you may still want to add some platform specific enhancements or have to interact with the OS directly for certain functionality. In these circumstances, you can query the platform that the device is running and accordingly take actions.
+
+Ruby syntax:
+    :::ruby
+    platform = Rho::System.get_property('platform')
+
+JavaScript syntax:
+    :::javascript
+    var platform = Rho.System.get_property("platform");
+
+The platform can be one of the following string values:
+
+* APPLE
+* Blackberry
+* WINDOWS
+* ANDROID
+* WINDOWS_DESKTOP
+* SYMBIAN
+
+In addition to getting the platform, it is also possible to query for the OS version. For example, you can get back version strings like ‘4.6.0.192’ (BB), ‘3.0’ (iPhone), ‘1.6’ (Android)
+
+Ruby syntax:
+    :::ruby
+    os_version = Rho::System.get_property('os_version')
+
+JavaScript syntax:
+    :::javascript
+    var os_version = Rho.System.get_property("os_version");
+
+## Screen information
+
+### Screen dimensions
+
+The size of the device screen is typically used to customize the application UI for better user experience instead of a fixed one-size-fits-all approach.
+
+There are two sets of sizes for a device screen:
+
+* logical pixels size - used for set coordinates
+* real pixels size - actual number of pixels in the screen
+
+Ruby syntax:
+    :::ruby
+    screen_width = Rho::System.get_property('screen_width')
+    screen_height = Rho::System.get_property('screen_height')
+    real_screen_width = Rho::System.get_property('real_screen_width')
+    real_screen_height = Rho::System.get_property('real_screen_height')
+    
+JavaScript syntax:
+    :::javascript
+    var screen_width = Rho.System.get_property("screen_width");
+    var screen_height = Rho.System.get_property("screen_height");
+    var real_screen_width = Rho.System.get_property("real_screen_width");
+    var real_screen_height = Rho.System.get_property("real_screen_height");
+
+It is also possible to calculate the physical size of the screen by querying for the PPI (Pixels Per Inch)
+    
+Ruby syntax:
+    :::ruby
+    real_screen_width = Rho::System.get_property('real_screen_width')
+    real_screen_height = Rho::System.get_property('real_screen_height')
+    physical_screen_width = real_screen_width / Rho::System.get_property('ppi_y')
+    physical_screen_height = real_screen_height / Rho::System.get_property('ppi_x')
+
+JavaScript syntax:
+    :::javascript
+    var real_screen_width = Rho.System.get_property("real_screen_width");
+    var real_screen_height = Rho.System.get_property("real_screen_height");
+    var physical_screen_width = real_screen_width / Rho.System.get_property("ppi_y");
+    var physical_screen_height = real_screen_height / Rho.System.get_property("ppi_x");
+
+### Screen orientation
+
+The orientation of the device screen can be used to change the UI layout.
+
+The platform can be one of the following strings:
+
+* portrait
+* landscape
+
+Ruby syntax:
+    :::ruby
+    screen_orientation = Rho::System.get_property('screen_orientation')
+
+JavaScript syntax:
+    :::javascript
+    var screen_orientation = Rho.System.get_property("screen_orientation");
+
+## Device Identification
+
+There are certain properties of the device that your application can use to uniquely identify the device even across reinstalls.
+
+* phone_id – returns hardware based id. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
+* phone_number – device phone number
+* device_owner_email – primary email of phone owner (works only on Android)
+* device_owner_name – name(account name) of phone owner (works only on Android)
+
+Ruby syntax:
+    :::ruby
+    phone_id = Rho::System.get_property('phone_id')
+    phone_number = Rho::System.get_property('phone_number')
+    device_owner_email = Rho::System.get_property('device_owner_email')
+    device_owner_name = Rho::System.get_property('device_owner_name')
+
+JavaScript syntax:
+    :::javascript
+    var phone_id = Rho.System.get_property("phone_id");
+    var phone_number = Rho.System.get_property("phone_number");
+    var device_owner_email = Rho.System.get_property("device_owner_email");
+    var phone_id = Rho.System.get_property("device_owner_name");
+
+## Detecting the presence of hardware features
+
+### Camera
+
+First you need to enable the camera capability. Do this by adding that capability to the build.yml file:
+
+    :::yaml
+    capabilities:
+        - camera
+
+Then you can check if the device has a camera:
+
+Ruby syntax:
+    :::ruby
+    has_camera = Rho::System.get_property('has_camera')
+    if has_camera
+        # do something with camera
+    end
+
+JavaScript syntax:
+    :::javascript
+    var has_camera = Rho.System.get_property('has_camera');
+    if (has_camera)
+        // do something with camera
+    end
+
+### Cell network / Wifi
+
+The device running your application may be offline or connected to a cellular network and/or a Wifi Network. You can query the network status by using the System API
+
+Ruby syntax:
+    :::ruby
+    has_network = Rho::System.get_property('has_network')
+    if has_network
+        has_cell_network = Rho::System.get_property('has_cell_network')
+        has_wifi_network  = Rho::System.get_property('has_wifi_network')
+    end
+
+JavaScript syntax:
+    :::javascript
+    var has_network = Rho.System.get_property('has_network');
+    if (has_network)
+    {
+        var has_cell_network = Rho.System.get_property('has_cell_network');
+        var has_wifi_network = Rho.System.get_property('has_wifi_network');
+    }
+
+### Sensors
+
+The device might provide set of sensors from the types listed below:
+    
+* accelerometer
+* tilt angle
+* device orientation
+* motion
+* eCompass
+* mangetometer
+* gyroscope
+* ambient light
+* proximity
+* proximity long range
+* pressure
+* temperature
+* humidity
+* gravity
+* linear acceleration
+* rotation
+* orientation
+
+To check if a particular sensor is supported by the device try creating an instance of the sensor using the Sensor API, if the sensor exists in the device, return value will not be `nil`.
+
+For example:
+
+Ruby syntax:
+    :::ruby
+    
+    sensor = Rho.Sensor.makeSensorByType(Rho::Sensor::SENSOR_TYPE_ACCELEROMETER)
+    if sensor != nil
+       # do something with the sensor
+       
+       sensor.stop
+    end       
+
+### Barcode
+
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodes/device-caps#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+
+You can use the camera or dedicated barcode scanner in the device to scan barcodes.
+
+To use Barcode, first you need to enable the camera capability. Do this by adding that capability to the build.yml file:
+
+    :::yaml
+    capabilities:
+        - camera
+
+Next, on iPhone, Android, Windows Mobile, and Blackberry (`iphone`, `android`, `wm`, `bb`), you need to add the barcode extension, for example:
+
+    :::yaml
+    :iphone
+        extensions: ["barcode"]
+
+Then you can use the Barcode API `enumerate` method to get a list of barcode scanners on the device
+
+Ruby syntax:
+    :::ruby
+    Barcode.enumerate(url_for(:action => :enumerate_callback))
+
+JavaScript syntax:
+    :::javascript
+    Rho.Barcode.enumerate(enumerate_callback)
+
+### CardReader
+
+You can use the CardReader in the device to read data from magnetic strip cards (Currently this is available only on Motorola Solutions devices).
+
+Then you can use the CardReader API `enumerate` method to get a list of all the available card readers.
+
+Ruby syntax:
+    :::ruby
+    CardReader.enumerate(url_for(:action => :enumerate_callback))
+
+JavaScript syntax:
+    :::javascript
+    Rho.CardReader.enumerate(enumerate_callback)
+
+### Bluetooth
+
+Bluetooth allows you to create short-range wireless connections between the device your application is running on and another bluetooth enabled device like phone, tablet, PC, or external Bluetooth device (for example external Bluetooth GPS device).
+
+To detect Bluetooth capability, first you need to enable the bluetooth capability. Do this by adding that capability to the build.yml file:
+
+    :::yaml
+    capabilities:
+        - bluetooth
+
+Then you can use the Bluetooth API `is_bluetooth_available` method to check if Bluetooth is available on the device
+
+Ruby syntax:
+    :::ruby
+    Rho::BluetoothManager.is_bluetooth_available
+
+JavaScript syntax:
+    :::javascript
+    Rho.BluetoothManager.is_bluetooth_available()
+
+### Motorola Device
+
+You can check if the device running the application is a Motorola device which has additional device capabilities such as Scanner, etc.
+
+Ruby syntax:
+    :::ruby
+    is_motorola_device = Rho::System.get_property('is_motorola_device')
+    if is_motorola_device
+        # do something with Motorola device specific capabilities
+    end
+
+JavaScript syntax:
+    :::javascript
+    var is_motorola_device = Rho.System.get_property('is_motorola_device');
+    if (is_motorola_device)
+        // do something with Motorola device specific capabilities
+    end
+                
