@@ -22,7 +22,6 @@ section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
   topic 'api/camera',      'Camera'
   topic 'api/cardreader',      'CardReader'
   topic 'api/Database',      'Database '
-  topic 'api/File',      'File '
   topic 'api/keycapture',      'KeyCapture '
   topic 'api/keystate',      'KeyState '
   topic 'api/Log',      'Log'
@@ -32,14 +31,14 @@ section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
   topic 'api/NativeToolbar',      'NativeToolbar '
   topic 'api/Navbar',      'Navbar '
   topic 'api/Network',      'Network'
+  topic 'api/Notification',      'Notification'
   topic 'api/Orm',      'Orm'
   topic 'api/OrmModel',      'OrmModel'
-  topic 'api/process',      'Process'
   topic 'api/push',      'Push'
   topic 'api/RhoConnectClient',      'RhoConnectClient'
+  topic 'api/File',      'RhoFile '
   topic 'api/screenorientation',      'ScreenOrientation'
   topic 'api/sensor',      'Sensor'
-  topic 'api/sensors',      'Sensors'
   topic 'api/signal',      'Signal'
   topic 'api/signature',      'Signature'
   topic 'api/videocapture',      'VideoCapture'
@@ -70,6 +69,7 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/visualstudio#launch-and-run',             'Build for Windows Phone 8'
   topic 'guide/build_win',             'Build for Windows'
   topic 'guide/app_icon_splash',        'Application Icon & Splash Screen'
+  topic 'guide/app_upgrade',        'Upgrading Your Application'
 end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do

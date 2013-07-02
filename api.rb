@@ -1264,18 +1264,20 @@ end
 				end
 		  	 md += "" + docproperties + ""
 	  	end 
-	  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
-		
-	  	md += '<div class="accordion" id="accordion">'
-	    
-	  	md += "" + getmethods(doc) + ""
-	    md += "</div>"
-	    if docremarks !=""
-		  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
-		  	 md += "" + docremarks + ""
-	  	end 
-	  	
-	    md += "</div>"
+	  	if methlinks["count"]>0
+		  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
+			
+		  	md += '<div class="accordion" id="accordion">'
+		    
+		  	md += "" + getmethods(doc) + ""
+		    md += "</div>"
+		    if docremarks !=""
+			  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
+			  	 md += "" + docremarks + ""
+		  	end 
+		  	
+		    md += "</div>"
+		end
 	  	# puts md
 	  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
 	else
