@@ -31,7 +31,7 @@
 				<PLATFORM>iOS, WM, Android</PLATFORM>
 				<PARAMS>
 					<PARAM name="dispatch" type="BOOLEAN">
-						<DESC>todo</DESC>
+						<DESC>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box.</DESC>
 					</PARAM>
 					<PARAM name="keyValue" type="STRING">
 						<DESC>todo - (string.  Accept keys specified in hex or ALL).  Has to be a string for backwards compatibility.  Must be the numeric representation of that key, for hardware reasons. - use all keys to determine which key it is.</DESC>
@@ -40,7 +40,7 @@
 				<CALLBACK  type="HASH">
 					<PARAMS>
 						<PARAM name="keyValue" type="INTEGER">
-							<DESC>todo</DESC>
+							<DESC>The internal representation of the key expressed in decimal, e.g. 13 is the return key</DESC>
 							<PLATFORM>WM, Android</PLATFORM>
 						</PARAM>
 					</PARAMS>

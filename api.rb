@@ -224,7 +224,7 @@ md+='</div>'
   	divider = ""
   	mdgroups.sort_by { |key, value| key }.each { |k,v| 
   		submenus += divider
-  		submenus += '<li class="disabled"><a tabindex="-1" href="#">' + k + '</a>' + v + '</li>'
+  		submenus += '<li class="disabled"><a tabindex="-1" href="#"><b><i>' + k + '</i></b></a>' + v + '</li>'
   		divider = '<li class="divider"></li>'
   		 }
   	
@@ -289,7 +289,7 @@ md+='</div>'
 
   	mdgroups.sort_by { |key, value| key }.each { |k,v| 
   		submenus += divider
-  		submenus += '<li class="disabled"><a tabindex="-1" href="#">' + k + '</a>' + v + '</li>'
+  		submenus += '<li class="disabled"><a tabindex="-1" href="#"><b><i>' + k + '</i></b></a>' + v + '</li>'
   		divider = '<li class="divider"></li>'
   		 }
   	return { "md" => submenus, "count" => ctr}
