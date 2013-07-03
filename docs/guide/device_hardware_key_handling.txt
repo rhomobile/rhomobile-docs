@@ -4,179 +4,163 @@
 
 ### What is Notification
 
-[Notification](../rhoelements/notification)  is the means of informing the user that some event has occurred that requires their attention. For example, it could be the arrival of a Email/SMS or a alarm clock going off. A notification could be in form of a sound played over the device speaker or using a hardware capability of the device or a combination of these.
+[Notification](../api/Notification) is the means of informing the user that some event has occurred that requires their attention. For example, it could be the arrival of a Email/SMS or a alarm clock going off. A notification could be in form of a popup, a sound played over the device speaker or using a hardware capability of the device or a combination of these.
 
-### The three types of Notification
+### The types of Notification
 
-* LED - a LED on the device can be made to cycle "On" and "Off" a specified number of times
-* Beeper - the device can be made to sound at a specified frequency, volume and duration
-* Pager (Vibrator) - the device can be made to vibrate for a specified duration
+#### Audio file
 
+You can playback a MP3 or WAV audio file if the device supports it.
 
-### Check which Notification types are available
-
-The `Notification` supported will vary from device to device. A device may or may not have a beeper or pager and it might have one or more LEDs.
-
-The first step in using `Notification` is to query the device to discover which types are available. We have to call the `enumerate` method of `Notification` and the results are returned via `EnumNotificationsEvent`
-
-In the below example, we enumerate and store the index of the 3 `Notification` types for later use.
-
-In Ruby, we can do this as follows:
-
+Ruby syntax:
     :::ruby
-    require 'rho/rhocontroller'
-
-    class DemoController < Rho::RhoController
-        def initialize()
-            @led_index = -1
-            @beeper_index = -1
-            @pager_index = -1
-        
-            Notification.enumNotificationsEvent = url_for(:action => :enumNotificationsEventListener)
-            Notification.enumerate
-        end
-
-        def enumNotificationsEventListener
-            notifications_array = @params['notificationsArray']
-            notifications_array.each do |device|
-                type = device['notificationType']
-                if type == 0
-                    @led_index = device['notificationIndex']
-                elsif type == 1
-                    @beeper_index = device['notificationIndex']
-                elsif type == 2
-                    @pager_index = device['notificationIndex']
-                end
-            end
-        end
-    end
+    Rho::Notification.playFile('/sdcard/media/ringtone.mp3')
     
-The equivalent Javascript example would be:
-
-    :::html
-    <HTML>
-    <HEAD>
-    <META HTTP-Equiv="Notification" content="EnumNotificationsEvent:url('javascript:enumNotificationsEventListener(%s)');">
-    </HEAD>
-    <script>
-        var led_index = -1;
-        var beeper_index = -1;
-        var pager_index = -1;
-
-        function enumNotificationsEventListener(notifications_array)
-        {
-            for (i=0; i < notifications_array.length; i++)
-            {
-                var type = notifications_array[i][1];
-                if (type == 0)
-                    led_index = notifications_array[i][0]
-                else if (type == 1)
-                    beeper_index = notifications_array[i][0]
-                else if (type == 2)
-                    pager_index = notifications_array[i][0]
-            }
-        }
-        
-        notification.enumerate();
-    </script>
-    <BODY>
-    </BODY>
-    </HTML>
-
-### How to activate a Notification
-
-Once we have the index of the `Notification` types, we can activate the required type(s) by specifying the required parameters and then setting the state for the index. 
-
-In the below example, which makes use of the index retrieved in the previous example, we create helper methods for the invocation of the 3 `Notification` types.
-
-In Ruby, we can do this as follows:
-
-    :::ruby
-    
-    def flashLed
-        if @led_index != -1
-            // flash the LED 10 times, On for 1 second and Off for 500ms
-            Notification.setLEDOnDuration = 1000;
-            Notification.setLEDOffDuration = 500;
-            Notification.setLEDNumberOfCycles = 10;
-            Notification.stateCycle = @led_index;
-        end
-    end
-    
-    def beep
-        if @beeper_index != -1
-            // beep for 1 second at 8000 Hertz and maximum volume
-            Notification.setBeeperDuration = 1000;
-            Notification.setBeeperFrequency = 8000;
-            Notification.setBeeperVolume = 3;
-            Notification.stateOn = @beeper_index;
-        end
-    end
-    
-    def vibrate
-        if @pager_index != -1
-            // vibrate the device for 1 second
-            Notification.setVibrateDuration = 1000;
-            Notification.stateCycle = @pager_index;
-        end
-    end    
-
-The equivalent Javascript example would be:
-
+JavaScript syntax:
     :::javascript
-    function flashLed()
-    {
-        if  (led_index != -1) 
-        {
-            // flash the LED 10 times, On for 1 second and Off for 500ms
-            notification.setLEDOnDuration = 1000;
-            notification.setLEDOffDuration = 500;
-            notification.setLEDNumberOfCycles = 10;
-            notification.stateCycle = led_index;
-        }
-    }
+    Rho.Notification.playFile("/sdcard/media/ringtone.mp3");
+
+#### Beep
+
+If the device is equipped with a hardware beeper, it can be made to sound at a specified frequency, volume and duration
+
+Ruby syntax:
+    :::ruby
+    beeperProps = Hash.new
+    beeperProps['frequency'] = 8000
+    beeperProps['volume'] = 3
+    beeperProps['duration'] = 1000
+    Rho::Notification.beep(beeperProps)
     
-    function beep()
-    {
-        if  (beeper_index != -1) 
-        {
-            // beep for 1 second at 8000 Hertz and maximum volume
-            notification.setBeeperDuration = 1000;
-            notification.setBeeperFrequency = 8000;
-            notification.setBeeperVolume = 3;
-            notification.stateOn = beeper_index;
-        }
-    }
+JavaScript syntax:
+    :::javascript
+    Rho.Notification.beep({ frequency: 8000, volume: 3, duration: 1000 });
+
+#### Vibrate
+
+The device can be made to vibrate for a specified duration
+
+Ruby syntax:
+    :::ruby
+    Rho::Notification.vibrate(1000)
     
-    function vibrate()
-    {
-        if (pager_index != -1)
-        {
-            // vibrate the device for 1 second
-            notification.setVibrateDuration = 1000;
-            notification.stateCycle = pager_index;
-        }
-    }
+JavaScript syntax:
+    :::javascript
+    Rho.Notification.vibrate(1000);
+
+#### LED
+
+A device might have one or more LEDs on it. The can be controlled via the [LED](../api/Notification.Led) API
+
+##### LED On/Off
+
+A LED on the device can be turned "On" or "Off" as required
+
+Ruby syntax:
+    :::ruby
+    # get the list of LEDs available on the device
+    $leds = Rho::Notification::Led.enumerate
+    
+    # turn one of the LEDs ON and then OFF
+    $leds[0].extinguish
+    $leds[0].illuminate
+    
+JavaScript syntax:
+    :::javascript
+    // get the list of LEDs available on the device
+    var leds = Rho::Notification::Led.enumerate();
+    
+    // turn one of the LEDs ON and then OFF
+    leds[0].extinguish();
+    leds[0].illuminate();
+
+##### LED Flashing
+
+A LED on the device can be made to cycle "On" and "Off" a specified number of times
+
+Ruby syntax:
+    :::ruby
+    # get the list of LEDs available on the device
+    $leds = Rho::Notification::Led.enumerate
+    
+    # flash one of the LEDs
+    ledProps = Hash.new
+    ledProps['onDuration'] = 1000
+    ledProps['offDuration'] = 500
+    ledProps['numberOfCycles'] = 10
+    $leds[0].flash(ledProps)
+    
+JavaScript syntax:
+    :::javascript
+    // get the list of LEDs available on the device
+    var leds = Rho::Notification::Led.enumerate();
+    
+    // flash one of the LEDs
+    leds[0].flash({ onDuration: 1000, offDuration: 500, numberOfCycles: 10 });
+
+#### Popup
+
+You can bring the application to the foreground and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on the button or you can close it by using the `hidePopup` method
+
+Ruby syntax:
+    :::ruby
+    # simple message string
+    Rho::Notification.showPopup('Hello!!!')
+    
+    # custom tite and icon with the message string
+    msgProps = Hash.new
+    msgProps['message'] = 'Hello!!!'
+    msgProps['title'] = 'Greeting';
+    msgProps['icon'] = '/sdcard/images/icon.png';
+    Rho::Notification.showPopup(msgProps)
+    
+    # hide the current popup
+    Rho::Notification.hidePopup()
+    
+JavaScript syntax:
+    :::javascript
+    // simple message string
+    Rho.Notification.showPopup("Hello!!!");
+    
+    // custom tite and icon with the message string
+    Rho.Notification.showPopup({ message: "Hello!!!", title: "Greeting", icon: "/sdcard/images/icon.png" })
+    
+    // hide the current popup
+    Rho.Notification.hidePopup();
+
+#### Status message
+
+You can display a window containing a status message. The window closes after the user clicks on its hide button.
+
+Ruby syntax:
+    :::ruby
+    Rho::Notification.showStatus('The Title', 'This is the status message', 'Close')
+    
+JavaScript syntax:
+    :::javascript
+    Rho.Notification.showStatus("The Title", "This is the status message", "Close");
 
 ### Example scenarios for using Notification
 
 #### In a email/messaging/newsfeed/twitter or similar type of application
 
-* Use the `Beeper` and/or `Pager` ONCE for notifying the user immediately on the arrival of a new message.
-* Use a flashing `LED` to serve as a reminder to the user about the message after the initial `Beeper`/`Pager` notification till the user views/acknowledges the message.
+* Use the `Beep` and/or `Vibrate` ONCE for notifying the user immediately on the arrival of a new message.
+* Use a flashing `LED` to serve as a reminder to the user about the message after the initial `Beep`/`Vibrate` notification till the user views/acknowledges the message.
 
 #### Alarm clock or countdown timer
 
-* Use a long `Beeper` and/or `Pager` till user stops/cancels the alarm/timer.
+* Use a long `Beep` and/or `Vibrate` till user stops/cancels the alarm/timer.
 
 ### Best practices
 
-* The `Beeper` and `Pager` notifications can be annoying to the user and others around them if used frequently or for prolonged durations, so use dont overuse them.
+* `Popup` notifications can be annoying to the user if used frequently, so use dont overuse them.
+* The `Beep` and `Vibrate` notifications can be annoying to the user and others around them if used frequently or for prolonged durations, so use dont overuse them.
 * `LED` notification can be made to blink for a reasonably long time (like 1 hour after the event) unless it is cancelled by the user
 
 ### Related reading
 
-* The [Notification API reference](../rhoelements/notification) has all the details on the parameters applicable to each notification type.
+* The [Notification API reference](../api/Notification) has all the details on the parameters applicable to each notification type.
+* The [LED Notification API reference](../api/Notification.Led) has all the details on the parameters applicable to the LED notification type.
 
 ## Keylight
 
@@ -193,14 +177,14 @@ In the below example, we turn on the backlight and set the intensity to 3.
 In Ruby, we can do this as follows:
 
     :::ruby
-    Keylight.on
-    Keylight.intensity = 3
+    Rho::Keylight.on
+    Rho::Keylight.intensity = 3
     
 The equivalent Javascript example would be
 
-    :::html    
-    keylight.on();
-    keylight.intensity = 3;
+    :::javascript    
+    Rho.Keylight.on();
+    Rho.Keylight.intensity = 3;
 
 ### Example scenarios for using Keylight
 
