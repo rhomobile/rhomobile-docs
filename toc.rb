@@ -79,6 +79,7 @@ section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
 end
 
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
+  topic 'guide/device_information_and_abilities',       'Understanding Device Abilities'
   topic 'guide/orientation',       'Accelerometer'
   topic 'guide/alerts',       'Alerts'
   topic 'guide/android',       'Android Usage'

@@ -149,6 +149,19 @@ md+='</div>'
   	return {"md" => md, "count" => ctr}
   end
 
+def self.getconstantlinks(doc)
+  	md = ""
+  	ctr = 0 
+  	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
+	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
+	  	ctr = s.count()
+	  	s.each_with_index() { |element,index|
+	  	md += '<li><a href="#c' + index.to_s + '" data-target="rConstant' + index.to_s + '" class="autouncollapse">' + element['name'] + "</a></li>" 
+		}
+  	end
+  	return {"md" => md, "count" => ctr}
+  end
+
 
   def self.getpropertieslinks(doc)
   	md = ""
@@ -443,6 +456,23 @@ md+='</div>'
 	end
 	return md
   end
+
+  def self.getconstants(doc)
+  	md = ""
+  	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
+	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
+	  	md += '<div><dl >'
+	  	s.each_with_index() { |element,index|
+	  		md += "<a name='c#{index.to_s}'></a>"
+			md +=  "<dt>" + element["name"] + "</dt>"
+			md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
+
+	  	}
+	  	md += "</dl></div>"
+	end
+	return md
+  end
+
 
   def self.getplatformindicators (platforms,msionly,ruby,javascript)
   	indicators = ""
@@ -1327,8 +1357,10 @@ end
 	  	docproperties = getproperties(doc)
 	  	docexamples = getexamples(doc)
 	  	docremarks = getremarks(doc)
+	  	docconstants = getconstants(doc)
 	  	examplelinks = getexamplelinks(doc)
 	  	remarklinks = getremarklinks(doc)
+	  	constantlinks = getconstantlinks(doc)
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
 	  	md += "#" + getApiName(doc) + "\n" 
@@ -1374,6 +1406,18 @@ end
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end
+	  	if constantlinks["count"]>0
+		  	md += '<div class="btn-group">'
+		  	md += ''
+		  	md += '<a href="#Constants" class="btn"><i class="icon-warning-sign"></i> Constants<sup>&nbsp;' + constantlinks["count"].to_s + '</sup></a>'
+		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</button>'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
+		    md += constantlinks["md"]
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end 
 	  	if remarklinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -1428,14 +1472,18 @@ end
 		    
 		  	md += "" + getmethods(doc) + ""
 		    md += "</div>"
-		    if docremarks !=""
+		end
+	  	    if docremarks !=""
 			  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
 			  	 md += "" + docremarks + ""
 		  	end 
-		  	
+		    if docconstants !=""
+			  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-warning-sign'></i>Constants</h2>" + "\n\n" 
+			  	 md += "" + docconstants + ""
+		  	end 
 		    md += "</div>"
-		end
-	  	if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
+		  	
+		if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
 			md += "\n<a name='License'></a>\n" + "<h2><i class='icon-shopping-cart'></i>Licensing</h2>" + "\n\n" 
 			
 		  	md += '<div class="accordion" id="accordion">'
