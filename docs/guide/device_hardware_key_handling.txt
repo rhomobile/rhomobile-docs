@@ -1,16 +1,46 @@
 # Device Hardware Key Handling
 
+**NOTE: This guide covers the keyboard backlight and other notification capabilities such as vibration and LEDs. If you are looking for information on capturing or recognizing keypresses, look at [Controlling Application Behavior - Config.xml](controlling_application_behavior#configxml)**
+
+## Keylight
+
+### What is Keylight
+
+[Keylight](../rhoelements/Keylight) refers to the keyboard backlight functionality on devices with a hardware keyboard. You can turn on/off the keyboard backlight as well as setting its intensity.
+
+
+### How to use Keylight
+
+In the below example, we turn on the backlight and set the intensity to 3.
+
+In Ruby, we can do this as follows:
+<!-- TODO: check that this syntax is still correct in RMS 4.0. A test application did not work with it -->
+    :::ruby
+    Keylight.on
+    Keylight.intensity = 3
+    
+The equivalent Javascript example would be
+
+    :::javascript    
+    Keylight.on();
+    Keylight.intensity = 3;
+
+### Example scenarios for using Keylight
+
+* turn backlight On/Off in a cyclic manner as a form of Notification
+* reduce/increase backlight intensity based on time of day or ambient light conditions.
+
 ## Notification
 
-### What is Notification
+### What is a Notification
 
-[Notification](../api/Notification) is the means of informing the user that some event has occurred that requires their attention. For example, it could be the arrival of a Email/SMS or a alarm clock going off. A notification could be in form of a popup, a sound played over the device speaker or using a hardware capability of the device or a combination of these.
+A [Notification](../api/Notification) is the means of informing the user that some event has occurred that requires their attention. For example, it could be the arrival of an Email/SMS or an alarm clock going off. A notification could be in the form of a popup, a sound played over the device speaker, using a hardware capability of the device (i.e., vibration) or a combination of these.
 
 ### The types of Notification
 
 #### Audio file
 
-You can playback a MP3 or WAV audio file if the device supports it.
+You can playback an MP3 or WAV audio file if the device supports it.
 
 Ruby syntax:
     :::ruby
@@ -26,10 +56,11 @@ If the device is equipped with a hardware beeper, it can be made to sound at a s
 
 Ruby syntax:
     :::ruby
-    beeperProps = Hash.new
-    beeperProps['frequency'] = 8000
-    beeperProps['volume'] = 3
-    beeperProps['duration'] = 1000
+    beeperProps = {
+    	:frequeyncy => 8000,
+    	:volume => 3,
+    	:duration => 1000
+    }
     Rho::Notification.beep(beeperProps)
     
 JavaScript syntax:
@@ -50,7 +81,7 @@ JavaScript syntax:
 
 #### LED
 
-A device might have one or more LEDs on it. The can be controlled via the [LED](../api/Notification.Led) API
+A device might have one or more LEDs on it; these can be controlled with the [LED](../api/notification.led) API
 
 ##### LED On/Off
 
@@ -59,20 +90,20 @@ A LED on the device can be turned "On" or "Off" as required
 Ruby syntax:
     :::ruby
     # get the list of LEDs available on the device
-    $leds = Rho::Notification::Led.enumerate
+    leds = Rho::Notification::Led.enumerate
     
-    # turn one of the LEDs ON and then OFF
-    $leds[0].extinguish
-    $leds[0].illuminate
+    # turn one of the LEDs on
+    led = leds[0]
+    led.illuminate
     
 JavaScript syntax:
     :::javascript
     // get the list of LEDs available on the device
     var leds = Rho::Notification::Led.enumerate();
     
-    // turn one of the LEDs ON and then OFF
-    leds[0].extinguish();
-    leds[0].illuminate();
+    // turn one of the LEDs on
+    var led = leds[0];
+    led.illuminate();
 
 ##### LED Flashing
 
@@ -81,14 +112,15 @@ A LED on the device can be made to cycle "On" and "Off" a specified number of ti
 Ruby syntax:
     :::ruby
     # get the list of LEDs available on the device
-    $leds = Rho::Notification::Led.enumerate
+    leds = Rho::Notification::Led.enumerate
     
     # flash one of the LEDs
-    ledProps = Hash.new
-    ledProps['onDuration'] = 1000
-    ledProps['offDuration'] = 500
-    ledProps['numberOfCycles'] = 10
-    $leds[0].flash(ledProps)
+    ledProps = {
+    	:onDuration => 1000,
+    	:offDuration => 500,
+    	:numberOfCycles => 10
+    }
+    leds[0].flash(ledProps)
     
 JavaScript syntax:
     :::javascript
@@ -105,13 +137,14 @@ You can bring the application to the foreground and show a message in a popup wi
 Ruby syntax:
     :::ruby
     # simple message string
-    Rho::Notification.showPopup('Hello!!!')
+    Rho::Notification.showPopup("Hello!")
     
     # custom tite and icon with the message string
-    msgProps = Hash.new
-    msgProps['message'] = 'Hello!!!'
-    msgProps['title'] = 'Greeting';
-    msgProps['icon'] = '/sdcard/images/icon.png';
+    msgProps = {
+    	:title => "Greeting",
+    	:message => "Hello!",
+    	:icon => "/sdcard/images/icon.png"
+    }
     Rho::Notification.showPopup(msgProps)
     
     # hide the current popup
@@ -120,10 +153,10 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     // simple message string
-    Rho.Notification.showPopup("Hello!!!");
+    Rho.Notification.showPopup("Hello!");
     
     // custom tite and icon with the message string
-    Rho.Notification.showPopup({ message: "Hello!!!", title: "Greeting", icon: "/sdcard/images/icon.png" })
+    Rho.Notification.showPopup({ message: "Hello!", title: "Greeting", icon: "/sdcard/images/icon.png" });
     
     // hide the current popup
     Rho.Notification.hidePopup();
@@ -134,7 +167,7 @@ You can display a window containing a status message. The window closes after th
 
 Ruby syntax:
     :::ruby
-    Rho::Notification.showStatus('The Title', 'This is the status message', 'Close')
+    Rho::Notification.showStatus("The Title", "This is the status message", "Close")
     
 JavaScript syntax:
     :::javascript
@@ -142,9 +175,11 @@ JavaScript syntax:
 
 ### Example scenarios for using Notification
 
-#### In a email/messaging/newsfeed/twitter or similar type of application
+Your approach to notifications should correspond to the importance of the event you are notifying. For example, an incoming e-mail may be well served with a single beep or vibration, while a pager alert may have a high severity and warrant periodic notifications until the user acknowledges the message. Here are some high-level guidelines, make sure to adapt them to your situation:
 
-* Use the `Beep` and/or `Vibrate` ONCE for notifying the user immediately on the arrival of a new message.
+#### In an email/messaging/newsfeed/twitter or similar type of application
+
+* Use the `Beep` and/or `Vibrate` only once for notifying the user immediately on the arrival of a new message.
 * Use a flashing `LED` to serve as a reminder to the user about the message after the initial `Beep`/`Vibrate` notification till the user views/acknowledges the message.
 
 #### Alarm clock or countdown timer
@@ -153,44 +188,13 @@ JavaScript syntax:
 
 ### Best practices
 
-* `Popup` notifications can be annoying to the user if used frequently, so use dont overuse them.
-* The `Beep` and `Vibrate` notifications can be annoying to the user and others around them if used frequently or for prolonged durations, so use dont overuse them.
-* `LED` notification can be made to blink for a reasonably long time (like 1 hour after the event) unless it is cancelled by the user
+* `Popup` notifications can be annoying to the user if used frequently. Try not to interrupt the user's operational flow if you can help it.
+* The `Beep` and `Vibrate` notifications can be annoying to the user and others around them if used frequently or for prolonged durations but for that same reason, they can be very effective if the message deserves it.
+* `LED` notification can be made to blink for a reasonably long time (even hours after the event initially happens) with little disturbance. They are very popular for information that is good to know but does not require immediate action.
+
 
 ### Related reading
 
 * The [Notification API reference](../api/Notification) has all the details on the parameters applicable to each notification type.
-* The [LED Notification API reference](../api/Notification.Led) has all the details on the parameters applicable to the LED notification type.
-
-## Keylight
-
-### What is Keylight
-
-[Keylight](../rhoelements/Keylight) refers to the keyboard backlight functionality. You can turn On/Off the keyboard backlight as well as setting the intensity of the backlight.
-
-NOTE: this functionality only applies to devices with hardware keyboards
-
-### How to use Keylight
-
-In the below example, we turn on the backlight and set the intensity to 3.
-
-In Ruby, we can do this as follows:
-
-    :::ruby
-    Rho::Keylight.on
-    Rho::Keylight.intensity = 3
-    
-The equivalent Javascript example would be
-
-    :::javascript    
-    Rho.Keylight.on();
-    Rho.Keylight.intensity = 3;
-
-### Example scenarios for using Keylight
-
-* turn backlight On/Off in a cyclic manner as a form of Notification
-* reduce/increase backlight intensity based on time of day or ambient light conditions.
-
-### Related reading
-
-* The [Keylight API reference](../rhoelements/Keylight) has the details on the parameters applicable to each notification type.
+* The [LED Notification API reference](../api/Notification.Led) contains the documentation about using device LEDs.
+* The [Keylight API reference](../rhoelements/Keylight) explains how to use the keyboard backlight.
