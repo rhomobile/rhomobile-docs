@@ -1,8 +1,34 @@
 #Api Migration Guide
 
-RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby. The following shows you a summary of these new API's and how any previous API relates to it.
+RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby. 
 
-## API Table
+
+## Platform Support
+It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms where indicated using an [API compatibility matrix](/v/2.2/rhoelements/apicompatibility) at the API class level. In 2.2 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level.
+
+## Webview
+In RhoMobile Suite 4.0, the default webview used for Android is now the stock Android webkit. API's that previously only worked in Motorola Solutions webkit, will now work in the stock webkit.
+
+## Javascript Usage
+In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on Javascript (due to the fact of the API only being supported in Motorola Webkit) but not neccesarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on Javascript or Ruby. [Read more about licensing](/guide/licensing).
+
+## Replaced APIs
+In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description. 
+
+For example [Camera.saveImageToDeviceGallery](/api/camera#msaveImageToDeviceGallery)
+
+<span class="label label-info">Replaces:save_image_to_device_gallery</span>
+
+## Deprecated APIs
+In the API reference documentation, API's that have been marked as deprecated will be highlighted in the menu and description. Deprecated means that the API should work, but will no longer be enhanced or supported. The associated description should indicate alternatives.
+
+For example [System.hasNetwork](/api/system#phasNetwork)
+
+<span class="label label-important">Deprecated</span>
+
+
+## API Migration Table
+The following shows you a summary of these new API's and how any previous API relates to it.
 
 <table class="table">
 <thead>	
@@ -27,7 +53,7 @@ Description
 Interface with application level methods and properties
 </td>
 <td>
-Rename of <a href="/rhodesapi/rhoapplication-api/">RhoApplication</a> and will also contain the MSI specific <a href="/rhoelements/application/">Application</a>
+Rename of <a href="/v/2.2/rhodesapi/rhoapplication-api/">RhoApplication</a> and will also contain the MSI specific <a href="/v/2.2/rhoelements/application/">Application</a>
 </td>
 </tr>
 <tr>
@@ -38,7 +64,7 @@ Rename of <a href="/rhodesapi/rhoapplication-api/">RhoApplication</a> and will a
 Scan bar codes using device's camera, laser or 2d imager
 </td>
 <td>
-<a href="/rhodesapi/barcode-api/">Barcode</a> and <a href="/rhoelements/scanner/">Scanner</a> have been amalgamated.  All decoders have now been brought into the same API rather than having a separate API for each.
+<a href="/v/2.2/rhodesapi/barcode-api/">Barcode</a> and <a href="/v/2.2/rhoelements/scanner/">Scanner</a> have been amalgamated.  All decoders have now been brought into the same API rather than having a separate API for each.
 </td>
 </tr>
 <tr>
@@ -49,7 +75,7 @@ Scan bar codes using device's camera, laser or 2d imager
 Displays a battery signal icon in a native window without requiring users to draw their own icon
 </td>
 <td>
-<a href="/rhoelements/battery">Battery</a> 
+Previously existed in 2.2 <a href="/v/2.2/rhoelements/battery">Battery</a> 
 </td>
 </tr>
 <tr>
@@ -62,7 +88,7 @@ Displays a battery signal icon in a native window without requiring users to dra
 Access devices camera to take or choose pictures
 </td>
 <td>
-<a href="/rhodesapi/camera-api/">Camera</a> and <a href="/rhoelements/imager/">Imager</a> have been amalgamated
+<a href="/v/2.2/rhodesapi/camera-api/">Camera</a> and <a href="/v/2.2/rhoelements/imager/">Imager</a> have been amalgamated
 </td>
 </tr>
 <tr>
@@ -73,7 +99,7 @@ Access devices camera to take or choose pictures
 Interface for device's Mag Stripe Reader (MSR)
 </td>
 <td>
-<a href="/rhoelements/cardreader/">CardReader</a>
+Previously existed in 2.2: <a href="/v/2.2/rhoelements/cardreader/">CardReader</a>
 </td>
 </tr>
 <tr>
@@ -84,18 +110,7 @@ Interface for device's Mag Stripe Reader (MSR)
 Accessing RhoMobile's built in database
 </td>
 <td>
-Same as <a href="/rhodesapi/database-api/">Database</a> class in 2.2
-</td>
-</tr>
-<tr>
-<td>
-<a href="/api/File">File
-</td>
-<td>
-Allows access to the device's file system.
-</td>
-<td>
-Mostly the same as the previous <a href="/rhodesapi/file-api">File</a> class
+Same as <a href="/v/2.2/rhodesapi/database-api/">Database</a> class in 2.2
 </td>
 </tr>
 <tr>
@@ -106,7 +121,7 @@ Mostly the same as the previous <a href="/rhodesapi/file-api">File</a> class
 Allows capturing hardware key events.
 </td>
 <td>
-
+Previously existed in 2.2: <a href="/v/2.2/rhoelements/keycapture"> KeyCapture</a>
 </td>
 </tr>
 <tr>
@@ -117,6 +132,7 @@ Allows capturing hardware key events.
 Indicator of jardware key state (Shift, Caps, Alt).
 </td>
 <td>
+Previously existed in 2.2: <a href="/v/2.2/rhoelements/keystate"> KeyState</a>
 
 </td>
 </tr>
@@ -196,7 +212,19 @@ See device's network status or make network connections
 <td>
 <a href="/v/2.2/rhodesapi/asynchttp-api/">AsyncHTTP</a> and <a href="/v/2.2/rhoelements/network/">Network</a> have been amalgamated
 </td>
-</tr><tr>
+</tr>
+<tr>
+<td>
+<a href="/api/Notification">Notification
+</td>
+<td>
+Provides visual, audio and tactile alerts to the user.
+</td>
+<td>
+2.2 APIs: <a href="/v/2.2/rhodesapi/alert-api/">Alert</a> and <a href="/v/2.2/rhoelements/notification/">Notification</a> have been combined
+</td>
+</tr>
+<tr>
 <td>
 <a href="/api/Orm">Orm</a> & <a href="/api/OrmModel">OrmModel</a>
 </td>
@@ -229,6 +257,62 @@ Synchronization interface with RhoConnect server applications
 Rename of <a href="/v/2.2/rhodesapi/syncengine-api/">SyncEngine</a>
 </td>
 </tr>
+<tr>
+<td>
+<a href="/api/File">RhoFile
+</td>
+<td>
+Allows access to the device's file system.
+</td>
+<td>
+Mostly the same as the previous <a href="/rhodesapi/file-api">File</a> class
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/screenorientation">ScreenOrientation
+</td>
+<td>
+Allows control or detection of screen orientation behavior.
+</td>
+<td>
+Uses 2.2 <a href="/v/2.2/rhoelements/screenorientation">ScreenOrientation</a> class and replaces <a href="/v/2.2/rhodesapi/system-api#setscreenrotationnotification">set_screen_rotation_notification</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/sensor">Sensor
+</td>
+<td>
+Allows direct access to device sensors like accelerometer, proximity, light, etc
+</td>
+<td>
+Rename of  2.2 <a href="/v/2.2/rhoelements/RawSensors">RawSensors</a> class and adds additional functionality.
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/signal">Signal
+</td>
+<td>
+Graphical indicator of WiFi strength
+</td>
+<td>
+Previous 2.2 API: <a href="/v/2.2/rhoelements/signal">Signal</a> 
+</td>
+</tr>
+<tr>
+<td>
+<a href="/api/videocapture">VideoCapture
+</td>
+<td>
+Captures video files from the default camera device
+</td>
+<td>
+Previous 2.2 API: <a href="/v/2.2/rhoelements/VideoCapture">VideoCapture</a> 
+</td>
+</tr>
+
 <tr>
 <td>
 <a href="/api/signature">Signature
@@ -265,7 +349,7 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2
 </tbody>
 </table>
 
-## Using older API's
+## Using Older API's
 Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorported in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both Javascript and Ruby.
 
 * [Mapview](/v/2.2/rhodesapi/mapview-api)

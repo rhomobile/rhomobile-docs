@@ -72,12 +72,6 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/app_upgrade',        'Upgrading Your Application'
 end
 
-section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
-  topic 'guide/logging',    'Logging'
-  topic 'guide/testing',    'Testing'
-  topic 'guide/profiling',    'Performance Profiling'
-end
-
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/device_information_and_abilities',       'Understanding Device Abilities'
   topic 'guide/orientation',       'Accelerometer'
@@ -111,6 +105,14 @@ section 'rhomob-data', 'Data Handling','Mobile Guides' do
   topic 'rhodes/synchronization',   'Synchronization'
   topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
 end
+
+section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
+  topic 'guide/logging',    'Logging'
+  topic 'guide/testing',    'Testing'
+  topic 'guide/profiling',    'Performance Profiling'
+end
+
+
 
 section 'rhomob-ext', 'Extending','Mobile Guides' do
   topic 'rhodes/extensions',        'Extending the Rhodes Framework'

@@ -3,17 +3,28 @@
 
 ## Features Requiring a License
 
-If you have included any of the following features in your application, your application will require a RhoElements license to run. Applications not using any of these features will be able to run license-free.
+If you have included any of the following features in your application, your application will require a RhoElements license to run in a production evironment.
 
-* [Mobile APIs](/rhoelements/apicompatibility) indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
-* [Motorola Solutions WebKit](/rhoelements/rhoelements2-native#enabling-motorola-webkit)
-* [Barcode extension](/rhodesapi/barcode-api)
-* [NFC extension](/rhodes/device-caps#nfc)
+### Motorola Solutions WebKit
+Any application that is built with the option of `app_type:rhoelements` or `capabilities:motorola_browser` will be built with the Motorola Solutions Webkit. The use of this webkit requires a license. It will typically be used on Windows Mobile and Windows CE platforms as well as when the "RhoElements shared runtime" is used since it uses Motorola Solutions WebKit.
+
+**NOTE: In RhoMobile Suite 4.0, the default webkit for Android is now the stock Android webkit and not the Motorola Solutions Webkit. **
+
+### Mobile APIs
+Certain APIs require a license: 
+
+* [Barcode](/api/barcode)
+* [Battery](/api/battery)
+* [Cardreader](/api/cardreader)
+* [KeyCapture](/api/cardreader)
+* [KeyState](/api/cardreader)
+* [NFC extension](/v/2.2/rhodes/device-caps#nfc)
 * [Database Encryption](/rhodes/rhom#database-encryption)
-* [Inline Signature Capture](/rhodes/device-caps#signature-capture)
-* [Windows Desktop](/rhodes/build#build-for-windows)
+* [Signal](/api/signal)
+* [Signature Capture](/api/signature)
+* [Windows Desktop](/guide/build_wm)
 
-**NOTE: that the "shared runtime" requires a license to run since it uses Motorola Solutions WebKit and RhoElements APIs.**
+
 
 ##Running without a license
 You can fully use all features of the RhoMobile framework during evaluation, development or testing without obtaining a license. A message will be displayed on application startup will also display a periodic nag screen. Before deploying an application to a production environment, you should obtain a license key. The same license key will work across any operating system. The name associated with the license is stored in the log file when the application is started.
