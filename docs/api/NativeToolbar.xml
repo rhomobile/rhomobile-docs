@@ -19,7 +19,7 @@
                 <DESC>Removes the current toolbar and replaces it with this one.</DESC>
                 <PARAMS>
                     <PARAM name="toolbarElements" type="ARRAY">
-                        <DESC>Array of Tab elements. Do not create more than five elements for maximum portability.</DESC>
+                        <DESC>Array of Toolbar elements. Do not create more than five elements for maximum portability.Toolbar elements are not scrollable, so if some buttons will not fir into the screen they will be invisible.</DESC>
 
                         <PARAM name="toolbarElement" type="HASH">
                             <DESC>Properties of Toolbar elements. Either :icon or :label must be specified. If both are specified, :icon is drawn and :label is discarded.</DESC>
@@ -31,7 +31,7 @@
                                     <DESC>URL to call when button is pressed or special value.It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or javascript method to call: 'javascript: methodOnButton();'.</DESC>
                                     <VALUES>
                                         <VALUE value ="separator">
-                                            <DESC>Added separator to toolbar.</DESC>
+                                            <DESC>Added separator to toolbar.If only one separator is specified, when elements after separator will be right-aligned.If more then one separator is added, when platform dependent separator will be displayed.</DESC>
                                         </VALUE>
                                         <VALUE value ="exit">
                                             <DESC>Exit the application.</DESC>
@@ -53,6 +53,7 @@
                                         </VALUE>
                                         <VALUE value ="log">
                                             <DESC>Display Log View window.</DESC>
+                                            <PLATFORMS>WM, Win32, iOS, Android</PLATFORMS>
                                         </VALUE>
                                         <VALUE value ="fullscreen">
                                             <DESC>Expand application window to full screen.</DESC>
@@ -65,7 +66,7 @@
                                             <PLATFORMS>WM, Win32</PLATFORMS>
                                         </VALUE>
                                         <VALUE value ="SIP">
-                                            <DESC>Display software keyboard window.</DESC>
+                                            <DESC>Display software keyboard window.Set Rho.System.keyboardState to Rho.System.KEYBOARD_AUTOMATIC to use this element.</DESC>
                                             <PLATFORMS>WM</PLATFORMS>
                                         </VALUE>
 
@@ -81,7 +82,7 @@
                                 </PARAM>
                                 <PARAM name="width" type="INTEGER">
                                     <DESC>Button width in pixel. Used to define separator width.</DESC>
-                                    <PLATFORMS>WM, Win32</PLATFORMS>
+                                    <PLATFORMS>WM</PLATFORMS>
                                 </PARAM>
                             </PARAMS>
                         </PARAM>

@@ -1696,8 +1696,9 @@
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
             
-            <METHOD name="recognize" hasCallback="none" deprecated="true">
+            <METHOD name="barcode_recognize" hasCallback="none" deprecated="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+                <PLATFORM>iOS,Android</PLATFORM>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
                 <DESC>Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.</DESC>
                 <PARAMS>
@@ -1770,11 +1771,6 @@
                     </PARAM>
                 </PARAMS>
             </METHOD>
-            <ALIASES>
-                <ALIAS new="barcode_recognize" existing="recognize" deprecated="true" >
-                    <DESC>old deprecated recognize barcode on image method</DESC>
-                </ALIAS>
-            </ALIASES>
             
         </METHODS>
         

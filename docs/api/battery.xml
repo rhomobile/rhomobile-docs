@@ -46,15 +46,19 @@
                             <DESC>The remaining battery power as a value between 0 and 100</DESC>
                         </PARAM>
                         <PARAM name="backupBatteryLifePercent" type="INTEGER">
+                            <PLATFORM>WM</PLATFORM>
                             <DESC>The remaining backup battery power as a value between 0 and 100.  Only supported on Motorola Windows Mobile / CE / Embedded devices.</DESC>
                         </PARAM>
                         <PARAM name="trigger" type="STRING">
+                            <PLATFORM>WM</PLATFORM>
                             <DESC>Human readable form of what has caused this callback to fire.  This value will be OS dependant.  On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown".  In the case of periodic updates, this field will contain the last known status of the battery.</DESC>
                         </PARAM>
                         <PARAM name="batteryLifeKnown" type="BOOLEAN">
+                            <PLATFORM>WM</PLATFORM>
                             <DESC>Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices.  The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate</DESC>
                         </PARAM>
                         <PARAM name="backupBatteryLifeKnown" type="BOOLEAN">
+                            <PLATFORM>WM</PLATFORM>
                             <DESC>Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices.  The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate.</DESC>
                         </PARAM>
                     </PARAMS>
@@ -153,7 +157,7 @@
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>WM, WP8</PLATFORM>
+        <PLATFORM>WM, WP8, Android, iOS</PLATFORM>
         <EXAMPLES>
             <EXAMPLE title="Retrieve the Battery status">
                 <SECTIONS>

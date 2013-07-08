@@ -37,7 +37,7 @@ On Macintosh and Linux, navigate to and run `<Android SDK>/tools/android sdk`. O
 
 Download and unzip the [Android NDK](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
 
-** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new rhodes **
+** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new rhodes. Android NDK version r8e is required as a minimum. **
 
 In RhoStudio -> Preferences on the Macintosh or Windows -> Preferences on Windows, open Rhomobile->Android and set the paths to your Android SDK and NDK installations.
 

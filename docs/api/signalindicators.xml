@@ -27,6 +27,7 @@
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="signalStrength" type="INTEGER">
+                            <PLATFORM>WM, Android</PLATFORM>
                             <DESC>The signal strength as a value between 0 and 100. Not supported on iOS</DESC>
                         </PARAM>
                         <PARAM name="essid" type="STRING">
@@ -39,9 +40,11 @@
                             <DESC>The Device's adapter name</DESC>
                         </PARAM>
                         <PARAM name="dhcpServer" type="STRING">
+                            <PLATFORM>WM, Android</PLATFORM>
                             <DESC>The current DHCP server's address.  Always populated on Android, even on static IP configurations. Not supported on iOS </DESC>
                         </PARAM>
                         <PARAM name="dhcpStatic" type="STRING">
+                            <PLATFORM>WM, Android</PLATFORM>
                             <DESC>Whether the unit hsa a static or DHCP address.  Not available on Android and iOS.</DESC>
                         </PARAM>
                         <PARAM name="gateway" type="STRING">
@@ -51,12 +54,14 @@
                             <DESC>The device's IP address</DESC>
                         </PARAM>
                         <PARAM name="rssi" type="STRING">
+                            <PLATFORM>WM, Android</PLATFORM>
                             <DESC>Signal strength in RSSI terms. Not supported on iOS.</DESC>
                         </PARAM>
                         <PARAM name="subnetMask" type="STRING">
                             <DESC>The current subnet mask</DESC>
                         </PARAM>
                         <PARAM name="wins" type="STRING">
+                            <PLATFORM>WM</PLATFORM>
                             <DESC>The current WINs server IP address.  Not available on Android and iOS.</DESC>
                         </PARAM>
                     </PARAMS>

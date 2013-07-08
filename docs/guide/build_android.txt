@@ -1,7 +1,7 @@
 # Build for Android
 
 ## Setup
-Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-android) for building iOS applications.
+Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-android) for building Android applications.
 
 ## Set up minimal Android SDK API level
 
