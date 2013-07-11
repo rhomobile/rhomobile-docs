@@ -1,4 +1,4 @@
-#Api Migration Guide
+# Migrating your RhoMobile application to 4.0
 
 RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby. 
 
