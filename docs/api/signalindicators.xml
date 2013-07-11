@@ -15,7 +15,7 @@
 			<PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
 				<PLATFORM>iOS, WM</PLATFORM>
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<DESC>A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown.</DESC>
+				<DESC>A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown. On Android this value is not used as the signal icon will be updated as soon as the signal strength changes.</DESC>
 			</PROPERTY>
 		</PROPERTIES>
 
@@ -23,7 +23,7 @@
             <METHOD name="wlanStatus" hasCallback="optional">
 				<PLATFORM>iOS, WM, Android</PLATFORM>
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Retrieve the current signal status.  If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval.</DESC>
+                <DESC>Retrieve the current signal status.  If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval. On Android, instead of being called periodically, the callback will be called when one of the below values changes.</DESC>
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="signalStrength" type="INTEGER">

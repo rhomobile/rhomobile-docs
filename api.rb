@@ -574,6 +574,8 @@ def self.getconstantlinks(doc)
 			@propplatforms = "All"
 			if !element["PLATFORM"].nil?
 				@propplatforms = element["PLATFORM"][0]
+			else
+				puts "      #{propname} no platform indicators"
 			end
 			@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript)
 			@propsectionplatforms = "<div>"
@@ -991,6 +993,9 @@ end
 		@methplatforms = "All"
 		if !element["PLATFORM"].nil?
 			@methplatforms = element["PLATFORM"][0]
+		else
+			puts "      #{methname} no platform indicators"
+			
 		end
 		msionly = false
 		ruby = true

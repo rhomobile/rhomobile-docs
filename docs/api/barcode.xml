@@ -1435,19 +1435,19 @@
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>Indicates the status of the remote scanner's battery, will be one of 'Unknown', 'Full', 'Medium', 'Empty', 'Charging-FullRate', 'Charging-HalfRate', 'Charging-Trickle' or 'Discharging'</DESC>
+				<DESC>Indicates the status of the remote scanner's battery, will be one of 'unknown', 'full', 'medium', 'empty', 'chargingFullRate', 'chargingHalfRate', 'chargingTrickle' or 'discharging'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBatteryCapacity" type="STRING" generateAccessors="true" readOnly="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>The remaining capacity of the battery, in the range 0 to 100.  'Unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.</DESC>
+				<DESC>The remaining capacity of the battery, in the range 0 to 100.  'unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBatteryId" type="STRING" generateAccessors="true" readOnly="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>One of 'Simple', 'Double', 'Cabled' or 'Unknown'</DESC>
+				<DESC>One of 'simple', 'double', 'dabled' or 'unknown'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothAuthentication" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1489,7 +1489,7 @@
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>'NeverReconnect', 'ReconnectOnData' or 'ReconnectImmediately'</DESC>
+				<DESC>'neverReconnect', 'reconnectOnData' or 'reconnectImmediately'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothFriendlyName" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1501,7 +1501,7 @@
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>'General' to use a general inquiry mode, else 'Limited'</DESC>
+				<DESC>'general' to use a general inquiry mode, else 'limited'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothAutoReconnect" type="STRING" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1545,7 +1545,7 @@
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>The laser scan line width, 'Wide' or 'Narrow'.</DESC>
+				<DESC>The laser scan line width, 'wide' or 'narrow'.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmGoodScansDelay" type="INTEGER" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1593,7 +1593,7 @@
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC>Specify the distance for the proximity feature as 'Short', 'Medium' or 'Long' </DESC>
+				<DESC>Specify the distance for the proximity feature as 'short', 'medium' or 'long' </DESC>
             </PROPERTY>
             <PROPERTY name="rsmPagingEnable" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1616,6 +1616,7 @@
 				<BACKWARDS_COMPATIBILITY state="false">
 					<DESC>This method replaces Barcode.enumerate from RhoElements 2.2 and takes a different prototype.  Enumerate now returns an array of objects which can be used to control the specific scanner instance whereas previously it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC>
 				</BACKWARDS_COMPATIBILITY>
+				<PLATFORM>WM, Android, iOS</PLATFORM>
                 <CALLBACK type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device.  Methdods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
                     <PARAM type="SELF_INSTANCE"/>
@@ -1722,7 +1723,8 @@
             <METHOD name="take" hasCallback="mandatory">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Enable the scanner and start capturing the barcode automatically.  On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property.  On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.  Once the callback has been called the barcode hardware is disabled.</DESC>
-                <PARAMS>
+				<PLATFORM>WM, Android, iOS</PLATFORM>
+				<PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Proivde a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
@@ -1745,6 +1747,7 @@
             <METHOD name="take_barcode"  deprecated="true" >
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
+				<PLATFORM>iOS</PLATFORM>
                 <DESC>deprecated old method for taking barcode</DESC>
                 <PARAMS>
                     <PARAM name="rubyCallbackURL" type="STRING">

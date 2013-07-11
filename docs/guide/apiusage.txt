@@ -3,14 +3,20 @@
 RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby. 
 
 
-## Platform Support
-It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms where indicated using an [API compatibility matrix](/v/2.2/rhoelements/apicompatibility) at the API class level. In 2.2 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level.
+## RhoConnect Client
+In RhoMobile Suite 4.0, the RhoConnect Client is available via an extension. In order to use the RhoConnect Client, you must specify `rhoconnect-client` in your applications `build.yml` `extensions` section.
+
+	:::ruby
+	extensions: ["rhoconnect-client"]
 
 ## Webview
 In RhoMobile Suite 4.0, the default webview used for Android is now the stock Android webkit. API's that previously only worked in Motorola Solutions webkit, will now work in the stock webkit.
 
 ## Javascript Usage
 In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on Javascript (due to the fact of the API only being supported in Motorola Webkit) but not neccesarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on Javascript or Ruby. [Read more about licensing](/guide/licensing).
+
+## API Platform Support
+It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms where indicated using an [API compatibility matrix](/v/2.2/rhoelements/apicompatibility) at the API class level. In 2.2 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level.
 
 ## Replaced APIs
 In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description. 

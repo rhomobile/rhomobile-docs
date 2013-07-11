@@ -9,6 +9,7 @@
 
 		<PROPERTIES access="STATIC">
 			<PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
+				<PLATFORM>WM, iOS</PLATFORM>
 				<DESC>A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown.  Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.</DESC>
 			</PROPERTY>
 		</PROPERTIES>	
@@ -24,7 +25,7 @@
 							<DESC>What will cause the batteryStatus callback to fire.  It is recommended to use system events to concerve battery life.</DESC>
 							<VALUES>
 								<VALUE constName="BATTERY_TRIGGER_PERIODIC" value ="periodic">
-									<DESC>The batteryStatus callback will fire periodically at the specified refresh interval.  This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger.</DESC>
+									<DESC>The batteryStatus callback will fire periodically at the specified refresh interval.  This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger. Not supported on Android.</DESC>
 								</VALUE>
 								<VALUE constName="BATTERY_TRIGGER_SYSTEM" value ="system">
 									<DESC>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level.  The resolution of this change will vary depending on operating system, for example on WP8 you are notified every percentage value change but on Windows Mobile the notifications only occur when 'critical', 'full' etc.</DESC>
@@ -50,7 +51,7 @@
                             <DESC>The remaining backup battery power as a value between 0 and 100.  Only supported on Motorola Windows Mobile / CE / Embedded devices.</DESC>
                         </PARAM>
                         <PARAM name="trigger" type="STRING">
-                            <PLATFORM>WM</PLATFORM>
+                            <PLATFORM>WM, Android</PLATFORM>
                             <DESC>Human readable form of what has caused this callback to fire.  This value will be OS dependant.  On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown".  In the case of periodic updates, this field will contain the last known status of the battery.</DESC>
                         </PARAM>
                         <PARAM name="batteryLifeKnown" type="BOOLEAN">

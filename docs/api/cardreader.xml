@@ -247,7 +247,7 @@ end
                 <RUBY>
            <![CDATA[
 def connect
-  Rho::CardReader.open({}, url_for(:action => :cardreader_callback))
+  Rho::CardReader.open(url_for(:action => :cardreader_callback))
   redirect :index
 end
 
@@ -263,7 +263,7 @@ function cardreader_callback(params) {
 }
 
 function connect() {
-  Rho.CardReader.open({}, cardreader_callback);
+  Rho.CardReader.open(cardreader_callback);
 }
                    ]]>
                  </JAVASCRIPT>
@@ -284,10 +284,12 @@ function connect() {
 # Configure the MSR to output keystrokes instead of calling a function when a card is swiped
 # Note the absence of a callback parameter
 # Also, After emitting the keystrokes, automatically send a "Tab" keypress
-Rho::CardReader.open({:autoTab => true})
+Rho::CardReader.autoTab = true
+Rho::CardReader.open()
 
 # Instead of "Tab", we could request a simulated "Enter" 
-Rho::CardReader.open({:autoEnter => true})
+Rho::CardReader.autoEnter = true
+Rho::CardReader.open()
                    ]]>
                  </RUBY>
                 <JAVASCRIPT>
@@ -295,9 +297,11 @@ Rho::CardReader.open({:autoEnter => true})
 // Configure the MSR to output keystrokes instead of calling a function when a card is swiped
 // Note the absence of a callback parameter
 // Also, After emitting the keystrokes, automatically send a "Tab" keypress
-Rho.CardReader.open({autoTab : true});
+Rho.CardReader.autoTab = true;
+Rho.CardReader.open();
 
-Rho.CardReader.open({autoEnter : true});
+Rho.CardReader.autoEnter = true;
+Rho.CardReader.open();
                    ]]>
                  </JAVASCRIPT>
                </CODE>

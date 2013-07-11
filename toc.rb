@@ -12,10 +12,13 @@ end
 
 
 
-section 'rhodescommonapi-reference', 'Mobile APIs','Mobile API Docs' do
+section 'rhodescommonapi-guides', 'API Guides','Mobile API Docs' do
   topic 'guide/api_js', 'RhoMobile Javascript Usage'
   topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
   topic 'guide/apiusage',      '2.2 Migration Guide'
+end
+
+section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/battery',      'Battery'
@@ -76,9 +79,8 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/device_information_and_abilities',       'Understanding Device Abilities'
   topic 'guide/orientation',       'Accelerometer'
   topic 'guide/alerts',       'Alerts'
-  topic 'guide/android',       'Android Usage'
+  topic 'guide/hardware_accleration',       'Hardware Accleration'
   topic 'guide/barcode',       'Barcode'
-  topic 'guide/blackberry',       'Blackberry Usage'
   topic 'guide/bluetooth',       'Bluetooth'
   topic 'guide/camera',       'Camera'
   topic 'guide/pim',       'Contacts & Calendar'
@@ -86,7 +88,6 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/controlling_webview_behavior',       'Controllling Webview Behavior'
   topic 'guide/filesystem',       'File System'
   topic 'guide/geolocation',       'Geolocation'
-  topic 'guide/html5',       'Html5 Features'
   topic 'guide/localization',       'Localization'
   topic 'guide/maps',       'Mapping'
   topic 'guide/media',       'Media'

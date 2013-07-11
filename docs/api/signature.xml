@@ -18,16 +18,17 @@
 			<PROPERTY name="compressionFormat" type="STRING" >
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<DESC>Compression format of the image file for the captured signature.</DESC>
-				<APPLIES>JPG and PNG compression are not supported on Windows devices, BMP will always be used.</APPLIES>
+				<APPLIES>iOS, Android, WM</APPLIES>
 				<VALUES>
 					<VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">
-						<DESC>JPEG file format,</DESC>
+						<DESC>JPEG file format (Not available on WM/CE).</DESC>
 					</VALUE>
 					<VALUE constName="COMPRESSION_FORMAT_PNG" value ="png">
-						<DESC>Portable Network Graphics file.</DESC>
+						<DESC>Portable Network Graphics file (Not available on WM/CE).</DESC>
 					</VALUE>
 					<VALUE constName="COMPRESSION_FORMAT_BMP" value ="bmp">
 						<DESC>Bitmap image file</DESC>
+						<PLATFORM>WM</PLATFORM>
 					</VALUE>
 				</VALUES>
 			</PROPERTY>
@@ -41,6 +42,7 @@
 					</VALUE>
 					<VALUE constName="OUTPUT_FORMAT_DATAURI" value="dataUri">
 						<DESC>Outputs the signature capture image as a DataURI string.</DESC>
+						<PLATFORM>WM, Android</PLATFORM>
 					</VALUE>
 				</VALUES>
 			</PROPERTY>
@@ -53,6 +55,7 @@
 			<PROPERTY name="border" type="BOOLEAN" default="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>Shows or hides a border for the rectangular capture area. Not applicable to fullscreen signature capture area.</DESC>
+				<PLATFORM>WM</PLATFORM>
 			</PROPERTY>
 
 			<PROPERTY name="penColor" type="STRING" default="#FF000000">
