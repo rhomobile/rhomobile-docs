@@ -8,11 +8,11 @@ Your RhoMobile application can run without modifications on multiple platforms, 
 
 Ruby syntax:
     :::ruby
-    platform = Rho::System.get_property('platform')
+    platform = Rho::System.platform
 
 JavaScript syntax:
     :::javascript
-    var platform = Rho.System.get_property("platform");
+    var platform = Rho.System.platform;
 
 The platform can be one of the following string values:
 
@@ -21,19 +21,36 @@ The platform can be one of the following string values:
 * WINDOWS
 * ANDROID
 * WINDOWS_DESKTOP
-* SYMBIAN
 
 In addition to getting the platform, it is also possible to query for the OS version. For example, you can get back version strings like ‘4.6.0.192’ (BB), ‘3.0’ (iPhone), ‘1.6’ (Android)
 
 Ruby syntax:
     :::ruby
-    os_version = Rho::System.get_property('os_version')
+    os_version = Rho::System.osVersion
 
 JavaScript syntax:
     :::javascript
-    var os_version = Rho.System.get_property("os_version");
+    var os_version = Rho.System.osVersion;
 
 ## Screen information
+
+### Touch screen
+
+If the application is running on a touch screen device, you can selectively activate some features or show some UI elements (for example: buttons).
+
+Ruby syntax:
+    :::ruby
+    touch_screen = Rho::System.hasTouchscreen
+    if touch_screen
+        # show some buttons for the user to directly trigger some actions
+    end
+
+JavaScript syntax:
+    :::javascript
+    var touch_screen = Rho.System.hasTouchscreen;
+    if (touch_screen) {
+        // show some buttons for the user to directly trigger some actions
+    }
 
 ### Screen dimensions
 
@@ -46,33 +63,33 @@ There are two sets of sizes for a device screen:
 
 Ruby syntax:
     :::ruby
-    screen_width = Rho::System.get_property('screen_width')
-    screen_height = Rho::System.get_property('screen_height')
-    real_screen_width = Rho::System.get_property('real_screen_width')
-    real_screen_height = Rho::System.get_property('real_screen_height')
+    screen_width = Rho::System.screenWidth
+    screen_height = Rho::System.screenHeight
+    real_screen_width = Rho::System.realScreenWidth
+    real_screen_height = Rho::System.realScreenHeight
     
 JavaScript syntax:
     :::javascript
-    var screen_width = Rho.System.get_property("screen_width");
-    var screen_height = Rho.System.get_property("screen_height");
-    var real_screen_width = Rho.System.get_property("real_screen_width");
-    var real_screen_height = Rho.System.get_property("real_screen_height");
+    var screen_width = Rho.System.screenWidth;
+    var screen_height = Rho.System.screenHeight;
+    var real_screen_width = Rho.System.realScreenWidth;
+    var real_screen_height = Rho.System.realScreenHeight;
 
 It is also possible to calculate the physical size of the screen by querying for the PPI (Pixels Per Inch) value.
     
 Ruby syntax:
     :::ruby
-    real_screen_width = Rho::System.get_property('real_screen_width')
-    real_screen_height = Rho::System.get_property('real_screen_height')
-    physical_screen_width = real_screen_width / Rho::System.get_property('ppi_y')
-    physical_screen_height = real_screen_height / Rho::System.get_property('ppi_x')
+    real_screen_width = Rho::System.realScreenWidth
+    real_screen_height = Rho::System.realScreenHeight
+    physical_screen_width = real_screen_width / Rho::System.ppiY
+    physical_screen_height = real_screen_height / Rho::System.ppiX
 
 JavaScript syntax:
     :::javascript
-    var real_screen_width = Rho.System.get_property("real_screen_width");
-    var real_screen_height = Rho.System.get_property("real_screen_height");
-    var physical_screen_width = real_screen_width / Rho.System.get_property("ppi_y");
-    var physical_screen_height = real_screen_height / Rho.System.get_property("ppi_x");
+    var real_screen_width = Rho.System.realScreenWidth;
+    var real_screen_height = Rho.System.realScreenHeight;
+    var physical_screen_width = real_screen_width / Rho.System.ppiY;
+    var physical_screen_height = real_screen_height / Rho.System.ppiX;
 
 ### Screen orientation
 
@@ -85,34 +102,46 @@ The platform can be one of the following strings:
 
 Ruby syntax:
     :::ruby
-    screen_orientation = Rho::System.get_property('screen_orientation')
+    screen_orientation = Rho::System.screenOrientation
 
 JavaScript syntax:
     :::javascript
-    var screen_orientation = Rho.System.get_property("screen_orientation");
+    var screen_orientation = Rho.System.screenOrientation;
+
+### Screen auto rotate
+
+You can check if auto rotation is enabled on the device.
+
+Ruby syntax:
+    :::ruby
+    auto_rotate = Rho::System.screenAutoRotate
+
+JavaScript syntax:
+    :::javascript
+    var auto_rotate = Rho.System.screenAutoRotate;
 
 ## Device Identification
 
 There are certain properties of the device that your application can use to uniquely identify the device even across reinstalls.
 
-* phone_id – returns hardware based id. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
-* phone_number – device phone number
-* device_owner_email – primary email of phone owner (works only on Android)
-* device_owner_name – name(account name) of phone owner (works only on Android)
+* phoneId – returns hardware based id. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
+* phoneNumber – device phone number
+* deviceOwnerEmail – primary email of phone owner (works only on Android)
+* deviceOwnerName – name(account name) of phone owner (works only on Android)
 
 Ruby syntax:
     :::ruby
-    phone_id = Rho::System.get_property('phone_id')
-    phone_number = Rho::System.get_property('phone_number')
-    device_owner_email = Rho::System.get_property('device_owner_email')
-    device_owner_name = Rho::System.get_property('device_owner_name')
+    phone_id = Rho::System.phoneId
+    phone_number = Rho::System.phoneNumber
+    device_owner_email = Rho::System.deviceOwnerEmail
+    device_owner_name = Rho::System.deviceOwnerName
 
 JavaScript syntax:
     :::javascript
-    var phone_id = Rho.System.get_property("phone_id");
-    var phone_number = Rho.System.get_property("phone_number");
-    var device_owner_email = Rho.System.get_property("device_owner_email");
-    var phone_id = Rho.System.get_property("device_owner_name");
+    var phone_id = Rho.System.phoneId;
+    var phone_number = Rho.System.phoneNumber;
+    var device_owner_email = Rho.System.deviceOwnerEmail;
+    var device_owner_name = Rho.System.deviceOwnerName;
 
 ## Detecting the presence of hardware features
 
@@ -128,17 +157,17 @@ Then you can check if the device has a camera:
 
 Ruby syntax:
     :::ruby
-    has_camera = Rho::System.get_property('has_camera')
+    has_camera = Rho::System.hasCamera
     if has_camera
         # do something with camera
     end
 
 JavaScript syntax:
     :::javascript
-    var has_camera = Rho.System.get_property('has_camera');
-    if (has_camera)
+    var has_camera = Rho.System.hasCamera;
+    if (has_camera) {
         // do something with camera
-    end
+    }
 
 ### Cell network / Wifi
 
@@ -146,19 +175,18 @@ The device running your application may be offline or connected to a cellular ne
 
 Ruby syntax:
     :::ruby
-    has_network = Rho::System.get_property('has_network')
+    has_network = Rho::Network.hasNetwork
     if has_network
-        has_cell_network = Rho::System.get_property('has_cell_network')
-        has_wifi_network  = Rho::System.get_property('has_wifi_network')
+        has_cell_network = Rho::Network.hasCellNetwork
+        has_wifi_network = Rho::Network.hasWifiNetwork
     end
 
 JavaScript syntax:
     :::javascript
-    var has_network = Rho.System.get_property('has_network');
-    if (has_network)
-    {
-        var has_cell_network = Rho.System.get_property('has_cell_network');
-        var has_wifi_network = Rho.System.get_property('has_wifi_network');
+    var has_network = Rho.Network.hasNetwork;
+    if (has_network) {
+        var has_cell_network = Rho.Network.hasCellNetwork;
+        var has_wifi_network = Rho.Network.hasWifiNetwork;
     }
 
 ### Sensors
@@ -215,7 +243,7 @@ Next, on iPhone, Android, Windows Mobile, and Blackberry (`iphone`, `android`, `
     :iphone
         extensions: ["barcode"]
 
-Then you can use the Barcode API `enumerate` method to get a list of barcode scanners on the device
+Then you can use the [Barcode API](../api/barcode) `enumerate` method to get a list of barcode scanners on the device
 
 Ruby syntax:
     :::ruby
@@ -267,15 +295,50 @@ You can check if the device running the application is a Motorola device which h
 
 Ruby syntax:
     :::ruby
-    is_motorola_device = Rho::System.get_property('is_motorola_device')
+    is_motorola_device = Rho::System.isMotorolaDevice
     if is_motorola_device
         # do something with Motorola device specific capabilities
     end
 
 JavaScript syntax:
     :::javascript
-    var is_motorola_device = Rho.System.get_property('is_motorola_device');
-    if (is_motorola_device)
+    var is_motorola_device = Rho.System.isMotorolaDevice;
+    if (is_motorola_device) {
         // do something with Motorola device specific capabilities
+    }
+           
+### RhoSimulator
+
+You could check if the application is running on the RhoSimulator and enable certain code during developement stages.
+
+Ruby syntax:
+    :::ruby
+    is_rho_simulator = Rho::System.isRhoSimulator
+    if is_rho_simulator
+        # do something special for the simulator
     end
-                
+
+JavaScript syntax:
+    :::javascript
+    var is_rho_simulator = Rho.System.isRhoSimulator;
+    if (is_rho_simulator) {
+        // do something special for the simulator
+    }
+           
+### Emulator
+
+You could check if the application is running on the platform emulator and enable certain code during developement stages.
+
+Ruby syntax:
+    :::ruby
+    is_emulator = Rho::System.isEmulator
+    if is_emulator
+        # do something special for the emulator
+    end
+
+JavaScript syntax:
+    :::javascript
+    var is_emulator = Rho.System.isEmulator;
+    if (is_emulator) {
+        // do something special for the emulator
+    }
