@@ -6,7 +6,16 @@
             <ALIAS new="Signal" deprecated="true"/>        
         </ALIASES>
         <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  Windows Mobile / CE devices also support displaying a small indicator to show the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
-        <MORE_HELP>.</MORE_HELP>
+        <MORE_HELP>
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["indicators"]
+
+The `indicators` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"        
+        </MORE_HELP>
 		<!--  DEVELOPER NOTE: On WM/CE RE1 only ever implemented a periodic notification for WLAN signal strength, no API was available to retrieve it on change.  For Android / iOS you may wish to consider only updating the signal strength on change, in which case take a look at the Battery API which offers periodic and onChange notifications... it is recommended to use onChange notifications to save battery -->
         <TEMPLATES>
         </TEMPLATES>
@@ -135,7 +144,7 @@
                 <CODE lang='ruby'>
             <![CDATA[
   def signal_status_sync
-	signalValue = Rho::Signal.wlanStatus
+	signalValue = Rho::SignalIndicators.wlanStatus
 	puts signalValue
 	puts "Signal Strength is: " + signalValue['signalStrength']
   end
@@ -150,7 +159,7 @@
             <![CDATA[
   def signal_status_async
 	puts "Registering Signal Callback"
-	Rho::Signal.wlanStatus(url_for(:action => :signalEvent))
+	Rho::SignalIndicators.wlanStatus(url_for(:action => :signalEvent))
   end
 
    def signalEvent
@@ -170,7 +179,7 @@
                 <CODE lang='ruby'>
             <![CDATA[
   def show_signal_icon
-	Rho::Signal.showIcon({})
+	Rho::SignalIndicators.showIcon({})
   end
                     ]]>
                 </CODE>
@@ -182,7 +191,7 @@
                 <CODE lang='ruby'>
             <![CDATA[
   def show_signal_icon
-	Rho::Signal.showIcon({color:'#0000FF',layout:'up'})
+	Rho::SignalIndicators.showIcon({color:'#0000FF',layout:'up'})
   end
   ]]>
                 </CODE>

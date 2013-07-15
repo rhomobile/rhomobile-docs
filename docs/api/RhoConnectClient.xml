@@ -2,7 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
   <MODULE name="RhoConnectClient" parent="Rho" generateUnderscoreRubyNames="true">
-  <HELP_OVERVIEW>RhoConnectClient is used for synchronization with RhoConnect applications.</HELP_OVERVIEW>
+  <HELP_OVERVIEW>RhoConnectClient is used for synchronization with RhoConnect applications.
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["rhoconnect-client"]
+  </HELP_OVERVIEW>
   <ALIASES>
     <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
   </ALIASES>

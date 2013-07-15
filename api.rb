@@ -18,9 +18,10 @@ class Api
   	md=""
   	if !doc["MODULE"][0]["HELP_OVERVIEW"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW"][0].length >0
 
-	  	md = doc["MODULE"][0]["HELP_OVERVIEW"][0]
+	  	md = RDiscount.new(doc["MODULE"][0]["HELP_OVERVIEW"][0], :smart).to_html
 	  	if !doc["MODULE"][0]["MORE_HELP"].nil? && !doc["MODULE"][0]["MORE_HELP"][0].nil? && doc["MODULE"][0]["MORE_HELP"][0].length >0
-	  		md +=doc["MODULE"][0]["MORE_HELP"][0]
+	  		
+	  		md +=RDiscount.new(doc["MODULE"][0]["MORE_HELP"][0], :smart).to_html
 	  	end
   	end
   	#md += "\n\n" + doc["MODULE"][0]["MORE_HELP"][0]
@@ -609,7 +610,9 @@ def self.getconstantlinks(doc)
 			end
 			
 			@propdesc = element["DESC"][0]
-			
+			if @propdesc.nil?
+				RDiscount.new(@propdesc, :smart).to_html
+			end
 			@propvalues = ""
 			@propvaluetype = "STRING" #STRING IS DEFAULT IF NO TYPE SPECIFIED FOR propvalue
 			@seperator = ""
@@ -956,7 +959,8 @@ end
 		end 
 		
 		if !element["DESC"].nil?
-			@methdesc = element["DESC"][0]
+			@methdesc = RDiscount.new(element["DESC"][0], :smart).to_html
+			
 		else
 			@methdesc = ""
 		end

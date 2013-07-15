@@ -2,7 +2,16 @@
 <API>
     <MODULE name="Battery" parent="Rho" license="Required">
         <HELP_OVERVIEW>The Battery API is used to notify the user of the remaining power in the battery.  Windows Mobile / CE devices also support displaying a small indicator to show the available power.</HELP_OVERVIEW>
-        <MORE_HELP>.</MORE_HELP>
+        <MORE_HELP>
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["indicators"]
+
+The `indicators` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"        
+</MORE_HELP>
     
         <TEMPLATES>
         </TEMPLATES>

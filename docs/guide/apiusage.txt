@@ -84,19 +84,7 @@ Displays a battery signal icon in a native window without requiring users to dra
 Previously existed in 2.2 <a href="/v/2.2/rhoelements/battery">Battery</a> 
 </td>
 </tr>
-<tr>
-<td>
 
-<a href="/api/camera">Camera</a>
-
-</td>
-<td>
-Access devices camera to take or choose pictures
-</td>
-<td>
-<a href="/v/2.2/rhodesapi/camera-api/">Camera</a> and <a href="/v/2.2/rhoelements/imager/">Imager</a> have been amalgamated
-</td>
-</tr>
 <tr>
 <td>
 <a href="/api/cardreader">CardReader
@@ -307,17 +295,7 @@ Graphical indicator of WiFi strength
 Previous 2.2 API: <a href="/v/2.2/rhoelements/signal">Signal</a> 
 </td>
 </tr>
-<tr>
-<td>
-<a href="/api/videocapture">VideoCapture
-</td>
-<td>
-Captures video files from the default camera device
-</td>
-<td>
-Previous 2.2 API: <a href="/v/2.2/rhoelements/VideoCapture">VideoCapture</a> 
-</td>
-</tr>
+
 
 <tr>
 <td>
@@ -359,6 +337,7 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2
 Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorported in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both Javascript and Ruby.
 
 * [Mapview](/v/2.2/rhodesapi/mapview-api)
+* [Camera](/v/2.2/rhodesapi/camera-api/)
 * [Contacts](/v/2.2/rhodesapi/rhocontact-api)
 * Calendar
 * System.Process
