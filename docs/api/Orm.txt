@@ -62,11 +62,11 @@ var productModel = Rho.ORM.getModel("Product");
             <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
 
                 
-Rho.ORM.databaseFullResetEx({"models":['Product', 'Customer']},true,true); 
+Rho.ORM.databaseFullResetEx({'models' : ['Product', 'Customer'], 'reset_client_info' : true, 'reset_local_models' : true} 
               </code></pre></div><div class='tab-pane' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
                 
-ORM.databaseFullResetEx(:models =&gt; ['Product', 'Customer'], :reset_client_info =&gt; true, :reset_local_models =&gt; true) 
+ORM.databaseFullResetEx({:models =&gt; ['Product', 'Customer'], :reset_client_info =&gt; true, :reset_local_models =&gt; true}) 
               </code></pre></div></div>  </div></div></div></div>
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>

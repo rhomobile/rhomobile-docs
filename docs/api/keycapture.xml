@@ -9,10 +9,10 @@
         </TEMPLATES>
 
 		<CONSTANTS>
-            <CONSTANT name="IPHONE_VOLUME_UP" value="10">
+            <CONSTANT name="IPHONE_VOLUME_UP" value="10" type="INTEGER">
                 <DESC>iPhone volume up keyCode</DESC>
             </CONSTANT>
-            <CONSTANT name="IPHONE_VOLUME_DOWN" value="11">
+            <CONSTANT name="IPHONE_VOLUME_DOWN" value="11" type="INTEGER">
                 <DESC>iPhone volume down keyCode</DESC>
             </CONSTANT>
 		</CONSTANTS>	

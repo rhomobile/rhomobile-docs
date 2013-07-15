@@ -22,7 +22,6 @@ section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/battery',      'Battery'
-  topic 'api/camera',      'Camera'
   topic 'api/cardreader',      'CardReader'
   topic 'api/Database',      'Database '
   topic 'api/keycapture',      'KeyCapture '
@@ -44,8 +43,7 @@ section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
   topic 'api/sensor',      'Sensor'
   topic 'api/signal',      'Signal'
   topic 'api/signature',      'Signature'
-  topic 'api/videocapture',      'VideoCapture'
-    topic 'api/system',      'System'
+  topic 'api/system',      'System'
   topic 'api/webview',      'Webview'
 end
 
@@ -84,8 +82,9 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/bluetooth',       'Bluetooth'
   topic 'guide/camera',       'Camera'
   topic 'guide/pim',       'Contacts & Calendar'
+  topic 'guide/device_hardware_key_handling',       'Device Notifications & Keylight'
   topic 'guide/html5',       'Html5 Features'
-  topic 'guide/controlling_webview_behavior',       'Controllling Webview Behavior'
+  topic 'guide/controlling_webview_behavior',       'Controlling Webview Behavior'
   topic 'guide/filesystem',       'File System'
   topic 'guide/geolocation',       'Geolocation'
   topic 'guide/localization',       'Localization'
