@@ -1,0 +1,42 @@
+# Adding RhoMobile Capabilities To Your Web Application 
+
+You may wish to add RhoMobile API capabilties to your web application if your client devices are running a RhoMobile Application or RhoElements Shared Runtime that is pointing to your web server.
+
+## Client Choices
+
+### Standard Browsers
+Standard browsers will not provide the added benefit of native application packaging, deployment and management. It will also not allow you to take advantage of the RhoMobile APIs that provide device, system and framework access to your web application 
+
+### RhoMobile Application
+Although RhoMobile applications typically involve packaging up all resources and application logic locally with the RhoMobile application, you can build a [RhoMobile Application](creating_a_project) to start running from your web server start page. Although you have to [install](rhomobile-install) and [setup](nativesdksetup) the development environment and build the application for each mobile operating system, you can truly make this application appear like a native application by changing the [application icon, splash screen](app_icon_splash) as well as customize other [build](build_config) and [runtime options](runtime_config). [Follow the typical steps](creating_a_project) for building a RhoMobile Application and then be sure to [change the start_path](#connecting-with-your-web-application) to point to your web app starting URL.
+
+### RhoElements Shared Runtime
+The RhoElements Shared Runtime is basically a preconfigured RhoMobile Application that includes RhoElements APIs. You do not need to build and compile a RhoMobile application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.[Read More](rhoelements-runtime)
+
+NOTE: RhoMobile Suite 4.0 provides a RhoElements Shared Runtime for Windows Mobile/CE only. It includes access to all JS API's and default API extensions and capabilities. The Shared Runtime requires a RhoElements license
+
+## Connecting with your web application
+To load application files to the RhoMobile application from an external Web server - set `start_path` in `rhoconfig.txt` to point to http:// or https:// protocol URI. `rhoconfig.txt` is a runtime configuration file [Read More](/guide/runtime_config)
+	:::ruby
+	start_path='http://heroku.com/myapp/index.html'
+
+## Using RhoMobile JS APIs
+To use The RhoMobile 4.0 APIs, you have to copy `rhoapi-modules.js` to your web server application, so it can be loaded from your html pages. `rhoapi-modules.js` is a generated file and platform specific. To obtain this file, you will have to install your RhoMobile application onto a device running that platform and copy the file from the RhoMobile folder.
+
+If your clients for your web application are running from different platforms, you should place `rhoapi-modules.js` generated for specific platforms to separate folders:
+
+ios/rhoapi-modules.js
+android/rhoapi-modules.js
+wm/rhoapi-modules.js
+wp8/rhoapi-modules.js
+
+
+And then use a method for conditionally loading the appropriate JS file by checking user-agent string for example. A library [like yepnope.js](http://yepnopejs.com/) may be helpful	
+	:::javascript
+	yepnope({
+	  test : navigator.userAgent.match(/Android/i),
+	  yep  : 'android/rhoapi-modules.js'
+	  
+	});
+
+

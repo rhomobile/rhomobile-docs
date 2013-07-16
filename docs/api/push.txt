@@ -16,7 +16,7 @@ extensions: ["coreapi"]
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Handle push message</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
-Start push nofification service and define alert popup window in push callback method.<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+Start Push Notifications service and define alert popup window in push callback method.<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
                                 
 function setupPush() {

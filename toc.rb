@@ -63,14 +63,14 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/models',         'Data Models'
   topic 'guide/runtime_config',             'Runtime Configuration'
   topic 'guide/build_config',             'Buildtime Configuration'
-  topic 'guide/rhosimulator',             'Using RhoSimulator'
   topic 'guide/build_ios',             'Build for iOS'
   topic 'guide/build_android',             'Build for Android'
   topic 'guide/build_wm',             'Build for Windows Mobile'
   topic 'guide/visualstudio#launch-and-run',             'Build for Windows Phone 8'
   topic 'guide/build_win',             'Build for Windows'
   topic 'guide/app_icon_splash',        'Application Icon & Splash Screen'
-  topic 'guide/app_upgrade',        'Upgrading Your Application'
+  topic 'guide/webapps',        'RhoMobile for Web Apps'
+  topic 'guide/rhoelements-runtime',        'RhoElements Shared Runtime'
 end
 
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
@@ -107,6 +107,7 @@ section 'rhomob-data', 'Data Handling','Mobile Guides' do
 end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
+  topic 'guide/debugging_with_rhosimulator',    'Debugging with RhoSimulator'
   topic 'guide/logging',    'Logging'
   topic 'guide/testing',    'Testing'
   topic 'guide/profiling',    'Performance Profiling'

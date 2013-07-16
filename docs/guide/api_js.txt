@@ -1,21 +1,57 @@
 # Using RhoMobile Javascript API's 
 
-RhoMobile applications support access to device, system and framework capabilities through a common API set whether you are building Rhodes, RhoElements or RhoMobile enabled web apps. In order to use these api's your application pages must have access to the `rhoapi-modules.js` file. This Javascript library will provide all API access under the `Rho` set of classes.
+RhoMobile applications support access to device, system and framework capabilities through a common API using Javascript. In order to use these api's your application pages must have access to the `rhoapi-modules.js` file. This Javascript library will provide all API access under the `Rho` set of classes.
 
 ## Enabling RhoMobile API's
-When building a native RhoMobile application, the `rhoapi-modules.js` file is automatically added to the application's `\public\api` folder. You will see this file after installing the application onto the device or can access it when building the application for [RhoSimulator](/guide/rhosimulator). When using [RhoStudio's applicatiom generator](/guide/creating_a_project#creating-a-project-with-rhostudio), the file is automatically added to the `layout.erb` file which is used for all of the default views.
+When building a native RhoMobile application, the `rhoapi-modules.js` file is automatically generated at build time and added to the application's `\public\api` folder upon installation of the application to the device. The contents of this file will be based on the `extensions`, `capabilities` specified in your `build.yml` file as well as the target operating system. 
+
+Your html or erb pages must include reference to this file otherwise you will not be able to use the `Rho.Object` API classes
 
 	:::html
 	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
 
-### Adding RhoMobile JS Library to your Web App
-If you are using a RhoMobile application or the RhoElements Shared Runtime to access web pages on your webserver, you can copy the generated `rhoapi-modules.js` from a dummy RhoMobile project by running it for RhoSimulator:
 
-* Launch RhoStudio
-* Create a blank project using the application generator
-* Modify the build.yml file to add device capabilities or RhoElements API access
-* Build and run the project for RhoSimulator
-* The rhoapi-modules.js file can now be found in the `[project folder]\public\api` folder
+## Javascript RhoMobile Application Structure
+The following application structure is what is minimally required to build a Javascript RhoMobile Application. You can still use the [App Generator](/guide/creating_a_project#creating-a-project-with-rhostudio) to create the default structure, but then remove the `app` folder that is generated for a `Ruby` MVC app.
+
+	:::html
+	- build.yml 
+	- rhoconfig.txt (start_path points to starting html page)
+	- rakefile
+	- icon (folder for application icon)
+	- public (root folder for 'web application')
+
+## Build.yml settings
+Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you can specify the following setting in the `build.yml` file: 
+	:::yaml
+	javascript_application: true
+
+When this flag is specified, the Ruby VM will not start at application start, and all ruby files will be ignored.
+
+## Using JS APIs from Web Server Application
+To load application files to the RhoMobile application from an external Web server - set `start_path` in `rhoconfig.txt` to point to http:// or https:// protocol URI
+	:::ruby
+	start_path='http://heroku.com/myapp/index.html'
+
+To use Common APIs you have to copy rhoapi-modules.js to your web server application, so it can be loaded from your html pages. `rhoapi-modules.js` is a generated file and platform specific. To obtain this file, you will have to install your RhoMobile application onto a device running that platform and copy the file from the RhoMobile folder.
+
+
+If your clients for your web application are running from different platforms, you should place `rhoapi-modules.js` generated for specific platforms to separate folders:
+
+ios/rhoapi-modules.js
+android/rhoapi-modules.js
+wm/rhoapi-modules.js
+wp8/rhoapi-modules.js
+
+
+And then use a method for conditionally loading the appropriate JS file by checking user-agent string for example. A library [like yepnope.js](http://yepnopejs.com/) may be helpful	
+	:::javascript
+	yepnope({
+	  test : navigator.userAgent.match(/Android/i),
+	  yep  : 'android/rhoapi-modules.js'
+	  
+	});
+
 
 ## Using your own objects
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them.
