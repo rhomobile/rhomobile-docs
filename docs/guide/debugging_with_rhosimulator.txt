@@ -1,0 +1,332 @@
+# Debugging with RhoSimulator
+
+## What is RhoSimulator
+
+RhoSimulator lets you run your Rhodes applications on a simulated device, so that you can see how it looks, test and debug it. RhoSimulator builds and runs your application much faster than other emulators, making it useful for rapid testing and debugging.
+
+It also allows you to build and run your project on the platform of your choice without having to install the SDK for that platform. Instead, RhoSimulator will mimic the platform and the calls to the system will return as though the application was running on an actual device.
+
+If you modified Rhodes application sources, just press ‘Refresh’ in RhoSimulator to reload application, i.e. generally no RhoSimulator restart is required. The restart of RhoSimulator is required only if a model was added/modified or some code was added to the AppApplication class.
+
+### Uses
+
+* Debug Ruby code by using RhoStudio.
+* Debug JavaScript.
+* Live edit HTML and CSS.
+* Diagnose network activity and AJAX calls.
+
+### Limitations
+
+* RhoSimulator does not attempt to replicate all features of a real device. For example: certain hardware features like camera, scanner are not replicated
+* RhoSimulator is currently only available for Windows and Mac OS X.
+
+## Prerequisites
+
+* Install [RhoSimulator](#install-rhosimulator)
+* Optionally install [RhoStudio](../rhostudio.tutorial)
+
+## Running your application in RhoSimulator
+
+### Running RhoSimulator from command line
+
+Run one of the following commands inside the application folder:
+    
+* to simulate Android platform, run the following
+
+        rake run:android:rhosimulator
+
+* to simulate iPhone, run the following
+
+        rake run:iphone:rhosimulator
+
+* to simulate Windows Phone platform, run the following
+
+        rake run:wp:rhosimulator 
+
+* to simulate BlackBerry platform, run the following
+
+        rake run:bb:rhosimulator
+
+* to simulate Windows Mobile platform, run the following
+
+        rake run:wm:rhosimulator 
+
+### Running RhoSimulator from RhoStudio
+
+Ensure that your application is configured properly and successfully runs in [RhoSimulator from the command line](#running-rhosimulator-from-command-line)
+
+* In RhoStudio, select your Rhodes project from the Project Explorer.
+* Select 'Run' -> 'Run Configurations' from the main menu. The Run Configurations window appears.
+* Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration.
+* Select the required platform.
+* Select RhoSimulator for the Simulator type.
+* Click 'Run' to start the RhoSimulator.
+
+The below screenshot shows run configuration for RhoSimulator for the iPhone platform
+
+![Run Configuration](/images/debugging-with-rhosimulator/run-configuration.png)
+
+The below screenshot shows the RhoSimulator mimicking an iPhone
+
+![Device Window](/images/debugging-with-rhosimulator/device-window.png)
+
+The below screenshot shows the Web Inspector provided by the RhoSimulator
+
+![Web Inspector](/images/debugging-with-rhosimulator/web-inspector-window.png)
+
+## Using the Web Inspector
+
+RhoSimulator comes with a Web Inspector that allows you to inspect the web interface for your application and try out certain changes live on the HTML and CSS. When you run an application in the RhoSimulator it brings up an Inspector window in addition to the device window.
+
+### Examining the DOM
+
+In the 'Elements' tab of Web Inspector you can examine the DOM tree structure of the HTML page that is currently visible. 
+
+You can select and examine individual elements in the DOM tree by using one of the following methods:
+
+#### Using the element picker
+
+Click on the 'Magnifying glass' icon in the bottom toolbar
+
+![Magnifying glass icon](/images/debugging-with-rhosimulator/html-element-picker.png)
+
+In the device window, click on the HTML element you require
+
+![Selecting an element](/images/debugging-with-rhosimulator/selecting-html-element.png)
+
+In the inspector window, the selected element is highlighted
+
+![Selected element](/images/debugging-with-rhosimulator/selected-html-element.png)
+
+#### Using the search box
+
+In the 'Elements' tab search box, you can enter text to match any of the attributes, content or even tag name of the element. All the matching elements will be highlighted.
+
+![Search elements](/images/debugging-with-rhosimulator/search-elements.png)
+
+#### Expanding/collapsing the DOM tree
+
+In the inspector window, you can directly navigate to the required HTML element by expanding/collapsing the tree using the arrows
+
+![DOM tree arrows](/images/debugging-with-rhosimulator/dom-tree-arrows.png)
+
+### Live editing HTML and CSS
+
+The Web Inspector lets you modify your page and styles live, which means it is not required to relaunch the simulator to see the changes. This provides an quick way to try out HTML and CSS changes to see how they look.
+
+NOTE: These changes are only temporarily applied to the page inside RhoSimulator. To make them permanent you must update your HTML/CSS files.
+
+You can make the following changes:
+
+#### Edit element attribute
+
+* Double click the element's attribute name or value
+* Edit the text
+* Press enter to apply the change or escape to cancel
+
+For example, edit the CSS class attribute.
+
+![Edit attribute](/images/debugging-with-rhosimulator/live-edit-attribute.png)
+
+#### Edit element inner text
+
+* Double click the text inside the element
+* Edit the text
+* Press enter to apply the change or escape to cancel
+
+For example, the 'Login' button name is changed to 'Sign in'.
+
+![Edit innertext](/images/debugging-with-rhosimulator/live-edit-innertext.png)
+
+#### Edit element tag
+
+* Double click the element's tag name
+* Edit the tag
+* Press enter to apply the change or escape to cancel
+
+![Edit tag](/images/debugging-with-rhosimulator/live-edit-tag.png)
+
+#### Delete element
+
+* Click the element
+* Press Delete key
+
+#### Edit a style declaration
+
+* Inside a CSS rule, double click the property or value part of the declaration
+* Edit the property or value
+* Press enter to apply the change or escape to cancel
+
+For example, change 'text-align' to 'right'
+
+![Edit declaration](/images/debugging-with-rhosimulator/live-edit-declaration.png)
+
+#### Temporarily disable a style declaration
+
+* Inside a CSS rule, click the checkbox to the right of the declaration to temporarily disable or click again to reenable it
+
+For example, disable 'text-align'
+
+![Disable declaration](/images/debugging-with-rhosimulator/live-disable-declaration.png)
+
+#### Add a style declaration
+
+* Double click the opening or closing braces of a CSS rule
+* Type in the property name followed by a colon and the value
+* Press enter to apply the change or escape to cancel
+
+For example, add a new 'border-style'
+
+![New declaration](/images/debugging-with-rhosimulator/live-new-declaration.png)
+
+#### Create new style rule
+
+* Click the small 'Gear' icon to the right of the 'Styles' heading
+* Select 'New Style Rule'
+* Edit the selector as required and press enter or escape to cancel
+* Type in the property name followed by a colon and the value
+* Press enter to apply the change or escape to cancel
+
+![New rule](/images/debugging-with-rhosimulator/live-new-rule.png)
+
+#### Edit style selector
+
+* Double click the style rule's selector
+* Edit the text
+* Press enter to apply the change or escape to cancel
+
+![Edit selector](/images/debugging-with-rhosimulator/live-edit-selector.png)
+
+### Checking resources used by a page
+
+The 'Resources' tab allows you to see the resources being loaded and used by the current page. 
+
+This includes:
+
+* Assets like JavaScript, CSS and images files
+* Databases
+* Local and Session storage
+* Cookies
+* Application Cache
+
+![Resources Tab](/images/debugging-with-rhosimulator/resources.png)
+
+### Diagnosing network activity and AJAX calls
+
+The 'Network' tab allows you to see the HTTP requests and how long they take to fetch. 
+
+* Click on any of the names on the left to view the content and headers for the request.
+* Use the data from the 'Latency' and 'Timeline' columns to optimize the time taken for your application screens to load (Move your mouse over each row in the graph to get numerical values).
+
+![Network Tab](/images/debugging-with-rhosimulator/network.png)
+
+TODO: AJAX screenshot showing JSON or XML content in the response
+
+### Debugging JavaScript code
+
+The 'Scripts' tab allows you to set breakpoints and inspect variables in your JavaScript code.
+
+#### Setting breakpoints
+
+* Select the required script source file from the dropdown
+* Goto the line where you want to set breakpoint
+* Click on left margin where the line number is displayed, a flag will appear over the line number to indicate that a break point has been set at this line.
+* To remove the breakpoint click on the flag that appears over the line number
+* The break point is also displayed as a list on the right side of the inspector under the heading 'Breakpoints'
+* Toggle the checkbox in the list view to temporarily disable and reenable the breakpoint
+
+![Breakpoints](/images/debugging-with-rhosimulator/javascript-breakpoints.png)
+
+#### Inspecting variables
+
+When the application is paused at a breakpoint or by pressing the 'Pause' button, you can inspect the values of JavaScript variables.
+
+* Local variables are automatically displayed under the 'Scope Variables' heading
+* You switch to different stack frames under the 'Call Stack' heading, the local variables displayed will depend on the current stack frame
+* You can use 'Watch Expressions' to add an expression that needs to evaluated. This can simply be a variable or can be any valid JavaScript expression.
+
+TODO: screenshot
+
+### The console
+
+The 'Console' tab allows you to view log messages and also to execute and debug your JavaScript.
+
+![Console](/images/debugging-with-rhosimulator/console.png)
+
+The console can also be accessed as part of any of the other tabs by using the 'Show console' button at the bottom left corner of the other tabs.
+
+![Embedded Console](/images/debugging-with-rhosimulator/console-embedded.png)
+
+#### Logging
+
+The Console logs messages from the system and also from your application code.
+
+##### Filter log messages by their level
+
+The log messages can be filtered according to their level 
+    * Errors - show only messages with error level
+    * Warnings - show only messages with warning level
+    * Logs - show only messages which are not with error or warning level
+
+![Filtering messages](/images/debugging-with-rhosimulator/filtering-console-messages.png)
+
+##### Generating log messages from your application
+
+To generate log messages from your application code using the following methods:
+
+Ruby syntax:
+    :::ruby
+    Rho::Log.error(...)
+    Rho::Log.fatalError(...)
+    Rho::Log.info(...)
+    Rho::Log.trace(...)
+    
+JavaScript syntax:
+    :::javascript
+    Rho.Log.error(...);
+    Rho.Log.fatalError(...);
+    Rho.Log.info(...);
+    Rho.Log.trace(...);
+    
+Additionally, you can call console.log() method too from your JavaScript code
+
+    :::javascript
+    console.log(...);
+
+#### Interactive JavaScript
+
+The Console allows fully interactive JavaScript usage. 
+
+You can:
+
+* Evaluate any valid JavaScript expression
+* Examine variables or object properties
+* Invoke methods on objects
+
+![Interactive JavaScript](/images/debugging-with-rhosimulator/interactive-javascript.png)
+
+## Debugging Ruby code
+
+You can use RhoSimulator along with RhoStudio debugger to debug the Ruby code in your Rhodes application.
+
+### Starting a debug session
+
+Ensure that your application is configured properly and successfully runs in [RhoSimulator from the command line](#running-rhosimulator-from-command-line)
+
+* In RhoStudio, select your Rhodes project from the Project Explorer.
+* Select 'Run' -> 'Debug Configurations' from the main menu. The Debug Configurations window appears.
+* Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration
+* Select the required platform.
+* Click 'Debug' to start the debugger.
+
+![Debug Configuration](/images/debugging-with-rhosimulator/debug-configuration.png)
+
+You will again get the RhoSimulator device and Web Inspector windows. Now, if you switch back to RhoStudio you will notice the it has switched to the 'Debug' perspective in your workspace.
+
+From here you can:
+
+* Set breakpoints in your Ruby code.
+* Inspect variables when the application is stopped at a breakpoint in the Variables window.
+* View log messages in the Console window.
+
+![RhoStudio Debugging](/images/debugging-with-rhosimulator/rhostudio-debug-ruby.png)
