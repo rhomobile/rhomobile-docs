@@ -41,8 +41,8 @@ The `cardreader` extension is also included automatically if you specify the fol
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Only compatible with DCR7000-x00</APPLIES>
 			</PROPERTY>
-			<PROPERTY name="panData" type="INTEGER" generateAccessors="true">								
-				<DESC>Sets the card data without the need of a swipe.  This accepts any 16 digit number as the value.</DESC>				
+			<PROPERTY name="panData" type="STRING" generateAccessors="true">								
+				<DESC>Sets the card data without the need of a swipe.  This accepts any 16 digit number as the string value. Also ensure that pinEntry should be true before getting the property of panData.</DESC>				
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Only compatible with DCR7000-x00</APPLIES>
 			</PROPERTY>
@@ -62,28 +62,28 @@ The `cardreader` extension is also included automatically if you specify the fol
 				<APPLIES msiOnly="true"></APPLIES>
 				<VALUES>
                     <VALUE constName="MSR9000" value="msr9000">
-                        <DESC>MSR9000 drivers</DESC>
+                        <DESC>MSR9000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSR3000.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="MSR9001" value="msr9001">
-                        <DESC>MSR9001 drivers</DESC>
+                        <DESC>MSR9001 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSR3000.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="MSR9500" value="msr9500">
-                        <DESC>MSR9500 drivers</DESC>
+                        <DESC>MSR9500 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC50.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="MSRCAMEO" value="msrcameo">
-                        <DESC>MSRCAMEO drivers</DESC>
+                        <DESC>MSRCAMEO drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRCAMEO.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="MSR7000" value="msr7000">
-                        <DESC>MSR7000 drivers</DESC>
+                        <DESC>MSR7000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e.  MSRMC50.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="DCR7000" value="dcr7000">
-                        <DESC>DCR7000 drivers</DESC>
+                        <DESC>DCR7000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC50.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="MSR55" value="msr55">
-                        <DESC>MSR55 drivers</DESC>
+                        <DESC>MSR55 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC55.DLL</DESC>
                     </VALUE> 
                     <VALUE constName="MSR3000" value="msr3000">
-                        <DESC>MSR3000 drivers</DESC>
+                        <DESC>MSR3000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSR3000.DLL</DESC>
                     </VALUE>                     					
                 </VALUES>                
             </PROPERTY>
