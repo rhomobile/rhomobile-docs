@@ -2,7 +2,7 @@
 
 ## What is RhoSimulator
 
-RhoSimulator lets you run your Rhodes applications on a simulated device, so that you can see how it looks, test and debug it. RhoSimulator builds and runs your application much faster than other emulators, making it useful for rapid testing and debugging.
+RhoSimulator lets you run your RhoMobile applications on a simulated device, so that you can see how it looks, test and debug it. RhoSimulator builds and runs your application much faster than other emulators, making it useful for rapid testing and debugging.
 
 Once your application is running under RhoSimulator, you can make changes to your source files and just press ‘Refresh’ to see your changes live, i.e. generally no RhoSimulator restart is required. The restart of RhoSimulator is required only if a model was added/modified or some code was changed in the `AppApplication` class.
 
@@ -22,8 +22,7 @@ Once your application is running under RhoSimulator, you can make changes to you
 
 ## Prerequisites
 
-* Install [RhoSimulator](../rhodes/simulator#install-rhosimulator) (this step is usually not required, the rhodes gem includes RhoSimulator)
-* Optionally install [RhoStudio](../rhostudio.tutorial)
+* You may want to install [RhoStudio](../rhostudio.tutorial) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
 
 ## Running your application in RhoSimulator
 
@@ -55,7 +54,7 @@ Run one of the following commands inside the application folder, depending on th
 
 Ensure that your application is configured properly and successfully runs in [RhoSimulator from the command line](#running-rhosimulator-from-command-line)
 
-* In RhoStudio, select your Rhodes project from the Project Explorer.
+* In RhoStudio, select your RhoMobile project from the Project Explorer.
 * Select 'Run' -> 'Run Configurations' from the main menu. The Run Configurations window appears.
 * Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration.
 * Select the required platform.
@@ -284,13 +283,13 @@ You can:
 
 ## Debugging Ruby code
 
-You can use RhoSimulator along with RhoStudio debugger to debug the Ruby code in your Rhodes application.
+You can use RhoSimulator along with RhoStudio debugger to debug the Ruby code in your RhoMobile application.
 
 ### Starting a debug session
 
 Ensure that your application is configured properly and successfully runs in [RhoSimulator from the command line](#running-rhosimulator-from-command-line)
 
-* In RhoStudio, select your Rhodes project from the Project Explorer.
+* In RhoStudio, select your RhoMobile project from the Project Explorer.
 * Select 'Run' -> 'Debug Configurations' from the main menu. The Debug Configurations window appears.
 * Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration
 * Select the required platform.
