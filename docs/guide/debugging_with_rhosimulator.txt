@@ -22,7 +22,7 @@ Once your application is running under RhoSimulator, you can make changes to you
 
 ## Prerequisites
 
-* You may want to install [RhoStudio](../rhostudio.tutorial) and use it as your IDE; this step is optional, however, you can still use RhoSimulator from the command line.
+* You may want to install [RhoStudio](../rhostudio.tutorial) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
 
 ## Running your application in RhoSimulator
 
