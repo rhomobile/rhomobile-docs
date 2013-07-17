@@ -1,0 +1,140 @@
+# Screen Orientation
+
+You can use the `ScreenOrientation` module to control the screen orientation and to set a callback to receive orientation change events.
+
+## Prerequisite
+
+Before you can make use of the `ScreenOrientation` API, you need to include the `screenorientation` extension in your `build.yml`
+
+    :::yaml
+    extensions: ["screenorientation"]
+
+## Get current screen orientation
+
+You can get the current orientation of the device by using the `System.screenOrientation` property.
+
+Ruby syntax:
+    :::ruby
+    screen_orientation = Rho::System.screenOrientation
+    if screen_orientation == "portrait"
+        # do something specific to portrait mode
+    elsif screen_orientation == "landscape"
+        # do something specific to landscape mode
+    end
+
+JavaScript syntax:
+    :::javascript
+    var screen_orientation = Rho.System.screenOrientation;
+    if (screen_orientation === "portrait") {
+        // do something specific to portrait mode
+    } else if (screen_orientation === "landscape") { 
+        // do something specific to landscape mode
+    }
+    
+## Control screen orientation
+
+### Enable / disable auto-rotation
+
+You can enable or disable the autorotation of the screen orientation when the device is rotated by setting the `autoRotate` property
+
+Ruby syntax:
+    :::ruby
+    # enable auto-rotate
+    Rho::ScreenOrientation.autoRotate = true
+
+    # disable auto-rotate
+    Rho::ScreenOrientation.autoRotate = false
+
+JavaScript syntax:
+    :::javascript
+    // enable auto-rotate
+    Rho.ScreenOrientation.autoRotate = true;
+
+    // disable auto-rotate
+    Rho.ScreenOrientation.autoRotate = false;
+
+### Changing to default orientation
+
+Set the screen to the default orientation of the device using the `normal` method.
+
+Ruby syntax:
+    :::ruby
+    Rho::ScreenOrientation.normal
+
+JavaScript syntax:
+    :::javascript
+    Rho.ScreenOrientation.normal();
+
+### Changing to right-handed orientation
+
+Set the screen to right-handed orientation using the `rightHanded` method.
+
+Ruby syntax:
+    :::ruby
+    Rho::ScreenOrientation.rightHanded
+
+JavaScript syntax:
+    :::javascript
+    Rho.ScreenOrientation.rightHanded();
+
+### Changing to left-handed orientation
+
+Set the screen to left-handed orientation using the `leftHanded` method.
+
+Ruby syntax:
+    :::ruby
+    Rho::ScreenOrientation.leftHanded
+
+JavaScript syntax:
+    :::javascript
+    Rho.ScreenOrientation.leftHanded();
+
+### Changing to upside-down orientation
+
+Set the screen to upside-down orientation using the `upsideDown` method. Useful if presenting the device to a customer to obtain a signature.
+
+Ruby syntax:
+    :::ruby
+    Rho::ScreenOrientation.upsideDown
+
+JavaScript syntax:
+    :::javascript
+    Rho.ScreenOrientation.upsideDown();
+
+## Responding to screen orientation change
+
+### Set callback for screen orientation events
+
+Set the callback for screen orientation events by using the `setScreenOrientationEvent` method.
+
+Ruby syntax:
+    :::ruby
+    def set_callback
+        Rho::ScreenOrientation.setScreenOrientationEvent(url_for(:action => :screen_orientation_callback))
+    end
+
+    def unset_callback
+        Rho::ScreenOrientation.setScreenOrientationEvent(nil)
+    end
+
+    def screen_orientation_callback
+        puts "Screen Rotated : " + @params
+    end
+
+JavaScript syntax:
+    :::javascript
+    function set_callback() {
+        Rho.ScreenOrientation.setScreenOrientationEvent(screen_orientation_callback);
+    }
+
+    function unset_callback() {
+        Rho.ScreenOrientation.setScreenOrientationEvent(null);
+    }
+
+    function screen_orientation_callback(params) {
+        console.log("Screen Rotated", params);
+    }
+
+### Updating the UI on screen orientation change
+
+TODO: [talk about responsive design & CSS media queries with small examples and external links]
