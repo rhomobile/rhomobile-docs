@@ -177,17 +177,17 @@ To set up your Rhodes client application for RhoConnect Push Service, you config
 
 In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
 
-    syncserver = 'http://<hostname>:<port>/application'
-    rhoconnect_push_server = 'http://<hostname>:<port>'
-    rhoconnect_push_appname = 'someappname'
+    syncserver = 'http://<hostname>:<port>'
+    Push.rhoconnect.pushServer = 'http://<hostname>:<port>'
+    Push.rhoconnect.pushAppName = 'someappname'
 
 Next, your RhoConnect application should be running on a network that is accessible to your device. For example, you might have your RhoConnect application running on a LAN with IP 192.168.1.10, PORT 9292. Then make sure your device is connected to the same LAN.
 
-Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (rhoconnect_push_server) and the RhoConnect server are running on the same host.
+Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. The URLs used for the RhoConnect Push Service (Push.rhoconnect.pushServer) and the RhoConnect server are running on the same host.
 
-    syncserver = 'http://192.168.1.10:9292/application'
-  	rhoconnect_push_server = 'http://192.168.1.10:8675'
-  	rhoconnect_push_appname = 'someappname'
+    syncserver = 'http://192.168.1.10:9292'
+    Push.rhoconnect.pushServer = 'http://192.168.1.10:8675'
+    Push.rhoconnect.pushAppName = 'someappname'
 
 ### Configuring build.yml
 
