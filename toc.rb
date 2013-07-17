@@ -13,6 +13,7 @@ end
 
 
 section 'rhodescommonapi-guides', 'RhoMobile API Guides','Mobile API Docs' do
+  topic 'guide/apisummary', 'RhoMobile API Summary'
   topic 'guide/api_js', 'RhoMobile Javascript Usage'
   topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
   topic 'guide/apiusage',      '2.2 Migration Guide'
