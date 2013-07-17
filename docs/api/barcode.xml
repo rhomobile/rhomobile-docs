@@ -1891,6 +1891,26 @@ def scan_received
 end
                    ]]>
                  </RUBY>
+                <JAVASCRIPT>
+           <![CDATA[
+function scan_using_default_scanner(){
+  // Scan with default options
+  Rho.Barcode.take({}, scan_received);
+}
+  
+function scan_received(params)
+  // Did we actually find a barcode ?
+  // If status is not 'ok', the scan was cancelled
+
+    if (params["status"]=="ok") {
+        alert('Barcode scanning complete. Scanned barcode: '+params["barcode"]);
+    } else {
+        alert('Barcode scanning aborted');
+    }
+    Rho.Barcode.stop();
+}
+                   ]]>
+                 </JAVASCRIPT>
                </CODE>
                </SECTION>
                </SECTIONS>
@@ -1942,7 +1962,37 @@ end
 </ul>
                    ]]>
                  </RUBY>
-               </CODE>
+                <JAVASCRIPT>
+           <![CDATA[
+var scanners;
+             
+function choose_scanner(){
+    
+  // Enumerate returns an array of scanner objects 
+  // Devices without a hardware scanner will return a software-based recognizer 
+  scanners = Rho::Barcode.enumerate();
+}
+
+function scan_using_chosen_scanner(scanner_index) {
+    var scanner = scanners[scanner_index];
+    scanner.take({}, scan_received_callback);
+}
+
+function scan_received_callback(params)
+{
+  // Did we actually find a barcode ?
+  // If status is not 'ok', the scan was cancelled
+  if (params["status"]=="ok") {
+            alert('Barcode scanning complete. Scanned barcode: '+params["barcode"]);
+        } else {
+            alert('Barcode scanning aborted');
+        }
+        Rho.Barcode.stop();
+}
+
+                   ]]>
+                 </JAVASCRIPT>
+               </CODE>                 
                </SECTION>
                </SECTIONS>
            </EXAMPLE>

@@ -24,7 +24,27 @@ app_type: "rhoelements"
 <a name='e0'></a><div class='accordion property' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample0"><strong>Scan barcodes with the default scanner</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample0" class="accordion-body collapse in">  <div class="accordion-inner">
 
                    Getting started with barcode scanning is very straightforward. If you do not need to customize the defaults, you need very little code. 
-               <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+               <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+
+           
+function scan_using_default_scanner(){
+  // Scan with default options
+  Rho.Barcode.take({}, scan_received);
+}
+  
+function scan_received(params)
+  // Did we actually find a barcode ?
+  // If status is not 'ok', the scan was cancelled
+
+    if (params["status"]=="ok") {
+        alert('Barcode scanning complete. Scanned barcode: '+params["barcode"]);
+    } else {
+        alert('Barcode scanning aborted');
+    }
+    Rho.Barcode.stop();
+}
+                   
+                 </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
            
 def scan_using_default_scanner
@@ -45,7 +65,37 @@ end
                  </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class='accordion property' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cExample1"><strong>Select which scanner to use</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cExample1" class="accordion-body collapse in">  <div class="accordion-inner">
 
                    By default, Rho::Barcode will select a hardware scanner if present on the device. If you want to let the user choose which scanner to use at any particular time, you must enumerate the available scanners and select one from the set.
-               <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
+               <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
+
+           
+var scanners;
+             
+function choose_scanner(){
+    
+  // Enumerate returns an array of scanner objects 
+  // Devices without a hardware scanner will return a software-based recognizer 
+  scanners = Rho::Barcode.enumerate();
+}
+
+function scan_using_chosen_scanner(scanner_index) {
+    var scanner = scanners[scanner_index];
+    scanner.take({}, scan_received_callback);
+}
+
+function scan_received_callback(params)
+{
+  // Did we actually find a barcode ?
+  // If status is not 'ok', the scan was cancelled
+  if (params["status"]=="ok") {
+            alert('Barcode scanning complete. Scanned barcode: '+params["barcode"]);
+        } else {
+            alert('Barcode scanning aborted');
+        }
+        Rho.Barcode.stop();
+}
+
+                   
+                 </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
            
 # ---------------
