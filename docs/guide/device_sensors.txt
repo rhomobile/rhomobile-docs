@@ -9,7 +9,7 @@ Before you can make use of any sensors on the device, you need to include the `s
 
 ## General procedure
 
-The `Sensor` API supports many different types of sensors, but irrespective of the type there is a common sequence of steps that you must follow in your code.
+The `Sensor` API supports many different types of sensors but, irrespective of the type, there is a common sequence of steps that you must follow in your code.
 
 ### Create a sensor instance
 
@@ -228,12 +228,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('tiltangle');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -432,11 +432,12 @@ JavaScript syntax:
 
 ## eCompass
 
-The Motorola eCompass is a tilt compensated electronic compass utilizing an accelerometer and a magnetometer. It returns data about the compass direction.
+The Motorola eCompass is a tilt compensated electronic compass utilizing an accelerometer and a magnetometer. It returns data about the orientation of the device in relation to the magnetic north of the Earth.
 
 Usage Examples:
 
 * Maps / navigation application
+* Real estate - obtain the orientation of a property
 
 Ruby syntax:
     :::ruby
@@ -477,12 +478,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('ecompass');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -519,6 +520,7 @@ The magnetometer returns data about the compass direction.
 Usage Examples:
 
 * Maps / navigation application
+* Real estate - obtain the orientation of a property
 
 Ruby syntax:
     :::ruby
@@ -648,12 +650,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('gyroscope');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -814,12 +816,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('proximity');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -896,12 +898,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('proximitylongrange');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -978,12 +980,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('pressure');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1015,7 +1017,7 @@ JavaScript syntax:
 
 ## Temperature Sensor
 
-The temperature sensor returns data about the atmospheric temperature around the device.
+The temperature sensor returns data about the atmospheric temperature around the device. In general, readings from sensors should be understood as approximations, but the temperature sensor in particular is prone to additional inaccuracies in several scenarios: some devices get warm while charging, and their temperature may tend to approximate that of the human body after being held or carried in a pocket for a period of time.
 
 Usage Examples:
 
@@ -1060,12 +1062,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('temperature');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1142,12 +1144,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('humidity');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1231,12 +1233,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('gravity');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1322,12 +1324,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('linearacceleration');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1361,7 +1363,7 @@ JavaScript syntax:
 
 ## Rotation Sensor
 
-The rotation sensor returns data about the rotation of the device along its axis.
+The rotation sensor returns data about the rotation of the device along the three dimensional axes.
 
 Usage Examples:
 
@@ -1409,12 +1411,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('rotation');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1448,7 +1450,7 @@ JavaScript syntax:
 
 ## Orientation Sensor
 
-The orientation sensor returns the orientation of the device. It is different from the Device Orientation Sensor which only returns string
+The orientation sensor returns the orientation of the device in 3D space. It is different from the Device Orientation Sensor in that it returns a value for each axis, instead of only the strings `"horizontal"` or `"vertical"`
 
 Usage Examples:
 
@@ -1496,12 +1498,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('orientation');
         if (!sensor) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -1535,4 +1537,4 @@ JavaScript syntax:
 
 ## Related reading
 
-* The [Sensor API reference](../api/sensor) more details about device sensors
+* The [Sensor API reference](../api/sensor) contains more details about device sensors
