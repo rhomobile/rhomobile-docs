@@ -53,7 +53,7 @@ Once you have this file, copy it to your RhoConnect application directory under 
 Now your RhoConnect application is ready to send APNS messages.
 
 ### Setup Provisioning Profile
-Next, you can setup your Apple Push Provisioning Profile using Apple's [developer site instructions](https://developer.apple.com/iphone/library/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ProvisioningDevelopment/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW5).  Once you have the profile installed in XCode and on your test device, you are ready to test push.
+Next, you can setup your Apple Push Provisioning Profile using Apple's [developer site instructions](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW6). Once you have the profile installed in XCode and on your test device, you are ready to test push.
 
 ### Setup iOS Device
 Setting up the device is the same process as [building any normal Rhodes application](build#building-a-rhodes-application-for-iphoneipad). When you start the application, make sure to also open the console window (cmd-shift-R). When the application starts, you should see some output in the console that shows the device token (towards the top):
