@@ -137,7 +137,7 @@ Tab           0x09    Advance to next control       Advance to next control</p>
 </code></pre>
   </div></div></div></div>
 <a name='Constants'></a>
-<h2><i class='icon-warning-sign'></i>Constants</h2>
+<h2><i class='icon-tag'></i>Constants</h2>
 
 <div><dl ><a name='c0'></a><dt>IPHONE_VOLUME_UP</dt><dd><p>iPhone volume up keyCode</p>
 </dd><a name='c1'></a><dt>IPHONE_VOLUME_DOWN</dt><dd><p>iPhone volume down keyCode</p>

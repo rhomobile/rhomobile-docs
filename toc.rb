@@ -75,7 +75,6 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
 end
 
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
-  topic 'guide/orientation',       'Accelerometer'
   topic 'guide/alerts',       'Alerts'
   topic 'guide/barcode',       'Barcode'
   topic 'guide/bluetooth',       'Bluetooth'
@@ -96,6 +95,7 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/printing',       'Printing'
   topic 'guide/push',       'Push Notifications'
   topic 'guide/ringtone',       'Ringtone'
+  topic 'guide/device_sensors',       'Sensors & Orientation'
   topic 'guide/signature',       'Signature'
   topic 'guide/system',       'System'
   topic 'guide/timer',       'Timer'

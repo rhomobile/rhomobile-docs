@@ -1524,7 +1524,7 @@ end
 			  	 md += "" + docremarks + ""
 		  	end 
 		    if docconstants !=""
-			  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-warning-sign'></i>Constants</h2>" + "\n\n" 
+			  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-tag'></i>Constants</h2>" + "\n\n" 
 			  	 md += "" + docconstants + ""
 		  	end 
 		    md += "</div>"

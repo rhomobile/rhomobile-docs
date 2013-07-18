@@ -77,7 +77,7 @@ end
 <a name='r0'></a><div class='accordion remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse"  href="#cRemark0"><strong>General</strong><i class="icon-chevron-down pull-left"></i></span></div><div id="cRemark0" class="accordion-body collapse in">  <div class="accordion-inner"><p>As this extension returns the raw sensor values reported by the operating system the values might differ between platforms. Also as some of the sensor values change rapidly the minimum gap between two updates should be specified as a reasonable value, otherwise there can be a performance impact.</p>
   </div></div></div></div>
 <a name='Constants'></a>
-<h2><i class='icon-warning-sign'></i>Constants</h2>
+<h2><i class='icon-tag'></i>Constants</h2>
 
 <div><dl ><a name='c0'></a><dt>SENSOR_TYPE_ACCELEROMETER</dt><dd><p>Accelerometer sensor type</p>
 </dd><a name='c1'></a><dt>SENSOR_TYPE_TILT_ANGLE</dt><dd><p>TiltAngle sensor type</p>
