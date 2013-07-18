@@ -1,0 +1,161 @@
+# Push notifications
+
+## What push notifications are and when to use them
+
+Traditionally, client/server applications work based on a request/response cycle: The client sends a request to the server and the server sends back a response (the client is said to *pull* information from the server) but there was normally no way for the server to send (push) arbitrary information to the client without outside of a regular request cycle.
+
+Push notifications solve this problem: they are a way for the server to initiate a connection and send information to a client whenever an event of interest happens. This mechanism allows for updates to be delivered almost in real-time instead of having to wait for the next synchronization.
+
+Depending on how they are implemented, there are two types of push notifications:
+
+* Platform-specific push notifications (Android, iOS, WP8), provided by the mobile operating system and third party infrastructure (Google / Apple)
+* RhoConnect Push Service, built into RhoConnect Server
+
+**NOTE: This difference is particularly important on Android because Android's native notifications require accessing Google services (in particular, Google Cloud Messaging) which are linked to the Google Play Store. Enterprise devices may not include the Play Store so if you are deploying your application to the Enterprise Tablet or other professional-grade Android devices, be aware that Google Cloud Messaging may not be available and you will need to use RhoConnect Push Service instead.**
+
+In order to choose one or the other, you need to think about:
+* The devices your application will be deployed to, whether they can support platform-specific notifications or not
+* Data protection / compliance with regulatory limitations in specific industries. For example, a law firm could be legally required to never send any of its data to a third party like Google or Apple. In cases like this, RhoConnect Push Service offers a way to keep all parts of the infrastructure under your control, with everything running on your own servers.
+
+## Setting up your app for push notifications - platform-specific
+
+### Steps to complete on the RhoConnect side
+
+* iOS - See [Setting Up RhoConnect Push on iOS](../rhoconnect/push-client-setup-ios)
+* Android - See [Setting Up RhoConnect Push on Android](../rhoconnect/push-client-setup-android)
+
+## Setting up your app for push notifications - RhoConnect Push Service
+
+If you cannot use platform-specific notifications for whatever reason, RhoConnect Push Service still allows you to use push notifications in your app. See [Setting Up RhoConnect Push Service](../rhoconnect/push-client-setup-rps) for more information on how to set up this solution.
+
+## Integrating push notifications in a RhoMobile app
+
+Once the server-side infrastructure is ready, reacting to push notifications in RhoMobile is really easy: just use the [Push API](../api/push) to register a callback that will be invoked when a notification is received.
+
+Each notification can contain one or more commands to be performed:
+
+* data source synchronization
+* text alert
+* sound alert
+* vibration
+
+To have all the commands in the notification be performed automatically, all you need to do is return the string `"rho_push"` from your callback; the platform will take care of everything. If you need more control, you may inspect the notification and carry out any required actions in your code.
+
+Examples:
+
+Ruby (automatic handling): 
+
+	:::ruby
+	def setup_push_automatic
+		Rho::Push.startNotifications(url_for(:action => :push_callback_automatic_handler))
+	end
+
+	def push_callback_automatic_handler
+		return "rho_push"
+	end
+
+Javascript (automatic handling):
+
+	:::javascript
+	function setup_push_automatic() {
+		Rho.Push.startNotifications(push_callback_automatic_handler)
+	}
+
+	function push_callback_automatic_handler(params) {
+		return "rho_push";
+	}
+
+Ruby (manual handling):
+
+	:::ruby
+	def setup_push_manual
+		Rho::Push.startNotifications(url_for(:action => :push_callback_manual_handling))
+	end
+
+	def push_callback_manual_handling
+
+		# If the notification contains a message, it will be in the alert parameter
+		if @params['alert']
+		  Rho::Notification.showPopup("Push notification received with message: #{@params['alert']}")
+		end
+
+		sources_to_sync = @params['do_sync'] # comma-separated list of data sources we must sync, or "all"
+		if sources_to_sync
+		  if sources_to_sync=="all" # if the notification tells us to sync all sources, we will do just that
+		    Rho::RhoConnectClient.doSync()
+		  else # otherwise, we will sync only those sources mentioned in the notification
+		    sources_to_sync.split(",").each do |source|
+		      Rho::RhoConnectClient.doSyncSource(source)
+		    end
+		  end
+		end
+	end
+
+Javascript (manual handling):
+
+	:::javascript
+	function setup_push_manual() {
+		Rho.Push.startNotifications(push_callback_manual_handling);
+	}
+
+	function push_callback_manual_handling(params) {
+	    // If the notification contains a message, it will be in the alert parameter
+	    if (params.alert) {
+	      Rho.Notification.showPopup("Push notification received with message: "+params.alert);
+	    }
+
+
+	    var sources_to_sync = params.do_sync; // comma-separated list of data sources we must sync, or "all"
+	    if (sources_to_sync) {
+	      if (sources_to_sync=="all") { // if the notification tells us to sync all sources, we will do just that
+	        Rho.RhoConnectClient.doSync();
+	      } else { // otherwise, we will sync only those sources mentioned in the notification
+	        var sources = sources_to_sync.split(",");
+	        for (var i=0; i<sources.length; i++) {
+	          Rho.RhoConnectClient.doSyncSource(sources[i]);
+	        }
+	      }
+	    }
+	}
+
+## Testing push notifications
+
+Once both your RhoConnect server and RhoMobile application are set up to work with push notifications, you can easily [test them from the RhoConnect Web Console](../rhoconnect/push-testing) or from the command line:
+
+	:::code
+	curl -X POST -H "X-RhoConnect-API-TOKEN: my-rhoconnect-token" --data "user_id=user1&message=Hello+user&sources[]=all&vibrate=2000" http://localhost:9292/rc/v1/users/ping
+
+where
+
+* `my-rhoconnect-token` is a placeholder from the RhoConnect API token found in `settings/settings.yml` (and which you must change, before deployment in production, to a secret value)
+* `user1` is the name of a user that has logged in successfully to the RhoConnect server
+* `message` is an optional text string that will be shown to the user when the notification is received
+* `all` means that, on receipt of this notification, the RhoMobile application should synchronize all its data sources. See below for an example of more fine-grained notifications
+* `localhost:9292` is the location of your RhoConnect server
+
+Requesting synchronization of only one particular model (`Product`):
+
+	:::code
+	curl -X POST -H "X-RhoConnect-API-TOKEN: my-rhoconnect-token" --data "user_id=user1&message=Hello+user&sources[]=Product&vibrate=2000" http://localhost:9292/rc/v1/users/ping
+
+Requesting synchronization of two models (`Product` and `Customer`):
+
+	:::code
+	curl -X POST -H "X-RhoConnect-API-TOKEN: my-rhoconnect-token" --data "user_id=user1&message=Hello+user&sources[]=Product&sources[]=Customer&vibrate=2000" http://localhost:9292/rc/v1/users/ping
+
+When you are satisfied that your notifications are working, see [Setting up Push on a Backend Application](../rhoconnect/push-backend-setup) for examples of how to send notifications from Ruby, Java, .NET, RhoConnect source adapters and Resque jobs
+
+## Limitations and best practices
+
+* While push notifications normally arrive in a very short amount of time (usually less than a few seconds), delivery is done on a "best effort" basis and there is no guarantee that any notification will be received within a particular timeframe or at all. Additionally, a device might not have a network connection available at a particular time. In that case, notifications may be queued, but they will eventually expire if they cannot be delivered for too long. Limits are platform-dependant.
+
+* Push notifications are not intended to be a data-delivery channel, that is, you should push the minimum possible amount of data and, if the application requires more information, it should request it from the server. In particular, do not expect to embed large strings in the `message` field. Some platforms have a hard limit on the size of a notification, and it varies by platform. Keep your payload as small as possible; for example, Apple limits the size of a notification to 256 bytes, of which some are used internally by RhoMobile. Treat notifications as "triggers" and initiate transfers from your application or use the built-in facilities to request synchronization of data sources.
+
+* Push notifications are not a good approach for commands that need to run at known, predictable intervals. If you want to synchronize data periodically with a RhoConnect server, use the built-in `poll_interval` parameter in RhoConnect or set up scheduling in your RhoMobile application.
+
+* As mentioned above, enterprise-grade Android devices may not include the libraries required to use native notifications. On those devices, use [RhoConnect Push Service](../rhoconnect/push-client-setup-rps) instead.
+
+## Related reading
+
+* [Push API](../api/push)
+* [RhoConnect Rest API](../rhoconnect/rest-api)
