@@ -33,6 +33,14 @@ JavaScript syntax:
     
 ## Control screen orientation
 
+### Locking the orientation
+
+In some applications, it may be necessary to force the display to always be locked to an orientation. You can do this by setting the `disable_screen_rotation` in `rhoconfig.txt`
+
+    :::ruby
+    #disable screen rotation (enabled by default)
+    disable_screen_rotation = 1 
+
 ### Enable / disable auto-rotation
 
 You can enable or disable the autorotation of the screen orientation when the device is rotated by setting the `autoRotate` property
@@ -103,6 +111,8 @@ JavaScript syntax:
 
 ## Responding to screen orientation change
 
+When the device is rotated, you should update your application UI layout to better suit the new layout. To do this first you must set a callback to get orientation change events and then when you get the event, update the UI layout accordingly.
+
 ### Set callback for screen orientation events
 
 Set the callback for screen orientation events by using the `setScreenOrientationEvent` method.
@@ -137,4 +147,75 @@ JavaScript syntax:
 
 ### Updating the UI on screen orientation change
 
-TODO: [talk about responsive design & CSS media queries with small examples and external links]
+You can make your application handle different screen orientation by creating two different screen layouts for portrait and landscape orientation.
+
+In your ERB files, You can write `if ... else` code in your layout using the `System.screenOrientation` property to change the layout of elements.
+
+    :::ruby
+    <% if System.screenOrientation == 'portrait' %>
+        <!-- HTML for portrait layout -->
+    <% else %>
+        <!-- HTML for landscape layout -->
+    <% end %>   
+    
+You can also create separate ERB files for each layout and pass them to the `render` method in your controller
+
+    :::ruby
+    render :action => 'index', :layout => 'landscape_layout'
+
+While this method works, there is an even better solution - Responsive design.
+
+#### Responsive design
+
+The easiest way to show different UI layouts to the user based on the orientation and even automatically adjust to various device size is by using [Responsive web design](http://en.wikipedia.org/wiki/Responsive_web_design).
+
+Using responsive design help avoid creating entirely different versions of the same content for different orientations and sizes.
+
+Responsive web design makes use of [CSS3 Media queries](http://en.wikipedia.org/wiki/Media_queries) to allow content to adapt to conditions such as screen size or aspect-ratio.
+
+For example, you can make the layout on your UI show content stacked in portrait mode and side-by-side in landscape mode.
+
+    :::html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <style type="text/css">
+        .block {
+          float: left;
+          height: 200px;
+          width: 100%;
+        }
+        @media screen and (min-aspect-ratio: 1/1) {
+          /* these styles will only be applied when the viewing area is square or landscape */
+          .block {
+            width: 50%;
+          }
+        }
+        .box {
+          border: 1px solid red;
+          width: 100%;
+          height: 100%;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="block"><div class="box">Block 1</div></div>
+      <div class="block"><div class="box">Block 2</div></div>
+      <div class="block"><div class="box">Block 3</div></div>
+    </body>
+    </html>
+    
+Here is how the layout looks in portrait orientation
+
+![Portrait](/images/screen_orientation/portrait_layout.png)
+
+Here is how the layout looks in landscape orientation
+
+![Landscape](/images/screen_orientation/landscape_layout.png)
+    
+##### Responsive design frameworks
+
+There are some CSS frameworks available that are designed to make it easier to use responsive design in your applications. A couple of them are listed below:
+
+* [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
+* [Zurb Foundation](http://foundation.zurb.com/)
