@@ -105,7 +105,7 @@ As some of the sensor values change rapidly the minimum interval between two upd
 
 
 ###Cross platform consistency
-As this plugin returns the raw sensor values reported by the operating system the values might differ between platforms.
+As this plugin returns the raw sensor values reported by the operating system the values might differ between platforms. Which sensors are supported on which platform are dependant on the hardware available on the device.
 
 
 ###Javascript and Meta-Tag Support
