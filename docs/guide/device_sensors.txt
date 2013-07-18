@@ -141,12 +141,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('accelerometer');
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -230,7 +230,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('tiltangle');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -312,12 +312,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('deviceorientation');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -395,12 +395,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('motion');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -480,7 +480,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('ecompass');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -563,12 +563,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('magnetometer');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -652,7 +652,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('gyroscope');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -734,12 +734,12 @@ Ruby syntax:
 
 JavaScript syntax:
     :::javascript
-    function make_sensor
+    function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('ambientlight');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
-    end
+    }
     
     function read_sensor() {
         if (sensor != null) {
@@ -818,7 +818,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('proximity');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -900,7 +900,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('proximitylongrange');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -982,7 +982,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('pressure');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -1064,7 +1064,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('temperature');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -1146,7 +1146,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('humidity');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -1235,7 +1235,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('gravity');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -1326,7 +1326,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('linearacceleration');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -1413,7 +1413,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('rotation');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
@@ -1500,7 +1500,7 @@ JavaScript syntax:
     :::javascript
     function make_sensor() {
         sensor = Rho.Sensor.makeSensorByType('orientation');
-        if (!sensor) {
+        if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
     }
