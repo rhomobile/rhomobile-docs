@@ -387,6 +387,18 @@ in it's `build.yml`. It is recommended that JS API calls should be converted to 
 
 	Rho.Barcode.enable() // is the current 4.0 equivalent
 
+### Parameter ordering
+In a few rare cases an API in version 2.2 has the same naming as in 4.0, but the ordering of parameters may have changed. For example :
+
+	:::ruby
+	# In RhoMobile 2.2 Params are callback, paramHash
+	# This will fail in a 4.0 application
+	Rho::Barcode.enable(url_for(:action => :barcode_callback), {:camera => 'front'})
+
+	# In RhoMobile 4.0 Params are now paramHash, callback
+	Rho::Barcode.enable( {:camera => 'front'},url_for(:action => :barcode_callback))
+
+Callbacks are now specifying as the last parameter in all new 4.0 API classes.
 
 **NOTE:The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instrance Objects and special common methods that were not there previously.**
 
