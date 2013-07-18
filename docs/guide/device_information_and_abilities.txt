@@ -37,13 +37,21 @@ JavaScript syntax:
 
 ### Touch screen
 
+If the application is running on a touch screen device, you can selectively activate some features or show some UI elements (for example: buttons).
+
 Ruby syntax:
     :::ruby
     touch_screen = Rho::System.hasTouchscreen
+    if touch_screen
+        # show some buttons for the user to directly trigger some actions
+    end
 
 JavaScript syntax:
     :::javascript
     var touch_screen = Rho.System.hasTouchscreen;
+    if (touch_screen) {
+        // show some buttons for the user to directly trigger some actions
+    }
 
 ### Screen dimensions
 
@@ -171,7 +179,7 @@ Ruby syntax:
     has_network = Rho::Network.hasNetwork
     if has_network
         has_cell_network = Rho::Network.hasCellNetwork
-        has_wifi_network  = Rho::Network.hasWifiNetwork
+        has_wifi_network = Rho::Network.hasWifiNetwork
     end
 
 JavaScript syntax:
@@ -236,7 +244,7 @@ Next, you need to add the barcode extension, for example:
     :iphone
         extensions: ["barcode"]
 
-Then you can use the [Barcode API](../barcode) `enumerate` method to get a list of barcode scanners on the device
+Then you can use the [Barcode API](../api/barcode) `enumerate` method to get a list of barcode scanners on the device
 
 Ruby syntax:
     :::ruby
