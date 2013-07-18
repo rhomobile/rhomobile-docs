@@ -39,7 +39,7 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
@@ -107,7 +107,7 @@
 </td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "></td>
@@ -138,8 +138,8 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "></td>
+<td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -166,8 +166,8 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "></td>
+<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -180,8 +180,8 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "></td>
+<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -222,8 +222,8 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "></td>
+<td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -292,7 +292,7 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
@@ -306,7 +306,7 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
@@ -336,8 +336,8 @@
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "></td>
+<td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 </tr>

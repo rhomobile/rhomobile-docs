@@ -371,6 +371,10 @@ in it's `build.yml` however the use of Meta tags is a deprecated feature and wil
 	:::html
 	<META HTTP-Equiv="scanner" Content="Enable">
 
+Use instead:
+	:::javascript
+	Rho.Barcode.enable();
+
 ### RhoElements Javascript APIs
 RhoElement specific Javascript APIs should still function in a RhoMobile 4.0 application that has
 	:::yaml
@@ -383,4 +387,6 @@ in it's `build.yml`. It is recommended that JS API calls should be converted to 
 
 	Rho.Barcode.enable() // is the current 4.0 equivalent
 
-Note: The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also severl new ways of accessing these APIs through instrance Objects and special common methods that were not there previously.
+
+**NOTE:The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instrance Objects and special common methods that were not there previously.**
+
