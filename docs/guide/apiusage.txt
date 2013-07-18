@@ -359,6 +359,15 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Memory](/v/2.2/rhoelements/memory)
 * [Reboot](/v/2.2/rhoelements/reboot)
 
+## Removed APIs
+The following API's have been removed from Rhomobile 4.0
+
+* [DateTimePicker](/v/2.2/rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
+* [Airbeam](/v/2.2/rhoelements/airbeam)- Can be controlled via [System.runApplication](/api/system#mrunApplication)
+* [BottomCommandArea](/v/2.2/rhoelements/bottomcommandarea) & [TopCommandArea](v/2.2/rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
+* [History](/v/2.2/rhoelements/historyback2) - Better JS methods exist
+* [ODAX](/v/2.2/rhoelements/odax) - Better HTML5 methods exist
+
 ## Backwards compatibility
 
 ### RhoElements Meta Tags
