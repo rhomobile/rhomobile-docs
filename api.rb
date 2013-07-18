@@ -408,7 +408,7 @@ def self.getconstantlinks(doc)
 
 	  		}
 	  	
-			md += "<a name='e#{index.to_s}'></a><div class='accordion property' id='e"+ index.to_s + "'>"
+			md += "<a name='e#{index.to_s}'></a><div class='accordion example' id='e"+ index.to_s + "'>"
 		    md += '<div class="accordion-group">'
 		    md += '<div class="accordion-heading">'
 		    
@@ -435,7 +435,7 @@ def self.getconstantlinks(doc)
   	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	s.each_with_index() { |element,index|
-	  		md += "<a name='r#{index.to_s}'></a><div class='accordion property' id='r"+ index.to_s + "'>"
+	  		md += "<a name='r#{index.to_s}'></a><div class='accordion remarks' id='r"+ index.to_s + "'>"
 		    md += '<div class="accordion-group">'
 		    md += '<div class="accordion-heading">'
 		    
@@ -501,6 +501,37 @@ def self.getconstantlinks(doc)
   	end
   	if msionly
 		indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+	end
+	
+  	return indicators		
+  end
+
+def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
+  	indicators = ""
+  	if javascript
+		indicators += ' js'
+	end
+	if ruby
+	
+	indicators += ' ruby'
+	end 
+	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
+		indicators += ' android'
+  	end
+  	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
+		indicators += ' ios'
+  	end
+  	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
+		indicators += ' wm'
+  	end
+  	if !platforms.downcase.index('wp8').nil? || !platforms.downcase.index('all').nil?
+		indicators += ' wp8'
+  	end
+  	if (!platforms.downcase.index('win32').nil? || !platforms.downcase.index('all').nil?) && !msionly
+		indicators += ' w32'
+  	end
+  	if msionly
+		indicators += ' msi'
 	end
 	
   	return indicators		
@@ -579,6 +610,7 @@ def self.getconstantlinks(doc)
 				puts "      #{propname} no platform indicators"
 			end
 			@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript)
+			@propplatformsfilter = getplatformindicatorsfilter(@propplatforms,msionly,ruby,javascript)
 			@propsectionplatforms = "<div>"
 			@propsectionplatforms += "<p>#{@propplatforms} #{propnote}</p></div>"
 			
@@ -717,7 +749,7 @@ def self.getconstantlinks(doc)
 	@propsectionaccess = "<div><p><strong>Property Access:</strong></p><ul>#{accesstype}</ul></div>"
 
 
-  	md += "<a name='p#{propname}'></a><div class='accordion property' id='p"+ propname + "'>"
+  	md += "<a name='p#{propname}'></a><div class='accordion property #{@propplatformsfilter}' id='p"+ propname + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
     
@@ -1040,6 +1072,7 @@ end
 
 
 		@methplatforms = getplatformindicators(@methplatforms,msionly,ruby,javascript)
+		@methplatformsfilter = getplatformindicatorsfilter(@methplatforms,msionly,ruby,javascript)
 			
 		@methsectionplatforms = "<div>"
 		@methsectionplatforms += "<p>#{@methplatforms}#{methnote}</p></div>"
@@ -1284,7 +1317,7 @@ end
 	end	
 	@methsectionaccess = "<div><p><strong>Method Access:</strong></p><ul>#{accesstype}</ul></div>"
 
-  	md += "<div class='accordion method' id='m"+ element["name"] + "'>"
+  	md += "<div class='accordion method #{@methplatformsfilter}' id='m"+ element["name"] + "'>"
     md += '<div class="accordion-group">'
     md += '<div class="accordion-heading">'
     
@@ -1456,10 +1489,14 @@ end
 		    md += '<a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a>'
 		  	md += '</div>'
 	  	end
-			md += '<div class="btn-group pull-right">'
-		    md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
-		  	md += '</div>'
 
+			md += '<div class="btn-group pull-right">'
+			md += '<button class="btn dropdown-toggle" id="apiFilter" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>&nbsp;</button>'
+		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option>'
+			md += '<option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select>'
+
+		  	md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
+		  	md += '</div>'
 	  	md += '<div  >'
 
 	  	md += "\n" + getApiDesc(doc) + "\n" 

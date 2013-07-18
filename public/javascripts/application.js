@@ -42,6 +42,37 @@ $(document).ready(function() {
       });
 
 	sizeContent();
+	$(".apiCheckbox").bind('change', function() {
+		$('.property').hide();
+		$('.method').hide();
+		$( ".apiCheckbox" ).each(function( index ) {
+		  console.log( index + ": " + this.checked + ":" + this.value );
+			  var cbClass = '.' + this.value;
+			if(this.checked) {
+		        $(cbClass).show();
+		    }
+		});
+	});
+$(".apiFilter").bind('change', function() {
+		if (this.value == 'all')
+		{
+			$('.property').show();
+			$('.method').show();
+
+		}
+		else
+		{
+			$('.property').hide();
+			$('.method').hide();
+			console.log(this.value);
+		  	var cbClass = '.' + this.value;
+				
+	        $(cbClass).show();
+
+		}
+		    
+
+	});
 });
 
 //Every resize of window
