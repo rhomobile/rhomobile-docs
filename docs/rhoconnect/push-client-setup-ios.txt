@@ -40,9 +40,9 @@ In case of iOS, regardless of the operation, the user will be presented with the
 
 ### Setup Push Certificate
 The first step to setting up your environment is to create an APNS push certificate. To create the SSL certificate, follow the "Creating the SSL Certificate and Keys" section on the
-[developer site](https://developer.apple.com/iphone/library/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ProvisioningDevelopment/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW4).
+[developer site](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW1).
 
-Once you have the certificate, you will need to export it to a .pem format using [these instructions](https://developer.apple.com/iphone/library/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ProvisioningDevelopment/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW6). Make sure to name the output file 'apple_push_cert.pem' file from these instructions, since this is what we configured in our RhoConnect application.
+Once you have the certificate, you will need to export it to a .pem format using [these instructions](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW6). Make sure to name the output file 'apple_push_cert.pem' file from these instructions, since this is what we configured in our RhoConnect application.
 
 Once you have this file, copy it to your RhoConnect application directory under the settings folder:
 
