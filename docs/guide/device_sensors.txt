@@ -55,15 +55,39 @@ JavaScript syntax:
 
 Call `start` on the instance returned from `makeSensorByType` to initiate data retrieval.
 
-Your callback method will invoked with a `hash` containing [Callback Returning Parameters](http://edgedocs.rhomobile.com/api/sensor#mstart).
+Your callback method will be invoked with a `hash` containing several [sensor callback parameters](http://edgedocs.rhomobile.com/api/sensor#mstart).
 
 Ruby syntax:
     :::ruby
     sensor.start(url_for(:action => :my_sensor_callback))
 
+    def my_sensor_callback
+        # @params["status"] contains either "ok" or "error" depending on whether the sensor could be accessed or not
+        # In an error occurred, @params["message"] contains an informative message
+        # The rest of the hash depends on the type of sensor. For example, the accelerometer will have
+        # @params["accelerometer_x"]
+        # @params["accelerometer_y"]
+        # @params["accelerometer_z"]
+        #
+        # while a tempteratur sensor provides instead
+        # @params["temperature_value"]
+    end
+
 JavaScript syntax:
     :::javascript
     sensor.start(my_sensor_callback);
+
+    function my_sensor_callback(params) {
+        // params.status contains either "ok" or "error" depending on whether the sensor could be accessed or not
+        // In an error occurred, @params.message contains an informative message
+        // The rest of the hash depends on the type of sensor. For example, the accelerometer will have
+        // params.accelerometer_x
+        // params.accelerometer_y
+        // params.accelerometer_z
+        //
+        // while a tempteratur sensor provides instead
+        // params.temperature_value
+    }
 
 #### Stop data collection
 
@@ -161,9 +185,10 @@ Ruby syntax:
     end
     
     def print_data(data)
-        puts "X is #{data['accelerometer_x']}"
-        puts "Y is #{data['accelerometer_y']}"
-        puts "Z is #{data['accelerometer_z']}"
+        puts "The accelerometer detects the following forces along the three spatial axes:"
+        puts "X is #{data['accelerometer_x']} m/s^2"
+        puts "Y is #{data['accelerometer_y']} m/s^2"
+        puts "Z is #{data['accelerometer_z']} m/s^2"
     end
 
 JavaScript syntax:
@@ -200,9 +225,10 @@ JavaScript syntax:
     }
     
     function print_data(data) {
-        console.log("X is " + data['accelerometer_x']);
-        console.log("Y is " + data['accelerometer_y']);
-        console.log("Z is " + data['accelerometer_z']);
+        console.log("The accelerometer detects the following forces along the three spatial axes:");
+        console.log("X is " + data['accelerometer_x']+" m/s^2");
+        console.log("Y is " + data['accelerometer_y']+" m/s^2");
+        console.log("Z is " + data['accelerometer_z']+" m/s^2");
     }
 
 ## Tilt Angle Sensor
@@ -248,9 +274,10 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "X is #{data['tiltangle_x']}"
-        puts "Y is #{data['tiltangle_y']}"
-        puts "Z is #{data['tiltangle_z']}"
+        puts "The tilt sensor detects the following orientation of the device in space:"
+        puts "X is #{data['tiltangle_x']} degrees"
+        puts "Y is #{data['tiltangle_y']} degrees"
+        puts "Z is #{data['tiltangle_z']} degrees"
     end
 
 JavaScript syntax:
@@ -287,14 +314,15 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['tiltangle_x']);
-        console.log("Y is " + data['tiltangle_y']);
-        console.log("Z is " + data['tiltangle_z']);
+        console.log("The tilt sensor detects the following orientation of the device in space:");
+        console.log("X is " + data['tiltangle_x']+" degrees");
+        console.log("Y is " + data['tiltangle_y']+" degrees");
+        console.log("Z is " + data['tiltangle_z']+" degrees");
     }
 
 ## Device Orientation Sensor
 
-The device orientation sensor returns the orientation of the device in string form, 'vertical' or 'horizontal'. This is different from `Orientation Sensor` which returns the orientation along each axis in degrees.
+The device orientation sensor returns the orientation of the device in string form, "vertical" or "horizontal". This is different from the `Orientation Sensor` which returns the orientation along each axis in degrees.
 
 Usage Examples:
 
@@ -334,7 +362,7 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "Orientation is #{data['deviceorientation_value']}"
+        puts "Device orientation is #{data['deviceorientation_value']}" # either "horizontal" or "vertical"
     end
 
 JavaScript syntax:
@@ -371,7 +399,7 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("Orientation is " + data['deviceorientation_value']);
+        console.log("Device orientation is " + data['deviceorientation_value']); // either "horizontal" or "vertical"
     }
 
 ## Motion Sensor
@@ -417,7 +445,7 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "Motion is #{data['motion_value']}"
+        puts "Motion detected: #{data['motion_value']}"
     end
 
 JavaScript syntax:
@@ -454,7 +482,7 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("Motion is " + data['motion_value']);
+        console.log("Motion detected: " + data['motion_value']);
     }
 
 ## eCompass
@@ -583,9 +611,10 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "X is #{data['magnetometer_x']}"
-        puts "Y is #{data['magnetometer_y']}"
-        puts "Z is #{data['magnetometer_z']}"
+        puts "The magnetometer detects the following magnetic fields in space:"
+        puts "X is #{data['magnetometer_x']} microTesla"
+        puts "Y is #{data['magnetometer_y']} microTesla"
+        puts "Z is #{data['magnetometer_z']} microTesla"
     end
 
 JavaScript syntax:
@@ -622,9 +651,10 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['magnetometer_x']);
-        console.log("Y is " + data['magnetometer_y']);
-        console.log("Z is " + data['magnetometer_z']);
+        console.log("The magnetometer detects the following magnetic fields in space:");
+        console.log("X is " + data['magnetometer_x']+" microTesla");
+        console.log("Y is " + data['magnetometer_y']+" microTesla");
+        console.log("Z is " + data['magnetometer_z']+" microTesla");
     }
     
 ## Gyroscope
@@ -670,9 +700,10 @@ Ruby syntax:
     end
     
     def print_data(data)
-        puts "X is #{data['gyroscope_x']}"
-        puts "Y is #{data['gyroscope_y']}"
-        puts "Z is #{data['gyroscope_z']}"
+        puts "The gyroscope detects the following movement"
+        puts "X is #{data['gyroscope_x']} radians/second"
+        puts "Y is #{data['gyroscope_y']} radians/second"
+        puts "Z is #{data['gyroscope_z']} radians/second"
     end
 
 JavaScript syntax:
@@ -709,9 +740,10 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['gyroscope_x']);
-        console.log("Y is " + data['gyroscope_y']);
-        console.log("Z is " + data['gyroscope_z']);
+        console.log("The gyroscope detects the following movement");
+        console.log("X is " + data['gyroscope_x']+" radians/second");
+        console.log("Y is " + data['gyroscope_y']+" radians/second");
+        console.log("Z is " + data['gyroscope_z']+" radians/second");
     }
 
 ## Ambient Light Sensor
@@ -838,7 +870,7 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "Proximity is #{data['proximity_value']}"
+        puts "The proximity sensor reports: #{data['proximity_value']}"
     end
 
 JavaScript syntax:
@@ -875,7 +907,7 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("Proximity is " + data['proximity_value']);
+        console.log("The proximity sensor reports: " + data['proximity_value']);
     }
 
 ## Proximity Long Range Sensor
@@ -920,7 +952,7 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "Proximity is #{data['proximitylongrange_value']}"
+        puts "The long-range proximity sensor reports: #{data['proximitylongrange_value']}"
     end
 
 JavaScript syntax:
@@ -957,7 +989,7 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("Proximity is " + data['proximitylongrange_value']);
+        console.log("The long-range proximity sensor reports: " + data['proximitylongrange_value']);
     }
 
 ## Pressure Sensor
@@ -1002,7 +1034,7 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "Pressure is #{data['pressure_value']}"
+        puts "The atmospheric pressure is #{data['pressure_value']}"
     end
 
 JavaScript syntax:
@@ -1039,7 +1071,7 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("Pressure is " + data['pressure_value']);
+        console.log("The atmospheric pressure is " + data['pressure_value']);
     }
 
 ## Temperature Sensor
@@ -1084,7 +1116,7 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "Temperature is #{data['temperature_value']}"
+        puts "Temperature is #{data['temperature_value']} degrees Celsius"
     end
 
 JavaScript syntax:
@@ -1121,7 +1153,7 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("Temperature is " + data['temperature_value']);
+        console.log("Temperature is " + data['temperature_value']+" degrees Celsius");
     }
 
 ## Humidity Sensor
@@ -1253,9 +1285,10 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "X is #{data['gravity_x']}"
-        puts "Y is #{data['gravity_y']}"
-        puts "Z is #{data['gravity_z']}"
+        puts "The gravity sensor detects the following acceleration:"
+        puts "X is #{data['gravity_x']} m/s^2"
+        puts "Y is #{data['gravity_y']} m/s^2"
+        puts "Z is #{data['gravity_z']} m/s^2"
     end
 
 JavaScript syntax:
@@ -1292,9 +1325,10 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['gravity_x']);
-        console.log("Y is " + data['gravity_y']);
-        console.log("Z is " + data['gravity_z']);
+        console.log("The gravity sensor detects the following acceleration:");
+        console.log("X is " + data['gravity_x']+" m/s^2");
+        console.log("Y is " + data['gravity_y']+" m/s^2");
+        console.log("Z is " + data['gravity_z']+" m/s^2");
     }
 
 ## Linear Acceleration Sensor
@@ -1344,9 +1378,10 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "X is #{data['linearacceleration_x']}"
-        puts "Y is #{data['linearacceleration_y']}"
-        puts "Z is #{data['linearacceleration_z']}"
+        puts "The linear accelerator sensor detects the following forces:"
+        puts "X is #{data['linearacceleration_x']} m/s^2"
+        puts "Y is #{data['linearacceleration_y']} m/s^2"
+        puts "Z is #{data['linearacceleration_z']} m/s^2"
     end
 
 JavaScript syntax:
@@ -1383,9 +1418,10 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['linearacceleration_x']);
-        console.log("Y is " + data['linearacceleration_y']);
-        console.log("Z is " + data['linearacceleration_z']);
+        console.log("The linear accelerator sensor detects the following forces:");
+        console.log("X is " + data['linearacceleration_x']+" m/s^2");
+        console.log("Y is " + data['linearacceleration_y']+" m/s^2");
+        console.log("Z is " + data['linearacceleration_z']+" m/s^2");
     }
 
 ## Rotation Sensor
@@ -1431,9 +1467,10 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "X is #{data['rotation_x']}"
-        puts "Y is #{data['rotation_y']}"
-        puts "Z is #{data['rotation_z']}"
+        puts "The rotation sensor detects the following rotation on each axis:"
+        puts "X is #{data['rotation_x']} degrees"
+        puts "Y is #{data['rotation_y']} degrees"
+        puts "Z is #{data['rotation_z']} degrees"
     end
 
 JavaScript syntax:
@@ -1470,9 +1507,10 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['rotation_x']);
-        console.log("Y is " + data['rotation_y']);
-        console.log("Z is " + data['rotation_z']);
+        console.log("The rotation sensor detects the following rotation on each axis:");
+        console.log("X is " + data['rotation_x']+" degrees");
+        console.log("Y is " + data['rotation_y']+" degrees");
+        console.log("Z is " + data['rotation_z']+" degrees");
     }
 
 ## Orientation Sensor
@@ -1518,9 +1556,10 @@ Ruby syntax:
     end
 
     def print_data(data)
-        puts "X is #{data['orientation_x']}"
-        puts "Y is #{data['orientation_y']}"
-        puts "Z is #{data['orientation_z']}"
+        puts "The orientation sensor detects the following values for each axis:"
+        puts "X is #{data['orientation_x']} degrees"
+        puts "Y is #{data['orientation_y']} degrees"
+        puts "Z is #{data['orientation_z']} degrees"
     end
 
 JavaScript syntax:
@@ -1557,9 +1596,10 @@ JavaScript syntax:
     }
 
     function print_data(data) {
-        console.log("X is " + data['orientation_x']);
-        console.log("Y is " + data['orientation_y']);
-        console.log("Z is " + data['orientation_z']);
+        console.log("The orientation sensor detects the following values for each axis:");
+        console.log("X is " + data['orientation_x']+" degrees");
+        console.log("Y is " + data['orientation_y']+" degrees");
+        console.log("Z is " + data['orientation_z']+" degrees");
     }
 
 ## Related reading
