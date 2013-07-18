@@ -1,10 +1,10 @@
 # Device information and abilities
 
-When creating applications that need to run on a varied range of device hardware and software versions, you might want to enable or disable features based on the presence of certain abilities in the device. You can do that by making use of the API to query for device information and various capabilities
+When creating applications that need to run on a varied range of device hardware and software versions, you might want to enable or disable features based on the presence of certain abilities in the device. You can do that by making use of the [System API](../api/system) to query for device information and various capabilities
 
 ## Platform and version
 
-Your RhoMobile application can run without modifications on multiple platforms, but you may still want to add some platform specific enhancements or have to interact with the OS directly for certain functionality. In these circumstances, you can query the platform that the device is running on and take action accordingly.
+Your RhoMobile application can run without modifications on multiple platforms, but you may still want to add some platform specific enhancements or have to interact with the OS directly for certain functionality. In these circumstances, you can check which platform the application is running on and act accordingly.
 
 Ruby syntax:
     :::ruby
@@ -16,13 +16,14 @@ JavaScript syntax:
 
 The platform can be one of the following string values:
 
-* APPLE
-* Blackberry
+
 * WINDOWS
 * ANDROID
+* APPLE
+* WP8
 * WINDOWS_DESKTOP
 
-In addition to getting the platform, it is also possible to query for the OS version. For example, you can get back version strings like ‘4.6.0.192’ (BB), ‘3.0’ (iPhone), ‘1.6’ (Android)
+In addition to getting the platform, it is also possible to retrieve the Operating System version. For example, you can get back version strings like ‘5.0’ (iPhone), ‘2.2’ (Android)
 
 Ruby syntax:
     :::ruby
@@ -54,11 +55,11 @@ JavaScript syntax:
 
 ### Screen dimensions
 
-The size of the device screen is typically used to customize the application UI for better user experience instead of a fixed one-size-fits-all approach.
+The size of the device screen is typically used to customize the application UI for a better user experience instead of a fixed one-size-fits-all approach. Knowing the screen width and height can also be useful when using the [Keystate](../api/keystate) and [Battery](../battery) APIs, which can set a visible icon on the screen at a particular position. CSS media queries can often result in a more maintainable solution than manually altering the UI in code, but the capability is there if you need it.
 
 There are two sets of sizes for a device screen:
 
-* logical pixels size - used for set coordinates
+* logical pixels size - use this measure for setting coordinates on screen
 * real pixels size - actual number of pixels in the screen
 
 Ruby syntax:
@@ -93,7 +94,7 @@ JavaScript syntax:
 
 ### Screen orientation
 
-The orientation of the device screen can be used to change the UI layout.
+The orientation of the device screen can be used to change the UI layout programmatically (although it is also possible to use CSS media queries to do this)
 
 The platform can be one of the following strings:
 
@@ -147,7 +148,7 @@ JavaScript syntax:
 
 ### Camera
 
-First you need to enable the camera capability. Do this by adding that capability to the build.yml file:
+If you want to detect the presence of a camera, your application needs to enable the `camera` capability. Do this by adding that capability to the build.yml file:
 
     :::yaml
     capabilities:
@@ -171,7 +172,7 @@ JavaScript syntax:
 
 ### Cell network / Wifi
 
-The device running your application may be offline or connected to a cellular network and/or a Wifi Network. You can query the network status by using the System API
+The device running your application may be offline or connected to a cellular, Wifi or other network. You can query the network status by using the [Network API](../Network)
 
 Ruby syntax:
     :::ruby
@@ -191,7 +192,7 @@ JavaScript syntax:
 
 ### Sensors
 
-The device might provide set of sensors from the types listed below:
+The device might provide sensors from the types listed below:
     
 * accelerometer
 * tilt angle
@@ -211,20 +212,29 @@ The device might provide set of sensors from the types listed below:
 * rotation
 * orientation
 
-To check if a particular sensor is supported by the device try creating an instance of the sensor using the [Sensor API](../api/sensor), if the sensor exists in the device, the return value will not be `nil`.
+To check if a particular sensor is supported by the device, try creating an instance of the sensor using the [Sensor API](../api/sensor); if the sensor exists in the device, the return value will not be `nil`.
 
 For example:
 
 Ruby syntax:
     :::ruby
     
-    sensor = Rho.Sensor.makeSensorByType(Rho::Sensor::SENSOR_TYPE_ACCELEROMETER)
+    sensor = Rho::Sensor.makeSensorByType(Rho::Sensor::SENSOR_TYPE_ACCELEROMETER)
     if sensor != nil
        # do something with the sensor
        
        sensor.stop
     end       
 
+Javascript syntax:
+
+    var sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ACCELEROMETER);
+    if (sensor) {
+        // do something with the sensor
+
+        sensor.stop();
+    }
+    
 ### Barcode
 
 **NOTE: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
@@ -237,7 +247,7 @@ To use Barcode, first you need to enable the camera capability. Do this by addin
     capabilities:
         - camera
 
-Next, on iPhone, Android, Windows Mobile, and Blackberry (`iphone`, `android`, `wm`, `bb`), you need to add the barcode extension, for example:
+Next, you need to add the barcode extension, for example:
 
     :::yaml
     :iphone
@@ -255,9 +265,7 @@ JavaScript syntax:
 
 ### CardReader
 
-You can use the CardReader in the device to read data from magnetic strip cards (Currently this is available only on Motorola Solutions devices).
-
-Then you can use the [CardReader API](../api/cardreader) `enumerate` method to get a list of all the available card readers.
+RhoMobile supports integrated and add-on magnetic stipe card readers on Motorola Solutions devices. The [CardReader API](../api/cardreader) `enumerate` method allows you to get a list of the available card readers.
 
 Ruby syntax:
     :::ruby
@@ -271,13 +279,13 @@ JavaScript syntax:
 
 Bluetooth allows you to create short-range wireless connections between the device your application is running on and another bluetooth enabled device like phone, tablet, PC, or external Bluetooth device (for example external Bluetooth GPS device).
 
-To detect Bluetooth capability, first you need to enable the bluetooth capability. Do this by adding that capability to the build.yml file:
+To access bluetooth functions in your application, you need to enable the bluetooth capability in your build.yml file:
 
     :::yaml
     capabilities:
         - bluetooth
 
-Then you can use the Bluetooth API `is_bluetooth_available` method to check if Bluetooth is available on the device
+Then you can use the [BluetoothManager API](../rhodesapi/bluetoothmanager-api) `is_bluetooth_available` method to check if Bluetooth is available on the device
 
 Ruby syntax:
     :::ruby
@@ -309,7 +317,7 @@ JavaScript syntax:
            
 ### RhoSimulator
 
-You could check if the application is running on the RhoSimulator and enable certain code during developement stages.
+You can check if the application is running on the RhoSimulator and enable certain code during developement (for example, you can show extra alerts to help with debugging only inside the simulator but not on a real device or avoid showing a login screen).
 
 Ruby syntax:
     :::ruby
@@ -327,7 +335,7 @@ JavaScript syntax:
            
 ### Emulator
 
-You could check if the application is running on the platform emulator and enable certain code during developement stages.
+It is also possible to check if the application is running on the platform emulator.
 
 Ruby syntax:
     :::ruby
