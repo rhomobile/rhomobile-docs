@@ -28,7 +28,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     // create an instance of an accelerometer sensor
-    var sensor = Rho.Sensor.makeSensorByType('accelerometer');
+    var sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ACCELEROMETER);
     if (sensor != null) {
         // start data collection
     } else {
@@ -55,6 +55,8 @@ JavaScript syntax:
 
 Call `start` on the instance returned from `makeSensorByType` to initiate data retrieval.
 
+Your callback method will invoked with a `hash` containing [Callback Returning Parameters](http://edgedocs.rhomobile.com/api/sensor#mstart).
+
 Ruby syntax:
     :::ruby
     sensor.start(url_for(:action => :my_sensor_callback))
@@ -77,7 +79,9 @@ JavaScript syntax:
 
 ### Reading the instantaneous sensor data
 
-To get the instantaneous value from an sensor, use the `readData` method
+To get the instantaneous value from an sensor, use the `readData` method.
+
+The return value is a `hash` containing [Callback Returning Parameters](http://edgedocs.rhomobile.com/api/sensor#mstart).
 
 Ruby syntax:
     :::ruby
@@ -86,6 +90,29 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     var data = sensor.readData();
+
+### Checking sensor status
+
+The `hash` returned from `readData` or `start` method callback, contains two values that you can use to check the status of the sensor.
+
+* `status` contains the string `ok` or `error`
+* `message` contains the error message, only if status=error
+
+Ruby syntax:
+    :::ruby
+    data = sensor.readData
+    if data['status'] == 'error'
+        # process the error: log it or inform the user
+        puts data['message']
+    end
+
+JavaScript syntax:
+    :::javascript
+    var data = sensor.readData();
+    if (data['status'] === 'error') {
+        // process the error: log it or inform the user
+        console.log(data['message']);
+    }
 
 ## Accelerometer
 
@@ -142,7 +169,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('accelerometer');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ACCELEROMETER);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -229,7 +256,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('tiltangle');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_TILT_ANGLE);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -313,7 +340,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('deviceorientation');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_DEVICE_ORIENTATION);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -396,7 +423,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('motion');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_MOTION);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -479,7 +506,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('ecompass');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ECOMPASS);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -564,7 +591,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('magnetometer');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_MAGNETOMETER);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -651,7 +678,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('gyroscope');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_GYROSCOPE);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -735,7 +762,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('ambientlight');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_AMBIENT_LIGHT);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -817,7 +844,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('proximity');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_PROXIMITY);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -899,7 +926,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('proximitylongrange');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_PROXIMITY_LONG_RANGE);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -981,7 +1008,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('pressure');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_PRESSURE);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -1063,7 +1090,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('temperature');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_TEMPERATURE);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -1145,7 +1172,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('humidity');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_HUMIDITY);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -1234,7 +1261,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('gravity');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_GRAVITY);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -1325,7 +1352,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('linearacceleration');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_LINEAR_ACCELERATION);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -1412,7 +1439,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('rotation');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ROTATION);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
@@ -1499,7 +1526,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     function make_sensor() {
-        sensor = Rho.Sensor.makeSensorByType('orientation');
+        sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ORIENTATION);
         if (sensor == null) {
             // do something if the sensor is not present, for example: show error message
         }
