@@ -69,7 +69,7 @@ Ruby syntax:
         # @params["accelerometer_y"]
         # @params["accelerometer_z"]
         #
-        # while a tempteratur sensor provides instead
+        # while a tempterature sensor provides instead
         # @params["temperature_value"]
     end
 
@@ -85,7 +85,7 @@ JavaScript syntax:
         // params.accelerometer_y
         // params.accelerometer_z
         //
-        // while a tempteratur sensor provides instead
+        // while a tempterature sensor provides instead
         // params.temperature_value
     }
 
