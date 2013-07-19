@@ -1,0 +1,135 @@
+# Using native UI elements
+
+## Overview
+
+Apart from the regular `WebView` component that contains your HTML, CSS and Javascript code, RhoMobile also includes some platform-native components that make your app act like other applications users are already accustomed to. When used properly, these components help you make navigation easier, improve accessibility and shorten the learning curve for your users.
+
+## NativeTabbar
+
+By default, there is only one `WebView` component in a RhoMobile application. On startup, it loads the `start_path` url specified in `rhoconfig.txt` and displays the corresponding HTML. However, it is possible to have more than one `WebView` in the same application: `NativeTabbar` allows you to create several independent `WebView`s, each inside its own tab and selectable by the user.
+
+**NOTE: On Windows Mobile, NativeTabbar, despite the name, does not actually show any visible tabs. In order to switch tabs, you must do it in code**
+
+### Usage
+
+`NativeTabbar`s can be created and removed dynamically at runtime. To create a `NativeTabbar`, invoke [NativeTabbar.create](../api/NativeTabbar#mcreate) with the appropriate parameters:
+
+* An array of tabs, with each element describing one of the tabs
+* Global tab properties
+* A callback function to be invoked when the user switches tabs
+
+Ruby:
+
+	:::ruby
+    Rho::NativeTabbar.create(
+    	# Tabs array
+	    [
+	    	# First tab - we have specified our application's start path but it could be anything
+			{
+	    		:label => "Home",
+	    		:action => Rho::Application.startURI
+			},
+
+			# Second tab - invoke an action in a controller
+			{
+	    		:label => "Do something",
+	    		:action => url_for(:controller => :MyController, :action => :my_action)
+			},
+
+			# Third tab - an external site
+			{
+	    		:label => "example.com",
+	    		:action => "http://www.example.com"
+			}
+	    ],
+
+	    # Global tab properties
+	    {
+	      		:createOnDemand => true
+	    },
+
+	    # Callback
+    	url_for(:controller => :MyController, :action => :tabbar_callback)
+    )
+
+    def tabbar_callback
+    	Rho::Notification.showPopup("Switching to tab #{@params["tab_index"]}")
+    end
+
+
+Javascript:
+
+	:::javascript
+    Rho.NativeTabbar.create(
+    	// Tabs array
+	    [
+	    	// First tab - we have specified our application's start path but it could be anything
+			{
+	    		label  : "Home",
+	    		action : Rho.Application.startURI
+			},
+
+			// Second tab - invoke an action in a controller
+			{
+	    		label  : "Do something",
+	    		action : "/app/MyController/my_action"
+			},
+
+			// Third tab - an external site
+			{
+	    		label  : "example.com",
+	    		action : "http://www.example.com"
+			}
+	    ],
+
+	    // Global tab properties
+	    {
+	      		createOnInit : true
+	    },
+
+	    // Callback
+    	tabbar_callback
+    );	
+
+    function tabbar_callback(params) {
+    	Rho.Notification.showPopup("Switching to tab "+params.tab_index);
+    }
+
+![NativeTabbar](/images/native_ui_elements/nativetabbar.png)
+
+Apart from `label` and `action`, there are more properties you can specify for each tab, including `icon` and `disabled` among others. Refer to [NativeTabbar.create](../api/NativeTabbar#mcreate) for the complete list.
+
+Once you have more than one tab and therefore more than one `WebView`, the [WebView API](../api/webview) can be used to control each of them independently. A regular call would be
+
+	:::javascript
+	Rho.WebView.navigate("http://www.example.com")
+
+That code does not indicate which `WebView` to operate on, so it applies to whichever `WebView` is currently active. However, you can cause a different `WebView` to be affected instead:
+
+	:::javascript
+	// Direct the third WebView to example.com
+	Rho.WebView.navigate("http://www.example.com",2)
+
+
+### Use cases
+
+* An additional tab can provide users with a way to quickly access instructions or cross-reference documentation, as well as help validate data before saving. For example, if your application required users to capture information in different physical locations, you could have the data capture forms in one tab, a map on another and the instructions for the current location on a third tab.
+
+* As can be seen in the example above, the `:action` of a tab does not necessarily have to link to an internal URL in your application. This can be leveraged to provide side-by-side documentation from a website, which can be updated frequently without requiring redeployment of the RhoMobile application.
+
+
+### Considerations
+
+* Each `NativeTabbar` creates its own `WebView`, which consumes a fair amount of resources. On older devices, mainly on Windows Mobile, this can make the whole application run more slowly, especially if your views are complex. Be sure to test on a physical device to get a feel for the responsiveness of your application.
+
+* If you need tabs to load their contents as soon as they are created, set `createOnInit` to `true`. This will cause your application to slow down while all tabs process their requests, so it should only be used when strictly necessary.
+
+* Before using `NativeTabbar` for navigation, think about the tradeoff of easy access vs losing so much screen real estate on a small screen plus increased memory usage. If it fits your application, create the `NativeTabbar` when needed and call [NativeTabbar.remove](../api/NativeTabbar#mremove) when it is no longer needed, to reclaim the memory and visual space. Normally, `NativeToolbar` and `NavBar` provide a better alternative as navigation controls.
+
+
+## NativeToolbar
+
+
+## NavBar
+## NativeMenuBar
+
