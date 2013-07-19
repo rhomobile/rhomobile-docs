@@ -29,7 +29,7 @@ In order to choose one or the other, you need to think about:
 
 Native iOS notifications use Apple's Push Notification Service (APNS) for delivery.
 
-**NOTE: You need an Apple iOS Developer account to use native push notifications in iOS. Testing on the iOS Simulator is not possible due to Apple's restrictions.**
+**NOTE: You need an Apple iOS Developer account and a real device in order to use native push notifications in iOS. Testing on the iOS Simulator is not possible due to Apple's restrictions.**
 
 The following checklist contains the steps required to enable native push in iOS:
 
