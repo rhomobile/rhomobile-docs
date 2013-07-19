@@ -167,9 +167,7 @@ While this method works, there is a better solution: responsive design.
 
 The easiest way to show different UI layouts to the user based on the orientation and even automatically adjust to various device sizes is by using [responsive design](http://en.wikipedia.org/wiki/Responsive_web_design).
 
-Using responsive design helps avoid creating entirely different versions of the same content for different orientations and sizes.
-
-Responsive design makes use of [CSS3 Media queries](http://en.wikipedia.org/wiki/Media_queries) to allow content to adapt to conditions such as screen size or aspect ratio.
+Using responsive design helps avoid creating entirely different versions of the same content for different orientations and sizes. This technique makes use of [CSS3 Media queries](http://en.wikipedia.org/wiki/Media_queries) to allow content to adapt to conditions such as screen size or aspect ratio.
 
 For example, you can make the layout on your UI show content stacked in portrait mode and side-by-side in landscape mode.
 
