@@ -43,7 +43,7 @@ In some applications, it may be necessary to force the display to always be lock
 
 ### Enable / disable auto-rotation
 
-You can enable or disable the autorotation of the screen orientation when the device is rotated by setting the `autoRotate` property
+You can enable or disable the autorotation of the display when the device is rotated by setting the `autoRotate` property
 
 Ruby syntax:
     :::ruby
@@ -99,7 +99,7 @@ JavaScript syntax:
 
 ### Changing to upside-down orientation
 
-Set the screen to upside-down orientation using the `upsideDown` method. Useful if presenting the device to a customer to obtain a signature.
+Set the screen to upside-down orientation using the `upsideDown` method. This can be useful, for example, when the user offers the device to a customer to obtain a signature. If you set the orientation to `upsideDown`, the application's user interface will be in the correct position from the customer's point of view, without them having to physically rotate the device. This streamlines the capture process, avoids cumbersome manual operations and reduces the risk of the device being dropped.
 
 Ruby syntax:
     :::ruby
@@ -111,9 +111,12 @@ JavaScript syntax:
 
 ## Responding to screen orientation change
 
-When the device is rotated, you should update your application UI layout to better suit the new layout. To do this first you must set a callback to get orientation change events and then when you get the event, update the UI layout accordingly.
+When the device is rotated, it is sometimes necessary to update your application's UI layout to better suit the new orientation. There are two different approaches, depending on where the logic for change is placed: The first is to handle UI adaptations yourself (with code) and the second is to use responsive design.
 
-### Set callback for screen orientation events
+### Handling rotation in code
+
+If you want to respond to the device being rotated by running some code, there are two steps that must be completed. 
+The first is to set a callback in order to be notified of orientation change events and the second is to update the UI layout accordingly.
 
 Set the callback for screen orientation events by using the `setScreenOrientationEvent` method.
 
@@ -128,7 +131,7 @@ Ruby syntax:
     end
 
     def screen_orientation_callback
-        puts "Screen Rotated : " + @params
+        puts "Screen Rotated. New orientation: #{@params["result"]}"
     end
 
 JavaScript syntax:
@@ -142,12 +145,12 @@ JavaScript syntax:
     }
 
     function screen_orientation_callback(params) {
-        console.log("Screen Rotated", params);
+        console.log("Screen Rotated. New orientation: "+params.result);
     }
 
 ### Updating the UI on screen orientation change
 
-You can make your application handle different screen orientation by creating two different screen layouts for portrait and landscape orientation.
+You can make your application handle different screen orientations by creating two different screen layouts for portrait and landscape orientation.
 
 In your ERB files, You can write `if ... else` code in your layout using the `System.screenOrientation` property to change the layout of elements.
 
@@ -158,20 +161,15 @@ In your ERB files, You can write `if ... else` code in your layout using the `Sy
         <!-- HTML for landscape layout -->
     <% end %>   
     
-You can also create separate ERB files for each layout and pass them to the `render` method in your controller
+While this method works, there is a better solution: responsive design.
 
-    :::ruby
-    render :action => 'index', :layout => 'landscape_layout'
+## Responsive design
 
-While this method works, there is an even better solution - Responsive design.
+The easiest way to show different UI layouts to the user based on the orientation and even automatically adjust to various device sizes is by using [responsive design](http://en.wikipedia.org/wiki/Responsive_web_design).
 
-#### Responsive design
+Using responsive design helps avoid creating entirely different versions of the same content for different orientations and sizes.
 
-The easiest way to show different UI layouts to the user based on the orientation and even automatically adjust to various device size is by using [Responsive web design](http://en.wikipedia.org/wiki/Responsive_web_design).
-
-Using responsive design help avoid creating entirely different versions of the same content for different orientations and sizes.
-
-Responsive web design makes use of [CSS3 Media queries](http://en.wikipedia.org/wiki/Media_queries) to allow content to adapt to conditions such as screen size or aspect-ratio.
+Responsive design makes use of [CSS3 Media queries](http://en.wikipedia.org/wiki/Media_queries) to allow content to adapt to conditions such as screen size or aspect ratio.
 
 For example, you can make the layout on your UI show content stacked in portrait mode and side-by-side in landscape mode.
 
@@ -205,17 +203,26 @@ For example, you can make the layout on your UI show content stacked in portrait
     </body>
     </html>
     
-Here is how the layout looks in portrait orientation
+Here is how the layout looks in portrait...
 
-![Portrait](/images/screen_orientation/portrait_layout.png)
+![Portrait](http://rhodocs-images.s3.amazonaws.com/guide/screen_orientation/portrait_layout.png)
 
-Here is how the layout looks in landscape orientation
+...and here is how it adapts to landscape
 
-![Landscape](/images/screen_orientation/landscape_layout.png)
-    
+![Landscape](http://rhodocs-images.s3.amazonaws.com/guide/screen_orientation/landscape_layout.png)
+
 ##### Responsive design frameworks
 
-There are some CSS frameworks available that are designed to make it easier to use responsive design in your applications. A couple of them are listed below:
+There are some CSS frameworks available that are designed to make it easier to use responsive design in your applications. Two of the most popular are:
 
 * [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
 * [Zurb Foundation](http://foundation.zurb.com/)
+
+Both are modern frameworks, designed to take advantage of the latest capabilities of today's mobile browsers. They provide a number of features to shorten your development time while simultaneously making your code more maintainable and future-proof. Particularly if you are developing for more than one screen size, using a responsive framework is highly recommended.
+
+## Related reading
+
+* The [CSS3 Media Queries specification](http://www.w3.org/TR/css3-mediaqueries/) is the formal specification for media queries. 
+* [ScreenOrientation API](../api/screenorientation) documentation
+* [System API](../api/system) documentation
+
