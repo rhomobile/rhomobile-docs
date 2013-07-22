@@ -129,7 +129,125 @@ That code does not indicate which `WebView` to operate on, so it applies to whic
 
 ## NativeToolbar
 
+A `NativeToolbar` is a container for buttons that remain visible at all times and provide shortcuts to actions in your application.
+
+### Usage
+
+Ruby:
+	:::ruby
+    Rho::NativeToolbar.create([
+    	{
+    		:label => "New product",
+    		:action => url_for(:action => :new)
+    	},
+    	{
+    		:label => "Home",
+    		:action => "home"
+    	},        
+    	{
+    		:label => "Refresh",
+    		:action => "refresh"
+    	},
+    	{
+	  		:label => "Exit",
+	  		:action => "exit"
+    	}
+	],
+	{}
+   )
+
+Javascript:
+	:::javascript
+    Rho.NativeToolbar.create([
+    	{
+    		label  : "New product",
+    		action :  "/app/Product/new"
+    	},
+    	{
+    		label  : "Home",
+    		action : "home"
+    	},        
+    	{
+    		label  : "Refresh",
+    		action : "refresh"
+    	},
+    	{
+	  		label  : "Exit",
+	  		action : "exit"
+    	}
+	],
+	{}
+   )
+
+### Use cases
+
+* `NativeToolbar` is ideally suited for operations that may be used frequently. You can use it to provide efficient access to the key actions of your application.
+
+* Different areas of your application may benefit from their own shortcuts. You can create `NativeToolbar`s with specific buttons depending on the section the user is currently browsing. If you are swapping one toolbar for another, you do not need to call `NativeToolbar.remove`, `NativeToolbar.create` will replace the existing toolbar, if any.
+
+### Considerations
+
+* The toolbar does not support scrolling. If you add too many items to the toolbar, some of them will not be accessible by the user.
+
+* Input on a mobile device is prone to error and users will often tap the wrong button. Actions that cannot be undone or that can potentially cause data loss must provide a confirmation dialog before being executed.
+
 
 ## NavBar
+
+A `NavBar` is a composite navigation control with two buttons (left, right) and a title, that appears at the top of the screen and uses its two buttons to help the user move through the application.
+
+### Usage
+
+Ruby:
+	:::ruby
+    Rho::Navbar.create({
+      :left => {
+        :label => "Home",
+        :action => url_for(Rho::Application.startURI)
+      },
+      :right => {
+        :label => "example.com",
+        :action => "http://www.example.com"
+      },
+      :title => "Hello World"
+    })
+	
+Javascript:
+	:::javascript
+    Rho.Navbar.create({
+      left : {
+        label  : "Home",
+        action : "/app"
+      },
+      right => {
+        label  : "example.com",
+        action : "http://www.example.com"
+      },
+      title : "Hello World"
+    })
+
+
+### Use cases
+
+* "back" and "forward" buttons in complex multi-step workflows
+
+
+### Considerations
+
+* `Navbar` is only available on iOS.
+
+* jQuery Mobile emulates the NavBar and provides an HTML+Javascript equivalent by default. Do not use both, as that tends to be confusing and waste screen real estate.
+
+
 ## NativeMenuBar
 
+### Usage
+Ruby:
+	:::ruby
+
+Javascript:
+	:::javascript
+
+
+### Use cases
+### Considerations
