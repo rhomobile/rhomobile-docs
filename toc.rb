@@ -94,7 +94,7 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/nfc',       'NFC'
   topic 'guide/screen_orientation', 'Orientation and Repsonsive Design'
   topic 'guide/printing',       'Printing'
-  topic 'guide/push',       'Push Notifications'
+  topic 'guide/push_notifications',       'Push Notifications'
   topic 'guide/ringtone',       'Ringtone'
   topic 'guide/device_sensors',       'Sensors'
   topic 'guide/signature',       'Signature'

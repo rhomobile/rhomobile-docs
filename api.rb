@@ -8,6 +8,9 @@ class Api
   def self.getApiName(doc)
   	md=""
   	md = doc["MODULE"][0]["name"]
+  	if !doc["MODULE"][0]["ALIASES"].nil? && !doc["MODULE"][0]["ALIASES"][0]["ALIAS"].nil?
+  		md = doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["new"]
+  	end
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
   	# }
@@ -723,7 +726,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			masterAccess = element["access"]
 	end
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
-		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <code>myObject.' + element["name"] + '</code></li>'
+		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
 			if javascript 
@@ -1292,14 +1295,14 @@ end
 			masterAccess = element["access"]
 	end
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
-		accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <code>myObject.' + element["name"] + '(...)</code></li>'
+		accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + "(#{@methparams})</code></li></ul></li>"
 		if templateDefault
 		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li>'
+			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li>'
+			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
@@ -1307,10 +1310,10 @@ end
 	else
 		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '(...)</code> </li>'
+			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '(...)</code></li>'
+			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
