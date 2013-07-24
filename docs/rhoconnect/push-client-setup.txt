@@ -5,7 +5,6 @@ This chapter contains the final steps for setting up your Rhodes application for
 
  * [Setup for RhoConnect Push Service on client and server](/rhoconnect/push-client-setup-rps).
  * [Setup for RhoConnect Push on client and server for Rhodes Android Client](/rhoconnect/push-client-setup-android).
- * [Setup for RhoConnect Push on client and server for Rhodes Blackberry Client](/rhoconnect/push-client-setup-bb).
  * [Setup for RhoConnect Push on client and server for Rhodes iOS Client](/rhoconnect/push-client-setup-ios).
 
 ## Configuring a Rhodes Application for RhoConnect Push
