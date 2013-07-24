@@ -1,0 +1,690 @@
+# Local Database
+
+## What is Rhom?
+
+Rhom is a database object mapper or [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) for RhoMobile. It provides a simple and powerful high level interface to use a local database in terms of objects.
+
+## Creating a Model
+
+The first step is to create a model class with the required attributes.
+
+There are two types of models available, which both offer the same functionality but differ on how the data is stored internally.
+
+### Property Bag Model
+
+In a property bag model, all data is stored in a single table using the object-attribute-value pattern also referred to as the [Entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model).
+
+#### Advantages
+* Simple to use, it doesn’t require specifying attributes
+* Data migrations are not necessary
+* Attributes can be added or removed without modifying the database schema
+
+#### Disadvantages
+* For some applications, the database size may be significantly larger than fixed schema. This is because each attribute is indexed for fast lookup
+* Sync process may be slightly slower because inserts are performed at attribute level
+
+To create a property bag model, simply use the `rhodes` command to generate a new model with some attributes
+
+    :::term
+    $ rhodes model user name,email
+    
+This will generate a file called `user.rb` which looks like:
+
+    :::ruby
+    class User
+        include Orm::PropertyBag
+
+        # Uncomment the following line to enable sync with User.
+        # enable :sync
+
+        #add model specific code here
+    end
+        
+There are several features you can enable or disable in the model, below is a complete list:
+
+    :::ruby
+    class User
+        include Orm::PropertyBag
+
+        # rhoconnect settings
+        # Enable sync for this model.
+        # Default is disabled.
+        enable :sync 
+
+        # Set the type of sync this model
+        # will use (default :incremental).
+        # Set to :bulk_only to disable incremental
+        # sync and only use bulk sync.
+        set :sync_type, :bulk_only 
+
+        # Set the sync priority for this model.
+        # 1000 is default, set to lower number
+        # for a higher priority.
+        set :sync_priority, 1     
+
+        # Instruct Rhom to send all attributes
+        # to RhoConnect when an object is updated.
+        # Default is disabled, only changed attributes
+        # are sent.
+        enable :full_update 
+
+        # RhoConnect provides a simple way to keep data out of redis. 
+        # If you have sensitive data that you do not want saved in redis, 
+        # add the pass_through option in settings/settings.yml for each source.
+        # Add pass_through to client model definition
+        enable :pass_through 
+
+        # model settings
+
+        # Define how data is partitioned for this model.
+        # For synced models default is :user. 
+        # For non-synced models default is :local
+        # If you have an :app partition
+        # for your RhoConnect source adapter and use bulk sync,
+        # set this to :app also.
+        set :partition, :app
+
+        # Define blob attributes for the model.
+        # :blob         Declare property as a blob type
+        #
+        # :overwrite    (optional) Overwrite client copy 
+        #               of blob with new copy from server.
+        #               This is useful when RhoConnect modifies
+        #               images sent from Rhodes, for example 
+        #               zooming or cropping.
+        property :image_url, :blob, :overwrite
+
+        # You can define your own properties also
+        property :mycustomproperty, 'hello'
+    end
+
+### Fixed Schema Model
+
+In a fixed schema model, each model has a separate database table and each attribute exists as a column in the table.  In this sense, fixed schema models are similar to traditional relational tables.
+
+#### Advantages
+* Smaller database size, indexes can be specified only on specific attributes.
+* Sync process may perform faster because whole objects are inserted at a time.
+
+#### Disadvantages
+* Schema changes must be handled with data migrations.
+* Database performance may be slow unless you specify proper indexes.
+
+Creating a fixed schema model involves an additional step to creating a property bag model. First, generate the model using the `rhodes` command:
+
+    :::term
+    $ rhodes model user name,email
+    
+Next, change the include statement in `user.rb` to `include Orm::FixedSchema` and add the attributes:
+
+    :::ruby
+    class User
+        include Orm::FixedSchema
+
+        # Uncomment the following line to enable sync with User.
+        # enable :sync
+
+        property :name, :string
+        property :email, :string
+    end
+
+That's it!  Now your model is a fixed schema model, the table will be generated automatically for you when the application launches.
+
+Below is a full list of options available to fixed schema models:
+
+    :::ruby
+    class User
+        include Orm::FixedSchema
+
+        # rhoconnect settings
+        # Enable sync for this model.
+        # Default is disabled.
+        enable :sync 
+
+        # Set the type of sync this model
+        # will use (default :incremental).
+        # Set to :bulk_only to disable incremental
+        # sync and only use bulk sync.
+        set :sync_type, :bulk_only 
+
+        # Set the sync priority for this model.
+        # 1000 is default, set to lower number
+        # for a higher priority.
+        set :sync_priority, 1     
+
+        # Instruct Rhom to send all attributes
+        # to RhoConnect when an object is updated.
+        # Default is disabled, only changed attributes
+        # are sent.
+        enable :full_update 
+
+        # RhoConnect provides a simple way to keep data out of redis. 
+        # If you have sensitive data that you do not want saved in redis, 
+        # add the pass_through option in settings/settings.yml for each source.
+        # Add pass_through to client model definition
+        enable :pass_through 
+
+        # model settings
+
+        # Define how data is partitioned for this model.
+        # Default is :user.  If you have an :app partition
+        # for your RhoConnect source adapter and use bulk sync,
+        # set this to :app also.
+        set :partition, :app
+
+        # Set the current version of the fixed schema.
+        # Your application may use it for data migrations.
+        set :schema_version, '1.0'
+
+        # Define fixed schema attributes.
+        property :name, :string
+        property :email, :string
+
+        # Define a named index on a set of attributes.
+        # For example, this will create index for the name column.
+        index :by_name, [:name] 
+
+        # Define a unique named index on a set of attributes.
+        # For example, this will create unique index for the email column.
+        unique_index :by_email, [:email] 
+
+        # Define blob attributes for the model.
+        # :blob         Declare property as a blob type
+        #
+        # :overwrite    (optional) Overwrite client copy 
+        #               of blob with new copy from server.
+        #               This is useful when RhoConnect modifies
+        #               images sent from Rhodes, for example 
+        #               zooming or cropping.
+        property :image_url, :blob, :overwrite
+
+        # You can define your own properties also
+        property :mycustomproperty, 'hello'
+    end
+
+### JavaScript support
+
+You can also create a property bag model from JavaScript using the `ORM.addModel` method.
+
+    :::javascript
+    var userModel = Rho.ORM.addModel(function(model) {
+        model.modelName('User');
+        model.enable('sync');
+        model.property('name','string');
+        model.property('email','string');
+    });
+
+You can get any existing model defined in Ruby or JavaScript using the `ORM.getModel` method.
+
+    :::javascript
+    var userModel = Rho.ORM.getModel('User');
+
+## Adding new objects
+
+Use the `create` method to create a new model object and save it to the database. 
+
+NOTE: This is the fastest way to insert a single item into the database.
+
+Ruby syntax:
+    :::ruby
+    user = User.create(
+            :name => 'Alice', 
+            :email => 'alice@example.com')
+
+JavaScript syntax:
+    :::javascript
+    var user = userModel.create({
+                name: 'Alice', 
+                email: 'alice@example.com'});
+
+You can also create the new model object without saving it automatically and then explicitly use the `save` method. This is useful when you want to update some of the object attributes before saving.
+
+Ruby syntax:
+    :::ruby
+    user = User.new(:name => 'Alice')
+    # update the object
+    user.email = 'alice@example.com'
+    user.save
+  
+JavaScript syntax:
+    :::javascript
+    var user = userModel.make({name: 'Alice'});
+    // update the object
+    user.email = 'alice@example.com';
+    user.save();
+
+## Retrieving objects
+
+You can retrieve all objects for a model or only those matching given conditions use the `find` method of the model.
+
+### Getting all objects for a model 
+
+You can retrieve all objects for a model using the `all` parameter. 
+
+Ruby syntax:
+    :::ruby
+    users = User.find(:all)
+
+JavaScript syntax:
+    :::javascript
+    var users = userModel.find('all');
+
+### Finding objects matching conditions
+
+You can retrieve all objects matching given conditions using the `conditions` parameter.
+
+Ruby syntax:
+    :::ruby
+    users = User.find(
+                :all, 
+                :conditions => {:name => 'Alice'}
+            )
+
+JavaScript syntax:
+    :::javascript
+    var users = userModel.find(
+                    'all', 
+                    {
+                        conditions: {name: 'Alice'}
+                    }
+                );
+
+### Ordering the objects
+
+You can retrieve objects sorted by one or more attributes using the `order` and `orderdir` parameters.
+
+Ruby syntax:
+    :::ruby
+    # order by one attribute
+    users = User.find(
+                :all, 
+                :order => 'name', 
+                :orderdir => 'DESC'
+            )
+    
+    # order by multiple attributes
+    users = User.find(
+                :all, 
+                :order => ['name', 'email'], 
+                :orderdir => ['ASC', 'DESC']
+            )
+
+JavaScript syntax:
+    :::javascript
+    // order by one attribute
+    var users = userModel.find(
+                    'all', 
+                    {
+                        order: 'name', 
+                        orderdir: 'DESC', 
+                        conditions: {...} // JavaScript API requires conditions
+                    }
+                );
+    
+    // order by multiple attributes
+    var users = userModel.find(
+                    'all', 
+                    {
+                        order: ['name', 'email'], 
+                        orderdir: ['ASC', 'DESC'], 
+                        conditions: {...} // JavaScript API requires conditions
+                    }
+                );
+
+You can also sort with an user defined function.
+
+Ruby syntax:
+    :::ruby
+    # order by one attribute
+    users = User.find(:all, :order => 'name') do |a,b|
+                    a <= b
+                end
+
+    # order by multiple attributes
+    users = User.find(:all) do |a,b|
+                    a.name <= b.name && a.email <= b.email
+                end
+
+JavaScript syntax:
+    :::javascript
+    // order by one attribute
+    var users = userModel.find(
+        'all',
+        {
+            order: 'name',
+            orderFunction: function(a, b) { return a <= b }
+        }
+    ); 
+
+    // order by multiple attributes
+    var users = userModel.find(
+        'all',
+        {
+            orderFunction: function(a, b) {
+                    return a.name <= b.name && a.email <= b.email
+                }
+        }
+    );
+
+### Retrieving specific attributes
+
+You can only specific attributes of objects using the `select` parameter.
+
+Ruby syntax:
+    :::ruby
+    users = User.find(
+                :all, 
+                :select => ['name']
+            )
+
+JavaScript syntax:
+    :::javascript
+    var users = userModel.find(
+                    'all', 
+                    {
+                        select: ['name'],
+                        conditions: {...} // JavaScript API requires conditions
+                    }
+                );
+
+### Paginating results
+
+You can pass `offset` and `perPage` parameters to `find` method to retrieve objects in chunks.
+
+Ruby syntax:
+    :::ruby
+    # get first 10 records
+    users = User.find(:all, :perPage => 10)
+    
+    # get records 21-40
+    users = User.find(:all, :offset => 20, :perPage => 20)
+
+JavaScript syntax:
+    :::javascript
+    // get first 10 records
+    var users = userModel.find(
+                    'all', 
+                    {
+                        perPage: 10,
+                    }
+                );
+                    
+    // get records 21-40
+    var users = userModel.find(
+                    'all', 
+                    {
+                        offset: 20,
+                        perPage: 20,
+                    }
+                );
+
+For convenience, there is a `paginate` method which emulates rails' classic pagination syntax. Default page size is 10.
+
+You can use `:conditions`, `:order` and `select` parameters similar to `find` method.
+
+Ruby syntax:
+    :::ruby
+    # get first 10 records
+    users = User.paginate(:page => 0)
+    
+    # get records 21-40
+    users = User.paginate(:page => 1, :perPage => 20)
+    
+JavaScript syntax:
+    :::javascript
+    // get first 10 records
+    var users = userModel.paginate({
+                            page: 0});
+                    
+    // get records 21-40
+    var users = userModel.paginate({
+                            page: 1,
+                            perPage: 20});
+
+### Retrieving only the first object matching conditions
+
+You can get only the first object matching given conditions using the `first` parameter with `find` method.
+
+Ruby syntax:
+    :::ruby
+    user = User.find(
+                :first, 
+                :conditions => {:name => 'Alice'}
+            )
+
+JavaScript syntax:
+    :::javascript
+    var user = userModel.find(
+                    'first', 
+                    {
+                        conditions: {name: 'Alice'}
+                    }
+                );
+
+### Using SQL queries directly
+
+You can directly retrive model object(s) using SQL queries with the `findBySql` method. This method works only for fixed schema models.
+
+Ruby syntax:
+    :::ruby
+    users = Rho::ORMModel.findBySql('SELECT * FROM User')
+
+JavaScript syntax:
+    :::javascript
+    var users = Rho.ORMModel.findBySql('SELECT * FROM User');
+
+## Counting objects
+
+You can get the number of objects matching given conditions using the `count` parameter with `find` method.
+
+Ruby syntax:
+    :::ruby
+    count = User.find(
+                :count, 
+                :conditions => {:name => 'Alice'}
+            )
+
+JavaScript syntax:
+    :::javascript
+    var count = userModel.find(
+                    'count', 
+                    {
+                        conditions: {name: 'Alice'}
+                    }
+                );
+
+## Updating
+
+You can update an object’s attributes and saves it to the database using the `updateAttributes` method
+
+NOTE: This is the fastest way to add or update item attributes.
+
+Ruby syntax:
+    :::ruby
+    user = User.find(:first, :conditions => {:name => 'Alice'})
+    user.update_attributes(
+                :name => 'Bob', 
+                :email => 'bob@example.com')
+
+JavaScript syntax:
+    :::javascript
+    var user = userModel.find('first', {conditions: {name: 'Alice'});
+    user.updateAttributes({
+            name: 'Bob', 
+            email: 'bob@example.com'});
+
+## Deleting
+
+### Deleting one object
+
+To delete one model object use the `destroy` method on the object to be deleted.
+
+Ruby syntax:
+    :::ruby
+    user = User.find(:first)
+    user.destroy
+
+JavaScript syntax:
+    :::javascript
+    var user = userModel.find('first');
+    user.destroy();
+
+### Delete multiple objects
+
+To delete all objects for a model or only those matching given conditions use the `deleteAll` method.
+
+Ruby syntax:
+    :::ruby
+    # delete all objects
+    User.deleteAll()
+    
+    # delete only objects matching :conditions
+    User.deleteAll(:conditions => {:name => 'Alice'})
+
+JavaScript syntax:
+    :::javascript
+    // delete all objects
+    userModel.deleteAll();
+    
+    // delete only objects matching :conditions
+    userModel.deleteAll({conditions: {name: 'Alice'}})
+
+## Transactions
+
+Use transactions to group together database operations that must either succeed fully or fail without leaving any partially completed operations. You can combine any set of object/model operations like insert/update/delete under a  transaction.
+
+NOTE: This is the most performant method to initialize your application with a large set of data.
+
+Ruby syntax:
+    :::ruby
+    db = Rho::Database
+    db.startTransaction
+    begin
+        # do multiple operations
+        User.create(:name => 'Alice', :email => 'alice@example.com')
+        User.create(:name => 'Bob', :email => 'bob@example.com')
+        
+        # no errors, so commit all the changes
+        db.commitTransaction
+    rescue
+        # on error rollback all changes
+        db.rollbackTransaction
+    end
+
+JavaScript syntax:
+    :::javascript
+    var db = Rho.Database;
+    db.startTransaction();
+    try
+    {
+        // do multiple operations
+        userModel.create({name: 'Alice', email: 'alice@example.com'});
+        userModel.create({name: 'Bob', email: 'bob@example.com'});
+
+        // no errors, so commit all the changes
+        db.commitTransaction();
+    }
+    catch
+    {
+        // on error rollback all changes
+        db.rollbackTransaction();
+    }
+
+## Executing SQL
+
+You can directly execute SQL statements on the database by using `Database.executeSql` method.
+
+Ruby syntax:
+    :::ruby
+    db = Rho::Database
+    result = db.executeBSql('SELECT * FROM User') 
+    # result is an array of hashes, where each hash is a record
+
+JavaScript syntax:
+    :::javascript
+    var db = Rho.Database;
+    var result = db.executeSql('SELECT * FROM User'); 
+    // result is an array of hashes, where each hash is a record
+
+You can execute a series of SQL statements in a single method call by using `Database.executeBatchSql` method.
+
+Ruby syntax:
+    :::ruby
+    db = Rho::Database
+    db.executeBatchSql(...)
+
+JavaScript syntax:
+    :::javascript
+    var db = Rho.Database;
+    db.executeBatchSql(...);
+
+## Data Migration
+
+Data migrations are needed when your models or struture of your models change with new application versions. Rhom provides an application hook to migrate the data manually. You can also use this hook to run business logic related to updating the database. It may also be used to notify the user that a migration is in progress before starting lengthy database operations.
+
+If you want to remove all local data when upgrading to new application version, change `app_db_version` in `rhoconfig.txt`. This will work for both Property Bag and Fixed Schema models.
+
+If you want to retain existing data, you will need not need any data migration for Property Bag models, since all attributes are dynamic. However for Fixed Schema models you will need to do some additional steps.
+
+First you need to track the `:schema_version` in your model:
+
+    :::ruby
+    class Product
+        include Rhom::FixedSchema
+
+        set :schema_version, '1.1'
+    end
+
+Next, in your `application.rb` implement the `on_migrate_source(old_version, new_src)` method. This is called on application start if `:schema_version` has changed.
+
+TODO: this code is from old doc, check if still valid in v4
+
+    :::ruby
+    class AppApplication < Rho::RhoApplication
+    
+        # old_version     String containing old version value (i.e. '1.0')
+        # new_src         Hash with source information:
+        #                 'schema_version', 'name', 'schema'
+        #                 new_src['schema']['sql'] contains new schema sql
+        def on_migrate_source(old_version, new_src)
+            # ... notify user about migration ...
+
+            db = Rho::RHO.get_src_db(new_src['name'])
+            db.execute_sql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
+
+            true # does not create table
+        end
+    end
+    
+**NOTE: To modify schema without recreating a table, you can use only use ADD COLUMN, you cannot remove column or change type (sqlite limitation)**
+
+Return `false` to run the custom sql specified by the new_src[‘schema’][‘sql’] string:    
+
+    :::ruby
+    def on_migrate_source(old_version, new_src)
+        false # create table by source schema - useful only for non-synced models
+    end
+
+**NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time.**
+
+## Seeding / Loading initial data
+
+TODO: the methods used in the old doc dont seem to be present in v4 classes
+
+## Exporting and Importing the database
+
+TODO: the methods used in the old doc seem to be deprecated in v4 classes
+
+## Resetting database
+
+You can use the following method for recovering the database from a bad or corrupt state or if the RhoConnect server returns errors.
+
+### Delete all objects for given models.
+
+Ruby syntax:
+    :::ruby
+    Rho::ORM.databaseFullResetEx(:models => ['User'], :reset_client_info => true, :reset_local_models => true)
+
+JavaScript syntax:
+    :::javascript
+    Rho.ORM.databaseFullResetEx({'models': ['User'], 'reset_client_info': true, 'reset_local_models': true});
