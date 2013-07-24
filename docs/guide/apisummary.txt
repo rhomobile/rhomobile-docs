@@ -327,20 +327,7 @@
 </tr>
 
 
-<tr>
-<td>
-<a href="/api/signature">Signature</a>
-</td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-</tr>
+
 <tr>
 <td>
 <a href="/api/system">System</a>

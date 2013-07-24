@@ -204,7 +204,7 @@ In order to use this API you must include the following extension in your `build
     </METHOD>
 
     <METHOD name="setNotification" hasCallback="mandatory" runInThread="none">
-      <DESC>The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered. One a sync is processing for a model, notifications are called with parameters containing sync process state. Your application can use this information to display different wait pages, progress bars, etc. setNotification will set notification for a model.</DESC>
+      <DESC>The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered. Once a sync is processing for a model, notifications are called with parameters containing sync process state. Your application can use this information to display different wait pages, progress bars, etc. setNotification will set notification for a model.</DESC>
       <PARAMS>
         <PARAM name="sourceName" type="STRING">
           <DESC>Source name for which notification will be enabled. Use '*' to set notification for all models.</DESC>

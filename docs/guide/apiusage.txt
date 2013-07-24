@@ -297,17 +297,7 @@ Previous 2.2 API: <a href="/v/2.2/rhoelements/signal">Signal</a>
 </tr>
 
 
-<tr>
-<td>
-<a href="/api/signature">Signature</a>
-</td>
-<td>
-Signature capture
-</td>
-<td>
-<a href="/v/2.2/rhodesapi/signaturecapture-api/">Full screen signature</a>, <a href="/v/2.2/rhodesapi/signaturecapture-api/#inline-signature-api">inline signature</a> and <a href="/v/2.2/rhoelements/SignatureCapture/">Motorla specific signature capture</a> have been combined into a single API.
-</td>
-</tr>
+
 <tr>
 <td>
 <a href="/api/system">System</a>
