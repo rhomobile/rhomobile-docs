@@ -99,6 +99,7 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/signature',       'Signature'
   topic 'guide/system',       'System'
   topic 'guide/timer',       'Timer'
+  topic 'guide/urlschemes', 'Url Schemes'
 
 end
 
