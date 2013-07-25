@@ -71,6 +71,7 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/app_icon_splash',        'Application Icon & Splash Screen'
   topic 'guide/webapps',        'RhoMobile for Web Apps'
   topic 'guide/rhoelements-runtime',        'RhoElements Shared Runtime'
+  topic 'guide/app_upgrade', 'Upgrading Your App'
 end
 
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
