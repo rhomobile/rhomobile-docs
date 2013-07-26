@@ -1,0 +1,2 @@
+weinre build 2.0.0-pre-HH0SN197 by Patrick Mueller
+git: da06b4940c8937ff278f5aa005b079610456c779 add some missed overridden files to front-end

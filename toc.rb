@@ -107,7 +107,7 @@ end
 section 'rhomob-data', 'Data Handling','Mobile Guides' do
   topic 'rhodes/rhom',              'Local Database and Rhom'
   topic 'rhodes/synchronization',   'Synchronization'
-  topic 'rhodes/connect-to-web-services', 'Connecting Directly to Web Services'
+  topic 'guide/web_services', 'Web Services & AJAX'
 end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
