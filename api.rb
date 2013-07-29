@@ -1104,11 +1104,13 @@ end
 					@methcallbackoptional = " <span class='label label-warning'>Mandatory</span> "
 				end
 				firstcallbackreturnparam = "calbackreturnparamname"
+				callbacktype = "CallBackHandler"
+				callbackreturntype = ""
 				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["type"].nil?
 				
-					callbacktype = element["CALLBACK"][0]["type"]
+					callbackreturntype = element["CALLBACK"][0]["type"]
 				else
-					callbacktype = "OBJECT"
+					callbackreturntype = "OBJECT"
 				end
 				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
 					# puts element["CALLBACK"][0]["PARAMS"]
@@ -1161,7 +1163,7 @@ end
 		end
 		if @methhascallback !="" && @methhascallback != "none"
 			@callbackrubysample = "url_for :action => :take_callback"
-			@callbackjssample = "callback_function"
+			@callbackjssample = "function (e) { ... }"
 			if @methparams != ""
 				@methparams = @methparams + ", <span class='text-info'>#{callbacktype}</span> callback"
 			else
@@ -1207,7 +1209,7 @@ end
 			
 			if !element["CALLBACK"].nil? && !element["CALLBACK"][0].nil?
 				@methsectioncallbackparams = "<div>"
-				@methsectioncallbackparams += "<p><strong>Callback Returning Parameters</strong></p><ul>"
+				@methsectioncallbackparams += "<p><strong>Callback Returning Parameters: <span class='text-info'>#{callbackreturntype}</span></strong></p><ul>"
 			
 				# element["CALLBACK"][0]["PARAMS"].each { |params|
 				# 	params["PARAM"].each { |param|
