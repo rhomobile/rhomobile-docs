@@ -10,7 +10,7 @@ In the following example we want to save a reference to the front facing camera 
 	
 	:::ruby
 	@desiredCamera;
-	Rho::Camera.enumerate(lamba |e|
+	Rho::Camera.enumerate(lambda |e|
 		{
 			if (e.type == Rho::Camera.FRONT_TYPE)
 	@desiredCamera = e
@@ -97,7 +97,7 @@ The following code snippet uses a lambda function that will execute when the cal
 	:::ruby
 	Barcode.getAllProperties(lambda{|e| puts e.code128})
 
-The following code snippet also uses a lamba function that will execute when the callback is executed. This time we are also passing in other parameters
+The following code snippet also uses a lambda function that will execute when the callback is executed. This time we are also passing in other parameters
 
 	:::javascript
 	Barcode.getProperties([‘autoEnter’,’code128’,’code39’],   

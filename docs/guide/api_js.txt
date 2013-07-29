@@ -170,7 +170,7 @@ The following code snippet uses a function name for the callback instead of an a
 Some methods will support a callback for returning information in an unblocking asnychronous way. This will be indicated in the documentation by a parameter named `callback`
 
 	:::javascript
-	Barcode.take(HASH propertyMap, HASH callback)
+	Barcode.take(HASH propertyMap, CallbackHandler callback)
 
 The callback parameter will either be marked as <span class="label label-info">Optional</span> or marked as <span class="label label-warning">Mandatory</span>
 
