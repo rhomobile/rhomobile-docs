@@ -95,7 +95,7 @@ The `cardreader` extension is also included automatically if you specify the fol
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true"></APPLIES>
 				<CALLBACK  type="HASH">
-                    <DESC>Not providing a callback to be invoked when a card is swiped will result in that card data being output as keystrokes.</DESC>
+                    <DESC>Not providing a callback to be invoked when a card is swiped will result in that card data being output as keystrokes.In case of Android devices the RawData will be shown as keystrokes.</DESC>
 					<PARAMS>
 						<PARAM name="data" type="STRING">
 							<DESC>Data read by the card reader. This may be card data, the PAN data extracted from the card data, encrypted PIN block data, or a message. In case of an ISO/ABA card [eg: a financial card], data is encrypted. For other cards, data is in the clear.</DESC>
