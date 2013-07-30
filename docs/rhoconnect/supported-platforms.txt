@@ -16,15 +16,15 @@ RhoConnect gem is available on the following platforms:
   <tr>
     <td class='cap'>Linux</td>
     <td> CentOS / RHEL 5.x & 6.x,<br/>Ubuntu 12.04 </td>
-    <td> ruby-1.9.3-p392 </td>
+    <td> ruby-1.9.3-p448 </td>
     <td class='tbd'> TBD </td>
-    <td class='tbd'> jruby-1.7.3 </td>
+    <td class='tbd'> jruby-1.7.4 </td>
     <td>Development &<br/>Production</td>
   </tr>
   <tr>
     <td class='cap'>Mac OS </td>
     <td> Mac OS X 10.7/10.8 </td>
-    <td> ruby-1.9.3-p392 </td>
+    <td> ruby-1.9.3-p448 </td>
     <td class='tbd'> TBD </td>
     <td class='tbd'> jruby-1.7.3 </td>
     <td> Development </td>
@@ -32,9 +32,9 @@ RhoConnect gem is available on the following platforms:
   <tr>
     <td class='cap'>Windows</td>
     <td> Windows 7 </td>
-    <td> ruby-1.9.3-p392 </td>
+    <td> ruby-1.9.3-p448 </td>
     <td class='tbd'> TBD </td>
-    <td class='tbd'> jruby-1.7.3 </td>
+    <td class='tbd'> jruby-1.7.4 </td>
     <td>Development</td>
   </tr>
 </table>
@@ -58,7 +58,7 @@ RhoConnect Mac OS X is supported in development environment.
 The components you should have for this environment are:
 
 * Ruby 1.9.3
-* Nginx HTTP server (1.3.x)
+* Nginx HTTP server (1.4.x)
 * Redis data store (2.6.x)
 * Thin application server
 * RhoConnect gem with all required dependencies
