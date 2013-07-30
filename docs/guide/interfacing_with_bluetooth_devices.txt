@@ -208,7 +208,7 @@ JavaScript syntax:
     
 ## Reading data
 
-To write data to the remote device use the `BluetoothSession.read` or `BluetoothSession.read_string` methods passing the remote device name for the session.
+To read data from the remote device use the `BluetoothSession.read` or `BluetoothSession.read_string` methods passing the remote device name for the session. Typically you will be invoking this method in response to event type `SESSION_INPUT_DATA_RECEIVED` in the session callback.
 
 Ruby syntax:
     :::ruby
@@ -232,9 +232,7 @@ JavaScript syntax:
         // process string
     }
 
-## Getting/setting device name
-
-# Disconnecting
+## Disconnecting
 
 To disconnect from a device, use the `BluetoothSession.disconnect` method passing the remote device name for the session.
 
@@ -247,8 +245,6 @@ JavaScript syntax:
     Rho.BluetoothSession.disconnect(connected_device);
 
 ## Example application
-
-### Example of chat application using Bluetooth connection
 
 You can find a complete example of using Bluetooth API in the [BluetoothChat](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BluetoothChat/) demo application. In this example you can see how to exchange text messages between two different devices. You also can use this example for connect to external Bluetooth device (external GPS device for example) or PC or Mac (use terminal to see and send messages).
 
