@@ -2,76 +2,6 @@
 
 The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-## Mac OS
-
-### Java Development Kit
-
-RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7 and 10.8, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://www.java.com/en/download/index.jsp) and install Java 6 or higher.
-
-### Setup for RhoConnect
-
-On Macintosh, you need the following setup before redis is installed.
-
- * The `/usr/local` directory exists and is recursively writable by the current user.
- * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
-
-### Setup for Xcode, Commend Line Tools, and Homebrew
-
-If you do not have the latest Xcode and command line tools, you need to install them. Install the latest [Xcode](https://developer.apple.com/xcode/). 
-
-Then install the command line tools: go to Xcode –> Preferences –> Downloads tab and install the "Command Line Tools."
-
-Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
-
-### Setup for RhoConnect Push
-
-To use RhoConnect Push, you need to install Node.js.
-
-Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
-
-	:::term
-	$ brew install node
-
-### Setup for Ruby
-
-If you do not have Ruby Version Manager and Ruby 1.9.3 installed, you must install them.
-
-On Macintosh, Ruby is already installed, but this version is outdated and isn’t compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io/) (RVM) into your home directory. Do not use `sudo` when you install RVM: that can cause problems with file permissions when you run bundle commands within RhoStudio.
-
-Install Ruby 1.9.3 with the following RVM command.
-
-	$ rvm install 1.9.3
-
-### Download and Install
-
-Download the latest Motorola RhoMobile Suite Installer for Macintosh. This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
-
-Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
-  <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
-
-Run "Install gems". A terminal window will open. Select suitable Ruby version and whether to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
-
-Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
-
-Drag Motorola RhoStudio to the Applications folder.
-
-**NOTE: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.**
-
-### Understanding the Installer Contents
-
-In addition to RhoStudio, the Motorola RhoMobile Suite Installer for Macintosh also contains:
-
-* A folder containing a RhoElements application.
-* A folder containing sample applications.
-* A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
-* A folder containing the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
-* A link to the Launchpad Developer Community.
-* A link to the RhoMobile documentation website.
-
-### Git
-
-The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
-
 ## Windows 32-bit
 
 ### Ruby
@@ -177,11 +107,84 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 
 	When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
+## Mac OS
+
+### Java Development Kit
+
+RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7 and 10.8, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://www.java.com/en/download/index.jsp) and install Java 6 or higher.
+
+### Setup for RhoConnect
+
+On Macintosh, you need the following setup before redis is installed.
+
+ * The `/usr/local` directory exists and is recursively writable by the current user.
+ * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
+
+### Setup for Xcode, Command Line Tools, and Homebrew
+
+If you do not have the latest Xcode and command line tools, you need to install them. Install the latest [Xcode](https://developer.apple.com/xcode/). 
+
+Then install the command line tools: go to Xcode –> Preferences –> Downloads tab and install the "Command Line Tools."
+
+Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
+
+### Setup for RhoConnect Push
+
+To use RhoConnect Push, you need to install Node.js.
+
+Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
+
+	:::term
+	$ brew install node
+
+### Setup for Ruby
+
+If you do not have Ruby Version Manager and Ruby 1.9.3 installed, you must install them.
+
+On Macintosh, Ruby is already installed, but this version is outdated and isn’t compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io/) (RVM) into your home directory. Do not use `sudo` when you install RVM: that can cause problems with file permissions when you run bundle commands within RhoStudio.
+
+Install Ruby 1.9.3 with the following RVM command.
+
+	$ rvm install 1.9.3
+
+### Download and Install
+
+Download the latest Motorola RhoMobile Suite Installer for Macintosh. This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+
+Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
+  <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
+
+Run "Install gems". A terminal window will open. Select suitable Ruby version and whether to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
+
+Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
+
+Drag Motorola RhoStudio to the Applications folder.
+
+**NOTE: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.**
+
+### Understanding the Installer Contents
+
+In addition to RhoStudio, the Motorola RhoMobile Suite Installer for Macintosh also contains:
+
+* A folder containing a RhoElements application.
+* A folder containing sample applications.
+* A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
+* A folder containing the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/guide/rhoelements-runtime).
+* A link to the [Developer Community](http://developer.motorolasolutions.com).
+* A link to the RhoMobile documentation website.
+
+### Git
+
+The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
+
+
+
 ## Eclipse plugin, RhoSimulator
 
 **NOTE: Installing RhoStudio as a plugin for Eclipse is currently disabled.**
 
 RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
+
 
 
 ## Next Step: Setup Native SDKs

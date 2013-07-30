@@ -5,16 +5,16 @@ When using RhoMobile Application Generator, a [default application structure](/g
 
 The RhoMobile framework also includes stylesheets customized for each device to give your applications a native look and feel. These stylesheets are included by default in all generated Rhodes applications (public/css/), and are included in the application layout file (app/layout.erb).
 
-The default styles will automatically be applied to all supported content found in the ["header", "footer", and "content"](standard-css) divs.  If you prefer using different names for any of these divs, you will need to update your stylesheets to reflect the new names in order to retain native styling.  Conversely, if you prefer not to use any of the customized styles in your applications, you can either delete the links to the default stylesheets from your application, or simply place any content you wish to create custom styles for in a div that does not descend from "header", "footer", or "content".
+The default styles will automatically be applied to all supported content found in the "header", "footer", and "content" divs.  If you prefer using different names for any of these divs, you will need to update your stylesheets to reflect the new names in order to retain native styling.  Conversely, if you prefer not to use any of the customized styles in your applications, you can either delete the links to the default stylesheets from your application, or simply place any content you wish to create custom styles for in a div that does not descend from "header", "footer", or "content".
 
 ##Using Other Frameworks
-You are free to remove the contents of layout.erb and implement your own CSS as well as 3rd party frameworks. There are many popular UI frameworks besides jQuery Mobile to choose from. Some frameworks that are traditionally geared towards mobilizing web sites like Twitter BootStrap or Zurb Foundation can be useful for those looking to take advantage of Responsive Design that these frameworks offer. Other frameworks like Example 1 and Example 2 are geared towards providing many mobile enhance controls or elements. When choosing a UI framework, it is important to consider not only the features that it provides, but how they will perform on the intended targeted operating systems. Most of these frameoworks use modern CSS3 techniques for UI effects and transitions that perform well on devices that provide a dedicated GPU typically found on Android and iOS devices. These frameworks may not be suitable for other platforms like Windows Mobile/CE.
+You are free to remove the contents of layout.erb and implement your own CSS as well as 3rd party frameworks. There are many popular UI frameworks besides jQuery Mobile to choose from. Some frameworks that are traditionally geared towards mobilizing web sites like Twitter BootStrap or Zurb Foundation can be useful for those looking to take advantage of Responsive Design that these frameworks offer. Other frameworks like jQuery Mobile are geared towards providing many mobile enhance controls or elements. When choosing a UI framework, it is important to consider not only the features that it provides, but how they will perform on the intended targeted operating systems. Most of these frameworks use modern CSS3 techniques for UI effects and transitions that perform well on devices that provide a dedicated GPU typically found on Android and iOS devices. These frameworks may not be suitable for other platforms like Windows Mobile/CE.
 
 ## View Layouts
 
 RhoMobile supports a layout mechanism based on ERB templates. The default layout template is called "layout.erb" and is located in the application root folder.  Unless overridden, this layout is rendered on all non-Ajax requests.
 
-You may use layout.erb to define what CSS and JavaScript libraries. 
+You may use layout.erb to define what CSS and JavaScript libraries are used by your views. 
 
 	:::html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -142,7 +142,7 @@ b) and if it is, include a custom webkit stylesheet in the html header in the ap
 For more significant differences between browsers, RhoMobile supports platform-specific loading of view files.  At runtime, the application detects the current platform, and checks first for a platform-specific file before loading the default view file.  
 
 To create a platform-specific view file, simply name the file using the following convention
-[action_name].[platform_abbreviation].erb (e.g., index.bb.erb, show.wm.erb)
+`[action_name].[platform_abbreviation].erb` (e.g., `index.bb.erb`, `show.wm.erb`)
 
 <table>
 <tr><td width="125">Android:</td><td width="125" > android</td><td width="125" >index.android.erb</td></tr>

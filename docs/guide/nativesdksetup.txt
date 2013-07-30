@@ -11,7 +11,6 @@ In order to build an iOS application locally, it must be performed on a Macintos
 To build for iPhone/iPad using you will need the following software installed:
 
 * Mac OS X 10.6 or greater.
-* Follow [All Platforms Prerequisites](#all-platforms-prerequisites).
 * XCode 4.2 or greater
 * XCode Command Line Tools (already included in versions of XCode before 4.3) should be installed manually from XCode 4.3 - see Note below.
 * iPhone SDK. We recommend installing the latest XCode with the latest iOS SDK (the latest XCode is already included with the iOS SDK). The latest stable version is available from the [iPhone Dev Center](http://developer.apple.com/iphone/index.action).
@@ -20,7 +19,6 @@ To build for iPhone/iPad using you will need the following software installed:
 
 ## Setup for Android
 
-**NOTE: To build for Android it is required JDK 1.6 (JDK 1.7 is not supported).**
 
 ### Setting Up the Android SDK and NDK
 
@@ -35,9 +33,9 @@ On Macintosh and Linux, navigate to and run `<Android SDK>/tools/android sdk`. O
 
 ** NOTE: To use Google Map View you need to install latest Google API from Android SDK Manager **
 
-Download and unzip the [Android NDK](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
+Download and unzip the [latest Android NDK](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
 
-** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new rhodes. Android NDK version r8e is required as a minimum. **
+** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new versions of Rhodes. Android NDK version r8e is required as a minimum. **
 
 In RhoStudio -> Preferences on the Macintosh or Windows -> Preferences on Windows, open Rhomobile->Android and set the paths to your Android SDK and NDK installations.
 
@@ -65,8 +63,6 @@ Note that Windows Mobile versions of your Rhodes application must be built in a 
 
 ### Prerequisites
 
-Follow [All Platforms Prerequisites](#all-platforms-prerequisites).
-
 Make sure you have installed the following software.
 
 * .NET Compact Framework
@@ -85,7 +81,6 @@ NOTE: It is a good idea to install Windows Mobile 6 Professional last, since it 
 
 ### Prerequisites
 
-* Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
 * Visual Studio 2008
 * Install [Qt libraries 4.7.4 for Visual Studio 2008](ftp://ftp.qt-project.org/qt/source/qt-win-opensource-4.7.4-vs2008.exe) (235 MB)
 * Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\4.7.4`
@@ -98,7 +93,6 @@ NOTE: If your application uses HTTPS protocol, then you need to build Qt librari
 
 ### Prerequisites
 
-* Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
 * Windows 8 OS
 * Visual Studio 2012 installed or VS Express 2012 for Windows Phone
     * [Windows Phone SDK 8.0](http://dev.windowsphone.com/en-us/downloadsdk)
@@ -109,60 +103,4 @@ NOTE: If your application uses HTTPS protocol, then you need to build Qt librari
 	      paths:
 	        msbuild: C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
 
-
-## Setup for BlackBerry
-
-### Prerequisites
-
-* Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
-* Load and install Blackberry JDE version 4.6.0 or higher (5.0 or higher recommended for simulator usage) from [BlackBerry Java Development Environment](https://developer.blackberry.com/java/download/previousjdeversions/). [Click here for the latest Blackberry JDE](https://developer.blackberry.com/java/download/jde/). Registration may be required.
-* Run 'rhodes-setup' to specify Blackberry JDE paths or edit <rhodes>/rhobuild.yml manually:
-
-        env: 
-          paths: 
-            5.0: 
-              jde: <jde_5.0>/components
-              sim: 9550
-              #sim_path is optional. It defines path for standalone simulator
-              sim_path: <jde_5.0>/components/simulator
-              mds: <jde_5.0>/components/MDS
-
-* Read about Blackberry Browser limitations of CSS, HTML, and JavaScript. You can search relevant documentation from the [documentation for the current Blackberry Java SDK](https://developer.blackberry.com/java/documentation/) and the [previous Blackberry Java SDKs](http://docs.blackberry.com/en/developers/subcategories/?userType=21&category=Java+Development+Guides+and+API+Reference).
-* You may need to install the MDS simulator; you can download it from [BlackBerry Simulators](http://us.blackberry.com/sites/developers/resources/simulators.html).
-
-
-## Build for Symbian
-** NOTE: Symbian support is discontinued. **
-
-* Follow [All Platforms Prerequisites](#all-platforms-prerequisites)
-* Visual Studio 2005 Service Pack 1 installed
-* [Qt 4.7 SDK](http://qt-project.org/downloads)
-
-If you want to build for Symbian device you have to install QT and QT Mobility for Symbian on your device.
-You can find installation files in QT SDK folder like below:
-
-        For Symbian 9.4
-
-        QT - C:/QtSDK/Symbian/sis/Symbian1/Qt/4.7.3/qt.sis
-        (install it only on disc C:, before install please close all open applications)
-
-        QT WebKit - C:/QtSDK/Symbian/sis/Symbian1/Qt/4.7.3/qtwebkit.sis
-        QT Mobility - C:/QtSDK/Symbian/sis/Symbian1/QtMobility/1.1.3/qtmobility.sis
-
-        For Symbian 9.5
-
-        QT - C:/QtSDK/Symbian/sis/Symbian3/Qt/4.7.3/qt.sis
-        (install it only on disc C:, before install pls close all opened applications)
-
-        QT WebKit - C:/QtSDK/Symbian/sis/Symbian3/Qt/4.7.3/qtwebkit.sis
-        QT Mobility - C:/QtSDK/Symbian/sis/Symbian3/QtMobility/1.1.3/qtmobility.sis
-
-Then open file - C:/QtSDK/Symbian/SDKs/Symbian1Qt473/epoc32/include/cntdb.h and replace below two strings:
-    CContactConverter& CContactDatabase::ConverterL(const TUid& aFormat);
-    CContactConverter& CContactDatabase::ConverterL(const TUid& aFormat, const TInt64 aContactFieldFilter, MConverterCallBack* aCallback, const TVCardVersion aVersion,const TBool aExportTel);
-with these strings:
-    CContactConverter& ConverterL(const TUid& aFormat);
-    CContactConverter& ConverterL(const TUid& aFormat, const TInt64 aContactFieldFilter, MConverterCallBack* aCallback, const TVCardVersion aVersion,const TBool aExportTel);
-
-NOTE: You have to install Rhodes on the same local disk with QtSDK!
 

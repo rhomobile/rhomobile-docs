@@ -11,7 +11,7 @@ Any application that is built with the option of `app_type:rhoelements` or `capa
 **NOTE: In RhoMobile Suite 4.0, the default webkit for Android is now the stock Android webkit and not the Motorola Solutions Webkit. **
 
 ### Mobile APIs
-Certain APIs require a license: 
+Certain APIs require a license. These API's are all included as extensions in the `RhoElements` Gem: 
 
 * [Barcode](/api/barcode)
 * [Battery](/api/battery)
@@ -31,7 +31,7 @@ You can fully use all features of the RhoMobile framework during evaluation, dev
 
 ## Obtaining a License
 
-There are a number of licensing options available depending on the specific customer need or deployment. To obtain a license for RhoElements, you should contact us or your resell partner. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
+There are a number of licensing options available depending on the specific customer need or deployment. To obtain a license for RhoElements, you should contact us or your local Motorola Solutions reseller. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
 
 ## Application Licensing
 
@@ -61,7 +61,7 @@ For native applications, you should define your application license in your buil
 
 **NOTE: Do not include `motorola_license_company` in build.yml, otherwise the application license will not be used.**
 
-For hybrid applications, you should define your application license and application name in your config.xml file as follows. Define your application name in the configuration file under the General section, this must match the application name you provided when you applied for your license.
+For applications using the `RhoElements Shared Runtime`, you should define your application license and application name in your `config.xml` file as follows. Make sure you add the `LicenseKey` section as well as update your application name in the configuration file under the General section. The name must match the application name you provided when you applied for your license.
 
 	  <Applications>
 	    <Application >
