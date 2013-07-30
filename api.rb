@@ -787,7 +787,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
   end
 
 def self.getparams(element,toplevel)
-	@seperator = ""
+	# @seperator = ""
 		
 	#puts element
 	methparamsdetails = ""
