@@ -758,13 +758,13 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
     md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
-	md += '<i class="icon-chevron-down pull-right"></i></span>'
+	md += '<i class="icon-chevron-down pull-left"></i></span>'
+    md += "<div style='padding: 8px 15px;'>#{@propdesc}</div>"
     md += '</div>'
-    md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
+    md += '<div id="cProperty' + propname + '" class="accordion-body collapse">'
     md +='  <div class="accordion-inner">'
 
-  	md += "#{@propdesc}"
-    md += getparams(element,true)
+  	md += getparams(element,true)
   	md += "#{propdefault}"
   	# puts element["PARAM"]
   	if !generateAccessors
@@ -1328,13 +1328,13 @@ end
     
     md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
 
-    md += '<strong data-toggle="tooltip" title data-original-title="' + @methdesc + '">' + methname + '</strong>' + "(#{@methparams})"
-	md += '<i class="icon-chevron-down pull-right"></i></span>'
-    md += '</div>'
-    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse in">'
+    md += '<strong  >' + methname + '</strong>' + "(#{@methparams})"
+	md += '<i class="icon-chevron-down pull-left"></i></span>'
+    md += "<div style='padding: 8px 15px;'>" + @methdesc + "</div>"
+  	md += '</div>'
+    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse">'
     md +='  <div class="accordion-inner">'
 
-  	md += "" + @methdesc + ""
   	md += "" + @methsectionparams + ""
   	md += @methsectioncallbackparams
     md += @methsectionreturns
@@ -1411,6 +1411,17 @@ end
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
 	  	md += "#" + getApiName(doc) + "\n" 
+	  	if methlinks["count"]>0
+		  	md += '<div class="btn-group">'
+		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;' + methlinks["count"].to_s + '</sub></a>'
+		    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</a>'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
+		    md += methlinks["md"]
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end
 	  	if proplinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -1442,17 +1453,6 @@ end
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
-	  	if methlinks["count"]>0
-		  	md += '<div class="btn-group">'
-		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;' + methlinks["count"].to_s + '</sub></a>'
-		    md += '<a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >'
-		    md += '  <span class="caret"></span>&nbsp;'
-		    md += '</a>'
-		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
-		    md += methlinks["md"]
-		    md += '</ul>'
-		  	md += '</div>'
-	  	end
 	  	if constantlinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -1462,6 +1462,18 @@ end
 		    md += '</button>'
 		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
 		    md += constantlinks["md"]
+		    md += '</ul>'
+		  	md += '</div>'
+	  	end 
+	  	if examplelinks["count"]>0
+		  	md += '<div class="btn-group">'
+		  	md += ''
+		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;' + examplelinks["count"].to_s + '</sup></a>'
+		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
+		    md += '  <span class="caret"></span>&nbsp;'
+		    md += '</button>'
+		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
+		    md += examplelinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
@@ -1477,19 +1489,7 @@ end
 		    md += '</ul>'
 		  	md += '</div>'
 	  	end 
-		if examplelinks["count"]>0
-		  	md += '<div class="btn-group">'
-		  	md += ''
-		  	md += '<a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;' + examplelinks["count"].to_s + '</sup></a>'
-		    md += '<button href="#" class="btn dropdown-toggle" data-toggle="dropdown">'
-		    md += '  <span class="caret"></span>&nbsp;'
-		    md += '</button>'
-		    md += '<ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">'
-		    md += examplelinks["md"]
-		    md += '</ul>'
-		  	md += '</div>'
-	  	end 
-	  	if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
+		if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
 			md += '<div class="btn-group">'
 		    md += '<a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a>'
 		  	md += '</div>'
@@ -1505,17 +1505,6 @@ end
 	  	md += '<div  >'
 
 	  	md += "\n" + getApiDesc(doc) + "\n" 
-	  	if docexamples !=""
-		  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n" 
-		  	 md += "" + docexamples + ""
-	  	end 
-	  	if docproperties !=""
-		  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
-				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
-			  		md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods. However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
-				end
-		  	 md += "" + docproperties + ""
-	  	end 
 	  	if methlinks["count"]>0
 		  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
 			
@@ -1524,13 +1513,24 @@ end
 		  	md += "" + getmethods(doc) + ""
 		    md += "</div>"
 		end
+	  	if docproperties !=""
+		  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
+			  		md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods. However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
+				end
+		  	 md += "" + docproperties + ""
+	  	end 
+  	    if docconstants !=""
+		  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-tag'></i>Constants</h2>" + "\n\n" 
+		  	 md += "" + docconstants + ""
+	  	end 
+		if docexamples !=""
+		  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n" 
+		  	 md += "" + docexamples + ""
+	  	end 
 	  	    if docremarks !=""
 			  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
 			  	 md += "" + docremarks + ""
-		  	end 
-		    if docconstants !=""
-			  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-tag'></i>Constants</h2>" + "\n\n" 
-			  	 md += "" + docconstants + ""
 		  	end 
 		    md += "</div>"
 		  	
