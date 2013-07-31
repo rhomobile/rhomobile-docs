@@ -243,6 +243,80 @@ Once created, models can be retrieved using the `ORM.getModel` method.
     :::javascript
     var userModel = Rho.ORM.getModel('User');
 
+## Associations
+
+Rhom does not support Ruby on Rails associations. However, Rhom has a `sync association` called `belongs_to` which you can use to trigger updates on sync-enabled models. This is useful where you have relationships between backend service objects.
+
+For example, you can have a list of customers who are assigned to a sales person:
+
+    :::ruby
+    class Customer
+      include Rhom::PropertyBag
+
+      # Declare container model and attribute.
+      belongs_to :salesrep_id, 'SalesRep'
+    end
+
+The value you must use as the identifier to link objects is the `object` property
+
+    :::ruby
+    def create
+      @customer = Customer.new(@params['customer'])
+      @customer.save
+
+      sales_rep = SalesRep.find(...) # find the appropriate sales representative for new customers
+      customer.salesrep_id = @sales_rep.object
+      customer.save
+      redirect :action => :index
+    end
+
+You can also define polymorphic sync associations, or sync associations across multiple classes.
+
+Using array notation:
+    
+    :::ruby
+    belongs_to :parent_id, ['Product', 'Case']
+
+Or multiple declarations:
+
+    :::ruby
+    belongs_to :parent_id, 'Product'
+    belongs_to :parent_id, 'Case'
+
+
+If you are planning to use the bulk sync feature for your associated models, then you should take into consideration the
+corresponding support on the RhoConnect Server side. See [RhoConnect Bulk Sync associations](../rhoconnect/bulk-sync#bulk-sync-associations).
+
+## Freezed models
+If you want to limit model attributes by specific list - you can 'freeze' model:
+
+    :::ruby
+    class Customer
+        include Rhom::PropertyBag
+
+        enable :sync
+
+        set :freezed, true
+
+        property :address, :string
+        property :city, :string
+        property :email, :string
+    end
+
+For such models if you try to set a property that has not been explicitly defined, you will get ArgumentError exception:
+
+    :::ruby
+    obj = Customer.new( :wrong_address => 'test') #will raise ArgumentError exception
+    obj = Customer.create( :wrong_address => 'test') #will raise ArgumentError exception
+    
+    obj = Customer.new
+    obj.wrong_address = 'test' #will raise ArgumentError exception
+    
+    obj = Customer.new
+    obj.update_attributes(:wrong_address => 'test') #will raise ArgumentError exception
+
+**NOTE: FixedSchema models are 'freezed' by default.**
+
 ## Data Migration (fixed schema only)
 
 Data migrations are needed when your models or struture of your models change with new application versions. Rhom provides an application hook to migrate the data manually. You can also use this hook to run business logic related to updating the database. It may also be used to notify the user that a migration is in progress before starting lengthy database operations.
