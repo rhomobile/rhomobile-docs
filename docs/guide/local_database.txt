@@ -434,6 +434,18 @@ JavaScript syntax:
                     }
                 );
 
+### Numeric field comparisons in property bag models
+
+Because, internally, property bag models store all their values in the same column, this column is defined as `varchar`, which means that number comparisons do not work as you would expected. If you need to perform order comparisons on a numeric field in a property bag model, use CAST to convert the value to a number of the desired type:
+
+    :::ruby
+    @accts = Account.find(:all, 
+        :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
+    #or using sql query:
+    size = 3
+    @accts = Account.find(:all, 
+        :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
+
 ### Ordering the objects
 
 You can retrieve objects sorted by one or more attributes using the `order` and `orderdir` parameters.
@@ -728,6 +740,44 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     db.executeBatchSql("UPDATE User set valid=0; Update Account set active=0");
+
+## Seeding the Database
+If your application requires seeding some initial data, you can use [RhoUtils.load_offline_data](/rhodesapi/rhoutils-api#loadofflinedata).
+
+For example, in the rhodes/spec/framework_spec, we use `load_offline_data` to seed the device database for each test:
+    
+    :::ruby
+    Rho::RhoUtils.load_offline_data(
+      ['client_info','object_values'], 'spec'
+    )
+
+In this example, there is a 'spec/fixtures' directory which contains a `client_info.txt` and `object_values.txt` pipe-delimited files.  These files are structured as follows:
+
+`client_info.txt`:
+<pre>
+client_id|last_sync_success
+67320d31-e42e-4156-af91-5d9bd7175b08|
+</pre>
+
+`object_values.txt`:
+<pre>
+source_name|attrib|object|value
+Case|status|4900dc4c072c|New|
+Case|assigned_user_id|4900dc4c072c|48fce5e9fb16|
+Case|work_log|4900dc4c072c||
+Case|priority|4900dc4c072c|High|
+...
+</pre>
+
+**NOTE: The column names are always the first line of the file.**
+
+## Importing and exporting the database
+
+You can export local database partition with all its blob objects to zip archive. Also you can import previously exported partition.
+
+[ORM.export](../api/Orm#mexport) returns a local path to created archive with database and blob objects.
+
+[ORM.import](/rhodesapi/rhom-api#databaseimport) imports database and blob objects from zip archive, created with `database_export` call. If imported archive is inconsistent, or other failure will occur during import process, original database will be restored.
 
 ## Resetting database
 
