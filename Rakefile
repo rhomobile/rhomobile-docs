@@ -38,14 +38,21 @@ task :index do
       puts "#{File.size(doc)}"
       topic = Topic.load(name, source)
       topic.text_only
-      if topic.body.size() > 100000
+      maxsize = 100000
+      if topic.body.size() > maxsize
         puts "Needs to be chunked #{topic.body.size()}"
-        chunkedBody = topic.body.scan(/.{1,100000}/m)
-        chunkedBody.each do |chunk|
-            puts "#{chunk.size}"
-            result = indextank_document = index.document(name).add(:title => topic.title, :text => chunk)
-            puts "=> #{result}"
-
+        startPos = 0
+        loop do
+          endPos = startPos + maxsize
+          if endPos > topic.body.size()
+            endPos = topic.body.size()
+          end
+          chunk = topic.body[startPos,endPos]
+          puts "Indexing chunk: #{startPos},#{endPos}:#{chunk.size}"        
+          result = indextank_document = index.document(name).add(:title => topic.title, :text => chunk)
+          puts "=> #{result}"
+          startPos = endPos + 1
+          break if endPos == topic.body.size()
         end
       else
         result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body)
@@ -58,6 +65,40 @@ task :index do
   puts "finished indexing"
 end
 
+desc 'test'
+task :index_test do
+  Topic.all_topics.each do |doc|
+    if File.exist?(doc) and File.basename(doc) != 'credits.txt'
+      name = name_for(doc)
+      # puts "...indexing #{name}"
+      source = File.read(doc)
+      topic = Topic.load(name, source)
+      topic.text_only
+      maxsize = 100000
+      if topic.body.size() > maxsize
+        puts "#{name} Needs to be chunked #{topic.body.size()}"
+        startPos = 0
+        loop do
+          endPos = startPos + maxsize
+          if endPos > topic.body.size()
+            endPos = topic.body.size()
+          end
+          chunk = topic.body[startPos,endPos]
+          puts "#{startPos},#{endPos}:#{chunk.size}"        
+          startPos = endPos + 1
+          break if endPos == topic.body.size()
+        end
+
+
+      else
+        # puts 'no need to chunk'
+        # result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body)
+      end
+      # puts "=> #{result}"
+    end
+  end
+  puts "finished indexing"
+end
 
 desc 'Sample search'
 task :search, :query do |t, args|
