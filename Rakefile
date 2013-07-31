@@ -35,14 +35,29 @@ task :index do
       name = name_for(doc)
       puts "...indexing #{name}"
       source = File.read(doc)
+      puts "#{File.size(doc)}"
       topic = Topic.load(name, source)
       topic.text_only
-      result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body)
-      puts "=> #{result}"
+      if topic.body.size() > 100000
+        puts "Needs to be chunked #{topic.body.size()}"
+        chunkedBody = topic.body.scan(/.{1,100000}/m)
+        chunkedBody.each do |chunk|
+            puts "#{chunk.size}"
+            result = indextank_document = index.document(name).add(:title => topic.title, :text => chunk)
+            puts "=> #{result}"
+
+        end
+      else
+        result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body)
+        puts "=> #{result}"
+      end
+
+
     end
   end
   puts "finished indexing"
 end
+
 
 desc 'Sample search'
 task :search, :query do |t, args|
