@@ -793,9 +793,41 @@ JavaScript syntax:
     :::javascript
     Rho.ORM.databaseFullResetEx({'models': ['User'], 'reset_client_info': true, 'reset_local_models': true});
 
+
+## Performance Tips
+* Before testing your application for performance, set the log level in rhoconfig.txt to 3 in order to reduce logging to a minimum:
+
+        MinSeverity = 3
+    
+* All database modification operations can be slow, especially on large databases. Optimize object modification - prepare data and call create / updateAttributes once instead of setting each property individually. This will result in fewer SQL statements being executed.
+* Do not use sql conditions in Model.find, use Advanced Queries instead.
+* Use Model.create to insert object into the database
+* To insert/update multiple object/models use a database transaction. Be aware that the same transaction cannot span operations across different partitions.
+
+        db = ::Rho::RHO.get_src_db('Model')
+        db.start_transaction
+        begin
+          items.each do |item|
+            # create hash of attribute/value pairs
+            data = {
+              :field1 => item['value1'], 
+              :field2 => item['value2'] 
+            } 
+            # Creates a new Model object and saves it
+            new_item = Model.create(data)
+          end
+         db.commit
+        rescue
+         db.rollback
+        end
+
+*NOTE: If ::Rho::RHO.get_src_db('Model') returns nil, it means that you never called this model's methods before (models are loaded on demand). If you experience this issue, include a call to 'require_source'
+
+    :::ruby
+    require_source 'Model'  
+
 ## Related reading
 
 * [Database API reference](../api/Database)
 * [ORM API reference](../api/Orm)
 * [ORMModel API reference](../api/OrmModel)
-
