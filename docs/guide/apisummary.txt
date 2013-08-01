@@ -313,7 +313,7 @@
 </tr>
 <tr>
 <td>
-<a href="/api/signalIndicators">Signal</a>
+<a href="/api/signalindicators">Signal</a>
 </td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
