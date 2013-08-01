@@ -10,6 +10,14 @@
 extensions: ["logCapture"]
 </code></pre>
 
+<h2>JavaScript Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
+
+<h2>Ruby Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
+
 
 <a name='Methods'></a>
 <h2><i class='icon-cog'></i>Methods</h2>

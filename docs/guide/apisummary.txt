@@ -229,7 +229,7 @@
 </tr>
 <tr>
 <td>
-<a href="/api/Orm">Orm</a> & <a href="/api/OrmModel">OrmModel</a>
+<a href="/api/Orm">ORM</a> & <a href="/api/OrmModel">ORMModel</a>
 </td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
