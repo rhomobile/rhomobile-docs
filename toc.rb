@@ -12,14 +12,9 @@ end
 
 
 
-section 'rhodescommonapi-guides', 'RhoMobile API Guides','Mobile API Docs' do
-  topic 'guide/apisummary', 'RhoMobile API Summary'
-  topic 'guide/api_js', 'RhoMobile Javascript Usage'
-  topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
-  topic 'guide/apiusage',      '2.2 Migration Guide'
-end
-
 section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
+  topic 'guide/apisummary', 'RhoMobile API Summary'
+  
   topic 'api/Application',      'Application'
   topic 'api/barcode',      'Barcode'
   topic 'api/battery',      'Battery'
@@ -74,6 +69,12 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/app_upgrade', 'Upgrading Your App'
 end
 
+section 'rhodescommonapi-guides', 'RhoMobile API Guides','Mobile Guides' do
+  topic 'guide/api_js', 'RhoMobile Javascript Usage'
+  topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
+  topic 'guide/apiusage',      '2.2 Migration Guide'
+end
+
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/alerts',       'Alerts'
   topic 'guide/barcode',       'Barcode'
@@ -105,8 +106,8 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
 end
 
 section 'rhomob-data', 'Data Handling','Mobile Guides' do
-  topic 'rhodes/rhom',              'Local Database and Rhom'
-  topic 'rhodes/synchronization',   'Synchronization'
+  topic 'guide/local_database',              'Local Database and Rhom'
+  topic 'guide/using_rhoconnect',   'Synchronization'
   topic 'guide/web_services', 'Web Services & AJAX'
 end
 

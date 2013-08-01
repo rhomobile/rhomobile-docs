@@ -224,24 +224,38 @@ Below is a full list of options available to fixed schema models:
         property :my_custom_property, :custom_type
     end
 
-### JavaScript support
+## JavaScript support
 
-You can create models from JavaScript using the [ORM.addModel](../api/Orm#maddModel) method.
+You can create models from JavaScript using the [ORM.addModel](../api/Orm#maddModel) method. This is quite different that using the Model Generator from RhoStudio or a Rake command. What this method does is define a class reference for your model so it is available to the rest of your application. When your application pages load, you must execute the `Rho.ORM.addModel` function for every model that you wish to define in your application.
 
     :::javascript
+    // Models MUST be defined when your HTML pages load
+
+    // You can either set a global reference 
     var userModel = Rho.ORM.addModel(function(model) {
         model.modelName('User');
-        model.enable('sync');
-        // optional, depending on the type of schema you want to create
-        model.enable('fixedSchema');
         model.property('name','string');
         model.property('email','string');
+        // optionally enable sync for rhoconnect applications
+        // model.enable('sync');
+        // optionally, define the model as fixed schema default is propertyBag
+        // model.enable('fixedSchema');
     });
+
+    // Or just define the model without a global reference
+    Rho.ORM.addModel(function(model) {
+        model.modelName('Product');
+        model.property('name','string');
+        model.property('qty','string');
+    });
+
 
 Once created, models can be retrieved using the `ORM.getModel` method.
 
     :::javascript
-    var userModel = Rho.ORM.getModel('User');
+    var productModel = Rho.ORM.getModel('Product');
+
+**NOTE: It is advised that you either use the Ruby or Javascript methods for handling model definition and access and not do this from <b>both</> languages. **
 
 ## Associations
 

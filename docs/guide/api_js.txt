@@ -10,6 +10,8 @@ Your html or erb pages must include reference to this file otherwise you will no
 	:::html
 	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
 
+**NOTE: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded.**
+
 
 ## Javascript RhoMobile Application Structure
 The following application structure is what is minimally required to build a Javascript RhoMobile Application. You can still use the [App Generator](/guide/creating_a_project#creating-a-project-with-rhostudio) to create the default structure, but then remove the `app` folder that is generated for a `Ruby` MVC app.

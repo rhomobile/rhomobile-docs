@@ -411,15 +411,15 @@ def self.getconstantlinks(doc)
 
 	  		}
 	  	
-			md += "<a name='e#{index.to_s}'></a><div class='accordion example' id='e"+ index.to_s + "'>"
+			md += "<a name='e#{index.to_s}'></a><div class=' example' id='e"+ index.to_s + "'>"
 		    md += '<div class="accordion-group">'
 		    md += '<div class="accordion-heading">'
 		    
-		    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cExample' + index.to_s + '">'
+		    md += '<span class="accordion-toggle"   href="#cExample' + index.to_s + '">'
 		    md += '<strong>' + element["title"]  + '</strong>'
-			md += '<i class="icon-chevron-down pull-left"></i></span>'
+			# md += '<i class="icon-chevron-down pull-left"></i></span>'
 		    md += '</div>'
-		    md += '<div id="cExample' + index.to_s + '" class="accordion-body collapse in">'
+		    md += '<div id="cExample' + index.to_s + '" class="accordion-body">'
 		    md +='  <div class="accordion-inner">'
 
 		  	md += examplesections
@@ -438,15 +438,15 @@ def self.getconstantlinks(doc)
   	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	s.each_with_index() { |element,index|
-	  		md += "<a name='r#{index.to_s}'></a><div class='accordion remarks' id='r"+ index.to_s + "'>"
+	  		md += "<a name='r#{index.to_s}'></a><div class=' remarks' id='r"+ index.to_s + "'>"
 		    md += '<div class="accordion-group">'
 		    md += '<div class="accordion-heading">'
 		    
-		    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cRemark' + index.to_s + '">'
+		    md += '<span class="accordion-toggle"  href="#cRemark' + index.to_s + '">'
 		    md += '<strong>' + element["title"]  + '</strong>'
-			md += '<i class="icon-chevron-down pull-left"></i></span>'
+			# md += '<i class="icon-chevron-down pull-left"></i></span>'
 		    md += '</div>'
-		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body collapse in">'
+		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body">'
 		    md +='  <div class="accordion-inner">'
 		    html = RDiscount.new(element["DESC"][0], :smart).to_html
 		
@@ -761,7 +761,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	md += '<i class="icon-chevron-down pull-left"></i></span>'
     md += "<div style='padding: 8px 15px;'>#{@propdesc}</div>"
     md += '</div>'
-    md += '<div id="cProperty' + propname + '" class="accordion-body collapse">'
+    md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
   	md += getparams(element,true)
@@ -1332,7 +1332,7 @@ end
 	md += '<i class="icon-chevron-down pull-left"></i></span>'
     md += "<div style='padding: 8px 15px;'>" + @methdesc + "</div>"
   	md += '</div>'
-    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse">'
+    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse in">'
     md +='  <div class="accordion-inner">'
 
   	md += "" + @methsectionparams + ""
@@ -1500,7 +1500,7 @@ end
 		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option>'
 			md += '<option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select>'
 
-		  	md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
+		  	# md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
 		  	md += '</div>'
 	  	md += '<div  >'
 
