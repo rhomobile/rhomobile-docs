@@ -1,0 +1,46 @@
+	<html>
+	<head>
+	  <meta charset="utf-8">
+	  <title>hello-backbonejs</title>
+	</head>
+	<body>
+		<div id="content"></div> <!-- our view will be rendered in this element -->
+
+  		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+		<script type="text/javascript">
+			var HomeView = Backbone.View.extend({
+				el: "#content", 
+				events: {
+				// this hash tells which events we are interested in and where they should be delivered
+				// the format is
+				//  'event      selector'           :     method
+					'click button.add_greeting' 	: 'add_greeting',
+					'click button.remove_greetings' : 'remove_greetings'
+				},
+				render: function() {
+					var template = ""+
+						"<h1>Hello, world!</h1>"+
+						"<button class='add_greeting'>Add greeting</button>"+ // add some buttons
+						"<button class='remove_greetings'>Remove greetings</button>"+
+						"<div class='greetings'></div>"; // empty placeholder
+
+					$(this.el).html(template); // write the template to our assigned element
+				},
+				add_greeting: function() {
+					$(this.el).find(".greetings").append("<h2>Hello</h2>");
+				},
+				remove_greetings: function() {
+					$(this.el).find(".greetings").empty();
+				}
+				});
+
+			var homeView = new HomeView();
+
+			homeView.render();
+		</script>
+
+  	</body>
+	</html>	
