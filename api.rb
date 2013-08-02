@@ -1504,7 +1504,7 @@ end
 
 		  	# md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
 		  	md += '</div>'
-	  	md += '<div  >'
+	  	md += '<div  id="apibody" style="overflow:auto;padding-right: 5px;">'
 
 	  	md += "\n" + getApiDesc(doc) + "\n" 
 	  	if methlinks["count"]>0
@@ -1534,7 +1534,6 @@ end
 			  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
 			  	 md += "" + docremarks + ""
 		  	end 
-		    md += "</div>"
 		  	
 		if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
 			md += "\n<a name='License'></a>\n" + "<h2><i class='icon-shopping-cart'></i>Licensing</h2>" + "\n\n" 
@@ -1544,6 +1543,7 @@ end
 		  	md += "You can fully use all features of this API during evaluation, development or testing without obtaining a license. A message will be displayed on application startup and will also display a nag screen periodically. Before deploying an application to a production environment, you must obtain a license key. <a href='/guide/licensing'>Read more about licensing</a>."
 		    md += "</div>"
 	  	end
+		    md += "</div>"
 
 	  	# puts md
 	  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }

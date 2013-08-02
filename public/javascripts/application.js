@@ -80,6 +80,6 @@ $(window).resize(sizeContent);
 
 //Dynamically assign height
 function sizeContent() {
-    var newHeight = $("html").height() - $("#top_navbar").height() - 60;
-    $("#rendered_topic_container").css("height", newHeight);
+    var newHeight = $("html").height() - $("#top_navbar").height() - 130;
+    $("#apibody").css("height", newHeight);
 }
