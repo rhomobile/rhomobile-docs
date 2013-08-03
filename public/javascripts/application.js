@@ -54,6 +54,18 @@ $(document).ready(function() {
 		});
 	});
 $(".apiFilter").bind('change', function() {
+
+		// console.log(this);
+		if ($(".apiFilter option:selected").text() == "All")
+		{
+			$("#apiFilterBtn").html('<i class="icon-filter "></i> Show');
+
+		}
+		else
+		{
+			$("#apiFilterBtn").html('<i class="icon-filter "></i>' + $(".apiFilter option:selected").text());
+
+		}
 		if (this.value == 'all')
 		{
 			$('.property').show();
@@ -64,7 +76,7 @@ $(".apiFilter").bind('change', function() {
 		{
 			$('.property').hide();
 			$('.method').hide();
-			console.log(this.value);
+			// console.log(this.value);
 		  	var cbClass = '.' + this.value;
 				
 	        $(cbClass).show();

@@ -1562,7 +1562,7 @@ end
 	  	end
 
 			md += '<div class="btn-group pull-right">'
-			md += '<button class="btn dropdown-toggle" id="apiFilter" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button>'
+			md += '<button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button>'
 		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option>'
 			md += '<option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select>'
 
