@@ -14,9 +14,6 @@ You will need to perform one of the following set of instructions on the RhoConn
 * [Set up RhoConnect Push Service on client and server for Rhodes Android and Windows Mobile/CE Devices](/rhoconnect/push-client-setup-rps).
 * [Set up Google Cloud Messaging on client and server for Rhodes Android Device](/rhoconnect/push-client-setup-android).
 * [Set up Apple Push Notification Service on client and server for Rhodes iOS Device](/rhoconnect/push-client-setup-ios).
-<!--
-* [Set up RhoConnect Push on client and server for Rhodes Blackberry Client](/rhoconnect/push-client-setup-bb).
-  -->
 Then you will need to [perform the final set up on your client](/rhoconnect/push-client-setup).
 
 ## Executing a Ping Call
