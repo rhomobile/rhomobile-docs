@@ -754,34 +754,65 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	@propsectionaccess = "<div><p><strong>Property Access:</strong></p><ul>#{accesstype}</ul></div>"
 
 
-  	md += "<a name='p#{propname}'></a><div class='accordion property #{@propplatformsfilter}' id='p"+ propname + "'>"
-    md += '<div class="accordion-group">'
-    md += '<div class="accordion-heading">'
+  	md += "<a name='p#{propname}'></a>"
+ #  	md += "<div class='accordion property #{@propplatformsfilter}' id='p"+ propname + "'>"
+ #    md += '<div class="accordion-group">'
+ #    md += '<div class="accordion-heading">'
     
-    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
-    md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
-	md += '<i class="icon-chevron-down pull-left"></i></span>'
-    md += "<div style='padding: 8px 15px;'>#{@propdesc}</div>"
-    md += '</div>'
-    md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
-    md +='  <div class="accordion-inner">'
+ #    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
+ #    md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
+	# md += '<i class="icon-chevron-down pull-left"></i></span>'
+ #    md += "<div style='padding: 8px 15px;'>#{@propdesc}</div>"
+ #    md += '</div>'
+ #    md += '<div id="cProperty' + propname + '" class="accordion-body collapse in">'
+ #    md +='  <div class="accordion-inner">'
 
-  	md += getparams(element,true)
-  	md += "#{propdefault}"
-  	# puts element["PARAM"]
+ #  	md += getparams(element,true)
+ #  	md += "#{propdefault}"
+ #  	# puts element["PARAM"]
+ #  	if !generateAccessors
+ #  		md += '<p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>'
+	# else
+ #  		# md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
+	# end
+ #  	md += @propvalues
+ #  	 if generateAccessors
+ #  		# md += "<p>" + propusage + "</p>"
+ #  	 end
+ #    md += "#{@propsectionplatforms} #{@propsectionaccess} </div>"
+ #    md += '</div>'
+ #    md += '</div>'
+	# md += '</div>'
+
+	propParasDef = getparams(element,true) + propdefault
   	if !generateAccessors
-  		md += '<p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>'
-	else
-  		# md += '<p><a href="#' + propname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
+  		@propsectionaccess += '<p>This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.</p>'
 	end
-  	md += @propvalues
-  	 if generateAccessors
-  		# md += "<p>" + propusage + "</p>"
-  	 end
-    md += "#{@propsectionplatforms} #{@propsectionaccess} </div>"
-    md += '</div>'
-    md += '</div>'
-	md += '</div>'
+  	md += "<div class=' method #{@propplatformsfilter}' id='p"+ propname + "'>"
+    md += '<h3><strong  >' + propdisplayname + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>#{proptype} #{propreadOnly} #{propver}</span></h3>"
+    md += '<ul class="nav nav-tabs" style="padding-left:8px">'
+  	md += "<li class='active'>" + '<a href="#p' + propname + '1" data-toggle="tab">Description</a>' + "</li>"
+  	if propParasDef != ''
+    	md += "<li >"  + '<a href="#p' + propname + '2" data-toggle="tab">Default</a>' + "</li>"
+    end
+  	if @propvalues != ''
+    
+		md += "<li >"  + '<a href="#p' + propname + '5" data-toggle="tab">Values</a>' + "</li>"
+  	end
+  	md += "<li >"  + '<a href="#p' + propname + '6" data-toggle="tab">Access</a>' + "</li>"
+  	md += '</ul>'
+  	md += "<div class='tab-content' style='padding-left:8px' id='tc-"+ propname + "'>"
+    md += '<div class="tab-pane fade active in" id="p' + propname + '1">' + "#{@propdesc}<p>#{@propsectionplatforms}</p></div>"
+    md += '<div class="tab-pane fade" id="p' + propname + '2">' + propParasDef + "</div>"
+  	md += '<div class="tab-pane fade" id="p' + propname + '5">' + @propvalues + "</div>"
+  	md += '<div class="tab-pane fade" id="p' + propname + '6">' + @propsectionaccess + "</div>"
+  	md += '</div>'
+
+  	md += '  </div>'
+
+
+
+
 			end
 	  	}
 	end
@@ -1324,28 +1355,61 @@ end
 	end	
 	@methsectionaccess = "<div><p><strong>Method Access:</strong></p><ul>#{accesstype}</ul></div>"
 
-  	md += "<div class='accordion method #{@methplatformsfilter}' id='m"+ element["name"] + "'>"
-    md += '<div class="accordion-group">'
-    md += '<div class="accordion-heading">'
+# Trying to change to Tabs - this was accordian view
+ #  	md += "<div class='accordion method #{@methplatformsfilter}' id='m"+ element["name"] + "'>"
+ #    md += '<div class="accordion-group">'
+ #    md += '<div class="accordion-heading">'
     
-    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
+ #    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
 
-    md += '<strong  >' + methname + '</strong>' + "(#{@methparams})"
-	md += '<i class="icon-chevron-down pull-left"></i></span>'
-    md += "<div style='padding: 8px 15px;'>" + @methdesc + "</div>"
+ #    md += '<strong  >' + methname + '</strong>' + "(#{@methparams})"
+	# md += '<i class="icon-chevron-down pull-left"></i></span>'
+ #    md += "<div style='padding: 8px 15px;'>" + @methdesc + "</div>"
+ #  	md += '</div>'
+ #    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse in">'
+ #    md +='  <div class="accordion-inner">'
+
+ #  	md += "" + @methsectionparams + ""
+ #  	md += @methsectioncallbackparams
+ #    md += @methsectionreturns
+ #  	md += @methsectionplatforms
+ #  	md += @methsectionaccess
+ #  	md += '  </div>'
+ #    md += '</div>'
+ #    md += '</div>'
+	# md += '</div>'
+
+  	md += "<div class=' method #{@methplatformsfilter}' id='m"+ element["name"] + "'>"
+    md += '<h3><strong  >' + methname + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>(#{@methparams})</span></h3>"
+    md += '<ul class="nav nav-tabs" style="padding-left:8px">'
+  	md += "<li class='active'>" + '<a href="#m' + element["name"] + '1" data-toggle="tab">Description</a>' + "</li>"
+  	if @methsectionparams != ''
+    	md += "<li >"  + '<a href="#m' + element["name"] + '2" data-toggle="tab">Parameters</a>' + "</li>"
+    end
+  	if @methsectioncallbackparams != ''
+
+    	md += "<li >"  + '<a href="#m' + element["name"] + '3" data-toggle="tab">Callback</a>' + "</li>"
+	end
+		md += "<li >"  + '<a href="#m' + element["name"] + '4" data-toggle="tab">Return</a>' + "</li>"
+    # md += "<li >"  + '<a href="#m' + element["name"] + '5" data-toggle="tab">Platforms</a>' + "</li>"
+  	md += "<li >"  + '<a href="#m' + element["name"] + '6" data-toggle="tab">Access</a>' + "</li>"
+  	md += '</ul>'
+  	md += "<div class='tab-content' style='padding-left:8px' id='tc-"+ element["name"] + "'>"
+    md += '<div class="tab-pane fade active in" id="m' + element["name"] + '1">' + @methdesc + "<p>#{@methsectionplatforms}</p>" + "</div>"
+    md += '<div class="tab-pane fade" id="m' + element["name"] + '2">' + @methsectionparams + "</div>"
+  	md += '<div class="tab-pane fade" id="m' + element["name"] + '3">' + @methsectioncallbackparams + "</div>"
+    md += '<div class="tab-pane fade" id="m' + element["name"] + '4">' + @methsectionreturns + "</div>"
+  	# md += '<div class="tab-pane fade" id="m' + element["name"] + '5">' + @methsectionplatforms + "</div>"
+  	md += '<div class="tab-pane fade" id="m' + element["name"] + '6">' + @methsectionaccess + "</div>"
   	md += '</div>'
-    md += '<div id="cMethod' + element["name"] + '" class="accordion-body collapse in">'
-    md +='  <div class="accordion-inner">'
 
-  	md += "" + @methsectionparams + ""
-  	md += @methsectioncallbackparams
-    md += @methsectionreturns
-  	md += @methsectionplatforms
-  	md += @methsectionaccess
   	md += '  </div>'
-    md += '</div>'
-    md += '</div>'
-	md += '</div>'
+  
+
+
+
+
+
 		end 
   	}
 
@@ -1498,7 +1562,7 @@ end
 	  	end
 
 			md += '<div class="btn-group pull-right">'
-			md += '<button class="btn dropdown-toggle" id="apiFilter" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>&nbsp;</button>'
+			md += '<button class="btn dropdown-toggle" id="apiFilter" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button>'
 		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option>'
 			md += '<option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select>'
 
