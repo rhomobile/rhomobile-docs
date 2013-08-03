@@ -25,20 +25,6 @@ This is for running your application in development mode; for production, you wi
 	:::yaml
   	:iphoneserver: gateway.push.apple.com
 
-## Setting up RhoConnect Server Push for Blackberry
-
-To set up your RhoConnect application for pushing to a BlackBerry client, you will need to update `settings/settings.yml` to include the following:
-
-	:::yaml
-	:development:
-	  :redis: localhost:6379
-	  :mdsserver: 192.168.1.110
-	  :mdsserverport: 8080
-	  :syncserver: http://localhost:9292/application/
-	  :licensefile: settings/license.key
-
-Replace `:mdsserver:` and `:mdsserverport:` with the hostname/IP and port of your machine (default port is 8080).
-
 ## Setting up RhoConnect Server Push for Android (GCM)
 
 To set up your RhoConnect application for Android Google Cloud Messaging (GCM), you need to obtain a GCM API key.

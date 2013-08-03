@@ -10,7 +10,7 @@ If and when the Rhodes application issues a request to get bulk data, the RhoCon
 
 * Execute the ['login,'query','logoff' methods](/rhoconnect/source-adapters#source-adapter-api) of all source adapter models matching the [requested data partition](/rhoconnect/source-adapters#data-partitioning) to get latest set of objects from the backend service
 
-* Generate appropriate database files for the device - hsqldb for Blackberry and sqlite for the rest of them. RhoConnect will generate sqlite files for iOS, Android, and Windows Mobile clients and hsqldb files for Blackberry (if enabled).
+* Generate appropriate database files for the device. RhoConnect will generate sqlite files for iOS, Android, and Windows Mobile clients (if enabled).
  
 * The Rhodes application will poll RhoConnect for the bulk sync job to finish. Once the job is finished, the files are generated and Rhodes will download and install them to the device. 
 
@@ -52,28 +52,6 @@ After application executed bulk sync it will set `bulksync_state` to 1 and next 
 	
 	:::ruby
 	Rho::RhoConfig.bulksync_state = '0'
-
-### Enabling BlackBerry Bulk Sync
-If your application will be performing bulk sync for BlackBerry devices, you will need to install the open source Rhomobile HSQLDB tool [hsqldata.jar](http://github.com/rhomobile/hsqldata) in your RhoConnect application.
-  
-1. Download [hsqldata](http://github.com/rhomobile/hsqldata/zipball/0.0.2).
-
-2. Build and install hsqldata.jar into your RhoConnect application:
-  		
-		:::term
-		$ cd hsqldata
-		$ ant
-	  	$ mkdir <path-to-rhoconnect-app>/vendor
-	  	$ cp bin/hsqldata.jar <path-to-rhoconnect-app>/vendor/
-
-3. Next set the `:blackberry_bulk_sync:` flag in settings/settings.yml:
-
-		:::yaml
-		:development:
-  		  :licensefile: settings/license.key
-  		  :redis: localhost:6379
-  		  :syncserver: http://localhost:9292/application/
-  		  :blackberry_bulk_sync: true
 
 ## Data Files
 
