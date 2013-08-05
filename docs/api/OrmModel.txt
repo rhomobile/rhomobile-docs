@@ -58,8 +58,27 @@ extensions: ["coreapi"]
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pmetadata'></a><div class=' method  ruby android ios wp8' id='pmetadata'><h3><strong  >metadata</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>HASH</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pmetadata1" data-toggle="tab">Description</a></li><li ><a href="#pmetadata6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-metadata'><div class="tab-pane fade active in" id="pmetadata1">Returns the metadata definition for a given model as a hash. Assigns the hash metadata definition for a given model.
-        <p><div><p><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="pmetadata2"></div><div class="tab-pane fade" id="pmetadata5"></div><div class="tab-pane fade" id="pmetadata6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Ruby: <code>Rho::ORMModel.metadata</code></li></ul></li></ul></div></div></div>  </div>
+<a name='pmetadata'></a><div class=' method  ruby android ios wp8' id='pmetadata'><h3><strong  >metadata</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>HASH</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pmetadata1" data-toggle="tab">Description</a></li><li ><a href="#pmetadata6" data-toggle="tab">Access</a></li><li ><a href="#pmetadata7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-metadata'><div class="tab-pane fade active in" id="pmetadata1">Returns the metadata definition for a given model as a hash. Assigns the hash metadata definition for a given model.
+        <p><div><p><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="pmetadata2"></div><div class="tab-pane fade" id="pmetadata5"></div><div class="tab-pane fade" id="pmetadata6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Ruby: <code>Rho::ORMModel.metadata</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pmetadata7">
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+// Setting directly
+Rho.ORMModel.metadata=;
+
+// Getting 
+myvar = Rho.ORMModel.metadata;</code></pre>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::ORMModel.metadata=
+
+# Getting 
+myvar = Rho::ORMModel.metadata</code></pre></div></div>  </div>
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>
 

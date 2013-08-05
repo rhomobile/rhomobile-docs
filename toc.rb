@@ -107,6 +107,7 @@ end
 
 section 'rhomob-data', 'Data Handling','Mobile Guides' do
   topic 'guide/local_database',              'Local Database and Rhom'
+  topic 'guide/rhom_backbone',              'Using Rhom with Backbone.js'
   topic 'guide/using_rhoconnect',   'Synchronization'
   topic 'guide/web_services', 'Web Services & AJAX'
 end

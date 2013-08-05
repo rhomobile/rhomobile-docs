@@ -35,7 +35,78 @@ extensions: ["sensor"]
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pminimumGap'></a><div class=' method  js ruby android ios wp8' id='pminimumGap'><h3><strong  >minimumGap</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pminimumGap1" data-toggle="tab">Description</a></li><li ><a href="#pminimumGap2" data-toggle="tab">Default</a></li><li ><a href="#pminimumGap6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-minimumGap'><div class="tab-pane fade active in" id="pminimumGap1">The minimum amount of time gap between two sensor update events, specified in milliseconds. The interval cannot be set to less than 200 milliseconds, if a value of less than 200 milli seconds is specified, the interval will be defaulted to 200 milli seconds.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="pminimumGap2"><p><strong>Default:</strong> 200</p></div><div class="tab-pane fade" id="pminimumGap5"></div><div class="tab-pane fade" id="pminimumGap6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.minimumGap</code></li></ul></li></ul></div></div></div>  </div><a name='pstatus'></a><div class=' method  js ruby android ios wp8' id='pstatus'><h3><strong  >status</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pstatus1" data-toggle="tab">Description</a></li><li ><a href="#pstatus6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-status'><div class="tab-pane fade active in" id="pstatus1">current status: not_ready, ready, started, error etc.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="pstatus2"></div><div class="tab-pane fade" id="pstatus5"></div><div class="tab-pane fade" id="pstatus6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.status</code></li></ul></li></ul></div></div></div>  </div><a name='ptype'></a><div class=' method  js ruby android ios wp8' id='ptype'><h3><strong  >type</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#ptype1" data-toggle="tab">Description</a></li><li ><a href="#ptype6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-type'><div class="tab-pane fade active in" id="ptype1">type of current sensor: Accelerometer, Magnetometer, etc.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="ptype2"></div><div class="tab-pane fade" id="ptype5"></div><div class="tab-pane fade" id="ptype6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul></div></div></div>  </div>
+<a name='pminimumGap'></a><div class=' method  js ruby android ios wp8' id='pminimumGap'><h3><strong  >minimumGap</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pminimumGap1" data-toggle="tab">Description</a></li><li ><a href="#pminimumGap2" data-toggle="tab">Default</a></li><li ><a href="#pminimumGap6" data-toggle="tab">Access</a></li><li ><a href="#pminimumGap7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-minimumGap'><div class="tab-pane fade active in" id="pminimumGap1">The minimum amount of time gap between two sensor update events, specified in milliseconds. The interval cannot be set to less than 200 milliseconds, if a value of less than 200 milli seconds is specified, the interval will be defaulted to 200 milli seconds.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="pminimumGap2"><p><strong>Default:</strong> 200</p></div><div class="tab-pane fade" id="pminimumGap5"></div><div class="tab-pane fade" id="pminimumGap6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.minimumGap</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pminimumGap7">
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+// Setting directly
+Rho.Sensor.minimumGap=10;
+// Setting one property
+Rho.Sensor.setProperty('minimumGap',10);
+// Setting multiple properties using JSON object
+Rho.Sensor.setProperties({ 'minimumGap':10 , 'another_property':10});
+
+// Getting one property
+myvar = Rho.Sensor.getProperty('minimumGap');
+// Getting multiple properties
+myvar = Rho.Sensor.getProperties(['minimumGap' , 'another_property']);</code></pre>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::Sensor.minimumGap=10
+# Setting one property
+Rho::Sensor.setProperty :minimumGap, 10 
+# Setting multiple properties using HASH
+Rho::Sensor.setProperties { :minimumGap => 10 , :another_property => 10}
+
+# Getting one property
+myvar = Rho::Sensor.getProperty('minimumGap')
+# Getting multiple properties
+myvar = Rho::Sensor.getProperties(['minimumGap' , 'another_property'])</code></pre></div></div>  </div><a name='pstatus'></a><div class=' method  js ruby android ios wp8' id='pstatus'><h3><strong  >status</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pstatus1" data-toggle="tab">Description</a></li><li ><a href="#pstatus6" data-toggle="tab">Access</a></li><li ><a href="#pstatus7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-status'><div class="tab-pane fade active in" id="pstatus1">current status: not_ready, ready, started, error etc.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="pstatus2"></div><div class="tab-pane fade" id="pstatus5"></div><div class="tab-pane fade" id="pstatus6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.status</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pstatus7">
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+
+// Getting one property
+myvar = Rho.Sensor.getProperty('status');
+// Getting multiple properties
+myvar = Rho.Sensor.getProperties(['status' , 'another_property']);</code></pre>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+
+
+# Getting one property
+myvar = Rho::Sensor.getProperty('status')
+# Getting multiple properties
+myvar = Rho::Sensor.getProperties(['status' , 'another_property'])</code></pre></div></div>  </div><a name='ptype'></a><div class=' method  js ruby android ios wp8' id='ptype'><h3><strong  >type</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#ptype1" data-toggle="tab">Description</a></li><li ><a href="#ptype6" data-toggle="tab">Access</a></li><li ><a href="#ptype7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-type'><div class="tab-pane fade active in" id="ptype1">type of current sensor: Accelerometer, Magnetometer, etc.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"> </p></div></p></div><div class="tab-pane fade" id="ptype2"></div><div class="tab-pane fade" id="ptype5"></div><div class="tab-pane fade" id="ptype6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="ptype7">
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+
+// Getting one property
+myvar = Rho.Sensor.getProperty('type');
+// Getting multiple properties
+myvar = Rho.Sensor.getProperties(['type' , 'another_property']);</code></pre>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+
+
+# Getting one property
+myvar = Rho::Sensor.getProperty('type')
+# Getting multiple properties
+myvar = Rho::Sensor.getProperties(['type' , 'another_property'])</code></pre></div></div>  </div>
 <a name='Constants'></a>
 <h2><i class='icon-tag'></i>Constants</h2>
 

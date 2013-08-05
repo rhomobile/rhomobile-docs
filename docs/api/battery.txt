@@ -36,7 +36,26 @@ app_type: "rhoelements"
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='prefreshInterval'></a><div class=' method  js ruby ios' id='prefreshInterval'><h3><strong  >refreshInterval</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#prefreshInterval1" data-toggle="tab">Description</a></li><li ><a href="#prefreshInterval2" data-toggle="tab">Default</a></li><li ><a href="#prefreshInterval6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-refreshInterval'><div class="tab-pane fade active in" id="prefreshInterval1">A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown.  Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="prefreshInterval2"><p><strong>Default:</strong> 5000</p></div><div class="tab-pane fade" id="prefreshInterval5"></div><div class="tab-pane fade" id="prefreshInterval6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.Battery.refreshInterval</code> </li><li>Ruby: <code>Rho::Battery.refreshInterval</code></li></ul></li></ul></div></div></div>  </div>
+<a name='prefreshInterval'></a><div class=' method  js ruby ios' id='prefreshInterval'><h3><strong  >refreshInterval</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#prefreshInterval1" data-toggle="tab">Description</a></li><li ><a href="#prefreshInterval2" data-toggle="tab">Default</a></li><li ><a href="#prefreshInterval6" data-toggle="tab">Access</a></li><li ><a href="#prefreshInterval7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-refreshInterval'><div class="tab-pane fade active in" id="prefreshInterval1">A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown.  Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="prefreshInterval2"><p><strong>Default:</strong> 5000</p></div><div class="tab-pane fade" id="prefreshInterval5"></div><div class="tab-pane fade" id="prefreshInterval6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.Battery.refreshInterval</code> </li><li>Ruby: <code>Rho::Battery.refreshInterval</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="prefreshInterval7">
+
+<strong>Javascript Usage</strong>
+
+<pre class='CodeRay'><code>:::javascript
+
+// Setting directly
+Rho.Battery.refreshInterval=10;
+
+// Getting 
+myvar = Rho.Battery.refreshInterval;</code></pre>
+
+<strong>Ruby Usage</strong>
+
+<pre class='CodeRay'><code>:::ruby
+# Setting directly
+Rho::Battery.refreshInterval=10
+
+# Getting 
+myvar = Rho::Battery.refreshInterval</code></pre></div></div>  </div>
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>
 

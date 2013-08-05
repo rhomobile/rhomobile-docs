@@ -3,7 +3,7 @@ require 'rdiscount'
 
 class Api
 
-
+@@apiName = ""
 #returns markdown for the name of the API 
   def self.getApiName(doc)
   	md=""
@@ -16,6 +16,7 @@ class Api
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
   	# }
+  	@@apiName = md
   	return md
   end
  
@@ -46,7 +47,7 @@ class Api
   		defval = "true"
   	end
   	if type == 'INTEGER'
-  		defval = "0"
+  		defval = "10"
   	end
   	if type == 'FLOAT'
   		defval = "1.0"
@@ -60,12 +61,41 @@ class Api
 			readonly = false
 		end
 	end
-md='<div id="' + property + 'Usage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
-md+='  <div class="modal-header">'
-md+='    <h3 id="myModalLabel">' + model + '.' + property + '</h3>'
-md+='  </div>'
-md+='  <div class="modal-body">'
+# md='<div id="' + property + 'Usage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
+# md+='  <div class="modal-header">'
+# md+='    <h3 id="myModalLabel">' + model + '.' + property + '</h3>'
+# md+='  </div>'
+# md+='  <div class="modal-body">'
 
+  	md = "\n\n<strong>Javascript Usage</strong>"
+  	md += "\n\n<pre class='CodeRay'><code>:::javascript\n"
+  	if !ro
+	  	md += "\n// Setting directly"
+	  	md += "\n"
+	  	md += "Rho.#{model}.#{property}=#{defval};"
+	  	if propbag
+		  	md += "\n// Setting one property"
+		  	md += "\n"
+		  	md += "Rho.#{model}.setProperty(" + "'#{property}',#{defval});"
+		  	md += "\n// Setting multiple properties using JSON object"
+		  	md += "\n"
+		  	md += "Rho.#{model}.setProperties({ " + "'#{property}':#{defval} , 'another_property':#{defval}});"
+		end
+  	end 
+  	if propbag
+	  	md += "\n\n// Getting one property"
+	  	md += "\n"
+	  	md += "myvar = Rho.#{model}.getProperty(" + "'#{property}');"
+	  	md += "\n// Getting multiple properties"
+	  	md += "\n"
+	  	md += "myvar = Rho.#{model}.getProperties([" + "'#{property}' , 'another_property']);"
+	else
+		md += "\n\n// Getting "
+	  	
+	  	md += "\nmyvar = Rho.#{model}.#{property};"
+
+	end
+	md += "</code></pre>" 
   	md += "\n\n<strong>Ruby Usage</strong>"
   	md += "\n\n<pre class='CodeRay'><code>:::ruby\n"
   	if !ro
@@ -89,42 +119,17 @@ md+='  <div class="modal-body">'
 	  	md += "\n"
 	  	md += "myvar = Rho::#{model}.getProperties([" + "'#{property}' , 'another_property'])"
  	else
-  		md += "myvar = Rho::#{model}.#{property}"
+ 		md += "\n\n# Getting "
+	  	
+  		md += "\nmyvar = Rho::#{model}.#{property}"
 	
   	end
   	md += "</code></pre>" 
-  	md += "\n\n<strong>Javascript Usage</strong>"
-  	md += "\n\n<pre class='CodeRay'><code>:::javascript\n"
-  	if !ro
-	  	md += "\n# Setting directly"
-	  	md += "\n"
-	  	md += "Rho.#{model}.#{property}=#{defval};"
-	  	if propbag
-		  	md += "\n# Setting one property"
-		  	md += "\n"
-		  	md += "Rho.#{model}.setProperty(" + "'#{property}',#{defval});"
-		  	md += "\n# Setting multiple properties using JSON object"
-		  	md += "\n"
-		  	md += "Rho.#{model}.setProperties({ " + ":#{property}:#{defval} , :another_property:#{defval}});"
-		end
-  	end 
-  	if propbag
-	  	md += "\n\n# Getting one property"
-	  	md += "\n"
-	  	md += "myvar = Rho.#{model}.getProperty(" + "'#{property}');"
-	  	md += "\n# Getting multiple properties"
-	  	md += "\n"
-	  	md += "myvar = Rho.#{model}.getProperties([" + "'#{property}' , 'another_property']);"
-	else
-	  	md += "myvar = Rho.#{model}.#{property};"
-
-	end
-	md += "</code></pre>" 
-md+='  </div>'
-md+='  <div class="modal-footer">'
-md+='    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>'
-md+='  </div>'
-md+='</div>'
+# md+='  </div>'
+# md+='  <div class="modal-footer">'
+# md+='    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>'
+# md+='  </div>'
+# md+='</div>'
   	
   	return md
   end
@@ -800,12 +805,14 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		md += "<li >"  + '<a href="#p' + propname + '5" data-toggle="tab">Values</a>' + "</li>"
   	end
   	md += "<li >"  + '<a href="#p' + propname + '6" data-toggle="tab">Access</a>' + "</li>"
+  	md += "<li >"  + '<a href="#p' + propname + '7" data-toggle="tab">Usage</a>' + "</li>"
   	md += '</ul>'
   	md += "<div class='tab-content' style='padding-left:8px' id='tc-"+ propname + "'>"
     md += '<div class="tab-pane fade active in" id="p' + propname + '1">' + "#{@propdesc}<p>#{@propsectionplatforms}</p></div>"
     md += '<div class="tab-pane fade" id="p' + propname + '2">' + propParasDef + "</div>"
   	md += '<div class="tab-pane fade" id="p' + propname + '5">' + @propvalues + "</div>"
   	md += '<div class="tab-pane fade" id="p' + propname + '6">' + @propsectionaccess + "</div>"
+  	md += '<div class="tab-pane fade" id="p' + propname + '7">' + propusage + "</div>"
   	md += '</div>'
 
   	md += '  </div>'
@@ -856,6 +863,9 @@ def self.getparams(element,toplevel)
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
+					if param["type"] == "SELF_INSTANCE"
+						param["type"] = "SELF_INSTANCE: " + @@apiName
+					end
 					if toplevel
 
 						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
@@ -882,7 +892,7 @@ def self.getparams(element,toplevel)
 								end	
 								@seperator = ', '
 								if !vaelement["type"].nil?
-									valuetype = !vaelement["type"]
+									valuetype = vaelement["type"]
 								end
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
 								
@@ -941,6 +951,10 @@ if !element["PARAM"].nil?
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
+					if param["type"] == "SELF_INSTANCE"
+						param["type"] = "SELF_INSTANCE: " + @@apiName
+					end
+
 					if param["name"].nil?
 						param["name"] = "<i>Object<i>"
 					end
@@ -966,7 +980,7 @@ if !element["PARAM"].nil?
 								end	
 								@seperator = ', '
 								if !vaelement["type"].nil?
-									valuetype = !vaelement["type"]
+									valuetype = vaelement["type"]
 								end
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
 								
