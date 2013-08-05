@@ -369,7 +369,7 @@ We have seen that Backbone.js provides a Model class and here we have RhoMobile'
 
 ### Enter RhoTendon
 
-A tendon is "tissue that connects bone to muscle" and RhoTendon is a small Javascript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-Javascript applications in a very rapid fashion. [RhoTendon is available for download here](). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
+A tendon is "tissue that connects bone to muscle" and RhoTendon is a small Javascript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-Javascript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
 
 	:::javascript
 	<script src="/public/js/rhotendon.js"></script>
@@ -414,7 +414,7 @@ That is all you need to do to integrate Backbone.js models and Rhom. Internally,
 	// and now it has been deleted
 
 
-There is a [sample application available for download]() built with RhoMobile, jQuery Mobile, Backbone.js and RhoTendon. It is intended to serve as a short and readable example of bringing all these technologies together and to be a starting point for your own RhoMobile applications.
+There is a [sample application available for download](https://github.com/javiermolina1234/rhomobile-backbonejs-sample) built with RhoMobile, jQuery Mobile, Backbone.js and RhoTendon. It is intended to serve as a short and readable example of bringing all these technologies together and to be a starting point for your own RhoMobile applications.
 
 
 ## Related reading
