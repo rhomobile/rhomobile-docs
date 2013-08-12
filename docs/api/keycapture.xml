@@ -196,6 +196,7 @@ function goHome()
 3.	Hot keys such as phone keys or 'soft' buttons, those whose function changes based on the running application.
 4.	The Home key and the power key on Android and iOS devices.
 5.	On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
+6.  On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
 					<![CDATA[
 					Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16
 ]]>

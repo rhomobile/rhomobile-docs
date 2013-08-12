@@ -1395,13 +1395,13 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
-				<DESC>Enables or disables the symbology for Webcode barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance.</DESC>
+				<DESC>Enables or disables the symbology for Webcode barcodes.  If your application does not expect to scan this symbology you should disable it to improve scanning performance. Deprecated in Android 4.1 (Jelly Bean).</DESC>
             </PROPERTY>
             <PROPERTY name="webcodeDecodeGtSubtype" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
-				<DESC>If true, the GT Webcode subtype will be decoded</DESC>
+				<DESC>If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).</DESC>
             </PROPERTY>
 			
 			<!--  RSM Properties  -->

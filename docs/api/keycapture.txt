@@ -131,7 +131,8 @@ function goHome()
 <li>Device Keys such as the screen backlight or keyboard backlight.</li>
 <li>Hot keys such as phone keys or &lsquo;soft&rsquo; buttons, those whose function changes based on the running application.</li>
 <li>The Home key and the power key on Android and iOS devices.</li>
-<li><p>On Android devices, keys reserved for use by the &ldquo;PTT&rdquo; apps (such as the left trigger button), if a &ldquo;PTT&rdquo; app has been enabled.</p>
+<li>On Android devices, keys reserved for use by the &ldquo;PTT&rdquo; apps (such as the left trigger button), if a &ldquo;PTT&rdquo; app has been enabled.</li>
+<li><p>On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of &ldquo;Google Now&rdquo;.</p>
 
 <pre><code>            Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16
 </code></pre></li>
