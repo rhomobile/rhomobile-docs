@@ -124,7 +124,7 @@ replace the contents of your greeting.xml file with the following:
 	        <METHODS>
 	        	<METHOD name="welcome" access="STATIC">
 	        		<PARAMS>
-	                    <PARAM name="user" type="STRING"></PARAM>
+	                    <PARAM name="user" type="STRING"/>
 	                </PARAMS>
 
 	                <RETURN type="STRING">
@@ -209,11 +209,11 @@ However, instead of returning `String` like you would expect from the declaratio
 
 The `rhogen` tool creates a Visual Studio solution project in `extensions/greeting/ext/platform/wm/Greeting.sln`. When you open it in VS 2008, you will see it contains `Greeting_impl.cpp", which is where implementation code is added for any methods declared in the API descriptor, and `shared/generated/cpp` which contains the base classes and interfaces that your implementation must extend. 
 
-Open `shared/generated/cpp/IGreeting.h" and you will find that `IGreetingSingleton` declares the `welcome` method defined in the API descriptor, with some differences: it is `void` instead of returning a `String` and it has an extra parameter of type `rho::apiGenerator::CMethodResult&` called oResult. Extension methods will follow this pattern of being `void` and taking an extra CMethodResult parameter which lets you return a value to the caller.
+Open `shared/generated/cpp/IGreeting.h` and you will find that `IGreetingSingleton` declares the `welcome` method defined in the API descriptor, with some differences: it is `void` instead of returning a `String` and it has an extra parameter of type `rho::apiGenerator::CMethodResult&` called oResult. Extension methods will follow this pattern of being `void` and taking an extra CMethodResult parameter which lets you return a value to the caller.
 
 In `Greeting_impl.cpp`, update class `CGreetingSingleton` to match the following:
 
-	:::c++
+	:::cplusplus
 	class CGreetingSingleton: public CGreetingSingletonBase
 	{
 	    ~CGreetingSingleton(){}
@@ -270,11 +270,8 @@ The starter API descriptor builds Factory-style extensions by default. Now that 
 
 There are many methods in the RhoMobile standard APIs that, instead of returning a value immediately, receive a callback parameter and invoke it when the value is available. For example, [Barcode.take](../api/barcode#mtake) receives a `hash` of properties to configure the scanner and a `callback` that will be executed when the scanner reads a barcode or times out.
 
-The `<METHOD>` tag in the API descriptor accepts a `hasCallback` attribute with one of the following values: `none`, `optional`, `mandatory`.
+The `<METHOD>` tag in the API descriptor accepts a `hasCallback` attribute with one of the following values: `none`, `optional`, `mandatory`. See the documentation for the `<METHOD>` tag for reference
 
-* `hasCallback="none"` (the default): the method will return a result value synchronously
-* `hasCallback="mandatory"` : the method will never return a value and will always invoke its callback
-* `hasCallback="optional"` : if a callback is present, it will be used, otherwise, the method will return its result synchronously
 
 ## Returning values
 
@@ -333,7 +330,6 @@ If your return value is a primitive or simple type (number, string), you can cal
 				<code>oResult.set("Welcome");</code>
 				<br/>
 				<br/>
-				C#: TODO
 			</td>
 		</tr>
 
@@ -449,8 +445,7 @@ Attributes:
 * `name`. Mandatory. Contains the name of the generated API
 * `parent`. Optional. If present, the generated API will created inside the specified namespace.
 * `generateUnderscoreRubyNames`. Optional, default is `false`. If true, ruby method names will be created with underscores between words instead of camel case
-* `generateAPI`. Optional, default is `true`. TODO
-* `generateDoc`. Optional, default is `true`. If false, the module is considered to be internal and will not be documented. TODO: check how this affects user-built extensions outside of the core of RhoMobile
+* `generateDoc`. Optional, default is `true`. If false, the module is considered to be internal and will not be documented. 
 
 Examples:
 
@@ -483,15 +478,17 @@ Templates add default behavior to modules, based on the templates present [here]
 
 #### DEFAULT_INSTANCE
 
-The `DEFAULT_INSTANCE` template is appropriate for factory-style modules. It provides static methods that delegate to a default instance. For example, the [Camera API](../api/camera) lets you enumerate cameras and use one in particular to take an image but you can also call static methods directly on the `Camera` class and it will use the default camera on the device. This template provides an implementation of
+The `DEFAULT_INSTANCE` template is appropriate for factory-style modules. It provides static methods in your module class that delegate to the instance returned by `getDefault` (and which can be changed with `setDefault`). For example, the [Camera API](../api/camera) lets you enumerate cameras and use one in particular to take an image but you can also call static methods directly on the `Camera` class and it will use the default camera on the device. This template provides an implementation of
 
 * `getDefault`
 * `setDefault`
 
+Example:
+
 	:::xml
-	<TEMPLATES>
+	<TEMPLATE>
 		<DEFAULT_INSTANCE/>
-	</TEMPLATES>
+	</TEMPLATE>
 
 #### PROPERTY_BAG
 
@@ -502,6 +499,7 @@ The `PROPERTY_BAG` template allows your module to get and set its properties in 
 * `setProperty(name,value)` - set a single property
 * `setProperties(hash)` - set multiple properties in a single call
 
+Example:
 	:::xml
 	<TEMPLATES>
 		<PROPERTY_BAG/>
@@ -523,36 +521,423 @@ Defines a Ruby and Javascript constant in a module
 
 ### PROPERTIES
 
-TODO
+Declare properties of your module, either on instances or for static access, with the `<PROPERTY>` tag
 
-### PROPERTY
+#### PROPERTY
 
-TODO
 
-### VALUE
+	:::xml
+	<MODULE name="Example" parent="Rho">
+		<PROPERTIES>
+			<!-- STATIC properties are accessed directly from the module class, "Example" in this case -->
+			<PROPERTY access="STATIC" name="customProperty" type="STRING"/>
+			<!-- INSTANCE properties need a specific instance object - see example below-->
+			<PROPERTY access="INSTANCE" name="color" type="STRING"/>
+		</PROPERTIES>
+	</MODULE>
 
-TODO
+The above results in the following properties being accessible:
+
+	:::javascript
+	// Javascript code
+	Rho.Example.customProperty="exampleValue"; // static access
+	Rho.Example.getDefault().color="#FF0000"; // instance access
+
+The `<PROPERTY>` tag accepts several attributes apart from `name`:
+
+* `access` : either `"STATIC"` or `"INSTANCE"`, describes how the property is accessed
+* `usePropertyBag` : one of
+	- `none` : any generated property bag code will not integrate this property
+	- `accessorsViaPropertyBag` : `get<name>` and `set<name>` will delegate to `getProperty` and `setProperty`
+	- `propertyBagViaAccessors` : `getProperty` and `setProperty` will delegate to `get<name>` and `set<name>`
+* `nativeName` : the actual name used for the `get` and `set` methods. Example:
+
+	:::xml
+	<PROPERTY name="color" nativeName="redgreenblue"/>
+
+	:::javascript
+	var color = Rho.Example.getredgreenblue();
+	Rho.Example.setProperty("color","#FF0000");
+
+* `generateAccessors` : defaults to true, set to false if you do not need the `get<name>` and `set<name>` methods
+* `type` : the type of the property (`"STRING"`, `"INTEGER"`, etc.)
+* `readOnly` : defaults to false, determines whether the `set<name>` method will be generated and makes `setProperty` throw an exception
+* `default` : the default value for the property
+* `generateAPI` : defaults to true; if set to false the generator will not create `get<name>` and `set<name>` methods, you will have to implement them in Ruby and Javascript yourself
+* `runInThread` : affects the thread that the `set<name>` method runs in:
+  - `none` : no special threading
+  - `module` : the method runs in a per-module thread
+  - `separate` : a new thread is launched for each method invocation
+  - `ui` : the method runs on the UI thread
+
+
+### VALUES
+
+If a property (`<PROPERTY>`) only accepts a predefined set of values, use the `<VALUES>` and `<VALUE>` tags:
+
+	:::xml
+    <VALUES>
+        <VALUE value="WIDE" constName="WIDTH_WIDE" type="STRING"/>
+        <VALUE value="NARROW" constName="WIDTH_NARROW" type="STRING"/>
+    </VALUES>
+
+The accepted attributes of the `<VALUE>` tag are:
+
+* `value` : mandatory
+* `type` : optional, defaults to `"STRING"`. Any basic type (`STRING`, `INTEGER`, `BOOLEAN`, `FLOAT`) can be used
+* `constName` : optional; if specified, the generator will create static constants in the module file
+
+The above snippet will produce the following code for Android:
+
+	:::java
+	public interface IGreetingSingleton
+	{
+
+	    static final String WIDTH_WIDE = "WIDE";
+	    static final String WIDTH_NARROW = "NARROW";
+	}	
+
+iOS:
+	:::c
+	#define WIDTH_WIDE @"WIDE"
+	#define WIDTH_NARROW @"NARROW"
+
 
 ### METHODS
 
-TODO
+The `<METHODS>` tag contains one `<METHOD>` subtag for each method you implement in your extension
 
-#### METHOD
+`<METHOD>` recognizes the following attributes:
 
-TODO
+* `name` : mandatory, the name of the method in Ruby / Javascript
+* `nativeName` : if present it will override `name` as the name of the native method. Otherwise, the name will be generated by removing invalid symbols from `name` for each platform.
+* `hasCallback` : defaults to `"none"`
+  - `hasCallback="none"` (the default): the method will return a result value synchronously
+  - `hasCallback="mandatory"` : the method will never return a value and will always invoke its callback
+  - `hasCallback="optional"` : if a callback is present, it will be used, otherwise, the method will return its result synchronously
+
+* `runInThread` : affects the thread that the method runs in. Defaults to `"module"` if a callback is present
+  - `none` : no special threading, the method runs in the current thread even if a callback is present
+  - `module` : the method runs in a per-module queue thread
+  - `separate` : a new thread is launched for each method invocation
+  - `ui` : the method runs on the UI thread
+
+If the method runs in a thread (any value other than `"none"`, it can only return a result via callback. If the callback is absten, the return value will be lost)
+
+* `deprecated` : defaults to `false`. Document the method as deprecated
+* `generateAPI` : defaults to `true`. If `false`, no native code will be generated for the method and you will need to implement it in Ruby and Javascript yourself.
+* `generateDoc`: defaults to `true`. If `false`, the module is considered to be internal and will not be documented.
+* `access`: defaults to `"INSTANCE"`. If set to `"STATIC"`, the method will be available for static calls via the module class.
+* `generateNativeAPI`: defaults to `true`. If `false`, native C wrappers for Ruby and Javascript will not be created.
+* `constructor`: defaults to `false`. If `true`, the method will be called from the constructor when an object is instantiated
+* `destructor`: defaults to `false`. If `true`, the method will be called from the destructor when an object is released
 
 #### PARAMS
 
-TODO
+The `<PARAMS>` tag declares the parameters that a `<METHOD>` accepts
 
-##### PARAM
+	:::xml
+    <METHOD name="welcome" access="STATIC">
+        <PARAMS>
+            <PARAM name="user" type="STRING"/>
+        </PARAMS>
+	</METHOD>	
 
-TODO
+    <METHOD name="welcome" access="STATIC">
+        <PARAMS>
+            <PARAM name="user" type="STRING"/>
+        </PARAMS>
+	</METHOD>	
+
+`<PARAM>` accepts these attributes and subtags:
+
+* `name`: determines the name of the parameter in the native implementations
+* `type`: defaults to `STRING`, can be any of: `STRING`, `INTEGER`, `BOOLEAN`, `FLOAT`, `HASH`, `ARRAY`
+* `propertyHash`: defaults to `false`, only valid for `type="HASH"`. If `true`, the hash will be converted internally to use values declared in `<PROPERTY>` tags
+* `default`: specify the default value of the parameter if none is provided
+
+`<CAN_BE_NIL>` declares that a parameter is optional and can be omitted
 
 #### RETURN
 
-TODO
+A `<METHOD>` declaration may include a `<RETURN>` tag to specify that the method returns a value.
+
+Example:
+
+	:::xml
+	<METHOD name="welcome">
+		<RETURN type="STRING">
+			<DESC>description of the return value</DESC>
+		</RETURN>
+	</METHOD>
+
+Methods that return a hash can describe which keys will be present using `<PARAMS>` with the same syntax seen above for method parameters
+
+	:::xml
+	<METHOD name="getStatus">
+		<RETURN type="HASH">
+			<DESC>description of the return value</DESC>
+			<PARAMS>
+				<PARAM name="total" type="INTEGER"/>
+				<PARAM name="synchronized" type="INTEGER"/>
+				<PARAM name="pending" type="INTEGER"/>
+				<PARAM name="error" type="INTEGER"/>
+			</PARAMS>
+		</RETURN>
+	</METHOD>
+
+This also declares constants in the native implementation with the prefix HK (Hash Key):
+
+Android:
+	:::java
+    static final String HK_ERROR = "error"; 
+    static final String HK_PENDING = "pending"; 
+    static final String HK_SYNCHRONIZED = "synchronized"; 
+    static final String HK_TOTAL = "total"; 
+
+C++:
+
+	:::cplusplus
+    static const char HK_ERROR[] = "error"; 
+    static const char HK_PENDING[] = "pending"; 
+    static const char HK_SYNCHRONIZED[] = "synchronized"; 
+    static const char HK_TOTAL[] = "total"; 
+
 
 #### CALLBACK
 
-TODO
+Whenever a method accepts a callback, it must be documented with the `<CALLBACK>` tag:
+
+	:::xml
+	<METHOD name="getProperties">
+		<RETURN type="HASH">
+		...
+		</RETURN>
+		<CALLBACK type="HASH">
+			<PARAMS>
+				<PARAM name="total" type="INTEGER"/>
+				<PARAM name="synchronized" type="INTEGER"/>
+				<PARAM name="pending" type="INTEGER"/>
+				<PARAM name="error" type="INTEGER"/>
+			</PARAMS>
+		</CALLBACK>
+
+The `<CALLBACK>` tag uses exactly the same syntax as `<RETURN>`.
+
+## Platform-specific notes
+
+### Android
+
+* `ext/platform/android/ext_java.files` contains a list of the files that are required for an extension to build. If you add new Java files to your extension, you must add them to this list also or they will not be found at compile-time.
+
+* Making changes to application AndroidManifest.xml
+
+You can specify changes to AndroidManifest.xml in the ext.yml file as a list of paths to the files containing change instructions. There are three formats recognized by the build system, depending on the file extension:
+
+* .xml - xml file with common AndroidManifest.xml format; its tags will be merged into the final manifest.
+* .erb - ruby templates which will be injected into the final manifest.
+* .rb - ruby script which will run by the manifest erb generator.
+
+	android:
+	  manifest_changes:
+	  - ext/yourextension/platform/android/AndroidManifestAdds.xml
+	  - ext/yourextension/platform/android/ApplicationTagAdds1.erb
+	  - ext/yourextension/platform/android/ApplicationTagAdds2.erb
+	  - ext/yourextension/platform/android/ManifestTagAdds.erb
+	  - ext/yourextension/platform/android/AndroidManifestScript.rb
+
+#### XML
+
+This is the simplest way, if you know how your manifest has to look. Add the final AndroidManifest.xml to the extension and specify it in ext.yml.
+The build system will try to merge all the tags from the file into the final AndroidManifest.xml. If a particular tag exists both in the default Rhodes manifest as well as in the extension, the extension manifest takes priority and will overwrite the default.
+
+	android:
+	  manifest_changes: ext/yourextension/platform/android/AndroidManifest.xml
+
+#### ERB template
+
+There are two common levels where additional definitions can be injected into AndroidManifest.xml.
+
+* Application tag
+* Manifest tag
+
+To add additional definitions to the Application tag, the template name must fit the file name mask of `Application*.erb`, such as `ApplicationManifestAdds.erb`.
+
+To add additional definitions to Manifest tag, the template name must fit the file name mask of `Manifest*.erb`.
+
+There may be a number of templates of each type.
+In the template, you may access manifest generator fields which hold values that are frequently-used in manifest generation. The list of available values is documented below, under the heading "ERB Manifest Generator".
+
+Below is example of a broadcast receiver definition added to 'application' tag by rhoconnect-push extension:
+
+	:::xml
+	<receiver android:name="com.motsolutions.rhomobile.services.ans.test3.ANSBroadcastReceiver"
+	          android:permission="com.motsolutions.cto.services.ans.permission.RECEIVE"
+	          android:enabled="true">
+	    <!-- Receive actual messages -->
+	    <intent-filter>
+	        <action android:name="com.motsolutions.cto.services.ans.action.RECEIVE" />
+	        <category android:name='<%=@appPackageName%>' />
+	    </intent-filter>
+	    <!-- Receive registration ids -->
+	    <intent-filter>
+	        <action android:name="com.motsolutions.cto.services.ans.action.REGISTRATION" />
+	        <category android:name='<%=@appPackageName%>' />
+	    </intent-filter>
+	</receiver>
+
+
+#### RB script
+
+In case the methods listed above are not enough, you can write your own script that will change the values used to generate the manifest.
+You can have a single script per extension.
+
+In the script, you may access the ERB generator instance as a local variable.
+
+	:::ruby
+	generator.permissions["#{generator.appPackageName}.permission.ANS"] = 'signature'
+	generator.usesPermissions << "#{generator.appPackageName}.permission.ANS"
+	generator.usesPermissions << 'com.motsolutions.cto.services.ans.permission.REGISTER'
+
+#### ERB Manifest Generator
+
+The following generator fields may be accessed from erb templates or scripts.
+
+* javaPackageName - read-only string
+* appPackageName - read-only string
+* versionName - read-write string
+* versionCode - read-write string
+* installLocation - read-write string
+* minSdkVer - read-write string
+* maxSdkVer - read-write string
+* permissions - hash of permission name/protectionLevel pairs
+* usesPermissions - array of permission names
+* usesLibraries - hash of library name/isRequired pairs
+* screenOrientation - read-write string
+* debuggable - read-write string (allows two values: 'true' or 'false')
+* rhodesActivityIntentFilters - array of hashes with filter values. Each hash can contain next keys:
+** :act - string, intent action name
+** :cat - array of strings with category names
+** :data - hash with data tag attributes (name/value pairs)
+* manifestManifestAdds - array of strings with full paths to erb templates for 'manifest' tag
+* applicationManifestAdds - array of strings with full paths to erb templates for 'application' tag
+
+For more details about the values for the generator fields, refer to [Android Developer Documentation](http://developer.android.com/guide/topics/manifest/manifest-intro.html).
+
+You may also look in your Rhodes installation under /platform/android/Rhodes/AndroidManifest.xml.erb to study how these values are used.
+
+## Platform Notes
+
+### Using Resources
+
+If you want to use any resources in your code, use com.rhomobile.rhodes.R instead of just R. This will make all resources (include your additonal resources) accessible from this R file.
+
+### Calling JNI Functions at Android
+
+If you need to call JNI functions from your native code, you need to retrieve the `JNIEnv *env` variable. To get it, include the file `RHO_ROOT/platform/android/Rhodes/jni/include/rhodes.h` in your C/C++ files. The global function `JNIEnv *jnienv()` is defined in this file, so use it anywhere when `JNIEnv *`is needed.
+
+### Using Prebuilt Libraries (jars)
+
+If your native extension uses prebuilt libraries (jars), your build script must copy all such jar files to the TARGET_TEMP_DIR. The jar files must have the extension '.jar'; RhoMobile will include these files automatically in the final build.
+
+### Creating Native Threads
+
+If your native extension creates a native thread (using pthread_create, for example), this thread should be attached to the JVM so that it can call Java methods from its context. Do this by using the rho_nativethread_start/rho_nativethread_end functions, called at the start/end of your thread routine. 
+
+Example:
+
+	:::cpp
+	void *thread_routine(void *arg)
+	{
+	  void *q = rho_nativethread_start();
+	  .....
+	  rho_nativethread_end(q);
+	  return NULL;
+	}
+
+Otherwise, if the thread is not attached to the JVM, no JNI calls should be performed in its context (otherwise it will cause your application to crash).
+
+### Providing Additional DLLs for Windows Mobile
+
+If your application needs additional DLLs, put them in the TARGET_TEMP_DIR. The Rhodes build scripts will detect them and include them in the final binary automatically.
+
+## Other Examples
+
+You can use teh Barcode extension as an example of native extension for all teh supported platforms. The code for the Barcode native extension is [here on Github](https://github.com/rhomobile/rhodes/tree/master/lib/extensions/barcode/).
+
+Another example of the native extension is the Rainbow native extension in the Rhodes System Api Samples. The code for the Rainbow native extension is [here on Github](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/extensions/rainbow/).
+
+## Native View Extensions
+
+The Native View interface allows developers to implement a custom native view and seamlessly integrate it into the RhoMobile framework. This is currently only supported on iPhone and Android.
+
+To access the implemented view navigate to a url where url schema is the register type name of your view: 
+  
+	view_type_name:path?query_string#anchor
+
+Example:
+
+	:::ruby
+	WebView.navigate("my_video_view:/app/files/funny_cat.mpg")
+
+
+When Rhodes application navigates to a native view it will replace current view (WebView in most cases) with requested native view and pass path?query_string#anchor to the created native view. If the application navigates to that view again, a new instance of the view will not be created but the rest of url will be passed to the existing instance.
+
+To provide a custom native view in a native extension you should implement the NativeViewFactory interface and register it with RhoMobile using `RhoNativeViewManager::registerViewType(const char* viewType, NativeViewFactory* factory)`.
+
+
+### Sample
+See [Rhodes-System-Api-Samples](http://github.com/rhomobile/rhodes-system-api-samples) for details of how to implement and use the native view interface. This sample implements a "rainbow_view" native view; you should add rainbow to the list of extensions to include it to the application. 
+
+See [/app/NativeView/controller.rb](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/NativeView/controller.rb) and [/app/NativeView/index.erb](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/NativeView/index.erb) for details on how to call a native view from your controller.
+
+** NOTE:  Windows Mobile: Visual Studio 2008 has issues with long paths. If you have problems building the rainbow extension, move your rhodes folder to a shorter path. **
+
+* To navigate to the rainbow view in your controller, call `WebView.navigate('rainbow_view:red')`. In your url schema indicates view type you want to open and rest of the url (red) passed to the after it was created. 
+
+* To pass parameters to created view you may call WebView.navigate again: `WebView.navigate('rainbow_view:green')`. In your native code you may pass parameters to the native view by calling `pNativeView->navigate(url)` where pNativeView is an instance of native view created by `RhoNativeViewManager` using the previously-registered factory. 
+
+* To close the view you created, navigate to any other url.
+
+See [/extensions/rainbow](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/extensions/rainbow/) for the implementation of the "rainbow" native view.
+
+* See how to register your view type with RhoMobile here: [RainbowViewFactoryRegister.cpp](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowViewFactoryRegister.cpp)
+
+* See the implementation of a native view factory here: [RainbowViewFactory.mm](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowViewFactory.mm)
+
+* See a sample implementation of a native view object here: [RainbowView.h](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowView.h) and [RainbowView.m](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowView.m).
+
+This sample extension uses functionality provided by Rhodes framework and therefore includes a few framework header files:
+
+* [$(RHO_ROOT)/platform/shared/common/RhoNativeViewManager.h](http://github.com/rhomobile/rhodes/blob/master/platform/shared/common/RhoNativeViewManager.h)
+* [$(RHO_ROOT)/platform/shared/common/RhodesApp.h](http://github.com/rhomobile/rhodes/blob/master/platform/shared/common/RhodesApp.h)
+* [$(RHO_ROOT)/platform/shared/rubyext/WebView.h](http://github.com/rhomobile/rhodes/blob/master/platform/shared/rubyext/WebView.h)
+
+Make sure the following folders are added to your compiler include path:
+
+* [$(RHO_ROOT)/platform/shared/rubyext](http://github.com/rhomobile/rhodes/tree/master/platform/shared/rubyext/)
+* [$(RHO_ROOT)/platform/shared/ruby/include](http://github.com/rhomobile/rhodes/tree/master/platform/shared/ruby/include/)
+* [$(RHO_ROOT)/platform/shared](http://github.com/rhomobile/rhodes/tree/master/platform/shared/)
+* [$(RHO_ROOT)/platform/shared/ruby/iphone](http://github.com/rhomobile/rhodes/tree/master/platform/shared/ruby/iphone/)
+* [$(RHO_ROOT)/platform/shared/common](http://github.com/rhomobile/rhodes/tree/master/platform/shared/common/)
+
+### url_for_nativeview
+Examples of how to use the url_for_nativeview method:
+    
+    :::ruby
+	native_view_url = url_for_nativeview :name => 'rainbow_view', :param => 'red'  # ==> "rainbow_view:red"
+	Rho.WebView.navigate(native_view_url)
+
+
+## Add registry setting in cab file om Windows Mobile/Windows CE
+
+In ext.yml file you can add rgeistry sections 
+
+    regkeys:
+      - key1
+      - key2
+
+Keys should be created as documented in [this MSDN article](http://msdn.microsoft.com/en-us/library/ms933191.aspx):
+
+	:::plain
+	registry_root_string, subkey,[value_name], flags, value[,value]
