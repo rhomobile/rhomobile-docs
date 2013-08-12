@@ -405,34 +405,8 @@ If your return value is a primitive or simple type (number, string), you can cal
 				</code>
 			</td>
 		</tr>
-
-<!--
-		<tr class="clsOddRow">
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-		</tr>
-
-		<tr class="clsEvenRow">
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-		</tr>
--->
 	</tbody>
 </table>
-
-
 
 
 ## Reference: The API descriptor in depth
