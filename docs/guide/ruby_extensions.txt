@@ -1,0 +1,292 @@
+# Ruby Extensions
+
+## Supported extensions and libraries
+To keep Rhodes lightweight we left out some libraries.
+
+Our C/C++ implementation is based on original Ruby C code, 1.9 release.
+
+Our Java implementation is based on [XRuby](http://xruby.com), which supports Ruby 1.8 (We didn't use JRuby because it is substantially bigger and required version of java which is not available on most of the target mobile platforms).
+
+Both implementations support such core classes and module as:
+ 
+<i>
+BasicObject, Object, Module, Class, Integer, Float, Numeric, Bignum, Rational, Complex, Math, String, StringScanner, StringIO, 
+Array, Hash, Struct, Regexp, RegexpError, MatchData, Data, NilClass, TrueClass, FalseClass, Comparable, Enumerable, Enumerator,
+Converter, Marshal, IO, Dir, Time, Date, Signal, Mutex, Thread, ThreadGroup, Process, Fiber, FiberError, Method, UnboundMethod, 
+Binding, RubyVM, GC, Exception, SystemExit, fatal, SignalException, Interrupt, StandardError, TypeError, ArgumentError, IndexError, 
+KeyError, RangeError, ScriptError, SyntaxError, LoadError, NotImplementedError, NameError, NoMethodError, RuntimeError, 
+SecurityError, NoMemoryError, EncodingError, CompatibilityError, SystemCallError, Errno, ZeroDivisionError, FloatDomainError, 
+IOError, EOFError, ThreadError
+</i>
+
+We are using Rubinius specs to test Ruby compatibility across different platforms.
+
+## JSON library support
+
+For parsing use Rho::JSON.parse, no extension required.
+
+Ruby code example:
+	:::ruby
+	parsed = Rho::JSON.parse("[{\"count\":10}]")
+
+For generate use JSON extension.
+  
+Add to build.yml:
+
+	extensions: ["json"]
+	
+In case of several extensions, insert space after extension name and comma:
+
+	extensions: ["json", "net-http"]
+
+Ruby code example:
+	:::ruby
+	require 'json'
+	json_data = ::JSON.generate(some_object)
+
+See JSON tests in [Rhodes System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/JsonTest/controller.rb) as an example.
+
+## XML handling
+There are two ways of handling XML directly in Rhodes. The Rexml library and the much faster RhoXML library.
+
+### Rexml
+
+Add to build.yml:
+
+	extensions: ["rexml", "set"]
+
+Ruby code example:
+    :::ruby
+	require 'rexml/document'
+    file = File.new("bibliography.xml")
+    doc = REXML::Document.new(file)
+    puts doc
+
+### RhoXML
+This is a reduced version of rexml. Rhoxml has the same syntax as rexml, but smaller in size and faster. For Blackberry this is the only choice, because rexml is too slow.
+
+Change rexml to rhoxml in build.yml:
+	
+	extensions: ["rhoxml"]
+
+No more changes required.
+
+Rhoxml limitations:
+
+1. Decoding xml text is not fully implemented. See document.rb line 503 (Text::unnormalize). Need to implement non regular expression decoding.
+2. No DTD, validation and formatters support
+3. Support only elements and attributes. No cdata, comments, etc.
+
+### XML Stream parser
+
+To process xml faster (without building DOM xml tree in memory) you can use StreamParser:
+	:::ruby
+    class MyStreamListener
+
+        def initialize(events)
+            @events = events
+        end
+
+        def tag_start name, attrs
+            #puts "tag_start: #{name}; #{attrs}"
+            @events << attrs if name == 'event'
+        end
+        def tag_end name
+            #puts "tag_end: #{name}"
+        end
+        def text text
+            #puts "text: #{text}"
+        end
+        def instruction name, instruction
+        end
+        def comment comment
+        end
+        def doctype name, pub_sys, long_name, uri
+        end
+        def doctype_end
+        end
+        def attlistdecl element_name, attributes, raw_content
+        end
+        def elementdecl content
+        end
+        def entitydecl content
+        end
+        def notationdecl content
+        end
+        def entity content
+        end
+        def cdata content
+            #puts "cdata: #{content}"
+        end
+        def xmldecl version, encoding, standalone
+        end
+    end
+
+	def parse_xml(str_xml)
+        @events = []
+        list = MyStreamListener.new(@events)
+        REXML::Document.parse_stream(str_xml, list)
+		...
+		
+It supported in RhoXml and Rexml extensions. For example see : [`<rhodes>\spec\phone_spec\app\spec\xml_spec.rb`](https://github.com/rhomobile/rhodes/blob/master/spec/phone_spec/app/spec/xml_spec.rb) ("should stream parse" spec) and rexml stream parser documentation
+
+## net/http
+
+Add to build.yml:
+	
+	extensions: ["net-http", "thread", "timeout", "uri"]
+
+## hmac
+
+Add to build.yml:
+	
+	extensions: ["hmac", "digest", "digest-sha1"]
+
+Example:
+	:::ruby	
+    require 'base64'
+    require 'hmac-sha1'
+
+    def test_hmac
+      key = '1234'
+      signature = 'abcdef'
+      hmac = HMAC::SHA1.new(key)
+      hmac.update(signature)
+   
+      puts Rho::RhoSupport.url_encode(Base64.encode64("#{hmac.digest}\n"))
+    end
+    
+## FileUtils
+
+Add to build.yml:
+	
+	extensions: ["fileutils"]
+
+DryRun, NoWrite and Verbose are commented out modules since they using `eval` function.
+
+Blackberry is not supported.<br/>
+
+Use Ruby class `Dir` whenever possible.
+
+## Notes on Ruby standard library support
+
+For iPhone the Date class is supported
+	:::ruby
+    require 'date'
+    puts Date.today.to_s
+
+For Blackberry Date is still not supported. Use this instead:
+	:::ruby
+    require 'time'
+    Time.now.strftime('%Y-%m-%d')
+
+## Adding Ruby Extension Libraries to Your Rhodes Application
+
+Create folder 'extensions' under application root.
+
+Copy folder with Ruby library to 'extensions' folder. (This will work for "pure ruby" extensions. Extensions which implemented in c/c++ or such you will have to compile for the target platform and link with Rhodes.)
+
+Add extension with folder library name to build.yml:
+	
+	extensions: ["myext"]
+
+This library will be available for require:
+	:::ruby
+	require 'myext'
+
+Using this technique you can easily remove extension from application or include some extension for particular platform:
+
+	iphone:
+	  extensions: ["mspec", "fileutils"]
+
+	wm:
+	  extensions: ["json"]
+  
+## Adding Libraries to Your Rhodes Application
+
+During the course of your app development you might need to add an external ruby library with extra features that the rhodes framework doesn't provide.  While we don't guarantee that all ruby libraries will work on the mobile device, you can follow the steps below to add and test libraries as needed.
+
+In Rhodes, the require path is relative to the "app" subdirectory, since this is what gets bundled with the rhodes client.
+
+Assuming your application is called "mynewapp", create a directory under app called lib (or whatever you wish to call it):
+	:::term
+	$ cd mynewapp
+	$ mkdir app/lib
+
+Add your ruby files to this directory:
+	:::ruby
+ 	$ cp /path/to/my_lib.rb app/lib/my_lib.rb
+
+Now, in your application (controller.rb for example), you can load this library like the following:
+	:::ruby
+	require 'rho/rhocontroller'
+	require 'lib/my_lib'
+
+	class TicketController < Rho::RhoController
+	  def use_lib
+	    @a = MyLib.new
+	    ...
+	  end
+	end
+
+Please note that "rubygems" are not loaded on the device Ruby VM because of size constraints, therefore all third-party ruby library source files must be put into the lib directory as described above.
+
+## Adding Libraries to Rhodes Framework
+There are two ways to add Ruby libraries to the Rhodes framework, essentially dependent upon how you choose to build your Rhodes application.
+
+If you are using Rhodes via the RubyGems installation, you must add external Ruby libraries to your RubyGems installation directory for the 'rhodes-framework' gem. Your RubyGems installation directory can be found with `gem env` in a terminal.
+
+For example, a user on Linux might place additional libraries in the following directory:
+
+	/usr/local/lib/ruby/gems/1.8/gems/rhodes-x.x.x/lib/framework
+
+Similarly, a user on Mac OSX 10.5 might place them here:
+
+	/Library/Ruby/Gems/1.8/gems/rhodes-x.x.x/lib/framework
+
+For Windows, this location might be:
+
+ C:/ruby/lib/ruby/gems/1.8/gems/rhodes-x.x.x/lib/framework
+
+
+If you are using a clone of the Rhodes Git repository, you can put additional libraries in the following directory (preferably on your own github fork):
+
+	<rhodes-clone>/lib/framework
+
+Including the library into your application is simple once the library is in the proper directory.
+
+Assuming the library has been added to the correct location, require the library from a controller in your Rhodes application:
+	:::ruby
+	require 'libname'
+
+You can now use the added library to access additional functionality not provided by the Rhodes framework.
+
+NOTE: Once again, it should be mentioned that not all libraries are guaranteed to work with Rhodes.
+
+## Encryption libraries
+### digest - based extensions
+
+digest, digest-sha1, digest-md5
+
+Add to build.yml:
+	
+	extensions: ["digest", "digest-sha1", "digest-md5"]
+
+NOTE: digest should be included in extensions list to use digest-base libraries
+
+### OpenSSL - based libraries
+
+openssl, ezcrypto
+
+Add to build.yml:
+	
+	extensions: ["openssl.so", "openssl", "digest-sha2", "ezcrypto"]
+
+digest-sha2
+
+Add to build.yml:
+	
+	extensions: ["openssl.so", "openssl", "digest", "digest-sha2" ]
+
+NOTE: openssl.so is native c-library and should be included in extensions list to use openssl-base libraries
+
