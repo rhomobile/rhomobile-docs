@@ -159,7 +159,7 @@ When installed, this condition enforces presense of the `api-token`, thus, makin
 
 ### login_required
 
-When installed, this condition enforces presense of the `Session Cookie`, i.e. only logged-in user can access this route. Typically, this condition enabled by default for all user-defined Controllers.
+When installed, this condition enforces presence of the `Session Cookie`, i.e. only logged-in user can access this route. Typically, this condition enabled by default for all user-defined Controllers.
 If want to alter this behavior, you can enable/disable this condition for any particular route:
 
 	:::ruby
@@ -169,8 +169,8 @@ If want to alter this behavior, you can enable/disable this condition for any pa
 
 ### source_required
 
-When installed, this condition enforces presense of the `source_id`. This condition is enabled by default for all user-defined Controllers - since they by definition based upon Source.
-To customize behaviour of your route - you can disable this check and load any desired sources manually inside of your route. Also, this condition initializes `@model` variable:
+When installed, this condition enforces presence of the `source_id`. This condition is enabled by default for all user-defined Controllers - since they by definition based upon Source.
+To customize behavior of your route - you can disable this check and load any desired sources manually inside of your route. Also, this condition initializes `@model` variable:
 
 	:::ruby
 	get '/my_custom_route', :source_required => false do
@@ -182,7 +182,7 @@ To customize behaviour of your route - you can disable this check and load any d
 
 ### client_required
 
-When installed, this condition enforces presense of the `Client ID`. This condition is enabled by default for all `sync` routes - because they are called from the client. Also, `client_required` condition implicitly enforces presense of the `source_id` paramter and therefore is used together with `source_required` condition. You may enable/disable it in your custom route:
+When installed, this condition enforces presense of the `client_id`. This condition is enabled by default for all `sync` routes - because they are called from the client. Also, `client_required` condition implicitly enforces presence of the `source_id` parameter and therefore is used together with `source_required` condition. You may enable/disable it in your custom route:
 
 	:::ruby
 	post '/my_custom_route_many_sources', :client_required => false, :source_required => false, :login_required => false, :admin_required => true do
@@ -197,7 +197,7 @@ When installed, this condition enforces presense of the `Client ID`. This condit
 
 ### verbs
 
-You can use this helper condition whenever you need to make some functionality available only to routes with specific verbs. Typically, this can be helpfull in your custom `:before` or `:after` filters.
+You can use this helper condition whenever you need to make some functionality available only to routes with specific verbs. Typically, this can be helpful in your custom `:before` or `:after` filters.
 For example, if you have two routes using the same path, but different verbs (POST and GET) and you want to execute `:before` filter only for the GET route:
 
 	:::ruby
@@ -226,7 +226,3 @@ Every user-defined Source Adapter Controller has certain conditions enabled by d
 	* :login_required => true
 
 NOTE: If you want disable one of predefined conditions, then you should do it manually inside of your custom routes declaration.
-
-
-
-
