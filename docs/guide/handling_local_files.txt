@@ -1,0 +1,95 @@
+# Handing_local_files
+
+##Reading other files bundled with your application
+The [Application API](../api/Application) allows you to read other files bundled from you application.As shown below that how to access other files bundle.
+
+Ruby:
+
+	:::ruby
+	# Get and show the various app folders
+	appFolder = Rho::Application.appBundleFolder
+	appsBundleFolder = Rho::Application.appsBundleFolder
+	databaseBlobFolder = Rho::Application.databaseBlobFolder
+	publicFolder = Rho::Application.publicFolder
+	userFolder = Rho::Application.userFolder
+
+	message = "App bundle folder: "+appFolder+"\n"+
+	"Apps bundle folder: "+appsBundleFolder+"\n"+ 
+	"Database blob folder: "+databaseBlobFolder+"\n"+ 
+	"Public folder: "+publicFolder+"\n"+ 
+	"User folder: "+userFolder
+	    
+	Rho::Notification.showPopup({
+      :message => message ,
+      :buttons => ["OK"]
+    })
+
+Javascript:
+
+	:::javascript
+	// Get and show the various app folders
+     var appFolder = Rho.Application.appBundleFolder;
+     var appsBundleFolder = Rho.Application.appsBundleFolder;
+     var databaseBlobFolder = Rho.Application.databaseBlobFolder;
+     var publicFolder = Rho.Application.publicFolder;
+     var userFolder = Rho.Application.userFolder;
+     
+     var message = "App bundle folder: "+appFolder+"\n"+
+     "Apps bundle folder: "+appsBundleFolder+"\n"+ 
+     "Database blob folder: "+databaseBlobFolder+"\n"+ 
+     "Public folder: "+publicFolder+"\n"+ 
+     "User folder: "+userFolder;
+     
+     alert(message);
+
+##Saving files from the network to the device
+You can download any files from an external server and store it in your device. The [Network API](../api/Network) helps your application to download any files using downloadFile method. For example, Enable your device network and download file as shown below.
+
+Ruby:
+
+	:::ruby 
+	def download_file
+      #Download a file to the specified filename.
+      downloadfileProps = Hash.new
+      downloadfileProps["url"]='http://www.google.com/images/icons/product/chrome-48.png'
+      downloadfileProps["filename"] = Rho::RhoFile.join(Rho::Application.userFolder, "sample.png")
+      downloadfileProps["overwriteFile"] = true
+      Rho::Network.downloadFile(downloadfileProps, url_for(:action => :download_file_callback))
+  	end
+  
+  	def download_file_callback
+    	if @params["status"] == "ok"
+        	Rho::Notification.showPopup({
+        		:message => "Download Success. File saved to " + Rho::RhoFile.join(Rho::Application.userFolder, "sample.png"),
+        		:buttons => ["OK"]
+      		})
+    	else
+        	Rho::Notification.showPopup({
+        		:message => "Download Failed",
+        		:buttons => ["OK"]
+      		})
+    	end
+  	end
+
+Javascript:
+	
+	:::javascript
+	function download_file_callback(params) {
+      	if (params["status"] == "ok") {
+			alert("Download Succeeded. File saved to "+Rho.RhoFile.join(Rho.Application.userFolder, "sample.png"));
+		} else {
+			alert("Download Failed");
+		}
+    }
+
+    function download_file() {
+      	// Download a file to the specified filename. Be careful with the overwriteFile parameter!
+      	downloadfileProps = {
+        	url: "http://www.google.com/images/icons/product/chrome-48.png",
+        	filename: Rho.RhoFile.join(Rho.Application.userFolder, "sample.png"),
+        	overwriteFile: true
+      	};
+      	Rho.Network.downloadFile(downloadfileProps, download_file_callback);
+    }
+
+
