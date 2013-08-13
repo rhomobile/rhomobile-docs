@@ -225,7 +225,7 @@ Every user-defined Source Adapter Controller has certain conditions enabled by d
 	* :client_required => true
 	* :login_required => true
 
-If your route doesn't want to enable the above conditions, they need to be disabled manually inside your custom routes declaration.
+NOTE: If you want disable one of predefined conditions, then you should do it manually inside of your custom routes declaration.
 
 
 
