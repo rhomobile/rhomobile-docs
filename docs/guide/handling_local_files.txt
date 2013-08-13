@@ -1,49 +1,53 @@
-# Handing_local_files
+# Handing local files
 
-##Reading other files bundled with your application
-The [Application API](../api/Application) allows you to read other files bundled from you application.As shown below that how to access other files bundle.
+## Overview
+
+A RhoMobile application typically contains two different sets of files - one comprises the code for the application and another contains assets of different types: images, data files, etc.
+
+Files that are only needed for rendering as-is in the [WebView](../api/webview) (such as images or stylesheets) can be placed anywhere within the `public` folder and referenced in your layout or view files as appropriate.
+
+Data files required by the application at runtime must be accessed in two steps:
+
+* obtain the path to the file
+* process the information as required
+
+You must always use the `Application.*Folder` properties and `RhoFile.join` to construct file paths. In particular:
+
+* do not hardcode paths such as `/sdcard/*' even if your application only runs on a single platform
+* do not concatenate strings with `\` or `/` characters manually to build paths - use `RhoFile.join` instead
+
+
+
+## Reading other files bundled with your application
+The [Application API](../api/Application) allows you to read other files bundled with your application. As shown below that how to access other files bundle.
 
 Ruby:
 
 	:::ruby
-	# Get and show the various app folders
+	# Get the various app folders
 	appFolder = Rho::Application.appBundleFolder
 	appsBundleFolder = Rho::Application.appsBundleFolder
 	databaseBlobFolder = Rho::Application.databaseBlobFolder
 	publicFolder = Rho::Application.publicFolder
 	userFolder = Rho::Application.userFolder
 
-	message = "App bundle folder: "+appFolder+"\n"+
-	"Apps bundle folder: "+appsBundleFolder+"\n"+ 
-	"Database blob folder: "+databaseBlobFolder+"\n"+ 
-	"Public folder: "+publicFolder+"\n"+ 
-	"User folder: "+userFolder
-	    
-	Rho::Notification.showPopup({
-      :message => message ,
-      :buttons => ["OK"]
-    })
 
 Javascript:
 
 	:::javascript
 	// Get and show the various app folders
-     var appFolder = Rho.Application.appBundleFolder;
-     var appsBundleFolder = Rho.Application.appsBundleFolder;
-     var databaseBlobFolder = Rho.Application.databaseBlobFolder;
-     var publicFolder = Rho.Application.publicFolder;
-     var userFolder = Rho.Application.userFolder;
-     
-     var message = "App bundle folder: "+appFolder+"\n"+
-     "Apps bundle folder: "+appsBundleFolder+"\n"+ 
-     "Database blob folder: "+databaseBlobFolder+"\n"+ 
-     "Public folder: "+publicFolder+"\n"+ 
-     "User folder: "+userFolder;
-     
-     alert(message);
+   var appFolder = Rho.Application.appBundleFolder;
+   var appsBundleFolder = Rho.Application.appsBundleFolder;
+   var databaseBlobFolder = Rho.Application.databaseBlobFolder;
+   var publicFolder = Rho.Application.publicFolder;
+   var userFolder = Rho.Application.userFolder;
+   
 
-##Saving files from the network to the device
-You can download any files from an external server and store it in your device. The [Network API](../api/Network) helps your application to download any files using downloadFile method. For example, Enable your device network and download file as shown below.
+## Saving files from the network to the device
+
+**NOTE: the only directory you have write rights to is `userFolder` - other folders may work on some platforms but not others; in particular, iOS restricts writing files to any folder other than `userFolder`.**
+
+You can download any files from an external server and store it in your device. The [Network API](../api/Network) helps your application download files using the [downloadFile](../api/Network#mdownloadFile) method. For example, Enable your device network and download file as shown below.
 
 Ruby:
 
@@ -75,7 +79,7 @@ Javascript:
 	
 	:::javascript
 	function download_file_callback(params) {
-      	if (params["status"] == "ok") {
+  	if (params["status"] == "ok") {
 			alert("Download Succeeded. File saved to "+Rho.RhoFile.join(Rho.Application.userFolder, "sample.png"));
 		} else {
 			alert("Download Failed");
@@ -91,5 +95,11 @@ Javascript:
       	};
       	Rho.Network.downloadFile(downloadfileProps, download_file_callback);
     }
+
+## Exporting the database for backup purposes
+
+TODO: link to the guide called "Local database"
+
+## Zipping and unzipping files
 
 
