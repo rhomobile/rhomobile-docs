@@ -122,7 +122,9 @@ end
 
 
 section 'rhomob-ext', 'Extending','Mobile Guides' do
-  topic 'rhodes/extensions',        'Extending the Rhodes Framework'
+  topic 'guide/native_extensions',        'Extending the Rhodes Framework'
+  topic 'guide/ruby_extensions',        'Ruby Extensions'
+  topic 'guide/view_extensions',        'View Extensions'
 end
 
 
