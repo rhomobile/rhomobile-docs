@@ -23,7 +23,7 @@ section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
   topic 'api/keycapture',      'KeyCapture '
   topic 'api/keystate',      'KeyState '
   topic 'api/Log',      'Log'
-  topic 'api/mediaplayer',      'MediaPlayer '
+  topic 'api/mediaplayer',      'Mediaplayer '
   topic 'api/NativeMenubar',      'NativeMenubar '
   topic 'api/NativeTabbar',      'NativeTabbar '
   topic 'api/NativeToolbar',      'NativeToolbar '
@@ -39,7 +39,7 @@ section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
   topic 'api/sensor',      'Sensor'
   topic 'api/signalindicators',      'Signal'
   topic 'api/system',      'System'
-  topic 'api/webview',      'Webview'
+  topic 'api/webview',      'WebView'
 end
 
 

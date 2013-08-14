@@ -8,10 +8,14 @@ class Api
   def self.getApiName(doc)
   	md=""
   	md = doc["MODULE"][0]["name"]
-  	if !doc["MODULE"][0]["ALIASES"].nil? && !doc["MODULE"][0]["ALIASES"][0]["ALIAS"].nil?
-  		if doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["existing"].nil?
-  			md = doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["new"]
-  		end
+  	# if !doc["MODULE"][0]["ALIASES"].nil? && !doc["MODULE"][0]["ALIASES"][0]["ALIAS"].nil?
+  	# 	if doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["existing"].nil?
+  	# 		md = doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["new"]
+  	# 		puts 'using alias'
+  	# 	end
+  	# end
+  	if md == 'SignalIndicators'
+  		md = 'Signal'
   	end
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
