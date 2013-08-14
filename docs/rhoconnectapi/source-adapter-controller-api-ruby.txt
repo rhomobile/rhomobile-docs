@@ -141,3 +141,88 @@ In the below example, you can register and use custom defined logger.
 	    'Hello World'
 	  end
 	end
+
+## Pre-defined conditions
+
+Some of the most commonly used features and helpers are exposed to the user via pre-defined Sinatra conditions.
+
+For more info on what is Sinatra condition and how to use it - [look here](http://www.sinatrarb.com/intro.html#Conditions)
+
+### admin_required
+
+When installed, this condition enforces presense of the `api-token`, thus, making the route accessible only to the admin user. Typically, all `system` routes using this condition:
+
+	:::ruby
+	post '/my_custom_admin_route', :admin_required => true do
+		puts 'Only admin can access this route'
+	end
+
+### login_required
+
+When installed, this condition enforces presence of the `Session Cookie`, i.e. only logged-in user can access this route. Typically, this condition enabled by default for all user-defined Controllers.
+If want to alter this behavior, you can enable/disable this condition for any particular route:
+
+	:::ruby
+	get '/my_custom_route', :login_required => false do
+		puts 'Hello World - no user required to access this route'
+	end
+
+### source_required
+
+When installed, this condition enforces presence of the `source_id`. This condition is enabled by default for all user-defined Controllers - since they by definition based upon Source.
+To customize behavior of your route - you can disable this check and load any desired sources manually inside of your route. Also, this condition initializes `@model` variable:
+
+	:::ruby
+	get '/my_custom_route', :source_required => false do
+		other_source = Source.load('<source_name>',
+			{:user_id => '<username>', :app_id => Rhoconnect::APP_NAME}
+		other_model = Rhoconnect::Model::Base.create(other_source)
+		puts "Hello World - using my #{other_model.inspect}"
+	end
+
+### client_required
+
+When installed, this condition enforces presense of the `client_id`. This condition is enabled by default for all `sync` routes - because they are called from the client. Also, `client_required` condition implicitly enforces presence of the `source_id` parameter and therefore is used together with `source_required` condition. You may enable/disable it in your custom route:
+
+	:::ruby
+	post '/my_custom_route_many_sources', :client_required => false, :source_required => false, :login_required => false, :admin_required => true do
+		puts "Admin is required here - this is my admin route and client is not required!"
+		# my custom sources_data is a JSON hash-table 
+		user_name = @params['username']
+		sources_data = @params['sources_data']
+		sources_data.each do |source_name, source_data|
+			# do something with data
+		end
+	end
+
+### verbs
+
+You can use this helper condition whenever you need to make some functionality available only to routes with specific verbs. Typically, this can be helpful in your custom `:before` or `:after` filters.
+For example, if you have two routes using the same path, but different verbs (POST and GET) and you want to execute `:before` filter only for the GET route:
+
+	:::ruby
+	class Product < Rhoconnect::Controller::Base
+	  # use my_custom_log before the route is called
+	  before '/my_custom_route', :verbs => ['GET'] do
+	    puts "This code will be executed only before the GET route"
+	  end
+
+	  # route definitions
+	  post '/my_custom_route' do
+	    puts 'my POST route'
+	  end
+
+	  get 'my_custom_route' do
+	  	puts 'My GET route'
+	  end
+	end
+
+### default settings
+
+Every user-defined Source Adapter Controller has certain conditions enabled by default. This means that whenever you're defining your custom route inside of the Source Adapter Controller, it will implicitly install several conditions. Below is the list of the conditions installed by default:
+
+	* :source_required => true
+	* :client_required => true
+	* :login_required => true
+
+NOTE: If you want disable one of predefined conditions, then you should do it manually inside of your custom routes declaration.

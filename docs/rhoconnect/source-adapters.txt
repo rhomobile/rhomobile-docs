@@ -131,10 +131,11 @@ During generation of the model, the `settings/settings.yml` file will be updated
 You can use the following methods and techniques inside of your source adapter controller.
 
 * [register Rhoconnect::EndPoint](/rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::EndPoint) - adds Controller into the application's URL Map.
-* [resgiter Rhoconnect::Handler::Sync](/rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::Handler::Sync) - adds SYNC routes to your Controller.
+* [register Rhoconnect::Handler::Sync](/rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::Handler::Sync) - adds SYNC routes to your Controller.
+* [pre-defined conditions](/rhoconnectapi/source-adapter-controller-api-ruby#pre-defined-conditions) - adds common helpers and conditions to your routes.
 * [@model](/rhoconnectapi/source-adapter-controller-api-ruby#@model) - Access to the source adapter's model instance.
 * [params,request,response](/rhoconnectapi/source-adapter-controller-api-ruby#sinatra-context) - Allows to use any standard Sinatra context objects.
-* [Sinatra framework](/rhoconnectapi/source-adapter-controller-api-ruby#sinatra-features) - Allows to use any standard Sinatra features.
+* [Sinatra framework](/rhoconnectapi/source-adapter-controller-api-ruby#sinatra-framework) - Allows to use any standard Sinatra features.
 
 ### Source Adapter Model API (Ruby)
 
