@@ -91,6 +91,7 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/localization',       'Localization'
   topic 'guide/maps',       'Mapping'
   topic 'guide/media',       'Media'
+  topic 'guide/native_ui_elements', 'Native UI Components'
   topic 'guide/interfacing_with_the_network', 'Network Interfacing'
   topic 'guide/nfc',       'NFC'
   topic 'guide/screen_orientation', 'Orientation and Repsonsive Design'
