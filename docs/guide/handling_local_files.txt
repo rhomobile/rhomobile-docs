@@ -36,11 +36,11 @@ Javascript:
 
 	:::javascript
 	// Get and show the various app folders
-   var appFolder = Rho.Application.appBundleFolder;
-   var appsBundleFolder = Rho.Application.appsBundleFolder;
-   var databaseBlobFolder = Rho.Application.databaseBlobFolder;
-   var publicFolder = Rho.Application.publicFolder;
-   var userFolder = Rho.Application.userFolder;
+    var appFolder = Rho.Application.appBundleFolder;
+    var appsBundleFolder = Rho.Application.appsBundleFolder;
+    var databaseBlobFolder = Rho.Application.databaseBlobFolder;
+    var publicFolder = Rho.Application.publicFolder;
+    var userFolder = Rho.Application.userFolder;
    
 
 ## Saving files from the network to the device
@@ -98,8 +98,61 @@ Javascript:
 
 ## Exporting the database for backup purposes
 
-TODO: link to the guide called "Local database"
+The [Datebase API](../api/Database) allows your application to export the contents of the current database to zip archive. For example, open default database with help of [Application API](../api/Application) and export it . Export method can be accessed via an instance object of this class as shown below,
+
+Ruby:
+
+    :::ruby
+    # open default database
+    db = Rho::Database.new(Rho::Application.databaseFilePath("user"),"user")
+    # export database
+    export_path = db.export
+    db.close
+    Rho::Notification.showPopup({
+      :message => "Export path - #{export_path}",
+      :buttons => ["OK"]
+    })
+
+
+Javascript:
+
+    :::javascript
+    // open default database
+    var db = new Rho.Database(Rho.Application.databaseFilePath('user'), 'user');
+    // export database
+    var db = open_db();
+    var export_path = db.export();
+    db.close();
+    alert("Export path - " + export_path);
+
+
 
 ## Zipping and unzipping files
+You can zip any files and extract zip archives. The [System API](../api/System) helps your application to zip or unzip any files. Zip archive must placed to folder where application can write files. Examples are 
+
+Ruby:
+
+    :::ruby
+    # zip list of files
+    local_path_to_zip = Rho::RhoFile.join(Rho::Application.publicFolder, "sample.zip")
+    local_path_to_file = Rho::RhoFile.join(Rho::Application.publicFolder, "sample.txt")
+    Rho::System.zipFile(local_path_to_zip, local_path_to_file)
+    
+    # unzip a file 
+    local_path_to_zip = Rho::RhoFile.join(Rho::Application.publicFolder, "sample.zip")
+    Rho::System.unzipFile(local_path_to_zip)
 
 
+Javascript:
+
+    :::javascript
+    // zip list of files
+    var local_path_to_zip = Rho.RhoFile.join(Rho.Application.publicFolder, "sample.zip");
+    var local_path_to_file = Rho.RhoFile.join(Rho.Application.publicFolder, "sample.txt");
+    Rho.System.zipFile(local_path_to_zip, local_path_to_file);
+    
+    // unzip a file 
+    var local_path_to_zip = Rho.RhoFile.join(Rho.Application.publicFolder, "sample.zip");
+    Rho.System.unzipFile(local_path_to_zip);
+
+  
