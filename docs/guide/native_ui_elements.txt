@@ -95,7 +95,7 @@ Javascript:
     	Rho.Notification.showPopup("Switching to tab "+params.tab_index);
     }
 
-![NativeTabbar](/images/native_ui_elements/nativetabbar.png)
+![NativeTabbar](http://rhodocs-images.s3.amazonaws.com/guide/native_ui_elements/nativetabbar.png)
 
 Apart from `label` and `action`, there are more properties you can specify for each tab, including `icon` and `disabled` among others. Refer to [NativeTabbar.create](../api/NativeTabbar#mcreate) for the complete list.
 
@@ -177,7 +177,7 @@ Javascript:
     	}
 	],
 	{}
-   )
+   );
 
 ### Use cases
 
@@ -224,7 +224,7 @@ Javascript:
         action : "http://www.example.com"
       },
       title : "Hello World"
-    })
+    });
 
 
 ### Use cases
@@ -239,15 +239,131 @@ Javascript:
 * jQuery Mobile emulates the NavBar and provides an HTML+Javascript equivalent by default. Do not use both, as that tends to be confusing and waste screen real estate.
 
 
-## NativeMenuBar
+## NativeMenubar
+
+The `NativeMenubar` component allows you to interact with the native application menus of the different platforms. Android and Windows Mobile both have a main menu, plus WM has an extra menu that can be leveraged for less-frequently used actions when there are too many items on the main menu.
+
+
 
 ### Usage
+
+`NativeMenu.mainMenu` and `NativeMenu.extraMenu` are simple arrays where you can add or remove items as required. Each item is represented by a `hash` with the following keys:
+
+* `label` : user-visible text that identifies the item
+* `action` : either a callback that will be invoked when the item is selected or one of the predefined special values
+* `disabled` : if present, the item will be visible but not selectable
+
+### Example
+
 Ruby:
 	:::ruby
+    def tweak_menus
+        Rho::NativeMenubar.extraButton = {
+            :label => "Extra"
+        }
+
+        Rho::NativeMenubar.extraMenu = [
+          {
+            :label => "Show alert 1",
+            :action => url_for(:action => :show_alert_1)
+          },
+          {
+            :label => "Show alert 2",
+            :action => url_for(:action => :show_alert_2)
+          },
+          {
+            :label => "Win the lottery",
+            :disabled => true # sorry! maybe in the next version. Pull requests welcome
+          }
+        ]
+
+    end
+
+    def show_alert_1
+        Rho::Notification.showPopup({
+          :message => "This alert was invoked from a NativeMenubar item",
+          :buttons => ["OK"]
+        })
+        render :action => :menubar_menu    
+    end
+    
+    def show_alert_2
+      Rho::Notification.showPopup({
+        :message => "This is another alert, also called from the NativeMenubar",
+        :buttons => ["OK"]
+      })
+      render :action => :menubar_menu    
+    end
+  
+    def remove_menuitems
+        Rho::NativeMenubar.extraMenu = []
+        render :action => :menubar_menu
+    end
+
 
 Javascript:
 	:::javascript
+    function show_alert_1() {
+        alert("This alert was invoked from a NativeMenubar item");
+    }
 
+    function show_alert_2() {
+        alert("This is another alert, also called from the NativeMenubar");
+    }
+    
+    function create_menuitems() {
+        Rho.NativeMenubar.extraButton = {
+            label : "Extra"
+        };
+        
+        Rho.NativeMenubar.extraMenu = [
+        {
+          label : "Show alert 1",
+          action : show_alert_1,
+        },
+        {
+          label : "Show alert 2",
+          action : show_alert_2,
+        },
+        {
+          label : "Win the lottery",
+          disabled : true // sorry! maybe in the next version. Pull requests welcome
+        }
+      ];
+    }
+    
+    function remove_menuitems() {
+        Rho.NativeMenubar.mainMenu = [];
+        Rho.NativeMenubar.extraMenu = [];
+    }
 
-### Use cases
 ### Considerations
+
+* Use `NativeMenubar` to provide quick access to frequently-used actions, but do not rely on it to be the only way to access functionality.
+
+* Avoid having more than a few items in a menu. Windows Mobile allows menus to scroll if the number of items does not fit the screen but this process requires very precise aiming and is very prone to error. If you have many actions that are performed with equal frequency, consider adding a single item that takes the user to a new page with larger buttons.
+
+
+## Predefined actions
+
+The following predefined strings are recognized as values for the `action` key with special meanings:
+
+* `separator` : inserts a separator line between items
+* `exit` or `close` : quit the application
+* `options` : navigate to the "settings" page as defined in rhoconfig.txt or Application.settingsPageURI
+* `home` : navigate to the home page as defined in rhoconfig.txt or Application.startURI
+* `refresh` : reload the current page (equivalent to [WebView.refresh](../api/webview#mrefresh))
+* `back` : navigate to the previous page (equivalent to [WebView.navigateBack](../api/webview#mnavigateBack))
+* `log` : open the log viewer dialog (equivalent to [Log.showLog](../api/Log#mshowLog))
+* `fullscreen` : toggle fullscreen mode (equivalent to [WebView.fullScreen](../api/webview#pfullScreen))
+* `sync` : invoke [RhoConnectClient.doSync](../api/RhoConnectClient#mdoSync)
+* `minimize` : invoke [Application.minimize](../api/Application#mminimize)
+* `SIP` : toggle the on-screen virtual keyboard (WM only)
+
+
+## Related reading
+
+* [NativeTabbar](../api/NativeTabbar)
+* [NativeToolbar](../api/NativeToolbar)
+* [NativeMenubar](../api/NativeMenubar)
+* [WebView](../api/webview)
