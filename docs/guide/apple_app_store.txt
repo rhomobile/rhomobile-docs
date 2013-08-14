@@ -41,7 +41,7 @@ Here is an example of the iPhone settings in build.yml for a finished applicatio
 
 Refer to (/guide/build_ios#building-the-application-for-the-ios-device) for detailed list of settings used in `build.yml`.
 
-## Creating the signed APK
+## Creating the signed APP file
 
 Once your `build.yml` is set up, you can run:
 
