@@ -86,7 +86,7 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/device_information_and_abilities',       'Detecting Device Abilities'
   topic 'guide/hardware_accleration',       'Hardware Accleration'
   topic 'guide/html5',       'Html5 Features'
-  topic 'guide/filesystem',       'File System'
+  topic 'guide/handling_local_files',       'File System'
   topic 'guide/geolocation',       'Geolocation'
   topic 'guide/localization',       'Localization'
   topic 'guide/maps',       'Mapping'
