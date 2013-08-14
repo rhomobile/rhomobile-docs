@@ -22,24 +22,24 @@ The [Application API](../api/Application) allows you to find where each part of 
 
 Ruby:
 
-  :::ruby
-  # Get the various app folders
-  appFolder = Rho::Application.appBundleFolder
-  appsBundleFolder = Rho::Application.appsBundleFolder
-  databaseBlobFolder = Rho::Application.databaseBlobFolder
-  publicFolder = Rho::Application.publicFolder
-  userFolder = Rho::Application.userFolder
+    :::ruby
+    # Get the various app folders
+    appFolder = Rho::Application.appBundleFolder
+    appsBundleFolder = Rho::Application.appsBundleFolder
+    databaseBlobFolder = Rho::Application.databaseBlobFolder
+    publicFolder = Rho::Application.publicFolder
+    userFolder = Rho::Application.userFolder
 
 
 Javascript:
 
-  :::javascript
-  // Get the various app folders
-  var appFolder = Rho.Application.appBundleFolder;
-  var appsBundleFolder = Rho.Application.appsBundleFolder;
-  var databaseBlobFolder = Rho.Application.databaseBlobFolder;
-  var publicFolder = Rho.Application.publicFolder;
-  var userFolder = Rho.Application.userFolder;
+    :::javascript
+    // Get the various app folders
+    var appFolder = Rho.Application.appBundleFolder;
+    var appsBundleFolder = Rho.Application.appsBundleFolder;
+    var databaseBlobFolder = Rho.Application.databaseBlobFolder;
+    var publicFolder = Rho.Application.publicFolder;
+    var userFolder = Rho.Application.userFolder;
 
 Each folder stores a particular type of content:
 
@@ -53,14 +53,14 @@ Each folder stores a particular type of content:
 Once you know where a file is stored, you can read it with the [RhoFile API](../api/File), which allows you to work with text files from both Ruby and Javascript (note that binary files are not supported)
 
 Ruby:
-  :::ruby
-  filename = Rho::RhoFile.join(Rho::Application.publicFolder, 'sample.txt') # build the path
-  contents = Rho::RhoFile.read(filename) # read the file into a variable
+    :::ruby
+    filename = Rho::RhoFile.join(Rho::Application.publicFolder, 'sample.txt') # build the path
+    contents = Rho::RhoFile.read(filename) # read the file into a variable
 
 Javascript:
-  :::javascript
-  filename = Rho.RhoFile.join(Rho.Application.publicFolder, 'sample.txt') // build the path
-  contents = Rho.RhoFile.read(filename) // read the file into a variable
+    :::javascript
+    filename = Rho.RhoFile.join(Rho.Application.publicFolder, 'sample.txt') // build the path
+    contents = Rho.RhoFile.read(filename) // read the file into a variable
 
 
 ## Saving files from the network to the device
@@ -71,39 +71,39 @@ You can download files from an external server and store them on your device. Th
 
 Ruby:
 
-	:::ruby 
-	def download_file
-    #Download a file to the specified filename.
-    downloadfileProps = Hash.new
-    downloadfileProps["url"]='http://www.google.com/images/icons/product/chrome-48.png'
-    downloadfileProps["filename"] = Rho::RhoFile.join(Rho::Application.userFolder, "sample.png")
-    downloadfileProps["overwriteFile"] = true
-    Rho::Network.downloadFile(downloadfileProps, url_for(:action => :download_file_callback))
-	end
-  
-	def download_file_callback
-  	if @params["status"] == "ok"
-      	Rho::Notification.showPopup({
-      		:message => "Download Success. File saved to " + Rho::RhoFile.join(Rho::Application.userFolder, "sample.png"),
-      		:buttons => ["OK"]
-    		})
-  	else
-      	Rho::Notification.showPopup({
-      		:message => "Download Failed",
-      		:buttons => ["OK"]
-    		})
+  	:::ruby 
+  	def download_file
+      #Download a file to the specified filename.
+      downloadfileProps = Hash.new
+      downloadfileProps["url"]='http://www.google.com/images/icons/product/chrome-48.png'
+      downloadfileProps["filename"] = Rho::RhoFile.join(Rho::Application.userFolder, "sample.png")
+      downloadfileProps["overwriteFile"] = true
+      Rho::Network.downloadFile(downloadfileProps, url_for(:action => :download_file_callback))
   	end
-	end
+  
+  	def download_file_callback
+    	if @params["status"] == "ok"
+        	Rho::Notification.showPopup({
+        		:message => "Download Success. File saved to " + Rho::RhoFile.join(Rho::Application.userFolder, "sample.png"),
+        		:buttons => ["OK"]
+      		})
+    	else
+        	Rho::Notification.showPopup({
+        		:message => "Download Failed",
+        		:buttons => ["OK"]
+      		})
+    	end
+  	end
 
 Javascript:
 	
-	:::javascript
-	function download_file_callback(params) {
-  	if (params["status"] == "ok") {
-			alert("Download Succeeded. File saved to "+Rho.RhoFile.join(Rho.Application.userFolder, "sample.png"));
-		} else {
-			alert("Download Failed");
-		}
+  	:::javascript
+  	function download_file_callback(params) {
+    	if (params["status"] == "ok") {
+  			alert("Download Succeeded. File saved to "+Rho.RhoFile.join(Rho.Application.userFolder, "sample.png"));
+  		} else {
+  			alert("Download Failed");
+  		}
     }
 
     function download_file() {
