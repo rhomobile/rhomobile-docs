@@ -3,6 +3,18 @@
 ## Setup
 Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-ios) for building iOS applications.
 
+### Using RhoHub
+
+Alternatively, you can create the device builds with RhoHub. RhoHub is a cloud based service that integrates with RhoStudio to allow building and packaging apps for all platforms.
+
+You can use it:
+
+* to avoid installing SDKs locally
+* to quickly get you up and running
+* for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
+
+See the [RhoHub tutorial](/guide/rhohubtutorial) for more details.
+
 ## Building and Running Your iOS Application with RhoStudio
 
 To start the build process, create a Run Configuration: select your project in the Project Explorer, and do one of the following actions.
@@ -77,10 +89,6 @@ If you want to build/run/debug your application on devices before iPhone4/iPad (
 * Remove `$(ARCHS_STANDARD_32_BIT)` and replace by typing `armv6`.
 * Use the plus button to add a new row. Type `armv7`.
 * Click Done.
-
-## Building and Releasing on App Store
-
-Once you have the application building with Xcode as described above, it is treated as any other iPhone application when it comes to [signing and distributing to the app store](http://developer.apple.com/iphone/appstore/). 
 
 ## Restoring rhorunner.xcodeproj
 
@@ -176,7 +184,7 @@ Here is an example of the iPhone settings in build.yml for a finished applicatio
 	  BundleIdentifier: com.johnsmithcompany.jsapp
 	  BundleURLScheme: jsapp
 
-## Creating Your Application Package
+### Creating Your Application Package
 
 Now you can create your .app file with this rake command:
 
@@ -198,3 +206,75 @@ Use <b>iTunes</b> for installing your application package (your_application_name
 * Select the <b>Apps</b> tab in your iTunes device screen.
 * In the Sync Apps list, check your application.
 * Perform a sync. Your application is installed to your device.
+
+## Building the application for the Apple App Store
+
+After you have tested your RhoMobile application on your iOS device and tweaked it as required, you can prepare your application for publishing to the App Store.
+
+### Modifying the build.yml
+
+Update your application's `build.yml` file, change configuration to Distribution, and make sure `sdk` is set to to iphoneos and add information such as codesignidentity.
+
+Here is an example of the iPhone settings in build.yml for distribution:
+
+    :::yaml
+    name: JS App
+    version: 1.0
+    iphone: 
+        provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6 
+        sdk: iphoneos4.2
+        codesignidentity: "iPhone Developer: John Smith (MF99RW67WY)"
+        entitlements: ""
+        configuration: Distribution
+        BundleIdentifier: com.johnsmithcompany.jsapp
+        BundleURLScheme: jsapp                
+        
+### Setting your application name, icon and loading screen
+
+You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](/guide/app_icon_splash) guide for detailed information.
+
+### Turn off developer options
+
+Update your application's configuration files to make sure developer / debug / profile options are turned off.
+
+The below values can be used as a guide for `rhoconfig.txt`, skip any setting which is not already present.
+
+    MinSeverity  = 3
+    LogToOutput = 0
+    net_trace = 0
+    log_skip_post = 0
+    
+The below values can be used as a guide for `build.yml`, skip any setting which is not already present.
+
+    profiler: 0
+
+### Creating your application package
+
+Once you have finished configuration, you can run:
+
+    :::term
+    $ rake device:iphone:production
+
+The signed package named `[app-name].app` will be created in `<app-dir>/bin/target/iOS/[sdkname]/Distribution/`. 
+
+## Publishing on the Apple App Store
+
+### Getting a iOS Developer Program account
+
+To publish your application on the App Store you need a iOS Developer Program account. Enroll [here](https://developer.apple.com/programs/ios/).
+
+### Getting a distribution provisioning profile
+
+You need a "distribution provisioning profile" to sign your application before it can be submitted to the App Store. See [Creating Store Provisioning Profiles](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html#//apple_ref/doc/uid/TP40012582-CH9-SW8) for steps to create and download a distribution provisioning profile.
+
+### Prepare for App Review
+
+To ensure that your application passes the app store approval process go through the [Guidelines](https://developer.apple.com/appstore/guidelines.html) carefully.
+
+Consider using [native UI elements](/guide/native_ui_elements), like tab bar, where possible to make it easier for your application to pass the review.
+
+### Submitting your application
+
+When you are ready to submit your application, you can do it [using XCode](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html#//apple_ref/doc/uid/TP40012582-CH9-SW20) or [using Application Loader](https://itunesconnect.apple.com/docs/UsingApplicationLoader.pdf)
+
+Once your application is submitted successfully you can view its review status by referring to [these](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/UsingiTunesConnect/UsingiTunesConnect.html#//apple_ref/doc/uid/TP40012582-CH22-SW8) steps.
