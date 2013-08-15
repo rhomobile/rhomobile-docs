@@ -3,6 +3,18 @@
 ## Setup
 Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-android) for building Android applications.
 
+### Using RhoHub
+
+Alternatively, you can create the device builds with RhoHub. RhoHub is a cloud based service that integrates with RhoStudio to allow building and packaging apps for all platforms.
+
+You can use it:
+
+* to avoid installing SDKs locally
+* to quickly get you up and running
+* for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
+
+See the [RhoHub tutorial](/guide/rhohubtutorial) for more details.
+
 ## Set up minimal Android SDK API level
 
 The minimal API level supported by Rhodes is 4 (Android 1.6)
@@ -153,6 +165,8 @@ To see all the device messages, run `adb -d logcat` and start the application on
 
 ## Building an Android Production Version
 
+### Modifying the build.yml
+
 To build a production version of your application, edit your application's build.yml as below:
 
 	android:
@@ -163,15 +177,72 @@ To build a production version of your application, edit your application's build
 
 This will use the specified certificate to sign your application. If the certificate is not found, it will be auto-generated, and you'll be prompted with several questions like your name, organization etc. The path to the certificate may be absolute or relative to your app directory. If you don't want to use an auto-generated certificate, refer to the [these instructions](http://developer.android.com/guide/publishing/app-signing.html) on how to create a certificate manually.
 
-Once your certificate is set up, you can run:
+### Setting your application name, icon and loading screen
+
+You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](../app_icon_splash) guide for detailed information.
+
+You can refer to the [recommended icon guidelines](http://developer.android.com/design/style/iconography.html).
+
+### Turn off developer options
+
+Update your application's configuration files to make sure developer / debug / profile options are turned off.
+
+The below values can be used as a guide for `rhoconfig.txt`, skip any setting which is not already present.
+
+    MinSeverity  = 3
+    LogToOutput = 0
+    net_trace = 0
+    log_skip_post = 0
+    
+The below values can be used as a guide for `build.yml`, skip any setting which is not already present.
+
+    profiler: 0
+
+### Creating your application package
+
+Once your configuration is set up, you can run:
 
 	:::term
 	$ rake device:android:production
 
-The signed APK will be located in `<rhodes-app-dir>/bin/target`. To install the application on the device run:
+The signed APK will be located in `<rhodes-app-dir>/bin/target`. 
+
+## Installing Your Application Package to Your Android Device
+
+To install the application on the device run:
 
 	:::term
 	$ adb -d install -r <rhodes-app-dir>/bin/target/<app-name>_signed.apk
+
+## Publishing on Google Play
+
+### Getting a Google Play publisher account
+
+To publish your application on Google Play you need a publisher account. Visit the [Google Play Developer Console](https://play.google.com/apps/publish/) to create one.
+
+### Getting a Google Wallet Merchant account
+
+If you want to sell your application on Google Play, you will also need to set up a Merchant Account.
+
+To setup a merchant account:
+    
+* Login to the [Developer Console](https://play.google.com/apps/publish/)
+* Goto 'Financial reports' and then click on 'Setup a Merchant Account now'.
+    
+### Uploading and Publishing your application
+
+The Google Play [Launch Checklist](http://developer.android.com/distribute/googleplay/publish/preparing.html) has detailed steps needed to publish your application.
+
+Below is a short summary of the steps to be done on the Developer Console:
+
+* Choose the content rating for your application
+* Choose the countries for distribution
+* Choose the compatible devices for your application
+* Choose your pricing (or free)
+* Add screenshots, video, license agreement, etc.
+* Uploading the APK
+* Complete the application's product details
+* Publish
 
 ## Using Linux
 
