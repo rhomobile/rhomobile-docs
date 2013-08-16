@@ -3,6 +3,18 @@
 ## Setup
 Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-windows-phone-8) for building Windows Phone 8 applications.
 
+### Using RhoHub
+
+Alternatively, you can create the device builds with RhoHub. RhoHub is a cloud based service that integrates with RhoStudio to allow building and packaging apps for all platforms.
+
+You can use it:
+
+* to avoid installing SDKs locally
+* to quickly get you up and running
+* for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
+
+See the [RhoHub tutorial](/guide/rhohubtutorial) for more details.
+
 ## Application changes
     
 * Add to application build.yml productid GUID. For example:
@@ -41,3 +53,43 @@ NOTE: When running on device you may need to disconnect USB cable from device to
 * Run emulator by pressing Start Debugging or Start Without Debugging
 * After Application code modifications , build Rhodes solution and Start Debugging. DO NOT close emulator!
 * See log in VS output console (Debug mode only)
+
+## Building the application for the Windows Phone Store
+
+### Modifying the build.yml
+
+TODO: anything extra to be done other than what is already above?
+
+### Setting your application name, icon and loading screen
+
+You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](/guide/app_icon_splash) guide for detailed information.
+
+### Turn off developer options
+
+Update your application's configuration files to make sure developer / debug / profile options are turned off.
+
+The below values can be used as a guide for `rhoconfig.txt`, skip any setting which is not already present.
+
+    MinSeverity  = 3
+    LogToOutput = 0
+    net_trace = 0
+    log_skip_post = 0
+    
+The below values can be used as a guide for `build.yml`, skip any setting which is not already present.
+
+    profiler: 0 
+
+### Creating your application package 
+
+Once your `build.yml` is set up, you can run:
+
+    :::term
+    $ rake device:wp8:production
+    
+TODO: where is the output file?
+
+## Publishing on Windows Phone Store
+    
+To publish your app on Windows Phone Store you need a [Windows Phone Dev Center account](http://dev.windowsphone.com/en-us/join).
+
+Refer to the docs at the [Windows Phone Dev Center](http://developer.windowsphone.com/en-us/publish) for further steps to publish to the Windows Phone Store.
