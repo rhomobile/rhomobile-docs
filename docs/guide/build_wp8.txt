@@ -82,7 +82,7 @@ Once your `build.yml` is set up, you can run:
     :::term
     $ rake device:wp8:production
     
-TODO: where is the output file?
+The compiled application .xap file will be located in `<your project folder>\bin\target\wp8`
 
 ## Publishing on Windows Phone Store
 
