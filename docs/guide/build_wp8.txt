@@ -17,11 +17,11 @@ See the [RhoHub tutorial](/guide/rhohubtutorial) for more details.
 
 ## Application changes
     
-* Add to application build.yml productid GUID. For example:
+* Add a productid GUID to application build.yml . For example:
 
         wp:
           productid: 632621d0-5ecb-012e-2c97-482a1411c191
-NOTE: When you use rhodes command to generate application, productid is generated automatically
+NOTE: When you use the `rhodes app` command to generate an application, a productid is generated automatically
 
 ## Build and run using Rhodes gem
 
