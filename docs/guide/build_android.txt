@@ -244,17 +244,21 @@ Below is a short summary of the steps to be done on the Developer Console:
 * Complete the application's product details
 * Publish
 
+Refer to the [Google Play developer console](https://developer.android.com/distribute/googleplay/publish/console.html) documentation for more information and step-by-step instructions.
+
+## Publishing on other Android marketplaces
+
+Because Android is an open platform, you are not limited to publishing only on the Google Play store: you can also distribute your .apk packages directly to end-users as a download, or sign up for alternative marketplaces such as the [Amazon Appstore for Android](http://www.amazon.com/mobile-apps/b?ie=UTF8&node=2350149011) ([Developer reference documentation](https://developer.amazon.com/welcome.html))
+
 ## Using Linux
 
 On Macintosh and Windows computers, you can create RhoMobile apps within RhoStudio. However, on Linux installations, you can use Eclipse, since RhoStudio is not available for Linux.
-
-Please note: It is only Google API target (with Google mapping API) supported for Eclipse.
 
 Create a new workspace in the following directory: `<Rhodes>/platform/android`
 
 In Eclipse, open Window > Preferences.
 
-Click on Android node in the tree and specify the file path to the installed Android SDK (for example: `E:\android\android-sdk`).
+Click on Android node in the tree and specify the file path to the installed Android SDK (for example: `~/android-sdk`).
 
 Import all projects from the directory for your new workspace: `<Rhodes>/platform/android`
 
