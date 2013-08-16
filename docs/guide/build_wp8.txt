@@ -56,10 +56,6 @@ NOTE: When running on device you may need to disconnect USB cable from device to
 
 ## Building the application for the Windows Phone Store
 
-### Modifying the build.yml
-
-TODO: anything extra to be done other than what is already above?
-
 ### Setting your application name, icon and loading screen
 
 You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](/guide/app_icon_splash) guide for detailed information.
@@ -89,7 +85,17 @@ Once your `build.yml` is set up, you can run:
 TODO: where is the output file?
 
 ## Publishing on Windows Phone Store
-    
-To publish your app on Windows Phone Store you need a [Windows Phone Dev Center account](http://dev.windowsphone.com/en-us/join).
 
-Refer to the docs at the [Windows Phone Dev Center](http://developer.windowsphone.com/en-us/publish) for further steps to publish to the Windows Phone Store.
+### Getting a Windows Phone Dev Center account
+
+To publish your app on Windows Phone Store you need a [Dev Center account](http://dev.windowsphone.com/en-us/join).
+
+### Uploading and Publishing your application
+
+Publishing your application on Windows Phone Store is a simple two step process:
+
+* First [create your app info](http://msdn.microsoft.com/library/windowsphone/help/jj206733%28v=vs.105%29.aspx). This includes information like pricing, application category (business, entertainment, etc.)
+
+* Next [upload and describe your XAP](http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206723%28v=vs.105%29.aspx). This includes details like the application description, icon and screenshots etc.
+
+Refer to the [official docs](http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206736%28v=vs.105%29.aspx) for all details about publishing to the Windows Phone Store.
