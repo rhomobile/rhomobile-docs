@@ -259,9 +259,20 @@ The signed package named `[app-name].app` will be created in `<app-dir>/bin/targ
 
 ## Publishing on the Apple App Store
 
-### Getting a iOS Developer Program account
+When your application is ready to be distributed to other users, either for beta testing or for deployment, you have several options:
 
-To publish your application on the App Store you need a iOS Developer Program account. Enroll [here](https://developer.apple.com/programs/ios/).
+* Sending the application to users directly, also called Ad-Hoc distribution (for testing purposes only, some limitations apply)
+* Uploading your application to the public App Store
+* Distributing it under the iOS Enterprise Distribution program (for in-house use only)
+
+All options require you to be enrolled in one of [Apple's iOS Developer Programs](https://developer.apple.com/programs/start/ios/) and to have created signing certificates. iOS code signing and certificate management are often a stumbling block for newcomers to the platform; refer to [About App Distribution](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html) and read the instructions carefully.
+
+### Ad-Hoc distribution
+
+For application testing purposes, Apple allows you to designate up to 100 devices that will be able to install your application. When you have the devices signed up in iTunes Connect (Apple's app management portal), create a distribution certificate and ad-hoc provisioning profile. Together, these two files allow you to digitally sign your application and install it on the registered devices.
+
+See the section called [Beta Testing Your iOS App](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/TestingYouriOSApp/TestingYouriOSApp.html#//apple_ref/doc/uid/TP40012582-CH8-SW1) in Apple's documentation for the details. 
+
 
 ### Getting a distribution provisioning profile
 
@@ -271,7 +282,7 @@ You need a "distribution provisioning profile" to sign your application before i
 
 To ensure that your application passes the app store approval process go through the [Guidelines](https://developer.apple.com/appstore/guidelines.html) carefully.
 
-Consider using [native UI elements](/guide/native_ui_elements), like tab bar, where possible to make it easier for your application to pass the review.
+Many applications can benefit from using [native UI elements](/guide/native_ui_elements), like the [native tab bar](../api/NativeTabbar), to better integrate with the rest of the platform. There are plenty of [RhoMobile applications on the App Store](http://pinterest.com/motosolutions/rhomobile-apps/) available already; in general, if your application follows the [iOS Human Interface guidelines](http://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Introduction/Introduction.html) and does not otherwise violate any App Store rule, it will be accepted.
 
 ### Submitting your application
 
