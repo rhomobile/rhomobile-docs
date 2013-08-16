@@ -46,7 +46,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<PARAMS>
 					<PARAM name="dispatch" type="BOOLEAN">
                         <PLATFORM>WM, Android</PLATFORM>
-						<DESC>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. Volume keys are not producing any key-press events</DESC>
+						<DESC>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of volume keys are captured, real sound volume wlll not be changed.</DESC>
 					</PARAM>
 					<PARAM name="keyValue" type="STRING">
 						<DESC>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). Alternatively, this parameter can be set to 'all'. This value will capture all hardware key presses. This parameter needs to be passed as a string (for example '101' or '0x65' or 'all').</DESC>
