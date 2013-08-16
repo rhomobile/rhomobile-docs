@@ -12,7 +12,7 @@ This guide covers the last option, platform-specific emulators.
 
 Most mobile platforms provide a way to emulate a device on a regular PC for development purposes; this allows you to test on a variety of simulated hardware (different screen sizes, different amounts of RAM, etc.) without the need to have every type of device on hand.
 
-iOS provides a simulator instead of an emulator. The difference lies in that, while an emulator virtualizes the hardware and runs the same code as the real device, a simulator, as the name imples, merely simulates the device, but the code running underneath is not the same as what a real device would execute. Technically, an emulator is a more faithful representation of the device, but in practice, both options
+iOS provides a simulator instead of an emulator. The difference lies in that, while an emulator virtualizes the target hardware and runs the same code as the real device, a simulator, as the name imples, merely simulates the device, but the code running underneath is not the same as what a real device would execute. Technically, an emulator is a more faithful representation of the device, but in practice, both options work sufficiently well to be able to develop and test applications.
 
 
 ## What to expect. Differences between emulators and a real device
@@ -48,9 +48,31 @@ Refer to [Google's documentation on using the Android emulator](http://developer
 
 The iOS simulator is integrated with XCode. Unlike trying to deploy an application on a real iPhone/iPad, running on the simulator does not require a paid developer account or provisioning certificate.
 
+Refer to the section [Running your application](creating_a_project#running-your-application) and select "Simulator" instead of "RhoSimulator" to use the iOS simulator. Alternatively, you can also invoke the iOS simulator from the commad line with:
+
+	:::term
+	rake run:iphone
+
+Once running, use the `Hardware` menu to simulate rotating or shaking the device, or the `Debug / Location` option if your application uses geolocation and you want to test that feature.
+
+The complete documentation for all iOS Simulator features can be found at [Interacting with iOS Simulator](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/InteractingwiththeiOSSimulator/InteractingwiththeiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH3-SW1)
+
 ## Windows Phone 8
 
 The Windows Phone 8 SDK can be [freely downloaded](https://dev.windowsphone.com/en-us/downloadsdk) and will integrate with Visual Studio 2012 automatically.
 
 **NOTE: If you are running Windows on a virtual machine, the emulator may fail to start and the system will show an error message like "xde.exe has stopped working". Running the WP8 emulator on a virtual machine is not officially supported by Microsoft, but it is possible to make it work if you enable "Nested VT" (Parallels) / "Virtualize Intel VT-x/EPT or AMD-V/RVI" (VMWare) on your virtualization host software. At the time of this writing, VirtualBox does not support nested virtualization.**
 
+When the emulator is running, locate the toolbar:
+
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/using_emulators/toolbar.png" alt="Windows Phone 8 emulator toolbar" />
+
+and click the icon with the double arrow pointing to the right to reveal an additional set of tools, where you can simulate
+
+* moving the device in 3D space, to [test the accelerometer](http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202936(v=vs.105).aspx)
+
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/using_emulators/accelerometer.png" alt="Windows Phone 8 emulator accelerometer test" />
+
+* [Test location data](http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202933(v=vs.105).aspx)
+
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/using_emulators/location.png" alt="Windows Phone 8 emulator fake GPS coordinates" />
