@@ -476,7 +476,7 @@ def self.getconstantlinks(doc)
   	md = ""
   	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
-	  	md += '<div><dl >'
+	  	md += '<div><dl  >'
 	  	s.each_with_index() { |element,index|
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
@@ -667,7 +667,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				element["VALUES"].each() { |velement|
 
 					velement["VALUE"].each() { |vaelement|
-						@propvaldesc = "<dl>"
+						@propvaldesc = "<dl  class='dl-horizontal'>"
 						if !vaelement["DESC"].nil?
 							if !vaelement["DESC"][0].empty?
 								@propvaldesc = vaelement["DESC"][0].to_s
@@ -884,9 +884,10 @@ def self.getparams(element,toplevel)
 					valuetype = param["type"]
 								
 					if !param["VALUES"].nil?
+						values = "<dl  class='dl-horizontal'>"
+								
 						param["VALUES"].each() { |velement|
 							velement["VALUE"].each() { |vaelement|
-								valdesc = "<dl>"
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
 										valdesc = vaelement["DESC"][0].to_s
@@ -901,9 +902,10 @@ def self.getparams(element,toplevel)
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
 								
 							}
-						values += "</dl>"
+						
 
 						}
+						values += "</dl>"
 					end
 					if values != ""
 						values = "<p><strong>Possible Values</strong> :</p> " + values 
@@ -974,7 +976,7 @@ if !element["PARAM"].nil?
 					if !param["VALUES"].nil?
 						param["VALUES"].each() { |velement|
 							velement["VALUE"].each() { |vaelement|
-								valdesc = "<dl>"
+								valdesc = "<dl  class='dl-horizontal'>"
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
 										valdesc = vaelement["DESC"][0].to_s

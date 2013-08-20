@@ -57,7 +57,7 @@ myvar = Rho::KeyCapture.homeKeyValue</code></pre></div></div>  </div>
 <a name='Constants'></a>
 <h2><i class='icon-tag'></i>Constants</h2>
 
-<div><dl ><a name='c0'></a><dt>IPHONE_VOLUME_UP</dt><dd><p>iPhone volume up keyCode</p>
+<div><dl  ><a name='c0'></a><dt>IPHONE_VOLUME_UP</dt><dd><p>iPhone volume up keyCode</p>
 </dd><a name='c1'></a><dt>IPHONE_VOLUME_DOWN</dt><dd><p>iPhone volume down keyCode</p>
 </dd></dl></div>
 <a name='Examples'></a>

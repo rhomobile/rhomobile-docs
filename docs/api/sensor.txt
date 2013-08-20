@@ -110,7 +110,7 @@ myvar = Rho::Sensor.getProperties(['type' , 'another_property'])</code></pre></d
 <a name='Constants'></a>
 <h2><i class='icon-tag'></i>Constants</h2>
 
-<div><dl ><a name='c0'></a><dt>SENSOR_TYPE_ACCELEROMETER</dt><dd><p>Accelerometer sensor type</p>
+<div><dl  ><a name='c0'></a><dt>SENSOR_TYPE_ACCELEROMETER</dt><dd><p>Accelerometer sensor type</p>
 </dd><a name='c1'></a><dt>SENSOR_TYPE_TILT_ANGLE</dt><dd><p>TiltAngle sensor type</p>
 </dd><a name='c2'></a><dt>SENSOR_TYPE_DEVICE_ORIENTATION</dt><dd><p>DeviceOrientation sensor type</p>
 </dd><a name='c3'></a><dt>SENSOR_TYPE_MOTION</dt><dd><p>Motion sensor type</p>
