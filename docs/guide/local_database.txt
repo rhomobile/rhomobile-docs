@@ -329,7 +329,7 @@ For such models if you try to set a property that has not been explicitly define
     obj = Customer.new
     obj.update_attributes(:wrong_address => 'test') #will raise ArgumentError exception
 
-**NOTE: FixedSchema models are 'freezed' by default.**
+**NOTE: FixedSchema models are 'freezed' by default. This is only supported in Ruby models.**
 
 ## Data Migration (fixed schema only)
 

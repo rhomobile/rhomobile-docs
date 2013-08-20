@@ -39,7 +39,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <DESC>Clear notification for the object. Use Rhoconnect-client</DESC>
       </METHOD>
       <METHOD name="deleteAll" generateAPI="false" access="STATIC">
-        <DESC>Delete all Rhodes model objects for a source.
+        <DESC>Delete all Rhodes model objects for a source.For Javascript you cannot specify conditions.
         </DESC>
         <PARAMS>
           <PARAM name="conditions" type="HASH">
