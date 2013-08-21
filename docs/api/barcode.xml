@@ -427,12 +427,12 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Set to false to disable scanning when the battery is low or set to true to enable it. Once disabled the scanner can be enabled again by calling enable().</DESC>
             </PROPERTY>
-            <PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
+            <!--PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>By default if you have enabled the Scanner on a page, through either JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behaviour you can set this option to false and once enabled the Scanner will remain so in the foreground application ultil you disable it.</DESC>
-            </PROPERTY>
+            </PROPERTY-->
             <PROPERTY name="decodeVolume" type="INTEGER" generateAccessors="true" default="5">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
@@ -1643,7 +1643,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<APPLIES msiOnly="true">Motorola Solutions' Scanners which support a hardware or software trigger to invoke the scan.</APPLIES>
                 <PLATFORM>WM,Android</PLATFORM>
-                <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method).  Scanned barcodes will be available to the application through the callback provided to this method.  Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner.  If you do not specify a callback to this method you will received the scanned data as keystrokes.</DESC>
+                <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method).  Scanned barcodes will be available to the application through the callback provided to this method.  Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner.  If you do not specify a callback to this method you will received the scanned data as keystrokes.  Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.</DESC>
 				<BACKWARDS_COMPATIBILITY state="false">
 					<DESC>This method replaces Barcode.enable from RhoElements 2.2 and takes a different prototype, no longer taking a 'deviceName' parameter this method can now be called on the individual scanner instances returned by Barcode.enumerate to control which hardware scanner on the device is enabled.  Please consider using Barcode.take if you only require a 'single shot' scan and Barcode.enable if your user will be using the trigger to return scan events.</DESC>
 				</BACKWARDS_COMPATIBILITY>

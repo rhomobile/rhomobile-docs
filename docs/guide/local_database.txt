@@ -598,7 +598,7 @@ You can directly retrive model object(s) using SQL queries with the `findBySql` 
 
 Ruby syntax:
     :::ruby
-    users = Rho::ORMModel.findBySql('SELECT * FROM User')
+    users = User.findBySql('SELECT * FROM User')
 
 ## Counting objects
 
