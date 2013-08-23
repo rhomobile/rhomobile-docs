@@ -835,7 +835,7 @@ JavaScript syntax:
          db.rollback
         end
 
-*NOTE: If ::Rho::RHO.get_src_db('Model') returns nil, it means that you never called this model's methods before (models are loaded on demand). If you experience this issue, include a call to 'require_source'
+NOTE: If ::Rho::RHO.get_src_db('Model') returns nil, it means that you never called this model's methods before (models are loaded on demand). If you experience this issue, include a call to 'require_source':
 
     :::ruby
     require_source 'Model'  
