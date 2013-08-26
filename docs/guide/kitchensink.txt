@@ -103,9 +103,9 @@ Let's examine now the right-side expression; if we remove the body of the functi
 
 			}
 		) // close grouping brackets
-		() // call a function with no parameters
+		(); // call a function with no parameters
 
-When the Javascript interpreter parses this expression, it will follow approximately this process:
+When the Javascript interpreter parses the right operand, it will follow approximately this process:
 * find the brackets
 * evaluate what is inside them
   - inside the brackets is a function
