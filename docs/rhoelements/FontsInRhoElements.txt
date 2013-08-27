@@ -24,7 +24,7 @@ The current version RhoElements will only understand TrueType fonts.  If you wis
             <StartPage  VALUE="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
           </General>
           <HTMLStyles>
-            <FontFamily <span class="xmlParameter">VALUE</span>="Tahoma" </b>/>
+            <FontFamily VALUE="Tahoma"/>
           </HTMLStyles>
         </Application>
       </Applications>
