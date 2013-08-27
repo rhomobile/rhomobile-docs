@@ -24,7 +24,7 @@ Example of added upper_name method to the model:
 	  	end
 	end
 
-See more details about Data Models [here](/guide/models).
+See more details about Data Models [here](/guide/local_database).
 
 ## Views (Templates)
 Each controller action usually associated with a View template. The .erb files mentioned above are the templates used for views. Rhodes follows the Rails convention for template naming.

@@ -6,6 +6,10 @@ section 'getting-started', 'Introduction','Mobile Guides' do
   topic 'guide/devenvironment',  'Developer Environments'
   topic 'guide/appdesign',   'App Architecture'
   topic 'guide/uichoices',      'UI Architecture'
+  topic 'guide/kitchensink',                 'Kitchen Sink Demo'
+  topic 'guide/apiusage',      '2.2 Migration Guide'
+  topic 'guide/api_js', 'RhoMobile Javascript Usage'
+  topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
   topic 'guide/licensing',      'Licensing'
 end
 
@@ -48,15 +52,14 @@ section 'rhomob-setup', 'Dev Environment Setup','Mobile Guides' do
   topic 'guide/rhomobile-install',   'RhoMobile Suite Install'
   topic 'guide/nativesdksetup',             'Native SDK Setup'
   topic 'guide/nonrhostudio',             'Developing Without RhoStudio'
+  topic 'guide/visualstudio',             'Developing with Visual Studio'
   topic 'guide/rhohubtutorial',             'Build In The Cloud With RhoHub'
   topic 'rhostudio-rhohub',      'Using RhoStudio with RhoHub'
-  topic 'guide/visualstudio',             'Developing with Visual Studio'
   
 end
 
 section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/creating_a_project',         'Starting a New Project'
-  topic 'guide/models',         'Data Models'
   topic 'guide/runtime_config',             'Runtime Configuration'
   topic 'guide/build_config',             'Buildtime Configuration'
   topic 'guide/build_ios',             'Build for iOS'
@@ -71,10 +74,14 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/app_upgrade', 'Upgrading Your App'
 end
 
-section 'rhodescommonapi-guides', 'RhoMobile API Guides','Mobile Guides' do
-  topic 'guide/api_js', 'RhoMobile Javascript Usage'
-  topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
-  topic 'guide/apiusage',      '2.2 Migration Guide'
+section 'rhomob-data', 'Data Handling','Mobile Guides' do
+  topic 'guide/local_database',              'Local Database and Rhom'
+  topic 'guide/rhom_ruby',              'Using Rhom with Ruby'
+  topic 'guide/rhom_js',              'Using Rhom with JavaScript'
+  topic 'guide/rhom_backbone',              'Using Rhom with Backbone.JS'
+  topic 'guide/rhom_angular',   'Using Rhom with Angular JS'
+  topic 'guide/using_rhoconnect',   'Synchronization'
+  topic 'guide/web_services', 'Web Services & AJAX'
 end
 
 section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
@@ -106,13 +113,6 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/timer',       'Timer'
   topic 'guide/urlschemes', 'Url Schemes'
 
-end
-
-section 'rhomob-data', 'Data Handling','Mobile Guides' do
-  topic 'guide/local_database',              'Local Database and Rhom'
-  topic 'guide/rhom_backbone',              'Using Rhom with Backbone.js'
-  topic 'guide/using_rhoconnect',   'Synchronization'
-  topic 'guide/web_services', 'Web Services & AJAX'
 end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do

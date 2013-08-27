@@ -15,7 +15,7 @@ In RhoMobile Suite 4.0, the default webview used for Android is now the stock An
 ## Shared Runtime
 In RhoMobile Suite 2.0, there was a [RhoElements Shared Runtime](rhoelements-runtime) that was included with the installation. This application was a pre-built RhoMobile application that included application configurion options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and built a RhoMobile application. Although the RhoMobile Suite 4.0 installation includes a pre-built shared runtime for Windows Mobile and Windows CE it is recomended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
-## Javascript Usage
+## Javascript Licensing
 In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on Javascript (due to the fact of the API only being supported in Motorola Webkit) but not neccesarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on Javascript or Ruby. [Read more about licensing](/guide/licensing).
 
 ## API Platform Support
@@ -329,6 +329,8 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2
 ## Using 2.2 API's
 Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorported in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both Javascript and Ruby.
 
+**NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](/v/2.2/rhoelements/apicompatibility) still applies.**
+
 * [Mapview](/v/2.2/rhodesapi/mapview-api)
 * [Camera](/v/2.2/rhodesapi/camera-api/)
 * [Contacts](/v/2.2/rhodesapi/rhocontact-api)
@@ -352,18 +354,21 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Memory](/v/2.2/rhoelements/memory)
 * [Reboot](/v/2.2/rhoelements/reboot)
 
-**NOTE: 2.2 RhoElement APIS are only supported on Motorola Webkit. 2.2 Rhodes APIs are supported on all versions of webkit that were supported previously. The [2.2 API compatibility matrix](/v/2.2/rhoelements/apicompatibility) still apply.**
+### RhoElements 2.2 APIs
+The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
 
-## Removed APIs
-The following API's have been removed from Rhomobile 4.0
+### Rhodes 2.2 APIs
+2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 4.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided Javascript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
 
-* [DateTimePicker](/v/2.2/rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
-* [Airbeam](/v/2.2/rhoelements/airbeam)- Can be controlled via [System.runApplication](/api/system#mrunApplication)
-* [BottomCommandArea](/v/2.2/rhoelements/bottomcommandarea) & [TopCommandArea](v/2.2/rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
-* [History](/v/2.2/rhoelements/historyback2) - Better JS methods exist
-* [ODAX](/v/2.2/rhoelements/odax) - Better HTML5 methods exist
+To generate this file you must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
-## Backwards compatibility
+	:::yaml
+	extensions: ["rho-javascript"]
+
+And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 Javascript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
+
+
+## Backwards Compatibility Notes
 
 ### RhoElements Meta Tags
 RhoElement specific Meta tags should still function in a RhoMobile 4.0 application that has
@@ -406,3 +411,11 @@ Callbacks are now specifying as the last parameter in all new 4.0 API classes.
 
 NOTE: The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instrance Objects and special common methods that were not there previously.
 
+## Removed APIs
+The following API's have been removed from Rhomobile 4.0
+
+* [DateTimePicker](/v/2.2/rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
+* [Airbeam](/v/2.2/rhoelements/airbeam)- Can be controlled via [System.runApplication](/api/system#mrunApplication)
+* [BottomCommandArea](/v/2.2/rhoelements/bottomcommandarea) & [TopCommandArea](v/2.2/rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
+* [History](/v/2.2/rhoelements/historyback2) - Better JS methods exist
+* [ODAX](/v/2.2/rhoelements/odax) - Better HTML5 methods exist

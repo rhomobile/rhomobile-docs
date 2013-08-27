@@ -1,6 +1,6 @@
 # Using RhoMobile Ruby API's 
 
-RhoMobile applications support access to device, system and framework capabilities through a common API set whether you are building Rhodes, RhoElements or RhoMobile enabled web apps. In order to use these api's your application pages must have access to the `rhoapi-modules.js` file. This Javascript library will provide all API access under the `Rho` set of classes.
+RhoMobile applications support access to device, system and framework capabilities through a common API set whether you are building Rhodes, RhoElements or RhoMobile enabled web apps. 
 
 
 ## Using your own objects

@@ -1,6 +1,0 @@
-# NFC
-
-NFC (Near Field Communication). NFC API provide access to NFC functionality. You can check NFC availability on current device and register callback for listen event when NFC tag near of device. Currently NFC supported only on Android. And also Android version must be 2.3.3 or later.
-NFC API implemented in native extension. You should add "nfc" to extension list in your build.yml before start using NFC in your application. Please see detailed doc: [Rhodes NFC extension](/rhodes/nfc).
-
-**NOTE: As of Rhodes version 3.3.3, the [NFC](/rhodes/nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**

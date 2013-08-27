@@ -28,7 +28,9 @@ List of supported capabilities:
 * record_audio: allow recording audio ('audio' implies it)
 * vibrate: allow to use hardware vibration mechanism
 * bluetooth: allow to use bluetooth hardware
+* calendar: allow access to default device calendar
 * sdcard: allow writing to SD card on Android devices
+* hardware_acceleration: enables the hardware_acceleration capability for Android applications
 
 ### RhoGallery Security Token
 

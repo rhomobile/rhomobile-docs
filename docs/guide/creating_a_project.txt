@@ -125,7 +125,7 @@ Apart from these folders, there are several other files in `app`:
 
 * `loading*.png` - these are splashscreen images for several device orientations and platforms. You will swap these files with your own at some point before deployment
 
-* models / controllers - when you [add a model to your application](models), each model will be created in its own folder within `app`. For example, a model called `Product` will produce `app/Product`
+* models / controllers - when you [add a model to your application](local_database), each model will be created in its own folder within `app`. For example, a model called `Product` will produce `app/Product`
 
 ### framework
 
@@ -187,6 +187,6 @@ The application will start inside RhoSimulator with a different look depending o
 
 Now that your first application is ready to run, there are some other topics you should become familiar with:
 
-* [Adding models](models)
+* [Adding models](local_database)
 * [Application configuration](../rhodes/configuration)
 * [Device capabilities](../rhodes/device-caps)

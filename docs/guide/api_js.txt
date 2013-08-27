@@ -10,7 +10,7 @@ Your html or erb pages must include reference to this file otherwise you will no
 	:::html
 	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
 
-**NOTE: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded.**
+**NOTE: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded. In RhoMobile suite 2.2, some `Rhodes` APIs were made available via Javascript. However please note that the name of the RhoMobile javacript file has changed. It is no longer `rho_javscript_api.js`.**
 
 
 ## Javascript RhoMobile Application Structure
@@ -35,25 +35,7 @@ To load application files to the RhoMobile application from an external Web serv
 	:::ruby
 	start_path='http://heroku.com/myapp/index.html'
 
-To use Common APIs you have to copy rhoapi-modules.js to your web server application, so it can be loaded from your html pages. `rhoapi-modules.js` is a generated file and platform specific. To obtain this file, you will have to install your RhoMobile application onto a device running that platform and copy the file from the RhoMobile folder.
-
-
-If your clients for your web application are running from different platforms, you should place `rhoapi-modules.js` generated for specific platforms to separate folders:
-
-ios/rhoapi-modules.js
-android/rhoapi-modules.js
-wm/rhoapi-modules.js
-wp8/rhoapi-modules.js
-
-
-And then use a method for conditionally loading the appropriate JS file by checking user-agent string for example. A library [like yepnope.js](http://yepnopejs.com/) may be helpful	
-	:::javascript
-	yepnope({
-	  test : navigator.userAgent.match(/Android/i),
-	  yep  : 'android/rhoapi-modules.js'
-	  
-	});
-
+To use Common APIs you have to copy `rhoapi-modules.js` to your web server application, so it can be loaded from your html pages. [Read More](webapps#using-rhomobile-js-apis) about using RhoMobile 4 JavaScript APIs from a web server application.
 
 ## Using your own objects
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them.
@@ -215,5 +197,4 @@ You may want the callback to return to a ruby controller method or a particular 
 		render :action => :list
 	end
 
-## Remarks
-* In RhoMobile suite 2.2, some `Rhodes` APIs were made available via Javascript. However please note that the name of the RhoMobile javacript file has changed. It is no longer `rho_javscript_api.js`.
+

@@ -1,4 +1,292 @@
-# Rhom Ruby API Examples
+# Using the Local Database with Rhom
+
+Rhom is a mini database object mapper for Rhodes. It provides a high level interface to make it very powerful and simple to use a local database.  That database is SQLite on all platforms except BlackBerry where it is HSQLDB.
+
+Rhom currently supports two model types: ***Property Bag (default)*** and ***Fixed Schema***
+
+## Property Bag
+With a property bag model, all data is stored in a single table using the object-attribute-value pattern also referred to as the [Entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model).
+
+### Property Bag Advantages
+* Simple to use, it doesn't require specifying attributes.
+* Data migrations are not necessary.
+* Attributes can be added or removed without modifying the database schema.
+
+### Property Bag Disadvantages
+* For some applications, the database size may be significantly larger than fixed schema.  This is because each attribute is indexed for fast lookup.
+* Sync process may be slightly slower because inserts are performed at attribute level.
+
+In a property bag model, Rhom groups objects by their source id and object id.  The following example illustrates this idea:
+
+<pre>
+Source ID: 1, Model Name: Account
++-----------+----------+--------------+----------------------+
+| source_id | attrib   | object       | value                |
++-----------+----------+--------------+------- --------------+
+|         1 | name     | 48f39f63741b | A.G. Parr PLC 37862  | 
+|         1 | industry | 48f39f63741b | Entertainment        |
+|         1 | name     | 48f39f230529 | Jones Group          |
+|         1 | industry | 48f39f230529 | Sales                |
++-----------+----------+--------------+----------------------+
+</pre>
+
+Here, Rhom will expose a class `Account` with two attributes: `name` and `industry`
+
+	:::ruby
+	account = Account.find('48f39f63741b')
+	account.name
+	  #=> "A.G. Parr PLC 37862"
+	
+	account.industry
+	  #=> "Entertainment"
+	
+### Using Property Bag Models
+To use a property bag model, simply generate a new model with some attributes:
+
+	:::term
+	$ rhodes model product name,brand,price,quantity,sku
+	
+This will generate a file called `product.rb` which looks like:
+
+	:::ruby
+	class Product
+	  include Rhom::PropertyBag
+
+	  # Uncomment the following line to enable sync with Product.
+	  # enable :sync
+
+	  #add model specific code here
+	end
+	
+There are several features you can enable or disable in the model, below is a complete list:
+
+	:::ruby
+	class SomeModel
+	  include Rhom::PropertyBag
+
+	  # rhoconnect settings
+	  # Enable sync for this model.
+	  # Default is disabled.
+	  enable :sync 
+
+	  # Set the type of sync this model
+	  # will use (default :incremental).
+	  # Set to :bulk_only to disable incremental
+	  # sync and only use bulk sync.
+	  set :sync_type, :bulk_only 
+	
+	  # Set the sync priority for this model.
+	  # 1000 is default, set to lower number
+	  # for a higher priority.
+	  set :sync_priority, 1     
+
+	  # Instruct Rhom to send all attributes
+	  # to RhoConnect when an object is updated.
+	  # Default is disabled, only changed attributes
+	  # are sent.
+	  enable :full_update 
+
+      # RhoConnect provides a simple way to keep data out of redis. 
+      # If you have sensitive data that you do not want saved in redis, 
+      # add the pass_through option in settings/settings.yml for each source.
+      # Add pass_through to client model definition
+	  enable :pass_through 
+	
+	  # model settings
+	
+	  # Define how data is partitioned for this model.
+      # For synced models default is :user. 
+      # For non-synced models default is :local
+      # If you have an :app partition
+	  # for your RhoConnect source adapter and use bulk sync,
+	  # set this to :app also.
+	  set :partition, :app
+
+	  # Define blob attributes for the model.
+	  # :blob			Declare property as a blob type
+	  #
+	  # :overwrite		(optional) Overwrite client copy 
+	  #					of blob with new copy from server.
+	  #                 This is useful when RhoConnect modifies
+	  # 				images sent from Rhodes, for example 
+	  #					zooming or cropping.
+	  property :image_url, :blob, :overwrite 
+	
+	  # You can define your own properties also
+	  property :mycustomproperty, 'hello'
+	end
+
+## Fixed Schema
+With a fixed schema model, each model has a separate database table and each attribute exists as a column in the table.  In this sense, fixed schema models are similar to traditional relational tables.
+
+### Fixed Schema Advantages
+* Smaller database size, indexes can be specified only on specific attributes.
+* Sync process may perform faster because whole objects are inserted at a time.
+
+### Fixed Schema Disadvantages
+* Schema changes must be handled with data migrations.
+* Database performance may be slow unless you specify proper indexes.
+
+### Using Fixed Schema Models
+Using a fixed schema model involves an additional step to using a property bag model.
+
+First, generate the model using the `rhodes` command:
+
+	:::term
+	$ rhodes model product name,brand,price,quantity,sku
+	
+Next, change the include statement in `product.rb` to `include Rhom::FixedSchema` and add the attributes:
+
+	:::ruby
+	class Product
+	  include Rhom::FixedSchema
+
+	  # Uncomment the following line to enable sync with Product.
+	  # enable :sync
+	
+	  property :name, :string
+	  property :brand, :string
+	  property :price, :string
+	  property :quantity, :string
+	  property :sku, :string
+	  
+	  property :int_prop, :integer
+	  property :float_prop, :float
+	  property :date_prop, :date #translate to integer type
+	  property :time_prop, :time #translate to integer type
+	  
+	end
+
+That's it!  Now your model is a fixed schema model, the table will be generated automatically for you when the application launches.
+
+Below is a full list of options available to fixed schema models:
+
+	:::ruby
+	class SomeModel
+	  include Rhom::FixedSchema
+
+	  # rhoconnect settings
+	  # Enable sync for this model.
+	  # Default is disabled.
+	  enable :sync 
+
+	  # Set the type of sync this model
+	  # will use (default :incremental).
+	  # Set to :bulk_only to disable incremental
+	  # sync and only use bulk sync.
+	  set :sync_type, :bulk_only 
+
+	  # Set the sync priority for this model.
+	  # 1000 is default, set to lower number
+	  # for a higher priority.
+	  set :sync_priority, 1     
+
+	  # Instruct Rhom to send all attributes
+	  # to RhoConnect when an object is updated.
+	  # Default is disabled, only changed attributes
+	  # are sent.
+	  enable :full_update 
+
+      # RhoConnect provides a simple way to keep data out of redis. 
+      # If you have sensitive data that you do not want saved in redis, 
+      # add the pass_through option in settings/settings.yml for each source.
+      # Add pass_through to client model definition
+	  enable :pass_through 
+
+	  # model settings
+
+	  # Define how data is partitioned for this model.
+      # Default is :user.  If you have an :app partition
+	  # for your RhoConnect source adapter and use bulk sync,
+	  # set this to :app also.
+	  set :partition, :app
+
+	  # Set the current version of the fixed schema.
+	  # Your application may use it for data migrations.
+	  set :schema_version, '1.0'
+
+	  # Define fixed schema attributes.
+	  # :string and :blob types are supported.
+	  property :name, :string
+	  property :tag, :string
+	  property :phone, :string
+	  property :image_url, :blob
+	
+	  # Define a named index on a set of attributes.
+	  # For example, this will create index for name and tag columns.
+	  index :by_name_tag, [:name, :tag] 
+
+	  # Define a unique named index on a set of attributes.
+	  # For example, this will create unique index for the phone column.
+	  unique_index :by_phone, [:phone] 
+
+	  # Define blob attributes for the model.
+	  # :blob			Declare property as a blob type
+	  #
+	  # :overwrite		(optional) Overwrite client copy 
+	  #					of blob with new copy from server.
+	  #                 This is useful when RhoConnect modifies
+	  # 				images sent from Rhodes, for example 
+	  #					zooming or cropping.
+	  property :image_url, :blob, :overwrite
+
+	  # You can define your own properties also
+	  property :mycustomproperty, 'hello'
+	end
+
+## Fixed Schema Data Migrations
+Rhom provides an application hook to migrate the data manually.  You can also use this hook to run business logic related to updating the database.  For example, your application may want to display a customized alert notifying the user that a migration is in progress and it may take a few moments.
+
+To use this hook, first we need to track the `:schema_version` in our model:
+
+	:::ruby
+	class Product
+	  include Rhom::FixedSchema
+
+	  set :schema_version, '1.1'
+	end
+	
+Next, we will implement the following hook in our `application.rb` class:
+
+#### `on_migrate_source(old_version, new_src)`
+This is called on application start when `:schema_version` has changed.
+
+	:::ruby
+	class AppApplication < Rho::RhoApplication
+	  
+	  #	old_version 	String containing old version value (i.e. '1.0')
+	  # new_src 		Hash with source information:
+	  #					'schema_version', 'name', 'schema'
+	  #					new_src['schema']['sql'] contains new schema sql
+	  def on_migrate_source(old_version, new_src)
+	    # ... do something like alert user ...
+	    
+        db = Rho::RHO.get_src_db(new_src['name'])
+        db.execute_sql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
+	    
+	    true # does not create table
+	  end
+	end
+
+**NOTE: To modify schema without recreate table, you can use only ADD COLUMN command, you cannot remove column or change type(This is sqlite limitation) **
+
+Return `false` to run the custom sql specified by the new_src['schema']['sql'] string:
+    
+	:::ruby
+	def on_migrate_source(old_version, new_src)
+	  # ... do something like alert user ...
+	  false # create table by source schema - useful only for non-synced models
+	end
+
+**NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time. **
+
+## Property Bag Data Migrations
+No data migration required, since all attributes are dynamic. 
+If you want to remove all local data when upgrading to new application version: change `app_db_version` in `rhoconfig.txt`.
+
+This scenario will work for Property Bag and Fixed Schema models.
+
+## Rhom API
 Below is the full list of links to the [Rhom API methods](/rhodesapi/rhom-api) available to Rhom models.
 
  * [client_id](/rhodesapi/rhom-api#clientid) - Returns the current sync client id.

@@ -13,7 +13,7 @@ Returns the current sync client id.
 
 ## clear_notification
 
-Clear notification for the object. See the [sync notification section](/rhodes/synchronization#notifications) for more details.
+Clear notification for the object. 
 
 	:::ruby
 	modelname.clear_notification

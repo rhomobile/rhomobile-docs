@@ -245,6 +245,13 @@ xml_string +=  ' </rss>	'
   		TOC.sections
   	end
 
+    def related
+      #toc.rb in root will be latest TOC
+      #doc versions can have unique TOC found in /v/VERSION/toc.rb
+      
+      TOC.related
+    end
+
   	def next_section(current_slug, root=sections)
   		return sections.first if current_slug.nil?
   		# root.each_with_index do |(slug, title, group, topics), i|
@@ -328,3 +335,4 @@ module TOC
   	file = File.dirname(__FILE__) + '/toc.rb'
 	eval File.read(file), binding, file
 end
+
