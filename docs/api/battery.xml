@@ -173,7 +173,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>WM, WP8, Android, iOS</PLATFORM>
+        <PLATFORM>WM, Android, iOS</PLATFORM>
         <EXAMPLES>
             <EXAMPLE title="Retrieve the Battery status">
                 <SECTIONS>
