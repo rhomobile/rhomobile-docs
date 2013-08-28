@@ -50,7 +50,7 @@ This automatically generates a folder and a corresponding set files that provide
           productid: 632621d0-5ecb-012e-2c97-482a1411c191
 
 ## Windows Phone 8 User Interface
-Recall that RhoMobile applications utilize web languages like CSS, Javascript and HTMl to define it's interface and application behavior. Therefore, if you are looking to provide a native Windows Phone 8 (aka Metro) user interface, you may want to consider using one of the the Metro-like frameworks:
+Recall that RhoMobile applications utilize web languages like CSS, JavaScript and HTMl to define it's interface and application behavior. Therefore, if you are looking to provide a native Windows Phone 8 (aka Metro) user interface, you may want to consider using one of the the Metro-like frameworks:
 
 * [Bootmetro](http://aozora.github.io/bootmetro/)
 * [Metro UI CSS](http://metroui.org.ua/)
@@ -96,7 +96,7 @@ NOTE: When running on device you may need to disconnect USB cable from device to
 ## Future plugin features
 We will be adding this features to the plug-in soon. Check back for updates:
 
-* Javascript debugging
+* JavaScript debugging
 * Building for Windows Mobile/CE
 * Intellisense for RhoMobile APIs
 * RhoConnect Projects

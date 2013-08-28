@@ -1,14 +1,14 @@
-# Using Rhom in Javascript with Backbone.js
+# Using Rhom in JavaScript with Backbone.js
 
 ## Overview
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and Javascript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in Javascript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
 
 ## Why Backbone.js
 
 If you are familiar with jQuery, you already know that while it provides a very helpful set of functions to manipulate the DOM, following large chains of callbacks and DOM operations becomes a maintenance problem very quickly, not to mention that you still have to write a lot of code to keep your models and views in sync with each other.
 
-[Backbone.js](http://backbonejs.org) is a Javascript library that helps you structure your applications in a more maintainable way, including a set of high-level abstractions for models, views and event handling. These primitives are designed to be the basic building blocks of your application and to be extended with your own functionality.
+[Backbone.js](http://backbonejs.org) is a JavaScript library that helps you structure your applications in a more maintainable way, including a set of high-level abstractions for models, views and event handling. These primitives are designed to be the basic building blocks of your application and to be extended with your own functionality.
 
 
 ## Getting started with Backbone.js
@@ -337,7 +337,7 @@ You can start using Backbone.js in a RhoMobile application right away if you do 
 
 **NOTE: See the guide called [Using the local database](local_database) for a full description of Rhom**
 
-A Javascript application wishing to use Rhom for data storage and, potentially, two-way synchronization via a RhoConnect server, must first define its models:
+A JavaScript application wishing to use Rhom for data storage and, potentially, two-way synchronization via a RhoConnect server, must first define its models:
 
 	:::javascript
 	var rhoProductModel = Rho.ORM.addModel(function(model) {
@@ -369,7 +369,7 @@ We have seen that Backbone.js provides a Model class and here we have RhoMobile'
 
 ### Enter RhoTendon
 
-A tendon is "tissue that connects bone to muscle" and RhoTendon is a small Javascript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-Javascript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
+A tendon is "tissue that connects bone to muscle" and RhoTendon is a small JavaScript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-Javascript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
 
 	:::javascript
 	<script src="/public/js/rhotendon.js"></script>

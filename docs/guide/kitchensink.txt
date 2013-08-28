@@ -1,12 +1,12 @@
 # RhoMobile Suite KitchenSink 
 
-KitchenSink 4 is a sample application full of code snippets that show you how to use almost all the APIs of RhoMobile 4. If you are new to RhoMobile, it is an excellent starting point to see how to start interacting with the different features of the platform and if you are an experienced used, it will quickly show you how to start getting the maximum value out of the new Ruby and Javascript APIs.
+KitchenSink 4 is a sample application full of code snippets that show you how to use almost all the APIs of RhoMobile 4. If you are new to RhoMobile, it is an excellent starting point to see how to start interacting with the different features of the platform and if you are an experienced used, it will quickly show you how to start getting the maximum value out of the new Ruby and JavaScript APIs.
 
 This document will be your step-by-step guide to how some specific features of KitchenSink were built. Along the way you will learn a few tricks on:
 
 * how to better organize your own applications using partials
 * using custom fonts
-* Javascript scoping
+* JavaScript scoping
 * and more
 
 ## Filesystem layout
@@ -31,7 +31,7 @@ If you want to experiment with changing the look of KitchenSink, import `public/
 
 ## Javascript
 
-All Javascript samples in KitchenSink 4 follow the same pattern: There is a global `KitchenSink` object, which contains a member object for each API and these objects in turn contain the functions that invoke the sample code.
+All JavaScript samples in KitchenSink 4 follow the same pattern: There is a global `KitchenSink` object, which contains a member object for each API and these objects in turn contain the functions that invoke the sample code.
 
 Take for instance `js/samples/notification.js`, the file that contains the samples for the new [Notification API](../api/notification):
 
@@ -105,7 +105,7 @@ Let's examine now the right-side expression; if we remove the body of the functi
 		) // close grouping brackets
 		(); // call a function with no parameters
 
-When the Javascript interpreter parses the right operand, it will follow approximately this process:
+When the JavaScript interpreter parses the right operand, it will follow approximately this process:
 * find the brackets
 * evaluate what is inside them
   - inside the brackets is a function

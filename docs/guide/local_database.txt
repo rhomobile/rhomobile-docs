@@ -60,7 +60,7 @@ In a fixed schema model, each model has a separate database table and each attri
 * Schema changes must be handled with data migrations.
 * Database performance may be slow unless you specify proper indexes.
 
-## Ruby and Javascript Access
+## Ruby and JavaScript Access
 RhoMobile applications provide definition and CRUD access to your data models in both Ruby and JavaScript, however there are some differences in capabilties between the two. Please consult the API reference and guides for further information:
 
 

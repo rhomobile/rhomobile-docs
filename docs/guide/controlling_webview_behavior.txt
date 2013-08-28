@@ -4,7 +4,7 @@
 
 [WebView](../api/webview) is the RhoMobile component responsible for rendering your application's HTML interface, showing it to the user and allowing them to interact with the application that normally occupies most of the screen.
 
-At its core, WebView is a web browser, capable of making requests both to the embedded server that runs your application as well as any other server that speaks HTTP. It can execute modern Javascript code and libraries such as JQuery and JQuery Mobile, both of which are included by default in new projects (see below for platform-specific limitations regarding Javascript). You can expect it to support the same features as the default browser of each platform, including AJAX, hardware-accelerated rendering, cookies, etc.   
+At its core, WebView is a web browser, capable of making requests both to the embedded server that runs your application as well as any other server that speaks HTTP. It can execute modern JavaScript code and libraries such as JQuery and JQuery Mobile, both of which are included by default in new projects (see below for platform-specific limitations regarding Javascript). You can expect it to support the same features as the default browser of each platform, including AJAX, hardware-accelerated rendering, cookies, etc.   
 
 ### The two types of `WebView` available
 
@@ -24,16 +24,16 @@ While the Motorola browser is also available for Android, its use is discouraged
 
 ## Communication between WebView and Ruby code
 
-A Rhodes application works very similarly to a traditional web browser + web server scenario, only with both components running on the same device. There are times, however, when it is convenient for code in one language to interact with the other; `WebView` provides ways to enable two-way communication between Ruby and Javascript code. 
+A Rhodes application works very similarly to a traditional web browser + web server scenario, only with both components running on the same device. There are times, however, when it is convenient for code in one language to interact with the other; `WebView` provides ways to enable two-way communication between Ruby and JavaScript code. 
 
-## Calling Javascript from Ruby
+## Calling JavaScript from Ruby
 
-In a typical MVC scenario, once a request is received, your Ruby code will process it and end by returning a view for `WebView` to render. Instead of (or in addition to) that, Ruby code can invoke any Javascript function present on the current page by calling `executeJavascript`.
+In a typical MVC scenario, once a request is received, your Ruby code will process it and end by returning a view for `WebView` to render. Instead of (or in addition to) that, Ruby code can invoke any JavaScript function present on the current page by calling `executeJavascript`.
 
 	:::ruby
 	Rho::WebView.executeJavascript("alert('This alert was called from Ruby')")
 	
-Any valid Javascript code can be used in `executeJavascript`, but if the code is built dynamically or contains expansions or data from the user, care must be taken to escape it properly.
+Any valid JavaScript code can be used in `executeJavascript`, but if the code is built dynamically or contains expansions or data from the user, care must be taken to escape it properly.
 
 For example, if any of your parameters can contain newline characters (`\n`), semicolons (`;`), quotes or any other special characters, they must be escaped or the call may not work. Therefore, it is a good practice to escape all parameters being passed to javascript functions.
 
@@ -48,7 +48,7 @@ For example, if any of your parameters can contain newline characters (`\n`), se
 	# Now this will work even if message contains \n
 	Rho::WebView.executeJavascript("alert('#{message}')")
 	
-You are not limited to single values, using this syntax you can also pass hashes with as many parameters as necessary. Given the following Javascript function:
+You are not limited to single values, using this syntax you can also pass hashes with as many parameters as necessary. Given the following JavaScript function:
 
 
 	:::javascript
@@ -66,10 +66,10 @@ You would call it from Ruby by sending a hash with the appropriate keys:
 	
 	Rho::WebView.executeJavascript("greet_user(#{greeting_parameters})")
 	
-**NOTE: The Javascript code you call must have been loaded _before_ your ruby code executes. It is not enough for it to be on the same view that is going to be rendered when the action returns, it has to be already in the page, that is, it must have been included by the previous action. In practice this means that Javascript code you intend to call from Ruby cannot be called from the same action that loads it the first time. To avoid this pitfall, you should reference Javascript files from `layout.erb` so that the code is available at all times. Including `<script>` tags in views is discouraged.
+**NOTE: The JavaScript code you call must have been loaded _before_ your ruby code executes. It is not enough for it to be on the same view that is going to be rendered when the action returns, it has to be already in the page, that is, it must have been included by the previous action. In practice this means that JavaScript code you intend to call from Ruby cannot be called from the same action that loads it the first time. To avoid this pitfall, you should reference JavaScript files from `layout.erb` so that the code is available at all times. Including `<script>` tags in views is discouraged.
 **
 
-To clarify the above warning, let's say we have a `list` action in a controller and there is a Javascript function `notify_user` we are interested in calling
+To clarify the above warning, let's say we have a `list` action in a controller and there is a JavaScript function `notify_user` we are interested in calling
 
 
 
@@ -109,7 +109,7 @@ Using `WebView.navigate` allows you to navigate to a different URL, whether it b
 		Rho::WebView.navigate(url_for(:action => :another_action))
 	end
 
-As with all APIs starting with RhoMobile 4.0, a Javascript version is available too:
+As with all APIs starting with RhoMobile 4.0, a JavaScript version is available too:
 
 	:::javascript
 	function navigate_somewhere_else {
@@ -179,7 +179,7 @@ to
 
 ## Special considerations for BlackBerry
 
-On BlackBerry, the browser only supports a small subset of HTML and Javascript. Therefore, if you plan to deploy your application to BlackBerry, you will need to adapt your view files and Javascript code for this platform specifically. Refer to [BlackBerry Usage](blackberry) for more details on what the browser supports and on some specific tips for BlackBerry development.
+On BlackBerry, the browser only supports a small subset of HTML and Javascript. Therefore, if you plan to deploy your application to BlackBerry, you will need to adapt your view files and JavaScript code for this platform specifically. Refer to [BlackBerry Usage](blackberry) for more details on what the browser supports and on some specific tips for BlackBerry development.
 
 ## Related reading
 

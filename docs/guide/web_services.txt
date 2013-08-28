@@ -114,7 +114,7 @@ This snippet will:
 * if an error occurred, show a message
 * notify the user that the request completed (wheter it was successful or not)
 
-You can return data from your controller in any format, but the easiest way to interchange information between Javascript and Ruby is to use JSON; see the following example:
+You can return data from your controller in any format, but the easiest way to interchange information between JavaScript and Ruby is to use JSON; see the following example:
 
 	:::ruby
 	def get_data
@@ -138,7 +138,7 @@ You can return data from your controller in any format, but the easiest way to i
 
 ## The same-origin policy and cross-domain requests
 
-One drawback of using `jQuery.ajax` instead of the [RhoMobile Network API](../api/Network) is that, for security reasons, Javascript code runs inside a sandbox. One of the rules of this sandbox, called the "same-origin policy", mandates that code loaded from one origin (i.e., www.example.com) cannot communicate with code loaded from a different origin (www.example.net). This has the practical consequence that you can only make AJAX calls to the same server that the current page was loaded from, which in a native RhoMobile application case is the mobile device itself (`localhost`). If for some reason you cannot or prefer not to use the RhoMobile Network API, there are several ways to work around this limitation: JSONP, CORS and using Ruby code as a local proxy.
+One drawback of using `jQuery.ajax` instead of the [RhoMobile Network API](../api/Network) is that, for security reasons, JavaScript code runs inside a sandbox. One of the rules of this sandbox, called the "same-origin policy", mandates that code loaded from one origin (i.e., www.example.com) cannot communicate with code loaded from a different origin (www.example.net). This has the practical consequence that you can only make AJAX calls to the same server that the current page was loaded from, which in a native RhoMobile application case is the mobile device itself (`localhost`). If for some reason you cannot or prefer not to use the RhoMobile Network API, there are several ways to work around this limitation: JSONP, CORS and using Ruby code as a local proxy.
 
 
 ### Ruby code as a local proxy
@@ -182,7 +182,7 @@ Javascript:
 
 #### When to use Ruby code as a local proxy
 
-* In general, if you cannot use the Javascript Network API, using Ruby code is the preferred option due to its simplicity and the fact that the server does not need to be adapted at all. Any service you can call via HTTP will be accessible to your application.
+* In general, if you cannot use the JavaScript Network API, using Ruby code is the preferred option due to its simplicity and the fact that the server does not need to be adapted at all. Any service you can call via HTTP will be accessible to your application.
 
 ### JSONP
 

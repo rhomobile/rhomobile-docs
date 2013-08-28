@@ -1,6 +1,6 @@
 #Application Architecture
 
-RhoMobile comes with built in mechanisms to create a streamlined application architecture that uses a MVC approach to cleanly seperate your data, business logic and user interface code. Using the RhoMobile's App and Model Generators allows you to get coding quickly by providing templates and prebuilt code. of course, you can choose to implement your own application architecture or use a Javascript based framework like Backbone.JS
+RhoMobile comes with built in mechanisms to create a streamlined application architecture that uses a MVC approach to cleanly seperate your data, business logic and user interface code. Using the RhoMobile's App and Model Generators allows you to get coding quickly by providing templates and prebuilt code. of course, you can choose to implement your own application architecture or use a JavaScript based framework like Backbone.JS
 
 
 ##What is MVC

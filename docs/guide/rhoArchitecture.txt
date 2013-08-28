@@ -45,11 +45,11 @@ WT4070, WT4090, WT41N0
 RhoElements 4.0 introduces support for our older device families such as the MC9000 and MK4000. The devices supported by RhoElements span the entire range of the performance spectrum and therefore care should be taken when developing applications, especially for these older devices. Please have the capabilities of your target device in mind when developing your application, the following points will help with this.
 
 * Devices must have a minimum of 128MB of physical RAM to support RhoElements
-* JavaScript libraries such as Sencha touch or JQuery Mobile can use a significant amount of memory at runtime. The more Javascript libraries loaded into the DOM then the greater the RAM footprint of the web page will be.
+* JavaScript libraries such as Sencha touch or JQuery Mobile can use a significant amount of memory at runtime. The more JavaScript libraries loaded into the DOM then the greater the RAM footprint of the web page will be.
 * Out of the box you will find JQueryMobile will not be included automatically in your views on Windows Mobile / CE devices, this is to give the best possible performance.
 * There are APIs available in the product to monitor the memory including memory logs and a Memory API. You can use these tools to get a handle on the requirements of your application.
 * Resources are available on developer.motorolasolutions.com to help create great looking, streamlined apps including blogs and webinars.
-* Online performance tests for Javascript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
+* Online performance tests for JavaScript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
 * On some of our lower end CE devices you may find you need to increase the program memory available to install RhoElements and you can do this from the Control Panel. Out of the box you will have sufficent memory on your device but if you have already installed a lot of programs you may need to allocate more program memory or delete your existing files.
 * The more RhoElements applications you run on your device the greater the required memory will be. Consider using the TabBar in a single application rather than multiple separate applications.
 * Windows Mobile 5.0 is not supported in this release, devices should be updated to Windows Mobile 6.x where possible.

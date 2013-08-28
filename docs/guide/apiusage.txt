@@ -1,6 +1,6 @@
 # Migrating your RhoMobile application to 4.0
 
-RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across Javascript and Ruby. 
+RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across JavaScript and Ruby. 
 
 
 ## RhoConnect Client
@@ -15,8 +15,8 @@ In RhoMobile Suite 4.0, the default webview used for Android is now the stock An
 ## Shared Runtime
 In RhoMobile Suite 2.0, there was a [RhoElements Shared Runtime](rhoelements-runtime) that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and built a RhoMobile application. Although the RhoMobile Suite 4.0 installation includes a pre-built shared runtime for Windows Mobile and Windows CE it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
-## Javascript Licensing
-In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on Javascript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on Javascript or Ruby. [Read more about licensing](/guide/licensing).
+## JavaScript Licensing
+In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](/guide/licensing).
 
 ## API Platform Support
 It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms where indicated using an [API compatibility matrix](/v/2.2/rhoelements/apicompatibility) at the API class level. In 4.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [4.0 API Summary](apisummary) for an overview.
@@ -327,7 +327,7 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2
 </table>
 
 ## Using 2.2 API's
-Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both Javascript and Ruby.
+Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both JavaScript and Ruby.
 
 **NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](/v/2.2/rhoelements/apicompatibility) still applies.**
 
@@ -358,14 +358,14 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
 
 ### Rhodes 2.2 APIs
-2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 4.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided Javascript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
+2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 4.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
 
 To generate this file you must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
 	:::yaml
 	extensions: ["rho-javascript"]
 
-And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 Javascript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
+And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
 
 
 ## Backwards Compatibility Notes
@@ -375,7 +375,7 @@ RhoElement specific Meta tags should still function in a RhoMobile 4.0 applicati
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in it's `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in furture versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated Javascript capability using the new common API classes.
+in it's `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in furture versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated JavaScript capability using the new common API classes.
 
 	:::html
 	<META HTTP-Equiv="scanner" Content="Enable">
@@ -384,12 +384,12 @@ Use instead:
 	:::javascript
 	Rho.Barcode.enable();
 
-### RhoElements Javascript APIs
-RhoElement specific Javascript APIs should still function in a RhoMobile 4.0 application that has
+### RhoElements JavaScript APIs
+RhoElement specific JavaScript APIs should still function in a RhoMobile 4.0 application that has
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in it's `build.yml`. It is recommended that JS API calls should be converted to use the associated Javascript capability using the new common API classes.
+in it's `build.yml`. It is recommended that JS API calls should be converted to use the associated JavaScript capability using the new common API classes.
 
 	:::Javascript
 	scanner.enable()  // should still work

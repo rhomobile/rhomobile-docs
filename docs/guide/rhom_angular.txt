@@ -1,6 +1,6 @@
-# Using Rhom in Javascript with Angular.js
+# Using Rhom in JavaScript with Angular.js
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and Javascript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in Javascript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
 
 ## Why Angular.js
 
@@ -60,7 +60,7 @@ A directive is a link between HTML and Javascript: it is the way you connect a p
 
 ### Brief notes on directive naming and invocation
 
-* Directives are defined in Javascript code and they use camelCase for their names
+* Directives are defined in JavaScript code and they use camelCase for their names
 * When adding a directive to an HTML tag, you convert the camelCase name to snake_case and optionally (but highly recommended) prefix it with `data-` to make it valid HTML5
 
 Examples:
@@ -335,7 +335,7 @@ The HTML code for the Home view is as follows:
 * a `products` array, that contains all the products we are interested in showing (in our case, every product stored in the database). We will add this `products` property to our scope so that the `ngRepeat` in the table can find it
 * CRUD methods
 * a `find_by_id` method to load a particular product from the database
-* a helper method `to_hash` to extract properties from Rhom model objects and put them into simple Javascript hashes that Angular knows how to handle
+* a helper method `to_hash` to extract properties from Rhom model objects and put them into simple JavaScript hashes that Angular knows how to handle
 
 The code for `ProductHelper` is below:
 

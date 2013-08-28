@@ -4,7 +4,7 @@
 
 RhoMobile provides you with access to a wide variety of features offered by the device your application runs on, such as [sensors](../api/sensor) or [barcode scanners](../api/barcode). If you need to interact with the native platform in a way that the public RhoMobile APIs do not address, it is time to build a native extension.
 
-**NOTE: Native extensions are used only when strictly necessary. If you need to add functionality to your application and a compatible Ruby gem or Javascript library is available, these are usually preferable.**
+**NOTE: Native extensions are used only when strictly necessary. If you need to add functionality to your application and a compatible Ruby gem or JavaScript library is available, these are usually preferable.**
 
 ## Overview
 
@@ -242,7 +242,7 @@ Now that the native part of the extension is implemented, you can start to use i
 
 Make sure you [added the extension to build.yml](#Adding-an-extension-to-your-application) and run your application. You will see the extension in action, returning the value as you would expect, exactly like any other API call.
 
-The build system creates all the initialization and glue code so that your extensions are available from both Ruby and Javascript code automatically. The following code will also work:
+The build system creates all the initialization and glue code so that your extensions are available from both Ruby and JavaScript code automatically. The following code will also work:
 
 	:::javascript
 	alert(Rho.Greeting.welcome("John doe"));
@@ -485,7 +485,7 @@ Container for `<CONSTANT>` elements
 
 #### CONSTANT
 
-Defines a Ruby and Javascript constant in a module
+Defines a Ruby and JavaScript constant in a module
 
 	:::xml
 	<CONSTANT name="SUNDAY" value="Sun" type="STRING"/>
@@ -513,7 +513,7 @@ Declare properties of your module, either on instances or for static access, wit
 The above results in the following properties being accessible:
 
 	:::javascript
-	// Javascript code
+	// JavaScript code
 	Rho.Example.customProperty="exampleValue"; // static access
 	Rho.Example.getDefault().color="#FF0000"; // instance access
 
@@ -537,7 +537,7 @@ The `<PROPERTY>` tag accepts several attributes apart from `name`:
 * `type` : the type of the property (`"STRING"`, `"INTEGER"`, etc.)
 * `readOnly` : defaults to false, determines whether the `set<name>` method will be generated and makes `setProperty` throw an exception
 * `default` : the default value for the property
-* `generateAPI` : defaults to true; if set to false the generator will not create `get<name>` and `set<name>` methods, you will have to implement them in Ruby and Javascript yourself
+* `generateAPI` : defaults to true; if set to false the generator will not create `get<name>` and `set<name>` methods, you will have to implement them in Ruby and JavaScript yourself
 * `runInThread` : affects the thread that the `set<name>` method runs in:
   - `none` : no special threading
   - `module` : the method runs in a per-module thread
@@ -599,10 +599,10 @@ The `<METHODS>` tag contains one `<METHOD>` subtag for each method you implement
 If the method runs in a thread (any value other than `"none"`, it can only return a result via callback. If the callback is absten, the return value will be lost)
 
 * `deprecated` : defaults to `false`. Document the method as deprecated
-* `generateAPI` : defaults to `true`. If `false`, no native code will be generated for the method and you will need to implement it in Ruby and Javascript yourself.
+* `generateAPI` : defaults to `true`. If `false`, no native code will be generated for the method and you will need to implement it in Ruby and JavaScript yourself.
 * `generateDoc`: defaults to `true`. If `false`, the module is considered to be internal and will not be documented.
 * `access`: defaults to `"INSTANCE"`. If set to `"STATIC"`, the method will be available for static calls via the module class.
-* `generateNativeAPI`: defaults to `true`. If `false`, native C wrappers for Ruby and Javascript will not be created.
+* `generateNativeAPI`: defaults to `true`. If `false`, native C wrappers for Ruby and JavaScript will not be created.
 * `constructor`: defaults to `false`. If `true`, the method will be called from the constructor when an object is instantiated
 * `destructor`: defaults to `false`. If `true`, the method will be called from the destructor when an object is released
 

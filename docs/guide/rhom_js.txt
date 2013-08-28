@@ -32,7 +32,7 @@ Once created, models can be retrieved using the `ORM.getModel` method.
     :::javascript
     var productModel = Rho.ORM.getModel('Product');
 
-**NOTE: It is advised that you either use the Ruby or Javascript methods for handling model definition and access and not do this from <b>both</> languages. **
+**NOTE: It is advised that you either use the Ruby or JavaScript methods for handling model definition and access and not do this from <b>both</> languages. **
 
 ## Adding new items
 
@@ -118,7 +118,7 @@ You can also sort with an user defined function.
         }
     );
 
-**NOTE: Whenever possible, use `order` instead of `orderFunction`. The database will sort objects faster than Javascript code.**
+**NOTE: Whenever possible, use `order` instead of `orderFunction`. The database will sort objects faster than JavaScript code.**
 
 ### Retrieving specific attributes
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Apart from the regular `WebView` component that contains your HTML, CSS and Javascript code, RhoMobile also includes some platform-native components that make your app act like other applications users are already accustomed to. When used properly, these components help you make navigation easier, improve accessibility and shorten the learning curve for your users.
+Apart from the regular `WebView` component that contains your HTML, CSS and JavaScript code, RhoMobile also includes some platform-native components that make your app act like other applications users are already accustomed to. When used properly, these components help you make navigation easier, improve accessibility and shorten the learning curve for your users.
 
 ## NativeTabbar
 

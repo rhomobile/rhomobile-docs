@@ -50,7 +50,7 @@ Each folder stores a particular type of content:
 * `userFolder` is the only folder where you have write permissions. You are free to create or delete as many files as you need inside `userFolder`
 
 
-Once you know where a file is stored, you can read it with the [RhoFile API](../api/File), which allows you to work with text files from both Ruby and Javascript (note that binary files are not supported)
+Once you know where a file is stored, you can read it with the [RhoFile API](../api/File), which allows you to work with text files from both Ruby and JavaScript (note that binary files are not supported)
 
 Ruby:
     :::ruby
