@@ -24,13 +24,7 @@
   <div class="navbar-inner">
 
     <a class="brand"><img src="/images/bg/motorola-logo.png" style="width:32px"/>&nbsp;<strong>RhoMobile Suite Documentation</strong></a>
-    	<form class="navbar-search pull-left" action="">
-		
-    	<select id="version_select" class="input-medium">
-				  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>Version 4.x</option>
-				  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>Version 2.x</option>
-				</select>
-    	</form>
+    	
     	<form class="navbar-search pull-right" action="/search">
 				
 				<input type="text" class="search-query span4" placeholder="Search" name="q" size="31" value="">
@@ -88,6 +82,15 @@
 
 	<div id="doc_container" class="span12" >
 	<div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %> >
+		<div class="row-fluid">
+			<form class="form-inline" action="">
+			<h3>Version:</h3>
+	    	<select id="version_select" class="input-small">
+					  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>RMS 4.x</option>
+					  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>RMS 2.x</option>
+					</select>
+	    	</form>
+    	</div>
 			<% collapsed = true 
 			 first = true
 			%>

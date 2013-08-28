@@ -147,7 +147,14 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
-      # puts "#{topic} : #{subpath} : #{docversion}"
+       # puts "#{topic} : #{subpath} : #{docversion}"
+      if TOC.find("/#{subpath}/#{topic}") == '' && docversion.nil?
+        
+          #if not in TOC then make it default to 2.2 version
+          docversion='2.2'
+          @docversion = '2.2'
+          redirect "/v/#{docversion}/#{subpath}/#{topic}"
+      end
       @topic_file = topic_file(topic,subpath,docversion)
       # puts @topic_file
       if  topic == 'apicompatibility'
@@ -208,7 +215,7 @@ xml_string +=  ' </rss>	'
   	end
 	
   	def topic_file(topic, subpath = nil,docversion = nil )
-      # puts "Topic:#{topic} Subpath:#{subpath} DocVersion:#{docversion}"
+      
   	  if topic.include?('/')
         topic
   		elsif subpath
@@ -262,7 +269,7 @@ xml_string +=  ' </rss>	'
   		# 		return res if res
   		# 	end
   		# end
-  		nil
+  		# nil
   	end
   
     def pjax?
@@ -303,10 +310,13 @@ module TOC
 	end
   
   def find(path)
+     # puts "#{path}"
+      
     compare = path.dup
     compare.slice!(0)
     compare.gsub!(/v\/([^\/]+)\//,'')
-    found = @sections[0][0] # Default to first section
+    found=''
+    # found = @sections[0][0] # Default to first section
     @sections.map do |section|
       section[3].map do |slug, title, _|
         
@@ -314,6 +324,7 @@ module TOC
 
       end
     end
+    # puts "FOund:#{found}"
     found
   end
 
