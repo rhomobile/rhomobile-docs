@@ -113,7 +113,7 @@ Inside of your rhoconnect app you can replace the password parameter with a pem 
         puts "socket connected correctly"
         return true
       else
-        puts "socket failed to connnect"
+        puts "socket failed to connect"
         return false
       end
       
