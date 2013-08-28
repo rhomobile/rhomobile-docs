@@ -87,10 +87,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
 			<METHOD name="smartBatteryStatus" hasCallback="optional">
-				<APPLIES>Scanners on Motorola Solutions' Windows Mobile / CE / Embedded devices</APPLIES>
-                <DESC>Returns the various parameters relating to battery charge and battery hardware.  Not all return values may be supported by all batteries.</DESC>
+				<DESC>Returns the various parameters relating to battery charge and battery hardware.  Not all return values may be supported by all batteries.</DESC>
 				<PLATFORM>WM</PLATFORM>
-				<APPLIES msiOnly="true"></APPLIES>
+				<APPLIES msiOnly="true">Scanners on Motorola Solutions' Windows Mobile / CE / Embedded devices</APPLIES>
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="serialNumber" type="STRING">
