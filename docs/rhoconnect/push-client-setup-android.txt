@@ -65,7 +65,7 @@ Register the Google API project number for your client application. Modify your 
 On the Android client, it is possible to set up status bar notifications for PUSH messages. In this case, push notification can be shown on the Android status bar after ruby callback. The user can activate application by touching this notification.
 There are two modes available for push notifications:
  - <i>always</i> - push notification is shown always
- - <i>background</i> - push notification is shown only if application put into the background (not started)
+ - <i>background</i> - push notification is shown only if application is backgrounded (not started)
 If no push notification mode is specified in build.yml then no notifications are shown at all.
 
 	:::yaml
