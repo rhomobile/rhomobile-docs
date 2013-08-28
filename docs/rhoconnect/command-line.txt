@@ -78,7 +78,7 @@ rhoconnect, type `rhoconnect` or `rhoconnect help`.
 	  rhoconnect redis-about            # About redis
 	  rhoconnect redis-attach           # Attach to redis dtach socket
 	  rhoconnect redis-download         # Download redis release 2.6.11
-	  rhoconnect redis-install          # Install the latest version of Redis from Github (requires git, duh)
+	  rhoconnect redis-install          # Install the latest verison of Redis from Github (requires git, duh)
 	  rhoconnect redis-restart          # Restart redis on localhost
 	  rhoconnect redis-start            # Start redis on localhost
 	  rhoconnect redis-status           # Show status of redis servers

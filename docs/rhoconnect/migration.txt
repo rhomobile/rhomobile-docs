@@ -126,7 +126,7 @@ Move your existing `application.rb` file into `controllers/ruby/application_cont
 
 NOTE: You must remove `initializer` method from the ApplicationController class. It is no longer supported. 
 
-NOTE: If you had `store_blob` method overridden in the `application.rb` file - you will need to move it into the corresponding model class. Global `store_blob` method is no longer supported.
+NOTE: If you had `store_blob` method overriden in the `application.rb` file - you will need to move it into the corresponding model class. Global `store_blob` method is no longer supported.
 See below for details.
 
 Re-generate your sources by running 'rhoconnect source YOUR_SOURCE' command for all of your application sources. This will create source's controller files in the `controllers/ruby` directory
