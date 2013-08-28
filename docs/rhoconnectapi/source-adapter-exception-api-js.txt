@@ -18,32 +18,32 @@ Raise a generic RhoConnect adapter exception.
 Raise an exception on the login procedure.
 
     :::javascript
-    new rc.LoginException(resp, 'A login error occured.');
+    new rc.LoginException(resp, 'A login error occurred.');
 
 ## LogoffException(response, message)
 Raise an exception on the logoff procedure.
 
     :::javascript
-    new rc.LogoffException(resp, 'A logoff error occured.');
+    new rc.LogoffException(resp, 'A logoff error occurred.');
 
 ## ServerTimeoutException(response, message)
-Raise an exception indicating a timeout occured.
+Raise an exception indicating a timeout occurred.
 
     :::javascript
-    new rc.ServerTimeoutException(resp, 'A timeout occured.');
+    new rc.ServerTimeoutException(resp, 'A timeout occurred.');
 
 ## ServerErrorException(response, message)
 Raise an exception concerning the backend service.
 
     :::javascript
-    new rc.ServerErrorException(resp, 'An error occured with our systems, please try again.');
+    new rc.ServerErrorException(resp, 'An error occurred with our systems, please try again.');
 
 ## ObjectConflictErrorException(response, message)
 Raise a [conflict exception](/rhoconnect/cud-conflicts) to indicate there was a conflict in handling the record. This will trigger RhoConnect's automatic processing for conflicts.
 
     :::javascript
     new rc.ObjectConflictErrorException(
-      resp, 'A conflict error occured, please update your copy and try again'
+      resp, 'A conflict error occurred, please update your copy and try again'
     );
 
 

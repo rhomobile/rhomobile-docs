@@ -33,7 +33,7 @@ If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), 
 
 RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.
 
-Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis by runing the following command:
+Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis by running the following command:
 
 	:::term
 	$ rhoconnect redis-start

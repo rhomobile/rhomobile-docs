@@ -40,7 +40,7 @@ To use Common APIs you have to copy `rhoapi-modules.js` to your web server appli
 ## Using your own objects
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them.
 
-In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties seperate from the rear-facing camera:
+In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties separate from the rear-facing camera:
 	
 	:::javascript
 	var desiredCamera;
@@ -60,7 +60,7 @@ We can then reference instance methods on that object
 		fnHandlePicture(e));
 
 
-## Setting propeties
+## Setting Properties
 There are a few different ways you can set properties. 
 
 ### Using the default instance
@@ -96,7 +96,7 @@ Some methods support passing in an `propertyMap` as a parameter to a method. Lik
 
 **NOTE: In the API reference, when a parameter is of type propertyMap, all possible values are not shown in the documentation. However you may use any non read-only property listed for that object class.**
 
-## Getting properties
+## Getting Properties
 There are a few ways to get an object's property values:
 
 ### Reading values synchronously
@@ -151,7 +151,7 @@ The following code snippet uses a function name for the callback instead of an a
 	Barcode.getAllProperties(fnPropertyPerser(e));
 
 ## Handling callbacks
-Some methods will support a callback for returning information in an unblocking asnychronous way. This will be indicated in the documentation by a parameter named `callback`
+Some methods will support a callback for returning information in an unblocking asynchronous way. This will be indicated in the documentation by a parameter named `callback`
 
 	:::javascript
 	Barcode.take(HASH propertyMap, CallbackHandler callback)

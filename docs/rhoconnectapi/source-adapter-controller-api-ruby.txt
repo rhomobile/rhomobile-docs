@@ -73,7 +73,7 @@ Access your source adapter model instance variable inside of the route:
 
 NOTE: Application Controller doesn't have the @model variable available, since it is not a Source Adapter Controller.
 
-Alternatively, you can constuct the model's instance by using the following method inside of your route:
+Alternatively, you can construct the model's instance by using the following method inside of your route:
 
 	:::ruby
 	post '/my_custom_route' do
@@ -150,7 +150,7 @@ For more info on what is Sinatra condition and how to use it - [look here](http:
 
 ### admin_required
 
-When installed, this condition enforces presense of the `api-token`, thus, making the route accessible only to the admin user. Typically, all `system` routes using this condition:
+When installed, this condition enforces presence of the `api-token`, thus, making the route accessible only to the admin user. Typically, all `system` routes using this condition:
 
 	:::ruby
 	post '/my_custom_admin_route', :admin_required => true do

@@ -37,7 +37,7 @@ This generates a set of files and folders to define an application structure. Th
 2. Choose `Add` \ `New Item`
 3. In the `Add New Item` dialog, choose `RhoMobile Model`
 4. Click `Add`
-5. In the `Add new RhoMobile Model` dial enter the `Model Name` an then a list of `Model Attributes` seperated by a comma
+5. In the `Add new RhoMobile Model` dial enter the `Model Name` an then a list of `Model Attributes` separated by a comma
 6. Click Finish
 
 This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](/guide/models) about data models. 
@@ -65,7 +65,7 @@ You are now ready to build and launch your application by selecting a build conf
 
 * RhoSimulator - The same RhoSimulator that is used on other platforms, provides a Webkit enabled view as well as a Web Inspector to help with debugging
 
-* Device - You must have a Windows Phone 8 device connectec to your machine and have it setup properly so Visual Studio recognizes it
+* Device - You must have a Windows Phone 8 device connected to your machine and have it setup properly so Visual Studio recognizes it
 
 * Emulator - Windows Phone 8 emulator provided by Microsoft.
 

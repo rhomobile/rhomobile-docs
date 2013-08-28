@@ -13,10 +13,10 @@ In RhoMobile Suite 4.0, the RhoConnect Client is available via an extension. In 
 In RhoMobile Suite 4.0, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 4.0 RhoElement API's will only work using the stock webkit. RhoElement API's that have [not yet moved](#using-22-apirsquos) to version 4.0, however will only work on the Motorola Webkit for Android.
 
 ## Shared Runtime
-In RhoMobile Suite 2.0, there was a [RhoElements Shared Runtime](rhoelements-runtime) that was included with the installation. This application was a pre-built RhoMobile application that included application configurion options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and built a RhoMobile application. Although the RhoMobile Suite 4.0 installation includes a pre-built shared runtime for Windows Mobile and Windows CE it is recomended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
+In RhoMobile Suite 2.0, there was a [RhoElements Shared Runtime](rhoelements-runtime) that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and built a RhoMobile application. Although the RhoMobile Suite 4.0 installation includes a pre-built shared runtime for Windows Mobile and Windows CE it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## Javascript Licensing
-In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on Javascript (due to the fact of the API only being supported in Motorola Webkit) but not neccesarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on Javascript or Ruby. [Read more about licensing](/guide/licensing).
+In RhoMobile Suite 4.0 more API's have javascript access that did not have this interface before. In addition some API's previously had licensing restrictions on Javascript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on Javascript or Ruby. [Read more about licensing](/guide/licensing).
 
 ## API Platform Support
 It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms where indicated using an [API compatibility matrix](/v/2.2/rhoelements/apicompatibility) at the API class level. In 4.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [4.0 API Summary](apisummary) for an overview.
@@ -126,7 +126,7 @@ Previously existed in 2.2: <a href="/v/2.2/rhoelements/keycapture"> KeyCapture</
 <a href="/api/keystate">KeyState</a>
 </td>
 <td>
-Indicator of jardware key state (Shift, Caps, Alt).
+Indicator of hardware key state (Shift, Caps, Alt).
 </td>
 <td>
 Previously existed in 2.2: <a href="/v/2.2/rhoelements/keystate"> KeyState</a>
@@ -327,7 +327,7 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2
 </table>
 
 ## Using 2.2 API's
-Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorported in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both Javascript and Ruby.
+Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both Javascript and Ruby.
 
 **NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](/v/2.2/rhoelements/apicompatibility) still applies.**
 
@@ -375,7 +375,7 @@ RhoElement specific Meta tags should still function in a RhoMobile 4.0 applicati
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in it's `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in furture versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated Javascript capabaility using the new common API classes.
+in it's `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in furture versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated Javascript capability using the new common API classes.
 
 	:::html
 	<META HTTP-Equiv="scanner" Content="Enable">
@@ -389,7 +389,7 @@ RhoElement specific Javascript APIs should still function in a RhoMobile 4.0 app
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in it's `build.yml`. It is recommended that JS API calls should be converted to use the associated Javascript capabaility using the new common API classes.
+in it's `build.yml`. It is recommended that JS API calls should be converted to use the associated Javascript capability using the new common API classes.
 
 	:::Javascript
 	scanner.enable()  // should still work
@@ -409,7 +409,7 @@ In a few rare cases an API in version 2.2 has the same naming as in 4.0, but the
 
 Callbacks are now specifying as the last parameter in all new 4.0 API classes.
 
-NOTE: The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instrance Objects and special common methods that were not there previously.
+**NOTE: The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instance objects and special common methods that were not there previously.**
 
 ## Removed APIs
 The following API's have been removed from Rhomobile 4.0

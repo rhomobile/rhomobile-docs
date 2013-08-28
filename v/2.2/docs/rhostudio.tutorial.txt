@@ -429,7 +429,7 @@ To create a run configuration and run the test for your application, perform the
 1. Select your application in the Project Explorer.
 2. Select Run->Debug Configurations...-> from the main menu. The Debug Configurations window appears.
 3. Right-click RhoMobile applications test and select New.
-4. Create the run cofiguration you want for this test. Choose the platform, and if needed, the simulator type. Click the Apply button when done.
+4. Create the run configuration you want for this test. Choose the platform, and if needed, the simulator type. Click the Apply button when done.
 5. Click the Debug button to run the test.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/debug-config-test.png"/>
