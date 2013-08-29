@@ -151,9 +151,9 @@ xml_string +=  ' </rss>	'
       if TOC.find("/#{subpath}/#{topic}") == '' && docversion.nil?
         
           #if not in TOC then make it default to 2.2 version
-          docversion='2.2'
-          @docversion = '2.2'
-          redirect "/v/#{docversion}/#{subpath}/#{topic}"
+          # docversion='2.2'
+          # @docversion = '2.2'
+          # redirect "/v/#{docversion}/#{subpath}/#{topic}"
       end
       @topic_file = topic_file(topic,subpath,docversion)
       # puts @topic_file
