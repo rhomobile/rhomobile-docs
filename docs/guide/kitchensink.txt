@@ -9,10 +9,14 @@ This document will be your step-by-step guide to how some specific features of K
 * JavaScript scoping
 * and more
 
-## Download the project
+## Download the Project
 The KitchenSink source code can be found at [https://github.com/rhomobile/rho-samples/tree/master/kitchensink](https://github.com/rhomobile/rho-samples/tree/master/kitchensink)
 
-## Filesystem layout
+## Download the App
+* [Android](https://s3.amazonaws.com/rhomobile-suite/4.0/4.0.0.beta.59/RMS4.0-Kitchen+Sink-1.30.59.apk)
+* [Windows Mobile](https://s3.amazonaws.com/rhomobile-suite/4.0/4.0.0.beta.59/RMS.4.0-Kitchen+Sink-1.30.59.cab)
+
+## Filesystem Layout
 
 KitchenSink 4 is a regular RhoMobile application like any other. Refer to [project structure](creating_a_project#project-structure) to know more about a typical RhoMobile project layout. In addition to the standard folders, however, KitchenSink 4 also contains:
 
@@ -20,17 +24,6 @@ KitchenSink 4 is a regular RhoMobile application like any other. Refer to [proje
 * `app/partials`. You will learn more about [partials](#partials) in this guide
 * `public/js/samples` contains the code for each sample
 
-## Fonts and colors
-
-By default, each device has a predefined set of fonts you can use but thanks to advances in CSS support, it is now possible to embed your own fonts and use them in your application. As of this writing, [Google fonts](http://www.google.com/fonts) contains a large collection of open-source fonts you can use for any purpose, including commercial. You can browse the collection and download any fonts you like. Do not import the fonts using Google's instructions, however: those instructions are designed for regular web pages. What you want to do instead is convert the font to a web-ready format and bundle it with your application so that it is not downloaded from the network.
-
-Once you have the files on your computer, there are several sites that can do the conversion for you. Two examples are [Font Squirrel](http://www.fontsquirrel.com/tools/webfont-generator) and [Font2Web](http://www.font2web.com/). Simply take the output from one of those sites, include it in your application and link to it like any other .css file.
-
-**NOTE: Rendering too many different fonts on the same page requires a significant amount of processing resources and can make your application feel slow. Try to limit the amount of fonts, especially on Windows Mobile devices. **
-
-Now that the font is available for use in your application, you have two options to start using it: one is to manually create a .css file and use the `font-family` property to manually assign the font to particular elements in your application. This gives you the most flexibility and control, at the expense of added complexity. The most straightforward option, and what was used in KitchenSink 4, is to use jQuery Mobile's [ThemeRoller](http://jquerymobile.com/themeroller/?ver=1.3.1) to build a custom jQuery Mobile theme. In the theme settings column, open "Font Family" and enter `Open Sans`. That will set the default font for the whole application.
-
-If you want to experiment with changing the look of KitchenSink, import `public/jqmobile/rms40.css` into ThemeRoller (there is a button at the top of the page labeled "Import or upgrade") and play with the different colors and settings. Once you like the preview, download your new theme and overwrite the .css file with your new version. Make sure the jQuery Mobile version selector in ThemeRoller is set to match the version included with KitchenSink (currently 1.3.1)
 
 ## Javascript
 
@@ -231,6 +224,18 @@ In this case, apart from specifying which partial to render, we are also passing
 	</div>	
 
 This technique gives you a tremendous amount of flexibility to structure your partials for maximum reuse; if you start to see snippets of code in your application that are repeated frequently, consider converting them into partials.
+
+## Fonts and Colors
+
+By default, each device has a predefined set of fonts you can use but thanks to advances in CSS support, it is now possible to embed your own fonts and use them in your application. As of this writing, [Google fonts](http://www.google.com/fonts) contains a large collection of open-source fonts you can use for any purpose, including commercial. You can browse the collection and download any fonts you like. Do not import the fonts using Google's instructions, however: those instructions are designed for regular web pages. What you want to do instead is convert the font to a web-ready format and bundle it with your application so that it is not downloaded from the network.
+
+Once you have the files on your computer, there are several sites that can do the conversion for you. Two examples are [Font Squirrel](http://www.fontsquirrel.com/tools/webfont-generator) and [Font2Web](http://www.font2web.com/). Simply take the output from one of those sites, include it in your application and link to it like any other .css file.
+
+**NOTE: Rendering too many different fonts on the same page requires a significant amount of processing resources and can make your application feel slow. Try to limit the amount of fonts, especially on Windows Mobile devices. **
+
+Now that the font is available for use in your application, you have two options to start using it: one is to manually create a .css file and use the `font-family` property to manually assign the font to particular elements in your application. This gives you the most flexibility and control, at the expense of added complexity. The most straightforward option, and what was used in KitchenSink 4, is to use jQuery Mobile's [ThemeRoller](http://jquerymobile.com/themeroller/?ver=1.3.1) to build a custom jQuery Mobile theme. In the theme settings column, open "Font Family" and enter `Open Sans`. That will set the default font for the whole application.
+
+If you want to experiment with changing the look of KitchenSink, import `public/jqmobile/rms40.css` into ThemeRoller (there is a button at the top of the page labeled "Import or upgrade") and play with the different colors and settings. Once you like the preview, download your new theme and overwrite the .css file with your new version. Make sure the jQuery Mobile version selector in ThemeRoller is set to match the version included with KitchenSink (currently 1.3.1)
 
 
 ## Related reading

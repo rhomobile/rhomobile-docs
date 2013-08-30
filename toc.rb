@@ -6,7 +6,7 @@ section 'getting-started', 'Introduction','Mobile Guides' do
   topic 'guide/devenvironment',  'Developer Environments'
   topic 'guide/appdesign',   'App Architecture'
   topic 'guide/uichoices',      'UI Architecture'
-  topic 'guide/kitchensink',                 'Kitchen Sink Demo'
+  topic 'guide/kitchensink',                 'KitchenSink Application'
   topic 'guide/apiusage',      '2.2 Migration Guide'
   topic 'guide/api_js', 'RhoMobile Javascript Usage'
   topic 'guide/api_ruby', 'RhoMobile Ruby Usage'
