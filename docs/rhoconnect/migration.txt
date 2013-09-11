@@ -56,17 +56,17 @@ The `rhoconnect update` command will generate a reference `Gemfile.new` which yo
 
 You must update `config.ru`, `Rakefile`, 'application.rb' and your source adapter files to match RhoConnect 4.0+ gem requirements.
 
-Replace your existing `config.ru` with the listing below. Save your old `config.ru` since you will use values within it in the new `config.ru`. 
+Replace your existing `config.ru` with the listing below. Save your old `config.ru` since you will use values within it in the new `config.ru`.
 
 	:::ruby
 	# config.ru file
-	
+
 	#!/usr/bin/env ruby
 	require 'rhoconnect/application/init'
 
 	# secret is generated along with the app
 	# NOTE:
-	# Substitute 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru	
+	# Substitute 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru
 	Rhoconnect::Server.set     :secret, 'REPLACE_ME'
 
 	# !!! Add your custom initializers and overrides here !!!
@@ -78,14 +78,13 @@ Replace your existing `config.ru` with the listing below. Save your old `config.
 	#Rhoconnect.disable_rc_console = true
 
 	# run RhoConnect Application
-	run Rhoconnect.app	
+	run Rhoconnect.app
 
 And replace your existing `Rakefile` with the following:
 
 	:::ruby
 	require 'rubygems'
 	require 'bundler/setup'
-	require 'rhoconnect/tasks'
 	require 'rhoconnect'
 	require 'resque/tasks'
 
@@ -114,7 +113,7 @@ Move your existing `application.rb` file into `controllers/ruby/application_cont
     		<INSERT YOUR AUTHENTICATION CODE HERE>
   		end
 
-  		get "/rps_login", :rc_handler => :rps_authenticate, 
+  		get "/rps_login", :rc_handler => :rps_authenticate,
         	            :login_required => true do
     		login = params[:login]
     		password = params[:password]
@@ -124,13 +123,13 @@ Move your existing `application.rb` file into `controllers/ruby/application_cont
   		# <.... PLACE HERE ALL OF YOUR EXISTING APPLICATION CODE ...>
 	end
 
-NOTE: You must remove `initializer` method from the ApplicationController class. It is no longer supported. 
+NOTE: You must remove `initializer` method from the ApplicationController class. It is no longer supported.
 
 NOTE: If you had `store_blob` method overridden in the `application.rb` file - you will need to move it into the corresponding model class. Global `store_blob` method is no longer supported.
 See below for details.
 
 Re-generate your sources by running 'rhoconnect source YOUR_SOURCE' command for all of your application sources. This will create source's controller files in the `controllers/ruby` directory
-and source's model files in the `models/ruby` directory. After that, move your existing files from the `sources` directory into the `models/ruby` directory, replacing the generated model files. 
+and source's model files in the `models/ruby` directory. After that, move your existing files from the `sources` directory into the `models/ruby` directory, replacing the generated model files.
 Then, modify every file to make sure that your SourceAdapter classes now derive from the `Rhoconnect::Model::Base` class - SourceAdapters now became Models:
 
 	:::ruby
@@ -146,10 +145,10 @@ If you had global `store_blob` method in the `application.rb` file - you need to
 		def store_blob(object, field, blob)
 			<YOUR_STORE_BLOB_IMPLEMENTATION>
 		end
-	end 
+	end
 
 If you had source spec files in the `spec/sources` directory - you will need to move them into `spec/models/ruby` directory and adjust the top line of each spec file:
-	
+
 	:::ruby
 	require File.join(File.dirname(__FILE__),'..','..','spec_helper')
 
