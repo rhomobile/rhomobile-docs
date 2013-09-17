@@ -159,7 +159,7 @@ Then navigate to the directory containing the runtime file and run `adb install`
 
 ### Installing Runtime Apps for Windows Mobile/CE Devices
 
-If you are using a Windows Mobile or CE device, install the following runtime apps on your device.
+If you are using a Windows Mobile or CE device, install the following runtime apps on your device.  If you already have the .NET Compact Framework on your device, make sure it is v3.5 or higher.
 
 * `rhoconnect-push-service.CAB`
 * `NETCFv35.Messages.EN.wm.cab`
