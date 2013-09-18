@@ -289,8 +289,8 @@ To use Angular.js, we need to instantiate our application. Because we will use A
 				ProductHelper.create({name: "New product"});
 			}
 
-			$scope.delete = function(product_id) {
-				ProductHelper.delete(product_id);
+			$scope.del = function(product_id) {
+				ProductHelper.del(product_id);
 			}
 
 			$scope.sync = function() {
@@ -322,7 +322,7 @@ The HTML code for the Home view is as follows:
             <td class="brand">{{ product.brand }}</td>
             <td class="actions">
               <a data-role="button" data-ng-href="#/edit/{{product.object}}">Edit</a>
-              <a data-role="button" data-ng-click="delete(product.object)">Delete</a>
+              <a data-role="button" data-ng-click="del(product.object)">Delete</a>
             </td>
           </tr>
       </tbody>
@@ -362,7 +362,7 @@ The code for `ProductHelper` is below:
 				this.products.push(hash);
 				return hash;
 			},
-			delete: function(product_id) {
+			del: function(product_id) {
 				var rhoProduct = this.find_by_id(product_id);
 				if (rhoProduct) {
 					// remove the product from the database
@@ -404,7 +404,7 @@ The code for `ProductHelper` is below:
 		};
 	});
 
-By creating a service in this way we gain a very desirable property for our application: all database access in centralized in a single place and the `products` array becomes the canonical data source for every view. As long all database access calls are made via `ProductHelper`, it will take care of updating the `products` array and every view in the application will be automatically in sync. As a performance optimization, the `delete` and `update` functions change the array in place in order to avoid reloading the whole database from memory each time; the application would also work (albeit more slowly) if we just called `load_products` after every change.
+By creating a service in this way we gain a very desirable property for our application: all database access in centralized in a single place and the `products` array becomes the canonical data source for every view. As long all database access calls are made via `ProductHelper`, it will take care of updating the `products` array and every view in the application will be automatically in sync. As a performance optimization, the `del` and `update` functions change the array in place in order to avoid reloading the whole database from memory each time; the application would also work (albeit more slowly) if we just called `load_products` after every change.
 
 That completes our `Home` screen, the list of products. The `Edit` screen is handled by the following view:
 
