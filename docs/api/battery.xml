@@ -33,6 +33,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <METHODS access="STATIC">
             <METHOD name="batteryStatus" hasCallback="optional">
                 <DESC>Retrieve the current battery level.  If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.</DESC>
+				<PLATFORM>WM, Android, iOS</PLATFORM>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
 					<DESC>The properties associated with accessing the battery status</DESC>
@@ -84,6 +85,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<METHOD name="stopBatteryStatus" hasCallback="none">
                 <DESC>If the battery is being retrieved via callback, by a previously invoked call to batteryStatus, this method will stop the callback from firing.</DESC>
+				<PLATFORM>WM, Android, iOS</PLATFORM>
             </METHOD>
 
 			<METHOD name="smartBatteryStatus" hasCallback="optional">

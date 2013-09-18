@@ -1,5 +1,5 @@
 #RhoConnectClient
-<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;16</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Methods</i></b></a><li><a href="#maddObjectNotify" data-target="cMethodaddObjectNotify" class="autouncollapse"><span class='text-info'>addObjectNotify</span></a></li><li><a href="#mcleanObjectNotify" data-target="cMethodcleanObjectNotify" class="autouncollapse"><span class='text-info'>cleanObjectNotify</span></a></li><li><a href="#mclearNotification" data-target="cMethodclearNotification" class="autouncollapse">clearNotification</a></li><li><a href="#mdoSync" data-target="cMethoddoSync" class="autouncollapse"><span class='text-info'>doSync</span></a></li><li><a href="#mdoSyncSource" data-target="cMethoddoSyncSource" class="autouncollapse">doSyncSource</a></li><li><a href="#misLoggedIn" data-target="cMethodisLoggedIn" class="autouncollapse">isLoggedIn</a></li><li><a href="#misSyncing" data-target="cMethodisSyncing" class="autouncollapse">isSyncing</a></li><li><a href="#mlogin" data-target="cMethodlogin" class="autouncollapse">login</a></li><li><a href="#mlogout" data-target="cMethodlogout" class="autouncollapse">logout</a></li><li><a href="#msearch" data-target="cMethodsearch" class="autouncollapse">search</a></li><li><a href="#msetNotification" data-target="cMethodsetNotification" class="autouncollapse">setNotification</a></li><li><a href="#msetObjectNotification" data-target="cMethodsetObjectNotification" class="autouncollapse"><span class='text-info'>setObjectNotification</span></a></li><li><a href="#mstopSync" data-target="cMethodstopSync" class="autouncollapse"><span class='text-info'>stopSync</span></a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;8</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pbulksyncState" data-target="cPropertybulksyncState" class="autouncollapse">bulksyncState</a></li><li><a href="#ppageSize" data-target="cPropertypageSize" class="autouncollapse">pageSize</a></li><li><a href="#ppollInterval" data-target="cPropertypollInterval" class="autouncollapse">pollInterval</a></li><li><a href="#pshowStatusPopup" data-target="cPropertyshowStatusPopup" class="autouncollapse">showStatusPopup</a></li><li><a href="#psslVerifyPeer" data-target="cPropertysslVerifyPeer" class="autouncollapse">sslVerifyPeer</a></li><li><a href="#psyncServer" data-target="cPropertysyncServer" class="autouncollapse">syncServer</a></li><li><a href="#puserName" data-target="cPropertyuserName" class="autouncollapse">userName</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Sync Authentication</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Notifications</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Object notifications</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Handling Errors</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Using search (Ruby Only)</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;2</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">Notification Parameters</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Backround Sync on iOS</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
+<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;16</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Methods</i></b></a><li><a href="#maddObjectNotify" data-target="cMethodaddObjectNotify" class="autouncollapse"><span class='text-info'>addObjectNotify</span></a></li><li><a href="#mcleanObjectNotify" data-target="cMethodcleanObjectNotify" class="autouncollapse"><span class='text-info'>cleanObjectNotify</span></a></li><li><a href="#mclearNotification" data-target="cMethodclearNotification" class="autouncollapse">clearNotification</a></li><li><a href="#mdoSync" data-target="cMethoddoSync" class="autouncollapse"><span class='text-info'>doSync</span></a></li><li><a href="#mdoSyncSource" data-target="cMethoddoSyncSource" class="autouncollapse">doSyncSource</a></li><li><a href="#misLoggedIn" data-target="cMethodisLoggedIn" class="autouncollapse">isLoggedIn</a></li><li><a href="#misSyncing" data-target="cMethodisSyncing" class="autouncollapse">isSyncing</a></li><li><a href="#mlogin" data-target="cMethodlogin" class="autouncollapse">login</a></li><li><a href="#mlogout" data-target="cMethodlogout" class="autouncollapse">logout</a></li><li><a href="#msearch" data-target="cMethodsearch" class="autouncollapse">search</a></li><li><a href="#msetNotification" data-target="cMethodsetNotification" class="autouncollapse">setNotification</a></li><li><a href="#msetObjectNotification" data-target="cMethodsetObjectNotification" class="autouncollapse"><span class='text-info'>setObjectNotification</span></a></li><li><a href="#mstopSync" data-target="cMethodstopSync" class="autouncollapse"><span class='text-info'>stopSync</span></a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;8</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pbulksyncState" data-target="cPropertybulksyncState" class="autouncollapse">bulksyncState</a></li><li><a href="#ppageSize" data-target="cPropertypageSize" class="autouncollapse">pageSize</a></li><li><a href="#ppollInterval" data-target="cPropertypollInterval" class="autouncollapse">pollInterval</a></li><li><a href="#pshowStatusPopup" data-target="cPropertyshowStatusPopup" class="autouncollapse">showStatusPopup</a></li><li><a href="#psslVerifyPeer" data-target="cPropertysslVerifyPeer" class="autouncollapse">sslVerifyPeer</a></li><li><a href="#psyncServer" data-target="cPropertysyncServer" class="autouncollapse">syncServer</a></li><li><a href="#puserName" data-target="cPropertyuserName" class="autouncollapse">userName</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Sync Authentication</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Notifications</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Object notifications</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Handling Errors</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Using search (Ruby Only)</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;2</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">Notification Callback Parameters</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Backround Sync on iOS</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
 <p>RhoConnectClient is used for synchronization with RhoConnect applications.</p>
 
 <h2>Enabling the API</h2>
@@ -464,7 +464,7 @@ end
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Notification Parameters</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.</p>
+<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Notification Callback Parameters</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.</p>
 
 <h2>Common Parameters</h2>
 
@@ -478,68 +478,79 @@ end
 </ul>
 
 
-<h3>in_progress &ndash; incremental sync progress</h3>
+<p>In the following sections we cover the different status values and parameters available with each status.</p>
+
+<h3>status: &ldquo;in_progress&rdquo; &ndash; incremental sync progress</h3>
 
 <ul>
-<li>@params[&ldquo;total_count&rdquo;] &ndash; Total number of records that exist for this RhoConnect source.</li>
-<li>@params[&ldquo;processed_count&rdquo;] &ndash; Number of records included in the sync page.</li>
-<li>@params[&ldquo;cumulative_count&rdquo;] &ndash; Number of records the SyncEngine has processed so far for this source.</li>
+<li>total_count &ndash; Total number of records that exist for this RhoConnect source.</li>
+<li>processed_count &ndash; Number of records included in the sync page.</li>
+<li>cumulative_count &ndash; Number of records the SyncEngine has processed so far for this source.</li>
 </ul>
 
 
-<h3>in_progress &ndash; bulk sync progress</h3>
+<h3>status: &ldquo;in_progress&rdquo; &ndash; bulk sync progress</h3>
 
 <ul>
-<li><p>@params[&ldquo;bulk_status&rdquo;] &ndash; The state of the bulk sync process:</p>
+<li><p>bulk_status &ndash; The state of the bulk sync process:</p>
 
 <ul>
-<li>&ldquo;start&rdquo; &ndash; Bulk sync has started for a specific partition</li>
-<li>&ldquo;download&rdquo; &ndash; Bulk sync file download has started</li>
-<li>&ldquo;change_db&rdquo; &ndash; New bulk sync database change has started</li>
-<li>&ldquo;blobs&rdquo; &ndash; Bulk sync blob files have started to download</li>
-<li>&ldquo;ok&rdquo; &ndash; Current partition has completed</li>
-<li>&ldquo;complete&rdquo; &ndash; All partitions have completed</li>
-</ul>
-</li>
-<li><p>@params[&ldquo;partition&rdquo;] &ndash; Current bulk sync partition.</p></li>
-</ul>
-
-
-<h3>error</h3>
-
-<ul>
-<li>@params[&ldquo;error_code&rdquo;] &ndash; HTTP response code of the RhoConnect server error: 401, 500, 404, etc.</li>
-<li>@params[&ldquo;error_message&rdquo;] &ndash; Response body (if any)</li>
-<li>@params[&ldquo;server_errors&rdquo;] &ndash; Hash of Type objects of RhoConnect adapter error (if exists):
-
-<ul>
-<li>&ldquo;login-error&rdquo; &ndash; An error in adapter login method</li>
-<li>&ldquo;query-error&rdquo; &ndash; An error in adapter query method</li>
-<li>&ldquo;create-error&rdquo; &ndash; An error in adapter create method</li>
-<li>&ldquo;update-error&rdquo; &ndash; An error in adapter update method</li>
-<li>&ldquo;delete-error&rdquo; &ndash; An error in adapter delete method</li>
-<li>&ldquo;logoff-error&rdquo; &ndash; An error in adapter logoff method</li>
+<li>start &ndash; Bulk sync has started for a specific partition</li>
+<li>download &ndash; Bulk sync file download has started</li>
+<li>change_db &ndash; New bulk sync database change has started</li>
+<li>blobs &ndash; Bulk sync blob files have started to download</li>
+<li>ok &ndash; Current partition has completed</li>
+<li>complete &ndash; All partitions have completed</li>
 </ul>
 </li>
+<li><p>partition &ndash; Current bulk sync partition.</p></li>
 </ul>
 
 
-<p>Each error contains a &lsquo;message&rsquo; key with the error message.  For example:</p>
+<h3>status: &ldquo;error&rdquo;</h3>
+
+<ul>
+<li>error_code &ndash; HTTP response code of the RhoConnect server error: 401, 500, 404, etc.</li>
+<li>error_message &ndash; Response body (if any)</li>
+<li>server_errors &ndash; Hash of Type objects of RhoConnect adapter error (if exists):
+
+<ul>
+<li>login-error &ndash; An error in adapter login method</li>
+<li>query-error &ndash; An error in adapter query method</li>
+<li>create-error &ndash; An error in adapter create method</li>
+<li>update-error &ndash; An error in adapter update method</li>
+<li>delete-error &ndash; An error in adapter delete method</li>
+<li>logoff-error &ndash; An error in adapter logoff method</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Each error contains a &lsquo;message&rsquo; key with the error message.</p>
+
+<p>Ruby Example:</p>
 
 <pre><code>:::ruby
 @params["server_errors"]["query-error"]["message"] 
 #=&gt; "Error connecting to backend server: http://rhostore.herokuapp.com"
 </code></pre>
 
+<p>JavaScript Example:</p>
+
+<pre><code>:::javascript
+params.server_errors["query-error"].message
+//=&gt; "Error connecting to backend server: http://rhostore.herokuapp.com"
+</code></pre>
+
 <h4>Handling &lsquo;create-error&rsquo;</h4>
 
 <p>&ldquo;create-error&rdquo; is a unique situation that needs to be handled in your sync callback.  See <code>RhoConnectClient.onSyncCreateError()</code> for more details.</p>
 
-<h3>complete</h3>
+<h3>status: &ldquo;complete&rdquo;</h3>
 
 <p>This status returns only when the sync run is complete (all partitions are done synchronizing).</p>
 
-<h3>schema-changed</h3>
+<h3>status: &ldquo;schema-changed&rdquo;</h3>
 
 <p>This is present if a FixedSchema model has changed during the current sync run.  A new bulk sync run should be triggered (by setting bulksyncState) and the user should be alerted in the UI.</p>
   </div></div></div></div><a name='r1'></a><div class=' remarks' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark1"><strong>Backround Sync on iOS</strong></div><div id="cRemark1" class="accordion-body">  <div class="accordion-inner"><p>On iOS, if the application is backgrounded, it will be suspended. This also means if a current sync is in progress, it will immediately terminate.  To prevent this behaviour, set &lsquo;finish_sync_in_background&rsquo; to &lsquo;1&rsquo; in rhoconfig.txt.  When set to &lsquo;1&rsquo;, the RhoConnectClient will attempt to finish synchronization before the application fully suspends.</p>

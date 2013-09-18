@@ -664,7 +664,7 @@ end
             </EXAMPLE>
         </EXAMPLES>
         <REMARKS>
-            <REMARK title="Notification Parameters">
+            <REMARK title="Notification Callback Parameters">
                 <DESC>
 <![CDATA[
 When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.
@@ -678,50 +678,57 @@ These parameters are included in all notifications.
 * sync_type - Type of sync used for this model: "incremental" or "bulk"
 * status - Status of the current sync process. See below for the possible values:
 
-### in_progress - incremental sync progress
+In the following sections we cover the different status values and parameters available with each status.
 
-* @params["total_count"] - Total number of records that exist for this RhoConnect source.
-* @params["processed_count"] - Number of records included in the sync page.
-* @params["cumulative_count"] - Number of records the SyncEngine has processed so far for this source.
+### status: "in_progress" - incremental sync progress
 
-### in_progress - bulk sync progress
+* total_count - Total number of records that exist for this RhoConnect source.
+* processed_count - Number of records included in the sync page.
+* cumulative_count - Number of records the SyncEngine has processed so far for this source.
 
-* @params["bulk_status"] - The state of the bulk sync process:
-  * "start" - Bulk sync has started for a specific partition
-  * "download" - Bulk sync file download has started
-  * "change_db" - New bulk sync database change has started
-  * "blobs" - Bulk sync blob files have started to download
-  * "ok" - Current partition has completed
-  * "complete" - All partitions have completed
+### status: "in_progress" - bulk sync progress
 
-* @params["partition"] - Current bulk sync partition.
+* bulk_status - The state of the bulk sync process:
+  * start - Bulk sync has started for a specific partition
+  * download - Bulk sync file download has started
+  * change_db - New bulk sync database change has started
+  * blobs - Bulk sync blob files have started to download
+  * ok - Current partition has completed
+  * complete - All partitions have completed
 
-### error
+* partition - Current bulk sync partition.
 
-* @params["error_code"] - HTTP response code of the RhoConnect server error: 401, 500, 404, etc.
-* @params["error_message"] - Response body (if any)
-* @params["server_errors"] - Hash of Type objects of RhoConnect adapter error (if exists):
-  * "login-error" - An error in adapter login method
-  * "query-error" - An error in adapter query method
-  * "create-error" - An error in adapter create method
-  * "update-error" - An error in adapter update method
-  * "delete-error" - An error in adapter delete method
-  * "logoff-error" - An error in adapter logoff method
+### status: "error"
 
-Each error contains a 'message' key with the error message.  For example:
+* error_code - HTTP response code of the RhoConnect server error: 401, 500, 404, etc.
+* error_message - Response body (if any)
+* server_errors - Hash of Type objects of RhoConnect adapter error (if exists):
+  * login-error - An error in adapter login method
+  * query-error - An error in adapter query method
+  * create-error - An error in adapter create method
+  * update-error - An error in adapter update method
+  * delete-error - An error in adapter delete method
+  * logoff-error - An error in adapter logoff method
 
+Each error contains a 'message' key with the error message.
+
+Ruby Example:
     :::ruby
     @params["server_errors"]["query-error"]["message"] 
     #=> "Error connecting to backend server: http://rhostore.herokuapp.com"
 
+JavaScript Example:
+    :::javascript
+    params.server_errors["query-error"].message
+    //=> "Error connecting to backend server: http://rhostore.herokuapp.com"
 
 #### Handling 'create-error'
 "create-error" is a unique situation that needs to be handled in your sync callback.  See `RhoConnectClient.onSyncCreateError()` for more details.
 
-### complete
+### status: "complete"
 This status returns only when the sync run is complete (all partitions are done synchronizing).
 
-### schema-changed
+### status: "schema-changed"
 This is present if a FixedSchema model has changed during the current sync run.  A new bulk sync run should be triggered (by setting bulksyncState) and the user should be alerted in the UI.
 ]]>
                 </DESC>
