@@ -15,18 +15,18 @@ Retrieve a simple value from redis.
     :::javascript
     var value = '';
     resp.params = 'hello';
-    Store.getValue(resp, function(){
+    Store.getValue(resp, function(resp){
       value = resp.result;
       // value is now 'world'
       resp.send(resp.result);
     });
 
 ## putValue(resp,callback)
-Add a simple value to redis.
+Add a simple value to redis.  The first array item is the key, the second is the value.
 
     :::javascript
-    resp.params = { 'hello': 'world' }
-    Store.putValue(resp, function(){
+    resp.params = ['hello', 'world']
+    Store.putValue(resp, function(resp){
       resp.send(true);
     });
 
