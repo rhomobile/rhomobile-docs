@@ -185,11 +185,11 @@ def self.getconstantlinks(doc)
   	groupctr = 0
   	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
-	  	ctr = s.count()
+	  	# ctr = s.count()
 	  	# md += "<ul>"
 	  	s.each() { |element|
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
-
+	  			ctr+=1
 				propreplaces = ""
 				deprecated = ""
 				#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
@@ -266,10 +266,10 @@ def self.getconstantlinks(doc)
   	ctr = 0 
   	if !doc["MODULE"][0]["METHODS"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
-	  	ctr = s.count()
+	  	
 	  	s.each() { |element|
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
-	 
+	 			ctr+=1
 	  			methname = element["name"]
 
 		  		if !doc["MODULE"][0]["METHODS"].nil? && !doc["MODULE"][0]["METHODS"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["METHODS"][0]["ALIASES"][0].empty?
