@@ -22,8 +22,9 @@ Certain APIs require a license. These API's are all included as extensions in th
 * [Database Encryption](/rhodes/rhom#database-encryption)
 * [Signal](/api/signal)
 * [Signature Capture](/api/signature)
-* [Windows Desktop](/guide/build_wm)
 
+### Platforms
+* [Windows Desktop](/guide/build_wm)
 
 
 ##Running without a license

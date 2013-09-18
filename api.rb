@@ -675,6 +675,12 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 								@propvaldesc = ""
 							end 
 						end	
+						if !vaelement["PLATFORM"].nil?
+							if !vaelement["PLATFORM"][0].empty?
+								@propvaldesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+							
+							end 
+						end
 						@seperator = ', '
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
@@ -851,7 +857,16 @@ def self.getparams(element,toplevel)
 							methparamsdetailsdesc= ''
 						end
 					end
-
+					if !param["PLATFORM"].nil? && !toplevel
+						pdesc=param["PLATFORM"][0]
+						if pdesc.to_s == '{}'
+							pdesc= ''
+						else
+							pdesc = ' Platforms:' + pdesc
+						end
+						methparamsdetailsdesc+=pdesc
+						
+					end
 					methparamsnil=""
 					methparamsnildesc=""
 					if !param["CAN_BE_NIL"].nil?
@@ -895,6 +910,13 @@ def self.getparams(element,toplevel)
 										valdesc = ""
 									end 
 								end	
+								if !vaelement["PLATFORM"].nil?
+									if !vaelement["PLATFORM"][0].empty?
+										valdesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+									
+									end 
+								end
+
 								@seperator = ', '
 								if !vaelement["type"].nil?
 									valuetype = vaelement["type"]
@@ -984,6 +1006,12 @@ if !element["PARAM"].nil?
 										valdesc = ""
 									end 
 								end	
+								if !vaelement["PLATFORM"].nil?
+									if !vaelement["PLATFORM"][0].empty?
+										valdesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+									
+									end 
+								end								
 								@seperator = ', '
 								if !vaelement["type"].nil?
 									valuetype = vaelement["type"]
