@@ -252,7 +252,7 @@ While Angular.js provides a lot of directives and services, out of the box, with
   - product edit form
   - save button
 
-**NOTE: The code for this application is available at [TODO](link code for rhom-angular sample).**
+**NOTE: The code for this application is available [here](https://github.com/javiermolina1234/rhomobile-angular-sample).**
 
 
 
