@@ -21,51 +21,26 @@ To load application files to the RhoMobile application from an external Web serv
 	start_path='http://heroku.com/myapp/index.html'
 
 ## Using RhoMobile JS APIs
-The RhoMobile JavaScript API library `rhoapi-modules.js` is needed in order to access RhoMobile 4 JavaScript APIs. This file is provided as part of the installation of RhoMobile Suite:
+The RhoMobile JavaScript API library `rhoapi-modules.js` is needed in order to access RhoMobile 4 JavaScript APIs.  This file is provided as part of the installation of RhoMobile Suite:
 
 * Windows: located in the `[RhoMobile Suite install path]/rhoapi-modules`
 * Mac: In the `rhoapi-modules` folder of the RhoMobile Suite DMG package.
 
-Copy this file to your web application and make sure it is references in all pages that wish to use the RhoMobile JavaScript APIs.
+Copy this file to your web server and make sure it is referenced in all pages that wish to use the RhoMobile JavaScript APIs.
 
-NOTE: This file includes all of the Rhodes and RhoElements extensions and APIs by default. If you wish to customize the contents of include any additional extensions, then you will need to generate the `rhoapi-modules.js` file by creating a RhoMobile application project.
+NOTE: This file is universal for all platforms and includes all of the Rhodes and RhoElements extensions and APIs by default. If you wish to customize the contents of include any additional extensions, then you will need to generate the `rhoapi-modules.js` file by creating a RhoMobile application project.
 
 ### Generating rhoapi-modules.js
-To generate the 'rhoapi-modules.js' you can run a rake command for each platform required. In order to do this, you will need to have RhoStudio installed and the desired native platform development environments as if you were building a native application. Create a RhoMobile project and then in a command prompt from the project folder, execute the following command:
+To generate a universal 'rhoapi-modules.js' you can run a rake command. In order to do this, you will need to have RhoStudio installed. Create a RhoMobile project and then in a command prompt from the project folder, execute the following command:
 	:::ruby
 	#platform may be: win32, wm, android, iphone, wp8
-	rake update_rho_modules_js[platform]
+	rake update_rho_modules_js[all]
 
-	# Example usage
-	rake update_rho_modules_js[win32]
-	rake update_rho_modules_js[wm]
-	rake update_rho_modules_js[android]
-	rake update_rho_modules_js[iphone]
-	rake update_rho_modules_js[wp8]
-
+	
 The `rhoapi-modules.js` file will be located in the projects `\public\api` folder. Copy this file to your webserver application and reference it appropriately.
 
 NOTE: The `rhoapi-modules.js` file is customized to the `extensions` and `capabilities` section of your `build.yml`. If you do not included the proper settings, the rhoapi-modules.js library may not contain all of the capabilities you are looking for.
 
-### Supporting Multi-platforms 
-Since the genration of `rhoapi-modules.js` is also platform specific, you will need generate individual `rhoapi-modules.js` files as well as establish a mechanism in your web application to detect the type of client and include the approprate library. 
-
-Ex: If your clients for your web application are running from different platforms, you should place `rhoapi-modules.js` generated for specific platforms to separate folders:
-
-	ios/rhoapi-modules.js
-	android/rhoapi-modules.js
-	wm/rhoapi-modules.js
-	wp8/rhoapi-modules.js
-
-
-And then use a method for conditionally loading the appropriate JS file by checking user-agent string for example. A library [like yepnope.js](http://yepnopejs.com/) may be helpful	
-	:::javascript
-	yepnope({
-	  test : navigator.userAgent.match(/Android/i),
-	  yep  : 'android/rhoapi-modules.js'
-	  
-	});
-
-## Windows Mobile/CE Devices
+### Windows Mobile/CE Devices
 To use the `rhoapi-modules.js` library for Windows Mobile/CE devices with your webserver you can also choose to [install the Shared Runtime](rhoelements-runtime#installing-the-rhoelements-runtime) and then copy the `rhoapi-modules.js` from the devices `Program Files\RhoElements\rho\public` folder. This file will be valid for Windows Mobile/CE devices only and will contain both Rhodes and RhoElements APIs.
 
