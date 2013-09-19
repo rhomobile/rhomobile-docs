@@ -165,6 +165,8 @@ If you are using a Windows Mobile or CE device, install the following runtime ap
 * `NETCFv35.Messages.EN.wm.cab`
 * `NETCFv35.Messages.EN.cab`
 
+**NOTE: On Windows CE 7.0, you may see the following warning: "The program is not compatible with the current operating system and, therefore, may not run on this device."  You can safely ignore this warning and click the "Yes" button.**
+
 Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center.
 
 Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the computer. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs.
