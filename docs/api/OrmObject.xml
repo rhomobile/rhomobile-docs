@@ -53,9 +53,7 @@
 
     </USER_OVERVIEW>
     <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-    <PLATFORM>
-      <!--  This section is used for the supported platform images at the top -->
-    </PLATFORM>
+    <PLATFORM>WM, Win32, Android, iOS</PLATFORM>
     <EXAMPLES>
       <EXAMPLE title="Orm Destroy Method Examples">
         <SECTIONS>

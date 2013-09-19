@@ -489,7 +489,15 @@ def self.getconstantlinks(doc)
   end
 
 
-  def self.getplatformindicators (platforms,msionly,ruby,javascript)
+  def self.getplatformindicators (platforms,msionly,ruby,javascript,usemoduleplatforms,doc)
+  	if usemoduleplatforms
+  		# puts 'using platform override' + doc["MODULE"][0]["name"]
+  		if !doc["MODULE"][0]["PLATFORM"][0].nil?
+  			platforms = doc["MODULE"][0]["PLATFORM"][0]
+  			# puts platforms
+  		end
+
+  	end
   	indicators = ""
   	if javascript
 		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
@@ -618,12 +626,17 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				end
 			end
 			@propplatforms = "All"
+			@usemoduleplatforms = false
 			if !element["PLATFORM"].nil?
 				@propplatforms = element["PLATFORM"][0]
+				if !element["PLATFORM"][0]["usemodule"].nil?
+					@usemoduleplatforms = true
+				end
 			else
 				puts "      #{propname} no platform indicators"
+				@usemoduleplatforms = true
 			end
-			@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript)
+			@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
 			@propplatformsfilter = getplatformindicatorsfilter(@propplatforms,msionly,ruby,javascript)
 			@propsectionplatforms = "<div>"
 			@propsectionplatforms += "<p>#{@propplatforms} #{propnote}</p></div>"
@@ -1111,10 +1124,16 @@ end
 			}
 		end
 		@methplatforms = "All"
+		@usemoduleplatforms = false
 		if !element["PLATFORM"].nil?
 			@methplatforms = element["PLATFORM"][0]
+			if !element["PLATFORM"][0]["usemodule"].nil?
+				@usemoduleplatforms = true
+			end
+
 		else
 			puts "      #{methname} no platform indicators"
+			@usemoduleplatforms = true
 			
 		end
 		msionly = false
@@ -1155,7 +1174,7 @@ end
 		end
 
 
-		@methplatforms = getplatformindicators(@methplatforms,msionly,ruby,javascript)
+		@methplatforms = getplatformindicators(@methplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
 		@methplatformsfilter = getplatformindicatorsfilter(@methplatforms,msionly,ruby,javascript)
 			
 		@methsectionplatforms = "<div>"
