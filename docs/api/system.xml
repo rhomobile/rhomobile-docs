@@ -215,7 +215,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </ALIASES>
             <METHOD name="applicationInstall">
                 <DESC>Install an application.</DESC>
-              <PLATFORM>Apple, WM, Win32, Android</PLATFORM>
+              <PLATFORM>iOS, WM, Win32, Android</PLATFORM>
                 <PARAMS>
                     <PARAM name="applicationUrl" type="STRING">
                         <DESC>The url of an application to install on the device.</DESC>
@@ -224,7 +224,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
             <METHOD name="isApplicationInstalled">
                 <DESC>Is application installed on the device?</DESC>
-                <PLATFORM>Apple, WM, Win32, Android</PLATFORM>
+                <PLATFORM>iOS, WM, Win32, Android</PLATFORM>
                 <PARAMS>
                     <PARAM name="applicationName" type="STRING">
                         <DESC>The name of the application.</DESC>
@@ -246,6 +246,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <METHOD name="getStartParams">
                 <DESC>Return the command line parameters. At Android start parameters are returned as URL query string starting with '?', name-value delimiter '=' and name value pairs delimiter '&#038;'.</DESC>
                 <RETURN type="STRING"/>
+                <PLATFORM>WM, Win32, Android</PLATFORM>
+                
             </METHOD>
             <METHOD name="openUrl">
                 <DESC>Open the application associated with the URL.</DESC>
@@ -619,13 +621,13 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
             <METHOD name="runApplication">
                 <DESC>Run an application.</DESC>
-                <PLATFORM>Apple, WM, Win32, Android</PLATFORM>
+                <PLATFORM>iOS, WM, Win32, Android</PLATFORM>
                 <PARAMS>
                     <PARAM name="appName" type="STRING">
                         <DESC>The name of the application on the device to run.</DESC>
                     </PARAM>
                     <PARAM name="params" type="STRING">
-                        <DESC>The name of the application on the device to run.</DESC>
+                        <DESC>The name of the application on the device to run. Parameter could be just value, or key-value pair separated by '&#61;' sign. Please note that for each platform there are distinct ways to write several params at once. On Android parameters should be separated by "&#38;", on other platforms by '&#044;' or '&#032;'.</DESC>
                         <CAN_BE_NIL/>
                     </PARAM>
                     <PARAM name="blockingCall" type="BOOLEAN">
