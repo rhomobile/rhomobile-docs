@@ -1523,7 +1523,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
-				<DESC></DESC>
+				<DESC>Bluetooth reconnection scheme</DESC>
 				<VALUES>
                     <VALUE constName="RSM_AUTORECONNECT_NONE" value="none">
                         <DESC>No scheme.</DESC>
