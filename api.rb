@@ -680,7 +680,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				element["VALUES"].each() { |velement|
 
 					velement["VALUE"].each() { |vaelement|
-						@propvaldesc = "<dl  class='dl-horizontal'>"
+						@propvaldesc = "<dl  >"
 						if !vaelement["DESC"].nil?
 							if !vaelement["DESC"][0].empty?
 								@propvaldesc = vaelement["DESC"][0].to_s
@@ -912,7 +912,7 @@ def self.getparams(element,toplevel)
 					valuetype = param["type"]
 								
 					if !param["VALUES"].nil?
-						values = "<dl  class='dl-horizontal'>"
+						values = "<dl  >"
 								
 						param["VALUES"].each() { |velement|
 							velement["VALUE"].each() { |vaelement|
@@ -1011,7 +1011,7 @@ if !element["PARAM"].nil?
 					if !param["VALUES"].nil?
 						param["VALUES"].each() { |velement|
 							velement["VALUE"].each() { |vaelement|
-								valdesc = "<dl  class='dl-horizontal'>"
+								valdesc = "<dl  >"
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
 										valdesc = vaelement["DESC"][0].to_s
