@@ -888,6 +888,9 @@ def self.getparams(element,toplevel)
 						methparamsdetailsdesc+=pdesc
 						
 					end
+					if !param["propertyHash"].nil? && param["propertyHash"] == "true" && param["PARAMS"].nil?
+						methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
+					end
 					methparamsnil=""
 					methparamsnildesc=""
 					if !param["CAN_BE_NIL"].nil?
@@ -983,6 +986,9 @@ if !element["PARAM"].nil?
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
+					end
+					if !param["propertyHash"].nil? && param["propertyHash"] == "true"  && param["PARAMS"].nil?
+						methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
 					end
 
 					methparamsnil=""
