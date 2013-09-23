@@ -26,7 +26,7 @@ RhoConnect gem is available on the following platforms:
     <td> Mac OS X 10.7/10.8 </td>
     <td> ruby-1.9.3-p448 </td>
     <td class='tbd'> TBD </td>
-    <td class='tbd'> jruby-1.7.3 </td>
+    <td class='tbd'> jruby-1.7.4 </td>
     <td> Development </td>
   </tr>
   <tr>
@@ -65,7 +65,7 @@ The components you should have for this environment are:
 
 ## Known issues for JRuby:
 
-* Usually JDK is shipped with only weak encryption, and that simply will not allow the proper key sizes being created by openssl. RhoConnect uses strong encryption for license keys and to function properly in JReby environment installation of Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction policy files might be required.
+* Usually JDK is shipped with only weak encryption, and that simply will not allow the proper key sizes being created by openssl. RhoConnect uses strong encryption for license keys and to function properly in JRuby environment installation of Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction policy files might be required.
 * Path to user’s gems, warbler data should not include white spaces (i.e. in user's account name).
 
 
