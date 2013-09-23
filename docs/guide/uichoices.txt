@@ -152,3 +152,24 @@ To create a platform-specific view file, simply name the file using the followin
 </table>
 
 Keep in mind that any changes made to the standard view files are not incorporated into the custom views, so if you're developing custom views for a specific platform, ensure that any necessary changes are applied to all relevant view files.
+
+### Escaping HTML
+
+If you need to output values that might contain HTML-unsafe characters, you can use ERB's `escape_html` to ensure that your code is escaped properly. This will help against accidental breakage as well as intentional XSS attempts. In your controller, include the `ERB::Util` module and in your templates, print values with `<%=html_escape @value %>` or the shorthand version `<%=h @value %>` 
+
+Example:
+
+Ruby code:
+
+    :::ruby
+    class ProductController < Rho::RhoController
+      include BrowserHelper
+      # We include the ERB::Util module so that the escape_html function is accessible from the view
+      include ERB::Util
+
+
+HTML view:
+
+    :::ruby
+    <div>Message received: <%=h @message %></div>
+
