@@ -24,6 +24,14 @@ class Api
   	return md
   end
  
+  def self.getshortcut(e)
+  	s = e["name"]
+  	if !e["access"].nil?
+  		s += e["access"]
+  	end
+  	return s
+  end
+
  def self.getApiDesc(doc)
   	md=""
   	if !doc["MODULE"][0]["HELP_OVERVIEW"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW"][0].length >0
@@ -303,11 +311,11 @@ def self.getconstantlinks(doc)
 					menuGroupName = "Class Methods"
 
 				end
-		  		md += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>" 
+		  		md += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>" 
 				if mdgroups[menuGroupName].nil?
-			  		mdgroups[menuGroupName] = '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+			  		mdgroups[menuGroupName] = '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
 			  	else
-			  		mdgroups[menuGroupName] += '<li><a href="#m' + element["name"] + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+			  		mdgroups[menuGroupName] += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
 			  	end
 			end
 		}
@@ -1445,29 +1453,29 @@ end
  #    md += '</div>'
  #    md += '</div>'
 	# md += '</div>'
-
-  	md += "<div class=' method #{@methplatformsfilter}' id='m"+ element["name"] + "'>"
+	md += "<a name ='m" + getshortcut(element) + "'/>"
+  	md += "<div class=' method #{@methplatformsfilter}' id='m"+ getshortcut(element) + "'>"
     md += '<h3><strong  >' + methname + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>(#{@methparams})</span></h3>"
     md += '<ul class="nav nav-tabs" style="padding-left:8px">'
-  	md += "<li class='active'>" + '<a href="#m' + element["name"] + '1" data-toggle="tab">Description</a>' + "</li>"
+  	md += "<li class='active'>" + '<a href="#m' + getshortcut(element) + '1" data-toggle="tab">Description</a>' + "</li>"
   	if @methsectionparams != ''
-    	md += "<li >"  + '<a href="#m' + element["name"] + '2" data-toggle="tab">Parameters</a>' + "</li>"
+    	md += "<li >"  + '<a href="#m' + getshortcut(element) + '2" data-toggle="tab">Parameters</a>' + "</li>"
     end
   	if @methsectioncallbackparams != ''
 
-    	md += "<li >"  + '<a href="#m' + element["name"] + '3" data-toggle="tab">Callback</a>' + "</li>"
+    	md += "<li >"  + '<a href="#m' + getshortcut(element) + '3" data-toggle="tab">Callback</a>' + "</li>"
 	end
-		md += "<li >"  + '<a href="#m' + element["name"] + '4" data-toggle="tab">Return</a>' + "</li>"
+		md += "<li >"  + '<a href="#m' + getshortcut(element) + '4" data-toggle="tab">Return</a>' + "</li>"
     # md += "<li >"  + '<a href="#m' + element["name"] + '5" data-toggle="tab">Platforms</a>' + "</li>"
-  	md += "<li >"  + '<a href="#m' + element["name"] + '6" data-toggle="tab">Access</a>' + "</li>"
+  	md += "<li >"  + '<a href="#m' + getshortcut(element) + '6" data-toggle="tab">Access</a>' + "</li>"
   	md += '</ul>'
-  	md += "<div class='tab-content' style='padding-left:8px' id='tc-"+ element["name"] + "'>"
-    md += '<div class="tab-pane fade active in" id="m' + element["name"] + '1">' + @methdesc + "<p>#{@methsectionplatforms}</p>" + "</div>"
-    md += '<div class="tab-pane fade" id="m' + element["name"] + '2">' + @methsectionparams + "</div>"
-  	md += '<div class="tab-pane fade" id="m' + element["name"] + '3">' + @methsectioncallbackparams + "</div>"
-    md += '<div class="tab-pane fade" id="m' + element["name"] + '4">' + @methsectionreturns + "</div>"
+  	md += "<div class='tab-content' style='padding-left:8px' id='tc-"+ getshortcut(element) + "'>"
+    md += '<div class="tab-pane fade active in" id="m' + getshortcut(element) + '1">' + @methdesc + "<p>#{@methsectionplatforms}</p>" + "</div>"
+    md += '<div class="tab-pane fade" id="m' + getshortcut(element) + '2">' + @methsectionparams + "</div>"
+  	md += '<div class="tab-pane fade" id="m' + getshortcut(element) + '3">' + @methsectioncallbackparams + "</div>"
+    md += '<div class="tab-pane fade" id="m' + getshortcut(element) + '4">' + @methsectionreturns + "</div>"
   	# md += '<div class="tab-pane fade" id="m' + element["name"] + '5">' + @methsectionplatforms + "</div>"
-  	md += '<div class="tab-pane fade" id="m' + element["name"] + '6">' + @methsectionaccess + "</div>"
+  	md += '<div class="tab-pane fade" id="m' + getshortcut(element) + '6">' + @methsectionaccess + "</div>"
   	md += '</div>'
 
   	md += '  </div>'
