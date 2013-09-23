@@ -16,7 +16,7 @@ end
 
 
 
-section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
+section 'rhodescommonapi-reference', '4.0 API Reference','Mobile API Docs' do
   topic 'guide/apisummary', 'RhoMobile API Summary'
   
   topic 'api/Application',      'Application'
@@ -46,7 +46,6 @@ section 'rhodescommonapi-reference', 'API Reference','Mobile API Docs' do
   topic 'api/system',      'System'
   topic 'api/webview',      'WebView'
 end
-
 
 section 'rhomob-setup', 'Dev Environment Setup','Mobile Guides' do
   topic 'guide/rhomobile-install',   'RhoMobile Suite Install'

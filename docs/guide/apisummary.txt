@@ -1,5 +1,9 @@
 # RhoMobile API Summary
 
+Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consult the [2.x migration guide](guide/apiusage) if you are moving a 2.x application to 4.0. If you are starting a new project, it is advised to the use 4.x API's going forward, however the 2.x APIs are still currently supported.
+
+## 4.0 API's
+
 <table class="table table-condensed table-striped">
 <thead>	
 <tr>
@@ -358,4 +362,46 @@
 </tr>
 </tbody>
 </table>
+
+
+## Using 2.2 API's
+Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both JavaScript and Ruby.
+
+**NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](/v/2.2/rhoelements/apicompatibility) still applies.**
+
+* [Mapview](/v/2.2/rhodesapi/mapview-api)
+* [Camera](/v/2.2/rhodesapi/camera-api/)
+* [Contacts](/v/2.2/rhodesapi/rhocontact-api)
+* Calendar
+* System.Process
+* [Registry](/v/2.2/rhoelements/registry)
+* [AudioCapture](/v/2.2/rhoelements/AudioCapture)
+* [Config](/v/2.2/rhodesapi/rhoconfig-api)
+* [GeoLocation](/v/2.2/rhodesapi/geolocation-api)
+* [Gesture](/v/2.2/rhoelements/Gesture)
+* Printing
+* [Systemtime](/v/2.2/rhoelements/systemTime)
+* [Comm](/v/2.2/rhoelements/comm)
+* [Addressbar](/v/2.2/rhoelements/addressbar)
+* [Alarm](/v/2.2/rhoelements/alarm)
+* [Bluetooth](/v/2.2/v/2.2/rhodesapi/bluetoothmanager-api)
+* [NFC](/v/2.2/v/2.2/rhodesapi/NFCManager-api)
+* [Timer](/v/2.2/v/2.2/rhodesapi/timer-api)
+* [Backlight](/v/2.2/rhoelements/backlight)
+* [Keylight](/v/2.2/rhoelements/Keylight)
+* [Memory](/v/2.2/rhoelements/memory)
+* [Reboot](/v/2.2/rhoelements/reboot)
+
+### RhoElements 2.2 APIs
+The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
+
+### Rhodes 2.2 APIs
+2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 4.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
+
+To generate this file you must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
 
