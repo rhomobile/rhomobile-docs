@@ -60,7 +60,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                             <DESC>The current DHCP server's address.  Always populated on Android, even on static IP configurations. Not supported on iOS </DESC>
                         </PARAM>
                         <PARAM name="dhcpStatic" type="STRING">
-                            <PLATFORM>WM, Android</PLATFORM>
+                            <PLATFORM>WM</PLATFORM>
                             <DESC>Whether the unit hsa a static or DHCP address.  Not available on Android and iOS.</DESC>
                         </PARAM>
                         <PARAM name="gateway" type="STRING">
