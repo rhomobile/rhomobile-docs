@@ -92,10 +92,10 @@ Due to platform limitations this API is not available on the following Motorola 
                 ]]>
                 </DESC>
             </REMARK>
-            <REMARK title="Screen Orientation">
+            <REMARK title="Rotating the Screen">
                 <DESC>
                     <![CDATA[
-The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.
+The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.
                 ]]>
                 </DESC>
             </REMARK>
