@@ -170,7 +170,6 @@ function list_ringtones_callback(params) {
               </SECTION>
             </SECTIONS>
            </EXAMPLE>
-        </EXAMPLES>
-
+        </EXAMPLES>        
     </MODULE>
 </API>    

@@ -59,13 +59,15 @@ myvar = Rho::ScreenOrientation.autoRotate</code></pre></div></div>  </div>
                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
            
-function start_detecting_orientation_changes()
-  ScreenOrientation.setScreenOrientationEvent(url_for(:action =&gt; :orientation_callback))
-end
+function start_detecting_orientation_changes(){
+  ScreenOrientation.setScreenOrientationEvent(orientation_callback)
+}
  
-def orientation_callback
+function orientation_callback(){
+    
   Alert.show_popup("The screen changed orientation")
-end
+}
+
                    
                  </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 

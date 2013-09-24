@@ -58,8 +58,6 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </USER_OVERVIEW>
         <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
          <PLATFORM>WM, Win32, Android, iOS, WP8</PLATFORM>
-         <REMARKS>
-         </REMARKS>
          <EXAMPLES >
            <EXAMPLE title="Detect screen orientation changes">
             <SECTIONS>
@@ -82,13 +80,15 @@ end
                  </RUBY>
                 <JAVASCRIPT>
            <![CDATA[
-function start_detecting_orientation_changes()
-  ScreenOrientation.setScreenOrientationEvent(url_for(:action => :orientation_callback))
-end
+function start_detecting_orientation_changes(){
+  ScreenOrientation.setScreenOrientationEvent(orientation_callback)
+}
  
-def orientation_callback
+function orientation_callback(){
+    
   Alert.show_popup("The screen changed orientation")
-end
+}
+
                    ]]>
                  </JAVASCRIPT>
                </CODE>
@@ -176,75 +176,10 @@ Rho.ScreenOrientation.autoRotate=false;
                </SECTION>
                </SECTIONS>
            </EXAMPLE>
-       </EXAMPLES>
-           <EXAMPLE title="Detect screen orientation changes">
-            <SECTIONS>
-               
-              <SECTION>
-               <DESC>
-                   Detect when the device changes orientation
-               </DESC>
-               <CODE>
-                <RUBY>
-           <![CDATA[
-def start_detecting_orientation_changes
-  Rho::ScreenOrientation.setScreenOrientationEvent(url_for(:action => :orientation_callback))
-end
- 
-def orientation_callback
-  Alert.show_popup("The screen changed orientation")
-end
-]]>
-                 </RUBY>
-                <JAVASCRIPT>
-           <![CDATA[
-function start_detecting_orientation_changes()
-  ScreenOrientation.setScreenOrientationEvent(url_for(:action => :orientation_callback))
-end
- 
-def orientation_callback
-  Alert.show_popup("The screen changed orientation")
-end
-                   ]]>
-                 </JAVASCRIPT>
-               </CODE>
-               </SECTION>
-               </SECTIONS>
-           </EXAMPLE>
+           
 
-           <EXAMPLE title="Detect screen orientation changes">
-            <SECTIONS>
-               
-              <SECTION>
-               <DESC>
-                   Detect when the device changes orientation
-               </DESC>
-               <CODE>
-                <RUBY>
-           <![CDATA[
-def start_detecting_orientation_changes
-  Rho::ScreenOrientation.setScreenOrientationEvent(url_for(:action => :orientation_callback))
-end
- 
-def orientation_callback
-  # The screen changed orientation
-end
-]]>
-                 </RUBY>
-                <JAVASCRIPT>
-           <![CDATA[
-function start_detecting_orientation_changes()
-  ScreenOrientation.setScreenOrientationEvent(url_for(:action => :orientation_callback))
-end
- 
-def orientation_callback
-  // The screen changed orientation
-end
-                   ]]>
-                 </JAVASCRIPT>
-               </CODE>
-               </SECTION>
-               </SECTIONS>
-           </EXAMPLE>           
+                     
+        </EXAMPLES>
+
     </MODULE>
 </API>    

@@ -330,8 +330,6 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
     </USER_OVERVIEW>
     <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, Win32, Android, iOS, WP8</PLATFORM>
-    <REMARKS>
-    </REMARKS>
       <EXAMPLES >
            <EXAMPLE title="List contents of a folder">
             <SECTIONS>
@@ -376,8 +374,7 @@ for (var i = 0; i < entries.length; i++) {
                </SECTION>
                </SECTIONS>
            </EXAMPLE>
-       </EXAMPLES>
-
+       </EXAMPLES>      
     
 
 </MODULE>
