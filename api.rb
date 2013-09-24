@@ -669,10 +669,12 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				end
 			end
 			
-			if element["default"].nil?
+			if element.default.nil? 
 				propdefault= ""
 			else
-				propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
+				if !x.empty?
+					propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
+				end
 				
 			end
 			
@@ -829,7 +831,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
     md += '<ul class="nav nav-tabs" style="padding-left:8px">'
   	md += "<li class='active'>" + '<a href="#p' + propname + '1" data-toggle="tab">Description</a>' + "</li>"
   	if propParasDef != ''
-    	md += "<li >"  + '<a href="#p' + propname + '2" data-toggle="tab">Default</a>' + "</li>"
+    	md += "<li >"  + '<a href="#p' + propname + '2" data-toggle="tab">Params</a>' + "</li>"
     end
   	if @propvalues != ''
     
@@ -888,6 +890,7 @@ def self.getparams(element,toplevel)
 						methparamsdetailsdesc+=pdesc
 						
 					end
+					
 					if !param["propertyHash"].nil? && param["propertyHash"] == "true" && param["PARAMS"].nil?
 						methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
 					end
@@ -903,6 +906,11 @@ def self.getparams(element,toplevel)
 						}
 					end
 					
+					if !param["default"].nil?
+						methparamsnil += "<span class='label '> Default: " + param["default"] + "</span>"
+				
+					end
+
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
@@ -987,9 +995,9 @@ if !element["PARAM"].nil?
 							methparamsdetailsdesc= ''
 						end
 					end
-					if !param["propertyHash"].nil? && param["propertyHash"] == "true"  && param["PARAMS"].nil?
-						methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
-					end
+					
+
+					
 
 					methparamsnil=""
 					methparamsnildesc=""
@@ -1001,6 +1009,10 @@ if !element["PARAM"].nil?
 							end
 							
 						}
+					end
+					if !param["default"].nil?
+						methparamsnil += " <span class='label '> Default: " + param["default"] + "</span>"
+				
 					end
 					
 					if param["type"].nil?
