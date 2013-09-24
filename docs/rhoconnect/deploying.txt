@@ -10,9 +10,9 @@ for Ubuntu and CentOS respectively. At this moment supported formats are Debian 
 
 Every package provides the following components:
 
-* Ruby 1.9.3-p392
+* Ruby, version 1.9.3
 
-* Node.js, version v0.10.4
+* Node.js, version v0.10.x
 
 * Nginx HTTP server, release 1.3.x
 
