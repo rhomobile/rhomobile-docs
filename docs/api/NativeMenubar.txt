@@ -1,5 +1,5 @@
 #NativeMenubar
-<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pdefaultMainMenu" data-target="cPropertydefaultMainMenu" class="autouncollapse">defaultMainMenu</a></li><li><a href="#pextraButton" data-target="cPropertyextraButton" class="autouncollapse">extraButton</a></li><li><a href="#pextraMenu" data-target="cPropertyextraMenu" class="autouncollapse">extraMenu</a></li><li><a href="#pmainButton" data-target="cPropertymainButton" class="autouncollapse">mainButton</a></li><li><a href="#pmainMenu" data-target="cPropertymainMenu" class="autouncollapse">mainMenu</a></li></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
+<div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pdefaultMainMenu" data-target="cPropertydefaultMainMenu" class="autouncollapse">defaultMainMenu</a></li><li><a href="#pextraButton" data-target="cPropertyextraButton" class="autouncollapse">extraButton</a></li><li><a href="#pextraMenu" data-target="cPropertyextraMenu" class="autouncollapse">extraMenu</a></li><li><a href="#pmainButton" data-target="cPropertymainButton" class="autouncollapse">mainButton</a></li><li><a href="#pmainMenu" data-target="cPropertymainMenu" class="autouncollapse">mainMenu</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;2</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Customize the extra menu</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Clear the main menu</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
 <p>The NativeMenubar API lets you customize the Windows Mobile/CE native menu buttons.</p>
 <h2>Enabling the API</h2>
 
@@ -113,4 +113,68 @@ myvar = Rho.NativeMenubar.mainMenu;</code></pre>
 Rho::NativeMenubar.mainMenu=
 
 # Getting 
-myvar = Rho::NativeMenubar.mainMenu</code></pre></div></div>  </div></div>
+myvar = Rho::NativeMenubar.mainMenu</code></pre></div></div>  </div>
+<a name='Examples'></a>
+<h2><i class='icon-edit'></i>Examples</h2>
+
+<a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Customize the extra menu</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
+<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+
+                  
+    Rho.NativeMenubar.extraButton = {
+        label: "Extra"
+    };
+
+    Rho.NativeMenubar.extraMenu = [
+      {
+          label: "Show alert 1",
+          action: show_alert_1,
+      },
+      {
+          label: "Show alert 2",
+          action: show_alert_2,
+      },
+      {
+          label: "Win the lottery",
+          disabled: true
+      }
+    ];
+                  
+                 </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
+                  
+    Rho::NativeMenubar.extraButton = {
+      :label =&gt; "Extra"
+    }
+
+    Rho::NativeMenubar.extraMenu = [
+      {
+        :label =&gt; "Show alert 1",
+        :action =&gt; url_for(:action =&gt; :show_alert_1)
+      },
+      {
+        :label =&gt; "Show alert 2",
+        :action =&gt; url_for(:action =&gt; :show_alert_2)
+      },
+      {
+        :label =&gt; "Win the lottery",
+        :disabled =&gt; true
+      }
+    ]
+                  
+                 </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Clear the main menu</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
+<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
+
+                  
+    function remove_menuitems() {
+        Rho.NativeMenubar.mainMenu = [];
+    }
+                  
+                 </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
+                  
+    def remove_menuitems
+      Rho::NativeMenubar.mainMenu = []
+    end
+                  
+                 </code></pre></div></div>  </div></div></div></div></div>
