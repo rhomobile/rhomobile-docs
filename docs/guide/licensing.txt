@@ -24,8 +24,8 @@ Certain APIs require a license. These API's are all included as extensions in th
 * [Signature Capture](/api/signature)
 
 ### Platforms
-* [Windows Desktop](/guide/build_wm)
-
+* [Windows Desktop](/guide/build_win)
+* [Windows Mobile](/guide/build_wm)
 
 ##Running without a license
 You can fully use all features of the RhoMobile framework during evaluation, development or testing without obtaining a license. A message will be displayed on application startup will also display a periodic nag screen. Before deploying an application to a production environment, you should obtain a license key. The same license key will work across any operating system. The name associated with the license is stored in the log file when the application is started.

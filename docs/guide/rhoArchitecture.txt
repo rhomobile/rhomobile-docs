@@ -20,7 +20,7 @@ See Rhodes [App Structure](application) for more details.
 
 * iOS 6.0 or greater (iPhone, iPod Touch, iPad)
 * Android 2.3 and greater (Gingerbread, Ice Cream Sandwich, JellyBean)
-* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 6
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5, Windows CE 6, Windows CE 7
 * Latest Windows Phone 8 devices
 
 NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
