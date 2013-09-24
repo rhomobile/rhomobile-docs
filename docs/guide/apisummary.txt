@@ -30,7 +30,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -87,7 +87,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -129,7 +129,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -171,7 +171,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -185,7 +185,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -213,7 +213,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -227,7 +227,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -241,7 +241,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -269,7 +269,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -283,7 +283,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -309,7 +309,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
@@ -342,7 +342,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -356,13 +356,15 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
 <td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-shopping-cart"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
 </tbody>
 </table>
 
+## Licensing
+Please look at the [Licensing Guide](licensing) for more details regarding licensing.
 
 ## Using 2.2 API's
 Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both JavaScript and Ruby.

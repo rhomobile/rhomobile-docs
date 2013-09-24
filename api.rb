@@ -669,11 +669,13 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				end
 			end
 			
-			if element.default.nil? 
+			if element["default"].nil? 
 				propdefault= ""
 			else
-				if !x.empty?
-					propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
+				
+				propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
+				if propdefault == "<p><strong>Default:</strong> </p>"
+					propdefault=""
 				end
 				
 			end

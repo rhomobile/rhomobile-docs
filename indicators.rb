@@ -415,13 +415,15 @@ md = md +  mdmsirows + "</tbody></table>
 
 
 ##Legend
+
 <table class='table' >
-<tr><td><span class='label'>R</span></td><td>Ruby API supported - license not required (non Windows Embedded)</td></tr>
+<tr><td><span class='label'>R</span></td><td>Ruby API supported - license not required (unless using Windows Platforms WM/CE/Win32)</td></tr>
 <tr><td><span class='label label-important'>R</span></td><td>Ruby API supported - license required</td></tr>
 <tr><td><span class='label label-warning'>J</span></td><td>Javascript API supported - license required (Not Supported on Blackberry)</td></tr>
 <tr><td><span class='label label-info'>H</span></td><td>HTML META Tag API supported - license required</td></tr>
  
 </table>
+[See licensing for details](licensing)
   "
   return md
   end
