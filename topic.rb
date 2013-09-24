@@ -49,10 +49,14 @@ class Topic
   end
   
   def notes(source)
-		source.gsub(
-			/NOTE: (.*?)\n\n/m,
-			"<table class='note'>\n<td class='icon'></td><td class='content'>\\1</td>\n</table>\n\n"
-		)
+		# source.gsub(
+		# 	/NOTE: (.*?)\n\n/m,
+		# 	"<table class='note'>\n<td class='icon'></td><td class='content'>\\1</td>\n</table>\n\n"
+		# )
+    source.gsub(
+          /NOTE: (.*?)\n\n/m,
+          "<div class='alert alert-warning'><table>\n<td ><i class='icon-warning-sign icon-2x'></i></td><td >\\1</td>\n</table></div>\n\n"
+        )
 	end
 	
 	def markdown(source)
