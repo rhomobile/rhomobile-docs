@@ -33,7 +33,7 @@ Follow operating specific instructions for your development machine:
 
 ###4) Setup RhoStudio Mobile SDK Paths
 
-Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](build).
+Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. 
 
 	C:\> rhodes-setup
 

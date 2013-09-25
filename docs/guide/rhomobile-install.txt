@@ -1,6 +1,6 @@
 # Install RhoMobile Suite
 
-The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
+The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. 
 
 ## Windows 32-bit
 
@@ -16,15 +16,9 @@ Ensure that Java Development Kit is installed. The Sun JDK for Windows is availa
 
 ### Download and Install
 
-Download and run the latest Motorola RhoMobile Suite Installer for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+Download and run the latest Motorola RhoMobile Suite Installer for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
-
-On Windows XP reduce JVM heap size:<br>
-Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86\RhoStudio.ini</tt> file in editor.<br>
-Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
-
-The 32-bit Windows version of the JDK is required for Blackberry tools.
 
 **NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
 
@@ -40,7 +34,7 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 * A link to the [RhoMobile documentation](/home).
 * A launcher for RhoStudio.
 * A link to the readme file.
-* A link to the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
+* A link to the RhoElements Shared Runtime for Windows Mobile. 
 * A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
 * An uninstaller for RhoMobile Suite.
 
@@ -66,16 +60,16 @@ Ensure that Java Development Kit is installed. The Sun JDK for Windows is availa
 
 ### Download and Install
 
-Download and run the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+Download and run the latest Motorola RhoMobile Suite Installer for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
-
-**NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
-Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
 
 ### Setting the JDK Path
 
 Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section, and set the Java bin path. Set this path to the x86 JDK, such as <tt>C:\Program Files (x86)\Java\jdk&lt;version number&gt;\bin</tt> .
+
+**NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
+Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
 
 ### Understanding the Windows Installation
 
@@ -85,7 +79,7 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 * A link to the [RhoMobile documentation](/home).
 * A launcher for RhoStudio.
 * A link to the readme file.
-* A link to the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/rhoelements/rhoelements2-webapps), or when you create a [RhoElements native application](/rhoelements/rhoelements2-native) in shared mode.
+* A link to the RhoElements Runtime files. 
 * A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
 * An uninstaller for RhoMobile Suite.
 
@@ -128,14 +122,6 @@ Then install the command line tools: go to Xcode –> Preferences –> Downloads
 
 Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
 
-### Setup for RhoConnect Push
-
-To use RhoConnect Push, you need to install Node.js.
-
-Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
-
-	:::term
-	$ brew install node
 
 ### Setup for Ruby
 
@@ -149,7 +135,7 @@ Install Ruby 1.9.3 with the following RVM command.
 
 ### Download and Install
 
-Download the latest Motorola RhoMobile Suite Installer for Macintosh. This contains [Redis](http://redis.io/), [RhoConnect](/rhoconnect/introduction) and [Rhodes](/rhodes/introduction).
+Download the latest Motorola RhoMobile Suite Installer for Macintosh. 
 
 Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
   <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
@@ -169,7 +155,7 @@ In addition to RhoStudio, the Motorola RhoMobile Suite Installer for Macintosh a
 * A folder containing a RhoElements application.
 * A folder containing sample applications.
 * A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](/rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
-* A folder containing the RhoElements Runtime files. You use these when you create a [RhoElements hybrid application](/guide/rhoelements-runtime).
+* A folder containing the RhoElements Runtime files. 
 * A link to the [Developer Community](http://developer.motorolasolutions.com).
 * A link to the RhoMobile documentation website.
 

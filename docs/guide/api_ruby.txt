@@ -60,7 +60,7 @@ Some methods support passing in an `propertyMap` as a parameter to a method. Lik
 	# the first parameter of this method is a propertyMap
 	Rho::Barcode.enable ( { :illuminationMode => 'alwaysOff' , :code128 => 'enabled'},                url_for :action => :mycallback)
 
-**NOTE: In the API reference, when a parameter is of type propertyMap, all possible values are not shown in the documentation. However you may use any non read-only property listed for that object class.**
+**NOTE: In the API reference, when a parameter is of type propertyMap, all possible values are not shown in the documentation. However you may use any non read-only property listed for that object class (unless otherwise specified).**
 
 ## Getting properties
 There are a few ways to get an object's property values:
@@ -100,7 +100,7 @@ The following code snippet uses a lambda function that will execute when the cal
 The following code snippet also uses a lambda function that will execute when the callback is executed. This time we are also passing in other parameters
 
 	:::javascript
-	Barcode.getProperties([‘autoEnter’,’code128’,’code39’],   
+	Barcode.getProperties(['autoEnter','code128','code39'],   
 	lambda{|e| puts e.code128})
 
 **NOTE: For methods that support callbacks, the callback function will always be the last parameter of the method**
@@ -118,7 +118,7 @@ Some methods will support a callback for returning information in an unblocking 
 
 The callback parameter will either be marked as <span class="label label-info">Optional</span> or marked as <span class="label label-warning">Mandatory</span>
 
-Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be access for information.
+Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be accessed for information.
 
 ### Callback as lambda function
 The following code snippet takes a picture from the device's camera and will run the lambda function 	
@@ -129,20 +129,6 @@ The following code snippet takes a picture from the device's camera and will run
 	 puts e['status'] }
 	)
 
-### Callback as a javascript function
-The following code snippet takes a picture from the device's camera and then calls another javascript function mycallbackhandler:
-	
-	:::ruby
-	Rho.Camera.takePicture(..., mycallbackHandler() )
-
-
-	def mycallbackHandler(params)
-	
-		# The documentation will list the callback type as well as callback parameters that are available
-		if params.status =='ok'
-			# rest of code
-		end
-	end
 
 ### Callback as a ruby controller method
 You may want the callback to return to a ruby controller method or a particular view. For example when a picture is taken you may want to store an object and display a view showing all images captured. Recall that accessing RhoMobile ruby controller methods/views is simply using a url string
@@ -159,4 +145,6 @@ You may want the callback to return to a ruby controller method or a particular 
 
 		render :action => :list
 	end
+
+**NOTE: In previous versions of RhoMobile, the ruby callback was specified as a parameter like: `:callback => (url_for :action => :imageTakeHandler)`. This is no longer part of the methods parameters and must be specified as the final parameter without the `:callback =>` notation**
 

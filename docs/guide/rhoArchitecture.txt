@@ -1,20 +1,4 @@
-#Inside a RhoMobile Application
-
-## Introduction
-
-RhoMobile is a framework for building locally executing, device-optimized mobile applications. These applications are optimized to interact with transactional enterprise application backends. They are also designed to work with synced local data using a local database, such as SQLite or HSQLDB, and a generic backend synchronization framework, such as [RhoConnect](/rhoconnect) 
-
-
-## Application Stack
-
-A RhoMobile application is a web application that runs locally on your mobile device. It is implemented with the standard MVC architecture:
-
-* Views are sets of ERB templates: HTML, CSS, and JavaScript files executed by the WebView control available on the device and served by the local web server. This server is a very lightweight web server running on the device. See [User Interface](ui) section for more details on [Layouts](ui#view-layouts), [CSS framework](ui#css-framework), [JavaScript frameworks](ui#javascript-frameworks), [Menus](ui#menu), and [Native UI elements](ui#native-toolbar-control) that you may use in the View.  
-* Controllers are sets of usually very simple Ruby scripts in controller.rb files. You have access to many [native device capabilities](device-caps) from your controllers.
-* Models are defined by a Ruby script in the model.rb file.
-
-See Rhodes [App Structure](application) for more details.
-
+#Supported Platforms
 
 ## Supported Operating Systems
 

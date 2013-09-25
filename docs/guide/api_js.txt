@@ -24,13 +24,13 @@ The following application structure is what is minimally required to build a Jav
 	- public (root folder for 'web application')
 
 ## Build.yml settings
-Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you can specify the following setting in the `build.yml` file: 
+Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you can optionally specify the following setting in the `build.yml` file: 
 	:::yaml
 	javascript_application: true
 
 When this flag is specified, the Ruby VM will not start at application start, and all ruby files will be ignored.
 
-## Using JS APIs from Web Server Application
+## Using JS APIs from a Web Server Application
 To load application files to the RhoMobile application from an external Web server - set `start_path` in `rhoconfig.txt` to point to http:// or https:// protocol URI
 	:::ruby
 	start_path='http://heroku.com/myapp/index.html'
@@ -94,7 +94,7 @@ Some methods support passing in an `propertyMap` as a parameter to a method. Lik
 	// the first parameter of this method is a propertyMap
 	Rho.Barcode.enable({ illuminationMode:'alwaysOff' , code128:'enabled'}, bchandler());
 
-**NOTE: In the API reference, when a parameter is of type propertyMap, all possible values are not shown in the documentation. However you may use any non read-only property listed for that object class.**
+**NOTE: In the API reference, when a parameter is of type propertyMap, all possible values are not shown in the documentation. However you may use any non read-only property listed for that object class (unless otherwise specified).**
 
 ## Getting Properties
 There are a few ways to get an object's property values:
@@ -137,7 +137,7 @@ The following code snippet uses a self-describing autonomous function that will 
 The following code snippet also uses a self-describing anonymous function that will execute when the callback is executed. This time we are also passing in other parameters
 
 	:::javascript
-	Barcode.getProperties([“autoEnter”,”code128”], 
+	Barcode.getProperties(["autoEnter","code128"], 
 	function (e)
 	{
 			alert(e.code128);
@@ -158,7 +158,7 @@ Some methods will support a callback for returning information in an unblocking 
 
 The callback parameter will either be marked as <span class="label label-info">Optional</span> or marked as <span class="label label-warning">Mandatory</span>
 
-Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be access for information.
+Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be accessed for information.
 
 ### Callback as anonymous function
 The following code snippet takes a picture from the device's camera and will run the anonymous function 	
@@ -171,7 +171,7 @@ The following code snippet takes a picture from the device's camera and will run
 
 
 ### Callback as a javascript function
-The following code snippet takes a picture from the device's camera and then calls another javascript function mycallbackhandler:
+The following code snippet takes a picture from the device's camera and then calls another javascript function `mycallbackhandler`:
 	
 	:::javascript
 	Rho.Camera.takePicture(..., mycallbackHandler());

@@ -375,7 +375,7 @@ RhoElement specific Meta tags should still function in a RhoMobile 4.0 applicati
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in it's `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in furture versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated JavaScript capability using the new common API classes.
+in it's `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in future versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated JavaScript capability using the new common API classes.
 
 	:::html
 	<META HTTP-Equiv="scanner" Content="Enable">
@@ -412,7 +412,7 @@ Callbacks are now specifying as the last parameter in all new 4.0 API classes.
 **NOTE: The benefit of converting these APIs to the current 4.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instance objects and special common methods that were not there previously.**
 
 ### API behavior on Page change
-In version 2.2 APIs like Scanner would reset when you navigated between pages. In 4.0 the APIS are not reset between page navigations, therefore if you have an application say with Page1 enabling barcode scanner with a callbackhandler, and then you navigate to page2 (no barcode scanner) - you should handle setting or disabling the barcode depending on the desired behavior. In 2.2 the barcode would have been disabled upon navigating to Page 2. In 4.0, the scanner is left in the previous state and it will be up to the application to control behavior on page load.
+In version 2.2 APIs like Scanner would reset when you navigated between pages. In 4.0 the APIs are not reset between page navigations, therefore if you have an application say with Page1 enabling barcode scanner with a callbackhandler, and then you navigate to page2 (no barcode scanner) - you should handle setting or disabling the barcode depending on the desired behavior. In 2.2 the barcode would have been disabled upon navigating to Page 2. In 4.0, the scanner is left in the previous state and it will be up to the application to control behavior on page load.
 
 ## Removed APIs
 The following API's have been removed from Rhomobile 4.0

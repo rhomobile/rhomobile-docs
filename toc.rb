@@ -1,7 +1,7 @@
 
 section 'getting-started', 'Introduction','Mobile Guides' do
   topic 'guide/welcome',                 'Welcome to RhoMobile Suite'
-  topic 'guide/rhoArchitecture',   'How a RhoMobile App Works'
+  topic 'guide/rhoArchitecture',   'Supported Platforms'
   topic 'guide/devskills',   'Developer Skills'
   topic 'guide/devenvironment',  'Developer Environments'
   topic 'guide/appdesign',   'App Architecture'

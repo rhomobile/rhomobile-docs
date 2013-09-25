@@ -928,7 +928,7 @@ The table below shows the behaviour of RhoElements when Function Keys are presse
 
 ## The Application API and setNotifyCallback
 
-The [Application API](../api/Application) contains some useful methods to interact with the system at different points in time. Of particular importance is [setApplicationNotify](../Application) http://edgedocs.rhomobile.com/api/#cMethodsetApplicationNotify), which allows you to receive a callback when certain important events happen during the life cycle of the application. These are events like the application being activated or deactivated, configuration conflicts or database migration requests.
+The [Application API](../api/Application) contains some useful methods to interact with the system at different points in time. Of particular importance is [setApplicationNotify](../api/Application#msetApplicationNotify), which allows you to receive a callback when certain important events happen during the life cycle of the application. These are events like the application being activated or deactivated, configuration conflicts or database migration requests.
 
 	:::ruby
 	# Set callback
