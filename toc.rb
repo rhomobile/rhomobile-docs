@@ -108,8 +108,6 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/ringtone',       'Ringtone'
   topic 'guide/device_sensors',       'Sensors'
   topic 'guide/signature',       'Signature'
-  topic 'guide/system',       'System'
-  topic 'guide/timer',       'Timer'
   topic 'guide/urlschemes', 'Url Schemes'
 
 end
