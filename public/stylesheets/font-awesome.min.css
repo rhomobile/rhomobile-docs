@@ -25,7 +25,7 @@ a [class^="icon-"],a [class*=" icon-"]{display:inline;}
   color: #333333;
 }
 .icon-primary {
-	color: #03244D;
+	color: #3778C7;
 }
 .icon-border{border:solid 1px #eeeeee;padding:.2em .25em .15em;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 .icon-2x{font-size:2em;}.icon-2x.icon-border{border-width:2px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}

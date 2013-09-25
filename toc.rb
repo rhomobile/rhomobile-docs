@@ -102,7 +102,7 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
   topic 'guide/native_ui_elements', 'Native UI Components'
   topic 'guide/interfacing_with_the_network', 'Network Interfacing'
   topic 'guide/nfc',       'NFC'
-  topic 'guide/screen_orientation', 'Orientation and Repsonsive Design'
+  topic 'guide/screen_orientation', 'Orientation and Responsive Design'
   topic 'guide/printing',       'Printing'
   topic 'guide/push_notifications',       'Push Notifications'
   topic 'guide/ringtone',       'Ringtone'
