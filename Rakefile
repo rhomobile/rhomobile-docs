@@ -42,14 +42,16 @@ task :index do
       if topic.body.size() > maxsize
         puts "Needs to be chunked #{topic.body.size()}"
         startPos = 0
+        chunknum = 0
         loop do
           endPos = startPos + maxsize
           if endPos > topic.body.size()
             endPos = topic.body.size()
           end
           chunk = topic.body[startPos,endPos]
-          puts "Indexing chunk: #{startPos},#{endPos}:#{chunk.size}"        
-          result = indextank_document = index.document(name).add(:title => topic.title, :text => chunk)
+          chunknum +=1
+          puts "Indexing chunk[#{chunknum}]: #{startPos},#{endPos}:#{chunk.size}"        
+          result = indextank_document = index.document(name+chunknum.to_s).add(:title => topic.title, :text => chunk)
           puts "=> #{result}"
           startPos = endPos + 1
           break if endPos == topic.body.size()
@@ -78,13 +80,16 @@ task :index_test do
       if topic.body.size() > maxsize
         puts "#{name} Needs to be chunked #{topic.body.size()}"
         startPos = 0
+        chunknum = 0
+
         loop do
           endPos = startPos + maxsize
           if endPos > topic.body.size()
             endPos = topic.body.size()
           end
           chunk = topic.body[startPos,endPos]
-          puts "#{startPos},#{endPos}:#{chunk.size}"        
+          chunknum +=1
+          puts "Indexing chunk[#{chunknum}] : #{startPos},#{endPos}:#{chunk.size}"        
           startPos = endPos + 1
           break if endPos == topic.body.size()
         end
