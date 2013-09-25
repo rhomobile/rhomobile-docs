@@ -50,8 +50,12 @@ task :index do
           end
           chunk = topic.body[startPos,endPos]
           chunknum +=1
-          puts "Indexing chunk[#{chunknum}]: #{startPos},#{endPos}:#{chunk.size}"        
-          result = indextank_document = index.document(name+chunknum.to_s).add(:title => topic.title, :text => chunk)
+          puts "Indexing chunk[#{chunknum}]: #{startPos},#{endPos}:#{chunk.size}" 
+          if chunk.size > maxsize       
+            puts "chunk size over limit WTF? - ognoring for now"
+          else
+            result = indextank_document = index.document(name+chunknum.to_s).add(:title => topic.title, :text => chunk)
+          end
           puts "=> #{result}"
           startPos = endPos + 1
           break if endPos == topic.body.size()
@@ -89,7 +93,12 @@ task :index_test do
           end
           chunk = topic.body[startPos,endPos]
           chunknum +=1
-          puts "Indexing chunk[#{chunknum}] : #{startPos},#{endPos}:#{chunk.size}"        
+          puts "Indexing chunk[#{chunknum}] : #{startPos},#{endPos}:#{chunk.size}"  
+          if chunk.size > maxsize       
+            puts "chunk size over limit WTF my chunk? logic is wrong - ignoring for now"
+          else
+            puts "will try to herokuindex"
+          end      
           startPos = endPos + 1
           break if endPos == topic.body.size()
         end
