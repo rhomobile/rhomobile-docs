@@ -205,11 +205,11 @@ myvar = Rho::CardReader.getProperties(['pinEntry' , 'another_property'])</code><
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.CardReader.pinTimeout=10;
+Rho.CardReader.pinTimeout=1;
 // Setting one property
-Rho.CardReader.setProperty('pinTimeout',10);
+Rho.CardReader.setProperty('pinTimeout',1);
 // Setting multiple properties using JSON object
-Rho.CardReader.setProperties({ 'pinTimeout':10 , 'another_property':10});
+Rho.CardReader.setProperties({ 'pinTimeout':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.CardReader.getProperty('pinTimeout');
@@ -220,11 +220,11 @@ myvar = Rho.CardReader.getProperties(['pinTimeout' , 'another_property']);</code
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::CardReader.pinTimeout=10
+Rho::CardReader.pinTimeout=1
 # Setting one property
-Rho::CardReader.setProperty :pinTimeout, 10 
+Rho::CardReader.setProperty :pinTimeout, 1 
 # Setting multiple properties using HASH
-Rho::CardReader.setProperties { :pinTimeout => 10 , :another_property => 10}
+Rho::CardReader.setProperties { :pinTimeout => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::CardReader.getProperty('pinTimeout')

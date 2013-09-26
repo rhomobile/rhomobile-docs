@@ -190,7 +190,7 @@ myvar = Rho::WebView.fullScreen</code></pre></div></div>  </div><a name='pnaviga
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.WebView.navigationTimeout=10;
+Rho.WebView.navigationTimeout=1;
 
 // Getting 
 myvar = Rho.WebView.navigationTimeout;</code></pre>
@@ -199,7 +199,7 @@ myvar = Rho.WebView.navigationTimeout;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::WebView.navigationTimeout=10
+Rho::WebView.navigationTimeout=1
 
 # Getting 
 myvar = Rho::WebView.navigationTimeout</code></pre></div></div>  </div><a name='pscrollTechnique'></a><div class=' method  js ruby' id='pscrollTechnique'><h3><strong  >scrollTechnique</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pscrollTechnique1" data-toggle="tab">Description</a></li><li ><a href="#pscrollTechnique2" data-toggle="tab">Params</a></li><li ><a href="#pscrollTechnique5" data-toggle="tab">Values</a></li><li ><a href="#pscrollTechnique6" data-toggle="tab">Access</a></li><li ><a href="#pscrollTechnique7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-scrollTechnique'><div class="tab-pane fade active in" id="pscrollTechnique1">Specifies the technique used to scroll about the page.Defines in config.xml: Scrolling\\ScrollTechnique<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pscrollTechnique2"><p><strong>Default:</strong> FingerScroll</p></div><div class="tab-pane fade" id="pscrollTechnique5"><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>None</dt><dd>No scrollbars will be displayed and the page will not respond to finger swipes.</dt><dt>Scrollbars</dt><dd>When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page.</dt><dt>FingerScroll</dt><dd>You can scroll around the page using finger swiping.</dt></dl></div><div class="tab-pane fade" id="pscrollTechnique6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.WebView.scrollTechnique</code> </li><li>Ruby: <code>Rho::WebView.scrollTechnique</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pscrollTechnique7">
@@ -225,7 +225,7 @@ myvar = Rho::WebView.scrollTechnique</code></pre></div></div>  </div><a name='pt
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.WebView.textZoomLevel=10;
+Rho.WebView.textZoomLevel=1;
 
 // Getting 
 myvar = Rho.WebView.textZoomLevel;</code></pre>
@@ -234,7 +234,7 @@ myvar = Rho.WebView.textZoomLevel;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::WebView.textZoomLevel=10
+Rho::WebView.textZoomLevel=1
 
 # Getting 
 myvar = Rho::WebView.textZoomLevel</code></pre></div></div>  </div><a name='puserAgent'></a><div class=' method  js ruby' id='puserAgent'><h3><strong  >userAgent</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#puserAgent1" data-toggle="tab">Description</a></li><li ><a href="#puserAgent6" data-toggle="tab">Access</a></li><li ><a href="#puserAgent7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-userAgent'><div class="tab-pane fade active in" id="puserAgent1">Defines in config.xml: Navigation\\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:

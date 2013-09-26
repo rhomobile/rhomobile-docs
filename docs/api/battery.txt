@@ -43,7 +43,7 @@ app_type: "rhoelements"
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Battery.refreshInterval=10;
+Rho.Battery.refreshInterval=1;
 
 // Getting 
 myvar = Rho.Battery.refreshInterval;</code></pre>
@@ -52,7 +52,7 @@ myvar = Rho.Battery.refreshInterval;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Battery.refreshInterval=10
+Rho::Battery.refreshInterval=1
 
 # Getting 
 myvar = Rho::Battery.refreshInterval</code></pre></div></div>  </div>
@@ -62,18 +62,40 @@ myvar = Rho::Battery.refreshInterval</code></pre></div></div>  </div>
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Retrieve the Battery status</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
 
                     Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
-                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+
+            
+  function battery_status_sync()
+    batteryValues = Rho.Battery.batteryStatus();
+    console.log("Battery Level is: " + batteryValues['batteryLifePercent']);
+  end
+                    
+                    </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
             
   def battery_status_sync
 	batteryValues = Rho::Battery.batteryStatus
-	puts batteryValues
 	puts "Battery Level is: " + batteryValues['batteryLifePercent']
   end
                     
-                </code></pre></div></div>
+                    </code></pre></div></div>
 
                     Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
-                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
+
+            
+  function battery_status_async()
+    console.log("Registering Battery Callback");
+    Rho.Battery.batteryStatus(batteryEvent)
+  end
+
+   function batteryEvent(params){
+    console.log("Battery Event Fired:");
+    console.log("Battery Event (Asynchronous).  AC Line Status: " + params["acLineStatus"] + " Battery Life Percent: " + params["batteryLifePercent"] + " Backup Battery Life Percent: " + params["backupBatteryLifePercent"] + " Status: " + params["batteryStatus"] + " Battery Life Known: " + params["batteryLifeKnown"] + " Backup Battery Life Known: " + params["backupBatteryLifeKnown"]);
+  }  
+  
+                    </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
+
             
   def battery_status_async
 	puts "Registering Battery Callback"
@@ -85,25 +107,41 @@ myvar = Rho::Battery.refreshInterval</code></pre></div></div>  </div>
 	puts "Battery Event (Asynchronous).  AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
   end  
   
-                </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Battery indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
+                    </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Battery indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 
                     If you just want to display the battery indicator in the default position and default colour then call as follows
-                <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
+
+            
+  function show_battery_icon(){
+    Rho.Battery.showIcon();
+  }
+                    
+                    </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
             
   def show_battery_icon
 	Rho::Battery.showIcon({})
   end
                     
-                </code></pre></div></div>
+                    </code></pre></div></div>
 
                     To display the battery icon at the default position but blue and vertical specify as follows
-                <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
+                <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
+
+            
+  function show_battery_icon(){
+    Rho.Battery.showIcon({color:'#0000FF',layout:'up'});
+  }
+  
+                    </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
+
             
   def show_battery_icon
 	Rho::Battery.showIcon({color:'#0000FF',layout:'up'})
   end
   
-                </code></pre></div></div>  </div></div></div></div>
+                    </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 

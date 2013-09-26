@@ -183,21 +183,31 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>
                     Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def battery_status_sync
 	batteryValues = Rho::Battery.batteryStatus
-	puts batteryValues
 	puts "Battery Level is: " + batteryValues['batteryLifePercent']
   end
                     ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function battery_status_sync()
+    batteryValues = Rho.Battery.batteryStatus();
+    console.log("Battery Level is: " + batteryValues['batteryLifePercent']);
+  end
+                    ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 <SECTION>
                 <DESC>
                     Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def battery_status_async
 	puts "Registering Battery Callback"
@@ -209,6 +219,20 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 	puts "Battery Event (Asynchronous).  AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
   end  
   ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function battery_status_async()
+    console.log("Registering Battery Callback");
+    Rho.Battery.batteryStatus(batteryEvent)
+  end
+
+   function batteryEvent(params){
+    console.log("Battery Event Fired:");
+    console.log("Battery Event (Asynchronous).  AC Line Status: " + params["acLineStatus"] + " Battery Life Percent: " + params["batteryLifePercent"] + " Backup Battery Life Percent: " + params["backupBatteryLifePercent"] + " Status: " + params["batteryStatus"] + " Battery Life Known: " + params["batteryLifeKnown"] + " Backup Battery Life Known: " + params["backupBatteryLifeKnown"]);
+  }  
+  ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 </SECTIONS>
@@ -219,24 +243,43 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>
                     If you just want to display the battery indicator in the default position and default colour then call as follows
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def show_battery_icon
 	Rho::Battery.showIcon({})
   end
                     ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function show_battery_icon(){
+    Rho.Battery.showIcon();
+  }
+                    ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 <SECTION>
                 <DESC>
                     To display the battery icon at the default position but blue and vertical specify as follows
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def show_battery_icon
 	Rho::Battery.showIcon({color:'#0000FF',layout:'up'})
   end
   ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function show_battery_icon(){
+    Rho.Battery.showIcon({color:'#0000FF',layout:'up'});
+  }
+  ]]>
+                    </JAVASCRIPT>
+
                 </CODE>
                 </SECTION>
                 </SECTIONS>

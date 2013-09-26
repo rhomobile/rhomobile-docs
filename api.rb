@@ -59,7 +59,7 @@ class Api
   		defval = "true"
   	end
   	if type == 'INTEGER'
-  		defval = "10"
+  		defval = "1"
   	end
   	if type == 'FLOAT'
   		defval = "1.0"

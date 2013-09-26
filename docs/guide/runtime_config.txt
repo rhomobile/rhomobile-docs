@@ -122,6 +122,32 @@ The `rhoconfig.txt` file generated with a new application contains the following
 	
 	use_bb_full_browser=6	
 
+	esri_map_url_roadmap: type: string
+
+	ESRI server url with roads map tiles.
+	    iOS             - supported in esri extension.
+	    Android      - supported with ESRI map type.
+	    WM             - supported with WM mapview.
+	    WP8           - mapping is not supported.     
+
+	esri_map_url_satellite: type: string
+	    ESRI server url with satellite map tiles.
+	        iOS             - supported in esri extension.
+	        Android      - supported with ESRI map type.
+	        WM             - supported with WM mapview.
+	        WP8           - mapping is not supported.     
+	 
+	OSM_map_url_roadmap: type: string
+	    OSM server url with road map tiles.
+	        iOS            - not supported as only Google and ESRI maps are supported.
+	        Android     - supported with OSM map type.
+	        WM             - supported with WM mapview.
+	        WP8           - mapping is not supported.     
+	 
+	disable_loading_indication:type - Bool
+	    If enabled, blocks loading indication in webview
+	        Supported only on Android.	
+
 ## Config.xml
 
 ### What it affects

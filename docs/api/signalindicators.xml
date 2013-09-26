@@ -148,7 +148,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>
                     Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def signal_status_sync
 	signalValue = Rho::SignalIndicators.wlanStatus
@@ -156,13 +157,25 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 	puts "Signal Strength is: " + signalValue['signalStrength']
   end
                     ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function signal_status_sync(){
+
+    signalValue = Rho.SignalIndicators.wlanStatus;
+    console.log(signalValue);
+    console.log("Signal Strength is: " + signalValue['signalStrength']);
+  }
+                    ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 <SECTION>
                 <DESC>
                     Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def signal_status_async
 	puts "Registering Signal Callback"
@@ -173,6 +186,19 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 	puts "Signal Event: (Asynchronous).  Strength: #{@params["signalStrength"]}, ESS ID: #{@params["essid"]}, MacAddress: #{@params["macAddress"]}, AdapterName: #{@params["adapterName"]}, DHCP Server: #{@params["dhcpServer"]}, DHCP Static: #{@params["dhcpStatic"]}, Gateway: #{@params["gateway"]}, IP Address: #{@params["ipAddress"]}, RSSI: #{@params["rssi"]}, Subnet Mask: #{@params["subnetMask"]}, Wins: #{@params["wins"]}"
   end  
   ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function signal_status_async(){
+    console.log("Registering Signal Callback");
+    Rho.SignalIndicators.wlanStatus(signalEvent);
+  }
+
+  function signalEvent(params){
+    console.log("Signal Event: (Asynchronous).  Strength: " + params["signalStrength"] + ", ESS ID: " + params["essid"] + ", MacAddress: " + params["macAddress"] + ", AdapterName: " + params["adapterName"] + ", DHCP Server: " + params["dhcpServer"] + ", DHCP Static: " + params["dhcpStatic"] + ", Gateway: " + params["gateway"] + ", IP Address: " + params["ipAddress"] + ", RSSI: " + params["rssi"] + ", Subnet Mask: " + params["subnetMask"] + ", Wins: " + params["wins"]);
+  }  
+  ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 </SECTIONS>
@@ -183,24 +209,42 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>
                     If you just want to display the signal indicator in the default position and default colour then call as follows
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def show_signal_icon
 	Rho::SignalIndicators.showIcon({})
   end
                     ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function show_signal_icon(){
+    Rho.SignalIndicators.showIcon();
+  }
+                    ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 <SECTION>
                 <DESC>
                     To display the signal icon at the default position but blue and vertical specify as follows
                 </DESC>
-                <CODE lang='ruby'>
+                <CODE>
+                    <RUBY>
             <![CDATA[
   def show_signal_icon
 	Rho::SignalIndicators.showIcon({color:'#0000FF',layout:'up'})
   end
   ]]>
+                    </RUBY>
+                    <JAVASCRIPT>
+            <![CDATA[
+  function show_signal_icon(){
+    Rho.SignalIndicators.showIcon({color:'#0000FF',layout:'up'});
+  }
+  ]]>
+                    </JAVASCRIPT>
                 </CODE>
                 </SECTION>
                 </SECTIONS>

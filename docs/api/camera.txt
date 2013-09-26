@@ -159,11 +159,11 @@ myvar = Rho::Camera.getProperties(['compressionFormat' , 'another_property'])</c
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Camera.desiredHeight=10;
+Rho.Camera.desiredHeight=1;
 // Setting one property
-Rho.Camera.setProperty('desiredHeight',10);
+Rho.Camera.setProperty('desiredHeight',1);
 // Setting multiple properties using JSON object
-Rho.Camera.setProperties({ 'desiredHeight':10 , 'another_property':10});
+Rho.Camera.setProperties({ 'desiredHeight':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Camera.getProperty('desiredHeight');
@@ -174,11 +174,11 @@ myvar = Rho.Camera.getProperties(['desiredHeight' , 'another_property']);</code>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Camera.desiredHeight=10
+Rho::Camera.desiredHeight=1
 # Setting one property
-Rho::Camera.setProperty :desiredHeight, 10 
+Rho::Camera.setProperty :desiredHeight, 1 
 # Setting multiple properties using HASH
-Rho::Camera.setProperties { :desiredHeight => 10 , :another_property => 10}
+Rho::Camera.setProperties { :desiredHeight => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Camera.getProperty('desiredHeight')
@@ -190,11 +190,11 @@ myvar = Rho::Camera.getProperties(['desiredHeight' , 'another_property'])</code>
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Camera.desiredWidth=10;
+Rho.Camera.desiredWidth=1;
 // Setting one property
-Rho.Camera.setProperty('desiredWidth',10);
+Rho.Camera.setProperty('desiredWidth',1);
 // Setting multiple properties using JSON object
-Rho.Camera.setProperties({ 'desiredWidth':10 , 'another_property':10});
+Rho.Camera.setProperties({ 'desiredWidth':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Camera.getProperty('desiredWidth');
@@ -205,11 +205,11 @@ myvar = Rho.Camera.getProperties(['desiredWidth' , 'another_property']);</code><
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Camera.desiredWidth=10
+Rho::Camera.desiredWidth=1
 # Setting one property
-Rho::Camera.setProperty :desiredWidth, 10 
+Rho::Camera.setProperty :desiredWidth, 1 
 # Setting multiple properties using HASH
-Rho::Camera.setProperties { :desiredWidth => 10 , :another_property => 10}
+Rho::Camera.setProperties { :desiredWidth => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Camera.getProperty('desiredWidth')
@@ -385,11 +385,11 @@ myvar = Rho::Camera.getProperties(['outputFormat' , 'another_property'])</code><
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Camera.previewHeight=10;
+Rho.Camera.previewHeight=1;
 // Setting one property
-Rho.Camera.setProperty('previewHeight',10);
+Rho.Camera.setProperty('previewHeight',1);
 // Setting multiple properties using JSON object
-Rho.Camera.setProperties({ 'previewHeight':10 , 'another_property':10});
+Rho.Camera.setProperties({ 'previewHeight':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Camera.getProperty('previewHeight');
@@ -400,11 +400,11 @@ myvar = Rho.Camera.getProperties(['previewHeight' , 'another_property']);</code>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Camera.previewHeight=10
+Rho::Camera.previewHeight=1
 # Setting one property
-Rho::Camera.setProperty :previewHeight, 10 
+Rho::Camera.setProperty :previewHeight, 1 
 # Setting multiple properties using HASH
-Rho::Camera.setProperties { :previewHeight => 10 , :another_property => 10}
+Rho::Camera.setProperties { :previewHeight => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Camera.getProperty('previewHeight')
@@ -416,11 +416,11 @@ myvar = Rho::Camera.getProperties(['previewHeight' , 'another_property'])</code>
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Camera.previewLeft=10;
+Rho.Camera.previewLeft=1;
 // Setting one property
-Rho.Camera.setProperty('previewLeft',10);
+Rho.Camera.setProperty('previewLeft',1);
 // Setting multiple properties using JSON object
-Rho.Camera.setProperties({ 'previewLeft':10 , 'another_property':10});
+Rho.Camera.setProperties({ 'previewLeft':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Camera.getProperty('previewLeft');
@@ -431,11 +431,11 @@ myvar = Rho.Camera.getProperties(['previewLeft' , 'another_property']);</code></
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Camera.previewLeft=10
+Rho::Camera.previewLeft=1
 # Setting one property
-Rho::Camera.setProperty :previewLeft, 10 
+Rho::Camera.setProperty :previewLeft, 1 
 # Setting multiple properties using HASH
-Rho::Camera.setProperties { :previewLeft => 10 , :another_property => 10}
+Rho::Camera.setProperties { :previewLeft => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Camera.getProperty('previewLeft')
@@ -447,11 +447,11 @@ myvar = Rho::Camera.getProperties(['previewLeft' , 'another_property'])</code></
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Camera.previewTop=10;
+Rho.Camera.previewTop=1;
 // Setting one property
-Rho.Camera.setProperty('previewTop',10);
+Rho.Camera.setProperty('previewTop',1);
 // Setting multiple properties using JSON object
-Rho.Camera.setProperties({ 'previewTop':10 , 'another_property':10});
+Rho.Camera.setProperties({ 'previewTop':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Camera.getProperty('previewTop');
@@ -462,11 +462,11 @@ myvar = Rho.Camera.getProperties(['previewTop' , 'another_property']);</code></p
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Camera.previewTop=10
+Rho::Camera.previewTop=1
 # Setting one property
-Rho::Camera.setProperty :previewTop, 10 
+Rho::Camera.setProperty :previewTop, 1 
 # Setting multiple properties using HASH
-Rho::Camera.setProperties { :previewTop => 10 , :another_property => 10}
+Rho::Camera.setProperties { :previewTop => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Camera.getProperty('previewTop')
@@ -478,11 +478,11 @@ myvar = Rho::Camera.getProperties(['previewTop' , 'another_property'])</code></p
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Camera.previewWidth=10;
+Rho.Camera.previewWidth=1;
 // Setting one property
-Rho.Camera.setProperty('previewWidth',10);
+Rho.Camera.setProperty('previewWidth',1);
 // Setting multiple properties using JSON object
-Rho.Camera.setProperties({ 'previewWidth':10 , 'another_property':10});
+Rho.Camera.setProperties({ 'previewWidth':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Camera.getProperty('previewWidth');
@@ -493,11 +493,11 @@ myvar = Rho.Camera.getProperties(['previewWidth' , 'another_property']);</code><
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Camera.previewWidth=10
+Rho::Camera.previewWidth=1
 # Setting one property
-Rho::Camera.setProperty :previewWidth, 10 
+Rho::Camera.setProperty :previewWidth, 1 
 # Setting multiple properties using HASH
-Rho::Camera.setProperties { :previewWidth => 10 , :another_property => 10}
+Rho::Camera.setProperties { :previewWidth => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Camera.getProperty('previewWidth')

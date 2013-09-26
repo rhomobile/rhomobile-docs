@@ -36,13 +36,21 @@ app_type: "rhoelements"
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Show the Keystate Indicators</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
 
 						If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows
-					<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+					<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+
+				
+	  function show_keystates(){
+		Rho.Keystate.showStates({width:25;height:25});
+	  }
+						
+						</code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
 				
 	  def show_keystates
 		Rho::Keystate.showStates({width:25;height:25})
 	  end
 						
-					</code></pre></div></div>  </div></div></div></div>
+						</code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 

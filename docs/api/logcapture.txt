@@ -57,7 +57,7 @@ myvar = Rho::LogCapture.excludeCategories</code></pre></div></div>  </div><a nam
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.LogCapture.maxLines=10;
+Rho.LogCapture.maxLines=1;
 
 // Getting 
 myvar = Rho.LogCapture.maxLines;</code></pre>
@@ -66,7 +66,7 @@ myvar = Rho.LogCapture.maxLines;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::LogCapture.maxLines=10
+Rho::LogCapture.maxLines=1
 
 # Getting 
 myvar = Rho::LogCapture.maxLines</code></pre></div></div>  </div></div>

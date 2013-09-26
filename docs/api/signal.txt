@@ -22,7 +22,7 @@
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Signal.refreshInterval=10;
+Rho.Signal.refreshInterval=1;
 
 // Getting 
 myvar = Rho.Signal.refreshInterval;</code></pre>
@@ -31,7 +31,7 @@ myvar = Rho.Signal.refreshInterval;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signal.refreshInterval=10
+Rho::Signal.refreshInterval=1
 
 # Getting 
 myvar = Rho::Signal.refreshInterval</code></pre></div></div>  </div>

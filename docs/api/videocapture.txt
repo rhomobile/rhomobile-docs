@@ -45,11 +45,11 @@ extensions: ["mediacapture"]
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Videocapture.duration=10;
+Rho.Videocapture.duration=1;
 // Setting one property
-Rho.Videocapture.setProperty('duration',10);
+Rho.Videocapture.setProperty('duration',1);
 // Setting multiple properties using JSON object
-Rho.Videocapture.setProperties({ 'duration':10 , 'another_property':10});
+Rho.Videocapture.setProperties({ 'duration':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Videocapture.getProperty('duration');
@@ -60,11 +60,11 @@ myvar = Rho.Videocapture.getProperties(['duration' , 'another_property']);</code
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Videocapture.duration=10
+Rho::Videocapture.duration=1
 # Setting one property
-Rho::Videocapture.setProperty :duration, 10 
+Rho::Videocapture.setProperty :duration, 1 
 # Setting multiple properties using HASH
-Rho::Videocapture.setProperties { :duration => 10 , :another_property => 10}
+Rho::Videocapture.setProperties { :duration => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Videocapture.getProperty('duration')

@@ -119,7 +119,7 @@ myvar = Rho::Signature.fileName</code></pre></div></div>  </div><a name='pheight
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Signature.height=10;
+Rho.Signature.height=1;
 
 // Getting 
 myvar = Rho.Signature.height;</code></pre>
@@ -128,7 +128,7 @@ myvar = Rho.Signature.height;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signature.height=10
+Rho::Signature.height=1
 
 # Getting 
 myvar = Rho::Signature.height</code></pre></div></div>  </div><a name='pleft'></a><div class=' method  js ruby android ios' id='pleft'><h3><strong  >left</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>1.0.0</span></span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pleft1" data-toggle="tab">Description</a></li><li ><a href="#pleft2" data-toggle="tab">Params</a></li><li ><a href="#pleft6" data-toggle="tab">Access</a></li><li ><a href="#pleft7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-left'><div class="tab-pane fade active in" id="pleft1">The coordinates in pixels of the left side of the signature capture area. Not applicable to fullscreen signature capture area.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pleft2"><p><strong>Default:</strong> 15</p></div><div class="tab-pane fade" id="pleft5"></div><div class="tab-pane fade" id="pleft6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.Signature.left</code> </li><li>Ruby: <code>Rho::Signature.left</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pleft7">
@@ -138,7 +138,7 @@ myvar = Rho::Signature.height</code></pre></div></div>  </div><a name='pleft'></
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Signature.left=10;
+Rho.Signature.left=1;
 
 // Getting 
 myvar = Rho.Signature.left;</code></pre>
@@ -147,7 +147,7 @@ myvar = Rho.Signature.left;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signature.left=10
+Rho::Signature.left=1
 
 # Getting 
 myvar = Rho::Signature.left</code></pre></div></div>  </div><a name='poutputFormat'></a><div class=' method  js ruby android ios' id='poutputFormat'><h3><strong  >outputFormat</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span>  <span class='muted pull-right'>4.0.0</span></span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#poutputFormat1" data-toggle="tab">Description</a></li><li ><a href="#poutputFormat2" data-toggle="tab">Params</a></li><li ><a href="#poutputFormat5" data-toggle="tab">Values</a></li><li ><a href="#poutputFormat6" data-toggle="tab">Access</a></li><li ><a href="#poutputFormat7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-outputFormat'><div class="tab-pane fade active in" id="poutputFormat1">The return type of the saved signature capture image.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="poutputFormat2"><p><strong>Default:</strong> image</p></div><div class="tab-pane fade" id="poutputFormat5"><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>image</dt><dd>Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.</dt><dt>dataUri</dt><dd>Outputs the signature capture image as a DataURI string. Platforms: WM, Android</dt></dl></div><div class="tab-pane fade" id="poutputFormat6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.Signature.outputFormat</code> </li><li>Ruby: <code>Rho::Signature.outputFormat</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="poutputFormat7">
@@ -195,7 +195,7 @@ myvar = Rho::Signature.penColor</code></pre></div></div>  </div><a name='ppenWid
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Signature.penWidth=10;
+Rho.Signature.penWidth=1;
 
 // Getting 
 myvar = Rho.Signature.penWidth;</code></pre>
@@ -204,7 +204,7 @@ myvar = Rho.Signature.penWidth;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signature.penWidth=10
+Rho::Signature.penWidth=1
 
 # Getting 
 myvar = Rho::Signature.penWidth</code></pre></div></div>  </div><a name='ptop'></a><div class=' method  js ruby android ios' id='ptop'><h3><strong  >top</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>1.0.0</span></span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#ptop1" data-toggle="tab">Description</a></li><li ><a href="#ptop2" data-toggle="tab">Params</a></li><li ><a href="#ptop6" data-toggle="tab">Access</a></li><li ><a href="#ptop7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-top'><div class="tab-pane fade active in" id="ptop1">The coordinates in pixels of the top side of the signature capture area. Not applicable to fullscreen signature capture area.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="ptop2"><p><strong>Default:</strong> 60</p></div><div class="tab-pane fade" id="ptop5"></div><div class="tab-pane fade" id="ptop6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.Signature.top</code> </li><li>Ruby: <code>Rho::Signature.top</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="ptop7">
@@ -214,7 +214,7 @@ myvar = Rho::Signature.penWidth</code></pre></div></div>  </div><a name='ptop'><
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Signature.top=10;
+Rho.Signature.top=1;
 
 // Getting 
 myvar = Rho.Signature.top;</code></pre>
@@ -223,7 +223,7 @@ myvar = Rho.Signature.top;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signature.top=10
+Rho::Signature.top=1
 
 # Getting 
 myvar = Rho::Signature.top</code></pre></div></div>  </div><a name='pwidth'></a><div class=' method  js ruby android ios' id='pwidth'><h3><strong  >width</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>INTEGER</span>  <span class='muted pull-right'>1.0.0</span></span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pwidth1" data-toggle="tab">Description</a></li><li ><a href="#pwidth2" data-toggle="tab">Params</a></li><li ><a href="#pwidth6" data-toggle="tab">Access</a></li><li ><a href="#pwidth7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-width'><div class="tab-pane fade active in" id="pwidth1">The width of the signature capture area in pixels. Not applicable to fullscreen signature capture area.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pwidth2"><p><strong>Default:</strong> 200</p></div><div class="tab-pane fade" id="pwidth5"></div><div class="tab-pane fade" id="pwidth6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.Signature.width</code> </li><li>Ruby: <code>Rho::Signature.width</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pwidth7">
@@ -233,7 +233,7 @@ myvar = Rho::Signature.top</code></pre></div></div>  </div><a name='pwidth'></a>
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Signature.width=10;
+Rho.Signature.width=1;
 
 // Getting 
 myvar = Rho.Signature.width;</code></pre>
@@ -242,7 +242,7 @@ myvar = Rho.Signature.width;</code></pre>
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Signature.width=10
+Rho::Signature.width=1
 
 # Getting 
 myvar = Rho::Signature.width</code></pre></div></div>  </div>

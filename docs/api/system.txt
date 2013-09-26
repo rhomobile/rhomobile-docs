@@ -71,11 +71,11 @@ extensions: ["coreapi"]
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.System.applicationIconBadge=10;
+Rho.System.applicationIconBadge=1;
 // Setting one property
-Rho.System.setProperty('applicationIconBadge',10);
+Rho.System.setProperty('applicationIconBadge',1);
 // Setting multiple properties using JSON object
-Rho.System.setProperties({ 'applicationIconBadge':10 , 'another_property':10});
+Rho.System.setProperties({ 'applicationIconBadge':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.System.getProperty('applicationIconBadge');
@@ -86,11 +86,11 @@ myvar = Rho.System.getProperties(['applicationIconBadge' , 'another_property']);
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::System.applicationIconBadge=10
+Rho::System.applicationIconBadge=1
 # Setting one property
-Rho::System.setProperty :applicationIconBadge, 10 
+Rho::System.setProperty :applicationIconBadge, 1 
 # Setting multiple properties using HASH
-Rho::System.setProperties { :applicationIconBadge => 10 , :another_property => 10}
+Rho::System.setProperties { :applicationIconBadge => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::System.getProperty('applicationIconBadge')

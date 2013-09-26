@@ -42,11 +42,11 @@ extensions: ["sensor"]
 <pre class='CodeRay'><code>:::javascript
 
 // Setting directly
-Rho.Sensor.minimumGap=10;
+Rho.Sensor.minimumGap=1;
 // Setting one property
-Rho.Sensor.setProperty('minimumGap',10);
+Rho.Sensor.setProperty('minimumGap',1);
 // Setting multiple properties using JSON object
-Rho.Sensor.setProperties({ 'minimumGap':10 , 'another_property':10});
+Rho.Sensor.setProperties({ 'minimumGap':1 , 'another_property':1});
 
 // Getting one property
 myvar = Rho.Sensor.getProperty('minimumGap');
@@ -57,11 +57,11 @@ myvar = Rho.Sensor.getProperties(['minimumGap' , 'another_property']);</code></p
 
 <pre class='CodeRay'><code>:::ruby
 # Setting directly
-Rho::Sensor.minimumGap=10
+Rho::Sensor.minimumGap=1
 # Setting one property
-Rho::Sensor.setProperty :minimumGap, 10 
+Rho::Sensor.setProperty :minimumGap, 1 
 # Setting multiple properties using HASH
-Rho::Sensor.setProperties { :minimumGap => 10 , :another_property => 10}
+Rho::Sensor.setProperties { :minimumGap => 1 , :another_property => 1}
 
 # Getting one property
 myvar = Rho::Sensor.getProperty('minimumGap')

@@ -24,8 +24,6 @@ var product = productModel.find('first');
 product.get('brand'); // Apple
 product.get('name'); // iPhone5
 </code></pre>
-<p> See remarks for differences between ruby and javascript usage.</p>
-
 <h2>Enabling the API</h2>
 
 <p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
