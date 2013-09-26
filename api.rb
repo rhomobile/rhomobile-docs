@@ -710,6 +710,9 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 						if !vaelement["type"].nil?
 							@propvaluetype = !vaelement["type"]
 						end
+						if !vaelement["constName"].nil?
+							vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+						end
 						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>" 
 						
 					}
@@ -955,6 +958,10 @@ def self.getparams(element,toplevel)
 								if !vaelement["type"].nil?
 									valuetype = vaelement["type"]
 								end
+								if !vaelement["constName"].nil?
+									vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+								end
+
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
 								
 							}
@@ -1057,6 +1064,10 @@ if !element["PARAM"].nil?
 								if !vaelement["type"].nil?
 									valuetype = vaelement["type"]
 								end
+								if !vaelement["constName"].nil?
+									vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+								end
+
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
 								
 							}
