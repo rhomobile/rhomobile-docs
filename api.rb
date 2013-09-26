@@ -304,13 +304,27 @@ def self.getconstantlinks(doc)
 				end
 				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
 					methtype = '<i class="icon-file pull-right"></i>'
-					menuGroupName = "Instance Methods"
+					menuGroupName = "Methods - Instance"
 					
 				else
 					methtype = '<i class="icon-book pull-right"></i>'
-					menuGroupName = "Class Methods"
+					menuGroupName = "Methods - Class"
 
 				end
+			  	if !element["constructor"].nil?
+					if element["constructor"] == "true"
+						methtype = '<i class="icon-book pull-right"></i>'
+						menuGroupName = "Constructs"
+						methname = "Constructor"
+					end
+			  	end
+			  	if !element["destructor"].nil?
+					if element["destructor"] == "true"
+					    methtype = '<i class="icon-book pull-right"></i>'
+						menuGroupName = "Constructs"
+						methname = "Destructor"
+					end
+			  	end
 		  		md += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>" 
 				if mdgroups[menuGroupName].nil?
 			  		mdgroups[menuGroupName] = '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
@@ -1435,6 +1449,22 @@ end
 	else
 			masterAccess = element["access"]
 	end
+	constructor = false
+  	constructorLabel = ''
+  	if !element["constructor"].nil?
+		if element["constructor"] == "true"
+		    constructor = true
+		    constructorLabel = '<span class="label label-inverse"> Constructor</span> '
+		end
+  	end
+  	destructor = false
+  	destructorLabel = ''
+  	if !element["destructor"].nil?
+		if element["destructor"] == "true"
+		    destructor = true
+		    destructorLabel = '<span class="label label-inverse"> Destructor</span> '
+		end
+  	end
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
 		accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + "(#{@methparams})</code></li></ul></li>"
 		if templateDefault
@@ -1459,6 +1489,26 @@ end
 		accesstype += '</ul></li>'
 
 	end	
+	if constructor
+		accesstype = '<li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul>'
+		if javascript 
+			accesstype += '<li>Javascript: <code>var myObj = new Rho.' + getApiName(doc) + "(#{@methparams})</code> </li>"
+		end
+		if ruby 
+			accesstype += '<li>Ruby: <code>@myObj = new Rho::' + getApiName(doc) + "(#{@methparams})</code></li>"
+		end
+		accesstype += '</ul></li>'
+	end
+	if destructor
+		accesstype = '<li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul>'
+		if javascript 
+			accesstype += '<li>Javascript: <code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
+		end
+		if ruby 
+			accesstype += '<li>Ruby: <code>@myObj.' +  element["name"]  +  "(#{@methparams})</code></li>"
+		end
+		accesstype += '</ul></li>'
+	end
 	@methsectionaccess = "<div><p><strong>Method Access:</strong></p><ul>#{accesstype}</ul></div>"
 
 # Trying to change to Tabs - this was accordian view
@@ -1486,7 +1536,13 @@ end
 	# md += '</div>'
 	md += "<a name ='m" + getshortcut(element) + "'/>"
   	md += "<div class=' method #{@methplatformsfilter}' id='m"+ getshortcut(element) + "'>"
-    md += '<h3><strong  >' + methname + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>(#{@methparams})</span></h3>"
+  	
+  	if constructor
+	    md += "<h3>#{constructorLabel} <strong  > new " + @@apiName + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>(#{@methparams})</span></h3>"
+  	else
+	    md += "<h3><strong  >#{destructorLabel}" + methname + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>(#{@methparams})</span></h3>"
+  	end
+
     md += '<ul class="nav nav-tabs" style="padding-left:8px">'
   	md += "<li class='active'>" + '<a href="#m' + getshortcut(element) + '1" data-toggle="tab">Description</a>' + "</li>"
   	if @methsectionparams != ''
