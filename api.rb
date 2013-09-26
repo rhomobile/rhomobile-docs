@@ -857,14 +857,14 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		md += "<li >"  + '<a href="#p' + propname + '5" data-toggle="tab">Values</a>' + "</li>"
   	end
   	md += "<li >"  + '<a href="#p' + propname + '6" data-toggle="tab">Access</a>' + "</li>"
-  	md += "<li >"  + '<a href="#p' + propname + '7" data-toggle="tab">Usage</a>' + "</li>"
+  	# md += "<li >"  + '<a href="#p' + propname + '7" data-toggle="tab">Usage</a>' + "</li>"
   	md += '</ul>'
   	md += "<div class='tab-content' style='padding-left:8px' id='tc-"+ propname + "'>"
     md += '<div class="tab-pane fade active in" id="p' + propname + '1">' + "#{@propdesc}<p>#{@propsectionplatforms}</p></div>"
     md += '<div class="tab-pane fade" id="p' + propname + '2">' + propParasDef + "</div>"
   	md += '<div class="tab-pane fade" id="p' + propname + '5">' + @propvalues + "</div>"
   	md += '<div class="tab-pane fade" id="p' + propname + '6">' + @propsectionaccess + "</div>"
-  	md += '<div class="tab-pane fade" id="p' + propname + '7">' + propusage + "</div>"
+  	# md += '<div class="tab-pane fade" id="p' + propname + '7">' + propusage + "</div>"
   	md += '</div>'
 
   	md += '  </div>'

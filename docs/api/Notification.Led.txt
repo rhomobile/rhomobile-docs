@@ -14,23 +14,7 @@
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pname'></a><div class=' method  js ruby android ios' id='pname'><h3><strong  >name</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <span class='muted pull-right'>1.0.0</span></span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pname1" data-toggle="tab">Description</a></li><li ><a href="#pname6" data-toggle="tab">Access</a></li><li ><a href="#pname7" data-toggle="tab">Usage</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-name'><div class="tab-pane fade active in" id="pname1">Human readable name for the notification object, e.g. 'Green LED'.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pname2"></div><div class="tab-pane fade" id="pname5"></div><div class="tab-pane fade" id="pname6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.name</code></li></ul></li></ul></div></div><div class="tab-pane fade" id="pname7">
-
-<strong>Javascript Usage</strong>
-
-<pre class='CodeRay'><code>:::javascript
-
-
-// Getting 
-myvar = Rho.Led.name;</code></pre>
-
-<strong>Ruby Usage</strong>
-
-<pre class='CodeRay'><code>:::ruby
-
-
-# Getting 
-myvar = Rho::Led.name</code></pre></div></div>  </div>
+<a name='pname'></a><div class=' method  js ruby android ios' id='pname'><h3><strong  >name</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span> <span class='label'>Read Only</span> <span class='muted pull-right'>1.0.0</span></span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pname1" data-toggle="tab">Description</a></li><li ><a href="#pname6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-name'><div class="tab-pane fade active in" id="pname1">Human readable name for the notification object, e.g. 'Green LED'.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pname2"></div><div class="tab-pane fade" id="pname5"></div><div class="tab-pane fade" id="pname6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.name</code></li></ul></li></ul></div></div></div>  </div>
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>
 

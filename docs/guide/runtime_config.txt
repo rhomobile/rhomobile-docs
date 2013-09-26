@@ -152,6 +152,8 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ### What it affects
 
+** NOTE: The Config.xml effects applications that are using Motorola Webkit (Windows Mobile/CE, Shared Runtime). However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser **
+
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
 * Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
@@ -329,6 +331,9 @@ The following is an example of a typical configuration file
 	</Configuration>
 
 ## Configuration settings and values
+** NOTE: The following settings effects applications that are using Motorola Webkit (Windows Mobile/CE, Shared Runtime). However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
+
+
 <table class="table table-striped table-bordered table-condensed">
 <tr>
 <th >Group\\XML Tag</th>
@@ -758,13 +763,13 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <td >Number</td>
 </tr>
 <tr>
-<td>Navigation\\CaFile</td>
+<td>Navigation\\CaFile <span class="label label-warning">Applies to both Moto Webkit and Stock Webkit</span></td>
 <td>CAFILE</td>
 <td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>.  This is only supported on the ET1</td>
 <td>Local File name on the device.</td>
 </tr>
 <tr>
-<td>Navigation\\CaPath</td>
+<td>Navigation\\CaPath <span class="label label-warning">Applies to both Moto Webkit and Stock Webkit</span></td>
 <td>CAPATH</td>
 <td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL <code>c_rehash</code> utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information.</td>
 <td>Local File path on the device.</td>
