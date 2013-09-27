@@ -10,7 +10,7 @@ However, if you prefer to migrate your RhoConnect app manually, perform the step
 Open the `Gemfile` of your application and find the `rhoconnect` line, it should look something like:
 
 	:::ruby
-	gem 'rhoconnect', '3.3.6'
+	gem 'rhoconnect', '3.4.4'
 
 Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 4.0.1:
 
@@ -157,3 +157,13 @@ Finally, run `bundle install` to install any missing dependencies in your RhoCon
 
 	:::term
 	$ bundle install
+
+### Updating client application
+RhoConnect's HTTP routes have changed starting with 4.0, so you'll want to update your client application's `rhoconfig.txt` to drop the trailing `/application`, for example:
+
+
+	# sync server url, typically this will look like 'http://<hostname>:<port>'
+	# for example: 'http://localhost:9292'
+	syncserver = 'http://192.168.1.108:9292'
+
+Next, modify your client application according to the new [client API docs](/api/RhoConnectClient).  Be sure to check out the [guides](/guide/using_rhoconnect) periodically as new content is added all the time.
