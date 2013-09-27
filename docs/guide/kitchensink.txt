@@ -13,8 +13,8 @@ This document will be your step-by-step guide to how some specific features of K
 The KitchenSink source code can be found at [https://github.com/rhomobile/rho-samples/tree/master/kitchensink](https://github.com/rhomobile/rho-samples/tree/master/kitchensink)
 
 ## Download the App
-* [Android](https://s3.amazonaws.com/rhomobile-suite/4.0/4.0.0.beta.59/RMS4.0-Kitchen+Sink-1.30.59.apk)
-* [Windows Mobile](https://s3.amazonaws.com/rhomobile-suite/4.0/4.0.0.beta.59/RMS.4.0-Kitchen+Sink-1.30.59.cab)
+* [Android](https://s3.amazonaws.com/rhomobile-suite/4.0/Kitchen+Sink-Android.apk)
+* [Windows Mobile](https://s3.amazonaws.com/rhomobile-suite/4.0/Kitchen+Sink_WM.cab)
 
 ## Filesystem Layout
 
