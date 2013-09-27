@@ -1495,7 +1495,7 @@ end
 			accesstype += '<li>Javascript: <code>var myObj = new Rho.' + getApiName(doc) + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>@myObj = new Rho::' + getApiName(doc) + "(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>@myObj = Rho::' + getApiName(doc) + ".new(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 	end
