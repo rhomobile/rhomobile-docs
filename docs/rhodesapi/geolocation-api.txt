@@ -51,11 +51,11 @@ Returns current longitude in degrees.
 Ruby syntax:
 
 	:::ruby
-	GeoLocation.latitude
+	GeoLocation.longitude
 
 javaScript syntax:
 
-	Rho.GeoLocation.latitude()
+	Rho.GeoLocation.longitude()
 
 ## known_position?, is_known_position
 
