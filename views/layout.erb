@@ -29,7 +29,7 @@
     	<form class="navbar-search pull-right" action="/search">
 				
 				<input type="text" class="search-query span4" placeholder="Search" name="q" size="31" value="">
-    
+    			
 
 		</form>
 
@@ -79,10 +79,12 @@
     
 
   
-<div id="container" class="row-fluid">
-
+<div id="" class="row-fluid">
+	
 	<div id="doc_container" class="span12" >
+
 	<div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %> >
+		
 		<div class="row-fluid">
 			<form class="form-inline" action="">
 			<h3>Version:</h3>
@@ -91,7 +93,9 @@
 					  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>RMS 2.x</option>
 					</select>
 	    	</form>
+
     	</div>
+    	
 			<% collapsed = true 
 			 first = true
 			%>
@@ -146,6 +150,10 @@
 		<% end %>
 	<% end %>
 		</ul>	
+		<ul class="nav nav-list">
+		
+    	<li class="nav-header " target="_blank"><i class="icon icon-bug icon-warning"></i> Report Doc Issue</li>
+		</ul>
 	</div>
 
 	<div class="span8">
@@ -173,5 +181,7 @@
 
 </script>
 <% end %>
+
+
 </body>
 </html>

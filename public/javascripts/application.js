@@ -85,6 +85,12 @@ $(".apiFilter").bind('change', function() {
 		    
 
 	});
+
+	$(".icon-bug").parent().click(function(){
+	    var url = "http://github.com/rhomobile/rhomobile-docs/issues/new?title=Doc Issue:" + document.title + '&body=' + encodeURIComponent(window.location.href);
+	    window.open(url);
+
+	});
 });
 
 //Every resize of window
