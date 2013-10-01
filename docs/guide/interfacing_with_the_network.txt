@@ -39,7 +39,7 @@ Javascript:
 
 ## Triggering synchronization only when the network is likely to be reliable
 
-If your device has a Wi-Fi connection available, you can use the [Signal API](../api/signal) on some platforms to find out the strength of the signal:
+If your device has a Wi-Fi connection available, you can use the [Signal API](../api/signalindicators) on some platforms to find out the strength of the signal:
 
 Ruby:
 	:::ruby
@@ -146,6 +146,6 @@ Once you have determined that the server is reachable, you can be reasonably sur
 
 ## Related reading
 
-* The [Network API](../api/Network) and [Signal API](../api/signal) documentation pages provide all the details on detecting the status of the network.
+* The [Network API](../api/Network) and [Signal API](../api/signalindicators) documentation pages provide all the details on detecting the status of the network.
 
 * [RhoConnect Client](../api/RhoConnectClient) is the new API to call when you want to synchronize data between your application and a remote RhoConnect server.

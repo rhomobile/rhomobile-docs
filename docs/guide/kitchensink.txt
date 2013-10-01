@@ -29,7 +29,7 @@ KitchenSink 4 is a regular RhoMobile application like any other. Refer to [proje
 
 All JavaScript samples in KitchenSink 4 follow the same pattern: There is a global `KitchenSink` object, which contains a member object for each API and these objects in turn contain the functions that invoke the sample code.
 
-Take for instance `js/samples/notification.js`, the file that contains the samples for the new [Notification API](../api/notification):
+Take for instance `js/samples/notification.js`, the file that contains the samples for the new [Notification API](../api/Notification):
 
 	:::javascript
 	KitchenSink.Samples.Notification = KitchenSink.Samples.Notification || (function() {

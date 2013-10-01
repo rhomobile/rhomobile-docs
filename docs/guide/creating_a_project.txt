@@ -1,6 +1,6 @@
-# Creating a Rhodes project
+# Creating a RhoMobile project
 
-You can create a Rhodes project either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent.
+You can create a Rhomobile project either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent.
 
 ## Prerequisites
 
@@ -8,13 +8,13 @@ In order to build a Native Application, you will need to have the SDK environmen
 
 ###1) Setup Mobile Development Environments</b>
 
-[Windows Mobile](/rhodes/build#build-for-windows-mobile)
+[Windows Mobile](nativesdksetup#setup-for-windows-mobile)
 
-[iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad)
+[iPhone/iPad](nativesdksetup#setup-for-ios)
 
-[Android](/rhodes/build#build-for-android)
+[Android](nativesdksetup#setup-for-android)
 
-[BlackBerry](/rhodes/build#build-for-blackberry)
+[Windows Phone 8](nativesdksetup#setup-for-windows-phone-8)
 
 ###2) Java Development Kit
 
@@ -24,11 +24,11 @@ In the [RhoMobile Suite installation instructions](rhomobile-install), review th
 
 Follow operating specific instructions for your development machine:
 
-[Mac OS](/rhomobile-install#mac-os)
+[Mac OS](rhomobile-install#mac-os)
 
-[Windows 32-bit](/rhomobile-install#windows-32-bit)
+[Windows 32-bit](rhomobile-install#windows-32-bit)
 
-[Windows 64-bit](/rhomobile-install#windows-64-bit)
+[Windows 64-bit](rhomobile-install#windows-64-bit)
 
 
 ###4) Setup RhoStudio Mobile SDK Paths
@@ -159,7 +159,7 @@ Select "RhoMobile Application" and click the "New" button, then click "Run"
 
 <img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/run-configuration.png"/>
 
-After a brief compilation period, the application will start in [RhoSimulator](../rhodes/simulator)
+After a brief compilation period, the application will start in [RhoSimulator](debugging_with_rhosimulator)
 
 ### Running from the command line
 
@@ -188,5 +188,5 @@ The application will start inside RhoSimulator with a different look depending o
 Now that your first application is ready to run, there are some other topics you should become familiar with:
 
 * [Adding models](local_database)
-* [Application configuration](../rhodes/configuration)
-* [Device capabilities](../rhodes/device-caps)
+* [Application configuration](runtime_config)
+* Device capabilities like [Barcode](/api/barcode) or [Native UI Components](native_ui_elements)

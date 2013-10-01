@@ -227,10 +227,6 @@ In `Greeting_impl.cpp`, update class `CGreetingSingleton` to match the following
 All you need to do is remove the methods called `getInitialDefaultID` and `enumerate` (these were generated automatically but they do not apply to our extension) and add an implementation of `welcome` with the signature found in `shared/generated/cpp/IGreeting.h`
 
 
-### Windows Phone 8
-
-TODO
-
 ## Invoking the new extension
 
 Now that the native part of the extension is implemented, you can start to use it in your application. Open `app/index.erb` and edit the `content` div to match the following:
@@ -835,83 +831,3 @@ Otherwise, if the thread is not attached to the JVM, no JNI calls should be perf
 
 If your application needs additional DLLs, put them in the TARGET_TEMP_DIR. The Rhodes build scripts will detect them and include them in the final binary automatically.
 
-## Other Examples
-
-You can use teh Barcode extension as an example of native extension for all teh supported platforms. The code for the Barcode native extension is [here on Github](https://github.com/rhomobile/rhodes/tree/master/lib/extensions/barcode/).
-
-Another example of the native extension is the Rainbow native extension in the Rhodes System Api Samples. The code for the Rainbow native extension is [here on Github](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/extensions/rainbow/).
-
-## Native View Extensions
-
-The Native View interface allows developers to implement a custom native view and seamlessly integrate it into the RhoMobile framework. This is currently only supported on iPhone and Android.
-
-To access the implemented view navigate to a url where url schema is the register type name of your view: 
-  
-	view_type_name:path?query_string#anchor
-
-Example:
-
-	:::ruby
-	WebView.navigate("my_video_view:/app/files/funny_cat.mpg")
-
-
-When Rhodes application navigates to a native view it will replace current view (WebView in most cases) with requested native view and pass path?query_string#anchor to the created native view. If the application navigates to that view again, a new instance of the view will not be created but the rest of url will be passed to the existing instance.
-
-To provide a custom native view in a native extension you should implement the NativeViewFactory interface and register it with RhoMobile using `RhoNativeViewManager::registerViewType(const char* viewType, NativeViewFactory* factory)`.
-
-
-### Sample
-See [Rhodes-System-Api-Samples](http://github.com/rhomobile/rhodes-system-api-samples) for details of how to implement and use the native view interface. This sample implements a "rainbow_view" native view; you should add rainbow to the list of extensions to include it to the application. 
-
-See [/app/NativeView/controller.rb](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/NativeView/controller.rb) and [/app/NativeView/index.erb](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/NativeView/index.erb) for details on how to call a native view from your controller.
-
-** NOTE:  Windows Mobile: Visual Studio 2008 has issues with long paths. If you have problems building the rainbow extension, move your rhodes folder to a shorter path. **
-
-* To navigate to the rainbow view in your controller, call `WebView.navigate('rainbow_view:red')`. In your url schema indicates view type you want to open and rest of the url (red) passed to the after it was created. 
-
-* To pass parameters to created view you may call WebView.navigate again: `WebView.navigate('rainbow_view:green')`. In your native code you may pass parameters to the native view by calling `pNativeView->navigate(url)` where pNativeView is an instance of native view created by `RhoNativeViewManager` using the previously-registered factory. 
-
-* To close the view you created, navigate to any other url.
-
-See [/extensions/rainbow](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/extensions/rainbow/) for the implementation of the "rainbow" native view.
-
-* See how to register your view type with RhoMobile here: [RainbowViewFactoryRegister.cpp](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowViewFactoryRegister.cpp)
-
-* See the implementation of a native view factory here: [RainbowViewFactory.mm](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowViewFactory.mm)
-
-* See a sample implementation of a native view object here: [RainbowView.h](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowView.h) and [RainbowView.m](http://github.com/rhomobile/rhodes-system-api-samples/blob/master/extensions/rainbow/ext/rainbow/platform/iphone/Classes/RainbowView.m).
-
-This sample extension uses functionality provided by Rhodes framework and therefore includes a few framework header files:
-
-* [$(RHO_ROOT)/platform/shared/common/RhoNativeViewManager.h](http://github.com/rhomobile/rhodes/blob/master/platform/shared/common/RhoNativeViewManager.h)
-* [$(RHO_ROOT)/platform/shared/common/RhodesApp.h](http://github.com/rhomobile/rhodes/blob/master/platform/shared/common/RhodesApp.h)
-* [$(RHO_ROOT)/platform/shared/rubyext/WebView.h](http://github.com/rhomobile/rhodes/blob/master/platform/shared/rubyext/WebView.h)
-
-Make sure the following folders are added to your compiler include path:
-
-* [$(RHO_ROOT)/platform/shared/rubyext](http://github.com/rhomobile/rhodes/tree/master/platform/shared/rubyext/)
-* [$(RHO_ROOT)/platform/shared/ruby/include](http://github.com/rhomobile/rhodes/tree/master/platform/shared/ruby/include/)
-* [$(RHO_ROOT)/platform/shared](http://github.com/rhomobile/rhodes/tree/master/platform/shared/)
-* [$(RHO_ROOT)/platform/shared/ruby/iphone](http://github.com/rhomobile/rhodes/tree/master/platform/shared/ruby/iphone/)
-* [$(RHO_ROOT)/platform/shared/common](http://github.com/rhomobile/rhodes/tree/master/platform/shared/common/)
-
-### url_for_nativeview
-Examples of how to use the url_for_nativeview method:
-    
-    :::ruby
-	native_view_url = url_for_nativeview :name => 'rainbow_view', :param => 'red'  # ==> "rainbow_view:red"
-	Rho.WebView.navigate(native_view_url)
-
-
-## Add registry setting in cab file om Windows Mobile/Windows CE
-
-In ext.yml file you can add rgeistry sections 
-
-    regkeys:
-      - key1
-      - key2
-
-Keys should be created as documented in [this MSDN article](http://msdn.microsoft.com/en-us/library/ms933191.aspx):
-
-	:::plain
-	registry_root_string, subkey,[value_name], flags, value[,value]

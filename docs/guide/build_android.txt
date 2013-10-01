@@ -179,7 +179,7 @@ This will use the specified certificate to sign your application. If the certifi
 
 ### Setting your application name, icon and loading screen
 
-You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](../app_icon_splash) guide for detailed information.
+You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](app_icon_splash) guide for detailed information.
 
 You can refer to the [recommended icon guidelines](http://developer.android.com/design/style/iconography.html).
 

@@ -194,7 +194,7 @@ You can use "rake -T" to print a complete list of all of the automated build com
 
 * Windows is required to test builds and install to a device for BlackBerry, Windows Mobile, and WIndows desktop. Running the simulators in Windows virtual machines such as VMware or Parallels works fine. 
 * Mac OS X 10.5+ is required for testing iPhone applications.
-* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Build Rhodes Application](/rhodes/build).
+* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Build Rhodes Application](nativesdksetup).
 
 Since Android simulators are available for all major operating systems, we'll build our app for Android in this tutorial.
 

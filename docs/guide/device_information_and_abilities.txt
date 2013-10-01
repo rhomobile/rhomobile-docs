@@ -55,7 +55,7 @@ JavaScript syntax:
 
 ### Screen dimensions
 
-The size of the device screen is typically used to customize the application UI for a better user experience instead of a fixed one-size-fits-all approach. Knowing the screen width and height can also be useful when using the [Keystate](../api/keystate) and [Battery](../battery) APIs, which can set a visible icon on the screen at a particular position. CSS media queries can often result in a more maintainable solution than manually altering the UI in code, but the capability is there if you need it.
+The size of the device screen is typically used to customize the application UI for a better user experience instead of a fixed one-size-fits-all approach. Knowing the screen width and height can also be useful when using the [Keystate](../api/keystate) and [Battery](../api/battery) APIs, which can set a visible icon on the screen at a particular position. CSS media queries can often result in a more maintainable solution than manually altering the UI in code, but the capability is there if you need it.
 
 There are two sets of sizes for a device screen:
 
@@ -172,7 +172,7 @@ JavaScript syntax:
 
 ### Cell network / Wifi
 
-The device running your application may be offline or connected to a cellular, Wifi or other network. You can query the network status by using the [Network API](../Network)
+The device running your application may be offline or connected to a cellular, Wifi or other network. You can query the network status by using the [Network API](../api/Network)
 
 Ruby syntax:
     :::ruby
@@ -237,21 +237,15 @@ Javascript syntax:
     
 ### Barcode
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
-
 You can use the camera or dedicated barcode scanner in the device to scan barcodes.
 
-To use Barcode, first you need to enable the camera capability. Do this by adding that capability to the build.yml file:
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["barcode"]
 
-    :::yaml
-    capabilities:
-        - camera
-
-Next, you need to add the barcode extension, for example:
-
-    :::yaml
-    :iphone
-        extensions: ["barcode"]
+The `barcode` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
 
 Then you can use the [Barcode API](../api/barcode) `enumerate` method to get a list of barcode scanners on the device
 
@@ -285,7 +279,7 @@ To access bluetooth functions in your application, you need to enable the blueto
     capabilities:
         - bluetooth
 
-Then you can use the [BluetoothManager API](../rhodesapi/bluetoothmanager-api) `is_bluetooth_available` method to check if Bluetooth is available on the device
+Then you can use the [BluetoothManager API](/v/2.2/rhodesapi/bluetoothmanager-api) `is_bluetooth_available` method to check if Bluetooth is available on the device
 
 Ruby syntax:
     :::ruby

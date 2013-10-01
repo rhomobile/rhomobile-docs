@@ -177,9 +177,7 @@ to
 		Rho::WebView.navigate(url_for(:action => :another_action),1)
 	end
 
-## Special considerations for BlackBerry
 
-On BlackBerry, the browser only supports a small subset of HTML and Javascript. Therefore, if you plan to deploy your application to BlackBerry, you will need to adapt your view files and JavaScript code for this platform specifically. Refer to [BlackBerry Usage](blackberry) for more details on what the browser supports and on some specific tips for BlackBerry development.
 
 ## Related reading
 

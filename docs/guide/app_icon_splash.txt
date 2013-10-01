@@ -41,7 +41,7 @@ Rhodes supports the display of a custom "Loading" screen while your application 
 
 Alternatively, you can replace loading.html with an image named loading.png if you just want a simple image to be displayed. 
 
-You can control how image presented by modifying splash_screen options in [rhoconfig.txt](configuration):
+You can control how image presented by modifying splash_screen options in [rhoconfig.txt](runtime_config#rhoconfigtxt):
 
 * delay - how long splash screen should be displayed (in seconds)
 * center,vcenter,hcenter - picture alignment

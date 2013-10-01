@@ -22,33 +22,9 @@ Once your application is running under RhoSimulator, you can make changes to you
 
 ## Prerequisites
 
-* You may want to install [RhoStudio](../rhostudio.tutorial) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
+* You may want to install [RhoStudio](rhomobile-install) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
 
 ## Running your application in RhoSimulator
-
-### Running RhoSimulator from command line
-
-Run one of the following commands inside the application folder, depending on the platform you want to simulate:
-    
-* Android
-
-        rake run:android:rhosimulator
-
-* iOS
-
-        rake run:iphone:rhosimulator
-
-* Windows Phone 8
-
-        rake run:wp8:rhosimulator 
-
-* Windows Mobile
-
-        rake run:wm:rhosimulator
-
-* Windows (desktop)
-
-        rake run:win32:rhosimulator
 
 ### Running RhoSimulator from RhoStudio
 
@@ -280,6 +256,31 @@ You can:
 * Invoke methods on objects
 
 ![Interactive JavaScript](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/interactive-javascript.png)
+
+### Running RhoSimulator from command line
+
+Run one of the following commands inside the application folder, depending on the platform you want to simulate:
+    
+* Android
+
+        rake run:android:rhosimulator
+
+* iOS
+
+        rake run:iphone:rhosimulator
+
+* Windows Phone 8
+
+        rake run:wp8:rhosimulator 
+
+* Windows Mobile
+
+        rake run:wm:rhosimulator
+
+* Windows (desktop)
+
+        rake run:win32:rhosimulator
+
 
 ## Debugging Ruby code
 

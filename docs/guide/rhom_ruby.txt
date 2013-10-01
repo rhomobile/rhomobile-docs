@@ -427,5 +427,3 @@ Return `false` to run the custom sql specified by the new_src[‘schema’][‘s
 ## Related reading
 
 * [Database API reference](../api/Database)
-* [ORM API reference](../api/Orm)
-* [ORMModel API reference](../api/OrmModel)

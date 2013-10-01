@@ -1,7 +1,7 @@
 # Logging
 There are two methods to log messages. 
 
-From any controller you can log using the methods app_info and app_error. These methods take a string and will write that to rholog.txt with the category of your controllers name. See platform specific [build topic](build) to see notes on how to get rholog.txt.
+From any controller you can log using the methods app_info and app_error. These methods take a string and will write that to rholog.txt with the category of your controllers name. 
 
 Call app_info and app_error from a method in your controller:
 
@@ -13,18 +13,24 @@ Call app_info and app_error from a method in your controller:
 
 There also is a logging Ruby class called RhoLog. This class has methods info and error which take 2 strings. The first string is the category, the second string is the message.
 
-The [RhoLog API](/rhodesapi/rholog-api) has methods to print error messages. Click the links below for detailed information about the methods.
+The [Rho.Log API](/api/Log) has methods to print error messages. Click the links below for detailed information about the methods.
 
- * [info](/rhodesapi/rholog-api#info) - Print an information message in the rholog.txt file.
- * [error](/rhodesapi/rholog-api#error) - Print an error message in the rholog.txt file. The message will have an “ERROR” prefix.
+ * [info](/api/Log#minfo) - Print an information message in the rholog.txt file.
+ * [error](/api/Log#merror) - Print an error message in the rholog.txt file. The message will have an “ERROR” prefix.
 
 Call the RhoLog error or info methods from a method in your Rhodes app:
 
+Ruby
 	:::ruby
 	def index
-		RhoLog.error("Some Category", "Some error message")
-		RhoLog.info("Some Category", "Some info message")
+		Rho::Log.error("Some Category", "Some error message")
+		Rho::Log.info("Some Category", "Some info message")
 	end
+
+Javascript
+	:::javascripr
+	Rho.Log.error("Some Category", "Some error message");
+	Rho.Log.info("Some Category", "Some info message");
 
 Additionally all common ruby output routines (like puts, print) are redirected to rhodes log with INFO level.
 
@@ -53,7 +59,7 @@ Then call RhoConf.send_log:
 	end
 
 
-See [Log Configuration](/rhodes/configuration#run-time-configuration) for all Logging configuration parameters.
+See [Log Configuration](runtime_config#rhoconfigtxt) for all Logging configuration parameters.
 
 ## How see log messages from iOS device.
 
@@ -81,21 +87,3 @@ You have next ways for get log from iOS device :
 
 
 
-## RhoError class
-
-You may find access to the error class useful in logging and reporting:
-
-This class contains error codes and the method message() to translate error code to a text message.
-All callbacks return an error code from this class. The status text in the callback contains some internal error message, so in most cases it should not be exposed to user.
-Currently RhoError contains the following error codes:
-
-	ERR_NONE = 0
-	ERR_NETWORK = 1
-	ERR_REMOTESERVER = 2
-	ERR_RUNTIME = 3
-	ERR_UNEXPECTEDSERVERRESPONSE = 4
-	ERR_DIFFDOMAINSINSYNCSRC = 5
-	ERR_NOSERVERRESPONSE = 6
-	ERR_CLIENTISNOTLOGGEDIN = 7
-	ERR_CUSTOMSYNCSERVER = 8
-	ERR_UNATHORIZED = 9

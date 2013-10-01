@@ -24,9 +24,9 @@ It is the intention for all API's to work across the supported platforms. Previo
 ## Replaced APIs
 In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description. 
 
-For example [Camera.saveImageToDeviceGallery](/api/camera#msaveImageToDeviceGallery)
+For example [System.applicationInstall](/api/system#mapplicationInstall)
 
-<span class="label label-info">Replaces:save_image_to_device_gallery</span>
+<span class="label label-info">Replaces:app_install</span>
 
 ## Deprecated APIs
 In the API reference documentation, API's that have been marked as deprecated will be highlighted in the menu and description. Deprecated means that the API should work, but will no longer be enhanced or supported. The associated description should indicate alternatives.
@@ -346,9 +346,9 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Comm](/v/2.2/rhoelements/comm)
 * [Addressbar](/v/2.2/rhoelements/addressbar)
 * [Alarm](/v/2.2/rhoelements/alarm)
-* [Bluetooth](/v/2.2/v/2.2/rhodesapi/bluetoothmanager-api)
-* [NFC](/v/2.2/v/2.2/rhodesapi/NFCManager-api)
-* [Timer](/v/2.2/v/2.2/rhodesapi/timer-api)
+* [Bluetooth](/v/2.2/rhodesapi/bluetoothmanager-api)
+* [NFC](/v/2.2/rhodesapi/NFCManager-api)
+* [Timer](/v/2.2/rhodesapi/timer-api)
 * [Backlight](/v/2.2/rhoelements/backlight)
 * [Keylight](/v/2.2/rhoelements/Keylight)
 * [Memory](/v/2.2/rhoelements/memory)
@@ -419,6 +419,6 @@ The following API's have been removed from Rhomobile 4.0
 
 * [DateTimePicker](/v/2.2/rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
 * [Airbeam](/v/2.2/rhoelements/airbeam)- Can be controlled via [System.runApplication](/api/system#mrunApplication)
-* [BottomCommandArea](/v/2.2/rhoelements/bottomcommandarea) & [TopCommandArea](v/2.2/rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
+* [BottomCommandArea](/v/2.2/rhoelements/bottomcommandarea) & [TopCommandArea](/v/2.2/rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
 * [History](/v/2.2/rhoelements/historyback2) - Better JS methods exist
 * [ODAX](/v/2.2/rhoelements/odax) - Better HTML5 methods exist

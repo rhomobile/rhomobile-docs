@@ -344,7 +344,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >DebugButtons\\<BR>DebugButtonsEnabled</td>
 <td >DEBUGBUTTONSENABLED</td>
-<td >When enabled, a set of controls useful for development and debugging purposes will be present in the interface.  Among others the <a href="../rhoelements/backbutton">back button</a>, <a href="../rhoelements/quitbutton">quit button</a> and <a href="../rhoelements/addressbar">address bar</a> are shown.</td>
+<td >When enabled, a set of controls useful for development and debugging purposes will be present in the interface.  </td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -422,7 +422,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >Screen\\FullScreen</td>
 <td >FULLSCREEN</td>
-<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="../rhoelements/Application">Application</a> tag or <a href="../api/Application">Application API</a>.  Some Windows Mobile devices feature a customised Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customised Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -452,7 +452,7 @@ The following is an example of a typical configuration file
 <tr>
 <td class="clsEvenRow">DeviceKeys\\<BR>FunctionKeysCapturable</td>
 <td class="clsEvenRow">FUNCTIONKEYSCAPTURABLE</td>
-<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behaviour (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="../rhoelements/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown <a href="#_fnbehaviour">here</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
+<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behaviour (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/api/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown <a href="#_fnbehaviour">here</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
 <td class="clsEvenRow">0 - F keys not capturable<BR>1 - F keys capturable</td>
 </tr> 
 <tr>
@@ -696,31 +696,31 @@ The following is an example of a typical configuration file
 <tr>
 <td >GUI\\SignalRefresh</td>
 <td >SIGNALREFRESH</td>
-<td >Specifies the refresh rate of the signal display, see the <a href="../rhoelements/signal">Signal</a> meta tag for more information.</td>
+<td >Specifies the refresh rate of the signal display, see the <a href="/api/signalindicators">Signal</a> API for more information.</td>
 <td >Refresh rate in milliseconds</td>
 </tr>
 <tr>
 <td class="clsEvenRow">GUI\\BatteryRefresh</td>
 <td class="clsEvenRow">BATTERYREFRESH</td>
-<td class="clsEvenRow">Specifies the refresh rate of the battery display, see the <a href="../rhoelements/battery">Battery</a> meta tag for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)</a></td>
+<td class="clsEvenRow">Specifies the refresh rate of the battery display, see the <a href="/api/battery">Battery</a> API for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)</a></td>
 <td class="clsEvenRow">Refresh rate in milliseconds</td>
 </tr>
 <tr>
 <td >GUI\\HourglassEnabled</td>
 <td >HOURGLASSENABLED</td>
-<td >By default an <a href="../rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
+<td >By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
 <td class="clsEvenRow">GUI\\HourglassLeft</td>
 <td class="clsEvenRow">HOURGLASSLEFT</td>
-<td class="clsEvenRow">By default an <a href="../rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position.  If not specified the hourglass will appear at the center of the screen.</td>
+<td class="clsEvenRow">By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position.  If not specified the hourglass will appear at the center of the screen.</td>
 <td class="clsEvenRow">Pixels</td>
 </tr>
 <tr>
 <td >GUI\\HourglassTop</td>
 <td >HOURGLASSTOP</td>
-<td >By default an <a href="../rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position.  If not specified the hourglass will appear in the center of the screen.</td>
+<td >By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position.  If not specified the hourglass will appear in the center of the screen.</td>
 <td >Pixels</td>
 </tr>
 <tr>
@@ -823,7 +823,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 </table>
-<a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="../rhoelements/generic">Generic</a> 
+<a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="/v/2.2/rhoelements/generic">Generic</a> 
 
 
 ## Substitution Variables
@@ -839,83 +839,6 @@ The following substitution variables are available in the configuration file
 </tr>
 </table>
 		
-## Optimizing The Runtime
-
-RhoElements will be installed to the device with all default functionality enabled out of the box, including the barcode scanner.  This section describes how you can customise the RhoElements runtime to only load the functionality your application requires and specify when you want to load it.
-
-Consider an application which opens the [Card Reader](/rhoelements/cardreader) on the first page:
-	<META HTTP-Equiv="CardReader" Content="Open" />
-
-There are two circumstances to consider:
-
-1) The Card Reader module is Preloaded in Config.xml See [Configuration Settings](/rhoelements/ConfigurationSettings) for details of how to preload modules
-In this case RhoElements opens the card reader more or less immediately with no noticeable delay to the user.
-
-2) The Card Reader module was not Preloaded
-In this case the Card Reader module (contained in the plugin PB_CardReader_PLG.dll) is loaded into memory and initialised, this in turn will initialise the hardware which could cause a noticeable delay depending on the device in use and the exact hardware.
-
-The benefits of preloading plugins are obvious.  The benefits of not preloading plugins are that RhoElements will run with a smaller memory footprint until the additional functionality is required and the start up time will be reduced.
-
-###Plugin.xml
-Plugin.xml contains a mapping between the plugin DLL names, the modules contained within each plugin and any alias' assigned to the modules.  Plugin.xml <b>does not</b> specify which plugins to load, modules will only be loaded when they are needed or when they are preloaded.  It is recommended you do not edit this file, doing so may cause RhoElements to be unable to locate plugins on the device, rendering the modules within the missing plugins non-functional.	
-
-###Necessary Modules
-In order for RhoElements to function correctly it is necessary to preload some modules, this section details what those modules are and why they are necessary.  By default after a standard installation the Config.xml copied to the device will preload the necessary modules.
-
-####Hourglass
-When you navigate between pages you would expect to be shown an illustration of a rotating cursor.  If the [Hourglass](/rhoelements/hourglass) module is not preloaded this cursor will not be shown.  
-
-Note that the hourglass will be shown during page transitions if it is loaded by another means, e.g. calling:
-	<META HTTP-Equiv="Hourglass" Content="Visibility:Visible" />
-
-NOTE: Hourglass and SIP modules are located in the same Plugin (PB_DeviceApplication_PLG.dll)
-
-####Key Capture
-The following [Configuration Settings](/rhoelements/ConfigurationSettings) require the Key Capture module to be preloaded in order to take effect:
-<ul>
-<LI>EnableFunctionKey_FX</LI>
-<LI>EnableApplicationKey_AX</LI>
-<LI>EnableCtrlKey_X</LI>
-</ul>
-
-####SIP
-The following [Configuration Settings](/rhoelements/ConfigurationSettings) require the SIP module to be preloaded in order to take effect:
-<ul>
-<LI>ResizeOnSIP</LI>
-</ul>
-
-NOTE: Hourglass and SIP modules are located in the same Plugin (PB_DeviceApplication_PLG.dll)
-
-####Special Case - License Screen
-
-The licensing screen utilizes the Scanner module to ease the input of licensing barcodes.  Developers should be aware that using unlicensed devices can cause the scanner to be loaded, increasing the memory footprint of RhoElements.  Licensed versions of RhoElements will just show a start up splash screen and will <b>not</b> load the scanner unnecessarily.
-
-###Recommended Modules
-It is recommended that the JavaScript objects are preloaded if they are being used in a RhoElements application. This is accomplished by changing the NPAPI section of the Config.xml
-	<NPAPI>
-		<NPAPIDirectory VALUE="file://\Program Files\RhoElements\NPAPI\"/>
-		<Preloads>
-			<PreloadLegacyGeneric VALUE="0"/>
-			<PreloadLegacyODAX    VALUE="0"/>
-			<PreloadLegacyNoSIP   VALUE="0"/>
-			<PreloadLegacyAirBeam VALUE="0"/>
-			<PreloadLegacyAPD     VALUE="0"/>
-			<PreloadJSObjects     VALUE="1"/>
-		</Preloads>
-	</NPAPI>
-NOTE: Some javascript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.		
-
-###Plugin Dependencies
-Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.
-
-####File Transfer
-The [File Transfer Plugin](/rhoelements/filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
-
-[Signature Capture](/rhoelements/SignatureCapture) (PB_Signature_PLG.dll) requires File Transfer to transmit the signature bitmap file to a remote server via its 'Capture' method, without File Transfer the file will not be transferred and the signature bitmap will remain stored in the root of the device (by default).
-
-The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](/rhoelements/backbutton), [Forward Button](/rhoelements/forwardbutton), [Go Button](/rhoelements/gobutton), [Home Button](/rhoelements/HomeButton), [Minimize Button](/rhoelements/minimizebutton), [Quit Button](/rhoelements/quitbutton), [Reload Button](/rhoelements/reloadbutton), [SIP Button](/rhoelements/sipbutton), [Stop Button](/rhoelements/stopbutton), [Bottom Command Area](/rhoelements/bottomcommandarea), [Top Command Area](/rhoelements/topcommandarea)
-
-The [Imager](/rhoelements/imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if you transmit the captured image to a remote server via the 'Capture' method.  Without File Transfer the file will not be transferred and the image will be stored by default in the root of the device, overwritten by each subsequent capture.
 
 ## Remarks
 ###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity
@@ -957,40 +880,3 @@ The table below shows the behaviour of RhoElements when Function Keys are presse
 </tr>			
 </table>
 
-## The Application API and setNotifyCallback
-
-The [Application API](../api/Application) contains some useful methods to interact with the system at different points in time. Of particular importance is [setApplicationNotify](../api/Application#msetApplicationNotify), which allows you to receive a callback when certain important events happen during the life cycle of the application. These are events like the application being activated or deactivated, configuration conflicts or database migration requests.
-
-	:::ruby
-	# Set callback
-	Rho::Application.setApplicationNotify(:application_callback)
-
-	
-	def application_callback(params)
-		event = params["applicationEvent"]
-		event_data = params["eventData"]
-		
-		# process only the event(s) we are interested in...
-		case event
-			when "Activated"
-				# ...
-			when "Deactivated"
-				# ...
-			when "UICreated"
-				# ...
-			when "UIDestroyed"
-				# ...
-			when "SyncUserChanged"
-				# ...
-			when "ConfigConflict"
-				# ...
-			when "DBMigrateSource"
-				# ...
-		end
-		
-		# invoke the platform's default handler to make sure the rest of the system knows about the event
-		
-		Rho::Application.processApplicationEvent(event,event_data)
-	end
-
-You callback does not need to handle all possible events, you can process only those that are meaningful for your application. What is important is calling `processApplicationEvent` at some point, otherwise the platform's default handlers will not have a chance to run; the only exception is `SyncUserChanged`: you can respond to it by resetting the database to a clean state and not need to call `processApplicationEvent`

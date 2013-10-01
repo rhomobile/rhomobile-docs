@@ -182,7 +182,7 @@ RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with
 
 If you are planning on building your RhoMobile application locally on your development machine you will need the SDKs for the platform you want to build your app on. These instructions are found [here](/guide/nativesdksetup).
 
-If you do not wish to setup the native SDK platforms, you can utilize RhoHub to perform the builds in the cloud. Check [these instructions]() for setting up RhoHub with RhoStudio.
+If you do not wish to setup the native SDK platforms, you can utilize RhoHub to perform the builds in the cloud. Check [these instructions](/rhostudio-rhohub) for setting up RhoHub with RhoStudio.
 
 
 

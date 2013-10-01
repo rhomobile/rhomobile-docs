@@ -213,7 +213,7 @@ Here is how the layout looks in portrait...
 
 There are some CSS frameworks available that are designed to make it easier to use responsive design in your applications. Two of the most popular are:
 
-* [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
+* [Twitter Bootstrap](http://getbootstrap.com/)
 * [Zurb Foundation](http://foundation.zurb.com/)
 
 Both are modern frameworks, designed to take advantage of the latest capabilities of today's mobile browsers. They provide a number of features to shorten your development time while simultaneously making your code more maintainable and future-proof. Particularly if you are developing for more than one screen size, using a responsive framework is highly recommended.
