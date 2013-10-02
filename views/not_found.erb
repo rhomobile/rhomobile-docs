@@ -1,3 +1,14 @@
 <% @title = "Not Found" %>
-
-<h1>Not Found</h1>
+<div class="alert">
+  <i class="icon icon-warning-sign icon-2x"></i><strong> Ooops!</strong> The page you are looking for was not found. Please note that the docs site now shows different versions of the documentation that belongs to specific versions of RhoMobile Suite. If you you are using the most current version then there is nothing you need to do. If you are using an older version then you should select it from the version dropdown to get the corresponding docs.<span class="btn pull-right"><i class="icon icon-bug icon-large"></i> Report Doc Issue </button></span>
+</div>
+<%
+if @alt
+	%>
+	<h2>Were you looking for?</h2>
+	
+	<a href="<%= @alt_url%>"><%=@alt_title%> : <%= @alt_url%></a>
+	<%=@alt_content%>
+<%
+end
+%>	

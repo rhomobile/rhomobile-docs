@@ -54,7 +54,7 @@
 		<div class="row span12">
 		<ul class="nav nav-tabs">
 		  <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
-		    <a href="<%=homepath%>"><i class="icon-home"></i>Home</a>
+		    <a href="<%=homepath%>"><i class="icon-home"></i></a>
 		  </li>
 		  <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
 		      <a href="<%=mapipath%>"><i class="icon-cog"></i>API Reference</a>
@@ -65,7 +65,14 @@
 		  <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
 		    <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>
 		  </li>
-		  
+		  <li class="pull-right">
+		  	<select id="version_select" class="input input-medium pull-right">
+					  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>RMS 4.x Docs</option>
+					  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>RMS 2.x Docs</option>
+					</select>
+	    	
+	    	<li>
+	    	<li class="nav-header " target="_blank"><i class="icon icon-bug icon-warning"></i> Doc Issue</li>	
 		</ul>
 
 		</div>
@@ -85,16 +92,7 @@
 
 	<div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %> >
 		
-		<div class="row-fluid">
-			<form class="form-inline" action="">
-			<h3>Version:</h3>
-	    	<select id="version_select" class="input-small">
-					  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>RMS 4.x</option>
-					  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>RMS 2.x</option>
-					</select>
-	    	</form>
-
-    	</div>
+		
     	
 			<% collapsed = true 
 			 first = true
@@ -150,10 +148,7 @@
 		<% end %>
 	<% end %>
 		</ul>	
-		<ul class="nav nav-list">
 		
-    	<li class="nav-header " target="_blank"><i class="icon icon-bug icon-warning"></i> Report Doc Issue</li>
-		</ul>
 	</div>
 
 	<div class="span8">

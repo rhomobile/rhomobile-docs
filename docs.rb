@@ -28,7 +28,52 @@ class Docs < Sinatra::Base
   enable :static
   
   not_found do
-  	erb :not_found
+    begin
+    # puts "/v/2.2#{request.path}"
+    # puts "****#{request.path.split('/')[1]}:#{request.path.split('/')[2]}"
+    @alt_url = ''
+    @alt_url = "#{request.scheme}://#{request.host}/v/2.2#{request.path}"
+    topic = request.path.split('/')[2]
+    subpath = request.path.split('/')[1]
+    docversion = '2.2'
+    if topic.include?('/')
+        topic_file = topic
+      elsif subpath
+        if docversion.nil?
+          topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+        else
+          topic_file = File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.txt")
+        end  
+      else
+        if docversion.nil?
+         topic_file = "#{settings.root}/docs/#{topic}.txt"
+        else
+         topic_file = "#{settings.root}/v/#{docversion}/docs/#{topic}.txt"
+        end
+      end
+    if  topic == 'apicompatibility'
+      source = Indicators.apimatrix_markdown()  
+    else
+      source = File.read(topic_file)
+    end
+    source = source
+    # puts "SOURCE:#{source}"
+     topic = Topic.load(topic, source)
+    @alt_title   = topic.title 
+    @alt_content = topic.content
+    @alt_intro   = topic.intro
+    @alt = true
+    erb :not_found
+
+      
+    rescue Exception => e
+      puts "EROR:#{e}"
+      @alt=false
+      erb :not_found
+      
+    end
+        
+  
   end
 
   ['/v/:vnum','/v/:vnum/','/v/:vnum/home','/', '/home'].each do |path|
@@ -147,7 +192,7 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
-       # puts "#{topic} : #{subpath} : #{docversion}"
+        # puts "#{subpath} :#{topic} :  #{docversion}"
       if TOC.find("/#{subpath}/#{topic}") == '' && docversion.nil?
         
           #if not in TOC then make it default to 2.2 version
@@ -215,7 +260,7 @@ xml_string +=  ' </rss>	'
   	end
 	
   	def topic_file(topic, subpath = nil,docversion = nil )
-      
+      # puts "topic_file:#{topic}:#{subpath}:#{docversion}"
   	  if topic.include?('/')
         topic
   		elsif subpath
