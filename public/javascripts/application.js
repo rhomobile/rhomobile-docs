@@ -30,14 +30,17 @@ $(document).ready(function() {
           if (ver) { // require a URL
           	  
       	  		url = '/v/' + ver;
+	      	  newurl =window.location.protocol + "//" + window.location.host + url + window.location.pathname;
 	      	  
-	      	  window.location = url; // redirect
           }
           else
           {
-          	url = '/';
-          	window.location = url; // redirect
+          	url = '';
+          	pathname = window.location.pathname.replace('/v/2.2',''); // need to change to regex
+          	newurl = window.location.protocol + "//" + window.location.host + url + pathname; // redirect
           }
+          // console.log(newurl);
+          window.location = newurl;
           return false;
       });
 

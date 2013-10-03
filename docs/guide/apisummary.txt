@@ -3,7 +3,7 @@
 Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consult the [2.x migration guide](guide/apiusage) if you are moving a 2.x application to 4.0. If you are starting a new project, it is advised to the use 4.x API's going forward, however the 2.x APIs are still currently supported.
 
 ## 4.0 API's
-<div class="alert alert-warning"><p><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span> : Indicates this API/Platform requires a license for production use.</p><p><img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">: Indicates this API is only available on Motorola Solutions devices</p></div>
+<div class="alert alert-warning"><p><span class="icon-check icon-primary icon-inverse"  rel="tooltip" title="Supported and does NOT requires a license"></span> : Indicates this API/Platform is supported and does not require a license.</p><p><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span> : Indicates this API/Platform requires a license for production use.</p><p><img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">: Indicates this API is only available on Motorola Solutions devices</p></div>
 
 <table class="table table-condensed table-striped">
 <thead>
@@ -29,12 +29,12 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/Application">Application</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
@@ -79,12 +79,12 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/Database">Database
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
@@ -115,23 +115,23 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/Log">Log</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/mediaplayer">Mediaplayer</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -139,8 +139,8 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/NativeMenubar">NativeMenubar</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
@@ -151,35 +151,35 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/NativeTabbar">NativeTabbar</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/NativeToolbar">NativeToolbar</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/Navbar">Navbar</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -187,23 +187,23 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/Network">Network</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/Notification">Notification</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
@@ -211,23 +211,23 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/Orm">ORM</a> & <a href="/api/OrmModel">ORMModel</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/push">Push</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -235,35 +235,35 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/RhoConnectClient">RhoConnectClient</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/File">RhoFile</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/screenorientation">ScreenOrientation</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -271,11 +271,11 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/sensor">Sensor</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
 <td style="text-align:center" class=" "></td>
 </tr>
@@ -298,24 +298,24 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td>
 <a href="/api/system">System</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 <tr>
 <td>
 <a href="/api/webview">Webview</a>
 </td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
-<td style="text-align:center" class=" "><span class="icon-star"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 </tr>
 </tbody>

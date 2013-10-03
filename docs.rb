@@ -76,7 +76,7 @@ class Docs < Sinatra::Base
   
   end
 
-  ['/v/:vnum','/v/:vnum/','/v/:vnum/home','/', '/home'].each do |path|
+  ['/v/:vnum','/v/:vnum/','/', '/home'].each do |path|
     get path do
       @title = "Home"
       @print = 0
@@ -87,6 +87,16 @@ class Docs < Sinatra::Base
 
 
   	end
+  end
+
+  ['/v/:vnum/home'].each do |path|
+    get path do
+      @title = "Home"
+      @print = 0
+      @docversion = params[:vnum]
+      cache_long
+      erb :oldverhome
+    end
   end
 
   get '/print/home' do 
@@ -168,7 +178,7 @@ xml_string +=  ' </rss>	'
   
   #get '/:topic' do
   # TODO: use proper regex
-  ['/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?','/:topic/?', '/:subpath/:topic/?'].each do |path|
+  ['/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?',  '/:topic/?', '/:subpath/:topic/?'].each do |path|
     get path do
   	  cache_long
       @docversion = nil
