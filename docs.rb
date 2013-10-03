@@ -76,7 +76,7 @@ class Docs < Sinatra::Base
   
   end
 
-  ['/v/:vnum','/v/:vnum/','/', '/home'].each do |path|
+  ['/', '/home'].each do |path|
     get path do
       @title = "Home"
       @print = 0
@@ -89,7 +89,7 @@ class Docs < Sinatra::Base
   	end
   end
 
-  ['/v/:vnum/home'].each do |path|
+  ['/v/:vnum','/v/:vnum/','/v/:vnum/home'].each do |path|
     get path do
       @title = "Home"
       @print = 0

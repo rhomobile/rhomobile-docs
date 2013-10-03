@@ -152,7 +152,7 @@
 	</div>
 
 	<div class="span8">
-		<% if !@docversion.nil? && request.path_info != '/v/2.2/home' %>
+		<% if !@docversion.nil? && request.path_info != '/v/2.2/home' && request.path_info != '/v/2.2/'%>
 			<div class="alert alert-block">
 		      <button type="button" class="close" data-dismiss="alert">&times;</button>
 		      <strong><i class="icon icon-warning-sign icon-large"></i> Warning! - You are not viewing the current version of documentation</strong>
