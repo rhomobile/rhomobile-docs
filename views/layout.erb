@@ -66,11 +66,12 @@
 		    <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>
 		  </li>
 		  <li class="pull-right">
+		  	<% if request.path_info != '\search' %>
 		  	<select id="version_select" class="input input-medium pull-right">
 					  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>RMS 4.x Docs</option>
 					  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>RMS 2.x Docs</option>
 					</select>
-	    	
+	    	<% end %>
 	    	<li>
 	    	<li class="nav-header " target="_blank"><i class="icon icon-bug icon-warning"></i> Doc Issue</li>	
 		</ul>
