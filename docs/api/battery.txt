@@ -46,10 +46,10 @@ app_type: "rhoelements"
                 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
             
-  function battery_status_sync()
-    batteryValues = Rho.Battery.batteryStatus();
+  function battery_status_sync(){
+    batteryValues = Rho.Battery.batteryStatus({});
     console.log("Battery Level is: " + batteryValues['batteryLifePercent']);
-  end
+  }
                     
                     </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
@@ -65,10 +65,10 @@ app_type: "rhoelements"
                 <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
 
             
-  function battery_status_async()
+  function battery_status_async(){
     console.log("Registering Battery Callback");
-    Rho.Battery.batteryStatus(batteryEvent)
-  end
+    Rho.Battery.batteryStatus({},batteryEvent);
+  }
 
    function batteryEvent(params){
     console.log("Battery Event Fired:");

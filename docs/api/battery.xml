@@ -194,10 +194,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
-  function battery_status_sync()
-    batteryValues = Rho.Battery.batteryStatus();
+  function battery_status_sync(){
+    batteryValues = Rho.Battery.batteryStatus({});
     console.log("Battery Level is: " + batteryValues['batteryLifePercent']);
-  end
+  }
                     ]]>
                     </JAVASCRIPT>
                 </CODE>
@@ -222,10 +222,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
-  function battery_status_async()
+  function battery_status_async(){
     console.log("Registering Battery Callback");
-    Rho.Battery.batteryStatus(batteryEvent)
-  end
+    Rho.Battery.batteryStatus({},batteryEvent);
+  }
 
    function batteryEvent(params){
     console.log("Battery Event Fired:");
