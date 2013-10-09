@@ -1,6 +1,6 @@
 # Build time configuration
 
-### Application Permissions and Capabilities
+## Application Permissions and Capabilities
 
 To enable specific device capabilities, edit application's build.yml as below:
 
@@ -30,9 +30,25 @@ List of supported capabilities:
 * bluetooth: allow to use bluetooth hardware
 * calendar: allow access to default device calendar
 * sdcard: allow writing to SD card on Android devices
+
+### Windows Mobile Specific Settings
+	:::yaml
+	wm:
+		rhoelements:
+			config: "/Config/Config.xml"
+
+* config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the Rhomobile Project.
+
+### Android Specific Settings
+	:::yaml
+	android:
+	  capabilities:
+        - hardware_acceleration
+
 * hardware_acceleration: enables the hardware_acceleration capability for Android applications
 
-### RhoGallery Security Token
+
+## RhoGallery Security Token
 
 To restrict access to the application it could be built with a security token. Specify security token in the build.yml and build application. Application built with security token can be started in normal mode only if you provide this token as a parameter.
 If you do not specify correct security token in start params, application will close on start by default. If you want do something instead of exit (for example show special message or run application in limited mode etc.) you can define another start_path for your application in "rhoconfig.txt":
@@ -47,7 +63,7 @@ Run application with special parameter:
 	:::ruby
 	System::run_app( 'app_name', "security_token=123" )
 
-### JavaScript and CSS Obfuscation
+## JavaScript and CSS Obfuscation
 
 To enable JavaScript and/or CSS code obfuscation at `public` folder of Rhodes application just add the following lines to the build.yml:
 

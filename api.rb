@@ -881,8 +881,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 def self.getparams(element,toplevel)
 	# @seperator = ""
 		
-	puts '***** IN GETPARAMS'
-	puts element
+	# puts '***** IN GETPARAMS'
+	# puts element
 	methparamsdetails = ""
 	methsectionparams = ""
 		if !element["PARAMS"].nil?
@@ -1249,7 +1249,7 @@ end
 			@methsectionparams += getparams(element,true)
 		#add generic syntax for callback param
 			if @methhascallback !="" && @methhascallback != "none"
-				 puts element["CALLBACK"]
+				 # puts element["CALLBACK"]
 				
 				@methcallbackoptional= ""
 				if @methhascallback == "optional"
@@ -1268,7 +1268,7 @@ end
 					@theCallbackElement = element["RETURN"]
 				end
 
-				 puts @theCallbackElement
+				 # puts @theCallbackElement
 				
 				if !@theCallbackElement.nil? && !@theCallbackElement[0]["type"].nil?
 				
