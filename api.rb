@@ -881,7 +881,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 def self.getparams(element,toplevel)
 	# @seperator = ""
 		
-	#puts element
+	puts '***** IN GETPARAMS'
+	puts element
 	methparamsdetails = ""
 	methsectionparams = ""
 		if !element["PARAMS"].nil?
@@ -1240,6 +1241,7 @@ end
 		@methparams = ""
 		@methparamsdetails = ""
 		@methsectionparams = ""
+		@theCallbackElement = nil
 		if !element["PARAMS"].nil? || (@methhascallback !="" && @methhascallback != "none")
 			@methsectionparams = "<div>"
 			@methsectionparams += "<p><strong>Parameters</strong></p><ul>"
@@ -1247,7 +1249,7 @@ end
 			@methsectionparams += getparams(element,true)
 		#add generic syntax for callback param
 			if @methhascallback !="" && @methhascallback != "none"
-				# puts element["CALLBACK"]
+				 puts element["CALLBACK"]
 				
 				@methcallbackoptional= ""
 				if @methhascallback == "optional"
@@ -1259,15 +1261,24 @@ end
 				firstcallbackreturnparam = "calbackreturnparamname"
 				callbacktype = "CallBackHandler"
 				callbackreturntype = ""
-				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["type"].nil?
 				
-					callbackreturntype = element["CALLBACK"][0]["type"]
+				if !element["CALLBACK"].nil?
+					@theCallbackElement = element["CALLBACK"]
+				else
+					@theCallbackElement = element["RETURN"]
+				end
+
+				 puts @theCallbackElement
+				
+				if !@theCallbackElement.nil? && !@theCallbackElement[0]["type"].nil?
+				
+					callbackreturntype = @theCallbackElement[0]["type"]
 				else
 					callbackreturntype = "OBJECT"
 				end
-				if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
-					# puts element["CALLBACK"][0]["PARAMS"]
-					firstcallbackreturnparam = element["CALLBACK"][0]["PARAMS"][0]["PARAM"][0]["name"]
+				if !@theCallbackElement.nil? && !@theCallbackElement[0]["PARAMS"].nil?
+					puts @theCallbackElement[0]["PARAMS"]
+					firstcallbackreturnparam = @theCallbackElement[0]["PARAMS"][0]["PARAM"][0]["name"]
 				end
 				if !element["PARAMS"].nil?
 					prevparams = "...,"
@@ -1360,7 +1371,7 @@ end
   			# md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td></tr></thead>"
 			@methcallbackdetails = ""
 			
-			if !element["CALLBACK"].nil? && !element["CALLBACK"][0].nil?
+			if !@theCallbackElement.nil? && !@theCallbackElement[0].nil?
 				@methsectioncallbackparams = "<div>"
 				@methsectioncallbackparams += "<p><strong>Callback Returning Parameters: <span class='text-info'>#{callbackreturntype}</span></strong></p><ul>"
 			
@@ -1426,7 +1437,8 @@ end
 				# 	}
 
 				# }
-				@methsectioncallbackparams += getparams(element["CALLBACK"][0],false)
+				# puts @theCallbackElement
+				@methsectioncallbackparams += getparams(@theCallbackElement[0],false)
 				@methsectioncallbackparams += "</ul></div>"
 			end  			
   			# md += @methcallbackdetails
