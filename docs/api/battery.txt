@@ -95,7 +95,7 @@ app_type: "rhoelements"
 
             
   function show_battery_icon(){
-    Rho.Battery.showIcon();
+    Rho.Battery.showIcon({});
   }
                     
                     </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
@@ -107,20 +107,19 @@ app_type: "rhoelements"
                     
                     </code></pre></div></div>
 
-                    To display the battery icon at the default position but blue and vertical specify as follows
+                    To display the battery icon with a color of red in a layout of facing the right
                 <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
             
   function show_battery_icon(){
-    Rho.Battery.showIcon({color:'#0000FF',layout:'up'});
+    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
   }
   
                     </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
             
   def show_battery_icon
-	Rho::Battery.showIcon({color:'#0000FF',layout:'up'})
-  end
+	Rho::Battery.showIcon { left: 0, top: 40, color: '#FF0000', layout: Rho::Battery.BATTERY_LAYOUT_RIGHT }
   
                     </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
