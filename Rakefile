@@ -123,18 +123,6 @@ task :search, :query do |t, args|
   puts results.inspect
 end
 
-desc 'Load doc files from config.yml dirs'
-task :load do
-  AppConfig['dirs'].each do |name,dir|
-    if File.exist?(dir) and not dir.match(/^docs/)
-      puts "Copying #{dir}*.txt to docs/#{name}"
-      `rm -rf docs/#{name}`
-      `mkdir -p docs/#{name}`
-      `cp #{dir}*.txt docs/#{name}`
-    end
-  end
-end
-
 desc 'Create offline archive'
 task :archive do
   serverpid = Process.fork { Rake::Task['server'].invoke }
@@ -287,8 +275,8 @@ task :process_archive do
 
 end
 
-desc 'Load latest docs and publish to edge'
-task :publish_edge => :load do
+desc 'Push latest docs to edgedocs'
+task :publish_edge do
   `git add .`
   `git commit -m "jenkins auto-commit"`
   `git push origin master`
