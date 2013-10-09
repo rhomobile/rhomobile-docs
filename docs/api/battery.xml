@@ -254,7 +254,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <JAVASCRIPT>
             <![CDATA[
   function show_battery_icon(){
-    Rho.Battery.showIcon();
+    Rho.Battery.showIcon({});
   }
                     ]]>
                     </JAVASCRIPT>
@@ -262,20 +262,19 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 </SECTION>
                 <SECTION>
                 <DESC>
-                    To display the battery icon at the default position but blue and vertical specify as follows
+                    To display the battery icon with a color of red in a layout of facing the right
                 </DESC>
                 <CODE>
                     <RUBY>
             <![CDATA[
   def show_battery_icon
-	Rho::Battery.showIcon({color:'#0000FF',layout:'up'})
-  end
+	Rho::Battery.showIcon { left: 0, top: 40, color: '#FF0000', layout: Rho::Battery.BATTERY_LAYOUT_RIGHT }
   ]]>
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
   function show_battery_icon(){
-    Rho.Battery.showIcon({color:'#0000FF',layout:'up'});
+    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
   }
   ]]>
                     </JAVASCRIPT>
