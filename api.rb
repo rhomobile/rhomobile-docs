@@ -1235,7 +1235,10 @@ end
 		@methsectionplatforms += "<p>#{@methplatforms}#{methnote}</p></div>"
 		
 		@methsectionreturns = "<div>"
-		@methsectionreturns += "<p><strong>Return:</strong></p><ul>"
+		@methsectionreturns += "<p><strong>Synchronous Return:</strong></p><ul>"
+		if  (@methhascallback !="" && @methhascallback != "none")
+			@methreturndesc += " : this also method supports async callbacks check the Callback tab for return parameters."
+		end
 		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}#{methreturnparams}</li></ul></div>"
 			
 		@methparams = ""
@@ -1277,7 +1280,7 @@ end
 					callbackreturntype = "OBJECT"
 				end
 				if !@theCallbackElement.nil? && !@theCallbackElement[0]["PARAMS"].nil?
-					puts @theCallbackElement[0]["PARAMS"]
+					# puts @theCallbackElement[0]["PARAMS"]
 					firstcallbackreturnparam = @theCallbackElement[0]["PARAMS"][0]["PARAM"][0]["name"]
 				end
 				if !element["PARAMS"].nil?
@@ -1373,7 +1376,7 @@ end
 			
 			if !@theCallbackElement.nil? && !@theCallbackElement[0].nil?
 				@methsectioncallbackparams = "<div>"
-				@methsectioncallbackparams += "<p><strong>Callback Returning Parameters: <span class='text-info'>#{callbackreturntype}</span></strong></p><ul>"
+				@methsectioncallbackparams += "<p><strong>Async Callback Returning Parameters: <span class='text-info'>#{callbackreturntype}</span></strong></p><ul>"
 			
 				# element["CALLBACK"][0]["PARAMS"].each { |params|
 				# 	params["PARAM"].each { |param|

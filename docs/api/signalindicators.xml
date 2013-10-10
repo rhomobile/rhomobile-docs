@@ -152,7 +152,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def signal_status_sync
-	signalValue = Rho::SignalIndicators.wlanStatus
+	signalValue = Rho::Signal.wlanStatus
 	puts signalValue
 	puts "Signal Strength is: " + signalValue['signalStrength']
   end
@@ -162,7 +162,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
   function signal_status_sync(){
 
-    signalValue = Rho.SignalIndicators.wlanStatus;
+    signalValue = Rho.Signal.wlanStatus;
     console.log(signalValue);
     console.log("Signal Strength is: " + signalValue['signalStrength']);
   }
@@ -179,7 +179,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
   def signal_status_async
 	puts "Registering Signal Callback"
-	Rho::SignalIndicators.wlanStatus(url_for(:action => :signalEvent))
+	Rho::Signal.wlanStatus(url_for(:action => :signalEvent))
   end
 
    def signalEvent
@@ -191,7 +191,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
   function signal_status_async(){
     console.log("Registering Signal Callback");
-    Rho.SignalIndicators.wlanStatus(signalEvent);
+    Rho.Signal.wlanStatus(signalEvent);
   }
 
   function signalEvent(params){
@@ -213,14 +213,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def show_signal_icon
-	Rho::SignalIndicators.showIcon({})
+	Rho::Signal.showIcon({})
   end
                     ]]>
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
   function show_signal_icon(){
-    Rho.SignalIndicators.showIcon();
+    Rho.Signal.showIcon();
   }
                     ]]>
                     </JAVASCRIPT>
@@ -234,14 +234,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def show_signal_icon
-	Rho::SignalIndicators.showIcon({color:'#0000FF',layout:'up'})
+	Rho::Signal.showIcon({color:'#0000FF',layout:'up'})
   end
   ]]>
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
   function show_signal_icon(){
-    Rho.SignalIndicators.showIcon({color:'#0000FF',layout:'up'});
+    Rho.Signal.showIcon({color:'#0000FF',layout:'up'});
   }
   ]]>
                     </JAVASCRIPT>
