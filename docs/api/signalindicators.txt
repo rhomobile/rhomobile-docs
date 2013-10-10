@@ -95,7 +95,7 @@ app_type: "rhoelements"
 
             
   function show_signal_icon(){
-    Rho.Signal.showIcon();
+    Rho.Signal.showIcon({});
   }
                     
                     </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
@@ -112,14 +112,14 @@ app_type: "rhoelements"
 
             
   function show_signal_icon(){
-    Rho.Signal.showIcon({color:'#0000FF',layout:'up'});
+    Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
   }
   
                     </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
             
   def show_signal_icon
-	Rho::Signal.showIcon({color:'#0000FF',layout:'up'})
+	Rho::Signal.showIcon({color:'#0000FF',layout: Rho::Signal.SIGNAL_LAYOUT_UP})
   end
   
                     </code></pre></div></div>  </div></div></div></div>

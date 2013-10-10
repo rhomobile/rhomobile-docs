@@ -220,7 +220,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <JAVASCRIPT>
             <![CDATA[
   function show_signal_icon(){
-    Rho.Signal.showIcon();
+    Rho.Signal.showIcon({});
   }
                     ]]>
                     </JAVASCRIPT>
@@ -234,14 +234,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def show_signal_icon
-	Rho::Signal.showIcon({color:'#0000FF',layout:'up'})
+	Rho::Signal.showIcon({color:'#0000FF',layout: Rho::Signal.SIGNAL_LAYOUT_UP})
   end
   ]]>
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
   function show_signal_icon(){
-    Rho.Signal.showIcon({color:'#0000FF',layout:'up'});
+    Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
   }
   ]]>
                     </JAVASCRIPT>
