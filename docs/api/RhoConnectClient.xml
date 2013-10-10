@@ -199,7 +199,51 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
           <DESC>Password</DESC>
         </PARAM>
       </PARAMS>
-      <RETURN type="INTEGER"/>
+      <CALLBACK type="HASH">
+        <PARAMS>
+          <PARAM name="error_code" type="STRING">
+            <DESC>Error Code from RhoConnect Server Login app controller</DESC>
+
+            <VALUES>
+                  <VALUE  value ="0">
+                      <DESC> Success - No Error.</DESC>
+                  </VALUE>
+                  <VALUE  value ="1">
+                      <DESC>ERR_NETWORK.</DESC>
+                  </VALUE>
+                  <VALUE  value ="2">
+                      <DESC> ERR_REMOTESERVER.</DESC>
+                  </VALUE>
+                  <VALUE  value ="3">
+                      <DESC> ERR_RUNTIME.</DESC>
+                  </VALUE>
+                  <VALUE  value ="4">
+                      <DESC> ERR_UNEXPECTEDSERVERRESPONSE.</DESC>
+                  </VALUE>
+                  <VALUE  value ="5">
+                      <DESC> ERR_DIFFDOMAINSINSYNCSRC.</DESC>
+                  </VALUE>
+                  <VALUE  value ="6">
+                      <DESC> ERR_NOSERVERRESPONSE.</DESC>
+                  </VALUE>
+                  <VALUE  value ="7">
+                      <DESC> ERR_CLIENTISNOTLOGGEDIN.</DESC>
+                  </VALUE>
+                  <VALUE  value ="8">
+                      <DESC> ERR_CUSTOMSYNCSERVER.</DESC>
+                  </VALUE>
+                  <VALUE  value ="0">
+                      <DESC> ERR_UNATHORIZED.</DESC>
+                  </VALUE>
+                  
+
+              </VALUES> 
+          </PARAM>
+          <PARAM name="error_message" type="STRING">
+            <DESC>Error Message (none if error_code=0).</DESC>
+          </PARAM>
+        </PARAMS>
+      </CALLBACK>
     </METHOD>
 
     <METHOD name="logout">
