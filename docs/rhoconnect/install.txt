@@ -6,7 +6,7 @@ This section discusses how to install the development environment for RhoConnect
 
 To install RhoConnect on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-[Click here for the RhoMobile Suite installation instructions](/rhomobile-install).
+[Click here for the RhoMobile Suite installation instructions](/guide/rhomobile-install).
 
 When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
