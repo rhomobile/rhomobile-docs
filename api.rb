@@ -1237,7 +1237,7 @@ end
 		@methsectionreturns = "<div>"
 		@methsectionreturns += "<p><strong>Synchronous Return:</strong></p><ul>"
 		if  (@methhascallback !="" && @methhascallback != "none")
-			@methreturndesc += " : this also method supports async callbacks check the Callback tab for return parameters."
+			@methreturndesc += " : this method also supports async callbacks - check the Callback tab for callback return parameters."
 		end
 		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}#{methreturnparams}</li></ul></div>"
 			

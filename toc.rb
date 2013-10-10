@@ -119,6 +119,7 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/build_win',             'Build for Windows'
   topic 'guide/using_emulators',             'Using Native Emulators'
   topic 'guide/app_icon_splash',        'Application Icon & Splash Screen'
+  topic 'guide/css-framework',        'CSS Frameworks'
   topic 'guide/webapps',        'RhoMobile for Web Apps'
   topic 'guide/rhoelements-runtime',        'RhoElements Shared Runtime'
   topic 'guide/app_upgrade', 'Upgrading Your App'
