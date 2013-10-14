@@ -46,11 +46,11 @@ To create your first Rhodes project using RhoStudio, select File -> New -> Proje
 
 The New Project window opens. Select the Rhodes application wizard and click the Next button.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project-4.0.png"/>
 
 Enter the name of your new application in Project name; in this example, we will use "storemanager". If you need to save the project in a particular location on your computer, uncheck "Create application in default workspace" and specify where you want the new files to be stored, otherwise you can accept the defaults and click "Finish".
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png"/>
 
 
 ## Creating a project from the command line
@@ -89,7 +89,7 @@ To create a new application called `storemanager`, switch to the directory where
 
 The generated application has the following structure:
 
-<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/project_structure.png"/>
+<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/project-structure-4.0.png"/>
 
 Here is an overview of what each file and folder contains.
 
