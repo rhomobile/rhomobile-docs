@@ -153,11 +153,11 @@ You can create any other folders and organize your files following any structure
 
 To start your application for the first time, right click your project, then click Run As -> Run Configurations...
 
-<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/running-application-context-menu.png"/>
+<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/running-application-context-menu-4.0.png"/>
 
 Select "RhoMobile Application" and click the "New" button, then click "Run"
 
-<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/run-configuration.png"/>
+<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-configurations-4.0.png"/>
 
 After a brief compilation period, the application will start in [RhoSimulator](debugging_with_rhosimulator)
 
@@ -179,9 +179,9 @@ where `<platform to be simulated>` can be one of
 
 The application will start inside RhoSimulator with a different look depending on the selected platform
 
-<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/run-rhosimulator-iphone.png"/>
+<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-rhosimulator-iphone-4.0.png"/>
 
-<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/rhosimulator-web-inspector.png"/>
+<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/rhosimulator-web-inspector-4.0.png"/>
 
 ## Related reading
 
