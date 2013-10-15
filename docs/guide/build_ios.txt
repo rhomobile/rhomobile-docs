@@ -22,13 +22,13 @@ To start the build process, create a Run Configuration: select your project in t
  * Select Run->Run Configurations... from the main menu,
  * Or right-click on your project, and select Run As->Run Configurations from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu-4.0.png"/>
 
 The Run Configurations window appears.
 
 To run on the iOS simulator, select iPhone in Platform, Simulator in Simulator type, and select iPhone or iPad. Then click the Run button.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-ios.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-ios-4.0.png"/>
 
 ## Build an iOS App with Xcode
 
@@ -56,21 +56,21 @@ Then in the RhoMobile source code folder (the path in your RhoMobile application
 
 In the Xcode Scheme menu, select the proper scheme before you build and run your project. Click on the Scheme menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme.png" alt="xcode scheme" />
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-4.0.png" alt="xcode scheme" />
 
 Select the Scheme for your project under rhorunner. You can select to run in the simulator.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-simulator.png" alt="xcode scheme simulator" />
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-simulator-4.0.png" alt="xcode scheme simulator" />
 
 Now you can build and run in Xcode to run your project in the iOS simulator.
 
 If you are an Apple developer, you can run your RhoMobile application on your iOS device. In Xcode, select your rhorunner target, click on the Build Settings tab, and see that your code signing information that you installed as an Apple developer is set up and selected.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-build-device.png" alt="xcode build settings" />
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-build-simulator-4.0.png" alt="xcode build settings" />
 
 Plug in your iOS device. In Xcode, under Scheme, select iOS device under rhorunner. Then build and run.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-device.png" alt="xcode scheme device" />
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-device-4.0.png" alt="xcode scheme device" />
 
 For more information on running on your iOS device from Xcode, go to the [Apple developer site](http://developer.apple.com/), go to the iOS Developer Library, and search on "managing devices", or "run applications on a device," or similar.
 
