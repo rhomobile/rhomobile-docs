@@ -89,7 +89,7 @@ To create a new application called `storemanager`, switch to the directory where
 
 The generated application has the following structure:
 
-<img src="http://rhodocs-images.s3.amazonaws.com/guide/creating_a_project/project-structure-4.0.png"/>
+<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/project-structure-4.0.png"/>
 
 Here is an overview of what each file and folder contains.
 
