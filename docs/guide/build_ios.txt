@@ -64,6 +64,8 @@ Select the Scheme for your project under rhorunner. You can select to run in the
 
 Now you can build and run in Xcode to run your project in the iOS simulator.
 
+** NOTE: If you are running into an error when building in Xcode that reads "no such file to load - rhoconnect-client", you must add your rvm scripts to your ~/.profile file. See [This launchpad thread](https://developer.motorolasolutions.com/thread/3988) for more information.
+
 If you are an Apple developer, you can run your RhoMobile application on your iOS device. In Xcode, select your rhorunner target, click on the Build Settings tab, and see that your code signing information that you installed as an Apple developer is set up and selected.
 
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-build-simulator-4.0.png" alt="xcode build settings" />
