@@ -17,7 +17,7 @@ You need to install Git on [Mac](http://code.google.com/p/git-osx-installer/down
 
 If you decide not to use RhoStudio, but instead [install Rhodes from the command line](/v/2.2/rhodes/install#installing-rhodes-from-the-command-line), you need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3), [Windows](http://code.google.com/p/msysgit/), or [Linux](http://git-scm.com/download).
 
-Refer to the [Git resources](rhohub/tutorial#git-resources) for more information on git, such as references and tutorials.
+Refer to the [Git resources](tutorial#git-resources) for more information on git, such as references and tutorials.
 
 ### Create your RhoHub Account
 
