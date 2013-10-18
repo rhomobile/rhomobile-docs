@@ -4,9 +4,9 @@ This tutorial will guide you through building and running a Rhodes application o
 
 Pre-requisite Reading
 ---------------------
- * [RhoMobile Suite install](/rhomobile-install)
- * [Rhodes Installation from command line](/rhodes/install)
- * [Rhodes App Generator](/rhodes/generator)
+ * [RhoMobile Suite install](rhomobile-install)
+ * [Rhodes Installation from command line](rhodes/install)
+ * [Rhodes App Generator](rhodes/generator)
 
 ## Installing Rhodes
 

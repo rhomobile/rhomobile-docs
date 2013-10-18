@@ -11,13 +11,13 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
 
 ## take
 
 Opens a window on the device where user draws his signature. Saves the  signature as an image.
 
-Refer to [signature capture in device capabilities](/rhodes/device-caps#signature-capture) for an example.
+Refer to [signature capture in device capabilities](/v/2.2/rhodes/device-caps#signature-capture) for an example.
 
 Ruby syntax:
 
@@ -64,15 +64,15 @@ JavaScript syntax:
 
 Windows Mobile and Windows CE devices support signature capture started in window, which you can show over current page (scrolling is not supported in this case). The Inline Signature API consists of the methods `visible`, `capture`, and `clear`.
 
-**NOTE: As of Rhodes version 3.3.3, the Inline Signature API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the Inline Signature API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
 
-Refer to [inline signature capture in device capabilities](/rhodes/device-caps#inline-signature-ex) for examples.
+Refer to [inline signature capture in device capabilities](/v/2.2/rhodes/device-caps#inline-signature-ex) for examples.
 
 ## visible
 
 Display a window for hand writing, where the user draws his signature. Windows Mobile and Windows CE devices support signature capture started in window, which you can show over current page (scrolling is not supported in this case).
 
-Refer to [inline signature capture in device capabilities](/rhodes/device-caps#inline-signature-ex) for an example.
+Refer to [inline signature capture in device capabilities](/v/2.2/rhodes/device-caps#inline-signature-ex) for an example.
 
 Ruby syntax:
 
@@ -135,7 +135,7 @@ JavaScript syntax:
 
 Saves signature to an image file and calls a callback. Windows Mobile and Windows CE devices support signature capture started in window, which you can show over current page (scrolling is not supported in this case).
 
-Refer to [inline signature capture in device capabilities](/rhodes/device-caps#inline-signature-ex) for an example.
+Refer to [inline signature capture in device capabilities](/v/2.2/rhodes/device-caps#inline-signature-ex) for an example.
 
 Ruby syntax:
 

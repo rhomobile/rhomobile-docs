@@ -2,7 +2,7 @@
 
 Manage near field communications messages and records that your NFC application sends and receives. For code examples, see [Rhodes Webinar Sample: NFC](https://github.com/rhomobile/webinar-samples/blob/master/nfc-rhodes/app/Nfc/nfc_controller.rb) and [Rhodes System API Samples: NFC](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Nfc/controller.rb).
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), [NFC](/rhodes/device-caps#nfc), and [Signature Capture](/rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](/rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](barcode-api), [NFC](/v/2.2/rhodes/device-caps#nfc), and [Signature Capture](/v/2.2/rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](/v/2.2/rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
 
 ## Enabling NFC
 
@@ -80,7 +80,7 @@ Returns true if the mobile device has been enabled for NFC, false otherwise.
 
 ## set_nfc_callback(callback_url)
 
-Tells your application what callback to perform when it receives an NFC tag and your application is in the foreground. set_nfc_callback executes when the Android events ACTION_NDEF_DISCOVERED or ACTION_TAG_DISCOVERED are processed. [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#setting-nfc-callback-methods)
+Tells your application what callback to perform when it receives an NFC tag and your application is in the foreground. set_nfc_callback executes when the Android events ACTION_NDEF_DISCOVERED or ACTION_TAG_DISCOVERED are processed. [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#setting-nfc-callback-methods)
 
 	:::ruby
 	Rho::NFCManager.set_nfc_callback(callback_url)
@@ -94,7 +94,7 @@ Tells your application what callback to perform when it receives an NFC tag and 
 
 ## set_nfc_tech_callback(callback_url)
 
-Tells your application what callback to perform when it receives an NFC tag and your application is in the background. The set_nfc_tech_callback method executes when the Android event ACTION_TECH_DISCOVERED is processed. [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#setting-nfc-callback-methods)
+Tells your application what callback to perform when it receives an NFC tag and your application is in the background. The set_nfc_tech_callback method executes when the Android event ACTION_TECH_DISCOVERED is processed. [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#setting-nfc-callback-methods)
 
 	:::ruby
 	Rho::NFCManager.set_nfc_tech_callback(callback_url)
@@ -108,7 +108,7 @@ Tells your application what callback to perform when it receives an NFC tag and 
 
 ## get_current_Tag
 
-Returns the current NFCTag that the mobile device has just read, or returns nil if no tag has been discovered. [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#getting-determining-type-of-and-connecting-to-a-tag)
+Returns the current NFCTag that the mobile device has just read, or returns nil if no tag has been discovered. [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#getting-determining-type-of-and-connecting-to-a-tag)
 
 	:::ruby
 	Rho::NFCManager.get_current_Tag
@@ -122,7 +122,7 @@ Call this method to have your application listen for NFC tags when it is in the 
 
 ## p2p_enable_foreground_nde_push
 
-The p2p_enable_foreground_nde_push method causes your mobile device to push an NFC message (NdefMessage) for any NFC-enabled device to receive. [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#pushing-a-peer-to-peer-nfc-tag)
+The p2p_enable_foreground_nde_push method causes your mobile device to push an NFC message (NdefMessage) for any NFC-enabled device to receive. [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#pushing-a-peer-to-peer-nfc-tag)
 
 	:::ruby
 	Rho::NFCManager.p2p_enable_foreground_nde_push(NDefMessage)
@@ -136,7 +136,7 @@ The p2p_enable_foreground_nde_push method causes your mobile device to push an N
 
 ## p2p_disable_foreground_nde_push
 
-Causes your mobile device to stop pushing NFC messages to any other NFC-enabled devices that can receive them. [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#pushing-a-peer-to-peer-nfc-tag)
+Causes your mobile device to stop pushing NFC messages to any other NFC-enabled devices that can receive them. [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#pushing-a-peer-to-peer-nfc-tag)
 
 	:::ruby
 	Rho::NFCManager.p2p_disable_foreground_nde_push
@@ -209,7 +209,7 @@ Returns an NFC tag message (NdefMessage) created from a byte array.
 
 ## make_NdefMessage_from_array_of_NdefRecord
 
-Returns an NFC tag message (NdefMessage) created from an array of records (NdefRecord, such as what you get from make_NdefRecord_from_hash). [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#writing-an-nfc-tag)
+Returns an NFC tag message (NdefMessage) created from an array of records (NdefRecord, such as what you get from make_NdefRecord_from_hash). [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#writing-an-nfc-tag)
 
 	:::ruby
 	Rho::NFCManager.make_NdefMessage_from_array_of_NdefRecord(array)
@@ -259,7 +259,7 @@ Returns a byte array for an NFC record payload created from a string with an abs
 
 ## make_payload_with_well_known_uri
 
-Returns a byte array for an NFC record payload from a string with an absolute URI. [Click here for an example in the Rhodes Developer Guide under NFC.](/rhodes/nfc#writing-an-nfc-tag)
+Returns a byte array for an NFC record payload from a string with an absolute URI. [Click here for an example in the Rhodes Developer Guide under NFC.](/v/2.2/rhodes/nfc#writing-an-nfc-tag)
 
 	:::ruby
 	Rho::NFCManager.make_payload_with_well_known_uri(prefix_code, uri_string)

@@ -1,12 +1,12 @@
 # Installing RhoConnect
 
-This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](/rhoconnect/preparing-production) and [deploying a RhoConnect application](/rhoconnect/deploying).
+This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](preparing-production) and [deploying a RhoConnect application](deploying).
 
 ## Installing RhoConnect with RhoStudio
 
 To install RhoConnect on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-[Click here for the RhoMobile Suite installation instructions](rhomobile-install).
+[Click here for the RhoMobile Suite installation instructions](/v/2.2/rhomobile-install).
 
 When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
@@ -26,7 +26,7 @@ To install RhoConnect on Linux, you need to install the RhoConnect gem. Download
 
 2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-3. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
+3. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
 
 4. Install the RhoConnect Gem.
 
@@ -85,7 +85,7 @@ Now update your application's RhoConnect dependency manifest:
 If you have an existing RhoConnect application using version < 3.4 and want to upgrade it to RhoConnect 3.4+, then
 you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
 
-First, follow the instructions described in the [previous section](/rhoconnect/install#upgrading-an-existing-application).
+First, follow the instructions described in the [previous section](install#upgrading-an-existing-application).
 
 Next, make sure your `Gemfile` looks like the following example, replacing the version as necessary.
 The `rhoconnect update` command will generate a reference `Gemfile.new` which you can use to replace your `Gemfile`:
