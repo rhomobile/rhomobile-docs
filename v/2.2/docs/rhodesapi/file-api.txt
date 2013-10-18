@@ -1,6 +1,6 @@
 # File API
 
-The subset of the [Ruby File methods](http://www.ruby-doc.org/core-1.9.3/File.html) that allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for examples and for information on file access on different device platforms.
+The subset of the [Ruby File methods](http://www.ruby-doc.org/core-1.9.3/File.html) that allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/v/2.2/rhodes/device-caps#file-system-access) for examples and for information on file access on different device platforms.
 
 ## Using JavaScript API
 
@@ -15,7 +15,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
 
 ## Rhodes File structure
 
@@ -514,7 +514,7 @@ JavaScript syntax:
 
 ## lchmod
 
-Equivalent to [File.chmod](/rhodesapi/file-api#chmod), but does not follow symbolic links (so it will change the permissions associated with the link, not the file referenced by the link). Often not available. Returns the number of files processed. [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html#method-c-lchmod).
+Equivalent to [File.chmod](#chmod), but does not follow symbolic links (so it will change the permissions associated with the link, not the file referenced by the link). Often not available. Returns the number of files processed. [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html#method-c-lchmod).
 
 Ruby syntax:
 
@@ -589,7 +589,7 @@ JavaScript syntax:
 
 ## lstat
 
-Same as [File.stat](/rhodesapi/file-api#stat), but does not follow the last symbolic link. Instead, reports on the link itself. Returns a hash object of Strings: the path and the file.extension. [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html#method-c-lstat).
+Same as [File.stat](#stat), but does not follow the last symbolic link. Instead, reports on the link itself. Returns a hash object of Strings: the path and the file.extension. [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html#method-c-lstat).
 
 Ruby syntax:
 

@@ -64,7 +64,7 @@ You can extract data from an Ndef record with the following methods:
 
 ## make_hash
 
-Returns a hash from an Ndef record, from which you can then extract data with the NdefRecord get methods. [Click here for an example in the Rhodes developer guide under NFC.](/rhodes/nfc#reading-an-nfc-tag)
+Returns a hash from an Ndef record, from which you can then extract data with the NdefRecord get methods. [Click here for an example in the Rhodes developer guide under NFC.](/v/2.2/rhodes/nfc#reading-an-nfc-tag)
 
 	:::ruby
 	Rho::NdefRecord.make_hash

@@ -1,7 +1,7 @@
 #Alert API
 Call system alert methods for popup, vibrate, or playing audio files.
 
-For examples of using the Alert API methods, refer to [Alerts in Device Capabilities](/rhodes/device-caps#alerts).
+For examples of using the Alert API methods, refer to [Alerts in Device Capabilities](/v/2.2/rhodes/device-caps#alerts).
 
 ## Enabling Vibration
 
@@ -40,7 +40,7 @@ Play an audio file if that media type is supported by the device.
 
 Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on the button.
 
-[Click for an example of show_popup with a button and callback.](/rhodes/device-caps#alerts)
+[Click for an example of show_popup with a button and callback.](/v/2.2/rhodes/device-caps#alerts)
 
 	:::ruby
 	Alert.show_popup "message"

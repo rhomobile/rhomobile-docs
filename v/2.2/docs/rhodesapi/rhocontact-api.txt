@@ -1,6 +1,6 @@
 # Rho::RhoContact API
 
-Provides access to a device's phone book and contacts. For a code example, see the view and controller in the [/app/Contacts folder in the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Contacts/controller.rb) application. For other examples, refer to [PIM Contacts in Rhodes Device Capabilities](/rhodes/device-caps#pim-contacts).
+Provides access to a device's phone book and contacts. For a code example, see the view and controller in the [/app/Contacts folder in the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Contacts/controller.rb) application. For other examples, refer to [PIM Contacts in Rhodes Device Capabilities](/v/2.2/rhodes/device-caps#pim-contacts).
 
 ## Enabling the Contacts
 
@@ -73,7 +73,7 @@ When you use the `:all`, `:first`, or `:count` arguments with Android or iOS, yo
 </tr>
 </table>
 
-Refer to [Find Conditions](/rhodesapi/rhocontact-api#find-conditions) for the :conditions settings.
+Refer to [Find Conditions](#find-conditions) for the :conditions settings.
 
 ## create!
 

@@ -2,7 +2,7 @@
 
 Provides an embeddable map interface. See [GeoLocation/controller.rb of System API sample application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) for some examples of using the MapView class.
 
-There are several settings you should know when you use the MapView API, such as setting . Refer to the [MapView settings in Device Capabilities](/rhodes/device-caps#mapview-settings).
+There are several settings you should know when you use the MapView API, such as setting . Refer to the [MapView settings in Device Capabilities](/v/2.2/rhodes/device-caps#mapview-settings).
 
 ## Using JavaScript API
 
@@ -17,11 +17,11 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
 
 ## create
 
-Create a map on your device. [Click here for an example of MapView create](/rhodes/device-caps#mapview-example-create).
+Create a map on your device. [Click here for an example of MapView create](/v/2.2/rhodes/device-caps#mapview-example-create).
 
 Ruby syntax:
 
@@ -34,7 +34,7 @@ JavaScript syntax:
 
 ### map_params hash
 
-[Click here for an example of MapView create, which sets the map_params hash](/rhodes/device-caps#mapview-example-create).
+[Click here for an example of MapView create, which sets the map_params hash](/v/2.2/rhodes/device-caps#mapview-example-create).
 
 map_params is a hash consisting of:
 
@@ -60,7 +60,7 @@ To use ESRI maps in your projects on iPhone:
 
 ### annotations array (in map_params hash)
 
-The annotations parameter within the map_params hash is an array. [Click here for an example of MapView create, which sets this array](/rhodes/device-caps#mapview-example-create).
+The annotations parameter within the map_params hash is an array. [Click here for an example of MapView create, which sets this array](/v/2.2/rhodes/device-caps#mapview-example-create).
 
 The annotations array has the following format.
 
@@ -89,7 +89,7 @@ The annotations array has the following format.
 
 ### settings hash (in map_params hash)
 
-The settings parameter within the map_params hash is also a hash. [Click here for an example of MapView create, which sets this hash](/rhodes/device-caps#mapview-example-create).
+The settings parameter within the map_params hash is also a hash. [Click here for an example of MapView create, which sets this hash](/v/2.2/rhodes/device-caps#mapview-example-create).
 
 The settings hash has the following format.
 
@@ -120,7 +120,7 @@ The settings hash has the following format.
 </tr>
 </table>
 
-**NOTE: `api_key` is ignored in Android; get another key and specify it in the app's build.yml [as described here](/rhodes/build#build-for-android).**
+**NOTE: `api_key` is ignored in Android; get another key and specify it in the app's build.yml [as described here](/v/2.2/rhodes/build#build-for-android).**
 
 ### region (in settings hash)
 
@@ -128,7 +128,7 @@ In the settings hash (settings ia a parameter within the map_params hash), the r
 
 #### region type [latitude,longitude,latitudeDelta,longitudeDelta]
 
-[Click here for an example of MapView create, which sets this region type](/rhodes/device-caps#mapview-example-create).
+[Click here for an example of MapView create, which sets this region type](/v/2.2/rhodes/device-caps#mapview-example-create).
 
 <table border="1">
 <tr>
@@ -184,7 +184,7 @@ JavaScript syntax:
 
 Preload a map tiles for a region defined by a zoom level range (0<=zoom<=18). This function requires some understanding about map engine funtionality, such as map tiles.
 
-[Click here for an example of MapView preload_map_tiles](/rhodes/device-caps#mapview-example-preload).
+[Click here for an example of MapView preload_map_tiles](/v/2.2/rhodes/device-caps#mapview-example-preload).
 
 When the map view is opened after preload_map_tiles is called, the preloaded area can display more quickly because the only map tiles displayed are in the defined zoom range.
 
