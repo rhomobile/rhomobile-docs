@@ -35,12 +35,12 @@ Adding to the above example:
 
 ## How do I call a web service and process the returned data?
 
-This is done with [`AsyncHttp`](/rhodes/connect-to-web-services).  You will then use either JSON (if its a JSON web service) or REXML (if the web service returns XML) to process the data. 
+This is done with [`AsyncHttp`](rhodes/connect-to-web-services).  You will then use either JSON (if its a JSON web service) or REXML (if the web service returns XML) to process the data. 
 
-See the [`AsyncHttp` example code](/rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at <a href="http://rhostore.heroku.com/products.xml"/> and parses it with rexml.
+See the [`AsyncHttp` example code](rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at <a href="http://rhostore.heroku.com/products.xml"/> and parses it with rexml.
 
 ## How do I make a POST request to web service?
-To make a POST request, use the `AsyncHttp.post` method.  See the [`AsyncHttp.post` docs here](/rhodes/connect-to-web-services#asynchttp-api).
+To make a POST request, use the `AsyncHttp.post` method.  See the [`AsyncHttp.post` docs here](rhodes/connect-to-web-services#asynchttp-api).
 
 
 ## Can I process XML with Rhodes?
@@ -57,7 +57,7 @@ Now parse the xml in your controller action:
 	doc = REXML::Document.new(file)
 	puts doc
 
-If you are planning to run your app on Blackberry, you should use the [`RhoXml` extension](/rhodes/extensions#rhodes-extensions). It has the same syntax as rexml, but has limited functionality and a much smaller memory footprint.  Enable it in your application by adding to `build.yml`:
+If you are planning to run your app on Blackberry, you should use the [`RhoXml` extension](rhodes/extensions#rhodes-extensions). It has the same syntax as rexml, but has limited functionality and a much smaller memory footprint.  Enable it in your application by adding to `build.yml`:
 
 	:::ruby
   	extensions: ["rhoxml"]
@@ -68,10 +68,10 @@ Now parse the xml in your controller action:
 	doc = REXML::Document.new(file)
 	puts doc
 
-If you have a very large XML document to parse, you should use the [XML stream parser extension](/rhodes/extensions#rhodes-extensions).
+If you have a very large XML document to parse, you should use the [XML stream parser extension](rhodes/extensions#rhodes-extensions).
 
 ## How can I seed a large amount of data into my application with Rhom?
-You can either use the [built-in Rhom functions](/rhodes/rhom#seeding-the-database) or use a database transaction:
+You can either use the [built-in Rhom functions](rhodes/rhom#seeding-the-database) or use a database transaction:
 
 	:::ruby
 	db = ::Rho::RHO.get_src_db('Model')
@@ -126,14 +126,14 @@ To avoid UI block while controller action is performed, use AsyncHttp to make op
     end
      
 ## How do I customize the app name and icons?
-Follow the [build section on setting the application name and icon](/rhodes/build#how-to-set-application-name-and-icon).
+Follow the [build section on setting the application name and icon](rhodes/build#how-to-set-application-name-and-icon).
 
 ## How to improve application performance on Blackberry?
 * Before test application for performance set warning log level in rhoconfig.txt:
 
         MinSeverity = 3
     
-* Database is most critical part for performance improvement. See [Database Performance Tips](/rhodes/rhom#performance-tips)
+* Database is most critical part for performance improvement. See [Database Performance Tips](rhodes/rhom#performance-tips)
 * If possible, do not use complex regular expressions - they slow works slow on Blackberry
 * If possible, do not use images in html body(single or tiled) - use solid color
 * If possible, do not use Exceptions to implement application logic. Add check for null parameters instead of catch Exception.
@@ -144,14 +144,14 @@ Follow the [build section on setting the application name and icon](/rhodes/buil
       bb: 
       - public/images/iphone
       - public/images/android
-* To parse XML use Stream parser: XML handling:XML Stream parser see - [Rhodes Extensions](/rhodes/extensions#rhodes-extensions)
+* To parse XML use Stream parser: XML handling:XML Stream parser see - [Rhodes Extensions](rhodes/extensions#rhodes-extensions)
 
 ## White screen between pages
 It takes a bit of time for WebView to load and parse html/css of your page; meanwhile WebView show empty page which is white by default. Try setting default background color of the toolbar to the color of your pages:
 	:::ruby
 	Rho::NativeToolbar.create( :buttons => toolbar, 
 		:background_color => 0x0000FF )
-Please see more details about toolbar [here](/rhodes/ui#native-toolbar-control)
+Please see more details about toolbar [here](rhodes/ui#native-toolbar-control)
 
 If you are loading javascript, consider doing it at the very end of your page; this way WebView will not wait for JS before parsing css and showing html. 
 
@@ -251,7 +251,7 @@ Use system memory.  Here is the notes about Sqlite memory usage:
 
 * In some cases it may take more memory then Ruby VM : it depends of the database size. 
 * Rhodes use unchanged Sqlite, so all documentation about Sqlite memory usage are correct for Rhodes Sqlite database. 
-* Here is the [database performance tips](/rhodes/rhom#performance-tips)
+* Here is the [database performance tips](rhodes/rhom#performance-tips)
 
 ###	Native controls like TabBar, Toolbar, Map etc
 

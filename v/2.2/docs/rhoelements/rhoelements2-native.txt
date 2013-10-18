@@ -8,36 +8,36 @@ In order to build a Native Application, you will need to have the SDK environmen
 
 ###1) Setup Mobile Development Environments</b>
 
-[Windows Mobile](/rhodes/build#build-for-windows-mobile)
+[Windows Mobile](/v/2.2/rhodes/build#build-for-windows-mobile)
 
-[iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad)
+[iPhone/iPad](/v/2.2/rhodes/build#building-a-rhodes-application-for-iphoneipad)
 
-[Android](/rhodes/build#build-for-android)
+[Android](/v/2.2/rhodes/build#build-for-android)
 
-[BlackBerry](/rhodes/build#build-for-blackberry)
+[BlackBerry](/v/2.2/rhodes/build#build-for-blackberry)
 
 ###2) Java Development Kit
 
-In the [RhoMobile Suite installation instructions](rhomobile-install), review the Java Development Kit instructions for your operating system.
+In the [RhoMobile Suite installation instructions](/v/2.2/rhomobile-install), review the Java Development Kit instructions for your operating system.
 
 ###3) Install RhoMobile Suite
 
 Follow operating specific instructions for your development machine:
 
-[Mac OS](/rhomobile-install#mac-os)
+[Mac OS](/v/2.2/rhomobile-install#mac-os)
 
-[Windows 32-bit](/rhomobile-install#windows-32-bit)
+[Windows 32-bit](/v/2.2/rhomobile-install#windows-32-bit)
 
-[Windows 64-bit](/rhomobile-install#windows-64-bit)
+[Windows 64-bit](/v/2.2/rhomobile-install#windows-64-bit)
 
 
 ###4) Setup RhoStudio Mobile SDK Paths
 
-Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](build).
+Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](/v/2.2/rhodes/build).
 
 	C:\> rhodes-setup
 
-This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](build#all-platforms-prerequisites).
+This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](/v/2.2/rhodes/build#all-platforms-prerequisites).
 
 
 ## Generating a RhoElements Native Application
@@ -62,7 +62,7 @@ After pressing the Finish button, you'll see the RhoElements app generator scrip
 
 ### Adding a Model to a RhoElements Native Application
 
-After you generate a RhoElements native application in RhoStudio, you can add a model to it, along with the associated Controller and View templates. You do this in the same way that you would for a Rhodes application: right-click on the application project in the Project Explorer and select New->RhoMobile model. See [Adding a Model to a Rhodes Application from RhoStudio](/rhodes/generator#adding-a-model-to-a-rhodes-application-from-rhostudio) for a more detailed discussion.
+After you generate a RhoElements native application in RhoStudio, you can add a model to it, along with the associated Controller and View templates. You do this in the same way that you would for a Rhodes application: right-click on the application project in the Project Explorer and select New->RhoMobile model. See [Adding a Model to a Rhodes Application from RhoStudio](/v/2.2/rhodes/generator#adding-a-model-to-a-rhodes-application-from-rhostudio) for a more detailed discussion.
 
 ## Managing the Build Configuration from RhoStudio
 
@@ -84,9 +84,9 @@ The selected application capabilities will appear in the Capabilities: text fiel
 
 ## Building and Running RhoElements Native Applications in RhoStudio
 
-You need to perform some additional steps before you build and run a RhoElements application on [Motorola Mobile devices](/rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below. 
+You need to perform some additional steps before you build and run a RhoElements application on [Motorola Mobile devices](rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below. 
 
-You need to edit your build.yml file before you build and run a RhoElements application on [non-Motorola Mobile devices](/rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below.
+You need to edit your build.yml file before you build and run a RhoElements application on [non-Motorola Mobile devices](rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below.
 
 To start the build process in RhoStudio, create a Run Configuration: select your project in the Project Explorer, and select Run->Run Configurations… from the menu. The Run Configurations window appears.
 
@@ -108,11 +108,11 @@ the value <code>My ISP</code> is selected in both select boxes.
 
 ### Building on Motorola Windows Mobile Devices
 
-To build for Motorola Windows Mobile devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
+To build for Motorola Windows Mobile devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](/v/2.2/rhodes/build#build-for-windows-mobile).
 
 ### Building on Motorola Windows CE Devices
 
-To build for Motorola Windows CE devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
+To build for Motorola Windows CE devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](/v/2.2/rhodes/build#build-for-windows-mobile).
 
 Additionally, you need to install MC3000c50b PSDK from the [Symbol support site](http://support.symbol.com/support/search.do?cmd=displayKC&docType=kc&externalId=11964&sliceId=&dialogID=45371217&stateId=0%200%2045367143). 
 
@@ -130,7 +130,7 @@ Before you build for a Motorola Android ET1 device, you need to:
 
 		0x05E0
 
-To build for Motorola Android ET1 devices, you can create a run configuration in RhoStudio, choose Android 2.3.4 as the platform, and click the Run button. For detailed instructions on building and running on Android, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Android](/rhodes/build#build-for-android).
+To build for Motorola Android ET1 devices, you can create a run configuration in RhoStudio, choose Android 2.3.4 as the platform, and click the Run button. For detailed instructions on building and running on Android, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Android](/v/2.2/rhodes/build#build-for-android).
 
 ## Building RhoElements Native Applications for non-Motorola Devices
 
@@ -138,20 +138,20 @@ You can build RhoElements applications that will run on devices other than Motor
 
 ### Building for Non-Motorola Windows Mobile/CE and Android Devices
 
-To build a RhoElements application for a non-Motorola device on Android, Windows CE, or Windows Mobile, add the following to your application's build.yml file. This application will use the [Rhodes device capabilities](/rhodes/device-caps) but will provide the Motorola Webkit as the rendering engine (Android, Windows Mobile, Windows CE devices only).
+To build a RhoElements application for a non-Motorola device on Android, Windows CE, or Windows Mobile, add the following to your application's build.yml file. This application will use the [Rhodes device capabilities](/v/2.2/rhodes/device-caps) but will provide the Motorola Webkit as the rendering engine (Android, Windows Mobile, Windows CE devices only).
 
     app_type: rhoelements
     
     capabilities:
     - non_motorola_device
 
-Then you can create a run configuration in RhoStudio for Windows Mobile or Android, and click the Run button. For detailed instructions, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Android](/rhodes/build#build-for-android) or for [Windows Mobile](/rhodes/build#build-for-windows-mobile). 
+Then you can create a run configuration in RhoStudio for Windows Mobile or Android, and click the Run button. For detailed instructions, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Android](/v/2.2/rhodes/build#build-for-android) or for [Windows Mobile](/v/2.2/rhodes/build#build-for-windows-mobile). 
 
 ### Building for iOS and Blackberry Devices
 
-To build a RhoElements application for iPhone/iPad, have app_type set to rhoelements in build.yml. Then you can use the same instructions for [building a Rhodes application for iPhone/iPad](/rhodes/build#building-a-rhodes-application-for-iphoneipad).
+To build a RhoElements application for iPhone/iPad, have app_type set to rhoelements in build.yml. Then you can use the same instructions for [building a Rhodes application for iPhone/iPad](/v/2.2/rhodes/build#building-a-rhodes-application-for-iphoneipad).
 
-To build a RhoElements application for Blackberry, have app_type set to rhoelements in build.yml. Then you can use the same instructions for [building a Rhodes application for BlackBerry](/rhodes/build#build-for-blackberry).
+To build a RhoElements application for Blackberry, have app_type set to rhoelements in build.yml. Then you can use the same instructions for [building a Rhodes application for BlackBerry](/v/2.2/rhodes/build#build-for-blackberry).
 
 For iOS or Blackberry, you must edit your build.yml file each time you build to ensure that app_type is set to rhoelements.
 
@@ -177,7 +177,7 @@ When the application is started, the license is checked for validity. If the lic
 
 NOTE: For Motorola devices and Non-Motorola devices that run Windows Mobile or Windows CE, the license cannot be obtained directly from the device or pre-bundled with the application. For these devices, you may either apply the license directly from the device using the licensing wizard's Manual or Internet methods.
 
-See the [RhoElements Licensing page](/rhoelements/licensing) for more information.
+See the [RhoElements Licensing page](rhoelements/licensing) for more information.
 
 ## Enabling Motorola Webkit
 In conditions where you may have a traditional Rhodes application but would like to utilize the Motorola Webkit on Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
@@ -196,7 +196,7 @@ There are two steps to this setup.
 1. Install the RhoElements Runtime (can be done once).
 2. Build the application and indicate at build time that shared mode will be used.
 
-**NOTE: The RhoElements Runtime is only available on [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices). This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
+**NOTE: The RhoElements Runtime is only available on [Motorola Solutions devices](rhoelements/rhoelements-introduction#_motdevices). This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
 
 <!-- PLACEHOLDER - DIAGRAM NEEDED -->
 
@@ -222,8 +222,8 @@ Now that your RhoElements Runtime has been built, your main application needs to
 
 All RhoStudio or rake commands will then automatically build your application in shared mode.
 
-* Windows CE and Windows Mobile: Follow the build instructions for [Windows Mobile](/rhodes/build#build-for-windows-mobile).
-* Android ET1: Follow the build instructions for [Android](/rhodes/build#build-for-android).
+* Windows CE and Windows Mobile: Follow the build instructions for [Windows Mobile](/v/2.2/rhodes/build#build-for-windows-mobile).
+* Android ET1: Follow the build instructions for [Android](/v/2.2/rhodes/build#build-for-android).
 
 NOTE: You <b>must</b> install your RhoElements native application that uses shared mode to the primary disk partition of the Windows CE/Mobile device, i.e. install to `\Program Files\&lt;app-name&gt;` only.
 On Windows Mobile, you must select the `Device` option when the installer asks for the location to install.
@@ -254,7 +254,7 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 ## Including a Customized RhoElements Configuration File
 
-You can include a custom [RhoElements configuration file](/rhoelements/ConfigurationSettings) `Config.xml` in your native application bundle.
+You can include a custom [RhoElements configuration file](rhoelements/ConfigurationSettings) `Config.xml` in your native application bundle.
 
 **NOTE: This only works on Windows Mobile and Android with Motorola WebKit. It does not work with RhoSimulator.**
 
@@ -303,11 +303,11 @@ By default the log file has name `rholog.txt` and placed at the following locati
 
 You can use the `logserver` parameter to send the log to the host via HTTP. There is no option to store the log file on the mobile device in this case.
         
-**NOTE: See [configure logging](/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`. You will be able to configure options like severity levels, log file size, etc**
+**NOTE: See [configure logging](/v/2.2/rhodes/configuration#run-time-configuration) using the parameters in `rhoconfig.txt`. You will be able to configure options like severity levels, log file size, etc**
 
 If you start your application with rake, then the log file is additionally stored at the app source root folder. In this case, the name of the log file is defined in `build.yml` with the `applog` parameter (by default the log file name is `rholog.txt`).
 
-**NOTE: See [enable HTTP-logging](/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**
+**NOTE: See [enable HTTP-logging](/v/2.2/rhodes/test-log-debug#logging) with a help of `rhologurl` parameter in `rhoconfig.txt`.**
 
 ### Accessing the rhodata Folder on Non-Rooted Devices
 
@@ -324,11 +324,11 @@ Then in build.yml, add the sd card to capabilities.
 
 ## Setting the Application Name and Icon, Upgrading the Application
 
-You can use the Rhodes instructions for [how to set application name and icon](/rhodes/build#how-to-set-application-name-and-icon) and [upgrading an application](/rhodes/build#upgrade-application).
+You can use the Rhodes instructions for [how to set application name and icon](/v/2.2/rhodes/build#how-to-set-application-name-and-icon) and [upgrading an application](/v/2.2/rhodes/build#upgrade-application).
 
 ## Using A Different RhoElements Library
 
-A RhoElements native application uses the Rhodes gem: by default, that is the latest Rhodes gem installed on your computer. You can use the Rhodes instructions for [setting up build.yml](/rhodes/build#setting-up-buildyml) to use a different version of the Rhodes gem.
+A RhoElements native application uses the Rhodes gem: by default, that is the latest Rhodes gem installed on your computer. You can use the Rhodes instructions for [setting up build.yml](/v/2.2/rhodes/build#setting-up-buildyml) to use a different version of the Rhodes gem.
 
 To use a different version of the RhoElements gem - add to build.yml:
 
@@ -338,11 +338,11 @@ To use a different version of the RhoElements gem - add to build.yml:
 
 ## Databases, Synchronizing, Debugging, Etc.
 
-A RhoElements native application uses many of the same capabilities as a Rhodes application, such as:
+Some of the capabilities that a RhoElements native application Rhodes application both use:
 
-* [local database and RHOM](/rhodes/rhom), 
-* [synchronization](/rhodes/synchronization), 
-* [connecting to web services](/rhodes/connect-to-web-services), 
-* and [debugging](/rhostudio.tutorial#using-the-debugger).
+* [local database and RHOM](/v/2.2/rhodes/rhom) 
+* [synchronization](/v/2.2/rhodes/synchronization) 
+* [connecting to web services](/v/2.2/rhodes/connect-to-web-services)
+* [debugging](/v/2.2/rhostudio.tutorial#using-the-debugger)
 
 

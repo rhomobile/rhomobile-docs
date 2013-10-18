@@ -16,10 +16,10 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoStudio Tutorial](/rhostudio.tutorial)
- * [RhoMobile Suite install](/rhomobile-install)
- * [Rhodes Installation from command line](/rhodes/install)
- * [Rhodes NFC](/rhodes/nfc)
+ * [RhoStudio Tutorial](rhostudio.tutorial)
+ * [RhoMobile Suite install](rhomobile-install)
+ * [Rhodes Installation from command line](/v/2.2/rhodes/install)
+ * [Rhodes NFC](/v/2.2/rhodes/nfc)
  * [Android SDK](http://developer.android.com/sdk/index.html)
 
 ## Setup

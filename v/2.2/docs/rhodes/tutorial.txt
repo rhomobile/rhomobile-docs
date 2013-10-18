@@ -106,20 +106,20 @@ To provide a link to the Product model's index page and templates you can replac
 Doing More With Rhodes
 ----------------------
 
-See the comprehensive and exhaustive [Rhodes Developer Reference](/rhodes/introduction) for details on all Rhodes capabilities.
+See the comprehensive and exhaustive [Rhodes Developer Reference](introduction) for details on all Rhodes capabilities.
 
 Code samples of each and every Rhodes capability are in the
 [Rhodes API samples](http://github.com/rhomobile/rhodes-system-api-samples).
 
 You should take a look at the [Rhodes 2.0 training webinar](http://vimeo.com/channels/rhomobile#12214213).
 
-There is a [technical FAQ](/faq) that describes how to perform certain specific tasks in Rhodes.
+There is a [technical FAQ](/v/2.2/faq) that describes how to perform certain specific tasks in Rhodes.
 
 The following sections describe how to add synchronized data to our app with RhoConnect.
 
 Adding Synchronized Data to Your App with RhoConnect
 ----------------------------------------------------
-To add synchronized data to your application, see the [RhoConnect Tutorial](/rhoconnect/tutorial).  Also check out the [RhoConnect training video](http://vimeo.com/channels/rhomobile#28789274).
+To add synchronized data to your application, see the [RhoConnect Tutorial](/v/2.2/rhoconnect/tutorial).  Also check out the [RhoConnect training video](http://vimeo.com/channels/rhomobile#28789274).
 
 More Info
 ---------

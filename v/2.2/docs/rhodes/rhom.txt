@@ -287,33 +287,33 @@ If you want to remove all local data when upgrading to new application version: 
 This scenario will work for Property Bag and Fixed Schema models.
 
 ## Rhom API
-Below is the full list of links to the [Rhom API methods](/rhodesapi/rhom-api) available to Rhom models.
+Below is the full list of links to the [Rhom API methods](/v/2.2/rhodesapi/rhom-api) available to Rhom models.
 
- * [client_id](/rhodesapi/rhom-api#clientid) - Returns the current sync client id.
- * [clear_notification](/rhodesapi/rhom-api#clearnotification) - Clear notification for the object.
- * [database_export](/rhodesapi/rhom-api#databaseexport) - Creates a zip archive of a local database partition with all its blob objects, and returns a path to that zip archive.
- * [database_import](/rhodesapi/rhom-api#databaseimport) - Imports the database and blob objects from a zip archive created with `database_export`.
- * [delete_all](/rhodesapi/rhom-api#deleteall) - Delete all Rhodes model objects for a source, filtering by conditions.
- * [destroy](/rhodesapi/rhom-api#destroy) - Destroy a Rhodes model object.
- * [find](/rhodesapi/rhom-api#find) - Find Rhodes model objects.
- * [find_all](/rhodesapi/rhom-api#findall) - Alias for modelname.find(:all, argument list).
- * [find_by_sql](/rhodesapi/rhom-api#findbysql) - Returns Rhodes model object(s) based on sql_query. This method works only for schema models.
- * [new](/rhodesapi/rhom-api#new) - Create a new Rhodes model object.
- * [create](/rhodesapi/rhom-api#create) - Create a new Rhodes model object and save it to the database.
- * [paginate](/rhodesapi/rhom-api#paginate) - Call `find` with a limit on the number of records.
- * [sync](/rhodesapi/rhom-api#sync) - Start the sync process for a Rhodes model.
- * [can_modify](/rhodesapi/rhom-api#canmodify) - Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should disable editing of the object).
- * [changed?](/rhodesapi/rhom-api#changed) - Returns true if a Rhodes model object has local database changes that need to be synchronized, false otherwise.
- * [have_local_changes?](/rhodesapi/rhom-api#havelocalchanges) - Returns true if any of the Rhodes model objects have local database changes that need to be synchronized, false otherwise.
- * [save](/rhodesapi/rhom-api#save) - Saves the current Rhodes model object to the database.
- * [set_notification](/rhodesapi/rhom-api#setnotification) - Set a notification to be called when the sync is complete for this model.
- * [update_attributes](/rhodesapi/rhom-api#updateattributes) - Updates the current Rho model object attributes and saves it to the database.
- * [database_fullclient_reset_and_logout](/rhodesapi/rhom-api#databasefullclientresetandlogout) - Reset the Rhodes model database and logout.
- * [database_full_reset](/rhodesapi/rhom-api#databasefullreset) - Deletes all records from the property bag and model tables.
- * [database_full_reset_and_logout](/rhodesapi/rhom-api#databasefullresetandlogout) - Perform a full reset, then logout the RhoConnect client.
- * [database_local_reset](/rhodesapi/rhom-api#databaselocalreset) - Reset only local (non-sync-enabled) models.
- * [metadata](/rhodesapi/rhom-api#metadata) - Returns the metadata definition for a given model as a hash.
- * [metadata=(metadata_def)](/rhodesapi/rhom-api#metadatametadatadef) - Assigns the JSON metadata definition for a given model.
+ * [client_id](/v/2.2/rhodesapi/rhom-api#clientid) - Returns the current sync client id.
+ * [clear_notification](/v/2.2/rhodesapi/rhom-api#clearnotification) - Clear notification for the object.
+ * [database_export](/v/2.2/rhodesapi/rhom-api#databaseexport) - Creates a zip archive of a local database partition with all its blob objects, and returns a path to that zip archive.
+ * [database_import](/v/2.2/rhodesapi/rhom-api#databaseimport) - Imports the database and blob objects from a zip archive created with `database_export`.
+ * [delete_all](/v/2.2/rhodesapi/rhom-api#deleteall) - Delete all Rhodes model objects for a source, filtering by conditions.
+ * [destroy](/v/2.2/rhodesapi/rhom-api#destroy) - Destroy a Rhodes model object.
+ * [find](/v/2.2/rhodesapi/rhom-api#find) - Find Rhodes model objects.
+ * [find_all](/v/2.2/rhodesapi/rhom-api#findall) - Alias for modelname.find(:all, argument list).
+ * [find_by_sql](/v/2.2/rhodesapi/rhom-api#findbysql) - Returns Rhodes model object(s) based on sql_query. This method works only for schema models.
+ * [new](/v/2.2/rhodesapi/rhom-api#new) - Create a new Rhodes model object.
+ * [create](/v/2.2/rhodesapi/rhom-api#create) - Create a new Rhodes model object and save it to the database.
+ * [paginate](/v/2.2/rhodesapi/rhom-api#paginate) - Call `find` with a limit on the number of records.
+ * [sync](/v/2.2/rhodesapi/rhom-api#sync) - Start the sync process for a Rhodes model.
+ * [can_modify](/v/2.2/rhodesapi/rhom-api#canmodify) - Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should disable editing of the object).
+ * [changed?](/v/2.2/rhodesapi/rhom-api#changed) - Returns true if a Rhodes model object has local database changes that need to be synchronized, false otherwise.
+ * [have_local_changes?](/v/2.2/rhodesapi/rhom-api#havelocalchanges) - Returns true if any of the Rhodes model objects have local database changes that need to be synchronized, false otherwise.
+ * [save](/v/2.2/rhodesapi/rhom-api#save) - Saves the current Rhodes model object to the database.
+ * [set_notification](/v/2.2/rhodesapi/rhom-api#setnotification) - Set a notification to be called when the sync is complete for this model.
+ * [update_attributes](/v/2.2/rhodesapi/rhom-api#updateattributes) - Updates the current Rho model object attributes and saves it to the database.
+ * [database_fullclient_reset_and_logout](/v/2.2/rhodesapi/rhom-api#databasefullclientresetandlogout) - Reset the Rhodes model database and logout.
+ * [database_full_reset](/v/2.2/rhodesapi/rhom-api#databasefullreset) - Deletes all records from the property bag and model tables.
+ * [database_full_reset_and_logout](/v/2.2/rhodesapi/rhom-api#databasefullresetandlogout) - Perform a full reset, then logout the RhoConnect client.
+ * [database_local_reset](/v/2.2/rhodesapi/rhom-api#databaselocalreset) - Reset only local (non-sync-enabled) models.
+ * [metadata](/v/2.2/rhodesapi/rhom-api#metadata) - Returns the metadata definition for a given model as a hash.
+ * [metadata=(metadata_def)](/v/2.2/rhodesapi/rhom-api#metadatametadatadef) - Assigns the JSON metadata definition for a given model.
 
 ### Rhom Delete Method Examples
 
@@ -349,7 +349,7 @@ Find Rhom objects.<a id="rhom-find-example" />
 	accts[0].telephone 
 	  #=> nil
 
-**NOTE: Use SQL fragments with caution. They are considerably slower than advanced queries [described below](/rhodes/rhom#advanced-queries). You also have to specify :select parameter.**
+**NOTE: Use SQL fragments with caution. They are considerably slower than advanced queries [described below](#advanced-queries). You also have to specify :select parameter.**
 
 #### Order Examples
 The `:order` argument for `find` accepts several forms.
@@ -430,7 +430,7 @@ Start the sync process for a model. In this example, the value for @params["sku"
 	:::ruby
 	Product.sync( url_for(:action => :sync_callback), "", false, "query=#{@params["sku"]}" )
 
-Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the [sync notification docs](/rhodes/synchronization#notifications) for more information.
+Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the [sync notification docs](synchronization#notifications) for more information.
 
 	:::ruby
 	Account.set_notification( url_for(:action => :sync_notify) )
@@ -486,20 +486,20 @@ Determine if a rhom model has local database changes that need to be synchronize
 
 ### Rhom metadata Method Examples
 
-Returns the [metadata](/rhoconnect/metadata) for a given model.<a id="rhom-metadata-example" />
+Returns the [metadata](/v/2.2/rhoconnect/metadata) for a given model.<a id="rhom-metadata-example" />
 
 	:::ruby
 	Product.metadata
 	#=> {'foo' => 'bar'}
 
-Assigns the [metadata](/rhoconnect/metadata) for a given model.
+Assigns the [metadata](/v/2.2/rhoconnect/metadata) for a given model.
 
 	:::ruby
 	Product.metadata = { 'foo' => 'bar' }.to_json
 
 ## Associations
 
-Rhom does not support Ruby on Rails associations. However, Rhom has a [sync  association](/rhodes/rhom#sync-associations) called `belongs_to` which you can use to trigger updates on sync-enabled models.
+Rhom does not support Ruby on Rails associations. However, Rhom has a [sync  association](#sync-associations) called `belongs_to` which you can use to trigger updates on sync-enabled models.
 
 ## Sync Associations
 
@@ -544,7 +544,7 @@ Or multiple declarations:
 **NOTE: After a new product is created, the `:product_id` for the `Customer` records will be updated to the new value.**
 
 If you are planning to use bulk sync feature for your associated models, then you should take into consideration 
-corresponding support on RhoConnect server side. See [RhoConnect Bulk Sync associations](/rhoconnect/bulk-sync#bulk-sync-associations).
+corresponding support on RhoConnect server side. See [RhoConnect Bulk Sync associations](/v/2.2/rhoconnect/bulk-sync#bulk-sync-associations).
 
 ## Freezed models
 If you want to limit model attributes by specific list - you can 'freeze' model:
@@ -590,17 +590,17 @@ Then you can get statistics and information about the source, such as the name.
 	@source.name
 	  #=> "Product"
 
-Here are the available statistics, from the [rhomsource API](/rhodesapi/rhomsource-api).
+Here are the available statistics, from the [rhomsource API](/v/2.2/rhodesapi/rhomsource-api).
 
- * [find](/rhodesapi/rhomsource-api#find) - Returns a RhomSource object.
- * [source-id](/rhodesapi/rhomsource-api#sourceid) - Returns the id number of a source.
- * [name](/rhodesapi/rhomsource-api#name) - Returns the name of the source.
- * [last_updated](/rhodesapi/rhomsource-api#lastupdated) - returns the last time the source was successfully synchronized (in `Time.at` format).
- * [last_inserted_size](/rhodesapi/rhomsource-api#lastinsertedsize) - returns the number of records inserted on last sync.
- * [last_deleted_size](/rhodesapi/rhomsource-api#lastdeletedsize) - returns the number of records deleted on the last sync.
- * [last_sync_duration](/rhodesapi/rhomsource-api#lastsyncduration) - returns the duration in milliseconds of the last sync for this source.
- * [last_sync_success](/rhodesapi/rhomsource-api#lastsyncsuccess) - returns 1 if last sync was successful, 0 if it failed.
- * [distinct_objects](/rhodesapi/rhomsource-api#distinctobjects) - returns the number of records for this source.
+ * [find](/v/2.2/rhodesapi/rhomsource-api#find) - Returns a RhomSource object.
+ * [source-id](/v/2.2/rhodesapi/rhomsource-api#sourceid) - Returns the id number of a source.
+ * [name](/v/2.2/rhodesapi/rhomsource-api#name) - Returns the name of the source.
+ * [last_updated](/v/2.2/rhodesapi/rhomsource-api#lastupdated) - returns the last time the source was successfully synchronized (in `Time.at` format).
+ * [last_inserted_size](/v/2.2/rhodesapi/rhomsource-api#lastinsertedsize) - returns the number of records inserted on last sync.
+ * [last_deleted_size](/v/2.2/rhodesapi/rhomsource-api#lastdeletedsize) - returns the number of records deleted on the last sync.
+ * [last_sync_duration](/v/2.2/rhodesapi/rhomsource-api#lastsyncduration) - returns the duration in milliseconds of the last sync for this source.
+ * [last_sync_success](/v/2.2/rhodesapi/rhomsource-api#lastsyncsuccess) - returns 1 if last sync was successful, 0 if it failed.
+ * [distinct_objects](/v/2.2/rhodesapi/rhomsource-api#distinctobjects) - returns the number of records for this source.
 	
 This example shows the formatted time for the `Product` model.
 
@@ -663,7 +663,7 @@ Deletes all records from the property bag and model tables, if models are set th
 	Rhom::Rhom.database_full_reset_ex(:models => ['Product', 'Customer'])
 
 ## Seeding the Database
-If your application requires seeding some initial data, you can use [RhoUtils.load_offline_data](/rhodesapi/rhoutils-api#loadofflinedata).
+If your application requires seeding some initial data, you can use [RhoUtils.load_offline_data](/v/2.2/rhodesapi/rhoutils-api#loadofflinedata).
 
 For example, in the rhodes/spec/framework_spec, we use `load_offline_data` to seed the device database for each test:
 	
@@ -696,9 +696,9 @@ Case|priority|4900dc4c072c|High|
 
 You can export local database partition with all its blob objects to zip archive. Also you can import previously exported partition.
 
-[Rhom.database_export](/rhodesapi/rhom-api#databaseexport) returns a local path to created archive with database and blob objects.
+[Rhom.database_export](/v/2.2/rhodesapi/rhom-api#databaseexport) returns a local path to created archive with database and blob objects.
 
-[Rhom.database_import](/rhodesapi/rhom-api#databaseimport) imports database and blob objects from zip archive, created with `database_export` call. If imported archive is inconsistent, or other failure will occur during import process, original database will be restored.
+[Rhom.database_import](/v/2.2/rhodesapi/rhom-api#databaseimport) imports database and blob objects from zip archive, created with `database_export` call. If imported archive is inconsistent, or other failure will occur during import process, original database will be restored.
 
 
 ## Advanced Queries
@@ -811,7 +811,7 @@ To use number comparison conditions in find use CAST :
         
 ## Database Encryption
 
-**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements']( /rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
 
 If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
 
@@ -872,4 +872,4 @@ If your application requires that the local database is encrypted on the filesys
 	:::ruby
     require_source 'Model'  
 
-*NOTE: see more tips here: [How can I create a lot of objects in controller action](/faq#how-can-i-create-a-lot-of-objects-in-controller-action).
+*NOTE: see more tips here: [How can I create a lot of objects in controller action](/v/2.2/faq#how-can-i-create-a-lot-of-objects-in-controller-action).
