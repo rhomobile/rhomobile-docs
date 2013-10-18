@@ -7,10 +7,10 @@ RhoSync uses the [resque](http://github.com/defunkt/resque) library for managing
 RhoSync supports three job types: BulkDataJob, PingJob, SourceJob
 
 ### BulkDataJob
-[Bulk Data](/rhosync/bulk-sync) jobs are used by RhoSync to prepare the [bulk sync data files](/rhosync/bulk-sync#data-files).  These jobs are automatically queued by the RhoSync application, so it is not necessary to queue them manually.
+[Bulk Data](bulk-sync) jobs are used by RhoSync to prepare the [bulk sync data files](bulk-sync#data-files).  These jobs are automatically queued by the RhoSync application, so it is not necessary to queue them manually.
 
 ### PingJob
-Ping jobs are used to execute a [device ping](/rhosync/push).  A PingJob can be queued from anywhere in your RhoSync application (i.e. at the end of another job or adapter query method).
+Ping jobs are used to execute a [device ping](push).  A PingJob can be queued from anywhere in your RhoSync application (i.e. at the end of another job or adapter query method).
 
 Example: 
 	

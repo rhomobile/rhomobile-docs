@@ -4,14 +4,14 @@ RhoSync Tutorial
 Adding Synchronized Data to Your App with RhoSync
 ---
 
-RhoSync is a synchronization framework consisting of a client component on the device and a server component that runs on any server capable of running Ruby. RhoSync requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The collection of the Ruby code for these operations we refer to as a "source" or "source adapter".   Full documentation of all capabilities of RhoSync is in the [RhoSync Developer Reference](/rhosync/introduction).
+RhoSync is a synchronization framework consisting of a client component on the device and a server component that runs on any server capable of running Ruby. RhoSync requires that you write a small amount of Ruby code for the query, create, update and delete operations of your particular enterprise backend. The collection of the Ruby code for these operations we refer to as a "source" or "source adapter".   Full documentation of all capabilities of RhoSync is in the [RhoSync Developer Reference](introduction).
 
 Install the RhoSync Dependencies
 ---
 
-* Install RhoSync as described [here](/rhosync/install).
+* Install RhoSync as described [here](install).
 
-* If you have a RhoSync license that has been sent to you you can replace the settings/license.yml file as described [here](/rhosync/licensing).
+* If you have a RhoSync license that has been sent to you you can replace the settings/license.yml file as described [here](licensing).
 
 Now you are ready to write your RhoSync app.  You can generate an app with the RhoSync app command. 
 
@@ -41,7 +41,7 @@ If everything went well you should see:
 Defining RhoSync Source Adapters
 ---
 
-Once RhoSync is installed we're ready to build a RhoSync source to integrate with our backend application. To define a RhoSync source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoSync source adapter](/rhosync/source-adapters) documentation.  
+Once RhoSync is installed we're ready to build a RhoSync source to integrate with our backend application. To define a RhoSync source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoSync source adapter](source-adapters) documentation.  
 
 From the storemanager-sever directory, generate a source adapter for the product model:
 
@@ -312,4 +312,4 @@ If your back end web service requires authentication, simply add code to the aut
 
 Using RhoSync from Objective C
 ---
-You don't have to use Rhodes to use RhoSync.  For this scenario, we offer an [Objective C client for RhoSync](/rhosync/client).
+You don't have to use Rhodes to use RhoSync.  For this scenario, we offer an [Objective C client for RhoSync](client).

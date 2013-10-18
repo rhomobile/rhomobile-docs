@@ -4,9 +4,9 @@ Installing RhoSync
 ## Windows
 
 
-If you're running Windows, download the latest [RhoSync windows installer](http://github.com/rhomobile/rhosync/downloads).  This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [Apache](http://httpd.apache.org/), and a default RhoSync application so you don't need to generate one by hand.
+If you're running Windows, download the latest [RhoSync windows installer](http://github.com/rhomobiledownloads).  This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [Apache](http://httpd.apache.org/), and a default RhoSync application so you don't need to generate one by hand.
 
-Your RhoSync application folder will be located in C:\RhoSync\rhosync by default so you can skip to the [generating a source instructions](/rhosync/rhosync_generator#generate-source-adapter) in the next section.
+Your RhoSync application folder will be located in C:\RhoSync\rhosync by default so you can skip to the [generating a source instructions](rhosync_generator#generate-source-adapter) in the next section.
 
 ## Mac OS / Linux
 
@@ -27,7 +27,7 @@ To install the latest stable RhoSync gem, run:
 
 ### Installing Redis
 
-**NOTE: Skip these steps below if you want to use the [rhosync rake tasks](/rhosync/command-line#rake-tasks) to install redis.**
+**NOTE: Skip these steps below if you want to use the [rhosync rake tasks](command-line#rake-tasks) to install redis.**
 
 	:::term
   	$ wget http://redis.googlecode.com/files/redis-2.0.4.tar.gz

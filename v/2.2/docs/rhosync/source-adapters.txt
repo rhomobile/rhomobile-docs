@@ -117,7 +117,7 @@ Search your backend based on params and build a hash of hashes (optional).  Simi
 	  end if parsed
 	end
 
-Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/rhodes/synchronization#filtering-datasets-with-search).
+Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/v/2.2/rhodes/synchronization#filtering-datasets-with-search).
 	
 ### `create(create_hash)`
 Create a new record in the backend (optional).
@@ -214,7 +214,7 @@ RhoSync provides a simple redis interface for saving/retrieving arbitrary data. 
 	Store.get_data('mydata') #=> { '1' => { 'hello' => 'world' } }
 	
 ## Handling Exceptions
-If your source adapter raises an instance of `SourceAdapterException`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/rhodes/synchronization#handling-exceptions) for more details.
+If your source adapter raises an instance of `SourceAdapterException`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/v/2.2/rhodes/synchronization#handling-exceptions) for more details.
 
 For example, your delete method might check the web service HTTP response code was 200 to make sure the record was deleted:
 
