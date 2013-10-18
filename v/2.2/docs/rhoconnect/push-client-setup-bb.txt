@@ -1,7 +1,7 @@
 Setting Up for RhoConnect Push on BlackBerry
 ===
 
-This chapter contains the steps you need to set up your Blackberry Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+This chapter contains the steps you need to set up your Blackberry Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](push-client-setup).
 
 ## Setting up RhoConnect Server Application for Push to Blackberry Clients
 
@@ -55,7 +55,7 @@ For testing push on the BlackBerry simulator, you should preform the following '
 
 ### Setup BlackBerry Device
 
-To test push on a BlackBerry device, you will need to use a device that is configured with a BES server. Then, [build your Rhodes application for the device](build#build-for-blackberry).
+To test push on a BlackBerry device, you will need to use a device that is configured with a BES server. Then, [build your Rhodes application for the device](/v/2.2/rhodes/build#build-for-blackberry).
 
 ### BlackBerry 5.0 Push service
 
@@ -78,4 +78,4 @@ In case of Blackberry Rhodes client, if the audio file is in the public folder, 
 
 ## Finishing Client Setup
 
-Once you have completed the above steps for setting up push on Blackberry client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+Once you have completed the above steps for setting up push on Blackberry client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](push-client-setup).

@@ -1030,7 +1030,7 @@ Several RhoConnectClient methods return a RhoConnectNotify object. The propertie
 
 ## RhoConnectObjectNotify Class API
 
-This class provides access to the sync object notification as described [here](/rhodes/synchronization#notifications).
+This class provides access to the sync object notification as described [here](/v/2.2/rhodes/synchronization#notifications).
 
 The RhoConnectObjectNotify object contains three arrays of hashes for the objects and their source ids that have been updated, created, and deleted. Each hash contains values for the keys “object” and “source\_id” so you can display which records were changed.
 

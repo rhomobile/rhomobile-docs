@@ -270,7 +270,7 @@ Each of the above methods have a partition key supplied with the CRUD request.	T
 For example, the `Contact` model above might have a relationship to the User model. This provides us a simple way to organize the `Contact` dataset for rhoconnect by reusing this relationship.  
 In this case, your implementation might filter out data on a per user basis.
 	
-For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
+For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](source-adapters#data-partitioning).
 
 ## Notifying the RhoConnect Server of Changes Made by the Backend Application
 

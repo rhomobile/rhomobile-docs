@@ -40,7 +40,7 @@ In addition, you can specify the following settings:
 
 `:bulk_sync_poll_interval`: poll interval setting for bulk data sync, in seconds.
 
-`:gcm_api_key`: The [API key for Google Cloud Messaging](/rhoconnect/push-client-setup-android#setting-up-android-google-cloud-messaging).
+`:gcm_api_key`: The [API key for Google Cloud Messaging](push-client-setup-android#setting-up-android-google-cloud-messaging).
 
 ## Source settings
 

@@ -76,4 +76,4 @@ Then, modify your Rhoconnect source adapter (in `rhoconnect_app/sources/product.
 
 This way, your `my_custom_field` would be getting the BLOB image data from the custom route defined in your Rhoconnect extension server.
 
-For more information on BLOB syncs, see [this section](http://docs.rhomobile.com/rhoconnect/blob-sync). 
+For more information on BLOB syncs, see [this section](blob-sync). 

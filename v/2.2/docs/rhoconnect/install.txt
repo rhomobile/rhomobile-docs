@@ -85,7 +85,7 @@ Now update your application's RhoConnect dependency manifest:
 If you have an existing RhoConnect application using version < 3.4 and want to upgrade it to RhoConnect 3.4+, then
 you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
 
-First, follow the instructions described in the [previous section](install#upgrading-an-existing-application).
+First, follow the instructions described in the [previous section](#upgrading-an-existing-application).
 
 Next, make sure your `Gemfile` looks like the following example, replacing the version as necessary.
 The `rhoconnect update` command will generate a reference `Gemfile.new` which you can use to replace your `Gemfile`:

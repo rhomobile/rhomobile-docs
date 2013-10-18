@@ -1,9 +1,9 @@
 Setting Up for RhoConnect Push on Android
 ===
 
-This chapter contains the steps you need to set up your Android Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+This chapter contains the steps you need to set up your Android Rhodes client and RhoConnect server for push messaging. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](push-client-setup).
 
-**NOTE: If you are setting up RhoConnect Push Service on an Android client, you do not perform the steps in this chapter. Perform the steps in [RhoConnect Push Service setup](/rhoconnect/push-client-setup-rps) instead.**
+**NOTE: If you are setting up RhoConnect Push Service on an Android client, you do not perform the steps in this chapter. Perform the steps in [RhoConnect Push Service setup](push-client-setup-rps) instead.**
 
 ## Setting up Android Google Cloud Messaging
 
@@ -77,4 +77,4 @@ If no push notification mode is specified in build.yml then no notifications are
 
 ## Finishing Client Setup
 
-Once you have completed the above steps for setting up push on Android client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+Once you have completed the above steps for setting up push on Android client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](push-client-setup).

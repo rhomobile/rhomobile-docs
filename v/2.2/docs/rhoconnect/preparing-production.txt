@@ -64,7 +64,7 @@ By default, the Rhoconnect application is started with Rack FiberPool's size equ
 
 
 ## settings/settings.yml
-This file contains all source adapter options and settings, such as the redis server connection. Before deploying to production, make sure you have the appropriate production settings. A complete list of the settings is in the [RhoConnect Settings chapter](/rhoconnect/settings). Some sample settings for production are shown below. In this sample, the `poll_interval` setting was auto-generated for a source adapter named Product.
+This file contains all source adapter options and settings, such as the redis server connection. Before deploying to production, make sure you have the appropriate production settings. A complete list of the settings is in the [RhoConnect Settings chapter](settings). Some sample settings for production are shown below. In this sample, the `poll_interval` setting was auto-generated for a source adapter named Product.
 
 	:::yaml
 	:sources: 
@@ -77,6 +77,6 @@ This file contains all source adapter options and settings, such as the redis se
 	  :syncserver: http://localhost:9292/application/
 
 ## settings/license.key
-This contains your RhoConnect license key text.  By default, a RhoConnect application comes with a 10 device license.  Please see the [licensing page](/rhoconnect/licensing) for more details.
+This contains your RhoConnect license key text.  By default, a RhoConnect application comes with a 10 device license.  Please see the [licensing page](licensing) for more details.
 
 

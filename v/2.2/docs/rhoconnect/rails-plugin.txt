@@ -52,7 +52,7 @@ Now all of the `Product` data synchronized by rhoconnect will organized by `self
 	  :app
 	end
 
-For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](http://docs.rhomobile.com/rhoconnect/source-adapters#data-partitioning).
+For more information about Rhoconnect partitions, please refer to the [Rhoconnect docs](source-adapters#data-partitioning).
 
 ## Querying Datasets
 
@@ -78,7 +78,7 @@ In this example, `self.rhoconnect_query` returns a list of products where the pa
 
 ### Running RhoConnect Manually
 
-Configure RhoConnect in an initializer like `config/initializers/rhoconnect.rb` (for Rails), or directly in your application (i.e. Sinatra).  Here you will setup the rhoconnect uri (the location of your RhoConnect instance), the api\_token (see [rhoconnect:get_token](http://docs.rhomobile.com/rhoconnect/command-line#rake-tasks) rake task), and app\_endpoint (the location of your ruby app):
+Configure RhoConnect in an initializer like `config/initializers/rhoconnect.rb` (for Rails), or directly in your application (i.e. Sinatra).  Here you will setup the rhoconnect uri (the location of your RhoConnect instance), the api\_token (see [rhoconnect:get_token](command-line#rake-tasks) rake task), and app\_endpoint (the location of your ruby app):
 
 	config.uri   = "http://myrhoconnect.com"
 	config.token = "secrettoken"
@@ -109,9 +109,9 @@ Example with authentication:
 	  }
 	end
 
-### Using the [RhoConnect Heroku Addon](http://docs.rhomobile.com/rhoconnect/heroku-addon)
+### Using the RhoConnect Heroku Addon
 
-If you're using the [RhoConnect Heroku Addon](http://docs.rhomobile.com/rhoconnect/heroku-addon), then you can omit the config.uri and config.token (they are managed for you):
+If you're using the [RhoConnect Heroku Addon](heroku-addon), then you can omit the config.uri and config.token (they are managed for you):
 
 	Rhoconnectrb.configure do |config|
 		config.app_endpoint = "http://myapp.heroku.com"
@@ -124,7 +124,7 @@ If you're using the [RhoConnect Heroku Addon](http://docs.rhomobile.com/rhoconne
 
 ### Overview of the API
 
-The Rhoconnectrb::API module contains routes to all the resources available in <a href='http://docs.rhomobile.com/rhoconnect/rest-api'>Rhoconnect</a>.  At a high level the API calls take on the following syntax:
+The Rhoconnectrb::API module contains routes to all the resources available in [Rest Api](rest-api).  At a high level the API calls take on the following syntax:
 
 	Namespace::Resource.verb_action1_action2_...([resource_id,action1_id,action2_id],data)
 

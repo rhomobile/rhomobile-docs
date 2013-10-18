@@ -76,7 +76,7 @@ For this purpose, you can specify C2DM Google account's username/password combo 
 At run-time, the system will use these credentials to obtain the C2DM token and store it in the Redis for the future use.
 Once the token is expired, the system will automatically connect to the Google C2DM service to renew the token.
 
-Alternatively, you can use `:authtoken` setting to specify the pre-defined authentication token. This token MUST be related to the role-based google account registered for your application. See [the Rhodes client push instructions](/rhoconnect/push-client-setup-android#setting-up-the-rhodes-client-for-android-c2dm) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
+Alternatively, you can use `:authtoken` setting to specify the pre-defined authentication token. This token MUST be related to the role-based google account registered for your application. See [the Rhodes client push instructions](push-client-setup-android#setting-up-the-rhodes-client-for-android-c2dm) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
 However, this approach will not allow the server to connect to the C2DM service and renew the token once it is expired.
 
 For those who interested in what this token means, the description is [here](http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html).
@@ -130,9 +130,9 @@ Next, make sure you have the following option in your RhoConnect application's `
 
 Where you edit `someappname` to be a shared secret name between your RhoConnect application and your mobile application.
 
-**NOTE: This shared secret name ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this shared secret name in your [mobile app's 'rhoconnect_push_appname' setting](/rhoconnect/push-client-setup-rps#configuring-rhoconfigtxt).**
+**NOTE: This shared secret name ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this shared secret name in your [mobile app's 'rhoconnect_push_appname' setting](push-client-setup-rps#configuring-rhoconfigtxt).**
 
-Now setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
+Now setup [push notifications](push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
 
 #### Configuring RhoConnect Push
 
@@ -211,7 +211,7 @@ The JSON file has the following parameters.
 
 ## Testing Push in the RhoConnect Web Console
 
-The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.
+The [RhoConnect Web Console](web-console) includes a utility for testing push to make sure everything is wired up correctly.
 
 First, make sure you've logged in and performed a sync on the device/simulator you are going to test.
 
@@ -227,7 +227,7 @@ You should see a registered device for this user, for example: "c92e36874bc74f39
 	user_id: t
 	app_id:	application
 
-**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings. Please verify you followed the [Rhodes application push setup](/rhoconnect/push-client-setup).**
+**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings. Please verify you followed the [Rhodes application push setup](push-client-setup).**
 
 Now that the device is registered, go back to the user page and click 'Ping User'.
 
