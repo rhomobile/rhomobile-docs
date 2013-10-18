@@ -475,7 +475,7 @@ Now open RhoStudio as described in installation success tests and begin testing.
 10. The device emulator will be started as soon as the build succeed. Wait for the application to load into the emulator.
 11. The application will start on the emulator automatically and the Console window of the RhoStudio
     should display rhodes application log right now.
-12. Play with the application to make sure it works (see [system-api-samples section](/rhodes/release#test-procedures)
+12. Play with the application to make sure it works (see [system-api-samples section](release#test-procedures)
     of rhodes release test procedures to get an idea of what to check).
 13. Close emulator
 14. Close `rhodes-system-api-samples` project and open `RhodesApplication1` project.

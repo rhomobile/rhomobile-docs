@@ -3,7 +3,8 @@ Contributing
 Want to add features to Rhodes?  Found a bug that you want report or fix?
 
 ## Report Rhodes Issues
-Please report bugs/features/enhancements to the [google group](http://groups.google.com/group/rhomobile).
+Please report bugs to the [launchpad community](https://developer.motorolasolutions.com/community/rhomobile-suite).
+Please report Features/Enhancements to the [RhoElements-issues](https://github.com/rhomobile/rhoelements-issues) repository on GitHub.
 
 ## Run Rhodes Specs
 First run the rhodes specs to make sure your environment is up-to-date for development (currently the specs only run on OSX):

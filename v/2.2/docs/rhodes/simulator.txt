@@ -1,4 +1,4 @@
-# Using RhoSimulator
+ # Using RhoSimulator
 
 RhoSimulator allows to [run](#run-application-in-rhosimulator) Rhodes applications without lengthy build process and to [debug](#debugging-with-rhostudio) them in [RhoStudio](../rhostudio.tutorial). Currently RhoSimulator works on <b>Windows</b> only.
 
@@ -13,7 +13,7 @@ If you would like to run RhoSimulator without Rhodes gem, download [Windows](htt
       paths:    
         rhosimulator: <RhoSimulator folder>
 
-Alternatively you may [build](#build-rhosimulator) your own customized version of RhoSimulator as described [below](#build-rhosimulator).
+Alternatively you may build your own customized version of RhoSimulator as described [below](#build-rhosimulator).
 
 ## Run application in RhoSimulator
 
@@ -39,7 +39,7 @@ The restart of RhoSimulator is required only if a model was added/modified or so
 
 ### Prerequisites
 
-* Install [RhoStudio](../rhostudio.tutorial)
+* Install [RhoStudio](/v/2.2/rhostudio.tutorial)
 * Install [RhoSimulator](#install-rhosimulator)
 * Ensure your application is configured properly and successfully [runs in RhoSimulator](#run-application-in-rhosimulator) (from command line as described above)
 

@@ -87,6 +87,3 @@ If you are interested in having us use your patch to Rhodes, you will need to su
 ## Framework Architecture
 
 <img src='/images/rhodes-framework.png'/>
-
-
-

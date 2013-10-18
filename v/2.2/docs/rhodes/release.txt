@@ -95,7 +95,7 @@ Run on Platform Simulator from 'mytest' folder.
      - open "Bluetooth Chat Demo" on both devices
      - select "Connect as Server" on first device and "Connect as Client" on second device
      - on second device select first device from list of Bluetooth devices
-     - write message and press [Send](on first or second device) - on another device you should see received message
+     - write message and press `Send`(on first or second device) - on another device you should see received message
 * Custom URI schemes: 
    - mailto should invoke send mail display with filled reviver field 
    - tel should display phone app with filled phone number

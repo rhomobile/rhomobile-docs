@@ -1,6 +1,6 @@
 # Timer API - Use a Timer
 
-The [Timer Class API](http://docs.rhomobile.com/rhodes/device-caps#timer) lets the device use a timer.
+The [Timer Class API](device-caps#timer) lets the device use a timer.
 
 ## Timer.start(interval_milliseconds, callback_url, callback_data)
 

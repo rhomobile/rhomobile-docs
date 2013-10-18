@@ -127,4 +127,4 @@ There are training webinars on various Rhomobile related topics held weekly.  Vi
 
 There is also the following [book on Rhomobile](http://www.apress.com/book/view/9781430228684).
 
-For more questions, [write to us](mailto:info@rhomobile.com) or join the [Rhomobile Google Group](http://groups.google.com/group/rhomobile) and post.
+For more questions, [write to us](mailto:info@rhomobile.com) or join the [Rhomobile Suite Community](https://developer.motorolasolutions.com/community/rhomobile-Suite) and post.

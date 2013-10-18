@@ -1,6 +1,6 @@
 # Scanner API - Use a Scanner
 
-The [Scanner Class API](http://docs.rhomobile.com/rhodes/scanner) provides access to control the functionality of the device's scanner.
+The [Scanner Class API](scanner) provides access to control the functionality of the device's scanner.
 
 ## Scanner.enumerate(callback_url)
 
@@ -27,7 +27,7 @@ Sets multiple properties
 
 params - hash array of properties and values
 
-[list of possible properties which can be set](http://docs.rhomobile.com/rhodes/scanner#propereties)
+[list of possible properties which can be set](scanner#propereties)
 
 ## Scanner.setPropertyByName(name, val)
 
@@ -39,7 +39,7 @@ name - property's name
 
 val - property's value
 
-[list of possible properties which can be set](http://docs.rhomobile.com/rhodes/scanner#propereties)
+[list of possible properties which can be set](scanner#propereties)
 
 ## Scanner.start(callback_url)
 
