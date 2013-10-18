@@ -3,9 +3,9 @@ Setting Up for RhoConnect Push Service on Client Application
 
 RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered Android and Windows Mobile/CE devices.
 
-This chapter contains the steps you need to set up your registered Android or Windows Mobile/CE client and RhoConnect server for RhoConnect Push Service. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+This chapter contains the steps you need to set up your registered Android or Windows Mobile/CE client and RhoConnect server for RhoConnect Push Service. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](push-client-setup).
 
-**NOTE: If you are setting up standard RhoConnect Push on Android, you do not perform the steps in this chapter. Perform the steps in [RhoConnect Push for Android setup](/rhoconnect/push-client-setup-android) instead.**
+**NOTE: If you are setting up standard RhoConnect Push on Android, you do not perform the steps in this chapter. Perform the steps in [RhoConnect Push for Android setup](push-client-setup-android) instead.**
 
 ## Setting up RhoConnect Push Service on the Server
 
@@ -56,9 +56,9 @@ Next, make sure you have the following option in your RhoConnect application's `
 
 Where you edit `someappname` to be a shared secret name between your RhoConnect application and your mobile application.
 
-**NOTE: This shared secret name ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this shared secret name in your [mobile app's 'rhoconnect_push_appname' setting](/rhoconnect/push-client-setup-rps#configuring-rhoconfigtxt).**
+**NOTE: This shared secret name ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this shared secret name in your [mobile app's 'rhoconnect_push_appname' setting](push-client-setup-rps#configuring-rhoconfigtxt).**
 
-Now setup [push notifications](/rhoconnect/push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
+Now setup [push notifications](push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
 
 ### Configuring RhoConnect Push
 
@@ -197,4 +197,4 @@ When you configure your application `build.yml` file for RhoConnect Push Service
 
 ## Finishing Client Setup
 
-Once you have completed the above steps for setting up for RhoConnect Push Service on Android or Windows Mobile/CE client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](/rhoconnect/push-client-setup).
+Once you have completed the above steps for setting up for RhoConnect Push Service on Android or Windows Mobile/CE client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](push-client-setup).

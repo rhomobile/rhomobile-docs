@@ -32,7 +32,7 @@ If you want to disable this web interface, you can do so by editing the rackup f
 		"/resque"   => Resque::Server.new, # If you don't want resque frontend, disable it here
 		#"/console"  => RhoconnectConsole::Server.new # If you don't want rhoconnect frontend, disable it here
 
-**NOTE: This web console is intended to be used for basic tests and views into the running RhoConnect application.  It uses the [RhoConnect REST API](/rhoconnect/rest-api) for everything it does, so it is very easy to extend this console or programmatically control your RhoConnect application directly using the [RhoConnect API](/rhoconnect/rest-api). **
+**NOTE: This web console is intended to be used for basic tests and views into the running RhoConnect application.  It uses the [RhoConnect REST API](rest-api) for everything it does, so it is very easy to extend this console or programmatically control your RhoConnect application directly using the [RhoConnect API](rest-api). **
 
 Here is a screenshot of the web console:
 
