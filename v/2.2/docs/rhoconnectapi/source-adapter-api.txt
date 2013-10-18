@@ -1,6 +1,6 @@
 RhoConnect REST API
 ===
-Your RhoConnect source adapter application can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/rhoconnect/source-adapters#sample-adapter) for a complete example.
+Your RhoConnect source adapter application can use any of these methods to interact with your backend service. Refer to the [source adapter sample](/v/2.2/rhoconnect/source-adapters#sample-adapter) for a complete example.
 
 ## login
 
@@ -52,7 +52,7 @@ Search your backend based on params and build a hash of hashes (optional).  Simi
 	  end if parsed
 	end
 
-Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/rhodes/synchronization#filtering-datasets-with-search).
+Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](/v/2.2/rhodes/synchronization#filtering-datasets-with-search).
 
 ## create
 

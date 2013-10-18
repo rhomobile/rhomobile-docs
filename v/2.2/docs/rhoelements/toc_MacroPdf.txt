@@ -1,58 +1,12 @@
 MacroPdf: RhoElements Barcode Capture Decoders
 ===
 
-* ### [MacroPdf](/rhoelements/macropdf)
+* ### [MacroPdf](macropdf)
 
-* ### [MacroPdfBufferLabels](/rhoelements/macroPdfBufferLabels)
+* ### [MacroPdfBufferLabels](macroPdfBufferLabels)
 
-* ### [MacroPdfConvertToPdf417](/rhoelements/macroPdfConvertToPdf417)
+* ### [MacroPdfConvertToPdf417](macroPdfConvertToPdf417)
 
-* ### [MacroPdfExclusive](/rhoelements/macroPdfExclusive)
+* ### [MacroPdfExclusive](macroPdfExclusive)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

@@ -1,8 +1,8 @@
 # Rhom API
 
-Allows access to the Rhodes mini database object mapper, performing database operation on Rhodes model objects. See the [Rhom examples](/rhodes/rhom#rhom-api) for examples of the Rhom API.
+Allows access to the Rhodes mini database object mapper, performing database operation on Rhodes model objects. See the [Rhom examples](/v/2.2/rhodes/rhom#rhom-api) for examples of the Rhom API.
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), [NFC](/rhodes/device-caps#nfc), and [Signature Capture](/rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](/rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](barcode-api), [NFC](/v/2.2/rhodes/device-caps#nfc), and [Signature Capture](/v/2.2/rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](/v/2.2/rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
 
 ## client_id
 
@@ -13,7 +13,7 @@ Returns the current sync client id.
 
 ## clear_notification
 
-Clear notification for the object. See the [sync notification section](/rhodes/synchronization#notifications) for more details.
+Clear notification for the object. See the [sync notification section](/v/2.2/rhodes/synchronization#notifications) for more details.
 
 	:::ruby
 	modelname.clear_notification
@@ -52,7 +52,7 @@ Imports the database and blob objects from a zip archive created with `database_
 
 ## delete_all
 
-Delete all Rhodes model objects for a source, filtering by conditions. Click here for a [Rhom delete_all example](/rhodes/rhom#rhom-delete-example).
+Delete all Rhodes model objects for a source, filtering by conditions. Click here for a [Rhom delete_all example](/v/2.2/rhodes/rhom#rhom-delete-example).
 
 	:::ruby
 	modelname.delete_all(:conditions, :op)
@@ -70,14 +70,14 @@ Delete all Rhodes model objects for a source, filtering by conditions. Click her
 
 ## destroy
 
-Destroy a Rhodes model object. Click here for a [Rhom destroy example](/rhodes/rhom#rhom-delete-example).
+Destroy a Rhodes model object. Click here for a [Rhom destroy example](/v/2.2/rhodes/rhom#rhom-delete-example).
 
 	:::ruby
 	modelname.destroy
 
 ## find
 
-Find Rhodes model objects. Click here for a [Rhom find example](/rhodes/rhom#rhom-find-example).
+Find Rhodes model objects. Click here for a [Rhom find example](/v/2.2/rhodes/rhom#rhom-find-example).
 
 	:::ruby
 	modelname.find(argument list)
@@ -127,7 +127,7 @@ The argument list can consist of the following arguments.
 </tr>
 </table>
 
-For examples of find with advanced queries, see [Advanced Queries in Using the Local Database with Rhom](/rhodes/rhom#advanced-queries).
+For examples of find with advanced queries, see [Advanced Queries in Using the Local Database with Rhom](/v/2.2/rhodes/rhom#advanced-queries).
 
 ## find_all
 
@@ -135,7 +135,7 @@ Alias for modelname.find(:all, argument list).
 
 ## find_by_sql
 
-Returns Rhodes model object(s) based on sql_query. This method works only for schema models. Click here for a [Rhom find_by_sql example](/rhodes/rhom#rhom-findsql-example).
+Returns Rhodes model object(s) based on sql_query. This method works only for schema models. Click here for a [Rhom find_by_sql example](/v/2.2/rhodes/rhom#rhom-findsql-example).
 
 	:::ruby
 	modelname.find_by_sql(sql_query)
@@ -163,7 +163,7 @@ Returns the source name for this Rhodes model object.
 
 ## new
 
-Create a new Rhodes model object. [Rhom new example](/rhodes/rhom#rhom-new-example).
+Create a new Rhodes model object. [Rhom new example](/v/2.2/rhodes/rhom#rhom-new-example).
 
 	:::ruby
 	modelname.new(attributes)
@@ -177,7 +177,7 @@ Create a new Rhodes model object. [Rhom new example](/rhodes/rhom#rhom-new-examp
 
 ## create
 
-Create a new Rhodes model object and save it to the database.[Rhom create example](/rhodes/rhom#rhom-create-example).
+Create a new Rhodes model object and save it to the database.[Rhom create example](/v/2.2/rhodes/rhom#rhom-create-example).
 
 **NOTE: This is the fastest way to insert a single item into the database.**
 
@@ -193,7 +193,7 @@ Create a new Rhodes model object and save it to the database.[Rhom create exampl
 
 ## paginate
 
-Call `find` with a limit on the number of records. Default page size is 10.[Rhom paginate example](/rhodes/rhom#rhom-paginate-example).
+Call `find` with a limit on the number of records. Default page size is 10.[Rhom paginate example](/v/2.2/rhodes/rhom#rhom-paginate-example).
 
 	:::ruby
 	modelname.paginate(*arguments)
@@ -225,7 +225,7 @@ The *arguments you can use are:
 
 ## sync
 
-Start the sync process for a Rhodes model. Click here for a [Rhom sync example](/rhodes/rhom#rhom-sync-example).
+Start the sync process for a Rhodes model. Click here for a [Rhom sync example](/v/2.2/rhodes/rhom#rhom-sync-example).
 
 	:::ruby
 	modelname.sync(callback_url, callback_data, show_status_popup, query_params)
@@ -251,7 +251,7 @@ Start the sync process for a Rhodes model. Click here for a [Rhom sync example](
 
 ## can_modify
 
-Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should disable editing of the object). Click here for a [Rhom can_modify example](/rhodes/rhom#rhom-canmodify-example).
+Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should disable editing of the object). Click here for a [Rhom can_modify example](/v/2.2/rhodes/rhom#rhom-canmodify-example).
 
 Before displaying an edit page for an object, your application can check if the object is currently being accessed by the sync process. If it is, you should disable editing of the object. `can_modify` could return true, for example, on a new local record that was created and sent to the RhoConnect application, but no response has been received yet.
 
@@ -260,21 +260,21 @@ Before displaying an edit page for an object, your application can check if the 
 
 ## changed?
 
-Returns true if a Rhodes model object has local database changes that need to be synchronized, false otherwise. Click here for a [Rhom changed? example](/rhodes/rhom#rhom-changed-example).
+Returns true if a Rhodes model object has local database changes that need to be synchronized, false otherwise. Click here for a [Rhom changed? example](/v/2.2/rhodes/rhom#rhom-changed-example).
 
 	:::ruby
 	modelname.changed?
 
 ## save
 
-Saves the current Rhodes model object to the database. Click here for a [Rhom save example](/rhodes/rhom#rhom-save-example).
+Saves the current Rhodes model object to the database. Click here for a [Rhom save example](/v/2.2/rhodes/rhom#rhom-save-example).
 
 	:::ruby
 	modelname.save
 
 ## set_notification
 
-Set a notification to be called when the sync is complete for this model. Click here for a [Rhom set_notification example](/rhodes/rhom#rhom-save-example).
+Set a notification to be called when the sync is complete for this model. Click here for a [Rhom set_notification example](/v/2.2/rhodes/rhom#rhom-save-example).
 
 	:::ruby
 	modelname.set_notification(callback_url, params)
@@ -292,7 +292,7 @@ Set a notification to be called when the sync is complete for this model. Click 
 
 ## update_attributes
 
-Updates the current Rho model object attributes and saves it to the database. This is the fastest way to add or update model attributes. Click here for a [Rhom update_attributes example](/rhodes/rhom#rhom-update-example).
+Updates the current Rho model object attributes and saves it to the database. This is the fastest way to add or update model attributes. Click here for a [Rhom update_attributes example](/v/2.2/rhodes/rhom#rhom-update-example).
 
 	:::ruby
 	modelname.update_attributes(attributes)
@@ -310,7 +310,7 @@ Reset the Rhodes model database and logout. Equivalent to `Rhom::Rhom.database_f
 
 ## database_full_reset
 
-Deletes all records from the property bag and model tables. For examples, see [Resetting the Database in Using the Local Database with Rhom](/rhodes/rhom#resetting-the-database).
+Deletes all records from the property bag and model tables. For examples, see [Resetting the Database in Using the Local Database with Rhom](/v/2.2/rhodes/rhom#resetting-the-database).
 
 	:::ruby
 	Rhom::Rhom.database_full_reset(reset_client_info, reset_local_models)
@@ -342,7 +342,7 @@ Reset only local (non-sync-enabled) models.
 
 ## metadata
 
-Returns the [metadata definition](/rhoconnect/metadata#metadata-definition) for a given model as a hash. Click here for a [Rhom metadata example](/rhodes/rhom#rhom-metadata-example).
+Returns the [metadata definition](/v/2.2/rhoconnect/metadata#metadata-definition) for a given model as a hash. Click here for a [Rhom metadata example](/v/2.2/rhodes/rhom#rhom-metadata-example).
 
 	:::ruby
 	Product.metadata
@@ -350,7 +350,7 @@ Returns the [metadata definition](/rhoconnect/metadata#metadata-definition) for 
 	
 ## metadata=(metadata_def)
 
-Assigns the JSON [metadata definition](/rhoconnect/metadata#metadata-definition) for a given model. Click here for a [Rhom metadata example](/rhodes/rhom#rhom-metadata-example).
+Assigns the JSON [metadata definition](/v/2.2/rhoconnect/metadata#metadata-definition) for a given model. Click here for a [Rhom metadata example](/v/2.2/rhodes/rhom#rhom-metadata-example).
 
 	:::ruby
 	Product.metadata = { 'foo' => 'bar' }.to_json

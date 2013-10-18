@@ -6,13 +6,13 @@ RhoConnect is a synchronization framework consisting of a backend application (a
 
 RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. You can write this code in Ruby as a RhoConnect source adapter, or you can write this code as a RhoConnect plugin application written in Java, .NET, or Ruby on Rails.
 
-Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](/rhoconnect/introduction).
+Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](introduction).
 
 ## Installing the RhoConnect Dependencies
 
-* Install RhoConnect [from the command line](/rhoconnect/install) or by installing [RhoMobile Suite](/rhomobile-install).
+* Install RhoConnect [from the command line](install) or by installing [RhoMobile Suite](/v/2.2/rhomobile-install).
 
-* If you have a RhoConnect license that has been sent to you, you can replace the settings/license.yml file as described [here](/rhoconnect/licensing).
+* If you have a RhoConnect license that has been sent to you, you can replace the settings/license.yml file as described [here](licensing).
 
 Now you are ready to write your RhoConnect app. You can generate an app with RhoStudio, or with the RhoConnect app command.
 
@@ -56,7 +56,7 @@ If everything went well you should see:
 
 ## Defining RhoConnect Source Adapters
 
-Once RhoConnect is installed we're ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoConnect source adapter](/rhoconnect/source-adapters) documentation.
+Once RhoConnect is installed we're ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information please see the [RhoConnect source adapter](source-adapters) documentation.
 
 ### Generating the Source Adapter from RhoStudio
 
@@ -85,7 +85,7 @@ You can open these files for editing by clicking on them in the Project Explorer
 
 From the command line, navigate to the main folder for your RhoConnect app: in this case, storeserver.
 
-Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](/rhostudio.tutorial) and the [documentation to generate a Rhodes application](/rhodes/generator).
+Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](/v/2.2/rhostudio.tutorial) and the [documentation to generate a Rhodes application](/v/2.2/rhodes/generator).
 
 	:::term
 	$ rhoconnect source product
@@ -167,7 +167,7 @@ The next step is for you to fill in the login, query, create, update, delete and
 
 If you're doing a readonly non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.herokuapp.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common. The RhoConnect source adapter is Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.
 
-For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](/rhoconnect/source-adapters#sample-adapter) in the RhoConnect Developer Reference.
+For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](source-adapters#sample-adapter) in the RhoConnect Developer Reference.
 
 Our sample web service for returning all products in the catalog (http://rhostore.herokuapp.com/products.json) returns data like this:
 
@@ -383,4 +383,4 @@ If your back end web service requires authentication, add code to the authentica
 
 ## Using RhoConnect from Objective C
 
-You don't have to use Rhodes to use RhoConnect. For this scenario, we offer an [Objective C client for RhoConnect](/rhoconnect/client).
+You don't have to use Rhodes to use RhoConnect. For this scenario, we offer an [Objective C client for RhoConnect](client).

@@ -1059,7 +1059,7 @@ To read the log file from the emulator or your device:
 * Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\4.7.4`
 * Add `bin` folder of installed Qt libraries, e.g. `C:\Qt\4.7.4\bin`, to `PATH` system environment variable
 
-NOTE: If your application uses HTTPS protocol, then you need to build Qt libraries with OpenSSL (see <a href="#build-for-windows-https">instructions below</a>).
+NOTE: If your application uses HTTPS protocol, then you need to build Qt libraries with OpenSSL (see [instructions below](#build-for-windows-https)).
 
 ### Build application from the command line
 

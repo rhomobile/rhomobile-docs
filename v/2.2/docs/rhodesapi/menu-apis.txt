@@ -1,6 +1,6 @@
 # Application Menu API
 
-Customize the native application menu and controller menu items. Refer to [Application Menu in Device Capabilities](/rhodes/ui#application-menu) for examples.
+Customize the native application menu and controller menu items. Refer to [Application Menu in Device Capabilities](/v/2.2/rhodes/ui#application-menu) for examples.
 
 ## @default_menu
 

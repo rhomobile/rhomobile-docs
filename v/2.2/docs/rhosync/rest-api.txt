@@ -93,7 +93,7 @@ Sends PUSH message to all devices of the specified user:
 ### `push_objects`
 Push new objects or object updates to RhoSync. These changes will be sent to device next time it synchronizes.
 
-**NOTE: you may use [ping](/rhosync/push) to notify client and trigger sync.**
+**NOTE: you may use [ping](push) to notify client and trigger sync.**
 
 	:::ruby
 	# list of objects in the canonical hash of hashes structure
@@ -121,7 +121,7 @@ in the `push_objects` parameters hash.
 ### `push_deletes`
 Delete objects from RhoSync. These objects will be deleted from the device the next time it synchronizes.
 
-**NOTE: You may use [ping](/rhosync/push) to notify client and trigger sync.**
+**NOTE: You may use [ping](push) to notify client and trigger sync.**
 
 	:::ruby
 	# object_ids is an array of objects to be deleted
@@ -221,7 +221,7 @@ Deletes the specified client (device).
     )    
 
 ### `get_client_params`
-Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes used by [RhoSync push](/rhosync/push). 
+Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes used by [RhoSync push](push). 
 
 	:::ruby
 	RestClient.post(
@@ -271,7 +271,7 @@ Return attributes associated with a given source:
 * `query_queue` - name of query queue
 * `cud_queue` - name of CUD queue
 
-**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](/rhosync/async-jobs) if a queue name is defined.**
+**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](async-jobs) if a queue name is defined.**
 
 	:::ruby
 	attributes = RestClient.post("#{server}/api/get_source_params", 

@@ -69,7 +69,7 @@ In RhoStudio Preferences, open RhoMobile and check that the path is set to your 
 
 ## Generating a Rhodes Application
 
-**NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](/rhoconnect/tutorial).**
+**NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](rhoconnect/tutorial).**
 
 **NOTE: Motorola RhoMobile Suite installs into a Motorola RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Motorola RhoStudio.**
 
@@ -345,7 +345,7 @@ To start the device build process, create a Run Configuration: select your proje
 
 Press the Run button to build and run your application. The build output will appear in the Rhodes build output console. The application log will be available in the Rhodes application output console, and will be written into your application folder.
 
-For complete instructions on setting up the SDKs in RhoStudio for each platform, refer to [the Build instructions for Rhodes](/rhodes/build).
+For complete instructions on setting up the SDKs in RhoStudio for each platform, refer to [the Build instructions for Rhodes](rhodes/build).
 
 ### Editing the SDK Locations in rhobuild.yml
 
@@ -409,7 +409,7 @@ This file is a template of a test for the controller. This template always retur
 	  end
 	end
 
-The [Rhodes testing](/rhodes/test-log-debug#testing) chapter contains this [link  to our specs for the core framework](https://github.com/rhomobile/rhodes/tree/1.4.0/spec/framework_spec/app/spec/). You can use these as examples for writing your own test.
+The [Rhodes testing](rhodes/test-log-debug#testing) chapter contains this [link  to our specs for the core framework](https://github.com/rhomobile/rhodes/tree/1.4.0/spec/framework_spec/app/spec/). You can use these as examples for writing your own test.
 
 Once you have written your test, you need to generate a testing framework to run the test. To generate the testing framework, right-click on your application in the Project Explorer and select RhoMobile spec.
 

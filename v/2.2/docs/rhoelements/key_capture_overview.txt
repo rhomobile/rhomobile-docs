@@ -68,7 +68,7 @@ Although it is theoretically possible to chain together a number of key remaps i
 	<META HTTP-Equiv="KeyCapture" content="KeyValue:0x28; RemapTo:0x08">
 
 ##Control key
-Control keys are only implemented on CE devices. For example CTRL+C can be configured to copy text and CTRL+V will paste that text. See the <a href="/rhoelements/ConfigurationSettings.html">Configuration Settings</a> for details of how to achieve this.
+Control keys are only implemented on CE devices. For example CTRL+C can be configured to copy text and CTRL+V will paste that text. See the [Configuration Settings](ConfigurationSettings) for details of how to achieve this.
 		
 Take the example of the user pressing CTRL+C, this is seen by RhoElements as two key presses, 'CTRL' and 'C', both of which must reach the browser in order to copy text, e.g. specifying any of the following would cause text to not be copied:
 
@@ -112,7 +112,7 @@ Certain keys are not trappable in RhoElements, those which are intercepted by th
 
 ##Accelerator Keys </span>
 	
-<b>Accelerator Keys are only applicable when using the Internet Explorer engine on Windows CE devices, see the <a href="/rhoelements/ConfigurationSettings.html">Configuration Settings</a> page for more information on the IE engine.</b>
+<b>Accelerator Keys are only applicable when using the Internet Explorer engine on Windows CE devices, see the [Configuration Settings](ConfigurationSettings) page for more information on the IE engine.</b>
 
 ##Overview 
 		
@@ -220,4 +220,3 @@ As already stated Accelerator keys are only applicable to Windows CE, Windows Mo
 Although this behaviour can not be customised with the 'AccelerateKey' metatag the developer can still use the KeyCapture tag to intercept the keys and disable the behaviour. In a multi-line text area pressing up when the cursor is on the top line will go back to the previous form control however pressing down will move to the next line (if applicable). Similarly if the cursor is in the bottom-most line of the text area pressing up will move the cursor to the previous line; pressing down will advance to the next control.
 
 Although the AccelerateKey behaviour can not be customised with the 'AccelerateKey' metatag the developer can still use the KeyCapture tag to intercept the keys and disable the behaviour.
-

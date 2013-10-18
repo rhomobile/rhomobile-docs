@@ -282,8 +282,3 @@ The Bluetooth address, in the second barcode, is encoded as “0080371ABD79” t
 Note 1: The APD will also accept the 5 digit ‘ID’ used by Toshiba-TEC printers. When this is entered, the APD will convert the 5 digit number to a 4 character hexadecimal code and assume “T” as the type code. This identifies the command language to be used, allowing data to be printed correctly. However, it does not allow the APD to determine the exact model of printer, so care needs to be taken in the naming of template and format files for these printers.
 
 Motorola, Moto, Motorola Solutions and the Stylized M Logo are trademarks or registered trademarks of Motorola Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners. ©2011 Motorola Solutions, Inc. All Rights Reserved.
-
-
-
-
-

@@ -105,7 +105,7 @@ Rhosync Client is a library to add sync data capability to your applications. Ap
 
 #### RhoSyncNotify
 
-This class provides access to sync notification objects as describe [here](/rhodes/synchronization#notifications): 
+This class provides access to sync notification objects as describe [here](/v/2.2/rhodes/synchronization#notifications): 
 
 	:::cplusplus
 	@property int       total_count;

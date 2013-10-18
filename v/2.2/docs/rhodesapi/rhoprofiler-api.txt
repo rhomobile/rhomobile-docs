@@ -2,7 +2,7 @@
 
 To perform performance measurements or to find applications bottlenecks, you can use the RhoMobile Profiler API.
 
-Refer to [RhoProfiler Ruby API Examples](/rhodes/test-log-debug#rhomsource-examples) for examples.
+Refer to [RhoProfiler Ruby API Examples](/v/2.2/rhodes/test-log-debug#rhomsource-examples) for examples.
 
 To enable RhoProfiler, set this in your application build.yml.
 

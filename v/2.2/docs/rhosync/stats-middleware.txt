@@ -1,6 +1,6 @@
 Collecting Runtime Stats
 ===
-RhoSync provides a simple stats [rack middleware](http://railscasts.com/episodes/151-rack-middleware) for collecting runtime information on your application.  These stats are accessible from the [REST API](/rhosync/rest-api) and some default graphs are available from the [web console](/rhosync/web-console).
+RhoSync provides a simple stats [rack middleware](http://railscasts.com/episodes/151-rack-middleware) for collecting runtime information on your application.  These stats are accessible from the [REST API](rest-api) and some default graphs are available from the [web console](web-console).
 
 ## Enabling Stats
 To enable stats in your RhoSync application, simply turn on the stats middleware by editing config.ru:

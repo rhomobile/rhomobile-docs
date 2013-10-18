@@ -2,9 +2,9 @@
 
 Allows the device to recognize a barcode. See the controller and view in the /app/BarcodeRecognizer folder of the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/BarcodeRecognizer/controller.rb) for an example.
 
-See [Barcode in Device Capabilities](/rhodes/device-caps#barcode) for a discussion of barcode recognition.
+See [Barcode in Device Capabilities](/v/2.2/rhodes/device-caps#barcode) for a discussion of barcode recognition.
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](/rhodesapi/barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
 
 ## Using JavaScript API
 
@@ -19,7 +19,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
 
 ## Enabling Barcode Recognition
 

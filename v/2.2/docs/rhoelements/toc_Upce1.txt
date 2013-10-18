@@ -1,86 +1,12 @@
 Upce1: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Upce1](/rhoelements/upce1)
+* ### [Upce1](upce1)
 
-* ### [Upce1convertToUpca](/rhoelements/upce1ConvertToupca)
+* ### [Upce1convertToUpca](upce1ConvertToupca)
 
-* ### [Upce1preamble](/rhoelements/upce1preamble)
+* ### [Upce1preamble](upce1preamble)
 
-* ### [Upce1reportCheckDigit](/rhoelements/upce1ReportCheckDigit)
+* ### [Upce1reportCheckDigit](upce1ReportCheckDigit)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###<a href="toc_decoders">Back To Decoders</a>

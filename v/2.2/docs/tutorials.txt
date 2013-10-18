@@ -2,36 +2,36 @@ Topic Tutorials
 ===
 Here you will find the complete collection of Rhomobile tutorials.  Please also checkout our [collection of webinars](http://rhomobile.com/webinars/).
 
-* ### [RhoConnect Tutorial](/rhoconnect/tutorial)
+* ### [RhoConnect Tutorial](rhoconnect/tutorial)
 
-* ### [RhoHub Tutorial](/rhohub/tutorial)
+* ### [RhoHub Tutorial](rhohub/tutorial)
 
-* ### [Mapping and Geolocation](/mapping-tutorial)
+* ### [Mapping and Geolocation](mapping-tutorial)
 
-* ### [Metadata and Dynamic Views](/metadata-tutorial)
+* ### [Metadata and Dynamic Views](metadata-tutorial)
 
-* ### [Image Uploading Tutorial](/imageupload-tutorial)
+* ### [Image Uploading Tutorial](imageupload-tutorial)
 
-* ### [Rhodes Simulator and Debugging Tutorial](/rhosimulator-debugger-tutorial)
+* ### [Rhodes Simulator and Debugging Tutorial](rhosimulator-debugger-tutorial)
 
-* ### [Rhodes Near Field Communication Tutorial](/near-field-communication-with-rhodes-tutorial)
+* ### [Rhodes Near Field Communication Tutorial](near-field-communication-with-rhodes-tutorial)
 
-* ### [Deploying a RhoSync Application to Amazon EC2 Tutorial](/rhosync-ec2-tutorial)
+* ### [Deploying a RhoSync Application to Amazon EC2 Tutorial](rhosync-ec2-tutorial)
 
-* ### [Converting a Rhodes Application to JQueryMobile Tutorial](/rhodes-jquerymobile)
+* ### [Converting a Rhodes Application to JQueryMobile Tutorial](rhodes-jquerymobile)
 
-* ### [Using the Google API with Rhodes and RhoSync Tutorial](/google-api-rhodes-rhosync-tutorial)
+* ### [Using the Google API with Rhodes and RhoSync Tutorial](google-api-rhodes-rhosync-tutorial)
 
-* ### [iPad Split View UI with Rhodes Tutorial](/iPad-rhodes-tutorial)
+* ### [iPad Split View UI with Rhodes Tutorial](iPad-rhodes-tutorial)
 
-* ### [Near Field Communications With Rhodes In-Depth Tutorial](/nfc-with-rhodes-in-depth-tutorial)
+* ### [Near Field Communications With Rhodes In-Depth Tutorial](nfc-with-rhodes-in-depth-tutorial)
 
-* ### [RhoHub Gallery and RhoGallery Tutorial](/rhohub-rhogallery)
+* ### [RhoHub Gallery and RhoGallery Tutorial](rhohub-rhogallery)
 
-* ### [Near Field Communications With Rhodes Peer-to-Peer Tutorial](/nfc-with-rhodes-p2p-tutorial)
+* ### [Near Field Communications With Rhodes Peer-to-Peer Tutorial](nfc-with-rhodes-p2p-tutorial)
 
-* ### [Rhodes on Windows Mobile Tutorial](/rhodes-windows-mobile-tutorial)
+* ### [Rhodes on Windows Mobile Tutorial](rhodes-windows-mobile-tutorial)
 
-* ### [Building Highly Secure Apps](/secure-apps)
+* ### [Building Highly Secure Apps](secure-apps)
 
-* ### [Building RhoStudio Apps with RhoHub](/rhostudio-rhohub)
+* ### [Building RhoStudio Apps with RhoHub](rhostudio-rhohub)

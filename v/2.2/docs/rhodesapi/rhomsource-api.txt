@@ -2,11 +2,11 @@
 
 Exposes sync information, which you can use for alerts, status pages, and so on. 
 
-For examples, refer to [Accessing Sync Info with RhomSource in Using the Local Database with Rhom](/rhodes/rhom#accessing-sync-info-with-rhomsource).
+For examples, refer to [Accessing Sync Info with RhomSource in Using the Local Database with Rhom](/v/2.2/rhodes/rhom#accessing-sync-info-with-rhomsource).
 
 ## find
 
-Returns a RhomSource object. Refer to [Accessing Sync Info with RhomSource](/rhodes/rhom#accessing-sync-info-with-rhomsource) for an example.
+Returns a RhomSource object. Refer to [Accessing Sync Info with RhomSource](/v/2.2/rhodes/rhom#accessing-sync-info-with-rhomsource) for an example.
 
 	:::ruby
 	@source = RhomSource.find(source_name)
@@ -60,7 +60,7 @@ Returns 1 if last sync was successful, 0 if it failed.
 
 ## last_updated
 
-Returns the last time the source was synchronized in `Time.at` format. Refer to [Accessing Sync Info with RhomSource](/rhodes/rhom#accessing-sync-info-with-rhomsource) for examples.
+Returns the last time the source was synchronized in `Time.at` format. Refer to [Accessing Sync Info with RhomSource](/v/2.2/rhodes/rhom#accessing-sync-info-with-rhomsource) for examples.
 
 	:::ruby
 	@source.last_updated.to_s

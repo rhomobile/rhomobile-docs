@@ -116,15 +116,15 @@ It also adds a corresponding [rspec](http://rspec.info/) file `spec/sources/prod
 
 You can write the following methods for your source adapter. These methods allow your source adapter to interact with your backend service.
 
-* [login](/rhoconnectapi/source-adapter-api#login) - Login to your backend service (optional).
-* [logoff](/rhoconnectapi/source-adapter-api#logoff) - Logoff from your backend service (optional).
-* [query](/rhoconnectapi/source-adapter-api#query) - Query your backend service and build a hash of hashes (required).
-* [search](/rhoconnectapi/source-adapter-api#search) - Search your backend based on params and build a hash of hashes (optional).
-* [create](/rhoconnectapi/source-adapter-api#create) - Create a new record in the backend (optional).
-* [update](/rhoconnectapi/source-adapter-api#update) - Update an existing record in the backend.
-* [delete](/rhoconnectapi/source-adapter-api#delete) - Delete an existing record in the backend.
-* [current_user](/rhoconnectapi/source-adapter-api#currentuser) - Returns the current user which called the adapter.
-* [stash_result](/rhoconnectapi/source-adapter-api#stashresult) - Saves the current state of `@result` to redis and assigns it to `nil`.
+* [login](/v/2.2/rhoconnectapi/source-adapter-api#login) - Login to your backend service (optional).
+* [logoff](/v/2.2/rhoconnectapi/source-adapter-api#logoff) - Logoff from your backend service (optional).
+* [query](/v/2.2/rhoconnectapi/source-adapter-api#query) - Query your backend service and build a hash of hashes (required).
+* [search](/v/2.2/rhoconnectapi/source-adapter-api#search) - Search your backend based on params and build a hash of hashes (optional).
+* [create](/v/2.2/rhoconnectapi/source-adapter-api#create) - Create a new record in the backend (optional).
+* [update](/v/2.2/rhoconnectapi/source-adapter-api#update) - Update an existing record in the backend.
+* [delete](/v/2.2/rhoconnectapi/source-adapter-api#delete) - Delete an existing record in the backend.
+* [current_user](/v/2.2/rhoconnectapi/source-adapter-api#currentuser) - Returns the current user which called the adapter.
+* [stash_result](/v/2.2/rhoconnectapi/source-adapter-api#stashresult) - Saves the current state of `@result` to redis and assigns it to `nil`.
 
 ## Data Partitioning
 
@@ -183,7 +183,7 @@ RhoConnect provides a simple redis interface for saving/retrieving arbitrary dat
 	Store.get_data('mydata') #=> { '1' => { 'hello' => 'world' } }
 
 ## Handling Exceptions
-If your source adapter raises an instance of `SourceAdapterException`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/rhodes/synchronization#handling-exceptions) for more details.
+If your source adapter raises an instance of `SourceAdapterException`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/v/2.2/rhodes/synchronization#handling-exceptions) for more details.
 
 You can use `SourceAdapterException` as a convenient way to notify your application of various error conditions.
 

@@ -8,13 +8,13 @@ The same license key will work across any operating system. The name associated 
 
 If you have included any of the following features in your application, your application will require a RhoElements license to run. Applications not using any of these features will be able to run license-free.
 
-* [Mobile APIs](/rhoelements/apicompatibility) indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
-* [Motorola Solutions WebKit](/rhoelements/rhoelements2-native#enabling-motorola-webkit)
-* [Barcode extension](/rhodesapi/barcode-api)
-* [NFC extension](/rhodes/device-caps#nfc)
-* [Database Encryption](/rhodes/rhom#database-encryption)
-* [Inline Signature Capture](/rhodes/device-caps#signature-capture)
-* [Windows Desktop](/rhodes/build#build-for-windows)
+* [Mobile APIs](apicompatibility) indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
+* [Motorola Solutions WebKit](rhoelements2-native#enabling-motorola-webkit)
+* [Barcode extension](/v/2.2/rhodesapi/barcode-api)
+* [NFC extension](/v/2.2/rhodes/device-caps#nfc)
+* [Database Encryption](/v/2.2/rhodes/rhom#database-encryption)
+* [Inline Signature Capture](/v/2.2/rhodes/device-caps#signature-capture)
+* [Windows Desktop](/v/2.2/rhodes/build#build-for-windows)
 
 **NOTE: that the "shared runtime" requires a license to run since it uses Motorola Solutions WebKit and RhoElements APIs.**
 
@@ -87,7 +87,7 @@ Once your device is licensed, a splash screen will be displayed briefly each tim
 
 Devices running Windows Mobile and Windows CE as well as Motorola Solutions Android devices present the user with a licensing Wizard to guide the user through licensing.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhoe-license.png">
+<img src="http://rhodocs.s3.amazonaws.comrhoelements/rhoe-license.png">
 
 The first page of the licensing wizard has a "Cancel" button. Clicking it allows you to evaluate the software. While you are evaluating the software, the functionality is not restricted.
 
@@ -127,17 +127,3 @@ For hybrid applications, you can define your device license and company name in 
 	       ...
 	    </Application > 
 	  </Applications>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-

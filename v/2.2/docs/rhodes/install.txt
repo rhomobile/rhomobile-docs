@@ -4,7 +4,7 @@
 
 To install Rhodes on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-[Click here for the RhoMobile Suite installation instructions](/rhomobile-install). 
+[Click here for the RhoMobile Suite installation instructions](/v/2.2/rhomobile-install). 
 
 NOTE: The rest of this chapter consists of instructions for installing Rhodes from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
 
@@ -27,7 +27,7 @@ NOTE: Do not install Ruby as a standalone if you also use Ruby Version Manager (
 
 ## Setup Rhodes SDKs
 
-Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](/rhodes/build).
+Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](build).
 
 After you install the gem and your desired SDKs, you need to run:
 

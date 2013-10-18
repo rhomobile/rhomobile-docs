@@ -314,7 +314,7 @@ Edit your app `settings/settings.yml` file and replace :redis one liner by array
 
 ### Create a custom Amazon Image with multiple Redis instances
 
-The following recommendations are based on Ubuntu Amazon image, where [RhoConnect Redis](http://docs.rhomobile.com/rhoconnect/deploying#deploying-rhoconnect-redis-and-push-packages-on-linux-servers) package installed and you wanted host 2 redis instances on ports 6379 and 6380 respectively. 
+The following recommendations are based on Ubuntu Amazon image, where [RhoConnect Redis](deploying#deploying-rhoconnect-redis-and-push-packages-on-linux-servers) package installed and you wanted host 2 redis instances on ports 6379 and 6380 respectively. 
 
 Rename `/opt/rhoconnect/etc/redis.conf` configuration file to `/opt/rhoconnect/etc/redis-6379.conf` and make sure that it has settings for the 1st instance: 
 

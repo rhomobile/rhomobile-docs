@@ -1,6 +1,6 @@
 Source Adapter Request API (JavaScript)
 ===
-The Source Adapter Request API provides access to an incoming HTTP request context and can be used in your [controller](/rhoconnectapi/source-adapter-controller-api-js).
+The Source Adapter Request API provides access to an incoming HTTP request context and can be used in your [controller](source-adapter-controller-api-js).
 
 ## params
 A hash of parameters available from the request.

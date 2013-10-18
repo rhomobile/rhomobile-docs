@@ -8,8 +8,8 @@ Prerequisites
 You need to have installed:
 
 * Java Runtime Environment, minimum of Java 5 JRE or JDK.
-* [Rhodes gem](/install#installing-rhodes-from-the-command-line).
-* For RhoConnect, you also need the [RhoConnect gem](/rhoconnect/install#installing-rhoconnect-from-the-command-line).
+* [Rhodes gem](install#installing-rhodes-from-the-command-line).
+* For RhoConnect, you also need the [RhoConnect gem](/v/2.2/rhoconnect/install#installing-rhoconnect-from-the-command-line).
 
 Checking the Eclipse Installation
 ----------------

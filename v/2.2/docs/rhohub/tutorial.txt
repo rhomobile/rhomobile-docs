@@ -3,7 +3,7 @@ RhoHub Tutorial
 
 ## Introduction
 
-The [Rhodes](/rhodes/introduction) framework allows you to quickly create and build applications for multiple smartphone operating systems. RhoHub makes building Rhodes applications even easier, reducing the overhead of getting started and as well as streamlining ongoing development effort. 
+The [Rhodes](/v/2.2/rhodes/introduction) framework allows you to quickly create and build applications for multiple smartphone operating systems. RhoHub makes building Rhodes applications even easier, reducing the overhead of getting started and as well as streamlining ongoing development effort. 
 
 Rhodes applications are written within a Model View Controller pattern.  The views are written with your familiar web development toolkit of  HTML, CSS, and JavaScript.  The controllers are written in Ruby, using Rhodes first mobile implementation of Ruby for each smartphone operating system.  Rhodes features an app generator that creates controllers and views for business objects that provide basic listing and editing of data, enabling most of your development to be focused on optimizing your views.  
 
@@ -11,13 +11,13 @@ This tutorial shows you how to build a simple product inventory application that
 
 ## Setup
 
-Before using your RhoHub account, you should [install RhoMobile SUite](/rhomobile-install). This will install Rhodes, RhoConnect, RhoStudio, and Git on Windows.
+Before using your RhoHub account, you should [install RhoMobile Suite](/v/2.2/rhomobile-install). This will install Rhodes, RhoConnect, RhoStudio, and Git on Windows.
 
 You need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3) or [Linux](http://git-scm.com/download).
 
-If you decide not to use RhoStudio, but instead [install Rhodes from the command line](/rhodes/install#installing-rhodes-from-the-command-line), you need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3), [Windows](http://code.google.com/p/msysgit/), or [Linux](http://git-scm.com/download).
+If you decide not to use RhoStudio, but instead [install Rhodes from the command line](/v/2.2/rhodes/install#installing-rhodes-from-the-command-line), you need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3), [Windows](http://code.google.com/p/msysgit/), or [Linux](http://git-scm.com/download).
 
-Refer to the [Git resources](/rhohub/tutorial#git-resources) for more information on git, such as references and tutorials.
+Refer to the [Git resources](tutorial#git-resources) for more information on git, such as references and tutorials.
 
 ### Create your RhoHub Account
 
@@ -196,7 +196,7 @@ You can use "rake -T" to print a complete list of all of the automated build com
 
 * Windows is required to test builds and install to a device for BlackBerry, Windows Mobile, and WIndows desktop. Running the simulators in Windows virtual machines such as VMware or Parallels works fine. 
 * Mac OS X 10.5+ is required for testing iPhone applications.
-* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Build Rhodes Application](/rhodes/build).
+* For instructions on installing the mobile SDKs to build for all of the smartphone platforms, see [Build Rhodes Application](/v/2.2/rhodes/build).
 
 Since Android simulators are available for all major operating systems, we'll build our app for Android in this tutorial.
 
@@ -327,7 +327,7 @@ Now you can add the code in your local git repository to RHoHub.
 
 These commands initialize your local directory containing your RhoConnect app code, add that directory to your next Git commit, create your initial commit, add your RhoHub git URL as an alias to your local directory, then push your local code to RhoHub.
 
-Your Rhodes app is pre-configured to use the RhoConnect server. You will need to create a source adapter in your RhoConnect app to connect to whatever backend you want to sync to. See the [RhoConnect tutorial](/rhoconnect/tutorial) for details on how to code that, but you don't need to run the server locally. Then add and commit your edited code (this will include new files you cereated), then push the code to RhoHub.
+Your Rhodes app is pre-configured to use the RhoConnect server. You will need to create a source adapter in your RhoConnect app to connect to whatever backend you want to sync to. See the [RhoConnect tutorial](/v/2.2/rhoconnect/tutorial) for details on how to code that, but you don't need to run the server locally. Then add and commit your edited code (this will include new files you cereated), then push the code to RhoHub.
 
 	:::term
 	$ git add .
@@ -342,7 +342,7 @@ To deploy your RhoConnect app, open your RhoConnect app, then click the "Deploy"
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-new-rhoconnect-app-barrow.png"/>
 
-The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoConnect web console](/rhoconnect/web-console).  This url will be static for this RhoConnect app, even if you rename the app.
+The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoConnect web console](/v/2.2/rhoconnect/web-console).  This url will be static for this RhoConnect app, even if you rename the app.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-deploy-url-arrow.png"/>
 

@@ -65,9 +65,9 @@ RhoMobile applications provide definition and CRUD access to your data models in
 
 
 * JavaScript [ORM API](/api/Orm) and [ORM Model API](/api/OrmModel) 
-* [Javascript Rhom Guide](/guide/rhom-js) 
+* [Javascript Rhom Guide](rhom_js) 
 * [Ruby Rhom API](/api/rhom-api) 
-* [Ruby Rhom Guide](/guide/rhom-ruby) 
+* [Ruby Rhom Guide](rhom_ruby) 
 
 
 ## Database Encryption

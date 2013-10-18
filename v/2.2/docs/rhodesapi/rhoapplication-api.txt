@@ -1,6 +1,6 @@
 # RhoApplication API
 
-Access methods for Rhodes applications. Refer to [File System access in Device Capabilities](/rhodes/device-caps#file-system-access) for examples using file access and for information on file access on different device platforms.
+Access methods for Rhodes applications. Refer to [File System access in Device Capabilities](/v/2.2/rhodes/device-caps#file-system-access) for examples using file access and for information on file access on different device platforms.
 
 ## Using JavaScript API
 
@@ -15,11 +15,11 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
 
 ## get_base_app_path
 
-Returns a string that contains the absolute path to the application. See [get_user_path](/rhodesapi/rhoapplication-api#getuserpath) for information about getting paths with iOS.
+Returns a string that contains the absolute path to the application. See [get_user_path](#getuserpath) for information about getting paths with iOS.
 
 Ruby syntax:
 

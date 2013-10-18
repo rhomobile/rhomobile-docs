@@ -216,7 +216,7 @@ To help rhoconnect-java plugin correctly do mapping of model name to service bea
 * Service bean should be auto-wired into corresponding controller via @Autowired annotation 
 
 Data partitioning in your code should be based on filtering data for unique user (i.e. your user name) or per application (shared dataset for all users).
-For more information about RhoConnect partitions, please refer to the [RhoConnect docs](http://docs.rhomobile.com/rhosync/source-adapters#data-partitioning).
+For more information about RhoConnect partitions, please refer to the [RhoSync docs](/v/2.2/rhosync/source-adapters#data-partitioning).
 
 ### Establishing communication from java back-end application to the RhoConnect server
 
@@ -344,7 +344,7 @@ Click [here](https://github.com/shurab/RhoconnectJavaPluginDemo) to download ful
 
 ## RhoConnect-Java-API
 
-The rhoconnect-java project contains `java-api` module that provides Java API to all resources available in <a href='http://docs.rhomobile.com/rhoconnect/rest-api'>Rhoconnect</a>.  
+The rhoconnect-java project contains the `java-api` module that provides a Java API to all resources available in [Rhoconnect](rest-api).  
 The `rhoconnect-java-api`is a generic Java library for communicating with RhoConnect RESTful API and it might be used to implement java client apps or components of back-end servers. 
 This library also is used by RhoConnect-Java plugin to directly access RhoConnect resources.
 

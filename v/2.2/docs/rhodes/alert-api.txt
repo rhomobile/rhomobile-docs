@@ -1,6 +1,6 @@
 # Alert API - Popup, Vibrate, Play for System Alerts
 
-The [Alert Class API](http://docs.rhomobile.com/rhodes/device-caps#alerts) lets you call system alert methods for popup, vibrate, or playing audio files.
+The [Alert Class API](device-caps#alerts) lets you call system alert methods for popup, vibrate, or playing audio files.
 
 ## Alert.hide_popup
 

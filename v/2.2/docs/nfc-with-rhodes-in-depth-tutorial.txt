@@ -2,7 +2,7 @@ Near Field Communications With Rhodes In-Depth Tutorial
 ========
 This tutorial will guide you through running near field communications with Rhodes, both in the Android emulator and on an Android device. Near field communication is very similar to RFID, and you can even use near field communications to read RFID tags. It has features to have two devices communicate with each other, as well as act as mobile business cards.
 
-**NOTE: As of Rhodes version 3.3.3, the [NFC](/rhodes/device-caps#nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [NFC](rhodes/device-caps#nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](rhoelements/licensing) is required.**
 
 Source Code
 -----------
@@ -16,15 +16,15 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoStudio Tutorial](/rhostudio.tutorial)
- * [RhoMobile Suite install](/rhomobile-install)
- * [Rhodes Installation from command line](/rhodes/install)
- * [Rhodes NFC](/rhodes/nfc)
+ * [RhoStudio Tutorial](rhostudio.tutorial)
+ * [RhoMobile Suite install](rhomobile-install)
+ * [Rhodes Installation from command line](rhodes/install)
+ * [Rhodes NFC](rhodes/nfc)
  * [Android SDK](http://developer.android.com/sdk/index.html)
 
 ## Setup
 
-This tutorial assumes that you know how to edit a Rhodes application, and that you have Rhodes version 3.0.1 or higher. It assumes that you have installed Android SDK level 2.3.3, and set paths in your profile to your Android SDK and its tools folder. It also assumes that you have installed Google APIs:10 (which is based on Android 2.3.3), and that you created an AVD (Android Virtual Device) for the Google API. If you do not know how to do this, see [Pre-requisite Reading]().
+This tutorial assumes that you know how to edit a Rhodes application, and that you have Rhodes version 3.0.1 or higher. It assumes that you have installed Android SDK level 2.3.3, and set paths in your profile to your Android SDK and its tools folder. It also assumes that you have installed Google APIs:10 (which is based on Android 2.3.3), and that you created an AVD (Android Virtual Device) for the Google API. If you do not know how to do this, see [Pre-requisite Reading](nfc-with-rhodes-in-depth-tutorial#pre-requisite-reading).
 
 If you have any Android SDK installed, you can check to see if it has Android 2.3.3 and Google APIs:10. Go to your tools folder in your Android SDK and run android. In the Android SDK and AVD Manager, click Installed packages. If you do not see SDK Platform Android SDK 2.3.3 and Google APIs by Google Inc., Android API 10 in the list of installed packages, click on Available Packages, find them, and install them. Also click Virtual Devices and check that you have an AVD (Android Virtual Device) set up for Google API level 10; create one if you do not.
 
@@ -32,7 +32,7 @@ If you have any Android SDK installed, you can check to see if it has Android 2.
 
 The webinar and this tutorial show Android running from the command line, rather than an IDE such as Eclipse. You can also run from Eclipse.
 
-In the Build for Android section of the [Build Rhodes Application](/rhodes/build#build-for-android), you set a path to your Android SDK. Since you will run the adb command from the NFCDemo folder, you should set a path to adb in your profile. For example, on the Macintosh, in .bash\_profile, you set a path to the Android SDK platform-tools folder.
+In the Build for Android section of the [Build Rhodes Application](rhodes/build#build-for-android), you set a path to your Android SDK. Since you will run the adb command from the NFCDemo folder, you should set a path to adb in your profile. For example, on the Macintosh, in .bash\_profile, you set a path to the Android SDK platform-tools folder.
 
 ## Preparing the NFCDemo Project
 
@@ -287,9 +287,9 @@ Then it grabs the tag from the NFCManager. If the tag is not nil (the Android de
 	  add_to_log(@msg)
 	end
 
-The method to process the nfc tag, test\_ndef\_read, uses methods from the [Rhodes NFC API](/rhodes/nfc) to process the nfc tag. The get\_tech method gets the tag technology; once you know that, you can process the tag. 
+The method to process the nfc tag, test\_ndef\_read, uses methods from the [Rhodes NFC API](rhodes/nfc) to process the nfc tag. The get\_tech method gets the tag technology; once you know that, you can process the tag. 
 
-The test\_ndef\_read method assumes that the nfc tag is ndef technology. Connect to the tag with the connect method, read its ndef message with the read\_NdefMessage method, and get its records with the get\_records method. In this case, we get only one record. Make a hash from the record; the format of the hash is in the [Rhodes NFC API](/rhodes/nfc). Pull the payload\_as\_string from the hash for display.
+The test\_ndef\_read method assumes that the nfc tag is ndef technology. Connect to the tag with the connect method, read its ndef message with the read\_NdefMessage method, and get its records with the get\_records method. In this case, we get only one record. Make a hash from the record; the format of the hash is in the [Rhodes NFC API](rhodes/nfc). Pull the payload\_as\_string from the hash for display.
 
 	:::ruby
 	def test_ndef_read(tag)
@@ -326,10 +326,3 @@ The test\_ndef\_read method assumes that the nfc tag is ndef technology. Connect
 	  end
 	  result
 	end
-
-
-
-
-
-
-

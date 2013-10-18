@@ -4,7 +4,7 @@ Access geolocation information from your device.
 
 See the controller and view in the [/app/GeoLocation folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) application for an example.
 
-Refer to [GeoLocation in Device Capabilites](/rhodes/device-caps#geolocation) for more discussion of GeoLocation, and for examples.
+Refer to [GeoLocation in Device Capabilites](/v/2.2/rhodes/device-caps#geolocation) for more discussion of GeoLocation, and for examples.
 
 ## Enabling Geolocation
 
@@ -29,7 +29,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
 
 ## latitude
 
@@ -76,7 +76,7 @@ Set callback to track location changes.
 
 **NOTE: You only need to call GeoLocation.set_notification once. The current behavior of the callback is that it will be called forever until it is stopped; you need to call `GeoLocation.turnoff` to stop it. The previous behavior was that the callback was called once and needed to be reset.**
 
-Refer to [Device Capabilities - GeoLocation](/rhodes/device-caps#geolocation-setnotification-ex) for examples of set_notification. 
+Refer to [Device Capabilities - GeoLocation](/v/2.2/rhodes/device-caps#geolocation-setnotification-ex) for examples of set_notification. 
 
 Ruby syntax:
 

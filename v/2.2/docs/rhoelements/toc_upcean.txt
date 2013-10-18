@@ -1,97 +1,26 @@
 Upc Ean: RhoElements Barcode Capture Decoders
 ===
 
-* ### [UpcEanBookland](/rhoelements/upcEanBookland)
+* ### [UpcEanBookland](upcEanBookland)
 
-* ### [UpcEanBooklandFormat](/rhoelements/upcEanBooklandFormat)
+* ### [UpcEanBooklandFormat](upcEanBooklandFormat)
 
-* ### [UpcEanConvertGs1dataBarToUpcEan](/rhoelements/upcEanConvertGs1dataBarToUpcEan)
+* ### [UpcEanConvertGs1dataBarToUpcEan](upcEanConvertGs1dataBarToUpcEan)
 
-* ### [UpcEanCoupon](/rhoelements/upcEanCoupon)
+* ### [UpcEanCoupon](upcEanCoupon)
 
-* ### [UpcEanLinearDecode](/rhoelements/upcEanLinearDecode)
+* ### [UpcEanLinearDecode](upcEanLinearDecode)
 
-* ### [UpcEanRandomWeightCheckDigit](/rhoelements/upcEanRandomWeightCheckDigit)
+* ### [UpcEanRandomWeightCheckDigit](upcEanRandomWeightCheckDigit)
 
-* ### [UpcEanRetryCount](/rhoelements/upcEanRetryCount)
+* ### [UpcEanRetryCount](upcEanRetryCount)
 
-* ### [UpcEanSecurityLevel](/rhoelements/upcEanSecurityLevel)
+* ### [UpcEanSecurityLevel](upcEanSecurityLevel)
 
-* ### [UpcEanSupplemental2](/rhoelements/upcEanSupplemental2)
+* ### [UpcEanSupplemental2](upcEanSupplemental2)
 
-* ### [UpcEanSupplemental5](/rhoelements/upcEanSupplemental5)
+* ### [UpcEanSupplemental5](upcEanSupplemental5)
 
-* ### [UpcEanSupplementalmode](/rhoelements/upcEanSupplementalMode)
+* ### [UpcEanSupplementalmode](upcEanSupplementalMode)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###<a href="toc_decoders">Back To Decoders</a>

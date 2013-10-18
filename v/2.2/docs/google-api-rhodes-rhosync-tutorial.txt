@@ -15,9 +15,9 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoStudio Tutorial](/rhostudio.tutorial)
- * [RhoConnect Tutorial](/rhoconnect/tutorial)
- * [RhoHub Tutorial](/rhohub/tutorial)
+ * [RhoStudio Tutorial](rhostudio.tutorial)
+ * [RhoConnect Tutorial](rhoconnect/tutorial)
+ * [RhoHub Tutorial](rhohub/tutorial)
 
 ## Setup
 
@@ -39,7 +39,7 @@ The Issue Tracker project was created on RhoHub. Detailed instructions for setti
 
 ## Creating the Source Adapter in RhoSync
 
-The Issue Tracker project from RhoHub was cloned to the user's local computer. You will need to have a local Git repository on your computer to perform the clone. Again, detailed instructions to do that are [here](/rhohub/tutorial).
+The Issue Tracker project from RhoHub was cloned to the user's local computer. You will need to have a local Git repository on your computer to perform the clone. Again, detailed instructions to do that are [here](rhohub/tutorial).
 
 	:::term
 	$ git clone git@git.rhohub.com:yourname/IssueTracker-rhosync.git
@@ -230,11 +230,11 @@ In the webinar, the RhoSync project was cloned to a local Git repository. To run
 	(message that source adapter code has been edited)
 	git push
 
-From RhoHub, you can deploy the RhoSync server by clicking the RhoSync project Deploy button. You can refer to the [RhoHub Tutorial](/rhohub/tutorial), or watch the webinar to see this deployment done.
+From RhoHub, you can deploy the RhoSync server by clicking the RhoSync project Deploy button. You can refer to the [RhoHub Tutorial](rhohub/tutorial), or watch the webinar to see this deployment done.
 
 ## Creating the Model in Rhodes
 
-The Issue Tracker project from RhoHub was cloned to the user's local computer. You will need to have a local Git repository on your computer to perform the clone. Again, detailed instructions to do that are [here](/rhohub/tutorial).
+The Issue Tracker project from RhoHub was cloned to the user's local computer. You will need to have a local Git repository on your computer to perform the clone. Again, detailed instructions to do that are [here](rhohub/tutorial).
 
 	:::term
 	$ git clone git@git.rhohub.com:yourname/IssueTracker-rhodes.git

@@ -1,84 +1,10 @@
 Upca: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Upca](/rhoelements/upca)
+* ### [Upca](upca)
 
-* ### [UpcaPreamble](/rhoelements/upca_preamble)
+* ### [UpcaPreamble](upca_preamble)
 
-* ### [UpcaReportCheckDigit](/rhoelements/upcaReportCheckDigit)
+* ### [UpcaReportCheckDigit](upcaReportCheckDigit)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

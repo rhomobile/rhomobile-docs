@@ -218,10 +218,10 @@ When a Rhodes app starts, it compares the current db version with app_db_version
 
 ### RhoConfig API Examples
 
-Each of the configuration options shown above are available through the [RhoConfig Ruby API](/rhodesapi/rhoconfig-api).
+Each of the configuration options shown above are available through the [RhoConfig Ruby API](/v/2.2/rhodesapi/rhoconfig-api).
 
- * [configuration property methods](/rhodesapi/rhoconfig-api#configuration-property-methods) - The properties in the rhoconfig.txt file for a Rhodes application are available through the RhoConfig API. To access the property, use the name of the property as the method name.
- * [exists?](/rhodesapi/rhoconfig-api#exists) - Checks to see if a configuration property exists for this Rhodes application.
+ * [configuration property methods](/v/2.2/rhodesapi/rhoconfig-api#configuration-property-methods) - The properties in the rhoconfig.txt file for a Rhodes application are available through the RhoConfig API. To access the property, use the name of the property as the method name.
+ * [exists?](/v/2.2/rhodesapi/rhoconfig-api#exists) - Checks to see if a configuration property exists for this Rhodes application.
 
 To access configuration properties from application code use the Rho::RhoConfig class.<a id="rhoconfig-api-ex"></a>
 

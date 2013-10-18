@@ -28,7 +28,7 @@ If you want to disable this web interface, you can do so by editing the rackup f
 		"/resque"   => Resque::Server.new, # If you don't want resque frontend, disable it here
 		#"/console"  => RhosyncConsole::Server.new # If you don't want rhosync frontend, disable it here
 
-**NOTE: This web console is intended to be used for basic tests and views into the running RhoSync application.  It uses the [RhoSync REST API](/rhosync/rest-api) for everything it does, so it is very easy to extend this console or programmatically control your RhoSync application directly using the [RhoSync API](/rhosync/rest-api). **
+**NOTE: This web console is intended to be used for basic tests and views into the running RhoSync application.  It uses the [RhoSync REST API](rest-api) for everything it does, so it is very easy to extend this console or programmatically control your RhoSync application directly using the [RhoSync API](rest-api). **
 
 Here is a screenshot of the web console:
 

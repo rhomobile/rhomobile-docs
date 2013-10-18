@@ -1,65 +1,14 @@
 MacroMicroPdf: RhoElements Barcode Capture Decoders
 ===
 
-* ### [MacroMicroPdf](/rhoelements/macromicropdf)
+* ### [MacroMicroPdf](macromicropdf)
 
-* ### [MacroMicroPdfBufferLabels](/rhoelements/macroMicroPdfBufferLabels)
+* ### [MacroMicroPdfBufferLabels](macroMicroPdfBufferLabels)
 
-* ### [MacroMicroPdfConvertToMicroPdf](/rhoelements/macroMicroPdfConvertToMicroPdf)
+* ### [MacroMicroPdfConvertToMicroPdf](macroMicroPdfConvertToMicroPdf)
 
-* ### [MacroMicroPdfExclusive](/rhoelements/macroMicroPdfExclusive)
+* ### [MacroMicroPdfExclusive](macroMicroPdfExclusive)
 
-* ### [MacroMicroPdfReportAppendedInfo](/rhoelements/macroMicroPdfReportAppendInfo)
+* ### [MacroMicroPdfReportAppendedInfo](macroMicroPdfReportAppendInfo)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

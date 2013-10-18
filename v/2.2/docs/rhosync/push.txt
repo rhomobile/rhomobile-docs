@@ -1,7 +1,7 @@
 Device Push
 ===
 
-RhoSync has a simple ruby API for sending push notifications to a user's devices.  This API can be called directly, queued as a resque job, or called remotely via the [RhoSync REST API](/rhosync/rest-api). The push message can trigger the following actions in the rhodes application: alert with a message, sync one or more sources, vibrate, display a badge, play a sound file.
+RhoSync has a simple ruby API for sending push notifications to a user's devices.  This API can be called directly, queued as a resque job, or called remotely via the [RhoSync REST API](rest-api). The push message can trigger the following actions in the rhodes application: alert with a message, sync one or more sources, vibrate, display a badge, play a sound file.
 
 We will now show you how to use the RhoSync application to deliver push messages on each platform and how you can handle the push notification in your Rhodes application.
 
@@ -46,14 +46,14 @@ To setup your RhoSync application for Android push, you will need to update `set
 	  :licensefile: settings/license.key
 	  :authtoken: authtoken
 
-Replace `:authtoken:` value with actual authentication token. This token MUST be related to the role-based google account registered for your application. See [the rhodes push instructions](/rhodes/device-caps#push-notifications) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
+Replace `:authtoken:` value with actual authentication token. This token MUST be related to the role-based google account registered for your application. See [the rhodes push instructions](/v/2.2/rhodes/device-caps#push-notifications) for more details. To retrieve this token, use sample script [c2dm.rb](http://github.com/rhomobile/rhodes/blob/master/bin/c2dm.rb). Uncomment last two lines and put your google account specific data, then run it. It will print token to stdout.
 
 For those who interested in what this token means, the description is [here](http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html).
 
-Now start up your RhoSync application and setup [push notifications](/rhodes/device-caps#push-notifications) in your Rhodes application.
+Now start up your RhoSync application and setup [push notifications](/v/2.2/rhodes/device-caps#push-notifications) in your Rhodes application.
 
 ## Testing Push in the Web Console
-The [RhoSync Web Console](/rhosync/web-console) includes a utility for testing push to make sure everything is wired up correctly.  
+The [RhoSync Web Console](web-console) includes a utility for testing push to make sure everything is wired up correctly.  
 
 First, make sure you've logged in and performed a sync on the device/simulator you are going to test. 
 
@@ -69,7 +69,7 @@ You should see a registered device for this user, for example: "c92e36874bc74f39
 	user_id: t
 	app_id:	application
 
-**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [Rhodes application push setup](/rhodes/device-caps#push-notifications).**
+**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings.  Please verify you followed the [Rhodes application push setup](/v/2.2/rhodes/device-caps#push-notifications).**
 
 Now that the device is registered, go back to the user page and click 'Ping User'.
 
@@ -83,7 +83,7 @@ By default, the sources list will be a comma-separated list of your RhoSync appl
 The RhoSync push API consists of executing a ping call.  There are three ways to execute a ping call:  use RhoSync API to remotely call the ping, perform the ping job directly in a blocking ruby call, enqueue a resque job to ping asynchronously.
 
 ### RhoSync API Ping Method
-You can trigger a push remotely using the [RhoSync API Ping method](/rhosync/rest-api).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
+You can trigger a push remotely using the [RhoSync API Ping method](rest-api).  This is useful if you want to fully control the push process from a remote server (instead of your source adapter).
 
 ### Direct Push
 To perform a ping directly, you can call the following:
@@ -110,7 +110,7 @@ To queue a ping that is executed asynchronously in a job, you can call the follo
 	  'sound' => 'hello.mp3'
 	)
 
-**Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](/rhosync/async-jobs) for more information.**
+**Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](async-jobs) for more information.**
 
 ### Example
 Let's say we want to execute a ping for the `current_user` at the end of our source adapter query:
@@ -132,4 +132,4 @@ Let's say we want to execute a ping for the `current_user` at the end of our sou
 	end
 
 ### Push Notifications in Rhodes
-Now that you can send push messages in your RhoSync application, you can now handle the [push notification](/rhodes/device-caps#push-notifications) in your Rhodes application.
+Now that you can send push messages in your RhoSync application, you can now handle the [push notification](/v/2.2/rhodes/device-caps#push-notifications) in your Rhodes application.

@@ -11,7 +11,7 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoHub Tutorial](/rhohub/tutorial)
+ * [RhoHub Tutorial](rhohub/tutorial)
 
 ## Setup
 
@@ -359,5 +359,3 @@ Click on logout to log out of your RhoHub gallery connection.
 Click Change Password to change the password for your connection to this RhoHub gallery.
 
 Click Check for Updates to check for updates to the RhoHub gallery.
-
-

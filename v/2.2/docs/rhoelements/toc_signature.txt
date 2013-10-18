@@ -1,29 +1,12 @@
 Signature: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Signature](/rhoelements/signature)
+* ### [Signature](signature)
 
-* ### [SignatureImageQuality](/rhoelements/signatureImageQuality)
+* ### [SignatureImageQuality](signatureImageQuality)
 
-* ### [SignatureImageWidth](/rhoelements/signatureImageWidth)
+* ### [SignatureImageWidth](signatureImageWidth)
 
-* ### [SignatureImageHeight](/rhoelements/signatureImageHeight)
+* ### [SignatureImageHeight](signatureImageHeight)
 
-
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

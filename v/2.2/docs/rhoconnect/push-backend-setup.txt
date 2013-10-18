@@ -7,7 +7,7 @@ The push message can trigger the following actions in the Rhodes client applicat
 
 ## Pushing Remotely with the RhoConnect REST API
 
-You can trigger a push remotely using the [RhoConnect API Ping method](/rhoconnect/rest-api). This is useful if you want to fully control the push process from a remote server, such as when you use a RhoConnect plugin to connect your backend application to the RhoConnect server application.
+You can trigger a push remotely using the [RhoConnect API Ping method](rest-api). This is useful if you want to fully control the push process from a remote server, such as when you use a RhoConnect plugin to connect your backend application to the RhoConnect server application.
 
 **NOTE: If you want to sync all the sources, use 'all' for the source list (the source_name parameter) instead of a comma-separated list of the RhoConnect application source names to sync.**
 
@@ -146,7 +146,7 @@ To queue a ping that is executed asynchronously in a job, you can have PingJob q
 	  'sound' => 'hello.mp3'
 	)
 
-**Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](/rhoconnect/async-jobs) for more information.**
+**Note: For this job to execute, you will need to have a resque worker running.  See running [async jobs](async-jobs) for more information.**
 
 ## Triggering Push Automatically after Updating RhoConnect Data from Plugins
 

@@ -1,49 +1,26 @@
 Code39: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Code39](/rhoelements/code39)
+* ### [Code39](code39)
 
-* ### [Code39code32Prefix](/rhoelements/Code39Code32Prefix)
+* ### [Code39code32Prefix](Code39Code32Prefix)
 
-* ### [Code39concatenation](/rhoelements/Code39concatenation)
+* ### [Code39concatenation](Code39concatenation)
 
-* ### [Code39convertToCode32](/rhoelements/Code39ConvertToCode32)
+* ### [Code39convertToCode32](Code39ConvertToCode32)
 
-* ### [Code39fullAscii](/rhoelements/Code39FullASCII)
+* ### [Code39fullAscii](Code39FullASCII)
 
-* ### [Code39maxLength](/rhoelements/Code39MaxLength)
+* ### [Code39maxLength](Code39MaxLength)
 
-* ### [Code39minLength](/rhoelements/Code39MinLength)
+* ### [Code39minLength](Code39MinLength)
 
-* ### [Code39redundancy](/rhoelements/Code39Redundancy)
+* ### [Code39redundancy](Code39Redundancy)
 
-* ### [Code39reportCheckDigit](/rhoelements/Code39ReportCheckDigit)
+* ### [Code39reportCheckDigit](Code39ReportCheckDigit)
 
-* ### [Code39securityLevel](/rhoelements/Code39securityLevel)
+* ### [Code39securityLevel](Code39securityLevel)
 
-* ### [Code39verifyCheckDigit](/rhoelements/Code39VerifyCheckDigit)
+* ### [Code39verifyCheckDigit](Code39VerifyCheckDigit)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

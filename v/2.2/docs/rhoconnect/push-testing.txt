@@ -1,7 +1,7 @@
 Testing Push in the RhoConnect Web Console
 ===
 
-The [RhoConnect Web Console](/rhoconnect/web-console) includes a utility for testing push to make sure everything is wired up correctly.
+The [RhoConnect Web Console](web-console) includes a utility for testing push to make sure everything is wired up correctly.
 
 First, make sure you've logged in and performed a sync on the device/simulator you are going to test.
 
@@ -17,7 +17,7 @@ You should see a registered device for this user, for example: "c92e36874bc74f39
 	user_id: t
 	app_id:	application
 
-**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings. Please verify you followed the [Rhodes application push setup](/rhoconnect/push-client-setup).**
+**NOTE: If you don't see all of these attributes, then something is incorrect in your Rhodes application settings. Please verify you followed the [Rhodes application push setup](push-client-setup).**
 
 Now that the device is registered, go back to the user page and click 'Ping User'.
 
