@@ -1,6 +1,6 @@
 Source Adapter Store API (JavaScript)
 ===
-RhoConnect provides a simple redis interface for saving/retrieving arbitrary data. This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).  As with the other JavaScript methods execution is asynchronous, so be sure to call [resp.send()](/rhoconnectapi/source-adapter-response-api-js#sendvalue) or your method will hang.
+RhoConnect provides a simple redis interface for saving/retrieving arbitrary data. This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).  As with the other JavaScript methods execution is asynchronous, so be sure to call [resp.send()](source-adapter-response-api-js#sendvalue) or your method will hang.
 
 ## Setup
 To create a Store object that you can use in your model:
