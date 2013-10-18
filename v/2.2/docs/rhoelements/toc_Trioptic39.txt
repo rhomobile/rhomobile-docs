@@ -1,77 +1,8 @@
 Trioptic39: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Trioptic39](/rhoelements/trioptic39)
+* ### [Trioptic39](trioptic39)
 
-* ### [Trioptic39redundancy](/rhoelements/trioptic39Redundancy)
+* ### [Trioptic39redundancy](trioptic39Redundancy)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

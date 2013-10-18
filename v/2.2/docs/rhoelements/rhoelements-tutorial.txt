@@ -355,7 +355,7 @@ The ‘decodeEventCallback’ function is given below:
 
 	  end     
 
-Let’s look at this function line by line. When the decode event returns after a successful decode, it contains a few parameters (a full list is provided in the [RhoElements API for Scanner](/rhoelements/scanner)) out of which we extract the ‘data’ element which contains the barcode that was just scanned. With that barcode, we find the ProductCatalog entry we may have for that product by matching the ‘barcode’ variable to each product’s ‘SKU’.  If we do not have an entry for that barcode, we create a new one with a default ‘Name’ and ‘Image’.
+Let’s look at this function line by line. When the decode event returns after a successful decode, it contains a few parameters (a full list is provided in the [RhoElements API for Scanner](scanner)) out of which we extract the ‘data’ element which contains the barcode that was just scanned. With that barcode, we find the ProductCatalog entry we may have for that product by matching the ‘barcode’ variable to each product’s ‘SKU’.  If we do not have an entry for that barcode, we create a new one with a default ‘Name’ and ‘Image’.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image028.png"/>
 

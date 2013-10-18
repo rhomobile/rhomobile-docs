@@ -1,40 +1,8 @@
 Ean8: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Ean8](/rhoelements/ean8)
+* ### [Ean8](ean8)
 
-* ### [Ean8convertToEan13](/rhoelements/ean8ConvertToEAN13)
+* ### [Ean8convertToEan13](ean8ConvertToEAN13)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

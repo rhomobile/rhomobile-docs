@@ -2,79 +2,76 @@ RhoElements Barcode Capture Decoders
 ===
 Here you will find reference to all decoders available for the <a href="/rhoelements/scanner">RhoElements Scanner object</a>
 
-* ### [AllDecoders](/rhoelements/all_decoders)
+* ### [AllDecoders](all_decoders)
 
-* ### [Aztec](/rhoelements/aztec)
+* ### [Aztec](aztec)
 
-* ### [Chinese2of5](/rhoelements/chinese_2of5)
+* ### [Chinese2of5](chinese_2of5)
 
-* ### [Codabar](/rhoelements/toc_codeabar)
+* ### [Codabar](toc_codeabar)
 
-* ### [Code11](/rhoelements/toc_code11)
+* ### [Code11](toc_code11)
 
-* ### [Code128](/rhoelements/toc_code128)
+* ### [Code128](toc_code128)
 
-* ### [CompositeAb](/rhoelements/toc_compositeab)
+* ### [CompositeAb](toc_compositeab)
 
-* ### [CompositeC](/rhoelements/composit_c)
+* ### [CompositeC](composit_c)
 
-* ### [Code39](/rhoelements/toc_code39)
+* ### [Code39](toc_code39)
 
-* ### [Code93](/rhoelements/toc_code93)
+* ### [Code93](toc_code93)
 
-* ### [D2of5](/rhoelements/toc_D2of5)
+* ### [D2of5](toc_D2of5)
 
-* ### [DataMatrix](/rhoelements/datamatrix)
+* ### [DataMatrix](datamatrix)
 
-* ### [Ean8](/rhoelements/toc_ean8)
+* ### [Ean8](toc_ean8)
 
-* ### [Ean13](/rhoelements/ean13)
+* ### [Ean13](ean13)
 
-* ### [Gs1dataBar](/rhoelements/gs1dataBar)
+* ### [Gs1dataBar](gs1dataBar)
 
-* ### [Gs1dataBarExpanded](/rhoelements/gs1dataBarExpanded)
+* ### [Gs1dataBarExpanded](gs1dataBarExpanded)
 
-* ### [gs1dataBarLimited](/rhoelements/gs1dataBarLimited)
+* ### [gs1dataBarLimited](gs1dataBarLimited)
 
-* ### [I2of5](/rhoelements/toc_I2of5)
+* ### [I2of5](toc_I2of5)
 
-* ### [Korean3of5](/rhoelements/toc_Korean3of5)
+* ### [Korean3of5](toc_Korean3of5)
 
-* ### [MacroPdf](/rhoelements/toc_MacroPdf)
+* ### [MacroPdf](toc_MacroPdf)
 
-* ### [MacroMicroPdf](/rhoelements/toc_MacroMicroPdf)
+* ### [MacroMicroPdf](toc_MacroMicroPdf)
 
-* ### [Matrix2of5](/rhoelements/toc_Matrix2of5)
+* ### [Matrix2of5](toc_Matrix2of5)
 
-* ### [Maxicode](/rhoelements/maxicode)
+* ### [Maxicode](maxicode)
 
-* ### [MicroPdf](/rhoelements/micropdf)
+* ### [MicroPdf](micropdf)
 
-* ### [MicroQr](/rhoelements/Microqr)
+* ### [MicroQr](Microqr)
 
-* ### [MSI](/rhoelements/toc_Msi)
+* ### [MSI](toc_Msi)
 
-* ### [PDF417](/rhoelements/pdf417)
+* ### [PDF417](pdf417)
 
-* ### [Postal](/rhoelements/toc_postal)
+* ### [Postal](toc_postal)
 
-* ### [QrCode](/rhoelements/qrcode)
+* ### [QrCode](qrcode)
 
-* ### [Signature](/rhoelements/toc_signature)
+* ### [Signature](toc_signature)
 
-* ### [Tlc39](/rhoelements/tlc39)
+* ### [Tlc39](tlc39)
 
-* ### [Trioptic39](/rhoelements/toc_Trioptic39)
+* ### [Trioptic39](toc_Trioptic39)
 
-* ### [UPC Ean](/rhoelements/toc_upcean)
+* ### [UPC Ean](toc_upcean)
 
-* ### [Upca](/rhoelements/toc_Upca)
+* ### [Upca](toc_Upca)
 
-* ### [Upce0](/rhoelements/toc_Upce0)
+* ### [Upce0](toc_Upce0)
 
-* ### [Upce1](/rhoelements/toc_Upce1)
+* ### [Upce1](toc_Upce1)
 
-* ### [Webcode](/rhoelements/toc_Webcode)
-
-
-
+* ### [Webcode](toc_Webcode)

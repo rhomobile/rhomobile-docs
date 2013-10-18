@@ -6,7 +6,7 @@
 
 Native applications are written using HTML, CSS and JavaScript, and the Rhodes-style Ruby framework for the application logic. Like a Rhodes app, you deploy and run a RhoElements native application on the mobile device. As with all RhoElements applications, native applications are platform agnostic.
 
-[Build A RhoElements Native application.](/rhoelements/rhoelements2-native)
+[Build A RhoElements Native application.](rhoelements2-native)
 
 ### Native Application Development and Distribution
 
@@ -20,7 +20,7 @@ You may decide to create RhoElements native apps over hybrid apps when the netwo
 
 Applications that are running in a more traditional web app model are typically written purely with HTML, CSS, and JavaScript or running from any web server application technology (.NET, Java, etc). They may include some form of server logic (local or remote). These hybrid apps have their application logic on the backend web application, whereas native apps have the application logic on the device itself. The hybrid apps perform device capabilities with both HTML tags (EMML tags and more), and JavaScript calls.
 
-[RhoElements Enable A Web App](/rhoelements/rhoelements2-webapps)
+[RhoElements Enable A Web App](rhoelements2-webapps)
 
 ### Hybrid Application Development and Distribution
 

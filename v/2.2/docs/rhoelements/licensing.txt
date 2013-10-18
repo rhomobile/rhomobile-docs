@@ -127,17 +127,3 @@ For hybrid applications, you can define your device license and company name in 
 	       ...
 	    </Application > 
 	  </Applications>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-

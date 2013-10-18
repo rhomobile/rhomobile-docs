@@ -1,34 +1,24 @@
 Code128: RhoElements Barcode Capture Decoders
 ===
 
-* ### [Code128](/rhoelements/code128)
+* ### [Code128](code128)
 
-* ### [CheckIsBtTable](/rhoelements/Code128checkIsBtTable)
+* ### [CheckIsBtTable](Code128checkIsBtTable)
 
-* ### [Code128ean128](/rhoelements/Code128EAN128)
+* ### [Code128ean128](Code128EAN128)
 
-* ### [Code128isbt128](/rhoelements/Code128isbt128)
+* ### [Code128isbt128](Code128isbt128)
 
-* ### [Code128isbt128ConcatMode](/rhoelements/code128isBt128ConcatMode)
+* ### [Code128isbt128ConcatMode](code128isBt128ConcatMode)
 
-* ### [Code128maxLength](/rhoelements/Code128MaxLength)
+* ### [Code128maxLength](Code128MaxLength)
 
-* ### [Code128minLength](/rhoelements/Code128MinLength)
+* ### [Code128minLength](Code128MinLength)
 
-* ### [Code128other128](/rhoelements/Code128Other128)
+* ### [Code128other128](Code128Other128)
 
-* ### [Code128redundancy](/rhoelements/Code128Redundancy)
+* ### [Code128redundancy](Code128Redundancy)
 
-* ### [Code128securityLevel](/rhoelements/Code128securityLevel)
+* ### [Code128securityLevel](Code128securityLevel)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

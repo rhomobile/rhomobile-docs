@@ -1,95 +1,28 @@
 Postal: RhoElements Barcode Capture Decoders
 ===
 
-* ### [AusPostal](/rhoelements/auspostal)
+* ### [AusPostal](auspostal)
 
-* ### [CanPostal](/rhoelements/canpostal)
+* ### [CanPostal](canpostal)
 
-* ### [DutchPostal](/rhoelements/dutchpostal)
+* ### [DutchPostal](dutchpostal)
 
-* ### [JapPostal](/rhoelements/jappostal)
+* ### [JapPostal](jappostal)
 
-* ### [UKPostal](/rhoelements/ukpostal)
+* ### [UKPostal](ukpostal)
 
-* ### [UKPostalReportCheckDigit](/rhoelements/ukpostalreportCheckDigit)
+* ### [UKPostalReportCheckDigit](ukpostalreportCheckDigit)
 
-* ### [Us4State](/rhoelements/us4state)
+* ### [Us4State](us4state)
 
-* ### [Us4StateFics](/rhoelements/us4stateFics)
+* ### [Us4StateFics](us4stateFics)
 
-* ### [UsPlanet](/rhoelements/usplanet)
+* ### [UsPlanet](usplanet)
 
-* ### [UsPlanetReportCheckDigit](/rhoelements/usplanetreportCheckDigit)
+* ### [UsPlanetReportCheckDigit](usplanetreportCheckDigit)
 
-* ### [USPostNet](/rhoelements/uspostnet)
+* ### [USPostNet](uspostnet)
 
-* ### [USPostNetReportCheckDigit](/rhoelements/uspostnetreportCheckDigit)
+* ### [USPostNetReportCheckDigit](uspostnetreportCheckDigit)
 
-###<a href="/rhoelements/toc_decoders">Back To Decoders</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###[Back To Decoders](toc_decoders)

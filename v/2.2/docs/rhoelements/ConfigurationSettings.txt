@@ -683,12 +683,12 @@ The following substitution variables are available in the configuration file
 
 RhoElements will be installed to the device with all default functionality enabled out of the box, including the barcode scanner.  This section describes how you can customise the RhoElements runtime to only load the functionality your application requires and specify when you want to load it.
 
-Consider an application which opens the [Card Reader](/rhoelements/cardreader) on the first page:
+Consider an application which opens the [Card Reader](cardreader) on the first page:
 	<META HTTP-Equiv="CardReader" Content="Open" />
 
 There are two circumstances to consider:
 
-1) The Card Reader module is Preloaded in Config.xml See [Configuration Settings](/rhoelements/ConfigurationSettings) for details of how to preload modules
+1) The Card Reader module is Preloaded in Config.xml See [Configuration Settings](ConfigurationSettings) for details of how to preload modules
 In this case RhoElements opens the card reader more or less immediately with no noticeable delay to the user.
 
 2) The Card Reader module was not Preloaded
@@ -703,7 +703,7 @@ Plugin.xml contains a mapping between the plugin DLL names, the modules containe
 In order for RhoElements to function correctly it is necessary to preload some modules, this section details what those modules are and why they are necessary.  By default after a standard installation the Config.xml copied to the device will preload the necessary modules.
 
 ####Hourglass
-When you navigate between pages you would expect to be shown an illustration of a rotating cursor.  If the [Hourglass](/rhoelements/hourglass) module is not preloaded this cursor will not be shown.  
+When you navigate between pages you would expect to be shown an illustration of a rotating cursor.  If the [Hourglass](hourglass) module is not preloaded this cursor will not be shown.  
 
 Note that the hourglass will be shown during page transitions if it is loaded by another means, e.g. calling:
 	<META HTTP-Equiv="Hourglass" Content="Visibility:Visible" />
@@ -711,7 +711,7 @@ Note that the hourglass will be shown during page transitions if it is loaded by
 NOTE: Hourglass and SIP modules are located in the same Plugin (PB_DeviceApplication_PLG.dll)
 
 ####Key Capture
-The following [Configuration Settings](/rhoelements/ConfigurationSettings) require the Key Capture module to be preloaded in order to take effect:
+The following [Configuration Settings](ConfigurationSettings) require the Key Capture module to be preloaded in order to take effect:
 <ul>
 <LI>EnableFunctionKey_FX</LI>
 <LI>EnableApplicationKey_AX</LI>
@@ -719,7 +719,7 @@ The following [Configuration Settings](/rhoelements/ConfigurationSettings) requi
 </ul>
 
 ####SIP
-The following [Configuration Settings](/rhoelements/ConfigurationSettings) require the SIP module to be preloaded in order to take effect:
+The following [Configuration Settings](ConfigurationSettings) require the SIP module to be preloaded in order to take effect:
 <ul>
 <LI>ResizeOnSIP</LI>
 </ul>
@@ -749,13 +749,13 @@ NOTE: Some javascript libraries may incorrectly think that RhoElements supports 
 Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.
 
 ####File Transfer
-The [File Transfer Plugin](/rhoelements/filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
+The [File Transfer Plugin](filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
 
 [Signature Capture](/rhoelements/SignatureCapture) (PB_Signature_PLG.dll) requires File Transfer to transmit the signature bitmap file to a remote server via its 'Capture' method, without File Transfer the file will not be transferred and the signature bitmap will remain stored in the root of the device (by default).
 
-The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](/rhoelements/backbutton), [Forward Button](/rhoelements/forwardbutton), [Go Button](/rhoelements/gobutton), [Home Button](/rhoelements/HomeButton), [Minimize Button](/rhoelements/minimizebutton), [Quit Button](/rhoelements/quitbutton), [Reload Button](/rhoelements/reloadbutton), [SIP Button](/rhoelements/sipbutton), [Stop Button](/rhoelements/stopbutton), [Bottom Command Area](/rhoelements/bottomcommandarea), [Top Command Area](/rhoelements/topcommandarea)
+The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](backbutton), [Forward Button](forwardbutton), [Go Button](gobutton), [Home Button](HomeButton), [Minimize Button](minimizebutton), [Quit Button](quitbutton), [Reload Button](reloadbutton), [SIP Button](sipbutton), [Stop Button](stopbutton), [Bottom Command Area](bottomcommandarea), [Top Command Area](topcommandarea)
 
-The [Imager](/rhoelements/imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if you transmit the captured image to a remote server via the 'Capture' method.  Without File Transfer the file will not be transferred and the image will be stored by default in the root of the device, overwritten by each subsequent capture.
+The [Imager](imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if you transmit the captured image to a remote server via the 'Capture' method.  Without File Transfer the file will not be transferred and the image will be stored by default in the root of the device, overwritten by each subsequent capture.
 
 ##Remarks
 ###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity

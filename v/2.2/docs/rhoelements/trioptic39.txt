@@ -65,6 +65,3 @@ The following example enables the scanner to read all labels except Trioptic39:
 	<META HTTP-Equiv="scanner" Content="allDecoders:enabled">
 	<META HTTP-Equiv="scanner" Content="Trioptic39:disabled">
 	<META HTTP-Equiv="scanner" Content="enabled">
-	
-
-
