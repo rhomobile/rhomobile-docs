@@ -8,8 +8,8 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [Rhodes Tutorial](/rhodes/rhodes-command-line)
- * [Rhodes Installation](/rhodes/install)
+ * [Rhodes Tutorial](rhodes/rhodes-command-line)
+ * [Rhodes Installation](rhodes/install)
  * [Eclipse download](http://www.eclipse.org/downloads/)
 
 ## Setup
@@ -151,6 +151,3 @@ You will see your Rhodes project running on an Android virtual device, and it ha
 In the Android emulator, click the Products link, then click New. Enter the data for a new Product, such as iPhone, $199.99, 3, 12345, and Apple for name, price, quantity, sku, and brand. Then click Create. You will see your model, which is stored in the local database for Rhodes.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial-webinar/product-Android-created.png" alt="Android Model Created" height = "50%" width = "50%" />
-
-
-

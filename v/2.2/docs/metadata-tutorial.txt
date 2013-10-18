@@ -14,7 +14,7 @@ The source code for this example is located here.
 Pre-requisite Reading
 ---------------------
  * [Rhodes Tutorial](https://github.com/rhomobile/webinar-samples/tree/master/contact)
- * [Rhosync Tutorial]()
+ * [Rhosync Tutorial](rhosync/tutorial)
  * [Webinar video](http://vimeo.com/12681742)
 
 Reference Reading

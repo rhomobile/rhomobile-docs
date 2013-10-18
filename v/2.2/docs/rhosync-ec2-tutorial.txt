@@ -339,11 +339,3 @@ For example:
 	./rhosync-setup ec2-50-18-39-21.us-west-1.compute.amazonaws.com
 
 Please note this is not yet a production-tuned setup, and it was built for demonstrative purposes.  If you find bugs or problems with the setup, please feel free to post to the rhomobile google group.
-
-
-
-
-
-
-
-

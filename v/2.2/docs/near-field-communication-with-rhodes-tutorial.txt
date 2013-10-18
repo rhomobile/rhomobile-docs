@@ -2,7 +2,7 @@ Near Field Communications With Rhodes
 ========
 This tutorial will guide you through running near field communications with Rhodes. Near field communication is very similar to RFID, and you can even use near field communications to read RFID tags. It has features to have two devices communicate with each other, as well as act as mobile business cards.
 
-**NOTE: As of Rhodes version 3.3.3, the [NFC](/rhodes/device-caps#nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [NFC](rhodes/device-caps#nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](rhoelements/licensing) is required.**
 
 Source Code
 -----------
@@ -17,7 +17,7 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoStudio Tutorial](/rhostudio.tutorial)
+ * [RhoStudio Tutorial](rhostudio.tutorial)
  * [RhoMobile Suite install](rhomobile-install)
  * [Rhodes Installation from command line](rhodes/install)
  * [Android SDK](http://developer.android.com/sdk/index.html)
@@ -31,7 +31,7 @@ If you have the Android SDK installed, you can check to see if it has Google API
 
 The webinar and this tutorial show Android running from the command line, outside of Eclipse.
 
-In the Build for Android section of [Build Rhodes Application](/rhodes/build#build-for-android), you set a path to your Android SDK. Since you will run the adb command from the NFCDemo folder, you should set a path to adb in your profile. For example, on the Macintosh, in .bash\_profile, you set a path to the Android SDK platform-tools folder.
+In the Build for Android section of [Build Rhodes Application](rhodes/build#build-for-android), you set a path to your Android SDK. Since you will run the adb command from the NFCDemo folder, you should set a path to adb in your profile. For example, on the Macintosh, in .bash\_profile, you set a path to the Android SDK platform-tools folder.
 
 ## Preparing the NFCDemo Project to Send NFC Tags
 

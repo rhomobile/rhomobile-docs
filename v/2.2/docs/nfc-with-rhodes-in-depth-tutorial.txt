@@ -326,10 +326,3 @@ The test\_ndef\_read method assumes that the nfc tag is ndef technology. Connect
 	  end
 	  result
 	end
-
-
-
-
-
-
-
