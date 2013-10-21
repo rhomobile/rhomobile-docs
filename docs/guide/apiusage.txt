@@ -289,7 +289,7 @@ Rename of  2.2 <a href="/v/2.2/rhoelements/RawSensors">RawSensors</a> class and 
 </tr>
 <tr>
 <td>
-<a href="/api/signalIndicators">Signal</a>
+<a href="/api/signalIndicators">SignalIndicators</a>
 </td>
 <td>
 Graphical indicator of WiFi strength
