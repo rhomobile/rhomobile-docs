@@ -13,7 +13,7 @@ To enable your web app for RhoElements, perform these steps.
 
 ## Installing the RhoElements Runtime
 
-After you [install Motorola RhoMobile Suite](/guide/rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile and Windows CE. You will need to install the RhoElements Runtime on each device that will be used for your application.
+After you [install Motorola RhoMobile Suite](rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile and Windows CE. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
 * On Windows, you can find the RhoElements Runtimes in the Start Menu, under Motorola RhoMobile Suite.
 * On Macintosh, they are located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
