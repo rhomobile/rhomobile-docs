@@ -126,7 +126,7 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
            
     function download_file_callback(params) {
       if (params["status"] == "ok") {
-        alert("Download Succeeded, path is /public/images/sample.png");
+        alert("Download Succeeded");
       } else {
         alert("Download Failed");
       }
@@ -136,7 +136,7 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
       // Download a file to the specified filename. Be careful with the overwriteFile parameter!
       downloadfileProps = {
         url: "http://www.google.com/images/icons/product/chrome-48.png",
-        filename: Rho.Application.publicFolder+"/images/sample.png",
+        filename: Rho.RhoFile.join(Rho.Application.userFolder,"sample.png"),
         overwriteFile: true
       };
       Rho.Network.downloadFile(downloadfileProps, download_file_callback);
@@ -149,14 +149,14 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
       #Download a file to the specified filename.
       downloadfileProps = Hash.new
       downloadfileProps["url"]='http://www.google.com/images/icons/product/chrome-48.png'
-      downloadfileProps["filename"] = Rho::Application.publicFolder+"/images/sample.png"
+      downloadfileProps["filename"] = Rho::RhoFile.join(Rho::Application.userFolder,"sample.png")
       downloadfileProps["overwriteFile"] = true
       Rho::Network.downloadFile(downloadfileProps, url_for(:action =&gt; :download_file_callback))
   end
   
   def download_file_callback
     if @params["status"] == "ok"
-        Alert.show_popup "Download Success,path is /public/images/sample.png "
+        Alert.show_popup "Download Succeeded"
     else
         Alert.show_popup "Download Failed"
     end

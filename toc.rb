@@ -42,7 +42,7 @@ section 'rhodescommonapi-reference', '4.0 API Reference','Mobile API Docs' do
   topic 'api/File',      'RhoFile '
   topic 'api/screenorientation',      'ScreenOrientation'
   topic 'api/sensor',      'Sensor'
-  topic 'api/signalindicators',      'Signal'
+  topic 'api/signalindicators',      'SignalIndicators'
   topic 'api/system',      'System'
   topic 'api/webview',      'WebView'
 end
