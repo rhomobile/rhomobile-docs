@@ -54,14 +54,14 @@ task :index do
           if chunk.size > maxsize       
             puts "chunk size over limit WTF? - ognoring for now"
           else
-            result = indextank_document = index.document(name+chunknum.to_s).add(:title => topic.title, :text => chunk)
+            result = indextank_document = index.document(name+chunknum.to_s).add(:title => topic.title, :text => chunk, :dockey => name)
           end
           puts "=> #{result}"
           startPos = endPos + 1
           break if endPos == topic.body.size()
         end
       else
-        result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body)
+        result = indextank_document = index.document(name).add(:title => topic.title, :text => topic.body, :dockey => name)
         puts "=> #{result}"
       end
 
