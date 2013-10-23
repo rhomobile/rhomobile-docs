@@ -118,7 +118,7 @@ desc 'Sample search'
 task :search, :query do |t, args|
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
   index = client.indexes(AppConfig['index'])
-  results = index.search(args[:query], :fetch => 'title', :snippet => 'text')
+  results = index.search(args[:query], :fetch => 'title,dockey', :snippet => 'text')
   puts "#{results['matches']} results."
   puts results.inspect
 end
