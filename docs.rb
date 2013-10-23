@@ -256,7 +256,7 @@ xml_string +=  ' </rss>	'
   	def search_for(query, page = 0)
       client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
       index = client.indexes(AppConfig['index'])
-      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title', :snippet => 'text')
+      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey', :snippet => 'text')
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
           page + 1
