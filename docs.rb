@@ -107,9 +107,28 @@ class Docs < Sinatra::Base
 
   get '/search' do
     @print = 0
+    puts params
     page = params[:page].to_i
-    search, prev_page, next_page = search_for(params[:q], page)
-    erb :search, :locals => {:search => search, :query => params[:q], :prev_page => prev_page, :next_page => next_page}
+    category = params[:c]
+    version = params[:v]
+    total,dum_prev,dumb_next = search_for(params[:q], page, '','')
+
+    search, prev_page, next_page = search_for(params[:q], page, params[:c],params[:v])
+
+    #searchify object 
+    categories = {}
+      if !category.nil? && category != ''
+        catArray = []
+        catArray = category.split(",")
+        categories["category"] = catArray
+      end
+      if !version.nil? && version != ''
+        verArray = []
+        verArray = version.split(",")
+        categories["version"] = verArray
+      end
+      puts total
+    erb :search, :locals => {:search => search, :total => total, :query => params[:q], :category => category, :version => version, :prev_page => prev_page, :next_page => next_page, :categories => categories}
   end
 
   get '/opensearch' do
@@ -118,7 +137,7 @@ class Docs < Sinatra::Base
 
     @print = 0
     page = params[:page].to_i
-    search, prev_page, next_page = search_for(params[:q], page)
+    search, prev_page, next_page = search_for(params[:q], page, params[:c],params[:v])
 	
 	xml_string = '<?xml version="1.0" encoding="UTF-8"?>'
 xml_string +=  ' <rss version="2.0" '
@@ -253,10 +272,26 @@ xml_string +=  ' </rss>	'
   		status 404
   	end
 	
-  	def search_for(query, page = 0)
+  	def search_for(query, page = 0, category='', version='')
       client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+      # client = IndexTank::Client.new('http://:TP9xCrZJNgXIyC@rd4f.api.searchify.com')
+  
       index = client.indexes(AppConfig['index'])
-      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category', :snippet => 'text')
+
+      categories = {}
+      if !category.nil? && category != ''
+        catArray = []
+        catArray = category.split(",")
+        categories["category"] = catArray
+      end
+      if !version.nil? && version != ''
+        verArray = []
+        verArray = version.split(",")
+        categories["version"] = verArray
+      end
+      
+      # puts categories
+      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category', :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
           page + 1

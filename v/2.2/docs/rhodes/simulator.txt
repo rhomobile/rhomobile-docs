@@ -1,4 +1,4 @@
- # Using RhoSimulator
+# Using RhoSimulator
 
 RhoSimulator allows to [run](#run-application-in-rhosimulator) Rhodes applications without lengthy build process and to [debug](#debugging-with-rhostudio) them in [RhoStudio](../rhostudio.tutorial). Currently RhoSimulator works on <b>Windows</b> only.
 

@@ -21,6 +21,7 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  # client = IndexTank::Client.new('http://:TP9xCrZJNgXIyC@rd4f.api.searchify.com')
   index = client.indexes(AppConfig['index'])
   index.delete rescue nil
   index.add rescue nil
@@ -35,7 +36,10 @@ task :index do
       name = name_for(doc)
       version = version_for(doc)   #right now uses directory scheme and hardcoded current version 
       category = category_for(name) #right now uses directory scheme need to add multi category and other methods
-
+      categories = { 
+          'category' => category,
+          'version' => version
+      }
       puts "...indexing #{name}"
       source = File.read(doc)
       puts "#{File.size(doc)}"
@@ -58,6 +62,8 @@ task :index do
             puts "chunk size over limit WTF? - ognoring for now"
           else
             result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :category => category, :version => version})
+            
+            index.document(name+chunknum.to_s).update_categories(categories)             
           end
           puts "=> #{result}"
           startPos = endPos + 1
@@ -65,6 +71,7 @@ task :index do
         end
       else
         result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :category => category, :version => version})
+        index.document(name).update_categories(categories)
         puts "=> #{result}"
       end
 

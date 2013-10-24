@@ -2,12 +2,37 @@
 
 <h1><%=search['matches'] %> Results for <em style="color:#4c4074"><%= params[:q] %></em>:</h1>
 
-<div id="facets">
-  <% search['facets'].each do |facettype,facet| %>
+<div id="facets" data-query="<%= params[:q] %>">
+  <% 
+  @allselected=true
+  			
+total['facets'].each do |facettype,facet| %>
   	<% facet.each do |key,value| %>
-    	<span class="badge badge-info"><%=key %> - <%=value %></span>
+  		<%
+  			# if combination is in the search reseults then set item to highlugh and true
+  			# if !search["facets"][facettype].nil? && !search["facets"][facettype][key].nil?
+  			if (!categories[facettype].nil? && categories[facettype].include?(key)) || categories == {}
+  			 
+  				badgetype='badge-info'
+				typeselected='true'
+			else
+				badgetype='badge'
+				typeselected='false'
+				@allselected=false
+  			end
+  		%>
+    	<span class="badge filter <%=badgetype%>" data-selected= "<%=typeselected%>" data-type="<%=facettype%>" data-id='<%=key %>'><%=key %> </span>
     <% end %>
   <% end %>
+  <%
+  puts @allselected
+  if  categories != {} && !@allselected
+  %>
+  <span class="badge badge-inverse" data-type="all" ><i class="icon icon-refresh icon-large icon-muted"></i></span>
+  <%
+  	end
+  %>
+
 </div>
 
 <div id="results">
@@ -20,9 +45,9 @@
 </div>
 
 <% if next_page %>
-  <div id="next_section"><a href="/search?q=<%= query %>&page=<%= next_page %>">Next Page &rarr;</a></div>
+  <div id="next_section"><a href="/search?q=<%= query %>&page=<%= next_page %>&c=<%=category%>&v=<%=version%>">Next Page &rarr;</a></div>
 <% end %>
 
 <% if prev_page %>
-  <div id="prev_section"><a href="/search?q=<%= query %>&page=<%= prev_page %>">&larr; Prev Page</a></div>
+  <div id="prev_section"><a href="/search?q=<%= query %>&page=<%= prev_page %>&c=<%=category%>&v=<%=version%>">&larr; Prev Page</a></div>
 <% end %>
