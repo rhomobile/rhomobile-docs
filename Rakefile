@@ -33,6 +33,9 @@ task :index do
   Topic.all_topics.each do |doc|
     if File.exist?(doc) and File.basename(doc) != 'credits.txt'
       name = name_for(doc)
+      version = version_for(doc)   #right now uses directory scheme and hardcoded current version 
+      category = category_for(name) #right now uses directory scheme need to add multi category and other methods
+
       puts "...indexing #{name}"
       source = File.read(doc)
       puts "#{File.size(doc)}"
@@ -54,14 +57,14 @@ task :index do
           if chunk.size > maxsize       
             puts "chunk size over limit WTF? - ognoring for now"
           else
-            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name})
+            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :category => category, :version => version})
           end
           puts "=> #{result}"
           startPos = endPos + 1
           break if endPos == topic.body.size()
         end
       else
-        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name})
+        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :category => category, :version => version})
         puts "=> #{result}"
       end
 
@@ -74,9 +77,13 @@ end
 desc 'test'
 task :index_test do
   Topic.all_topics.each do |doc|
+    # puts doc
     if File.exist?(doc) and File.basename(doc) != 'credits.txt'
       name = name_for(doc)
-      # puts "...indexing #{name}"
+      version = version_for(doc)   #right now uses directory scheme and hardcoded current version 
+      category = category_for(name) #right now uses directory scheme need to add multi category and other methods
+
+       puts "...indexing #{name}, version #{version}, category #{category}"
       source = File.read(doc)
       topic = Topic.load(name, source)
       topic.text_only
@@ -301,6 +308,31 @@ def which(command)
 end
 
 def name_for(doc)
-  parts = doc.split('/')
-  parts.size == 3 ? parts[1..-1].join('/').gsub(/\.txt/,'') : File.basename(doc, '.txt')
+  # parts = doc.split('/')
+  # parts.size == 3 ? parts[1..-1].join('/').gsub(/\.txt/,'') : File.basename(doc, '.txt')
+  return doc.gsub(/\.txt/,'').gsub('docs/','')
+end
+
+def version_for(doc)
+  re = /v\/(.*?)\//
+  version = doc.match re
+  if !version.nil? && !version.captures.nil?
+    return version.captures[0]
+  else
+    return '4.0'
+  end
+end
+
+def category_for(doc)
+  
+  reVersion = /v\/(.*?)\//
+  reCat = /(.*?)\//
+  doc = doc.gsub(reVersion,'')
+
+  cat = doc.match reCat
+  if !cat.nil? && !cat.captures.nil?
+    return cat.captures[0]
+  else
+    return ''
+  end
 end

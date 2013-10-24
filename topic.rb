@@ -17,6 +17,8 @@ class Topic
   def self.all_topics
     dirs = AppConfig['dirs'] || {}
     paths = dirs.values.map! { |path| path += "*.txt" }
+    # puts paths
+    paths <<'v/**/*.txt'
     FileList[paths]
   end
   
