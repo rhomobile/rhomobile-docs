@@ -1,6 +1,14 @@
 <% @title = "Search for #{params[:q]}" %>
 
-<h1>Results for <em style="color:#4c4074"><%= params[:q] %></em>:</h1>
+<h1><%=search['matches'] %> Results for <em style="color:#4c4074"><%= params[:q] %></em>:</h1>
+
+<div id="facets">
+  <% search['facets'].each do |facettype,facet| %>
+  	<% facet.each do |key,value| %>
+    	<span class="badge badge-info"><%=key %> - <%=value %></span>
+    <% end %>
+  <% end %>
+</div>
 
 <div id="results">
   <% search['results'].each do |result| %>
