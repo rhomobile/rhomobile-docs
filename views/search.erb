@@ -6,7 +6,7 @@
   <% search['results'].each do |result| %>
     <div class="result">
       <h2><a href="/<%= result['dockey'] %>"><%=h result['title'] %></a></h2>
-      <%= result['snippet_text'] %> <% if result['snippet_text'] %>...<% end %><i><span class="pull-right label"><%=result['version'] %></span><span class="pull-right label"><%=result['category'] %></span></i>
+      <%= result['snippet_text'] %> <% if result['snippet_text'] %>...<% end %><p><span class="pull-right badge"><%=result['version'] %></span><span class="pull-right badge"><%=result['category'] %></span></p>
     </div>
   <% end %>
 </div>
