@@ -135,14 +135,14 @@ If, for a particular action, you do not need every attribute in an object, you c
 
 NOTE: this section applies to Ruby only
 
-You can pass `offset` and `perPage` parameters to `find` method to retrieve objects in chunks.
+You can pass `offset` and `per_page` parameters to `find` method to retrieve objects in chunks.
 
     :::ruby
     # get first 10 records
-    users = User.find(:all, :perPage => 10)
+    users = User.find(:all, :per_page => 10)
     
     # get records 21-40
-    users = User.find(:all, :offset => 20, :perPage => 20)
+    users = User.find(:all, :offset => 20, :per_page => 20)
 
 For convenience, there is a `paginate` method which emulates Rails' classic pagination syntax. The default page size is 10.
 
@@ -153,7 +153,7 @@ You can use `:conditions`, `:order` and `select` parameters, similarly to the `f
     users = User.paginate(:page => 0)
     
     # get records 21-40
-    users = User.paginate(:page => 1, :perPage => 20)
+    users = User.paginate(:page => 1, :per_page => 20)
 
 ### Retrieving only the first object matching conditions
 
