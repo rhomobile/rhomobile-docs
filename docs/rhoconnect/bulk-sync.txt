@@ -92,7 +92,7 @@ For example, you can have a list of customers who have purchased a product, and 
         - :parent_id, 'Product'
         - :parent_id, 'Cases'
 
-Bulk Sync Associations are similar to [Rhom Sync Associations](/rhodes/rhom#associations) and both should be considered together
+Bulk Sync Associations are similar to [Rhom Sync Associations](/guide/rhom_ruby#associations) and both should be considered together
 if you are planning to use bulk sync data.
 
 ## Using Bulk Sync with Fixed Schema Models
