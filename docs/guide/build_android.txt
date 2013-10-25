@@ -29,7 +29,7 @@ On Android, you must specify your device capabilities the your application will 
 
 In RhoStudio, you can double-click on your application's build.yml file, then click the Rhobuild setting tab, then click the Capabilities: Add button. You will see a list of capabilities you can check to activate for your application.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/select-capabilities.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/select-capabilities-4.0.png"/>
 
 You can also edit the build.yml file directly with a text editor. Here is a list of capabilities you can add to the capabilities section in your application build.yml file.
 
@@ -61,7 +61,7 @@ To start the build process, create a Run Configuration: select your project in t
  * select Run->Run Configurations... from the main menu,
  * or right-click on your project, and select Run As->Run Configurations from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu-4.0.png"/>
 
 The Run Configurations window appears.
 
@@ -69,11 +69,11 @@ The Run Configurations window appears.
 
 To run on the Android simulator, select Android in Platform, Simulator in Simulator type, and enter the name of the AVD in AVD name. Then click the Run button.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-avd.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-avd-4.0.png"/>
 
 You can get a list of the AVD names by running the SDK setup: on Macintosh and Linux, navigate to and run <Android SDK>/tools/android. On Windows, navigate to and run <Android SDK>/SDK Setup.exe. Then click Virtual devices.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/android-virtual-devices.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/android-virtual-devices-4.0.png"/>
 
 ### Running on an Android Device with RhoStudio
 
