@@ -36,21 +36,21 @@ If you wish to run your RhoMobile application on an iOS device, you need to buil
 
 Tell Rhomobile to build from your RhoMobile application. Within your RhoMobile project folder, run the following command:
 
-	:::term
-	$ rake switch_app
+  :::term
+  $ rake switch_app
 
 The switch_app command changes the rhobuild.yml in the RhoMobile source code folder to point to your application, as in the following example for a RhoMobile application named Store in the user's home folder:
 
-	:::term
-	env: 
-	  app: /Users/NameOfUser/Store
+  :::term
+  env: 
+    app: /Users/NameOfUser/Store
 
 Note that the switch_app command is only used when you run a RhoMobile application within an IDE, such as Xcode: you run switch_app for each RhoMobile application that you run in Xcode. The switch_app command does not affect RhoMobile applications that you build and run on the command line or within RhoStudio.
 
 Now run the following command to tell RhoMobile to set up the Xcode environment for your RhoMobile application:
 
-	:::term
-	$ rake build:iphone:setup_xcode_project
+  :::term
+  $ rake build:iphone:setup_xcode_project
 
 Then in the RhoMobile source code folder (the path in your RhoMobile application build.yml file), navigate to the /platform/iphone folder and open rhorunner.xcodeproj. This will open your RhoMobile application in Xcode.
 
@@ -63,8 +63,6 @@ Select the Scheme for your project under rhorunner. You can select to run in the
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-simulator-4.0.png" alt="xcode scheme simulator" />
 
 Now you can build and run in Xcode to run your project in the iOS simulator.
-
-** NOTE: If you are running into an error when building in Xcode that reads "no such file to load - rhoconnect-client", you must add your rvm scripts to your ~/.profile file. See [This launchpad thread](https://developer.motorolasolutions.com/thread/3988) for more information.
 
 If you are an Apple developer, you can run your RhoMobile application on your iOS device. In Xcode, select your rhorunner target, click on the Build Settings tab, and see that your code signing information that you installed as an Apple developer is set up and selected.
 
@@ -96,8 +94,8 @@ If you want to build/run/debug your application on devices before iPhone4/iPad (
 
 To restore the Xcode rhorunner.xcodeproj to its original state:
 
-	:::term
-  	$ rake build:iphone:restore_xcode_project
+  :::term
+    $ rake build:iphone:restore_xcode_project
 
 ## Building iPhone Application from the Command Line
 
@@ -107,8 +105,8 @@ From the command line, navigate to the folder for your RhoMobile application.
 
 To run your RhoMobile application in the iPhone simulator, run this rake command:
   
-	:::term
-	$ rake run:iphone
+  :::term
+  $ rake run:iphone
 
 ## Building the Application for the iOS Device
 
@@ -118,35 +116,35 @@ After you have modified and debugged your RhoMobile application, you can prepare
 
 First, in your application's build.yml file, change sdk to iphoneos instead of iphonesimulator, configuration to Release instead of Debug, and add information such as codesignidentity.
 
-	iphone:
-		sdk: iphoneos4.3
-		configuration: Release
-		codesignidentity: "iPhone Developer"
-		entitlements: ""
+  iphone:
+    sdk: iphoneos4.3
+    configuration: Release
+    codesignidentity: "iPhone Developer"
+    entitlements: ""
 
 ### build.yml settings
 
 The default build.yml settings generated for iphone are:
 
-	name: myapp
-	version: 1.0
-	iphone: 
-	  provisionprofile: 
-	  sdk: iphonesimulator3.0
-	  entitlements: 
-	  codesignidentity: 
-	  configuration: Debug
-	  emulator: 3.0
-	  emulatortarget: iphone
-	  BundleIdentifier: com.yourcompany.yourapp
-	  BundleURLScheme: yourapp
-	  entitlements_file: "./production/Entitlements.plist"
-	  production:
-	    app_plist_title: "myapp"
-	    app_plist_subtitle: "myapp"
-	    app_plist_icon_url: "www.yourcompany.com/icon.png"
-	    app_plist_ipa_url: "www.yourcompany.com/myapp.ipa"
-	    ipa_itunesartwork_image: "./production/image.jpg"  
+  name: myapp
+  version: 1.0
+  iphone: 
+    provisionprofile: 
+    sdk: iphonesimulator3.0
+    entitlements: 
+    codesignidentity: 
+    configuration: Debug
+    emulator: 3.0
+    emulatortarget: iphone
+    BundleIdentifier: com.yourcompany.yourapp
+    BundleURLScheme: yourapp
+    entitlements_file: "./production/Entitlements.plist"
+    production:
+      app_plist_title: "myapp"
+      app_plist_subtitle: "myapp"
+      app_plist_icon_url: "www.yourcompany.com/icon.png"
+      app_plist_ipa_url: "www.yourcompany.com/myapp.ipa"
+      ipa_itunesartwork_image: "./production/image.jpg"  
 
 
 * name: name of your application. Will show on screen (iPhone application bundle display name)
@@ -173,25 +171,25 @@ The default build.yml settings generated for iphone are:
 
 Here is an example of the iPhone settings in build.yml for a finished application:
 
-	name: JS App
-	version: 1.0
-	iphone: 
-	  provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6 
-	  sdk: iphoneos4.2
-	  codesignidentity: "iPhone Developer: John Smith (MF99RW67WY)"
-	  entitlements: ""
-	  configuration: Release
-	  emulator: 4.2
-	  emulatortarget: ipad
-	  BundleIdentifier: com.johnsmithcompany.jsapp
-	  BundleURLScheme: jsapp
+  name: JS App
+  version: 1.0
+  iphone: 
+    provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6 
+    sdk: iphoneos4.2
+    codesignidentity: "iPhone Developer: John Smith (MF99RW67WY)"
+    entitlements: ""
+    configuration: Release
+    emulator: 4.2
+    emulatortarget: ipad
+    BundleIdentifier: com.johnsmithcompany.jsapp
+    BundleURLScheme: jsapp
 
 ### Creating Your Application Package
 
 Now you can create your .app file with this rake command:
 
-	:::term
-  	$ rake device:iphone:production
+  :::term
+    $ rake device:iphone:production
 
 The package named <b>your application name.app</b> will be placed to `<your application folder>/bin/target/iOS/[sdkname]/[configuration]/[your application name].app` if you are using RhoMobile from 2.2.4 version.
 
@@ -291,3 +289,94 @@ Many applications can benefit from using [native UI elements](/guide/native_ui_e
 When you are ready to submit your application, you can do it [using XCode](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html#//apple_ref/doc/uid/TP40012582-CH9-SW20) or [using Application Loader](https://itunesconnect.apple.com/docs/UsingApplicationLoader.pdf)
 
 Once your application is submitted successfully you can view its review status by referring to [these](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/UsingiTunesConnect/UsingiTunesConnect.html#//apple_ref/doc/uid/TP40012582-CH22-SW8) steps.
+
+## Differences building for iOS7
+
+NOTE: The following examples are all done using the rhodes-system-api-sample app that is included in your RhoMobile Suite Download.
+
+### System Status Bar
+<div class="row-fluid">
+  <div class="span6">
+    <p>
+      In iOS7, the system status bar does not have a size and does not shift the application window down, because it is transparent and always drawn over the application window. This can be an issue for older applications because the system status bar is drawn over the WebView content located at the top.
+    </p>
+    <p>
+      To resolve this issue we reserve some room at the top of the application (with a gray color fill) and shift the WebView down, as with the old status bar. In this case all applications using an SDK older that iOS7 will work without content placing/showing issues.
+    </p>
+    <p>
+      If you want to use the whole space for the WebView you can use the following special build.yml parameter which works only for applications using the iOS 7.0 S
+    </p>
+  </div>
+  <div class="span3" style="text-align:center">
+    <b><div>:iphone_use_new_ios7_status_bar_style: 1</div></b>
+    <div>
+      <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_without_iphone_use_new_ios7_status_bar_style_4.0.png"/>
+    </div>
+  </div>
+  <div class="span3" style="text-align:center">
+    <b><div>:iphone_use_new_ios7_status_bar_style: 0</div></b>
+    <div>
+      <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_with_iphone_use_new_ios7_status_bar_style_4.0.png"/>
+    </div>
+  </div>
+</div>
+
+### Fullscreen Mode
+
+We do not currently support fullscreen mode on iOS7. We are working to solve this by the RhoElements 4.1 release.
+
+### Native Toolbar
+
+<div class="row-fluid">
+  <div class="span6">
+    <h4>Background Color</h4>
+    iOS7's new Toolbar has a flat design. You can setup only background color and color for icons (new iOS7 feature).
+    Options for background color the same with old API; integer value.</br>
+    Example for Ruby hash: `Rho::NativeToolbar.create(:buttons => toolbar, :background_color => 0xFFFF00)`
+    <h4>Icon Color</h4>
+    The new option for icon color is alos an integer value. This only works for applications using the iOS7 SDK.
+    Example for Ruby hash: `Rho::NativeToolbar.create(toolbar, :iOS7IconColor => 0xFFFF00)`
+  </div>
+  <div class="span3" style="text-align:center">
+    <b><div>:background_color => 0xFFFF00</div></b>
+    <img style="height:480px" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_toolbar_bg_color_4.0.png"/>
+  </div>
+  <div class="span3" style="text-align:center">
+    <b><div>:iOS7IconColor => 0xFFFF00</div></b>
+    <img style="height:480px" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_toolbar_ios7_icon_color_4.0.png"/>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h4>Colored Icon Flag</h4>
+    The colored icon flag is still working as it did in earlier versions RhoElements.
+    <div>Example for Ruby hash:`toolbar = {:action => :home, :icon => '/public/images/bar/colored_btn.png', :colored_icon => true}`</div>
+  </div>  
+  <div class="span3" style="text-align:center">
+    <div><b>:colored_icon => true</b></div>
+    <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_true_4.0.png"/>
+  </div>
+  <div class="span3" style="text-align:center">
+    <div><b>:colored_icon => true</b></div>
+    <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_false_4.0.png"/>
+  </div> 
+</div>
+
+### Native Tabbar
+<div class="row-fluid">
+  <div class="span6">
+    iOS7's TabBar now also has a flat design. You can setup only background color and selected color for icons (new iOS7 feature).
+    Previous Rhodes API feature for selecting a color for each icon separately (selected_color property) is not supported when using the iOS7 SDK.
+    <h4>Background Color</h4>
+    Options for background color are the same as with the previous Rhodes API: integer value.
+    Example for Ruby hash:`:background_color => 0x00004F`
+    <h4>Icon Color</h4>
+    New options for selected icon color: integer value. This works only for applications usinf the iOS7 SDK.
+    Example for Ruby hash :`:iOS7SelectedColor => 0xFFFF00`
+  </div>
+  <div class="span6" style="text-align:center">
+    <b><div>:background_color => 0x00004F and :iOS7SelectedColor => 0xFFFF00</div></b>
+    <img style="height:480px" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_tabbar_bg_color_and_selected_icon_4.0.png"/>
+  </div>
+</div>
