@@ -28,7 +28,7 @@ For example, if my web application was at http://www.mydomain.com/mywebapp then 
 
 When this application is launched on the device, it will attempt to connect to this URL.
 
-## 5) Setting what RhoMobile APIs are available
+## 5) Enabling RhoMobile APIs
 By default not all RhoMobile APIs are available to your application. API's and capabilities are included by defining `extensions` in the `build.yml` file.
 
 ### Default APIs 
