@@ -122,6 +122,7 @@ section 'rhomob-apps', 'Developing Apps','Mobile Guides' do
   topic 'guide/css-framework',        'CSS Frameworks'
   topic 'guide/webapps',        'RhoMobile for Web Apps'
   topic 'guide/rhoelements-runtime',        'RhoElements Shared Runtime'
+  topic 'guide/webcontainer', 'Custom Web App Container'
   topic 'guide/app_upgrade', 'Upgrading Your App'
 end
 
