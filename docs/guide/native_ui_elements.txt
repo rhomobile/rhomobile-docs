@@ -126,6 +126,7 @@ That code does not indicate which `WebView` to operate on, so it applies to whic
 
 * Before using `NativeTabbar` for navigation, think about the tradeoff of easy access vs losing so much screen real estate on a small screen plus increased memory usage. If it fits your application, create the `NativeTabbar` when needed and call [NativeTabbar.remove](../api/NativeTabbar#mremove) when it is no longer needed, to reclaim the memory and visual space. Normally, `NativeToolbar` and `NavBar` provide a better alternative as navigation controls.
 
+* The `NativeTabbar` in iOS7 includes a few differences from legacy `NativeTabbar`. See the [Differences in iOS7](build_ios#differences-building-for-ios7) section in [building for iOS](build_ios) for details and examples.
 
 ## NativeToolbar
 
@@ -191,6 +192,7 @@ Javascript:
 
 * Input on a mobile device is prone to error and users will often tap the wrong button. Actions that cannot be undone or that can potentially cause data loss must provide a confirmation dialog before being executed.
 
+* The `NativeToolbar` in iOS7 includes a few differences from legacy `NativeToolbar`. See the [Differences in iOS7](build_ios#differences-building-for-ios7) section in [building for iOS](build_ios) for details and examples.
 
 ## NavBar
 
