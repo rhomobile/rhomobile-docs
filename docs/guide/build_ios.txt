@@ -22,13 +22,13 @@ To start the build process, create a Run Configuration: select your project in t
  * Select Run->Run Configurations... from the main menu,
  * Or right-click on your project, and select Run As->Run Configurations from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu-4.0.png"/>
+<img style="height:500px" src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu-4.0.png"/>
 
 The Run Configurations window appears.
 
 To run on the iOS simulator, select iPhone in Platform, Simulator in Simulator type, and select iPhone or iPad. Then click the Run button.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-ios-4.0.png"/>
+<img style="height:500px" src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-ios-4.0.png"/>
 
 ## Build an iOS App with Xcode
 
@@ -306,17 +306,18 @@ NOTE: The following examples are all done using the rhodes-system-api-sample app
     <p>
       If you want to use the whole space for the WebView you can use the following special build.yml parameter which works only for applications using the iOS 7.0 S
     </p>
+    <p>To enable the new iOS7 look for the status bar, simply add <b>iphone_use_new_ios7_status_bar_style: 1</b> to your build.yml file.
   </div>
   <div class="span3" style="text-align:center">
-    <b><div>:iphone_use_new_ios7_status_bar_style: 1</div></b>
+    <b><div>enabled</div></b>
     <div>
-      <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_without_iphone_use_new_ios7_status_bar_style_4.0.png"/>
+      <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_without_iphone_use_new_ios7_status_bar_style_4.0.png"/>
     </div>
   </div>
   <div class="span3" style="text-align:center">
-    <b><div>:iphone_use_new_ios7_status_bar_style: 0</div></b>
+    <b><div>disabled</div></b>
     <div>
-      <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_with_iphone_use_new_ios7_status_bar_style_4.0.png"/>
+      <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_with_iphone_use_new_ios7_status_bar_style_4.0.png"/>
     </div>
   </div>
 </div>
@@ -339,11 +340,11 @@ We do not currently support fullscreen mode on iOS7. We are working to solve thi
   </div>
   <div class="span3" style="text-align:center">
     <b><div>:background_color => 0xFFFF00</div></b>
-    <img style="height:480px" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_toolbar_bg_color_4.0.png"/>
+    <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_toolbar_bg_color_4.0.png"/>
   </div>
   <div class="span3" style="text-align:center">
     <b><div>:iOS7IconColor => 0xFFFF00</div></b>
-    <img style="height:480px" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_toolbar_ios7_icon_color_4.0.png"/>
+    <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_toolbar_ios7_icon_color_4.0.png"/>
   </div>
 </div>
 
@@ -355,11 +356,11 @@ We do not currently support fullscreen mode on iOS7. We are working to solve thi
   </div>  
   <div class="span3" style="text-align:center">
     <div><b>:colored_icon => true</b></div>
-    <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_true_4.0.png"/>
+    <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_true_4.0.png"/>
   </div>
   <div class="span3" style="text-align:center">
     <div><b>:colored_icon => true</b></div>
-    <img style="height:480px;" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_false_4.0.png"/>
+    <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_false_4.0.png"/>
   </div> 
 </div>
 
