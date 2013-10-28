@@ -41,10 +41,11 @@ By default 'Windows Mobile 6 Professional SDK (ARMV4I)' SDK and "Windows Mobile 
 ## Building and Running Your Windows Mobile Application with RhoStudio
 
 To start the build process, create a Run Configuration: select your project in the Project Explorer, and either:
+ 
  * select Run->Run Configurations... from the main menu,
  * or right-click on your project, and select Run As->Run Configurations from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu-4.0.png"/>
 
 The Run Configurations window appears.
 
