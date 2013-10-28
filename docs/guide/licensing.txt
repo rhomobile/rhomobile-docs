@@ -132,24 +132,10 @@ Note that since the build.yml is included in the application at build time, it o
 For hybrid applications, you can define your device license and company name in your config.xml file as follows:
 
 	  <Applications>
-	    <Application > 
+	    <Application> 
 	       <LicenseKeyCompany value="Deployment License Company name"/>
 	       <LicenseKey value="Deployment License Number"/>
 
 	       ...
-	    </Application > 
+	    </Application> 
 	  </Applications>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
