@@ -405,7 +405,7 @@ Next, in your `application.rb` implement the `on_migrate_source(old_version, new
             # ... notify user about migration ...
 
             db = Rho::RHO.get_src_db(new_src['name'])
-            db.execute_sql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
+            db.executeSql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
 
             true # we processed the migration ourselves, do not create the table automatically
         end
