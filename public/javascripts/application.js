@@ -94,7 +94,40 @@ $(".apiFilter").bind('change', function() {
 	    window.open(url);
 
 	});
+
+
+	//search handler for filtering
+	$('#facets > .filter').click(function(e){
+		var docCatKey = $(this).attr('data-id');
+		var docCat = $(this).attr('data-type');
+		var sCats = [];
+		var sVers = [];
+		
+		if ($(this).attr('data-selected') == 'true'){
+			$(this).attr('data-selected','false');
+		}
+		else{
+			$(this).attr('data-selected','true');
+		}
+		$('#facets > span[data-selected="true"][data-type="category"]').each(function() {
+		    // do something
+		    sCats.push($(this).attr('data-id'));
+		});
+		$('#facets > span[data-selected="true"][data-type="version"]').each(function() {
+		    // do something
+		    sVers.push($(this).attr('data-id'));
+		});
+		
+		
+		window.location=window.location.protocol + '//' + window.location.host + window.location.pathname + '?q=' + $('#facets').attr('data-query') + '&c=' + sCats.join(",") + '&v=' + sVers.join(",");
+	});
+
+	$('#facets > span[data-type="all"]').click(function(e){
+		window.location=window.location.protocol + '//' + window.location.host + window.location.pathname + '?q=' + $('#facets').attr('data-query');
+	});
 });
+
+
 
 //Every resize of window
 $(window).resize(sizeContent);

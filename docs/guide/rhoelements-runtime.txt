@@ -2,13 +2,15 @@
 
 If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of JavaScript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.
 
-**NOTE: RhoMobile Suite 4.0 provides a RhoElements Shared Runtime for Windows Mobile/CE only. It includes access to all JS API's and default API extensions and capabilities. [See the Using the RhoMobile JS APIs section](webapps#using-rhomobile-js-apis) for more details. The Shared Runtime requires a RhoElements license.**
+**NOTE: RhoMobile Suite 4.0 provides a RhoElements Shared Runtime for Windows Mobile/CE only. It includes access to all JS API's and default API extensions and capabilities. The Shared Runtime requires a RhoElements license.**
+
+
 
 
 To enable your web app for RhoElements, perform these steps.
 
 1. Install the RhoElements Runtime
-2. Write your web app (HTML, CSS, and JavaScript). Call the RhoElements JavaScript APIs for mobile device functionality.
+2. Write your web app (HTML, CSS, and JavaScript). [See the Using Javascript APIs From Your Web App section](#using-javascript-apis-from-your-web-app)
 3. Install your web app on your mobile device or configure it to point to your web server.
 
 ## Installing the RhoElements Runtime
@@ -22,12 +24,27 @@ On Windows Mobile/CE devices, install the RhoElements Runtime.cab to \Program Fi
 
 Once installed, you will have access to the RhoElements config.xml file. 
 
-**NOTE: When installing a newer version of the runtime on Windows the existing config.xml will be overwritten with the default one. You should redeploy your customized config.xml along with an upgrade of the runtime. On Android, the config.xml is not overwritten on upgrades of the runtime.**
+NOTE: When installing a newer version of the runtime on Windows the existing config.xml will be overwritten with the default one. You should redeploy your customized config.xml along with an upgrade of the runtime. On Android, the config.xml is not overwritten on upgrades of the runtime.
+
+## Using Javascript APIs From Your Web App
+When you are running your web pages from a web server, the RhoElements Shared Runtime is essentially acting as a browser. In order to use the RhoMobile API's you will need to copy the `rhoapi-modules.js` from the devices `Program Files\RhoElements\rho\apps\public\api` folder to your web server and link it appropriately in your web server's web pages. Typically you will copy this file to your web applications `js` folder where you may be including other Javascript libraries that are being used. This file will be valid for Windows Mobile/CE devices only and will contain both Rhodes and RhoElements APIs.
+
+NOTE: In prior versions of RhoElements, you did not have to copy a Javascript file to your web application and the RhoElements Javascript objects were available within the container. The current method of including a Javascript file within your web server is a more standardized way of utilizing Jvascript libraries
+
+## Using Javascript APIs From Local Pages
+You could choose to use the Shared Runtime with locally available HTML files. In this case you will need to make sure you properly reference the file `rhoapi-modules.js` in relation to where your HTML files are running from.
+
+For example if you placed your html files in `Program Files\RhoElements\rho\apps\public\` then in your html files you would link to the `rhoapi-modules.js` using:
+
+    :::javascript
+    <script src="api/rhoapi-modules.js" type="text/javascript"></script>
+
+NOTE: You do not need to place your HTML files in the `Program Files\RhoElements\rho\apps\public` folder. Just be sure to copy the `rhoapi-modules.js` to the folder you are using and reference it appropriately.
 
 
 ## Setting RhoElements to Start With Your Application
 
-This section assumes you have created your application on a Motorola Windows Mobile or CE device; you can create on an Android device also.
+This section assumes you have created your web pages to run locally on the device or remotely on a web server;
 
 1. Find the file "\Program Files\RhoElements\config\Config.xml" on your Motorola Windows Mobile/CE device and copy it to your PC.
 2. Open config.xml in your PC's text editor.
@@ -35,17 +52,7 @@ This section assumes you have created your application on a Motorola Windows Mob
 4. Copy the config.xml file on your PC back to your mobile device.
 5. Start RhoElements using the icon in the Programs Group.
 
-NOTE: If you are using a localized variant of the operating system, you may need to edit the default config.xml and plugin.xml shipped with RhoElements to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files\.
-
-## Understanding RhoElements Configuration Parameters
-
-It is recommended that you get familiar with the [Configuration Parameters](runtime_config#configxml) in the configuration file config.xml, both for developing/debugging as well as deployment. 
-
-The location of the configuration file is in the folder `Config` off the installation root.
-
-If you wish to keep all default parameters and just change the starting url, then it is recommended that you simply create a shortcut as described below. 
-
-If you wish to modify other parameters in the config.xml, you should replace the config.xml file after the RhoElements Runtime is installed. Locate the config.xml file, copy it to your desktop for modification, and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
+**NOTE: If you are using a localized variant of the operating system, you may need to edit the default config.xml and plugin.xml shipped with RhoElements to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files\.**
 
 ## Creating Shortcuts for Your Web App
 
@@ -97,13 +104,24 @@ And another could be:
 
 NOTE: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL.
 	
+
+## Understanding RhoElements Configuration Parameters
+
+It is recommended that you get familiar with the [Configuration Parameters](runtime_config#configxml) in the configuration file config.xml, both for developing/debugging as well as deployment. 
+
+The location of the configuration file is in the folder `Config` off the installation root.
+
+If you wish to keep all default parameters and just change the starting url, then it is recommended that you simply create a shortcut as described below. 
+
+If you wish to modify other parameters in the config.xml, you should replace the config.xml file after the RhoElements Runtime is installed. Locate the config.xml file, copy it to your desktop for modification, and then you can use this file along with your distribution of the RhoElements Runtime. This file will need to be overwritten after the installation of the runtime.
+
 ## Customizing the RhoElements Runtime
 
-The RhoElements Runtime is a prebuilt Rhodes application that launches in full screen mode and loads the configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, such as change the startup screen or icon, then load the Rhodes project from which you can build a RhoElements Runtime into RhoStudio.
+The RhoElements Runtime is a prebuilt Rhodes application that launches in full screen mode and loads the configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, such as [change the startup screen or icon](app_icon_splash), then load the Rhodes project from which you can build a RhoElements Runtime into RhoStudio.
 
-**NOTE: The RhoElements Runtime is only available for [Motorola Solutions devices](/rhoelements/rhoelements-introduction#_motdevices).**
+**NOTE: The RhoElements Runtime is only available for Windows Mobile/CE devices.**
 
-### Building Custom RhoElements Runtime for Windows Mobile/CE
+### Building A Customized RhoElements Runtime for Windows Mobile/CE
 
 On the command line on your Windows PC, navigate to this folder:
 

@@ -135,14 +135,14 @@ If, for a particular action, you do not need every attribute in an object, you c
 
 NOTE: this section applies to Ruby only
 
-You can pass `offset` and `perPage` parameters to `find` method to retrieve objects in chunks.
+You can pass `offset` and `per_page` parameters to `find` method to retrieve objects in chunks.
 
     :::ruby
     # get first 10 records
-    users = User.find(:all, :perPage => 10)
+    users = User.find(:all, :per_page => 10)
     
     # get records 21-40
-    users = User.find(:all, :offset => 20, :perPage => 20)
+    users = User.find(:all, :offset => 20, :per_page => 20)
 
 For convenience, there is a `paginate` method which emulates Rails' classic pagination syntax. The default page size is 10.
 
@@ -153,7 +153,7 @@ You can use `:conditions`, `:order` and `select` parameters, similarly to the `f
     users = User.paginate(:page => 0)
     
     # get records 21-40
-    users = User.paginate(:page => 1, :perPage => 20)
+    users = User.paginate(:page => 1, :per_page => 20)
 
 ### Retrieving only the first object matching conditions
 
@@ -405,7 +405,7 @@ Next, in your `application.rb` implement the `on_migrate_source(old_version, new
             # ... notify user about migration ...
 
             db = Rho::RHO.get_src_db(new_src['name'])
-            db.execute_sql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
+            db.executeSql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
 
             true # we processed the migration ourselves, do not create the table automatically
         end
