@@ -7,7 +7,7 @@ Follow the instructions for [setting up the development environment](/guide/nati
 
 In RhoStudio Windows -> Preferences, right-click on Rhomobile->Windows Mobile to show the rhobuild.yml preferences. Check that the Cab wizard path (which is contained in your Windows Mobile 6 SDK program installation) is correct.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/preferences-windows-mobile.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/preferences-windows-mobile-4.0.png"/>
 
 Also check that the vcbuild path is shown in the rhobuild.yml file. The rhobuild.yml file is located in the RhoMobile folder (example location: `C:/RhoStudio/ruby/lib/ruby/gems/1.8/gems/rhodes-3.1.1`).
 
@@ -44,7 +44,7 @@ To start the build process, create a Run Configuration: select your project in t
  * select Run->Run Configurations... from the main menu,
  * or right-click on your project, and select Run As->Run Configurations from the popup menu.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-menu-wm-4.0.png"/>
 
 The Run Configurations window appears.
 
@@ -54,7 +54,7 @@ The Run Configurations window appears.
 
 To run on the Windows Mobile simulator, select Windows Mobile in Platform and Simulator in Simulator type. Then click the Run button.
 
-<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-wm.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-wm-4.0.png"/>
 
 ### Running on a Windows Mobile Device in RhoStudio
 
