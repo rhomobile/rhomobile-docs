@@ -116,7 +116,7 @@ function choose_scanner(){
     
   // Enumerate returns an array of scanner objects 
   // Devices without a hardware scanner will return a software-based recognizer 
-  scanners = Rho::Barcode.enumerate();
+  scanners = Rho.Barcode.enumerate();
 }
 
 function scan_using_chosen_scanner(scanner_index) {
