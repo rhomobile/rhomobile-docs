@@ -5,17 +5,17 @@ RhoConnect Source Adapters (Ruby)
 
 To generate a RhoConnect source adapter and create the associated Controller/Model templates, open your RhoConnect project in RhoStudio. Then right-click on the project in the Project Explorer and select New->RhoConnect Source Adapter.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/menu-new-rhoconnect_source-adapter.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/new-rhoconnect-source-adapter-menu-4.0.png"/>
 
 In the Source Adapter Information window, enter the name for your source adapter.
 
 Click the Finish button to create the source adapter.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/source-adapter-information.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/source-adapter-information-4.0.png"/>
 
 After pressing the Finish button, you'll see the RhoConnect source adapter generator script output in the output console (Rhomobile build console).
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-source-generator-output.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-source-generator-output-4.0.png"/>
 
 ## Generating the Source Adapter from the Command Line
 
