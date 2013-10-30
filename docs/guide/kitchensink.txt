@@ -89,7 +89,7 @@ Back to the example, this construct:
 
 protects the code against accidentally loading the `notification.js` javascript more than once. The first time it code runs, `KitchenSink.Samples.Notification` is `undefined`, which is a "falsy" value as we just saw, and the `||` operator returns the result of the expression located to its right. If for some reason we included the `notification.js` file again, the second time this code runs `KitchenSink.Samples.Notification` will have a "truthy" value and the assignment will have no visible effect.
 
-Let's examine now the right-side expression; if we remove the body of the function and focus only the structure, we are left with:
+Let's examine now the right-side expression; if we remove the body of the function and focus only on the structure, we are left with:
 
 	:::javascript
 	KitchenSink.Samples.Notification = KitchenSink.Samples.Notification || 
