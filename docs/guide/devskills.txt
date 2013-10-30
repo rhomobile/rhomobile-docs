@@ -1,6 +1,6 @@
 #Developer Skills Used
 
-You will use traditional Web skills when developing RhoMobile Applications including Javascript, HTML, CSS and Ruby. Native programming languages like C++ on Windows Mobile and Java on Android, may be used through implementing RhoMobile Native Extensions to expose some functionality that the framework does not inhenrently support.
+You will use traditional Web skills when developing RhoMobile Applications including Javascript, HTML, CSS and Ruby. Native programming languages like C++ on Windows Mobile and Java on Android, may be used through implementing RhoMobile Native Extensions to expose some functionality that the framework does not inherently support.
 
 
 ##HTML
@@ -14,5 +14,3 @@ Ruby may optionally be used in your application in a vareity of ways. When using
 
 ##CSS
 CSS is used to define how to display HTML elements in your page and thus will control how your application looks and is formatted. Since RhoMobile applications are running on top of Webkit, it supports modern CSS3 attributes. Some developers choose to write there own CSS styles, while others choose to leverage some 3rd party UI frameworks like JQuery Mobile or Twitter Bootstrap.
-
-
