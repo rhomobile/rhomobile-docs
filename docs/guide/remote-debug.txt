@@ -1,0 +1,33 @@
+# Remote Debugging Your RhoMobile Javascript using Weinre
+
+Weinre is a Node.js application that makes debugging your JS on a rhomobile app as easy as debugging your JS in a traditional web app.
+
+## Installing Weinre
+
+NOTE: You must have admin/sudo privilages to install weinre.
+
+The installation process of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html).
+
+Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running the command:
+
+    :::term
+    $ sudo npm -g install weinre
+
+##Starting Weinre
+Open a command prompt and start weinre with your local machine's local IP address. Do not use localhost as this is the address that the device will be using to communicate with weinre.
+
+    :::term
+    $ weinre --boundhost <your local IP address>
+
+Weinre will print out the address and port that you will use in order to continue.
+
+For example, here is my output from the above command
+
+    :::term
+    2013-10-31T00:24:07.549Z weinre: starting server at http://192.168.1.128:8080
+
+Verify that Weinre is running correctly by navigating your browser to the address Weinre gives you. You should see a page like this.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-web-console.png"/>
+
+Notice the section in the web console labeled "Target Script". Here there is a string that you must copy into your app in order for weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`
