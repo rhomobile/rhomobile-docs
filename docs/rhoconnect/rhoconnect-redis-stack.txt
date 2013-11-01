@@ -241,7 +241,7 @@ In the AWS Management Console, Cloud Formation tab, click the Outputs tab. You w
 
 At the top of the output list is the URL of the RhoConnect application. You can click on it to see the RhoConnect Console for the running RhoConnect server.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/rhoconnect-console.png" alt="RhoConnect Console" />
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-redis-aws/rhoconnect-console-4.0.png" alt="RhoConnect Console" />
 
 To use this scaleable RhoConnect server in your Rhodes application, copy the URL for the RhoConnect application into the rhoconfig.txt file in your Rhodes application as the syncserver variable. For example:
 

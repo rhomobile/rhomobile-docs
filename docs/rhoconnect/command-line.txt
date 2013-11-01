@@ -9,11 +9,11 @@ In RhoStudio, select File->New->Project...
 
 The New Project window opens. Select the RhoConnect application wizard and click the Next button.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/new-project-rhoconnect.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/new-rhoconnect-project-4.0.png"/>
 
 Enter the name for your RhoConnect application in Project name. You may specify a specific folder for your destination where your project is stored, by default, the destination is your RhoStudio workspace folder. Then press the Finish button.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-application-wizard.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhoconnect-tutorial/rhoconnect-application-wizard-4.0.png"/>
 
 ## Generating a RhoConnect App from the Command Line
 
@@ -21,24 +21,34 @@ The `rhoconnect` utility is a command line tool for generating RhoConnect applic
 
 The app name is passed as a parameter.  The `rhoconnect` utility will generate a directory for your application with all the necessary files to get started.  We will start with running `rhoconnect help app` to see the usage:
 
-  :::term
-  Usage:
-    rhoconnect app NAME
+	:::term
+	Usage:
+		rhoconnect app NAME
 
   Generates a new rhoconnect application.
 
 For example:
 
-  :::term
-  $ rhoconnect app storeserver
-  Generating with app generator:
-       [ADDED]  storeserver/config.ru
-       [ADDED]  storeserver/settings/settings.yml
-       [ADDED]  storeserver/settings/license.key
-       [ADDED]  storeserver/application.rb
-       [ADDED]  storeserver/Rakefile
-       [ADDED]  storeserver/Gemfile
-       [ADDED]  storeserver/spec/spec_helper.rb
+	:::term
+	$ rhoconnect app storeserver
+	Generating with app generator:
+		[32m     [ADDED] [0m  storeserver/config.ru
+		[32m     [ADDED] [0m  storeserver/Gemfile
+		[32m     [ADDED] [0m  storeserver/.gitignore
+		[32m     [ADDED] [0m  storeserver/settings/settings.yml
+		[32m     [ADDED] [0m  storeserver/settings/license.key
+		[32m     [ADDED] [0m  storeserver/Rakefile
+		[32m     [ADDED] [0m  storeserver/.rcgemfile
+		[32m     [ADDED] [0m  storeserver/public
+		[32m     [ADDED] [0m  storeserver/controllers/ruby/application_controller.rb
+		[32m     [ADDED] [0m  storeserver/spec/controllers/ruby/application_controller_spec.rb
+		[32m     [ADDED] [0m  storeserver/spec/spec_helper.rb
+
+The generator will then run `bundle install` for you.
+
+	:::term
+	Executing 'bundle install' for the first time in your freshly baked application!
+      bundle install --gemfile=/Users/<username>/guides/storeserver/Gemfile
 
 Here's a basic rundown of each of the files that were just generated:
 
@@ -46,16 +56,10 @@ Here's a basic rundown of each of the files that were just generated:
 * **config.ru** - This is a rackup file which will load your application.  RhoConnect uses the excellent [sinatra](http://www.sinatrarb.com/) web framework to run the application.
 * **settings/settings.yml** - This contains settings such as your redis connection, which source adapters exist and their parameters.  You can also put custom settings here.
 * **settings/license.key** - The RhoConnect [license](/rhoconnect/licensing) associated with your application.  The default license allows up to 10 devices to synchronize with the application.
-* **application.rb** - The RhoConnect application class where you can implement authentication.  You can also add other custom methods here to use in your application.  This class is a singleton, so all methods should be added to the `class << self` block.
+* **application_controller.rb** - The RhoConnect application class where you can implement authentication.  You can also add other custom methods here to use in your application.
 * **Rakefile** - This contains tasks that can be run from the terminal.
 * **Gemfile** - This file specifies application's dependencies using [bundler](http://gembundler.com/).
 * **spec/spec_helper.rb** - A helper file which loads the environment for running [specs](/rhoconnect/testing).
-
-After generating the application, you might be asked to change directories to your application directory and run bundle install. For example, you would run these commands:
-
-  :::term
-  $ cd storeserver
-  $ bundle install
 
 ## Rhoconnect Command Line Interface
 
@@ -64,45 +68,46 @@ In rhoconnect versions 3.2 and higher, a ruby utility called [thor](https://gith
 To issue commands this way, type `rhoconnect` followed by the task you wish to perform. To see a list of all the tasks you can issue with
 rhoconnect, type `rhoconnect` or `rhoconnect help`.
 
-  :::term
-  $ rhoconnect help
-  Tasks:
-    rhoconnect app NAME               # Generate a new rhoconnect application
-    rhoconnect attach                 # Attach to rhoconnect console
-    rhoconnect console [environment]  # Run rhoconnect console
-    rhoconnect dtach-about            # About dtach
-    rhoconnect dtach-install          # Install dtach program from sources
-    rhoconnect flushdb                # Flush data store - WARNING: THIS REMOVES ALL DATA IN RHOCONNECT
-    rhoconnect get-token              # Fetch current api token from rhoconnect
-    rhoconnect help [TASK]            # Describe available tasks or one specific task
-    rhoconnect redis-about            # About redis
-    rhoconnect redis-attach           # Attach to redis dtach socket
-    rhoconnect redis-download         # Download redis release 2.6.11
-    rhoconnect redis-install          # Install the latest version of Redis from Github (requires git, duh)
-    rhoconnect redis-restart          # Restart redis on localhost
-    rhoconnect redis-start            # Start redis on localhost
-    rhoconnect redis-status           # Show status of redis servers
-    rhoconnect redis-stop             # Stop redis running on localhost
-    rhoconnect restart [options]      # Alias for `rhoconnect stop; rhoconnect start`
-    rhoconnect secret                 # Generate a cryptographically secure secret session key
-    rhoconnect set-admin-password     # Set the admin password
-    rhoconnect source NAME            # Generate a new source adapter
-    rhoconnect start [options]        # Start rhoconnect server
-    rhoconnect stop                   # Stop rhoconnect server
-    rhoconnect update                 # Update an existing application to the latest rhoconnect release
-    rhoconnect version                # Display rhoconnect version
-    rhoconnect web                    # Launch the web console in a browser
+	:::term
+	$ rhoconnect help
+	Commands:
+	  rhoconnect app NAME [options]     # Generate a new rhoconnect application
+	  rhoconnect attach                 # Attach to rhoconnect console
+	  rhoconnect console [environment]  # Run rhoconnect console
+	  rhoconnect dtach-about            # About dtach
+	  rhoconnect dtach-install          # Install dtach program from sources
+	  rhoconnect flushdb                # Flush data store - WARNING: THIS REMOVES ALL DATA IN RHOCONNECT
+	  rhoconnect get-token              # Fetch current api token from rhoconnect
+	  rhoconnect help [COMMAND]         # Describe available commands or one specific command
+	  rhoconnect redis-about            # About redis
+	  rhoconnect redis-attach           # Attach to redis dtach socket
+	  rhoconnect redis-download         # Download redis release 2.6.11
+	  rhoconnect redis-install          # Install the latest verison of Redis from Github (requires git, duh)
+	  rhoconnect redis-restart          # Restart redis on localhost
+	  rhoconnect redis-start            # Start redis on localhost
+	  rhoconnect redis-status           # Show status of redis servers
+	  rhoconnect redis-stop             # Stop redis running on localhost
+	  rhoconnect restart [options]      # Alias for `rhoconnect stop; rhoconnect start`
+	  rhoconnect routes                 # Prints out routes defined in the application
+	  rhoconnect secret                 # Generate a cryptographically secure secret session key
+	  rhoconnect set-admin-password     # Set the admin password
+	  rhoconnect source NAME [options]  # Generate a new source adapter
+	  rhoconnect start [options]        # Start rhoconnect server
+	  rhoconnect stop                   # Stop rhoconnect server
+	  rhoconnect update                 # Update an existing application to the latest rhoconnect release
+	  rhoconnect version                # Display rhoconnect version
+	  rhoconnect web                    # Launch the web console in a browser
 
 **NOTE: The `rhoconnect war` command is available only if you switch to jruby, such as using the command `rvm use jruby`.**
 
 `rhoconnect start` and `rhoconnect restart` have the following options.
 
-  -p, [--port=N]                   # Use port (default: 9292)
-  -r, [--redis=REDIS]              # Redis server settings: (default: localhost:6379)
-  -P, [--push-server=PUSH_SERVER]  # Push server settings (default: http://someappname@localhost:8675/)
-  -t, [--api-token=API_TOKEN]      # API token  (default: my-rhoconnect-token)
-  -f, [--config=CONFIG]            # /path/to/rhoconnect/settings.yml file
-  -l, [--licenseflie=LICENSEFLIE]  # /path/to/license.key file
+	-p, [--port=N]                   # Use port (default: 9292)
+	-r, [--redis=REDIS]              # Redis server settings: (default: localhost:6379)
+	-P, [--push-server=PUSH_SERVER]  # Push server settings (default: http://someappname@localhost:8675/)
+	-t, [--api-token=API_TOKEN]      # API token  (default: my-rhoconnect-token)
+	-f, [--config=CONFIG]            # /path/to/rhoconnect/settings.yml file
+	-l, [--licenseflie=LICENSEFLIE]  # /path/to/license.key file
 
 ### Start the Application
 

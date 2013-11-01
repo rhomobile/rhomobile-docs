@@ -39,7 +39,7 @@ Download and unzip the [latest Android NDK](http://developer.android.com/sdk/ndk
 
 In RhoStudio -> Preferences on the Macintosh or Windows -> Preferences on Windows, open Rhomobile->Android and set the paths to your Android SDK and NDK installations.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/preferences-android-sdk.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/preferences-android-sdk-4.0.png"/>
 
 If you are not using RhoStudio, run rhodes-setup from the command line and set the paths to the Android SDK and NDK installations.
 

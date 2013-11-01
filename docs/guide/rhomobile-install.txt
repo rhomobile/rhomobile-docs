@@ -141,7 +141,7 @@ Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
 Download the latest Motorola RhoMobile Suite Installer for Macintosh. 
 
 Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
-  <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
+  <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png" alt="RhoStudioInstaller Mac" />
 
 ** NOTE: Do not use `sudo` when you install the gems: that can cause problems with file permissions when you run bundle commands within RhoStudio. **
 
