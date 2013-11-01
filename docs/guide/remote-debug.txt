@@ -1,5 +1,7 @@
 # Remote Debugging Your RhoMobile Javascript using Weinre
 
+This guide is modeled after a webinar by Rob Galvin which you can find [here](https://www.youtube.com/watch?v=aSTXEEAfJ6M).
+
 Weinre is a Node.js application that makes debugging your JS on a rhomobile app as easy as debugging your JS in a traditional web app.
 
 ## Installing Weinre
