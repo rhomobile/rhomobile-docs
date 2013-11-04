@@ -422,3 +422,4 @@ The following API's have been removed from Rhomobile 4.0
 * [BottomCommandArea](/v/2.2/rhoelements/bottomcommandarea) & [TopCommandArea](/v/2.2/rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
 * [History](/v/2.2/rhoelements/historyback2) - Better JS methods exist
 * [ODAX](/v/2.2/rhoelements/odax) - Better HTML5 methods exist
+* [Zoom](/v/2.2/rhoelements/zoom) - Incorporated into the WebView API.
