@@ -320,7 +320,7 @@ Amalgamation of <a href="/v/2.2/rhodesapi/system-api/">System</a> and <a href="/
 Interface with application's Webview container
 </td>
 <td>
-Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2
+Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2. Also Contains text zoom and page zoom parameters previously found in the Zoom module.
 </td>
 </tr>
 </tbody>
