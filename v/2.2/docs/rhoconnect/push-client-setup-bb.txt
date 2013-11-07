@@ -49,7 +49,7 @@ Uncomment the last line of the file, which should be 'push.application.reliable.
 
 ### Setup BlackBerry Simulator
 
-To listen for incoming messages on BlackBerry, the Rhodes application will start when the device powers on, and will run a listener thread in the background. You will use the "push_port" option in the [rhoconfig.txt](configuration#run-time-configuration) to specify the listening port for incoming push messages. If "push_port" is not specified, default will be 100 as shown in the previous section.
+To listen for incoming messages on BlackBerry, the Rhodes application will start when the device powers on, and will run a listener thread in the background. You will use the "push_port" option in the [rhoconfig.txt](/v/2.2/rhodes/configuration#run-time-configuration) to specify the listening port for incoming push messages. If "push_port" is not specified, default will be 100 as shown in the previous section.
 
 For testing push on the BlackBerry simulator, you should preform the following 'kickstart' process. When the simulator starts, open the web browser on the simulator and navigate to any web page (i.e. http://m.google.com/). Now your simulator is ready to receive push messages.
 
@@ -61,11 +61,11 @@ To test push on a BlackBerry device, you will need to use a device that is confi
 
 Rhodes 2.2 and higher supports the [Blackberry Push Service](http://na.blackberry.com/eng/developers/javaappdev/pushapi.jsp).
 
-Define in [rhoconfig.txt](configuration#run-time-configuration) which push to use (if empty or missed, only MDS push is supported).	
+Define in [rhoconfig.txt](/v/2.2/rhodes/configuration#run-time-configuration) which push to use (if empty or missed, only MDS push is supported).	
 
 	push_options = 'mds;push_service'
 
-The following parameters are from [PushApplicationDescriptor](http://www.blackberry.com/developers/docs/5.0.0api/net/rim/blackberry/api/push/PushApplicationDescriptor.html). Set them in [rhoconfig.txt](configuration#run-time-configuration):
+The following parameters are from [PushApplicationDescriptor](http://www.blackberry.com/developers/docs/5.0.0api/net/rim/blackberry/api/push/PushApplicationDescriptor.html). Set them in [rhoconfig.txt](/v/2.2/rhodes/configuration#run-time-configuration):
 
 	push_service_url  = 'https://pushapi.eval.blackberry.com/'
 	push_service_port = 20558
