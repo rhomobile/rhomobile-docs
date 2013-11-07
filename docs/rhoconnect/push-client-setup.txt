@@ -3,9 +3,9 @@ Setting Up for RhoConnect Push on Client Application
 
 This chapter contains the final steps for setting up your Rhodes application for RhoConnect Push. You also need to perform the setup on client and server for your mobile device platform (if you have not done so already).
 
- * [Setup for RhoConnect Push Service on client and server](/rhoconnect/push-client-setup-rps).
- * [Setup for RhoConnect Push on client and server for Rhodes Android Client](/rhoconnect/push-client-setup-android).
- * [Setup for RhoConnect Push on client and server for Rhodes iOS Client](/rhoconnect/push-client-setup-ios).
+ * [Setup for RhoConnect Push Service on client and server](push-client-setup-rps).
+ * [Setup for RhoConnect Push on client and server for Rhodes Android Client](push-client-setup-android).
+ * [Setup for RhoConnect Push on client and server for Rhodes iOS Client](push-client-setup-ios).
 
 ## Configuring a Rhodes Application for RhoConnect Push
 
@@ -15,7 +15,7 @@ If you want your device to vibrate when it receives a push message, enable vibra
 	capabilities:
 	  - vibrate #=> if you want to enable vibrate in your push messages
 
-Set up your application [rhoconfig.txt](/rhodes/configuration#run-time-configuration) syncserver to point to your RhoConnect server:
+Set up your application [rhoconfig.txt](/guide/runtime_config) syncserver to point to your RhoConnect server:
 
 	syncserver = 'http://<rhoconnect_server_url>'
 
