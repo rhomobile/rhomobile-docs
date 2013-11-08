@@ -1,0 +1,37 @@
+# Samsung Remote Test Lab
+
+Using the Samsung Remote Test Lab you can easily see what your app will look like on any of the available Samsung devices offered on the Remote [Test Lab site](http://developer.samsung.com/remotetestlab/rtlDeviceList.action). 
+
+
+## Getting started with the Samsung RTL
+### Samsung developer account
+To use this service you will have to have a Samsung developer account but don't worry if you don't, it's free to sign up and there are no fees or charges, it's completely free! Once you are signed up (or signed in). You'll see this screen with the devices you are allowed to access.
+
+<img src="https://s3.amazonaws.com/rhodocs/samsung_rtl/rtl-device-home-screen.png">
+
+### Browser Requirements
+Once you are here, you can see if your browser meets the requirements to run the remote devices. If your browser meets the requirements, you are free to start using the service. However if your browser does not meet the requirements, there are steps you must take before using the remote devices and luckily, samsung provides links to where you can get the necessary pieces to get up and running. Here is what each scenario looks like.
+
+NOTE: You may have to click the Datails dropdown menu to see exactly why your browser is failing this test. 
+
+<div class="row-fluid" style="text-align:center">
+  <div class="span6" style="border:1px solid gray;padding:1px;height:300px">
+    <img src="https://s3.amazonaws.com/rhodocs/samsung_rtl/rtl-browser-requirements-pass.png">
+  </div>
+  <div class="span6" style="border:1px solid gray;padding:1px;height:300px">
+    <img src="https://s3.amazonaws.com/rhodocs/samsung_rtl/rtl-browser-requirements-fail.png">
+  </div>
+</div>
+
+The problem that existed in the failure here is that there is no 64-bit version of Google Chrome for the Mac and the required java doesn't run on 32-bit browsers. If you are running the RTL on a mac, your best bet is to use Safari. On Windows, IEv7+ is sufficient.
+
+## Choosing a Device
+<div class="row-fluid">
+  <div class="span8">
+    <p>Now that you have your Samsung developer account and you have verified that your browser is sufficient to run the remote test devices, it's time to choose which device you are going to test on. You must chose the Android release, the Decive Model, and for how long you want to reserve the device. For this example I chose a Galaxy Note 8.0 running Android 4.2.2.
+    </p>
+  </div>
+  <div class="span4">
+    <img src="https://s3.amazonaws.com/rhodocs/samsung_rtl/rtl-device-selection.png">
+  </div>
+</div>
