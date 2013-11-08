@@ -113,7 +113,7 @@ Code samples of each and every Rhodes capability are in the
 
 You should take a look at the [Rhodes 2.0 training webinar](http://vimeo.com/channels/rhomobile#12214213).
 
-There is a [technical FAQ](faq) that describes how to perform certain specific tasks in Rhodes.
+There is a [technical FAQ](/v/2.2/faq) that describes how to perform certain specific tasks in Rhodes.
 
 The following sections describe how to add synchronized data to our app with RhoConnect.
 
