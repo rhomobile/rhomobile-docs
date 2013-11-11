@@ -138,12 +138,12 @@ If your application needs HTTPS, then you need to build the Qt libraries for Vis
     * Remove `bin`, `include` and `lib` folders from `<path-to-rhodes>/lib/extensions/openssl.so/ext/win32`
     * Open Visual Studio 2008 Command Prompt. This is accomplished using Start » All Programs » Microsoft Visual Studio 2008 » Visual Studio Tools » Visual Studio 2008 Command Prompt. Run in Visual Studio 2008 Command Prompt:
 
-	> cd \Qt\openssl-src
-	> perl Configure VC-WIN32 enable-static-engine --prefix=<path-to-rhodes>/lib/extensions/openssl.so/ext/win32
-	> ms\do_nasm
-	> nmake -f ms\ntdll.mak
-	> nmake -f ms\ntdll.mak install
-	> nmake -f ms\ntdll.mak clean
+      > cd \Qt\openssl-src
+      > perl Configure VC-WIN32 enable-static-engine --prefix=<path-to-rhodes>/lib/extensions/openssl.so/ext/win32
+      > ms\do_nasm
+      > nmake -f ms\ntdll.mak
+      > nmake -f ms\ntdll.mak install
+      > nmake -f ms\ntdll.mak clean
 
 * Download the [Qt 4.8.5 source](http://download.qt-project.org/official_releases/qt/4.8/4.8.5/qt-everywhere-opensource-src-4.8.5.zip) (269 MB) and extract the archive, e.g. into `C:\Qt\4.8.5-src`
 * Open Control Panel » System » Advanced system settings » Environment Variables and then:
