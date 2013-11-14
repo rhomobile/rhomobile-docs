@@ -1,12 +1,12 @@
 # Remote Debugging Your RhoMobile Javascript using Weinre
 
-This guide is modeled after a webinar by Rob Galvin which you can find [here](https://www.youtube.com/watch?v=aSTXEEAfJ6M).
+This guide is modeled after a webinar by Rob Galvin which you can find [here](https://www.youtube.com/watch?v=aSTXEEAfJ6M). I'll be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary.
 
-Weinre is a Node.js application that makes debugging your JS on a rhomobile app as easy as debugging your JS in a traditional web app.
+Weinre is a Node.js application that makes debugging your JS on a Rhomobile app as easy as debugging your JS in a traditional web app.
 
 ## Installing Weinre
 
-NOTE: You must have admin/sudo privilages to install weinre.
+NOTE: You must have admin/sudo privileges to install weinre.
 
 The installation process of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html).
 
@@ -32,4 +32,91 @@ Verify that Weinre is running correctly by navigating your browser to the addres
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-web-console.png"/>
 
-Notice the section in the web console labeled "Target Script". Here there is a string that you must copy into your app in order for weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`
+## Connect Weinre to App
+
+Notice the section in the web console labeled "Target Script". Here there is a string that you must copy into your app in order for weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`. I'm going to put this line into my barcode_enumerate.html file so that when I load that file in my app, it will connect to weinre and start capturing info. Remember when editing HTML in RhoStudio, the default double click action is to open the browser representation in the editor, so to edit the HTML itself, make sure to right-click the file and select open with "Text Editor" as shown below.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-edit-barcode-enumerate.png"/>
+
+Here is what the line looks like in my HTML:
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-target-script-example.png"/>
+
+Now that we have those steps out of the way, it's time to start up weinre's debug client UI by clicking the link on the weinre home page.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-link-to-debug-ui.png"/>
+
+## Debug Client UI
+
+You may notice that there are many options at the top of the debug UI that very closely resemble the tools available in the chrome web inspector. This is not by accident, these tools serve the same purpose as they would in the chrome web inspector but these are for inspection on the device. 
+
+Here you see both the weinre debug UI connected to my device (when the device is connected, the Targets and Clients fields are populated with green text describing the device connection.) and my device's screen. I am casting my device's screen to my monitor with the help of an app called [Droid@Screen](http://droid-at-screen.ribomation.com/) which uses USB and adb in order to stream screen shots to your computer. It's got some lag but is very useful.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-debug-and-device.png"/>
+
+Now you can inspect your app just as you would any other HTML page if you were using the Chrome web inspector. Select the Elements tool at the top of the page and select an element to inspect. You will also see the element highlighted on your device showing you that two-way communication is established.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-two-way-communication-inspection.png"/>
+
+You can use the Elements tool to change things on the app's view on the fly just by changing the code in the inspector itself. For instance, in the below images I am simply changing the text on the button from "Enumerate" to "Changed!".
+
+<div class="row-fluid">
+  <div>
+    <div class="span6" style="text-align:center">
+        <p><b>Button text "Enumerate"</b></p>
+        <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-button-element-before-change.png"/>
+    </div>
+    <div class="span6" style="text-align:center">
+        <p><b>Button text "Changed!"</b></p>
+        <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-button-element-after-change.png"/>
+    </div>
+  </div>
+</div>
+
+You can change pretty much any part of the view such as CSS styling and even which APIs and methods are called, but I chose to do a simple one for brevity's sake.
+
+## Console and Issuing API Calls
+
+One of the most helpful features of weinre is the console. You can use this console as the classic console to see what is going on on the device while in operation however, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware APIs in RhoElements rely on there actually being hardware, which means they cannot be tested in the RhoSimulator.
+
+In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on, use the camera to scan a barcode, and then issue a command to the ScreenOrientation API which returns an error.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-barcode-take-and-failed-extension.png"/>
+
+As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Motorola Solutions ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the Barcode.take() method, so I know that the Barcode module is working properly.
+
+## Extension Inclusion
+
+Now notice the error I received from the last API call: "TypeError: cannot call method 'normal' of undefined." This error means that it cannot find the ScreenOrientation module. This is because ScreenOrientation is not included by default in RE apps. To add this module in, all we have to do is list it in the app's build.yml in the extensions section as shown below and then rebuild the app.
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-adding-extension.png"/>
+
+<div class="row-fluid">
+    <div class="span6">
+        <p>
+            Once the app is rebuilt, it should connect to weinre as soon as it is activated as we did not remove the target script line from the HTML. Back in the console, now that the module is included you should notice that the module name will auto-complete since the framework is now aware of this module. And since this module is now available, the API call I made before will not return an error but will return what it is supposed to: VOID, which in the console is represented by a null return.
+        </p>
+        <p>
+            To tell whether or not you'll have to add the extension into your build.yml please see the <a href="http://docs.rhomobile.com/guide/apisummary">API Summary Page</a> in our docs. Click on the API you wish to use and the corresponding module page will describe what needs to be done to use the API in question.
+        </p>
+    </div>
+    <div class="span6" style="text-align:center">
+        <p><b>Auto-Completing Code</b></p>
+        <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-auto-complete.png"/>
+        <p><b>Extension Working properly</b></p>
+        <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-extension-included-return-value.png"/>
+    </div>
+</div>
+
+### Other Tabs in Debugger UI
+
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-tabs.png"/>
+
+There are a few other tabs that we have seen in the debugger UI but I'll leave those for you to play around with. There are many resources available on the web that talk in-depth about these tabs either in the context of weinre or Chrome. One example of some of the resources available on the web give some brief notes about two of the other tabs. This is from a site talking about the [Google Chrome Web Inspector](http://cs.brown.edu/courses/cs132/resources/inspector/).
+
+>Some Brief Notes on the other functions of the Chrome Web Inspector:
+
+>* The resources pane provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies.
+>* The network panel will log all network requests that the browser makes and give you all sorts of useful info about them. This is useful for looking at resources, but will also show you any requests made via Javascript.
+
+Weinre is a great tool to use to get used to the APIs that are available while using the RhoElements framework in addition to being a useful on-device JS debugging utility and I hope this guide will be helpful to furthering your understanding of RhoElements and it's associated products.
