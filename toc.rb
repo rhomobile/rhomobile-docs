@@ -165,6 +165,7 @@ end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
   topic 'guide/debugging_with_rhosimulator',    'Debugging with RhoSimulator'
+  topic 'guide/remote-debug',    'Debugging JS On Devices'
   topic 'guide/logging',    'Logging'
   topic 'guide/testing',    'Testing'
   topic 'guide/profiling',    'Performance Profiling'
