@@ -95,7 +95,7 @@ $(".apiFilter").bind('change', function() {
 	});
 
 	$(".icon-bug").parent().click(function(){
-	    var url = "http://github.com/rhomobile/rhomobile-docs/issues/new?title=Doc Issue:" + document.title + '&body=' + encodeURIComponent(window.location.href);
+	    var url = "http://github.com/rhomobile/rhomobile-docs/issues/new?title=Doc Issue:" + document.title + '&body=' + encodeURIComponent('Bad Link: ' + window.location.href + ' came from: ' + document.referrer);
 	    window.open(url);
 
 	});
