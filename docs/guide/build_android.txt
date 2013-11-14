@@ -53,7 +53,7 @@ You can also edit the build.yml file directly with a text editor. Here is a list
 If you have an urgent need to put changes in AndroidManifest.xml that are not supported by build settings, you may edit a manifest template located at <Rhodes>/platform/android/Rhodes/AndroidManifest.xml.erb.
 Please note that this template does not relate to a particular application: it is used for every Android application build.
 
-** NOTE: To see how to change AndroidManifest.xml at extension build, see [Extending the Rhodes Framework](extensions#rewriting-the-generated-native-extension-source-code-for-android). **
+** NOTE: To see how to change AndroidManifest.xml at extension build, see [Extending the Rhodes Framework](native_extensions#platform-specific-notes). **
 
 ## Building and Running Your Android Application with RhoStudio
 
