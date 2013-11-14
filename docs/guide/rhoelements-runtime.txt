@@ -66,13 +66,13 @@ The RhoElements runtime installation path on Windows CE/Mobile devices is `\Prog
 
 The shortcut file supports the following command line parameters.
 
-`/C:` specifies the location of the configuration file for the RhoElements v1.0 application. This will override all default configuration settings. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
+`/C:` specifies the location of the configuration file for the RhoElements application. This will override all default configuration settings. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
 
         /C:file://\application\config.xml
         /C:'file://\Program Files\application\Config.xml'
         /C:"file://\Program Files\My Application\config.xml"
         
-`/S:` specifies the start page of the RhoElements v1.0 application. Other configuration parameters will be used from the default config.xml file. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
+`/S:` specifies the start page of the RhoElements application. Other configuration parameters will be used from the default config.xml file. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
 
         /S:file://\HTML\index.html
         /S:'file://\RE App\index.html'
