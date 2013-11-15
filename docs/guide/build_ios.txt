@@ -36,21 +36,21 @@ If you wish to run your RhoMobile application on an iOS device, you need to buil
 
 Tell Rhomobile to build from your RhoMobile application. Within your RhoMobile project folder, run the following command:
 
-  :::term
-  $ rake switch_app
+    :::term
+    $ rake switch_app
 
 The switch_app command changes the rhobuild.yml in the RhoMobile source code folder to point to your application, as in the following example for a RhoMobile application named Store in the user's home folder:
 
-  :::term
-  env: 
-    app: /Users/NameOfUser/Store
+    :::term
+    env: 
+      app: /Users/NameOfUser/Store
 
 Note that the switch_app command is only used when you run a RhoMobile application within an IDE, such as Xcode: you run switch_app for each RhoMobile application that you run in Xcode. The switch_app command does not affect RhoMobile applications that you build and run on the command line or within RhoStudio.
 
 Now run the following command to tell RhoMobile to set up the Xcode environment for your RhoMobile application:
 
-  :::term
-  $ rake build:iphone:setup_xcode_project
+    :::term
+    $ rake build:iphone:setup_xcode_project
 
 Then in the RhoMobile source code folder (the path in your RhoMobile application build.yml file), navigate to the /platform/iphone folder and open rhorunner.xcodeproj. This will open your RhoMobile application in Xcode.
 
@@ -94,7 +94,7 @@ If you want to build/run/debug your application on devices before iPhone4/iPad (
 
 To restore the Xcode rhorunner.xcodeproj to its original state:
 
-  :::term
+    :::term
     $ rake build:iphone:restore_xcode_project
 
 ## Building iPhone Application from the Command Line
@@ -105,8 +105,8 @@ From the command line, navigate to the folder for your RhoMobile application.
 
 To run your RhoMobile application in the iPhone simulator, run this rake command:
   
-  :::term
-  $ rake run:iphone
+    :::term
+   $ rake run:iphone
 
 ## Building the Application for the iOS Device
 
@@ -188,7 +188,7 @@ Here is an example of the iPhone settings in build.yml for a finished applicatio
 
 Now you can create your .app file with this rake command:
 
-  :::term
+    :::term
     $ rake device:iphone:production
 
 The package named <b>your application name.app</b> will be placed to `<your application folder>/bin/target/iOS/[sdkname]/[configuration]/[your application name].app` if you are using RhoMobile from 2.2.4 version.
