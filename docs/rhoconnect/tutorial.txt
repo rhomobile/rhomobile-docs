@@ -1,0 +1,80 @@
+# RhoConnect Tutorial
+
+## Adding Data synchronization to Your Backend Application with RhoConnect
+
+RhoConnect is a synchronization framework consisting of a backend application (a client component on the mobile device) and a server component (a RhoConnect application) that runs on any server capable of running Ruby. The backend application can be a Rhodes application, or another mobile application written without the use of Rhodes (such as an iOS/Objective C or Android/Java application).
+
+RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. You can write this code in Ruby as a RhoConnect source adapter, or you can write this code as a RhoConnect plug-in application written in Java, .NET, or Ruby on Rails.
+
+Full documentation of all capabilities of RhoConnect is in the [RhoConnect Developer Reference](introduction).
+
+## Installing RhoConnect
+
+You can install RhoConnect in two ways:
+  
+  * Install the RhoConnect gem from the [command-line](install).
+  * Install RhoConnect along side the other Rhomobile Suite tools with the [Rhomobile Suite installation](../guide/rhomobile-install).
+
+If you have been issued a RhoConnect license, you can license your app as described [here](licensing).
+
+### Generating a RhoConnect App
+
+Currently there are two different types of RhoConnect apps that can be generated:
+
+  * [Javascript RhoConnect App](command-line#generating-a-javascript-rhoconnect-app-from-the-commanc-line)
+  * [Ruby RhoConnect App](command-line)
+
+While the JavaScript RhoConnect is, in essence, the same as the Ruby version, the only way to currently generate a JavaScript RhoConnect app is through the command-line, whereas the Ruby version can be generated through RhoStudio as well. These two types of RhoConnect apps are generated and modified differently so I will conduct a generalized tutorial here and reference the more specific topics for you to study and understand the differences.
+
+Now you are ready to generate your app, the steps for which vary depending which type of app you want to generate.
+
+  * [Generate a JavaScript RhoConnect app through the command-line](command-line#generating-a-javascript-rhoconnect-app-from-the-commanc-line)
+  * [Generate a Ruby RhoConnect app through the command-line]()
+  * [Generate a Ruby RhoConnect app through RhoStudio]()
+
+After code generation, the bundle install command will be run for the first time automatically.
+
+### Starting Your RhoConnect App
+
+Once you have generated your app code, you'll need to start your redis server and the RhoConnect app in order to ensure that everything is working properly. 
+
+#### Mac
+
+Before starting your RhoConnect app on your Mac you'll first need to install Dtach
+
+    :::term
+    $ rhoconnect dtach-install
+
+  Once Dtach is installed, any app on your machine that runs in the terminal (if started with Dtach) will be able to be detached from the current terminal activity and be put into the background. In our case, redis and the RhoConnect service itself run using
+
+  this consists of a two-step command process: Start redis, then start the RhoConnect app. Both commands must be run from within the RhoConnect app's directory.
+
+    :::term
+    $ rhoconnect redis-start
+    $ rhoconnect start
+
+#### Windows
+  
+On Windows the process is fairly similar except that there is no need to start the redis server because starting RhoConnect will start the redis server automatically.
+
+    :::term
+    C:\rc_app>rhoconnect start
+
+In either case, if all went well, you should see:
+
+    :::term
+    Listening on 0.0.0.0:9292, CTRL+C to stop
+
+This means that your RhoConnect app is up and running on localhost:9292. If you go to this address in your browser you will see the RhoConnect Console, pictured below.
+
+<img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-console-4.0.png">
+
+## Defining RhoConnect Source Adapters
+
+Once RhoConnect is installed we’re ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information, see your corresponding [source adapter doc](source-adapters-intro):
+
+  * [JavaScript Source Adapters](source-adapters-js)
+  * [Ruby Source Adapters](source-adapters)
+
+Once you have generated your source adapter, you should now have files for the source adapter in your RhoConnect application as described in the docs linked above.
+
