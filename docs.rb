@@ -195,6 +195,44 @@ xml_string +=  ' </rss>	'
     xml_string
   end
   
+['/tutorial/:step/:topic/?',  '/tutorial/:topic/?'].each do |path|
+    get path do
+      cache_long
+      @docversion = nil
+
+      # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
+      
+      @tut = TUT.steps(params[:topic])
+      @doc = @tut[0]
+      @docTitle = @tut[1]
+      @baseurl = @tut[3]
+      @steps = @tut[4]
+      @topic = params[:topic]
+      @step = params[:step]
+      @prevStep = ''
+      @nextStep = ''
+      @currindex = -1
+      @stepTitle = ''
+      @steps.each do |gitlabel, title|
+
+        @currindex += 1 if !@step.nil?
+        @stepTitle = title
+        break if @step == gitlabel
+      end
+      @prevStep = @steps[@currindex-1][0] if @currindex > 0
+      @nextStep = @steps[@currindex+1][0] if @currindex < @steps.length-1
+      @codediffUrl = "#{@baseurl}/compare/#{@prevStep}...#{@step}" if @prevStep != ''
+
+      topic_doc = params[:topic]
+      if !@step.nil?
+        topic_doc += '.' + @step
+      end
+      render_topic topic_doc, 'tutorial', 0
+      erb :tutorial
+      
+    end
+  end
+
   #get '/:topic' do
   # TODO: use proper regex
   ['/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?',  '/:topic/?', '/:subpath/:topic/?'].each do |path|
@@ -237,7 +275,7 @@ xml_string +=  ' </rss>	'
         source = File.read(topic_file(topic, subpath,docversion))
       end
       source = source
-  		@topic = Topic.load(topic, source)
+      @topic = Topic.load(topic, source)
 		
   		@title   = @topic.title 
   		@content = @topic.content
@@ -394,6 +432,7 @@ module TOC
     yield if block_given?
 	end
 
+
 	# define a topic
 	def topic(name, title)
 		sections.last.last << [name, title, []]
@@ -436,4 +475,47 @@ module TOC
   	file = File.dirname(__FILE__) + '/toc.rb'
 	eval File.read(file), binding, file
 end
+
+module TUT
+  extend self
+
+  
+  def tutorials
+    @tutorials ||= []
+
+  end
+
+  # define a section
+  def tutorial(name, title,group,giturl)
+    tutorials << [name, title,group, giturl, []]
+    yield if block_given?
+  end
+
+  # define a topic
+  def gitlabel(name, title)
+    tutorials.last.last << [name, title, []]
+  end
+  
+  def steps(tut)
+      # puts "#{tut}"
+      
+    
+    found={}
+    # found = @tutorials[0][0] # Default to first section
+    @tutorials.each do |tutsection|
+      # puts tutsection
+      if tutsection[0] == tut
+        found = tutsection
+      end
+      
+    end
+    # puts "FOund:#{found}"
+    found
+  end
+
+ 
+  file = File.dirname(__FILE__) + '/tuts.rb'
+  eval File.read(file), binding, file
+end
+
 

@@ -111,7 +111,21 @@
 			<% collapsed = true 
 			 first = true
 			%>
-	<% sections.each do |slug, title, sectgroup, topics| 
+	<% 
+	if !@steps.nil?
+		%>
+		<div class='well'>
+			<ul class='nav nav-list'>
+			<li class="nav-header"><a href="/tutorial/<%=@doc%>"><i class='icon '</i> <%=@docTitle %></a> </li>
+				  	
+			<% @steps.each do |gitlabel, title| %>
+				<li class="<%='active' if gitlabel == @step%>"><a href='/tutorial/<%=gitlabel%>/<%=@doc%>'><%=title%></a></li>
+			<% end %>
+			</ul>
+		</div>
+		 
+	<%else
+	sections.each do |slug, title, sectgroup, topics| 
 		
 		%>
 	<% if sectionGroup == sectgroup %>
@@ -160,8 +174,9 @@
 				
 		<% end %>
 		<% end %>
-	<% end %>
 		</ul>	
+	<% end %>
+	<% end %>
 		
 	</div>
 

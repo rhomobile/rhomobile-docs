@@ -1,0 +1,44 @@
+<div id="rendered_topic_container" style="overflow:auto;padding-right: 5px;">
+	<div id="rendered_topic" data-title="Rhomobile | <%=h @title %>">
+		
+		<div class="row-fluid">
+			<ul doc-tutorial-nav="0" class="btn-group pull-left">
+				<%if @prevStep!=''%>
+					<li class="btn <%='disabled' if @prevStep==''%>"><a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><i class="icon-step-backward"></i> Previous</a></li>
+				<% else %>
+					<li class="btn disabled"><i class="icon-step-backward"></i> Previous</li> 
+				<%end%>
+				
+				<%if @nextStep!=''%>
+				<li class="btn "><a href="/tutorial/<%=@nextStep %>/<%=@doc %>">Next <i class="icon-step-forward"></i></a></li>
+				<% else %>
+				<li class="btn disabled">Next <i class="icon-step-forward"></i></li>
+
+				<%end%>
+			</ul>
+			<%if !@codediffUrl.nil? %>
+			<ul class="btn-group pull-right">
+			
+				<li class="btn"><a href="<%=@codediffUrl%>" target="_blank"><i class="icon-search"></i> Code Diff</a></li>
+			</ul>
+
+				<%end%>
+		</div>
+
+		<div class="row-fluid">
+		<H1><%=@stepTitle%>
+		<%= @intro %>
+
+		</div>
+
+		<div class="row-fluid">
+		
+
+		<%= @body %>
+		</div>
+
+		
+		
+	</div>
+	<a href="/<%= topic_path %>">Back to Top</a>
+</div>

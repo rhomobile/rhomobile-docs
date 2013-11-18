@@ -38,6 +38,7 @@ div#content {
 div#doc_container{
 	overflow: hidden;
     padding-bottom: 85px;
+    padding-left: 10px;
 }
 
 #docsnav {
