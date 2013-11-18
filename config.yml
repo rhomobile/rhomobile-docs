@@ -5,6 +5,7 @@ development:
     - '../rhodes/res/generators/templates/api/xml_templates/'
     - '../rhoconnect-client/ext/rhoconnect-client/ext/'
   dirs:
+    tutorial: 'docs/tutorial/'
     api: 'docs/api/'
     guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
@@ -25,6 +26,7 @@ jenkins:
     - '../../rhodes/workspace/res/generators/templates/api/xml_templates/'
     - '../../rhoconnect-client/workspace/ext/rhoconnect-client/ext/'
   dirs:
+    tutorial: 'docs/tutorial/'
     api: 'docs/api/'
     guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
@@ -40,6 +42,7 @@ jenkins:
   pdfkithost: 'localhost:9393'
 edge:
   dirs:
+    tutorial: 'docs/tutorial/'
     api: 'docs/api/'
     guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
@@ -55,6 +58,7 @@ edge:
   pdfkithost: 'edgedocs.rhomobile.com'
 production:
   dirs:
+    tutorial: 'docs/tutorial/'
     api: 'docs/api/'
     guide: 'docs/guide/'
     rhosync: 'docs/rhosync/'
