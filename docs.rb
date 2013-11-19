@@ -216,12 +216,12 @@ xml_string +=  ' </rss>	'
       @steps.each do |gitlabel, title|
 
         @currindex += 1 if !@step.nil?
-        @stepTitle = title
+        @stepTitle = title if !@step.nil?
         break if @step == gitlabel
       end
       @prevStep = @steps[@currindex-1][0] if @currindex > 0
       @nextStep = @steps[@currindex+1][0] if @currindex < @steps.length-1
-      @codediffUrl = "#{@baseurl}/compare/#{@prevStep}...#{@step}" if @prevStep != ''
+      @codediffUrl = "#{@baseurl}/compare/#{@prevStep}...#{@step}" if @prevStep != '' && @baseurl !=''
 
       topic_doc = params[:topic]
       if !@step.nil?
