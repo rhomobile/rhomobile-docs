@@ -19,18 +19,26 @@ If you have been issued a RhoConnect license, you can license your app as descri
 
 ### Generating a RhoConnect App
 
-Currently there are two different types of RhoConnect apps that can be generated:
+Currently there are two different types of RhoConnect apps that can be generated, Ruby and JavaScript:
 
-  * [Javascript RhoConnect App](command-line#generating-a-javascript-rhoconnect-app-from-the-commanc-line)
-  * [Ruby RhoConnect App](command-line)
+<div>
+  <ul class="nav nav-tabs" style="margin-bottom:0">
+    <li class="active"><a href="#js_app_gen" data-toggle="tab">JavaScript</a></li>
+    <li><a href="#ruby_app_gen" data-toggle="tab">Ruby</a></li>
+  </ul>
+</div>
+<div class="tab-content" id="tc-app_gen" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px">
+  <div class="tab-pane fade active in" id="js_app_gen">
+    <p>Generating a JavaScript RhoConnect app</p>
+    <pre><code class="term">$ rhoconnect app app_name --js</code></pre>
+  </div>
+  <div class="tab-pane fade" id="ruby_app_gen">
+    <p>Generating a Ruby RhoConnect app</p>
+    <pre><code class="term">$ rhoconnect app app_name</code></pre>
+  </div>
+</div>
 
-While the JavaScript RhoConnect is, in essence, the same as the Ruby version, the only way to currently generate a JavaScript RhoConnect app is through the command-line, whereas the Ruby version can be generated through RhoStudio as well. These two types of RhoConnect apps are generated and modified differently so I will conduct a generalized tutorial here and reference the more specific topics for you to study and understand the differences.
-
-Now you are ready to generate your app, the steps for which vary depending which type of app you want to generate.
-
-  * [Generate a JavaScript RhoConnect app through the command-line](command-line#generating-a-javascript-rhoconnect-app-from-the-commanc-line)
-  * [Generate a Ruby RhoConnect app through the command-line]()
-  * [Generate a Ruby RhoConnect app through RhoStudio]()
+Ruby RhoConnect apps can also be generated using RhoStudio. To use this method, see [Generating a RhoConnect app with RhoStudio](command-line#generating-a-rhoconnect-app-with-rhostudio)
 
 After code generation, the bundle install command will be run for the first time automatically.
 
@@ -38,29 +46,36 @@ After code generation, the bundle install command will be run for the first time
 
 Once you have generated your app code, you'll need to start your redis server and the RhoConnect app in order to ensure that everything is working properly. 
 
-#### Mac
+<div>
+  <ul class="nav nav-tabs" style="margin-bottom:0">
+    <li class="active"><a href="#mac_rc_start" data-toggle="tab">Mac</a></li>
+    <li><a href="#win_rc_start" data-toggle="tab">Windows</a></li>
+  </ul>
+</div>
+<div class="tab-content" id="tc-app_gen" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px">
+  <div class="tab-pane fade active in" id="mac_rc_start">
+    <p>Before starting your RhoConnect app on your Mac you’ll first need to install Dtach</p>
+    <pre>
+      <code class="term">$ rhoconnect dtach-install</code>
+    </pre>
+    <p>Once Dtach is installed, any app on your machine that runs in the terminal (if started with Dtach) will be able to be detached from the current terminal activity and be put into the background. In our case, redis and the RhoConnect service itself run using Dtach which lets us run them all in the same terminal window</p>
+    <p>Starting RhoConnect is a two-step command process: Start redis, then start the RhoConnect app. Both commands must be run from within the RhoConnect app's directory.</p>
+    <pre>
+      <code class="term">$ rhoconnect redis-start</code>
+    </pre>
+    <pre>
+      <code class="term">$ rhoconnect start</code>
+    </pre>
+  </div>
+  <div class="tab-pane fade" id="win_rc_start">
+    <p>On Windows there is no need to start the redis server because starting RhoConnect will start the redis server automatically.</p>
+    <pre>
+      <code class="term">C:\rc_app>rhoconnect start</code>
+    </pre>
+  </div>
+</div>
 
-Before starting your RhoConnect app on your Mac you'll first need to install Dtach
-
-    :::term
-    $ rhoconnect dtach-install
-
-  Once Dtach is installed, any app on your machine that runs in the terminal (if started with Dtach) will be able to be detached from the current terminal activity and be put into the background. In our case, redis and the RhoConnect service itself run using
-
-  this consists of a two-step command process: Start redis, then start the RhoConnect app. Both commands must be run from within the RhoConnect app's directory.
-
-    :::term
-    $ rhoconnect redis-start
-    $ rhoconnect start
-
-#### Windows
-  
-On Windows the process is fairly similar except that there is no need to start the redis server because starting RhoConnect will start the redis server automatically.
-
-    :::term
-    C:\rc_app>rhoconnect start
-
-In either case, if all went well, you should see:
+If all went well, you should see:
 
     :::term
     Listening on 0.0.0.0:9292, CTRL+C to stop
@@ -71,10 +86,125 @@ This means that your RhoConnect app is up and running on localhost:9292. If you 
 
 ## Defining RhoConnect Source Adapters
 
-Once RhoConnect is installed we’re ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. For more information, see your corresponding [source adapter doc](source-adapters-intro):
+Once RhoConnect is installed we’re ready to build a RhoConnect source to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. To generate a source adapter and for more information, see your corresponding [source adapter doc](source-adapters-intro):
 
   * [JavaScript Source Adapters](source-adapters-js)
   * [Ruby Source Adapters](source-adapters)
 
-Once you have generated your source adapter, you should now have files for the source adapter in your RhoConnect application as described in the docs linked above.
+
+Once you have generated your source adapter, you should now have files for the source adapter in your RhoConnect application as described below:
+
+<div>
+  <ul class="nav nav-tabs" style="margin-bottom:0">
+    <li class="active"><a href="#js_source_files" data-toggle="tab">JavaScript</a></li>
+    <li><a href="#ruby_source_files" data-toggle="tab">Ruby</a></li>
+  </ul>
+</div>
+<div class="tab-content" id="tc-app_gen" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px">
+  <div class="tab-pane fade active in" id="js_source_files">
+    <p>Generating a JavaScript source adapter will generate two files:</p>
+    <code>controllers/js/model_name_controller.js</code>
+    <p>  - The controller's purpose is to define the RhoConnect application HTTP end point and to register the corresponding sync routes.</p>
+    <code>models/js/model_name.js</code>
+    <p>  - In this model you will need to implement the functions necessary for the create, query, update and delete sync operations. Optionally you may implement functions for login, logoff and storeBlob (if your application uses blobs).</p>
+  </div>
+  <div class="tab-pane fade" id="ruby_source_files">
+    <p>Generating a ruby source adapter generates four files:</p>
+    <p><code>models/ruby/model_name.rb</code></p>
+    <p>  - In this model you will need to implement the functions necessary for the create, query, update and delete sync operations.</p>
+    <p><code>controllers/ruby/model_name_controller.rb</code></p>
+    <p>  - The controller's purpose is to define the RhoConnect application HTTP end point and to register the corresponding SYNC routes. Under the hood it’s an isolated Sinatra application designated to handle all incoming Product requests</p>
+    <p><code>spec/models/ruby/model_name_spec.rb</code></p>
+    <p>  - In this file you will write specs for the source adapter model</p>
+    <p><code>spec/controllers/ruby/model_name_controller_spec.rb</code></p>
+    <p>  - In this file you will write specs for the source adapter model's controller</p>
+  </div>
+</div>
+
+## Testing Sync From the Client
+
+**NOTE: The following example assumes a [Ruby-based Rhomobile client app](../guide/creating_a_project).**
+
+In this example our app is named storemanager.
+
+Before setting the client up for sync, we must make sure that your source adapter is setup to query the back-end. Review the section on RhoConnect queries in either the JS or Ruby source adapter docs, depending on which you are using currently.
+
+  * [JavaScript RhoConnect Queries](source-adapters-js#a-rhoconnect-query)
+  * [Ruby RhoConnect Queries](source-adapters#a-rhoconnect-query)
+
+The code for the source adapter loads when the server starts. If you have a syntax error in your Ruby code, it will be reported and the server will not start; however, if you have a runtime error, that will not be reported until the source adapter is called.
+
+Make sure your server URL is configured in the Rhomobile app. If your server is running on YourIPAddress with the port 9292, the following line should be at the bottom of your corresponding Rhodes app, storemanager/rhoconfig.txt:
+
+    :::text
+    syncserver = 'http://YourIPAddress:9292/application'
+
+NOTE: If you are using Android, syncserver cannot be set to localhost, you must use your machine's local IP Address. Ex: 192.168.x.x
+
+Enable sync in your corresponding Rhodes app:
+
+    :::ruby
+    class Product
+      include Rhom::PropertyBag
+
+      enable :sync
+    end
+<div>
+  <ul class="nav nav-tabs" style="margin-bottom:0">
+    <li class="active"><a href="#js_enable_sync" data-toggle="tab">JavaScript</a></li>
+    <li><a href="#ruby_enable_sync" data-toggle="tab">Ruby</a></li>
+  </ul>
+</div>
+<div class="tab-content" id="tc-app_gen" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px">
+  <div class="tab-pane fade active in" id="js_enable_sync">
+    <p>storemanager/public/product.html</p>
+    <pre class="CodeRay">
+<span class="r">class</span> <span class="cl">Product</span>
+  include <span class="co">Rhom</span>::<span class="co">PropertyBag</span>
+
+  enable <span class="sy">:sync</span>
+<span class="r">end</span></pre>
+  </div>
+  <div class="tab-pane fade" id="ruby_enable_sync">
+    <p>storemanager/app/Product/product.rb</p>
+    <pre class="CodeRay">
+<span class="r">class</span> <span class="cl">Product</span>
+  include <span class="co">Rhom</span>::<span class="co">PropertyBag</span>
+
+  enable <span class="sy">:sync</span>
+<span class="r">end</span></pre>
+  </div>
+</div>
+
+To get a feel for what is happening, it is helpful to watch the server log (the output of rhoconnect start) in one window, and tail the client log in another window. For example, on the iPhone, display the end of the client log with:
+
+<pre>$ tail -f rholog-User.txt</pre>
+
+To sync with the RhoConnect server, the Rhodes client must log in. The Rhodes generated app includes some screens for login and other common functions, which you will typically modify to suit the design of your application. The generated UI is useful since it allows you to focus on the core functionality of your application before implementing the important, but mundane, details of user authentication and settings.
+
+1. From the home page in the Rhodes app, click on the login button in the upper right corner. Alternatively, you can click on the tool icon at the bottom of the screen to go to the Settings screen.
+
+2. Login using any name & password. The generated code allows any login, but you can modify that in application.rb.
+
+<img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-placeholder.png"><img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-placeholder.png">
+
+3. If login is successful, you will see a Client ID in the settings screen. The ClientID is generated the first time you log in and is stored in the client database. It serves as a unique identifier which is required for rhoconnect. (Note: this value will persist across logins, but if you reset the client database or the user re-installs the app, a new ClientID will be generated.)
+
+4. Sync is triggered automatically. Click on the home icon and then select “Products” and you should see the list of product records from the server.
+
+This example shows a couple of iPhone products.
+
+<img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-placeholder.png">
+
+
+
+
+
+
+
+
+
+
+
+
 
