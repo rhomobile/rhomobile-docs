@@ -4,9 +4,9 @@ In this tutorial we will be walking through using Ember.JS with your RhoMobile A
 
 As you work through the tutorial you will:
 
-* summary point 1 
-* summary point 2
-* summary point 3
+* Create a basic Hello Ember JS App 
+* Create a Single Page App using Ember JS to include CRUD views for a Data Model
+* Intergrate Rhom with Ember JS through an adapter to persist the data
 
 ##Working with the Tutorial
 The tutorial relies on the use of Git versioning system for source code management. You don't need to know anything about Git to follow the tutorial. But you will need to make sure your environment is setup with Git (this is included by default when you install RhomMobile Suite). 
