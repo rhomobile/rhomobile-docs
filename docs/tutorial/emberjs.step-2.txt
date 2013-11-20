@@ -178,7 +178,7 @@ Now when we create new records they will be added to our Fixture array and be di
 
 ![](https://s3.amazonaws.com/rhodocs-images/rhotut-emberjs/Screen+Shot+2013-11-18+at+3.55.23+PM.jpg)
 
-NOTE: Here is where the Ember inspector comes in handy. From the screenshot above you can see that I can actually see the data that the view is using to display the records.
+NOTE: Here is where the Ember inspector comes in handy. From the screen-shot above you can see that I can actually see the data that the view is using to display the records.
 
 In the next step of the tutorial we will show how to Edit records
 

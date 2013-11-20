@@ -119,7 +119,16 @@
 			<li class="nav-header"><a href="/tutorial/<%=@doc%>"><i class='icon '</i> <%=@docTitle %></a> </li>
 				  	
 			<% @steps.each do |gitlabel, title| %>
-				<li class="<%='active' if gitlabel == @step%>"><a href='/tutorial/<%=gitlabel%>/<%=@doc%>'><%=title%></a></li>
+				<li class="<%='active' if gitlabel == @step%> "><a href='/tutorial/<%=gitlabel%>/<%=@doc%>'><%=title%></a></li>
+				<% if gitlabel == @step %>
+					<% if @toc.size > 0 && @print == 0 %>
+						<ul class='nav nav-list'>
+							<% @toc.each do |section| %>
+								<li><a href="#<%= slugify(section) %>" class="muted"><i class="icon icon-angle-right"></i><%= section %></a></li>
+							<% end %>
+						</ul>
+					<% end %>	
+				<% end %>			
 			<% end %>
 			</ul>
 		</div>

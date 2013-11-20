@@ -11,7 +11,7 @@ To jump ahead and complete this section, in your `rhotut-emberjs` directory, typ
 
 	git checkout -f step-6
 
-## Creating the project
+## Creating the RhoMobile App
 Open up RhoStudio and create a new RhoMobile Application
 
 1. File / New Project

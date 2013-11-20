@@ -12,7 +12,7 @@ To jump ahead and complete this section, in your `rhotut-emberjs` directory, typ
 	git checkout -f step-1
 
 ## Creating a model
-To keep our code nice and clean, let's put all of our models in the folder `js/models/`. We will explain how models are tied to the view in the next section, but lets define the attrbutes the model will have:
+To keep our code nice and clean, let's put all of our models in the folder `js/models/`. We will explain how models are tied to the view in the next section, but lets define the attributes the model will have:
 
 Create the file called `product.js` and put it in the `js/models/` folder:
 
@@ -48,7 +48,7 @@ Let's first create a new view under the previous Hello world example:
 
 This view assumes that it will be backed by an array of models, that we will define an explain later. It uses the Handlebars `{{each}}` script block to iterate through each instance. Inside the `{{each}}` block, the model will have attributes: `name`, `brand` and `qty`, that will be displayed inside each `<li>` tag.
 
-Now if we refesh our browser we will see that bnothing happens. There is still some work that needs to be done which leads us to the next concept; Routes
+Now if we refresh our browser we will see that nothing happens. There is still some work that needs to be done which leads us to the next concept; Routes
 
 ## Creating a route
 Ember.js considers the URL as the center of your application and will parse it to figure out which part of the application should be activated. A side effect of that is that you must tell Ember.js which URLs your application will react to; there are two concepts that the Router in Ember.js knows about: routes and resources.
@@ -73,7 +73,7 @@ The other construct is what Ember.js calls a "resource", which is nothing more t
 
 Based on [Ember naming conventions](http://emberjs.com/guides/concepts/naming-conventions/)	navigating to the default url for the app will look for a template that is has an id of 'products': which we created a view for above `<script type="text/x-handlebars" data-template-name="products/index">`
 
-Refreshing the browser you may expect the view to be displayed, but you will find again nothing happend. Why? Well We need to tell Ember where the view is to be displayed. Remember that Ember is giving you the means for Single Page Application architecture where you can have many components of the application updating at the same time. In our simple example let's replace the main Hello World view with the code below:
+Refreshing the browser you may expect the view to be displayed, but you will find again nothing happened. Why? Well We need to tell Ember where the view is to be displayed. Remember that Ember is giving you the means for Single Page Application architecture where you can have many components of the application updating at the same time. In our simple example let's replace the main Hello World view with the code below:
 
 	:::javascript
 	<script type="text/x-handlebars" >

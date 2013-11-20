@@ -6,7 +6,7 @@ tutorial 'emberjs', 'Using EmberJS in RhoMobile Apps','Javascript MVC','https://
   gitlabel 'step-3',                 'Editing Records'
   gitlabel 'step-4',                 'Deleting Records'
   gitlabel 'step-5',                 'Updating Qty From List'
-  gitlabel 'step-6',                 'Creating a Rhom Adapter'
+  gitlabel 'step-6',                 'Using Ember with RhoMobile'
   
 end
 tutorial 'rhoconnect', 'RhoConnect tutorial','RhoConnect','' do
