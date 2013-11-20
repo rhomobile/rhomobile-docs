@@ -32,7 +32,7 @@ To build and run the application issue command:
   :::term
   $ rake run:win32
 
-*NOTE: To use `rake run:win32` command, add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\bin`
+*NOTE: To use `rake run:win32` command, add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\bin` (or `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\msvc2008\bin` if you use Visual Studio 2008)
 
 To clean all temporary and binary files execute command:
 
@@ -78,11 +78,16 @@ After the build process is finished you can find the installer bundle named `<ap
 
 Rholog.txt is placed in `<rhodes folder>\platform\wm\bin\win32\rhodes\Debug\rho`
 
-## <a name="build-for-windows-https"></a>How to enable HTTPS protocol
+<a name="build-for-windows-https"></a>
+## How to enable HTTPS protocol
 
 ### Visual Studio 2012
 
-If your application needs HTTPS, then you need to build the Qt libraries for Visual Studio 2012 with OpenSSL as described below:
+First of all you may [download our build of the Qt binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-rhoxp.7z) that we use in our development process and in production builds of RhoSimulator. Exctract downloaded archive to `C:\Qt` (`Qt5-rhoxp` folder will be created) and set `QTDIR` system variable to `C:\Qt\Qt5-rhoxp`.
+
+NOTE: You may use our precompiled binaries of Qt libraries for development and testing, but your production builds may require your own build of Qt libraries (you need to consult with Qt and OpenSSL license agreements to begin with).
+
+So, if your application needs HTTPS or Windows XP compatibility, then you need to build the Qt libraries for Visual Studio 2012 as described below:
 
 * If Python 2.6 or 2.7 is not installed on your system, download and install [Python 2.7](http://www.python.org/ftp/python/2.7.6/python-2.7.6.msi) (16 Mb)
 * If Perl 5 is not installed on your system, download and install [Perl 5.16](http://downloads.activestate.com/ActivePerl/releases/5.16.3.1603/ActivePerl-5.16.3.1603-MSWin32-x86-296746.msi)
@@ -93,12 +98,29 @@ If your application needs HTTPS, then you need to build the Qt libraries for Vis
     * Create new (or update existing) system variable `QTDIR` = `C:\Qt\Qt5-ssl` (this will be the installation folder for the compiled Qt libraries)
     * To make command 'rake run:win32' work - Add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\bin`
     * Either close all command prompts and Visual Studio instances, or reboot the computer so the new settings take effect.
-* Open `C:\Qt\icu\source\allinone\allinone.sln` solution in Visual Studio 2012, agree to update all projects to VS2012 toolset, select configuration `Release` with platform `Win32` and build the solution. Close Visual Studio 2012 after build is finished.
+
+* Open `C:\Qt\icu\source\allinone\allinone.sln` solution in Visual Studio 2012 and:
+    * Agree to update all projects to VS2012 toolset
+    * Select projects from `cal` down to `makeconv`, select Project -> Properties from top menu, select Configuration = "All Configurations", Platform = "Win32", go to Configuration Properties -> General, set "Visual Studio 2012 - Windows XP (v110_xp)" in Platform Toolset field, and click Apply
+    * Select projects from `pkgdata` down to `uconv`, repeat the previous step, and close the Properties window
+    * Select configuration `Release` with platform `Win32` in the toolbar and build the solution, close Visual Studio 2012 after build is finished
+
+* Patch Qt source code to make it Windows XP compatible:
+    * Open `C:\Qt\Qt5-src\qtbase\qmake\Makefile.win32` file in text editor and add `-D_USING_V110_SDK71_` option to `CFLAGS_BARE` variable (e.g. at line 44 after `-DUNICODE`)
+    * Open `C:\Qt\Qt5-src\qtbase\mkspecs\win32-msvc2012\qmake.conf` and:
+        * Add `-D_USING_V110_SDK71_` option to `QMAKE_CFLAGS` variable (line 24)
+        * Change `QMAKE_LFLAGS_CONSOLE` variable (at line 72) to `/SUBSYSTEM:CONSOLE,5.01`
+        * Change `QMAKE_LFLAGS_WINDOWS` variable (at line 73) to `/SUBSYSTEM:WINDOWS,5.01`
+
 * Create `C:\Qt\Qt5-build` folder and in that folder create new `build.bat` file with the following content (change the paths according to your system setup and folders you have extracted the archives into):
 
-      set CL=/MP
+      call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+      set CL=/MP /D_USING_V110_SDK71_ %CL%
+      set PATH=%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Bin;%PATH%
       set PATH=%PATH%;C:\Qt\icu\bin;C:\Qt\Qt5-src\gnuwin32\bin
+      set INCLUDE=%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Include;%INCLUDE%
       set INCLUDE=%INCLUDE%;C:\Qt\icu\include
+      set LIB=%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Lib;%LIB%
       set LIB=%LIB%;C:\Qt\icu\lib
       mkdir qtbase\include\QtZlib
       copy C:\Qt\Qt5-src\qtbase\include\QtZlib\*.h qtbase\include\QtZlib
@@ -113,10 +135,13 @@ If your application needs HTTPS, then you need to build the Qt libraries for Vis
       nmake
       nmake install
       nmake clean
+      copy C:\Qt\icu\bin\icudt52.dll C:\Qt\Qt5-ssl\bin\
+      copy C:\Qt\icu\bin\icuin52.dll C:\Qt\Qt5-ssl\bin\
+      copy C:\Qt\icu\bin\icuuc52.dll C:\Qt\Qt5-ssl\bin\
+      copy "%VS110COMNTOOLS%..\..\VC\bin\D3Dcompiler_46.dll" C:\Qt\Qt5-ssl\bin\
 
 * Open Visual Studio 2012 Command Prompt. This is accomplished using `VS2012 x86 Native Tools Command Prompt` in Apps view of Windows 8 OS. To build Qt libraries run in Visual Studio 2012 Command Prompt:
 
-      > vcvarsall.bat x86
       > C:
       > cd \Qt\Qt5-build
       > build.bat
@@ -130,25 +155,10 @@ Now when you build your application the usual way, the HTTPS protocol support wi
 
 If your application needs HTTPS, then you need to build the Qt libraries for Visual Studio 2008 with OpenSSL as described below:
 
-* First replace OpenSSL library bundled with Rhodes (openssl.so extension) with version compiled by Visual Studio 2008:
-    * If Perl 5 is not installed on your system, download and install [Perl 5.16](http://downloads.activestate.com/ActivePerl/releases/5.16.3.1603/ActivePerl-5.16.3.1603-MSWin32-x86-296746.msi)
-    * Add path to perl.exe to PATH env variable, e.g. `C:\Perl\bin`
-    * Install [Netwide Assembler (NASM) 2.10.09](http://www.nasm.us/pub/nasm/releasebuilds/2.10.09/win32/nasm-2.10.09-installer.exe) (if it's not installed yet) and add path to nasm.exe (usually 'C:\Program Files\nasm') to the PATH variable
-    * Download [OpenSSL 1.0.1e source code](http://www.openssl.org/source/openssl-1.0.1e.tar.gz) and extract the downloaded archive, e.g. into C:\Qt\openssl-src
-    * Remove `bin`, `include` and `lib` folders from `<path-to-rhodes>/lib/extensions/openssl.so/ext/win32`
-    * Open Visual Studio 2008 Command Prompt. This is accomplished using Start » All Programs » Microsoft Visual Studio 2008 » Visual Studio Tools » Visual Studio 2008 Command Prompt. Run in Visual Studio 2008 Command Prompt:
-
-  > cd \Qt\openssl-src
-  > perl Configure VC-WIN32 enable-static-engine --prefix=<path-to-rhodes>/lib/extensions/openssl.so/ext/win32
-  > ms\do_nasm
-  > nmake -f ms\ntdll.mak
-  > nmake -f ms\ntdll.mak install
-  > nmake -f ms\ntdll.mak clean
-
 * Download the [Qt 4.8.5 source](http://download.qt-project.org/official_releases/qt/4.8/4.8.5/qt-everywhere-opensource-src-4.8.5.zip) (269 MB) and extract the archive, e.g. into `C:\Qt\4.8.5-src`
 * Open Control Panel » System » Advanced system settings » Environment Variables and then:
     * Create new (or update existing) system variable `QTDIR` = `C:\Qt\4.8.5` (this will be the installation folder for the compiled Qt libraries)
-    * To make command 'rake run:win32' work - Add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\bin`
+    * To make command 'rake run:win32' work - Add to the `PATH` variable: `<path-to-rhodes>\lib\extensions\openssl.so\ext\win32\msvc2008\bin`
     * Either close all command prompts and Visual Studio instances, or reboot the computer so the new settings take effect.
 * Open Visual Studio 2008 Command Prompt. This is accomplished using Start » All Programs » Microsoft Visual Studio 2008 » Visual Studio Tools » Visual Studio 2008 Command Prompt. To build Qt library run in Visual Studio 2008 Command Prompt:
 
@@ -160,7 +170,7 @@ If your application needs HTTPS, then you need to build the Qt libraries for Vis
         -qt-libpng -qt-libjpeg -qt-libtiff -qt-libmng -qt-gif
         -openssl-linked -no-qt3support -prefix C:/Qt/4.8.5
         -I <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/include
-        -L <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/lib
+        -L <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/msvc2008/lib
       > nmake
       > nmake install
       > nmake clean

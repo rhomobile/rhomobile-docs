@@ -86,6 +86,7 @@ NOTE: It is a good idea to install Windows Mobile 6 Professional last, since it 
 * Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\Qt5\5.1.1\msvc2012`
 
 NOTE: If your application uses HTTPS protocol, then you need to build Qt libraries with OpenSSL (see <a href="build_win#build-for-windows-https">instructions</a>).
+NOTE: Qt libraries for Visual Studio 2012 binary package is incompatible with Windows XP, so if you need Windows XP compatibility, you should <a href="build_win#build-for-windows-https">follow these instructions</a> to build XP-compatible binaries.
 
 
 ## Setup for Windows Phone 8
