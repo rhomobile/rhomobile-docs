@@ -4,15 +4,15 @@
 		
 		<div class="row-fluid">
 			<ul doc-tutorial-nav="0" class="btn-group pull-left">
-				<li class="btn"><i class="icon icon-arrow-up"></i><a href="<%= topic_path %>"> Back to Top</a></li>
+				
 				<%if @prevStep!=''%>
-					<li class="btn <%='disabled' if @prevStep==''%>"><a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><i class="icon-step-backward"></i> Previous</a></li>
+					<a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><li class="btn btn-primary <%='disabled' if @prevStep==''%>" ><i class="icon-step-backward icon-muted"></i> Previous</li></a>
 				<% else %>
 					<li class="btn disabled"><i class="icon-step-backward"></i> Previous</li> 
 				<%end%>
 				
 				<%if @nextStep!=''%>
-				<li class="btn "><a href="/tutorial/<%=@nextStep %>/<%=@doc %>">Next <i class="icon-step-forward"></i></a></li>
+				<a href="/tutorial/<%=@nextStep %>/<%=@doc %>"><li class="btn  btn-primary ">Next <i class="icon-step-forward icon-muted"></i></li></a>
 				<% else %>
 				<li class="btn disabled">Next <i class="icon-step-forward"></i></li>
 
@@ -21,7 +21,7 @@
 			<%if !@codediffUrl.nil? %>
 			<ul class="btn-group pull-right">
 			
-				<li class="btn"><a href="<%=@codediffUrl%>" target="_blank"><i class="icon-search"></i> Code Diff</a></li>
+				<a href="<%=@codediffUrl%>" target="_blank"><li class="btn btn-primary "><i class="icon-search  icon-muted"></i> Code Diff</li></a>
 			</ul>
 
 				<%end%>
@@ -51,15 +51,15 @@
 		
 		<div class="row-fluid">
 			<ul doc-tutorial-nav="0" class="btn-group pull-left">
-				<li class="btn"><i class="icon icon-arrow-up"></i><a href="<%= topic_path %>"> Back to Top</a></li>
+				<a href="<%= topic_path %>"><li class="btn btn-primary "><i class="icon icon-arrow-up icon-muted"></i> Back to Top</li></a>
 				<%if @prevStep!=''%>
-					<li class="btn <%='disabled' if @prevStep==''%>"><a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><i class="icon-step-backward"></i> Previous</a></li>
+					<a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><li class="btn <%='disabled' if @prevStep==''%> btn-primary "><i class="icon-step-backward icon-muted"></i> Previous</li></a>
 				<% else %>
 					<li class="btn disabled"><i class="icon-step-backward"></i> Previous</li> 
 				<%end%>
 				
 				<%if @nextStep!=''%>
-				<li class="btn "><a href="/tutorial/<%=@nextStep %>/<%=@doc %>">Next <i class="icon-step-forward"></i></a></li>
+				<a href="/tutorial/<%=@nextStep %>/<%=@doc %>"><li class="btn  btn-primary ">Next <i class="icon-step-forward icon-muted"></i></li></a>
 				<% else %>
 				<li class="btn disabled">Next <i class="icon-step-forward"></i></li>
 
@@ -68,16 +68,17 @@
 			<%if !@codediffUrl.nil? %>
 			<ul class="btn-group pull-right">
 			
-				<li class="btn"><a href="<%=@codediffUrl%>" target="_blank"><i class="icon-search"></i> Code Diff</a></li>
+				<a href="<%=@codediffUrl%>" target="_blank"><li class="btn btn-primary "><i class="icon-search icon-muted"></i> Code Diff</li></a>
 			</ul>
 
 				<%end%>
 		</div>
 		<% else %>
 		<div class="row-fluid">
-			<a href="step-0/emberjs" class="btn btn-success btn-large icon icon-large icon-thumbs-up"> Get Started</a>
+			<a href="/tutorial/<%=@steps[0][0]%>/<%=@doc %>" class="btn btn-success btn-large icon icon-large icon-thumbs-up"> Get Started</a>
 		</div>
-
+		<div style="padding:20px">
+		</div>
 		<% end %>
 		
 

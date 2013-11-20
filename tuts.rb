@@ -9,6 +9,12 @@ tutorial 'emberjs', 'Using EmberJS in RhoMobile Apps','Javascript MVC','https://
   gitlabel 'step-6',                 'Creating a Rhom Adapter'
   
 end
+tutorial 'rhoconnect', 'RhoConnect tutorial','RhoConnect','' do
+  gitlabel '1',                 'Generating a RhoConnect App'
+  gitlabel '2',                 'Creating Source Adapters'
+  gitlabel '3',                 'Testing Sync From the Client'
+
+end
 tutorial 'nocode', 'Example of no code tutorial','Javascript MVC','' do
   gitlabel '1',                 'This is Step 1'
   gitlabel '2',                 'This is Step 2'
