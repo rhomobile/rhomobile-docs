@@ -311,6 +311,169 @@ Here's a complete example of how the completed [product model might look](https:
       end
     end
 
+## A RhoConnect Query
+
+If you're doing a read-only non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.herokuapp.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common. The RhoConnect source adapter is Ruby code and there are ruby libraries (aka gems) that will make it easy to connect to and parse whatever you need -- the query code would just be slightly different.
+
+For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](source-adapters#sample-adapter) in the RhoConnect Developer Reference.
+
+Our sample web service for returning all products in the catalog (http://rhostore.herokuapp.com/products.json) returns data like this:
+
+    :::json
+    [
+        {
+      "product": {
+        "name": "iPhone",
+        "brand": "Apple",
+        "updated_at": "2010-05-11T02:04:57Z",
+        "price": "$299.99",
+        "quantity": "5",
+        "id": 649,
+        "sku": "1234",
+        "created_at": "2010-05-11T02:04:57Z"
+      }
+      },
+        {
+        "product": {
+        "name": "Accord",
+        "brand": "Honda",
+        "updated_at": "2010-05-13T22:24:48Z",
+        "price": "$6000",
+        "quantity": "",
+        "id": 648,
+        "sku": "123",
+        "created_at": "2010-05-11T02:04:53Z"
+      }
+      }
+    ]
+
+The Ruby code for parsing that data, sources.product.rb, is listed below. It uses the standard Ruby JSON library and the RestClient library for easy access to the REST web service. This example uses the id of the product record as the hash key. Note that the key for this hash must be a string and the value can be any set of name-value pairs which are represented as a Ruby hash. The instance variable @result must be set by the query method to this "hash of hashes", indexed by a unique identifier, so that the base SourceAdapter class sync method can populate Redis data store.
+
+You can edit sources/product.rb within RhoStudio, or you can navigate to it within your RhoConnect application folder and edit it with a text editor.
+
+We need to declare the standard libraries that we are using at the top of the sources/product.rb file:
+
+    :::ruby
+    require 'json'
+    require 'rest_client'
+
+For convenience, we'll add an instance variable @base which contains the base URL of the web service and sets the value in the constructor:
+
+    :::ruby
+    def initialize(source)
+      @base = 'http://rhostore.herokuapp.com/products'
+      super(source)
+    end
+
+Then fill in the query method:
+
+    :::ruby
+    def query
+      parsed=JSON.parse(RestClient.get("#{@base}.json").body)
+
+      @result={}
+      if parsed
+        parsed.each do |item|
+          key = item["product"]["id"].to_s
+          @result[key]=item["product"]
+        end
+      end
+    end
+
+**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language. If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.**
+
+Each hash key in the inner hash represents an attribute of an individual object.  All datatypes must be strings (so the hash values need to all be strings, not integers).
+
+For example:
+
+    :::ruby
+    @result = {
+      "1" => {
+        "name" => "inner tube",
+        "brand" => "Michelin"
+      },
+      "2" => {
+      "name" => "tire",
+      "brand" => "Michelin"
+      }
+    }
+
+## Creating Objects with RhoConnect
+
+For your create method, the RhoConnect server will pass you a hash containing the new record, called "create_hash". For example, it might be:
+
+    :::ruby
+    {
+      "name" => "Hovercraft",
+      "brand" => "Acme"
+    }
+
+The RhoConnect sources/product.rb create method will be called once for every object that has been created on the client since the last sync.  Your code for create (or edit or delete) needs to use this populated array to do its work.  Below is an example of a create method against the [rhostore](http://rhostore.herokuapp.com), which accepts an HTTP POST to perform a create action. The create method should return a unique id string for the object for it to be later modifiable by the client. If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
+
+    :::ruby
+    def create(create_hash)
+      result = RestClient.post(@base, :product => create_hash)
+
+      # after create we are redirected to the new record.
+      # The URL of the new record is given in the location header
+      location = "#{result.headers[:location]}.json"
+
+      # We need to get the id of that record and return it as part of create
+      # so rhoconnect can establish a link from its temporary object on the
+      # client to this newly created object on the server
+
+      new_record = RestClient.get(location).body
+      JSON.parse(new_record)["product"]["id"].to_s
+    end
+
+You will need to restart RhoConnect to reload the source adapter after modifying code. Note that the object will be created on the client right away, but it will be sent to the server on the next sync.
+
+## Authentication
+
+The generated RhoConnect application code includes a file at the root of the directory called "application.rb" which contains a hook for authentication. The complete file looks like this:
+
+    :::ruby
+    class Application < Rhoconnect::Base
+        class << self
+          def authenticate(username,password,session)
+            true # do some interesting authentication here...
+          end
+
+          # Add hooks for application startup here
+          # Don't forget to call super at the end!
+          def initializer(path)
+            super
+          end
+
+          # Calling super here returns rack tempfile path:
+          # i.e. /var/folders/J4/J4wGJ-r6H7S313GEZ-Xx5E+++TI
+          # Note: This tempfile is removed when server stops or crashes...
+          # See http://rack.rubyforge.org/doc/Multipart.html for more info
+          #
+          # Override this by creating a copy of the file somewhere
+          # and returning the path to that file (then don't call super!):
+          # i.e. /mnt/myimages/soccer.png
+          def store_blob(blob)
+            super #=> returns blob[:tempfile]
+          end
+        end
+      end
+
+    Application.initializer(ROOT_PATH)
+
+If your back end web service requires authentication, add code to the authenticate method and return true if authentication was successful or false to deny access to the application from this client. For example:
+
+    :::ruby
+    def authenticate(username, password, session)
+        # ... connect to backend using API and authenticate ...
+        if success
+          # save the data for later use in the source adapter
+          Store.put_value("username:#{username}:token",username)
+        end
+        return success
+      end
+
+
 ## Compatibility with older versions of RhoConnect
 
 The RhoConnect Source Adapter Controller/Model concept has been introduced in RhoConnect 4. In previous versions, a Source Adapter consisted only of one class - which is now has been moved to Source Adapter model. "Controller" part of the Source Adapter has been hidden inside of the RhoConnect library code. This posed a significant obstacle in a way how the developer could utilize the code and the common techniques. To overcome this obstacle, RhoConnect 4 provides you with direct access to the Controller allowing you to customize route behavior and utilize all of the powerful sinatra plugins/extensions that are available.

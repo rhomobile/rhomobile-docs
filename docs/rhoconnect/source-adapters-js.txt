@@ -298,3 +298,121 @@ Here's a complete example of how the completed [product model might look](https:
     };
 
     module.exports = new Product();
+
+## A RhoConnect Query
+
+If you're doing a read-only non-authenticated source adapter, you can just write one method, query, to retrieve records as we describe here. The following is a sample query method to interact with a simple product catalog (available at http://rhostore.herokuapp.com) that exposes a REST interface.  Note that RhoConnect can work with any protocol. This example shows JSON over HTTP with a REST interface, since that is common.
+
+For a more complete example of rewriting the source adapter methods (such as create, update, and delete), refer to the [source adapter example](source-adapters#sample-adapter) above.
+
+Our sample web service for returning all products in the catalog (http://rhostore.herokuapp.com/products.json) returns data like this:
+
+    :::json
+    [
+        {
+      "product": {
+        "name": "iPhone",
+        "brand": "Apple",
+        "updated_at": "2010-05-11T02:04:57Z",
+        "price": "$299.99",
+        "quantity": "5",
+        "id": 649,
+        "sku": "1234",
+        "created_at": "2010-05-11T02:04:57Z"
+      }
+      },
+        {
+        "product": {
+        "name": "Accord",
+        "brand": "Honda",
+        "updated_at": "2010-05-13T22:24:48Z",
+        "price": "$6000",
+        "quantity": "",
+        "id": 648,
+        "sku": "123",
+        "created_at": "2010-05-11T02:04:53Z"
+      }
+      }
+    ]
+
+The JavaScript code for parsing that data, `models/js/product.js`, is listed below. JSON is part of node.js by default so there is no need to explicitly include it. 
+
+You can edit `models/js/product.js` within RhoStudio, or you can navigate to it within your RhoConnect application folder and edit it with a text editor.
+
+Fill in the query method:
+
+    :::javascript
+    this.query = function(resp){
+      var result = {};
+      var str = '';
+
+      http:request('http://' + host + '/products.json', function(res){
+        res.on('data', function(chunk){
+          str += chunk;
+        });
+        res.on('end', function(){
+          var data = JSON.parse(str);
+          for(var i in data){
+            var item = data[i];
+            result[item.product.id.toString()] = item.product;
+          }
+          resp.send(result);
+        });
+      }).end();
+    };
+
+Each hash key in the inner hash represents an attribute of an individual object. All datatypes must be strings (so the hash values need to all be strings, not integers).
+
+For example:
+
+    :::javascript
+    result = {
+      "1" => {
+        "name" => "inner tube",
+        "brand" => "Michelin"
+      },
+      "2" => {
+      "name" => "tire",
+      "brand" => "Michelin"
+      }
+    }
+
+## Creating Objects with RhoConnect
+
+For your create method, the RhoConnect server will pass you a hash containing the new record, called "create_hash". For example, it might be:
+
+    :::javascript
+    {
+      "name" => "Hovercraft",
+      "brand" => "Acme"
+    }
+
+The RhoConnect `models/js/product.js` create method will be called once for every object that has been created on the client since the last sync. Below is an example of a create method against the [rhostore](http://rhostore.herokuapp.com), which accepts an HTTP POST to perform a create action. The create method should return a unique id string for the object for it to be later modifiable by the client. If no id is returned, then you should treat the client object as read only, because it will not be able to be synchronized.
+
+    :::javascript
+    this.create = function(resp){
+      var postData = JSON.stringify({ 'product': resp.params.create_object });
+      var str = '';
+      var options = {
+        host: host,
+        path: '/products.json',
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json', 
+          'Content-Length': postData.length
+        }
+      };
+      var req = http.request(options, function(res){
+        res.on('data', function(chunk){
+          str += chunk;
+        });
+        res.on('end', function(){
+          var data = JSON.parse(str);
+          resp.send(data.product.id.toString());
+        });
+      });
+      req.write(postData);
+      req.end();
+    };
+
+You will need to restart RhoConnect to reload the source adapter after modifying code. Note that the object will be created on the client right away, but it will be sent to the server on the next sync.

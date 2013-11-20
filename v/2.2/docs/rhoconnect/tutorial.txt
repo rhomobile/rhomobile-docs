@@ -232,8 +232,9 @@ Then fill in the query method:
       end
     end
 
-**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language. If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.
-Each hash key in the inner hash represents an attribute of an individual object.  All datatypes must be strings (so the hash values need to all be strings, not integers).**
+**NOTE: The code above could be much more concise, but it is written to be easily readable by programmers who are unfamiliar with the Ruby language. If you are new to Ruby, you can read [Ruby from other languages](http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/) for a good introduction.**
+
+Each hash key in the inner hash represents an attribute of an individual object.  All datatypes must be strings (so the hash values need to all be strings, not integers).
 
 For example:
 
