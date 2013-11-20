@@ -9,14 +9,14 @@ For those who would rather see it in action, this guide is modeled after a [webi
 
 NOTE: You must have admin/sudo privileges to install weinre and your device must be on the same WiFi network as your laptop.
 
-Weinre is a Node.js application and comes delivered via a Node Package or `npm`. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running the command:
+Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running the command:
 
     :::term
     $ npm -g install weinre
 
 NOTE: Mac users you may have to include the 'sudo' command
 
-More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html). If you did not install RhoMobile Suite, you can still use Weinre, but you will have to install Node.JS seperately.
+More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html). If you did not install RhoMobile Suite, you can still use Weinre, but you will have to install Node.JS separately.
 
 ##Starting Weinre
 Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be unaccessible from your device's application.
