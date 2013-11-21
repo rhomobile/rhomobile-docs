@@ -90,7 +90,7 @@ Well you only see the `Products` text being displayed because there is no data. 
 
 ## Adding Data Fixtures
 
-Let's go back to the `js\models\product.js` file and add the following:
+Let's go back to the `js/models/product.js` file and add the following:
 	:::js
 	App.Product.FIXTURES = [
 	 {
