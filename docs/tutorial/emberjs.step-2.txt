@@ -12,10 +12,10 @@ To jump ahead and complete this section, in your `rhotut-emberjs` directory, typ
 	git checkout -f step-2
 
 ## Defining a 'partial'
-Our application will allow for creating of new products as well as editing existing ones. Since we would like to share the same form and not have to create duplicate templates to maintain, we have decided to create what is called a `partial`. This is denoted by using the underscore prefixing the name : `_productForm`
+Our application will allow for creating of new products as well as editing existing ones. Since we would like to share the same form and not have to create duplicate templates to maintain, we have decided to create what is called a partial. This is denoted by using the underscore prefixing the name : `_productForm`
 
 `public/index.html`
-	:::javascript
+	:::js
 	<script type="text/x-handlebars" data-template-name="_productForm">
 	  <form role="form">
 	    <div class="form-group">
@@ -50,7 +50,7 @@ Our application will allow for creating of new products as well as editing exist
 
 And then our `productnew` template will reference the `productForm` partial we just defined:
 
-	:::javascript
+	:::js
 	<script type="text/x-handlebars" id="productnew">
 	<div class="container">
 	  <h2>New Product</h2>
@@ -60,13 +60,14 @@ And then our `productnew` template will reference the `productForm` partial we j
 
 	</script>
 
-When this view is used it will replace the `{{partial}}` section with the contents of the template. We will show how the Edit view will use this in the next step of the tutorial
+When this view is used it will replace the `{{partial "productForm"}}` section with the contents of the productForm template. We will show how the Edit view will use this in the next step of the tutorial
 
 ## Add route for New
 We then will add a route for the view so that browsing to `productnew` will show this page
 
 
-`public/js/app.ja`
+`public/js/app.js`
+	:::js
 	App.Router.map(function() {
 	  // put your routes here
 	  this.resource('products', {path: '/'}, function(){
@@ -77,7 +78,7 @@ We then will add a route for the view so that browsing to `productnew` will show
 ## Helper functions
 We can now go back to our Products  list template and add a button that will load this view
 
-`public\index.html`
+`public/index.html`
 	:::javascript
 	<script type="text/x-handlebars" data-template-name="products/index">
 	<div class="container">
@@ -99,9 +100,9 @@ If you tro to click on the `Save` button you will see an error in the Javascript
 This is because we need to create a controller for this view to handle actions when on the view.
 
 ## Adding a controller
-Keeping with the code and folder tidiness, let's create a folder called `public\js\controllers` where we will put all of our controller files in. And now create a file called `product.js` and paste the following code:
+Keeping with the code and folder tidiness, let's create a folder called `public/js/controllers` where we will put all of our controller files in. And now create a file called `product.js` and paste the following code:
 
-`public\js\controllers\product.js`
+`public/js/controllers/product.js`
 	:::javascript
 	App.ProductnewController = Ember.ObjectController.extend({
 	   content: Ember.Object.create(),
@@ -136,7 +137,7 @@ Keeping with the code and folder tidiness, let's create a folder called `public\
 
 Before we forget, lets add a reference in our `index.html` file to this new file we will need in our app
 
-`public\index.html`
+`public/index.html`
 	:::javascript
 	<script src="js/controllers/product.js"></script>
 
@@ -145,7 +146,7 @@ Keeping with the Ember naming conventions this controller will be for the `produ
 ### actions
 The actions section of the parameter defines what actions will be available to this controller. This will allow us to easily tie a button to some JS that needs to run. In this controller, we have a Save button that needs to save the model we just created in the form. From the form we reference the `save` action like:
 
-`public\index.html - _productForm template created above`	
+`public/index.html - _productForm template created above`	
 	:::javascript
 	<button id="save" class="btn  btn-success" {{action "save" on="click"}} type="button">Save</button>
 
@@ -156,7 +157,7 @@ At this point when we are saying saving, deleting, etc it is in the Ember SPA se
 
 We will get into this concept in great detail later in the tutorial. This will involve the concept of `Adapters`. Adapters are built to store the model data somewhere through an interface you define called an `Adapter`. Later in the tutorial we will create one for saving the records to the Rhom database. Ember also comes with a RESTAdapter that allows you to save the data on a backend using REST APIs. For this step in the tutorial we will be using the `FixtureAdapter` that is also built in. It will allow us to `save` to the Fixture object we created earlier.
 
-Let's start by changing the `public\js\models]product.js` file and add the following line:
+Let's start by changing the `public/js/models/product.js` file and add the following line:
 	
 	:::javascript
 	App.ApplicationAdapter = DS.FixtureAdapter.extend();
