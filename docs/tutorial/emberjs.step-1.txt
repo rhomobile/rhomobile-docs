@@ -12,7 +12,7 @@ To jump ahead and complete this section, in your `rhotut-emberjs` directory, typ
 	git checkout -f step-1
 
 ## Creating a model
-To keep our code nice and clean, let's put all of our models in the folder `js/models/`. We will explain how models are tied to the view in the next section, but lets define the attrbutes the model will have:
+To keep our code nice and clean, let's put all of our models in the folder `js/models/`. We will explain how models are tied to the view in the next section, but lets define the attributes the model will have:
 
 Create the file called `product.js` and put it in the `js/models/` folder:
 
@@ -29,6 +29,7 @@ As we saw in the previous example, our user interface will be driven by views th
 
 Let's first create a new view under the previous Hello world example:
 
+	:::html
 	<script type="text/x-handlebars" data-template-name="products/index">
 	<div class="container">
 	  <h2>Products</h2>
@@ -46,9 +47,9 @@ Let's first create a new view under the previous Hello world example:
 	</div>
 	</script>
 
-This view assumes that it will be backed by an array of models, that we will define an explain later. It uses the Handlebars `{{each}}` script block to iterate through each instance. Inside the `{{each}}` block, the model will have attributes: `name`, `brand` and `qty`, that will be displayed inside each `<li>` tag.
+This view assumes that it will be backed by an array of models, that we will define and explain later. It uses the Handlebars `{{each}}` script block to iterate through each instance. Inside the `{{each}}` block, the model will have attributes: `name`, `brand` and `qty`, that will be displayed inside each `<li>` tag.
 
-Now if we refesh our browser we will see that bnothing happens. There is still some work that needs to be done which leads us to the next concept; Routes
+Now if we refresh our browser we will see that nothing happens. There is still some work that needs to be done which leads us to the next concept, Routes.
 
 ## Creating a route
 Ember.js considers the URL as the center of your application and will parse it to figure out which part of the application should be activated. A side effect of that is that you must tell Ember.js which URLs your application will react to; there are two concepts that the Router in Ember.js knows about: routes and resources.
@@ -116,7 +117,7 @@ Let's go back to the `js\models\product.js` file and add the following:
 	];
 
 ## Associating model to route
-In Ember, every route has an associated model. This model is set by implementing a route's model hook. Let's keep our code tidy and create a `js/routes` folder and then create a file for our Product routes called `product.js`
+In Ember, every route has an associated model. This model is set by implementing a route's model hook. Let's keep our code tidy and create a `js/routes` folder and then create a file for our Product routes called `product.js` consisting of the following code:
 
 	:::javascript
 	App.ProductsIndexRoute = Ember.Route.extend({
@@ -126,7 +127,13 @@ In Ember, every route has an associated model. This model is set by implementing
 	  
 	}); 
 
-Ember's naming conventions come into play here again. Recall that we defined our view as `data-template-name="products/index"`. To ember this is really `product.index` and it will automatically look for a corresponding `ProductsIndexRoute` and `ProductIndexController` definitions and use them if they are there. Notice that camel casing and appending of `Route` and `Controller`. This is a double edge sword in that if you mistype you application won't work, but can be very useful once you get the hang of it since it saves you from writing a lot of code.
+If we refresh the page at this point nothing will have changed since we haven't loaded the newly created files into our index.html file. Let's ad the necessary code to load these into our `/public/js/index.html`.
+
+	:::html
+	<script src="js/models/product.js"></script>
+	<script src="js/routes/product.js"></script>
+
+Ember's naming conventions come into play again here. Recall that we defined our view as `data-template-name="products/index"`. To ember this is really `product.index` and it will automatically look for a corresponding `ProductsIndexRoute` and `ProductIndexController` definitions and use them if they are there. Notice that camel casing and appending of `Route` and `Controller`. This is a double edge sword in that if you mistype you application won't work, but can be very useful once you get the hang of it since it saves you from writing a lot of code.
 
 ![](https://s3.amazonaws.com/rhodocs-images/rhotut-emberjs/Screen+Shot+2013-11-18+at+2.44.10+PM.jpg)
 
