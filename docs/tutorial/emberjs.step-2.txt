@@ -93,7 +93,7 @@ We used this same helper function to wire the `Cancel` button on this view to na
 	:::javascript
 	 {{#link-to 'products'}}<button id="cancel" class="btn btn-default ">Cancel</button>{{/link-to}}
 
-If you tro to click on the `Save` button you will see an error in the Javascript console:
+If you try to click on the `Save` button you will see an error in the Javascript console:
 	:::javascript
 	Uncaught Error: Nothing handled the event 'save'. 
 
@@ -150,10 +150,10 @@ The actions section of the parameter defines what actions will be available to t
 	:::javascript
 	<button id="save" class="btn  btn-success" {{action "save" on="click"}} type="button">Save</button>
 
-Clicking this buttom will cause the `save` action code to be triggered where we get the data from the form and then create a new record using `this.store.createRecord` which has the first parameter representing the model name: `product`, followed by a JavaScript object that contains the attribute name and corresponding value pairs. Once the object is created, we call the `.save()` method to save the new record.
+Clicking this button will cause the `save` action code to be triggered where we get the data from the form and then create a new record using `this.store.createRecord` which has the first parameter representing the model name: `product`, followed by a JavaScript object that contains the attribute name and corresponding value pairs. Once the object is created, we call the `.save()` method to save the new record.
 
 ## Saving Records
-At this point when we are saying saving, deleting, etc it is in the Ember SPA sense - where it is saved for the current session. We have not tied any persistance to these models so it neither saves it in Rhom or on a Backend. If you refresh the web page you will not see any new or updated data. 
+At this point when we are saying saving, deleting, etc it is in the Ember SPA sense - where it is saved for the current session. We have not tied any persistance to these models so it neither saves it in Rhom or on a backend. If you refresh the web page you will not see any new or updated data. 
 
 We will get into this concept in great detail later in the tutorial. This will involve the concept of `Adapters`. Adapters are built to store the model data somewhere through an interface you define called an `Adapter`. Later in the tutorial we will create one for saving the records to the Rhom database. Ember also comes with a RESTAdapter that allows you to save the data on a backend using REST APIs. For this step in the tutorial we will be using the `FixtureAdapter` that is also built in. It will allow us to `save` to the Fixture object we created earlier.
 
@@ -162,7 +162,7 @@ Let's start by changing the `public/js/models/product.js` file and add the follo
 	:::javascript
 	App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
-This tells our application that we want the models to use this adapter when modfying record.
+This tells our application that we want the models to use this adapter when modifying a record.
 
 Then in the `public/js/routes/product.js` file instead of returning App.Product.Fixtures, we actually want to utilize the store method and get the list of products from the Ember Data Store. This will allow us to change the `Adapter` later to something else and not have to change this code.
 
@@ -181,5 +181,4 @@ Now when we create new records they will be added to our Fixture array and be di
 
 NOTE: Here is where the Ember inspector comes in handy. From the screen-shot above you can see that I can actually see the data that the view is using to display the records.
 
-In the next step of the tutorial we will show how to Edit records
-
+In the next step of the tutorial we will show how to Edit records.

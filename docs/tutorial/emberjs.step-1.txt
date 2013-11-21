@@ -16,7 +16,7 @@ To keep our code nice and clean, let's put all of our models in the folder `js/m
 
 Create the file called `product.js` and put it in the `js/models/` folder:
 
-	:::javascript
+	:::js
 	App.Product = DS.Model.extend({
 	  name: DS.attr('string'),
 	  brand: DS.attr('string'),
@@ -56,7 +56,7 @@ Ember.js considers the URL as the center of your application and will parse it t
  
 A route is just what you would expect: you tell the router that the application knows about a particular URL and Ember.js takes care of the rest. Creating a top-level route is straightforward:
 
-	:::javascript
+	:::js
 	App.Router.map(function() {  
 	  this.route("welcome");  
 	}); 
@@ -65,7 +65,7 @@ This creates a route named "welcome" that will load a template with the same nam
  
 The other construct is what Ember.js calls a "resource", which is nothing more than a route that can have sub-routes. Let's say we want to have a "/products" route that shows a list of products and we also want to edit the details of a particular product at "/products/1234".  We will add the code for the edit later, so let's just start by defining the resource for the `products` route by adding the following code in the `app.js file: 
 
-	:::javascript
+	:::js
 	App.Router.map(function() {
 	  this.resource('products', {path: '/'}, function(){
 	  
@@ -74,9 +74,9 @@ The other construct is what Ember.js calls a "resource", which is nothing more t
 
 Based on [Ember naming conventions](http://emberjs.com/guides/concepts/naming-conventions/)	navigating to the default url for the app will look for a template that is has an id of 'products': which we created a view for above `<script type="text/x-handlebars" data-template-name="products/index">`
 
-Refreshing the browser you may expect the view to be displayed, but you will find again nothing happend. Why? Well We need to tell Ember where the view is to be displayed. Remember that Ember is giving you the means for Single Page Application architecture where you can have many components of the application updating at the same time. In our simple example let's replace the main Hello World view with the code below:
+Refreshing the browser you may expect the view to be displayed, but you will find again nothing happened. Why? Well We need to tell Ember where the view is to be displayed. Remember that Ember is giving you the means for Single Page Application architecture where you can have many components of the application updating at the same time. In our simple example let's replace the main Hello World view with the code below:
 
-	:::javascript
+	:::js
 	<script type="text/x-handlebars" >
 	<H1>RhoTut Ember JS Example</H1>
 	{{outlet}}
@@ -91,7 +91,7 @@ Well you only see the `Products` text being displayed because there is no data. 
 ## Adding Data Fixtures
 
 Let's go back to the `js\models\product.js` file and add the following:
-	:::javascript
+	:::js
 	App.Product.FIXTURES = [
 	 {
 	  id: 1,
@@ -119,12 +119,11 @@ Let's go back to the `js\models\product.js` file and add the following:
 ## Associating model to route
 In Ember, every route has an associated model. This model is set by implementing a route's model hook. Let's keep our code tidy and create a `js/routes` folder and then create a file for our Product routes called `product.js`
 
-	:::javascript
+	:::js
 	App.ProductsIndexRoute = Ember.Route.extend({
 	  model: function () {
 	    return App.Product.FIXTURES
 	  }
-	  
 	}); 
 
 If we refresh the page at this point nothing will have changed since we haven't loaded the newly created files into our index.html file. Let's ad the necessary code to load these into our `/public/js/index.html`.
