@@ -60,7 +60,7 @@ To use EmberJS, we will be including the following libraries.
 * jquery - is being used by Ember and our app for DOM access
 * handlebars - is required by Ember JS as it's templating engine
 * ember - is the core Ember JS library
-* ember-data - will be used for our data models and to tie in with Rhom (this is actually not required at this stage and will be explained later) 
+* ember-data - is being will be used for our data models and to tie in with Rhom (this is actually not required at this stage and will be explained later) 
 
 Bootstrap is not required but is just being used for layout control and styling
 	:::javascript
@@ -94,11 +94,11 @@ There is much more to an Ember application then what we have produced so far but
 The `<script type="text/x-handlebars" >` tag indicates to the browser that the following lines of code are a Handlebars Template. This is regular HTML with the special curly bracket `{{ }}` notation which represents [Handlebars.js](http://handlebarsjs.com/). Handlebars will replace the content of the curly brackets with real HTML when the browser renders the page. Ember JS recognizes this and attaches special handling as well to these controls. In the simple example above it performs data binding of the inputs value to text that is displayed in the `<p>` tag. So when you type in the input bix, it will automatically update the `username` variable text. This is all handled for you without writing a line of javascript. 
 
 ## Chrome Ember Inspector
-Ember has built a Chrome Inspector, which is very useful tool for debugging and inspecting your Ember application components. It is highly recommended that you install it. Simply visit [the Chrome Web Store](https://chrome.google.com/webstore/category/apps) and search for [Ember JS](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+Ember has built a Chrome Inspector, which is very useful tool for debugging and inspecting your Ember application components. It is highly recommended that you install it. Simple visit [the Chrome Web Store](https://chrome.google.com/webstore/category/apps) and search for [Ember JS](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 
 ![](https://s3.amazonaws.com/rhodocs-images/rhotut-emberjs/Screen+Shot+2013-11-18+at+10.50.58+AM.jpg)
 
-Then since we are viewing files locally you will need to change the permissions of Chrome for the Ember JS inspector by first navigating in Chrome to:
+Then since we are viewing files locally you will need to change the permissions of Chrome for the Ember JS inspector by first:
 
 chrome://extensions/
 

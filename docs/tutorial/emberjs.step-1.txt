@@ -47,9 +47,9 @@ Let's first create a new view under the previous Hello world example:
 	</div>
 	</script>
 
-This view assumes that it will be backed by an array of models, that we will define and explain later. It uses the Handlebars `{{each}}` script block to iterate through each instance. Inside the `{{each}}` block, the model will have attributes: `name`, `brand` and `qty`, that will be displayed inside each `<li>` tag.
+This view assumes that it will be backed by an array of models, that we will define an explain later. It uses the Handlebars `{{each}}` script block to iterate through each instance. Inside the `{{each}}` block, the model will have attributes: `name`, `brand` and `qty`, that will be displayed inside each `<li>` tag.
 
-Now if we refresh our browser we will see that nothing happens. There is still some work that needs to be done which leads us to the next concept, Routes.
+Now if we refresh our browser we will see that nothing happens. There is still some work that needs to be done which leads us to the next concept; Routes
 
 ## Creating a route
 Ember.js considers the URL as the center of your application and will parse it to figure out which part of the application should be activated. A side effect of that is that you must tell Ember.js which URLs your application will react to; there are two concepts that the Router in Ember.js knows about: routes and resources.
@@ -117,7 +117,7 @@ Let's go back to the `js\models\product.js` file and add the following:
 	];
 
 ## Associating model to route
-In Ember, every route has an associated model. This model is set by implementing a route's model hook. Let's keep our code tidy and create a `js/routes` folder and then create a file for our Product routes called `product.js` consisting of the following code:
+In Ember, every route has an associated model. This model is set by implementing a route's model hook. Let's keep our code tidy and create a `js/routes` folder and then create a file for our Product routes called `product.js`
 
 	:::javascript
 	App.ProductsIndexRoute = Ember.Route.extend({
