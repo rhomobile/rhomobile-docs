@@ -4,16 +4,30 @@ To test to make sure the sync is working, we need to create a basic RhoMobile ap
 
 ## Creating the RhoMobile Application
 
-1. Open RhoStudio
-2. Select File / New Project / RhoMobile Application
-3. After choosing an application name click `Finish`
+<div class="row-fluid">
+  <div class="span6">
+    <p>1. Open RhoStudio</p>
+    <p>2. Select File / New Project / RhoMobile Application</p>
+    <p>3. After choosing an application name click Finish</p>
+  </div>
+  <div class="span4 offset2" style="text-align:center">
+    <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-project.png">
+  </div>
+</div>
 
 ## Adding the Product Model
 
-1. While in RhoStudio, right click on the project you just created
-2. Choose New / RhoMobile Model
-3. Enter `Product` in the `Model name` field
-4. Enter `name,brand,quantity,price` in the `Model attributes` field
+<div class="row-fluid">
+  <div class="span6">
+    <p>1. While in RhoStudio, right click on the project you just created</p>
+    <p>2. Choose New / RhoMobile Model</p>
+    <p>3. Enter <code>Product</code> in the <code>Model name</code> field</p>
+    <p>4. Enter <code>name,brand,quantity,price</code> in the <code>Model attributes</code> field</p>
+  </div>
+  <div class="span4 offset2" style="text-align:center">
+    <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-model.png">
+  </div>
+</div>
 
 NOTE: Pay attention to spelling of the model and attributes, as the sample code is assuming that it will match exactly to the JSON object coming from the backend.
 
@@ -48,11 +62,7 @@ NOTE: Pay attention to spelling of the model and attributes, as the sample code 
 with:
 
     :::html
-    <div data-role="content">
-      <ul data-role="listview">
-        <li><a href="Product">Product</a></li>
-      </ul>
-    </div>
+    <li><a href="Product">Product</a></li>
 
 ## Configuring your SyncServer
 Make sure your server URL is configured in the Rhomobile app. If your server is running on YourIPAddress with the port 9292, the following line should be at the bottom of your corresponding Rhodes app, `rhoconfig.txt`:
