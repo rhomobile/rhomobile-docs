@@ -130,6 +130,11 @@ $(".apiFilter").bind('change', function() {
 	$('#facets > span[data-type="all"]').click(function(e){
 		window.location=window.location.protocol + '//' + window.location.host + window.location.pathname + '?q=' + $('#facets').attr('data-query');
 	});
+
+	$("#searchForm").indextank_Ize('http://rd4f.api.searchify.com', 'rhodocs');
+    // let the query box have autocomplete
+    $("#query").indextank_Autocomplete();
+	
 });
 
 
