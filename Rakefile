@@ -21,10 +21,9 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-  # client = IndexTank::Client.new('http://:TP9xCrZJNgXIyC@rd4f.api.searchify.com')
   index = client.indexes(AppConfig['index'])
-  index.delete rescue nil
-  index.add rescue nil
+  # index.delete rescue nil
+  # index.add rescue nil
   print "Waiting to initialize #{AppConfig['index']}..."
   while not index.running?
     print "."
@@ -61,7 +60,8 @@ task :index do
           if chunk.size > maxsize       
             puts "chunk size over limit WTF? - ognoring for now"
           else
-            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :category => category, :version => version})
+            index.document(name+chunknum.to_s).delete()
+            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version})
             
             index.document(name+chunknum.to_s).update_categories(categories)             
           end
@@ -70,7 +70,8 @@ task :index do
           break if endPos == topic.body.size()
         end
       else
-        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :category => category, :version => version})
+        index.document(name).delete()
+        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version})
         index.document(name).update_categories(categories)
         puts "=> #{result}"
       end
@@ -132,7 +133,8 @@ desc 'Sample search'
 task :search, :query do |t, args|
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
   index = client.indexes(AppConfig['index'])
-  results = index.search(args[:query], :fetch => 'title,dockey', :snippet => 'text')
+
+  results = index.search(args[:query], :fetch => 'title,dockey,docexternal', :snippet => 'text')
   puts "#{results['matches']} results."
   puts results.inspect
 end
@@ -307,6 +309,12 @@ end
 desc 'Alias for server'
 task :start => :server
 
+desc 'index stackoverflow discussions'
+task :index_stackoverflow do
+  url = 'http://api.stackexchange.com/2.1/search?order=desc&sort=activity&tagged=rhomobile&site=stackoverflow&filter=withbody'
+  get_stackoverflowitems url,1,100
+end
+
 def which(command)
 	ENV['PATH'].
 		split(':').
@@ -342,4 +350,39 @@ def category_for(doc)
   else
     return ''
   end
+end
+
+def get_stackoverflowitems url,page,pagesize
+  rest_result = RestClient.get("#{url}&page=#{page}&pagesize=#{pagesize}").body
+  
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes(AppConfig['index'])
+  # index = client.indexes('rhodocs')
+  categories = { 
+          'category' => 'discussion',
+          'version' => ''
+      }
+
+  if rest_result.code != 200
+    puts ('Error communication with site')
+    parsed = JSON.parse(rest_result)
+    puts parsed["error_name"] 
+    puts parsed["error_message"]
+  end
+  parsed = JSON.parse(rest_result)
+  puts "Processing Page: #{page}, #{parsed['items'].length} , API Quota Remaining: #{parsed['quota_remaining']}"
+
+  parsed["items"].each do |item|
+   puts "indexing:" + item["title"]
+   searchify_id = 'stackoverflow_'+ item["question_id"].to_s
+    index.document(searchify_id).delete()
+   result = indextank_document = index.document(searchify_id).add({:title => item["title"], :text => item["title"], :dockey => item["link"], :docexternal => true, :category => 'discussion', :version => ''})
+        index.document(searchify_id).update_categories(categories)
+        puts "=> #{result}"
+  end
+  if parsed["has_more"]
+    get_stackoverflowitems url,page+1,pagesize
+  else
+    puts "Done"
+  end 
 end

@@ -312,10 +312,8 @@ xml_string +=  ' </rss>	'
 	
   	def search_for(query, page = 0, category='', version='')
       client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-      # client = IndexTank::Client.new('http://:TP9xCrZJNgXIyC@rd4f.api.searchify.com')
-  
       index = client.indexes(AppConfig['index'])
-
+      
       categories = {}
       if !category.nil? && category != ''
         catArray = []
@@ -329,7 +327,7 @@ xml_string +=  ' </rss>	'
       end
       
       # puts categories
-      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category', :snippet => 'text', :category_filters => categories)
+      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category,docexternal', :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
           page + 1
