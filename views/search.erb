@@ -25,7 +25,7 @@ total['facets'].each do |facettype,facet| %>
     <% end %>
   <% end %>
   <%
-  puts @allselected
+  # puts @allselected
   if  categories != {} && !@allselected
   %>
   <span class="badge badge-inverse" data-type="all" ><i class="icon icon-refresh icon-large icon-muted"></i></span>
@@ -37,7 +37,7 @@ total['facets'].each do |facettype,facet| %>
 
 <div id="results">
   <% search['results'].each do |result| 
-    puts result
+    # puts result
     %>
     <div class="result">
       <% if !result['docexternal'].nil? && result['docexternal']== 'True' %>

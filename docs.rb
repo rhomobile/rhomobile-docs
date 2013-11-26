@@ -107,7 +107,7 @@ class Docs < Sinatra::Base
 
   get '/search' do
     @print = 0
-    puts params
+    # puts params
     page = params[:page].to_i
     category = params[:c]
     version = params[:v]
@@ -127,7 +127,7 @@ class Docs < Sinatra::Base
         verArray = version.split(",")
         categories["version"] = verArray
       end
-      puts total
+      # puts total
     erb :search, :locals => {:search => search, :total => total, :query => params[:q], :category => category, :version => version, :prev_page => prev_page, :next_page => next_page, :categories => categories}
   end
 
@@ -313,7 +313,7 @@ xml_string +=  ' </rss>	'
   	def search_for(query, page = 0, category='', version='')
       client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
       index = client.indexes(AppConfig['index'])
-      
+    
       categories = {}
       if !category.nil? && category != ''
         catArray = []
@@ -326,7 +326,7 @@ xml_string +=  ' </rss>	'
         categories["version"] = verArray
       end
       
-      # puts categories
+      puts categories
       search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category,docexternal', :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
