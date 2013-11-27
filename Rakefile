@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'date'
 require 'bundler'
 require './api'
 
@@ -21,10 +22,11 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-  # client = IndexTank::Client.new('http://:TP9xCrZJNgXIyC@rd4f.api.searchify.com')
   index = client.indexes(AppConfig['index'])
-  index.delete rescue nil
-  index.add rescue nil
+ 
+
+  # index.delete rescue nil
+  # index.add rescue nil
   print "Waiting to initialize #{AppConfig['index']}..."
   while not index.running?
     print "."
@@ -61,7 +63,8 @@ task :index do
           if chunk.size > maxsize       
             puts "chunk size over limit WTF? - ognoring for now"
           else
-            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :category => category, :version => version})
+            index.document(name+chunknum.to_s).delete()
+            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version})
             
             index.document(name+chunknum.to_s).update_categories(categories)             
           end
@@ -70,7 +73,8 @@ task :index do
           break if endPos == topic.body.size()
         end
       else
-        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :category => category, :version => version})
+        index.document(name).delete()
+        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version})
         index.document(name).update_categories(categories)
         puts "=> #{result}"
       end
@@ -132,7 +136,8 @@ desc 'Sample search'
 task :search, :query do |t, args|
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
   index = client.indexes(AppConfig['index'])
-  results = index.search(args[:query], :fetch => 'title,dockey', :snippet => 'text')
+
+  results = index.search(args[:query], :fetch => 'title,dockey,docexternal', :snippet => 'text')
   puts "#{results['matches']} results."
   puts results.inspect
 end
@@ -307,6 +312,33 @@ end
 desc 'Alias for server'
 task :start => :server
 
+desc 'index stackoverflow discussions'
+task :index_stackoverflow do
+  url = 'http://api.stackexchange.com/2.1/search?order=desc&sort=activity&tagged=rhomobile&site=stackoverflow&filter=withbody'
+  get_stackoverflowitems url,1,100
+end
+
+desc 'index launchpad rhomobile blogs'
+task :index_lp_blogs do
+  url = "https://developer.motorolasolutions.com/api/core/v3/contents?filter=place(https%3A%2F%2Fdeveloper.motorolasolutions.com%2Fapi%2Fcore%2Fv3%2Fplaces%2F3573)&filter=type(post)"
+  get_launchpad_blogs url
+end
+desc 'index launchpad rhomobile & rhoconnect discussions'
+task :index_lp_discussions do
+  #rhomobile discussions
+  url = "https://developer.motorolasolutions.com/api/core/v3/contents?filter=place(https%3A%2F%2Fdeveloper.motorolasolutions.com%2Fapi%2Fcore%2Fv3%2Fplaces%2F3577)"
+  get_lp_content url, 'discussion'
+  url = "https://developer.motorolasolutions.com/api/core/v3/contents?filter=place(https%3A%2F%2Fdeveloper.motorolasolutions.com%2Fapi%2Fcore%2Fv3%2Fplaces%2F3770)"
+  get_lp_content url, 'discussion'
+
+end
+
+desc 'index launchpad videos'
+task :index_lp_videos do
+  url ="https://developer.motorolasolutions.com/api/core/v3/contents?filter=place(https%3A%2F%2Fdeveloper.motorolasolutions.com%2Fapi%2Fcore%2Fv3%2Fplaces%2F5589)"
+  get_lp_content url, 'video'
+end  
+
 def which(command)
 	ENV['PATH'].
 		split(':').
@@ -342,4 +374,139 @@ def category_for(doc)
   else
     return ''
   end
+end
+
+def get_stackoverflowitems url,page,pagesize
+  rest_result = RestClient.get("#{url}&page=#{page}&pagesize=#{pagesize}").body
+  
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes(AppConfig['index'])
+
+   
+  categories = { 
+          'category' => 'discussion',
+          'version' => ''
+      }
+
+  if rest_result.code != 200
+    puts ('Error communication with site')
+    parsed = JSON.parse(rest_result)
+    puts parsed["error_name"] 
+    puts parsed["error_message"]
+  else
+    parsed = JSON.parse(rest_result)
+    puts "Processing Page: #{page}, #{parsed['items'].length} , API Quota Remaining: #{parsed['quota_remaining']}"
+
+    parsed["items"].each do |item|
+     puts "indexing:" + item["title"]
+     searchify_id = 'stackoverflow_'+ item["question_id"].to_s
+      index.document(searchify_id).delete()
+      doc_content = Nokogiri::HTML(item["body"]).text
+      
+     result = indextank_document = index.document(searchify_id).add({:title => item["title"], 
+      :text => doc_content, :dockey => item["link"], 
+      :docexternal => true, 
+      :category => 'discussion', 
+      :version => '',
+      :timestamp => item["last_activity_date"]})
+          index.document(searchify_id).update_categories(categories)
+          puts "=> #{result}"
+    end
+    if parsed["has_more"]
+      get_stackoverflowitems url,page+1,pagesize
+    else
+      puts "Done"
+    end 
+  end
+
+end
+
+def get_launchpad_blogs url
+  rest_result = RestClient.get("#{url}").body
+
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes(AppConfig['index'])
+  categories = { 
+          'category' => 'blog',
+          'version' => ''
+      }
+
+  if rest_result.code != 200
+    puts ('Error communication with site')
+    # parsed = JSON.parse(rest_result)
+    # puts parsed["error_name"] 
+    # puts parsed["error_message"]
+  else
+
+    #jive prepends the JSON with this string for some reason
+    rest_result.gsub!("throw 'allowIllegalResourceCall is false.';","")
+    parsed = JSON.parse(rest_result)
+     puts "Processing Starting Index: #{parsed['startIndex']}"
+    # puts parsed
+
+    parsed["list"].each do |item|
+     puts "indexing:" + item["subject"]
+     searchify_id = 'lp_blog_'+ item["id"].to_s
+      index.document(searchify_id).delete()
+      doc_content = Nokogiri::HTML(item["content"]["text"]).text
+      result = indextank_document = index.document(searchify_id).add({:title => item["subject"], 
+        :text => doc_content, 
+        :dockey => item["permalink"], 
+        :docexternal => true, 
+        :category => 'blog', 
+        :version => '',
+        :timestamp => DateTime.parse(item["updated"]).to_time.to_i})
+      index.document(searchify_id).update_categories(categories)
+      puts "=> #{result}"
+    end
+    if !parsed["links"]["next"].nil? && parsed["links"]["next"] !=''
+      get_launchpad_blogs parsed["links"]["next"]
+    else
+      puts "Done"
+    end 
+  end
+
+end
+
+def get_lp_content url,category
+  rest_result = RestClient.get("#{url}").body
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes(AppConfig['index'])
+  categories = { 
+          'category' => category,
+          'version' => ''
+      }
+
+  if rest_result.code != 200
+    puts ('Error communication with site')
+    # parsed = JSON.parse(rest_result)
+    # puts parsed["error_name"] 
+    # puts parsed["error_message"]
+  else
+    #jive prepends the JSON with this string for some reason
+    rest_result.gsub!("throw 'allowIllegalResourceCall is false.';","")
+    parsed = JSON.parse(rest_result)
+     puts "Processing Starting Index: #{parsed['startIndex']}"
+    # puts parsed
+
+    parsed["list"].each do |item|
+     puts "indexing:" + item["subject"]
+     searchify_id = 'lp_discussion_'+ item["id"].to_s
+      index.document(searchify_id).delete()
+      doc_content = Nokogiri::HTML(item["content"]["text"]).text
+      result = indextank_document = index.document(searchify_id).add({:title => item["subject"], 
+        :text => doc_content, :dockey => item["resources"]["html"]["ref"], 
+        :docexternal => true, :category => category, 
+        :version => '',
+        :timestamp => DateTime.parse(item["updated"]).to_time.to_i})
+      index.document(searchify_id).update_categories(categories)
+      puts "=> #{result}"
+    end
+    if !parsed["links"]["next"].nil? && parsed["links"]["next"] !=''
+      get_lp_content parsed["links"]["next"], category
+    else
+      puts "Done"
+    end 
+  end
+
 end
