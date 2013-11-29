@@ -92,6 +92,9 @@ The `rhoconfig.txt` file generated with a new application contains the following
 	# on all other platforms and on Android from Rhodes >2.2.5 default 0
 	full_screen = 0
 	
+	# show top menu on Windows desktop in full screen mode (default is 0=don't show top menu)
+	#w32_fullscreen_menu = 1
+	
 	# disable the Android page loading progress bar
 	disable_loading_indication = 1
 	
