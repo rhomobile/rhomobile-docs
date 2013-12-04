@@ -51,7 +51,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <PROPERTY name="httpVerb" type="STRING">
                 <DESC>HTTP verb to be used in the network request.</DESC>
             </PROPERTY>
-            <PROPERTY name="headers" type="HASH" generateDoc="false">
+            <PROPERTY name="headers" type="HASH">
                 <DESC>List of HTTP headers to be used in the network  request.</DESC>
             </PROPERTY>
             
@@ -500,14 +500,14 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
       #Download a file to the specified filename.
       downloadfileProps = Hash.new
       downloadfileProps["url"]='http://www.google.com/images/icons/product/chrome-48.png'
-      downloadfileProps["filename"] = Rho::RhoFile.join(Rho::Application.userFolder,"sample.png")
+      downloadfileProps["filename"] = Rho::Application.publicFolder+"/images/sample.png"
       downloadfileProps["overwriteFile"] = true
       Rho::Network.downloadFile(downloadfileProps, url_for(:action => :download_file_callback))
   end
   
   def download_file_callback
     if @params["status"] == "ok"
-        Alert.show_popup "Download Succeeded"
+        Alert.show_popup "Download Success,path is /public/images/sample.png "
     else
         Alert.show_popup "Download Failed"
     end
@@ -519,7 +519,7 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
            <![CDATA[
     function download_file_callback(params) {
       if (params["status"] == "ok") {
-        alert("Download Succeeded");
+        alert("Download Succeeded, path is /public/images/sample.png");
       } else {
         alert("Download Failed");
       }
@@ -529,7 +529,7 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
       // Download a file to the specified filename. Be careful with the overwriteFile parameter!
       downloadfileProps = {
         url: "http://www.google.com/images/icons/product/chrome-48.png",
-        filename: Rho.RhoFile.join(Rho.Application.userFolder,"sample.png"),
+        filename: Rho.Application.publicFolder+"/images/sample.png",
         overwriteFile: true
       };
       Rho.Network.downloadFile(downloadfileProps, download_file_callback);

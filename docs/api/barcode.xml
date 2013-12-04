@@ -1729,9 +1729,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>    
             
             <METHOD name="getSupportedProperties" hasCallback="optional">
-                <DESC>return array of properties supported by this scanner</DESC>
+                <DESC>return array of properties supported by this scaner</DESC>
                 <RETURN type="ARRAY">
-                    <DESC>array of property names supported by this scanner</DESC>
+                    <DESC>array of property names supported by this scaner</DESC>
                     <PARAM type="STRING"/>
                 </RETURN>
             </METHOD>
