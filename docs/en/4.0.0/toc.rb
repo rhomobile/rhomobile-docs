@@ -181,87 +181,87 @@ end
 
 
 section 'rhoconnect-reference', 'Getting Started','RhoConnect Guides' do
-  topic 'rhoconnect/introduction',      'Introduction'
-  topic 'rhoconnect/install',           'Installation'
-  topic 'rhoconnect/migration',     'Migrating to RhoConnect 4.0'
-  topic 'rhoconnect/command-line',      'App Generator and Command Line'
-  topic 'rhoconnect/supported-platforms', 'Supported Platforms'
-  topic 'rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
+  topic 'en/4.0.0/rhoconnect/introduction',      'Introduction'
+  topic 'en/4.0.0/rhoconnect/install',           'Installation'
+  topic 'en/4.0.0/rhoconnect/migration',     'Migrating to RhoConnect 4.0'
+  topic 'en/4.0.0/rhoconnect/command-line',      'App Generator and Command Line'
+  topic 'en/4.0.0/rhoconnect/supported-platforms', 'Supported Platforms'
+  topic 'en/4.0.0/rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
 end
 
 section 'rhoconnect-source-adapter-reference', 'Source Adapters','RhoConnect Guides' do
-  topic 'rhoconnect/source-adapters-intro', 'Introduction'
-  topic 'rhoconnect/source-adapters',   'Source Adapters (Ruby)'
-  topic 'rhoconnect/source-adapters-js',   'Source Adapters (JavaScript)'
-  topic 'rhoconnect/authentication',    'Adding Device Authentication'
-  topic 'rhoconnect/testing',           'Testing and Debugging'
-  topic 'rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
-  topic 'rhoconnect/async-jobs',        'Adapter Jobs with Resque'
-  topic 'rhoconnect/metadata',          'Dynamic Views with Metadata'
-  topic 'rhoconnect/data-partitioning',     'Data Partitioning & Pass-Through'
+  topic 'en/4.0.0/rhoconnect/source-adapters-intro', 'Introduction'
+  topic 'en/4.0.0/rhoconnect/source-adapters',   'Source Adapters (Ruby)'
+  topic 'en/4.0.0/rhoconnect/source-adapters-js',   'Source Adapters (JavaScript)'
+  topic 'en/4.0.0/rhoconnect/authentication',    'Adding Device Authentication'
+  topic 'en/4.0.0/rhoconnect/testing',           'Testing and Debugging'
+  topic 'en/4.0.0/rhoconnect/blob-sync',         'Binary Objects and Blob Sync'
+  topic 'en/4.0.0/rhoconnect/async-jobs',        'Adapter Jobs with Resque'
+  topic 'en/4.0.0/rhoconnect/metadata',          'Dynamic Views with Metadata'
+  topic 'en/4.0.0/rhoconnect/data-partitioning',     'Data Partitioning & Pass-Through'
 end
 
 section 'rhoconnect-ruby-api-reference', 'Source Adapter Ruby APIs','RhoConnect Guides' do
-  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
-  topic 'rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API'
-  topic 'rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API'
-  topic 'rhoconnectapi/test-api-ruby',     'Source Adapter Test API'
+  topic 'en/4.0.0/rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-model-api-ruby', 'Source Adapter Model API'
+  topic 'en/4.0.0/rhoconnectapi/test-api-ruby',     'Source Adapter Test API'
 end
 
 section 'rhoconnect-js-api-reference', 'Source Adapter JS APIs','RhoConnect Guides' do
-  topic 'rhoconnect/rest-api',          'RhoConnect REST API'
-  topic 'rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API'
-  topic 'rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API'
-  topic 'rhoconnectapi/source-adapter-request-api-js', 'Source Request API'
-  topic 'rhoconnectapi/source-adapter-response-api-js', 'Source Response API'
-  topic 'rhoconnectapi/source-adapter-store-api-js', 'Source Adapter Store API'
-  topic 'rhoconnectapi/source-adapter-exception-api-js', 'Source Adapter Exception API'
+  topic 'en/4.0.0/rhoconnect/rest-api',          'RhoConnect REST API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-model-api-js', 'Source Adapter Model API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-request-api-js', 'Source Request API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-response-api-js', 'Source Response API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-store-api-js', 'Source Adapter Store API'
+  topic 'en/4.0.0/rhoconnectapi/source-adapter-exception-api-js', 'Source Adapter Exception API'
 end
 
 section 'rhoconnect-plugin-reference', 'Plugins','RhoConnect Guides' do
-  topic 'rhoconnect/plugin-intro',      'Introduction'
-  topic 'rhoconnect/rails-plugin',      'Rails Plugin'
-  topic 'rhoconnect/net-plugin',        '.Net Plugin'
-  topic 'rhoconnect/java-plugin',       'Java Plugin'
+  topic 'en/4.0.0/rhoconnect/plugin-intro',      'Introduction'
+  topic 'en/4.0.0/rhoconnect/rails-plugin',      'Rails Plugin'
+  topic 'en/4.0.0/rhoconnect/net-plugin',        '.Net Plugin'
+  topic 'en/4.0.0/rhoconnect/java-plugin',       'Java Plugin'
 end
 
 section 'rhoconnect-push-reference', 'Push Sync','RhoConnect Guides' do
-  topic 'rhoconnect/push',      'Introduction to Push'
-  topic 'rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
-  topic 'rhoconnect/push-client-setup-android',       'Setup for Android'
-  # topic 'rhoconnect/push-client-setup-bb',       'Setup for BlackBerry'
-  topic 'rhoconnect/push-client-setup-ios',       'Setup for iOS'
-  topic 'rhoconnect/push-client-setup',       'Finishing Setup for all Clients'
-  topic 'rhoconnect/push-backend-setup',        'Setup on Backend'
-  topic 'rhoconnect/push-testing',      'Testing Push'
+  topic 'en/4.0.0/rhoconnect/push',      'Introduction to Push'
+  topic 'en/4.0.0/rhoconnect/push-client-setup-rps',       'Setup for RhoConnect Push Service'
+  topic 'en/4.0.0/rhoconnect/push-client-setup-android',       'Setup for Android'
+  # topic 'en/4.0.0/rhoconnect/push-client-setup-bb',       'Setup for BlackBerry'
+  topic 'en/4.0.0/rhoconnect/push-client-setup-ios',       'Setup for iOS'
+  topic 'en/4.0.0/rhoconnect/push-client-setup',       'Finishing Setup for all Clients'
+  topic 'en/4.0.0/rhoconnect/push-backend-setup',        'Setup on Backend'
+  topic 'en/4.0.0/rhoconnect/push-testing',      'Testing Push'
 end
 
 section 'rhoconnect-administration', 'Administration','RhoConnect Guides' do
-  topic 'rhoconnect/settings',          'RhoConnect Settings'
-  topic 'rhoconnect/web-console',       'Admin Web Interface'
-  topic 'rhoconnect/licensing',         'Licensing your App'
-  topic 'rhoconnect/benchmarks',        'Rhoconnect Benchmarking'
-  topic 'rhoconnect/benchmarks-running','Running Rhoconnect Benchmarks'
-  topic 'rhoconnect/stats-middleware',  'Collecting Runtime Stats'
+  topic 'en/4.0.0/rhoconnect/settings',          'RhoConnect Settings'
+  topic 'en/4.0.0/rhoconnect/web-console',       'Admin Web Interface'
+  topic 'en/4.0.0/rhoconnect/licensing',         'Licensing your App'
+  topic 'en/4.0.0/rhoconnect/benchmarks',        'Rhoconnect Benchmarking'
+  topic 'en/4.0.0/rhoconnect/benchmarks-running','Running Rhoconnect Benchmarks'
+  topic 'en/4.0.0/rhoconnect/stats-middleware',  'Collecting Runtime Stats'
 end
 
 section 'rhoconnect-deployment', 'Deployment','RhoConnect Guides' do
-  topic 'rhoconnect/preparing-production',         'Preparing for Production'
-  topic 'rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
-  topic 'rhoconnect/deploying',         'Deploying RhoConnect'
-  topic 'rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
+  topic 'en/4.0.0/rhoconnect/preparing-production',         'Preparing for Production'
+  topic 'en/4.0.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
+  topic 'en/4.0.0/rhoconnect/deploying',         'Deploying RhoConnect'
+  topic 'en/4.0.0/rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
 
 section 'rhoconnect-advanced', 'Advanced Topics','RhoConnect Guides' do
-  topic 'rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
-  topic 'rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
-  topic 'rhoconnect/cud-conflicts',     'Resolving Conflicts'
+  topic 'en/4.0.0/rhoconnect/bulk-sync',         'Big Datasets and Bulk Sync'
+  topic 'en/4.0.0/rhoconnect/extending-rhoconnect-server', 'Extending Rhoconnect App with custom routes'
+  topic 'en/4.0.0/rhoconnect/cud-conflicts',     'Resolving Conflicts'
 end
 
 section 'rhoconnect-nonrhodes-client-reference', 'Clients','RhoConnect Guides' do
-  topic 'rhoconnect/client',            'Using RhoConnect without Rhodes'
-  topic 'rhoconnect/client-objc',       'RhoConnect Client for iOS'
-  topic 'rhoconnect/client-java',       'RhoConnect without Rhodes: Android Java'
+  topic 'en/4.0.0/rhoconnect/client',            'Using RhoConnect without Rhodes'
+  topic 'en/4.0.0/rhoconnect/client-objc',       'RhoConnect Client for iOS'
+  topic 'en/4.0.0/rhoconnect/client-java',       'RhoConnect without Rhodes: Android Java'
   topic 'rhoconnectjs/introduction',      'RhoConnect.JS Client'
   topic 'rhoconnectjs/getting-started',   'RhoConnect.JS Getting Started'
   topic 'rhoconnectjs/reference',         'RhoConnect.JS API Reference'
@@ -270,12 +270,12 @@ end
 
 
 section 'rhoconnect-service-reference', 'Hosted Services','RhoConnect Guides' do
-  topic 'rhoconnect/heroku-addon',      'Heroku Addon'
+  topic 'en/4.0.0/rhoconnect/heroku-addon',      'Heroku Addon'
 end
 
 section 'rhoconnect-adapters-reference', 'Vendor Adapters','RhoConnect Guides' do
-  topic 'rhoconnect/adapters-intro',    'Introduction'
-  topic 'rhoconnect/adapters-crm',      'CRM adapters'
+  topic 'en/4.0.0/rhoconnect/adapters-intro',    'Introduction'
+  topic 'en/4.0.0/rhoconnect/adapters-crm',      'CRM adapters'
 end
 
 

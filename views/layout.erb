@@ -87,6 +87,8 @@
 				  	<select id="version_select" class="input input-medium">
 							  <option value='4.0.0' <%=@docversion.nil? || @docversion== '4.0.0' ? 'SELECTED' : ''%>>RMS 4.x Docs</option>
 							  <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>RMS 2.x Docs</option>
+							  <option value='edge' <%=@docversion.nil? || @docversion== 'edge' ? 'SELECTED' : ''%>>Edge</option>
+							  
 							</select>
 		    	<% end %>
 		    	</li>

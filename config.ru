@@ -6,6 +6,7 @@ require './environment'
 
 use Rack::Rewrite do
 	r301  %r{^/v/2.2/(.*)/(.*)}, '/en/2.2.0/$1/$2'
+	r301  %r{^/v/2.2/(.*)}, '/en/2.2.0/$1'
 	r301  %r{^/api/(.*)}, '/en/4.0.0/api/$1'
 	r301  %r{^/guide/(.*)}, '/en/4.0.0/guide/$1'
 	r301  %r{^/rhoconnect/(.*)}, '/en/4.0.0/rhoconnect/$1'
