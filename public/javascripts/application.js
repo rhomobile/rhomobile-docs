@@ -29,14 +29,14 @@ $(document).ready(function() {
           var ver = $(this).val(); // get selected value
           if (ver) { // require a URL
           	  
-      	  		url = '/v/' + ver;
+      	  		url = '/en/' + ver;
 	      	  newurl =window.location.protocol + "//" + window.location.host + url ;//+ window.location.pathname;
 	      	  
           }
           else
           {
           	url = '';
-          	pathname = window.location.pathname.replace('/v/2.2',''); // need to change to regex
+          	pathname = window.location.pathname.replace('/en/2.2',''); // need to change to regex
           	newurl = window.location.protocol + "//" + window.location.host + url;// + pathname; // redirect
           }
           // console.log(newurl);

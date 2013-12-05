@@ -41,15 +41,15 @@
 
 		<% sectionGroup  = TOC.findGroup(request.path_info) 
 
-		 # puts "version#{@docversion}"
-		if @docversion.nil?
+		  puts "version#{@docversion}"
+		if @docversion.nil? || @docversion == '4.0.0'
 			vpath = ""
 			homepath="/home"
 			mapipath="/guide/apisummary"
 			mguidepath="/guide/welcome"
 			rcguidepath="/rhoconnect/introduction"
 		else
-			vpath = "/v/#{@docversion}"
+			vpath = "/en/#{@docversion}"
 			homepath="#{vpath}/home"
 			mapipath="#{vpath}/rhoelements/apicompatibility"
 			mguidepath="#{vpath}/rhodes/introduction"
@@ -85,8 +85,8 @@
 			<!-- <div class="span2 pull-right"> -->
 			  	<% if request.path_info != '/search' %>
 				  	<select id="version_select" class="input input-medium">
-							  <option value='' <%=@docversion.nil? ? 'SELECTED' : ''%>>RMS 4.x Docs</option>
-							  <option value='2.2' <%=@docversion=='2.2' ? 'SELECTED' : ''%>>RMS 2.x Docs</option>
+							  <option value='4.0.0' <%=@docversion.nil? || @docversion== '4.0.0' ? 'SELECTED' : ''%>>RMS 4.x Docs</option>
+							  <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>RMS 2.x Docs</option>
 							</select>
 		    	<% end %>
 		    	</li>
@@ -194,7 +194,7 @@
 	</div>
 
 	<div class="span8">
-		<% if !@docversion.nil? && request.path_info != '/v/2.2/home' && request.path_info != '/v/2.2/'%>
+		<% if !@docversion.nil? && @docversion != '4.0.0'%>
 			<div class="alert alert-block">
 		      <button type="button" class="close" data-dismiss="alert">&times;</button>
 		      <strong><i class="icon icon-warning-sign icon-large"></i> Warning! - You are not viewing the current version of documentation</strong>
