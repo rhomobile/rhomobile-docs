@@ -12,6 +12,7 @@ gem 'coderay', '~>0.9.8'
 gem 'rack-codehighlighter'
 gem 'indextank'
 gem 'shotgun'
+gem 'link-checker', '~>0.7.2' # Required for link check rake task
 
 group :development do
   gem "rake", '~> 0.9.2.2'
