@@ -9,12 +9,14 @@ task :check_links do
 
   def parse_results
     @problems_array = []
+    @stats = ""
     broken_links = ""
     problem = ""
 
     # Reduce results to JUST problems
     @results.each_line do |line|
       broken_links += line unless line.start_with?("Checked") or line.start_with?("Error:")
+      @stats = line if line.start_with?("Checked ")
     end
 
     # Separate problems into elements in an array
@@ -45,8 +47,8 @@ task :check_links do
   parse_results
 
   if !@problems_array.empty?
-    puts "Pages with problems: #{@problems_array.length}"
     puts @problems_array
-    return 1
+    puts @stats
+    ENV['BAD_LINKS_FOUND'] = "1"
   end
 end
