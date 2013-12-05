@@ -40,14 +40,16 @@
 		</form>
 
 		<% sectionGroup  = TOC.findGroup(request.path_info) 
-
-		  puts "version#{@docversion}"
-		if @docversion.nil? || @docversion == '4.0.0'
+		if @docversion.nil?
+			@docversion = '4.0.0'
+		end
+		  # puts "version#{@docversion}"
+		if  @docversion != '2.2.0' 
 			vpath = ""
-			homepath="/home"
-			mapipath="/guide/apisummary"
-			mguidepath="/guide/welcome"
-			rcguidepath="/rhoconnect/introduction"
+			homepath="/en/#{@docversion}/home"
+			mapipath="/en/#{@docversion}/guide/apisummary"
+			mguidepath="/en/#{@docversion}/guide/welcome"
+			rcguidepath="/en/#{@docversion}/rhoconnect/introduction"
 		else
 			vpath = "/en/#{@docversion}"
 			homepath="#{vpath}/home"
@@ -197,10 +199,17 @@
 
 	<div class="span8">
 		<% if !@docversion.nil? && @docversion != '4.0.0'%>
-			<div class="alert alert-block">
-		      <button type="button" class="close" data-dismiss="alert">&times;</button>
-		      <strong><i class="icon icon-warning-sign icon-large"></i> Warning! - You are not viewing the current version of documentation</strong>
-		    </div>
+			<% if @docversion == 'edge'%>
+				<div class="alert alert-block alert-danger">
+			      <button type="button" class="close" data-dismiss="alert">&times;</button>
+			      <strong><i class="icon icon-warning-sign icon-large"></i> Warning Unreleased Docs! - You may be viewing documentation that reflects an upcoming release and the functionality described may not be in the current version you are using. Change the version above to the most recent version. </strong>
+			    </div>
+			<% else%>
+				<div class="alert alert-block ">
+			      <button type="button" class="close" data-dismiss="alert">&times;</button>
+			      <strong><i class="icon icon-warning-sign icon-large"></i> Warning Older Docs! - You are viewing documentation for a previous released version of RhoMobile Suite.</strong>
+			    </div>
+			<% end%>
     	<% end %>		
 		<div id="t_content" class="topic_content">
 			<%= yield %>

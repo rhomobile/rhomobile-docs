@@ -197,7 +197,7 @@ xml_string +=  ' </rss>	'
     xml_string
   end
   
-['/tutorial/:step/:topic/?',  '/tutorial/:topic/?'].each do |path|
+['/tutorial/:step/:topic/?',  '/tutorial/:topic/?','/en/:vnum/tutorial/:step/:topic/?',  '/en/:vnum/tutorial/:topic/?'].each do |path|
     get path do
       cache_long
       @docversion = '4.0.0'
@@ -239,9 +239,9 @@ xml_string +=  ' </rss>	'
   # TODO: use proper regex
   ['/en/:vnum/:topic/?', '/en/:vnum/:subpath/:topic/?'].each do |path|
     get path do
-      puts params[:vnum]
-      puts params[:subpath]
-      puts params[:topic]
+      # puts params[:vnum]
+      # puts params[:subpath]
+      # puts params[:topic]
 
   	  cache_long
       @docversion = nil
@@ -269,7 +269,7 @@ xml_string +=  ' </rss>	'
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
-        puts "#{subpath} :#{topic} :  #{docversion}"
+        # puts "#{subpath} :#{topic} :  #{docversion}"
       if TOC.find("/#{subpath}/#{topic}") == '' && docversion.nil?
         
           #if not in TOC then make it default to 2.2 version
@@ -278,7 +278,7 @@ xml_string +=  ' </rss>	'
           # redirect "/v/#{docversion}/#{subpath}/#{topic}"
       end
       @topic_file = topic_file(topic,subpath,docversion)
-       puts @topic_file
+       # puts @topic_file
       if  topic == 'apicompatibility'
         source = Indicators.apimatrix_markdown()  
       else
@@ -336,7 +336,7 @@ xml_string +=  ' </rss>	'
         categories["version"] = verArray
       end
       
-      puts categories
+      # puts categories
       search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category,docexternal', :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
