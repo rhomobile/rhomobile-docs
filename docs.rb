@@ -76,6 +76,16 @@ class Docs < Sinatra::Base
   
   end
 
+  ['/en/2.2.0','/en/2.2.0/','/en/2.2.0/home'].each do |path|
+    get path do
+      @title = "Home"
+      @print = 0
+      @docversion = '2.2.0'
+      cache_long
+      erb :oldverhome
+    end
+  end
+
   ['/', '/home', '/en/:vnum', '/en/:vnum/home'].each do |path|
     get path do
       @title = "Home"
@@ -89,15 +99,7 @@ class Docs < Sinatra::Base
   	end
   end
 
-  ['/en/2.2.0','/en/2.2.0/','/en/2.2.0/home'].each do |path|
-    get path do
-      @title = "Home"
-      @print = 0
-      @docversion = '2.2.0'
-      cache_long
-      erb :oldverhome
-    end
-  end
+
 
   get '/print/home' do 
     @print = 1

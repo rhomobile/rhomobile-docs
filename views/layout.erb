@@ -163,12 +163,12 @@
 			<% topics.each do |slug, title, _|
 				 %>
 				<% if topic_path == slug %>
-					<li class="active"><a onclick="return false" href="<%=vpath%>/<%= slug %>"><%=h title %></a></li>
+					<li class="active"><a onclick="return false" href="/<%= slug %>"><%=h title %></a></li>
 				<% else %>
 					<% if slug != 'rhoelements/apicompatibility' %>
-					<li><a class='js-pjax' href="<%=vpath%>/<%= slug %>"><%=h title %></a></li>
+					<li><a class='js-pjax' href="/<%= slug %>"><%=h title %></a></li>
 					<%else%>
-					<li><a  href="<%=vpath%>/<%= slug %>"><%=h title %></a></li>
+					<li><a  href="/<%= slug %>"><%=h title %></a></li>
 					<%end %>
 				<% end %>
 			<% end %>
