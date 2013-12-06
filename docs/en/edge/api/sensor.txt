@@ -90,7 +90,7 @@ def myevent
     puts "Accelerometer params: #{@params}"
     puts "X is #{@params['accelerometer_x']}"
     puts "Y is #{@params['accelerometer_y']}"  
-    puts "Z is #{@params['accelerometer_z']}"      
+    puts "Z is #{@params['accelerometer_z']}" 	   
 end 
                     
 

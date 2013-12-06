@@ -46,14 +46,14 @@ app_type: "rhoelements"
                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
            
   def capture_fullscreen
-    # Invoke signature capture screen and assign callback
+  	# Invoke signature capture screen and assign callback
     Rho::Signature.takeFullScreen({}, url_for(:action =&gt; :signature_callback))
     
     render :action =&gt; :show_signature
   end
 
   def signature_callback
-    # If status is not 'ok', the capture was cancelled
+  	# If status is not 'ok', the capture was cancelled
     if @params['status'] == 'ok'
     
       # By default, the output format is "image", so the imageUri parameter will contain the relative filename of an image
@@ -105,13 +105,13 @@ app_type: "rhoelements"
     // Change fullscreen from true (default) to false           
     // Change background color from white (default) to black
     // Change pen color from blue (default) to white
-  Rho::Signature.show ({:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF"});
+	Rho::Signature.show ({:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF"});
 
                    
                  </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
             
-  # Change fullscreen from true (default) to false           
+	# Change fullscreen from true (default) to false           
     # Change background color from white (default) to black
     # Change pen color from blue (default) to white
     Rho::Signature.show {:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF"}
