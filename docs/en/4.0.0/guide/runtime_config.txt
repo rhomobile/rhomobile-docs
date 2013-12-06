@@ -11,145 +11,142 @@ The values in `rhoconfig.txt` control different aspects of your application, suc
 
 Apart from the settings recognized by the platform, you can add arbitrary values that are specific to your application:
 
-	:::yaml
-	# application-specific value
-	foo = 'bar'
+    :::yaml
+    # application-specific value
+    foo = 'bar'
 
 All values will be accessible at runtime via `Rho::RhoConfig`
 
-	:::ruby
-	foo = Rho::RhoConfig.bar
-	start_path = Rho::RhoConfig.start_path
-	
+    :::ruby
+    foo = Rho::RhoConfig.bar
+    start_path = Rho::RhoConfig.start_path
+
 You can also check if a configurtion property actually exists before accessing it
 
-	:::ruby
-	start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
-	
-		
+    :::ruby
+    start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
+
+
 The `rhoconfig.txt` file generated with a new application contains the following default values, as well as descriptions of each setting:
 
-	:::yaml
-	# startup page for your application
-	start_path = '/app'
+    :::yaml
+    # startup page for your application
+    start_path = '/app'
 
-	# path to the options page (in this case handled by javascript)
-	options_path = '/app/Settings'
-	
-	# location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
-	rhobundle_zip_url = ''
-	
-	# optional password to access bundle (usually not required); used by desktop win32 simulator 
-	rhobundle_zip_pwd = nil
-	
-	# Rhodes log properties
-	# log level
-	# 0-trace, 1-info(app level), 3-warnings, 4-errors
-	# for production set to 3
-	MinSeverity  = 1 
-	
-	# enable copy log messages to standard output, useful for debugging
-	LogToOutput = 1
-	
-	# '*' means all categories, otherwise list them : Cat1, Cat2 
-	LogCategories = *
-	
-	# what categories to exclude
-	ExcludeLogCategories = 
-	
-	# max log file size in Bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file
-	MaxLogFileSize=50000
-	
-	# turn on local http server traces, off by default
-	#net_trace = 0
-	
-	# timeout of network requests in seconds (30 by default)
-	#net_timeout = 60
-	
-	# where log will be posted by RhoConf.send_log or from the log menu  
-	# source is also open and up on http://github.com/rhomobile/rhologs, so you can deploy your own logserver
-	logserver = 'http://rhologs.heroku.com' 
-	
-	# log file prefix - contain human-readable text
-	logname='rhodes-app'
-	
-	# Keep track of the last visited page
-	KeepTrackOfLastVisitedPage = 0 
-	LastVisitedPage = ''
-	
-	# sync server url, typically this will look like 'http://<hostname>:<port>/application'
-	# for example: 'http://localhost:9292/application'
-	syncserver = ''
-	
-	# 0 will disable auto sync 
-	sync_poll_interval=0
-	
-	# geo location inactivity timeout (in seconds)
-	#geo_location_inactivity_timeout = 30
-	
-	# open rhodes app in full screen mode
-	# default 1 for Android up to Rhodes 2.2.5.
-	# on all other platforms and on Android from Rhodes >2.2.5 default 0
-	full_screen = 0
-	
-	# show top menu on Windows desktop in full screen mode (default is 0=don't show top menu)
-	#w32_fullscreen_menu = 1
-	
-	# disable the Android page loading progress bar
-	disable_loading_indication = 1
-	
-	# Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes.
-	# If not specified, application will use dynamically selected one.
-	# WARNING!!! Remove this parameter before put application to production.
-	#local_server_port = 8080
-	
-	# show status bar on windows mobile. default 1
-	#wm_show_statusbar = 1
-	
-	# disable screen rotation (enabled by default) - disable possible for ANDROID and iPhone ONLY
-	#disable_screen_rotation = 1
-	
-	# disable close app when pressing back on home screen on blackberry
-	#bb_disable_closebyback = 0
-	
-	# load images in background, this improve reaction speed on user actions, 0 by default
-	#bb_loadimages_async = 0
-	
-	# set to 0 to reset the bulksync_state and trigger a bulk sync the next time rhodes synchronizes
-	#bulksync_state = 1
-	
-	# hides forward button and animates back button transition
-	jqtouch_mode=1
-	
-	splash_screen='zoom'
-	
-	use_bb_full_browser=6	
+    # path to the options page (in this case handled by javascript)
+    options_path = '/app/Settings'
+    
+    # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
+    rhobundle_zip_url = ''
+    
+    # optional password to access bundle (usually not required); used by desktop win32 simulator 
+    rhobundle_zip_pwd = nil
+    
+    # Rhodes log properties
+    # log level
+    # 0-trace, 1-info(app level), 3-warnings, 4-errors
+    # for production set to 3
+    MinSeverity  = 1 
+    
+    # enable copy log messages to standard output, useful for debugging
+    LogToOutput = 1
+    
+    # '*' means all categories, otherwise list them : Cat1, Cat2 
+    LogCategories = *
+    
+    # what categories to exclude
+    ExcludeLogCategories = 
+    
+    # max log file size in Bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file
+    MaxLogFileSize=50000
+    
+    # turn on local http server traces, off by default
+    #net_trace = 0
+    
+    # timeout of network requests in seconds (30 by default)
+    #net_timeout = 60
+    
+    # where log will be posted by RhoConf.send_log or from the log menu  
+    # source is also open and up on http://github.com/rhomobile/rhologs, so you can deploy your own logserver
+    logserver = 'http://rhologs.heroku.com' 
+    
+    # log file prefix - contain human-readable text
+    logname='rhodes-app'
+    
+    # Keep track of the last visited page
+    KeepTrackOfLastVisitedPage = 0 
+    LastVisitedPage = ''
+    
+    # sync server url, typically this will look like 'http://<hostname>:<port>/application'
+    # for example: 'http://localhost:9292/application'
+    syncserver = ''
+    
+    # 0 will disable auto sync 
+    sync_poll_interval=0
+    
+    # geo location inactivity timeout (in seconds)
+    #geo_location_inactivity_timeout = 30
+    
+    # open rhodes app in full screen mode
+    # default 1 for Android up to Rhodes 2.2.5.
+    # on all other platforms and on Android from Rhodes >2.2.5 default 0
+    full_screen = 0
+    
+    # disable the Android page loading progress bar
+    disable_loading_indication = 1
+    
+    # Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes.
+    # If not specified, application will use dynamically selected one.
+    # WARNING!!! Remove this parameter before put application to production.
+    #local_server_port = 8080
+    
+    # show status bar on windows mobile. default 1
+    #wm_show_statusbar = 1
+    
+    # disable screen rotation (enabled by default) - disable possible for ANDROID and iPhone ONLY
+    #disable_screen_rotation = 1
+    
+    # disable close app when pressing back on home screen on blackberry
+    #bb_disable_closebyback = 0
+    
+    # load images in background, this improve reaction speed on user actions, 0 by default
+    #bb_loadimages_async = 0
+    
+    # set to 0 to reset the bulksync_state and trigger a bulk sync the next time rhodes synchronizes
+    #bulksync_state = 1
+    
+    # hides forward button and animates back button transition
+    jqtouch_mode=1
+    
+    splash_screen='zoom'
+    
+    use_bb_full_browser=6 
 
-	esri_map_url_roadmap: type: string
+    esri_map_url_roadmap: type: string
 
-	ESRI server url with roads map tiles.
-	    iOS             - supported in esri extension.
-	    Android      - supported with ESRI map type.
-	    WM             - supported with WM mapview.
-	    WP8           - mapping is not supported.     
+    ESRI server url with roads map tiles.
+        iOS             - supported in esri extension.
+        Android      - supported with ESRI map type.
+        WM             - supported with WM mapview.
+        WP8           - mapping is not supported.     
 
-	esri_map_url_satellite: type: string
-	    ESRI server url with satellite map tiles.
-	        iOS             - supported in esri extension.
-	        Android      - supported with ESRI map type.
-	        WM             - supported with WM mapview.
-	        WP8           - mapping is not supported.     
-	 
-	OSM_map_url_roadmap: type: string
-	    OSM server url with road map tiles.
-	        iOS            - not supported as only Google and ESRI maps are supported.
-	        Android     - supported with OSM map type.
-	        WM             - supported with WM mapview.
-	        WP8           - mapping is not supported.     
-	 
-	disable_loading_indication:type - Bool
-	    If enabled, blocks loading indication in webview
-	        Supported only on Android.	
+    esri_map_url_satellite: type: string
+        ESRI server url with satellite map tiles.
+            iOS             - supported in esri extension.
+            Android      - supported with ESRI map type.
+            WM             - supported with WM mapview.
+            WP8           - mapping is not supported.     
+     
+    OSM_map_url_roadmap: type: string
+        OSM server url with road map tiles.
+            iOS            - not supported as only Google and ESRI maps are supported.
+            Android     - supported with OSM map type.
+            WM             - supported with WM mapview.
+            WP8           - mapping is not supported.     
+     
+    disable_loading_indication:type - Bool
+        If enabled, blocks loading indication in webview
+            Supported only on Android.  
 
 ## Config.xml
 
@@ -174,164 +171,164 @@ For persistant installations, on cold boot the `Config.xml` file is copied from 
 
 ## Config.xml File Format
 The following is an example of a typical configuration file
-	:::xml
-	<Configuration>
-	  <DebugButtons>
-		<DebugButtonsEnabled VALUE="0" />
-	  </DebugButtons>
-	  <Logger>
-		<LogProtocol  VALUE="FILE"/>
-		<LogPort      VALUE="80"/>
-		<LogURI       VALUE="file://\Program Files\RhoElements\Log.txt"/>
-		<LogError     VALUE="1"/>
-		<LogWarning   VALUE="1"/>
-		<LogInfo      VALUE="1"/>
-		<LogUser      VALUE="1"/>
-		<LogMemory    VALUE="1"/>
-		<LogMemPeriod VALUE="5000"/>
-		<LogMaxSize   VALUE="10"/>
-	  </Logger>
-	  <FileLocations>
-		<RegEXFile  VALUE="\Program Files\RhoElements\Config\RegEx.xml"/>
-		<PluginFile VALUE="\Program Files\RhoElements\Config\Plugin.xml"/>
-	  </FileLocations>
-	  <Screen>
-		<FullScreen VALUE="1"/>
-	  </Screen>
-	  <WebServer>
-		<Enabled   VALUE="1"/>
-		<Port      VALUE="8080"/>
-		<WebFolder VALUE="\www"/>
-		<Public    VALUE="0"/>
-	  </WebServer>
-	  <DeviceKeys>
-		<FunctionKeysCapturable   VALUE="0"/>
-		<EnableFunctionKey_F1     VALUE="0"/>
-		<EnableFunctionKey_F2     VALUE="0"/>
-		<EnableFunctionKey_F3     VALUE="0"/>
-		<EnableFunctionKey_F4     VALUE="0"/>
-		<EnableFunctionKey_F5     VALUE="0"/>
-		<EnableFunctionKey_F6     VALUE="0"/>
-		<EnableFunctionKey_F7     VALUE="0"/>
-		<EnableFunctionKey_F8     VALUE="0"/>
-		<EnableFunctionKey_F9     VALUE="0"/>
-		<EnableFunctionKey_F10    VALUE="0"/>
-		<EnableFunctionKey_F11    VALUE="0"/>
-		<EnableFunctionKey_F12    VALUE="0"/>
-		<EnableApplicationKey_A1  VALUE="0"/>	
-		<EnableApplicationKey_A2  VALUE="0"/>	
-		<EnableApplicationKey_A3  VALUE="0"/>	
-		<EnableApplicationKey_A4  VALUE="0"/>	
-		<EnableApplicationKey_A5  VALUE="0"/>	
-		<EnableApplicationKey_A6  VALUE="0"/>	
-		<EnableApplicationKey_A7  VALUE="0"/>	
-		<EnableApplicationKey_A8  VALUE="0"/>	
-	  </DeviceKeys>
-	  <Navigation>
-		<NavTimeout VALUE="45000"/>
-	  </Navigation>
-	  <ScreenOrientation>
-		<AutoRotate VALUE="0"/>
-	  </ScreenOrientation>
-	  <Geolocation>
-		<GeolocationEnabled VALUE="0"/>
-	  </Geolocation>
-	  <UserData>
-	  </UserData>  
-	  <Applications>
-		<Application>
-		  <General>
-			<Name                  VALUE="Menu"/>
-			<StartPage             VALUE="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
-			<UseRegularExpressions VALUE="0"/>
-		</General>
-		  <HTTP_Proxy  VALUE="http://myproxy.com:1050"/> 
-		  <WebDB>
-			<WebStorageDBPath VALUE="file://\Program Files\RhoElements"/>
-			<WebSQLDBQuota    VALUE="5000000"/>
-			<WebSQLDBPath     VALUE="file://\Program Files\RhoElements"/>
-		  </WebDB>
-		  <ApplicationCache>
-			<ApplicationCachePath   VALUE="file://\Program Files\RhoElements"/>
-			<ApplicationCacheQuota  VALUE="5000000"/>
-		  </ApplicationCache>
-		  <NPAPI>
-			<NPAPIDirectory         VALUE="file://\Program Files\RhoElements\NPAPI\"/>
-			<Preloads>
-			  <PreloadLegacyGeneric VALUE="1"/>
-			  <PreloadLegacyODAX    VALUE="1"/>
-			  <PreloadLegacyNoSIP   VALUE="1"/>
-			  <PreloadLegacyAirBeam VALUE="1"/>
-			  <PreloadLegacyAPD     VALUE="1"/>
-			  <PreloadJSObjects     VALUE="1"/>
-			</Preloads>
-		  </NPAPI>	  
-		  <Preloads>
-			<Preload VALUE="Scanner"/>
-			<Preload VALUE="Hourglass"/>
-		  </Preloads>
-		  <Scrolling>
-			<ScrollTechnique VALUE="FingerScroll"/>
-		  </Scrolling>
-		  <Authentication>
-			<Username VALUE="user"/>
-			<Password VALUE="pass"/>
-		  </Authentication>
-		  <HTMLStyles>
-			<FitToScreenEnabled    VALUE="1" />
-			<FontFamily            VALUE="Tahoma" />
-			<FontDirectory         VALUE="file://\Windows" />
-		  </HTMLStyles>
-		  <SIP>
-			<ResizeOnSIP  VALUE="0"/>
-			<EnableSIP    VALUE="1"/>
-		  </SIP>
-		  <System>
-			<LowBatteryScan	VALUE="0"/>
-		  </System>  
-		  <Scanner>
-			<DisableScannerDuringNavigation	VALUE="1"/>
-		  </Scanner>  
-		  <Sound>
-			<DecodeVolume           VALUE="5"/>
-			<DecodeFrequency        VALUE="0xBB8"/>
-			<InvalidDecodeFrequency VALUE="0x9C4"/>
-			<DecodeDuration         VALUE="250"/>
-			<ScanDecodeWav          VALUE=""/>
-			<ScanInvalidWav         VALUE=""/>
-			<ImagerCaptureWav       VALUE=""/>
-		  </Sound>
-		  <GUI>
-			<SignalRefresh      VALUE="5000"/>
-			<BatteryRefresh     VALUE="5000"/>
-			<HourglassEnabled   VALUE="1" />
-			<HourglassLeft      VALUE="" />
-			<HourglassTop       VALUE="" />
-		  </GUI>
-		  <Navigation>
-			<BadLinkURI               VALUE=""/>
-			<UserAgent                VALUE="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
-			<ViewportEnabled          VALUE="0"/>
-			<ViewportWidth            VALUE="640"/>
-        	<CaFile                   VALUE=""/>
-        	<CaPath                   VALUE=""/>
-        	<VerifyPeerCertificate    VALUE="1"/>
-        	<NetworkCookieDatabase    VALUE="file://\Program Files\RhoElements\cookies.db" />		
-        	<Cache                    VALUE="5MB" />		
-			</Navigation>
-		  <DeviceKeys>
-			<EnableCtrlKey_C          VALUE="0"/>
-			<EnableCtrlKey_V          VALUE="0"/>
-			<EnableBacklightSlider    VALUE="0"/>
-			<EnableVolumeSlider       VALUE="0"/>
-		  </DeviceKeys>
-		  <DefaultMetaTags>
-			<MetaTag VALUE="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
-			<MetaTag VALUE="Signal~left:10;top:200;color:#663300;"/>	  
-		  </DefaultMetaTags>
-		</Application>
-	  </Applications>
-	</Configuration>
+    :::xml
+    <Configuration>
+      <DebugButtons>
+      <DebugButtonsEnabled VALUE="0" />
+      </DebugButtons>
+      <Logger>
+      <LogProtocol  VALUE="FILE"/>
+      <LogPort      VALUE="80"/>
+      <LogURI       VALUE="file://\Program Files\RhoElements\Log.txt"/>
+      <LogError     VALUE="1"/>
+      <LogWarning   VALUE="1"/>
+      <LogInfo      VALUE="1"/>
+      <LogUser      VALUE="1"/>
+      <LogMemory    VALUE="1"/>
+      <LogMemPeriod VALUE="5000"/>
+      <LogMaxSize   VALUE="10"/>
+      </Logger>
+      <FileLocations>
+      <RegEXFile  VALUE="\Program Files\RhoElements\Config\RegEx.xml"/>
+      <PluginFile VALUE="\Program Files\RhoElements\Config\Plugin.xml"/>
+      </FileLocations>
+      <Screen>
+      <FullScreen VALUE="1"/>
+      </Screen>
+      <WebServer>
+      <Enabled   VALUE="1"/>
+      <Port      VALUE="8080"/>
+      <WebFolder VALUE="\www"/>
+      <Public    VALUE="0"/>
+      </WebServer>
+      <DeviceKeys>
+      <FunctionKeysCapturable   VALUE="0"/>
+      <EnableFunctionKey_F1     VALUE="0"/>
+      <EnableFunctionKey_F2     VALUE="0"/>
+      <EnableFunctionKey_F3     VALUE="0"/>
+      <EnableFunctionKey_F4     VALUE="0"/>
+      <EnableFunctionKey_F5     VALUE="0"/>
+      <EnableFunctionKey_F6     VALUE="0"/>
+      <EnableFunctionKey_F7     VALUE="0"/>
+      <EnableFunctionKey_F8     VALUE="0"/>
+      <EnableFunctionKey_F9     VALUE="0"/>
+      <EnableFunctionKey_F10    VALUE="0"/>
+      <EnableFunctionKey_F11    VALUE="0"/>
+      <EnableFunctionKey_F12    VALUE="0"/>
+      <EnableApplicationKey_A1  VALUE="0"/> 
+      <EnableApplicationKey_A2  VALUE="0"/> 
+      <EnableApplicationKey_A3  VALUE="0"/> 
+      <EnableApplicationKey_A4  VALUE="0"/> 
+      <EnableApplicationKey_A5  VALUE="0"/> 
+      <EnableApplicationKey_A6  VALUE="0"/> 
+      <EnableApplicationKey_A7  VALUE="0"/> 
+      <EnableApplicationKey_A8  VALUE="0"/> 
+      </DeviceKeys>
+      <Navigation>
+      <NavTimeout VALUE="45000"/>
+      </Navigation>
+      <ScreenOrientation>
+      <AutoRotate VALUE="0"/>
+      </ScreenOrientation>
+      <Geolocation>
+      <GeolocationEnabled VALUE="0"/>
+      </Geolocation>
+      <UserData>
+      </UserData>  
+      <Applications>
+      <Application>
+        <General>
+        <Name                  VALUE="Menu"/>
+        <StartPage             VALUE="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
+        <UseRegularExpressions VALUE="0"/>
+      </General>
+        <HTTP_Proxy  VALUE="http://myproxy.com:1050"/> 
+        <WebDB>
+        <WebStorageDBPath VALUE="file://\Program Files\RhoElements"/>
+        <WebSQLDBQuota    VALUE="5000000"/>
+        <WebSQLDBPath     VALUE="file://\Program Files\RhoElements"/>
+        </WebDB>
+        <ApplicationCache>
+        <ApplicationCachePath   VALUE="file://\Program Files\RhoElements"/>
+        <ApplicationCacheQuota  VALUE="5000000"/>
+        </ApplicationCache>
+        <NPAPI>
+        <NPAPIDirectory         VALUE="file://\Program Files\RhoElements\NPAPI\"/>
+        <Preloads>
+          <PreloadLegacyGeneric VALUE="1"/>
+          <PreloadLegacyODAX    VALUE="1"/>
+          <PreloadLegacyNoSIP   VALUE="1"/>
+          <PreloadLegacyAirBeam VALUE="1"/>
+          <PreloadLegacyAPD     VALUE="1"/>
+          <PreloadJSObjects     VALUE="1"/>
+        </Preloads>
+        </NPAPI>    
+        <Preloads>
+        <Preload VALUE="Scanner"/>
+        <Preload VALUE="Hourglass"/>
+        </Preloads>
+        <Scrolling>
+        <ScrollTechnique VALUE="FingerScroll"/>
+        </Scrolling>
+        <Authentication>
+        <Username VALUE="user"/>
+        <Password VALUE="pass"/>
+        </Authentication>
+        <HTMLStyles>
+        <FitToScreenEnabled    VALUE="1" />
+        <FontFamily            VALUE="Tahoma" />
+        <FontDirectory         VALUE="file://\Windows" />
+        </HTMLStyles>
+        <SIP>
+        <ResizeOnSIP  VALUE="0"/>
+        <EnableSIP    VALUE="1"/>
+        </SIP>
+        <System>
+        <LowBatteryScan VALUE="0"/>
+        </System>  
+        <Scanner>
+        <DisableScannerDuringNavigation VALUE="1"/>
+        </Scanner>  
+        <Sound>
+        <DecodeVolume           VALUE="5"/>
+        <DecodeFrequency        VALUE="0xBB8"/>
+        <InvalidDecodeFrequency VALUE="0x9C4"/>
+        <DecodeDuration         VALUE="250"/>
+        <ScanDecodeWav          VALUE=""/>
+        <ScanInvalidWav         VALUE=""/>
+        <ImagerCaptureWav       VALUE=""/>
+        </Sound>
+        <GUI>
+        <SignalRefresh      VALUE="5000"/>
+        <BatteryRefresh     VALUE="5000"/>
+        <HourglassEnabled   VALUE="1" />
+        <HourglassLeft      VALUE="" />
+        <HourglassTop       VALUE="" />
+        </GUI>
+        <Navigation>
+        <BadLinkURI               VALUE=""/>
+        <UserAgent                VALUE="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
+        <ViewportEnabled          VALUE="0"/>
+        <ViewportWidth            VALUE="640"/>
+            <CaFile                   VALUE=""/>
+            <CaPath                   VALUE=""/>
+            <VerifyPeerCertificate    VALUE="1"/>
+            <NetworkCookieDatabase    VALUE="file://\Program Files\RhoElements\cookies.db" />   
+            <Cache                    VALUE="5MB" />    
+        </Navigation>
+        <DeviceKeys>
+        <EnableCtrlKey_C          VALUE="0"/>
+        <EnableCtrlKey_V          VALUE="0"/>
+        <EnableBacklightSlider    VALUE="0"/>
+        <EnableVolumeSlider       VALUE="0"/>
+        </DeviceKeys>
+        <DefaultMetaTags>
+        <MetaTag VALUE="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
+        <MetaTag VALUE="Signal~left:10;top:200;color:#663300;"/>    
+        </DefaultMetaTags>
+      </Application>
+      </Applications>
+    </Configuration>
 
 ## Configuration settings and values
 ** NOTE: The following settings effects applications that are using Motorola Webkit (Windows Mobile/CE, Shared Runtime). However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
@@ -842,7 +839,7 @@ The following substitution variables are available in the configuration file
 <td >The directory into which RhoElements.exe has been installed</td>
 </tr>
 </table>
-		
+    
 
 ## Remarks
 ###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity
@@ -881,6 +878,6 @@ The table below shows the behaviour of RhoElements when Function Keys are presse
 <li>All Function Keys <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
 <li>Function Key will <b>not</b> have its default Operating system behaviour (if any)</td>
 </ul>
-</tr>			
+</tr>     
 </table>
 

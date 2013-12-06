@@ -55,8 +55,8 @@ app_type: "rhoelements"
 
             
   def battery_status_sync
-	batteryValues = Rho::Battery.batteryStatus
-	puts "Battery Level is: " + batteryValues['batteryLifePercent']
+  batteryValues = Rho::Battery.batteryStatus
+  puts "Battery Level is: " + batteryValues['batteryLifePercent']
   end
                     
                     </code></pre></div></div>
@@ -79,13 +79,13 @@ app_type: "rhoelements"
 
             
   def battery_status_async
-	puts "Registering Battery Callback"
-	Rho::Battery.batteryStatus(url_for(:action =&gt; :batteryEvent))
+  puts "Registering Battery Callback"
+  Rho::Battery.batteryStatus(url_for(:action =&gt; :batteryEvent))
   end
 
    def batteryEvent
-	puts "Battery Event Fired: #{@params}"
-	puts "Battery Event (Asynchronous).  AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
+  puts "Battery Event Fired: #{@params}"
+  puts "Battery Event (Asynchronous).  AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
   end  
   
                     </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Battery indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
@@ -102,12 +102,12 @@ app_type: "rhoelements"
 
             
   def show_battery_icon
-	Rho::Battery.showIcon({})
+  Rho::Battery.showIcon({})
   end
                     
                     </code></pre></div></div>
 
-                    To display the battery icon with a color of red in a layout of facing the right
+                    To display the battery icon at the default position but blue and vertical specify as follows
                 <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
             
@@ -119,7 +119,7 @@ app_type: "rhoelements"
 
             
   def show_battery_icon
-	Rho::Battery.showIcon { left: 0, top: 40, color: '#FF0000', layout: Rho::Battery.BATTERY_LAYOUT_RIGHT }
+    Rho::Battery.showIcon { left: 0, top: 40, color: '#FF0000', layout: Rho::Battery.BATTERY_LAYOUT_RIGHT }
   
                     </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
