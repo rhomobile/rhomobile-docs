@@ -79,21 +79,29 @@
 			<!-- <div class="span1 pull-right"> -->
 				</ul>
 				<ul class="nav pull-right">
-				<li>
-					<a  rel="tooltip" title="Report Doc Issue" tooltip="Report Doc Issue" href="#"><i class="icon icon-bug "></i> Doc Issue</a>
-				</li>
 				<li class="navbar-form">
 	    	<!-- </div> -->
 			<!-- <div class="span2 pull-right"> -->
 			  	<% if request.path_info != '/search' %>
 				  	<select id="version_select" class="input input-medium">
-							  <option value='4.0.0' <%=@docversion.nil? || @docversion== '4.0.0' ? 'SELECTED' : ''%>>RMS 4.x Docs</option>
-							  <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>RMS 2.x Docs</option>
+				  			<optgroup label="Current Release" >
+							  <option value='4.0.0' <%=@docversion.nil? || @docversion== '4.0.0' ? 'SELECTED' : ''%>>4.0.0</option>
+							</optgroup>
+							<optgroup label="Beta">
 							  <option value='edge' <%=@docversion.nil? || @docversion== 'edge' ? 'SELECTED' : ''%>>Edge</option>
+							</optgroup>
+				  			<optgroup label="Previous Releases">
+							  <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
+							</optgroup>
+				  			
 							  
 							</select>
 		    	<% end %>
 		    	</li>
+		    	<li class="pull-right">
+					<a  rel="tooltip" title="Report Doc Issue" tooltip="Report Doc Issue" href="#"><i class="icon icon-bug "></i> Report Issue</a>
+				</li>
+				
 		    <!-- </div>	 -->
 		</ul>
 
