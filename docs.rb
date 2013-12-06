@@ -32,23 +32,25 @@ class Docs < Sinatra::Base
     # puts "/v/2.2#{request.path}"
     # puts "****#{request.path.split('/')[1]}:#{request.path.split('/')[2]}"
     @alt_url = ''
-    @alt_url = "#{request.scheme}://#{request.host}/en/2.2.0#{request.path}"
-    topic = request.path.split('/')[2]
-    subpath = request.path.split('/')[1]
-    docversion = '2.2'
+    topic = request.path.split('/')[4]
+    subpath = request.path.split('/')[3]
+    @alt_url = "#{request.scheme}://#{request.host}/en/2.2.0/#{subpath}/#{topic}"
+    # puts @alt_url
+    
+    docversion = '2.2.0'
     if topic.include?('/')
         topic_file = topic
       elsif subpath
         if docversion.nil?
-          topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+          # topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
         else
-          topic_file = File.join((AppConfig['dirs'][subpath]).gsub("docs/","en/#{docversion}/docs/"), "#{topic}.txt")
+          topic_file = File.join("docs/en/#{docversion}/#{subpath}/", "#{topic}.txt")
         end  
       else
         if docversion.nil?
          topic_file = "#{settings.root}/docs/#{topic}.txt"
         else
-         topic_file = "#{settings.root}/en/#{docversion}/docs/#{topic}.txt"
+         topic_file = "#{settings.root}/docs/en/#{docversion}/#{topic}.txt"
         end
       end
     if  topic == 'apicompatibility'
