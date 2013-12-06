@@ -21,8 +21,8 @@ end
 desc 'Index documentation'
 task :index do
   puts "indexing now:"
-  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-  index = client.indexes(AppConfig['index'])
+  # client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  # index = client.indexes(AppConfig['index'])
  
 
   # index.delete rescue nil
@@ -42,7 +42,7 @@ task :index do
           'category' => category,
           'version' => version
       }
-      puts "...indexing #{name}"
+      puts "...indexing #{name},#{version},#{category}"
       source = File.read(doc)
       puts "#{File.size(doc)}"
       topic = Topic.load(name, source)
@@ -353,18 +353,18 @@ def name_for(doc)
 end
 
 def version_for(doc)
-  re = /v\/(.*?)\//
+  re = /en\/(.*?)\//
   version = doc.match re
   if !version.nil? && !version.captures.nil?
     return version.captures[0]
   else
-    return '4.0'
+    return '4.0.0'
   end
 end
 
 def category_for(doc)
   
-  reVersion = /v\/(.*?)\//
+  reVersion = /en\/(.*?)\//
   reCat = /(.*?)\//
   doc = doc.gsub(reVersion,'')
 
