@@ -14,9 +14,9 @@ class Api
   	# 		puts 'using alias'
   	# 	end
   	# end
-  	if md == 'SignalIndicators'
-  		md = 'Signal'
-  	end
+  	# if md == 'SignalIndicators'
+  		# md = 'Signal'
+  	# end
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
   	# }
@@ -1617,7 +1617,7 @@ end
 	  	end
 	  	if templateDefault
 	  		#get xml from file and put it in main array so it is handled like other methods
-	  		defaultdoc = XmlSimple.xml_in('docs/api/default_instance.xml')
+	  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api'],'default_instance.xml'))
 			defaultdoc["METHODS"][0]["METHOD"].each { |m|
 				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
 			}
@@ -1635,7 +1635,7 @@ end
 	  	end
 	  	if templatePropBag
 	  		#get xml from file and put it in main array so it is handled like other methods
-	  		propbagdoc = XmlSimple.xml_in('docs/api/property_bag.xml')
+	  		propbagdoc = XmlSimple.xml_in(File.join(AppConfig['api'],'property_bag.xml'))
 			propbagdoc["METHODS"][0]["METHOD"].each { |m|
 				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
 			}
