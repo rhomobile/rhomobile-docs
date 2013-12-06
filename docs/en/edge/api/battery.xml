@@ -262,13 +262,13 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 </SECTION>
                 <SECTION>
                 <DESC>
-                    To display the battery icon with a color of red in a layout of facing the right
+                    To display the battery icon at the default position but blue and vertical specify as follows
                 </DESC>
                 <CODE>
                     <RUBY>
             <![CDATA[
   def show_battery_icon
-	Rho::Battery.showIcon { left: 0, top: 40, color: '#FF0000', layout: Rho::Battery.BATTERY_LAYOUT_RIGHT }
+    Rho::Battery.showIcon { left: 0, top: 40, color: '#FF0000', layout: Rho::Battery.BATTERY_LAYOUT_RIGHT }
   ]]>
                     </RUBY>
                     <JAVASCRIPT>

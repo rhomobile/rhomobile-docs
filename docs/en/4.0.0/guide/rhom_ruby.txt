@@ -32,6 +32,7 @@ If you prefer to use the command line or another development environment instead
     $ rhodes model Product name,brand,price,quantity,sku
 
 
+
 ### What a generated model consists of
 
 Output from the model generator will contain the following files:
@@ -205,14 +206,14 @@ To delete one model object use the `destroy` method on the object to be deleted.
 
 ### Delete multiple objects
 
-To delete all objects for a model, or only those matching given conditions, use the `deleteAll` method.
+To delete all objects for a model, or only those matching given conditions, use the `delete_all` method.
 
     :::ruby
     # delete all objects
-    User.deleteAll()
+    User.delete_all()
     
     # delete only objects matching :conditions
-    User.deleteAll(:conditions => {:name => 'Alice'})
+    User.delete_all(:conditions => {:name => 'Alice'})
 
 ## Transactions
 
