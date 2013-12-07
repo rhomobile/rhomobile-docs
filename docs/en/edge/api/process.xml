@@ -106,4 +106,4 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
     <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, Win32, Android, iOS, WP8</PLATFORM>
 </MODULE>
-</API>
+</API>    

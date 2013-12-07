@@ -110,7 +110,7 @@
                             <PARAM type="INTEGER">
                             </PARAM>    
                         </PARAM>
-                    </PARAMS> 
+                    </PARAMS>	
                 </RETURN>
                 <PLATFORM>WM</PLATFORM>
             </METHOD>
@@ -133,4 +133,4 @@
         <PLATFORM>
          </PLATFORM>
     </MODULE>
-</API>
+</API>    

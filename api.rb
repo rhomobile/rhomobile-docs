@@ -14,9 +14,9 @@ class Api
   	# 		puts 'using alias'
   	# 	end
   	# end
-  	if md == 'SignalIndicators'
-  		md = 'Signal'
-  	end
+  	# if md == 'SignalIndicators'
+  		# md = 'Signal'
+  	# end
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
   	# }
@@ -502,8 +502,9 @@ def self.getconstantlinks(doc)
 	  	s.each_with_index() { |element,index|
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
-			md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
-
+			if !element["DESC"][0].is_a?(Hash)
+ 		        md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
+       		end
 	  	}
 	  	md += "</dl></div>"
 	end
@@ -528,25 +529,26 @@ def self.getconstantlinks(doc)
 	
 	indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
 	end 
-	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
-  	end
-  	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
-  	end
-  	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
-  	end
-  	if !platforms.downcase.index('wp8').nil? || !platforms.downcase.index('all').nil?
-		indicators += '<img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
-  	end
-  	if (!platforms.downcase.index('win32').nil? || !platforms.downcase.index('all').nil?) && !msionly
-		indicators += '<img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
-  	end
-  	if msionly
-		indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
-	end
-	
+	if !platforms.is_a?(Hash)
+		if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
+			indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
+	  	end
+	  	if (!platforms.downcase.index('ios').nil? || !platforms.downcase.index('all').nil?) && !msionly
+			indicators += '<img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">'
+	  	end
+	  	if !platforms.downcase.index('wm').nil? || !platforms.downcase.index('all').nil?
+			indicators += '<img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">'
+	  	end
+	  	if !platforms.downcase.index('wp8').nil? || !platforms.downcase.index('all').nil?
+			indicators += '<img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8">'
+	  	end
+	  	if (!platforms.downcase.index('win32').nil? || !platforms.downcase.index('all').nil?) && !msionly
+			indicators += '<img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
+	  	end
+	  	if msionly
+			indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+		end
+	end	
   	return indicators		
   end
 
@@ -1141,7 +1143,7 @@ end
 			@methhascallback = element["hasCallback"]
 		end 
 		
-		if !element["DESC"].nil?
+		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
 			@methdesc = RDiscount.new(element["DESC"][0], :smart).to_html
 			
 		else
@@ -1171,7 +1173,7 @@ end
 				
 				# puts relement
 		
-				if !relement["DESC"].nil?
+				if !relement["DESC"].nil? && !relement["DESC"][0].is_a?(Hash)
 					@methreturndesc=" : " + relement["DESC"][0]
 				end
 				methreturnparams =  getparams(relement,false)
@@ -1617,7 +1619,7 @@ end
 	  	end
 	  	if templateDefault
 	  		#get xml from file and put it in main array so it is handled like other methods
-	  		defaultdoc = XmlSimple.xml_in('docs/api/default_instance.xml')
+	  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api'],'default_instance.xml'))
 			defaultdoc["METHODS"][0]["METHOD"].each { |m|
 				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
 			}
@@ -1635,7 +1637,7 @@ end
 	  	end
 	  	if templatePropBag
 	  		#get xml from file and put it in main array so it is handled like other methods
-	  		propbagdoc = XmlSimple.xml_in('docs/api/property_bag.xml')
+	  		propbagdoc = XmlSimple.xml_in(File.join(AppConfig['api'],'property_bag.xml'))
 			propbagdoc["METHODS"][0]["METHOD"].each { |m|
 				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
 			}

@@ -281,7 +281,7 @@
             </CONSTANT>
             
             
-        </CONSTANTS>  
+        </CONSTANTS>	
         
         <METHODS>
 
@@ -333,7 +333,7 @@
                         <PARAM name="vendorName" type="STRING">
                             <DESC></DESC>
                         </PARAM>
-                    </PARAMS> 
+                    </PARAMS>	
                 </RETURN>
                 <PLATFORM>WM, Android</PLATFORM>
             </METHOD>
@@ -364,7 +364,7 @@
                         <PARAM name="tag" type="Rho.NFC.Tag">
                             <DESC></DESC>
                         </PARAM>
-                    </PARAMS> 
+                    </PARAMS>	
                 </CALLBACK>
                 <PLATFORM>WM, Android</PLATFORM>
             </METHOD>
@@ -392,7 +392,7 @@
                         <PARAM name="tag" type="Rho.NFC.Message">
                             <DESC></DESC>
                         </PARAM>
-                    </PARAMS> 
+                    </PARAMS>	
                 </CALLBACK>
                 <PLATFORM>WM, Android</PLATFORM>
             </METHOD>

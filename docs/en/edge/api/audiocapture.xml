@@ -16,7 +16,7 @@
         <PROPERTIES usePropertyBag="accessorsViaPropertyBag">
 
             <ALIASES>
-          <ALIAS new="codec" existing="encoder" deprecated="true"/>
+			    <ALIAS new="codec" existing="encoder" deprecated="true"/>
                 <ALIAS new="duration" existing="maxDuration" deprecated="true"/>
             </ALIASES>
 
@@ -89,4 +89,4 @@
         </USER_OVERVIEW>
 
     </MODULE>
-</API>
+</API>    
