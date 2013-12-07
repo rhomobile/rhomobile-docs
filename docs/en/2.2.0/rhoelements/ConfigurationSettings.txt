@@ -751,7 +751,7 @@ Some plugins depend on other plugins to function properly, this section details 
 ####File Transfer
 The [File Transfer Plugin](filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
 
-[Signature Capture](/rhoelements/SignatureCapture) (PB_Signature_PLG.dll) requires File Transfer to transmit the signature bitmap file to a remote server via its 'Capture' method, without File Transfer the file will not be transferred and the signature bitmap will remain stored in the root of the device (by default).
+[Signature Capture](SignatureCapture) (PB_Signature_PLG.dll) requires File Transfer to transmit the signature bitmap file to a remote server via its 'Capture' method, without File Transfer the file will not be transferred and the signature bitmap will remain stored in the root of the device (by default).
 
 The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](backbutton), [Forward Button](forwardbutton), [Go Button](gobutton), [Home Button](HomeButton), [Minimize Button](minimizebutton), [Quit Button](quitbutton), [Reload Button](reloadbutton), [SIP Button](sipbutton), [Stop Button](stopbutton), [Bottom Command Area](bottomcommandarea), [Top Command Area](topcommandarea)
 

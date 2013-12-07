@@ -164,7 +164,7 @@ Find Rhom objects.<a id="rhom-find-example" />. Also see [Advanced queries](#adv
 	accts[0].telephone 
 	  #=> nil
 
-**NOTE: Use SQL fragments with caution. They are considerably slower than advanced queries [described below](/rhodes/rhom#advanced-queries). You also have to specify :select parameter.**
+**NOTE: Use SQL fragments with caution. They are considerably slower than advanced queries [described below](#advanced-queries). You also have to specify :select parameter.**
 
 #### Order Examples
 The `:order` argument for `find` accepts several forms.
@@ -371,7 +371,7 @@ Start the sync process for a model. In this example, the value for @params["sku"
 	:::ruby
 	Product.sync( url_for(:action => :sync_callback), "", false, "query=#{@params["sku"]}" )
 
-Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the [sync notification docs](/rhodes/synchronization#notifications) for more information.
+Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the [sync notification docs](../rhodes/synchronization#notifications) for more information.
 
 	:::ruby
 	Account.set_notification( url_for(:action => :sync_notify) )
@@ -529,7 +529,7 @@ Reset only local (non-sync-enabled) models.
 
 ## metadata
 
-Returns the [metadata definition](/rhoconnect/metadata#metadata-definition) for a given model as a hash. 
+Returns the [metadata definition](../rhoconnect/metadata#metadata-definition) for a given model as a hash. 
 
 	:::ruby
 	Product.metadata
@@ -537,20 +537,20 @@ Returns the [metadata definition](/rhoconnect/metadata#metadata-definition) for 
 
 ### Example
 
-Returns the [metadata](/rhoconnect/metadata) for a given model.<a id="rhom-metadata-example" />
+Returns the [metadata](../rhoconnect/metadata) for a given model.<a id="rhom-metadata-example" />
 
 	:::ruby
 	Product.metadata
 	#=> {'foo' => 'bar'}
 
-Assigns the [metadata](/rhoconnect/metadata) for a given model.
+Assigns the [metadata](../rhoconnect/metadata) for a given model.
 
 	:::ruby
 	Product.metadata = { 'foo' => 'bar' }.to_json
 	
 ## metadata=(metadata_def)
 
-Assigns the JSON [metadata definition](/rhoconnect/metadata#metadata-definition) for a given model. 
+Assigns the JSON [metadata definition](../rhoconnect/metadata#metadata-definition) for a given model. 
 
 	:::ruby
 	Product.metadata = { 'foo' => 'bar' }.to_json

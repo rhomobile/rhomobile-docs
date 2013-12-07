@@ -75,7 +75,7 @@ By default, bulk sync data files will be stored in the application's root folder
 
 ## Using Bulk Sync with Fixed Schema Models
 
-If your Rhom model is a [fixed schema model](/v/2.2/rhodes/rhom#fixed-schema) and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
+If your Rhom model is a [fixed schema model](../rhodes/rhom#fixed-schema) and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
 
 **NOTE: This method must return a JSON string.  This JSON string is sent to the Rhodes application and used to dynamically build the database schema.**
 

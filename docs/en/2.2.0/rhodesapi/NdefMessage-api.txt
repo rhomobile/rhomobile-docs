@@ -21,7 +21,7 @@ Returns a byte array containing the NdefMessage.
 
 ## get_records
 
-Returns NdefRecord[], an array containing the records in an NdefMessage. [Click here for an example in the Rhodes Developer Gude under NFC.](/v/2.2/rhodes/nfc#reading-an-nfc-tag)
+Returns NdefRecord[], an array containing the records in an NdefMessage. [Click here for an example in the Rhodes Developer Gude under NFC.](../rhodes/nfc#reading-an-nfc-tag)
 
 	:::ruby
 	Rho::NdefMessage.get_records

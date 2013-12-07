@@ -11,7 +11,7 @@ In order to use this API you must include the following extension in your <code>
 
 
 ## Playing Audio
-Playing audio files is accomplished using the [Mediaplayer API](/api/mediaplayer)
+Playing audio files is accomplished using the [Mediaplayer API](../api/mediaplayer)
 
 Javascript
 	:::javascript
@@ -29,7 +29,7 @@ Javascript
 
 	Rho.Mediaplayer.start(audiolocation);
 
-The [Mediaplayer.start](/api/mediaplayer#mstartSTATIC) method is used and is passed the full path to the audio file. On iOS when you pass a URL (http) to a remote file on a server, then we open the default browser for playing it. 
+The [Mediaplayer.start](../api/mediaplayer#mstartSTATIC) method is used and is passed the full path to the audio file. On iOS when you pass a URL (http) to a remote file on a server, then we open the default browser for playing it. 
 
 **NOTE: On iOS we support: mp3, mp4, wav formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp3 **
 
@@ -41,7 +41,7 @@ Rhodes can play video/audio files in native Internet Browser. So application dev
 **NOTE: You can also have your application download file to file system using [AsyncHttp.download_file](web_services) and then use a local url link [to this file](#file-system-access) to play.
 
 ## Playing Video
-Playing video files is accomplished using the [Mediaplayer API](/api/mediaplayer)
+Playing video files is accomplished using the [Mediaplayer API](../api/mediaplayer)
 
 Javascript
 	:::javascript
@@ -59,15 +59,15 @@ Javascript
 
 	Rho.Mediaplayer.startvideo(videolocation);
 
-The [Mediaplayer.start](/api/mediaplayer#mstartvideoSTATIC) method is used and is passed the full path to the video file. On iOS when you pass a URL (http) to a remote file on a server, then we open the default browser for playing it. 
+The [Mediaplayer.start](../api/mediaplayer#mstartvideoSTATIC) method is used and is passed the full path to the video file. On iOS when you pass a URL (http) to a remote file on a server, then we open the default browser for playing it. 
 
 **NOTE: On iOS we support: mov, mp4, 3gp formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp4 **
 
 ##Ringtones
-Accessing ringtones on the device is accomplished via the [Mediaplayer](/api/medialplayer) API.
+Accessing ringtones on the device is accomplished via the [Mediaplayer](../api/medialplayer) API.
 
 ### Getting available ringtones
-The [Mediaplayer.getAllRingtones()](/api/mediaplayer#mgetAllRingtonesSTATIC) is used to find out all of the available ringtones on the device 
+The [Mediaplayer.getAllRingtones()](../api/mediaplayer#mgetAllRingtonesSTATIC) is used to find out all of the available ringtones on the device 
 
 Javascript
 	:::javascript
@@ -87,7 +87,7 @@ This will return an array of objects with a `name` and `fullname` property.
 			$(".ui-page-active ul.ringtone_list").html(result);
 		}
 
-You can then use the [Mediaplayer.playRingTone](/api/mediaplayer#mplayRingToneSTATIC) method to play the ringtone by name
+You can then use the [Mediaplayer.playRingTone](../api/mediaplayer#mplayRingToneSTATIC) method to play the ringtone by name
 
 	:::javascript
 	function play_ringtone(name) {

@@ -20,8 +20,8 @@ Pre-requisite Reading
 
 Reference Reading
 -----------------
- * [MapView](/rhodes/device-caps#mapview)
- * [GeoLocation](/rhodes/device-caps#geolocation)
+ * [MapView](rhodes/device-caps#mapview)
+ * [GeoLocation](rhodes/device-caps#geolocation)
 
 Tutorial
 --------

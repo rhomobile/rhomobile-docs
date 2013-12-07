@@ -454,7 +454,7 @@ NSString. Sets the RhoConnect server url, for example: "`http://<ip>:<port>/appl
 
 Initializes your client database. Call this method before you create and use a client.
 
-	::::cplusplus
+	:::cplusplus
 	+ (void) initDatabase;
 
 ### <a id="addModels"></a>addModels

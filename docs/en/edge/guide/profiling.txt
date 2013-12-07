@@ -58,14 +58,14 @@ There are two Profiler API available: Ruby and Native(C/C++).
 
 ## RhoProfiler Ruby API Examples
 
-The [RhoProfiler Ruby API](/v/2.2rhodesapi/rhoprofiler-api) contains the following static methods.
+The [RhoProfiler Ruby API](..rhodesapi/rhoprofiler-api) contains the following static methods.
 
-* [create_counter](/v/2.2/rhodesapi/rhoprofiler-api#createcounter) creates a Global counter.
-* [destroy_counter](/v/2.2/rhodesapi/rhoprofiler-api#destroycounter) destroys a Global counter.
-* [start_counter](/v/2.2/rhodesapi/rhoprofiler-api#startcounter) starts a Local or Global counter. If a Global counter with this name exists, this global counter will be started. If no global counter exists, a local counter will be created and started.
-* [stop_counter](/v/2.2/rhodesapi/rhoprofiler-api#stopcounter) stops a Global or local counter.
-* [flush_counter](/v/2.2/rhodesapi/rhoprofiler-api#flushcounter) logs information from a counter (Local or Global). Counter does not stop or start.
-* [start_created_counter](/v/2.2/rhodesapi/rhoprofiler-api#startcreatedcounter) - The counter will start only if it is already created previously (Global counter).
+* [create_counter](../rhodesapi/rhoprofiler-api#createcounter) creates a Global counter.
+* [destroy_counter](../rhodesapi/rhoprofiler-api#destroycounter) destroys a Global counter.
+* [start_counter](../rhodesapi/rhoprofiler-api#startcounter) starts a Local or Global counter. If a Global counter with this name exists, this global counter will be started. If no global counter exists, a local counter will be created and started.
+* [stop_counter](../rhodesapi/rhoprofiler-api#stopcounter) stops a Global or local counter.
+* [flush_counter](../rhodesapi/rhoprofiler-api#flushcounter) logs information from a counter (Local or Global). Counter does not stop or start.
+* [start_created_counter](../rhodesapi/rhoprofiler-api#startcreatedcounter) - The counter will start only if it is already created previously (Global counter).
 
 Example of custom counter:<a id="rhomsource-examples"></a>
 

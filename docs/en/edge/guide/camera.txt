@@ -12,13 +12,13 @@ Check if the device [has a camera](/api/system#phasCamera):
 
 ### Camera API
 
-Refer to the [Camera API](/v/2.2/rhodesapi/camera-api) methods to perform the following functionality.
+Refer to the [Camera API](../rhodesapi/camera-api) methods to perform the following functionality.
 
- * [get_camera_info](/v/2.2/rhodesapi/camera-api#getcamerainfo) - Get camera information.
- * [choose_picture](/v/2.2/rhodesapi/camera-api#choosepicture) - Choose a picture from an album.
- * [take_picture](/v/2.2/rhodesapi/camera-api#takepicture) - Take a picture.
+ * [get_camera_info](../rhodesapi/camera-api#getcamerainfo) - Get camera information.
+ * [choose_picture](../rhodesapi/camera-api#choosepicture) - Choose a picture from an album.
+ * [take_picture](../rhodesapi/camera-api#takepicture) - Take a picture.
 
-You can set [extended options for take_picture on iOS and Android, for choose_picture on iPhone](/v/2.2/rhodesapi/camera-api#optionshashforiosandandroiddevices), and for [RhoElements Motorola devices](/v/2.2/rhodesapi/camera-api#optionshashforrhoelementsmotoroladevices).
+You can set [extended options for take_picture on iOS and Android, for choose_picture on iPhone](../rhodesapi/camera-api#optionshashforiosandandroiddevices), and for [RhoElements Motorola devices](../rhodesapi/camera-api#optionshashforrhoelementsmotoroladevices).
 
 ### Sample
 

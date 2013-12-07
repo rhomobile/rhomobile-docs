@@ -2,39 +2,39 @@
 
 ## Introduction
 
-Rhodes provide access to device specific capabilities such as GPS, PIM, camera, SMS, video player, accelerometer, proximity detector and [native UI elements](ui).  Check the [API Compatibility Matrix](/v/2.2/rhoelements/apicompatibility) for complete details on which APIs are supported on the variety of operating systems.
+Rhodes provide access to device specific capabilities such as GPS, PIM, camera, SMS, video player, accelerometer, proximity detector and [native UI elements](ui).  Check the [API Compatibility Matrix](../rhoelements/apicompatibility) for complete details on which APIs are supported on the variety of operating systems.
 
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](#barcode), [NFC](#nfc), and [Inline Signature Capture](#signature-capture) APIs, as well as [Rhom data encryption](rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](#barcode), [NFC](#nfc), and [Inline Signature Capture](#signature-capture) APIs, as well as [Rhom data encryption](rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
 
 ## System Class
 
 The System Ruby class provides access to the system specific information.
 
- * [get_property](/v/2.2/rhodesapi/system-api#getproperty) - Get the value of a system property. [The get_property API documentation](/v/2.2/rhodesapi/system-api#getproperty) has a complete list of properties.
- * [app_install](/v/2.2/rhodesapi/system-api#appinstall) - Install an application.
- * [app_installed?](/v/2.2/rhodesapi/system-api#appinstalled) - Returns true if the specified application is installed on the device.
- * [app_uninstall](/v/2.2/rhodesapi/system-api#appuninstall) - Uninstall an application.
- * [exit](/v/2.2/rhodesapi/system-api#exit) - Exit the application.
- * [get_start_params](/v/2.2/rhodesapi/system-api#getstartparams) - Return the command line parameters as a string (iPhone only).
- * [open_url](/v/2.2/rhodesapi/system-api#openurl) - Open the application associated with the URL. Used to prepare for printing.
- * [run_app](/v/2.2/rhodesapi/system-api#runapp) - Run an application.
- * [set_application_icon_badge](/v/2.2/rhodesapi/system-api#setapplicationiconbadge) - Set application icon badge to a number. iPhone only.
- * [set_locale](/v/2.2/rhodesapi/system-api#setlocale) - Switch application locale at runtime.
- * [set_http_proxy_url](/v/2.2/rhodesapi/system-api#sethttpproxyurl) - To use client with the HTTP proxy, you can set its URL with this method.
- * [unset_http_proxy](/v/2.2/rhodesapi/system-api#unsethttpproxy) - Stop using HTTP proxy that was set by `set_http_proxy_url`.
- * [set_network_status_notify](/v/2.2/rhodesapi/system-api#setnetworkstatusnotify) - Set a network status notification for a callback which receives notifications when the network goes up or down.
- * [clear_network_status_notify](/v/2.2/rhodesapi/system-api#clearnetworkstatusnotify) - Clear network status callback from `set_network_status_notify` so notifications will not be fired.
- * [set_screen_rotation_notification](/v/2.2/rhodesapi/system-api#setscreenrotationnotification) - Notify (call a callback method) when the screen rotates.
- * [set_sleeping](/v/2.2/rhodesapi/system-api#setsleeping) - Enable/disable phone sleeping.
- * [set_push_notification](/v/2.2/rhodesapi/system-api#setpushnotification) - Register push callback, the method to call upon receiving a push message.
- * [set_window_frame](/v/2.2/rhodesapi/system-api#setwindowframe) - Change application window position and size. Implemented only for Windows desktop.
- * [set_window_position](/v/2.2/rhodesapi/system-api#setwindowposition) - Change application window position. Implemented only for Windows desktop.
- * [set_window_size](/v/2.2/rhodesapi/system-api#setwindowsize) - Change application window size. Implemented only for Windows desktop.
- * [lock_window_size](/v/2.2/rhodesapi/system-api#lockwindowsize) - Lock/unlock the window size change by the user. Implemented only for Windows desktop.
- * [unzip_file](/v/2.2/rhodesapi/system-api#unzipfile) - Unzip a file.
- * [zip_file](/v/2.2/rhodesapi/system-api#zipfile) - Zip one file to a specified zip.
- * [zip_files](/v/2.2/rhodesapi/system-api#zipfiles) - Zip several files to a specified zip.
+ * [get_property](../rhodesapi/system-api#getproperty) - Get the value of a system property. [The get_property API documentation](../rhodesapi/system-api#getproperty) has a complete list of properties.
+ * [app_install](../rhodesapi/system-api#appinstall) - Install an application.
+ * [app_installed?](../rhodesapi/system-api#appinstalled) - Returns true if the specified application is installed on the device.
+ * [app_uninstall](../rhodesapi/system-api#appuninstall) - Uninstall an application.
+ * [exit](../rhodesapi/system-api#exit) - Exit the application.
+ * [get_start_params](../rhodesapi/system-api#getstartparams) - Return the command line parameters as a string (iPhone only).
+ * [open_url](../rhodesapi/system-api#openurl) - Open the application associated with the URL. Used to prepare for printing.
+ * [run_app](../rhodesapi/system-api#runapp) - Run an application.
+ * [set_application_icon_badge](../rhodesapi/system-api#setapplicationiconbadge) - Set application icon badge to a number. iPhone only.
+ * [set_locale](../rhodesapi/system-api#setlocale) - Switch application locale at runtime.
+ * [set_http_proxy_url](../rhodesapi/system-api#sethttpproxyurl) - To use client with the HTTP proxy, you can set its URL with this method.
+ * [unset_http_proxy](../rhodesapi/system-api#unsethttpproxy) - Stop using HTTP proxy that was set by `set_http_proxy_url`.
+ * [set_network_status_notify](../rhodesapi/system-api#setnetworkstatusnotify) - Set a network status notification for a callback which receives notifications when the network goes up or down.
+ * [clear_network_status_notify](../rhodesapi/system-api#clearnetworkstatusnotify) - Clear network status callback from `set_network_status_notify` so notifications will not be fired.
+ * [set_screen_rotation_notification](../rhodesapi/system-api#setscreenrotationnotification) - Notify (call a callback method) when the screen rotates.
+ * [set_sleeping](../rhodesapi/system-api#setsleeping) - Enable/disable phone sleeping.
+ * [set_push_notification](../rhodesapi/system-api#setpushnotification) - Register push callback, the method to call upon receiving a push message.
+ * [set_window_frame](../rhodesapi/system-api#setwindowframe) - Change application window position and size. Implemented only for Windows desktop.
+ * [set_window_position](../rhodesapi/system-api#setwindowposition) - Change application window position. Implemented only for Windows desktop.
+ * [set_window_size](../rhodesapi/system-api#setwindowsize) - Change application window size. Implemented only for Windows desktop.
+ * [lock_window_size](../rhodesapi/system-api#lockwindowsize) - Lock/unlock the window size change by the user. Implemented only for Windows desktop.
+ * [unzip_file](../rhodesapi/system-api#unzipfile) - Unzip a file.
+ * [zip_file](../rhodesapi/system-api#zipfile) - Zip one file to a specified zip.
+ * [zip_files](../rhodesapi/system-api#zipfiles) - Zip several files to a specified zip.
 
 ### Sample
 See layout.erb of [System API Sample application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/layout.erb)  for some of the examples of how to use System class. There is also [system test](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/SystemTest/controller.rb) which demonstrate System class usage.
@@ -140,14 +140,14 @@ For example: 37.3317° North, 122.0307° West;37.331689;-122.030731
 
 ### GeoLocation API
 
-Refer to the [GeoLocation API](/v/2.2/rhodesapi/geolocation-api) for the methods to access geolocation information from your device.
+Refer to the [GeoLocation API](../rhodesapi/geolocation-api) for the methods to access geolocation information from your device.
 
- * [latitude](/v/2.2/rhodesapi/geolocation-api#latitude) - Returns current latitude in degrees.
- * [longitude](/v/2.2/rhodesapi/geolocation-api#longitude) - Returns current longitude in degrees.
- * [known_position?, is_known_position](/v/2.2/rhodesapi/geolocation-api#knownposition-isknownposition) - Returns true if the location system is up and running, false otherwise, null if this feature is not supported on the device platform.
- * [set_notification](/v/2.2/rhodesapi/geolocation-api#setnotification) - Set callback to track location changes.
- * [haversine_distance](/v/2.2/rhodesapi/geolocation-api#haversinedistance) - Returns the distance between two points in miles.
- * [turnoff](/v/2.2/rhodesapi/geolocation-api#turnoff) - Turn off GeoLocation.
+ * [latitude](../rhodesapi/geolocation-api#latitude) - Returns current latitude in degrees.
+ * [longitude](../rhodesapi/geolocation-api#longitude) - Returns current longitude in degrees.
+ * [known_position?, is_known_position](../rhodesapi/geolocation-api#knownposition-isknownposition) - Returns true if the location system is up and running, false otherwise, null if this feature is not supported on the device platform.
+ * [set_notification](../rhodesapi/geolocation-api#setnotification) - Set callback to track location changes.
+ * [haversine_distance](../rhodesapi/geolocation-api#haversinedistance) - Returns the distance between two points in miles.
+ * [turnoff](../rhodesapi/geolocation-api#turnoff) - Turn off GeoLocation.
 
 GeoCoding: You can use any free web service for direct and reverse geocoding. See our complete example of using Google geocoding web service in [Rhodes-System-Api-Samples example](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/GeoCoding).
 
@@ -247,14 +247,14 @@ To allow read/modify personal information and contacts enable the pim capability
 
 ### PIM Contacts API
 
-Refer to the [PIM Contacts API](/v/2.2/rhodesapi/rhocontact-api) methods to perform the following functionality.
+Refer to the [PIM Contacts API](../rhodesapi/rhocontact-api) methods to perform the following functionality.
 
- * [find](/v/2.2/rhodesapi/rhocontact-api#find) - Returns the contacts in the device phone book.
- * [create!](/v/2.2/rhodesapi/rhocontact-api#create) - Create a new contact in the phonebook.
- * [destroy](/v/2.2/rhodesapi/rhocontact-api#destroy) - Delete this contact from the phonebook.
- * [update_attributes](/v/2.2/rhodesapi/rhocontact-api#updateattributes) - Find a contact in the phonebook and update its properties.
+ * [find](../rhodesapi/rhocontact-api#find) - Returns the contacts in the device phone book.
+ * [create!](../rhodesapi/rhocontact-api#create) - Create a new contact in the phonebook.
+ * [destroy](../rhodesapi/rhocontact-api#destroy) - Delete this contact from the phonebook.
+ * [update_attributes](../rhodesapi/rhocontact-api#updateattributes) - Find a contact in the phonebook and update its properties.
 
-The [Contact Properties](/v/2.2/rhodesapi/rhocontact-api#contact-properties) lists the contact properties that are supported for all platforms, and additional contact properties supported on Android and iOS.
+The [Contact Properties](../rhodesapi/rhocontact-api#contact-properties) lists the contact properties that are supported for all platforms, and additional contact properties supported on Android and iOS.
 
 Example of returning a hash of hashes of all the contacts stored in the phonebook (index):
 
@@ -295,13 +295,13 @@ Example of finding with conditions:
 For examples on how to use the API provided by this class, see the view and controller in the /app/Contacts folder in the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Contacts/controller.rb).
 
 ## PIM Calendar/Events
-Rhodes provides access to the device's local calendar and stored events via the [Ruby class RhoEvent](/v/2.2/rhodesapi/rhoevent-api). Click the links below for detailed information about the methods.
+Rhodes provides access to the device's local calendar and stored events via the [Ruby class RhoEvent](../rhodesapi/rhoevent-api). Click the links below for detailed information about the methods.
 
- * [find](/v/2.2/rhodesapi/rhoevent-api#find) - Returns the events in the device calendar.
- * [create!](/v/2.2/rhodesapi/rhoevent-api#create) - Creates a new event in the calendar. Returns a hash of the properties in the event.
- * [update_attributes](/v/2.2/rhodesapi/rhoevent-api#updateattributes) - Update the properties for this event and save the event in the calendar.
- * [destroy](/v/2.2/rhodesapi/rhoevent-api#destroy) - Remove this event from the calendar.
- * [Event hash properties](/v/2.2/rhodesapi/rhoevent-api#event-hash-properties) - A listing of the propeties storied in a calendar event hash, which is returned by the find method.
+ * [find](../rhodesapi/rhoevent-api#find) - Returns the events in the device calendar.
+ * [create!](../rhodesapi/rhoevent-api#create) - Creates a new event in the calendar. Returns a hash of the properties in the event.
+ * [update_attributes](../rhodesapi/rhoevent-api#updateattributes) - Update the properties for this event and save the event in the calendar.
+ * [destroy](../rhodesapi/rhoevent-api#destroy) - Remove this event from the calendar.
+ * [Event hash properties](../rhodesapi/rhoevent-api#event-hash-properties) - A listing of the propeties storied in a calendar event hash, which is returned by the find method.
 
 To allow read/modify calendar information enable the calendar capability. This is done by adding the following lines to build.yml:
 
@@ -357,13 +357,13 @@ Check if the device has a camera:
 
 ### Camera API
 
-Refer to the [Camera API](/v/2.2/rhodesapi/camera-api) methods to perform the following functionality.
+Refer to the [Camera API](../rhodesapi/camera-api) methods to perform the following functionality.
 
- * [get_camera_info](/v/2.2/rhodesapi/camera-api#getcamerainfo) - Get camera information.
- * [choose_picture](/v/2.2/rhodesapi/camera-api#choosepicture) - Choose a picture from an album.
- * [take_picture](/v/2.2/rhodesapi/camera-api#takepicture) - Take a picture.
+ * [get_camera_info](../rhodesapi/camera-api#getcamerainfo) - Get camera information.
+ * [choose_picture](../rhodesapi/camera-api#choosepicture) - Choose a picture from an album.
+ * [take_picture](../rhodesapi/camera-api#takepicture) - Take a picture.
 
-You can set [extended options for take_picture on iOS and Android, for choose_picture on iPhone](/v/2.2/rhodesapi/camera-api#optionshashforiosandandroiddevices), and for [RhoElements Motorola devices](/v/2.2/rhodesapi/camera-api#optionshashforrhoelementsmotoroladevices).
+You can set [extended options for take_picture on iOS and Android, for choose_picture on iPhone](../rhodesapi/camera-api#optionshashforiosandandroiddevices), and for [RhoElements Motorola devices](../rhodesapi/camera-api#optionshashforrhoelementsmotoroladevices).
 
 ### Sample
 
@@ -379,17 +379,17 @@ Here is an example call from the System API Samples application.
 
 ## Barcode
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](#barcode) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
 
-You can use the [Barcode API](/v/2.2/rhodesapi/barcode-api) methods to recognize barcodes.
+You can use the [Barcode API](../rhodesapi/barcode-api) methods to recognize barcodes.
 
- * [barcode_recognize](/v/2.2/rhodesapi/barcode-api#barcoderecognize) - Recognizes a barcode on an image.
- * [take_barcode](/v/2.2/rhodesapi/barcode-api#takebarcode) - iPhone and Android only. Open a user interface for real-time barcode recognition from the device camera.
- * [enumerate](/v/2.2/rhodesapi/barcode-api#enumerate) - Get a list of scanners present on the device.
- * [enable](/v/2.2/rhodesapi/barcode-api#enable) - Enables the scanner.
- * [disable](/v/2.2/rhodesapi/barcode-api#disable)- Disables the currently enabled scanner.
- * [start](/v/2.2/rhodesapi/barcode-api#start) - Performs a soft trigger start.
- * [stop](/v/2.2/rhodesapi/barcode-api#stop) - Performs a soft trigger stop.
+ * [barcode_recognize](../rhodesapi/barcode-api#barcoderecognize) - Recognizes a barcode on an image.
+ * [take_barcode](../rhodesapi/barcode-api#takebarcode) - iPhone and Android only. Open a user interface for real-time barcode recognition from the device camera.
+ * [enumerate](../rhodesapi/barcode-api#enumerate) - Get a list of scanners present on the device.
+ * [enable](../rhodesapi/barcode-api#enable) - Enables the scanner.
+ * [disable](../rhodesapi/barcode-api#disable)- Disables the currently enabled scanner.
+ * [start](../rhodesapi/barcode-api#start) - Performs a soft trigger start.
+ * [stop](../rhodesapi/barcode-api#stop) - Performs a soft trigger stop.
 
 Barcode recognition functionality is realized as Rhode Native extension. You should add "Barcode" to extension list in build.yml, which is located in your application folder. `Barcode.barcode_recognize(image_file_full_path)` returns a string with recognized code, or an empty string if there are no recognized barcodes on the image. You can combine Camera for get picture with Barcode recognition for process barcode data - see sample below.
 
@@ -406,9 +406,9 @@ See controller and view in the /app/BarcodeRecognizer folder of the [System API 
 
 ## Signature Capture
 
-The [Signature Capture API](/v/2.2/rhodesapi/signaturecapture-api) allows your device to take a signature and save it as an image.
+The [Signature Capture API](../rhodesapi/signaturecapture-api) allows your device to take a signature and save it as an image.
 
-Click [here for information about the SignatureCapture.take method](/v/2.2/rhodesapi/signaturecapture-api#take). This method opens a window for hand writing, where the user draws his signature. Signature is saved to an image file.
+Click [here for information about the SignatureCapture.take method](../rhodesapi/signaturecapture-api#take). This method opens a window for hand writing, where the user draws his signature. Signature is saved to an image file.
 
 Example:
 	:::ruby
@@ -417,15 +417,15 @@ Example:
 **NOTE: To take signature on Blackberry devices, press the Menu button, then select 'Capture'.**
 
 ### Inline Signature Capture
-**NOTE: As of Rhodes version 3.3.3, the Inline Signature API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the Inline Signature API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
 
 Windows Mobile and Windows CE devices support signature capture started in window, which you can show over the current page (scrolling is not supported in this case). 
 
-Refer to the [Inline Signature API](/v/2.2/rhodesapi/signaturecapture-api#inline-signature-api) for the inline signature capture methods.
+Refer to the [Inline Signature API](../rhodesapi/signaturecapture-api#inline-signature-api) for the inline signature capture methods.
 
-* [visible](/v/2.2/rhodesapi/signaturecapture-api#visible) - Display a window for hand writing, where the user draws his signature.
-* [capture](/v/2.2/rhodesapi/signaturecapture-api#capture) - Save the signature to an image file and call a callback.
-* [clear](/v/2.2/rhodesapi/signaturecapture-api#clear) - Clear the signature in the window.
+* [visible](../rhodesapi/signaturecapture-api#visible) - Display a window for hand writing, where the user draws his signature.
+* [capture](../rhodesapi/signaturecapture-api#capture) - Save the signature to an image file and call a callback.
+* [clear](../rhodesapi/signaturecapture-api#clear) - Clear the signature in the window.
 
 Example of visible method:<a id="inline-signature-ex" />
 
@@ -479,27 +479,27 @@ There are two steps to make connection and start using of Bluetooth :
 
 ### Bluetooth API
 
-You can use the [BluetoothManager API](/v/2.2/rhodesapi/bluetoothmanager-api) to make a connection between your Bluetooth-equipped device and another Bluetooth-equipped device.
+You can use the [BluetoothManager API](../rhodesapi/bluetoothmanager-api) to make a connection between your Bluetooth-equipped device and another Bluetooth-equipped device.
 
- * [is_bluetooth_available](/v/2.2/rhodesapi/bluetoothmanager-api#isbluetoothavailable) - Returns true if Bluetooth is available on the device, false otherwise.
- * [off_bluetooth](/v/2.2/rhodesapi/bluetoothmanager-api#offbluetooth) - Turn Bluetooth off.
- * [set_device_name](/v/2.2/rhodesapi/bluetoothmanager-api#setdevicename) - Change the local device name.
- * [get_device_name](/v/2.2/rhodesapi/bluetoothmanager-api#getdevicename) - Get local device name for current device.
- * [get_last_error](/v/2.2/rhodesapi/bluetoothmanager-api#getlasterror) - Returns the last error: OK or ERROR or CANCEL.
- * [create_session](/v/2.2/rhodesapi/bluetoothmanager-api#createsession) - Creates a Bluetooth session.
- * [create_server_and_wait_for_connection](/v/2.2/rhodesapi/bluetoothmanager-api#createserverandwaitforconnection) - Connect without a user interface. Makes the current device discoverable for another device, and waits for the client connection from the other device.
- * [create_client_connection_to_device](/v/2.2/rhodesapi/bluetoothmanager-api#createclientconnectiontodevice) - Connect without user interface. Make the client connection to another device.
- * [stop_current_connection_process](/v/2.2/rhodesapi/bluetoothmanager-api#stopcurrentconnectionprocess) - When connecting without user interface (`create_server_and_wait_for_connection`), cancel the current connection.
+ * [is_bluetooth_available](../rhodesapi/bluetoothmanager-api#isbluetoothavailable) - Returns true if Bluetooth is available on the device, false otherwise.
+ * [off_bluetooth](../rhodesapi/bluetoothmanager-api#offbluetooth) - Turn Bluetooth off.
+ * [set_device_name](../rhodesapi/bluetoothmanager-api#setdevicename) - Change the local device name.
+ * [get_device_name](../rhodesapi/bluetoothmanager-api#getdevicename) - Get local device name for current device.
+ * [get_last_error](../rhodesapi/bluetoothmanager-api#getlasterror) - Returns the last error: OK or ERROR or CANCEL.
+ * [create_session](../rhodesapi/bluetoothmanager-api#createsession) - Creates a Bluetooth session.
+ * [create_server_and_wait_for_connection](../rhodesapi/bluetoothmanager-api#createserverandwaitforconnection) - Connect without a user interface. Makes the current device discoverable for another device, and waits for the client connection from the other device.
+ * [create_client_connection_to_device](../rhodesapi/bluetoothmanager-api#createclientconnectiontodevice) - Connect without user interface. Make the client connection to another device.
+ * [stop_current_connection_process](../rhodesapi/bluetoothmanager-api#stopcurrentconnectionprocess) - When connecting without user interface (`create_server_and_wait_for_connection`), cancel the current connection.
 
-You can use the [BluetoothSession API](/v/2.2/rhodesapi/bluetoothsession-api) to manage a connection session between your Bluetooth-equipped device and another Bluetooth-equipped device.
+You can use the [BluetoothSession API](../rhodesapi/bluetoothsession-api) to manage a connection session between your Bluetooth-equipped device and another Bluetooth-equipped device.
 
- * [set_callback](/v/2.2/rhodesapi/bluetoothsession-api#setcallback) - Set the Bluetooth session callback.
- * [disconnect](/v/2.2/rhodesapi/bluetoothsession-api#disconnect) - Disconnect from the device.
- * [get_status](/v/2.2/rhodesapi/bluetoothsession-api#getstatus) - Get the session status.
- * [read](/v/2.2/rhodesapi/bluetoothsession-api#read) - Read data from the connected device.
- * [write](/v/2.2/rhodesapi/bluetoothsession-api#write) - Write data to the connected device.
- * [read_string](/v/2.2/rhodesapi/bluetoothsession-api#readstring) - Read string from the connected device.
- * [write_string](/v/2.2/rhodesapi/bluetoothsession-api#writestring) - Write string to the connected device.
+ * [set_callback](../rhodesapi/bluetoothsession-api#setcallback) - Set the Bluetooth session callback.
+ * [disconnect](../rhodesapi/bluetoothsession-api#disconnect) - Disconnect from the device.
+ * [get_status](../rhodesapi/bluetoothsession-api#getstatus) - Get the session status.
+ * [read](../rhodesapi/bluetoothsession-api#read) - Read data from the connected device.
+ * [write](../rhodesapi/bluetoothsession-api#write) - Write data to the connected device.
+ * [read_string](../rhodesapi/bluetoothsession-api#readstring) - Read string from the connected device.
+ * [write_string](../rhodesapi/bluetoothsession-api#writestring) - Write string to the connected device.
 
 ### Example of Controller with using Bluetooth API
 
@@ -563,15 +563,15 @@ You can find a complete example of using Bluetooth API in [Rhodes-System-Api-Sam
 NFC (Near Field Communication). NFC API provide access to NFC functionality. You can check NFC availability on current device and register callback for listen event when NFC tag near of device. Currently NFC supported only on Android. And also Android version must be 2.3.3 or later.
 NFC API implemented in native extension. You should add "nfc" to extension list in your build.yml before start using NFC in your application. Please see detailed doc: [Rhodes NFC extension](nfc).
 
-**NOTE: As of Rhodes version 3.3.3, the [NFC](nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](/v/2.2/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](/v/2.2/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [NFC](nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
 
 ## Ringtone manager
 
-The [Ringtone manager API](/v/2.2/rhodesapi/ringtonemanager-api) provides access to view/play the user's installed ringtones.
+The [Ringtone manager API](../rhodesapi/ringtonemanager-api) provides access to view/play the user's installed ringtones.
 
- * [get_all_ringtones](/v/2.2/rhodesapi/ringtonemanager-api#getallringtones) - Get all available ringtones.
- * [play](/v/2.2/rhodesapi/ringtonemanager-api#play) - Play a given ringtone.
- * [stop](/v/2.2/rhodesapi/ringtonemanager-api#stop) - Halt playing of a ringtone.
+ * [get_all_ringtones](../rhodesapi/ringtonemanager-api#getallringtones) - Get all available ringtones.
+ * [play](../rhodesapi/ringtonemanager-api#play) - Play a given ringtone.
+ * [stop](../rhodesapi/ringtonemanager-api#stop) - Halt playing of a ringtone.
 
 **NOTE: Currently implemented for Android, Blackberry and Windows mobile. On Blackberry, only the user installed ringtones are accessible. System preinstalled ringtones are not accessible due to Blackberry limitations.**
 
@@ -607,19 +607,19 @@ See example in our [System API Samples application Generate PDF example](http://
 
 
 ## PUSH Notifications
-Push notification support is currently available for Android, BlackBerry, iOS, and RoConnect Push Service on Android and Windows Mobile. Please refer to [RhoConnect Device Push](/v/2.2/rhoconnect/push) for information on setting up RhoConnect Push on the RhoConnect server and the Rhodes client.
+Push notification support is currently available for Android, BlackBerry, iOS, and RoConnect Push Service on Android and Windows Mobile. Please refer to [RhoConnect Device Push](../rhoconnect/push) for information on setting up RhoConnect Push on the RhoConnect server and the Rhodes client.
 
 ## Alerts
 
-In your controller, you may call on the [Alert API](/v/2.2/rhodesapi/alert-api) to show popup, vibrate, or play audio file.
+In your controller, you may call on the [Alert API](../rhodesapi/alert-api) to show popup, vibrate, or play audio file.
 
 The methods you can use are:
 
- * [show_popup](/v/2.2/rhodesapi/alert-api#showpopup) - Bring the application up fromt and show a message.
- * [hide_popup](/v/2.2/rhodesapi/alert-api#hidepopup) - Close the current opened popup window.
- * [vibrate](/v/2.2/rhodesapi/alert-api#vibrate) - Vibrate the device.
- * [play_file](/v/2.2/rhodesapi/alert-api#playfile) - Play specified media type.
- * [show_status](/v/2.2/rhodesapi/alert-api#showstatus) - Show a status message.
+ * [show_popup](../rhodesapi/alert-api#showpopup) - Bring the application up fromt and show a message.
+ * [hide_popup](../rhodesapi/alert-api#hidepopup) - Close the current opened popup window.
+ * [vibrate](../rhodesapi/alert-api#vibrate) - Vibrate the device.
+ * [play_file](../rhodesapi/alert-api#playfile) - Play specified media type.
+ * [show_status](../rhodesapi/alert-api#showstatus) - Show a status message.
 
 You can customize the popup window's title, icon, buttons and specify callback to be called on button click:
 
@@ -659,10 +659,10 @@ You can use Alert.show_status in a sync notification callback:
 
 ## Timer
 
-In your controller, you may start timer using the [Rho::Timer API](/v/2.2/rhodesapi/timer-api).
+In your controller, you may start timer using the [Rho::Timer API](../rhodesapi/timer-api).
 
- * [start](/v/2.2/rhodesapi/timer-api#start) - Start the timer and call a callback after the timer completes.
- * [stop](/v/2.2/rhodesapi/timer-api#stop) - Stop the timer by callback.
+ * [start](../rhodesapi/timer-api#start) - Start the timer and call a callback after the timer completes.
+ * [stop](../rhodesapi/timer-api#stop) - Stop the timer by callback.
 
 For example:
 
@@ -763,11 +763,11 @@ For execute you rhodes based application from another rhodes based application u
 
 ## MapView
 
-The MapView class provides an embeddable map interface, similar to the one provided by the Maps application. Click the links below for detailed information about the [MapView API methods](/v/2.2/rhodesapi/mapview-api).
+The MapView class provides an embeddable map interface, similar to the one provided by the Maps application. Click the links below for detailed information about the [MapView API methods](../rhodesapi/mapview-api).
 
- * [create](/v/2.2/rhodesapi/mapview-api#create) - Create a map on your device.
- * [set_file_caching_enable](/v/2.2/rhodesapi/mapview-api#setfilecachingenable) - Enable file caching for map tiles. The file cache can be used for offline map browsing.
- * [preload_map_tiles](/v/2.2/rhodesapi/mapview-api#preloadmaptiles) - Preload a map tiles for a region defined by a zoom level range.
+ * [create](../rhodesapi/mapview-api#create) - Create a map on your device.
+ * [set_file_caching_enable](../rhodesapi/mapview-api#setfilecachingenable) - Enable file caching for map tiles. The file cache can be used for offline map browsing.
+ * [preload_map_tiles](../rhodesapi/mapview-api#preloadmaptiles) - Preload a map tiles for a region defined by a zoom level range.
 
 ### MapView Settings
 
@@ -869,16 +869,16 @@ See GeoLocation/controller.rb of [system API sample application](http://github.c
 
 ## File system access
 
-You can use the RhoApplication API to access your Rhodes application. Click the links below for detailed information about the [RhoApplication API methods](/v/2.2/rhodesapi/rhoapplication-api).
+You can use the RhoApplication API to access your Rhodes application. Click the links below for detailed information about the [RhoApplication API methods](../rhodesapi/rhoapplication-api).
 
- * [get_base_app_path](/v/2.2/rhodesapi/rhoapplication-api#getbaseapppath) - Returns a string that contains the absolute path to the application.
- * [get_app_path](/v/2.2/rhodesapi/rhoapplication-api#getapppath) - Returns a string that contains the absolute path path to the given relative path in the application.
- * [get_model_path](/v/2.2/rhodesapi/rhoapplication-api#getmodelpath) - Returns a string that contains the absolute path to a model folder in the application.
- * [get_blob_path](/v/2.2/rhodesapi/rhoapplication-api#getblobpath) - Returns the real path to a blob (such as a digital photo). You need to use this method to have the correct path to a blob attribute.
- * [get_blob_folder](/v/2.2/rhodesapi/rhoapplication-api#getblobfolder) - Returns the absolute path to the folder where blobs, such as digital photos, are created in this application.
- * [get_user_path](/v/2.2/rhodesapi/rhoapplication-api#getuserpath) - Returns the path to the user folder. iOS only.
+ * [get_base_app_path](../rhodesapi/rhoapplication-api#getbaseapppath) - Returns a string that contains the absolute path to the application.
+ * [get_app_path](../rhodesapi/rhoapplication-api#getapppath) - Returns a string that contains the absolute path path to the given relative path in the application.
+ * [get_model_path](../rhodesapi/rhoapplication-api#getmodelpath) - Returns a string that contains the absolute path to a model folder in the application.
+ * [get_blob_path](../rhodesapi/rhoapplication-api#getblobpath) - Returns the real path to a blob (such as a digital photo). You need to use this method to have the correct path to a blob attribute.
+ * [get_blob_folder](../rhodesapi/rhoapplication-api#getblobfolder) - Returns the absolute path to the folder where blobs, such as digital photos, are created in this application.
+ * [get_user_path](../rhodesapi/rhoapplication-api#getuserpath) - Returns the path to the user folder. iOS only.
 
-You can use the Rhodes subset of the Ruby File API to access the Rhodes file structure. [Click here for those File API methods in both Ruby and JavaScript](/v/2.2/rhodesapi/file-api).
+You can use the Rhodes subset of the Ruby File API to access the Rhodes file structure. [Click here for those File API methods in both Ruby and JavaScript](../rhodesapi/file-api).
 
 ### Rhodes client file system structure
 	<rhodes root>  #system-dependent path

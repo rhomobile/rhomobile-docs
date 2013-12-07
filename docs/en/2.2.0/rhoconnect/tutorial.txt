@@ -10,7 +10,7 @@ Full documentation of all capabilities of RhoConnect is in the [RhoConnect Devel
 
 ## Installing the RhoConnect Dependencies
 
-* Install RhoConnect [from the command line](install) or by installing [RhoMobile Suite](/v/2.2/rhomobile-install).
+* Install RhoConnect [from the command line](install) or by installing [RhoMobile Suite](../rhomobile-install).
 
 * If you have a RhoConnect license that has been sent to you, you can replace the settings/license.yml file as described [here](licensing).
 
@@ -85,7 +85,7 @@ You can open these files for editing by clicking on them in the Project Explorer
 
 From the command line, navigate to the main folder for your RhoConnect app: in this case, storeserver.
 
-Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](/v/2.2/rhostudio.tutorial) and the [documentation to generate a Rhodes application](/v/2.2/rhodes/generator).
+Then run the command to generate a source adapter for the product model. The product model is used as an example for a Rhodes storemanager in the [RhoStudio tutorial](../rhostudio.tutorial) and the [documentation to generate a Rhodes application](../rhodes/generator).
 
 	:::term
 	$ rhoconnect source product

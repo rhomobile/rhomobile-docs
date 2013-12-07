@@ -10,11 +10,11 @@ If you have included any of the following features in your application, your app
 
 * [Mobile APIs](apicompatibility) indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
 * [Motorola Solutions WebKit](rhoelements2-native#enabling-motorola-webkit)
-* [Barcode extension](/v/2.2/rhodesapi/barcode-api)
-* [NFC extension](/v/2.2/rhodes/device-caps#nfc)
-* [Database Encryption](/v/2.2/rhodes/rhom#database-encryption)
-* [Inline Signature Capture](/v/2.2/rhodes/device-caps#signature-capture)
-* [Windows Desktop](/v/2.2/rhodes/build#build-for-windows)
+* [Barcode extension](../rhodesapi/barcode-api)
+* [NFC extension](../rhodes/device-caps#nfc)
+* [Database Encryption](../rhodes/rhom#database-encryption)
+* [Inline Signature Capture](../rhodes/device-caps#signature-capture)
+* [Windows Desktop](../rhodes/build#build-for-windows)
 
 **NOTE: that the "shared runtime" requires a license to run since it uses Motorola Solutions WebKit and RhoElements APIs.**
 

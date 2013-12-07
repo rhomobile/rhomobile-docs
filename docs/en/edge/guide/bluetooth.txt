@@ -28,27 +28,27 @@ There are two steps to make connection and start using of Bluetooth :
 
 ### Bluetooth API
 
-You can use the [BluetoothManager API](/v/2.2/rhodesapi/bluetoothmanager-api) to make a connection between your Bluetooth-equipped device and another Bluetooth-equipped device.
+You can use the [BluetoothManager API](../rhodesapi/bluetoothmanager-api) to make a connection between your Bluetooth-equipped device and another Bluetooth-equipped device.
 
- * [is_bluetooth_available](/v/2.2/rhodesapi/bluetoothmanager-api#isbluetoothavailable) - Returns true if Bluetooth is available on the device, false otherwise.
- * [off_bluetooth](/v/2.2/rhodesapi/bluetoothmanager-api#offbluetooth) - Turn Bluetooth off.
- * [set_device_name](/v/2.2/rhodesapi/bluetoothmanager-api#setdevicename) - Change the local device name.
- * [get_device_name](/v/2.2/rhodesapi/bluetoothmanager-api#getdevicename) - Get local device name for current device.
- * [get_last_error](/v/2.2/rhodesapi/bluetoothmanager-api#getlasterror) - Returns the last error: OK or ERROR or CANCEL.
- * [create_session](/v/2.2/rhodesapi/bluetoothmanager-api#createsession) - Creates a Bluetooth session.
- * [create_server_and_wait_for_connection](/v/2.2/rhodesapi/bluetoothmanager-api#createserverandwaitforconnection) - Connect without a user interface. Makes the current device discoverable for another device, and waits for the client connection from the other device.
- * [create_client_connection_to_device](/v/2.2/rhodesapi/bluetoothmanager-api#createclientconnectiontodevice) - Connect without user interface. Make the client connection to another device.
- * [stop_current_connection_process](/v/2.2/rhodesapi/bluetoothmanager-api#stopcurrentconnectionprocess) - When connecting without user interface (`create_server_and_wait_for_connection`), cancel the current connection.
+ * [is_bluetooth_available](../rhodesapi/bluetoothmanager-api#isbluetoothavailable) - Returns true if Bluetooth is available on the device, false otherwise.
+ * [off_bluetooth](../rhodesapi/bluetoothmanager-api#offbluetooth) - Turn Bluetooth off.
+ * [set_device_name](../rhodesapi/bluetoothmanager-api#setdevicename) - Change the local device name.
+ * [get_device_name](../rhodesapi/bluetoothmanager-api#getdevicename) - Get local device name for current device.
+ * [get_last_error](../rhodesapi/bluetoothmanager-api#getlasterror) - Returns the last error: OK or ERROR or CANCEL.
+ * [create_session](../rhodesapi/bluetoothmanager-api#createsession) - Creates a Bluetooth session.
+ * [create_server_and_wait_for_connection](../rhodesapi/bluetoothmanager-api#createserverandwaitforconnection) - Connect without a user interface. Makes the current device discoverable for another device, and waits for the client connection from the other device.
+ * [create_client_connection_to_device](../rhodesapi/bluetoothmanager-api#createclientconnectiontodevice) - Connect without user interface. Make the client connection to another device.
+ * [stop_current_connection_process](../rhodesapi/bluetoothmanager-api#stopcurrentconnectionprocess) - When connecting without user interface (`create_server_and_wait_for_connection`), cancel the current connection.
 
-You can use the [BluetoothSession API](/v/2.2/rhodesapi/bluetoothsession-api) to manage a connection session between your Bluetooth-equipped device and another Bluetooth-equipped device.
+You can use the [BluetoothSession API](../rhodesapi/bluetoothsession-api) to manage a connection session between your Bluetooth-equipped device and another Bluetooth-equipped device.
 
- * [set_callback](/v/2.2/rhodesapi/bluetoothsession-api#setcallback) - Set the Bluetooth session callback.
- * [disconnect](/v/2.2/rhodesapi/bluetoothsession-api#disconnect) - Disconnect from the device.
- * [get_status](/v/2.2/rhodesapi/bluetoothsession-api#getstatus) - Get the session status.
- * [read](/v/2.2/rhodesapi/bluetoothsession-api#read) - Read data from the connected device.
- * [write](/v/2.2/rhodesapi/bluetoothsession-api#write) - Write data to the connected device.
- * [read_string](/v/2.2/rhodesapi/bluetoothsession-api#readstring) - Read string from the connected device.
- * [write_string](/v/2.2/rhodesapi/bluetoothsession-api#writestring) - Write string to the connected device.
+ * [set_callback](../rhodesapi/bluetoothsession-api#setcallback) - Set the Bluetooth session callback.
+ * [disconnect](../rhodesapi/bluetoothsession-api#disconnect) - Disconnect from the device.
+ * [get_status](../rhodesapi/bluetoothsession-api#getstatus) - Get the session status.
+ * [read](../rhodesapi/bluetoothsession-api#read) - Read data from the connected device.
+ * [write](../rhodesapi/bluetoothsession-api#write) - Write data to the connected device.
+ * [read_string](../rhodesapi/bluetoothsession-api#readstring) - Read string from the connected device.
+ * [write_string](../rhodesapi/bluetoothsession-api#writestring) - Write string to the connected device.
 
 ### Example of Controller with using Bluetooth API
 

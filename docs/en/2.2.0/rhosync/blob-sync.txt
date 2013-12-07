@@ -1,11 +1,11 @@
 Binary Objects and Blob Sync
 ===
-Synchronizing images or binary objects between RhoSync and the client is declared by having a 'blob attribute' on the [Rhom model](/v/2.2/rhodes/rhom).  This instructs the client to download the blob attribute's value (in this case a url) separately from the rest of the data and save it to the device file system.
+Synchronizing images or binary objects between RhoSync and the client is declared by having a 'blob attribute' on the [Rhom model](../rhodes/rhom).  This instructs the client to download the blob attribute's value (in this case a url) separately from the rest of the data and save it to the device file system.
 
 **NOTE: The example below shows how to synchronize an image created by the device's camera, but could be applied to any arbitrary files on the device.**
 
 ## Synchronizing from Device to RhoSync
-Suppose you have a [Rhom model](/v/2.2/rhodes/rhom) called "Image" and you have a [camera callback function](/v/2.2/rhodes/device-caps#camera) defined in the Image model's controller:
+Suppose you have a [Rhom model](../rhodes/rhom) called "Image" and you have a [camera callback function](../rhodes/device-caps#camera) defined in the Image model's controller:
 
 	:::ruby
 	def camera_callback

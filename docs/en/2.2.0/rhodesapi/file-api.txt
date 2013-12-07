@@ -1,6 +1,6 @@
 # File API
 
-The subset of the [Ruby File methods](http://www.ruby-doc.org/core-1.9.3/File.html) that allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](/v/2.2/rhodes/device-caps#file-system-access) for examples and for information on file access on different device platforms.
+The subset of the [Ruby File methods](http://www.ruby-doc.org/core-1.9.3/File.html) that allows access to the Rhodes file structure. Refer to [File System access in Device Capabilities](../rhodes/device-caps#file-system-access) for examples and for information on file access on different device platforms.
 
 ## Using JavaScript API
 
@@ -15,7 +15,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](../rhoelements/licensing) to use the JavaScript API.
 
 ## Rhodes File structure
 
@@ -967,7 +967,7 @@ JavaScript syntax:
 
 ## split
 
-Splits the given string into a directory and a file component and returns them in a two-element array. See also [File.dirname](/rhodesapi/file-api#dirname) and [File.basename](/rhodesapi/file-api#basename). [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html#method-c-split).
+Splits the given string into a directory and a file component and returns them in a two-element array. See also [File.dirname](#dirname) and [File.basename](#basename). [Ruby File method](http://www.ruby-doc.org/core-1.9.3/File.html#method-c-split).
 
 Ruby syntax:
 

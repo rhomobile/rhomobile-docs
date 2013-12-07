@@ -107,7 +107,7 @@ The following table shows the compatibility for each Mobile API.
 </table>
 
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](/v/2.2/rhodes/device-caps#barcode), [NFC](/v/2.2/rhodes/device-caps#nfc), and [Inline Signature Capture](/v/2.2/rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](/v/2.2/rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](/v/2.2/rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode), [NFC](../rhodes/device-caps#nfc), and [Inline Signature Capture](../rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](../rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.**
 
 
 ##Legend

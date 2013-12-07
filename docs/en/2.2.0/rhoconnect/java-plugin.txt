@@ -216,7 +216,7 @@ To help rhoconnect-java plugin correctly do mapping of model name to service bea
 * Service bean should be auto-wired into corresponding controller via @Autowired annotation 
 
 Data partitioning in your code should be based on filtering data for unique user (i.e. your user name) or per application (shared dataset for all users).
-For more information about RhoConnect partitions, please refer to the [RhoSync docs](/v/2.2/rhosync/source-adapters#data-partitioning).
+For more information about RhoConnect partitions, please refer to the [RhoSync docs](../rhosync/source-adapters#data-partitioning).
 
 ### Establishing communication from java back-end application to the RhoConnect server
 

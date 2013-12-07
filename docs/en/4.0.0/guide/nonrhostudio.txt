@@ -31,7 +31,7 @@ NOTE: Installing RhoMobile Suite will install these gems automatically. You can 
 
 ## Linking SDKs 
 
-You will need the SDKs for the platform you want to build your app on. These instructions are found [here](/guide/nativesdksetup).
+You will need the SDKs for the platform you want to build your app on. These instructions are found [here](nativesdksetup).
 
 After you install the gem and your desired SDKs, you need to run:
 
@@ -56,7 +56,7 @@ If you do not need synchronized offline data, you can leave the third argument o
 The default home screen of the app is defined in the storemanager/app/index.erb file.  You can edit the HTML there to create what your app displays.  You can link to other HTML files and ERB files from there with standard HTML techniques. 
 
 ## Generating Models
-You can also use the command line to add models and controllers. When the model is generated, Rhodes will also create files for a standard UI for displaying and editing the model. This follows the standard model-view-controller paradigm.Get more details on [project structure](/guide/creating_a_project#project-structure).
+You can also use the command line to add models and controllers. When the model is generated, Rhodes will also create files for a standard UI for displaying and editing the model. This follows the standard model-view-controller paradigm.Get more details on [project structure](creating_a_project#project-structure).
 
 Let's generate a model called "product" and give it some attributes.
 

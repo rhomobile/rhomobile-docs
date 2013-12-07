@@ -8,7 +8,7 @@ Webinar Video
 
 Pre-requisite Reading
 ---------------------
- * [RhoHub Tutorial](/rhohub/tutorial)
+ * [RhoHub Tutorial](rhohub/tutorial)
 
 ## Setup
 This tutorial assumes that you have set up an account on RhoHub. If you have not done this, see [Pre-requisite Reading](). The RhoHub tutorial contains instructions on how to set up a RhoHub account.
@@ -25,7 +25,7 @@ You now see your RhoHub dashboard. It contains all the applications that you are
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-editor-tutorial/rhohub-dashboard-editor-create.png" alt="RhoHub Dashboard" />
 
-If you have already created projects, you can click on Launch Editor to launch the [RhoHub Editor](/rhohub-editor-tutorial#opening-the-rhohub-editor) for that project. You can also enter the project and click the Launch Editor button.
+If you have already created projects, you can click on Launch Editor to launch the [RhoHub Editor](#opening-the-rhohub-editor) for that project. You can also enter the project and click the Launch Editor button.
 
 Or you can click the Create Project button to create a new project.
 
@@ -53,7 +53,7 @@ In the Manage Collaborators tab, enter the username of the collaborator(s) you w
 
 ## Using Local Development Instead of RhoHub Editor
 
-At this point, your project is hosted in a Git repository by RhoHub. If you want to do local development where you would access and develop the project code on your local computer instead of with RhoHub Editor, you will need a Git repository on your local computer. There, you will use the git clone command to clone the project to your local computer, then use a Rhodes and RhoSync installation on your local computer to develop the project, then use git commit to commit your project to RhoHub again. See the [RhoHub Tutorial](/rhohub/tutorial) for those instructions.
+At this point, your project is hosted in a Git repository by RhoHub. If you want to do local development where you would access and develop the project code on your local computer instead of with RhoHub Editor, you will need a Git repository on your local computer. There, you will use the git clone command to clone the project to your local computer, then use a Rhodes and RhoSync installation on your local computer to develop the project, then use git commit to commit your project to RhoHub again. See the [RhoHub Tutorial](rhohub/tutorial) for those instructions.
 
 ## Opening the RhoHub Editor
 

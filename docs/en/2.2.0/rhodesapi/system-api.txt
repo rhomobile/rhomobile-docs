@@ -17,7 +17,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](../rhoelements/licensing) to use the JavaScript API.
 
 ## get_property
 
@@ -49,9 +49,9 @@ system_property can be any of the properties below:
 * phone_number - device phone number
 * device_owner_email - primary email of phone owner (works only on Android)
 * device_owner_device_owner_name - name(account name) of phone owner (works only on Android)
-* device_id - returns device ID which may be used to receive push messages. This is not phone device id, this is PUSH device id - you should register your phone for PUSH before you get this parameter. Read [Push Notification documentation](/rhoconnect/push) about it. On iPhone, it may be empty right after application started while Rhodes registers to receive PUSH notifications; you should wait till it become non-empty.
+* device_id - returns device ID which may be used to receive push messages. This is not phone device id, this is PUSH device id - you should register your phone for PUSH before you get this parameter. Read [Push Notification documentation](../rhoconnect/push) about it. On iPhone, it may be empty right after application started while Rhodes registers to receive PUSH notifications; you should wait till it become non-empty.
 * phone_id - returns hardware based id. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
-* full_browser -  is full browser in the WebView control on Blackberry (see [Blackberry browser support in device capabilities](/rhodes/device-caps#blackberry-browser-support) for more details)
+* full_browser -  is full browser in the WebView control on Blackberry (see [Blackberry browser support in device capabilities](../rhodes/device-caps#blackberry-browser-support) for more details)
 * device_name - name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android)
 * os_version - version of OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android)
 * locale - current language like 'en', 'ru' etc.
@@ -76,7 +76,7 @@ Install an application.
 
 ## app_installed?
 
-Returns true if the specified application is installed on the device. See [System.run_app](/rhodesapi/system-api#runapp) for `appname` information.
+Returns true if the specified application is installed on the device. See [System.run_app](#runapp) for `appname` information.
 
 	:::ruby
 	System.app_installed?(appname)
@@ -90,7 +90,7 @@ Returns true if the specified application is installed on the device. See [Syste
 
 ## app_uninstall
 
-Uninstall an application. See [System.run_app](/rhodesapi/system-api#runapp) for `appname` information.
+Uninstall an application. See [System.run_app](#runapp) for `appname` information.
 
 	:::ruby
 	System.app_uninstall(appname)
@@ -202,7 +202,7 @@ Set application icon badge number – only for iPhone.
 
 ## set_locale
 
-Switch application locale at runtime. This does not change OS Locale, it will change only the LocalizationSimplified locale used in helper methods. See [Localization in Device Capabilities](/rhodes/device-caps#localization) for more information.
+Switch application locale at runtime. This does not change OS Locale, it will change only the LocalizationSimplified locale used in helper methods. See [Localization in Device Capabilities](../rhodes/device-caps#localization) for more information.
 
 	:::ruby
 	System.set_locale('es') # set current locale to Spanish
@@ -486,4 +486,3 @@ JavaScript syntax:
 	<td>String. Optional. Password for the zip.</td>
 </tr>
 </table>
-

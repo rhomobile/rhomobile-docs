@@ -42,19 +42,19 @@ This will also automatically generate an rcov report under 'coverage' if you hav
 
 ## Test API
 
-The [RhoConnect Source Adapter Model Test API](/rhoconnectapi/test-api) provides the following methods to perform spec tests.
+The [RhoConnect Source Adapter Model Test API](../rhoconnectapi/test-api) provides the following methods to perform spec tests.
 
- * [setup_test_for](/rhoconnectapi/test-api-ruby#setuptestfor) - Executes the adapter's query method and returns the master document.
- * [test_query](/rhoconnectapi/test-api-ruby#testquery) - Executes the adapter's query method and returns the master document.
- * [query_errors](/rhoconnectapi/test-api-ruby#queryerrors) - Returns any errors stored in redis for the previous source adapter query.
- * [test_create](/rhoconnectapi/test-api-ruby#testcreate) - Executes the adapter's create method with a provided record and returns the object string from the create method.
- * [create_errors](/rhoconnectapi/test-api-ruby#createerrors) - Returns the result of the adapter's create method..
- * [test_update](/rhoconnectapi/test-api-ruby#testupdate) - Execute the source adapter's update method.
- * [update_errors](/rhoconnectapi/test-api-ruby#updateerrors) - Returns any errors stored in redis from the previous source adapter update.
- * [test_delete](/rhoconnectapi/test-api-ruby#testdelete) - Execute the source adapter's delete method.
- * [delete_errors](/rhoconnectapi/test-api-ruby#deleteerrors) - Returns any errors stored in redis from the previous source adapter delete.
- * [md](/rhoconnectapi/test-api-ruby#md) - Returns the master document (:md) for the source adapter stored in redis.
- * [cd](/rhoconnectapi/test-api-ruby#cd) - Returns the client document (:cd) for the source adapter + client under test.
+ * [setup_test_for](../rhoconnectapi/test-api-ruby#setuptestfor) - Executes the adapter's query method and returns the master document.
+ * [test_query](../rhoconnectapi/test-api-ruby#testquery) - Executes the adapter's query method and returns the master document.
+ * [query_errors](../rhoconnectapi/test-api-ruby#queryerrors) - Returns any errors stored in redis for the previous source adapter query.
+ * [test_create](../rhoconnectapi/test-api-ruby#testcreate) - Executes the adapter's create method with a provided record and returns the object string from the create method.
+ * [create_errors](../rhoconnectapi/test-api-ruby#createerrors) - Returns the result of the adapter's create method..
+ * [test_update](../rhoconnectapi/test-api-ruby#testupdate) - Execute the source adapter's update method.
+ * [update_errors](../rhoconnectapi/test-api-ruby#updateerrors) - Returns any errors stored in redis from the previous source adapter update.
+ * [test_delete](../rhoconnectapi/test-api-ruby#testdelete) - Execute the source adapter's delete method.
+ * [delete_errors](../rhoconnectapi/test-api-ruby#deleteerrors) - Returns any errors stored in redis from the previous source adapter delete.
+ * [md](../rhoconnectapi/test-api-ruby#md) - Returns the master document (:md) for the source adapter stored in redis.
+ * [cd](../rhoconnectapi/test-api-ruby#cd) - Returns the client document (:cd) for the source adapter + client under test.
 
 ## Example of setup_test_for
 

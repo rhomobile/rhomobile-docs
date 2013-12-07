@@ -130,29 +130,29 @@ During generation of the model, the `settings/settings.yml` file will be updated
 
 You can use the following methods and techniques inside of your source adapter controller.
 
-* [register Rhoconnect::EndPoint](/rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::EndPoint) - adds Controller into the application's URL Map.
-* [register Rhoconnect::Handler::Sync](/rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::Handler::Sync) - adds SYNC routes to your Controller.
-* [pre-defined conditions](/rhoconnectapi/source-adapter-controller-api-ruby#pre-defined-conditions) - adds common helpers and conditions to your routes.
-* [@model](/rhoconnectapi/source-adapter-controller-api-ruby#@model) - Access to the source adapter's model instance.
-* [params,request,response](/rhoconnectapi/source-adapter-controller-api-ruby#sinatra-context) - Allows to use any standard Sinatra context objects.
-* [Sinatra framework](/rhoconnectapi/source-adapter-controller-api-ruby#sinatra-framework) - Allows to use any standard Sinatra features.
+* [register Rhoconnect::EndPoint](../rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::EndPoint) - adds Controller into the application's URL Map.
+* [register Rhoconnect::Handler::Sync](../rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::Handler::Sync) - adds SYNC routes to your Controller.
+* [pre-defined conditions](../rhoconnectapi/source-adapter-controller-api-ruby#pre-defined-conditions) - adds common helpers and conditions to your routes.
+* [@model](../rhoconnectapi/source-adapter-controller-api-ruby#@model) - Access to the source adapter's model instance.
+* [params,request,response](../rhoconnectapi/source-adapter-controller-api-ruby#sinatra-context) - Allows to use any standard Sinatra context objects.
+* [Sinatra framework](../rhoconnectapi/source-adapter-controller-api-ruby#sinatra-framework) - Allows to use any standard Sinatra features.
 
 ### Source Adapter Model API (Ruby)
 
 You can write the following methods for your source adapter model. These methods will be called by the controller at run-time and allow your source adapter model to interact with your backend service.
 
-* [login](/rhoconnectapi/source-adapter-model-api-ruby#login) - Login to your backend service (optional).
-* [logoff](/rhoconnectapi/source-adapter-model-api-ruby#logoff) - Logoff from your backend service (optional).
-* [query](/rhoconnectapi/source-adapter-model-api-ruby#query) - Query your backend service and build a hash of hashes (required).
-* [search](/rhoconnectapi/source-adapter-model-api-ruby#search) - Search your backend based on params and build a hash of hashes (optional).
-* [create](/rhoconnectapi/source-adapter-model-api-ruby#create) - Create a new record in the backend (optional).
-* [update](/rhoconnectapi/source-adapter-model-api-ruby#update) - Update an existing record in the backend.
-* [delete](/rhoconnectapi/source-adapter-model-api-ruby#delete) - Delete an existing record in the backend.
-* [current_user](/rhoconnectapi/source-adapter-model-api-ruby#currentuser) - Returns the current user which called the adapter's model.
-* [stash_result](/rhoconnectapi/source-adapter-model-api-ruby#stashresult) - Saves the current state of `@result` to redis and assigns it to `nil`.
-* [store_blob](/rhoconnectapi/source-adapter-model-api-ruby#store_blob) - Save the incoming blob data into permanent storage for the future processing.
-* [self.partition_name](/rhoconnectapi/source-adapter-model-api-ruby#self.partition_name) - Implement this class method to provide custom user partition.
-* [get_data](/rhoconnectapi/source-adapter-model-api-ruby#get_data) - Get the model document data from Store.
+* [login](../rhoconnectapi/source-adapter-model-api-ruby#login) - Login to your backend service (optional).
+* [logoff](../rhoconnectapi/source-adapter-model-api-ruby#logoff) - Logoff from your backend service (optional).
+* [query](../rhoconnectapi/source-adapter-model-api-ruby#query) - Query your backend service and build a hash of hashes (required).
+* [search](../rhoconnectapi/source-adapter-model-api-ruby#search) - Search your backend based on params and build a hash of hashes (optional).
+* [create](../rhoconnectapi/source-adapter-model-api-ruby#create) - Create a new record in the backend (optional).
+* [update](../rhoconnectapi/source-adapter-model-api-ruby#update) - Update an existing record in the backend.
+* [delete](../rhoconnectapi/source-adapter-model-api-ruby#delete) - Delete an existing record in the backend.
+* [current_user](../rhoconnectapi/source-adapter-model-api-ruby#currentuser) - Returns the current user which called the adapter's model.
+* [stash_result](../rhoconnectapi/source-adapter-model-api-ruby#stashresult) - Saves the current state of `@result` to redis and assigns it to `nil`.
+* [store_blob](../rhoconnectapi/source-adapter-model-api-ruby#store_blob) - Save the incoming blob data into permanent storage for the future processing.
+* [self.partition_name](../rhoconnectapi/source-adapter-model-api-ruby#self.partition_name) - Implement this class method to provide custom user partition.
+* [get_data](../rhoconnectapi/source-adapter-model-api-ruby#get_data) - Get the model document data from Store.
 
 ## Data Partitioning
 

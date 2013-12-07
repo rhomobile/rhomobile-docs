@@ -1,10 +1,10 @@
 # SyncEngine API
 
-Synchronize data for the Rhodes model and handle updates between the Rhodes application and the RhoConnect server. [Refer to the Rhodes Developer Guide under Synchronization for more discussion.](/v/2.2/rhodes/synchronization)
+Synchronize data for the Rhodes model and handle updates between the Rhodes application and the RhoConnect server. [Refer to the Rhodes Developer Guide under Synchronization for more discussion.](../rhodes/synchronization)
 
 ## login
 
-Authenticates the user with the RhoConnect server. [Click here for an example in the Rhodes Developer Guide under Synchronization.](/v/2.2/rhodes/synchronization#sync-authentication)
+Authenticates the user with the RhoConnect server. [Click here for an example in the Rhodes Developer Guide under Synchronization.](../rhodes/synchronization#sync-authentication)
 
 	:::ruby
 	SyncEngine.login(login, password, callback_url)
@@ -100,7 +100,7 @@ Stops any synchronization operations currently in progress.
 
 ## set_notification
 
-Set notification callback for a model. [Click here for an example in the Rhodes Developer Guide under Synchronization.](/v/2.2/rhodes/synchronization#notifications)
+Set notification callback for a model. [Click here for an example in the Rhodes Developer Guide under Synchronization.](../rhodes/synchronization#notifications)
 
 	:::ruby
 	SyncEngine.set_notification(source_id, callback_url, params)

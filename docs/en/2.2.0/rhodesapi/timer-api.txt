@@ -9,7 +9,7 @@ Start the timer and call the callback when the timer has run.
 	:::ruby
 	Rho::Timer.start(interval_milliseconds, callback_url, callback_data)
 
-Refer to [timer in device capabilities](/v/2.2/rhodes/device-caps#timer) for an example.
+Refer to [timer in device capabilities](../rhodes/device-caps#timer) for an example.
 
 <table border="1">
 <tr>

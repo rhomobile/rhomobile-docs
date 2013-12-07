@@ -1,10 +1,10 @@
 # MapView
 
-The MapView class provides an embeddable map interface, similar to the one provided by the Maps application. Click the links below for detailed information about the [MapView API methods](/v/2.2/rhodesapi/mapview-api).
+The MapView class provides an embeddable map interface, similar to the one provided by the Maps application. Click the links below for detailed information about the [MapView API methods](../rhodesapi/mapview-api).
 
- * [create](/v/2.2/rhodesapi/mapview-api#create) - Create a map on your device.
- * [set_file_caching_enable](/v/2.2/rhodesapi/mapview-api#setfilecachingenable) - Enable file caching for map tiles. The file cache can be used for offline map browsing.
- * [preload_map_tiles](/v/2.2/rhodesapi/mapview-api#preloadmaptiles) - Preload a map tiles for a region defined by a zoom level range.
+ * [create](../rhodesapi/mapview-api#create) - Create a map on your device.
+ * [set_file_caching_enable](../rhodesapi/mapview-api#setfilecachingenable) - Enable file caching for map tiles. The file cache can be used for offline map browsing.
+ * [preload_map_tiles](../rhodesapi/mapview-api#preloadmaptiles) - Preload a map tiles for a region defined by a zoom level range.
 
 ### MapView Settings
 

@@ -1,6 +1,6 @@
 Source Adapter Model API (JavaScript)
 ===
-Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](/rhoconnect/source-adapters-js#sample-model) for a complete example.  As with the [controller API](/rhoconnectapi/source-adapter-controller-api-js), each function that accepts a [response object](/rhoconnectapi/source-adapter-response-api-js) must call `.send()` on it to return control to RhoConnect.
+Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [js source adapter sample](../rhoconnect/source-adapters-js#sample-model) for a complete example.  As with the [controller API](source-adapter-controller-api-js), each function that accepts a [response object](source-adapter-response-api-js) must call `.send()` on it to return control to RhoConnect.
 
 ## login
 Login to your backend service (optional).
@@ -194,7 +194,7 @@ You can access your model's document data by with `getData` method. This will re
     });
 
 ## currentUser
-Returns the current user which called the adapter.  The current user is part of the [response object](/rhoconnectapi/source-adapter-response-api-js).  For example, you could filter results for a specific user in your query method.
+Returns the current user which called the adapter.  The current user is part of the [response object](source-adapter-response-api-js).  For example, you could filter results for a specific user in your query method.
 
     :::javascript
     this.query = function(resp){
@@ -224,7 +224,7 @@ The following example opens the file (contained in `resp.params.path`) if it exi
     };
 
 ## partitionName
-Use `partitionName` to define a custom data partition for your source adapter.  This is useful if you want groups of users to share data or you want to define some other kind of custom scoping.  See [this source adapter section](/rhoconnect/source-adapters#data-partitioning) for more details about RhoConnect data partitioning.
+Use `partitionName` to define a custom data partition for your source adapter.  This is useful if you want groups of users to share data or you want to define some other kind of custom scoping.  See [this source adapter section](../rhoconnect/source-adapters#data-partitioning) for more details about RhoConnect data partitioning.
 
     :::javascript
     this.partitionName = function(resp){

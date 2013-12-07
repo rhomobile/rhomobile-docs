@@ -16,7 +16,7 @@ If you want your device to vibrate when it receives a push message, enable vibra
 	capabilities:
 	  - vibrate #=> if you want to enable vibrate in your push messages
 
-Set up your application [rhoconfig.txt](/v/2.2/rhodes/configuration#run-time-configuration) syncserver to point to your RhoConnect server:
+Set up your application [rhoconfig.txt](../rhodes/configuration#run-time-configuration) syncserver to point to your RhoConnect server:
 
 	syncserver = 'http://<rhoconnect_server_url>/application'
 

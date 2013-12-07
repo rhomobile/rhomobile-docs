@@ -183,7 +183,7 @@ Plugin.xml contains a mapping between the plugin DLL names, the modules containe
 In order for RhoElements to function correctly it is necessary to preload some modules, this section details what those modules are and why they are necessary.  By default after a standard installation the Config.xml copied to the device will preload the necessary modules.
 
 ####Hourglass
-When you navigate between pages you would expect to be shown an illustration of a rotating cursor.  If the [Hourglass](/v/2.2/rhoelements/hourglass) module is not preloaded this cursor will not be shown.  
+When you navigate between pages you would expect to be shown an illustration of a rotating cursor.  If the [Hourglass](../rhoelements/hourglass) module is not preloaded this cursor will not be shown.  
 
 Note that the hourglass will be shown during page transitions if it is loaded by another means, e.g. calling:
     <META HTTP-Equiv="Hourglass" Content="Visibility:Visible" />
@@ -229,12 +229,12 @@ NOTE: Some javascript libraries may incorrectly think that RhoElements supports 
 Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.
 
 ####File Transfer
-The [File Transfer Plugin](/v/2.2/rhoelements/filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
+The [File Transfer Plugin](../rhoelements/filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
 
-[Signature Capture](/v/2.2/rhoelements/SignatureCapture) (PB_Signature_PLG.dll) requires File Transfer to transmit the signature bitmap file to a remote server via its 'Capture' method, without File Transfer the file will not be transferred and the signature bitmap will remain stored in the root of the device (by default).
+[Signature Capture](../rhoelements/SignatureCapture) (PB_Signature_PLG.dll) requires File Transfer to transmit the signature bitmap file to a remote server via its 'Capture' method, without File Transfer the file will not be transferred and the signature bitmap will remain stored in the root of the device (by default).
 
-The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](/v/2.2/rhoelements/backbutton), [Forward Button](/v/2.2/rhoelements/forwardbutton), [Go Button](/v/2.2/rhoelements/gobutton), [Home Button](/v/2.2/rhoelements/HomeButton), [Minimize Button](/v/2.2/rhoelements/minimizebutton), [Quit Button](/rhoelements/quitbutton), [Reload Button](/rhoelements/reloadbutton), [SIP Button](/rhoelements/sipbutton), [Stop Button](/v/2.2/rhoelements/stopbutton), [Bottom Command Area](/v/2.2/rhoelements/bottomcommandarea), [Top Command Area](/v/2.2/rhoelements/topcommandarea)
+The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](../rhoelements/backbutton), [Forward Button](../rhoelements/forwardbutton), [Go Button](../rhoelements/gobutton), [Home Button](../rhoelements/HomeButton), [Minimize Button](../rhoelements/minimizebutton), [Quit Button](/rhoelements/quitbutton), [Reload Button](/rhoelements/reloadbutton), [SIP Button](/rhoelements/sipbutton), [Stop Button](../rhoelements/stopbutton), [Bottom Command Area](../rhoelements/bottomcommandarea), [Top Command Area](../rhoelements/topcommandarea)
 
-The [Imager](/v/2.2/rhoelements/imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if you transmit the captured image to a remote server via the 'Capture' method.  Without File Transfer the file will not be transferred and the image will be stored by default in the root of the device, overwritten by each subsequent capture.
+The [Imager](../rhoelements/imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if you transmit the captured image to a remote server via the 'Capture' method.  Without File Transfer the file will not be transferred and the image will be stored by default in the root of the device, overwritten by each subsequent capture.
 
 

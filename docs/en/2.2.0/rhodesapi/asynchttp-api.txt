@@ -1,6 +1,6 @@
 # Rho::AsyncHttp API
 
-Asynchronously make calls to http services. For a discussion of connecting to web services, and for examples of AsyncHttp API methods, refer to [Connecting Directly to Web Services with Rhodes](/v/2.2/rhodes/connect-to-web-services).
+Asynchronously make calls to http services. For a discussion of connecting to web services, and for examples of AsyncHttp API methods, refer to [Connecting Directly to Web Services with Rhodes](../rhodes/connect-to-web-services).
 
 ## Using JavaScript API
 
@@ -11,7 +11,7 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
 	:::yaml
 	extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](/v/2.2/rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](../rhoelements/licensing) to use the JavaScript API.
 
 ## cancel
 
@@ -30,7 +30,7 @@ JavaScript syntax:
 
 Download a file to the specified filename.
 
-[Click for an example of download_file.](/v/2.2/rhodes/connect-to-web-services#asynchttp-download_file-ex)
+[Click for an example of download_file.](../rhodes/connect-to-web-services#asynchttp-download_file-ex)
 
 Ruby syntax:
 
@@ -68,7 +68,7 @@ JavaScript syntax:
 
 Perform an HTTP GET request to the specified URL.
 
-[Click for an example of get.](/v/2.2/rhodes/connect-to-web-services#asynchttp-get-ex)
+[Click for an example of get.](../rhodes/connect-to-web-services#asynchttp-get-ex)
 
 Ruby syntax:
 
@@ -106,7 +106,7 @@ JavaScript syntax:
 </tr>
 </table>
 
-The authentication parameter is a hash with parameters such as the following. [Click for an example of setting the authentication parameter in get.](/v/2.2/rhodes/connect-to-web-services#asynchttp-get-ex)
+The authentication parameter is a hash with parameters such as the following. [Click for an example of setting the authentication parameter in get.](../rhodes/connect-to-web-services#asynchttp-get-ex)
 
 <table border="1">
 <tr>
@@ -127,7 +127,7 @@ The authentication parameter is a hash with parameters such as the following. [C
 
 Perform HTTP POST request to the specified URL.
 
-[Click for an example of post.](/v/2.2/rhodes/connect-to-web-services#asynchttp-post-ex)
+[Click for an example of post.](../rhodes/connect-to-web-services#asynchttp-post-ex)
 
 Ruby syntax:
 
@@ -172,7 +172,7 @@ JavaScript syntax:
 </tr>
 </table>
 
-The authentication parameter is a hash with parameters such as the following. [Click for an example of setting the authentication parameter in get.](/v/2.2/rhodes/connect-to-web-services#asynchttp-get-ex)
+The authentication parameter is a hash with parameters such as the following. [Click for an example of setting the authentication parameter in get.](../rhodes/connect-to-web-services#asynchttp-get-ex)
 
 <table border="1">
 <tr>
@@ -193,7 +193,7 @@ The authentication parameter is a hash with parameters such as the following. [C
 
 Upload the specified file using HTTP POST.
 
-[Click for examples of upload_file.](/v/2.2/rhodes/connect-to-web-services#asynchttp-upload_file-ex)
+[Click for examples of upload_file.](../rhodes/connect-to-web-services#asynchttp-upload_file-ex)
 
 Ruby syntax:
 

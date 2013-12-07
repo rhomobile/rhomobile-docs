@@ -2,7 +2,7 @@
 
 Call on the WebView directly from your controller.
 
-Refer to [Rhodes Application User Interface](/v/2.2//rhodes/ui) for a general discussion of the Rhodes application user interface.
+Refer to [Rhodes Application User Interface](..//rhodes/ui) for a general discussion of the Rhodes application user interface.
 
 WebView does not support opening internet URLs required authentification. Use the [AsyncHTTP/AsyncHTTPS API](asynchttp-api) for access to URL required authentification.
 
@@ -74,7 +74,7 @@ Execute JavaScript on the current page from your controller. Supported on iPhone
 
 **NOTE: For most mobile platforms, WebView.execute_js has been implemented via redirection to URL with 'javascript:' schema. If WebView.execute_js used in an AJAX call handler method in the controller, it may lead to the situation where the *success* javascript handler will never be executed. This may happen because, at the moment of *success* handler should be executed, a URL of the page already has been changed. This means no handlers from the previous page are valid.**
 
-Refer to [Control WebView from controller actions](/v/2.2//rhodes/ui#control-webview-from-controller-actions) for an example.
+Refer to [Control WebView from controller actions](..//rhodes/ui#control-webview-from-controller-actions) for an example.
 
 <table border="1">
 <tr>

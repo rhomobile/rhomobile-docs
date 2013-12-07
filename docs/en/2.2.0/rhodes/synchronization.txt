@@ -1,13 +1,13 @@
 Synchronization with Rhodes
 ===
-As we've shown in the [Rhom section](rhom), adding synchronized data via [RhoConnect](/v/2.2/rhoconnect/introduction) to your Rhodes application is as simple as generating a model and enabling a `:sync` flag.  This triggers the internal Rhodes sync system called the **`SyncEngine`** to synchronize data for the model and transparently handle bi-directional updates between the Rhodes application and the RhoConnect server.
+As we've shown in the [Rhom section](rhom), adding synchronized data via [RhoConnect](../rhoconnect/introduction) to your Rhodes application is as simple as generating a model and enabling a `:sync` flag.  This triggers the internal Rhodes sync system called the **`SyncEngine`** to synchronize data for the model and transparently handle bi-directional updates between the Rhodes application and the RhoConnect server.
 
 Since version 4.0 SyncEngine API is available through 'rhoconnect-client' extension, which is bundled as part of RhoMobileSuite in 'rhoconnect-client' gem. All new-generated Rhodes applications will include rhoconnect-client extension by default. For existing applications that use SyncEngine API you should add 'rhoconnect-client' to the extensions section of build.yml.
 
 This section covers in detail how the `SyncEngine` works in Rhodes and how you can use its flexible APIs to build data-rich native applications.
 
 ## Sync Workflow
-The `SyncEngine` interacts with RhoConnect over http(s) using [JSON](http://www.json.org/) as a data exchange format.  With the exception of [bulk sync](/v/2.2/rhoconnect/bulk-sync), pages of synchronized data, or "sync pages" as we will refer to them here, are sent as JSON from RhoConnect to the `SyncEngine`.  
+The `SyncEngine` interacts with RhoConnect over http(s) using [JSON](http://www.json.org/) as a data exchange format.  With the exception of [bulk sync](../rhoconnect/bulk-sync), pages of synchronized data, or "sync pages" as we will refer to them here, are sent as JSON from RhoConnect to the `SyncEngine`.  
 
 Below is a simplified diagram of the `SyncEngine` workflow:
 
@@ -15,7 +15,7 @@ Below is a simplified diagram of the `SyncEngine` workflow:
 
 This workflow consists of the following steps:
 
-* `SyncEngine` sends authentication request to RhoConnect via [`SyncEngine.login`](#syncengine-api).  RhoConnect calls [`Application.authenticate`](/v/2.2/rhoconnect/authentication) with supplied credentials and returns `true` or `false`.
+* `SyncEngine` sends authentication request to RhoConnect via [`SyncEngine.login`](#syncengine-api).  RhoConnect calls [`Application.authenticate`](../rhoconnect/authentication) with supplied credentials and returns `true` or `false`.
 
 * If this is a new client (i.e. fresh install or reset), the `SyncEngine` will initialize with RhoConnect:
 
@@ -26,7 +26,7 @@ This workflow consists of the following steps:
 * `SyncEngine` requests sync pages from RhoConnect, one model(or [Rhom](rhom) model) at a time.  The order the models are synchronized is determined by the model's [`:sync_priority`](rhom#property-bag), or determined automatically by the `SyncEngine`.
 
 ## Sync Authentication
-When you generate a Rhodes application, you'll notice there is an included directory called `app/Settings`.  This contains a default `settings_controller.rb` and some views to manage authentication with [RhoConnect](/v/2.2/rhoconnect/introduction).
+When you generate a Rhodes application, you'll notice there is an included directory called `app/Settings`.  This contains a default `settings_controller.rb` and some views to manage authentication with [RhoConnect](../rhoconnect/introduction).
 
 ### `login`
 In `settings_controller.rb#do_login`, the `SyncEngine.login` method is called:
@@ -374,7 +374,7 @@ Next, in your controller action that displays the object(s), add the object noti
 The object notification callback receives three arrays of hashes: "deleted", "updated" and "created".  Each hash contains values for the keys "object" and "source_id" so you can display which records were changed.
 
 ## Binary Data and Blob Sync
-Synchronizing images or binary objects between RhoConnect and the `SyncEngine` is declared by having a 'blob attribute' on the [Rhom model](rhom).  Please see the [blob sync section](/v/2.2/rhoconnect/blob-sync) for more information.
+Synchronizing images or binary objects between RhoConnect and the `SyncEngine` is declared by having a 'blob attribute' on the [Rhom model](rhom).  Please see the [blob sync section](../rhoconnect/blob-sync) for more information.
 
 ## Filtering Datasets with Search
 If you have a large dataset in your backend service, you don't have to synchronize everything with the `SyncEngine`.  Instead you can filter the synchronized dataset using the `SyncEngine`'s `search` function.
@@ -466,7 +466,7 @@ If you want to stop or cancel the search, return "stop" in your callback:
 	  end
 	end
 	
-Finally, you will need to implement the `search` method in your source adapter.  See the [RhoConnect search method](/v/2.2/rhoconnect/source-adapters#source-adapter-api) for more details.
+Finally, you will need to implement the `search` method in your source adapter.  See the [RhoConnect search method](../rhoconnect/source-adapters#source-adapter-api) for more details.
 
 ## SyncEngine API
 Below is the full list of methods available on the `SyncEngine`:
@@ -581,7 +581,7 @@ Clears the sync notification for a given source id.
 * action - May be :retry - will push delete object operation to server again at next sync.
 
 ### `set_pollinterval(interval)`
-Update the `SyncEngine` poll interval. Setting this to 0 will disable polling-based sync.  However, you may still use [push-based-sync](/v/2.2/rhoconnect/push).
+Update the `SyncEngine` poll interval. Setting this to 0 will disable polling-based sync.  However, you may still use [push-based-sync](../rhoconnect/push).
 
 	:::ruby
 	SyncEngine.set_pollinterval(20)'

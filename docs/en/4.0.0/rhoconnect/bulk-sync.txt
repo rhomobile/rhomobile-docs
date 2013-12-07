@@ -8,7 +8,7 @@ If and when the Rhodes application issues a request to get bulk data, the RhoCon
 
 * Queue a [resque background job](http://github.com/defunkt/resque) which will run the bulk sync process.
 
-* Execute the ['login,'query','logoff' methods](/rhoconnect/source-adapters#source-adapter-api) of all source adapter models matching the [requested data partition](/rhoconnect/source-adapters#data-partitioning) to get latest set of objects from the backend service
+* Execute the ['login,'query','logoff' methods](source-adapters#source-adapter-api) of all source adapter models matching the [requested data partition](source-adapters#data-partitioning) to get latest set of objects from the backend service
 
 * Generate appropriate database files for the device. RhoConnect will generate sqlite files for iOS, Android, and Windows Mobile clients (if enabled).
  
@@ -92,12 +92,12 @@ For example, you can have a list of customers who have purchased a product, and 
         - :parent_id, 'Product'
         - :parent_id, 'Cases'
 
-Bulk Sync Associations are similar to [Rhom Sync Associations](/guide/rhom_ruby#associations) and both should be considered together
+Bulk Sync Associations are similar to [Rhom Sync Associations](../guide/rhom_ruby#associations) and both should be considered together
 if you are planning to use bulk sync data.
 
 ## Using Bulk Sync with Fixed Schema Models
 
-If your Rhom model is a [fixed schema model](/rhodes/rhom#fixed-schema) and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
+If your Rhom model is a [fixed schema model](../guide/local_database#fixed-schema-model) and you use bulk sync, you can control the bulk sync schema at runtime in your source adapter by implementing the 'schema' method.  
 
 **NOTE: This method must return a JSON string.  This JSON string is sent to the Rhodes application and used to dynamically build the database schema.**
 

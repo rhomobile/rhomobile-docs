@@ -20,7 +20,7 @@ In order for RhoElements to start with your web app, you need to configure RhoEl
 **NOTE: If you do not plan on [building native apps](rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Development Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
 
 
-After you [install Motorola RhoMobile Suite](/v/2.2/rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
+After you [install Motorola RhoMobile Suite](../rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
 * On Windows, you can find the RhoElements Runtimes in the Start Menu, under Motorola RhoMobile Suite.
 * On Macintosh, they are located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
@@ -241,7 +241,7 @@ The resulting `apk` file can be found in the RhoElements2 project `\bin\target f
 
 ### Deploying The Customized Runtime 
 
-To install your customized Runtime application on your specific device, go to the [build instructions](/v/2.2/rhodes/build) for your platform and use the instructions to deploy an application on your device.
+To install your customized Runtime application on your specific device, go to the [build instructions](../rhodes/build) for your platform and use the instructions to deploy an application on your device.
 
 NOTE: The runtime application <b>must</b> be installed to the primary disk partition on the Windows CE/Mobile device, i.e. it has to be installed to `\Program Files\RhoElements2` only.
 On Windows Mobile, the `Device` option must be selected when the installer asks for the location to install.
@@ -273,7 +273,7 @@ If you are planning on having local HTML files reside on the device and you are 
 ### Setting up the web server
 By default the local web server is switched off, you will need to manually enable and configure the server using the RhoElements configuration file.  See the [Configuration Settings help page](ConfigurationSettings) for the server options, specifically those under the &lt;WebServer&gt; hierarchy.
 
-**NOTE: This option is only available for Windows Mobile/CE. As an alternative you should consider building a native application. RhoElements [native applications](rhoelements2-native) have a built in web server that runs on all platforms. The HTML files could be placed in the /public folder of the native application folder and the application would use the [Webview API](/v/2.2/rhodesapi/webview-api) to load the initial starting html page.**
+**NOTE: This option is only available for Windows Mobile/CE. As an alternative you should consider building a native application. RhoElements [native applications](rhoelements2-native) have a built in web server that runs on all platforms. The HTML files could be placed in the /public folder of the native application folder and the application would use the [Webview API](../rhodesapi/webview-api) to load the initial starting html page.**
 
 Using the following example configuration:
 <ul>

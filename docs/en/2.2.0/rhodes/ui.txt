@@ -172,7 +172,7 @@ It should fix jQueryMobile rendering problems on Windows Phone 8.0 platform.
 
 #### White page flickering while transition
 
-See the note in [WebView.navigate](/v/2.2/rhodesapi/webview-api#navigate) to help avoid this issue.
+See the note in [WebView.navigate](../rhodesapi/webview-api#navigate) to help avoid this issue.
 
 #### How to make an AJAX call and update page elements
 When one need to update some information on the page without any transition an AJAX call may be performed this way:
@@ -211,7 +211,7 @@ To handle AJAX request a controller action method can return JSON object this wa
 
 #### Improper using of WebView.execute_js method
 
-Do not use WebView.execute_js to update some page elements. Refer to the documentation for [WebView.execute_js](/v/2.2/rhodesapi/webview-api#executejs) for details.
+Do not use WebView.execute_js to update some page elements. Refer to the documentation for [WebView.execute_js](../rhodesapi/webview-api#executejs) for details.
 
 ## Loading screen
 
@@ -298,19 +298,19 @@ Load from 'partials' folder:
 ## Control WebView from controller actions
 It is possible to call on the WebView (browser) directly from your controllers. This API is recommended for use from callbacks, such as sync callback or camera callbacks.
 
-**NOTE: WebView does not support opening internet URLs required authentification. Use the [AsyncHTTP/AsyncHTTPS API](/v/2.2/rhodesapi/asynchttp-api) for access to URL required authentification.**
+**NOTE: WebView does not support opening internet URLs required authentification. Use the [AsyncHTTP/AsyncHTTPS API](../rhodesapi/asynchttp-api) for access to URL required authentification.**
 
-You can use the following [WebView API methods](/v/2.2/rhodesapi/webview-api).
+You can use the following [WebView API methods](../rhodesapi/webview-api).
 
- * [refresh](/v/2.2/rhodesapi/webview-api#refresh) - Force WebView to refresh the current page.
- * [navigate](/v/2.2/rhodesapi/webview-api#navigate) - Force WebView to navigate to a URL.
-  * [navigate_back](/v/2.2/rhodesapi/webview-api#navigateback) - Force WebView to navigate to the previous page using Browser back.
- * [current_location](/v/2.2/rhodesapi/webview-api#currentlocation) - Returns the url (location) of the current page.
- * [execute_js](/v/2.2/rhodesapi/webview-api#executejs) - Execute JavaScript on the current page from your controller.
- * [active_tab](/v/2.2/rhodesapi/webview-api#activetab) - Returns an index of @tab array for the currently selected tab.
- * [full_screen_mode](/v/2.2/rhodesapi/webview-api#fullscreenmode) - Switch to/from full screen mode.
- * [set_cookie](/v/2.2/rhodesapi/webview-api#setcookie) - When WebView loads the specified url, it will add this cookie to the HTTP request.
- * [get_current_url](/v/2.2/rhodesapi/webview-api#getcurrenturl) - Returns the actual URL in WebView. This works the same as the JavaScript `window.location.href`.
+ * [refresh](../rhodesapi/webview-api#refresh) - Force WebView to refresh the current page.
+ * [navigate](../rhodesapi/webview-api#navigate) - Force WebView to navigate to a URL.
+  * [navigate_back](../rhodesapi/webview-api#navigateback) - Force WebView to navigate to the previous page using Browser back.
+ * [current_location](../rhodesapi/webview-api#currentlocation) - Returns the url (location) of the current page.
+ * [execute_js](../rhodesapi/webview-api#executejs) - Execute JavaScript on the current page from your controller.
+ * [active_tab](../rhodesapi/webview-api#activetab) - Returns an index of @tab array for the currently selected tab.
+ * [full_screen_mode](../rhodesapi/webview-api#fullscreenmode) - Switch to/from full screen mode.
+ * [set_cookie](../rhodesapi/webview-api#setcookie) - When WebView loads the specified url, it will add this cookie to the HTTP request.
+ * [get_current_url](../rhodesapi/webview-api#getcurrenturl) - Returns the actual URL in WebView. This works the same as the JavaScript `window.location.href`.
 
 Suppose that the current page has the following JavaScript method:
 	:::html
@@ -330,7 +330,7 @@ To call the test() function from your controller but for specified tab (if tab b
 	#call method test on the tab page 
 	WebView.execute_js("test();", index) 
 
-**NOTE: See [WebView.execute_js](/v/2.2/rhodesapi/webview-api#executejs) for details on possible issues with improper use of the execute_js method.**
+**NOTE: See [WebView.execute_js](../rhodesapi/webview-api#executejs) for details on possible issues with improper use of the execute_js method.**
 
 ### Sample
 See controller and view in the /app/Image folder of the [system API sample application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Image/controller.rb#L30) for some of the examples of how to use WebView in the callbacks.
@@ -560,10 +560,10 @@ To disable the toolbar entirely:
 
 ### Native Toolbar runtime API
 
-As mentioned above, with recent versions of Rhodes you can create/remove toolbars/tabbars in runtime, using the [Native Toolbar API](/v/2.2/rhodesapi/nativetoolbar-api).
+As mentioned above, with recent versions of Rhodes you can create/remove toolbars/tabbars in runtime, using the [Native Toolbar API](../rhodesapi/nativetoolbar-api).
 
- * [create](/v/2.2/rhodesapi/nativetoolbar-api#create) - creates a toolbar.
- * [remove](/v/2.2/rhodesapi/nativetoolbar-api#remove) - removes a toolbar.
+ * [create](../rhodesapi/nativetoolbar-api#create) - creates a toolbar.
+ * [remove](../rhodesapi/nativetoolbar-api#remove) - removes a toolbar.
 
 Toolbar elements:
 
@@ -691,15 +691,15 @@ You need to require rhotabbar in your controller to use the native tabbar.
 	:::ruby
 	require 'rho/rhotabbar'
 
-You can create/remove toolbars/tabbars in runtime, using the [Native Tabbar API](/v/2.2/rhodesapi/nativetabbar-api).
+You can create/remove toolbars/tabbars in runtime, using the [Native Tabbar API](../rhodesapi/nativetabbar-api).
 
- * [create](/v/2.2/rhodesapi/nativetabbar-api#create) - removes the current tabbar and replaces it with this one.
- * [create_vertical](/v/2.2/rhodesapi/nativetabbar-api#createvertical) - creates a vertical tabbar on the iPad, a regular tabbar on other platforms.
- * [get_current_tab](/v/2.2/rhodesapi/nativetabbar-api#getcurrenttab) - returns the current tab index.
- * [remove](/v/2.2/rhodesapi/nativetabbar-api#remove) - removes the current tabbar.
- * [set_tab_badge](/v/2.2/rhodesapi/nativetabbar-api#settabbadge) - set the iPhone badge to tab (only for iOS devices).
- * [switch_tab](/v/2.2/rhodesapi/nativetabbar-api#switchtab) - switch active tab to second.
- * [Tab Elements](/v/2.2/rhodesapi/nativetabbar-api#tab-elements) - Several of the NativeTabbar methods use a tabs parameter, which is a list of name/value pairs.
+ * [create](../rhodesapi/nativetabbar-api#create) - removes the current tabbar and replaces it with this one.
+ * [create_vertical](../rhodesapi/nativetabbar-api#createvertical) - creates a vertical tabbar on the iPad, a regular tabbar on other platforms.
+ * [get_current_tab](../rhodesapi/nativetabbar-api#getcurrenttab) - returns the current tab index.
+ * [remove](../rhodesapi/nativetabbar-api#remove) - removes the current tabbar.
+ * [set_tab_badge](../rhodesapi/nativetabbar-api#settabbadge) - set the iPhone badge to tab (only for iOS devices).
+ * [switch_tab](../rhodesapi/nativetabbar-api#switchtab) - switch active tab to second.
+ * [Tab Elements](../rhodesapi/nativetabbar-api#tab-elements) - Several of the NativeTabbar methods use a tabs parameter, which is a list of name/value pairs.
 
 Removes existing tabbar (if it exists) and create a new one.
 	:::ruby
@@ -782,11 +782,11 @@ __:right__ can be omitted. __:left__ and __:right__ described in [user defined m
 
 ## Date/Time picker
 
-Refer to the [Date/Time picker API](/v/2.2/rhodesapi/datetimepicker-api) for methods that allow the user to choose date or time.
+Refer to the [Date/Time picker API](../rhodesapi/datetimepicker-api) for methods that allow the user to choose date or time.
 
- * [choose](/v/2.2/rhodesapi/datetimepicker-api#choose) - Opens a window where the user can choose date and time.
- * [choose_with_range](/v/2.2/rhodesapi/datetimepicker-api#choosewithrange) - Opens a window where the user can choose date and time from a range.
- * [set_change_value_callback](/v/2.2/rhodesapi/datetimepicker-api#setchangevaluecallback) - set callback for listen "on change" event. If you want to set this callback, you should do it before each call of "choose" methods.
+ * [choose](../rhodesapi/datetimepicker-api#choose) - Opens a window where the user can choose date and time.
+ * [choose_with_range](../rhodesapi/datetimepicker-api#choosewithrange) - Opens a window where the user can choose date and time from a range.
+ * [set_change_value_callback](../rhodesapi/datetimepicker-api#setchangevaluecallback) - set callback for listen "on change" event. If you want to set this callback, you should do it before each call of "choose" methods.
 
 Data/Time Picker also can executed via AJAX call for set date/time without leaving the page.
 **NOTE: Currently implemented for Android, iPhone and Blackberry **

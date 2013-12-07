@@ -6,7 +6,7 @@ The metadata framework is a RhoConnect & Rhodes tool which provides synchronized
 In addition to adding/removing/updating fields, metadata also provides powerful features like handling field validations, data-binding, collections, repeatable elements, and much more.
 
 ## How Metadata Works
-* Metadata is first defined in a [source adapter](/rhoconnect/source-adapters) by implementing an adapter method `metadata` that returns a JSON structure. The JSON structure may contain a hash of hashes, as well as having child elements defined as arrays of hashes. The keys in each object can be any string, however there are some reserved labels and labels used by certain elements. 
+* Metadata is first defined in a [source adapter](source-adapters) by implementing an adapter method `metadata` that returns a JSON structure. The JSON structure may contain a hash of hashes, as well as having child elements defined as arrays of hashes. The keys in each object can be any string, however there are some reserved labels and labels used by certain elements. 
 
 * The metadata for an adapter is synchronized to Rhodes along with the rest of the adapter dataset.  Metadata is called before the query method in the [`SyncEngine` workflow](/rhodes/synchronization#syncengine-workflow), so you can tailor your query method based on metadata.
 
@@ -23,7 +23,7 @@ Then add `rhodes_translator` to your extensions in your Rhodes application's `bu
 	:::yaml
   	extensions: ["rhodes_translator"]
 
-Now define some metadata and add this to a `metadata` method your [source adapter model](/rhoconnect/source-adapters).  For example:
+Now define some metadata and add this to a `metadata` method your [source adapter model](source-adapters).  For example:
 
 	:::ruby
 	def metadata

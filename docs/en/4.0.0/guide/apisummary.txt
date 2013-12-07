@@ -327,31 +327,31 @@ The items listed above that are indicated with a <span class="icon-shopping-cart
 ## Using 2.2 API's in a 4.0 Application
 Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 4.x in order to supply both a Common API format in both JavaScript and Ruby.
 
-* [Mapview](/v/2.2/rhodesapi/mapview-api)
-* [Camera](/v/2.2/rhodesapi/camera-api/)
-* [Contacts](/v/2.2/rhodesapi/rhocontact-api)
+* [Mapview](../rhodesapi/mapview-api)
+* [Camera](../rhodesapi/camera-api/)
+* [Contacts](../rhodesapi/rhocontact-api)
 * Calendar
 * System.Process
-* [Registry](/v/2.2/rhoelements/registry)
-* [AudioCapture](/v/2.2/rhoelements/AudioCapture)
-* [Config](/v/2.2/rhodesapi/rhoconfig-api)
-* [GeoLocation](/v/2.2/rhodesapi/geolocation-api)
-* [Gesture](/v/2.2/rhoelements/Gesture)
+* [Registry](../rhoelements/registry)
+* [AudioCapture](../rhoelements/AudioCapture)
+* [Config](../rhodesapi/rhoconfig-api)
+* [GeoLocation](../rhodesapi/geolocation-api)
+* [Gesture](../rhoelements/Gesture)
 * Printing
-* Signature Capture - [RhoElements API](/v/2.2/rhoelements/SignatureCapture) &  [Rhodes API](/v/2.2/rhodesapi/signaturecapture-api)
-* [Systemtime](/v/2.2/rhoelements/systemTime)
-* [Comm](/v/2.2/rhoelements/comm)
-* [Addressbar](/v/2.2/rhoelements/addressbar)
-* [Alarm](/v/2.2/rhoelements/alarm)
-* [Bluetooth](/v/2.2/rhodesapi/bluetoothmanager-api)
-* [NFC](/v/2.2/rhodesapi/NFCManager-api)
-* [Timer](/v/2.2/rhodesapi/timer-api)
-* [Backlight](/v/2.2/rhoelements/backlight)
-* [Keylight](/v/2.2/rhoelements/Keylight)
-* [Memory](/v/2.2/rhoelements/memory)
-* [Reboot](/v/2.2/rhoelements/reboot)
+* Signature Capture - [RhoElements API](../rhoelements/SignatureCapture) &  [Rhodes API](../rhodesapi/signaturecapture-api)
+* [Systemtime](../rhoelements/systemTime)
+* [Comm](../rhoelements/comm)
+* [Addressbar](../rhoelements/addressbar)
+* [Alarm](../rhoelements/alarm)
+* [Bluetooth](../rhodesapi/bluetoothmanager-api)
+* [NFC](../rhodesapi/NFCManager-api)
+* [Timer](../rhodesapi/timer-api)
+* [Backlight](../rhoelements/backlight)
+* [Keylight](../rhoelements/Keylight)
+* [Memory](../rhoelements/memory)
+* [Reboot](../rhoelements/reboot)
 
-**NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](/v/2.2/rhoelements/apicompatibility) still applies.**
+**NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](../rhoelements/apicompatibility) still applies.**
 
 ### RhoElements 2.2 APIs
 The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.

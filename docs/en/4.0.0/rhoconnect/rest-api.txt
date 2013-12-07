@@ -391,7 +391,7 @@ Return attributes associated with a given source:
 * `query_queue` - name of query queue
 * `cud_queue` - name of CUD queue
 
-**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](/rhoconnect/async-jobs) if a queue name is defined.**
+**NOTE: query or create/update/delete methods of the source adapter will be executed [asynchronously](async-jobs) if a queue name is defined.**
 
 	:::ruby
 	attributes = RestClient.get("#{server}/rc/v1/sources/<source_id>", 
@@ -422,7 +422,7 @@ Updates attributes associated with a given source:
 
 	GET /rc/v1/clients/:client_id
 
-Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes are used by [RhoConnect push](/rhoconnect/push). 
+Returns client (device) attributes, such as `device_type`, `device_pin`, `device_port`. These attributes are used by [RhoConnect push](push). 
 
 	:::ruby
 	client_attributes = RestClient.get(
@@ -484,7 +484,7 @@ If `append` flag is set to `true` , the data is appended to the current doc (if 
 
 Push new objects or object updates to RhoConnect. These changes will be sent to the device the next time it synchronizes.
 
-**NOTE: you may use [ping](/rhoconnect/push) to notify client and trigger sync.**
+**NOTE: you may use [ping](push) to notify client and trigger sync.**
 
 	:::ruby
 	# list of objects in the canonical hash of hashes structure
@@ -514,7 +514,7 @@ in the `push_objects` parameters hash.**
 
 Delete objects from RhoConnect. These objects will be deleted from the device the next time it synchronizes.
 
-**NOTE: You may use [ping](/rhoconnect/push) to notify client and trigger sync.**
+**NOTE: You may use [ping](push) to notify client and trigger sync.**
 
 	:::ruby
 	# object_ids is an array of objects to be deleted
@@ -541,7 +541,7 @@ Push new objects to RhoConnect. Changes are inserted into the Redis set without 
 This way, the insert is very fast, but user must ensure that the object didn't exist before. No safeguards are implemented. 
 Use this method only when you can ensure the integrity of the data.
 
-**NOTE: you may use [ping](/rhoconnect/push) to notify client after the insert and trigger sync.**
+**NOTE: you may use [ping](push) to notify client after the insert and trigger sync.**
 
 	:::ruby
 	# list of objects in the canonical hash of hashes structure
@@ -566,7 +566,7 @@ Use this method only when you can ensure the integrity of the data.
 
 Push object updates to RhoConnect. This method doesn't involve pulling the existing data out of Redis. Instead it required user to provide the previous state of the data. This way, this method allows for very fast updates (since it just removes the previous data from set and adds new ones). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. previous state must exist, otherwise it won't be properly deleted). Also, this method can be used to perform fast appends and deletes for any of the object's attributes (However, you shouldn't use this method to remove all of the attributes, `fast_delete` should be used instead.)
 
-**NOTE: you may use [ping](/rhoconnect/push) to notify client after the update and trigger sync.**
+**NOTE: you may use [ping](push) to notify client after the update and trigger sync.**
 
 	:::ruby
 	# list of objects in the canonical hash of hashes structure
@@ -600,7 +600,7 @@ Push object updates to RhoConnect. This method doesn't involve pulling the exist
 
 Push object deletes to RhoConnect. This method doesn't involve pulling the existing data out of Redis and removing all of its attributes. Instead it requires the user to provide all of the object's data in the hash to be removed. This way, this method allows for very fast deletes (since it just removes the object's data from set). However, no data integrity checks are performed. Therefore, this method must be used only if user can ensure the integrity of the data (i.e. supply all of the object's data to be removed, otherwise some object's data will remain in Redis).
 
-**NOTE: you may use [ping](/rhoconnect/push) to notify client after the delete and trigger sync.**
+**NOTE: you may use [ping](push) to notify client after the delete and trigger sync.**
 
 	:::ruby
 	# list of objects in the canonical hash of hashes structure

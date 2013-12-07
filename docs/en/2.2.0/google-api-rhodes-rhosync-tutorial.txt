@@ -33,7 +33,7 @@ If you wish to create your own Rhodes/RhoSync for Google API purposes, you can g
 
 ## Creating the Rhodes/RhoSync Project in RhoHub
 
-The Issue Tracker project was created on RhoHub. Detailed instructions for setting up a RhoHub account and creating a RhoHub project are [here](/rhohub/tutorial).
+The Issue Tracker project was created on RhoHub. Detailed instructions for setting up a RhoHub account and creating a RhoHub project are [here](rhohub/tutorial).
 
 <img src="http://rhodocs.s3.amazonaws.com/google-api-rhodes-rhosync-tutorial/issue-tracker-rhohub.png" alt="Issue Tracker on RhoHub" /> 
 

@@ -120,64 +120,64 @@ In this model you will need to implement the functions necessary for the create,
 
 You can use the following methods and techniques inside of your source adapter controller.
 
-* [controllerName](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#controllernamename) - Name of the source adapter controller.
-* [registerHandler](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#registerhandlername) - Register a RhoConnect handler for the controller.
-* [get](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#getroute-options-callback) - Define a GET route.
-* [post](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#postroute-options-callback) - Define a POST route.
-* [put](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#putroute-options-callback) - Define a PUT route.
-* [del](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#delroute-options-callback) - Define a DELETE route.
-* [currentUser](/v/2.2/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
-* [loadModel](/v/2.2/rhoconnectapi/source-adapter-controller-api-js#loadmodelname) - Returns the current model instance for this controller.
+* [controllerName](../rhoconnectapi/source-adapter-controller-api-js#controllernamename) - Name of the source adapter controller.
+* [registerHandler](../rhoconnectapi/source-adapter-controller-api-js#registerhandlername) - Register a RhoConnect handler for the controller.
+* [get](../rhoconnectapi/source-adapter-controller-api-js#getroute-options-callback) - Define a GET route.
+* [post](../rhoconnectapi/source-adapter-controller-api-js#postroute-options-callback) - Define a POST route.
+* [put](../rhoconnectapi/source-adapter-controller-api-js#putroute-options-callback) - Define a PUT route.
+* [del](../rhoconnectapi/source-adapter-controller-api-js#delroute-options-callback) - Define a DELETE route.
+* [currentUser](../rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
+* [loadModel](../rhoconnectapi/source-adapter-controller-api-js#loadmodelname) - Returns the current model instance for this controller.
 
 ### Source Adapter Model API
 
 You can write the following methods for your source adapter model. These methods will be called by the controller at run-time and allow your source adapter model to interact with your backend service.
 
-* [login](/v/2.2/rhoconnectapi/source-adapter-model-api-js#login) - Login to your backend service.
-* [logoff](/v/2.2/rhoconnectapi/source-adapter-model-api-js#logoff) - Logoff from your backend service.
-* [query](/v/2.2/rhoconnectapi/source-adapter-model-api-js#query) - Query your backend service and build a hash of hashes.
-* [create](/v/2.2/rhoconnectapi/source-adapter-model-api-js#create) - Create a new record in the backend.
-* [update](/v/2.2/rhoconnectapi/source-adapter-model-api-js#update) - Update an existing record in the backend.
-* [del](/v/2.2/rhoconnectapi/source-adapter-model-api-js#del) - Delete an existing record in the backend.
-* [stashResult](/v/2.2/rhoconnectapi/source-adapter-model-api-js#stashresultresp) - Saves the current state of the result to redis and sets it `undefined`.
-* [getData](/v/2.2/rhoconnectapi/source-adapter-model-api-js#getdataresp-callback) - Get the model document data from Store.
-* [currentUser](/v/2.2/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
-* [storeBlob](/v/2.2/rhoconnectapi/source-adapter-model-api-js#storeblob) - Save the incoming blob data into permanent storage for the future processing.
-* [partitionName](/v/2.2/rhoconnectapi/source-adapter-model-api-js#partitionname) - Provide a custom user partition for a model.
+* [login](../rhoconnectapi/source-adapter-model-api-js#login) - Login to your backend service.
+* [logoff](../rhoconnectapi/source-adapter-model-api-js#logoff) - Logoff from your backend service.
+* [query](../rhoconnectapi/source-adapter-model-api-js#query) - Query your backend service and build a hash of hashes.
+* [create](../rhoconnectapi/source-adapter-model-api-js#create) - Create a new record in the backend.
+* [update](../rhoconnectapi/source-adapter-model-api-js#update) - Update an existing record in the backend.
+* [del](../rhoconnectapi/source-adapter-model-api-js#del) - Delete an existing record in the backend.
+* [stashResult](../rhoconnectapi/source-adapter-model-api-js#stashresultresp) - Saves the current state of the result to redis and sets it `undefined`.
+* [getData](../rhoconnectapi/source-adapter-model-api-js#getdataresp-callback) - Get the model document data from Store.
+* [currentUser](../rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
+* [storeBlob](../rhoconnectapi/source-adapter-model-api-js#storeblob) - Save the incoming blob data into permanent storage for the future processing.
+* [partitionName](../rhoconnectapi/source-adapter-model-api-js#partitionname) - Provide a custom user partition for a model.
 
 ### Request API
-The [request object](/v/2.2/rhoconnectapi/source-adapter-request-api-js) contains information about the HTTP request the app is receiving.
+The [request object](../rhoconnectapi/source-adapter-request-api-js) contains information about the HTTP request the app is receiving.
 
-* [params](/v/2.2/rhoconnectapi/source-adapter-request-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
-* [header](/v/2.2/rhoconnectapi/source-adapter-request-api-js#header) - HTTP request headers.
-* [model](/v/2.2/rhoconnectapi/source-adapter-request-api-js#model) - The corresponding model name of the request.
+* [params](../rhoconnectapi/source-adapter-request-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
+* [header](../rhoconnectapi/source-adapter-request-api-js#header) - HTTP request headers.
+* [model](../rhoconnectapi/source-adapter-request-api-js#model) - The corresponding model name of the request.
 
 ### Response API
-The [response](/v/2.2/rhoconnectapi/source-adapter-response-api-js) is used to pass application control and return the `result` hash to RhoConnect.
+The [response](../rhoconnectapi/source-adapter-response-api-js) is used to pass application control and return the `result` hash to RhoConnect.
 
-* [params](/v/2.2/rhoconnectapi/source-adapter-response-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
-* [header](/v/2.2/rhoconnectapi/source-adapter-response-api-js#header) - HTTP request headers.
-* [send](/v/2.2/rhoconnectapi/source-adapter-response-api-js#sendvalue) - Return program control (most controller and model methods will need to do this).
-* [exception](/v/2.2/rhoconnectapi/source-adapter-response-api-js#exception) - Holds the exception for the request (if one is raised).
-* [currentUser](/v/2.2/rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
+* [params](../rhoconnectapi/source-adapter-response-api-js#params) - Access in the incoming request parameters (i.e. from the HTTP query string).
+* [header](../rhoconnectapi/source-adapter-response-api-js#header) - HTTP request headers.
+* [send](../rhoconnectapi/source-adapter-response-api-js#sendvalue) - Return program control (most controller and model methods will need to do this).
+* [exception](../rhoconnectapi/source-adapter-response-api-js#exception) - Holds the exception for the request (if one is raised).
+* [currentUser](../rhoconnectapi/source-adapter-model-api-js#currentuser) - Returns the current user who called the adapter's model.
 
 ## Store API
-RhoConnect provides a simple [redis interface](/v/2.2/rhoconnectapi/source-adapter-store-api-js) for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
+RhoConnect provides a simple [redis interface](../rhoconnectapi/source-adapter-store-api-js) for saving/retrieving arbitrary data.  This is useful if you want to save data in your application to be used later (i.e. in an async job or a subsequent source adapter execution).
 
-* [getValue](/rhoconnectapi/source-adapter-store-api-js#getvaluerespcallback) - Retrieve a simple value from redis.
-* [putValue](/rhoconnectapi/source-adapter-store-api-js#putvaluerespcallback) - Add a simple value to redis.
-* [getData](/rhoconnectapi/source-adapter-store-api-js#getdatarespcallback) - Retrieve an array or hash from redis.
-* [putData](/rhoconnectapi/source-adapter-store-api-js#putdatarespcallback) - Add an array or hash to redis.
+* [getValue](../rhoconnectapi/source-adapter-store-api-js#getvaluerespcallback) - Retrieve a simple value from redis.
+* [putValue](../rhoconnectapi/source-adapter-store-api-js#putvaluerespcallback) - Add a simple value to redis.
+* [getData](../rhoconnectapi/source-adapter-store-api-js#getdatarespcallback) - Retrieve an array or hash from redis.
+* [putData](../rhoconnectapi/source-adapter-store-api-js#putdatarespcallback) - Add an array or hash to redis.
 
 ## Exception API
 Use the following exception types in your JavaScript application to handle any error conditions.  Don't worry, if your application throws an uncaught exception, the base `RhoConnect::Model::Exception` will automatically be used.
 
-* [Exception](/v/2.2/rhoconnectapi/source-adapter-exception-api-js#exceptionresponse-message) - Raise a `RhoConnect::Model::Exception`.
-* [LoginException](/v/2.2/rhoconnectapi/source-adapter-exception-api-js#loginexceptionresponse-message) - Raise a `RhoConnect::Model::LoginException`.
-* [LogoffException](/v/2.2/rhoconnectapi/source-adapter-exception-api-js#logoffexceptionresponse-message) - Raise a `RhoConnect::Model::LogoffException`.
-* [ServerTimeoutException](/v/2.2/rhoconnectapi/source-adapter-exception-api-js#servertimeoutexceptionresponse-message) - Raise a `RhoConnect::Model::ServerTimeoutException`.
-* [ServerErrorException](/v/2.2/rhoconnectapi/source-adapter-exception-api-js#servererrorexceptionresponse-message) - Raise a `RhoConnect::Model::ServerErrorException`.
-* [ObjectConflictErrorException](/v/2.2/rhoconnectapi/source-adapter-exception-api-js#objectconflicterrorexceptionresponse-message) - Raise a `RhoConnect::Model::ObjectConflictErrorException`.
+* [Exception](../rhoconnectapi/source-adapter-exception-api-js#exceptionresponse-message) - Raise a `RhoConnect::Model::Exception`.
+* [LoginException](../rhoconnectapi/source-adapter-exception-api-js#loginexceptionresponse-message) - Raise a `RhoConnect::Model::LoginException`.
+* [LogoffException](../rhoconnectapi/source-adapter-exception-api-js#logoffexceptionresponse-message) - Raise a `RhoConnect::Model::LogoffException`.
+* [ServerTimeoutException](../rhoconnectapi/source-adapter-exception-api-js#servertimeoutexceptionresponse-message) - Raise a `RhoConnect::Model::ServerTimeoutException`.
+* [ServerErrorException](../rhoconnectapi/source-adapter-exception-api-js#servererrorexceptionresponse-message) - Raise a `RhoConnect::Model::ServerErrorException`.
+* [ObjectConflictErrorException](../rhoconnectapi/source-adapter-exception-api-js#objectconflicterrorexceptionresponse-message) - Raise a `RhoConnect::Model::ObjectConflictErrorException`.
 
 
 ## Sample Model

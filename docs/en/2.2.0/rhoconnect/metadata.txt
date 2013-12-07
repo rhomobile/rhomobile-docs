@@ -8,7 +8,7 @@ In addition to adding/removing/updating fields, metadata also provides powerful 
 ## How Metadata Works
 * Metadata is first defined in a [source adapter](source-adapters) by implementing an adapter method `metadata` that returns a JSON structure. The JSON structure may contain a hash of hashes, as well as having child elements defined as arrays of hashes. The keys in each object can be any string, however there are some reserved labels and labels used by certain elements. 
 
-* The metadata for an adapter is synchronized to Rhodes along with the rest of the adapter dataset.  Metadata is called before the query method in the [`SyncEngine` workflow](/v/2.2/rhodes/synchronization#syncengine-workflow), so you can tailor your query method based on metadata.
+* The metadata for an adapter is synchronized to Rhodes along with the rest of the adapter dataset.  Metadata is called before the query method in the [`SyncEngine` workflow](../rhodes/synchronization#syncengine-workflow), so you can tailor your query method based on metadata.
 
 * Rhodes uses the synchronized [metadata definition](#metadata-definition) to render views at runtime.  These views are driven by the metadata definition, so when a new definition is synchronized, the views will automatically reflect the changes.
 

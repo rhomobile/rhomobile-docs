@@ -189,4 +189,4 @@ Now that your first application is ready to run, there are some other topics you
 
 * [Adding models](local_database)
 * [Application configuration](runtime_config)
-* Device capabilities like [Barcode](/api/barcode) or [Native UI Components](native_ui_elements)
+* Device capabilities like [Barcode](../api/barcode) or [Native UI Components](native_ui_elements)

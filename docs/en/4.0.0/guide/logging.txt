@@ -13,10 +13,10 @@ Call app_info and app_error from a method in your controller:
 
 There also is a logging Ruby class called RhoLog. This class has methods info and error which take 2 strings. The first string is the category, the second string is the message.
 
-The [Rho.Log API](/api/Log) has methods to print error messages. Click the links below for detailed information about the methods.
+The [Rho.Log API](../api/Log) has methods to print error messages. Click the links below for detailed information about the methods.
 
- * [info](/api/Log#minfo) - Print an information message in the rholog.txt file.
- * [error](/api/Log#merror) - Print an error message in the rholog.txt file. The message will have an “ERROR” prefix.
+ * [info](../api/Log#minfo) - Print an information message in the rholog.txt file.
+ * [error](../api/Log#merror) - Print an error message in the rholog.txt file. The message will have an “ERROR” prefix.
 
 Call the RhoLog error or info methods from a method in your Rhodes app:
 

@@ -48,14 +48,14 @@ For example: 37.3317° North, 122.0307° West;37.331689;-122.030731
 
 ### GeoLocation API
 
-Refer to the [GeoLocation API](/v/2.2/rhodesapi/geolocation-api) for the methods to access geolocation information from your device.
+Refer to the [GeoLocation API](../rhodesapi/geolocation-api) for the methods to access geolocation information from your device.
 
- * [latitude](/v/2.2/rhodesapi/geolocation-api#latitude) - Returns current latitude in degrees.
- * [longitude](/v/2.2/rhodesapi/geolocation-api#longitude) - Returns current longitude in degrees.
- * [known_position?, is_known_position](/v/2.2/rhodesapi/geolocation-api#knownposition-isknownposition) - Returns true if the location system is up and running, false otherwise, null if this feature is not supported on the device platform.
- * [set_notification}(/v/2.2/rhodesapi/geolocation-api#setnotification) - Set callback to track location changes.
- * [haversine_distance](/v/2.2/rhodesapi/geolocation-api#haversinedistance) - Returns the distance between two points in miles.
- * [turnoff](/v/2.2/rhodesapi/geolocation-api#turnoff) - Turn off GeoLocation.
+ * [latitude](../rhodesapi/geolocation-api#latitude) - Returns current latitude in degrees.
+ * [longitude](../rhodesapi/geolocation-api#longitude) - Returns current longitude in degrees.
+ * [known_position?, is_known_position](../rhodesapi/geolocation-api#knownposition-isknownposition) - Returns true if the location system is up and running, false otherwise, null if this feature is not supported on the device platform.
+ * [set_notification}(../rhodesapi/geolocation-api#setnotification) - Set callback to track location changes.
+ * [haversine_distance](../rhodesapi/geolocation-api#haversinedistance) - Returns the distance between two points in miles.
+ * [turnoff](../rhodesapi/geolocation-api#turnoff) - Turn off GeoLocation.
 
 GeoCoding: You can use any free web service for direct and reverse geocoding. See our complete example of using Google geocoding web service in [Rhodes-System-Api-Samples example](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/GeoCoding).
 

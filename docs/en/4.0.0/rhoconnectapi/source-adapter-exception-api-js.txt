@@ -1,6 +1,6 @@
 Source Adapter Exception API (JavaScript)
 ===
-Exception types in JavaScript source adapters are mapped to their ruby equivalent.  See the [ruby exception section](/rhoconnect/source-adapters#handling-exceptions) for more details about these exception types.
+Exception types in JavaScript source adapters are mapped to their ruby equivalent.  See the [ruby exception section](../rhoconnect/source-adapters#handling-exceptions) for more details about these exception types.
 
 ## Setup
 Make sure you have a Rhoconnect Helpers object in your model:
@@ -39,7 +39,7 @@ Raise an exception concerning the backend service.
     new rc.ServerErrorException(resp, 'An error occurred with our systems, please try again.');
 
 ## ObjectConflictErrorException(response, message)
-Raise a [conflict exception](/rhoconnect/cud-conflicts) to indicate there was a conflict in handling the record. This will trigger RhoConnect's automatic processing for conflicts.
+Raise a [conflict exception](../rhoconnect/cud-conflicts) to indicate there was a conflict in handling the record. This will trigger RhoConnect's automatic processing for conflicts.
 
     :::javascript
     new rc.ObjectConflictErrorException(
@@ -48,7 +48,7 @@ Raise a [conflict exception](/rhoconnect/cud-conflicts) to indicate there was a 
 
 
 ## Sample
-The following example raises a `ServerErrorException` in the [delete function](/rhoconnectapi/source-adapter-model-api-js#del) if the record was not successfully deleted.
+The following example raises a `ServerErrorException` in the [delete function](source-adapter-model-api-js#del) if the record was not successfully deleted.
 
     :::javascript
     this.del = function(resp){

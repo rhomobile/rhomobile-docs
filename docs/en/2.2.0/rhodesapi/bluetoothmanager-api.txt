@@ -1,6 +1,6 @@
 # Rho::BluetoothManager API
 
-Makes a connection between your Bluetooth-equipped device and another Bluetooth-equipped device. [Click for a short example of using bluetooth](/v/2.2/rhodes/device-caps#bluetooth-ex), or here for [Rhodes-System-Api-Samples – BluetoothChat](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BluetoothChat/).
+Makes a connection between your Bluetooth-equipped device and another Bluetooth-equipped device. [Click for a short example of using bluetooth](../rhodes/device-caps#bluetooth-ex), or here for [Rhodes-System-Api-Samples – BluetoothChat](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BluetoothChat/).
 
 ## Enabling Bluetooth
 

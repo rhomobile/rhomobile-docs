@@ -4,7 +4,7 @@ RhoSimulator allows to [run](#run-application-in-rhosimulator) Rhodes applicatio
 
 ## Install RhoSimulator
 
-If you have [Rhodes gem](/install#installing-rhodes-from-the-command-line), then RhoSimulator is installed already.
+If you have the [Rhodes gem](install#installing-rhodes-from-the-command-line), then RhoSimulator is installed already.
 
 If you would like to run RhoSimulator without Rhodes gem, download [Windows](http://rhosimulator.s3.amazonaws.com/RhoSimulator.zip) or
 [Mac OS X](http://rhosimulator.s3.amazonaws.com/RhoSimulator.tbz2) version, extract it and specify path to `rhosimulator.exe` or `RhoSimulator.app` respectively at `rhodes/rhobuild.yml`:
@@ -39,7 +39,7 @@ The restart of RhoSimulator is required only if a model was added/modified or so
 
 ### Prerequisites
 
-* Install [RhoStudio](/v/2.2/rhostudio.tutorial)
+* Install [RhoStudio](../rhostudio.tutorial)
 * Install [RhoSimulator](#install-rhosimulator)
 * Ensure your application is configured properly and successfully [runs in RhoSimulator](#run-application-in-rhosimulator) (from command line as described above)
 
