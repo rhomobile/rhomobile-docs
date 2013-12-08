@@ -14,9 +14,9 @@ class Api
   	# 		puts 'using alias'
   	# 	end
   	# end
-  	if md == 'SignalIndicators'
-  		md = 'Signal'
-  	end
+  	# if md == 'SignalIndicators'
+  	# 	md = 'Signal'
+  	# end
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
   	# }
