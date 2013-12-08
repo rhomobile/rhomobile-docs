@@ -23,53 +23,53 @@ These can be build from <rhoconnect-client>/rhoconnect-client directory with nex
 
 * Load native library before any RhoConnect client usage. Example of appropriate place to do so is Android application's onCreate method
 
-	:::java
-	
-	import android.app.Application;
-	public class SampleApplication extends Application
-	{
-		public void onCreate() {
-			System.loadLibrary("rhoconnectclient");
-		}
-	}
+      :::java
+
+      import android.app.Application;
+      public class SampleApplication extends Application
+      {
+          public void onCreate() {
+              System.loadLibrary("rhoconnectclient");
+          }
+      }
 
 * Configure and initialize RhoConnect library. Example of appropriate place to do so is main Activity onCreate method
 
 * Login to RhoConnect server
 
-	:::cplusplus
-	public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.main);
-	
-	    ApplicationInfo appInfo = getApplicationInfo();
-	
-	    try {
-	        RhoFileApi.initRootPath(appInfo.dataDir, appInfo.sourceDir);
-	        RhoFileApi.init(this.getApplicationContext());
-	
-	        RhoLogConf.setMinSeverity(0);
-	        RhoLogConf.setEnabledCategories("*");
-	
-	        RhoConnectClient.nativeInit();
-	    } catch (Exception e) {
-	        Logger.E(TAG, e.getMessage());
-	    }
-	    mSyncClient = new RhoConnectClient();
-	    mModels = new RhomModel[]{
-	            new RhomModel("Customer", RhomModel.SYNC_TYPE_INCREMENTAL),
-	            new RhomModel("Product", RhomModel.SYNC_TYPE_INCREMENTAL)
-	        };
-	    mSyncClient.initialize(mModels);
-	    mSyncClient.setPollInterval(0);
-	    mSyncClient.setSyncServer("http://rhodes-store-server.heroku.com/application");
-	    mSyncClient.setBulkSyncState(1);
-	    mSyncClient.loginWithUserAsync("", "", new RhoConnectNotify.IDelegate() {
-	        public void call(RhoConnectNotify notify) { onLogin(notify); } });
-	}
-	public void onLogin(RhoConnectNotify notify) {
-	    // Handle login event
-	}
+      :::cplusplus
+      public void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.main);
+      
+          ApplicationInfo appInfo = getApplicationInfo();
+      
+          try {
+              RhoFileApi.initRootPath(appInfo.dataDir, appInfo.sourceDir);
+              RhoFileApi.init(this.getApplicationContext());
+      
+              RhoLogConf.setMinSeverity(0);
+              RhoLogConf.setEnabledCategories("*");
+      
+              RhoConnectClient.nativeInit();
+          } catch (Exception e) {
+              Logger.E(TAG, e.getMessage());
+          }
+          mSyncClient = new RhoConnectClient();
+          mModels = new RhomModel[]{
+                  new RhomModel("Customer", RhomModel.SYNC_TYPE_INCREMENTAL),
+                  new RhomModel("Product", RhomModel.SYNC_TYPE_INCREMENTAL)
+              };
+          mSyncClient.initialize(mModels);
+          mSyncClient.setPollInterval(0);
+          mSyncClient.setSyncServer("http://rhodes-store-server.heroku.com/application");
+          mSyncClient.setBulkSyncState(1);
+          mSyncClient.loginWithUserAsync("", "", new RhoConnectNotify.IDelegate() {
+              public void call(RhoConnectNotify notify) { onLogin(notify); } });
+      }
+      public void onLogin(RhoConnectNotify notify) {
+          // Handle login event
+      }
 
 Note: RhoConnect callbacks (like passed to RhoConnectClient.loginWithUserAsync method in example above) may and most possibly will be called from another thread. It is up to application developer to care about synchronizing or forwarding call to an appropriate thread like GUI thread or Service thread. 
 
@@ -82,57 +82,57 @@ Also several utility classes from com.rhomobile.rhodes package can be used. Thes
 
 ### RhoConnectClient
 
-	:::cplusplus
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectClient{
         /// Call this method before create and use the client. It sets up directory structure and makes necessary native library initialization.
-    	public static native void nativeInit();
+        public static native void nativeInit();
         /// Creates instance of RhoConnectClient singlethon (yes, it's only one instance of RhoConnectClient allowed).
-	    public RhoConnectClient();
+        public RhoConnectClient();
         /// Call this method to close network connections and release any resources gracefully
-    	public synchronized void close();
-	    /// Makes db models initialization. This call must be made just after RhoConnectClient construction and before any other calls to RhoConnectClient object.
-	    public native void initialize(RhomModel models[]);
-        /// Sets up server URL to sync (RhoConnect server)	
-    	public native void setSyncServer(String url);
+        public synchronized void close();
+        /// Makes db models initialization. This call must be made just after RhoConnectClient construction and before any other calls to RhoConnectClient object.
+        public native void initialize(RhomModel models[]);
+        /// Sets up server URL to sync (RhoConnect server)  
+        public native void setSyncServer(String url);
         /// Forces synchronous or asynchronous RhoConnectClient mode
         /// true - asynchronous mode (default)
         /// false - synchronous mode
-	    public native void setThreadedMode(boolean mode);
+        public native void setThreadedMode(boolean mode);
         /// Sets/gets auto sync interval. 0 - disable auto sync
-    	public native void setPollInterval(int interval);
-	    public native int getPollInterval();
+        public native void setPollInterval(int interval);
+        public native int getPollInterval();
         ///
-    	public native void setBulkSyncState(int state);
-	    public native int getBulkSyncState();
+        public native void setBulkSyncState(int state);
+        public native int getBulkSyncState();
         /// Set get various configuration parameters.
-	    public native void setConfigString(String name, String param);
-	    public native String getConfigString(String name);
+        public native void setConfigString(String name, String param);
+        public native String getConfigString(String name);
         /// Reset all data for all models in local database, also perform logout
-    	public native void databaseFullResetAndLogout();
+        public native void databaseFullResetAndLogout();
         /// Checks does login session exists in the database
         public native boolean isLoggedIn();
-	    /// Logins to RhoConnect server and keep login session in database
-    	public native RhoConnectNotify loginWithUserSync(String user, String pass);
-	    /// Logins to RhoConnect server and keep login session in database.
+        /// Logins to RhoConnect server and keep login session in database
+        public native RhoConnectNotify loginWithUserSync(String user, String pass);
+        /// Logins to RhoConnect server and keep login session in database.
         /// callback will be called when operation has finished.
-    	public native void loginWithUserAsync(String user, String pass, RhoConnectNotify.IDelegate callback);
+        public native void loginWithUserAsync(String user, String pass, RhoConnectNotify.IDelegate callback);
         /// Runs sync of all models
-    	public native RhoConnectNotify syncAll();
+        public native RhoConnectNotify syncAll();
     }
 
 ### RhomModel
 
-	:::cplusplus
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhomModel {
         /// Possible model types
-    	public final static int MODEL_TYPE_PROPERTY_BAG = 0;
-    	public final static int MODEL_TYPE_FIXED_SCHEMA = 1;
+        public final static int MODEL_TYPE_PROPERTY_BAG = 0;
+        public final static int MODEL_TYPE_FIXED_SCHEMA = 1;
         /// Possible sync types
-    	public final static int SYNC_TYPE_NONE = 0;
-    	public final static int SYNC_TYPE_INCREMENTAL = 1;
-    	public final static int SYNC_TYPE_BULK_ONLY = 2;
+        public final static int SYNC_TYPE_NONE = 0;
+        public final static int SYNC_TYPE_INCREMENTAL = 1;
+        public final static int SYNC_TYPE_BULK_ONLY = 2;
         /// Constructor        
         public RhomModel(String name, int syncType);
         /// Returns the model name    
@@ -153,66 +153,66 @@ Also several utility classes from com.rhomobile.rhodes package can be used. Thes
         public String getPartition() { return mPartition; }
         /// Sets the model partition
         public void setPartition(String part) { mPartition = part; }
-	    /// Runs sync of the model
-	    public RhoConnectNotify sync();
+        /// Runs sync of the model
+        public RhoConnectNotify sync();
         /// Creates model object with properties and save to database, object id will be generated automatically if not set
-    	public void create(Map<String, String> props);
+        public void create(Map<String, String> props);
         /// Finds object by object id
-    	public Map<String, String> find(String objectId)
-    	/// Saves changes to existing object
+        public Map<String, String> find(String objectId)
+        /// Saves changes to existing object
         public void save(Map<String, String> item);
         /// Destroys existing object
-    	public void destroy(Map<String, String> item) {
+        public void destroy(Map<String, String> item) {
 
-    	// Returns first object which matches the condition
+        // Returns first object which matches the condition
         public Map<String, String> findFirst(Map<String, String> condition);
-    	// Returns all objects which matched the condition
-	    public Collection<Map<String, String> > findAll(Map<String, String> condition);
+        // Returns all objects which matched the condition
+        public Collection<Map<String, String> > findAll(Map<String, String> condition);
 
-    	public void startBulkUpdate();
-    	public void stopBulkUpdate();
+        public void startBulkUpdate();
+        public void stopBulkUpdate();
     }
 
 #### RhoConnectNotify
 
-	:::cplusplus
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public class RhoConnectNotify {
-    	public int getTotalCount() { return mTotalCount; }
-    	public int getProcessedCount() { return mProcessedCount; }
-    	public int getCumulativeCount() { return mCumulativeCount; }
-    	public int getSourceId() { return mSourceId; }
-    	public int getErrorCode() { return mErrorCode; }
-    	public String getSourceName() { return mSourceName; }
-    	public String getStatus() { return mStatus; }
-    	public String getSyncType() { return mSyncType; }
+        public int getTotalCount() { return mTotalCount; }
+        public int getProcessedCount() { return mProcessedCount; }
+        public int getCumulativeCount() { return mCumulativeCount; }
+        public int getSourceId() { return mSourceId; }
+        public int getErrorCode() { return mErrorCode; }
+        public String getSourceName() { return mSourceName; }
+        public String getStatus() { return mStatus; }
+        public String getSyncType() { return mSyncType; }
         public String getErrorMessage()
-    	public String getCallbackParams() { return mParams; }
-        ///	Developer need to implement and pass reference to this interface
+        public String getCallbackParams() { return mParams; }
+        /// Developer need to implement and pass reference to this interface
         /// in order to get call back when asynchronous operation has completed
-	    public static interface IDelegate {
-		    public void call(RhoConnectNotify notify); 
-	    }
+        public static interface IDelegate {
+            public void call(RhoConnectNotify notify); 
+        }
     }
 
 #### RhoConnectObjectNotyfy
 
-	:::cplusplus
+    :::cplusplus
     package com.rhomobile.rhoconnect;
     public interface RhoConnectObjectNotify {
-    	public String[] getDeletedObjects();
-    	public String[] getUpdatedObjects();
-    	public String[] getCreatedObjects();
+        public String[] getDeletedObjects();
+        public String[] getUpdatedObjects();
+        public String[] getCreatedObjects();
     
-    	public int[] getDeletedSourceIds();
-    	public int[] getUpdatedSourceIds();
-    	public int[] getCreatedSourceIds();
+        public int[] getDeletedSourceIds();
+        public int[] getUpdatedSourceIds();
+        public int[] getCreatedSourceIds();
 
-        ///	Developer need to implement and pass reference to this interface
+        /// Developer need to implement and pass reference to this interface
         /// in order to get call back when objects are created, updated or destroyed at sync server
-    	public static interface IDelegate {
-    		public void call(RhoConnectObjectNotify notify); 
-    	}
+        public static interface IDelegate {
+            public void call(RhoConnectObjectNotify notify); 
+        }
     }
 
 ### Samples
@@ -223,8 +223,8 @@ Also several utility classes from com.rhomobile.rhodes package can be used. Thes
 ## Packaging RhoConnect Client
 To package the RhoConnect Client archive for distribution, go to the top of the rhodes repository and run:
 
-	:::term
-  	$ rake build:rhoconnect_client
+    :::term
+    $ rake build:rhoconnect_client
 
 This will produce a zipfile in the folder called `rhoconnect-client-<someversion>.zip` where `<someversion>` is the version of the client.
 
