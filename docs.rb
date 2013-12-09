@@ -88,6 +88,22 @@ class Docs < Sinatra::Base
     end
   end
 
+  ['/'].each do |path|
+     get path do
+      puts ENV["RACK_ENV"]
+      @title = "Home"
+      @print = 0
+      if ENV["RACK_ENV"] != 'production'
+        redirect "en/edge"
+      else
+        @docversion = nil
+      end        
+      @docversion = params[:vnum]
+      cache_long
+      erb :index
+    end
+  end
+
   ['/', '/home', '/en/:vnum', '/en/:vnum/home'].each do |path|
     get path do
       @title = "Home"
