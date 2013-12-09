@@ -81,12 +81,15 @@ NOTE: It is a good idea to install Windows Mobile 6 Professional last, since it 
 
 ### Prerequisites
 
-* Visual Studio 2012 (or 2008)
-* Install [Qt libraries 5.1.1 for Visual Studio 2012](http://download.qt-project.org/official_releases/qt/5.1/5.1.1/qt-windows-opensource-5.1.1-msvc2012-x86-offline.exe) - 511 MB (or [Qt libraries 4.8.5 for Visual Studio 2008](http://download.qt-project.org/official_releases/qt/4.8/4.8.5/qt-win-opensource-4.8.5-vs2008.exe) - 235 MB)
+* Visual Studio 2012 (or 2008 SP1)
+  * Make sure that `VS110COMNTOOLS` (or `VS90COMNTOOLS`) environment variable is defined and points to the correct location, e.g. to `C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools`
+
+* Install [Qt libraries 5.1.1 for Visual Studio 2012](http://download.qt-project.org/official_releases/qt/5.1/5.1.1/qt-windows-opensource-5.1.1-msvc2012-x86-offline.exe) - 511 MB (or [build Qt libraries 5.1.1 for Visual Studio 2008](build_win#build-qt5-for-vs2008))
+  * Qt libraries for Visual Studio 2012 binary package is incompatible with Windows XP, so if you need Windows XP compatibility, you should <a href="build_win#build-for-windows-https">follow these instructions</a> to build XP-compatible binaries.
+
 * Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\Qt5\5.1.1\msvc2012`
 
 NOTE: If your application uses HTTPS protocol, then you need to build Qt libraries with OpenSSL (see <a href="build_win#build-for-windows-https">instructions</a>).
-NOTE: Qt libraries for Visual Studio 2012 binary package is incompatible with Windows XP, so if you need Windows XP compatibility, you should <a href="build_win#build-for-windows-https">follow these instructions</a> to build XP-compatible binaries.
 
 
 ## Setup for Windows Phone 8
