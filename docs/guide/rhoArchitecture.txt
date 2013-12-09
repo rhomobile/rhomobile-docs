@@ -12,6 +12,7 @@ NOTE: Please review Release notes that accompany the software for further remark
 
 ## Validated MSI Hardware
 <a name="_motdevices"></a>
+NOTE: All devices listed below were validated using the latest version of their respective operating systems (BSPs). Functionality on older OS versions may vary.
 
 ### Mobile Terminals 
 ET1, ET1 (Gingerbread/JellyBean), ES400, MC2100, MC2180, MC3000, MC3090, MC3090Z (RFID), MC3100, MC3100(R/S), MC3190(R/S/G), MC40 (JellyBean), MC45, MC5574, MC5590, MC55A0, MC55N0, MC659B, MC67, MC7004, MC7090, MC7094, MC7095, MC7506, MC7598, MC7596, MC75A0, MC75A6, MC75A8,MC9090, MC9097, MC9094, MC9190-G, MC92N0, MC9590, MC9596, MC9598, MC959B (WM 6.1), 
