@@ -21,8 +21,8 @@ end
 desc 'Index documentation'
 task :index do
   puts "indexing now:"
-  # client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
-  # index = client.indexes(AppConfig['index'])
+  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  index = client.indexes(AppConfig['index'])
  
 
   # index.delete rescue nil
