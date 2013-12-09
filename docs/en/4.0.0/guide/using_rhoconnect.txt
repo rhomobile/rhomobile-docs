@@ -14,6 +14,25 @@ Before you can make use of RhoConnectClient on the device, you need to include t
 
 This extension is added to all newly generated RhoMobile applications by default. If it is missing in yours, you can add it manually.
 
+## Sync Workflow
+The `SyncEngine` interacts with RhoConnect over http(s) using [JSON](http://www.json.org/) as a data exchange format.  With the exception of [bulk sync](../rhoconnect/bulk-sync), pages of synchronized data, or "sync pages" as we will refer to them here, are sent as JSON from RhoConnect to the `SyncEngine`.  
+
+Below is a simplified diagram of the `SyncEngine` workflow:
+
+<img src="https://s3.amazonaws.com/rhodocs/rhoconnect/using-rhoconnect/sync_workflow.png"/>
+
+This workflow consists of the following steps:
+
+* `SyncEngine` sends authentication request to RhoConnect via [`SyncEngine.login`](#syncengine-api).  RhoConnect calls [`Application.authenticate`](../rhoconnect/authentication) with supplied credentials and returns `true` or `false`.
+
+* If this is a new client (i.e. fresh install or reset), the `SyncEngine` will initialize with RhoConnect:
+
+    * It requests a new unique id (client id) from RhoConnect.  This id will be referenced throughout the sync process.
+
+    * It will register platform information with RhoConnect.  If this is a [push-enabled application](device-caps#push-notifications) application, the `SyncEngine` will send additional information like device push pin.
+
+* `SyncEngine` requests sync pages from RhoConnect, one model(or [Rhom](rhom) model) at a time.  The order the models are synchronized is determined by the model's [`:sync_priority`](rhom#property-bag), or determined automatically by the `SyncEngine`.
+
 ## Authenticating
 
 The first step in making use of RhoConnect is to authenticate with the RhoConnect server using the [RhoConnectClient.login](../api/RhoConnectClient#mlogin) method.

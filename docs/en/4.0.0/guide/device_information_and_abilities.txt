@@ -279,7 +279,7 @@ To access bluetooth functions in your application, you need to enable the blueto
     capabilities:
         - bluetooth
 
-Then you can use the [BluetoothManager API](../rhodesapi/bluetoothmanager-api) `is_bluetooth_available` method to check if Bluetooth is available on the device
+Then you can use the [BluetoothManager API](../../2.2.0/rhodesapi/bluetoothmanager-api) `is_bluetooth_available` method to check if Bluetooth is available on the device
 
 Ruby syntax:
     :::ruby

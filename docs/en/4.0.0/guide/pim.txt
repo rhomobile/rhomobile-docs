@@ -12,14 +12,14 @@ To allow read/modify personal information and contacts enable the pim capability
 
 ### PIM Contacts API
 
-Refer to the [PIM Contacts API](../rhodesapi/rhocontact-api) methods to perform the following functionality.
+Refer to the [PIM Contacts API](../../2.2.0/rhodesapi/rhocontact-api) methods to perform the following functionality.
 
- * [find](../rhodesapi/rhocontact-api#find) - Returns the contacts in the device phone book.
- * [create!](../rhodesapi/rhocontact-api#create) - Create a new contact in the phonebook.
- * [destroy](../rhodesapi/rhocontact-api#destroy) - Delete this contact from the phonebook.
- * [update_attributes](../rhodesapi/rhocontact-api#updateattributes) - Find a contact in the phonebook and update its properties.
+ * [find](../../2.2.0/rhodesapi/rhocontact-api#find) - Returns the contacts in the device phone book.
+ * [create!](../../2.2.0/rhodesapi/rhocontact-api#create) - Create a new contact in the phonebook.
+ * [destroy](../../2.2.0/rhodesapi/rhocontact-api#destroy) - Delete this contact from the phonebook.
+ * [update_attributes](../../2.2.0/rhodesapi/rhocontact-api#updateattributes) - Find a contact in the phonebook and update its properties.
 
-The [Contact Properties](../rhodesapi/rhocontact-api#contact-properties) lists the contact properties that are supported for all platforms, and additional contact properties supported on Android and iOS.
+The [Contact Properties](../../2.2.0/rhodesapi/rhocontact-api#contact-properties) lists the contact properties that are supported for all platforms, and additional contact properties supported on Android and iOS.
 
 Example of returning a hash of hashes of all the contacts stored in the phonebook (index):
 
@@ -60,13 +60,13 @@ Example of finding with conditions:
 For examples on how to use the API provided by this class, see the view and controller in the /app/Contacts folder in the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Contacts/controller.rb).
 
 ## PIM Calendar/Events
-Rhodes provides access to the device's local calendar and stored events via the [Ruby class RhoEvent](../rhodesapi/rhoevent-api). Click the links below for detailed information about the methods.
+Rhodes provides access to the device's local calendar and stored events via the [Ruby class RhoEvent](../../2.2.0/rhodesapi/rhoevent-api). Click the links below for detailed information about the methods.
 
- * [find](../rhodesapi/rhoevent-api#find) - Returns the events in the device calendar.
- * [create!](../rhodesapi/rhoevent-api#create) - Creates a new event in the calendar. Returns a hash of the properties in the event.
- * [update_attributes](../rhodesapi/rhoevent-api#updateattributes) - Update the properties for this event and save the event in the calendar.
- * [destroy](../rhodesapi/rhoevent-api#destroy) - Remove this event from the calendar.
- * [Event hash properties](../rhodesapi/rhoevent-api#event-hash-properties) - A listing of the propeties storied in a calendar event hash, which is returned by the find method.
+ * [find](../../2.2.0/rhodesapi/rhoevent-api#find) - Returns the events in the device calendar.
+ * [create!](../../2.2.0/rhodesapi/rhoevent-api#create) - Creates a new event in the calendar. Returns a hash of the properties in the event.
+ * [update_attributes](../../2.2.0/rhodesapi/rhoevent-api#updateattributes) - Update the properties for this event and save the event in the calendar.
+ * [destroy](../../2.2.0/rhodesapi/rhoevent-api#destroy) - Remove this event from the calendar.
+ * [Event hash properties](../../2.2.0/rhodesapi/rhoevent-api#event-hash-properties) - A listing of the propeties storied in a calendar event hash, which is returned by the find method.
 
 To allow read/modify calendar information enable the calendar capability. This is done by adding the following lines to build.yml:
 

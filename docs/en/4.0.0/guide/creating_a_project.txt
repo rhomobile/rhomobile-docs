@@ -129,7 +129,7 @@ Apart from these folders, there are several other files in `app`:
 
 ### framework
 
-This folder does not exist within your application, but RhoStudio shows it for reference. This is a link to the implementation of the Rhodes framework itself, you should never modify any files in this folder unless you are [contributing to Rhodes](../rhodes/contributing)
+This folder does not exist within your application, but RhoStudio shows it for reference. This is a link to the implementation of the Rhodes framework itself, you should never modify any files in this folder unless you are [contributing to Rhodes](../guide/contributing)
 
 ### icon
 

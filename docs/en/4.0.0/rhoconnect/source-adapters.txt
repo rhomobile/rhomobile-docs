@@ -211,7 +211,9 @@ RhoConnect provides a simple redis interface for saving/retrieving arbitrary dat
     Store.get_data('mydata') #=> { '1' => { 'hello' => 'world' } }
 
 ## Handling Exceptions
-If your source adapter model raises an instance of `Rhoconnect::Model::Exception`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).  See the rhodes [sync exception handling docs](/rhodes/synchronization#handling-exceptions) for more details.
+If your source adapter model raises an instance of `Rhoconnect::Model::Exception`, the resulting message will be sent to the client's sync callback(in `@params['error_message']`).
+
+** NOTE: See the sync exception handling docs for or for [JavaScript](source-adapters-js#exception-api) for information on JS exception handling. **
 
 You can use `Rhoconnect::Model::Exception` as a convenient way to notify your application of various error conditions.
 
@@ -472,7 +474,6 @@ If your back end web service requires authentication, add code to the authentica
         end
         return success
       end
-
 
 ## Compatibility with older versions of RhoConnect
 

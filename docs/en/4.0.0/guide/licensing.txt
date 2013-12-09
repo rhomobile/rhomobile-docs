@@ -18,8 +18,8 @@ Certain APIs require a license. These API's are all included as extensions in th
 * [Cardreader](../api/cardreader)
 * [KeyCapture](../api/cardreader)
 * [KeyState](../api/cardreader)
-* [NFC extension](../rhodes/device-caps#nfc)
-* [Database Encryption](../rhodes/rhom#database-encryption)
+* [NFC extension](../../2.2.0/rhodes/device-caps#nfc)
+* [Database Encryption](../../2.2.0/rhodes/rhom#database-encryption)
 * [SignalIndicators](../api/signalindicators)
 * [Signature Capture](../api/signature)
 

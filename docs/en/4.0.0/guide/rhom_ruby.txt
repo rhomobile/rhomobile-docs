@@ -274,7 +274,7 @@ In our example `Product` model, for example, we could add
     :::ruby
     property :color, :string
     
-The guide [Using the local database](../rhodes/rhom#fixed-schema) contains all the details on which data types are supported, as well as other ways to fine-tune data synchronization.
+The guide [Using the local database](local_database) contains all the details on which data types are supported, as well as other ways to fine-tune data synchronization.
 
 
 ## Linking a model to a RhoConnect synchronization server
@@ -289,7 +289,7 @@ Once your application can store data about a particular model, enabling two-way 
     :::ruby
     enable :sync
     
-As long as your RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../rhoconnect/tutorial) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](../rhodes/rhom#fixed-schema) to find out how to tune data synchronization according to the needs of your application.
+As long as your RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../tutorial/rhoconnect) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](local_database) to find out how to tune data synchronization according to the needs of your application.
 
 
 
