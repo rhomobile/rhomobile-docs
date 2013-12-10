@@ -15,7 +15,7 @@ class Api
   	# 	end
   	# end
   	# if md == 'SignalIndicators'
-  	# 	md = 'Signal'
+  		# md = 'Signal'
   	# end
   	# doc.elements.each("//MODULE") { |element| 
   	# 	md = element.attributes["name"] 
@@ -503,8 +503,8 @@ def self.getconstantlinks(doc)
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
 			if !element["DESC"][0].is_a?(Hash)
-				md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
-			end
+ 		        md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
+       		end
 	  	}
 	  	md += "</dl></div>"
 	end
@@ -548,7 +548,7 @@ def self.getconstantlinks(doc)
 	  	if msionly
 			indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
 		end
-	end
+	end	
   	return indicators		
   end
 
@@ -1143,7 +1143,7 @@ end
 			@methhascallback = element["hasCallback"]
 		end 
 		
-		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
+		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
 			@methdesc = RDiscount.new(element["DESC"][0], :smart).to_html
 			
 		else

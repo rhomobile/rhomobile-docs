@@ -1,0 +1,125 @@
+# RhoApplication API
+
+Access methods for Rhodes applications. Refer to [File System access in Device Capabilities](../rhodes/device-caps#file-system-access) for examples using file access and for information on file access on different device platforms.
+
+## Using JavaScript API
+
+You can call the RhoApplication methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method.
+
+The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
+
+	Rho.Class.method(params).done(function(handler) { /* handler... */ })
+
+You must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+
+	:::yaml
+	extensions: ["rho-javascript"]
+
+You must have a [RhoElements license](../rhoelements/licensing) to use the JavaScript API.
+
+## get_base_app_path
+
+Returns a string that contains the absolute path to the application. See [get_user_path](#getuserpath) for information about getting paths with iOS.
+
+Ruby syntax:
+
+	:::ruby
+	Rho::RhoApplication.get_base_app_path()
+
+JavaScript syntax:
+
+	Rho.RhoApplication.get_base_app_path()
+
+## get_app_path
+
+Returns a string that contains the absolute path path to the given relative path in the application.
+
+Ruby syntax:
+
+	:::ruby
+	Rho::RhoApplication.get_app_path(relativePath)
+
+JavaScript syntax:
+
+	Rho.RhoApplication.get_app_path(relativePath)
+
+<table border="1">
+<tr>
+	<td><code>relativePath</code></td>
+	<td>String. The relative path in the application.</td>
+</tr>
+</table>
+
+## get_model_path
+
+Returns a string that contains the absolute path to a model folder in the application.
+
+Ruby syntax:
+
+	:::ruby
+	Rho::RhoApplication.get_model_path('app', model)
+
+JavaScript syntax:
+
+	Rho::RhoApplication.get_model_path('app', model)
+
+<table border="1">
+<tr>
+	<td><code>'app'</code></td>
+	<td>Always set the first parameter in get_model_path to 'app'.</td>
+</tr>
+<tr>
+	<td><code>model</code></td>
+	<td>String. The model name.</td>
+</tr>
+</table>
+
+## get_blob_path
+
+Returns the real path to a blob (such as a digital photo). You need to use this method to have the correct path to a blob attribute.
+
+Ruby syntax:
+
+	:::ruby
+	Rho::RhoApplication.get_blob_path(relativeFilePath)
+
+JavaScript syntax:
+
+	Rho.RhoApplication.get_blob_path(relativeFilePath)
+
+<table border="1">
+<tr>
+	<td><code>relativeFilePath</code></td>
+	<td>String. The path to the blob file.</td>
+</tr>
+</table>
+
+## get_blob_folder
+
+Returns the absolute path to the folder where blobs, such as digital photos, are created in this application.
+
+Ruby syntax:
+
+	:::ruby
+	Rho::RhoApplication.get_blob_folder()
+
+JavaScript syntax:
+
+	Rho.RhoApplication.get_blob_folder()
+
+## get_user_path
+
+Returns the path to the user folder. iOS only.
+
+On the iOS platform, only the files stored in the Documents folder are backed up in iCloud. Before Rhodes 3.3.2, all files were stored in the Documents folder. Apple requires that the Documents folder only contains files that the user created and works with directly: other files should not be created there.
+
+From Rhodes 3.3.2 and on, all files except databases are stored in /Library/Caches/Private Documents/. Files in this folder are not backed up to iCloud. To make those files back up, you can put the files into the user folder. Get that path with get_user_path. All your files created in Rhodes versions before 3.3.2 in Rho::RhoApplication.get_base_app_path, now should be created in Rho::RhoApplication.get_user_path.
+
+Ruby syntax:
+
+	:::ruby
+	Rho::RhoApplication.get_user_path()
+
+JavaScript syntax:
+
+	Rho.RhoApplication.get_user_path()

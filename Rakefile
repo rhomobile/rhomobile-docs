@@ -44,7 +44,7 @@ task :index do
           'category' => category,
           'version' => version
       }
-      puts "...indexing #{name}"
+      puts "...indexing #{name},#{version},#{category}"
       source = File.read(doc)
       puts "#{File.size(doc)}"
       topic = Topic.load(name, source)
@@ -163,14 +163,14 @@ task :archive do
 end
 
 def analyze_xml
-  apiXML = File.join(AppConfig['dirs']['api'],"**","*.xml")
+  apiXML = File.join(AppConfig['api'],"**","*.xml")
   
   apiFiles = Dir.glob(apiXML)
 
   apiFiles.each do |fileName|
-    basename = fileName.gsub(AppConfig['dirs']['api'],'')
+    basename = fileName.gsub(AppConfig['api'],'')
     if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
-      # puts "Processing " + basename
+      puts "Processing " + basename
     
       Api.analyze(fileName)
     end
@@ -180,14 +180,14 @@ end
 
 def process_xml
   puts 'rebuilding API docs'
-  apiXML = File.join(AppConfig['dirs']['api'],"**","*.xml")
+  apiXML = File.join(AppConfig['api'],"**","*.xml")
   
   apiFiles = Dir.glob(apiXML)
 
   # Links that go to 127.0.0.1:9393 (where no server is running) get styled dark red
   # Links that go to external sites (may not be reachable if user is truly offline) get italics
   apiFiles.each do |fileName|
-    basename = fileName.gsub(AppConfig['dirs']['api'],'')
+    basename = fileName.gsub(AppConfig['api'],'')
     if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
       puts "Processing " + basename
     
@@ -217,7 +217,7 @@ def update_xml
       # puts gendoc
       if (gendoc.nil? || gendoc == "true") && filename !='AndroidManifest_rhomobile.xml'
     
-        dest = File.join(AppConfig['dirs']['api'],filename)
+        dest = File.join(AppConfig['api'],filename)
         if !File.exists?(dest)
           puts "New: #{filename}"
         end
@@ -355,18 +355,18 @@ def name_for(doc)
 end
 
 def version_for(doc)
-  re = /v\/(.*?)\//
+  re = /en\/(.*?)\//
   version = doc.match re
   if !version.nil? && !version.captures.nil?
     return version.captures[0]
   else
-    return '4.0'
+    return '4.0.0'
   end
 end
 
 def category_for(doc)
   
-  reVersion = /v\/(.*?)\//
+  reVersion = /en\/(.*?)\//
   reCat = /(.*?)\//
   doc = doc.gsub(reVersion,'')
 

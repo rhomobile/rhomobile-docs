@@ -1,0 +1,150 @@
+Mapping and Geolocation
+========
+This tutorial will guide you through how to add mapping to your application. You should have a backend that provides the geolocation information.
+
+**NOTE: Since the webinar was created, the GeoLocation functionality has changed, and thus some of the code in this tutorial will not be correct. For example, the current behavior of the geolocation callback is that it will be called forever until it is stopped. For code samples that reflect the new behavior, refer to [GeoLocation](rhodes/device-caps#geolocation).**
+
+
+Source Code
+-----------
+The source code for this example is located here.
+
+ * [Rhodes Application](https://github.com/rhomobile/webinar-samples/tree/master/contact)
+ * [RhoConnect Application](https://github.com/rhomobile/webinar-samples/tree/master/contact-server)
+
+Pre-requisite Reading
+---------------------
+ * [RhoStudio Tutorial](rhostudio.tutorial)
+ * [RhoConnect Tutorial](rhoconnect/tutorial)
+ * [Webinar Video](http://vimeo.com/12301104)
+
+Reference Reading
+-----------------
+ * [MapView](rhodes/device-caps#mapview)
+ * [GeoLocation](rhodes/device-caps#geolocation)
+
+Tutorial
+--------
+#### Setup
+This tutorial assumes that you know how to generate a Rhodes app and can successfully sync with a backend system. If you do not know how to do this, see [Pre-requisite Reading](mapping-tutorial#pre-requisite-reading).
+
+To prepare for this demo you should set up a Rhodes and Rhosync app with the following:
+
+ * Your model should have the fields lat and long
+
+
+#### Mapping one point
+
+To map one point we will first add a link to our show view. This link will navigate to the map_it action of our controller. Notice that we are passing the ID into our map_it method. We will use this to do a query to get the latitude and longitude of the contact.
+
+	:::html
+	<li>
+	  <a href="<%= url_for( :action => :map_it, :id => @customer.object) %>">
+	    <span class="title">Show on map</span>
+	    <span class="disclosure_indicator"></span>
+	  </a>
+	</li>
+
+Then we implement the method that opens the map. Read the comments inline to see how it works.
+
+	:::ruby
+	def map_it
+	  # First get the customer object that matches the passed in ID
+	  @customer = Customer.find(@params["id"])
+	
+	  # Build up the parameters for the call
+	  map_params = {
+			# General settings for the map, type, viewable area, zoom, scrolling etc.
+			# We center on the user, with 0.2 degrees view
+      :settings => {:map_type => "hybrid",:region => [@customer.lat, @customer.long, 0.2, 0.2],
+                    :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
+                    :api_key => 'Google Maps API Key'},
+
+			# This annotation shows the user, give the marker a title, and a link directly to that user
+      :annotations => [{
+                         :latitude => @customer.lat, 
+                         :longitude => @customer.long, 
+                         :title => "#{@customer.first} #{@customer.last}", 
+                         :subtitle => "Go to customer",
+                         :url => "/app/Customer/{#{@customer.object}}"
+                      }]
+    }
+    
+  	# This call displays the map on top of the entire screen
+	  MapView.create map_params
+ 
+		# After the user closes the map, they will be shown with whatever you redirect or render here.
+	  redirect :action => :index
+	end
+
+
+Now when we select the "Show on Map" link on the users show view, it calls our map_it method. The map_it method opens up the map with the contact centered. Clicking on the contact takes the user to that specific contact. Closing the map reveals the index page.
+
+#### Geolocation and Annotations
+
+To do geolocation, we will add a method that maps the users contacts around their current location. To do this we will use the MapView and the GeoLocation class.
+
+The user's GeoLocation may not be available on the device when the application is run. The way Rhodes provides these asynchronous notifications is via callback notifications.
+
+The first thing we do is add a link to our index page to the map_all method.
+
+	:::html
+	<li>
+		<a href="<%= url_for :action => :map_all %>">
+			<span class="title">Map all</span>
+			<span class="disclosure_indicator"></span>
+		</a>
+	</li>
+	
+The map_all method will first check if the location is available. If it is not available, redirect to a static wait page. If it is available we will open the map later.
+
+	:::ruby
+	def map_all
+	  if !GeoLocation.known_position?
+	    GeoLocation.set_notification( url_for(:action => :geo_callback), "", 2)
+			# Redirect to the please wait while determining location
+	    redirect :action => :wait
+	  else
+			#... this section filled in later
+		end
+	end
+	
+The first argument is the link to our callback method which will take action when the location is available
+
+	:::ruby
+	def geo_callback
+	  WebView.navigate url_for(:action => :map_all) if @params['known_position'].to_i != 0 && @params['status'] == 'ok'
+	end
+	
+If the params for GeoLocation come back with an ok status and a good known position, then navigate away from the wait page and back to the map all page which will then show the map.
+
+The rest of the map_all method shows the map with the annotations around the user.
+
+First, get a list of all the customers and create annotations for them.
+
+	:::ruby
+	@customers = Customer.find(:all)
+	annotations = []
+	@customers.each do |customer|
+	    annotations << {
+	     :latitude => customer.lat,
+	     :longitude => customer.long,
+	     :title => "#{customer.first} #{customer.last}",
+	     :subtitle => "",
+	     :url => "/app/Customer/{#{customer.object}}"
+	   }
+	end
+	
+Next, create and display a map using the users current location as the region, showing annotations for the contacts. See how we use GeoLocation.latitude and GeoLocation.longitude.
+
+	:::ruby
+	map_params = {
+	  :settings => {:map_type => "hybrid",:region => [GeoLocation.latitude, GeoLocation.longitude, 1, 1],
+	                :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
+	                :api_key => 'Google Maps API Key'},   
+	  :annotations => annotations
+	}
+	
+	MapView.create map_params
+  
+	redirect :action => :index
