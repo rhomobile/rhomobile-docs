@@ -281,6 +281,14 @@ xml_string +=  ' </rss>	'
     end
   end
 
+get '/exists' do
+  status 200
+  topic = params[:doc]
+  puts topic
+  if !File.exist?("docs/#{topic}.txt")
+    status 404
+  end
+end
   
 
 

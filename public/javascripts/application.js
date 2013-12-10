@@ -27,20 +27,26 @@ $(document).ready(function() {
 	//Change url to include version
 	$('#version_select').bind('change', function () {
           var ver = $(this).val(); // get selected value
-          if (ver) { // require a URL
-          	  
-      	  		url = '/en/' + ver;
-	      	  newurl =window.location.protocol + "//" + window.location.host + url ;//+ window.location.pathname;
-	      	  
-          }
-          else
-          {
-          	url = '';
-          	pathname = window.location.pathname.replace('/en/2.2',''); // need to change to regex
-          	newurl = window.location.protocol + "//" + window.location.host + url;// + pathname; // redirect
-          }
-          // console.log(newurl);
-          window.location = newurl;
+          loc = window.location.pathname;
+          url = loc.replace(/\/(.[^\/]*)\/(.[^\/]*)(.*)/,'$1/'+ver+'$3');
+          $.ajax({
+		        type: "GET",
+		        url: "/exists",
+		        data: { 'doc': url },
+		        success: function(){
+		        	newurl =window.location.protocol + "//" + window.location.host + "/" + url ;
+		        	// console.log('success' + newurl);
+		        	window.location = newurl;
+		        },
+		        error: function(){
+		        	newurl = window.location.protocol + "//" + window.location.host + "/" + loc.replace(/\/(.[^\/]*)\/(.[^\/]*)(.*)/,'$1/'+ver);
+		        	// console.log('error' + newurl);
+		        	window.location = newurl;
+		        }
+	        });
+
+
+          
           return false;
       });
 
