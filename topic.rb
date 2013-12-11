@@ -18,7 +18,7 @@ class Topic
     dirs = AppConfig['dirs'] || {}
     paths = dirs.values.map! { |path| path += "*.txt" }
     # puts paths
-    paths <<'v/**/*.txt'
+    paths <<'docs/en/**/**/*.txt'
     FileList[paths]
   end
   

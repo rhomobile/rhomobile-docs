@@ -1,0 +1,164 @@
+# Installing RhoConnect
+
+This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](preparing-production) and [deploying a RhoConnect application](deploying).
+
+## Installing RhoConnect with RhoStudio
+
+To install RhoConnect on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
+
+[Click here for the RhoMobile Suite installation instructions](../rhomobile-install).
+
+When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
+
+NOTE: The rest of this chapter consists of instructions for installing RhoConnect from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
+
+## Installing RhoConnect on Linux
+
+On Linux, you need the following setup before redis is installed.
+
+ * The `/usr/local` directory exists and is recursively writable by the current user.
+ * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
+ * You need a gcc toolchain installed, i.e. via build-essential package on Ubuntu/Debian.
+
+To install RhoConnect on Linux, you need to install the RhoConnect gem. Download and install:
+
+1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
+
+2. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
+
+3. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
+
+4. Install the RhoConnect Gem.
+
+Run this command to install the RhoConnect Gem.
+
+	:::term
+	$ gem install rhoconnect
+
+NOTE: If you get any `no such file to load -- something` messages while running the rake tasks or rhoconnect commands, this can usually be resolved by putting "sudo" in front of the command, as in `sudo gem install something`.
+
+NOTE: Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.
+
+## Setting the HTTP_PROXY Environment Variable
+
+If you are using RestClient, you should set the HTTP_PROXY environment variable to your proxy server URL. This allows the bundler to work from behind a proxy.
+
+From Linux or OSX, you can use the following command.
+
+	$ export http_proxy=http://{username}:{password}@{proxy-server-name}
+
+From Windows:
+
+	$ SET HTTP_PROXY=http://{username}:{password}@{proxy-server-name}
+
+This allows you to set the RestClient proxy using the HTTP_PROXY environment variable in your RhoConnect code.
+
+	:::ruby
+	RestClient.proxy = ENV['http_proxy']
+
+## Upgrading an Existing Application
+
+If you have an existing application, upgrading to the latest version of RhoConnect is simple.
+
+Open the `Gemfile` of your application and find the rhoconnect line, it should look something like:
+
+	:::ruby
+	gem 'rhoconnect', '3.3.6'
+
+Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 3.4.0:
+
+	:::ruby
+	gem 'rhoconnect', '3.4.0'
+
+Run the following command from the root application directory:
+
+	:::term
+	$ bundle install
+
+Now update your application's RhoConnect dependency manifest:
+
+	:::term
+	$ rhoconnect update
+
+## Upgrading previous versions to RhoConnect 3.4+
+
+If you have an existing RhoConnect application using version < 3.4 and want to upgrade it to RhoConnect 3.4+, then
+you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
+
+First, follow the instructions described in the [previous section](#upgrading-an-existing-application).
+
+Next, make sure your `Gemfile` looks like the following example, replacing the version as necessary.
+The `rhoconnect update` command will generate a reference `Gemfile.new` which you can use to replace your `Gemfile`:
+
+	:::ruby
+	source 'http://rubygems.org'
+
+	gem 'rhoconnect', '<put correct version here>'
+	gemfile_path = File.join(File.dirname(__FILE__), ".rcgemfile")
+
+	begin
+		eval(IO.read(gemfile_path))
+	rescue Exception => e
+		puts "ERROR: Couldn't read RhoConnect .rcgemfile"
+		puts e.message
+		exit 1
+	end
+
+	# DON'T FORGET to add your application specific gems after this line ...
+	# ...
+
+You must update `config.ru` and `Rakefile` files to match RhoConnect 3.4+ gem requirements.
+
+Replace your existing `config.ru` with the listing below. Save your old `config.ru` since you will use values within it in the new `config.ru`. 
+
+	:::ruby
+	# config.ru file
+	
+	#!/usr/bin/env ruby
+	require 'rhoconnect/application/init'
+
+	# secret is generated along with the app
+	# NOTE:
+	# Substitute 'REPLACE_ME' string by the Rhoconnect::Server.set :secret value from your old config.ru	
+	Rhoconnect::Server.set     :secret, 'REPLACE_ME'
+
+	# !!! Add your custom initializers and overrides here !!!
+	# For example, uncomment the following line to enable Stats
+	#Rhoconnect::Server.enable  :stats
+	# uncomment the following line to disable Resque Front-end console
+	#Rhoconnect.disable_resque_console = true
+	# uncomment the following line to disable Rhoconnect Front-end console
+	#Rhoconnect.disable_rc_console = true
+
+	# Load RhoConnect application
+	require './application'
+
+
+	# run RhoConnect Application
+	run Rhoconnect.app	
+
+And replace your existing `Rakefile` with the following:
+
+	:::ruby
+	require 'rubygems'
+	require 'bundler/setup'
+	require 'rhoconnect/tasks'
+	require 'rhoconnect'
+	require 'resque/tasks'
+
+	ROOT_PATH = File.expand_path(File.dirname(__FILE__))
+
+	task 'resque:setup' do
+	  # The number of redis connections you want a job to have
+	  Rhoconnect.connection_pool_size = 1
+	  require './application'
+
+	  Resque.after_fork do
+	    Store.reconnect
+	  end
+	end  
+
+Finally, run `bundle install` to install any missing dependencies in your RhoConnect directory:
+
+	:::term
+	$ bundle install

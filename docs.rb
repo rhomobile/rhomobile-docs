@@ -32,23 +32,25 @@ class Docs < Sinatra::Base
     # puts "/v/2.2#{request.path}"
     # puts "****#{request.path.split('/')[1]}:#{request.path.split('/')[2]}"
     @alt_url = ''
-    @alt_url = "#{request.scheme}://#{request.host}/v/2.2#{request.path}"
-    topic = request.path.split('/')[2]
-    subpath = request.path.split('/')[1]
-    docversion = '2.2'
+    topic = request.path.split('/')[4]
+    subpath = request.path.split('/')[3]
+    @alt_url = "#{request.scheme}://#{request.host}/en/2.2.0/#{subpath}/#{topic}"
+    # puts @alt_url
+    
+    docversion = '2.2.0'
     if topic.include?('/')
         topic_file = topic
       elsif subpath
         if docversion.nil?
-          topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+          # topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
         else
-          topic_file = File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.txt")
+          topic_file = File.join("docs/en/#{docversion}/#{subpath}/", "#{topic}.txt")
         end  
       else
         if docversion.nil?
          topic_file = "#{settings.root}/docs/#{topic}.txt"
         else
-         topic_file = "#{settings.root}/v/#{docversion}/docs/#{topic}.txt"
+         topic_file = "#{settings.root}/docs/en/#{docversion}/#{topic}.txt"
         end
       end
     if  topic == 'apicompatibility'
@@ -76,7 +78,33 @@ class Docs < Sinatra::Base
   
   end
 
-  ['/', '/home'].each do |path|
+  ['/en/2.2.0','/en/2.2.0/','/en/2.2.0/home'].each do |path|
+    get path do
+      @title = "Home"
+      @print = 0
+      @docversion = '2.2.0'
+      cache_long
+      erb :oldverhome
+    end
+  end
+
+  ['/'].each do |path|
+     get path do
+      puts ENV["RACK_ENV"]
+      @title = "Home"
+      @print = 0
+      if ENV["RACK_ENV"] != 'production'
+        redirect "en/edge"
+      else
+        @docversion = nil
+      end        
+      @docversion = params[:vnum]
+      cache_long
+      erb :index
+    end
+  end
+
+  ['/', '/home', '/en/:vnum', '/en/:vnum/home'].each do |path|
     get path do
       @title = "Home"
       @print = 0
@@ -89,15 +117,7 @@ class Docs < Sinatra::Base
   	end
   end
 
-  ['/v/:vnum','/v/:vnum/','/v/:vnum/home'].each do |path|
-    get path do
-      @title = "Home"
-      @print = 0
-      @docversion = params[:vnum]
-      cache_long
-      erb :oldverhome
-    end
-  end
+
 
   get '/print/home' do 
     @print = 1
@@ -195,10 +215,10 @@ xml_string +=  ' </rss>	'
     xml_string
   end
   
-['/tutorial/:step/:topic/?',  '/tutorial/:topic/?'].each do |path|
+['/tutorial/:step/:topic/?',  '/tutorial/:topic/?','/en/:vnum/tutorial/:step/:topic/?',  '/en/:vnum/tutorial/:topic/?'].each do |path|
     get path do
       cache_long
-      @docversion = nil
+      @docversion = '4.0.0'
 
       # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
       
@@ -227,7 +247,7 @@ xml_string +=  ' </rss>	'
       if !@step.nil?
         topic_doc += '.' + @step
       end
-      render_topic topic_doc, 'tutorial', 0
+      render_topic topic_doc, 'tutorial', 0, @docversion
       erb :tutorial
       
     end
@@ -235,8 +255,12 @@ xml_string +=  ' </rss>	'
 
   #get '/:topic' do
   # TODO: use proper regex
-  ['/v/:vnum/:topic/?', '/v/:vnum/:subpath/:topic/?',  '/:topic/?', '/:subpath/:topic/?'].each do |path|
+  ['/en/:vnum/:topic/?', '/en/:vnum/:subpath/:topic/?'].each do |path|
     get path do
+      # puts params[:vnum]
+      # puts params[:subpath]
+      # puts params[:topic]
+
   	  cache_long
       @docversion = nil
 
@@ -257,6 +281,18 @@ xml_string +=  ' </rss>	'
     end
   end
 
+get '/exists' do
+  status 200
+  topic = params[:doc]
+  puts topic
+  if !File.exist?("docs/#{topic}.txt")
+    status 404
+  end
+end
+  
+
+
+
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
         # puts "#{subpath} :#{topic} :  #{docversion}"
@@ -268,7 +304,7 @@ xml_string +=  ' </rss>	'
           # redirect "/v/#{docversion}/#{subpath}/#{topic}"
       end
       @topic_file = topic_file(topic,subpath,docversion)
-      # puts @topic_file
+       # puts @topic_file
       if  topic == 'apicompatibility'
         source = Indicators.apimatrix_markdown()  
       else
@@ -326,7 +362,7 @@ xml_string +=  ' </rss>	'
         categories["version"] = verArray
       end
       
-      puts categories
+      # puts categories
       search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category,docexternal', :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
@@ -344,18 +380,14 @@ xml_string +=  ' </rss>	'
       # puts "topic_file:#{topic}:#{subpath}:#{docversion}"
   	  if topic.include?('/')
         topic
-  		elsif subpath
-        if docversion.nil?
-          File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
-        else
-          File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.txt")
-        end  
+  		# elsif subpath
+    #     if docversion.nil?
+    #       File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+    #     else
+    #       File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.txt")
+    #     end  
   		else
-        if docversion.nil?
-  			 "#{settings.root}/docs/#{topic}.txt"
-        else
-         "#{settings.root}/v/#{docversion}/docs/#{topic}.txt"
-        end
+        File.join("docs/en/#{docversion}/#{subpath}/#{topic}.txt")
   		end
   	end
 	
@@ -412,9 +444,9 @@ module TOC
   def reload(docversion)
     @sections = []
     if docversion.nil?
-      file = File.dirname(__FILE__) + "/toc.rb"
+      file = File.dirname(__FILE__) + "/docs/en/4.0.0/toc.rb"
     else
-      file = File.dirname(__FILE__) + "/v/#{docversion}/toc.rb"
+      file = File.dirname(__FILE__) + "/docs/en/#{docversion}/toc.rb"
     end
     eval File.read(file), binding, file
   end
@@ -470,7 +502,7 @@ module TOC
     end
     found
   end
-  	file = File.dirname(__FILE__) + '/toc.rb'
+  	file = File.dirname(__FILE__) + '/docs/en/4.0.0/toc.rb'
 	eval File.read(file), binding, file
 end
 
