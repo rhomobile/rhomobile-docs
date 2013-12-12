@@ -22,6 +22,7 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  
   index = client.indexes(AppConfig['index'])
  
 
@@ -42,6 +43,9 @@ task :index do
           'category' => category,
           'version' => version
       }
+      variables = { 
+              0 => index_variable_for(version)
+            }
       puts "...indexing #{name},#{version},#{category}"
       source = File.read(doc)
       puts "#{File.size(doc)}"
@@ -66,7 +70,8 @@ task :index do
             index.document(name+chunknum.to_s).delete()
             result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version})
             
-            index.document(name+chunknum.to_s).update_categories(categories)             
+            index.document(name+chunknum.to_s).update_categories(categories)
+            index.document(name+chunknum.to_s).update_variables(variables)             
           end
           puts "=> #{result}"
           startPos = endPos + 1
@@ -76,6 +81,7 @@ task :index do
         index.document(name).delete()
         result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version})
         index.document(name).update_categories(categories)
+        index.document(name).update_variables(variables)             
         puts "=> #{result}"
       end
 
@@ -373,6 +379,18 @@ def category_for(doc)
     return cat.captures[0]
   else
     return ''
+  end
+end
+
+def index_variable_for(version)
+  if version == 'edge'
+    return 0
+  end
+  if version == '2.2.0'
+    return 2.2
+  end
+  if version == '4.0.0'
+    return 4.0
   end
 end
 
