@@ -1,5 +1,3 @@
-Dir.glob('lib/tasks/*.rake').each { |r| load r}
-
 require 'rubygems'
 require 'date'
 require 'bundler'
@@ -13,11 +11,11 @@ desc 'Start a development server'
 task :server do
     process_xml
   if which('shotgun')
-		exec 'shotgun -O config.ru'
-	else
-		warn 'warn: shotgun not installed; reloading is disabled.'
-		exec 'rackup config.ru -p 9393'
-	end
+    exec 'shotgun -O config.ru'
+  else
+    warn 'warn: shotgun not installed; reloading is disabled.'
+    exec 'rackup config.ru -p 9393'
+  end
 end
 
 desc 'Index documentation'
@@ -27,8 +25,8 @@ task :index do
   index = client.indexes(AppConfig['index'])
  
 
-  # index.delete rescue nil
-  # index.add rescue nil
+   # index.delete rescue nil
+   # index.add rescue nil
   print "Waiting to initialize #{AppConfig['index']}..."
   while not index.running?
     print "."
@@ -342,10 +340,10 @@ task :index_lp_videos do
 end  
 
 def which(command)
-	ENV['PATH'].
-		split(':').
-		map  { |p| "#{p}/#{command}" }.
-		find { |p| File.executable?(p) }
+  ENV['PATH'].
+    split(':').
+    map  { |p| "#{p}/#{command}" }.
+    find { |p| File.executable?(p) }
 end
 
 def name_for(doc)
