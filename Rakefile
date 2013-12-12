@@ -21,7 +21,7 @@ end
 desc 'Index documentation'
 task :index do
   puts "indexing now:"
-  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   
   index = client.indexes(AppConfig['index'])
  
@@ -140,7 +140,7 @@ end
 
 desc 'Sample search'
 task :search, :query do |t, args|
-  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   index = client.indexes(AppConfig['index'])
 
   results = index.search(args[:query], :fetch => 'title,dockey,docexternal', :snippet => 'text')
@@ -397,7 +397,7 @@ end
 def get_stackoverflowitems url,page,pagesize
   rest_result = RestClient.get("#{url}&page=#{page}&pagesize=#{pagesize}").body
   
-  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   index = client.indexes(AppConfig['index'])
 
    
@@ -442,7 +442,7 @@ end
 def get_launchpad_blogs url
   rest_result = RestClient.get("#{url}").body
 
-  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   index = client.indexes(AppConfig['index'])
   categories = { 
           'category' => 'blog',
@@ -488,7 +488,7 @@ end
 
 def get_lp_content url,category
   rest_result = RestClient.get("#{url}").body
-  client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+  client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   index = client.indexes(AppConfig['index'])
   categories = { 
           'category' => category,

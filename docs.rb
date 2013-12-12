@@ -347,7 +347,7 @@ end
   	end
 	
   	def search_for(query, page = 0, category='', version='')
-      client = IndexTank::Client.new(ENV['HEROKUTANK_API_URL'])
+      client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
       index = client.indexes(AppConfig['index'])
     
       categories = {}
