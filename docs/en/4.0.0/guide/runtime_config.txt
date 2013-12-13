@@ -148,6 +148,19 @@ The `rhoconfig.txt` file generated with a new application contains the following
         If enabled, blocks loading indication in webview
             Supported only on Android.  
 
+### Additional parameters that can be used in rhoconfig.txt
+
+    :::yaml
+    # Address and port of proxy server. This settings uses Network module.
+    # If app uses motowebkit that configure this parameters at config.xml
+    http_proxy_host = 'server'
+    http_proxy_port = 'server'
+
+    # Login and password for access to proxy server. Only basic authentication is supported
+    http_proxy_login = 'server'
+    http_proxy_password = 'server'
+
+
 ## Config.xml
 
 ### What it affects
