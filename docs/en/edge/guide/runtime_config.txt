@@ -282,6 +282,7 @@ The following is an example of a typical configuration file
             <FitToScreenEnabled    VALUE="1" />
             <FontFamily            VALUE="Tahoma" />
             <FontDirectory         VALUE="file://\Windows" />
+            <UseNativeFonts        VALUE="0" />
           </HTMLStyles>
           <SIP>
             <ResizeOnSIP  VALUE="0"/>
@@ -630,7 +631,7 @@ The following is an example of a typical configuration file
 <td >HTMLStyles\\FitToScreenEnabled</td>
 <td >FITTOSCREENENABLED</td>
 <td ></td>
-<td >0 - Disabled</td><td >1 - Enabled</td>
+<td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
 <td >HTMLStyles\\FontFamily</td>
@@ -639,10 +640,16 @@ The following is an example of a typical configuration file
 <td >Font name</td>
 </tr>
 <tr>
-<td class="clsEvenRow">HTMLStyles\\FontDirectory</td>
-<td class="clsEvenRow">FONTDIRECTORY</td>
-<td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Motorola WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
-<td class="clsEvenRow"><code>\Windows</code></td>
+<td >HTMLStyles\\FontDirectory</td>
+<td >FONTDIRECTORY</td>
+<td >Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Motorola WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
+<td ><code>\Windows</code></td>
+</tr>
+<tr>
+<td class="clsEvenRow">HTMLStyles\\UseNativeFonts</td>
+<td class="clsEvenRow">USENATIVEFONTS</td>
+<td class="clsEvenRow">When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE.</td>
+<td >0 - Use FontFamily Setting<BR>1 - Use FreeType font library</td>
 </tr>
 <tr>
 <td >SIP\\ResizeOnSIP</td>
