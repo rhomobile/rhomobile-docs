@@ -38,7 +38,7 @@ extensions: ["coreapi"]
 
 <h2>Ruby Usage</h2>
 
-<p>For Ruby access to the RHOM database please see the <a href="/api/rhom-api">Rhom Ruby API guide</a>.</p>
+<p>For Ruby access to the RHOM database please see the <a href="rhom-api">Rhom Ruby API guide</a>.</p>
 
 
 <a name='Methods'></a>

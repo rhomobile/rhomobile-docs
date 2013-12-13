@@ -163,7 +163,7 @@ Rhoconnect Client is a library to add sync data capability to your applications.
 
 #### RhoConnectNotify
 
-This class provides access to sync notification objects as described [here](/rhodes/synchronization#notifications):
+This class provides access to sync notification objects as described [here](../guide/using_rhoconnect#setting-up-notifications):
 
     :::cplusplus
     @property int       total_count;
@@ -184,7 +184,7 @@ This class provides access to sync notification objects as described [here](/rho
 
 #### RhoConnectObjectNotify
 
-This class provides access to sync object notification as described [here](/rhodes/synchronization#notifications):
+This class provides access to sync object notification as described [here](../guide/using_rhoconnect#setting-up-notifications):
 
     :::cplusplus
     @property(readonly) NSMutableArray* deleted_objects;

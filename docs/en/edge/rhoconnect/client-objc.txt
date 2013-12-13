@@ -966,7 +966,7 @@ Check does model contain non-synced local changes
 
 ## RhoConnectNotify Class API
 
-Several RhoConnectClient methods return a RhoConnectNotify object. The properties for the RhoConnectNotify class provide access to sync notification objects as described [here](/rhodes/synchronization#notifications). (Developers do not set RhoConnectNotify properties, but only read them after a call to a RhoConnectClient method that returns a RhoConnectNotify object.)
+Several RhoConnectClient methods return a RhoConnectNotify object. The properties for the RhoConnectNotify class provide access to sync notification objects as described [here](../guide/using_rhoconnect#setting-up-notifications). (Developers do not set RhoConnectNotify properties, but only read them after a call to a RhoConnectClient method that returns a RhoConnectNotify object.)
 
 <table border="1">
 <tr>
@@ -1030,7 +1030,7 @@ Several RhoConnectClient methods return a RhoConnectNotify object. The propertie
 
 ## RhoConnectObjectNotify Class API
 
-This class provides access to the sync object notification as described [here](/rhodes/synchronization#notifications).
+This class provides access to the sync object notification as described [here](../guide/using_rhoconnect#setting-up-notifications).
 
 The RhoConnectObjectNotify object contains three arrays of hashes for the objects and their source ids that have been updated, created, and deleted. Each hash contains values for the keys “object” and “source\_id” so you can display which records were changed.
 

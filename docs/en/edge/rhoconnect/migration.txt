@@ -32,7 +32,7 @@ Now update your application's RhoConnect dependency manifest:
 If you have an existing RhoConnect application using version < 4.0 and want to upgrade it to RhoConnect 4.0+, then
 you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
 
-First, follow the instructions described in the [previous section](/rhoconnect/migration#upgrading-dependency-manifest).
+First, follow the instructions described in the [previous section](migration#upgrading-dependency-manifest).
 
 Next, make sure your `Gemfile` looks like the following example, replacing the version as necessary.
 The `rhoconnect update` command will generate a reference `Gemfile.new` which you can use to replace your `Gemfile`:
@@ -166,4 +166,4 @@ RhoConnect's HTTP routes have changed starting with 4.0, so you'll want to updat
 	# for example: 'http://localhost:9292'
 	syncserver = 'http://192.168.1.108:9292'
 
-Next, modify your client application according to the new [client API docs](/api/RhoConnectClient).  Be sure to check out the [guides](/guide/using_rhoconnect) periodically as new content is added all the time.
+Next, modify your client application according to the new [client API docs](../api/RhoConnectClient).  Be sure to check out the [guides](../guide/using_rhoconnect) periodically as new content is added all the time.

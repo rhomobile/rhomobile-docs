@@ -13,9 +13,9 @@ Before using your RhoHub account, you should [install RhoMobile SUite](rhomobile
 
 You need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3) or [Linux](http://git-scm.com/download).
 
-If you decide not to use RhoStudio, but instead [use your own IDE or text editor](/guide/nonrhostudio), you need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3), [Windows](http://code.google.com/p/msysgit/), or [Linux](http://git-scm.com/download).
+If you decide not to use RhoStudio, but instead [use your own IDE or text editor](nonrhostudio), you need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3), [Windows](http://code.google.com/p/msysgit/), or [Linux](http://git-scm.com/download).
 
-Refer to the [Git resources](/rhohub/tutorial#git-resources) for more information on git, such as references and tutorials.
+Refer to the [Git resources](#git-resources) for more information on git, such as references and tutorials.
 
 ### Create your RhoHub Account
 
@@ -325,7 +325,7 @@ Now you can add the code in your local git repository to RHoHub.
 
 These commands initialize your local directory containing your RhoConnect app code, add that directory to your next Git commit, create your initial commit, add your RhoHub git URL as an alias to your local directory, then push your local code to RhoHub.
 
-Your Rhodes app is pre-configured to use the RhoConnect server. You will need to create a source adapter in your RhoConnect app to connect to whatever backend you want to sync to. See the [RhoConnect tutorial](/rhoconnect/tutorial) for details on how to code that, but you don't need to run the server locally. Then add and commit your edited code (this will include new files you cereated), then push the code to RhoHub.
+Your Rhodes app is pre-configured to use the RhoConnect server. You will need to create a source adapter in your RhoConnect app to connect to whatever backend you want to sync to. See the [RhoConnect tutorial](../tutorial/rhoconnect) for details on how to code that, but you don't need to run the server locally. Then add and commit your edited code (this will include new files you cereated), then push the code to RhoHub.
 
 	:::term
 	$ git add .
@@ -340,7 +340,7 @@ To deploy your RhoConnect app, open your RhoConnect app, then click the "Deploy"
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-new-rhoconnect-app-barrow.png"/>
 
-The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoConnect web console](/rhoconnect/web-console).  This url will be static for this RhoConnect app, even if you rename the app.
+The first time you deploy, it will take a few minutes as the server environment is bootstrapped.  Once it is done you will see a deploy url which you can click on to see your [RhoConnect web console](../rhoconnect/web-console).  This url will be static for this RhoConnect app, even if you rename the app.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-deploy-url-arrow.png"/>
 

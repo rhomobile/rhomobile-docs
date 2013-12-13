@@ -1,7 +1,7 @@
 # Build for Windows
 
 ## Setup
-Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-windows-desktop) for building Windows applications.
+Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
 
 ## Build application from the command line
 

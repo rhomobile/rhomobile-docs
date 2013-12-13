@@ -9,7 +9,7 @@ The Model View Controller pattern separates data definitions (models) from busin
 By convention, files for each Model include a controller, a model class and view templates described below.
 
 ## Model
-To store data locally RhoMobile uses Sqlite on iPhone, Android, and Windows Mobile.On Blackberry version up to 5.0 Rhodes uses Hsql. On version 5.0 and higher it is possible to use Sqlite or Hsql. To access and manipulate stored data you may use RhoMobile's [ORM](/api/Orm) or [OrmModel](/api/OrmModel) APIs. ORM stands for object relational mapper and it provides a high level way to make the local database easier to program to.  
+To store data locally RhoMobile uses Sqlite on iPhone, Android, and Windows Mobile.On Blackberry version up to 5.0 Rhodes uses Hsql. On version 5.0 and higher it is possible to use Sqlite or Hsql. To access and manipulate stored data you may use RhoMobile's [ORM](../api/Orm) or [OrmModel](../api/OrmModel) APIs. ORM stands for object relational mapper and it provides a high level way to make the local database easier to program to.  
 
 By convention, your model class is located in the model's folder. For the model "UserBase" the file would be called "user_base.rb"
 
@@ -24,7 +24,7 @@ Example of added upper_name method to the model:
 	  	end
 	end
 
-See more details about Data Models [here](/guide/local_database).
+See more details about Data Models [here](local_database).
 
 ## Views (Templates)
 Each controller action usually associated with a View template. The .erb files mentioned above are the templates used for views. Rhodes follows the Rails convention for template naming.
@@ -34,7 +34,7 @@ Each controller action usually associated with a View template. The .erb files m
 * show.erb - shows the object's attribute values
 * new.erb - creates a new object
 
-These files are all created by the [rhodes generator](/guide/creating_a_project#creating-a-project-with-rhostudio). Inside the template, any valid HTML, JavaScript, and Ruby can be used, with Ruby code enclosed in <% and %> tags. See more information about Ruby ERB [here](http://www.ruby-doc.org/stdlib/libdoc/erb/rdoc/).
+These files are all created by the [rhodes generator](creating_a_project#creating-a-project-with-rhostudio). Inside the template, any valid HTML, JavaScript, and Ruby can be used, with Ruby code enclosed in <% and %> tags. See more information about Ruby ERB [here](http://www.ruby-doc.org/stdlib/libdoc/erb/rdoc/).
 
 ## Controller
 Each generated model controller has several actions to perform basic CRUD (create, read, update and delete) on the object. These actions are:

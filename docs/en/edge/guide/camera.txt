@@ -6,7 +6,7 @@ You need to enable the Camera capability. This is done by adding the following l
 	capabilities:
 	  - camera
 
-Check if the device [has a camera](/api/system#phasCamera):
+Check if the device [has a camera](../api/system#phasCamera):
 	:::ruby
 	System::hasCamera
 

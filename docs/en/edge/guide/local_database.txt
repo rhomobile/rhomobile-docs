@@ -64,15 +64,15 @@ In a fixed schema model, each model has a separate database table and each attri
 RhoMobile applications provide definition and CRUD access to your data models in both Ruby and JavaScript, however there are some differences in capabilties between the two. Please consult the API reference and guides for further information:
 
 
-* JavaScript [ORM API](/api/Orm) and [ORM Model API](/api/OrmModel) 
+* JavaScript [ORM API](../api/Orm) and [ORM Model API](../api/OrmModel) 
 * [Javascript Rhom Guide](rhom_js) 
-* [Ruby Rhom API](/api/rhom-api) 
+* [Ruby Rhom API](../api/rhom-api) 
 * [Ruby Rhom Guide](rhom_ruby) 
 
 
 ## Database Encryption
 
-**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to upgrade to RhoMobile Suite purchase a [RhoElements license](licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to upgrade to RhoMobile Suite purchase a [RhoElements license](licensing) is required.**
 
 If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
 

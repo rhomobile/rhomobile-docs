@@ -1,6 +1,6 @@
 # Device Hardware Key Handling
 
-**NOTE: This guide covers the keyboard backlight and other notification capabilities such as vibration and LEDs. If you are looking for information on capturing or recognizing keypresses, look at [KeyCapture API](/api/keycapture)**
+**NOTE: This guide covers the keyboard backlight and other notification capabilities such as vibration and LEDs. If you are looking for information on capturing or recognizing keypresses, look at [KeyCapture API](../api/keycapture)**
 
 ## Notification
 

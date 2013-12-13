@@ -1,12 +1,12 @@
 # Installing RhoConnect
 
-This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](/rhoconnect/preparing-production) and [deploying a RhoConnect application](/rhoconnect/deploying).
+This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](preparing-production) and [deploying a RhoConnect application](deploying).
 
 ## Installing RhoConnect with RhoStudio
 
 To install RhoConnect on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smart phone applications.
 
-[Click here for the RhoMobile Suite installation instructions](/guide/rhomobile-install).
+[Click here for the RhoMobile Suite installation instructions](../guide/rhomobile-install).
 
 When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
@@ -65,7 +65,7 @@ To install RhoConnect on Linux, you need to install the RhoConnect gem. Download
 
 1. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
+2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
 
 3. Install the RhoConnect Gem.
 
@@ -131,13 +131,13 @@ If you're using MacOS / Linux, install [dtach](http://dtach.sourceforge.net/) on
 
 Now you're ready to create a rhoconnect and start app from the command line. See [App Generator and Command Line](command-line) for instructions on this.# Installing RhoConnect
 
-This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](/rhoconnect/preparing-production) and [deploying a RhoConnect application](/rhoconnect/deploying).
+This section discusses how to install the development environment for RhoConnect. For those who have developed a RhoConnect application, and now wish to deploy that RhoConnect application on a server, refer to the instructions for deploying a RhoConnect application, such as [preparing a RhoConnect app for production](preparing-production) and [deploying a RhoConnect application](deploying).
 
 ## Installing RhoConnect with RhoStudio
 
 To install RhoConnect on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-[Click here for the RhoMobile Suite installation instructions](/guide/rhomobile-install).
+[Click here for the RhoMobile Suite installation instructions](../guide/rhomobile-install).
 
 When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
@@ -196,7 +196,7 @@ To install RhoConnect on Linux, you need to install the RhoConnect gem. Download
 
 1. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](/rhoconnect/command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
+2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
 
 3. Install the RhoConnect Gem.
 

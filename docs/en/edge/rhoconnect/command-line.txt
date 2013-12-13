@@ -55,11 +55,11 @@ Here's a basic rundown of each of the files that were just generated:
 
 * **config.ru** - This is a rackup file which will load your application.  RhoConnect uses the excellent [sinatra](http://www.sinatrarb.com/) web framework to run the application.
 * **settings/settings.yml** - This contains settings such as your redis connection, which source adapters exist and their parameters.  You can also put custom settings here.
-* **settings/license.key** - The RhoConnect [license](/rhoconnect/licensing) associated with your application.  The default license allows up to 10 devices to synchronize with the application.
+* **settings/license.key** - The RhoConnect [license](licensing) associated with your application.  The default license allows up to 10 devices to synchronize with the application.
 * **application_controller.rb** - The RhoConnect application class where you can implement authentication.  You can also add other custom methods here to use in your application.
 * **Rakefile** - This contains tasks that can be run from the terminal.
 * **Gemfile** - This file specifies application's dependencies using [bundler](http://gembundler.com/).
-* **spec/spec_helper.rb** - A helper file which loads the environment for running [specs](/rhoconnect/testing).
+* **spec/spec_helper.rb** - A helper file which loads the environment for running [specs](testing).
 
 ## Rhoconnect Command Line Interface
 
@@ -183,7 +183,7 @@ RhoConnect applications come with many useful rhoconnect tasks for administrativ
 *   `rhoconnect dtach-install` - (Mac OS / Linux only) This will install [dtach](http://dtach.sourceforge.net/) to /usr/local/bin.
 
 *   `rhoconnect redis-install` - This will install to the system.  On Mac OS / Linux, it will attempt to install in '/usr/local/bin' (on windows, C:\redis-<version>), unless you have specified a REDIS_HOME to use instead.
-If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](/rhoconnect/install).
+If you cannot install redis on Linux due to insufficient user permissions, then follows these [instructions](install).
 
 *   `rhoconnect set-admin-password` - Set the RhoConnect administrator password.  The default password is blank ''.
 
@@ -215,9 +215,9 @@ Some other useful development tasks:
 
 Connecting to a backend service with RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. The collection of the code for these operations is called a source. You can create source for your RhoConnect application two ways:
 
- * [RhoConnect source adapter](/rhoconnect/source-adapters): generate a Ruby code source adapter from RhoStudio or from the command line, similar to how you generate a RhoConnect app. This source adapter contains code for the query, create, update and delete operations.
+ * [RhoConnect source adapter](source-adapters): generate a Ruby code source adapter from RhoStudio or from the command line, similar to how you generate a RhoConnect app. This source adapter contains code for the query, create, update and delete operations.
 
- * [RhoConnect plugin](/rhoconnect/plugin-intro): write the source code (the query, create, update and delete operations) into your backend application, and plug a RhoConnect plugin in the application. The plugin is written in the language that matchs your backend application, such as Java or .NET.
+ * [RhoConnect plugin](plugin-intro): write the source code (the query, create, update and delete operations) into your backend application, and plug a RhoConnect plugin in the application. The plugin is written in the language that matchs your backend application, such as Java or .NET.
 
 ## Rake Tasks (Removed)
 <span class="label label-important">As of version 4.0, the rhoconnect rake tasks have been removed.  You can use `rhoconnect --help` to see the list of available rhoconnect commands.</span>

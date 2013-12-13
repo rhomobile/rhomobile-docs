@@ -34,7 +34,7 @@ At run-time all requests are being matched against the declared routes to find t
       end
     end
 
-In the above example, user's custom route will never be called, because `register Rhoconnect::Handler::Sync` (which is responsible for [adding pre-defined SYNC routes](/rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::Handler::Sync)) will add `DELETE '/:id'` route.
+In the above example, user's custom route will never be called, because `register Rhoconnect::Handler::Sync` (which is responsible for [adding pre-defined SYNC routes](../rhoconnectapi/source-adapter-controller-api-ruby#register Rhoconnect::Handler::Sync)) will add `DELETE '/:id'` route.
 As a result, ProductController will have the following routes map:
 
     * 1) DELETE '/:id'
@@ -88,4 +88,4 @@ Then, modify your RhoConnect source adapter model (in `rhoconnect_app/models/rub
 
 This way, your `my_custom_field` would be getting the BLOB image data from the custom route defined in your RhoConnect Source Adapter Controller.
 
-For more information on BLOB syncs, see [this section](/rhoconnect/blob-sync). 
+For more information on BLOB syncs, see [this section](blob-sync). 

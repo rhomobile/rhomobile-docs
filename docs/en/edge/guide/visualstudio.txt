@@ -26,10 +26,10 @@ NOTE: The current version of the extension installs for all users so you might g
 1. From the Visual Studio 2012 `File Menu` select `New Project`
 2. Select `RhoMobile` then `RhoMobile Windows Phone 8 Project`
 3. Give your project a name then click `Ok`
-4. When prompted either choose `Rhodes` or `RhoElements` frameworks. [Check here](/guide/welcome#rhomobile) for more details on the differences.
+4. When prompted either choose `Rhodes` or `RhoElements` frameworks. [Check here](welcome#rhomobile) for more details on the differences.
 5. Click `Finish`
 
-This generates a set of files and folders to define an application structure. This structure is the same as what is [generated from RhoStudio](/guide/creating_a_project)
+This generates a set of files and folders to define an application structure. This structure is the same as what is [generated from RhoStudio](creating_a_project)
 
 ## Generating data models
 
@@ -40,7 +40,7 @@ This generates a set of files and folders to define an application structure. Th
 5. In the `Add new RhoMobile Model` dial enter the `Model Name` an then a list of `Model Attributes` separated by a comma
 6. Click Finish
 
-This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](/guide/models) about data models. 
+This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](models) about data models. 
 
 ## Application changes
     

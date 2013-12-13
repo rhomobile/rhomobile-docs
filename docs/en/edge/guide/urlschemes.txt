@@ -75,7 +75,7 @@ In your application you can get start params by
 
 For the previous example the start params will be "string_with_params".
 
-From another RhoMobile application use can use the [System.openUrl](/api/system#mopenUrl) api:
+From another RhoMobile application use can use the [System.openUrl](../api/system#mopenUrl) api:
 	:::ruby
 	System.openUrl('myapp:string_with_params')
 

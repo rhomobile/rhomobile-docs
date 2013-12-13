@@ -1,7 +1,7 @@
 # Building for iOS
 
 ## Setup
-Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-ios) for building iOS applications.
+Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-ios) for building iOS applications.
 
 ### Using RhoHub
 
@@ -13,7 +13,7 @@ You can use it:
 * to quickly get you up and running
 * for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
 
-See the [RhoHub tutorial](/guide/rhohubtutorial) for more details.
+See the [RhoHub tutorial](rhohubtutorial) for more details.
 
 ## Building and Running Your iOS Application with RhoStudio
 
@@ -231,7 +231,7 @@ Here is an example of the iPhone settings in build.yml for distribution:
         
 ### Setting your application name, icon and loading screen
 
-You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](/guide/app_icon_splash) guide for detailed information.
+You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](app_icon_splash) guide for detailed information.
 
 ### Turn off developer options
 
@@ -282,7 +282,7 @@ You need a "distribution provisioning profile" to sign your application before i
 
 To ensure that your application passes the app store approval process go through the [Guidelines](https://developer.apple.com/appstore/guidelines.html) carefully.
 
-Many applications can benefit from using [native UI elements](/guide/native_ui_elements), like the [native tab bar](../api/NativeTabbar), to better integrate with the rest of the platform. There are plenty of [RhoMobile applications on the App Store](http://pinterest.com/motosolutions/rhomobile-apps/) available already; in general, if your application follows the [iOS Human Interface guidelines](http://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Introduction/Introduction.html) and does not otherwise violate any App Store rule, it will be accepted.
+Many applications can benefit from using [native UI elements](native_ui_elements), like the [native tab bar](../api/NativeTabbar), to better integrate with the rest of the platform. There are plenty of [RhoMobile applications on the App Store](http://pinterest.com/motosolutions/rhomobile-apps/) available already; in general, if your application follows the [iOS Human Interface guidelines](http://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Introduction/Introduction.html) and does not otherwise violate any App Store rule, it will be accepted.
 
 ### Submitting your application
 

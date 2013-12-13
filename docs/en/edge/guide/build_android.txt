@@ -1,7 +1,7 @@
 # Build for Android
 
 ## Setup
-Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-android) for building Android applications.
+Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-android) for building Android applications.
 
 ### Using RhoHub
 
@@ -13,7 +13,7 @@ You can use it:
 * to quickly get you up and running
 * for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
 
-See the [RhoHub tutorial](/guide/rhohubtutorial) for more details.
+See the [RhoHub tutorial](rhohubtutorial) for more details.
 
 ## Set up minimal Android SDK API level
 

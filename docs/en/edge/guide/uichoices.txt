@@ -1,7 +1,7 @@
 #User Interface Architecture
 
 ##What is included in the box
-When using RhoMobile Application Generator, a [default application structure](/guide/creating_a_project#project-structure) is created that includes jQuery Mobile and associated CSS stylesheets to control the user interface of the application.
+When using RhoMobile Application Generator, a [default application structure](creating_a_project#project-structure) is created that includes jQuery Mobile and associated CSS stylesheets to control the user interface of the application.
 
 The RhoMobile framework also includes stylesheets customized for each device to give your applications a native look and feel. These stylesheets are included by default in all generated Rhodes applications (public/css/), and are included in the application layout file (app/layout.erb).
 

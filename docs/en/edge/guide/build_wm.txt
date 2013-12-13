@@ -1,7 +1,7 @@
 # Build for Windows Mobile
 
 ## Setup
-Follow the instructions for [setting up the development environment](/guide/nativesdksetup#setup-for-windows-mobile) for building Windows Mobile applications.
+Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-windows-mobile) for building Windows Mobile applications.
 
 ## Add Paths to Cab Wizard and Visual Studio
 

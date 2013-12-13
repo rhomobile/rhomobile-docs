@@ -5,7 +5,7 @@ Synchronizing images or binary objects between RhoConnect and the client is decl
 **NOTE: The example below shows how to synchronize an image created by the device's camera, but could be applied to any arbitrary files on the device.**
 
 ## Synchronizing from Device to RhoConnect
-Suppose you have a [Rhom model](../guide/local_database) called "Image" and you have a camera callback function defined in the Rhodes Image model's controller:
+Suppose you have a [Rhom model](../guide/local_database) called "Image" and you have a [camera callback function](../guide/camera) defined in the Rhodes Image model's controller:
 
     :::ruby
     def camera_callback
