@@ -7,11 +7,11 @@
 			<DESC>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</DESC>
 			<PARAMS>
 				<PARAM name="propertyName" type="STRING">
-					<DESC>The one property that I want to know about</DESC>
+					<DESC>The property to return info about.</DESC>
                 </PARAM>
             </PARAMS>
             <RETURN type="STRING">
-                <DESC>The one property that I want to know about</DESC>
+                <DESC>The property to return info about.</DESC>
             </RETURN>
             <PLATFORM usemodule="true"></PLATFORM>
                 
