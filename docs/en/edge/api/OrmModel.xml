@@ -40,7 +40,7 @@ This API is part of the `coreapi` extension that is included automatically.
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
 
 ## Ruby Usage
-For Ruby access to the RHOM database please see the [Rhom Ruby API guide](rhom-api).
+For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/rhom-api).
       
     </MORE_HELP>
 
