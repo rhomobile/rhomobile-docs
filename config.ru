@@ -13,5 +13,6 @@ use Rack::Rewrite do
 	r301  %r{^/rhoconnectapi/(.*)}, '/en/4.0.0/rhoconnectapi/$1'
 	r301  %r{^/rhoconnectjs/(.*)}, '/en/4.0.0/rhoconnectjs/$1'
 	r301  %r{^/tutorial/(.*)}, '/en/4.0.0/tutorial/$1'
+  r301  %r{^/$}, '/en/4.0.0/home'
 end
 run Docs.new
