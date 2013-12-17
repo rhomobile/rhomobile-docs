@@ -81,7 +81,7 @@ NOTE: It is a good idea to install Windows Mobile 6 Professional last, since it 
 
 ### Prerequisites
 
-* Visual Studio 2012 (or 2008)
+* Visual Studio 2012 SP1 (or 2008)
 * Install [Qt libraries 5.1.1 for Visual Studio 2012](http://download.qt-project.org/official_releases/qt/5.1/5.1.1/qt-windows-opensource-5.1.1-msvc2012-x86-offline.exe) - 511 MB (or [Qt libraries 4.8.5 for Visual Studio 2008](http://download.qt-project.org/official_releases/qt/4.8/4.8.5/qt-win-opensource-4.8.5-vs2008.exe) - 235 MB)
 * Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\Qt5\5.1.1\msvc2012`
 
