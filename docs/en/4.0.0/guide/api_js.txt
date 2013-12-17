@@ -24,11 +24,14 @@ The following application structure is what is minimally required to build a Jav
 	- public (root folder for 'web application')
 
 ## Build.yml settings
-Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you can optionally specify the following setting in the `build.yml` file: 
+Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you should specify the following setting in the `build.yml` file: 
 	:::yaml
 	javascript_application: true
 
-When this flag is specified, the Ruby VM will not start at application start, and all ruby files will be ignored.
+When this flag is specified, the Ruby VM will not start at application start, and all ruby files will be ignored. 
+
+**NOTE: If you do not specify this parameter and remove your `app` folder then the build process will fail.**
+
 
 ## Using JS APIs from a Web Server Application
 To load application files to the RhoMobile application from an external Web server - set `start_path` in `rhoconfig.txt` to point to http:// or https:// protocol URI
