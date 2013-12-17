@@ -32,6 +32,19 @@ task :index do
       topic = Topic.load(name, source)
       topic.text_only
       maxsize = 100000
+      last_commit = '1293911429'
+      rest_result = RestClient.get("https://api.github.com/repos/rhomobile/rhomobile-docs/commits?path=#{doc}", :Authorization => 'token ea72876766af0098ab690afc067c315107b5019f').body
+    
+      if rest_result.code != 200
+        puts ('Error communication with site')
+        parsed = JSON.parse(rest_result)
+        puts parsed["message"]
+      else
+         parsed = JSON.parse(rest_result)
+         last_commit = DateTime.parse(parsed[0]['commit']['committer']['date']).strftime('%s')
+         puts last_commit
+      end 
+
       if topic.body.size() > maxsize
         puts "Needs to be chunked #{topic.body.size()}"
         startPos = 0
@@ -48,7 +61,7 @@ task :index do
             puts "chunk size over limit WTF? - ognoring for now"
           else
             index.document(name+chunknum.to_s).delete()
-            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version})
+            result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version, :timestamp => last_commit})
             
             index.document(name+chunknum.to_s).update_categories(categories)
             index.document(name+chunknum.to_s).update_variables(variables)             
@@ -59,7 +72,7 @@ task :index do
         end
       else
         index.document(name).delete()
-        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version})
+        result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version, :timestamp => last_commit})
         index.document(name).update_categories(categories)
         index.document(name).update_variables(variables)             
         puts "=> #{result}"
