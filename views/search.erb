@@ -2,40 +2,8 @@
 
 <h1><%=search['matches'] %> Results for <em style="color:#4c4074"><%= params[:q] %></em>:</h1>
 
-<div id="facets" data-query="<%= params[:q] %>">
-  <% 
-  @allselected=true
-  			
-total['facets'].each do |facettype,facet| %>
-  	<% facet.each do |key,value| %>
-  		<%
-  			# if combination is in the search reseults then set item to highlugh and true
-  			# if !search["facets"][facettype].nil? && !search["facets"][facettype][key].nil?
-  			if (!categories[facettype].nil? && categories[facettype].include?(key)) || categories == {}
-  			 
-  				badgetype='badge-info'
-				typeselected='true'
-			else
-				badgetype='badge'
-				typeselected='false'
-				@allselected=false
-  			end
-  		%>
-    	<span class="badge filter <%=badgetype%>" data-selected= "<%=typeselected%>" data-type="<%=facettype%>" data-id='<%=key %>'><%=key %> </span>
-    <% end %>
-  <% end %>
-  <%
-  # puts @allselected
-  if  categories != {} && !@allselected
-  %>
-  <span class="badge badge-inverse" data-type="all" ><i class="icon icon-refresh icon-large icon-muted"></i></span>
-  <%
-  	end
-  %>
-
-</div>
-
-<div id="results">
+<div class="row-fluid">
+<div id="results" class="span9">
   <% search['results'].each do |result| 
     # puts result
     %>
@@ -51,6 +19,40 @@ total['facets'].each do |facettype,facet| %>
     </div>
   <% end %>
 </div>
+
+<div id="facets" data-query="<%= params[:q] %>" class="span3">
+  <ul  class="nav nav-list">
+  <% 
+  @allselected=true
+        
+total['facets'].each do |facettype,facet| 
+  if facettype != 'chunknum'
+  %>
+  <li class="nav-header"><%=facettype%></li>
+    <% facet.each do |key,value| %>
+      <%
+        # if combination is in the search reseults then set item to highlugh and true
+        # if !search["facets"][facettype].nil? && !search["facets"][facettype][key].nil?
+        if (!search['facets'][facettype].nil? && search['facets'][facettype].include?(key)) || categories == {}
+         
+          badgetype='icon-check'
+        typeselected='true'
+      else
+        badgetype='icon-check-empty'
+        typeselected='false'
+        @allselected=false
+        end
+      %>
+      <li  data-selected= "<%=typeselected%>" data-type="<%=facettype%>" data-id='<%=key %>'> <i class="icon <%=badgetype%>"></i><%=key %> (<%=value %>)</li>
+    <% end %>
+  <% end %>
+  <%
+  end
+  %>
+  </ul>
+</div>
+</div>
+
 
 <% if next_page %>
   <div id="next_section"><a href="/search?q=<%= query %>&page=<%= next_page %>&c=<%=category%>&v=<%=version%>">Next Page &rarr;</a></div>

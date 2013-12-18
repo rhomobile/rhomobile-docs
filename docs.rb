@@ -347,7 +347,8 @@ end
   	end
 	
   	def search_for(query, page = 0, category='', version='')
-      client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
+      # client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
+      client = IndexTank::Client.new('http://:LsiLZl48xLtVxp@8todr.api.searchify.com')
       index = client.indexes(AppConfig['index'])
     
       categories = {}
