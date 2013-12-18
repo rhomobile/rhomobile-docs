@@ -2,9 +2,8 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
-  
   index = client.indexes(AppConfig['index'])
- 
+  
 
    # index.delete rescue nil
    # index.add rescue nil
