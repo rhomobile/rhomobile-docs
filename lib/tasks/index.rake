@@ -2,6 +2,7 @@ desc 'Index documentation'
 task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
+  # client = IndexTank::Client.new('http://:LsiLZl48xLtVxp@8todr.api.searchify.com')
   index = client.indexes(AppConfig['index'])
   
 
@@ -20,7 +21,8 @@ task :index do
       category = category_for(name) #right now uses directory scheme need to add multi category and other methods
       categories = { 
           'category' => category,
-          'version' => version
+          'version' => version,
+          'chunknum' => '0'
       }
       variables = { 
               0 => index_variable_for(version)
@@ -54,6 +56,8 @@ task :index do
             endPos = topic.body.size()
           end
           chunk = topic.body[startPos,endPos]
+          categories["chunknum"] = chunknum.to_s
+            
           chunknum +=1
           puts "Indexing chunk[#{chunknum}]: #{startPos},#{endPos}:#{chunk.size}" 
           if chunk.size > maxsize       

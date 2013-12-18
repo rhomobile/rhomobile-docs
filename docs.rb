@@ -375,8 +375,11 @@ end
         categories["version"] = verArray
       end
       
+      categories["chunknum"] = '0'
       # puts categories
-      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category,docexternal', :snippet => 'text', :category_filters => categories)
+      search = index.search(query, :start => page * 10, :len => 10, 
+        :fetch => 'title,dockey,version,category,docexternal', 
+        :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
           page + 1
@@ -391,11 +394,12 @@ end
 	
     def recent_updates(count = 5, category='', version='')
       client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
-      
+  
       index = client.indexes(AppConfig['index'])
       query = "category:(#{category})"
       categories = {
-        "version" => version
+        "version" => version,
+        "chunknum" => '0'
       }
       # puts categories
       if version != ''
