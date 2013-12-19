@@ -96,10 +96,16 @@ class Docs < Sinatra::Base
       if ENV["RACK_ENV"] != 'production'
         redirect "en/edge"
       else
-        @docversion = nil
+        @docversion = AppConfig['current_version']
       end        
       @docversion = params[:vnum]
+      if @docversion.nil?
+        @docversion = AppConfig['current_version']
+      end
       cache_long
+      @recent_guides = recent_updates(5,'guide OR rhoconnect',@docversion)
+      @recent_api = recent_updates(5,'api',@docversion)
+      @recent_blogs = recent_updates(8,'blog','')
       erb :index
     end
   end
@@ -110,7 +116,14 @@ class Docs < Sinatra::Base
       @print = 0
       @docversion = nil
       @docversion = params[:vnum]
+      if @docversion.nil?
+        @docversion = AppConfig['current_version']
+      end
       cache_long
+      @recent_guides = recent_updates(5,'guide OR rhoconnect',@docversion)
+      @recent_api = recent_updates(5,'api',@docversion)
+      @recent_blogs = recent_updates(8,'blog','')
+
     	erb :index
 
 
@@ -218,7 +231,7 @@ xml_string +=  ' </rss>	'
 ['/tutorial/:step/:topic/?',  '/tutorial/:topic/?','/en/:vnum/tutorial/:step/:topic/?',  '/en/:vnum/tutorial/:topic/?'].each do |path|
     get path do
       cache_long
-      @docversion = '4.0.0'
+      @docversion = AppConfig['current_version']
 
       # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
       
@@ -362,8 +375,11 @@ end
         categories["version"] = verArray
       end
       
+      categories["chunknum"] = '0'
       # puts categories
-      search = index.search(query, :start => page * 10, :len => 10, :fetch => 'title,dockey,version,category,docexternal', :snippet => 'text', :category_filters => categories)
+      search = index.search(query, :start => page * 10, :len => 10, 
+        :fetch => 'title,dockey,version,category,docexternal', 
+        :snippet => 'text', :category_filters => categories)
       next_page =
         if search and search['matches'] and search['matches'] > (page + 1) * 10
           page + 1
@@ -376,6 +392,34 @@ end
       [search, prev_page, next_page]
   	end
 	
+    def recent_updates(count = 5, category='', version='')
+      client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
+  
+      index = client.indexes(AppConfig['index'])
+      query = "category:(#{category})"
+      categories = {
+        "version" => version,
+        "chunknum" => '0'
+      }
+      # puts categories
+      if version != ''
+      search = index.search(query, 
+       :len => count,
+       :function => 1, 
+       :fetch => 'title,timestamp,docexternal,dockey', 
+       :category_filters => categories)
+      else
+      search = index.search(query, 
+       :len => count,
+       :function => 1, 
+       :fetch => 'title,timestamp,docexternal,dockey')
+      end
+    
+      puts search["matches"]
+      search
+    end
+
+
   	def topic_file(topic, subpath = nil,docversion = nil )
       # puts "topic_file:#{topic}:#{subpath}:#{docversion}"
   	  if topic.include?('/')
@@ -444,7 +488,7 @@ module TOC
   def reload(docversion)
     @sections = []
     if docversion.nil?
-      file = File.dirname(__FILE__) + "/docs/en/4.0.0/toc.rb"
+      file = File.dirname(__FILE__) + "/docs/en/#{AppConfig['current_version']}/toc.rb"
     else
       file = File.dirname(__FILE__) + "/docs/en/#{docversion}/toc.rb"
     end
@@ -502,7 +546,7 @@ module TOC
     end
     found
   end
-  	file = File.dirname(__FILE__) + '/docs/en/4.0.0/toc.rb'
+  	file = File.dirname(__FILE__) + "/docs/en/#{AppConfig['current_version']}/toc.rb"
 	eval File.read(file), binding, file
 end
 

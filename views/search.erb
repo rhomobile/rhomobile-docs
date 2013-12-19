@@ -41,7 +41,7 @@ total['facets'].each do |facettype,facet| %>
     %>
     <div class="result">
       <% if !result['docexternal'].nil? && result['docexternal']== 'True' %>
-        <h2><a href="<%= result['dockey'] %>" target="_blank"><%=h result['title'] %></a></h2>
+        <h2><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></h2>
 
       <% else %>
         <h2><a href="/<%= result['dockey'] %>"><%=h result['title'] %></a></h2>
