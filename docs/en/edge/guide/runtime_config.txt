@@ -522,12 +522,13 @@ The following is an example of a typical configuration file
 <td >HTTPS_Proxy</td>
 <td >N/A</td>
 <td >Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
+<td >URL:PortNo</td>
 <tr>
 <td >No_Proxy</td>
 <td >NOPROXY</td>
 <td >Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24
 </td>
-<td >URL:PortNo</td>
+<td >Comma separated list of direct access addresses.</td>
 </tr>
 <tr>
 <td class="clsEvenRow">WebDB\\WebStorageDBPath</td>
