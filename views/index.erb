@@ -21,23 +21,33 @@
         </ul>
     </div>
     <div class="span4">
-        <h2>New Guides</h2>
+        <h2>Updated Guides</h2>
         <ul>
-            <li><a href="/en/<%=@docversion%>/guide/api_js">Javascript API Guide</a></li>
-            <li><a href="/en/<%=@docversion%>/guide/apiusage">RhoMobile Migration Guide</a></li>
-            <li><a href="/en/<%=@docversion%>/rhoconnect/migration">RhoConnect Migration Guide</a></li>
-            <li><a href="/en/<%=@docversion%>/guide/visualstudio">Visual Studio Plugin</a></li>
-            <li><a href="/en/<%=@docversion%>/rhoconnectapi/source-adapter-controller-api-js">Javascript RhoConnect Source Adapters</a></li>
+            <% 
+                @recent_guides['results'].each do |result| 
+                %>
+                <% if !result['docexternal'].nil? && result['docexternal']== 'True' %>
+                <li><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+
+              <% else %>
+                <li><a href="/<%= result['dockey'] %>"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+
+              <% end %>
+            <% end %>
         </ul>
     </div>
     <div class="span4">
         <h2>API Updates</h2>
         <ul>
-            <li><a href="/en/<%=@docversion%>/api/OrmModel">Javascript Data Access</a><span class="label label-success">New</span></li>
-            <li><a href="/en/<%=@docversion%>/api/RhoConnectClient">RhoConnect Client </a><span class="label label-warning">Updated</span></li>
-            <li><a href="/en/<%=@docversion%>/api/sensor">Device Sensors</a><span class="label label-success">New</span></li>
-            <li><a href="/en/<%=@docversion%>/api/NativeMenubar">Native Menus</a><span class="label label-success">New</span></li>
-            <li><a href="/en/<%=@docversion%>/api/system">System </a><span class="label label-warning">Updated</span></li>
+            <% @recent_api["results"].each do |result| %>
+                <% if !result['docexternal'].nil? && result['docexternal']== 'True' %>
+                <li><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+
+              <% else %>
+                <li><a href="/<%= result['dockey'] %>"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+
+              <% end %>
+            <% end %>
         </ul>
     </div>
 
@@ -60,14 +70,13 @@
 </ul>
     </div>
         <div class="span6">
-<h2>Featured Blogs</h2>
+<h2>Recent Blogs</h2>
     <ul id="bloglist">
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/11/11/considerations-when-selecting-a-js-mvc-framework">Considerations when selecting a JS MVC framework</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/11/13/samsung-remote-test-lab">Remote Device Testing</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/10/10/the-last-javascript-frontier-rhoconnect-source-adapters-part-2">The last (Javascript) frontier: RhoConnect source adapters. Part 2.</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/10/07/the-last-javascript-frontier-rhoconnect-source-adapters-part-1">The last (Javascript) frontier: RhoConnect source adapters. Part 1.</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/10/01/do-not-fear-the-natives--writing-native-extensions-in-rhomobile-4">Do not fear the natives - writing native extensions in RhoMobile 4</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/08/06/save-time-debugging-hardware-js-apis-with-rhomobile-40-and-weinre">Save time debugging hardware JS apis with RhoMobile 4.0 and Weinre</a></li>
+            <% 
+                @recent_blogs['results'].each do |result| 
+                %>
+            <li><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+            <%end%>
     </ul>
     </div>
 
