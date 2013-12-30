@@ -14,6 +14,7 @@ gem 'rack-codehighlighter'
 gem 'indextank'
 gem 'shotgun'
 gem 'link-checker', '~>0.7.2' # Required for link check rake task
+gem 'heroku'
 
 group :development do
   gem "rake", '~> 0.9.2.2'
