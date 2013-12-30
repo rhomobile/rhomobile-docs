@@ -526,7 +526,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >No_Proxy</td>
 <td >NOPROXY</td>
-<td >Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24
+<td >Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Motorola Webkit browser only.
 </td>
 <td >Comma separated list of direct access addresses.</td>
 </tr>
