@@ -2,109 +2,1141 @@
 The following table shows the compatibility for each Mobile API.
 
 ##API Matrix
-<table class="table table-striped table-bordered table-condensed apicompat">
+<table class="table table-striped table-bordered table-condensed apicompat dataTable" width="130%" id="matrix">
+<thead>
+<tr role="row"><th style="text-align:center;vertical-align: middle;" rowspan="1" colspan="1">API Name</th><th style="text-align:center;vertical-align: middle;" rowspan="1" colspan="1">Languages</th><th style="text-align:center" rowspan="1" colspan="1"><img src="/img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"></th><th style="text-align:center" rowspan="1" colspan="1"><img src="/img/android.png" rel="tooltip" title="ET1 and Consumer Android Devices" style="width: 33px;padding-top: 6px;"></th><th colspan="3" style="text-align:center" rowspan="1"><img src="/img/windowsembedded.png" style="width: 180px;padding-top: 10px" rel="tooltip" title="Windows Mobile/CE from any manufacturer"></th><th style="text-align:center" rowspan="1" colspan="1"><img src="/img/windows.png" style="padding-top:6px;" rel="tooltip" title="Windows Desktop XP And Windows 7"></th><th rowspan="1" colspan="1"><img src="/img/bb.png" style="width:30px;padding-top:6px;" rel="tooltip" title="BlackBerry Devices"></th><th style="text-align:center;vertical-align: middle;" rowspan="1" colspan="1">
+<img src="/img/rhodes.png" rel="tooltip" title="RhoMobile Simulator Included with RhoStudio">SIM</th><th rowspan="1" colspan="1"></th></tr>
+<tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Click this row for sorting: activate to sort column descending">Click this row for sorting</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label=": activate to sort column ascending"></th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="3.0+: activate to sort column ascending">3.0+</th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="2.3+: activate to sort column ascending">2.3+</th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="WM6.1+: activate to sort column ascending">WM6.1+</th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="WM6.5+: activate to sort column ascending">WM6.5+</th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="CE6.0+: activate to sort column ascending">CE6.0+</th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="XP/7: activate to sort column ascending">XP/7</th><th style="text-align:center" class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="4.6+: activate to sort column ascending">4.6+</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label=": activate to sort column ascending"></th><th class="sorting" role="columnheader" tabindex="0" aria-controls="matrix" rowspan="1" colspan="1" aria-label="Ver: activate to sort column ascending">Ver</th></tr>
+</thead>
 
-  <tr><th style="text-align:center;vertical-align: middle;">API Name</th><th></th><th style="text-align:center;vertical-align: middle;">Languages</th><th style="text-align:center"><img src="/public/img/ios.png" style="width: 33px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"/></th><th style="text-align:center"><img src="../img/android.png" rel="tooltip" title="ET1 and Consumer Android Devices" style="width: 33px;padding-top: 6px;"/></th><th colspan="3" style="text-align:center"><img src="../img/windowsembedded.png" style="width: 180px;padding-top: 10px" rel="tooltip" title="Windows Mobile/CE from any manufacturer"/></th><th  style="text-align:center"><img src="../img/windows.png" style="padding-top:6px;" rel="tooltip"  title="Windows Desktop XP And Windows 7"/></th><th style="text-align:center"><img src="../img/wp7.png"  style="padding-top:6px;" rel="tooltip" title="Windows Phone 7 Devices"/></th><th><img src="../img/bb.png"  style="width:30px;padding-top:6px;" rel="tooltip" title="BlackBerry Devices"/></th><th style="text-align:center;vertical-align: middle;"><img src="../img/rhodes.png" rel="tooltip" title="RhoMobile Simulator Included with RhoStudio"/>SIM</th></tr>
-  <tr><th> </th><th></th><th></th><th style="text-align:center">3.0+</th><th style="text-align:center">2.3+</th><th style="text-align:center">WM6.1+</th><th style="text-align:center">WM6.5+</th><th style="text-align:center">CE6.0+</th><th style="text-align:center">XP/7</th><th style="text-align:center">7.0+</th><th style="text-align:center">4.6+</th><th></th></tr>
-  
-  <tr><td> <a href="/rhoelements/addressbar" rel="tooltip" title="Introduced in RhoElements 1.0.0">AddressBar</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/airbeam" rel="tooltip" title="Introduced in RhoElements 1.0.0">Airbeam</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start2"> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/alarm" rel="tooltip" title="Introduced in RhoElements 1.0.0">Alarm</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/alert-api"  rel="tooltip" title="Introduced in Rhodes 1.2">Alert</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/apd" rel="tooltip" title="Introduced in RhoElements 1.0.0">Apd</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start2">  <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/application" rel="tooltip" title="Introduced in RhoElements 1.0.0">Application</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/appapplication-api"  rel="tooltip" title="Introduced in Rhodes 1.2">AppApplication</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/asynchttp-api"  rel="tooltip" title="Introduced in Rhodes 1.2">AsyncHttp</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td></tr>
-<!--  <tr><td> <a href="/rhoelements/AudioCapture" rel="tooltip" title="Introduced in RhoElements 2.2">AudioCapture</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr> -->
-  <tr><td> <a href="/rhoelements/backbutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">BackButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/backlight" rel="tooltip" title="Introduced in RhoElements 1.0.0">Backlight</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/barcode-api"  rel="tooltip" title="Introduced in Rhodes 2.1">Barcode</a></td><td><i class=" icon-asterisk" ></i></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/battery" rel="tooltip" title="Introduced in RhoElements 1.0.0">Battery</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/bottomcommandarea" rel="tooltip" title="Introduced in RhoElements 1.0.0">BottomCommandArea</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/bluetoothmanager-api"  rel="tooltip" title="Introduced in Rhodes 2.2">BluetoothManager</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/bluetoothsession-api"  rel="tooltip" title="Introduced in Rhodes 2.2">BluetoothSession</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/camera-api"  rel="tooltip" title="Introduced in Rhodes 1.0">Camera</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/cardreader" rel="tooltip" title="Introduced in RhoElements 1.0.0">CardReader</a> </td><td><img src="../img/motowebkit.png"/><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/comm" rel="tooltip" title="Introduced in RhoElements 1.0.0">Comm</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <!--<tr><td> <a href="/rhoelements/cradle" rel="tooltip" title="Introduced in RhoElements 2.2">Cradle</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>-->
-  <tr><td> <a href="/rhodesapi/datetimepicker-api"   rel="tooltip" title="Introduced in Rhodes 1.2">DateTimePicker</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/toc_decoders">Decoders</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/device" rel="tooltip" title="Introduced in RhoElements 1.0.0">Device</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <!--<tr><td> <a href="/rhoelements/eink" rel="tooltip" title="Introduced in RhoElements 2.2">EInk</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>-->
-  <tr><td> <a href="/rhoelements/EMMLProfile" rel="tooltip" title="Introduced in RhoElements 1.0.0">EMMLProfile</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/file-api"  rel="tooltip" title="Introduced in Rhodes 1.2">File</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/FileTransfer" rel="tooltip" title="Introduced in RhoElements 1.0.0">FileTransfer</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/forwardbutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">ForwardButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/generic" rel="tooltip" title="Introduced in RhoElements 1.0.0">Generic</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start2">  <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/geolocation-api"  rel="tooltip" title="Introduced in Rhodes 0.3">GeoLocation</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/Gesture" rel="tooltip" title="Introduced in RhoElements 1.0.0">Gesture</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/gobutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">GoButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/historyback2" rel="tooltip" title="Introduced in RhoElements 1.0.0">History</a> </td><td ><img src="../img/motowebkit.png"/></td><td class="start2"> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/HomeButton" rel="tooltip" title="Introduced in RhoElements 1.0.0">HomeButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/hourglass" rel="tooltip" title="Introduced in RhoElements 1.0.0">Hourglass</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/imager" rel="tooltip" title="Introduced in RhoElements 1.0.0">Imager</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/keycapture" rel="tooltip" title="Introduced in RhoElements 1.0.0">KeyCapture</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/keystate" rel="tooltip" title="Introduced in RhoElements 1.0.0">KeyState</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/Keylight" rel="tooltip" title="Introduced in RhoElements 1.0.0">Key Light</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/mapview-api"  rel="tooltip" title="Introduced in Rhodes 1.4">MapView</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <!--<tr><td> <a href="/rhoelements/LightSensor" rel="tooltip" title="Introduced in RhoElements 2.1">LightSensor</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>-->
-  <tr><td> <a href="/rhoelements/minimizebutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">MinimizeButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/memory" rel="tooltip" title="Introduced in RhoElements 2.1">Memory</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/menu-apis"  rel="tooltip" title="Introduced in Rhodes 1.2.2">Menu APIs</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/menu-toolbar-tabbar-apis"  rel="tooltip" title="Introduced in Rhodes 1.2.2">Menu-Toolbar-Tabbar actions</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/model-controller-api"  rel="tooltip" title="Introduced in Rhodes 0.3">Model Controller</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/nativetabbar-api"  rel="tooltip" title="Introduced in Rhodes 1.2.2">NativeTabbar</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/nativetoolbar-api"  rel="tooltip" title="Introduced in Rhodes 1.2.2">NativeToolbar</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/navigationbar-iphone-api"  rel="tooltip" title="Introduced in Rhodes 2.0">NavBar</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/network" rel="tooltip" title="Introduced in RhoElements 1.0.0">Network</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/NdefMessage-api"  rel="tooltip" title="Introduced in Rhodes 1.2">NdefMessage</a></td><td><i class=" icon-asterisk" ></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"></td><td style="text-align:center"> <span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/NdefRecord-api"  rel="tooltip" title="Introduced in Rhodes 1.2">NdefRecord</a></td><td><i class=" icon-asterisk" ></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"></td><td style="text-align:center"> <span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/NFCManager-api"  rel="tooltip" title="Introduced in Rhodes 3.0">NFCManager</a></td><td><i class=" icon-asterisk" ></i></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/toc_nfc"  rel="tooltip" title="Introduced in Rhodes 3.0">NFCTags</a></td><td><i class=" icon-asterisk" ></i></td><td class="start1"> <span class="label label-important">R</span> </td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/nosip" rel="tooltip" title="Introduced in RhoElements 1.0.0">NoSIP</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start2"> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/notification" rel="tooltip" title="Introduced in RhoElements 1.0.0">Notification</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/odax" rel="tooltip" title="Introduced in RhoElements 1.0.0">ODAX</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start2"> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/poweron" rel="tooltip" title="Introduced in RhoElements 1.0.0">PowerOn</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/push" rel="tooltip" title="Introduced in RhoElements 1.0.0">Push</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/RawSensors" rel="tooltip" title="Introduced in RhoElements 2.1">RawSensors</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start2">  <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/registry" rel="tooltip" title="Introduced in RhoElements 1.0.0">Registry</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/reloadbutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">ReloadButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/reboot" rel="tooltip" title="Introduced in RhoElements 1.0.0">Reboot</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/rhoapplication-api"   rel="tooltip" title="Introduced in Rhodes 0.3">RhoApplication</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhoconfig-api"   rel="tooltip" title="Introduced in Rhodes 0.3">RhoConfig</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhocontact-api"   rel="tooltip" title="Introduced in Rhodes 0.3">RhoContact</a></td><td><img src="../img/rhodes.png"/></td> <td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhocontroller-api"   rel="tooltip" title="Introduced in Rhodes 0.3">RhoController</a><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhoerror-api"   rel="tooltip" title="Introduced in Rhodes 0.3">RhoError</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhoevent-api"  rel="tooltip" title="Introduced in Rhodes 0.3">RhoEvent</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rholog-api"  rel="tooltip" title="Introduced in Rhodes 0.3">RhoLog</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhom-api"  rel="tooltip" title="Introduced in Rhodes 0.3">Rhom</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhomsource-api"  rel="tooltip" title="Introduced in Rhodes 0.3">RhomSource</a></td><td><img src="../img/rhodes.png"/></td> <td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/rhoutils-api"  rel="tooltip" title="Introduced in Rhodes 0.3">RhoUtils</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/ringtonemanager-api"  rel="tooltip" title="Introduced in Rhodes 1.5">RingtoneManager</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/RSM" rel="tooltip" title="Introduced in RhoElements 1.0.0">RSM</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/scanner" rel="tooltip" title="Introduced in RhoElements 1.0.0">Scanner</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>      
-  <tr><td> <a href="/rhoelements/screenorientation" rel="tooltip" title="Introduced in RhoElements 1.0.0">ScreenOrientation</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/SignatureCapture" rel="tooltip" title="Introduced in RhoElements 1.0.0">SignatureCapture</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/signaturecapture-api"  rel="tooltip" title="Introduced in Rhodes 2.1">SignatureCapture (Inline)</a></td><td><i class=" icon-asterisk" ></i></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/sip" rel="tooltip" title="Introduced in RhoElements 1.0.0">SIP</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/signal" rel="tooltip" title="Introduced in RhoElements 1.0.0">Signal</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/sipbutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">SipButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/stopbutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">StopButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/stylus" rel="tooltip" title="Introduced in RhoElements 1.0.0">Stylus</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/syncengine-api"  rel="tooltip" title="Introduced in Rhodes 1.2">SyncEngine</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhodesapi/system-api"  rel="tooltip" title="Introduced in Rhodes 0.3">System</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/systemTime" rel="tooltip" title="Introduced in RhoElements 2.1.0">SystemTime</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhodesapi/timer-api"   rel="tooltip" title="Introduced in Rhodes 1.2">Timer API</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <tr><td> <a href="/rhoelements/timer" rel="tooltip" title="Introduced in RhoElements 1.0.0">Timer</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/topcommandarea" rel="tooltip" title="Introduced in RhoElements 1.0.0">TopCommandArea</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/volume" rel="tooltip" title="Introduced in RhoElements 1.0.0">Volume</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <!--<tr><td> <a href="/rhoelements/wake" rel="tooltip" title="Introduced in RhoElements 2.2.0">Wake</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>-->
-  <tr><td> <a href="/rhodesapi/webview-api"  rel="tooltip" title="Introduced in Rhodes 0.3">WebView</a></td><td><img src="../img/rhodes.png"/></td><td class="start1"><span class="label label-important">R</span> </td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td></tr>
-  <!--<tr><td> <a href="/rhoelements/wlan" rel="tooltip" title="Introduced in RhoElements 2.2">Wlan</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>-->
-  <tr><td> <a href="/rhoelements/quitbutton" rel="tooltip" title="Introduced in RhoElements 1.0.0">Quit Button</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/zoom" rel="tooltip" title="Introduced in RhoElements 1.0.0">Zoom</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-  <tr><td> <a href="/rhoelements/zoomTextButton" rel="tooltip" title="Introduced in RhoElements 1.0.0">ZoomTextButton</a> </td><td><img src="../img/motowebkit.png"/></td><td class="start1"> <span class="label label-important">R</span> <span class="label label-warning">J</span> <span class="label label-info">H</span></td><td style="text-align:center"></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"><span class="icon-star"/></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr>
-</table>
+<tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/RawSensors" rel="tooltip">Accelerometer</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.2</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/alert-api" rel="tooltip">Alert</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/appapplication-api" rel="tooltip">AppApplication</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/asynchttp-api" rel="tooltip">AsyncHttp</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/AudioCapture" rel="tooltip">AudioCapture</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.2</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/barcode-api" rel="tooltip">Barcode</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/bluetoothmanager-api" rel="tooltip">BluetoothManager</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/bluetoothsession-api" rel="tooltip">BluetoothSession</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/camera-api" rel="tooltip">Camera</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/database-api" rel="tooltip">Database</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/datetimepicker-api" rel="tooltip">DateTimePicker</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/file-api" rel="tooltip">File</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/geolocation-api" rel="tooltip">GeoLocation</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/RawSensors" rel="tooltip">Magnetometer</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.2</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/mapview-api" rel="tooltip">MapView</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/mediaPlayer" rel="tooltip">MediaPlayer</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.2</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/menu-apis" rel="tooltip">Menu Apis</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/menu-toolbar-tabbar-apis" rel="tooltip">Menu-Toolbar-Tabbar</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/model-controller-api" rel="tooltip">Model Controller</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/nativetabbar-api" rel="tooltip">NativeTabbar</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/nativetoolbar-api" rel="tooltip">NativeToolbar</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/navigationbar-iphone-api" rel="tooltip">NavBar</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/NdefMessage-api" rel="tooltip">NdefMessage</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/NdefRecord-api" rel="tooltip">NdefRecord</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/NFCManager-api" rel="tooltip">NFCManager</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/toc_nfc" rel="tooltip">NFCTags</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/RawSensors" rel="tooltip">RawSensors</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.2</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhoapplication-api" rel="tooltip">RhoApplication</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhoconfig-api" rel="tooltip">RhoConfig</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhocontact-api" rel="tooltip">RhoContact</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhocontroller-api" rel="tooltip">RhoController</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhoerror-api" rel="tooltip">RhoError</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhoevent-api" rel="tooltip">RhoEvent</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rholog-api" rel="tooltip">RhoLog</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhom-api" rel="tooltip">Rhom</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhomsource-api" rel="tooltip">RhomSource</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhoutils-api" rel="tooltip">RhoUtils</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/ringtonemanager-api" rel="tooltip">RingtoneManager</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/signaturecapture-api" rel="tooltip">SignatureCapture Inline</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/syncengine-api" rel="tooltip">SyncEngine</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/system-api" rel="tooltip">System</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/timer-api" rel="tooltip">Timer API</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr><tr class="odd">
+<td class=" sorting_1"> <a href="/v/2.2/rhoelements/VideoCapture" rel="tooltip">VideoCapture</a> </td>
+        <td class="start1 ">
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+        <td style="text-align:center" class=" "></td>
+         <td class=" "> 2.2</td>
+       </tr><tr class="even">
+<td class=" sorting_1"> <a href="/v/2.2/rhodesapi/webview-api" rel="tooltip">WebView</a> </td>
+        <td class="start1 ">
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ios</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">android</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">windows mobile windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">ce wince windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">win32 windows</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">blackberry</span>
+</td>
+        <td style="text-align:center" class=" ">
+<span class="icon-star"></span><span style="display:none">simulator</span>
+</td>
+         <td class=" "> 2.0</td>
+       </tr></tbody></table>
 
 
 **NOTE: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode), [NFC](../rhodes/device-caps#nfc), and [Inline Signature Capture](../rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](../rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.**
