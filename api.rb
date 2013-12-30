@@ -502,7 +502,7 @@ def self.getconstantlinks(doc)
 	  	s.each_with_index() { |element,index|
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
-			if !element["DESC"][0].is_a?(Hash)
+			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
  		        md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
        		end
 	  	}

@@ -427,6 +427,12 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
 				<DESC>Set to false to disable scanning when the battery is low or set to true to enable it. Once disabled the scanner can be enabled again by calling enable().</DESC>
             </PROPERTY>
+            <PROPERTY name="triggerConnected" type="BOOLEAN" generateAccessors="true" default="true">
+				<VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+				<PLATFORM>WM</PLATFORM>
+				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+				<DESC>Only applies to an enabled laser or imaging scanner.  Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer.  By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately.</DESC>
+            </PROPERTY>
             <!--PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
@@ -473,7 +479,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>WM, Android</PLATFORM>
 				<APPLIES msiOnly="false">All Scanners</APPLIES>
-				<DESC>The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes.  Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser. Please note, on Windows Mobile and CE, camera and imager scanners are both identified as 'Imager's</DESC>
+				<DESC>The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes.  Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.</DESC>
             </PROPERTY>
             <PROPERTY name="allDecoders" type="BOOLEAN" generateAccessors="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1835,6 +1841,15 @@ On Motorola Solutions' scanners the scanner viewfinder window is not infinitely 
                 <DESC>
                     <![CDATA[
 In some device configurations the scanner and camera share the same hardware.  Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
+
+                    ]]>
+
+                </DESC>
+            </REMARK>
+	    <REMARK title="Get Scanner Properties">
+                <DESC>
+                    <![CDATA[
+On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. 
 
                     ]]>
 

@@ -1,63 +1,297 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Printing" parent="Rho">
-        <HELP_OVERVIEW>Example extension api</HELP_OVERVIEW>
-        <MORE_HELP>This is example of API. Implementation contain in extension.</MORE_HELP>
+    <MODULE name="Printer" parent="Rho">
+        <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to BT, Network, and USB printers.</HELP_OVERVIEW>
+        <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API.</MORE_HELP>
     
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
             <PROPERTY_BAG/>
+            <SINGLETON_INSTANCES/>
         </TEMPLATES>
 
-         <PROPERTIES >
-            <DESC>list of properties supported by instance of object</DESC>
-            <PROPERTY name="simpleStringProperty" type="STRING" usePropertyBag="accessorsViaPropertyBag" >
-                <DESC>simple string property</DESC>
+        <CONSTANTS>
+            <!-- Printer control languages -->
+            <CONSTANT name="PRINTER_LANGUAGE_ZPL" value="PRINTER_LANGUAGE_ZPL" type="STRING">
+                <DESC>Printer control language ZPL</DESC>
+            </CONSTANT>
+
+            <CONSTANT name="PRINTER_LANGUAGE_CPCL" value="PRINTER_LANGUAGE_CPCL" type="STRING">
+                <DESC>Printer control language CPCL</DESC>
+            </CONSTANT>
+
+            <CONSTANT name="PRINTER_LANGUAGE_EPS" value="PRINTER_LANGUAGE_EPS" type="STRING">
+                <DESC>Printer control language EPS</DESC>
+            </CONSTANT>
+
+            <!-- Printer types -->
+            <CONSTANT name="PRINTER_TYPE_ANY" value="PRINTER_TYPE_ANY" type="STRING"/>
+            <CONSTANT name="PRINTER_TYPE_NATIVE" value="PRINTER_TYPE_NATIVE" type="STRING"/>
+            <CONSTANT name="PRINTER_TYPE_ZEBRA" value="PRINTER_TYPE_ZEBRA" type="STRING"/>
+            <CONSTANT name="PRINTER_TYPE_EPSON" value="PRINTER_TYPE_EPSON" type="STRING"/>
+            <CONSTANT name="PRINTER_TYPE_APD" value="PRINTER_TYPE_APD" type="STRING"/>
+            <!-- Connection types types -->
+            <CONSTANT name="CONNECTION_TYPE_ANY" value="CONNECTION_TYPE_ANY" type="STRING"/>
+            <CONSTANT name="CONNECTION_TYPE_ON_BOARD" value="CONNECTION_TYPE_ON_BOARD" type="STRING"/>
+            <CONSTANT name="CONNECTION_TYPE_BLUETOOTH" value="CONNECTION_TYPE_BLUETOOTH" type="STRING"/>
+            <CONSTANT name="CONNECTION_TYPE_TCP" value="CONNECTION_TYPE_TCP" type="STRING"/>
+            <!-- Printer Status result -->
+            <CONSTANT name="STATUS_SUCCESS" value="STATUS_SUCCESS" type="STRING"/>
+            <CONSTANT name="STATUS_ERROR" value="STATUS_ERROR" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_IO" value="STATUS_ERR_IO" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_MEMORY" value="STATUS_ERR_MEMORY" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_NETWORK" value="STATUS_ERR_NETWORK" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_NOT_CONNECTED" value="STATUS_ERR_NOT_CONNECTED" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_NOT_FOUND" value="STATUS_ERR_NOT_FOUND" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_PARAM" value="STATUS_ERR_PARAM" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_PROCESSING" value="STATUS_ERR_PROCESSING" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_RESPONSE" value="STATUS_ERR_RESPONSE" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_TIMEOUT" value="STATUS_ERR_TIMEOUT" type="STRING"/>
+            <CONSTANT name="STATUS_ERR_UNSUPPORTED" value="STATUS_ERR_UNSUPPORTED" type="STRING"/>
+
+            <CONSTANT name="PRINTER_STATE_IS_READY_TO_PRINT" value="PRINTER_STATE_IS_READY_TO_PRINT" type="STRING">
+                <DESC>use this name for requestState(), return true if printer ready to print</DESC>
+            </CONSTANT>
+            <CONSTANT name="PRINTER_STATE_IS_COVER_OPENED" value="PRINTER_STATE_IS_COVER_OPENED" type="STRING">
+                <DESC>use this name for requestState(), return true if cover is opened</DESC>
+            </CONSTANT>
+            <CONSTANT name="PRINTER_STATE_IS_DRAWER_OPENED" value="PRINTER_STATE_IS_DRAWER_OPENED" type="STRING">
+                <DESC>use this name for requestState(), return true if drawer is opened</DESC>
+            </CONSTANT>
+            <CONSTANT name="PRINTER_STATE_IS_PAPER_OUT" value="PRINTER_STATE_IS_PAPER_OUT" type="STRING">
+                <DESC>use this name for requestState(), return true if paper out</DESC>
+            </CONSTANT>
+            <CONSTANT name="PRINTER_STATE_IS_BATTERY_LOW" value="PRINTER_STATE_IS_BATTERY_LOW" type="STRING">
+                <DESC>use this name for requestState(), return true if battery low</DESC>
+            </CONSTANT>
+            
+        </CONSTANTS>
+        
+        <PROPERTIES> 
+            <!-- Common properties -->
+            <DESC>general properties for Printer</DESC>
+            <PROPERTY name="ID" type="STRING" readOnly="true">
+                <DESC>unique printer ID during application lifetime</DESC>
             </PROPERTY>
-        </PROPERTIES>
+            <PROPERTY name="deviceName" type="STRING" readOnly="true">
+                <DESC>Bluetooth/Network name of printer</DESC>
+            </PROPERTY>
+            <PROPERTY name="printerType" type="STRING" readOnly="true">
+                <DESC>type of printer - see PRINTER_TYPE_... consts</DESC>
+            </PROPERTY>
+            <PROPERTY name="deviceAddress" type="STRING" readOnly="true">
+                <DESC>Bluetooth mac/TCP IP address</DESC>
+            </PROPERTY>
+            <PROPERTY name="devicePort" type="INTEGER" generateAccessors="true">
+                <DESC>Default port when connecting using TCP/IP</DESC>
+            </PROPERTY>
+            <PROPERTY name="connectionType" type="STRING" readOnly="true">
+                <DESC>Type of connection to printer</DESC>
+            </PROPERTY>
+            <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
+                <DESC>Connection status flag. All other properties are valid only if isConnect equals to true.</DESC>
+            </PROPERTY>
+            <PROPERTY name="printerEventCallback" type="CALLBACK" >
+                <DESC>Callback for receiving printer events</DESC>
+            </PROPERTY>
+            <PROPERTY name="controlLanguage" type="STRING" readOnly="true">
+                <DESC>Type of printer control language</DESC>
+            </PROPERTY>            
+        </PROPERTIES>   
+        
+        <METHODS access="INSTANCE">
+            <METHOD name="enumerateSupportedTypes" access="STATIC" hasCallback="optional">
+                <DESC>Return array with printer types that are supported in this build.</DESC>
+                <CALLBACK type="ARRAY">
+                    <DESC>Array of supported printer types</DESC>
+                    <PARAM type="STRING">
+                        <DESC>Type of device.</DESC>
+                    </PARAM>
+                </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
+            </METHOD>
 
-        <METHODS>
+            <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
+                <DESC>search all printers on device and allBluetooth(R) or Network printers that are discoverable. Calls callback on each printer</DESC>
+                <PARAMS>
+                    <PARAM name="options" type="HASH">
+                        <DESC>options for discover</DESC>
+                        <CAN_BE_NIL/>
+                        <PARAMS>
+                            <PARAM name="printerType" type="STRING" default="PRINTER_TYPE_ANY">
+                                <DESC>Printer types to search</DESC>
+                            </PARAM>
+                            <PARAM name="connectionType" type="STRING" default="CONNECTION_TYPE_ANY">
+                                <DESC>Interfaces for seach (Bluetooth/TCP/All)</DESC>
+                            </PARAM>
+                            <PARAM name="timeout" type="INTEGER" default="30000">
+                                <DESC>Maximum search interval in milliseconds</DESC>
+                            </PARAM>
+                            <PARAM name="deviceAddress" type="STRING">
+                                <DESC>Printer adress (mac or ip). Can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="devicePort" type="INTEGER">
+                                <DESC>Override default printer port number.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                        </PARAMS>
+                    </PARAM>
+                </PARAMS>
+                <CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="status" type="STRING">
+                            <DESC>STATUS_SUCCESS, STATUS_ERROR</DESC>
+                        </PARAM>
+                        <PARAM name="printerID" type="STRING">
+                            <DESC>printer ID only if status = STATUS_OK</DESC>
+                            <CAN_BE_NIL/>
+                        </PARAM>
+                        <PARAM name="message" type="STRING">
+                            <DESC>error message, only if status = ERROR</DESC>
+                            <CAN_BE_NIL/>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
+            </METHOD>
 
-            <METHOD name="enumerate" access="STATIC" hasCallback="optional">
-                <RETURN type="ARRAY">
-                    <DESC>Array of Printing objects</DESC>
-                    <PARAM type="SELF_INSTANCE"/>
+            <METHOD name="stopSearch" access="STATIC" hasCallback="optional">
+                <DESC>Stop discovery process</DESC>
+            </METHOD>
+            
+            <METHOD name="getPrinterByID" access="STATIC">
+                <DESC>return printer instance</DESC>
+                <PARAMS>
+                    <PARAM name="printerId" type="STRING">
+                    </PARAM>
+                </PARAMS>    
+                <RETURN type="SELF_INSTANCE">
+                </RETURN>   
+            </METHOD>
+
+            <METHOD name="connect" hasCallback="optional">
+                <DESC>Connect to a specific printer. If you want to receive result, you must specify callback. After this function call state is automatically updated.</DESC>
+                <PARAMS>
+                    <PARAM name="options" type="HASH">
+                        <CAN_BE_NIL>
+                            <DESC>Not providing options to this function will executed with default settings.</DESC>                                
+                        </CAN_BE_NIL>
+                        <DESC>Connect options</DESC>
+                        <PARAMS>
+                            <PARAM name="timeout" type="INTEGER" default="15000">
+                                <DESC>connection timeout in milliseconds</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="additionalStringOption" type="STRING">
+                                <DESC>Any addtional info. Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                        </PARAMS>
+                    </PARAM>
+                </PARAMS>
+                <CALLBACK type="STRING">
+                    <DESC>Returns result of a connection attempt to printer. STATUS_OK, STATUS_TIMEOUT, STATUS_ERROR, STATUS_NOT_FOUND</DESC>
+                    <CAN_BE_NIL/>
+                </CALLBACK>
+            </METHOD>
+
+            <METHOD name="requestState" hasCallback="mandatory">
+                <DESC>Request printer state for list of parameters</DESC>
+                <PARAMS>
+                    <PARAM name="listOfParameters" type="ARRAY">
+                        <DESC>list of parameters for request from printer device.</DESC>
+                        <PARAM type="STRING">
+                            <DESC>parameter name - see consts with PRINTER_STATE_...</DESC>
+                        </PARAM>
+                    </PARAM>
+                </PARAMS>>
+                <CALLBACK type="HASH">
+                    <DESC>hash with pairs requestedParameter => value, also "status" always in returned hash. If you do not receive requested parameter thne this parameter is unsupported by printer</DESC>
+                    <PARAMS>
+                        <PARAM name="status" type="STRING">
+                            <DESC>STATUS_SUCCESS, STATUS_ERROR</DESC>
+                        </PARAM>
+                        <PARAM name="message" type="STRING">
+                            <DESC>error message, only if status = ERROR</DESC>
+                            <CAN_BE_NIL/>
+                        </PARAM>
+                        <PARAM name="propertyWithIntValue" type="INTEGER">
+                            <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                            <CAN_BE_NIL/>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+
+            <METHOD name="disconnect" hasCallback="optional">
+                <DESC>Disconnect from printer. If you want to receive result, you must specify callback</DESC>
+                <RETURN type="STRING">
+                    <DESC>Returns result of a disconnection. STATUS_SUCCESS, STATUS_ERROR</DESC>
                 </RETURN>
             </METHOD>
-    
-            <METHOD name="getPlatformName">
-                <DESC>return string with platform</DESC>
-                <RETURN type="STRING"/>
-            </METHOD>
-    
-            <METHOD name="calcSumm">
-                <DESC>return summ of two params: a+b</DESC>
+
+            <METHOD name="printFile" hasCallback="optional">
+                <DESC>Prints file. File extension is used to determine its type. Supported types: *.jpg, *.png, *.bmp. *.pdf</DESC>
                 <PARAMS>
-                    <PARAM name="a" type="INTEGER">
+                    <PARAM name="fileURI" type="STRING">
+                        <DESC>Location of file to print.</DESC>
                     </PARAM>
-                    <PARAM name="b" type="INTEGER">
+                    <PARAM name="options" type="HASH">
+                        <CAN_BE_NIL>
+                            <DESC>Not providing properties to this function will print with default settings.</DESC>                                
+                        </CAN_BE_NIL>
+                        <PARAMS>
+                            <DESC>Proivde a set of properties to configure the printer.</DESC>
+                                <PARAM name="prpertyWithStringValue" type="STRING">
+                                    <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                    <CAN_BE_NIL/>
+                                </PARAM>
+                                <PARAM name="propertyWithIntValue" type="INTEGER">
+                                    <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                    <CAN_BE_NIL/>
+                                </PARAM>                        
+                        </PARAMS>    
                     </PARAM>
                 </PARAMS>
-                <RETURN type="INTEGER"/>
+                <RETURN type="STRING">
+                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                </RETURN>
             </METHOD>
 
-            <METHOD name="joinStrings">
-                <DESC>return join of two strings: a+b</DESC>
+            <METHOD name="printRawString" hasCallback="optional">
+                <DESC>Send raw string to printer. Control language is managed by controlLanguage property</DESC>
                 <PARAMS>
-                    <PARAM name="a" type="STRING">
+                    <PARAM name="command" type="STRING">
+                        <DESC>Raw string to print.</DESC>
                     </PARAM>
-                    <PARAM name="b" type="STRING">
+                    <PARAM name="options" type="HASH">
+                        <CAN_BE_NIL>
+                            <DESC>Not providing properties to this function will print with default settings.</DESC>                                
+                        </CAN_BE_NIL>
+                        <PARAMS>
+                            <DESC>Proivde a set of properties to configure the printer.</DESC>
+                            <PARAM name="prpertyWithStringValue" type="STRING">
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="propertyWithIntValue" type="INTEGER">
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>                        
+                        </PARAMS>    
                     </PARAM>
                 </PARAMS>
-                <RETURN type="STRING"/>
+                <RETURN type="STRING">
+                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                </RETURN>
             </METHOD>
 
         </METHODS>
         
         <USER_OVERVIEW>
         </USER_OVERVIEW>
-
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>
          </PLATFORM>

@@ -176,8 +176,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<METHOD name="hide" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-			</METHOD>
 				<DESC>Hides the signature capture area from view. Doesnt clear the inputed signature for inline signature areas (not for signatures shown using takeFullScreen). In a hidden state, a user cannot interact with the signature capture area.</DESC>
+			</METHOD>				
 			
 			<METHOD name="setVectorCallback" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
