@@ -152,13 +152,12 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
     :::yaml
     # Address and port of proxy server. This settings uses Network module.
-    # If app uses motowebkit that configure this parameters at config.xml
     http_proxy_host = 'server'
-    http_proxy_port = 'server'
+    http_proxy_port = port
 
     # Login and password for access to proxy server. Only basic authentication is supported
-    http_proxy_login = 'server'
-    http_proxy_password = 'server'
+    http_proxy_login = 'user'
+    http_proxy_password = 'password'
 
 
 ## Config.xml
