@@ -1,8 +1,10 @@
-require 'rubygems'
 require 'bundler/setup'
 require 'rack/rewrite'
 
+require './version'
 require './environment'
+
+latest_version = Version::VERSION
 
 use Rack::Rewrite do
 	r301  %r{^/home$}, '/en/4.0.0/home'
@@ -16,7 +18,7 @@ use Rack::Rewrite do
 	r301  %r{^/rhoconnectapi/(.*)}, '/en/4.0.0/rhoconnectapi/$1'
 	r301  %r{^/rhoconnectjs/(.*)}, '/en/4.0.0/rhoconnectjs/$1'
 	r301  %r{^/tutorial/(.*)}, '/en/4.0.0/tutorial/$1'
-	r301  %r{^/$}, '/en/4.0.0/home'
+	r301  %r{^/$}, "/en/#{latest_version}/home"
 	r301  %r{^/en/latest/(.*)/(.*)}, '/en/4.0.0/$1/$2'
 	r301  %r{^/en/latest/(.*)}, '/en/4.0.0/$1'
 	r301  %r{^/en/latest$}, '/en/4.0.0/home'
