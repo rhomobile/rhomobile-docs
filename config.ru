@@ -4,23 +4,21 @@ require 'rack/rewrite'
 require './version'
 require './environment'
 
-latest_version = Version::VERSION
-
 use Rack::Rewrite do
-	r301  %r{^/home$}, '/en/4.0.0/home'
-	r301  %r{^/v/2.2$}, '/en/2.2.0/'
-	r301  %r{^/v/edge$}, '/en/edge/home'
-	r301  %r{^/v/2.2/(.*)/(.*)}, '/en/2.2.0/$1/$2'
-	r301  %r{^/v/2.2/(.*)}, '/en/2.2.0/$1'
-	r301  %r{^/api/(.*)}, '/en/4.0.0/api/$1'
-	r301  %r{^/guide/(.*)}, '/en/4.0.0/guide/$1'
-	r301  %r{^/rhoconnect/(.*)}, '/en/4.0.0/rhoconnect/$1'
-	r301  %r{^/rhoconnectapi/(.*)}, '/en/4.0.0/rhoconnectapi/$1'
-	r301  %r{^/rhoconnectjs/(.*)}, '/en/4.0.0/rhoconnectjs/$1'
-	r301  %r{^/tutorial/(.*)}, '/en/4.0.0/tutorial/$1'
-	r301  %r{^/$}, "/en/#{latest_version}/home"
-	r301  %r{^/en/latest/(.*)/(.*)}, '/en/4.0.0/$1/$2'
-	r301  %r{^/en/latest/(.*)}, '/en/4.0.0/$1'
-	r301  %r{^/en/latest$}, '/en/4.0.0/home'
+	r301  %r{^/home$}, "/en/#{Version::CURR_VERSION}/home"
+	r301  %r{^/v/2.2$}, "/en/#{Version::PREV_VERSION}/home"
+	r301  %r{^/v/edge$}, "/en/#{Version::NEXT_VERSION}/home"
+	r301  %r{^/v/2.2/(.*)/(.*)}, "/en/#{Version::PREV_VERSION}/$1/$2"
+	r301  %r{^/v/2.2/(.*)}, "/en/#{Version::PREV_VERSION}/$1"
+	r301  %r{^/api/(.*)}, "/en/#{Version::CURR_VERSION}/api/$1"
+	r301  %r{^/guide/(.*)}, "/en/#{Version::CURR_VERSION}/guide/$1"
+	r301  %r{^/rhoconnect/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnect/$1"
+	r301  %r{^/rhoconnectapi/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnectapi/$1"
+	r301  %r{^/rhoconnectjs/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnectjs/$1"
+	r301  %r{^/tutorial/(.*)}, "/en/#{Version::CURR_VERSION}/tutorial/$1"
+	r301  %r{^/$}, "/en/#{Version::CURR_VERSION}/home"
+	r301  %r{^/en/latest/(.*)/(.*)}, "/en/#{Version::CURR_VERSION}/$1/$2"
+	r301  %r{^/en/latest/(.*)}, "/en/#{Version::CURR_VERSION}/$1"
+	r301  %r{^/en/latest$}, "/en/#{Version::CURR_VERSION}/home"
 end
 run Docs.new
