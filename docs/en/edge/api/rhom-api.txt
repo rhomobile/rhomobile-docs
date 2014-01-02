@@ -374,7 +374,7 @@ Start the sync process for a model. In this example, the value for @params["sku"
 Set a notification to be called when the sync is complete for this model. This is useful for example if you want to refresh the current list page or display an alert when new data is synchronized. See the [sync notification docs](../guide/using_rhoconnect#setting-up-notifications) for more information.
 
 	:::ruby
-	Account.set_notification( url_for(:action => :sync_notify) )
+	Account.set_notification( url_for(:action => :sync_notify), "")
 
 
 ## can_modify
