@@ -135,6 +135,14 @@ Then install the command line tools: go to Xcode –> Preferences –> Downloads
 
 Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
 
+### Setup for RhoConnect Push
+
+To use RhoConnect Push, you need to install Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
+
+Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
+
+    :::term
+    $ brew install node
 
 ### Download and Install
 
