@@ -415,6 +415,8 @@ The resources tab provides information about the various resources associated wi
 NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
 
 ## Remote Debugging with a Browser's Web Inspector
+
+NOTE: This JS debugging feature is currently only supported on Windows development environments.
 Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's javascript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in either [Mozilla Firefox](http://www.mozilla.org/en-US/firefox/new/) or [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
 
 ### Using the Remote Debugger
@@ -422,7 +424,9 @@ Before you can use this remote web inspector, you must first open the app you wa
 
 ![Opening pp in RhoSim](https://s3.amazonaws.com/rhodocs/guide/debugging_js/opening_app_in_rhosim.png)
 
-Once your app is open in RhoSimulator, simply navigate your browser to [this page](http://localhost:9090/webkit/inspector/inspector.html?page=2). Once here you should see a web inspection tool very similar to our RhoSimulator's web inspector (which is very similar to that of Google Chrome's inspector) which should look like this:
+Once your app is open in RhoSimulator, simply navigate your browser to [http://localhost:9090/webkit/inspector/inspector.html?page=2](http://localhost:9090/webkit/inspector/inspector.html?page=2). You can also navigate to [http://localhost:9090](http://localhost:9090) and click the link that references your start page (for example http://127.0.0.1:49964/app/index.erb if your app starts at /app/index.erb). 
+
+Once here you should see a web inspection tool very similar to our RhoSimulator's web inspector (which is very similar to that of Google Chrome's inspector) which should look like this:
 
 ![Remote Inspector Landing Page](https://s3.amazonaws.com/rhodocs/guide/debugging_js/remote_inspector_landing_page.png)
 
