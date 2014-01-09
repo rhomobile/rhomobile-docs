@@ -54,7 +54,7 @@ Ruby
       <PROPERTY name="hapticFeedback" type="BOOLEAN" default="true">
         <DESC>Whether or not to provide haptic feedback to the user following document processing</DESC>
       </PROPERTY>
-      <PROPERTY name="ledFeedback" type="BOOLEAN">
+      <PROPERTY name="ledFeedback" type="BOOLEAN" default="true">
         <DESC>Whether or not to provide LED feedback to the user following document processing</DESC>
       </PROPERTY>
       <PROPERTY name="fileInteractiveMode" type="BOOLEAN" default="true">

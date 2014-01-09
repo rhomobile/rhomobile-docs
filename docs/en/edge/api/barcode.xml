@@ -124,7 +124,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                         <DESC> Aiming lasts until trigger is released.  If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.</DESC>
                     </VALUE>
                     <VALUE constName="AIMTYPE_PRESENTATION" value="presentation">
-                        <DESC>Provided to support Kiosk devices.  The scanner illuminates when movement is detected in the range of the scanner window.  In order to use this mode the scanner must be initiated with a softscan using the scanner.start() method and again after each decode.  The device must be equipped with a sensor to detect movement to use presentation mode. </DESC>
+                        <DESC>Provided to support Kiosk devices.  The scanner illuminates when movement is detected in the range of the scanner window.  In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode.  The device must be equipped with a sensor to detect movement to use presentation mode.MK31XX devices come with presentation modes preenabled in scanner driver.Aimtype should not be set to presentation for MK31xx devices.This may produce undesirable results. </DESC>
                     </VALUE>
                     <VALUE constName="AIMTYPE_PRESS_AND_RELEASE" value="pressAndRelease">
                         <DESC>Scan will continue after the trigger is released until scanTimeout occurs.</DESC>
