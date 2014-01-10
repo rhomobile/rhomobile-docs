@@ -35,7 +35,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></span></td>
 </tr>
 <tr>
 <td>
@@ -85,7 +85,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -121,7 +121,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -157,7 +157,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -169,7 +169,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -193,7 +193,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -205,7 +205,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -217,7 +217,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -241,7 +241,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -253,7 +253,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -304,7 +304,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 <tr>
 <td>
@@ -316,7 +316,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-<td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+<td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
 </tr>
 </tbody>
 </table>
