@@ -111,13 +111,6 @@ Ruby
       <PROPERTY name="manualResolutionMode" type="BOOLEAN" default="false">
         <DESC>Specifies whether to choose image resolution automatically (false) or manually (true).</DESC>
       </PROPERTY>
-      <PROPERTY name="ocrLanguage" type="STRING" default="english">
-        <DESC>Switch between English and European language.</DESC>
-        <VALUES>
-          <VALUE constName="LANGUAGE_ENGLISH" value="english"><DESC>English characters only.</DESC></VALUE>
-          <VALUE constName="LANGUAGE_EUROPEAN" value="european"><DESC>Include European language characters.</DESC></VALUE>
-        </VALUES>
-      </PROPERTY>
       <PROPERTY name="processingTimeout" type="INTEGER" default="10000">
         <DESC>Amount of time in milliseconds to wait before timing out processing.</DESC>
       </PROPERTY>

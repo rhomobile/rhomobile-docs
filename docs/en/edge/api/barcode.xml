@@ -431,7 +431,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 				<VER_INTRODUCED>4.1.0</VER_INTRODUCED>
 				<PLATFORM>WM</PLATFORM>
 				<APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-				<DESC>Only applies to an enabled laser or imaging scanner.  Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer.  By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately.</DESC>
+				<DESC>Only applies to an enabled laser or imaging scanner.  Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer.  By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately.  Please note that disconnecting the trigger will also prevent the start method from emitting a laser.</DESC>
             </PROPERTY>
             <!--PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
