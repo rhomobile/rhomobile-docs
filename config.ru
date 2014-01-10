@@ -12,6 +12,7 @@ use Rack::Rewrite do
 	r301  %r{^/v/2.2/(.*)}, "/en/2.2.0/$1"
 	r301  %r{^/api/(.*)}, "/en/#{Version::CURR_VERSION}/api/$1"
 	r301  %r{^/guide/(.*)}, "/en/#{Version::CURR_VERSION}/guide/$1"
+	r301  %r{^/rhodes/(.*)}, "/en/2.2.0/rhodes/$1"
 	r301  %r{^/rhoconnect/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnect/$1"
 	r301  %r{^/rhoconnectapi/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnectapi/$1"
 	r301  %r{^/rhoconnectjs/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnectjs/$1"
