@@ -5,7 +5,7 @@
 		<ALIASES>
             <ALIAS new="Signal" deprecated="true"/>        
         </ALIASES>
-        <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Motorola Solutions' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The SignalIndicators API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Motorola Solutions' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API           
 In order to use this API you must include the following extension in your `build.yml`
@@ -152,7 +152,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def signal_status_sync
-    signalValue = Rho::Signal.wlanStatus
+    signalValue = Rho::SignalIndicators.wlanStatus
     puts signalValue
     puts "Signal Strength is: " + signalValue['signalStrength']
   end
@@ -162,7 +162,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
   function signal_status_sync(){
 
-    signalValue = Rho.Signal.wlanStatus;
+    signalValue = Rho.SignalIndicators.wlanStatus;
     console.log(signalValue);
     console.log("Signal Strength is: " + signalValue['signalStrength']);
   }
@@ -179,7 +179,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
   def signal_status_async
     puts "Registering Signal Callback"
-    Rho::Signal.wlanStatus(url_for(:action => :signalEvent))
+    Rho::SignalIndicators.wlanStatus(url_for(:action => :signalEvent))
   end
 
    def signalEvent
@@ -191,7 +191,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
   function signal_status_async(){
     console.log("Registering Signal Callback");
-    Rho.Signal.wlanStatus(signalEvent);
+    Rho.SignalIndicators.wlanStatus(signalEvent);
   }
 
   function signalEvent(params){
@@ -213,14 +213,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def show_signal_icon
-    Rho::Signal.showIcon({})
+    Rho::SignalIndicators.showIcon({})
   end
                     ]]>
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
   function show_signal_icon(){
-    Rho.Signal.showIcon({});
+    Rho.SignalIndicators.showIcon({});
   }
                     ]]>
                     </JAVASCRIPT>
@@ -234,14 +234,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <RUBY>
             <![CDATA[
   def show_signal_icon
-    Rho::Signal.showIcon({color:'#0000FF',layout: Rho::Signal.SIGNAL_LAYOUT_UP})
+    Rho::SignalIndicators.showIcon({color:'#0000FF',layout: Rho::SignalIndicators.SIGNAL_LAYOUT_UP})
   end
   ]]>
                     </RUBY>
                     <JAVASCRIPT>
             <![CDATA[
   function show_signal_icon(){
-    Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
+    Rho.SignalIndicators.showIcon({color:'#0000FF',layout: Rho.SignalIndicators.SIGNAL_LAYOUT_UP});
   }
   ]]>
                     </JAVASCRIPT>

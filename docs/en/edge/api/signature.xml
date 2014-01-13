@@ -33,7 +33,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<PROPERTY name="compressionFormat" type="STRING" >
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Compression format of the image file for the captured signature.</DESC>
+				<DESC>Compression format of the image file for the captured signature. In WM/CE, irrespective of setting any format, the output format will be of bitmap type.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<VALUES>
 					<VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">
@@ -120,7 +120,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 		<METHODS access="STATIC">
 			<METHOD name="takeFullScreen" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
-				<DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called.</DESC>
+				<DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible button as 'clear', 'capture' and 'cancel'. In Android, the signature area has images which will behave as a button for 'clear', 'capture' and 'cancel'.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -218,7 +218,38 @@ The signature capture area is designed to be set up prior to capturing the signa
 		]]>
 	
 		</USER_OVERVIEW>
-		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+		<VER_INTRODUCED>1.0.0</VER_INTRODUCED>	
+		<PLATFORM>iOS, Android, WM</PLATFORM>
+		<REMARKS>
+            <REMARK title="Fullscreen and Inline">
+                <DESC>
+                    <![CDATA[
+						The signature capture feature can work in two visual modes, Fullscreen and Inline. The fullscreen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the inline signature capture, there are no such buttons so these will have to be designed into the app itself.
+                    ]]>
+                </DESC>
+            </REMARK>
+			<REMARK title="Parameters which clear the signature">
+                <DESC>
+                    <![CDATA[
+						The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
+                    ]]>
+                </DESC>
+            </REMARK>
+			<REMARK title="Page Navigation">
+                <DESC>
+                    <![CDATA[
+						In Android, the state of the signature will not be cleared on page navigation whereas in Windows, the state of the signature is cleared.
+                    ]]>
+                </DESC>
+            </REMARK>
+			<REMARK title="Persistent Behaviour">
+				<DESC>
+					<![CDATA[
+						While using "takeFullScreen" method, if we press Home button and re-launch the application the state won't be persisted in Android platform.
+					]]>
+				</DESC>			
+			</REMARK>
+		</REMARKS>
 		<EXAMPLES >
            <EXAMPLE title="Capture signature to file (fullscreen) and display it in a view">
                <SECTIONS>
@@ -286,7 +317,7 @@ The signature capture area is designed to be set up prior to capturing the signa
                </SECTION>
                </SECTIONS>
            </EXAMPLE>
-                      <EXAMPLE title="Set signature capture properties">
+           <EXAMPLE title="Set signature capture properties">
                <SECTIONS>
                <SECTION>
                <DESC>
