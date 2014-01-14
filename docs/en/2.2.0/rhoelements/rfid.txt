@@ -253,7 +253,7 @@ Returns results of the last Access operation
 
 
 ###Installation
-The RFID plugin package for RhoElements 2.2 SP1 must be [downloaded separately](http://bit.ly/W0K6nG) and installed on the device. Please refer to the RFID plugin release notes included with the download for installation instructions.
+The RFID plugin package for RhoElements 2.2 SP1 must be [downloaded separately on Motorola Solutions Support Site](https://portal.motorolasolutions.com/Support/US-EN/Resolution?solutionId=88035&redirectForm=search&searchQuery=%3FsearchType%3Dsimple%26searchTerm%3Drfid%20rho) and installed on the device. Please refer to the RFID plugin release notes included with the download for installation instructions.
 
 
 ###General
