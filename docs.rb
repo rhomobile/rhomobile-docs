@@ -231,8 +231,10 @@ xml_string +=  ' </rss>	'
 ['/tutorial/:step/:topic/?',  '/tutorial/:topic/?','/en/:vnum/tutorial/:step/:topic/?',  '/en/:vnum/tutorial/:topic/?'].each do |path|
     get path do
       cache_long
-      @docversion = AppConfig['current_version']
-
+      @docversion = params[:vnum]
+      if @docversion.nil?
+        @docversion = AppConfig['current_version']
+      end
       # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
       
       @tut = TUT.steps(params[:topic])

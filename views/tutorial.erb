@@ -6,13 +6,13 @@
 			<ul doc-tutorial-nav="0" class="btn-group pull-left">
 				
 				<%if @prevStep!=''%>
-					<a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><li class="btn btn-primary <%='disabled' if @prevStep==''%>" ><i class="icon-step-backward icon-muted"></i> Previous</li></a>
+					<a href="/en/<%=@docversion %>/tutorial/<%=@prevStep %>/<%=@doc %>"><li class="btn btn-primary <%='disabled' if @prevStep==''%>" ><i class="icon-step-backward icon-muted"></i> Previous</li></a>
 				<% else %>
 					<li class="btn disabled"><i class="icon-step-backward"></i> Previous</li> 
 				<%end%>
 				
 				<%if @nextStep!=''%>
-				<a href="/tutorial/<%=@nextStep %>/<%=@doc %>"><li class="btn  btn-primary ">Next <i class="icon-step-forward icon-muted"></i></li></a>
+				<a href="/en/<%=@docversion %>/tutorial/<%=@nextStep %>/<%=@doc %>"><li class="btn  btn-primary ">Next <i class="icon-step-forward icon-muted"></i></li></a>
 				<% else %>
 				<li class="btn disabled">Next <i class="icon-step-forward"></i></li>
 
@@ -53,13 +53,13 @@
 			<ul doc-tutorial-nav="0" class="btn-group pull-left">
 				<a href="<%= topic_path %>"><li class="btn btn-primary "><i class="icon icon-arrow-up icon-muted"></i> Back to Top</li></a>
 				<%if @prevStep!=''%>
-					<a href="/tutorial/<%=@prevStep %>/<%=@doc %>"><li class="btn <%='disabled' if @prevStep==''%> btn-primary "><i class="icon-step-backward icon-muted"></i> Previous</li></a>
+					<a href="/en/<%=@docversion %>/tutorial/<%=@prevStep %>/<%=@doc %>"><li class="btn <%='disabled' if @prevStep==''%> btn-primary "><i class="icon-step-backward icon-muted"></i> Previous</li></a>
 				<% else %>
 					<li class="btn disabled"><i class="icon-step-backward"></i> Previous</li> 
 				<%end%>
 				
 				<%if @nextStep!=''%>
-				<a href="/tutorial/<%=@nextStep %>/<%=@doc %>"><li class="btn  btn-primary ">Next <i class="icon-step-forward icon-muted"></i></li></a>
+				<a href="/en/<%=@docversion %>/tutorial/<%=@nextStep %>/<%=@doc %>"><li class="btn  btn-primary ">Next <i class="icon-step-forward icon-muted"></i></li></a>
 				<% else %>
 				<li class="btn disabled">Next <i class="icon-step-forward"></i></li>
 
@@ -75,7 +75,7 @@
 		</div>
 		<% else %>
 		<div class="row-fluid">
-			<a href="/tutorial/<%=@steps[0][0]%>/<%=@doc %>" class="btn btn-success btn-large icon icon-large icon-thumbs-up"> Get Started</a>
+			<a href="/en/<%=@docversion %>/tutorial/<%=@steps[0][0]%>/<%=@doc %>" class="btn btn-success btn-large icon icon-large icon-thumbs-up"> Get Started</a>
 		</div>
 		<div style="padding:20px">
 		</div>
