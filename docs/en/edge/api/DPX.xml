@@ -262,9 +262,11 @@ document is processed successfully a callback will be fired once for each field 
         </DESC>
       </METHOD>
       <METHOD name="getDataUri">
-        <DESC>Return data URI encoding of the raw image assocated with the region or captured form, this allows the operator to
+         <DESC>Return data URI encoding of the raw image assocated with the region or captured form, this allows the operator to
 easily verify that the captured data is accurate and if necessary perform any post processing changes by hand.
-To show image on HTML page insert data URI in src attribute of img tag: &lt;img src="&lt;dataURI&gt;"&gt;.
+To show the image on the HTML page insert the data URI  string into the src attribute of the img tag: 
+
+    &lt;img src="dataURI string;"&gt;.
         </DESC>
         <PARAMS>
           <PARAM name="imageId" type="INTEGER">
