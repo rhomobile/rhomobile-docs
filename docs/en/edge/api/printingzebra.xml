@@ -179,7 +179,7 @@
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>STATUS_SUCCESS, STATUS_DONE, STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_DONE, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="fileNames" type="ARRAY">
                             <PARAM type="STRING"></PARAM>
@@ -202,7 +202,7 @@
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>STATUS_SUCCESS, STATUS_DONE, STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_DONE, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="fileNames" type="ARRAY">
                             <PARAM type="STRING"></PARAM>
@@ -221,7 +221,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
@@ -237,7 +237,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
@@ -253,7 +253,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
@@ -287,7 +287,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
@@ -309,7 +309,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>

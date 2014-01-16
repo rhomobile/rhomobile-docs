@@ -37,18 +37,18 @@
             <CONSTANT name="CONNECTION_TYPE_BLUETOOTH" value="CONNECTION_TYPE_BLUETOOTH" type="STRING"/>
             <CONSTANT name="CONNECTION_TYPE_TCP" value="CONNECTION_TYPE_TCP" type="STRING"/>
             <!-- Printer Status result -->
-            <CONSTANT name="STATUS_SUCCESS" value="STATUS_SUCCESS" type="STRING"/>
-            <CONSTANT name="STATUS_ERROR" value="STATUS_ERROR" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_IO" value="STATUS_ERR_IO" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_MEMORY" value="STATUS_ERR_MEMORY" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_NETWORK" value="STATUS_ERR_NETWORK" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_NOT_CONNECTED" value="STATUS_ERR_NOT_CONNECTED" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_NOT_FOUND" value="STATUS_ERR_NOT_FOUND" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_PARAM" value="STATUS_ERR_PARAM" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_PROCESSING" value="STATUS_ERR_PROCESSING" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_RESPONSE" value="STATUS_ERR_RESPONSE" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_TIMEOUT" value="STATUS_ERR_TIMEOUT" type="STRING"/>
-            <CONSTANT name="STATUS_ERR_UNSUPPORTED" value="STATUS_ERR_UNSUPPORTED" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_SUCCESS" value="PRINTER_STATUS_SUCCESS" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERROR" value="PRINTER_STATUS_ERROR" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_IO" value="PRINTER_STATUS_ERR_IO" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_MEMORY" value="PRINTER_STATUS_ERR_MEMORY" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_NETWORK" value="PRINTER_STATUS_ERR_NETWORK" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_NOT_CONNECTED" value="PRINTER_STATUS_ERR_NOT_CONNECTED" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_NOT_FOUND" value="PRINTER_STATUS_ERR_NOT_FOUND" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_PARAM" value="PRINTER_STATUS_ERR_PARAM" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_PROCESSING" value="PRINTER_STATUS_ERR_PROCESSING" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_RESPONSE" value="PRINTER_STATUS_ERR_RESPONSE" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_TIMEOUT" value="PRINTER_STATUS_ERR_TIMEOUT" type="STRING"/>
+            <CONSTANT name="PRINTER_STATUS_ERR_UNSUPPORTED" value="PRINTER_STATUS_ERR_UNSUPPORTED" type="STRING"/>
 
             <CONSTANT name="PRINTER_STATE_IS_READY_TO_PRINT" value="PRINTER_STATE_IS_READY_TO_PRINT" type="STRING">
                 <DESC>use this name for requestState(), return true if printer ready to print</DESC>
@@ -95,9 +95,6 @@
             <PROPERTY name="printerEventCallback" type="CALLBACK" >
                 <DESC>Callback for receiving printer events</DESC>
             </PROPERTY>
-            <PROPERTY name="controlLanguage" type="STRING" readOnly="true">
-                <DESC>Type of printer control language</DESC>
-            </PROPERTY>            
         </PROPERTIES>   
         
         <METHODS access="INSTANCE">
@@ -142,15 +139,26 @@
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>STATUS_SUCCESS, STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="printerID" type="STRING">
-                            <DESC>printer ID only if status = STATUS_OK</DESC>
+                            <DESC>printer ID only if status = PRINTER_STATUS_OK</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="message" type="STRING">
                             <DESC>error message, only if status = ERROR</DESC>
                             <CAN_BE_NIL/>
+                        </PARAM>
+                        <PARAM name="additionalPrinterDiscoveryProperties" type="HASH">
+                            <DESC>hash with printer parameters. Can be used for any additional parameters for founded printer. On Android for Zebra this hash conatin discoveryMap - full set of discovery printer properties</DESC>
+                            <PLATFORM>Android</PLATFORM> 
+                            <PARAMS>
+                                <DESC>pairs string-string with printers parameters</DESC>
+                                <PARAM name="prpertyWithStringValue" type="STRING">
+                                    <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                    <CAN_BE_NIL/>
+                                </PARAM>
+                            </PARAMS>    
                         </PARAM>
                     </PARAMS>
                 </CALLBACK>
@@ -192,7 +200,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a connection attempt to printer. STATUS_OK, STATUS_TIMEOUT, STATUS_ERROR, STATUS_NOT_FOUND</DESC>
+                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_OK, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
                     <CAN_BE_NIL/>
                 </CALLBACK>
             </METHOD>
@@ -211,7 +219,7 @@
                     <DESC>hash with pairs requestedParameter => value, also "status" always in returned hash. If you do not receive requested parameter thne this parameter is unsupported by printer</DESC>
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>STATUS_SUCCESS, STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="message" type="STRING">
                             <DESC>error message, only if status = ERROR</DESC>
@@ -228,7 +236,7 @@
             <METHOD name="disconnect" hasCallback="optional">
                 <DESC>Disconnect from printer. If you want to receive result, you must specify callback</DESC>
                 <RETURN type="STRING">
-                    <DESC>Returns result of a disconnection. STATUS_SUCCESS, STATUS_ERROR</DESC>
+                    <DESC>Returns result of a disconnection. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                 </RETURN>
             </METHOD>
 
@@ -256,7 +264,7 @@
                     </PARAM>
                 </PARAMS>
                 <RETURN type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </RETURN>
             </METHOD>
 
@@ -283,9 +291,41 @@
                         </PARAMS>    
                     </PARAM>
                 </PARAMS>
-                <RETURN type="STRING">
-                    <DESC>Returns result of a printing attempt. STATUS_SUCCESS, STATUS_ERROR, </DESC>
-                </RETURN>
+                <CALLBACK type="HASH">
+                    <DESC></DESC>
+                    <PARAMS>
+                        <PARAM name="status" type="STRING">
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
+                        </PARAM>
+                        <PARAM name="message" type="STRING">
+                            <DESC>error message, only if status = ERROR</DESC>
+                            <CAN_BE_NIL/>
+                        </PARAM>
+                        <PARAM name="stringResponce" type="STRING">
+                            <DESC>responce from printer if received, converted to string from byteArray(original data)</DESC>
+                            <CAN_BE_NIL/>
+                            <PLATFORM>Android</PLATFORM>
+                        </PARAM>
+                        <PARAM name="byteArrayResponce" type="ARRAY">
+                            <PARAM type="INTEGER">
+                            </PARAM>    
+                            <DESC>responce from printer if received</DESC>
+                            <CAN_BE_NIL/>
+                            <PLATFORM>Android</PLATFORM>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+
+            <METHOD name="enumerateSupportedControlLanguages" hasCallback="optional">
+                <DESC>Return array with languages supported by this printer</DESC>
+                <CALLBACK type="ARRAY">
+                    <DESC>Array of supported printer control languages</DESC>
+                    <PARAM type="STRING">
+                        <DESC>Language. See - PRINTER_LANGUAGE_... constants.</DESC>
+                    </PARAM>
+                </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
         </METHODS>
