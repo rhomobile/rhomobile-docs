@@ -19,7 +19,7 @@ Returns true if Bluetooth is available on the device, false otherwise.
 
 ## off_bluetooth
 
-Turn Bluetooth off.
+Turn Bluetooth off for existing Bluetooth session instance. It DOES NOT turn off the BT adapter. 
 
 	:::ruby
 	Rho::BluetoothManager.off_bluetooth
