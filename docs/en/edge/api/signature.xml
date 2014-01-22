@@ -43,7 +43,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 						<DESC>Portable Network Graphics file (Not available on WM/CE).</DESC>
 					</VALUE>
 					<VALUE constName="COMPRESSION_FORMAT_BMP" value ="bmp">
-						<DESC>Bitmap image file</DESC>
+						<DESC>Bitmap image file (Not available on iOS).</DESC>
 					</VALUE>
 				</VALUES>
 			</PROPERTY>
@@ -57,7 +57,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 						<DESC>Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.</DESC>
 					</VALUE>
 					<VALUE constName="OUTPUT_FORMAT_DATAURI" value="dataUri">
-						<DESC>Outputs the signature capture image as a DataURI string.</DESC>
+						<DESC>Outputs the signature capture image as a DataURI string. (Not available on iOS).</DESC>
 					</VALUE>
 				</VALUES>
 			</PROPERTY>
@@ -71,7 +71,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 			<PROPERTY name="border" type="BOOLEAN" default="true">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
 				<DESC>Shows or hides a border for the rectangular capture area. Not applicable to fullscreen signature capture area.</DESC>
-				<PLATFORM>iOS, Android, WM</PLATFORM>
+				<PLATFORM>Android, WM</PLATFORM>
 			</PROPERTY>
 
 			<PROPERTY name="penColor" type="STRING" default="#FF000000">
@@ -120,7 +120,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 		<METHODS access="STATIC">
 			<METHOD name="takeFullScreen" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
-				<DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible button as 'clear', 'capture' and 'cancel'. In Android, the signature area has images which will behave as a button for 'clear', 'capture' and 'cancel'.</DESC>
+				<DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible button as 'clear', 'capture' and 'cancel'. In Android/iOS, the signature area has images which will behave as a button for 'clear', 'capture' and 'cancel'.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -192,7 +192,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 			
 			<METHOD name="setVectorCallback" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<PLATFORM>iOS, Android, WM</PLATFORM>
+				<PLATFORM>Android, WM</PLATFORM>
 				<DESC>Signature data is formatted into a series of vectors and returned to the application via this callback function. The received data may not represent the entire signature as the vectors will be sent in batches if the signature is large. A single vector (array entry) contains an X, Y coordinate and the beginning / end of the signature is defined by (65535, 65535). This callback is independent of the callback of the capture method, when specified the callback will be called whenever a 'pen up' occurs in the signature box.</DESC>
                 <CALLBACK  type="HASH">
                     <DESC>Not providing a callback will result in the vector callback being cleared</DESC>

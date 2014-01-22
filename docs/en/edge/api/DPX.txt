@@ -16,12 +16,6 @@ online at <a href="https://dpx.motorolasolutions.com/">The MSI DPX template buil
 extensions: ["dpx"]
 </code></pre>
 
-<p>The <code>dpx</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
-
 <h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API

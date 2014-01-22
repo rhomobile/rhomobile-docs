@@ -1744,7 +1744,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             
             <METHOD name="take" hasCallback="mandatory">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Enable the scanner and start capturing the barcode automatically.  On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property.  On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.  Once the callback has been called the barcode hardware is disabled.</DESC>
+                <DESC>Enable the scanner and start capturing the barcode automatically.  On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property.  On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called.  Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
 				<PLATFORM>WM, Android, iOS</PLATFORM>
 				<PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">

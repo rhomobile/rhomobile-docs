@@ -50,8 +50,8 @@
 </dd><a name='c23'></a><dt>NFC_ERROR_NOT_SUPPORTED</dt><dd><p>NFC not supported in the terminal.</p>
 </dd><a name='c24'></a><dt>NFC_ERROR_INCORRECT_RECORD_NO</dt><dd><p>Record No. provided is invalid.</p>
 </dd><a name='c25'></a><dt>NFC_ERROR_BUFFER_TOO_LARGE</dt><dd><p>The buffer to be written to a Tag is large than the Tag capacity.</p>
-</dd><a name='c26'></a><dt>NFC_BATTERY_CRITICAL</dt><dd><p>Battery percentage is below 6% and polling can’t be started.</p>
-</dd><a name='c27'></a><dt>NFC_STATUS_FLIGHT_MODE_ON</dt><dd><p>Flight mode is ON and polling can’t be started.</p>
+</dd><a name='c26'></a><dt>NFC_BATTERY_CRITICAL</dt><dd><p>Battery percentage is below 6% and polling can&rsquo;t be started.</p>
+</dd><a name='c27'></a><dt>NFC_STATUS_FLIGHT_MODE_ON</dt><dd><p>Flight mode is ON and polling can&rsquo;t be started.</p>
 </dd><a name='c28'></a><dt>NFC_NOTIFY_TARGET_LOST</dt><dd><p>Target moved out of the proximity.</p>
 </dd><a name='c29'></a><dt>NFC_STATUS_UICC_IN_PROGRESS</dt><dd><p>UICC card emulation is in progress.</p>
 </dd><a name='c30'></a><dt>NFC_STATUS_HOH_IN_PROGRESS</dt><dd><p>Host card emulation is in progress.</p>
