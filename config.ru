@@ -23,6 +23,6 @@ use Rack::Rewrite do
 	r301  %r{^/en/latest/(.*)}, "/en/#{Version::CURR_VERSION}/$1"
 	r301  %r{^/en/latest$}, "/en/#{Version::CURR_VERSION}/home"
 	# Edgedocs redirect
-	r301  %r{http://edgedocs-cedar.herokuapp.com/(.*)}, "http://docs.rhomobile.com/en/#{Version::NEXT_VERSION}/$1"
+	r301  %r{http://rhodocs-cedar.herokuapp.com/(.*)}, "http://docs.rhomobile.com/en/edge/$1"
 end
 run Docs.new
