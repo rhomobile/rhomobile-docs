@@ -172,8 +172,8 @@ section 'rhomob-dev', 'Device Capabilities','Mobile Guides' do
 end
 
 section 'rhomob-test', 'Testing & Debugging','Mobile Guides' do
-  topic 'en/edge/guide/debugging_with_rhosimulator',    'Debugging with RhoSimulator'
-  topic 'en/edge/guide/remote-debug',    'Debugging JS On Devices'
+  topic 'en/edge/guide/debugging_ruby',    'Debugging Ruby'
+  topic 'en/edge/guide/debugging_js',    'Debugging JavaScript'
   topic 'en/edge/guide/logging',    'Logging'
   topic 'en/edge/guide/testing',    'Testing'
   topic 'en/edge/guide/profiling',    'Performance Profiling'

@@ -1,0 +1,25 @@
+# Debugging Ruby
+
+## Debugging Ruby with RhoSimulator
+You can use RhoSimulator along with RhoStudio debugger to debug the Ruby code in your RhoMobile application.
+
+### Starting a debug session
+
+Ensure that your application is configured properly and successfully runs in [RhoSimulator from the command line](#running-rhosimulator-from-command-line)
+
+* In RhoStudio, select your RhoMobile project from the Project Explorer.
+* Select 'Run' -> 'Debug Configurations' from the main menu. The Debug Configurations window appears.
+* Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration
+* Select the required platform.
+* Click 'Debug' to start the debugger.
+
+![Debug Configuration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/debug-configuration.png)
+
+RhoStudio will, by default, switch to the 'Debug' perspective, and it will establish a connection with RhoSimulator so that you can:
+
+* Set breakpoints.
+* Step through code.
+* Inspect variables when the application is stopped at a breakpoint in the Variables window.
+* View log messages in the Console window.
+
+![RhoStudio Debugging](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/rhostudio-debug-ruby.png)
