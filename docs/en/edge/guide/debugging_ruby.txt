@@ -1,7 +1,7 @@
 # Debugging Ruby
 
 ## Debugging Ruby with RhoSimulator
-You can use RhoSimulator along with RhoStudio debugger to debug the Ruby code in your RhoMobile application.
+You can use RhoSimulator along with RhoStudio debugger to debug the Ruby code in your RhoMobile application. Alternatively you can use RhoStudio to debug an application running on your Android device.
 
 ### Starting a debug session
 
@@ -9,9 +9,12 @@ Ensure that your application is configured properly and successfully runs in [Rh
 
 * In RhoStudio, select your RhoMobile project from the Project Explorer.
 * Select 'Run' -> 'Debug Configurations' from the main menu. The Debug Configurations window appears.
-* Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration
+* Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration.
 * Select the required platform.
+* Select "RhoSimulator" for simulator type to debug using RhoSimulator.
 * Click 'Debug' to start the debugger.
+
+NOTE: To debug your app on your Android device, select "Android" for platform and "Device" for simulator type.
 
 ![Debug Configuration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/debug-configuration.png)
 
