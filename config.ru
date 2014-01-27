@@ -5,6 +5,11 @@ require './version'
 require './environment'
 
 use Rack::Rewrite do
+	# Edgedocs redirect
+	r301  %r{http://rhodocs-cedar.herokuapp.com}, "http://docs.rhomobile.com/en/edge/"
+	r301  %r{http://rhodocs-cedar.herokuapp.com/(.*)}, "http://docs.rhomobile.com/en/edge/$1"
+	
+	# Redirects from old version of the app.
 	r301  %r{^/home$}, "/en/#{Version::CURR_VERSION}/home"
 	r301  %r{^/v/2.2$}, "/en/2.2.0/home"
 	r301  %r{^/v/edge$}, "/en/#{Version::NEXT_VERSION}/home"
@@ -22,7 +27,5 @@ use Rack::Rewrite do
 	r301  %r{^/en/latest/(.*)/(.*)}, "/en/#{Version::CURR_VERSION}/$1/$2"
 	r301  %r{^/en/latest/(.*)}, "/en/#{Version::CURR_VERSION}/$1"
 	r301  %r{^/en/latest$}, "/en/#{Version::CURR_VERSION}/home"
-	# Edgedocs redirect
-	r301  %r{http://rhodocs-cedar.herokuapp.com/(.*)}, "http://docs.rhomobile.com/en/edge/$1"
 end
 run Docs.new
