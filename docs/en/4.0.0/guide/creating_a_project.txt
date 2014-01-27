@@ -37,7 +37,7 @@ Once you have Rhodes, you will need the SDKs for the platform you want to build 
 
 	C:\> rhodes-setup
 
-This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](build#all-platforms-prerequisites).
+This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](#prerequisites).
 
 
 ## Creating a project with RhoStudio
