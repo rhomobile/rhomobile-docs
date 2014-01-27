@@ -3,7 +3,7 @@
 <API>
     <MODULE name="Printer" parent="Rho">
         <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to BT, Network, and USB printers.</HELP_OVERVIEW>
-        <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API.</MORE_HELP>
+        <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API. Almost all operations are asynchronous, use callbacks for sequence of operations.</MORE_HELP>
     
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
@@ -92,16 +92,13 @@
             <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
                 <DESC>Connection status flag. All other properties are valid only if isConnect equals to true.</DESC>
             </PROPERTY>
-            <PROPERTY name="printerEventCallback" type="CALLBACK" >
-                <DESC>Callback for receiving printer events</DESC>
-            </PROPERTY>
         </PROPERTIES>   
         
         <METHODS access="INSTANCE">
             <METHOD name="enumerateSupportedTypes" access="STATIC" hasCallback="optional">
                 <DESC>Return array with printer types that are supported in this build.</DESC>
                 <CALLBACK type="ARRAY">
-                    <DESC>Array of supported printer types</DESC>
+                    <DESC>Array of supported printer types, may contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE or any combination of them. Result is returned immideatley. </DESC>
                     <PARAM type="STRING">
                         <DESC>Type of device.</DESC>
                     </PARAM>
@@ -142,7 +139,7 @@
                             <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="printerID" type="STRING">
-                            <DESC>printer ID only if status = PRINTER_STATUS_OK</DESC>
+                            <DESC>printer ID only if status = PRINTER_STATUS_SUCCESS</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="message" type="STRING">
@@ -180,19 +177,23 @@
             </METHOD>
 
             <METHOD name="connect" hasCallback="optional">
-                <DESC>Connect to a specific printer. If you want to receive result, you must specify callback. After this function call state is automatically updated.</DESC>
+                <DESC>Connect to a printer using default options. After this function call state is automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices. </DESC>
+                <CALLBACK type="STRING">
+                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
+                </CALLBACK>
+            </METHOD>
+
+            <METHOD name="connectWithOptions" hasCallback="optional">
+                <DESC>Connect to a printer using user options. After this function call state is automatically updated..</DESC>
                 <PARAMS>
-                    <PARAM name="options" type="HASH">
-                        <CAN_BE_NIL>
-                            <DESC>Not providing options to this function will executed with default settings.</DESC>                                
-                        </CAN_BE_NIL>
+                    <PARAM name="options" type="HASH">                              
                         <DESC>Connect options</DESC>
                         <PARAMS>
                             <PARAM name="timeout" type="INTEGER" default="15000">
                                 <DESC>connection timeout in milliseconds</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
-                            <PARAM name="additionalStringOption" type="STRING">
+                            <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
                                 <DESC>Any addtional info. Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
@@ -200,7 +201,7 @@
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_OK, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
+                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
                     <CAN_BE_NIL/>
                 </CALLBACK>
             </METHOD>
@@ -225,7 +226,7 @@
                             <DESC>error message, only if status = ERROR</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
-                        <PARAM name="propertyWithIntValue" type="INTEGER">
+                        <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
                             <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
@@ -241,9 +242,9 @@
             </METHOD>
 
             <METHOD name="printFile" hasCallback="optional">
-                <DESC>Prints file. File extension is used to determine its type. Supported types: *.jpg, *.png, *.bmp. *.pdf</DESC>
+                <DESC>Prints file. File extension is used to determine its type. Supported types: JPEG and PNG images, all other types are platform depend.</DESC>
                 <PARAMS>
-                    <PARAM name="fileURI" type="STRING">
+                    <PARAM name="path" type="STRING">
                         <DESC>Location of file to print.</DESC>
                     </PARAM>
                     <PARAM name="options" type="HASH">
@@ -251,12 +252,12 @@
                             <DESC>Not providing properties to this function will print with default settings.</DESC>                                
                         </CAN_BE_NIL>
                         <PARAMS>
-                            <DESC>Proivde a set of properties to configure the printer.</DESC>
-                                <PARAM name="prpertyWithStringValue" type="STRING">
+                            <DESC>Proivde a set of properties to configure file printing.</DESC>
+                                <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
                                     <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                     <CAN_BE_NIL/>
                                 </PARAM>
-                                <PARAM name="propertyWithIntValue" type="INTEGER">
+                                <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
                                     <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                     <CAN_BE_NIL/>
                                 </PARAM>                        
@@ -268,8 +269,42 @@
                 </RETURN>
             </METHOD>
 
+            <METHOD name="printImageFromFile" hasCallback="optional">
+                <DESC>Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute.</DESC>
+                <PARAMS>
+                    <PARAM name="path" type="STRING">
+                        <DESC>Full path to image file. (The image must be either a PNG or JPG, all other types are platform depend).</DESC>
+                    </PARAM>
+                    <PARAM name="x" type="INTEGER">
+                        <DESC>Horizontal starting position in dots.</DESC>
+                    </PARAM>
+                    <PARAM name="y" type="INTEGER">
+                        <DESC>Vertical starting position in dots.</DESC>
+                    </PARAM>
+                    <PARAM name="options" type="HASH">
+                        <DESC>Proivde a set of optional parameters.</DESC>
+                        <CAN_BE_NIL></CAN_BE_NIL>
+                        <PARAMS>
+                            <PARAM name="width" type="INTEGER">
+                                <DESC>Desired width of the printed image. Passing -1 will preserve original width.</DESC>
+                            </PARAM>
+                            <PARAM name="height" type="INTEGER">
+                                <DESC>Desired height of the printed image. Passing -1 will preserve original height.</DESC>
+                            </PARAM>
+                            <PARAM name="isInsideFormat" type="BOOLEAN">
+                                <DESC>Boolean value indicating whether this image should be printed by itself (false), or is part of a format being written to the connection (true).</DESC>
+                            </PARAM>
+                    </PARAMS>
+                    </PARAM>
+                </PARAMS>
+                <CALLBACK type="STRING">
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
+                </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
+            </METHOD>
+
             <METHOD name="printRawString" hasCallback="optional">
-                <DESC>Send raw string to printer. Control language is managed by controlLanguage property</DESC>
+                <DESC>Send raw string to printer.</DESC>
                 <PARAMS>
                     <PARAM name="command" type="STRING">
                         <DESC>Raw string to print.</DESC>
@@ -280,11 +315,11 @@
                         </CAN_BE_NIL>
                         <PARAMS>
                             <DESC>Proivde a set of properties to configure the printer.</DESC>
-                            <PARAM name="prpertyWithStringValue" type="STRING">
+                            <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
                                 <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
-                            <PARAM name="propertyWithIntValue" type="INTEGER">
+                            <PARAM name="propertyWithIntValue" type="INTEGER"  generateDoc="false">
                                 <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>                        
@@ -327,7 +362,6 @@
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
-
         </METHODS>
         
         <USER_OVERVIEW>
