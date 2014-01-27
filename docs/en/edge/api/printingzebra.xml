@@ -190,7 +190,6 @@
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
-
             <METHOD name="retrieveFileNamesWithExtensions" hasCallback="optional">
                 <DESC>This method only returns files which have the extensions in "extensions".</DESC>
                 <PARAMS>
@@ -216,8 +215,8 @@
             <METHOD name="sendFileContents" hasCallback="optional">
                 <DESC>Sends the contents of a file to the printer.</DESC>
                 <PARAMS>
-                    <PARAM name="filePath" type="STRING">
-                        <DESC>Location of file to print.</DESC>
+                    <PARAM name="path" type="STRING">
+                        <DESC>Location of file to store.</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
@@ -250,40 +249,6 @@
                     </PARAM>
                     <PARAM name="vars" type="Array">
                         <DESC>An array of strings representing the data to fill into the format. For ZPL formats, index 0 of the array corresponds to field number 2 (^FN2). For CPCL, the variables are passed in the order that they are found in the format</DESC>
-                    </PARAM>
-                </PARAMS>
-                <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
-                </CALLBACK>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
-            </METHOD>
-
-            <METHOD name="printImageFromFile" hasCallback="optional">
-                <DESC>Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute.</DESC>
-                <PARAMS>
-                    <PARAM name="path" type="STRING">
-                        <DESC>Full path to image file. (The image must be either a PNG or JPG).</DESC>
-                    </PARAM>
-                    <PARAM name="x" type="INTEGER">
-                        <DESC>Horizontal starting position in dots.</DESC>
-                    </PARAM>
-                    <PARAM name="y" type="INTEGER">
-                        <DESC>Vertical starting position in dots.</DESC>
-                    </PARAM>
-                    <PARAM name="options" type="HASH">
-                        <DESC>Proivde a set of optional parameters.</DESC>
-                        <CAN_BE_NIL></CAN_BE_NIL>
-                        <PARAMS>
-                            <PARAM name="width" type="INTEGER">
-                                <DESC>Desired width of the printed image. Passing -1 will preserve original width.</DESC>
-                            </PARAM>
-                            <PARAM name="height" type="INTEGER">
-                                <DESC>Desired height of the printed image. Passing -1 will preserve original height.</DESC>
-                            </PARAM>
-                            <PARAM name="isInsideFormat" type="BOOLEAN">
-                                <DESC>Boolean value indicating whether this image should be printed by itself (false), or is part of a format being written to the connection (true).</DESC>
-                            </PARAM>
-                    </PARAMS>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
