@@ -6,7 +6,7 @@ require './environment'
 
 use Rack::Rewrite do
 	# Edgedocs redirect
-	r301  %r{http://rhodocs-cedar.herokuapp.com}, "http://docs.rhomobile.com/en/edge/"
+	r301  %r{http://rhodocs-cedar.herokuapp.com/}, "http://docs.rhomobile.com/en/edge/"
 	r301  %r{http://rhodocs-cedar.herokuapp.com/(.*)}, "http://docs.rhomobile.com/en/edge/$1"
 	r301  %r{http://rhodocs-cedar.herokuapp.com/(.*)/(.*)}, "http://docs.rhomobile.com/en/edge/$1/$2"
 	# Redirects from old version of the app.
