@@ -84,6 +84,8 @@ Navigate to your RhoMobile application directory. To build and run application o
 	:::term
 	$ rake run:wm:device
 
+NOTE: Starting in version 4.1 of RhoElements, no .cab file will be generated within the project when running rake run:wm:device
+
 To build cab-file, install it, and run application on device, run:
 
 	:::term

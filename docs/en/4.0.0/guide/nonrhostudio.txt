@@ -91,6 +91,7 @@ Running on WM device
     :::term
     rake run:wm:device
 
+NOTE: Starting in version 4.1 of RhoElements, no .cab file will be generated within the project when running rake run:wm:device
 
 ## Command Line Options
 If your IDE or Text-Editor provides a means to launch an external executable, you can integrate RhoMobile development tasks by using command line options. You execute these by the appropriate rake tasks, such as "rake run:android" to run it on the Android emulator. To see all possible rake tasks do the following from your `application project folder`:
