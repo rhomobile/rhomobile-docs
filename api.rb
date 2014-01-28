@@ -1617,6 +1617,25 @@ end
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
 	  		templateSingleton = true
 	  	end
+	  	# Add template methods,properties,constants
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
+	  		
+	  		puts 'Has a template' 
+	  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
+	  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
+	  		w = templateFileString.split("/")
+	  		templateFile = w[w.length() - 1]
+	  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api'],templateFile))
+			templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
+				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+			}
+			templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
+				doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
+			}
+			templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
+				doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
+			}
+	  	end
 	  	if templateDefault
 	  		#get xml from file and put it in main array so it is handled like other methods
 	  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api'],'default_instance.xml'))
