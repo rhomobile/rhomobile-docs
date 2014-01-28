@@ -28,7 +28,7 @@ RhoStudio will, by default, switch to the 'Debug' perspective, and it will estab
 ![RhoSimulator Debugging](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/rhostudio-debug-ruby.png)
 
 ## Debugging an App on an Android Device
-To use RhoStudio to debug a RhoMobile application running on your Android device:
+To use RhoStudio to debug a RhoMobile application running on your Android device you'll want to make sure that your computer can "see" your android device using the adb command. So make sure your device's USB debugging is on and run the adb command in your terminal or command prompt and confirm that your device shows up. Once you have ensured that your computer recognizes your device, follow these steps:
 
 * Select "Android" for the platform.
 * Select "Device" for simulator type to debug on your device using RhoSimulator.
