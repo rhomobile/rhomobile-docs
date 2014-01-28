@@ -5,8 +5,6 @@ require './version'
 require './environment'
 
 use Rack::Rewrite do
-	# Edgedocs redirect
-	r301  %r{(.*)}, "http://docs.rhomobile.com/en/edge/home", :host => "rhodocs-cedar.herokuapp.com"
 	# Redirects from old version of the app.
 	r301  %r{^/home$}, "/en/#{Version::CURR_VERSION}/home"
 	r301  %r{^/v/2.2$}, "/en/2.2.0/home"
@@ -22,9 +20,12 @@ use Rack::Rewrite do
 	r301  %r{^/rhoconnectjs/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnectjs/$1"
 	r301  %r{^/tutorial/(.*)}, "/en/#{Version::CURR_VERSION}/tutorial/$1"
 	r301  %r{^/$}, "/en/#{Version::CURR_VERSION}/home"
+	# Static link redirects for latest version docs
 	r301  %r{^/en/latest$}, "/en/#{Version::CURR_VERSION}/home"
 	r301  %r{^/en/latest/(.*)}, "/en/#{Version::CURR_VERSION}/$1"
 	r301  %r{^/en/latest/(.*)/(.*)}, "/en/#{Version::CURR_VERSION}/$1/$2"
+	# Edgedocs redirect
+	r301  %r{(.*)}, "http://docs.rhomobile.com/en/edge/home", :host => "rhodocs-cedar.herokuapp.com"
 	r301  %r{^/en/edge$}, "/en/#{Version::NEXT_VERSION}/home"
 	r301  %r{^/en/edge/(.*)}, "/en/#{Version::NEXT_VERSION}/$1"
 	r301  %r{^/en/edge/(.*)/(.*)}, "/en/#{Version::NEXT_VERSION}/$1/$2"
