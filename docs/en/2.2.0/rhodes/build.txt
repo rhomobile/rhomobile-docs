@@ -41,8 +41,8 @@ Configure your environment by running the rhodes-setup script. This will attempt
 You don't have to do it if you installed RhoStudio, but if you want to build a Rhodes gem, do the following:
 
 	:::term
-  	$ rake gem
-  	$ gem install rhodes-[version].gem
+	$ gem build rhodes.gemspec
+	$ gem install rhodes-[version].gem
 
 ## Setting Up build.yml
 
