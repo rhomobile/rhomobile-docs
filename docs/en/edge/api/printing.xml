@@ -339,7 +339,7 @@
                         <PARAM name="stringResponce" type="STRING">
                             <DESC>responce from printer if received, converted to string from byteArray(original data)</DESC>
                             <CAN_BE_NIL/>
-                            <PLATFORM>Android</PLATFORM>
+                            <PLATFORM>Android, WM</PLATFORM>
                         </PARAM>
                         <PARAM name="byteArrayResponce" type="ARRAY">
                             <PARAM type="INTEGER">

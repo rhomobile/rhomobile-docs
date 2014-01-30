@@ -12,6 +12,11 @@
             
             <DESC>list of properties supported by class</DESC>
             
+            <PROPERTY name="ID" type="STRING" readOnly="true">
+                <DESC>object ID</DESC>
+                <PLATFORM>WM, Android</PLATFORM>
+            </PROPERTY>               
+            
             <PROPERTY name="TNF" type="STRING" readOnly="true">
                 <DESC>see NFC_TNF_xxx constants in Rho.NFC.Manager</DESC>
                 <PLATFORM>WM, Android</PLATFORM>
@@ -78,10 +83,10 @@
             </METHOD>        
             
             <METHOD name="getEnclosedMessages" hasCallback="optional">
-                <DESC>return array of Messages which placed in this record</DESC>
+                <DESC>return array of Messages IDs which placed in this record</DESC>
                 <RETURN type="ARRAY">
-                    <PARAM type="Rho.NFC.Message"/>
-                    <DESC></DESC>
+                    <PARAM type="STRING"/>
+                    <DESC>array with IDs of Rho.NFC.Message objects</DESC>
                 </RETURN>
                 <PLATFORM>WM, Android</PLATFORM>
             </METHOD>        

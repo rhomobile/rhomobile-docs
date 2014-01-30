@@ -12,6 +12,11 @@
             
             <DESC>list of properties supported by class</DESC>
             
+            <PROPERTY name="ID" type="STRING" readOnly="true">
+                <DESC>object ID</DESC>
+                <PLATFORM>WM, Android</PLATFORM>
+            </PROPERTY>               
+            
             <PROPERTY name="type" type="STRING" readOnly="true">
                 <DESC>see NFC_TAG_xxx constants in Rho.NFC.Manager</DESC>
                 <PLATFORM>WM, Android</PLATFORM>

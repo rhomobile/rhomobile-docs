@@ -12,15 +12,20 @@
             
             <DESC>list of properties supported by class</DESC>
             
+            <PROPERTY name="ID" type="STRING" readOnly="true">
+                <DESC>object ID</DESC>
+                <PLATFORM>WM, Android</PLATFORM>
+            </PROPERTY>            
+            
         </PROPERTIES>
         
         <METHODS>
             
             <METHOD name="getRecords" hasCallback="optional">
-                <DESC>return array of Records</DESC>
+                <DESC>return array of Records IDs</DESC>
                 <RETURN type="ARRAY">
-                    <PARAM type="Rho.NFC.Record"/>
-                    <DESC></DESC>
+                    <PARAM type="STRING"/>
+                    <DESC>array of id of Rho.NFC.Record objects</DESC>
                 </RETURN>
                 <PLATFORM>WM, Android</PLATFORM>
             </METHOD>

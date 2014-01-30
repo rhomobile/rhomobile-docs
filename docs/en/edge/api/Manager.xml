@@ -361,8 +361,8 @@
                         <PARAM name="status" type="STRING">
                             <DESC>NFC_SUCCESS if OK</DESC>
                         </PARAM>
-                        <PARAM name="tag" type="Rho.NFC.Tag">
-                            <DESC></DESC>
+                        <PARAM name="tagID" type="STRING">
+                            <DESC>id of Rho.NFC.Tag object</DESC>
                         </PARAM>
                     </PARAMS>        
                 </CALLBACK>
@@ -389,8 +389,8 @@
                         <PARAM name="status" type="STRING">
                             <DESC>NFC_SUCCESS if OK</DESC>
                         </PARAM>
-                        <PARAM name="tag" type="Rho.NFC.Message">
-                            <DESC></DESC>
+                        <PARAM name="messageID" type="STRING">
+                            <DESC>id of Rho.NFC.Message object</DESC>
                         </PARAM>
                     </PARAMS>        
                 </CALLBACK>
@@ -438,7 +438,46 @@
                 </RETURN>
                 <PLATFORM>WM, Android</PLATFORM>
             </METHOD>
+            
+            <METHOD name="getMessageByID" access="STATIC" hasCallback="optional">
+                <DESC>return Rho.NFC.Message object by ID</DESC>
+                <PARAMS>
+                    <PARAM name="objectID" type="STRING">
+                        <DESC></DESC>
+                    </PARAM>
+                </PARAMS>
+                <RETURN type="Rho.NFC.Message">
+                    <DESC></DESC>
+                </RETURN>
+                <PLATFORM>WM, Android</PLATFORM>
+            </METHOD>            
 
+            <METHOD name="getRecordByID" access="STATIC" hasCallback="optional">
+                <DESC>return Rho.NFC.Record object by ID</DESC>
+                <PARAMS>
+                    <PARAM name="objectID" type="STRING">
+                        <DESC></DESC>
+                    </PARAM>
+                </PARAMS>
+                <RETURN type="Rho.NFC.Record">
+                    <DESC></DESC>
+                </RETURN>
+                <PLATFORM>WM, Android</PLATFORM>
+            </METHOD>            
+            
+            <METHOD name="getTagByID" access="STATIC" hasCallback="optional">
+                <DESC>return Rho.NFC.Tag object by ID</DESC>
+                <PARAMS>
+                    <PARAM name="objectID" type="STRING">
+                        <DESC></DESC>
+                    </PARAM>
+                </PARAMS>
+                <RETURN type="Rho.NFC.Tag">
+                    <DESC></DESC>
+                </RETURN>
+                <PLATFORM>WM, Android</PLATFORM>
+            </METHOD>            
+            
         </METHODS>
         
         <USER_OVERVIEW>

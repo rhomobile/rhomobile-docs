@@ -1849,7 +1849,7 @@ In some device configurations the scanner and camera share the same hardware.  W
 	    <REMARK title="Get Scanner Properties">
                 <DESC>
                     <![CDATA[
-On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In Android,the method "getAllProperties" will return only those properties which can be read or set.
+On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved.
 
                     ]]>
 
