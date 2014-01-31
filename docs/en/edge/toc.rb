@@ -27,6 +27,7 @@ section 'rhodescommonapi-reference', '4.0 API Reference','Mobile API Docs' do
   topic 'en/edge/api/cardreader',      'CardReader'
   topic 'en/edge/api/Database',      'Database '
   topic 'en/edge/api/DPX',      'DPX '
+  topic 'en/edge/api/Intent',      'Intent'
   topic 'en/edge/api/keycapture',      'KeyCapture '
   topic 'en/edge/api/keystate',      'KeyState '
   topic 'en/edge/api/Log',      'Log'
