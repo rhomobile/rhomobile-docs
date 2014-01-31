@@ -391,7 +391,7 @@ RhoElement specific JavaScript APIs should still function in a RhoMobile 4.0 app
 	capabilities: 'motorola_browser'
 in its `build.yml`. It is recommended that JS API calls should be converted to use the associated JavaScript capability using the new common API classes.
 
-	:::Javascript
+	:::JavaScript
 	scanner.enable()  // should still work
 
 	Rho.Barcode.enable() // is the current 4.0 equivalent

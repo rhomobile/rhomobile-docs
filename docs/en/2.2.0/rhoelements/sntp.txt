@@ -21,7 +21,7 @@ e.g. <b>sntp</b>.setEMML("serverIp:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Sntp Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Sntp'</b> will exist on the current page and can be used to interact directly with the Sntp. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Sntp'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Sntp'</b> will exist on the current page and can be used to interact directly with the Sntp. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Sntp'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set Sntp parameters via Ruby use the following syntax: Sntp.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>Sntp</b>.serverIp = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -59,7 +59,7 @@ Windows Mobile 5.0 will not allow you to obtain SNTP time when requesting via a 
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example sets the device time from a network time server:
 

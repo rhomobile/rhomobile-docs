@@ -15,7 +15,7 @@ By default the JavaScript Object <b>'keyCapture'</b> will exist on the current p
 To Set keyCapture parameters via JavaScript use the following syntax: keycapture.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>keyCapture</b>.dispatch = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">						
-To Set keyCapture return events via JavaScript use the following syntax: keycapture.event = Javascript Function;
+To Set keyCapture return events via JavaScript use the following syntax: keycapture.event = JavaScript Function;
 <P />e.g. <b>keyCapture</b>.keyEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -27,7 +27,7 @@ e.g. <b>keyCapture</b>.setEMML("dispatch:<i>value</i>;keyEvent:url('JavaScript:d
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">KeyCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'KeyCapture'</b> will exist on the current page and can be used to interact directly with the KeyCapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'KeyCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'KeyCapture'</b> will exist on the current page and can be used to interact directly with the KeyCapture. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'KeyCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set KeyCapture parameters via Ruby use the following syntax: KeyCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>KeyCapture</b>.dispatch = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">						
@@ -55,7 +55,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###keyEvent
@@ -142,7 +142,7 @@ Certain devices may map their function keys to apparently normal keys, for examp
 
 
 ###Use of Key Capture module on Localized Operating Systems
-Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. The Javascript standard document.onkeyup can be used as an indication of which key has been pressed.
+Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. The JavaScript standard document.onkeyup can be used as an indication of which key has been pressed.
 
 
 
@@ -153,7 +153,7 @@ Users of the key capture module with Chinese, Korean and Japanese operating syst
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.  AccelerateKey is only supported on Windows CE devices using the Internet Explorer engine</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of: AccelerateKey and HomeKeyValue; these will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example displays an alert when any key is pressed:
 
@@ -176,7 +176,7 @@ The following example will not allow the return key to reach the browser but any
 	<META HTTP-Equiv="KeyCapture" Content="KeyValue:0x0D; Dispatch:False; KeyEvent:url('JavaScript://ignore this');')">
 	<META HTTP-Equiv="KeyCapture" Content="KeyValue:All; Dispatch:True; KeyEvent:url('JavaScript:alert('Key Pressed: %s, key will be received by Browser.');')">
 	
-The following example shows how a previously mapped key (in this case the return key) can be unmapped using Javascript. Note that specifying KeyValue:All and later unmapping a specific key will not unmap the key, follow the example above to achieve that effect:
+The following example shows how a previously mapped key (in this case the return key) can be unmapped using JavaScript. Note that specifying KeyValue:All and later unmapping a specific key will not unmap the key, follow the example above to achieve that effect:
 
 	<META HTTP-Equiv="KeyCapture" Content="KeyValue:0x0D; Dispatch:False; KeyEvent:url('JavaScript:alert('return pressed');')">
 	<script language=javascript>

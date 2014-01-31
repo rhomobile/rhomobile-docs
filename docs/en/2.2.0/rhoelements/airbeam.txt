@@ -2,7 +2,7 @@
 #AirBeam Preexisting JavaScript Object
 
 <b>
-The AirBeam Preexisting JavaScript Object contains properties and methods which can be used to control the AirBeam Smart client. AirBeam is a separate application provided by Motorola Solutions and provides the ability to download software packages to your mobile device. If you have configured 'PreloadLegacyAirBeam' to be '1' the Javascript object 'airbeam' will be inserted automatically into your page's DOM by RhoElements.
+The AirBeam Preexisting JavaScript Object contains properties and methods which can be used to control the AirBeam Smart client. AirBeam is a separate application provided by Motorola Solutions and provides the ability to download software packages to your mobile device. If you have configured 'PreloadLegacyAirBeam' to be '1' the JavaScript object 'airbeam' will be inserted automatically into your page's DOM by RhoElements.
 </b>
 
 ##Syntax
@@ -43,7 +43,7 @@ The following mode settings apply to the AutoLoadMode Property
 
 
 ###Backwards Compatibility
-The AirBeam Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'airbeam' on the page automatically when 'PreloadLegacyAirBeam' is configured to be '1' you can not create your own objects by this name, see below:
+The AirBeam Preexisting JavaScript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'airbeam' on the page automatically when 'PreloadLegacyAirBeam' is configured to be '1' you can not create your own objects by this name, see below:
 
 <pre>
 
@@ -65,7 +65,7 @@ The AirBeam Preexisting Javascript Object provides backwards compatibility with 
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The Following example shows usage of the AddPackage and Run methods:
 

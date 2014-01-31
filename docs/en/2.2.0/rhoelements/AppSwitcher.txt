@@ -21,7 +21,7 @@ e.g. <b>appSwitcher</b>.setEMML("visibility:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">AppSwitcher Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'AppSwitcher'</b> will exist on the current page and can be used to interact directly with the AppSwitcher. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'AppSwitcher'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'AppSwitcher'</b> will exist on the current page and can be used to interact directly with the AppSwitcher. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'AppSwitcher'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set AppSwitcher parameters via Ruby use the following syntax: AppSwitcher.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>AppSwitcher</b>.visibility = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -49,7 +49,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows CE, Windows Mobile, Windows Mobile SE</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">PocketBrowser 3.0 onwards running a multiple instance compatable browser.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">This tag is page specific and is actioned immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example closes the current application and brings up the application switcher:
 

@@ -13,7 +13,7 @@ In order to use this API you must include the following extension in your <code>
 ## Playing Audio
 Playing audio files is accomplished using the [Mediaplayer API](../api/mediaplayer)
 
-Javascript
+JavaScript
 	:::javascript
 	var platform = Rho.System.platform;
 	var audiolocation = "";
@@ -43,7 +43,7 @@ Rhodes can play video/audio files in native Internet Browser. So application dev
 ## Playing Video
 Playing video files is accomplished using the [Mediaplayer API](../api/mediaplayer)
 
-Javascript
+JavaScript
 	:::javascript
 	var platform = Rho.System.platform;
 	var videolocation = "";
@@ -69,7 +69,7 @@ Accessing ringtones on the device is accomplished via the [Mediaplayer](../api/m
 ### Getting available ringtones
 The [Mediaplayer.getAllRingtones()](../api/mediaplayer#mgetAllRingtonesSTATIC) is used to find out all of the available ringtones on the device 
 
-Javascript
+JavaScript
 	:::javascript
 	// Use getAllRingtones method
 	Rho.Mediaplayer.getAllRingtones(ringtones_callback);

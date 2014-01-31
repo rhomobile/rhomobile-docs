@@ -18,7 +18,7 @@ To Invoke ioSystem methods via JavaScript use the following syntax: iosystem.met
 To Set ioSystem parameters via JavaScript use the following syntax: iosystem.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>ioSystem</b>.ignition = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set ioSystem return events via JavaScript use the following syntax: iosystem.event = Javascript Function;
+To Set ioSystem return events via JavaScript use the following syntax: iosystem.event = JavaScript Function;
 <P />e.g. <b>ioSystem</b>.portEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>ioSystem</b>.setEMML("ignition:<i>value</i>;portEvent:url('JavaScript:do
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">IoSystem Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'IoSystem'</b> will exist on the current page and can be used to interact directly with the IoSystem. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'IoSystem'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'IoSystem'</b> will exist on the current page and can be used to interact directly with the IoSystem. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'IoSystem'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke IoSystem methods via Ruby use the following syntax: IoSystem.method()
 <P />e.g. <b>IoSystem</b>.invokeIgnition</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set IoSystem parameters via Ruby use the following syntax: IoSystem.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -65,7 +65,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###portEvent
@@ -91,7 +91,7 @@ Note that the PortEvent callback is common between IODigital, IOAnalog and IOSys
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">VC6090</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The appropriate IO port drivers.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example registers to receive ignition port change events. PortEvent will be called when the state of the ignition changes.
 

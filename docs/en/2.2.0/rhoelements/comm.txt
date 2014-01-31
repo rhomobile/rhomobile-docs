@@ -18,7 +18,7 @@ To Invoke comm methods via JavaScript use the following syntax: comm.method();
 To Set comm parameters via JavaScript use the following syntax: comm.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>comm</b>.baudRate = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set comm return events via JavaScript use the following syntax: comm.event = Javascript Function;
+To Set comm return events via JavaScript use the following syntax: comm.event = JavaScript Function;
 <P />e.g. <b>comm</b>.commEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>comm</b>.setEMML("baudRate:<i>value</i>;commEvent:url('JavaScript:doFunc
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Comm Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Comm'</b> will exist on the current page and can be used to interact directly with the Comm. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Comm'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Comm'</b> will exist on the current page and can be used to interact directly with the Comm. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Comm'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Comm methods via Ruby use the following syntax: Comm.method()
 <P />e.g. <b>Comm</b>.open</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Comm parameters via Ruby use the following syntax: Comm.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -84,7 +84,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###commEvent
@@ -115,7 +115,7 @@ The AccelerateKey Meta tag controls the behaviour of Accelerate keys on Windows 
 			</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example opens up the COM1 port using META tags, and instructs the Comm module to call the 'ProcessData' JavaScript function after 250 ms of port inactivity, passing the received data to the function. The port will be closed when RhoElements navigates to a new page.
 

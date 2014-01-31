@@ -2,7 +2,7 @@
 
 ## Overview
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
 
 ## Why Backbone.js
 
@@ -369,7 +369,7 @@ We have seen that Backbone.js provides a Model class and here we have RhoMobile'
 
 ### Enter RhoTendon
 
-A tendon is "tissue that connects bone to muscle" and RhoTendon is a small JavaScript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-Javascript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
+A tendon is "tissue that connects bone to muscle" and RhoTendon is a small JavaScript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-JavaScript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
 
 	:::javascript
 	<script src="/public/js/rhotendon.js"></script>

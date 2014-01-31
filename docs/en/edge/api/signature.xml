@@ -277,7 +277,7 @@ The signature capture area is designed to be set up prior to capturing the signa
       # In our example, we will display the signature as soon as it is captured.
       # We have a javascript function in our page to set the src attribute of an img element and we will call it now
       # 
-      WebView.executeJavascript("updateSignature('#{signature}')")
+      WebView.executeJavaScript("updateSignature('#{signature}')")
     else
       # if we did not really capture a signature, there is nothing else to do here
       WebView.navigate(url_for(:action => :index )) 

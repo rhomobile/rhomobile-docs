@@ -25,7 +25,7 @@ KitchenSink 4 is a regular RhoMobile application like any other. Refer to [proje
 * `public/js/samples` contains the code for each sample
 
 
-## Javascript
+## JavaScript
 
 All JavaScript samples in KitchenSink 4 follow the same pattern: There is a global `KitchenSink` object, which contains a member object for each API and these objects in turn contain the functions that invoke the sample code.
 
@@ -80,7 +80,7 @@ Which value will it take? Forget for a minute the specifics of the example and f
 * `undefined`
 * `NaN` (Not A Number)
 
-These are called "falsy" values, because within Javascript's automatic type conversion, they can be converted into the boolean `false`, while all other values are converted into the boolean `true` and are considered "truthy" values.
+These are called "falsy" values, because within JavaScript's automatic type conversion, they can be converted into the boolean `false`, while all other values are converted into the boolean `true` and are considered "truthy" values.
 
 Back to the example, this construct:
 

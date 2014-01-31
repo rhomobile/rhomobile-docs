@@ -183,7 +183,7 @@ end
             <SECTIONS>
               <SECTION>
                <DESC>
-                   This example shows how to show an alert in Javascript. 
+                   This example shows how to show an alert in JavaScript. 
                </DESC>
                <CODE>
                 <JAVASCRIPT>

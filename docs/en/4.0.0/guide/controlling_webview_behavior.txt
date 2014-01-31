@@ -4,7 +4,7 @@
 
 [WebView](../api/webview) is the RhoMobile component responsible for rendering your application's HTML interface, showing it to the user and allowing them to interact with the application that normally occupies most of the screen.
 
-At its core, WebView is a web browser, capable of making requests both to the embedded server that runs your application as well as any other server that speaks HTTP. It can execute modern JavaScript code and libraries such as JQuery and JQuery Mobile, both of which are included by default in new projects (see below for platform-specific limitations regarding Javascript). You can expect it to support the same features as the default browser of each platform, including AJAX, hardware-accelerated rendering, cookies, etc.   
+At its core, WebView is a web browser, capable of making requests both to the embedded server that runs your application as well as any other server that speaks HTTP. It can execute modern JavaScript code and libraries such as JQuery and JQuery Mobile, both of which are included by default in new projects (see below for platform-specific limitations regarding JavaScript). You can expect it to support the same features as the default browser of each platform, including AJAX, hardware-accelerated rendering, cookies, etc.   
 
 ### The two types of `WebView` available
 
@@ -28,25 +28,25 @@ A Rhodes application works very similarly to a traditional web browser + web ser
 
 ## Calling JavaScript from Ruby
 
-In a typical MVC scenario, once a request is received, your Ruby code will process it and end by returning a view for `WebView` to render. Instead of (or in addition to) that, Ruby code can invoke any JavaScript function present on the current page by calling `executeJavascript`.
+In a typical MVC scenario, once a request is received, your Ruby code will process it and end by returning a view for `WebView` to render. Instead of (or in addition to) that, Ruby code can invoke any JavaScript function present on the current page by calling `executeJavaScript`.
 
 	:::ruby
-	Rho::WebView.executeJavascript("alert('This alert was called from Ruby')")
+	Rho::WebView.executeJavaScript("alert('This alert was called from Ruby')")
 	
-Any valid JavaScript code can be used in `executeJavascript`, but if the code is built dynamically or contains expansions or data from the user, care must be taken to escape it properly.
+Any valid JavaScript code can be used in `executeJavaScript`, but if the code is built dynamically or contains expansions or data from the user, care must be taken to escape it properly.
 
 For example, if any of your parameters can contain newline characters (`\n`), semicolons (`;`), quotes or any other special characters, they must be escaped or the call may not work. Therefore, it is a good practice to escape all parameters being passed to javascript functions.
 
 
 	:::ruby
 	# This will not work if message contains \n
-	Rho::WebView.executeJavascript("alert('#{message}')")
+	Rho::WebView.executeJavaScript("alert('#{message}')")
 	
-	# We must escape newlines for passing to Javascript
+	# We must escape newlines for passing to JavaScript
 	message = message.to_json
 	
 	# Now this will work even if message contains \n
-	Rho::WebView.executeJavascript("alert('#{message}')")
+	Rho::WebView.executeJavaScript("alert('#{message}')")
 	
 You are not limited to single values, using this syntax you can also pass hashes with as many parameters as necessary. Given the following JavaScript function:
 
@@ -64,7 +64,7 @@ You would call it from Ruby by sending a hash with the appropriate keys:
 		:place => 'RhoMobile'
 	}.to_json
 	
-	Rho::WebView.executeJavascript("greet_user(#{greeting_parameters})")
+	Rho::WebView.executeJavaScript("greet_user(#{greeting_parameters})")
 	
 **NOTE: The JavaScript code you call must have been loaded _before_ your ruby code executes. It is not enough for it to be on the same view that is going to be rendered when the action returns, it has to be already in the page, that is, it must have been included by the previous action. In practice this means that JavaScript code you intend to call from Ruby cannot be called from the same action that loads it the first time. To avoid this pitfall, you should reference JavaScript files from `layout.erb` so that the code is available at all times. Including `<script>` tags in views is discouraged.
 **
@@ -139,7 +139,7 @@ As with all APIs starting with RhoMobile 4.0, a JavaScript version is available 
 	# Set a cookie valid for requests to a subfolder http://example.com/testcookies
 	Rho::WebView.setCookie("example.com/testcookies","name1=value1;name2=value2")
 	
-`setCookie` is also available from Javascript:
+`setCookie` is also available from JavaScript:
 
 	:::javascript
 	// Set a cookie valid for requests to http://example.com

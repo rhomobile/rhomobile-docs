@@ -1,5 +1,5 @@
 #RhoElements Web Server
-RhoElements can be configured to run a proprietry local web server on the device. The benefits of this are that Javascript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues. 
+RhoElements can be configured to run a proprietry local web server on the device. The benefits of this are that JavaScript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues. 
 
 ##Setting up the web server 
 

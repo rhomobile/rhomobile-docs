@@ -57,7 +57,7 @@ Ruby:
     end
 
 
-Javascript:
+JavaScript:
 
 	:::javascript
     Rho.NativeTabbar.create(
@@ -157,7 +157,7 @@ Ruby:
 	{}
    )
 
-Javascript:
+JavaScript:
 	:::javascript
     Rho.NativeToolbar.create([
     	{
@@ -214,7 +214,7 @@ Ruby:
       :title => "Hello World"
     })
 	
-Javascript:
+JavaScript:
 	:::javascript
     Rho.Navbar.create({
       left : {
@@ -238,7 +238,7 @@ Javascript:
 
 * `Navbar` is only available on iOS.
 
-* jQuery Mobile emulates the NavBar and provides an HTML+Javascript equivalent by default. Do not use both, as that tends to be confusing and waste screen real estate.
+* jQuery Mobile emulates the NavBar and provides an HTML+JavaScript equivalent by default. Do not use both, as that tends to be confusing and waste screen real estate.
 
 
 ## NativeMenubar
@@ -303,7 +303,7 @@ Ruby:
     end
 
 
-Javascript:
+JavaScript:
 	:::javascript
     function show_alert_1() {
         alert("This alert was invoked from a NativeMenubar item");

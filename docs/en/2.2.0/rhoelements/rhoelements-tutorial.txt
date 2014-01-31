@@ -2,7 +2,7 @@
 This tutorial will outline the steps required to create a sample inventory management application using RhoElements and RhoMobile Suite. The application will allow a user to scan barcodes and keep a running tally of how many times each item was scanned. To keep things simple, we will not be doing any synchronization in this part of the tutorial and will cover that topic later on. 
 
 ## Setting Up
-Before we begin, make sure you have [downloaded and installed RhoMobile Suite](../rhomobile-install). Recall that RhoStudio is an Eclipse based IDE that allows you to write a mobile application using HTML, Javascript and Ruby that will run on multiple mobile platforms. Each mobile platform’s development environment is used in the build process to compile a final executable for that platform. It is imperative that you have this complete development environment setup for each platform you will be building on. The prerequisites and setup for building on each mobile platform (for example, setting up an Android SDK) can be found [here](../rhodes/build). In this tutorial we will begin by developing using RhoSimulator, but the final application will be running on a device.
+Before we begin, make sure you have [downloaded and installed RhoMobile Suite](../rhomobile-install). Recall that RhoStudio is an Eclipse based IDE that allows you to write a mobile application using HTML, JavaScript and Ruby that will run on multiple mobile platforms. Each mobile platform’s development environment is used in the build process to compile a final executable for that platform. It is imperative that you have this complete development environment setup for each platform you will be building on. The prerequisites and setup for building on each mobile platform (for example, setting up an Android SDK) can be found [here](../rhodes/build). In this tutorial we will begin by developing using RhoSimulator, but the final application will be running on a device.
 
 ## Project Structure
 After launching Motorola RhoStudio, let’s create a new project inside by selecting ‘File/New Project’. You should see a dialog appear like the one below. Select ‘RhoMobile application’ and then click the ‘Next’ button.  
@@ -17,7 +17,7 @@ This will create a blank RhoMobile project with a directory structure similar to
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image003.png"/>
  
-Let’s take a look at the file structure for a moment and explain what is going on. The ‘app’ folder, as it may sound, is where we will put the core application files including all of our data models and their corresponding views and controllers (more on that in a moment). The ‘icon’ folder contains the image use for the application icon. The ‘public’ folder will contain some subfolders to hold our CSS and Javascript files. By default, RhoStudio includes jQuery Mobile/Jquery and corresponding CSS files. For the sake of this example, we will not be replacing any of these and we will be focusing on the ‘app’ folder contents. Recall that a Rhodes application follows a MVC (Model/View/Controller) approach and essentially the application is running a self contained web server.  The user interface is primarily determined by the ‘Views’ or ‘.erb’ files. The ‘layout.erb’  file, as the name implies, defines the main layout for the application. If you open it up in RhoStudio, you will see something that looks very familiar to a typical HTML file.
+Let’s take a look at the file structure for a moment and explain what is going on. The ‘app’ folder, as it may sound, is where we will put the core application files including all of our data models and their corresponding views and controllers (more on that in a moment). The ‘icon’ folder contains the image use for the application icon. The ‘public’ folder will contain some subfolders to hold our CSS and JavaScript files. By default, RhoStudio includes jQuery Mobile/Jquery and corresponding CSS files. For the sake of this example, we will not be replacing any of these and we will be focusing on the ‘app’ folder contents. Recall that a Rhodes application follows a MVC (Model/View/Controller) approach and essentially the application is running a self contained web server.  The user interface is primarily determined by the ‘Views’ or ‘.erb’ files. The ‘layout.erb’  file, as the name implies, defines the main layout for the application. If you open it up in RhoStudio, you will see something that looks very familiar to a typical HTML file.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image004.png"/>
  
@@ -361,7 +361,7 @@ Let’s look at this function line by line. When the decode event returns after 
 
  
 
-If we have an entry in our ProductCatalog model, we fetch the item’s name and image to be displayed on the page. If we find an image, we want to display it on the scanPage.erb. In order to communicate from the Ruby controller to the rendered page, you must use the Rhodes WebView object. This object has a function called ‘execute_js’ which allows you to call Javascript functions as well as pass variables to that function: 
+If we have an entry in our ProductCatalog model, we fetch the item’s name and image to be displayed on the page. If we find an image, we want to display it on the scanPage.erb. In order to communicate from the Ruby controller to the rendered page, you must use the Rhodes WebView object. This object has a function called ‘execute_js’ which allows you to call JavaScript functions as well as pass variables to that function: 
 
 	WebView.execute_js("setImgSrc('"+product.Image+"'); ")
 
@@ -386,10 +386,10 @@ The decode event callback then tries to find an entry in the Inventory model for
 	end
 
 
-This method first gets a collection of all the items inside of the Inventory model, iterating through each of them and fetching the Quantity field and adding it to our ‘scanCount’ parameter.  We then call another Javascript function to display the total.
+This method first gets a collection of all the items inside of the Inventory model, iterating through each of them and fetching the Quantity field and adding it to our ‘scanCount’ parameter.  We then call another JavaScript function to display the total.
 
-##Ruby - Javascript Communication
-Now we have added all of the code to the controller, let’s go back to the scanPage.erb and add the Javascript functions we are calling.
+##Ruby - JavaScript Communication
+Now we have added all of the code to the controller, let’s go back to the scanPage.erb and add the JavaScript functions we are calling.
 
 	$('[data-role=page]').live('pageshow', function (event) {
 		  $.get('/app/Inventory/getInventoryCount', { });
@@ -414,13 +414,13 @@ Now we have added all of the code to the controller, let’s go back to the scan
 		document.getElementById("iImage").src = data;          
 	}
 
-In the above code you will see mention of one Javascript function we did not speak about before.
+In the above code you will see mention of one JavaScript function we did not speak about before.
 
 	$('[data-role=page]').live('pageshow', function (event) {
 		  $.get('/app/Inventory/getInventoryCount', { });
 		});
 
-This statement is jQuery syntax that effectively executes a function when the page is completely ready to handle Javascript. The $.get method is an Ajax passing the URL as a parameter. In order to communicate from the webpage via Javascript to the Ruby controller methods, is through Ajax. The URL we pass is calling the getInventoryCount method we added inside the controller above. Like we mentioned before, this method in turn uses the WebView.execute_js function to talk back to Javascript and the rendered page.
+This statement is jQuery syntax that effectively executes a function when the page is completely ready to handle JavaScript. The $.get method is an Ajax passing the URL as a parameter. In order to communicate from the webpage via JavaScript to the Ruby controller methods, is through Ajax. The URL we pass is calling the getInventoryCount method we added inside the controller above. Like we mentioned before, this method in turn uses the WebView.execute_js function to talk back to JavaScript and the rendered page.
 
 One other thing we will do here is remove the default Rhodes toolbar, since we want our UI to take up most of the real estate. This is easily accomplish by going back into the ‘app/application.rb’ file.  Look for the line:
 

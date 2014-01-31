@@ -47,8 +47,8 @@ Let's explain what is going on here by first taking a look at `index.html`
     </body>
     </html>
 
-## The Javascript
-Since this is a JavaScript based application let's first take a look at the Javascript Files we are referencing.
+## The JavaScript
+Since this is a JavaScript based application let's first take a look at the JavaScript Files we are referencing.
 
 To use EmberJS, we will be including the following libraries. 
     :::js

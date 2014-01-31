@@ -21,7 +21,7 @@ e.g. <b>emmlProfile</b>.setEMML("name:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">EmmlProfile Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'EmmlProfile'</b> will exist on the current page and can be used to interact directly with the EmmlProfile. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'EmmlProfile'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'EmmlProfile'</b> will exist on the current page and can be used to interact directly with the EmmlProfile. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'EmmlProfile'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set EmmlProfile parameters via Ruby use the following syntax: EmmlProfile.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>EmmlProfile</b>.name = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -62,7 +62,7 @@ Importing profiles from a file:// location will cause the profile to be moved fr
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow" /></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Transient - any changes made by changing parameters will be lost when navigating to a new page with the exception of when a named EMML profile set is imported.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example imports an EMML profile page into the temporary, unnamed space.
 <META HTTP-Equiv="EMMLProfile" Content="importProfile:url('http://myserver/scannerparams.emmp');">

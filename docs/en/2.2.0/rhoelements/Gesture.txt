@@ -19,7 +19,7 @@ To Invoke gesture methods via JavaScript use the following syntax: gesture.metho
 To Set gesture parameters via JavaScript use the following syntax: gesture.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>gesture</b>.type = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set gesture return events via JavaScript use the following syntax: gesture.event = Javascript Function;
+To Set gesture return events via JavaScript use the following syntax: gesture.event = JavaScript Function;
 <P />e.g. <b>gesture</b>.detected = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -31,7 +31,7 @@ e.g. <b>gesture</b>.setEMML("type:<i>value</i>;detected:url('JavaScript:doFuncti
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Gesture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Gesture'</b> will exist on the current page and can be used to interact directly with the Gesture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Gesture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Gesture'</b> will exist on the current page and can be used to interact directly with the Gesture. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Gesture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Gesture methods via Ruby use the following syntax: Gesture.method()
 <P />e.g. <b>Gesture</b>.create</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Gesture parameters via Ruby use the following syntax: Gesture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -95,7 +95,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###detected
@@ -157,9 +157,9 @@ Note that diagnostics exist only for the purpose of understanding and evaluating
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. On Windows the tilt and shake gestures are supported only on MPA3.0 devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Linear, Circle and Hold gestures require a touch screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Transient - any changes made by changing parameters will be lost when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
-Create two gestures: a default left to right gesture with ID 'swipe', and a hold gesture at the top left of the screen which will fire one time after 500 milliseconds with ID 'press'. The Javascript function onGesture() is called when either gesture is detected.
+Create two gestures: a default left to right gesture with ID 'swipe', and a hold gesture at the top left of the screen which will fire one time after 500 milliseconds with ID 'press'. The JavaScript function onGesture() is called when either gesture is detected.
 
 	<META HTTP-Equiv="gesture" Content="type:linear">
 	<META HTTP-Equiv="gesture" Content="id:swipe">
@@ -172,7 +172,7 @@ Create two gestures: a default left to right gesture with ID 'swipe', and a hold
 	<META HTTP-Equiv="gesture" Content="interval:0">
 	<META HTTP-Equiv="gesture" Content="id:press">
 	<META HTTP-Equiv="gesture" Content="create">
-	<META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture('%s','%s');')">
+	<META HTTP-Equiv="gesture-detected" Content="url('JavaScript:onGesture('%s','%s');')">
 	      
 The following example deletes a gesture via a javascript function.
 
@@ -182,7 +182,7 @@ The following example deletes a gesture via a javascript function.
 	  gesture.delete();
 	}	
 	      
-Create 3D gestures: a tilt gesture that is called when the device is placed in upright position and a shake gesture. The Javascript function onGesture() is called when either gesture is detected.
+Create 3D gestures: a tilt gesture that is called when the device is placed in upright position and a shake gesture. The JavaScript function onGesture() is called when either gesture is detected.
 
 	<META HTTP-Equiv="gesture" Content="type:tilt">
 	<META HTTP-Equiv="gesture" Content="id:swipe">
@@ -190,7 +190,7 @@ Create 3D gestures: a tilt gesture that is called when the device is placed in u
 	<META HTTP-Equiv="gesture" Content="type:shake">        
 	<META HTTP-Equiv="gesture" Content="id:shake">
 	<META HTTP-Equiv="gesture" Content="create">
-	<META HTTP-Equiv="gesture-detected" Content="url('Javascript:onGesture(%json);')">
+	<META HTTP-Equiv="gesture-detected" Content="url('JavaScript:onGesture(%json);')">
 	
 	<script type="text/javascript">	
 	function onGesture(jsonObject)

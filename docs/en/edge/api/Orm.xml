@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
   <MODULE name="ORM" parent="Rho" generateUnderscoreRubyNames="true" generateAPI="false">
-    <HELP_OVERVIEW>This Javascript API class allows you to interact with the local RHOM database and programatically add models or get references to models.</HELP_OVERVIEW>
+    <HELP_OVERVIEW>This JavaScript API class allows you to interact with the local RHOM database and programatically add models or get references to models.</HELP_OVERVIEW>
     <MORE_HELP>
 ## Enabling the API           
 This API is part of the `coreapi` extension that is included automatically.
@@ -311,10 +311,10 @@ product.get('name'); // iPhone5
         
         <JAVASCRIPT>
    <![CDATA[
-// The model 'Product' must have been defined in Javascript execution earlier 
+// The model 'Product' must have been defined in JavaScript execution earlier 
 // in order for 'getModel' to work properly. 
 
-// The models generated in RhoStudio, are not accessible in Javascript unless 
+// The models generated in RhoStudio, are not accessible in JavaScript unless 
 // the classes are defined via the  Rho.ORM.addModel api
 
 

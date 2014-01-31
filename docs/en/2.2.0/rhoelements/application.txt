@@ -15,7 +15,7 @@ By default the JavaScript Object <b>'application'</b> will exist on the current 
 To Invoke application methods via JavaScript use the following syntax: application.method();
 <P />e.g. <b>application</b>.quit();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">						
-To Set application return events via JavaScript use the following syntax: application.event = Javascript Function;
+To Set application return events via JavaScript use the following syntax: application.event = JavaScript Function;
 <P />e.g. <b>application</b>.applicationEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -27,7 +27,7 @@ e.g. <b>application</b>.setEMML("applicationEvent:url('JavaScript:doFunction(%js
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Application Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Application'</b> will exist on the current page and can be used to interact directly with the Application. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Application'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Application'</b> will exist on the current page and can be used to interact directly with the Application. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Application'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Application methods via Ruby use the following syntax: Application.method()
 <P />e.g. <b>Application</b>.quit</td></tr><tr><td class="clsSyntaxCells clsOddRow">						
 To Set Application return events via Ruby use the following syntax: Application.event = url_for(:action =&gt; :event_callback) 
@@ -50,7 +50,7 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###applicationEvent
@@ -94,7 +94,7 @@ The ComponentVersions parameter in the VersionEvent is defined as a 2D array:
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet - does not support "Restore" method.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example causes RhoElements to exit when the page is loaded
 
@@ -103,7 +103,7 @@ The following example causes RhoElements to exit when the page is loaded
 The following example minimizes RhoElements when the enter key is pressed and reports its state in a message box
 
 	<META HTTP-EQUIV="OnKey0x0d" content="javascript:doTest();">
-	<META HTTP-EQUIV="Application" content="ApplicationEvent:url('Javascript:receivedEvent('%s');')">
+	<META HTTP-EQUIV="Application" content="ApplicationEvent:url('JavaScript:receivedEvent('%s');')">
 	
 	<SCRIPT>
 	    function doTest()

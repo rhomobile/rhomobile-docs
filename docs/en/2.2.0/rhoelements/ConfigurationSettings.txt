@@ -343,7 +343,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >General\\UseRegularExpressions</td>
 <td >USEREGULAREXPRESSIONS</td>
-<td >In order to be backwardly compatible with PocketBrowser syntax for controlling device capabilities RhoElements uses a Regular Expression engine to apply a series of transformations to each meta tag or Javascript call being processed, as defined in RegEx.xml.  If you are developing applications without the need to be backwardly compatible with PocketBrowser syntax you can disable regular expressions, this can give an improvment of application performance, depending on how the application is structured.  This setting is only applicable to RhoMobile Suite version 2.2 and above on Windows devices.</td>
+<td >In order to be backwardly compatible with PocketBrowser syntax for controlling device capabilities RhoElements uses a Regular Expression engine to apply a series of transformations to each meta tag or JavaScript call being processed, as defined in RegEx.xml.  If you are developing applications without the need to be backwardly compatible with PocketBrowser syntax you can disable regular expressions, this can give an improvment of application performance, depending on how the application is structured.  This setting is only applicable to RhoMobile Suite version 2.2 and above on Windows devices.</td>
 <td >0 - Do Not Use Regular Expressions<br>1 - Use Regular Expressions</a></td>
 </tr>
 <tr>
