@@ -48,7 +48,7 @@ From the console, change into your application's directory and run:
 this will create the initial set of files for the new extension. Open the new `extensions/greeting` folder and you will find:
 
 * ext.yml - you do not normally need to modify this file
-* public/api/generated/Rho.Greeting.js - automatically generated javascript bindings
+* public/api/generated/Rho.Greeting.js - automatically generated JavaScript bindings
 * ext/platform - one folder for each supported platform (android, iphone, wm, wp8)
 * ext/shared/generated - automatically generated glue code
 * ext/greeting.xml - API descriptor. This is where you define which methods your API provides, the parameters they expect and the result they return, as well as provide user documentation.

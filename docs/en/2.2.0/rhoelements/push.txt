@@ -72,7 +72,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###detected
@@ -125,7 +125,7 @@ The code below configures the server to listen on port 8081, to accept only requ
 	<META HTTP-Equiv="Push-detected" Content="url('JavaScript:onPush('%s','%s');')">
 	<META HTTP-Equiv="Push" Content="Start">
 	      
-The following code shows a very simple push server which just responds by executing a javascript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
+The following code shows a very simple push server which just responds by executing a JavaScript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
 
 	<HEAD>
 	<META HTTP-Equiv="Push" Content="Port:1234">

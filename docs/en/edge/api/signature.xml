@@ -275,7 +275,7 @@ The signature capture area is designed to be set up prior to capturing the signa
       signature = Rho::Application.expandDatabaseBlobFilePath(@params["imageUri"])
 
       # In our example, we will display the signature as soon as it is captured.
-      # We have a javascript function in our page to set the src attribute of an img element and we will call it now
+      # We have a JavaScript function in our page to set the src attribute of an img element and we will call it now
       # 
       WebView.executeJavaScript("updateSignature('#{signature}')")
     else
@@ -289,7 +289,7 @@ The signature capture area is designed to be set up prior to capturing the signa
                </SECTION>
                <SECTION>
                <DESC>
-                   In the view, we have an img element to display the captured signature and a javascript function to update it
+                   In the view, we have an img element to display the captured signature and a JavaScript function to update it
                </DESC>
                <CODE lang='javascript' >
            <![CDATA[

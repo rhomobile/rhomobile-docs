@@ -54,7 +54,7 @@ Images can be specified as local to the device or on an HTTP / FTP server, just 
 
 
 ###Interaction with Back Button
-For compatibility reasons RhoElements maintains its own history stack independent of the underlying browser. This means the forward button is only compatible with the back button and will not navigate forward after the user calls javascript:history.back(1).
+For compatibility reasons RhoElements maintains its own history stack independent of the underlying browser. This means the forward button is only compatible with the back button and will not navigate forward after the user calls JavaScript:history.back(1).
 
 
 ###Default Positions

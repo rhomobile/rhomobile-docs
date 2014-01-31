@@ -2,7 +2,7 @@
 
 ## Introduction
 SyncEngine AJAX API provides ability for HTML/javascript based application to control SyncEngine using AJAX calls.
-It is implemented as a plain javascript library which doesn't require to use any side libraries or frameworks.
+It is implemented as a plain JavaScript library which doesn't require to use any side libraries or frameworks.
 
 NOTE: It is just for SyncEngine control and at the moment it doesn't provide any methods to read or manipulate stored objects.
 
@@ -96,7 +96,7 @@ NOTE: It is just for SyncEngine control and at the moment it doesn't provide any
 
 ## API reference
 
-All API methods are defined in the *Rho.syncengine* namespace. Each method is accessible in javascript as *window.Rho.syncengine.method_name*.
+All API methods are defined in the *Rho.syncengine* namespace. Each method is accessible in JavaScript as *window.Rho.syncengine.method_name*.
 Each API method receives callback functions as two last parameters, those are:
 
 * success - Success handler function. Parameters are:

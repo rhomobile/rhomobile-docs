@@ -150,42 +150,42 @@ The following example clears the resultset after a query is executed:
 	   odax.Clear();
 	</script>
 	
-The following javascript gets the column 'field1' from the resultset:
+The following JavaScript gets the column 'field1' from the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var colval = odax.Get("field1");
 	</script>
 	
-The following javascript moves the row pointer to the first record of the resultset:
+The following JavaScript moves the row pointer to the first record of the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.MoveFirst();
 	</script>
 	
-The following javascript moves the row pointer to the next record in the resultset:
+The following JavaScript moves the row pointer to the next record in the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.movenext();
 	</script>
 	
-The following javascript moves the row pointer to the previous record in the resultset:
+The following JavaScript moves the row pointer to the previous record in the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.moveprev();
 	</script>
 	
-The following javascript moves the row pointer to the last record of the resultset
+The following JavaScript moves the row pointer to the last record of the resultset
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.movelast();
 	</script>
 	
-The following javascript selects all records from a XML file:
+The following JavaScript selects all records from a XML file:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);

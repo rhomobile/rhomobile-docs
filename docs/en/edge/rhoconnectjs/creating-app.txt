@@ -12,7 +12,7 @@ You need to add libraries and define the rhoconnect location.
 
 ### Adding Dependent Libraries
 
-Add all of the javascript and stylesheet libraries to the application. Inside of the index.html file, add the following lines:
+Add all of the JavaScript and stylesheet libraries to the application. Inside of the index.html file, add the following lines:
 
 	:::html
 	 <script type="text/javascript" charset="utf-8" src="external/jquery/jquery-1.6.1.min.js"></script>
@@ -32,7 +32,7 @@ The first five files included are for jQuery mobile. They include jQuery 1.6.1, 
 
 The next two files are for persistence.js, and since we are using SQLite, persistence.store.sql.js. <a href='https://github.com/zefhemel/persistencejs' target='_blank'>See persistence.js documentation</a> for more information on this.
 
-The next file is, at this time, the latest version of rhoconnect.js.  We will add all of our javascript code into a file called application.js, so include that file as well.
+The next file is, at this time, the latest version of rhoconnect.js.  We will add all of our JavaScript code into a file called application.js, so include that file as well.
 
 ### Defining the rhoconnect Location
 

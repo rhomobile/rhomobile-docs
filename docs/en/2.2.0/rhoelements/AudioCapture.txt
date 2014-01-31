@@ -71,7 +71,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###audioSaveEvent
@@ -128,7 +128,7 @@ The following META Tag example performs a 30 second capture. The resulting audio
 	<META HTTP-Equiv="AudioCapture" Content="AudioSaveEvent:url('javascript:alert('%s');')">
 	<META HTTP-Equiv="AudioCapture" Content="start">
 	
-The following javascript will start and stop an audio capture respectively when onStart and onStop are called with a 60 second limit:
+The following JavaScript will start and stop an audio capture respectively when onStart and onStop are called with a 60 second limit:
 
 	<script>
 	   function onStart()
@@ -143,7 +143,7 @@ The following javascript will start and stop an audio capture respectively when 
 	   }
 	</script>
 	
-The following javascript will start a 30 second audio capture when onStart is called:
+The following JavaScript will start a 30 second audio capture when onStart is called:
 
 	<script>
 	   function onStart()

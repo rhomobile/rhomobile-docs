@@ -172,8 +172,8 @@ The following code snippet takes a picture from the device's camera and will run
 	};);
 
 
-### Callback as a javascript function
-The following code snippet takes a picture from the device's camera and then calls another javascript function `mycallbackhandler`:
+### Callback as a JavaScript function
+The following code snippet takes a picture from the device's camera and then calls another JavaScript function `mycallbackhandler`:
 	
 	:::javascript
 	Rho.Camera.takePicture(..., mycallbackHandler());

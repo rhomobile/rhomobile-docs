@@ -12,7 +12,7 @@ The following table shows the compatibility for each Mobile API.
 <tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhoelements/RawSensors" rel="tooltip">Accelerometer</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -89,7 +89,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/asynchttp-api" rel="tooltip">AsyncHttp</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -115,7 +115,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhoelements/AudioCapture" rel="tooltip">AudioCapture</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -139,7 +139,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/barcode-api" rel="tooltip">Barcode</a> </td>
         <td class="start1 ">
-<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -217,7 +217,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/camera-api" rel="tooltip">Camera</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -245,7 +245,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/database-api" rel="tooltip">Database</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -303,7 +303,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/file-api" rel="tooltip">File</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -331,7 +331,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/geolocation-api" rel="tooltip">GeoLocation</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -359,7 +359,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhoelements/RawSensors" rel="tooltip">Magnetometer</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -377,7 +377,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/mapview-api" rel="tooltip">MapView</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -405,7 +405,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhoelements/mediaPlayer" rel="tooltip">MediaPlayer</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
 </td>
         <td style="text-align:center" class=" "></td>
         <td style="text-align:center" class=" ">
@@ -629,7 +629,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhoelements/RawSensors" rel="tooltip">RawSensors</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -647,7 +647,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rhoapplication-api" rel="tooltip">RhoApplication</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -823,7 +823,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="even">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/rholog-api" rel="tooltip">RhoLog</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -971,7 +971,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/signaturecapture-api" rel="tooltip">SignatureCapture Inline</a> </td>
         <td class="start1 ">
-<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -1029,7 +1029,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhodesapi/system-api" rel="tooltip">System</a> </td>
         <td class="start1 ">
-<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span>
+<span class="label">R</span>&nbsp;<span style="display:none">rhodes</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span>
 </td>
         <td style="text-align:center" class=" ">
 <span class="icon-star"></span><span style="display:none">ios</span>
@@ -1087,7 +1087,7 @@ The following table shows the compatibility for each Mobile API.
        </tr><tr class="odd">
 <td class=" sorting_1"> <a href="/v/2.2/rhoelements/VideoCapture" rel="tooltip">VideoCapture</a> </td>
         <td class="start1 ">
-<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements javascript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
+<span class="label label-important">R</span>&nbsp;<span style="display:none">license rhoelements ruby</span><span class="label label-warning">J</span>&nbsp;<span style="display:none">license rhoelements JavaScript js</span><span class="label label-info">H</span>&nbsp;<span style="display:none">license rhoelements html meta</span>
 </td>
         <td style="text-align:center" class=" "></td>
         <td style="text-align:center" class=" ">

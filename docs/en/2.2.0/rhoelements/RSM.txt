@@ -2,7 +2,7 @@
 #Rsm Module
 
 <b>
-The Rsm Module is used to configure or to retrieve attributes relating to a remote scanner either tethered to the device or connected via Bluetooth. The properties of the scanner which can be configured are detailed in the 'Remarks' section. When used for retrieval navigation to URL or call to javascript function happens immediately.
+The Rsm Module is used to configure or to retrieve attributes relating to a remote scanner either tethered to the device or connected via Bluetooth. The properties of the scanner which can be configured are detailed in the 'Remarks' section. When used for retrieval navigation to URL or call to JavaScript function happens immediately.
 </b>
 
 ##Syntax
@@ -156,7 +156,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###rsmGetEvent

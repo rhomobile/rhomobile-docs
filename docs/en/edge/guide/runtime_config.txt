@@ -33,7 +33,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
     # startup page for your application
     start_path = '/app'
 
-    # path to the options page (in this case handled by javascript)
+    # path to the options page (in this case handled by JavaScript)
     options_path = '/app/Settings'
     
     # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
@@ -843,7 +843,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td class="clsEvenRow">Geolocation\\GeolocationEnabled</td>
 <td class="clsEvenRow">Not Configurable</td>
-<td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined javascript callback. When disabled the defined javascript error callback is called notifying that the permission to using Geolocation is disabled.</td>
+<td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 </table>

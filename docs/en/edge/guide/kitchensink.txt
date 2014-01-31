@@ -87,7 +87,7 @@ Back to the example, this construct:
 	:::javascript
 	KitchenSink.Samples.Notification = KitchenSink.Samples.Notification || (function() {
 
-protects the code against accidentally loading the `notification.js` javascript more than once. The first time it code runs, `KitchenSink.Samples.Notification` is `undefined`, which is a "falsy" value as we just saw, and the `||` operator returns the result of the expression located to its right. If for some reason we included the `notification.js` file again, the second time this code runs `KitchenSink.Samples.Notification` will have a "truthy" value and the assignment will have no visible effect.
+protects the code against accidentally loading the `notification.js` JavaScript more than once. The first time it code runs, `KitchenSink.Samples.Notification` is `undefined`, which is a "falsy" value as we just saw, and the `||` operator returns the result of the expression located to its right. If for some reason we included the `notification.js` file again, the second time this code runs `KitchenSink.Samples.Notification` will have a "truthy" value and the assignment will have no visible effect.
 
 Let's examine now the right-side expression; if we remove the body of the function and focus only on the structure, we are left with:
 
@@ -149,7 +149,7 @@ Lastly, let's focus on the contents of the function itself:
 		};
 	}
 
-What the function does is it declares some other functions and returns a hash. In javascript, each function creates a `scope`, which at a high level means that code outside the function is isolated from code inside. It is not possible for code outside this function to call any of the functions defined inside. We can take advantage of this fact and export some of the functions and not others: if you look closely, the function `popup_callback` is not present in the hash. You can have any number of functions declared inside another and only export those you want to be accessible, while keeping others private, with the benefit that you need not worry about name collisions. As long as they are declared in different scopes, there can be multiple functions with the same name and they will not interfere with each other.
+What the function does is it declares some other functions and returns a hash. In JavaScript, each function creates a `scope`, which at a high level means that code outside the function is isolated from code inside. It is not possible for code outside this function to call any of the functions defined inside. We can take advantage of this fact and export some of the functions and not others: if you look closely, the function `popup_callback` is not present in the hash. You can have any number of functions declared inside another and only export those you want to be accessible, while keeping others private, with the benefit that you need not worry about name collisions. As long as they are declared in different scopes, there can be multiple functions with the same name and they will not interfere with each other.
 
 **NOTE: Use this pattern whenever you want to keep some functions "private" and not visible to the outside world**
 

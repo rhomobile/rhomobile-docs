@@ -217,7 +217,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <METHOD name="executeJavaScript">
                 <DESC>Execute JavaScript on the current page from your controller.</DESC>
                 <APPLIES rubyOnly="true"/>
-                <MORE_HELP>For most mobile platforms, WebView.execute_js has been implemented via redirection to URL with 'javascript:' schema. If WebView.execute_js used in an AJAX call handler method in the controller, it may lead to the situation where the success javascript handler will never be executed. This may happen because, at the moment of success handler should be executed, a URL of the page already has been changed. This means no handlers from the previous page are valid.</MORE_HELP>
+                <MORE_HELP>For most mobile platforms, WebView.execute_js has been implemented via redirection to URL with 'javascript:' schema. If WebView.execute_js used in an AJAX call handler method in the controller, it may lead to the situation where the success JavaScript handler will never be executed. This may happen because, at the moment of success handler should be executed, a URL of the page already has been changed. This means no handlers from the previous page are valid.</MORE_HELP>
                 <PARAMS>
                     <PARAM name="javascriptText" type="STRING">
                         <DESC>The call to the JavaScript method on the current page, such as "test();".</DESC>
@@ -226,7 +226,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     <PARAM name="tabIndex" type="INTEGER" default="-1">
                         <DESC>TabBar tab index. If no tab bar present, index is ignored.</DESC>
                         <CAN_BE_NIL>
-                            <DESC>Execute javascript in active WebView.</DESC>
+                            <DESC>Execute JavaScript in active WebView.</DESC>
                         </CAN_BE_NIL>
                     </PARAM>
                 </PARAMS>
@@ -305,7 +305,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, Win32, Android, iOS, WP8</PLATFORM>
         <EXAMPLES >
-           <EXAMPLE title="Execute javascript">
+           <EXAMPLE title="Execute JavaScript">
                <SECTIONS>
                <SECTION>
                <DESC>
@@ -314,7 +314,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                </DESC>
                <CODE lang='ruby'>
            <![CDATA[
-    #call javascript alert on the current page
+    #call JavaScript alert on the current page
     Rho::WebView.executeJavaScript("alert('This is Webview.executejavascript function');")
 
                    ]]>

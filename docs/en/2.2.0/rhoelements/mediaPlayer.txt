@@ -92,7 +92,7 @@ The following META Tag example plays a video file.
 	<META HTTP-Equiv="mediaPlayer" Content="filename:url('HTTP://192.168.1.1:80/Media/RhoElements.mp4')">
 	<META HTTP-Equiv="mediaPlayer" Content="start">
 	
-The following javascript will start and stop a media playback respectively when onStart and onStop are called
+The following JavaScript will start and stop a media playback respectively when onStart and onStop are called
 
 	<script>
 	   function onStart()

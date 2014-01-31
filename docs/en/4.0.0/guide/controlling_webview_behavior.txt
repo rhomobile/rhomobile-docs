@@ -35,7 +35,7 @@ In a typical MVC scenario, once a request is received, your Ruby code will proce
 	
 Any valid JavaScript code can be used in `executeJavaScript`, but if the code is built dynamically or contains expansions or data from the user, care must be taken to escape it properly.
 
-For example, if any of your parameters can contain newline characters (`\n`), semicolons (`;`), quotes or any other special characters, they must be escaped or the call may not work. Therefore, it is a good practice to escape all parameters being passed to javascript functions.
+For example, if any of your parameters can contain newline characters (`\n`), semicolons (`;`), quotes or any other special characters, they must be escaped or the call may not work. Therefore, it is a good practice to escape all parameters being passed to JavaScript functions.
 
 
 	:::ruby
@@ -84,7 +84,7 @@ One is with regular HTML links, whether built with the `url_for` helper or not
 
 	<a href="http://example.com">Navigate to example.com</a>
 	
-It is also possible to use javascript code to change `window.location` just like in an ordinary browser
+It is also possible to use JavaScript code to change `window.location` just like in an ordinary browser
 
 	:::javascript
 	<a onclick="window.location='http://example.com'">Visit example.com</a>

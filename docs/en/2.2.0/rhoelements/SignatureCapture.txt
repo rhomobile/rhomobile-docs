@@ -80,7 +80,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###signatureSaveEvent
@@ -150,7 +150,7 @@ The following META Tag example sets up a yellow rectangular area that has a bord
 	<META HTTP-Equiv="SignatureCapture" Content="Destination:url('HTTP://192.168.1.1:80/RhoElementsLog/upload.aspx')">
 	<META HTTP-Equiv="SignatureCapture" Content="SignatureSaveEvent:url('javascript:alert('%s');')">
 	
-The following javascript will show a Signature Capture box with default settings when the JavaScript function onDisplay is called:
+The following JavaScript will show a Signature Capture box with default settings when the JavaScript function onDisplay is called:
 
 	<script>
 	   function onDisplay()

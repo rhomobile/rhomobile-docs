@@ -70,7 +70,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###alarmTriggered
@@ -83,7 +83,7 @@ The alarm triggered event will be fired when either the alarm time reaches that 
 
 
 ###Validity of registered action on Alarm Triggered
-Uniquely for a RhoElements event the registered action for the AlarmTriggered event does not get cleared when you navigate away from the current page. If using a javascript function, you must ensure the script is still valid when the alarm fires or alternatively you can clear the alarm.
+Uniquely for a RhoElements event the registered action for the AlarmTriggered event does not get cleared when you navigate away from the current page. If using a JavaScript function, you must ensure the script is still valid when the alarm fires or alternatively you can clear the alarm.
 
 
 ###Minimum Time Interval

@@ -153,7 +153,7 @@ It takes a bit of time for WebView to load and parse html/css of your page; mean
 		:background_color => 0x0000FF )
 Please see more details about toolbar [here](rhodes/ui#native-toolbar-control)
 
-If you are loading javascript, consider doing it at the very end of your page; this way WebView will not wait for JS before parsing css and showing html. 
+If you are loading JavaScript, consider doing it at the very end of your page; this way WebView will not wait for JS before parsing css and showing html. 
 
 ## How to pre-populate client database
 * Run application on target emulator, insert objects to database(locally or get data from server)
@@ -221,11 +221,11 @@ There are several Rhodes components which consume system memory( list order by m
 
 ### Internet Browser
 
-Use system memory and a lot of graphics objects to display content. Rhodes Turn on Cache in Browser for static files like images, css, javascript etc
+Use system memory and a lot of graphics objects to display content. Rhodes Turn on Cache in Browser for static files like images, css, JavaScript etc
 
 Tips to optimize Browser performance and memory consumption:
 
-* Use simple css and javascript frameworks
+* Use simple css and JavaScript frameworks
 * Do not display big lists with images on one page: use pagination
 
 ### Ruby Virtual Machine

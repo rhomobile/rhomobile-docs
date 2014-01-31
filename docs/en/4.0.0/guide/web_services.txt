@@ -145,7 +145,7 @@ One drawback of using `jQuery.ajax` instead of the [RhoMobile Network API](../ap
 
 **NOTE: If you need to make cross-domain requests but do not want to [use the RhoMobile Network API in JavaScript](#network-api), using Ruby code as a local proxy is usually the easiest approach in a native RhoMobile application**
 
-Although by default you can only make AJAX requests to the embedded server in a RhoMobile application, because your controllers can execute any code you need, you can easily create a custom controller that receives AJAX requests from the javascript in your page, connects to a remote server using the Network API as seen above and returns the results back to javascript. This is the only scenario where you should prefer to use synchronous requests.
+Although by default you can only make AJAX requests to the embedded server in a RhoMobile application, because your controllers can execute any code you need, you can easily create a custom controller that receives AJAX requests from the JavaScript in your page, connects to a remote server using the Network API as seen above and returns the results back to JavaScript. This is the only scenario where you should prefer to use synchronous requests.
 
 Example:
 
@@ -239,7 +239,7 @@ The ideal use cases for deciding to implement JSONP are:
 * Invoking services that are already implemented as JSONP: integrating an existing JSONP backend in your RhoMobile app is almost trivial
 * When other web applications will also access the same services. JSONP can be implemented once on the server side and then reused across different clients
 
-**NOTE: Using JSONP comes with some security implications: nothing guarantees that a server actually returns the data you expect instead of malicious code. You should only include scripts (and therefore, JSONP links) from servers that are under your control or that you completely trust. If the backend is compromised, it could return arbitrary javascript code to your application, potentially compromising it, too.**
+**NOTE: Using JSONP comes with some security implications: nothing guarantees that a server actually returns the data you expect instead of malicious code. You should only include scripts (and therefore, JSONP links) from servers that are under your control or that you completely trust. If the backend is compromised, it could return arbitrary JavaScript code to your application, potentially compromising it, too.**
 
 
 ### CORS

@@ -62,7 +62,7 @@ app_type: "rhoelements"
       signature = Rho::Application.expandDatabaseBlobFilePath(@params["imageUri"])
 
       # In our example, we will display the signature as soon as it is captured.
-      # We have a javascript function in our page to set the src attribute of an img element and we will call it now
+      # We have a JavaScript function in our page to set the src attribute of an img element and we will call it now
       # 
       WebView.executeJavaScript("updateSignature('#{signature}')")
     else
@@ -74,7 +74,7 @@ app_type: "rhoelements"
                    
                </code></pre></div></div>
 
-                   In the view, we have an img element to display the captured signature and a javascript function to update it
+                   In the view, we have an img element to display the captured signature and a JavaScript function to update it
                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
            
 &lt;div data-role="page"&gt;
