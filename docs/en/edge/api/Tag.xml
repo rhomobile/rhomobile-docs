@@ -1,141 +1,330 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Tag" parent="Rho.NFC">
-        <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
-        <MORE_HELP>This calss representative NFC Tag object</MORE_HELP>
-    
-        <TEMPLATES>
-        </TEMPLATES>
+  <MODULE name="Tag" parent="Rho.NFC">
+    <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
+    <MORE_HELP>This class provides access to the Nfc device to perform device related operations.</MORE_HELP>
 
-        <PROPERTIES access="INSTANCE" generateAccessors="true">
-            
-            <DESC>list of properties supported by class</DESC>
-            
-            <PROPERTY name="ID" type="STRING" readOnly="true">
-                <DESC>object ID</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>               
-            
-            <PROPERTY name="type" type="STRING" readOnly="true">
-                <DESC>see NFC_TAG_xxx constants in Rho.NFC.Manager</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="serialNumber" type="INTEGER">
+    <TEMPLATES>
+    </TEMPLATES>
+
+    <PROPERTIES access="STATIC" generateAccessors="true">
+
+      <DESC>list of properties supported by class</DESC>
+
+      <PROPERTY name="OnTagFormat" type="CALLBACK">
+        <DESC>Occurs when the tag format is completed. Callback args: message, status.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagErase" type="CALLBACK">
+        <DESC>Occurs when the tag erase is completed. Callback args: message, status.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagError" type="CALLBACK">
+        <DESC>Occurs when the tag error is detected. Callback args: message, status.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagCreate" type="CALLBACK">
+        <DESC>Occurs when the tag creation is completed. Callback args: message, status.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagRead" type="CALLBACK">
+        <DESC>Occurs when the ndef message read is completed. Callback args: ndefMessage(look at first parameter in beginCreate), status.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagExchange" type="CALLBACK">
+        <DESC>Occurs when the tag raw exchange is completed. Callback args: data, status.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagArrive" type="CALLBACK">
+        <DESC>Occurs when the tag is detected. Callback args: tagInfo(hash: freeSpaceAvailable, isLocked, size, uidLength, isNdef, tagType, uid).</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="OnTagDeparted" type="CALLBACK">
+        <DESC>Occurs when the tag is departed. Callback args: tagInfo(hash: freeSpaceAvailable, isLocked, size, uidLength, isNdef, tagType, uid).</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+    </PROPERTIES>
+
+    <METHODS>
+
+      <METHOD name="beginRead" access="STATIC">
+        <DESC>Initiates the polling for ndef and non ndef tags of the Nfc device and retreives the tag information from the detected tag.</DESC>
+        <PARAMS>
+          <PARAM name="tagsToBeDetected" type="ARRAY">
+            <DESC>array with tag types - only those tags will be detected</DESC>
+            <PARAM type="STRING">
+            </PARAM>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="beginCreate" access="STATIC">
+        <DESC>Starts polling for supported Nfc tags and registers for receiving the Nfc messages.</DESC>
+        <PARAMS>
+          <PARAM name="ndefMessage" type="ARRAY">
+            <DESC>Ndef message which should be written on Tag.</DESC>
+            <PARAM name="ndefRecord" type="HASH">
+              <DESC>Ndef record object.</DESC>
+              <PARAM name="encodingScheme" type="STRING">
+              </PARAM>
+              <PARAM name="type" type="STRING">
+                <VALUES>
+                  <VALUE constName="NFC_RTD_TEXT" type="STRING" value="T">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_RTD_URI" type="STRING" value="U">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_RTD_SMART_POSTER" type="STRING" value="Sp">
+                    <DESC></DESC>
+                  </VALUE>
+                </VALUES>
+              </PARAM>
+              <PARAM name="language" type="STRING">
+              </PARAM>
+              <PARAM name="contactData" type="STRING">
+                <DESC>Actual only for Contact record type.</DESC>
+              </PARAM>
+              <PARAM name="address" type="STRING">
+              </PARAM>
+              <PARAM name="btName" type="STRING">
+                <DESC>Actual only for Oob record type.</DESC>
+              </PARAM>
+              <PARAM name="text" type="STRING">
+                <DESC>Actual only for Uri record type.</DESC>
+              </PARAM>
+              <PARAM name="uri" type="STRING">
+                <DESC>Actual only for Text record type.</DESC>
+              </PARAM>
+            </PARAM>
+          </PARAM>
+          <PARAM name="tagsToBeDetected" type="ARRAY">
+            <DESC>array with tag types - only those tags will be detected</DESC>
+            <PARAM type="STRING">
+              <VALUES>
+                <VALUE constName="NFC_TAG_MiFareUL" value="NFC_TAG_MiFareUL">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_MiFareStd" value="NFC_TAG_MiFareStd">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_MiFareULC" value="NFC_TAG_MiFareULC">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_ISO14443_4A" value="NFC_TAG_ISO14443_4A">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_ISO14443_4B" value="NFC_TAG_ISO14443_4B">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_ISO15693" value="NFC_TAG_ISO15693">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_FeliCa" value="NFC_TAG_FeliCa">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_Jewel" value="NFC_TAG_Jewel">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_Desfire" value="NFC_TAG_Desfire">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_MiFarePlus" value="NFC_TAG_MiFarePlus">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_NXPIcode" value="NFC_TAG_NXPIcode">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_Topaz" value="NFC_TAG_Topaz">
+                  <DESC></DESC>
+                </VALUE>
+                <VALUE constName="NFC_TAG_TITagIt" value="NFC_TAG_TITagIt">
+                  <DESC></DESC>
+                </VALUE>
+              </VALUES>
+            </PARAM>
+          </PARAM>
+          <PARAM name="protectedKey" type="BOOL">
+            <DESC>Make tag read-only after message has been written.</DESC>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="transcieve" access="STATIC">
+        <DESC>Send raw NFC-F commands to the tag.</DESC>
+        <PARAM name="data" type="STRING">
+          <DESC></DESC>
+        </PARAM>
+        <PARAM name="flag" type="INTEGER">
+          <DESC>Read/Write</DESC>
+        </PARAM>
+        <PARAM name="tagsToBeDetected" type="ARRAY">
+          <DESC>array with tag types - only those tags will be detected</DESC>
+          <PARAM type="STRING">
+            <VALUES>
+              <VALUE constName="NFC_TAG_MiFareUL" value="NFC_TAG_MiFareUL">
                 <DESC></DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="tagSize" type="INTEGER" readOnly="true">
-                <DESC>size in bytes</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="tagFreeSize" type="INTEGER" readOnly="true">
-                <DESC>free size in bytes</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="isReadOnly" type="BOOLEAN" readOnly="true">
-                <DESC>free size in bytes</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
-                <DESC>free size in bytes</DESC>
-                <PLATFORM>Android</PLATFORM>
-            </PROPERTY>
-            
-        </PROPERTIES>
-        
-        <METHODS>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFareStd" value="NFC_TAG_MiFareStd">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFareULC" value="NFC_TAG_MiFareULC">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO14443_4A" value="NFC_TAG_ISO14443_4A">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO14443_4B" value="NFC_TAG_ISO14443_4B">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO15693" value="NFC_TAG_ISO15693">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_FeliCa" value="NFC_TAG_FeliCa">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Jewel" value="NFC_TAG_Jewel">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Desfire" value="NFC_TAG_Desfire">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFarePlus" value="NFC_TAG_MiFarePlus">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_NXPIcode" value="NFC_TAG_NXPIcode">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Topaz" value="NFC_TAG_Topaz">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_TITagIt" value="NFC_TAG_TITagIt">
+                <DESC></DESC>
+              </VALUE>
+            </VALUES>
+          </PARAM>
+        </PARAM>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
 
-            <METHOD name="getSupportedTechs" hasCallback="optional">
-                <DESC>return array of techs - see NFC_TAG_xxx constants</DESC>
-                <RETURN type="ARRAY">
-                    <PARAM type="STRING"/>
-                    <DESC></DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-            <METHOD name="getID" hasCallback="optional">
-                <DESC>return array of bytes - id</DESC>
-                <RETURN type="ARRAY">
-                    <PARAM type="INTEGER"/>
-                    <DESC></DESC>
-                </RETURN>
-                <PLATFORM>Android</PLATFORM>
-            </METHOD>            
-            
-            <METHOD name="makeReadOnly" hasCallback="optional">
-                <DESC>make Tag read only</DESC>
-                <RETURN type="STRING">
-                    <DESC>return NFC_SUCCESS if OK</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-            <METHOD name="formatNDEF" hasCallback="optional">
-                <DESC>format Tag to NDEF type</DESC>
-                <RETURN type="STRING">
-                    <DESC>return NFC_SUCCESS if OK</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
+      <METHOD name="beginFormat" access="STATIC">
+        <DESC>Starts polling for supported Nfc tags and registers for formating.</DESC>
+        <PARAM name="tagsToBeDetected" type="ARRAY">
+          <DESC>array with tag types - only those tags will be detected</DESC>
+          <PARAM type="STRING">
+            <VALUES>
+              <VALUE constName="NFC_TAG_MiFareUL" value="NFC_TAG_MiFareUL">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFareStd" value="NFC_TAG_MiFareStd">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFareULC" value="NFC_TAG_MiFareULC">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO14443_4A" value="NFC_TAG_ISO14443_4A">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO14443_4B" value="NFC_TAG_ISO14443_4B">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO15693" value="NFC_TAG_ISO15693">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_FeliCa" value="NFC_TAG_FeliCa">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Jewel" value="NFC_TAG_Jewel">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Desfire" value="NFC_TAG_Desfire">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFarePlus" value="NFC_TAG_MiFarePlus">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_NXPIcode" value="NFC_TAG_NXPIcode">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Topaz" value="NFC_TAG_Topaz">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_TITagIt" value="NFC_TAG_TITagIt">
+                <DESC></DESC>
+              </VALUE>
+            </VALUES>
+          </PARAM>
+        </PARAM>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
 
-            <METHOD name="writeMessages" hasCallback="optional">
-                <DESC>format Tag to NDEF type</DESC>
-                <PARAMS>
-                    <PARAM name="messages" type="ARRAY">
-                        <DESC></DESC>
-                        <PARAM type="Rho.NFC.Message">
-                        </PARAM>    
-                    </PARAM>
-                </PARAMS>
-                <RETURN type="STRING">
-                    <DESC>return NFC_SUCCESS if OK</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-            <METHOD name="exchangeData" hasCallback="optional">
-                <DESC>write data to Tag and receive responce</DESC>
-                <PARAMS>
-                    <PARAM name="data" type="ARRAY">
-                        <DESC></DESC>
-                        <PARAM type="INTEGER">
-                        </PARAM>    
-                    </PARAM>
-                </PARAMS>
-                <RETURN type="HASH">
-                    <DESC></DESC>
-                    <PARAMS>
-                        <PARAM name="status" type="STRING">
-                            <DESC>NFC_SUCCESS if OK</DESC>
-                        </PARAM>
-                        <PARAM name="data" type="ARRAY">
-                            <DESC></DESC>
-                            <PARAM type="INTEGER">
-                            </PARAM>    
-                        </PARAM>
-                    </PARAMS>        
-                </RETURN>
-                <PLATFORM>WM</PLATFORM>
-            </METHOD>
-            
-            
-            <METHOD name="close" hasCallback="optional">
-                <DESC>release resources, close connection</DESC>
-                <RETURN type="STRING">
-                    <DESC>return NFC_SUCCESS if OK</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-        </METHODS>
-        
-        <USER_OVERVIEW>
-        </USER_OVERVIEW>
+      <METHOD name="beginErase" access="STATIC">
+        <DESC>Starts polling for supported Nfc tags and registers for erasing.</DESC>
+        <PARAM name="tagsToBeDetected" type="ARRAY">
+          <DESC>array with tag types - only those tags will be detected</DESC>
+          <PARAM type="STRING">
+            <VALUES>
+              <VALUE constName="NFC_TAG_MiFareUL" value="NFC_TAG_MiFareUL">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFareStd" value="NFC_TAG_MiFareStd">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFareULC" value="NFC_TAG_MiFareULC">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO14443_4A" value="NFC_TAG_ISO14443_4A">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO14443_4B" value="NFC_TAG_ISO14443_4B">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_ISO15693" value="NFC_TAG_ISO15693">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_FeliCa" value="NFC_TAG_FeliCa">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Jewel" value="NFC_TAG_Jewel">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Desfire" value="NFC_TAG_Desfire">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_MiFarePlus" value="NFC_TAG_MiFarePlus">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_NXPIcode" value="NFC_TAG_NXPIcode">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_Topaz" value="NFC_TAG_Topaz">
+                <DESC></DESC>
+              </VALUE>
+              <VALUE constName="NFC_TAG_TITagIt" value="NFC_TAG_TITagIt">
+                <DESC></DESC>
+              </VALUE>
+            </VALUES>
+          </PARAM>
+        </PARAM>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
 
-        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>
-         </PLATFORM>
-    </MODULE>
-</API>    
+      <METHOD name="end" access="STATIC">
+        <DESC>Stops the polling for supported ndef and non ndef tags of the Nfc device.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+    </METHODS>
+
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>

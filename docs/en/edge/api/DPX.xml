@@ -148,7 +148,10 @@ Ruby
                   <DESC>The document was decoded and processed successfully and this callback contains information about the processed form. Look at processedForm parameter.</DESC>
                 </VALUE>
                 <VALUE constName="FAILURE" value="failure">
-                  <DESC>An error has occured whilst processing the document. Look at failure parameter.</DESC>
+                  <DESC>An error has occured whilst processing the document. Look at failureReason parameter.</DESC>
+                </VALUE>
+                <VALUE constName="STOP" value="stop">
+                  <DESC>The processing is over. No more notifications until next captureDocument.</DESC>
                 </VALUE>
               </VALUES>
             </PARAM>
