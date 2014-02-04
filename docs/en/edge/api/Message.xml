@@ -1,71 +1,92 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Message" parent="Rho.NFC">
-        <HELP_OVERVIEW>NFC Message</HELP_OVERVIEW>
-        <MORE_HELP>This calss representative NFC Message object</MORE_HELP>
-    
-        <TEMPLATES>
-        </TEMPLATES>
+  <MODULE name="Message" parent="Rho.NFC">
+    <HELP_OVERVIEW>NFC Message</HELP_OVERVIEW>
+    <MORE_HELP>This calss representative NFC Message object</MORE_HELP>
 
-        <PROPERTIES access="INSTANCE" generateAccessors="true">
-            
-            <DESC>list of properties supported by class</DESC>
-            
-            <PROPERTY name="ID" type="STRING" readOnly="true">
-                <DESC>object ID</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>            
-            
-        </PROPERTIES>
-        
-        <METHODS>
-            
-            <METHOD name="getRecords" hasCallback="optional">
-                <DESC>return array of Records IDs</DESC>
-                <RETURN type="ARRAY">
-                    <PARAM type="STRING"/>
-                    <DESC>array of id of Rho.NFC.Record objects</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-            <METHOD name="addRecord" hasCallback="optional">
-                <DESC>add new Record to Message</DESC>
-                <PARAMS>
-                    <PARAM name="record" type="Rho.NFC.Record">
-                        <DESC></DESC>
-                    </PARAM>
-                </PARAMS>
-                <RETURN type="STRING">
-                    <DESC>return NFC_SUCCESS if OK</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-            <METHOD name="getContent" hasCallback="optional">
-                <DESC>return Message as byte array</DESC>
-                <RETURN type="ARRAY">
-                    <PARAM type="INTEGER"/>
-                    <DESC></DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-            <METHOD name="close" hasCallback="optional">
-                <DESC>release resources</DESC>
-                <RETURN type="STRING">
-                    <DESC>return NFC_SUCCESS if OK</DESC>
-                </RETURN>
-                <PLATFORM>WM, Android</PLATFORM>
-            </METHOD>
-            
-        </METHODS>        
-        <USER_OVERVIEW>
-        </USER_OVERVIEW>
+    <TEMPLATES>
+    </TEMPLATES>
 
-        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>
-         </PLATFORM>
-    </MODULE>
-</API> 
+    <PROPERTIES access="INSTANCE" generateAccessors="true">
+
+      <DESC>list of properties supported by class</DESC>
+
+      <PROPERTY name="ID" type="STRING" readOnly="true">
+        <DESC>object ID</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+    </PROPERTIES>
+
+    <METHODS>
+
+      <METHOD name="create" access="STATIC">
+        <DESC>Creates message object.</DESC>
+        <RETURN type="Rho.NFC.Message">
+          <DESC>Record object</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getRecords" hasCallback="optional">
+        <DESC>return array of Records IDs</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="STRING"/>
+          <DESC>array of id of Rho.NFC.Record objects</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="addRecord" hasCallback="optional">
+        <DESC>add new Record to Message</DESC>
+        <PARAMS>
+          <PARAM name="record" type="Rho.NFC.Record">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getMessageById" access="STATIC">
+        <DESC>get Message object by Id</DESC>
+        <PARAMS>
+          <PARAM name="ID" type="STRING">
+            <DESC>Message Id</DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="Rho.NFC.Message">
+          <DESC>Message object</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getContent" hasCallback="optional">
+        <DESC>return Message as byte array</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="INTEGER"/>
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="close" hasCallback="optional">
+        <DESC>release resources</DESC>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+    </METHODS>
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>
