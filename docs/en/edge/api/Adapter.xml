@@ -12,6 +12,10 @@
 
       <DESC>list of properties supported by class</DESC>
 
+      <PROPERTY name="supported" type="BOOLEAN" readOnly="true">
+        <DESC>return true if NFC supported on this device</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
       <PROPERTY name="isActive" type="BOOLEAN" readOnly="true">
         <DESC>Gets a value indicating whether or not the Nfc device is currently active.</DESC>
         <PLATFORM>WM</PLATFORM>
@@ -26,26 +30,6 @@
       </PROPERTY>
       <PROPERTY name="passkey" type="STRING">
         <DESC>Bluetooth device pass key.</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </PROPERTY>
-      <PROPERTY name="onActivated" type="CALLBACK">
-        <DESC>Occurs when the Nfc device is activated.</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </PROPERTY>
-      <PROPERTY name="onStop" type="CALLBACK">
-        <DESC>Occurs when the Nfc device is stopped.</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </PROPERTY>
-      <PROPERTY name="onDeviceStatusChange" type="CALLBACK">
-        <DESC>Occurs when the Nfc device status is changed. Callback args: message, status.</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </PROPERTY>
-      <PROPERTY name="onDeviceConfiguratationChange" type="CALLBACK">
-        <DESC>Occurs when the Nfc device configuration is changed.</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </PROPERTY>
-      <PROPERTY name="OnConnectionHandover" type="CALLBACK">
-        <DESC>Occurs when the connection handover is completed. Callback args: message, status.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
@@ -293,22 +277,82 @@
 
     <METHODS>
 
-      <METHOD name="activate" access="STATIC">
+      <METHOD name="activate" access="STATIC" hasCallback="optional">
         <DESC>Activates the Nfc device so that all the Nfc operations will be executed</DESC>
+        <PARAM name="status" type="STRING">
+          <DESC>NFC_SUCCESS if OK</DESC>
+        </PARAM>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="reset" access="STATIC">
-        <DESC>Resets the Nfc device</DESC>
+      <METHOD name="reset" access="STATIC" hasCallback="optional">
+        <DESC>Resets the Nfc device to default configuration</DESC>
+        <PARAM name="status" type="STRING">
+          <DESC>NFC_SUCCESS if OK</DESC>
+        </PARAM>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="stop" access="STATIC">
+      <METHOD name="stop" access="STATIC" hasCallback="optional">
         <DESC>Stops the Nfc device</DESC>
+        <PARAM name="status" type="STRING">
+          <DESC>NFC_SUCCESS if OK</DESC>
+        </PARAM>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="getDeviceInfo" access="STATIC">
+      <METHOD name="setTagDetectionHandler" access="STATIC" hasCallback="mandatory">
+        <DESC>register callback for Tag detection</DESC>
+        <PARAMS>
+          <PARAM name="tagsToBeDetected" type="ARRAY">
+            <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
+            <PARAM type="STRING">
+            </PARAM>
+          </PARAM>
+        </PARAMS>
+        <CALLBACK type="HASH">
+          <DESC></DESC>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+            <PARAM name="tagID" type="STRING">
+              <DESC>id of Rho.NFC.Tag object</DESC>
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="setMessageHandler" access="STATIC" hasCallback="mandatory">
+        <DESC>register callback for Message receive</DESC>
+        <PARAMS>
+          <PARAM name="TNFs" type="ARRAY">
+            <DESC>array with TNF - only those TNFs will be detected, if empty array - all TNFs</DESC>
+            <PARAM type="INTEGER">
+            </PARAM>
+          </PARAM>
+          <PARAM name="RTDs" type="ARRAY">
+            <DESC>array with message types - only those typess will be detected, if empty array - all types</DESC>
+            <PARAM type="STRING">
+            </PARAM>
+          </PARAM>
+        </PARAMS>
+        <CALLBACK type="HASH">
+          <DESC></DESC>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+            <PARAM name="messageID" type="STRING">
+                  <DESC>id of Rho.NFC.Message object</DESC>
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getDeviceInfo" access="STATIC" hasCallback="optional">
         <DESC>Gets the Nfc device capablities</DESC>
         <RETURN type="HASH">
           <DESC>return hash with capabilities</DESC>
@@ -318,15 +362,15 @@
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="tagsSupported" type="ARRAY">
-              <DESC></DESC>
+              <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="formattingTagsSupported" type="ARRAY">
-              <DESC></DESC>
+              <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="writeProtectedTagsSupported" type="ARRAY">
-              <DESC></DESC>
+              <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="firmwareVersion" type="STRING">
@@ -337,20 +381,6 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="connect" access="STATIC">
-        <DESC>Connects the Bluetooth device when the connection handover tag is detected.</DESC>
-        <PARAMS>
-          <PARAM name="passKey" type="STRING">
-            <DESC>Bluetooth device pass key. this pass key is optional.</DESC>
-          </PARAM>
-        </PARAMS>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="disconnect" access="STATIC">
-        <DESC>Disconnects the Bluetooth device of the Nfc device.</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
     </METHODS>
 
     <USER_OVERVIEW>

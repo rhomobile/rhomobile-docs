@@ -53,9 +53,6 @@ Ruby
       <PROPERTY name="ledFeedback" type="BOOLEAN" default="true">
         <DESC>Whether or not to provide LED feedback to the user following document processing</DESC>
       </PROPERTY>
-      <PROPERTY name="fileInteractiveMode" type="BOOLEAN" default="true">
-        <DESC>Determine whether to load file interactively (true) or via inputSourceFilename parameter (false).</DESC>
-      </PROPERTY>
       <PROPERTY name="flashMode" type="STRING" default="off">
         <DESC>Flash mode (off, auto, on).</DESC>
         <VALUES>
@@ -70,7 +67,7 @@ Ruby
         </DESC>
       </PROPERTY>
       <PROPERTY name="inputSource" type="STRING" default="camera">
-        <DESC>Defines where the document should be captured from, either the device camera or a file.</DESC>
+        <DESC>Defines where the document should be captured from. The only supported source is camera.</DESC>
         <VALUES>
           <VALUE constName="SOURCE_CAMERA" value="camera">
             <DESC>The document will be captured from the device camera. After calling the captureDocument method the
@@ -78,34 +75,10 @@ Ruby
               and press the soft button to capture &amp; process the image.
             </DESC>
           </VALUE>
-          <VALUE constName="SOURCE_IMAGER" value="imager">
-            <DESC>The document will be captured from the device imager.</DESC>
-          </VALUE>
-          <VALUE constName="SOURCE_FILE" value="file">
-            <DESC>The document to be captured is given as an image file. If you specify the inputSource as file you must
-              also specify the inputSourceFilename property.
-            </DESC>
-          </VALUE>
         </VALUES>
-      </PROPERTY>
-      <PROPERTY name="inputSourceFilename" type="STRING">
-        <DESC>This parameter is mandatory if you have specified the inputSource as 'file' but unnecessary if the
-          document is being captured by the device camera. This is the full path to the image to be processed.
-        </DESC>
       </PROPERTY>
       <PROPERTY name="logDirectory" type="STRING" default="/sdcard/DPXLog">
         <DESC>Specify which directory to search for logs in.</DESC>
-      </PROPERTY>
-      <PROPERTY name="manualResolution" type="STRING" default="1600x1200">
-        <DESC>Set the image size to use if manual resolution selection is used.</DESC>
-        <VALUES>
-          <VALUE constName="RESOLUTION_SMALL"  value="1280x960"><DESC>1280 x 960</DESC></VALUE>
-          <VALUE constName="RESOLUTION_MEDIUM" value="1600x1200"><DESC>1600 x 1200</DESC></VALUE>
-          <VALUE constName="RESOLUTION_LARGE"  value="2048x1536"><DESC>2048 x 1536</DESC></VALUE>
-        </VALUES>
-      </PROPERTY>
-      <PROPERTY name="manualResolutionMode" type="BOOLEAN" default="false">
-        <DESC>Specifies whether to choose image resolution automatically (false) or manually (true).</DESC>
       </PROPERTY>
       <PROPERTY name="processingTimeout" type="INTEGER" default="10000">
         <DESC>Amount of time in milliseconds to wait before timing out processing.</DESC>
@@ -113,22 +86,8 @@ Ruby
       <PROPERTY name="version" type="STRING" access="STATIC" readOnly="true" generateAccessors="true">
           <DESC>Version of DPX engine.</DESC>
       </PROPERTY>
-      <PROPERTY name="userMode" type="STRING" default="snapshot">
-        <DESC>Defines which user mode to use when acquiring an image. Only valid for Input Source is camera.</DESC>
-        <VALUES>
-          <VALUE constName="USER_MODE_PREVIEW" value="preview">
-            <DESC>Viewfinder preview feed.</DESC>
-          </VALUE>
-          <VALUE constName="USER_MODE_SNAPSHOT" value="snapshot">
-            <DESC>Camera image capture.</DESC>
-          </VALUE>
-        </VALUES>
-      </PROPERTY>
       <PROPERTY name="uiResultConfirmation" type="BOOLEAN" default="true">
         <DESC>If enabled, shows a UI confirmation with results in DPXView before sending results back to application.</DESC>
-      </PROPERTY>
-      <PROPERTY name="zoomAmount" type="INTEGER" default="0">
-        <DESC>Amount for the camera to zoom in by. 0 denotes no zoom, 100 denotes max zoom.</DESC>
       </PROPERTY>
     </PROPERTIES>
 
