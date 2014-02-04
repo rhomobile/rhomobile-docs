@@ -159,7 +159,7 @@ Then navigate to the directory containing the runtime file and run `adb install`
 
 ### Installing Runtime Apps for Windows Mobile/CE Devices
 
-If you are using a Windows Mobile or CE device, install the following runtime apps on your device.  If you already have the .NET Compact Framework on your device, make sure it is v3.5 or higher.
+If you are using a Windows Mobile or CE device, install the following runtime apps on your device. If you already have the [.NET Compact Framework](http://msdn.microsoft.com/en-us/library/bb788171\(v=vs.90\).aspx) on your device, make sure it is v3.5 or higher.
 
 * `rhoconnect-push-service.CAB`
 * `NETCFv35.Messages.EN.wm.cab`
@@ -169,7 +169,17 @@ If you are using a Windows Mobile or CE device, install the following runtime ap
 
 Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center.
 
-Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the computer. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs.
+Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the device. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs.
+
+### Installing Runtime Apps for Windows XP Embedded
+
+If you are using a Windows Mobile or CE device, install the following runtime apps on your device. If you already have the .NET Compact Framework on your device, make sure it is v3.5 or higher. Also Windows XPE also required that you have the Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) installed on your build machine.
+
+* `rhoconnect-push-service.exe`
+
+Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center.
+
+Manually copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file and the installation process will be started. After it is finished, you should see the app icon on your device in the Programs list.
 
 ## Setting up the Rhodes Client for RhoConnect Push Service
 
