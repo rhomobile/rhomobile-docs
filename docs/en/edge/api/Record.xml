@@ -18,11 +18,11 @@
       </PROPERTY>
 
       <PROPERTY name="TNF" type="STRING" readOnly="true">
-        <DESC>see NFC_TNF_xxx constants in Rho.NFC.Manager</DESC>
+        <DESC>see NFC_TNF_xxx constants in Rho.NFC.Adapter</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="type" type="STRING" readOnly="true">
-        <DESC>see NFC_RTD_xxx constants in Rho.NFC.Manager</DESC>
+        <DESC>see NFC_RTD_xxx constants in Rho.NFC.Adapter</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
@@ -30,8 +30,29 @@
 
     <METHODS>
 
+
+      <METHOD name="create" access="STATIC">
+        <DESC>Creates custom record object</DESC>
+        <PARAMS>
+          <PARAM name="TNF" type="STRING">
+            <DESC>see NFC_TNF_xxx constants in Rho.NFC.Adapter</DESC>
+          </PARAM>
+          <PARAM name="type" type="STRING">
+            <DESC>see NFC_RTD_xxx constants in Rho.NFC.Adapter</DESC>
+          </PARAM>
+          <PARAM name="payload" type="ARRAY">
+            <DESC></DESC>
+            <PARAM type="INTEGER"/>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="Rho.NFC.Record">
+          <DESC>Record object</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
       <METHOD name="createUri" access="STATIC">
-        <DESC>Create uri record object.</DESC>
+        <DESC>Create uri record object. NFC_TNF_WELL_KNOWN will be set as THF.</DESC>
         <PARAMS>
           <PARAM name="protocol" type="STRING">
             <DESC></DESC>
@@ -47,8 +68,11 @@
       </METHOD>
 
       <METHOD name="createText" access="STATIC">
-        <DESC>Creates text record object.</DESC>
+        <DESC>Creates text record object. NFC_TNF_WELL_KNOWN will be set as THF.</DESC>
         <PARAMS>
+          <PARAM name="language" type="STRING">
+            <DESC></DESC>
+          </PARAM>
           <PARAM name="text" type="STRING">
             <DESC></DESC>
           </PARAM>

@@ -94,7 +94,7 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="tranceive" hasCallback="optional">
+      <METHOD name="transceive" hasCallback="optional">
         <DESC>write data to Tag and receive responce</DESC>
         <PARAMS>
           <PARAM name="data" type="ARRAY">

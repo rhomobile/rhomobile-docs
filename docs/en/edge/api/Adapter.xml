@@ -327,10 +327,8 @@
       <METHOD name="setMessageHandler" access="STATIC" hasCallback="mandatory">
         <DESC>register callback for Message receive</DESC>
         <PARAMS>
-          <PARAM name="TNFs" type="ARRAY">
-            <DESC>array with TNF - only those TNFs will be detected, if empty array - all TNFs</DESC>
-            <PARAM type="INTEGER">
-            </PARAM>
+          <PARAM name="TNF" type="INTEGER">
+            <DESC>TNF - only this TNF will be detected, if zero - all TNFs</DESC>
           </PARAM>
           <PARAM name="RTDs" type="ARRAY">
             <DESC>array with message types - only those typess will be detected, if empty array - all types</DESC>
