@@ -155,7 +155,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ### What it affects
 
-** NOTE: The Config.xml effects applications that are using Motorola Webkit (Windows Mobile/CE, Shared Runtime). However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser **
+** NOTE: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser **
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
@@ -336,7 +336,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-** NOTE: The following settings effects applications that are using Motorola Webkit (Windows Mobile/CE, Shared Runtime). However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
+** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
 
 ** NOTE: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc. **
 
