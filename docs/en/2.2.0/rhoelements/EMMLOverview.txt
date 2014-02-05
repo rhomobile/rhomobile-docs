@@ -4,7 +4,7 @@
 
 ###EMML
 
-EMML (Enterprise Mobility Mark-Up Language) is an extension of the HTML language. It is less of a strict set of functions and tags, but more a standard for providing developers of web-based mobility applications a means to configure, control and retrieve information from additional input devices and features of EDAs. Though using javascript objects to interact with the features of RhoElements is recommended, EMML presents an alternative. Both JavaScript objects and EMML tags can be used simultaneously to call methods and parameters on modules of RhoElements.
+EMML (Enterprise Mobility Mark-Up Language) is an extension of the HTML language. It is less of a strict set of functions and tags, but more a standard for providing developers of web-based mobility applications a means to configure, control and retrieve information from additional input devices and features of EDAs. Though using JavaScript objects to interact with the features of RhoElements is recommended, EMML presents an alternative. Both JavaScript objects and EMML tags can be used simultaneously to call methods and parameters on modules of RhoElements.
 
 ###History
 
@@ -39,8 +39,8 @@ Retrieving information was carried out by specifying a call-back function for th
 NOTE: all of these methods would not be included in one document, they are included here as an example.
 
 	<meta http-equiv="batterynavigate" content="http://myserver/mypage.html?ACLineStatus=%s&BatteryLifePercent=%s&BackupBatteryLifePercent=%s" />
-	<meta http-equiv="batterynavigate" content="Javascript:doBattery('%s', '%s', '%s');" />
-	<meta http-equiv="batterynavigate" content="Javascript:var bACLine = '%s'; var iBattPC = '%s'; var iBkUpPC ='%s';" />
+	<meta http-equiv="batterynavigate" content="JavaScript:doBattery('%s', '%s', '%s');" />
+	<meta http-equiv="batterynavigate" content="JavaScript:var bACLine = '%s'; var iBattPC = '%s'; var iBkUpPC ='%s';" />
 		
 ##EMML 1.1 The Current Standard
 Part of the purpose of upping the version of EMML was to co-ordinate it with other standards in the web space most notably CSS, there has also been a clear focus on simplifying the standard and reducing the amount of redundant coding. In doing so the number of bytes required to be downloaded has been reduced and the readability of the tags has been vastly improved.
@@ -86,13 +86,13 @@ In EMML 1.1 you now specify the parameter like so:
 
 Or
 
-	<meta http-equiv="battery" content="batteryevent:url('Javascript:doBatt('%s', '%s');');" />
+	<meta http-equiv="battery" content="batteryevent:url('JavaScript:doBatt('%s', '%s');');" />
 
 In EMML 1.0, you specify a place holder for each value you are interested in using a "%s" (percent s). This had the drawback of requiring you to supply a placeholder for perhaps 7 values even if you were only interested in the 1<sup>st</sup> and 8<sup>th</sup> value being provided.
 
 In EMML 1.1, you can substitute the "s" for a numerical value representing the position of the value you are interested in. Therefore if requesting the 1<sup>st</sup> and 8<sup>th</sup> values from the signalevent of the signal module, you might write the tag as follows:
 
-	<meta http-equiv="signal" content="signalevent:url('Javascript:doWLAN('%1', '%8');');" />
+	<meta http-equiv="signal" content="signalevent:url('JavaScript:doWLAN('%1', '%8');');" />
 
 ##EMML Profiles (EMMP)
 New to EMML 1.1 are EMML Profiles. EMML Profiles are similar to Style Sheets (.CSS files). An EMML Profile allows you to create EMML classes; a common set of EMML meta tags which can be applied to a page or element.

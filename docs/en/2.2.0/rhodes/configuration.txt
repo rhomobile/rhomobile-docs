@@ -69,7 +69,7 @@ Startup page for your application
 
 NOTE: If you set your start path to a location not ending in .erb, then the ruby code in application.rb will not execute (ex. if you are trying to change the default menu, etc.).
 
-Path to the options page (in this case handled by javascript)
+Path to the options page (in this case handled by JavaScript)
 
 	options_path = '/app/Settings'
 

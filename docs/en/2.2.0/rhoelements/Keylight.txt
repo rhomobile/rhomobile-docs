@@ -24,7 +24,7 @@ e.g. <b>keylight</b>.setEMML("intensity:<i>value</i>on");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Keylight Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Keylight'</b> will exist on the current page and can be used to interact directly with the Keylight. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Keylight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Keylight'</b> will exist on the current page and can be used to interact directly with the Keylight. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Keylight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Keylight methods via Ruby use the following syntax: Keylight.method()
 <P />e.g. <b>Keylight</b>.on</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Keylight parameters via Ruby use the following syntax: Keylight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -74,7 +74,7 @@ The levels of supported keylight intensity is device dependant. When the Keyligh
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">This tag requires appropriate hardware and drivers to run, i.e. a device with a keyboard backlight.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example turns the keyboard backlight on with an intensity of 3:
 

@@ -1,6 +1,6 @@
 # RhoElements-Enabling Your Web App
 
-If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of Javascript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.
+If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through JavaScript for HTML Meta tags. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of JavaScript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.
 
 To enable your web app for RhoElements, perform these steps.
 
@@ -73,7 +73,7 @@ NOTE: Although RhoElements does not have a title bar due to it providing you wit
 		<head>
 		<title>Hello Scan</title>
 			<meta http-equiv="scanner"
-				content="DecodeEvent:url('Javascript:doScanDecode(%json);'); enabled" />
+				content="DecodeEvent:url('JavaScript:doScanDecode(%json);'); enabled" />
 			<meta http-equiv="quitbutton" content="visibility:visible;" />
 		</head>
 		<body>
@@ -95,7 +95,7 @@ NOTE: It is not entirely necessary to add the code to call the JavaScript; witho
 		<head>
 		<title>Hello Scan</title>
 			<meta http-equiv="scanner"
-				content="DecodeEvent:url('Javascript:doScanDecode(%json);'); enabled" />
+				content="DecodeEvent:url('JavaScript:doScanDecode(%json);'); enabled" />
 			<meta http-equiv="quitbutton" content="visibility:visible;" />
 			<script>
 				function doScanDecode(jdata)
@@ -268,7 +268,7 @@ This rule is not applied to Android.
  * Android: `rhodata` folder of the Runtime installation folder (accessible at emulator or rooted device only).
 
 ## RhoElements Web Server
-If you are planning on having local HTML files reside on the device and you are not building a [native RhoElements application](rhoelements2-native), you should consider enabling a local web server on the device. The benefits of this are that Javascript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues.
+If you are planning on having local HTML files reside on the device and you are not building a [native RhoElements application](rhoelements2-native), you should consider enabling a local web server on the device. The benefits of this are that JavaScript running on the device is able to communicate with a remote server via e.g. Ajax without cross-domain security issues.
 	
 ### Setting up the web server
 By default the local web server is switched off, you will need to manually enable and configure the server using the RhoElements configuration file.  See the [Configuration Settings help page](ConfigurationSettings) for the server options, specifically those under the &lt;WebServer&gt; hierarchy.
@@ -330,8 +330,8 @@ It's always best to start your application with a page that resides on the devic
 
 When writing your RhoElements application, be sure to avoid the following common mistakes:</p>
 <ul>
-<li>Javascript uses the '\' as an escape character, so to specify a path with backslashes you will need to use '\\'.  When specifying a path in EMML (meta tags) only a single '\' is necessary.
+<li>JavaScript uses the '\' as an escape character, so to specify a path with backslashes you will need to use '\\'.  When specifying a path in EMML (meta tags) only a single '\' is necessary.
 </li>
 <li>In common with all mobile computers, accessing secure sites (https) requires the date and time to be set correctly on the device.  Take care after cold booting as this will reset the system clock.</li>
-<li>EMML is not case sensitive when used in meta tags; however, take care when using Javascript objects because Javascript is case sensitive.</li>
+<li>EMML is not case sensitive when used in meta tags; however, take care when using JavaScript objects because JavaScript is case sensitive.</li>
 </ul>

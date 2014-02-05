@@ -19,7 +19,7 @@ To Invoke battery methods via JavaScript use the following syntax: battery.metho
 To Set battery parameters via JavaScript use the following syntax: battery.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>battery</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set battery return events via JavaScript use the following syntax: battery.event = Javascript Function;
+To Set battery return events via JavaScript use the following syntax: battery.event = JavaScript Function;
 <P />e.g. <b>battery</b>.batteryEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -31,7 +31,7 @@ e.g. <b>battery</b>.setEMML("visibility:<i>value</i>;batteryEvent:url('JavaScrip
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Battery Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Battery'</b> will exist on the current page and can be used to interact directly with the Battery. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Battery'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Battery'</b> will exist on the current page and can be used to interact directly with the Battery. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Battery'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Battery methods via Ruby use the following syntax: Battery.method()
 <P />e.g. <b>Battery</b>.getSmartBatteryStatus</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Battery parameters via Ruby use the following syntax: Battery.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -75,7 +75,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###batteryEvent
@@ -113,7 +113,7 @@ For users migrating their PocketBrowser apps to RhoElements please note that due
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. Enterprise Tablet does not support Smart battery information, getBatteryStatus, sampleInterval, setSystemNotifications and eventSource.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the events; these will be cleared on page navigation.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example shows the battery indicator, sets the x and y co-ordinates to 50, the color of the indicator to red and positions the indicator at the bottom of the screen growing from right to left:
 

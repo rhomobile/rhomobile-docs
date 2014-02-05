@@ -21,7 +21,7 @@ e.g. <b>forwardButton</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">ForwardButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'ForwardButton'</b> will exist on the current page and can be used to interact directly with the ForwardButton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'ForwardButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'ForwardButton'</b> will exist on the current page and can be used to interact directly with the ForwardButton. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'ForwardButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set ForwardButton parameters via Ruby use the following syntax: ForwardButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>ForwardButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -54,7 +54,7 @@ Images can be specified as local to the device or on an HTTP / FTP server, just 
 
 
 ###Interaction with Back Button
-For compatibility reasons RhoElements maintains its own history stack independent of the underlying browser. This means the forward button is only compatible with the back button and will not navigate forward after the user calls javascript:history.back(1).
+For compatibility reasons RhoElements maintains its own history stack independent of the underlying browser. This means the forward button is only compatible with the back button and will not navigate forward after the user calls JavaScript:history.back(1).
 
 
 ###Default Positions
@@ -81,7 +81,7 @@ This API is designed for debugging your application only and should not be used 
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example shows the Forward button, sets its left and top coordinates to 50, and its width and height to 30 pixels.
 

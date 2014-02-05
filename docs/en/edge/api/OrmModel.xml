@@ -55,7 +55,7 @@ For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/r
     <METHODS>
       
       <METHOD name="deleteAll" generateAPI="false" >
-        <DESC>Delete all Rhodes model objects for a source.For Javascript you cannot specify conditions.
+        <DESC>Delete all Rhodes model objects for a source.For JavaScript you cannot specify conditions.
         </DESC>
               <APPLIES jsOnly="true"/>
   
@@ -132,7 +132,7 @@ For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/r
       
       
       <METHOD name="make" generateAPI="false" >
-        <DESC>Create a new Rhodes model object Javascript reference but does not save it to the database. To save this reference to the database, you will need to execute the .save() method. See the Orm new example.</DESC>
+        <DESC>Create a new Rhodes model object JavaScript reference but does not save it to the database. To save this reference to the database, you will need to execute the .save() method. See the Orm new example.</DESC>
         <PARAMS>
           <PARAM name="attributes" type="HASH">
             <DESC>List of attributes assigned to the new model object, such as {name:"ABC Inc.",address:"555
@@ -354,7 +354,7 @@ var accounts = Account.find(
 
           <SECTION>
             <DESC>
-              Use select option for retrieves some attributes of object.  You must pass "conditions" hash with Javascript implementation.
+              Use select option for retrieves some attributes of object.  You must pass "conditions" hash with JavaScript implementation.
             </DESC>
             <CODE>
               

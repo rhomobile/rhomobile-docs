@@ -1,4 +1,4 @@
-# Debugging Javascript
+# Debugging JavaScript
 
 ## Debugging with RhoSimulator
 ### What is RhoSimulator
@@ -239,7 +239,7 @@ The Console logs messages from the system and also from your application code.
 
 ##### Generating log messages from your application
 
-To generate log messages from your application (Javascript) code, call the console.log() method
+To generate log messages from your application (JavaScript) code, call the console.log() method
 
     :::javascript
     console.log("Hello, world");
@@ -284,7 +284,7 @@ Run one of the following commands inside the application folder, depending on th
 
 ## Debugging on the device using Weinre
 
-Weinre is a must have developer tool for testing or debugging your Javascript RhoMobile application. Although a lot of testing and analysis can be done using [RhoSimulator](debugging_with_rhosimulator), sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) in RhoSiumulator. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the RhoMobile APIs right from the Weinre Javascript Console tab much more rapidly then trying to fumble around with reading through logs. 
+Weinre is a must have developer tool for testing or debugging your JavaScript RhoMobile application. Although a lot of testing and analysis can be done using [RhoSimulator](debugging_with_rhosimulator), sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) in RhoSiumulator. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the RhoMobile APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs. 
 
 For those who would rather see it in action, this guide is modeled after a [webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we are going to cover here. We will also be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary. You can use Weinre with any application or simply if you would just like to play around with the RhoMobile APIs to try out some code.
 
@@ -417,7 +417,7 @@ NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobil
 ## Remote Debugging with a Browser's Web Inspector
 
 NOTE: This JS debugging feature is currently only supported on Windows development environments.
-Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's javascript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in either [Mozilla Firefox](http://www.mozilla.org/en-US/firefox/new/) or [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
+Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's JavaScript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in either [Mozilla Firefox](http://www.mozilla.org/en-US/firefox/new/) or [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
 
 ### Using the Remote Debugger
 Before you can use this remote web inspector, you must first open the app you want to use in RhoSimulator. In this example, we'll run an app called [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample). As you can see from the data platform attribute, this is running as a Win32 app.

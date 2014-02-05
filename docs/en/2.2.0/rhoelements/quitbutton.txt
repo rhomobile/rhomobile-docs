@@ -21,7 +21,7 @@ e.g. <b>quitButton</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">QuitButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'QuitButton'</b> will exist on the current page and can be used to interact directly with the QuitButton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'QuitButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'QuitButton'</b> will exist on the current page and can be used to interact directly with the QuitButton. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'QuitButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set QuitButton parameters via Ruby use the following syntax: QuitButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>QuitButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -77,7 +77,7 @@ This API is designed for debugging your application only and should not be used 
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example shows the Quit button and sets the left and top coordinates to 50.
 

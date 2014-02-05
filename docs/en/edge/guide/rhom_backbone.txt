@@ -2,7 +2,7 @@
 
 ## Overview
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
 
 ## Why Backbone.js
 
@@ -113,7 +113,7 @@ Once we know how to respond to interactive events, our next step is to edit some
 
 ### Moving between views - Routing
 
-We will create a new view to edit greetings but as soon as we have more than one view, we need a way to switch between them. In multi-page applications, that poses no problem, we place links that change the URL and the browser loads the new page when the user clicks on them. In a javascript application, because we are trying to avoid page reloads, switching between views requires a bit of thought from our side. Fortunately, Backbone.js provides a `Router` component that does most of the work for us. It listens to changes in the current URL's `fragment` (the part after the hash sign) and fires events we can listen to:
+We will create a new view to edit greetings but as soon as we have more than one view, we need a way to switch between them. In multi-page applications, that poses no problem, we place links that change the URL and the browser loads the new page when the user clicks on them. In a JavaScript application, because we are trying to avoid page reloads, switching between views requires a bit of thought from our side. Fortunately, Backbone.js provides a `Router` component that does most of the work for us. It listens to changes in the current URL's `fragment` (the part after the hash sign) and fires events we can listen to:
 
 	:::javascript
 	var Router = Backbone.Router.extend({
@@ -249,7 +249,7 @@ The approach we have taken so far is promising: instead of having our data scatt
 Backbone.js does not dictate the use of any templating library in particular but because it counts Underscore.js as one of its dependencies, it is common to use the `_.template` function. Underscore templates use a syntax similar to ERB: angle brackets and percent signs:
 		
 	:::erb
-	<% javascript code goes here %>
+	<% JavaScript code goes here %>
 
 You an also print values with <%= value %>
 	:::erb
@@ -299,7 +299,7 @@ Here is the way our HomeView and EditGreetingView templates would look like if w
 		</script>
 	</body>
 
-They look much more maintainable now that they are outside javascript code and rendering them consists of two easy steps: first, you compile the template into a function; second, that function is called with the parameters its template uses. Let's see how HomeView does it:
+They look much more maintainable now that they are outside JavaScript code and rendering them consists of two easy steps: first, you compile the template into a function; second, that function is called with the parameters its template uses. Let's see how HomeView does it:
 
 	:::javascript
 
@@ -369,7 +369,7 @@ We have seen that Backbone.js provides a Model class and here we have RhoMobile'
 
 ### Enter RhoTendon
 
-A tendon is "tissue that connects bone to muscle" and RhoTendon is a small JavaScript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-Javascript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
+A tendon is "tissue that connects bone to muscle" and RhoTendon is a small JavaScript glue library that binds Backbone.js to the power of Rhom, allowing you to develop pure-JavaScript applications in a very rapid fashion. [RhoTendon is available for download here](https://github.com/javiermolina1234/rhotendon). Once you define a Rhom model as seen above, you just need to derive your Backbone.js models from `RhoTendon.Model`, which extends Backbone.Model and links with Rhom under the hood:
 
 	:::javascript
 	<script src="/public/js/rhotendon.js"></script>

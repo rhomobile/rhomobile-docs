@@ -24,7 +24,7 @@ e.g. <b>mediaPlayer</b>.setEMML("filename:<i>value</i>start");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">MediaPlayer Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'MediaPlayer'</b> will exist on the current page and can be used to interact directly with the MediaPlayer. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'MediaPlayer'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'MediaPlayer'</b> will exist on the current page and can be used to interact directly with the MediaPlayer. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'MediaPlayer'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke MediaPlayer methods via Ruby use the following syntax: MediaPlayer.method()
 <P />e.g. <b>MediaPlayer</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set MediaPlayer parameters via Ruby use the following syntax: MediaPlayer.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -85,14 +85,14 @@ Supports only HTTP and FILE formats. HTTP Example: http://192.168.1.1:8080/Folde
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow" /></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following META Tag example plays a video file.
 
 	<META HTTP-Equiv="mediaPlayer" Content="filename:url('HTTP://192.168.1.1:80/Media/RhoElements.mp4')">
 	<META HTTP-Equiv="mediaPlayer" Content="start">
 	
-The following javascript will start and stop a media playback respectively when onStart and onStop are called
+The following JavaScript will start and stop a media playback respectively when onStart and onStop are called
 
 	<script>
 	   function onStart()

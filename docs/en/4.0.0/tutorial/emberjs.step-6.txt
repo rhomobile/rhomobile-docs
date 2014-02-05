@@ -41,7 +41,7 @@ You will now see the Ember application running inside of the RhoSimulator
 ![](https://s3.amazonaws.com/rhodocs-images/rhotut-emberjs/Screen+Shot+2013-11-19+at+10.25.32+AM.jpg)
 
 ## Defining the Rhom Model
-In order to use the Rhom Adapter that we will build, we first must define the model using the RhoMobile ORM Javascript APIs:
+In order to use the Rhom Adapter that we will build, we first must define the model using the RhoMobile ORM JavaScript APIs:
 
 `public/js/models/product.js` 
     :::js
@@ -160,7 +160,7 @@ The `find()` method will be called when Ember attempts to retrieve a reference t
     :::js
     find: function(store, type, id) {
 
-We will use this `id` to look up the record in Rhom, using [RhoMobile ORM Javascript APIs](../../api/Orm). The model name will be available in this method through the `this.model` variable and we will use the `.getModel()` Rhom method to get a reference to that model. The model needs to be defined in Rhom using the same name as we defined our Ember model in order for this to work (as we did in this beginning of this page). Since Rhom uses the `object` property as its unique id for the model, we will look up the record by checking for `object` = `id`.
+We will use this `id` to look up the record in Rhom, using [RhoMobile ORM JavaScript APIs](../../api/Orm). The model name will be available in this method through the `this.model` variable and we will use the `.getModel()` Rhom method to get a reference to that model. The model needs to be defined in Rhom using the same name as we defined our Ember model in order for this to work (as we did in this beginning of this page). Since Rhom uses the `object` property as its unique id for the model, we will look up the record by checking for `object` = `id`.
 
     :::js
     var record = Rho.ORM.getModel(this.model).find(
@@ -236,7 +236,7 @@ The `findAll()` method will need to return an array of objects that will look si
     },
 
 ### extractVars()
-The `extractVars()` method in the adapter will convert the Rhom record into a structure Javascript object like we did in the `createRecord()` method. Since Rhom stores everything as strings we need to perform converting of boolean types to a true boolean Javascript type. Otherwise Ember's data binding will not work correctly.
+The `extractVars()` method in the adapter will convert the Rhom record into a structure JavaScript object like we did in the `createRecord()` method. Since Rhom stores everything as strings we need to perform converting of boolean types to a true boolean JavaScript type. Otherwise Ember's data binding will not work correctly.
 
     :::js
     extractVars: function(rhomRecord) {
@@ -276,7 +276,7 @@ Now that we have the adapter built and the Rhom model defined, we just need to c
 
 You can see that again, Ember naming conventions kick in: `App.ProductAdapter` is automatically recognized as the Adapter for the model `Product`. This is how we would be able to use the same adapter for multiple models in our project, if we had them.
 
-## Enabling RhoMobile Javascript API's
+## Enabling RhoMobile JavaScript API's
 In order to use the Rhom JS APIs that we used in our adapter, we need to add reference to the RhoMobile JS file: `rhoapi-modules.js` that gets built when we build the application. This file will automatically be created and placed in the `/public/api` folder. It needs to be included before the `jquery` library:
 
 `public/index.html`

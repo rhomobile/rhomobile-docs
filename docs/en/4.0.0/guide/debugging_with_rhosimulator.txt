@@ -238,7 +238,7 @@ The Console logs messages from the system and also from your application code.
 
 ##### Generating log messages from your application
 
-To generate log messages from your application (Javascript) code, call the console.log() method
+To generate log messages from your application (JavaScript) code, call the console.log() method
 
     :::javascript
     console.log("Hello, world");

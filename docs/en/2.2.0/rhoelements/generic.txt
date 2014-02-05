@@ -2,7 +2,7 @@
 #Generic Preexisting JavaScript Object
 
 <b>
-The Generic Preexisting JavaScript Object contains read only properties and methods which do not belong to a specific module. If you have configured 'PreloadLegacyGeneric' to be '1' the Javascript object 'generic' will be inserted automatically into your page's DOM by RhoElements.
+The Generic Preexisting JavaScript Object contains read only properties and methods which do not belong to a specific module. If you have configured 'PreloadLegacyGeneric' to be '1' the JavaScript object 'generic' will be inserted automatically into your page's DOM by RhoElements.
 </b>
 
 ##Syntax
@@ -81,7 +81,7 @@ Flags are as follows:
 
 
 ###Backwards Compatibility
-The Generic Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'generic' on the page automatically when 'PreloadLegacyGeneric' is configured to be '1' you can not create your own objects by this name, see below:
+The Generic Preexisting JavaScript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'generic' on the page automatically when 'PreloadLegacyGeneric' is configured to be '1' you can not create your own objects by this name, see below:
 
 <pre>
 
@@ -103,7 +103,7 @@ The Generic Preexisting Javascript Object provides backwards compatibility with 
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The Following example shows usage of the Generic object:
 

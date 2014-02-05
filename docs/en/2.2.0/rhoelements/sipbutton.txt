@@ -21,7 +21,7 @@ e.g. <b>sipButton</b>.setEMML("left:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">SipButton Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'SipButton'</b> will exist on the current page and can be used to interact directly with the SipButton. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'SipButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'SipButton'</b> will exist on the current page and can be used to interact directly with the SipButton. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'SipButton'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set SipButton parameters via Ruby use the following syntax: SipButton.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>SipButton</b>.left = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -69,7 +69,7 @@ When the screen orientation changes, either using the ScreenOrientation tag or b
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported touch devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example shows the SIP button, sets its top and left coordinates to 50, and its width and height to 30 pixels.
 

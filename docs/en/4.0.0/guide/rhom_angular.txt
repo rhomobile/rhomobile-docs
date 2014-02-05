@@ -1,6 +1,6 @@
 # Using Rhom in JavaScript with Angular.js
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from Javascript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% Javascript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
 
 ## Why Angular.js
 
@@ -32,7 +32,7 @@ HTML:
 	</html>
 
 
-Javascript:
+JavaScript:
 	:::javascript
 	var myApp = angular.module('myApp',[]); // initialize Angular
 
@@ -50,7 +50,7 @@ These snippets will, as you would expect, result in the list of products being d
 
 ## Directives
 
-A directive is a link between HTML and Javascript: it is the way you connect a particular HTML tag with some dynamic behavior, either from the built-in Angular library or from your own code.
+A directive is a link between HTML and JavaScript: it is the way you connect a particular HTML tag with some dynamic behavior, either from the built-in Angular library or from your own code.
 
 	:::html
 	<!-- ngRepeat is a directive -->

@@ -226,7 +226,7 @@ Ruby syntax:
        sensor.stop
     end       
 
-Javascript syntax:
+JavaScript syntax:
 
     var sensor = Rho.Sensor.makeSensorByType(Rho.Sensor.SENSOR_TYPE_ACCELEROMETER);
     if (sensor) {

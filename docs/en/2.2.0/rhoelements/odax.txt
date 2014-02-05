@@ -2,7 +2,7 @@
 #ODAX Preexisting JavaScript Object
 
 <b>
-The ODAX Preexisting JavaScript Object contains read methods to provide offline data access. ODAX uses either a CSV or XML file on the device to provide rudimentary offline capabilities and should only be used to provide backward compatibility with legacy applications. RhoElements supports Application cache and Web SQL implementations which should be used in preference to ODAX in new applications. If you have configured 'PreloadLegacyODAX' to be '1' the Javascript object 'odax' will be inserted automatically into your page's DOM by RhoElements. The result set is stored internally in the 'odax' object and is created and manipulated using the exposed methods below
+The ODAX Preexisting JavaScript Object contains read methods to provide offline data access. ODAX uses either a CSV or XML file on the device to provide rudimentary offline capabilities and should only be used to provide backward compatibility with legacy applications. RhoElements supports Application cache and Web SQL implementations which should be used in preference to ODAX in new applications. If you have configured 'PreloadLegacyODAX' to be '1' the JavaScript object 'odax' will be inserted automatically into your page's DOM by RhoElements. The result set is stored internally in the 'odax' object and is created and manipulated using the exposed methods below
 </b>
 
 ##Syntax
@@ -50,7 +50,7 @@ The current result set becomes invalid after any Execute (INSERT, UPDATE, DELETE
 
 
 ###Backwards Compatibility
-The ODAX Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'odax' on the page automatically when 'PreloadLegacyODAX' is configured to be '1' you can not create your own objects by this name, see below:
+The ODAX Preexisting JavaScript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'odax' on the page automatically when 'PreloadLegacyODAX' is configured to be '1' you can not create your own objects by this name, see below:
 
 <pre>
 
@@ -72,7 +72,7 @@ The ODAX Preexisting Javascript Object provides backwards compatibility with cod
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The Following example shows usage of the odax object to manipulate files on the device:
 
@@ -150,42 +150,42 @@ The following example clears the resultset after a query is executed:
 	   odax.Clear();
 	</script>
 	
-The following javascript gets the column 'field1' from the resultset:
+The following JavaScript gets the column 'field1' from the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var colval = odax.Get("field1");
 	</script>
 	
-The following javascript moves the row pointer to the first record of the resultset:
+The following JavaScript moves the row pointer to the first record of the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.MoveFirst();
 	</script>
 	
-The following javascript moves the row pointer to the next record in the resultset:
+The following JavaScript moves the row pointer to the next record in the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.movenext();
 	</script>
 	
-The following javascript moves the row pointer to the previous record in the resultset:
+The following JavaScript moves the row pointer to the previous record in the resultset:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.moveprev();
 	</script>
 	
-The following javascript moves the row pointer to the last record of the resultset
+The following JavaScript moves the row pointer to the last record of the resultset
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);
 	   var result = odax.movelast();
 	</script>
 	
-The following javascript selects all records from a XML file:
+The following JavaScript selects all records from a XML file:
 
 	<script>
 	   var count = odax.Select('SELECT * FROM \'\\application\\test.xml\';', ',', false);

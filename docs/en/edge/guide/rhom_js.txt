@@ -1,4 +1,4 @@
-# Using Rhom in Javascript
+# Using Rhom in JavaScript
 
 
 ## Creating a JavaScript Model

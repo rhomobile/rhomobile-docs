@@ -2,7 +2,7 @@
 #Imager Module
 
 <b>
-The Imager Module controls the imager functions and navigates to a URL or calls a javascript function in response to an HTTP image transfer carried out by the imager meta tag.
+The Imager Module controls the imager functions and navigates to a URL or calls a JavaScript function in response to an HTTP image transfer carried out by the imager meta tag.
 </b>
 
 ##Syntax
@@ -18,7 +18,7 @@ To Invoke imager methods via JavaScript use the following syntax: imager.method(
 To Set imager parameters via JavaScript use the following syntax: imager.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>imager</b>.enabled = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set imager return events via JavaScript use the following syntax: imager.event = Javascript Function;
+To Set imager return events via JavaScript use the following syntax: imager.event = JavaScript Function;
 <P />e.g. <b>imager</b>.imagerEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>imager</b>.setEMML("enabled:<i>value</i>;imagerEvent:url('JavaScript:doF
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Imager Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Imager'</b> will exist on the current page and can be used to interact directly with the Imager. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Imager'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Imager'</b> will exist on the current page and can be used to interact directly with the Imager. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Imager'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Imager methods via Ruby use the following syntax: Imager.method()
 <P />e.g. <b>Imager</b>.enable</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Imager parameters via Ruby use the following syntax: Imager.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -94,7 +94,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###imagerEvent
@@ -168,7 +168,7 @@ On Android the height of the viewfinder cannot be set to any value less than 200
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Kiosk units.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">The device must have an Imager device or Color Camera.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example sets up the imager to capture an image and transfer it to an ftp site:
 
@@ -193,7 +193,7 @@ The following example sets up the imager to capture an image and transfer it to 
 	   }
 	</SCRIPT>
 	
-The following example sets up the imager to capture an image when the Javascript function 'doCapture' is called:
+The following example sets up the imager to capture an image when the JavaScript function 'doCapture' is called:
 
 	
 	<meta HTTP-Equiv="Imager" Content="enabled;left:30;top:50;width:160;height:100;aim:off;lamp:off">
@@ -277,7 +277,7 @@ The following example displays the available imagers on screen
 
 	<html>
 	<head>
-	<meta HTTP-Equiv="imager" Content="imagerEnumEvent:url('Javascript:Enumimagers(%s);')">
+	<meta HTTP-Equiv="imager" Content="imagerEnumEvent:url('JavaScript:Enumimagers(%s);')">
 	<meta HTTP-Equiv="quitbutton" Content="left:200;top:0;visibility:visible">
 	</head>
 	
@@ -314,7 +314,7 @@ The following example displays the available imagers on screen
 	
 The following example shows image being captured as a Data URI and displayed on the page
 
-	<META HTTP-Equiv="Imager" Content="imagerCaptureEvent:url('Javascript:onImageCapture(%json)');">
+	<META HTTP-Equiv="Imager" Content="imagerCaptureEvent:url('JavaScript:onImageCapture(%json)');">
 	  
 	<script type="text/javascript">
 	function onImageCapture(jsonObject)

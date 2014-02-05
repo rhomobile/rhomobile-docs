@@ -72,7 +72,7 @@ Execute JavaScript on the current page from your controller. Supported on iPhone
 	:::ruby
 	WebView.execute_js(string)
 
-**NOTE: For most mobile platforms, WebView.execute_js has been implemented via redirection to URL with 'javascript:' schema. If WebView.execute_js used in an AJAX call handler method in the controller, it may lead to the situation where the *success* javascript handler will never be executed. This may happen because, at the moment of *success* handler should be executed, a URL of the page already has been changed. This means no handlers from the previous page are valid.**
+**NOTE: For most mobile platforms, WebView.execute_js has been implemented via redirection to URL with 'javascript:' schema. If WebView.execute_js used in an AJAX call handler method in the controller, it may lead to the situation where the *success* JavaScript handler will never be executed. This may happen because, at the moment of *success* handler should be executed, a URL of the page already has been changed. This means no handlers from the previous page are valid.**
 
 Refer to [Control WebView from controller actions](..//rhodes/ui#control-webview-from-controller-actions) for an example.
 

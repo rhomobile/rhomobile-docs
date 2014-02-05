@@ -18,7 +18,7 @@ To Invoke audioCapture methods via JavaScript use the following syntax: audiocap
 To Set audioCapture parameters via JavaScript use the following syntax: audiocapture.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>audioCapture</b>.duration = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set audioCapture return events via JavaScript use the following syntax: audiocapture.event = Javascript Function;
+To Set audioCapture return events via JavaScript use the following syntax: audiocapture.event = JavaScript Function;
 <P />e.g. <b>audioCapture</b>.audioSaveEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>audioCapture</b>.setEMML("duration:<i>value</i>;audioSaveEvent:url('Java
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">AudioCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'AudioCapture'</b> will exist on the current page and can be used to interact directly with the AudioCapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'AudioCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'AudioCapture'</b> will exist on the current page and can be used to interact directly with the AudioCapture. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'AudioCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke AudioCapture methods via Ruby use the following syntax: AudioCapture.method()
 <P />e.g. <b>AudioCapture</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set AudioCapture parameters via Ruby use the following syntax: AudioCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -71,7 +71,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###audioSaveEvent
@@ -119,7 +119,7 @@ The protocol, port number, username (optional) and password (optional) are all d
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Microphone</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following META Tag example performs a 30 second capture. The resulting audio file will be transferred to a server via HTTP and an alert will inform the user whether or not the transfer succeeded.
 
@@ -128,7 +128,7 @@ The following META Tag example performs a 30 second capture. The resulting audio
 	<META HTTP-Equiv="AudioCapture" Content="AudioSaveEvent:url('javascript:alert('%s');')">
 	<META HTTP-Equiv="AudioCapture" Content="start">
 	
-The following javascript will start and stop an audio capture respectively when onStart and onStop are called with a 60 second limit:
+The following JavaScript will start and stop an audio capture respectively when onStart and onStop are called with a 60 second limit:
 
 	<script>
 	   function onStart()
@@ -143,7 +143,7 @@ The following javascript will start and stop an audio capture respectively when 
 	   }
 	</script>
 	
-The following javascript will start a 30 second audio capture when onStart is called:
+The following JavaScript will start a 30 second audio capture when onStart is called:
 
 	<script>
 	   function onStart()
