@@ -127,13 +127,13 @@ On Macintosh, you need the following setup before redis is installed.
  * The `/usr/local` directory exists and is recursively writable by the current user.
  * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
 
-### Setup for Xcode, Command Line Tools, and Homebrew
+### Setup for Xcode, Command Line Tools, and homebrew
 
 If you do not have the latest Xcode and command line tools, you need to install them. Install the latest [Xcode](https://developer.apple.com/xcode/). 
 
 Then install the command line tools: go to Xcode –> Preferences –> Downloads tab and install the "Command Line Tools."
 
-Then install [Homebrew](http://mxcl.github.com/homebrew/) into `/usr/local`.
+Then install [Homebrew](https://github.com/Homebrew/homebrew) into `/usr/local`.
 
 ### Setup for RhoConnect Push
 
