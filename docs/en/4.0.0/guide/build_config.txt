@@ -1,6 +1,6 @@
 # Build time configuration
 
-## Default build.yml File
+## build.yml File
 
 When you generate your app, a default version of the build.yml file will be generated and it will look like this:
 
@@ -40,7 +40,7 @@ When you generate your app, a default version of the build.yml file will be gene
 	<tr>
 		<td class="clsEvenRow">sdk</td>
 		<td class="clsEvenRow">Path to your rhodes gem. This is commented out by default to let rhodes determine the latest gem and use that. If you have multiple rhodes gems and you wish to use one that is not the latest one, specify that here.</td>
-		<td class="clsEvenRow">Varies</td>
+		<td class="clsEvenRow">Srting</td>
 	</tr>
 	<tr>
 		<td>sdkversion</td>
@@ -50,17 +50,17 @@ When you generate your app, a default version of the build.yml file will be gene
 	<tr>
 		<td class="clsEvenRow">name</td>
 		<td class="clsEvenRow">The name of your app.</td>
-		<td class="clsEvenRow">The name of your app.</td>
+		<td class="clsEvenRow">String</td>
 	</tr>
 	<tr>
 		<td>version</td>
 		<td>The version of your app.</td>
-		<td>The version of your app.</td>
+		<td>App Version</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">vendor</td>
 		<td class="clsEvenRow">The name that will be set as the vendor of your app. Usually this will be your Company's name.</td>
-		<td class="clsEvenRow">Vendor name</td>
+		<td class="clsEvenRow">String</td>
 	</tr>
 	<tr>
 		<td>build</td>
@@ -80,12 +80,12 @@ When you generate your app, a default version of the build.yml file will be gene
 	<tr>
 		<td class="clsEvenRow">iphone\\sdk</td>
 		<td class="clsEvenRow">The version of the sdk used to build. Typically iphonesimulatorX.X or iphoneosX.X.</td>
-		<td class="clsEvenRow">Varies</td>
+		<td class="clsEvenRow">iPhone SDK Version</td>
 	</tr>
 	<tr>
 		<td>iphone\\provisionprofile</td>
 		<td>The UUID of your provisioning profile to use when signing.</td>
-		<td>Varies</td>
+		<td>UUID</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">iphone\\codesignidentity</td>
@@ -95,22 +95,22 @@ When you generate your app, a default version of the build.yml file will be gene
 	<tr>
 		<td>iphone\\entitlements</td>
 		<td>Property list file for entitlements for your build. Typically is Entitlements.plist.</td>
-		<td>Varies</td>
+		<td>.plist file</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">iphone\\BundleIdentifier</td>
 		<td class="clsEvenRow">Bundle identifier – used in provisioning profile.</td>
-		<td class="clsEvenRow">Varies</td>
+		<td class="clsEvenRow">String</td>
 	</tr> 
 	<tr>
 		<td>iphone\\BundleURLScheme</td>
 		<td>Bundle URL scheme of your app (used for opening your application from another application by using custom URL scheme).</td>
-		<td>Varies</td>
+		<td>String</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">wp\\productid</td>
 		<td class="clsEvenRow">A productid GUID to application build.yml.</td>
-		<td class="clsEvenRow">Varies</td>
+		<td class="clsEvenRow">GUID</td>
 	</tr>
 	<tr>
 		<td>symbian\\uid</td>
@@ -196,6 +196,7 @@ Run application with special parameter:
 
 To enable JavaScript and/or CSS code obfuscation at `public` folder of Rhodes application just add the following lines to the build.yml:
 
+	:::yaml
 	obfuscate:
 	  js: yes
 	  css: yes
