@@ -16,7 +16,7 @@ A Visual Studio plugin is available to allow developers to build RhoMobile appli
 [Read more](visualstudio) about how to use and setup the RhoMobile Visual Studio plugin.
 
 ##Developing with Another IDE/Editor
-Writing code for your RhoMobile application involves writing Javascript, HTML, CSS or Ruby. You can use your tool of choice for editing your code whether it is your favorite text editor or an IDE that supports these languages. 
+Writing code for your RhoMobile application involves writing JavaScript, HTML, CSS or Ruby. You can use your tool of choice for editing your code whether it is your favorite text editor or an IDE that supports these languages. 
 
 When using text editors or other IDE's, you can use RhoMobile's command line options to run build, deploy and app scaffolding activities.
 

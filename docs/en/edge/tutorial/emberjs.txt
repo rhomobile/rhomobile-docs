@@ -1,6 +1,6 @@
 # EmberJS Tutorial
 
-In this tutorial we will be walking through using Ember.JS with your RhoMobile Application. EmberJS is one of many Javascript MVC based frameworks that allow you to build very responsive mobile applications. Along with the [EmberJS website](http://emberjs.com/guides/), there are many resources out on the Internet that cover EmberJS in great detail. This tutorial will cover some of the very basics of the framework to get you started using it with RhoMobile. We will be a very simple application to perform CRUD operations on a model representing our Products model.
+In this tutorial we will be walking through using Ember.JS with your RhoMobile Application. EmberJS is one of many JavaScript MVC based frameworks that allow you to build very responsive mobile applications. Along with the [EmberJS website](http://emberjs.com/guides/), there are many resources out on the Internet that cover EmberJS in great detail. This tutorial will cover some of the very basics of the framework to get you started using it with RhoMobile. We will be a very simple application to perform CRUD operations on a model representing our Products model.
 
 As you work through the tutorial you will:
 

@@ -21,7 +21,7 @@ e.g. <b>stylus</b>.setEMML("enable");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Stylus Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Stylus'</b> will exist on the current page and can be used to interact directly with the Stylus. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Stylus'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Stylus'</b> will exist on the current page and can be used to interact directly with the Stylus. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Stylus'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Stylus methods via Ruby use the following syntax: Stylus.method()
 <P />e.g. <b>Stylus</b>.enable</td></tr><tr><td class="clsSyntaxCells clsEvenRow" /></tr></table>
 
@@ -54,7 +54,7 @@ This tag does not affect the behaviour of remote display applications for contro
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example disables the touch screen until the Enter key is pressed:
 

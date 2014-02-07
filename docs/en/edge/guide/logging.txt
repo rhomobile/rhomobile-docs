@@ -27,7 +27,7 @@ Ruby
 		Rho::Log.info("Some Category", "Some info message")
 	end
 
-Javascript
+JavaScript
 	:::javascripr
 	Rho.Log.error("Some Category", "Some error message");
 	Rho.Log.info("Some Category", "Some info message");

@@ -2,7 +2,7 @@
 #APD Preexisting JavaScript Object
 
 <b>
-The APD Preexisting JavaScript Object contains read only properties and methods for interacting with the Adaptive Printer Driver. If you have configured 'PreloadLegacyAPD' to be '1' the Javascript object 'apd' will be inserted automatically into your page's DOM by RhoElements.
+The APD Preexisting JavaScript Object contains read only properties and methods for interacting with the Adaptive Printer Driver. If you have configured 'PreloadLegacyAPD' to be '1' the JavaScript object 'apd' will be inserted automatically into your page's DOM by RhoElements.
 </b>
 
 ##Syntax
@@ -32,7 +32,7 @@ More documentation on the APD is available at http://docs.rhomobile.com
 
 
 ###Backwards Compatibility
-The APD Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'apd' on the page automatically when 'PreloadLegacyAPD' is configured to be '1' you can not create your own objects by this name, see below:
+The APD Preexisting JavaScript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'apd' on the page automatically when 'PreloadLegacyAPD' is configured to be '1' you can not create your own objects by this name, see below:
 
 <pre>
 
@@ -66,7 +66,7 @@ Additional steps are required to pair your MC2100 via Bluetooth for printing. Pl
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Executes immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The Following example shows usage PSExternal:
 

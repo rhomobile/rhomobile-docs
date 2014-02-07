@@ -2,7 +2,7 @@
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements/RhodesvsRhoElements.png" width="550" />
 
-Motorola's RhoMobile Suite provides developers the best of all worlds for building cross platform enterprise applications. Most often, there is hesitation around developing cross platform applications because of the concern that certain features will be lost or cannot replicate properly in a non-native environment.  Developers now have a choice of using Ruby, Javascript or HTML META tags for accessing device capabilities. These cross platform applications can be delivered to the device as a native application, or existing web applications can be extended to provide RhoElements features. RhoElement applications also provide a common user exeperience through a standard enterprise enhanced Motorola Webkit that not only runs on Android, but Windows Mobile and CE as well. 
+Motorola's RhoMobile Suite provides developers the best of all worlds for building cross platform enterprise applications. Most often, there is hesitation around developing cross platform applications because of the concern that certain features will be lost or cannot replicate properly in a non-native environment.  Developers now have a choice of using Ruby, JavaScript or HTML META tags for accessing device capabilities. These cross platform applications can be delivered to the device as a native application, or existing web applications can be extended to provide RhoElements features. RhoElement applications also provide a common user exeperience through a standard enterprise enhanced Motorola Webkit that not only runs on Android, but Windows Mobile and CE as well. 
 
 
 ## Hybrid and Native HTML5 applications
@@ -29,7 +29,7 @@ The user experience on enterprise class devices is nowhere near as 'cool' or 'fr
 Once a customer has decided to build cross platform applications, the next major concern is around device integration.  Customers today are concerned that if they develop cross platform, they will lose the ability to take advantage of enterprise device integration (i.e. losing the ability for bar code scanning). RhoElements will integrate the software with the hardware. The ability to integrate HTML5 with enterprise device capabilities removes the concerns related to accessing device features and functionality.
 
 * Built in APIs for bar code scanning, RFID, signature capture, printing, file transfer, location, and interfacing with other peripherals and accessories.
-* Broad set of device capabilities thru HTML, Javascript or Ruby in a consistent API set regardless of platform
+* Broad set of device capabilities thru HTML, JavaScript or Ruby in a consistent API set regardless of platform
 * Delivers a native extension framework that allows for device integration in scenarios where it doesn't support something.
 
 ## Shared Runtime

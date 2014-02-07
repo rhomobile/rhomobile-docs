@@ -47,8 +47,8 @@ Let's explain what is going on here by first taking a look at `index.html`
     </body>
     </html>
 
-## The Javascript
-Since this is a JavaScript based application let's first take a look at the Javascript Files we are referencing.
+## The JavaScript
+Since this is a JavaScript based application let's first take a look at the JavaScript Files we are referencing.
 
 To use EmberJS, we will be including the following libraries. 
     :::js
@@ -91,7 +91,7 @@ There is much more to an Ember application then what we have produced so far but
     <p>Hello, {{username}}</p>  
     </script>
 
-The `<script type="text/x-handlebars" >` tag indicates to the browser that the following lines of code are a Handlebars Template. This is regular HTML with the special curly bracket `{{ }}` notation which represents [Handlebars.js](http://handlebarsjs.com/). Handlebars will replace the content of the curly brackets with real HTML when the browser renders the page. Ember JS recognizes this and attaches special handling as well to these controls. In the simple example above it performs data binding of the inputs value to text that is displayed in the `<p>` tag. So when you type in the input box, it will automatically update the `username` variable text. This is all handled for you without writing a line of javascript.
+The `<script type="text/x-handlebars" >` tag indicates to the browser that the following lines of code are a Handlebars Template. This is regular HTML with the special curly bracket `{{ }}` notation which represents [Handlebars.js](http://handlebarsjs.com/). Handlebars will replace the content of the curly brackets with real HTML when the browser renders the page. Ember JS recognizes this and attaches special handling as well to these controls. In the simple example above it performs data binding of the inputs value to text that is displayed in the `<p>` tag. So when you type in the input box, it will automatically update the `username` variable text. This is all handled for you without writing a line of JavaScript.
 
 ## Chrome Ember Inspector
 Ember has built a Chrome Inspector, which is very useful tool for debugging and inspecting your Ember application components. It is highly recommended that you install it. Simple visit [the Chrome Web Store](https://chrome.google.com/webstore/category/apps) and search for [Ember JS](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)

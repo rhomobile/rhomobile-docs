@@ -343,7 +343,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >General\\UseRegularExpressions</td>
 <td >USEREGULAREXPRESSIONS</td>
-<td >In order to be backwardly compatible with PocketBrowser syntax for controlling device capabilities RhoElements uses a Regular Expression engine to apply a series of transformations to each meta tag or Javascript call being processed, as defined in RegEx.xml.  If you are developing applications without the need to be backwardly compatible with PocketBrowser syntax you can disable regular expressions, this can give an improvment of application performance, depending on how the application is structured.  This setting is only applicable to RhoMobile Suite version 2.2 and above on Windows devices.</td>
+<td >In order to be backwardly compatible with PocketBrowser syntax for controlling device capabilities RhoElements uses a Regular Expression engine to apply a series of transformations to each meta tag or JavaScript call being processed, as defined in RegEx.xml.  If you are developing applications without the need to be backwardly compatible with PocketBrowser syntax you can disable regular expressions, this can give an improvment of application performance, depending on how the application is structured.  This setting is only applicable to RhoMobile Suite version 2.2 and above on Windows devices.</td>
 <td >0 - Do Not Use Regular Expressions<br>1 - Use Regular Expressions</a></td>
 </tr>
 <tr>
@@ -659,7 +659,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td class="clsEvenRow">Geolocation\\GeolocationEnabled</td>
 <td class="clsEvenRow">Not Configurable</td>
-<td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined javascript callback. When disabled the defined javascript error callback is called notifying that the permission to using Geolocation is disabled.</td>
+<td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
 </table>
@@ -743,7 +743,7 @@ It is recommended that the JavaScript objects are preloaded if they are being us
 			<PreloadJSObjects     VALUE="1"/>
 		</Preloads>
 	</NPAPI>
-NOTE: Some javascript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.		
+NOTE: Some JavaScript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.		
 
 ###Plugin Dependencies
 Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.

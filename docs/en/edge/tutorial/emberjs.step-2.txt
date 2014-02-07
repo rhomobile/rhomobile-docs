@@ -90,7 +90,7 @@ We used this same helper function to wire the `Cancel` button on this view to na
     :::js
      {{#link-to 'products'}}<button id="cancel" class="btn btn-default ">Cancel</button>{{/link-to}}
 
-If you try to click on the `Save` button you will see an error in the Javascript console:
+If you try to click on the `Save` button you will see an error in the JavaScript console:
     :::js
     Uncaught Error: Nothing handled the event 'save'. 
 

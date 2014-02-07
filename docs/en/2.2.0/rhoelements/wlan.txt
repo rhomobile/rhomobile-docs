@@ -18,7 +18,7 @@ To Invoke wlan methods via JavaScript use the following syntax: wlan.method();
 To Set wlan parameters via JavaScript use the following syntax: wlan.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>wlan</b>.parameter = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set wlan return events via JavaScript use the following syntax: wlan.event = Javascript Function;
+To Set wlan return events via JavaScript use the following syntax: wlan.event = JavaScript Function;
 <P />e.g. <b>wlan</b>.adapterPowerStateEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>wlan</b>.setEMML("parameter:<i>value</i>;adapterPowerStateEvent:url('Jav
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Wlan Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Wlan'</b> will exist on the current page and can be used to interact directly with the Wlan. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Wlan'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Wlan'</b> will exist on the current page and can be used to interact directly with the Wlan. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Wlan'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Wlan methods via Ruby use the following syntax: Wlan.method()
 <P />e.g. <b>Wlan</b>.enableAdapter</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Wlan parameters via Ruby use the following syntax: Wlan.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -62,7 +62,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###adapterPowerStateEvent
@@ -80,7 +80,7 @@ Returns data on if the radio is enabled or disabled.
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">SB1</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Fusion module</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to the parameters and events of this module will not persist when navigating to a new page. Enable and Disable methods do persist.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 Enable/disable the radio on a button click
 

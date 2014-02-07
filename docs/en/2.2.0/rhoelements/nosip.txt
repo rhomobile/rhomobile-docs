@@ -2,7 +2,7 @@
 #NoSIP Preexisting JavaScript Object
 
 <b>
-The NoSIP Preexisting JavaScript Object contains methods which can be used to control the Soft Input Panel (on screen keyboard). If you have configured 'PreloadLegacyNoSIP' to be '1' the Javascript object 'nosip' will be inserted automatically into your page's DOM by RhoElements. These methods should be used in conjunction with the SIP module to provide full control over the SIP
+The NoSIP Preexisting JavaScript Object contains methods which can be used to control the Soft Input Panel (on screen keyboard). If you have configured 'PreloadLegacyNoSIP' to be '1' the JavaScript object 'nosip' will be inserted automatically into your page's DOM by RhoElements. These methods should be used in conjunction with the SIP module to provide full control over the SIP
 </b>
 
 ##Syntax
@@ -25,7 +25,7 @@ The NoSIP Preexisting JavaScript Object contains methods which can be used to co
 
 
 ###Backwards Compatibility
-The NoSIP Preexisting Javascript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'nosip' on the page automatically when 'PreloadLegacyNoSIP' is configured to be '1' you can not create your own objects by this name, see below:
+The NoSIP Preexisting JavaScript Object provides backwards compatibility with code written for PocketBrowser and also supports the syntax below. Because RhoElements inserts the object 'nosip' on the page automatically when 'PreloadLegacyNoSIP' is configured to be '1' you can not create your own objects by this name, see below:
 
 <pre>
 
@@ -51,7 +51,7 @@ PocketBrowser provides the ability to create a 'NoSIP' control on the page, disp
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Immediate - These methods are actioned immediately.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The Following example will show or hide the SIP, depending on how the function is called:
 

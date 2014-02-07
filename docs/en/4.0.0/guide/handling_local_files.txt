@@ -31,7 +31,7 @@ Ruby:
     userFolder = Rho::Application.userFolder
 
 
-Javascript:
+JavaScript:
 
     :::javascript
     // Get the various app folders
@@ -57,7 +57,7 @@ Ruby:
     filename = Rho::RhoFile.join(Rho::Application.publicFolder, 'sample.txt') # build the path
     contents = Rho::RhoFile.read(filename) # read the file into a variable
 
-Javascript:
+JavaScript:
     :::javascript
     filename = Rho.RhoFile.join(Rho.Application.publicFolder, 'sample.txt') // build the path
     contents = Rho.RhoFile.read(filename) // read the file into a variable
@@ -95,7 +95,7 @@ Ruby:
     	end
   	end
 
-Javascript:
+JavaScript:
 	
   	:::javascript
   	function download_file_callback(params) {
@@ -134,7 +134,7 @@ Ruby:
     })
 
 
-Javascript:
+JavaScript:
 
     :::javascript
     // open default database
@@ -164,7 +164,7 @@ Ruby:
     Rho::System.unzipFile(local_path_to_zip)
 
 
-Javascript:
+JavaScript:
 
     :::javascript
     // zip list of files

@@ -18,7 +18,7 @@ To Invoke memory methods via JavaScript use the following syntax: memory.method(
 To Set memory parameters via JavaScript use the following syntax: memory.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>memory</b>.lowMemThreshold = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set memory return events via JavaScript use the following syntax: memory.event = Javascript Function;
+To Set memory return events via JavaScript use the following syntax: memory.event = JavaScript Function;
 <P />e.g. <b>memory</b>.memoryEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>memory</b>.setEMML("lowMemThreshold:<i>value</i>;memoryEvent:url('JavaSc
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Memory Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Memory'</b> will exist on the current page and can be used to interact directly with the Memory. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Memory'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Memory'</b> will exist on the current page and can be used to interact directly with the Memory. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Memory'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Memory methods via Ruby use the following syntax: Memory.method()
 <P />e.g. <b>Memory</b>.getMemoryStats</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Memory parameters via Ruby use the following syntax: Memory.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -64,7 +64,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###memoryEvent
@@ -82,11 +82,11 @@ The memoryEvent event is triggered when the available Memory drops below the set
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Non Persistent - Changes to this module will not persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example sets the lowMemThreshold to 1500 KB:
 
-	<META HTTP-EQUIV="Memory" CONTENT="lowMemThreshold:1500; memoryEvent:url('Javascript:notification('%s');');">
+	<META HTTP-EQUIV="Memory" CONTENT="lowMemThreshold:1500; memoryEvent:url('JavaScript:notification('%s');');">
 	
 The following example sets the memory threshold value to 10% of the total memory in the device:
 

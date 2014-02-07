@@ -74,8 +74,8 @@ Run on Platform Simulator from 'mytest' folder.
 * Async Download file: you should see image with many r
 * System test: 
    - check system settings
-   - press JS popup: you should see javascript alert
-   - press execute_js:  you should see javascript alert (Blackberry is not supported)
+   - press JS popup: you should see JavaScript alert
+   - press execute_js:  you should see JavaScript alert (Blackberry is not supported)
 * Localization test: you should see Russian text, dates and currency in various formats  
 * Dynamic menu test: 
    - see description on the page and press menu button, check all items

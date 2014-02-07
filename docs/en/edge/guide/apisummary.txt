@@ -14,7 +14,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.0. Please consul
 </tr>	
 <tr>
 <th>Class</th>
-<th style="text-align:center"><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"></th>
+<th style="text-align:center"><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"></th>
 <th style="text-align:center;border-right:thin solid #cccccc;"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"></th>
 <th style="text-align:center"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></th>
 <th style="text-align:center"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"></th>

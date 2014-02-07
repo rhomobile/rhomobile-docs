@@ -18,7 +18,7 @@ To Invoke backlight methods via JavaScript use the following syntax: backlight.m
 To Set backlight parameters via JavaScript use the following syntax: backlight.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>backlight</b>.intensity = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set backlight return events via JavaScript use the following syntax: backlight.event = Javascript Function;
+To Set backlight return events via JavaScript use the following syntax: backlight.event = JavaScript Function;
 <P />e.g. <b>backlight</b>.backlightSettingsEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>backlight</b>.setEMML("intensity:<i>value</i>;backlightSettingsEvent:url
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Backlight Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Backlight'</b> will exist on the current page and can be used to interact directly with the Backlight. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Backlight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Backlight'</b> will exist on the current page and can be used to interact directly with the Backlight. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Backlight'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Backlight methods via Ruby use the following syntax: Backlight.method()
 <P />e.g. <b>Backlight</b>.on</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Backlight parameters via Ruby use the following syntax: Backlight.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -68,12 +68,12 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###backlightSettingsEvent
 The backlight display settings
-<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>intensity</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight intensity value E.g. 2. On Android a negative value indicates the default system value.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>intensityRange</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A javascript array of integers contanining the valid range of intensity values.  e.g. ['0','1','2']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>state</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight state "on" or "off" or "timeout"</td></tr></table>
+<table class="re-table"><col width="3%" /><col width="20%" /><col width="77%" /><tr><th class="tableHeading">ID</th><th class="tableHeading">Name</th><th class="tableHeading">Description</th></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">1</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>intensity</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight intensity value E.g. 2. On Android a negative value indicates the default system value.</td></tr><tr><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>intensityRange</b></td><td class="clsSyntaxCells clsEvenRow" style="text-align:left;">A JavaScript array of integers contanining the valid range of intensity values.  e.g. ['0','1','2']</td></tr><tr><td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td><td style="text-align:left;" class="clsSyntaxCells clsOddRow"><b>state</b></td><td style="text-align:left;" class="clsSyntaxCells clsOddRow">The current backlight state "on" or "off" or "timeout"</td></tr></table>
 
 
 
@@ -108,7 +108,7 @@ Unlike all other devices, changes made to the backlight intensity are made only 
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following turns on the screen backlight and sets the intensity to level 2
 

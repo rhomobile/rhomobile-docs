@@ -102,7 +102,7 @@ Ruby:
 		end
 	end
 
-Javascript:
+JavaScript:
 
 	:::javascript
 	function setup_push_manual() {

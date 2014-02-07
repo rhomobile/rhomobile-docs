@@ -24,7 +24,7 @@ e.g. <b>registry</b>.setEMML("hive:<i>value</i>delete");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Registry Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Registry'</b> will exist on the current page and can be used to interact directly with the Registry. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Registry'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Registry'</b> will exist on the current page and can be used to interact directly with the Registry. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Registry'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Registry methods via Ruby use the following syntax: Registry.method()
 <P />e.g. <b>Registry</b>.delete</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Registry parameters via Ruby use the following syntax: Registry.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -50,7 +50,7 @@ N/A
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>hive:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">HKLM, HKCU, HKCR or HKU</td><td class="clsSyntaxCells clsOddRow">Name of the root hive.</td><td class="clsSyntaxCells clsOddRow">None</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>key:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Any string</td><td class="clsSyntaxCells clsEvenRow">Full path of the key, including '\' separators as required.  Remember to use '\\' in Javascript to specify backslash whereas just a single '\' should be used in META tags.</td><td class="clsSyntaxCells clsEvenRow">None</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>setting:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Any string</td><td class="clsSyntaxCells clsEvenRow">Full path of the key, including '\' separators as required.  Remember to use '\\' in JavaScript to specify backslash whereas just a single '\' should be used in META tags.</td><td class="clsSyntaxCells clsEvenRow">None</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>setting:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Any string</td><td class="clsSyntaxCells clsOddRow">Name of the setting.</td><td class="clsSyntaxCells clsOddRow">None</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>type:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">DWORD, STRING, BINARY or MULTISZ</td><td class="clsSyntaxCells clsEvenRow">Data type of the setting.</td><td class="clsSyntaxCells clsEvenRow">None</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>persistent:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">TRUE or FALSE</td><td class="clsSyntaxCells clsOddRow">Whether to create the corresponding merge file.</td><td class="clsSyntaxCells clsOddRow">FALSE</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>value:[Value]
@@ -98,7 +98,7 @@ The Registry module has been deprecated. It is advised to use the SetRegistrySet
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except: Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The tags below add a registry setting called 'RhoElements' in the 'Software' key of the HKEY_LOCAL_MACHINE hive. The setting is of type 'multisz' and has the values 'hello' and 'world'. The corresponding .reg merge file will be created in the \Application folder.
 

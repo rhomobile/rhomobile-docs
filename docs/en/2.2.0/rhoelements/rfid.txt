@@ -18,7 +18,7 @@ To Invoke rfid methods via JavaScript use the following syntax: rfid.method();
 To Set rfid parameters via JavaScript use the following syntax: rfid.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>rfid</b>.antennaSelected = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set rfid return events via JavaScript use the following syntax: rfid.event = Javascript Function;
+To Set rfid return events via JavaScript use the following syntax: rfid.event = JavaScript Function;
 <P />e.g. <b>rfid</b>.enumRFIDEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>rfid</b>.setEMML("antennaSelected:<i>value</i>;enumRFIDEvent:url('JavaSc
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Rfid Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Rfid'</b> will exist on the current page and can be used to interact directly with the Rfid. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Rfid'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Rfid'</b> will exist on the current page and can be used to interact directly with the Rfid. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Rfid'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Rfid methods via Ruby use the following syntax: Rfid.method()
 <P />e.g. <b>Rfid</b>.enumerate</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Rfid parameters via Ruby use the following syntax: Rfid.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -199,7 +199,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###enumRFIDEvent
@@ -304,9 +304,9 @@ Access-filter can take up to tag-patterns. By default, match pattern used is Pat
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">MC 3190Z, MC 9190Z</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Hardware for reading RFID Tags</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Not Persistent - Changes to this module will not persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
-This example starts an inventory using HTTP Meta Tags and tags are sent to a javascript function "TagHandler".
+This example starts an inventory using HTTP Meta Tags and tags are sent to a JavaScript function "TagHandler".
 
 	<META HTTP-Equiv="rfid" content="statusEvent:url('javascript:statusHandler(%json)')">
 	<META HTTP-Equiv="rfid" content="tagEvent:url('javascript:TagHandler(%json)')">
@@ -423,7 +423,7 @@ This example performs inventory and reads the Reserved memory Bank of all tags i
 	}
 	</script>					
 					
-This example gets the capabilities of the local RFID Module and configures the antenna's RF and Singulation parameters. The application should register Javascript callbacks for the enumRFIDEvent and rfParamsEvent events.
+This example gets the capabilities of the local RFID Module and configures the antenna's RF and Singulation parameters. The application should register JavaScript callbacks for the enumRFIDEvent and rfParamsEvent events.
 
 	<script>
 	var objGeneric = new ActiveXObject("PocketBrowser.Generic");   

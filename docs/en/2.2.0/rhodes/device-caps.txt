@@ -123,13 +123,13 @@ See the [Rhodes-System-Api-Samples example](http://github.com/rhomobile/rhodes-s
 
 ### Asynchronous Ajax calls
 
-The Rhodes framework provides a simple HTML tag for accessing Geolocation information. To use it, include the appropriate javascript library on your page:
+The Rhodes framework provides a simple HTML tag for accessing Geolocation information. To use it, include the appropriate JavaScript library on your page:
 
 * For iPhone, Android: `/public/jquery/jquery-1.6.2.min.js` and `/public/js/rhogeolocation.js`
 * For Windows Mobile: `/public/js/rhogeolocation-wm.js`
 * For BlackBerry: Unsupported. The BlackBerry webview control doesn't support Ajax. 
 
-Then add one of the following tags in the appropriate location in your HTML: `<geolocation/>`, `<geolatitude/>` or `<geolongitude/>`. The included javascript will query a predefined URL and fill these tags with location information.
+Then add one of the following tags in the appropriate location in your HTML: `<geolocation/>`, `<geolatitude/>` or `<geolongitude/>`. The included JavaScript will query a predefined URL and fill these tags with location information.
 
 `<geolocation/>` - returns a string in the form `[formatted position];[latitude];[longitude]`. 
 
@@ -690,7 +690,7 @@ Use System.open_url : you can provide any url with any schema(http, file etc), d
 	:::ruby
 	System.open_url('http://www.rhomobile.com')
 
-Use rho_open_target=_blank in html link. Note that jQuery Mobile or other javascript library may disable this attribute.
+Use rho_open_target=_blank in html link. Note that jQuery Mobile or other JavaScript library may disable this attribute.
 	:::html
 	<a href="http://www.google.com/?rho_open_target=_blank">Open Google in external browser</a>
 
@@ -1137,7 +1137,7 @@ Solution: remove display:block from a element
 
 ### Blackberry 5.0 and above full browser
 
-Blackberry 5.0 and above has new BrowserField class, which support javascript, ajax and extended css. To use it set in [rhoconfig.txt](configuration#run-time-configuration):
+Blackberry 5.0 and above has new BrowserField class, which support JavaScript, ajax and extended css. To use it set in [rhoconfig.txt](configuration#run-time-configuration):
 
 	# use full browser only on BB 5.0 and above
 	use_bb_full_browser=5 

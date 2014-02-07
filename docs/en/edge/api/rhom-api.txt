@@ -2,7 +2,7 @@
 
 Allows Ruby access to the Rhodes mini database object mapper, performing database operation on Rhodes model objects. 
 
-**NOTE: For Javascript access to the Rhom, see the [ORM JavaScript API](Orm).**
+**NOTE: For JavaScript access to the Rhom, see the [ORM JavaScript API](Orm).**
 
 ## client_id
 

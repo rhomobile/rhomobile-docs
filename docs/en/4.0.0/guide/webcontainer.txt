@@ -15,7 +15,7 @@ RhoMobile applications rely on having the target platform SDKs installed on your
 [Follow the instructions for setting up target platforms SDKs](nativesdksetup) and then return to this section to continue to the next step.
 
 ## 3) Create a RhoMobile Application
-[Follow the instructions for creating a project](creating_a_project#creating-a-project-with-rhostudio) to create a simple skeleton for a RhoMobile project. You can optionally remove the `public` folder as this contains default Javascript and CSS files that you will not be using since all of your application files will be running from your web server.
+[Follow the instructions for creating a project](creating_a_project#creating-a-project-with-rhostudio) to create a simple skeleton for a RhoMobile project. You can optionally remove the `public` folder as this contains default JavaScript and CSS files that you will not be using since all of your application files will be running from your web server.
 
 ## 4) Setting the Starting Page
 By default this application is configured to start with loclly availble files. You need to change the application so that it starts from your web application instead. Edit the `rhoconfig.txt` file and change the `start_path` parameter to point to the url for your web server.
@@ -86,8 +86,8 @@ Follow the steps for the target platform and return here to contuinue
 * [Build for Windows Phone 8](build_wp8)
 * [Build for Windows](build_win)
 
-## 9) Enabling Javascript on your Web App
-Now that you have a RhoMobile Web App container pointed to your web server, you need to configure your web application on your server to enable the RhoMobile Javascript APIs. In order to do this, you must:
+## 9) Enabling JavaScript on your Web App
+Now that you have a RhoMobile Web App container pointed to your web server, you need to configure your web application on your server to enable the RhoMobile JavaScript APIs. In order to do this, you must:
 
 a) **Generate the `rhoapi-modules.js` file**
 
@@ -101,7 +101,7 @@ In a command prompt from the RhoMobile project folder [you created](#3-create-a-
 
 b) **Copy this file onto your server**
 
-Typically this will be in the same location you have other Javascript files.
+Typically this will be in the same location you have other JavaScript files.
 
 
 c) **Link to the file**

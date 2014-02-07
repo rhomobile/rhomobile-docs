@@ -1,6 +1,6 @@
 # RhoElements Shared Runtime
 
-If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through Javascript. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of JavaScript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.
+If you have an existing application that is running from a web server, it is very easy to extend this application and provide RhoElements functionality. Beyond the standard HTML5 features that may be utilized, RhoElements provides a very easy way for you to add device capabilities to your web application through JavaScript. Let's say for example you have a form on one of your pages and you want to enable bar code scanning for ease of data entry. This can be accomplished by adding a few lines of JavaScript to your pages. You do not need to build and compile a RhoElements application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.
 
 **NOTE: RhoMobile Suite 4.0 provides a RhoElements Shared Runtime for Windows Mobile/CE only. It includes access to all JS API's and default API extensions and capabilities. The Shared Runtime requires a RhoElements license.**
 
@@ -10,7 +10,7 @@ If you have an existing application that is running from a web server, it is ver
 To enable your web app for RhoElements, perform these steps.
 
 1. Install the RhoElements Runtime
-2. Write your web app (HTML, CSS, and JavaScript). [See the Using Javascript APIs From Your Web App section](#using-javascript-apis-from-your-web-app)
+2. Write your web app (HTML, CSS, and JavaScript). [See the Using JavaScript APIs From Your Web App section](#using-javascript-apis-from-your-web-app)
 3. Install your web app on your mobile device or configure it to point to your web server.
 
 ## Installing the RhoElements Runtime
@@ -26,12 +26,12 @@ Once installed, you will have access to the RhoElements config.xml file.
 
 NOTE: When installing a newer version of the runtime on Windows the existing config.xml will be overwritten with the default one. You should redeploy your customized config.xml along with an upgrade of the runtime. On Android, the config.xml is not overwritten on upgrades of the runtime.
 
-## Using Javascript APIs From Your Web App
-When you are running your web pages from a web server, the RhoElements Shared Runtime is essentially acting as a browser. In order to use the RhoMobile API's you will need to copy the `rhoapi-modules.js` from the devices `Program Files\RhoElements\rho\apps\public\api` folder to your web server and link it appropriately in your web server's web pages. Typically you will copy this file to your web applications `js` folder where you may be including other Javascript libraries that are being used. This file will be valid for Windows Mobile/CE devices only and will contain both Rhodes and RhoElements APIs.
+## Using JavaScript APIs From Your Web App
+When you are running your web pages from a web server, the RhoElements Shared Runtime is essentially acting as a browser. In order to use the RhoMobile API's you will need to copy the `rhoapi-modules.js` from the devices `Program Files\RhoElements\rho\apps\public\api` folder to your web server and link it appropriately in your web server's web pages. Typically you will copy this file to your web applications `js` folder where you may be including other JavaScript libraries that are being used. This file will be valid for Windows Mobile/CE devices only and will contain both Rhodes and RhoElements APIs.
 
-NOTE: In prior versions of RhoElements, you did not have to copy a Javascript file to your web application and the RhoElements Javascript objects were available within the container. The current method of including a Javascript file within your web server is a more standardized way of utilizing Jvascript libraries
+NOTE: In prior versions of RhoElements, you did not have to copy a JavaScript file to your web application and the RhoElements JavaScript objects were available within the container. The current method of including a JavaScript file within your web server is a more standardized way of utilizing Jvascript libraries
 
-## Using Javascript APIs From Local Pages
+## Using JavaScript APIs From Local Pages
 You could choose to use the Shared Runtime with locally available HTML files. In this case you will need to make sure you properly reference the file `rhoapi-modules.js` in relation to where your HTML files are running from.
 
 For example if you placed your html files in `Program Files\RhoElements\rho\apps\public\` then in your html files you would link to the `rhoapi-modules.js` using:
@@ -223,7 +223,7 @@ It is recommended that the JavaScript objects are preloaded if they are being us
             <PreloadJSObjects     VALUE="1"/>
         </Preloads>
     </NPAPI>
-NOTE: Some javascript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.     
+NOTE: Some JavaScript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.     
 
 ###Plugin Dependencies
 Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.

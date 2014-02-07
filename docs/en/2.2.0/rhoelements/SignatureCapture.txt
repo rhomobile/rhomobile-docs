@@ -18,7 +18,7 @@ To Invoke signatureCapture methods via JavaScript use the following syntax: sign
 To Set signatureCapture parameters via JavaScript use the following syntax: signaturecapture.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>signatureCapture</b>.visibility = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set signatureCapture return events via JavaScript use the following syntax: signaturecapture.event = Javascript Function;
+To Set signatureCapture return events via JavaScript use the following syntax: signaturecapture.event = JavaScript Function;
 <P />e.g. <b>signatureCapture</b>.signatureSaveEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>signatureCapture</b>.setEMML("visibility:<i>value</i>;signatureSaveEvent
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">SignatureCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'SignatureCapture'</b> will exist on the current page and can be used to interact directly with the SignatureCapture. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'SignatureCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'SignatureCapture'</b> will exist on the current page and can be used to interact directly with the SignatureCapture. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'SignatureCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke SignatureCapture methods via Ruby use the following syntax: SignatureCapture.method()
 <P />e.g. <b>SignatureCapture</b>.clear</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set SignatureCapture parameters via Ruby use the following syntax: SignatureCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -80,7 +80,7 @@ N/A
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###signatureSaveEvent
@@ -134,7 +134,7 @@ All devices support ".bmp" as the default file format for the saved signature. E
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">Touch Screen.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of  The signature box and Save / Vector events. These will be cleared during page navigation.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following META Tag example sets up a yellow rectangular area that has a border with a pen color of burgundy. When the Capture method is invoked via JavaScript the signature will be transferred to a server via HTTP and an alert will inform the user whether or not the transfer succeeded.
 
@@ -150,7 +150,7 @@ The following META Tag example sets up a yellow rectangular area that has a bord
 	<META HTTP-Equiv="SignatureCapture" Content="Destination:url('HTTP://192.168.1.1:80/RhoElementsLog/upload.aspx')">
 	<META HTTP-Equiv="SignatureCapture" Content="SignatureSaveEvent:url('javascript:alert('%s');')">
 	
-The following javascript will show a Signature Capture box with default settings when the JavaScript function onDisplay is called:
+The following JavaScript will show a Signature Capture box with default settings when the JavaScript function onDisplay is called:
 
 	<script>
 	   function onDisplay()
@@ -167,7 +167,7 @@ The following example shows signature being captured as a Data URI and displayed
 	<META HTTP-Equiv="SignatureCapture" Content="Visibility:Visible">
 	<META HTTP-Equiv="SignatureCapture" Content="PenColor:#FF00FF">
 	<META HTTP-Equiv="SignatureCapture" Content="PenWidth:4">
-	<META HTTP-Equiv="SignatureCapture" Content="signatureCaptureEvent:url('Javascript:onSignatureCapture(%json)');">
+	<META HTTP-Equiv="SignatureCapture" Content="signatureCaptureEvent:url('JavaScript:onSignatureCapture(%json)');">
 	  
 	<script type="text/javascript">
 	function onSignatureCapture(jsonObject)
@@ -190,7 +190,7 @@ The following example shows signature vectors being displayed in an HTML table
 	<META HTTP-Equiv="SignatureCapture" Content="Visibility:Visible">
 	<META HTTP-Equiv="SignatureCapture" Content="PenColor:#FF00FF">
 	<META HTTP-Equiv="SignatureCapture" Content="PenWidth:4">
-	<META HTTP-Equiv="SignatureCapture" Content="VectorEvent:url('Javascript:onVectors(%s);')">
+	<META HTTP-Equiv="SignatureCapture" Content="VectorEvent:url('JavaScript:onVectors(%s);')">
 	  
 	<script type="text/javascript">
 	function onVectors(data)

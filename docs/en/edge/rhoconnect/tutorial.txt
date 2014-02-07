@@ -4,7 +4,7 @@
 
 RhoConnect is a synchronization framework consisting of a client application (a client component on the mobile device) and a server component (a RhoConnect application) that runs on any server capable of running Ruby. The client application can be a Rhodes application, or another mobile application written without the use of Rhodes (such as an iOS/Objective C or Android/Java application).
 
-RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. You can write this code in Javascript or Ruby as a RhoConnect source adapter, or you can write this code as a RhoConnect plug-in application written in Java, .NET, or Ruby on Rails.
+RhoConnect requires that you write a small amount of code for the query, create, update and delete operations of your particular enterprise backend. You can write this code in JavaScript or Ruby as a RhoConnect source adapter, or you can write this code as a RhoConnect plug-in application written in Java, .NET, or Ruby on Rails.
 
 In this tutorial, you will learn:
 
@@ -95,7 +95,7 @@ This means that your RhoConnect app is up and running on localhost:9292. If you 
 
 ## Defining RhoConnect Source Adapters
 
-Once RhoConnect is installed we’re ready to build a RhoConnect source adapter to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. If you generated a JavaScript RhoConnect application then you will need to generate [Javascript Source adapters](source-adapters). Likewise, if you generated a Ruby RhoConnect application, you will need to generate [Ruby Source Adapters](source-adapters-js).
+Once RhoConnect is installed we’re ready to build a RhoConnect source adapter to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. If you generated a JavaScript RhoConnect application then you will need to generate [JavaScript Source adapters](source-adapters). Likewise, if you generated a Ruby RhoConnect application, you will need to generate [Ruby Source Adapters](source-adapters-js).
 
 To demonstrate how this works we have setup a [dummy backend](http://rhostore.herokuapp.com) for a `Product` model. This backend will allow you to perform all CRUD operations, however the data will be reset every hour.
 

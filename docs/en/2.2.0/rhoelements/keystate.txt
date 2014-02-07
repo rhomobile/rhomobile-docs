@@ -21,7 +21,7 @@ e.g. <b>keyState</b>.setEMML("right:<i>value</i>");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">KeyState Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'KeyState'</b> will exist on the current page and can be used to interact directly with the KeyState. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'KeyState'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'KeyState'</b> will exist on the current page and can be used to interact directly with the KeyState. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'KeyState'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set KeyState parameters via Ruby use the following syntax: KeyState.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>KeyState</b>.right = 'value'
 </td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
@@ -64,7 +64,7 @@ When the screen orientation changes, either using the ScreenOrientation tag or b
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices except Enterprise Tablet.</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
 The following example shows the KeyState indicators and sets the right and top coordinates to 50.
 

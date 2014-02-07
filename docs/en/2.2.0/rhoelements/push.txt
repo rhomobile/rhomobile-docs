@@ -18,7 +18,7 @@ To Invoke push methods via JavaScript use the following syntax: push.method();
 To Set push parameters via JavaScript use the following syntax: push.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
 <P />e.g. <b>push</b>.port = 'value';
 </td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set push return events via JavaScript use the following syntax: push.event = Javascript Function;
+To Set push return events via JavaScript use the following syntax: push.event = JavaScript Function;
 <P />e.g. <b>push</b>.detected = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
@@ -30,7 +30,7 @@ e.g. <b>push</b>.setEMML("port:<i>value</i>;detected:url('JavaScript:doFunction(
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">Push Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
-By default the Ruby Object <b>'Push'</b> will exist on the current page and can be used to interact directly with the Push. All Methods, Parameters and Events are the same as Javascript, however, notice <b>'Push'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+By default the Ruby Object <b>'Push'</b> will exist on the current page and can be used to interact directly with the Push. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'Push'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke Push methods via Ruby use the following syntax: Push.method()
 <P />e.g. <b>Push</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To Set Push parameters via Ruby use the following syntax: Push.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
@@ -72,7 +72,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ##Events
 
 
-Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a Javascript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or javascript arrays.  Event parameters can be accessed either directly or via JSON objects.
+Values are returned to the caller in RhoElements via Events.  Most modules contain events and those returned from this module are given below along with the event parameters.  Events can cause a navigation to a new URL or a JavaScript function on the page to be invoked.  Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays.  Event parameters can be accessed either directly or via JSON objects.
 
 <br />
 ###detected
@@ -114,22 +114,22 @@ In version 2.2 of RhoElements for WM / CE the default push port was changed from
 </td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td></tr></table>
 
 
-##HTML/Javascript Examples
+##HTML/JavaScript Examples
 
-The code below configures the server to listen on port 8081, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the Javascript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8081/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
+The code below configures the server to listen on port 8081, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the JavaScript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8081/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
 
 	<META HTTP-Equiv="Push" Content="Port:8081">
 	<META HTTP-Equiv="Push" Content="Passkey:secret">
 	<META HTTP-Equiv="Push" Content="Path:/push">
 	<META HTTP-Equiv="Push" Content="Response:/ok.html">
-	<META HTTP-Equiv="Push-detected" Content="url('Javascript:onPush('%s','%s');')">
+	<META HTTP-Equiv="Push-detected" Content="url('JavaScript:onPush('%s','%s');')">
 	<META HTTP-Equiv="Push" Content="Start">
 	      
-The following code shows a very simple push server which just responds by executing a javascript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
+The following code shows a very simple push server which just responds by executing a JavaScript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
 
 	<HEAD>
 	<META HTTP-Equiv="Push" Content="Port:1234">
-	<META HTTP-Equiv="Push-detected" Content="url('Javascript:pushDetectJSON(%json);')">
+	<META HTTP-Equiv="Push-detected" Content="url('JavaScript:pushDetectJSON(%json);')">
 	<META HTTP-Equiv="Push" Content="Start">
 	<TITLE>Push Tests</TITLE>
 	  <script type="text/javascript">

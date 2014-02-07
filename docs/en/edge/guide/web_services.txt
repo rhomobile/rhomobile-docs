@@ -30,7 +30,7 @@ Ruby:
 		puts "An error occurred"
 	end
 
-Javascript:
+JavaScript:
 	:::javascript
 	// synchronous request
 	var response = Rho.Network.get({
@@ -65,7 +65,7 @@ Ruby:
 		end
 	end
 
-Javascript:
+JavaScript:
 	:::javascript
 	// asynchronous request
 	function get_request() {
@@ -92,7 +92,7 @@ In general, asynchronous requests are preferable. Many times, however, you need 
 
 ## jQuery
 
-jQuery also includes convenient APIs for making AJAX requests from Javascript: `jQuery.ajax` and `jQuery.getJSON`
+jQuery also includes convenient APIs for making AJAX requests from JavaScript: `jQuery.ajax` and `jQuery.getJSON`
 
 	:::javascript
 	function perform_ajax_request() {
@@ -143,9 +143,9 @@ One drawback of using `jQuery.ajax` instead of the [RhoMobile Network API](../ap
 
 ### Ruby code as a local proxy
 
-**NOTE: If you need to make cross-domain requests but do not want to [use the RhoMobile Network API in Javascript](#network-api), using Ruby code as a local proxy is usually the easiest approach in a native RhoMobile application**
+**NOTE: If you need to make cross-domain requests but do not want to [use the RhoMobile Network API in JavaScript](#network-api), using Ruby code as a local proxy is usually the easiest approach in a native RhoMobile application**
 
-Although by default you can only make AJAX requests to the embedded server in a RhoMobile application, because your controllers can execute any code you need, you can easily create a custom controller that receives AJAX requests from the javascript in your page, connects to a remote server using the Network API as seen above and returns the results back to javascript. This is the only scenario where you should prefer to use synchronous requests.
+Although by default you can only make AJAX requests to the embedded server in a RhoMobile application, because your controllers can execute any code you need, you can easily create a custom controller that receives AJAX requests from the JavaScript in your page, connects to a remote server using the Network API as seen above and returns the results back to JavaScript. This is the only scenario where you should prefer to use synchronous requests.
 
 Example:
 
@@ -156,7 +156,7 @@ Ruby controller:
 			:url => "http://www.example.com/get_data"
 			})
 
-		# supposing our server returns valid JSON, we can just relay it to our Javascript
+		# supposing our server returns valid JSON, we can just relay it to our JavaScript
 		# otherwise we would parse the response, build our own result value and 
 		if request["status"]=="ok"
 			result = request["body"]
@@ -170,7 +170,7 @@ Ruby controller:
     	render :string => result.to_json, :use_layout_on_ajax => true
     end
 
-Javascript:
+JavaScript:
     :::javascript
     function perform_json_request() {
 		$.getJSON("/app/MyController/get_data")
@@ -214,7 +214,7 @@ JSONP:
 
 In the above example, the padding (the `P` in `JSONP`) is `callback` but it can be anything. In fact, it is common to implement JSONP on the server side such that it takes a parameter called `callback` that will determine the name of the function:
 
-Javascript:
+JavaScript:
 	:::javascript
 	function call_json_action() {
 		$("body").append("<script src='/app/MyController/get_data?callback=process_values'></script>");
@@ -239,7 +239,7 @@ The ideal use cases for deciding to implement JSONP are:
 * Invoking services that are already implemented as JSONP: integrating an existing JSONP backend in your RhoMobile app is almost trivial
 * When other web applications will also access the same services. JSONP can be implemented once on the server side and then reused across different clients
 
-**NOTE: Using JSONP comes with some security implications: nothing guarantees that a server actually returns the data you expect instead of malicious code. You should only include scripts (and therefore, JSONP links) from servers that are under your control or that you completely trust. If the backend is compromised, it could return arbitrary javascript code to your application, potentially compromising it, too.**
+**NOTE: Using JSONP comes with some security implications: nothing guarantees that a server actually returns the data you expect instead of malicious code. You should only include scripts (and therefore, JSONP links) from servers that are under your control or that you completely trust. If the backend is compromised, it could return arbitrary JavaScript code to your application, potentially compromising it, too.**
 
 
 ### CORS

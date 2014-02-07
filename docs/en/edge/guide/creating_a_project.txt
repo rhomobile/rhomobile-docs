@@ -141,9 +141,9 @@ Any file linked from a view (or that must be reachable by the embedded web brows
 
 * `css` - stylesheets
 * `images` - image files for toolbars, lists, ok and back buttons, etc.
-* `jqmobile` - [JQuery Mobile](http://jquerymobile.com), a javascript library that helps you build touch-optimized HTML applications for mobile devices
-* `jquery` - [JQuery](http://jquery.com), a javascript library to manipulate HTML with an easy to use, cross browser syntax
-* `js` - general javascript files. Your application-specific javascript code should be stored in this folder
+* `jqmobile` - [JQuery Mobile](http://jquerymobile.com), a JavaScript library that helps you build touch-optimized HTML applications for mobile devices
+* `jquery` - [JQuery](http://jquery.com), a JavaScript library to manipulate HTML with an easy to use, cross browser syntax
+* `js` - general JavaScript files. Your application-specific JavaScript code should be stored in this folder
 
 You can create any other folders and organize your files following any structure you prefer, but it is recommended to stay as close as possible to the default, as this will make things easier when working with a team or asking for help.  
 

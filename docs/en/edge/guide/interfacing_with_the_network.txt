@@ -25,7 +25,7 @@ Ruby:
 		end
 	end
 
-Javascript:
+JavaScript:
 	:::javascript
 	function install_network_callback() {
 		Rho.Network.startStatusNotify(3000, status_notify_callback);
@@ -54,7 +54,7 @@ Ruby:
 		# We may encounter some connectivity issues. It may not be a good time to start a large download now
 	end
 
-Javascript:
+JavaScript:
 	:::javascript
 	var wlan_status = Rho.SignalIndicators.wlanStatus();
 	var signal_strength = wlan_status.signalStrength;
@@ -77,7 +77,7 @@ Ruby:
 	# Connect to the Internet
 	Rho::Network.connectWan("Internet", :wan_connection_callback)
 
-Javascript:
+JavaScript:
 	:::javascript
 	// Connect to the Internet
 	Rho.Network.connectWan("Internet", wan_connection_callback);
@@ -93,7 +93,7 @@ Ruby:
 		# At this point, the connection to the VPN has been attempted, but we need to check if it succeeded
 		# See the next section called "Detecting remote server availability"
 	end
-Javascript:
+JavaScript:
 	:::javascript
 	// Connect to a particular VPN
 	Rho.Network.connectWan("Work VPN", wan_connection_callback);
@@ -126,7 +126,7 @@ Ruby:
 		end
 	end
 
-Javascript:
+JavaScript:
 	:::javascript
 	Rho.Network.detectConnection( {
 		host : "www.example.com",
