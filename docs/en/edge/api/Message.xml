@@ -41,8 +41,8 @@
       <METHOD name="addRecord" hasCallback="optional">
         <DESC>add new Record to Message</DESC>
         <PARAMS>
-          <PARAM name="record" type="Rho.NFC.Record">
-            <DESC></DESC>
+          <PARAM name="recordID" type="STRING">
+            <DESC>record ID</DESC>
           </PARAM>
         </PARAMS>
         <RETURN type="STRING">

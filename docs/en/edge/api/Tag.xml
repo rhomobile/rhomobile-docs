@@ -119,7 +119,6 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-
       <METHOD name="close" hasCallback="optional">
         <DESC>release resources, close connection</DESC>
         <RETURN type="STRING">

@@ -95,8 +95,10 @@ Ruby
       <METHOD name="init" constructor="true">
         <DESC>Opens the input source that is currently set.</DESC>
       </METHOD>
-      <METHOD name="setCallback" hasCallback="mandatory">
-        <DESC>Store callback for captureDocument method.</DESC>
+      <METHOD name="captureDocument" hasCallback="mandatory">
+        <DESC>
+            Capture a document by either taking a photo of it and process that image for fields defined in the template. You must specify the template associated with the capture either through the template property or as part of the propertyMap when calling this method. If the document processing does not succeed the returned callback will contain failure description. If the captured document is processed successfully a callback will contain document data.
+        </DESC>
         <CALLBACK type="HASH">
           <DESC>DPX engine calls the callback on any significant event. Look at callbackType parameter.</DESC>
           <PARAMS>
@@ -210,14 +212,6 @@ Ruby
             </PARAM>
           </PARAMS>
         </CALLBACK>
-      </METHOD>
-      <METHOD name="captureDocument">
-        <DESC>Capture a document by either taking a photo of it or providing an image and process that image for fields
-defined in the template. You must specify the template associated with the capture either through the template
-property or as part of the propertyMap when calling this method. If the document processing does not succeed
-the returned callback will contain either 'error' or 'timeout' in the callback type field. If the captured
-document is processed successfully a callback will be fired once for each field defined in your template
-        </DESC>
       </METHOD>
       <METHOD name="getDataUri">
          <DESC>Return data URI encoding of the raw image assocated with the region or captured form, this allows the operator to

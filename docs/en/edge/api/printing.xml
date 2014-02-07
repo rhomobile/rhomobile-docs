@@ -162,8 +162,8 @@
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
-            <METHOD name="stopSearch" access="STATIC" hasCallback="optional">
-                <DESC>Stop discovery process</DESC>
+            <METHOD name="stopSearch" access="STATIC">
+                <DESC>Stop all active and pending search requests, .</DESC>
             </METHOD>
             
             <METHOD name="getPrinterByID" access="STATIC">
@@ -247,9 +247,9 @@
                     <PARAM name="path" type="STRING">
                         <DESC>Location of file to print.</DESC>
                     </PARAM>
-                    <PARAM name="options" type="HASH">
+                    <PARAM name="options" type="HASH" generateDoc="false">
                         <CAN_BE_NIL>
-                            <DESC>Not providing properties to this function will print with default settings.</DESC>                                
+                            <DESC>Not providing properties to this function will print with default settings. Reserved for future use.</DESC>                                
                         </CAN_BE_NIL>
                         <PARAMS>
                             <DESC>Proivde a set of properties to configure file printing.</DESC>
@@ -309,7 +309,7 @@
                     <PARAM name="command" type="STRING">
                         <DESC>Raw string to print.</DESC>
                     </PARAM>
-                    <PARAM name="options" type="HASH">
+                    <PARAM name="options" type="HASH" generateDoc="false">
                         <CAN_BE_NIL>
                             <DESC>Not providing properties to this function will print with default settings.</DESC>                                
                         </CAN_BE_NIL>

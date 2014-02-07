@@ -279,17 +279,17 @@
 
       <METHOD name="activate" access="STATIC" hasCallback="optional">
         <DESC>Activates the Nfc device so that all the Nfc operations will be executed</DESC>
-        <PARAM name="status" type="STRING">
-          <DESC>NFC_SUCCESS if OK</DESC>
-        </PARAM>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="reset" access="STATIC" hasCallback="optional">
         <DESC>Resets the Nfc device to default configuration</DESC>
-        <PARAM name="status" type="STRING">
-          <DESC>NFC_SUCCESS if OK</DESC>
-        </PARAM>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -305,7 +305,7 @@
         <DESC>register callback for Tag detection</DESC>
         <PARAMS>
           <PARAM name="tagsToBeDetected" type="ARRAY">
-            <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
+            <DESC>array with tag types - only those tags will be detected.  if empty array - all types. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
             <PARAM type="STRING">
             </PARAM>
           </PARAM>
@@ -321,6 +321,9 @@
             </PARAM>
           </PARAMS>
         </CALLBACK>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -347,6 +350,28 @@
             </PARAM>
           </PARAMS>
         </CALLBACK>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="btConnect" hasCallback="optional">
+        <DESC>Connects the Bluetooth device when the connection handover tag is detected</DESC>
+        <PARAM name="passKey" type="STRING">
+          <DESC></DESC>
+        </PARAM>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="btDisconnect" hasCallback="optional">
+        <DESC>Disconnects the Bluetooth device of the Nfc device.</DESC>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -355,7 +380,7 @@
         <RETURN type="HASH">
           <DESC>return hash with capabilities</DESC>
           <PARAMS>
-            <PARAM name="operatingModesSupported;" type="ARRAY">
+            <PARAM name="operatingModesSupported" type="ARRAY">
               <DESC></DESC>
               <PARAM type="STRING"/>
             </PARAM>
