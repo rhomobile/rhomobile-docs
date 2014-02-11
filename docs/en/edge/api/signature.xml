@@ -180,15 +180,15 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<METHOD name="clear" runInThread="ui">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<DESC>Clears the capture area</DESC>
+				<DESC>Clears an inline capture area</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 			</METHOD>
 
 			<METHOD name="hide" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Hides the signature capture area from view. Doesnt clear the inputed signature for inline signature areas (not for signatures shown using takeFullScreen). In a hidden state, a user cannot interact with the signature capture area.</DESC>
+				<DESC>Hides an inline capture area from view. Doesn't clear the inputed signature for inline signature areas. In a hidden state, a user cannot interact with the signature capture area.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
-			</METHOD>				
+			</METHOD>
 			
 			<METHOD name="setVectorCallback" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -275,9 +275,9 @@ The signature capture area is designed to be set up prior to capturing the signa
       signature = Rho::Application.expandDatabaseBlobFilePath(@params["imageUri"])
 
       # In our example, we will display the signature as soon as it is captured.
-      # We have a JavaScript function in our page to set the src attribute of an img element and we will call it now
+      # We have a javascript function in our page to set the src attribute of an img element and we will call it now
       # 
-      WebView.executeJavaScript("updateSignature('#{signature}')")
+      WebView.executeJavascript("updateSignature('#{signature}')")
     else
       # if we did not really capture a signature, there is nothing else to do here
       WebView.navigate(url_for(:action => :index )) 
@@ -289,7 +289,7 @@ The signature capture area is designed to be set up prior to capturing the signa
                </SECTION>
                <SECTION>
                <DESC>
-                   In the view, we have an img element to display the captured signature and a JavaScript function to update it
+                   In the view, we have an img element to display the captured signature and a javascript function to update it
                </DESC>
                <CODE lang='javascript' >
            <![CDATA[

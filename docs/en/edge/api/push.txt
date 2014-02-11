@@ -17,6 +17,7 @@ capabilities: ["push"]
 
 <pre><code>:::ruby
 extensions: ["rhoconnect-push", "rhoconnect-client"]
+For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
 </code></pre>
 
 <h2>JavaScript Usage</h2>

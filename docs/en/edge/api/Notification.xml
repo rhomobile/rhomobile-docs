@@ -206,7 +206,7 @@ end
             <SECTIONS>
               <SECTION>
                <DESC>
-                   This example shows how to show an alert in JavaScript. 
+                   This example shows how to show an alert in Javascript. 
                </DESC>
                <CODE>
                 <JAVASCRIPT>

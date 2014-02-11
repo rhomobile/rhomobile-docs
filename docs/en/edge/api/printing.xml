@@ -146,17 +146,6 @@
                             <DESC>error message, only if status = ERROR</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
-                        <PARAM name="additionalPrinterDiscoveryProperties" type="HASH">
-                            <DESC>hash with printer parameters. Can be used for any additional parameters for founded printer. On Android for Zebra this hash conatin discoveryMap - full set of discovery printer properties</DESC>
-                            <PLATFORM>Android</PLATFORM> 
-                            <PARAMS>
-                                <DESC>pairs string-string with printers parameters</DESC>
-                                <PARAM name="prpertyWithStringValue" type="STRING">
-                                    <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
-                                    <CAN_BE_NIL/>
-                                </PARAM>
-                            </PARAMS>    
-                        </PARAM>
                     </PARAMS>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
