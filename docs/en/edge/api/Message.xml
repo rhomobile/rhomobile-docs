@@ -29,7 +29,7 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="getRecords" hasCallback="optional">
+      <METHOD name="getRecords">
         <DESC>return array of Records IDs</DESC>
         <RETURN type="ARRAY">
           <PARAM type="STRING"/>
@@ -38,7 +38,7 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="addRecord" hasCallback="optional">
+      <METHOD name="addRecord">
         <DESC>add new Record to Message</DESC>
         <PARAMS>
           <PARAM name="recordID" type="STRING">
@@ -64,16 +64,15 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="getContent" hasCallback="optional">
+      <METHOD name="getContent">
         <DESC>return Message as byte array</DESC>
-        <RETURN type="ARRAY">
-          <PARAM type="INTEGER"/>
+        <RETURN type="STRING">
           <DESC></DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="close" hasCallback="optional">
+      <METHOD name="close">
         <DESC>release resources</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>

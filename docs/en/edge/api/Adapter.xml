@@ -21,7 +21,7 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="version" type="STRING"  readOnly="true">
-        <DESC>Gets the version of the Nfc device.</DESC>
+        <DESC>Gets the version of the Nfc stack.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="pollingTimeout" type="INTEGER">
@@ -143,43 +143,11 @@
       <CONSTANT name="NFC_STACK_NOT_INITIALISED" value="NFC_STACK_NOT_INITIALISED">
         <DESC>Stack is not initialized.</DESC>
       </CONSTANT>
-
-
-      <CONSTANT name="NFC_MODE_P2P" value="NFC_MODE_P2P">
-        <DESC></DESC>
+      <CONSTANT name="NFC_NOT_SMART_POSTER" value="NFC_NOT_SMART_POSTER">
+        <DESC>Record is not a smart poster.</DESC>
       </CONSTANT>
-      <CONSTANT name="NFC_MODE_Reader_Writer" value="NFC_MODE_Reader_Writer">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_CE" value="NFC_MODE_CE">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_CE_UICC" value="NFC_MODE_CE_UICC">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_CE_SE" value="NFC_MODE_CE_SE">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_CE_Host" value="NFC_MODE_CE_Host">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_Multiple_NDEFMessages" value="NFC_MODE_Multiple_NDEFMessages">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_LLCP" value="NFC_MODE_LLCP">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_SNEP" value="NFC_MODE_SNEP">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_NPP" value="NFC_MODE_NPP">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_BT_StaticHandover" value="NFC_MODE_BT_StaticHandover">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_MODE_BT_DynamicHandover" value="NFC_MODE_BT_DynamicHandover">
-        <DESC></DESC>
+      <CONSTANT name="NFC_SMART_POSTER_EXISTS" value="NFC_SMART_POSTER_EXISTS">
+        <DESC>Message already has a smart poster record.</DESC>
       </CONSTANT>
 
       <CONSTANT name="NFC_TAG_MiFareUL" value="NFC_TAG_MiFareUL">
@@ -222,62 +190,12 @@
         <DESC></DESC>
       </CONSTANT>
 
-      <CONSTANT name="NFC_TNF_EMPTY" type="INTEGER" value="0">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TNF_WELL_KNOWN" type="INTEGER" value="1">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TNF_MIME_MEDIA" type="INTEGER" value="2">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TNF_ABSOLUTE_URI" type="INTEGER" value="3">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TNF_EXTERNAL_TYPE" type="INTEGER" value="4">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TNF_UNKNOWN" type="INTEGER" value="5">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TNF_UNCHANGED" type="INTEGER" value="6">
-        <DESC></DESC>
-      </CONSTANT>
-
-      <CONSTANT name="NFC_RTD_TEXT" type="STRING" value="T">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_URI" type="STRING" value="U">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_SMART_POSTER" type="STRING" value="Sp">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_ALTERNATIVE_CARRIER" type="STRING" value="ac">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_HANDOVER_CARRIER" type="STRING" value="Hc">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_HANDOVER_REQUEST" type="STRING" value="Hr">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_HANDOVER_SELECT" type="STRING" value="Hs">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_SIGNATURE_TYPE" type="STRING" value="Sig">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_RTD_GENERIC_CONTROL" type="STRING" value="Gc">
-        <DESC></DESC>
-      </CONSTANT>
-
 
     </CONSTANTS>
 
     <METHODS>
 
-      <METHOD name="activate" access="STATIC" hasCallback="optional">
+      <METHOD name="activate" access="STATIC">
         <DESC>Activates the Nfc device so that all the Nfc operations will be executed</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>
@@ -285,7 +203,7 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="reset" access="STATIC" hasCallback="optional">
+      <METHOD name="reset" access="STATIC">
         <DESC>Resets the Nfc device to default configuration</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>
@@ -321,24 +239,11 @@
             </PARAM>
           </PARAMS>
         </CALLBACK>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="setMessageHandler" access="STATIC" hasCallback="mandatory">
         <DESC>register callback for Message receive</DESC>
-        <PARAMS>
-          <PARAM name="TNF" type="INTEGER">
-            <DESC>TNF - only this TNF will be detected, if zero - all TNFs</DESC>
-          </PARAM>
-          <PARAM name="RTDs" type="ARRAY">
-            <DESC>array with message types - only those typess will be detected, if empty array - all types</DESC>
-            <PARAM type="STRING">
-            </PARAM>
-          </PARAM>
-        </PARAMS>
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
@@ -350,32 +255,53 @@
             </PARAM>
           </PARAMS>
         </CALLBACK>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="btConnect" hasCallback="optional">
-        <DESC>Connects the Bluetooth device when the connection handover tag is detected</DESC>
-        <PARAM name="passKey" type="STRING">
+      <METHOD name="setConfigChangeHandler" access="STATIC" hasCallback="mandatory">
+        <DESC>register callback for Config change</DESC>
+        <CALLBACK type="HASH">
           <DESC></DESC>
-        </PARAM>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+      
+      <METHOD name="btConnect"  access="STATIC" hasCallback="mandatory">
+        <DESC>Connects the Bluetooth device to obtain device properties</DESC>
+        <CALLBACK type="HASH">
+          <DESC></DESC>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+            <PARAM name="btName" type="STRING">
+              <DESC>device name</DESC>
+            </PARAM>
+            <PARAM name="btAddress" type="STRING">
+              <DESC>device MAC address</DESC>
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="btDisconnect" hasCallback="optional">
-        <DESC>Disconnects the Bluetooth device of the Nfc device.</DESC>
+      <METHOD name="btDisconnect"  access="STATIC">
+        <DESC>Disconnects the Bluetooth device.</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="getDeviceInfo" access="STATIC" hasCallback="optional">
+      <METHOD name="getDeviceInfo" access="STATIC">
         <DESC>Gets the Nfc device capablities</DESC>
         <RETURN type="HASH">
           <DESC>return hash with capabilities</DESC>
