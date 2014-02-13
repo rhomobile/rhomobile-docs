@@ -17,32 +17,71 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="TNF" type="STRING" readOnly="true">
-        <DESC>see NFC_TNF_xxx constants in Rho.NFC.Adapter</DESC>
-        <PLATFORM>WM</PLATFORM>
-      </PROPERTY>
       <PROPERTY name="type" type="STRING" readOnly="true">
-        <DESC>see NFC_RTD_xxx constants in Rho.NFC.Adapter</DESC>
+        <DESC>record type</DESC>
+        <VALUES>
+          <VALUE constName="TEXT" value ="text">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="URI" value ="uri">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="OOB" value ="oob">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="VCARD" value ="vcard">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="SMART_POSTER" value ="smartposter">
+            <DESC></DESC>
+          </VALUE>
+        </VALUES>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
+      <PROPERTY name="language" type="STRING" readOnly="true">
+        <DESC></DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="text" type="STRING" readOnly="true">
+        <DESC></DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="uri" type="STRING" readOnly="true">
+        <DESC></DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="protocol" type="STRING" readOnly="true">
+        <DESC></DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="address" type="STRING" readOnly="true">
+        <DESC></DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="btName" type="STRING" readOnly="true">
+        <DESC></DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      
     </PROPERTIES>
 
     <METHODS>
 
 
-      <METHOD name="create" access="STATIC">
-        <DESC>Creates custom record object</DESC>
+      <METHOD name="createOob" access="STATIC">
+        <DESC>Creates out-of-band record object(only for bluetooth)</DESC>
         <PARAMS>
-          <PARAM name="TNF" type="STRING">
-            <DESC>see NFC_TNF_xxx constants in Rho.NFC.Adapter</DESC>
-          </PARAM>
-          <PARAM name="type" type="STRING">
-            <DESC>see NFC_RTD_xxx constants in Rho.NFC.Adapter</DESC>
-          </PARAM>
-          <PARAM name="payload" type="ARRAY">
+          <PARAM name="address" type="STRING">
             <DESC></DESC>
-            <PARAM type="INTEGER"/>
+          </PARAM>
+          <PARAM name="btName" type="STRING">
+            <DESC></DESC>
           </PARAM>
         </PARAMS>
         <RETURN type="Rho.NFC.Record">
@@ -51,8 +90,29 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
+      <METHOD name="createVcard" access="STATIC">
+        <DESC>Creates out-of-band record object(only for bluetooth)</DESC>
+        <PARAMS>
+          <PARAM name="contactData" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="Rho.NFC.Record">
+          <DESC>Record object</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="createSmartPoster" access="STATIC">
+        <DESC>Creates smart poster record object</DESC>
+        <RETURN type="Rho.NFC.Record">
+          <DESC>Record object</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
       <METHOD name="createUri" access="STATIC">
-        <DESC>Create uri record object. NFC_TNF_WELL_KNOWN will be set as THF.</DESC>
+        <DESC>Create uri record object.</DESC>
         <PARAMS>
           <PARAM name="protocol" type="STRING">
             <DESC></DESC>
@@ -68,7 +128,7 @@
       </METHOD>
 
       <METHOD name="createText" access="STATIC">
-        <DESC>Creates text record object. NFC_TNF_WELL_KNOWN will be set as THF.</DESC>
+        <DESC>Creates text record object.</DESC>
         <PARAMS>
           <PARAM name="language" type="STRING">
             <DESC></DESC>
@@ -83,23 +143,47 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="getPayload">
-        <DESC>return array of bytes</DESC>
-        <RETURN type="ARRAY">
-          <PARAM type="INTEGER"/>
-          <DESC></DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="getPayloadAsString">
-        <DESC>return array of bytes</DESC>
+      <METHOD name="addText">
+        <DESC>Only for smart poster record</DESC>
+        <PARAMS>
+          <PARAM name="language" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+          <PARAM name="text" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
         <RETURN type="STRING">
-          <DESC></DESC>
+          <DESC>return NFC_SUCCESS if OK</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
+      <METHOD name="addUri">
+        <DESC>Only for smart poster record</DESC>
+        <PARAMS>
+          <PARAM name="protocol" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+          <PARAM name="uri" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="STRING">
+          <DESC>return NFC_SUCCESS if OK</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getRecords">
+        <DESC>Only for smart poster record</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="STRING"/>
+          <DESC>array of id of Rho.NFC.Record objects</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+      
       <METHOD name="getRecordById" access="STATIC">
         <DESC>get Record object by Id</DESC>
         <PARAMS>

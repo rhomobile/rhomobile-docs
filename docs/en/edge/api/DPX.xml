@@ -27,7 +27,7 @@ Ruby
     </MORE_HELP>
 
     <TEMPLATES>
-      <!--DEFAULT_INSTANCE/-->
+      <DEFAULT_INSTANCE/>
       <PROPERTY_BAG/>
     </TEMPLATES>
 
@@ -92,12 +92,8 @@ Ruby
     </PROPERTIES>
 
     <METHODS>
-      <METHOD name="init" constructor="true">
-        <DESC>Opens the input source that is currently set.</DESC>
-      </METHOD>
       <METHOD name="captureDocument" hasCallback="mandatory">
-        <DESC>
-            Capture a document by either taking a photo of it and process that image for fields defined in the template. You must specify the template associated with the capture either through the template property or as part of the propertyMap when calling this method. If the document processing does not succeed the returned callback will contain failure description. If the captured document is processed successfully a callback will contain document data.
+        <DESC>Capture a document by either taking a photo of it and process that image for fields defined in the template. You must specify the template associated with the capture either through the template property or as part of the propertyMap when calling this method. If the document processing does not succeed the returned callback will contain failure description. If the captured document is processed successfully a callback will contain document data.
         </DESC>
         <CALLBACK type="HASH">
           <DESC>DPX engine calls the callback on any significant event. Look at callbackType parameter.</DESC>

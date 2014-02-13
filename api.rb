@@ -940,7 +940,7 @@ def self.getparams(element,toplevel)
 						param["type"] = "SELF_INSTANCE: " + @@apiName
 					end
 					if toplevel
-
+						
 						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
 						@seperator =  ', '
 					end 

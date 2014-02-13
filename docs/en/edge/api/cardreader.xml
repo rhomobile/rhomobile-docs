@@ -205,7 +205,7 @@ There is no way to abort a pending PIN entry (other than the customer pressing t
 			<REMARK title="Blank card data">
                 <DESC>
                     <![CDATA[
-In certain circumstances it is possible that the card reader may return empty card data. The JavaScript event function should be able to handle this correctly. 
+In certain circumstances it is possible that the card reader may return empty card data. The Javascript event function should be able to handle this correctly. 
                     ]]>
                 </DESC>
             </REMARK>
@@ -219,7 +219,7 @@ Applications running in RhoElements should be resilient against the card reader 
 			<REMARK title="Encrypted Card data">
                 <DESC>
                     <![CDATA[
-The encrypted data is supported only on the card readres that are configured for encryption. Since the encrypted data might contain unreadable characters sometimes it is recommended to use only JSON object method rather than JavaScript '%s' notation. 
+The encrypted data is supported only on the card readres that are configured for encryption. Since the encrypted data might contain unreadable characters sometimes it is recommended to use only JSON object method rather than Javascript '%s' notation. 
                     ]]>
                 </DESC>
             </REMARK>

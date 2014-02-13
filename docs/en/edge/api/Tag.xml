@@ -20,15 +20,15 @@
         <DESC>see NFC_TAG_xxx constants in in Rho.NFC.Adapter</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
-      <PROPERTY name="serialNumber" type="INTEGER">
+      <PROPERTY name="serialNumber" type="STRING" readOnly="true">
         <DESC></DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
-      <PROPERTY name="tagSize" type="INTEGER" readOnly="true">
+      <PROPERTY name="size" type="INTEGER" readOnly="true">
         <DESC>size in bytes</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
-      <PROPERTY name="tagFreeSize" type="INTEGER" readOnly="true">
+      <PROPERTY name="freeSize" type="INTEGER" readOnly="true">
         <DESC>free size in bytes</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
@@ -40,21 +40,16 @@
         <DESC>ndef or not</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
+      <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
+        <DESC>connected or not</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
 
     </PROPERTIES>
 
     <METHODS>
 
-      <METHOD name="getSupportedTechs" hasCallback="optional">
-        <DESC>return array of techs - see NFC_TAG_xxx constantsin Rho.NFC.Adapter</DESC>
-        <RETURN type="ARRAY">
-          <PARAM type="STRING"/>
-          <DESC></DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="makeReadOnly" hasCallback="optional">
+      <METHOD name="makeReadOnly">
         <DESC>make Tag read only</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>
@@ -62,7 +57,7 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="formatNDEF" hasCallback="optional">
+      <METHOD name="formatNDEF">
         <DESC>format Tag to NDEF type</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>
@@ -70,15 +65,7 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="erase" hasCallback="optional">
-        <DESC>erase Tag</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="writeMessages" hasCallback="optional">
+      <METHOD name="writeMessage">
         <DESC>write messages on Tag</DESC>
         <PARAMS>
           <PARAM name="messages" type="ARRAY">
@@ -94,13 +81,11 @@
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="transceive" hasCallback="optional">
-        <DESC>write data to Tag and receive responce</DESC>
+      <METHOD name="rawWrite">
+        <DESC>write raw data to Tag</DESC>
         <PARAMS>
-          <PARAM name="data" type="ARRAY">
+          <PARAM name="data" type="STRING">
             <DESC></DESC>
-            <PARAM type="INTEGER">
-            </PARAM>
           </PARAM>
         </PARAMS>
         <RETURN type="HASH">
@@ -109,17 +94,28 @@
             <PARAM name="status" type="STRING">
               <DESC>NFC_SUCCESS if OK</DESC>
             </PARAM>
-            <PARAM name="data" type="ARRAY">
+          </PARAMS>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="rawRead">
+        <DESC>read raw data from Tag</DESC>
+        <RETURN type="HASH">
+          <DESC></DESC>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+            <PARAM name="data" type="STRING">
               <DESC></DESC>
-              <PARAM type="INTEGER">
-              </PARAM>
             </PARAM>
           </PARAMS>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="close" hasCallback="optional">
+      <METHOD name="close">
         <DESC>release resources, close connection</DESC>
         <RETURN type="STRING">
           <DESC>return NFC_SUCCESS if OK</DESC>

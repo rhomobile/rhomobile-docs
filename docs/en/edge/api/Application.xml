@@ -82,7 +82,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                             <DESC>Visible label.</DESC>
                         </PARAM>
                         <PARAM name="action" type="STRING"  rhoAction="true">
-                            <DESC>URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load.</DESC>
+                            <DESC>URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or javascript method to call: 'javascript: methodOnTab();'. Or path to html page to load.</DESC>
                         </PARAM>
                     </PARAMS>
 
@@ -214,7 +214,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                                     <DESC>The application has been deactivated</DESC>
                                 </VALUE>
                                 <VALUE constName="APP_EVENT_UICREATED" value ="UICreated">
-                                    <DESC>APP_EVENT_UICREATED is generated before the start page is loaded. There are no means to set callback and catch event in JavaScript. Ruby Application class descendant can to set callback and process this event.</DESC>
+                                    <DESC>APP_EVENT_UICREATED is generated before the start page is loaded. There are no means to set callback and catch event in javascript. Ruby Application class descendant can to set callback and process this event.</DESC>
                                 </VALUE>
                                 <VALUE constName="APP_EVENT_UIDESTROYED" value ="UIDestroyed">
                                     <DESC>This event is triggered when the application is closing and the UI has been cleared.</DESC>
