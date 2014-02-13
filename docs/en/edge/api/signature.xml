@@ -186,7 +186,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<METHOD name="hide" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Hides an inline capture area from view. Doesn't clear the inputed signature for inline signature areas. In a hidden state, a user cannot interact with the signature capture area.</DESC>
+				<DESC>Hides an inline capture area from view. It clears the inputed signature for inline signature areas. In a hidden state, a user cannot interact with the signature capture area.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 			</METHOD>
 			
