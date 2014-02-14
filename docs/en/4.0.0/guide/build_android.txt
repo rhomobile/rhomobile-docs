@@ -146,23 +146,6 @@ To uninstall your application from the device, run:
 	:::term
 	$ rake uninstall:android:device
 
-### Getting the Application Log from Device or Emulator
-
-You can get the application log from the device or the emulator. From the command line, navigate to your application folder or to the root of your rhodes source tree (where the rhobuild.yml file is located). Then run this command:
-
-	:::term
-	$ rake device:android:getlog
-
-Or
-	:::term
-	$ rake emulator:android:getlog
-	
-The application log will be stored in your application directory. The file will be named RhoLog.txt.
-
-To see all the emulator messages, run `adb logcat` and start the application in the emulator.
-
-To see all the device messages, run `adb -d logcat` and start the application on your device.
-
 ## Building an Android Production Version
 
 ### Modifying the build.yml
