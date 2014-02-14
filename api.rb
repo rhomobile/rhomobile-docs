@@ -317,11 +317,11 @@ def self.getconstantlinks(doc)
 						#use global methods field
 						methodsAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 				else
-						if !element["scopeOverride"].nil?
-							methodsAccess = element["scopeOverride"]
-						else
-							methodsAccess = element["access"]
-						end
+					if !element["scopeOverride"].nil?
+						methodsAccess = element["scopeOverride"]
+					else
+						methodsAccess = element["access"]
+					end
 				end
 				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
 					methtype = '<i class="icon-file pull-right"></i>'
@@ -809,7 +809,12 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			#use global PROPERTIES field
 			masterAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
 	else
-			masterAccess = element["access"]
+			if !element["scopeOverride"].nil?
+				masterAccess = element["scopeOverride"]
+			else
+				masterAccess = element["access"]
+			end
+
 	end
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
 		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
@@ -1495,7 +1500,12 @@ end
 			#use global PROPERTIES field
 			masterAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 	else
-			masterAccess = element["access"]
+			if !element["scopeOverride"].nil?
+				masterAccess = element["scopeOverride"]
+			else
+				masterAccess = element["access"]
+			end
+
 	end
 	constructor = false
   	constructorLabel = ''
