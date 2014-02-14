@@ -11,6 +11,7 @@ section 'getting-started', 'Introduction','Mobile Guides' do
   topic 'en/edge/guide/api_js', 'RhoMobile JavaScript Usage'
   topic 'en/edge/guide/api_ruby', 'RhoMobile Ruby Usage'
   topic 'en/edge/guide/licensing',      'Licensing'
+  topic 'en/edge/guide/viewport',       'Viewport Configuration'
 end
 
 
