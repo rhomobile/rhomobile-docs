@@ -83,6 +83,8 @@ Ruby syntax:
 	:::ruby
 	GeoLocation.set_notification(callback_url, callback_params, ping_gpssystem_interval)
 
+**NOTE: The `callback_url` parameter must be set in order for GeoLocation to function.**
+
 JavaScript syntax:
 
 	Rho.GeoLocation.set_notification(callback, callback_params, ping_gpssystem_interval)
