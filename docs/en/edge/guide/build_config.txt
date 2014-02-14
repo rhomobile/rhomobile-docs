@@ -40,7 +40,7 @@ When you generate your app, a default version of the build.yml file will be gene
 	<tr>
 		<td class="clsEvenRow">sdk</td>
 		<td class="clsEvenRow">Path to your rhodes gem. This is commented out by default to let rhodes determine the latest gem and use that. If you have multiple rhodes gems and you wish to use one that is not the latest one, specify that here.</td>
-		<td class="clsEvenRow">Srting</td>
+		<td class="clsEvenRow">String</td>
 	</tr>
 	<tr>
 		<td>sdkversion</td>
