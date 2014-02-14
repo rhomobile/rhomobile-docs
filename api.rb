@@ -4,6 +4,14 @@ require 'rdiscount'
 class Api
 
 @@apiName = ""
+
+  def self.getElementName(element)
+  	if !element["docNameOverride"].nil?
+  		return element["docNameOverride"]
+  	else
+  		return element["name"]
+  	end 
+  end	
 #returns markdown for the name of the API 
   def self.getApiName(doc)
   	md=""
@@ -196,6 +204,8 @@ def self.getconstantlinks(doc)
 	  	# ctr = s.count()
 	  	# md += "<ul>"
 	  	s.each() { |element|
+	  		element["name"] = getElementName(element) 
+		
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	  			ctr+=1
 				propreplaces = ""
@@ -234,7 +244,12 @@ def self.getconstantlinks(doc)
 						#use global PROPERTIES field
 						propsAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
 				else
-						propsAccess = element["access"]
+						if !element["scopeOverride"].nil?
+							propsAccess = element["scopeOverride"]
+						else
+							propsAccess = element["access"]
+						end
+
 				end
 				if propsAccess.nil? || propsAccess == 'INSTANCE' || propsAccess == ''
 					menuGroupName = "Instance Properties"
@@ -276,6 +291,8 @@ def self.getconstantlinks(doc)
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
 	  	
 	  	s.each() { |element|
+	  		element["name"] = getElementName(element) 
+		
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	 			ctr+=1
 	  			methname = element["name"]
@@ -300,7 +317,11 @@ def self.getconstantlinks(doc)
 						#use global methods field
 						methodsAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 				else
-						methodsAccess = element["access"]
+						if !element["scopeOverride"].nil?
+							methodsAccess = element["scopeOverride"]
+						else
+							methodsAccess = element["access"]
+						end
 				end
 				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
 					methtype = '<i class="icon-file pull-right"></i>'
@@ -500,6 +521,8 @@ def self.getconstantlinks(doc)
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
 	  	md += '<div><dl  >'
 	  	s.each_with_index() { |element,index|
+	  		element["name"] = getElementName(element) 
+		
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
@@ -605,6 +628,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
 		s.each() { |element|
+			element["name"] = getElementName(element) 
+		
 			if element["generateDoc"].nil? || element["generateDoc"] == "true"
  
 			propname = element["name"]
@@ -885,6 +910,7 @@ def self.getparams(element,toplevel)
 		
 	# puts '***** IN GETPARAMS'
 	# puts element
+
 	methparamsdetails = ""
 	methsectionparams = ""
 		if !element["PARAMS"].nil?
@@ -893,6 +919,8 @@ def self.getparams(element,toplevel)
 			end
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
+					param["name"] = getElementName(param) 
+		
 					methparamsdetailsdesc = ''
 			
 					# puts param
@@ -1012,6 +1040,8 @@ if !element["PARAM"].nil?
 				methsectionparams += "<ul>"
 			end
 				element["PARAM"].each { |param|
+					param["name"] = getElementName(param) 
+		
 					methparamsdetailsdesc = ''
 			
 					# puts param
@@ -1127,7 +1157,8 @@ end
     
     #puts methodaliases
 		
-	s.each() { |element| 
+	s.each() { |element|
+		element["name"] = getElementName(element) 
 		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	
 		 #puts element["name"]
