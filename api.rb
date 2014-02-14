@@ -240,7 +240,7 @@ def self.getconstantlinks(doc)
 						# md+="</ul><ul>"
 						groupctr = 0
 					end
-				if element["access"].nil?
+				if element["access"].nil? && element["scopeOverride"].nil?
 						#use global PROPERTIES field
 						propsAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
 				else
@@ -313,7 +313,7 @@ def self.getconstantlinks(doc)
 		  			methname = "<span class='text-error'>" + element["name"] + "</span>"
 				end
 				methtype=''
-				if element["access"].nil?
+				if element["access"].nil? && element["scopeOverride"].nil?
 						#use global methods field
 						methodsAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 				else
@@ -805,7 +805,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
 	  		templateDefault = true
 	  	end
-	if element["access"].nil?
+	if element["access"].nil? && element["scopeOverride"].nil?
 			#use global PROPERTIES field
 			masterAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
 	else
@@ -1496,7 +1496,7 @@ end
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
 	  		templateDefault = true
 	  	end
-	if element["access"].nil?
+	if element["access"].nil? && element["scopeOverride"].nil?
 			#use global PROPERTIES field
 			masterAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 	else
