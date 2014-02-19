@@ -3,7 +3,8 @@
 <API>
   <MODULE name="Adapter" parent="Rho.NFC">
     <HELP_OVERVIEW>NFC Adapter</HELP_OVERVIEW>
-    <MORE_HELP>NFC Adapter provides access to the Nfc device to perform device related operations.</MORE_HELP>
+    <MORE_HELP>NFC Adapter provides access to the Nfc device to perform device related operations.
+    All properties and methods should be used after activate. Besides supported and isActive.</MORE_HELP>
 
     <TEMPLATES>
     </TEMPLATES>
@@ -29,193 +30,26 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="passkey" type="STRING">
-        <DESC>Bluetooth device pass key.</DESC>
+        <DESC>Bluetooth device pass key. The size of pass key should 6 bytes.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
     </PROPERTIES>
 
-    <CONSTANTS>
-
-
-      <CONSTANT name="NFC_SUCCESS" value="NFC_SUCCESS">
-        <DESC>The function was completed successfully and no error occurred.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_FAILED" value="NFC_FAILED">
-        <DESC>Other failures.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_BAD_HANDLE" value="NFC_ERROR_BAD_HANDLE">
-        <DESC>A bad handle value was detected.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_BAD_PARAMETER" value="NFC_ERROR_BAD_PARAMETER">
-        <DESC>A wrong value was detected for a parameter.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_OUT_OF_RESOURCE" value="NFC_ERROR_OUT_OF_RESOURCE">
-        <DESC>Resources error.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_BAD_TAG_FORMAT" value="NFC_ERROR_BAD_TAG_FORMAT">
-        <DESC>Incorrect tag format.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_BAD_NDEF_FORMAT" value="NFC_ERROR_BAD_NDEF_FORMAT">
-        <DESC>Incorrect NDEF format.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_TIMEOUT" value="NFC_ERROR_TIMEOUT">
-        <DESC>The communication failed because a timeout expired.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_FEATURE_NOT_SUPPORTED" value="NFC_ERROR_FEATURE_NOT_SUPPORTED">
-        <DESC>The requested feature is not supported.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_NDEF_UNKNOWN" value="NFC_ERROR_NDEF_UNKNOWN">
-        <DESC>The NDEF message type is unknown.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_LOCKED_TAG" value="NFC_ERROR_LOCKED_TAG">
-        <DESC>A write operation failed because the tag is locked or protected against writing operation.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_TAG_WRITE" value="NFC_ERROR_TAG_WRITE">
-        <DESC>An error is detected in the data written into a tag.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_INCORRECT_RECORD_NO" value="NFC_ERROR_INCORRECT_RECORD_NO">
-        <DESC>Incorrect record number provided as parameter.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_UICC_COMMUNICATION" value="NFC_ERROR_UICC_COMMUNICATION">
-        <DESC>Error in communicating with UICC SE.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_TAG_DISCONNECTED" value="NFC_ERROR_TAG_DISCONNECTED">
-        <DESC>Tag is no longer in Proximity.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_TAG_NOT_NDEF" value="NFC_ERROR_TAG_NOT_NDEF">
-        <DESC>Tag is not NDEF Formatted.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_TAG_ALREADY_NDEF" value="NFC_ERROR_TAG_ALREADY_NDEF">
-        <DESC>Tag is already NDEF Formatted.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_TAG_ALREADY_READONLY" value="NFC_ERROR_TAG_ALREADY_READONLY">
-        <DESC>Tag is already Made Read only and locked for Writing.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_WRONG_RTD" value="NFC_ERROR_WRONG_RTD">
-        <DESC>Incorrect RTD type.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_COMMAND_NOT_SUPPORTED" value="NFC_ERROR_COMMAND_NOT_SUPPORTED">
-        <DESC>Command Not supported response from tag.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_OPERATION_PENDING" value="NFC_ERROR_OPERATION_PENDING">
-        <DESC>Last operation not yet completed.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_INVALID_PARAMETER" value="NFC_ERROR_INVALID_PARAMETER">
-        <DESC>Invalid Parameters response from tag.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_DLL_NOT_AVAILABLE" value="NFC_ERROR_DLL_NOT_AVAILABLE">
-        <DESC>DLL not loaded.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_NOT_SUPPORTED" value="NFC_ERROR_NOT_SUPPORTED">
-        <DESC>NFC not supported in the terminal.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_INCORRECT_RECORD_NO" value="NFC_ERROR_INCORRECT_RECORD_NO">
-        <DESC>Record No. provided is invalid.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_ERROR_BUFFER_TOO_LARGE" value="NFC_ERROR_BUFFER_TOO_LARGE">
-        <DESC>The buffer to be written to a Tag is large than the Tag capacity.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_BATTERY_CRITICAL" value="NFC_BATTERY_CRITICAL">
-        <DESC>Battery percentage is below 6% and polling can't be started.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_STATUS_FLIGHT_MODE_ON" value="NFC_STATUS_FLIGHT_MODE_ON">
-        <DESC>Flight mode is ON and polling can't be started.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_NOTIFY_TARGET_LOST" value="NFC_NOTIFY_TARGET_LOST">
-        <DESC>Target moved out of the proximity.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_STATUS_UICC_IN_PROGRESS" value="NFC_STATUS_UICC_IN_PROGRESS">
-        <DESC>UICC card emulation is in progress.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_STATUS_HOH_IN_PROGRESS" value="NFC_STATUS_HOH_IN_PROGRESS">
-        <DESC>Host card emulation is in progress.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_STATUS_RW_IN_PROGRESS" value="NFC_STATUS_RW_IN_PROGRESS">
-        <DESC>Reader mode is in progress.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_CE_CLOSED" value="NFC_CE_CLOSED">
-        <DESC>Card emulation stopped due to reader mode enabled.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_STACK_ALREADY_INITIALISED" value="NFC_STACK_ALREADY_INITIALISED">
-        <DESC>Stack is already initialized.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_STACK_NOT_INITIALISED" value="NFC_STACK_NOT_INITIALISED">
-        <DESC>Stack is not initialized.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_NOT_SMART_POSTER" value="NFC_NOT_SMART_POSTER">
-        <DESC>Record is not a smart poster.</DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_SMART_POSTER_EXISTS" value="NFC_SMART_POSTER_EXISTS">
-        <DESC>Message already has a smart poster record.</DESC>
-      </CONSTANT>
-
-      <CONSTANT name="NFC_TAG_MiFareUL" value="NFC_TAG_MiFareUL">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_MiFareStd" value="NFC_TAG_MiFareStd">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_MiFareULC" value="NFC_TAG_MiFareULC">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_ISO14443_4A" value="NFC_TAG_ISO14443_4A">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_ISO14443_4B" value="NFC_TAG_ISO14443_4B">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_ISO15693" value="NFC_TAG_ISO15693">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_FeliCa" value="NFC_TAG_FeliCa">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_Jewel" value="NFC_TAG_Jewel">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_Desfire" value="NFC_TAG_Desfire">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_MiFarePlus" value="NFC_TAG_MiFarePlus">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_NXPIcode" value="NFC_TAG_NXPIcode">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_Topaz" value="NFC_TAG_Topaz">
-        <DESC></DESC>
-      </CONSTANT>
-      <CONSTANT name="NFC_TAG_TITagIt" value="NFC_TAG_TITagIt">
-        <DESC></DESC>
-      </CONSTANT>
-
-
-    </CONSTANTS>
-
     <METHODS>
 
       <METHOD name="activate" access="STATIC">
         <DESC>Activates the Nfc device so that all the Nfc operations will be executed</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="reset" access="STATIC">
         <DESC>Resets the Nfc device to default configuration</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="stop" access="STATIC" hasCallback="optional">
         <DESC>Stops the Nfc device</DESC>
-        <PARAM name="status" type="STRING">
-          <DESC>NFC_SUCCESS if OK</DESC>
-        </PARAM>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -223,19 +57,16 @@
         <DESC>register callback for Tag detection</DESC>
         <PARAMS>
           <PARAM name="tagsToBeDetected" type="ARRAY">
-            <DESC>array with tag types - only those tags will be detected.  if empty array - all types. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
-            <PARAM type="STRING">
+            <DESC>array with tag types - only those tags will be detected.  if empty array - all types. see below tagsSupported parameter in getDeviceInfo method.</DESC>
+            <PARAM type="INTEGER">
             </PARAM>
           </PARAM>
         </PARAMS>
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
-            <PARAM name="status" type="STRING">
-              <DESC>NFC_SUCCESS if OK</DESC>
-            </PARAM>
-            <PARAM name="tagID" type="STRING">
-              <DESC>id of Rho.NFC.Tag object</DESC>
+            <PARAM name="tagId" type="STRING">
+              <DESC>Tag Id</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
@@ -247,11 +78,8 @@
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
-            <PARAM name="status" type="STRING">
-              <DESC>NFC_SUCCESS if OK</DESC>
-            </PARAM>
-            <PARAM name="messageID" type="STRING">
-                  <DESC>id of Rho.NFC.Message object</DESC>
+            <PARAM name="messageId" type="STRING">
+                  <DESC>Message Id</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
@@ -263,8 +91,11 @@
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
-            <PARAM name="status" type="STRING">
-              <DESC>NFC_SUCCESS if OK</DESC>
+            <PARAM name="passKey" type="STRING">
+              <DESC></DESC>
+            </PARAM>
+            <PARAM name="pollingTimeout" type="STRING">
+              <DESC></DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
@@ -276,9 +107,6 @@
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
-            <PARAM name="status" type="STRING">
-              <DESC>NFC_SUCCESS if OK</DESC>
-            </PARAM>
             <PARAM name="btName" type="STRING">
               <DESC>device name</DESC>
             </PARAM>
@@ -287,17 +115,11 @@
             </PARAM>
           </PARAMS>
         </CALLBACK>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="btDisconnect"  access="STATIC">
         <DESC>Disconnects the Bluetooth device.</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -308,22 +130,107 @@
           <PARAMS>
             <PARAM name="operatingModesSupported" type="ARRAY">
               <DESC></DESC>
-              <PARAM type="STRING"/>
+              <PARAM type="STRING">
+                <VALUES>
+                  <VALUE constName="NFC_P2P" type="STRING" value = "1">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_Reader_Writer" type="STRING" value = "2">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_CE" type="STRING" value = "3">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_CE_UICC" type="STRING" value = "4">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_CE_SE" type="STRING" value = "5">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_CE_Host" type="STRING" value = "6">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="Multiple_NDEFMessages" type="STRING" value = "7">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_LLCP" type="STRING" value = "8">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_SNEP" type="STRING" value = "9">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_NPP" type="STRING" value = "10">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_BT_StaticHandover" type="STRING" value = "11">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NFC_BT_DynamicHandover" type="STRING" value = "12">
+                    <DESC></DESC>
+                  </VALUE>
+                </VALUES>
+              </PARAM>
             </PARAM>
             <PARAM name="tagsSupported" type="ARRAY">
               <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
-              <PARAM type="STRING"/>
-            </PARAM>
+              <PARAM type="STRING">
+                <VALUES>
+                  <VALUE constName="MiFareUL" type="STRING" value = "1">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="MiFareStd" type="STRING" value = "2">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="MifareULC" type="STRING" value = "3">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="ISO14443_4A" type="STRING" value = "4">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="ISO14443_4B" type="STRING" value = "5">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="ISO15693" type="STRING" value = "6">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="FeliCa" type="STRING" value = "7">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="Jewel" type="STRING" value = "8">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="Desfire" type="STRING" value = "9">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="MiFarePlus" type="STRING" value = "10">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="NXPIcode" type="STRING" value = "11">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="Topaz" type="STRING" value = "12">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="Calypso" type="STRING" value = "13">
+                    <DESC></DESC>
+                  </VALUE>
+                  <VALUE constName="TITagIt" type="STRING" value = "14">
+                    <DESC></DESC>
+                  </VALUE>
+                </VALUES>
+               </PARAM>
+              </PARAM>
             <PARAM name="formattingTagsSupported" type="ARRAY">
-              <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
+              <DESC>array with tag types - only those tags will be detected. see above tagsSupported parameter.</DESC>
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="writeProtectedTagsSupported" type="ARRAY">
-              <DESC>array with tag types - only those tags will be detected. see NFC_TAG_xxx constants in Rho.NFC.Adapter</DESC>
+              <DESC>array with tag types - only those tags will be detected. see see above tagsSupported parameter.</DESC>
               <PARAM type="STRING"/>
             </PARAM>
-            <PARAM name="firmwareVersion" type="STRING">
-              <DESC></DESC>
+            <PARAM name="firmwareVersion" type="ARRAY">
+              <DESC>this array has only one element</DESC>
+              <PARAM type="STRING"/>
             </PARAM>
           </PARAMS>
         </RETURN>

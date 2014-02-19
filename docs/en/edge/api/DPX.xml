@@ -77,6 +77,9 @@ Ruby
           </VALUE>
         </VALUES>
       </PROPERTY>
+      <PROPERTY name="templateDirectory" type="STRING" default="/sdcard/templates">
+        <DESC>Specify where to store downloaded templates.</DESC>
+      </PROPERTY>
       <PROPERTY name="logDirectory" type="STRING" default="/sdcard/DPXLog">
         <DESC>Specify which directory to search for logs in.</DESC>
       </PROPERTY>
@@ -208,6 +211,13 @@ Ruby
             </PARAM>
           </PARAMS>
         </CALLBACK>
+      </METHOD>
+      <METHOD name="fetchTemplates">
+        <DESC>Fetch templates from dedicated DPX server and place into template directory. See templateDirectory parameter.</DESC>
+        <PARAMS>
+          <PARAM name="userName" type="STRING"><DESC>Username of the user.</DESC></PARAM>
+          <PARAM name="password" type="STRING"><DESC>Password of the user.</DESC></PARAM>
+        </PARAMS>
       </METHOD>
       <METHOD name="getDataUri">
          <DESC>Return data URI encoding of the raw image assocated with the region or captured form, this allows the operator to

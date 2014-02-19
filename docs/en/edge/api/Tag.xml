@@ -17,7 +17,7 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="type" type="STRING" readOnly="true">
-        <DESC>see NFC_TAG_xxx constants in in Rho.NFC.Adapter</DESC>
+        <DESC>see tagsSupported parameter in getDeviceInfo method in Rho.NFC.Adapter</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="serialNumber" type="STRING" readOnly="true">
@@ -49,19 +49,26 @@
 
     <METHODS>
 
+      <METHOD name="getTagById" access="STATIC">
+        <DESC>This function returns Tag object</DESC>
+        <PARAMS>
+          <PARAM name="id" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
       <METHOD name="makeReadOnly">
         <DESC>make Tag read only</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="formatNDEF">
         <DESC>format Tag to NDEF type</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -75,40 +82,21 @@
             </PARAM>
           </PARAM>
         </PARAMS>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="rawWrite">
-        <DESC>write raw data to Tag</DESC>
+      <METHOD name="exchangeData">
+        <DESC>This function exchanges raw data with Tag</DESC>
         <PARAMS>
-          <PARAM name="data" type="STRING">
+          <PARAM name="sendData" type="STRING">
             <DESC></DESC>
           </PARAM>
         </PARAMS>
         <RETURN type="HASH">
           <DESC></DESC>
           <PARAMS>
-            <PARAM name="status" type="STRING">
+            <PARAM name="receiveData" type="STRING">
               <DESC>NFC_SUCCESS if OK</DESC>
-            </PARAM>
-          </PARAMS>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="rawRead">
-        <DESC>read raw data from Tag</DESC>
-        <RETURN type="HASH">
-          <DESC></DESC>
-          <PARAMS>
-            <PARAM name="status" type="STRING">
-              <DESC>NFC_SUCCESS if OK</DESC>
-            </PARAM>
-            <PARAM name="data" type="STRING">
-              <DESC></DESC>
             </PARAM>
           </PARAMS>
         </RETURN>
@@ -117,22 +105,6 @@
 
       <METHOD name="close">
         <DESC>release resources, close connection</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="getTagById" access="STATIC">
-        <DESC>get Tag object by Id</DESC>
-        <PARAMS>
-          <PARAM name="ID" type="STRING">
-            <DESC>Tag Id</DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="Rho.NFC.Tag">
-          <DESC>Tag object</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 

@@ -17,55 +17,80 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="type" type="STRING" readOnly="true">
-        <DESC>record type</DESC>
+      <PROPERTY name="recordId" type="STRING">
+        <DESC>Optional field for NFC_NDEF_RTD_GENERAL record type.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      
+      <PROPERTY name="type" type="INTEGER">
+        <DESC>Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.</DESC>
         <VALUES>
-          <VALUE constName="TEXT" value ="text">
+          <VALUE constName="NDEF_RTD_TEXT" type="INTEGER" value = "1">
             <DESC></DESC>
           </VALUE>
-          <VALUE constName="URI" value ="uri">
+          <VALUE constName="NDEF_RTD_URI" type="INTEGER" value = "2">
             <DESC></DESC>
           </VALUE>
-          <VALUE constName="OOB" value ="oob">
-            <DESC></DESC>
-          </VALUE>
-          <VALUE constName="VCARD" value ="vcard">
-            <DESC></DESC>
-          </VALUE>
-          <VALUE constName="SMART_POSTER" value ="smartposter">
+          <VALUE constName="NDEF_RTD_GENERAL" type="INTEGER" value = "3">
             <DESC></DESC>
           </VALUE>
         </VALUES>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="language" type="STRING" readOnly="true">
-        <DESC></DESC>
+      <PROPERTY name="typeName" type="STRING">
+        <DESC>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="text" type="STRING" readOnly="true">
-        <DESC></DESC>
+      <PROPERTY name="tnf" type="INTEGER">
+        <DESC>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.</DESC>
+        <VALUES>
+          <VALUE constName="NDEF_TNF_EMPTY" type="INTEGER" value = "1">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_WELL_KNOWN" type="INTEGER" value = "2">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_MEDIA" type="INTEGER" value = "3">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_ABSOLUTE_URI" type="INTEGER" value = "4">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_EXTERNAL" type="INTEGER" value = "5">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_UNKNOWN" type="INTEGER" value = "6">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_UNCHANGED" type="INTEGER" value = "7">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_ANY_TYPE" type="INTEGER" value = "8">
+            <DESC></DESC>
+          </VALUE>
+        </VALUES>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="uri" type="STRING" readOnly="true">
-        <DESC></DESC>
+      <PROPERTY name="textLanguage" type="STRING">
+        <DESC>Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="protocol" type="STRING" readOnly="true">
-        <DESC></DESC>
+      <PROPERTY name="textCharEncoding" type="INTEGER">
+        <DESC>Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="address" type="STRING" readOnly="true">
-        <DESC></DESC>
+      <PROPERTY name="uriProtocol" type="INTEGER">
+        <DESC>Use if record type is NFC_NDEF_RTD_URI. For values pls see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
-      <PROPERTY name="btName" type="STRING" readOnly="true">
-        <DESC></DESC>
+      <PROPERTY name="payload" type="STRING">
+        <DESC>Record payload(data buffer).</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       
@@ -73,124 +98,21 @@
 
     <METHODS>
 
-
-      <METHOD name="createOob" access="STATIC">
-        <DESC>Creates out-of-band record object(only for bluetooth)</DESC>
-        <PARAMS>
-          <PARAM name="address" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-          <PARAM name="btName" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="Rho.NFC.Record">
-          <DESC>Record object</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="createVcard" access="STATIC">
-        <DESC>Creates out-of-band record object(only for bluetooth)</DESC>
-        <PARAMS>
-          <PARAM name="contactData" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="Rho.NFC.Record">
-          <DESC>Record object</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="createSmartPoster" access="STATIC">
-        <DESC>Creates smart poster record object</DESC>
-        <RETURN type="Rho.NFC.Record">
-          <DESC>Record object</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="createUri" access="STATIC">
-        <DESC>Create uri record object.</DESC>
-        <PARAMS>
-          <PARAM name="protocol" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-          <PARAM name="uri" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="Rho.NFC.Record">
-          <DESC>Record object</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="createText" access="STATIC">
-        <DESC>Creates text record object.</DESC>
-        <PARAMS>
-          <PARAM name="language" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-          <PARAM name="text" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="Rho.NFC.Record">
-          <DESC>Record object</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="addText">
-        <DESC>Only for smart poster record</DESC>
-        <PARAMS>
-          <PARAM name="language" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-          <PARAM name="text" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="addUri">
-        <DESC>Only for smart poster record</DESC>
-        <PARAMS>
-          <PARAM name="protocol" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-          <PARAM name="uri" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
-      <METHOD name="getRecords">
-        <DESC>Only for smart poster record</DESC>
-        <RETURN type="ARRAY">
-          <PARAM type="STRING"/>
-          <DESC>array of id of Rho.NFC.Record objects</DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-      
       <METHOD name="getRecordById" access="STATIC">
-        <DESC>get Record object by Id</DESC>
+        <DESC>This function returns Record object</DESC>
         <PARAMS>
-          <PARAM name="ID" type="STRING">
-            <DESC>Record Id</DESC>
+          <PARAM name="id" type="STRING">
+            <DESC></DESC>
           </PARAM>
         </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="create" access="STATIC">
+        <DESC>Creates record</DESC>
         <RETURN type="Rho.NFC.Record">
           <DESC>Record object</DESC>
         </RETURN>
@@ -199,9 +121,6 @@
 
       <METHOD name="close">
         <DESC>release resources</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 

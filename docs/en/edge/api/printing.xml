@@ -70,7 +70,6 @@
         
         <PROPERTIES> 
             <!-- Common properties -->
-            <DESC>general properties for Printer</DESC>
             <PROPERTY name="ID" type="STRING" readOnly="true">
                 <DESC>unique printer ID during application lifetime</DESC>
             </PROPERTY>
@@ -97,17 +96,17 @@
         <METHODS access="INSTANCE">
             <METHOD name="enumerateSupportedTypes" access="STATIC" hasCallback="optional">
                 <DESC>Return array with printer types that are supported in this build.</DESC>
-                <CALLBACK type="ARRAY">
+                <RETURN type="ARRAY">
                     <DESC>Array of supported printer types, may contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE or any combination of them. Result is returned immideatley. </DESC>
                     <PARAM type="STRING">
                         <DESC>Type of device.</DESC>
                     </PARAM>
-                </CALLBACK>
+                </RETURN>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
-                <DESC>search all printers on device and allBluetooth(R) or Network printers that are discoverable. Calls callback on each printer</DESC>
+                <DESC>Search all printers on device and all Bluetooth(R) or Network printers that are discoverable. Calls callback for each printer discovered during search. Search is finished if printerID is not specified in callback hash.</DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
                         <DESC>options for discover</DESC>
@@ -139,7 +138,7 @@
                             <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="printerID" type="STRING">
-                            <DESC>printer ID only if status = PRINTER_STATUS_SUCCESS</DESC>
+                            <DESC>Printer ID, vaild only if status equals to 'PRINTER_STATUS_SUCCESS'. If there are no more printers available printerID will not be defined.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="message" type="STRING">
@@ -152,17 +151,19 @@
             </METHOD>
 
             <METHOD name="stopSearch" access="STATIC">
-                <DESC>Stop all active and pending search requests, .</DESC>
+                <DESC>Stop all active and pending search requests. Function does not return any results. All running search requests are canceled immediately.</DESC>
+                <PLATFORM>Android, iOS</PLATFORM> 
             </METHOD>
             
             <METHOD name="getPrinterByID" access="STATIC">
-                <DESC>return printer instance</DESC>
+                <DESC>Return printer instance specified by printerId. To get valid printerId please use searchPrinters function</DESC>
                 <PARAMS>
                     <PARAM name="printerId" type="STRING">
                     </PARAM>
                 </PARAMS>    
                 <RETURN type="SELF_INSTANCE">
                 </RETURN>   
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="connect" hasCallback="optional">
@@ -170,6 +171,7 @@
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
                 </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="connectWithOptions" hasCallback="optional">
@@ -180,6 +182,7 @@
                         <PARAMS>
                             <PARAM name="timeout" type="INTEGER" default="15000">
                                 <DESC>connection timeout in milliseconds</DESC>
+                                <PLATFORM>WM, iOS</PLATFORM>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
@@ -193,6 +196,7 @@
                     <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
                     <CAN_BE_NIL/>
                 </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="requestState" hasCallback="mandatory">
@@ -221,13 +225,15 @@
                         </PARAM>
                     </PARAMS>
                 </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="disconnect" hasCallback="optional">
                 <DESC>Disconnect from printer. If you want to receive result, you must specify callback</DESC>
-                <RETURN type="STRING">
+                <CALLBACK type="STRING">
                     <DESC>Returns result of a disconnection. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
-                </RETURN>
+                </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="printFile" hasCallback="optional">
@@ -253,9 +259,10 @@
                         </PARAMS>    
                     </PARAM>
                 </PARAMS>
-                <RETURN type="STRING">
+                <CALLBACK type="STRING">
                     <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
-                </RETURN>
+                </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="printImageFromFile" hasCallback="optional">
@@ -339,16 +346,17 @@
                         </PARAM>
                     </PARAMS>
                 </CALLBACK>
+                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="enumerateSupportedControlLanguages" hasCallback="optional">
                 <DESC>Return array with languages supported by this printer</DESC>
-                <CALLBACK type="ARRAY">
+                <RETURN type="ARRAY">
                     <DESC>Array of supported printer control languages</DESC>
                     <PARAM type="STRING">
                         <DESC>Language. See - PRINTER_LANGUAGE_... constants.</DESC>
                     </PARAM>
-                </CALLBACK>
+                </RETURN>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
         </METHODS>

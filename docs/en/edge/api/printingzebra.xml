@@ -153,30 +153,6 @@
             
         </CONSTANTS>
         
-        <PROPERTIES> 
-            <!-- Zebra specific properties -->
-
-            <PROPERTY name="maxTimeoutForRead" type="INTEGER" generateAccessors="true">
-                <DESC>The maximum time, in milliseconds, to wait for any data to be received.</DESC>
-                <PLATFORM>Android, iOS, WM</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="maxTimeoutForOpen" type="INTEGER" generateAccessors="true">
-                <DESC>The maximum time, in milliseconds, to wait for a TCP connection to open.</DESC>
-                <PLATFORM>Android, iOS</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="timeToWaitForMoreData" type="INTEGER" generateAccessors="true">
-                <DESC>The maximum time, in milliseconds, to wait in-between reads after the initial read.</DESC>
-            </PROPERTY>
-            <PROPERTY name="timeToWaitAfterReadInMilliseconds" type="INTEGER" generateAccessors="true">
-                <DESC>The default time is 10ms. This method is used to adapt to different Bluetooth radio performance requirements. If you notice an issue writing bytes, try increasing this time.</DESC>
-                <PLATFORM>Android, iOS</PLATFORM>
-            </PROPERTY>
-            <PROPERTY name="timeToWaitAfterWriteInMilliseconds" type="INTEGER" generateAccessors="true">
-                <DESC>The default time is 200ms. This method is used to adapt to different Bluetooth radio performance requirements. If you notice an issue writing bytes, try increasing this time.</DESC>
-                <PLATFORM>Android, iOS</PLATFORM>
-            </PROPERTY>
-        </PROPERTIES>   
-        
         <METHODS access="INSTANCE">            
             <METHOD name="retrieveFileNames" hasCallback="optional">
                 <DESC>Retrieves the names of the files which are stored on the printer.</DESC>

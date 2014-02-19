@@ -33,7 +33,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<PROPERTY name="compressionFormat" type="STRING" >
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Compression format of the image file for the captured signature. In WM/CE, irrespective of setting any format, the output format will be of bitmap type.</DESC>
+				<DESC>Compression format of the image file for the captured signature. In WM/CE, irrespective of setting any format, the output format will be of bitmap type. In WM/CE, when compressionFormat is queried, it will be of bitmap type always.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<VALUES>
 					<VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">

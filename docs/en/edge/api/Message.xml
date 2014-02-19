@@ -21,6 +21,19 @@
 
     <METHODS>
 
+      <METHOD name="getMessageById" access="STATIC">
+        <DESC>This function returns Message object</DESC>
+        <PARAMS>
+          <PARAM name="id" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
       <METHOD name="create" access="STATIC">
         <DESC>Creates message object.</DESC>
         <RETURN type="Rho.NFC.Message">
@@ -32,8 +45,17 @@
       <METHOD name="getRecords">
         <DESC>return array of Records IDs</DESC>
         <RETURN type="ARRAY">
-          <PARAM type="STRING"/>
-          <DESC>array of id of Rho.NFC.Record objects</DESC>
+          <PARAM type="Rho.NFC.Record"/>
+          <DESC>array of Rho.NFC.Record objects</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getMessages">
+        <DESC>return array of Smart Poster Message IDs.</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="Rho.NFC.Message"/>
+          <DESC>array of Rho.NFC.Message objects</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
@@ -45,22 +67,16 @@
             <DESC>record ID</DESC>
           </PARAM>
         </PARAMS>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
-      <METHOD name="getMessageById" access="STATIC">
-        <DESC>get Message object by Id</DESC>
+      <METHOD name="addMessage">
+        <DESC>add new Smart Poster message to the message</DESC>
         <PARAMS>
-          <PARAM name="ID" type="STRING">
-            <DESC>Message Id</DESC>
+          <PARAM name="messageID" type="STRING">
+            <DESC>message ID</DESC>
           </PARAM>
         </PARAMS>
-        <RETURN type="Rho.NFC.Message">
-          <DESC>Message object</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
@@ -74,9 +90,6 @@
 
       <METHOD name="close">
         <DESC>release resources</DESC>
-        <RETURN type="STRING">
-          <DESC>return NFC_SUCCESS if OK</DESC>
-        </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 

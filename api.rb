@@ -200,6 +200,7 @@ def self.getconstantlinks(doc)
   	ctr =0
   	groupctr = 0
   	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
+  		# puts(doc["MODULE"][0]["PROPERTIES"])
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	# ctr = s.count()
 	  	# md += "<ul>"
@@ -1670,9 +1671,16 @@ end
 			templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
 				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
 			}
-			templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
-				doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
-			}
+			# puts(doc)
+			if doc["MODULE"][0]["PROPERTIES"].nil?
+				doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
+			else
+				templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
+					doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
+				}
+
+			end
+			puts (doc["MODULE"][0]["PROPERTIES"])
 			templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
 				doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
 			}
