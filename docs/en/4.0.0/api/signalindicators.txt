@@ -47,7 +47,7 @@ app_type: "rhoelements"
             
   function signal_status_sync(){
 
-    signalValue = Rho.SignalIndicators.wlanStatus;
+    var signalValue = Rho.SignalIndicators.wlanStatus();
     console.log(signalValue);
     console.log("Signal Strength is: " + signalValue['signalStrength']);
   }
