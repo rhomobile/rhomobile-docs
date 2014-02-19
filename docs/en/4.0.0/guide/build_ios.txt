@@ -3,6 +3,8 @@
 ## Setup
 Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-ios) for building iOS applications.
 
+**NOTE: The iOS SDK that is specified in your build.yml will need to be in the default XCode folder or the build process will not be able to find it. To find your default XCode installation directory, you can run the command `xcode-select --print-path` in your terminal.**
+
 ### Using RhoHub
 
 Alternatively, you can create the device builds with RhoHub. RhoHub is a cloud based service that integrates with RhoStudio to allow building and packaging apps for all platforms.
