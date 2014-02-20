@@ -47,12 +47,14 @@ And, finally, install desired Ruby version:
     $ rvm install jruby
     # rvm install 2.0.0
 
-**NOTE: The full list of `autolibs` options is covered in the [RVM docs](https://rvm.io/rvm/autolibs/).**
+The full list of `autolibs` options is covered in the [RVM docs](https://rvm.io/rvm/autolibs/).
 
-**NOTE: On Mac OSX to need to have `Xcode` and `Command Line Tools` installed.**
+**NOTE: On Mac OSX you need to have `Xcode` and `Command Line Tools` installed.**
 
 
 ## Installing RhoConnect on Linux
+
+**NOTE: If you have already developed your RhoConnect app and you are looking to deploy, you should refer to the deploy docs such as [preparing a RhoConnect app for production](preparing-production) and [deploying a RhoConnect application](deploying).**
 
 On Linux, you need the following setup before redis is installed.
 
@@ -65,7 +67,7 @@ To install RhoConnect on Linux, you need to install the RhoConnect gem. Download
 
 1. Ruby Web Server - We tested with [thin](http://code.macournoyer.com/thin/), and [passenger](http://www.modrails.com/). WEBrick, the web server that ships with ruby, is known to cause issues with HTTP headers/cookies and is ***not*** recommended.
 
-2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [Rhoconnect CLI section](command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
+2. [Redis](http://redis.io/) - RhoConnect includes a simple [rhoconnect task](command-line#rhoconnect-cli-rhoconnect-v32) `rhoconnect redis-install` to install redis, covered in the [RhoConnect CLI section](command-line#rhoconnect-cli-rhoconnect-v32). Alternatively, you can [install redis directly](http://redis.io/download).
 
 3. Install the RhoConnect Gem.
 
