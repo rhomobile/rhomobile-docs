@@ -3,7 +3,23 @@
 <API>
     <MODULE name="PrinterZebra" parent="Rho">
         <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to BT, Network, and USB printers.</HELP_OVERVIEW>
-        <MORE_HELP>Zebra specific API support</MORE_HELP>
+        <MORE_HELP>Zebra specific API support
+    To use bluetooth connection on iOS devices you should take into account following preconditions:
+    * It will only work with Zebra printers which have the Made For iPod/iPhone certification.
+    * Before using printer you should pair it using system bluetooth settings.
+    * You need to include the External Accessory framework in your project (will be automatically added when iphone project file is generated)
+    * You need to include the Zebra printer protocol string "com.zebra.rawport" in your info.plist file ([project root]/project/iphone/Info.plist) under "Supported external accessory protocols":
+        &lt;key&gt;UISupportedExternalAccessoryProtocols&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;com.zebra.rawport&lt;/string&gt;
+        &lt;/array&gt;
+    * You need to Set the key "Required Background modes" to "App Communicates with an accessory" in your app's plist file
+        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;external-accessory&lt;/string&gt;
+        &lt;/array&gt;
+    
+        </MORE_HELP>
     
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
@@ -148,18 +164,15 @@
             <CONSTANT name="PRINTER_STATE_PRINT_MODE" value="PRINTER_STATE_PRINT_MODE" type="STRING">
                 <DESC>use this name for requestState(), The print mode</DESC>
             </CONSTANT>
-            
-            
-            
         </CONSTANTS>
         
         <METHODS access="INSTANCE">            
-            <METHOD name="retrieveFileNames" hasCallback="optional">
-                <DESC>Retrieves the names of the files which are stored on the printer.</DESC>
+            <METHOD name="retrieveFileNames" hasCallback="mandatory">
+                <DESC>Retrieves the names of the files which are stored on the printer. Works asynchonously, use callback to check the result.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_DONE, PRINTER_STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="fileNames" type="ARRAY">
                             <PARAM type="STRING"></PARAM>
@@ -170,18 +183,18 @@
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
-            <METHOD name="retrieveFileNamesWithExtensions" hasCallback="optional">
-                <DESC>This method only returns files which have the extensions in "extensions".</DESC>
+            <METHOD name="retrieveFileNamesWithExtensions" hasCallback="mandatory">
+                <DESC>This method only returns files which have the extensions in "extensions". Works asynchonously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="extensions" type="ARRAY">
                         <PARAM type="STRING"></PARAM>
-                        <DESC>The extensions to filter on.</DESC>
+                        <DESC>The list of extensions that should be returned.</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_DONE, PRINTER_STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                         </PARAM>
                         <PARAM name="fileNames" type="ARRAY">
                             <PARAM type="STRING"></PARAM>
@@ -193,20 +206,20 @@
             </METHOD>
 
             <METHOD name="sendFileContents" hasCallback="optional">
-                <DESC>Sends the contents of a file to the printer.</DESC>
+                <DESC>Sends the contents of a file to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchonously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
-                        <DESC>Location of file to store.</DESC>
+                        <DESC>Location of file to print.</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="printStoredFormatWithHash" hasCallback="optional">
-                <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash.</DESC>
+                <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchonously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
@@ -222,7 +235,7 @@
             </METHOD>
 
             <METHOD name="printStoredFormatWithArray" hasCallback="optional">
-                <DESC>Prints a stored format on the printer, filling in the fields specified by the array.</DESC>
+                <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchonously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
@@ -238,7 +251,7 @@
             </METHOD>
 
             <METHOD name="storeImage" hasCallback="optional">
-                <DESC>Stores the specified image to the connected printer as a monochrome image. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS is supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.  </DESC>
+                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchonously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS is supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.  </DESC>
                 <PARAMS>
                     <PARAM name="printerDriveAndFileName" type="STRING">
                         <DESC>Path on the printer where the image will be stored.</DESC>

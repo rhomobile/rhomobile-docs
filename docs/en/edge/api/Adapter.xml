@@ -26,11 +26,11 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="pollingTimeout" type="INTEGER">
-        <DESC>Polling timeout of the Nfc device.</DESC>
+        <DESC>Polling timeout in seconds of the Nfc device. 0 - timeout disabled, default: 90.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="passkey" type="STRING">
-        <DESC>Bluetooth device pass key. The size of pass key should 6 bytes.</DESC>
+        <DESC>Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey)</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
@@ -92,10 +92,10 @@
           <DESC></DESC>
           <PARAMS>
             <PARAM name="passKey" type="STRING">
-              <DESC></DESC>
+              <DESC>Bluetooth device pass key.</DESC>
             </PARAM>
-            <PARAM name="pollingTimeout" type="STRING">
-              <DESC></DESC>
+            <PARAM name="pollingTimeout" type="INTEGER">
+              <DESC>Polling timeout in seconds of the Nfc device.</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
@@ -228,7 +228,7 @@
               <DESC>array with tag types - only those tags will be detected. see see above tagsSupported parameter.</DESC>
               <PARAM type="STRING"/>
             </PARAM>
-            <PARAM name="firmwareVersion" type="ARRAY">
+            <PARAM name="firmwareVersion" type="STRING">
               <DESC>this array has only one element</DESC>
               <PARAM type="STRING"/>
             </PARAM>

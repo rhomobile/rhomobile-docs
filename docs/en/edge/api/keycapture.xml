@@ -41,12 +41,12 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 		<METHODS access="STATIC">
             <METHOD name="captureKey" hasCallback="optional" runInThread="ui">
-                <DESC>Notifies the user when a specified physical key is pressed. The key event can also be absorbed so that it isnt delivered to the web view. If the callback is not set then the capture setting for the given key will be cleared.</DESC>
+                <DESC>Notifies the user when a specified physical key is pressed. The key event can also be absorbed so that it isn't delivered to the web view. If the callback is not set then the capture setting for the given key will be cleared.</DESC>
 				<PLATFORM>iOS, WM, Android</PLATFORM>
 				<PARAMS>
 					<PARAM name="dispatch" type="BOOLEAN">
                         <PLATFORM>WM, Android</PLATFORM>
-						<DESC>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of volume keys are captured, real sound volume wlll not be changed.</DESC>
+						<DESC>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of volume keys are captured, real sound volume will not be changed.</DESC>
 					</PARAM>
 					<PARAM name="keyValue" type="STRING">
 						<DESC>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). Alternatively, this parameter can be set to 'all'. This value will capture all hardware key presses. This parameter needs to be passed as a string (for example '101' or '0x65' or 'all').</DESC>
@@ -288,7 +288,7 @@ It is not possible to capture the following types of keys:
 4.	The Home key and the power key on Android and iOS devices.
 5.	On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
 6.  On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
-7.  On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesnt do anything specific with this key (unlike the menu key which raises the menu).					
+7.  On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn't do anything specific with this key (unlike the menu key which raises the menu).					
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16
 
                 </DESC>
@@ -297,6 +297,12 @@ Although on some device configurations pressing the SHIFT key twice generates CA
                 <DESC>
 If captureKey and remapKey have been called with the same keyValue, the remapKey will take precedence. In this case this means that the keyEvent for the inputted key will not be fired as the remapping will occur and consume the key event.
 
+If the same key has been set as the homeKeyValue and captureKey with a callback, the captureKey will take precedence over the homeKeyValue. For example:
+Rho.KeyCapture.homeKeyValue = '0x0D';
+
+Rho.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);
+
+When the specified key is pressed, the event will fire but the homeKey event will not occur.
                 </DESC>
             </REMARK>
 			<REMARK title="Precedence of captureKey events">
@@ -307,7 +313,7 @@ Any captureKey calls set with a specific key will take precedence over any captu
             </REMARK>
             <REMARK title="Device Lockdown on Motorola Solutions Android devices">
                 <DESC>
-Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Motorola Solutions Android documentation for other device lockdown options.
+Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Motorola Solutions Android documentation for other device lock-down options.
 
                 </DESC>
             </REMARK>
@@ -319,19 +325,19 @@ Only the volume up and volume down keys can be caught on iOS devices
             </REMARK>
            <REMARK title="Capturing Function">
                 <DESC>
-If you have enabled the function key in the configuration settings and that function key has some special behaviour in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see RhoElements Configuration Settings). An example of special behaviour is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'InterceptAllKeys' will allow you to capture Function keys it will also disable the special Function key behaviour. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labelled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
+If you have enabled the function key in the configuration settings and that function key has some special behavior in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see RhoElements Configuration Settings). An example of special behavior is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'InterceptAllKeys' will allow you to capture Function keys it will also disable the special Function key behavior. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labeled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
 
                 </DESC>
             </REMARK>
             <REMARK title="VC70 Hardware Keys">
                 <DESC>
-The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behaviour (like volumeup/down) of hardware keys can not be blocked when RhoElements is running in fullscreen mode.
+The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behavior (like volumeup/down) of hardware keys can not be blocked when RhoElements is running in fullscreen mode.
 
                 </DESC>
             </REMARK> 
             <REMARK title="ES400 Application Keys">
                 <DESC>
-The ES400 has a hardware messaging key with an envelope icon on it that does not function like a standard Applicaiton Key. To disable this key go to 'Settings' on the device, then 'Personal', then 'KeyRemap' and remap it to a key not in use. Also note that the 'Sym' key on the ES400 is not capturable.
+The ES400 has a hardware messaging key with an envelope icon on it that does not function like a standard Application Key. To disable this key go to 'Settings' on the device, then 'Personal', then 'KeyRemap' and remap it to a key not in use. Also note that the 'Sym' key on the ES400 is not capturable.
 
                 </DESC>
             </REMARK>
@@ -345,7 +351,7 @@ In Internet Explorer the F5 key is used to refresh the current page. It is not r
                 <DESC>
 The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when RhoElements is run with the Internet Explorer engine on a Windows CE device.
 
-Key           Code    Usual Behaviour               Special behaviour in Internet Explorer
+Key           Code    Usual Behavior               Special behavior in Internet Explorer
 
 Left Arrow    0x25    Cursor left                   Scroll window left
 Right Arrow   0x27    Cursor right                  Scroll window right

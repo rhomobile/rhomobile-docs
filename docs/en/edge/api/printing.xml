@@ -70,6 +70,7 @@
         
         <PROPERTIES> 
             <!-- Common properties -->
+            <DESC>general properties for Printer</DESC>
             <PROPERTY name="ID" type="STRING" readOnly="true">
                 <DESC>unique printer ID during application lifetime</DESC>
             </PROPERTY>
@@ -89,15 +90,15 @@
                 <DESC>Type of connection to printer</DESC>
             </PROPERTY>
             <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
-                <DESC>Connection status flag. All other properties are valid only if isConnect equals to true.</DESC>
+                <DESC>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchroniously. If you want real check physical connection - use requestState() method with receive result in callback. Only this way process real request to device and analyze answer from device. </DESC>
             </PROPERTY>
         </PROPERTIES>   
         
         <METHODS access="INSTANCE">
             <METHOD name="enumerateSupportedTypes" access="STATIC" hasCallback="optional">
-                <DESC>Return array with printer types that are supported in this build.</DESC>
+                <DESC>Returns array with supported printer types immediately. The result depends on your build configuration. Each extension is linked to application during build. If you want to add or remove support of any printer type please update extension list in the build.yml. </DESC>
                 <RETURN type="ARRAY">
-                    <DESC>Array of supported printer types, may contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE or any combination of them. Result is returned immideatley. </DESC>
+                    <DESC>Array of currently supported printer types. Depends on build settings. May contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE or any combination of them.</DESC>
                     <PARAM type="STRING">
                         <DESC>Type of device.</DESC>
                     </PARAM>
@@ -106,27 +107,34 @@
             </METHOD>
 
             <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
-                <DESC>Search all printers on device and all Bluetooth(R) or Network printers that are discoverable. Calls callback for each printer discovered during search. Search is finished if printerID is not specified in callback hash.</DESC>
+                <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. 
+                    Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options.
+                    Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
+                    ATTENTION: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
+                </DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
-                        <DESC>options for discover</DESC>
+                        <DESC>Options for discover</DESC>
                         <CAN_BE_NIL/>
                         <PARAMS>
                             <PARAM name="printerType" type="STRING" default="PRINTER_TYPE_ANY">
-                                <DESC>Printer types to search</DESC>
-                            </PARAM>
-                            <PARAM name="connectionType" type="STRING" default="CONNECTION_TYPE_ANY">
-                                <DESC>Interfaces for seach (Bluetooth/TCP/All)</DESC>
-                            </PARAM>
-                            <PARAM name="timeout" type="INTEGER" default="30000">
-                                <DESC>Maximum search interval in milliseconds</DESC>
-                            </PARAM>
-                            <PARAM name="deviceAddress" type="STRING">
-                                <DESC>Printer adress (mac or ip). Can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search.</DESC>
+                                <DESC>Printer types to search. Make sure that Printer type is supported by calling enumerateSupportedTypes method.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
-                            <PARAM name="devicePort" type="INTEGER">
-                                <DESC>Override default printer port number.</DESC>
+                            <PARAM name="connectionType" type="STRING" default="CONNECTION_TYPE_ANY">
+                                <DESC>Interfaces for search (Bluetooth/TCP/All)</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="timeout" type="INTEGER" default="30000">
+                                <DESC>Maximum search interval in milliseconds, applies to network discovery. This is the maximum interval for wait during connection attempt. Note: if no printer was found even with timeout property status will be set to PRINTER_STATUS_SUCCESS, but without any printerId.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="deviceAddress" type="STRING">
+                                <DESC>Printer address (mac or ip). Can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search. </DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="devicePort" type="INTEGER" default="6101">
+                                <DESC>Override default printer port number. Applicable for network discovery only.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                         </PARAMS>
@@ -135,10 +143,14 @@
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
+                            <DESC>Status of network discovery, can be following:
+* PRINTER_STATUS_SUCCESS - when printer is discovered or operation is finished;
+* PRINTER_STATUS_ERROR - general error 
+* PRINTER_STATUS_ERR_UNSUPPORTED - in case if printer type is not supported
+* PRINTER_STATUS_ERR_NOT_CONNECTED - in case if deviceAddress was specified in options and device was unable to connect to printer</DESC>
                         </PARAM>
                         <PARAM name="printerID" type="STRING">
-                            <DESC>Printer ID, vaild only if status equals to 'PRINTER_STATUS_SUCCESS'. If there are no more printers available printerID will not be defined.</DESC>
+                            <DESC>Printer ID, valid only if status equals to 'PRINTER_STATUS_SUCCESS'. If there are no more printers available printerID will not be defined.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="message" type="STRING">
@@ -156,7 +168,7 @@
             </METHOD>
             
             <METHOD name="getPrinterByID" access="STATIC">
-                <DESC>Return printer instance specified by printerId. To get valid printerId please use searchPrinters function</DESC>
+                <DESC>Return printer instance specified by printerId. If there is no printers with this ID null is returned. To get valid printerId please use searchPrinters function</DESC>
                 <PARAMS>
                     <PARAM name="printerId" type="STRING">
                     </PARAM>
@@ -167,7 +179,7 @@
             </METHOD>
 
             <METHOD name="connect" hasCallback="optional">
-                <DESC>Connect to a printer using default options. After this function call state is automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices. </DESC>
+                <DESC>Connect to a printer using default options. Works asynchronously, use callback to check the result. If connection is successful printer state and properties are automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices. </DESC>
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
                 </CALLBACK>
@@ -175,7 +187,7 @@
             </METHOD>
 
             <METHOD name="connectWithOptions" hasCallback="optional">
-                <DESC>Connect to a printer using user options. After this function call state is automatically updated..</DESC>
+                <DESC>Connect to a printer using user options. Works asynchronously, use callback to check the result. After this function call state is automatically updated.</DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">                              
                         <DESC>Connect options</DESC>
@@ -186,7 +198,7 @@
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
-                                <DESC>Any addtional info. Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <DESC>Any additional info. Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                         </PARAMS>
@@ -200,7 +212,7 @@
             </METHOD>
 
             <METHOD name="requestState" hasCallback="mandatory">
-                <DESC>Request printer state for list of parameters</DESC>
+                <DESC>Request printer state with a list of parameters. Works asynchronously, use callback to check the result. Returns hash with status, and parameters as keys.</DESC>
                 <PARAMS>
                     <PARAM name="listOfParameters" type="ARRAY">
                         <DESC>list of parameters for request from printer device.</DESC>
@@ -210,7 +222,7 @@
                     </PARAM>
                 </PARAMS>>
                 <CALLBACK type="HASH">
-                    <DESC>hash with pairs requestedParameter => value, also "status" always in returned hash. If you do not receive requested parameter thne this parameter is unsupported by printer</DESC>
+                    <DESC>If printer does not supports some parameter then it will not be included in result hash.</DESC>
                     <PARAMS>
                         <PARAM name="status" type="STRING">
                             <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
@@ -229,7 +241,7 @@
             </METHOD>
 
             <METHOD name="disconnect" hasCallback="optional">
-                <DESC>Disconnect from printer. If you want to receive result, you must specify callback</DESC>
+                <DESC>Disconnect from a printer and release OS resources. Works asynchronously, use callback to check the result.</DESC>
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a disconnection. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                 </CALLBACK>
@@ -237,17 +249,17 @@
             </METHOD>
 
             <METHOD name="printFile" hasCallback="optional">
-                <DESC>Prints file. File extension is used to determine its type. Supported types: JPEG and PNG images, all other types are platform depend.</DESC>
+                <DESC>Prints file. Works asynchronously, use callback to check the result. File extension is used to determine its type. Supported types: JPEG and PNG images.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
                         <DESC>Location of file to print.</DESC>
                     </PARAM>
                     <PARAM name="options" type="HASH" generateDoc="false">
                         <CAN_BE_NIL>
-                            <DESC>Not providing properties to this function will print with default settings. Reserved for future use.</DESC>                                
+                            <DESC>Not providing properties to this function will print with default settings. Reserved for future use.</DESC>
                         </CAN_BE_NIL>
                         <PARAMS>
-                            <DESC>Proivde a set of properties to configure file printing.</DESC>
+                            <DESC>Provide a set of properties to configure file printing.</DESC>
                                 <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
                                     <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                     <CAN_BE_NIL/>
@@ -266,7 +278,7 @@
             </METHOD>
 
             <METHOD name="printImageFromFile" hasCallback="optional">
-                <DESC>Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute.</DESC>
+                <DESC>Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
                         <DESC>Full path to image file. (The image must be either a PNG or JPG, all other types are platform depend).</DESC>
@@ -278,7 +290,7 @@
                         <DESC>Vertical starting position in dots.</DESC>
                     </PARAM>
                     <PARAM name="options" type="HASH">
-                        <DESC>Proivde a set of optional parameters.</DESC>
+                        <DESC>Provide a set of optional parameters.</DESC>
                         <CAN_BE_NIL></CAN_BE_NIL>
                         <PARAMS>
                             <PARAM name="width" type="INTEGER">
@@ -300,17 +312,17 @@
             </METHOD>
 
             <METHOD name="printRawString" hasCallback="optional">
-                <DESC>Send raw string to printer.</DESC>
+                <DESC>Send raw string to printer. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="command" type="STRING">
-                        <DESC>Raw string to print.</DESC>
+                        <DESC>Raw string to print. Could be any valid command in printer supported programming language.</DESC>
                     </PARAM>
                     <PARAM name="options" type="HASH" generateDoc="false">
                         <CAN_BE_NIL>
-                            <DESC>Not providing properties to this function will print with default settings.</DESC>                                
+                            <DESC>Not providing properties to this function will print with default settings.</DESC>                    
                         </CAN_BE_NIL>
                         <PARAMS>
-                            <DESC>Proivde a set of properties to configure the printer.</DESC>
+                            <DESC>Provide a set of properties to configure the printer.</DESC>
                             <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
                                 <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
@@ -333,14 +345,14 @@
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="stringResponce" type="STRING">
-                            <DESC>responce from printer if received, converted to string from byteArray(original data)</DESC>
+                            <DESC>response from printer if received, converted to string from byteArray(original data)</DESC>
                             <CAN_BE_NIL/>
                             <PLATFORM>Android, WM</PLATFORM>
                         </PARAM>
                         <PARAM name="byteArrayResponce" type="ARRAY">
                             <PARAM type="INTEGER">
                             </PARAM>    
-                            <DESC>responce from printer if received</DESC>
+                            <DESC>response from printer if received</DESC>
                             <CAN_BE_NIL/>
                             <PLATFORM>Android</PLATFORM>
                         </PARAM>

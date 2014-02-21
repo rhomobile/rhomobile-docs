@@ -43,7 +43,7 @@
       </METHOD>
 
       <METHOD name="getRecords">
-        <DESC>return array of Records IDs</DESC>
+        <DESC>return array of Record objects</DESC>
         <RETURN type="ARRAY">
           <PARAM type="Rho.NFC.Record"/>
           <DESC>array of Rho.NFC.Record objects</DESC>
@@ -52,7 +52,7 @@
       </METHOD>
 
       <METHOD name="getMessages">
-        <DESC>return array of Smart Poster Message IDs.</DESC>
+        <DESC>return array of Smart Poster Message objects.</DESC>
         <RETURN type="ARRAY">
           <PARAM type="Rho.NFC.Message"/>
           <DESC>array of Rho.NFC.Message objects</DESC>
