@@ -1,9 +1,35 @@
 # Building for iOS
 
 ## Setup
+
 Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-ios) for building iOS applications.
 
-**NOTE: The iOS SDK that is specified in your build.yml will need to be in the default XCode folder or the build process will not be able to find it. To find your default XCode installation directory, you can run the command `xcode-select --print-path` in your terminal.**
+### SDK locations
+The iOS SDK that is specified in your build.yml will need to be in the default XCode folder or the build process will not be able to find it.
+
+Example:
+    :::yml 
+    iphone:
+        SDK: iphoneos7.0
+or 
+    :::yml
+    iphone:
+        SDK: iphonesimulator7.0
+
+With these SDKs specified, you need to make sure the SDKs are in the right folder. To find your default XCode installation directory, you can run the command `xcode-select --print-path` in your terminal. This will return something like this:
+
+    :::term
+    $ xcode-select --print-path
+    /Applications/Xcode.app/Contents/Developer
+
+This is the path that the build process will use when looking for your iOS SDKs. If you have an SDK that you will be using but, it's in another folder you'll need to move it to the appropriate folder in this directory. For Example, if I have an iphoneos6.0 SDK that I want to use but it's in my downloads folder, I'll need to move it `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/`.
+
+The iphoneos and iphonesimulator SDKs go in two different folders:
+
+* `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs` - iPhoneOS SDKs, for running apps on your iOS device.
+* `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs` - iPhoneSimulator SDKs, for running apps in your iOS simulator.
+
+NOTE: These paths are solely for your information, they do not need to be copied into any files to be used. These are simply the directories in which you need to store your SDKs for them to work with the RhoMobile build process.
 
 ### Using RhoHub
 
