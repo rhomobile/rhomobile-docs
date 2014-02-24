@@ -302,7 +302,7 @@ def self.getconstantlinks(doc)
 		    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
 					#puts a
 					if a["existing"] == element["name"]
-						methname = "<span class='text-info'>" + element["name"] + "</span>"
+						methname = "&nbsp;<span class='text-info'>" + element["name"] + "</span>"
 		  			end
 				}
 				end
@@ -1192,7 +1192,7 @@ end
 	    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
 				#puts a
 				if a["existing"] == element["name"]
-					methreplaces += a["new"]
+					methreplaces += "<span class='label label-info'>" + a["new"] + "</span> "
 				end
 			}
 		end
@@ -1392,7 +1392,7 @@ end
 			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
 			# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
 			methname = '<span class="text-info">' + methname + '</span>'
-			@methdesc = "<span class='label label-info'>Replaces:#{methreplaces}</span> " + @methdesc
+			@methdesc = "<span class='label label-info'>Replaces:</span> #{methreplaces} " + @methdesc
 
 		end
 		# md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
