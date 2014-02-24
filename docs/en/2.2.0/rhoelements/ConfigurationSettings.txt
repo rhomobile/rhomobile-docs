@@ -153,11 +153,11 @@ The following is an example of a typical configuration file, many of the attribu
 			<UserAgent                VALUE="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
 			<ViewportEnabled          VALUE="0"/>
 			<ViewportWidth            VALUE="640"/>
-        	<CaFile                   VALUE=""/>
-        	<CaPath                   VALUE=""/>
-        	<VerifyPeerCertificate    VALUE="1"/>
-        	<NetworkCookieDatabase    VALUE="file://\Program Files\RhoElements\cookies.db" />		
-        	<Cache                    VALUE="5MB" />		
+    	<CaFile                   VALUE="%INSTALLDIR%\server.pem"/>
+    	<CaPath                   VALUE=""/>
+    	<VerifyPeerCertificate    VALUE="1"/>
+    	<NetworkCookieDatabase    VALUE="file://\Program Files\RhoElements\cookies.db" />
+    	<Cache                    VALUE="5MB" />
 			</Navigation>
 		  <DeviceKeys>
 			<EnableCtrlKey_C          VALUE="0"/>
@@ -167,7 +167,7 @@ The following is an example of a typical configuration file, many of the attribu
 		  </DeviceKeys>
 		  <DefaultMetaTags>
 			<MetaTag VALUE="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
-			<MetaTag VALUE="Signal~left:10;top:200;color:#663300;"/>	  
+			<MetaTag VALUE="Signal~left:10;top:200;color:#663300;"/>
 		  </DefaultMetaTags>
 		</Application>
 	  </Applications>

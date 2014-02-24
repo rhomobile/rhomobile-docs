@@ -322,7 +322,7 @@ The following is an example of a typical configuration file
             <UserAgent                VALUE="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
             <ViewportEnabled          VALUE="0"/>
             <ViewportWidth            VALUE="640"/>
-            <CaFile                   VALUE=""/>
+            <CaFile                   VALUE="%INSTALLDIR%\server.pem"/>
             <CaPath                   VALUE=""/>
             <VerifyPeerCertificate    VALUE="1"/>
             <NetworkCookieDatabase    VALUE="file://\Program Files\RhoElements\cookies.db" />   
