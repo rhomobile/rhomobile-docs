@@ -45,6 +45,8 @@ To use the custom user partitioning, implement the following class method in you
 ## Pass Through
 RhoConnect provides a simple way to keep data out of redis.  If you have sensitive data that you do not want saved in redis, add the `pass_through` option in settings/settings.yml for each source:
 
+**NOTE: When enabling pass_through for a model in your RhoConnect app, it is necessary to also enable pass_through for your client-side app. See the [Rhom Ruby Doc](../guide/rhom_ruby#using-models) section on using models for more information.**
+
     :::yaml
     :sources:
       Product:
