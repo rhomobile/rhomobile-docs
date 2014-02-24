@@ -3,7 +3,7 @@
 Configuration of RhoElements is managed through an XML file.  Not every setting has a default so if the configuration file cannot be found, RhoElements will <b>not</b> start; an example configuration file is provided as part of the installation and will contain sensible defaults, this page explains the meanings of each of the settings and their possible values.
 
 ##Configuration File Location
-The location of the configuration file loaded by RhoElements is dependant on a number of factors:
+The location of the configuration file loaded by RhoElements is dependent on a number of factors:
 
 <ul>
 	<li/>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.rhoelements/Config.xml.
@@ -11,7 +11,7 @@ The location of the configuration file loaded by RhoElements is dependant on a n
 	<li/>You can change which configuration file is loaded using the /C: configuration option
 </ul>
 
-For persistant installations on cold boot the Config.xml file is copied from \Application\RhoElements\Config\Config.xml to \Program Files\RhoElements\Config\Config.xml; bear this in mind if you want your configuration to persist across cold boot and you can also modify this behaviour by changing \Application\RhoElements.cpy.
+For persistent installations on cold boot the Config.xml file is copied from \Application\RhoElements\Config\Config.xml to \Program Files\RhoElements\Config\Config.xml; bear this in mind if you want your configuration to persist across cold boot and you can also modify this behavior by changing \Application\RhoElements.cpy.
 
 ##Configuration XML File Format
 The following is an example of a typical configuration file, many of the attributes will be self explanatory but are explained in detail below.</p>
@@ -262,7 +262,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >Screen\\FullScreen</td>
 <td >FULLSCREEN</td>
-<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/Application">Application</a> tag.  Some Windows Mobile devices feature a customised Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/Application">Application</a> tag.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -292,7 +292,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td class="clsEvenRow">DeviceKeys\\<BR>FunctionKeysCapturable</td>
 <td class="clsEvenRow">FUNCTIONKEYSCAPTURABLE</td>
-<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behaviour (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/rhoelements/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehaviour">the end of this document</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
+<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behavior (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/rhoelements/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehavior">the end of this document</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
 <td class="clsEvenRow">0 - F keys not capturable<BR>1 - F keys capturable</td>
 </tr> 
 <tr>
@@ -300,7 +300,7 @@ The following is an example of a typical configuration file, many of the attribu
 <td >ENABLEFUNCTIONKEY_FX</td>
 <td >By default all function keys are disabled (e.g. F1, F2) but this setting is used to specify which function keys should be enabled.  For each key you wish to enable define a EnableFunctionKey_X tag but replace 'X' with the key being enabled, so for example to enable F1 specify EnableFunctionKey_F1.  The maximum function key you can enable is F24.  In order to use this configuration setting you must preload the KeyCapture module<p>On the Enterprise tablet, this tag can be used to enable the 'P' keys. For compatibility with other devices the 'P' keys are referred to as 'F' keys in the config file. Therefore in order to enable P2 key on the enterprise tablet, the tag EnableFunctionKey_F2 should be set to 1.  For Windows Mobile / CE this setting is not specific to the current application and will be applied globally on the device, <b>only being unset when a device warm boot is performed.</b></p>
 <p>On MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.</p>
-<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehaviour">the end of this document</a>  
+<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehavior">the end of this document</a>  
 </td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr> 
@@ -488,7 +488,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >Scanner\\DisableScannerDuringNavigation</td>
 <td >DISABLESCANNERDURINGNAV</td>
-<td >By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behaviour you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
+<td >By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
 <td >0 - The Scanner will remain enabled during page navigation<BR>1 - The Scanner will disable during a page navigation</td>
 </tr>
 <tr>
@@ -548,7 +548,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >GUI\\HourglassEnabled</td>
 <td >HOURGLASSENABLED</td>
-<td >By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
+<td >By default an <a href="/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behavior.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -599,19 +599,19 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td >Navigation\\ViewportWidth</td>
 <td >VIEWPORTWIDTH</td>
-<td >Default viewport width to use for pages that do no thave a viewport meta tag (uses 1:1 scaling if not specified)</td>
+<td >Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified)</td>
 <td >Number</td>
 </tr>
 <tr>
 <td>Navigation\\CaFile</td>
 <td>CAFILE</td>
-<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>.  This is only supported on the ET1</td>
+<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>. This setting is supported on Windows Mobile / CE and Android.</td>
 <td>Local File name on the device.</td>
 </tr>
 <tr>
 <td>Navigation\\CaPath</td>
 <td>CAPATH</td>
-<td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information.</td>
+<td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information. This setting is supported on Windows Mobile / CE and Android.</td>
 <td>Local File path on the device.</td>
 </tr>
 <tr>
@@ -653,7 +653,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td >DefaultMetaTags\\MetaTag</td>
 <td >DEFAULTMETATAG</td>
-<td >All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
+<td >All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilde character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
 <td >[Module]~[Contents expressed in EMML1.1]</td>
 </tr>
 <tr>
@@ -681,7 +681,7 @@ The following substitution variables are available in the configuration file
 		
 ##Optimizing The Runtime
 
-RhoElements will be installed to the device with all default functionality enabled out of the box, including the barcode scanner.  This section describes how you can customise the RhoElements runtime to only load the functionality your application requires and specify when you want to load it.
+RhoElements will be installed to the device with all default functionality enabled out of the box, including the barcode scanner.  This section describes how you can customize the RhoElements runtime to only load the functionality your application requires and specify when you want to load it.
 
 Consider an application which opens the [Card Reader](cardreader) on the first page:
 	<META HTTP-Equiv="CardReader" Content="Open" />
@@ -692,7 +692,7 @@ There are two circumstances to consider:
 In this case RhoElements opens the card reader more or less immediately with no noticeable delay to the user.
 
 2) The Card Reader module was not Preloaded
-In this case the Card Reader module (contained in the plugin PB_CardReader_PLG.dll) is loaded into memory and initialised, this in turn will initialise the hardware which could cause a noticeable delay depending on the device in use and the exact hardware.
+In this case the Card Reader module (contained in the plugin PB_CardReader_PLG.dll) is loaded into memory and initialized, this in turn will initialize the hardware which could cause a noticeable delay depending on the device in use and the exact hardware.
 
 The benefits of preloading plugins are obvious.  The benefits of not preloading plugins are that RhoElements will run with a smaller memory footprint until the additional functionality is required and the start up time will be reduced.
 
@@ -746,7 +746,7 @@ It is recommended that the JavaScript objects are preloaded if they are being us
 NOTE: Some JavaScript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.		
 
 ###Plugin Dependencies
-Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.
+Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependent plugin will function with reduced capabilities.
 
 ####File Transfer
 The [File Transfer Plugin](filetransfer) (PB_FileTransfer_PLG.dll) is critical to the proper working of multiple plugins. 
@@ -762,37 +762,37 @@ The [Imager](imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if 
 The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 ###<a name="_batteryRefresh">*</a>Battery Polling on the Enterprise Tablet
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
-###<a name="_fnbehaviour"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
-On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system <b>any settings applied will persist until the device is next warm booted</b>.  Which function keys have default operating system behaviour will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behaviour.
+###<a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
+On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system <b>any settings applied will persist until the device is next warm booted</b>.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behavior.
 
 <b><i>Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.</i></b>
 
-The table below shows the behaviour of RhoElements when Function Keys are pressed given the possible configuration settings:
+The table below shows the behavior of RhoElements when Function Keys are pressed given the possible configuration settings:
 <P>
 <table border=1 width="100%" class="re-table">
 <tr><th></th><th>Function Keys Capturable = TRUE</th><th>Function Keys Capturable = FALSE</th></tr>
 <tr><th>Enable Function Key = TRUE</th>     
 <td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour
+<li>Function Key will <b>not</b> have its default Operating system behavior
 </ul>
 </td>
 <td valign="top"><ul>
-<li>Function Keys with default OS behaviour <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Keys without default OS behaviour <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key <b>will</b> have its default Operating system behaviour (if any)
+<li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
+<li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
+<li>Function Key <b>will</b> have its default Operating system behavior (if any)
 </ul>
 </td>
 </tr>
 <tr><th>Enable Function Key = FALSE</th>
 <td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour
+<li>Function Key will <b>not</b> have its default Operating system behavior
 </ul>
 </td>
 <td valign="top"><ul>
 <li>All Function Keys <b>can not</b> be captured by the <a href="/rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour (if any)</td>
+<li>Function Key will <b>not</b> have its default Operating system behavior (if any)</td>
 </ul>
 </tr>			
 </table>

@@ -21,7 +21,7 @@ All values will be accessible at runtime via `Rho::RhoConfig`
     foo = Rho::RhoConfig.bar
     start_path = Rho::RhoConfig.start_path
 
-You can also check if a configurtion property actually exists before accessing it
+You can also check if a configuration property actually exists before accessing it
 
     :::ruby
     start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
@@ -146,7 +146,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
      
     disable_loading_indication:type - Bool
         If enabled, blocks loading indication in webview
-            Supported only on Android.  
+            Supported only on Android.
 
 ### Additional parameters that can be used in rhoconfig.txt
 
@@ -173,13 +173,13 @@ Runtime configuration of RhoElements is managed through an XML file called Confi
 * OS X: ~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml
 
 ### Configuration File Location in a mobile device
-The location of the configuration file loaded by RhoElements is dependant on a number of factors:
+The location of the configuration file loaded by RhoElements is dependent on a number of factors:
 
 * When running on the Enterprise Tablet the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
 * When running on all other devices RhoElements will attempt to launch the configuration file `Config.xml` located in the folder `Config` off the installation root.
 * You can change which configuration file is loaded using the /C: configuration option
 
-For persistant installations, on cold boot the `Config.xml` file is copied from `\Application\RhoElements\Config\Config.xml` to `\Program Files\RhoElements\Config\Config.xml`; bear this in mind if you want your configuration to persist across cold boot. This behaviour may be modified by changing `\Application\RhoElements.cpy`.
+For persistant installations, on cold boot the `Config.xml` file is copied from `\Application\RhoElements\Config\Config.xml` to `\Program Files\RhoElements\Config\Config.xml`; bear this in mind if you want your configuration to persist across cold boot. This behavior may be modified by changing `\Application\RhoElements.cpy`.
 
 ## Config.xml File Format
 The following is an example of a typical configuration file
@@ -435,7 +435,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >Screen\\FullScreen</td>
 <td >FULLSCREEN</td>
-<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customised Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -465,7 +465,7 @@ The following is an example of a typical configuration file
 <tr>
 <td class="clsEvenRow">DeviceKeys\\<BR>FunctionKeysCapturable</td>
 <td class="clsEvenRow">FUNCTIONKEYSCAPTURABLE</td>
-<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behaviour (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/api/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown <a href="#_fnbehaviour">here</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
+<td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behavior (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/api/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown <a href="#_fnbehavior">here</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
 <td class="clsEvenRow">0 - F keys not capturable<BR>1 - F keys capturable</td>
 </tr> 
 <tr>
@@ -473,7 +473,7 @@ The following is an example of a typical configuration file
 <td >ENABLEFUNCTIONKEY_FX</td>
 <td >By default all function keys are disabled (e.g. F1, F2) but this setting is used to specify which function keys should be enabled.  For each key you wish to enable define a EnableFunctionKey_X tag but replace 'X' with the key being enabled, so for example to enable F1 specify EnableFunctionKey_F1.  The maximum function key you can enable is F24.  In order to use this configuration setting you must preload the KeyCapture module<p>On the Enterprise tablet, this tag can be used to enable the 'P' keys. For compatibility with other devices the 'P' keys are referred to as 'F' keys in the config file. Therefore in order to enable P2 key on the enterprise tablet, the tag EnableFunctionKey_F2 should be set to 1.  For Windows Mobile / CE this setting is not specific to the current application and will be applied globally on the device, <b>only being unset when a device warm boot is performed.</b></p>
 <p>On MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.</p>
-<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehaviour">the end of this document</a>  
+<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehavior">the end of this document</a>  
 </td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr> 
@@ -486,7 +486,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >Navigation\\NavTimeout</td>
 <td >NAVTIMEOUT</td>
-<td >Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting.  If it is determined that the destination is unreachable regardless of wait time, the badlink may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practise is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an online page if desired.</td></td></td>
+<td >Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting.  If it is determined that the destination is unreachable regardless of wait time, the badlink may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an online page if desired.</td></td></td>
 <td >Timeout in Milliseconds, maximum value is 45000</td>
 </tr>
 <tr>
@@ -661,7 +661,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >Scanner\\DisableScannerDuringNavigation</td>
 <td >DISABLESCANNERDURINGNAV</td>
-<td >By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behaviour you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
+<td >By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
 <td >0 - The Scanner will remain enabled during page navigation<BR>1 - The Scanner will disable during a page navigation</td>
 </tr>
 <tr>
@@ -721,7 +721,7 @@ The following is an example of a typical configuration file
 <tr>
 <td >GUI\\HourglassEnabled</td>
 <td >HOURGLASSENABLED</td>
-<td >By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behaviour.</td>
+<td >By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behavior.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -772,19 +772,19 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td >Navigation\\ViewportWidth</td>
 <td >VIEWPORTWIDTH</td>
-<td >Default viewport width to use for pages that do no thave a viewport meta tag (uses 1:1 scaling if not specified)</td>
+<td >Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified)</td>
 <td >Number</td>
 </tr>
 <tr>
-<td>Navigation\\CaFile <span class="label label-warning">Applies to both Moto Webkit and Stock Webkit</span></td>
+<td>Navigation\\CaFile</td>
 <td>CAFILE</td>
-<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>.  This is only supported on the ET1</td>
+<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>.  This setting is supported on Windows Mobile / CE and Android.</td>
 <td>Local File name on the device.</td>
 </tr>
 <tr>
-<td>Navigation\\CaPath <span class="label label-warning">Applies to both Moto Webkit and Stock Webkit</span></td>
+<td>Navigation\\CaPath</td>
 <td>CAPATH</td>
-<td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL <code>c_rehash</code> utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information.</td>
+<td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL <code>c_rehash</code> utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information. This setting is supported on Windows Mobile / CE and Android.</td>
 <td>Local File path on the device.</td>
 </tr>
 <tr>
@@ -859,37 +859,37 @@ The following substitution variables are available in the configuration file
 The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 ###<a name="_batteryRefresh">*</a>Battery Polling on the Enterprise Tablet
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
-###<a name="_fnbehaviour"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
-On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system <b>any settings applied will persist until the device is next warm booted</b>.  Which function keys have default operating system behaviour will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behaviour.
+###<a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
+On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system <b>any settings applied will persist until the device is next warm booted</b>.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behavior.
 
 <b><i>Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.</i></b>
 
-The table below shows the behaviour of RhoElements when Function Keys are pressed given the possible configuration settings:
+The table below shows the behavior of RhoElements when Function Keys are pressed given the possible configuration settings:
 
 <table border=1 width="100%" class="re-table">
 <tr><th></th><th>Function Keys Capturable = TRUE</th><th>Function Keys Capturable = FALSE</th></tr>
 <tr><th>Enable Function Key = TRUE</th>     
 <td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour
+<li>Function Key will <b>not</b> have its default Operating system behavior
 </ul>
 </td>
 <td valign="top"><ul>
-<li>Function Keys with default OS behaviour <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-<li>Function Keys without default OS behaviour <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key <b>will</b> have its default Operating system behaviour (if any)
+<li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+<li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+<li>Function Key <b>will</b> have its default Operating system behavior (if any)
 </ul>
 </td>
 </tr>
 <tr><th>Enable Function Key = FALSE</th>
 <td valign="top"><ul>
 <li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour
+<li>Function Key will <b>not</b> have its default Operating system behavior
 </ul>
 </td>
 <td valign="top"><ul>
 <li>All Function Keys <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-<li>Function Key will <b>not</b> have its default Operating system behaviour (if any)</td>
+<li>Function Key will <b>not</b> have its default Operating system behavior (if any)</td>
 </ul>
 </tr>     
 </table>
