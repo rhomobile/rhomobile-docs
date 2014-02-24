@@ -259,6 +259,7 @@ The following is an example of a typical configuration file
           <NPAPI>
             <NPAPIDirectory         VALUE="file://\Program Files\RhoElements\NPAPI\"/>
             <Preloads>
+              <PreloadLegacyActiveX VALUE="0"/>
               <PreloadLegacyGeneric VALUE="1"/>
               <PreloadLegacyODAX    VALUE="1"/>
               <PreloadLegacyNoSIP   VALUE="1"/>
@@ -564,6 +565,12 @@ The following is an example of a typical configuration file
 <td >NPAPIDIRECTORY</td>
 <td >Not applicable to the Enterprise Tablet:<br>Path to an existing directory where the NPAPI Plugins are stored</td>
 <td >Fully qualified local path.<a href="#_caseSensitivity">&dagger;</a></td>
+</tr>
+<tr>
+<td class="clsEvenRow">NPAPI\\Preloads\\PreloadLegacyActiveX</td>
+<td class="clsEvenRow">PRELOADLEGACYACTIVEX</td>
+<td class="clsEvenRow">Whether or not to preload the ActiveX object in WebKit. You'll need to use this if you want backwards compatibility with code written in PocketBrowser that used the ActiveXObject. This setting is supported on Windows Mobile / CE with the Motorola Webkit only.</td>
+<td class="clsEvenRow">0 - Do Not Preload<br>1 - Preload</td>
 </tr>
 <tr>
 <td class="clsEvenRow">NPAPI\\Preloads\\PreloadLegacyGeneric</td>
