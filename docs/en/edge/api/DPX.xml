@@ -54,10 +54,9 @@ Ruby
         <DESC>Whether or not to provide LED feedback to the user following document processing</DESC>
       </PROPERTY>
       <PROPERTY name="flashMode" type="STRING" default="off">
-        <DESC>Flash mode (off, auto, on).</DESC>
+        <DESC>Flash mode (off, on).</DESC>
         <VALUES>
           <VALUE constName="FLASH_OFF"  value="off"><DESC>Turn flash off.</DESC></VALUE>
-          <VALUE constName="FLASH_AUTO" value="auto"><DESC>Set auto flash.</DESC></VALUE>
           <VALUE constName="FLASH_ON"   value="on"><DESC>Turn flash on.</DESC></VALUE>
         </VALUES>
       </PROPERTY>
