@@ -2,8 +2,24 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Printer" parent="Rho">
-        <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to BT, Network, and USB printers.</HELP_OVERVIEW>
-        <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API. Almost all operations are asynchronous, use callbacks for sequence of operations.</MORE_HELP>
+        <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</HELP_OVERVIEW>
+        <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API. Almost all operations are asynchronous, use callbacks for sequence of operations.
+
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["printing","printing_zebra"]
+
+The `barcode` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
+
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
+
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
+        </MORE_HELP>
     
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
@@ -108,9 +124,9 @@
 
             <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
                 <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. 
-                    Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options.
-                    Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
-                    ATTENTION: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
+Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options.
+Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
+ATTENTION: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
                 </DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
