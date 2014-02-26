@@ -129,10 +129,10 @@ When you generate your app, a default version of the build.yml file will be gene
 	</tr>
 </table>
 
-### Other Build-time Settings of Note
+## Other Build-time Settings
 
-#### app_type:
-If you are building an app for Windows Mobile or Windows CE you must specify the app_type as RhoElements as follows:
+### App Type
+If you are building an app for Windows Mobile or Windows CE you must specify the app_type as RhoElements in your build.yml as follows:
 
 	:::yaml
 	app_type: "rhoelements"
