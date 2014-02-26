@@ -129,6 +129,14 @@ When you generate your app, a default version of the build.yml file will be gene
 	</tr>
 </table>
 
+### Other Build-time Settings of Note
+
+#### app_type:
+If you are building an app for Windows Mobile or Windows CE you must specify the app_type as RhoElements as follows:
+
+	:::yaml
+	app_type: "rhoelements"
+
 ## Application Permissions and Capabilities
 
 To enable specific device capabilities, edit application's build.yml as below:
