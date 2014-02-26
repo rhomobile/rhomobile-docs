@@ -59,33 +59,20 @@ To run on the iOS simulator, select iPhone in Platform, Simulator in Simulator t
 
 ## Build an iOS App with Xcode
 
-If you wish to run your RhoMobile application on an iOS device, you need to build and run it using an Xcode project.
-
-Tell Rhomobile to build from your RhoMobile application. Within your RhoMobile project folder, run the following command:
+If you wish to run your RhoMobile application on an iOS device, you need to build and run it using an Xcode project. To do this, simply use the run:iphone rake task from the command line.
 
     :::term
-    $ rake switch_app
+    $ rake run:iphone
 
-The switch_app command changes the rhobuild.yml in the RhoMobile source code folder to point to your application, as in the following example for a RhoMobile application named Store in the user's home folder:
+After the app has built, it will create an XCode project and place it in your project folder in the app's root directory. e.g. `<path to app>/project/iphone/<name of app>.xcodeproject`.
 
-    :::term
-    env: 
-      app: /Users/NameOfUser/Store
-
-Note that the switch_app command is only used when you run a RhoMobile application within an IDE, such as Xcode: you run switch_app for each RhoMobile application that you run in Xcode. The switch_app command does not affect RhoMobile applications that you build and run on the command line or within RhoStudio.
-
-Now run the following command to tell RhoMobile to set up the Xcode environment for your RhoMobile application:
-
-    :::term
-    $ rake build:iphone:setup_xcode_project
-
-Then in the RhoMobile source code folder (the path in your RhoMobile application build.yml file), navigate to the /platform/iphone folder and open rhorunner.xcodeproj. This will open your RhoMobile application in Xcode.
+Then in XCode open the  `<path to app>/project/iphone/<name of app>.xcodeproject` project.
 
 In the Xcode Scheme menu, select the proper scheme before you build and run your project. Click on the Scheme menu.
 
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-4.0.png" alt="xcode scheme" />
 
-Select the Scheme for your project under rhorunner. You can select to run in the simulator.
+Select the scheme rhorunner and what platform you would like to build to.
 
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-simulator-4.0.png" alt="xcode scheme simulator" />
 
@@ -93,9 +80,11 @@ Now you can build and run in Xcode to run your project in the iOS simulator.
 
 If you are an Apple developer, you can run your RhoMobile application on your iOS device. In Xcode, select your rhorunner target, click on the Build Settings tab, and see that your code signing information that you installed as an Apple developer is set up and selected.
 
+You should see your app's XCode project listed in the XCode window title. In the case below, my app's name is build-ios-test and the .xcodeproject file is Buildiostest.xcodeproject.
+
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-build-simulator-4.0.png" alt="xcode build settings" />
 
-Plug in your iOS device. In Xcode, under Scheme, select iOS device under rhorunner. Then build and run.
+Plug in your iOS device. In Xcode, under Scheme, select iOS device under rhorunner, then build and run.
 
 <img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-xcode-scheme-device-4.0.png" alt="xcode scheme device" />
 
@@ -104,6 +93,22 @@ For more information on running on your iOS device from Xcode, go to the [Apple 
 You can edit your RhoMobile code for your RhoMobile application in a text editor, save your changes, do a Clean in Xcode so that your changes will register in Xcode, and then rebuild and run your project from Xcode.
 
 The resulting application package (*.app) is located in your RhoMobile source code folder under /platform/iphone/build/, in a folder named like [Debug/Release]-[iphoneos/iphonesimulator]/rhorunner.app.
+
+### Changing rhorunner to match your app name
+By default, the scheme name, product name, and target name are "rhorunner". This is simply cosmetic at this point but you can change it if you like. To change these items:
+
+#### Scheme Name
+Click the name rhorunner as if to change the scheme. You'll get a dropdown menu with the option "Manage schemes". Click this and you'll be presented with a list of schemes. Click the rhorunner scheme and either click it again or press the Enter key to rename it to your app's name.
+
+#### Product Name
+In the middle pane of XCode, click the "Build Settings" option at the top. In the list of build settings you'll find the heading "Packaging" and in this section, expand the "Product Name" item. You can then click on the name "rhorunner" to change this name to you app's name.
+
+#### Target Name
+In the middle pane of XCode, click the drawer button to expand the drawer and reveal the "Project" and "Target" items. Just as before, you can single-click the highlighted "rhorunner" item to rename it to your app's name.
+
+Here are the pieces that can be renamed to match your app's name:
+
+<img src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/rhorunner-renaming-4.1.png" alt="rhorunner renaming" />
 
 ## Building and Run on devices before iPhone4 and iPad
 
