@@ -25,7 +25,7 @@ The typical flow of a message using RPS:
 	|           |            |                 |
 	+           +            +                 +
 
-### Download and Install Nodejs
+### Download and Install Node`s
 
 If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile Suite for Windows includes Node.js in its installation.)
 
@@ -149,7 +149,7 @@ If you are using an Android device, install `rhoconnect_push_service.apk` to you
 
 	$ adb devices
 
-If connected, you’ll see the device name listed. If your computer doesn’t see the device, try killing the adb process first:
+If connected, you'll see the device name listed. If your computer doesn't see the device, try killing the adb process first:
 
 	$ adb kill-server
 
@@ -173,13 +173,11 @@ Manually copy the .cab files to the device. For example, you can use the device 
 
 ### Installing Runtime Apps for Windows XP Embedded
 
-If you are using a Windows Mobile or CE device, install the following runtime apps on your device. If you already have the .NET Compact Framework on your device, make sure it is v3.5 or higher. Also Windows XPE also required that you have the Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) installed on your build machine.
+Windows XPE requires that you have the Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) installed on your build machine.
 
-* `rhoconnect-push-service.exe`
+Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center and copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file to start the installation process. After it is finished, you should see the app icon on your device in the programs list.
 
-Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center.
-
-Manually copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file and the installation process will be started. After it is finished, you should see the app icon on your device in the Programs list.
+NOTE: The RhoConnect push service on Windows XP Embedded is a separate program on your device and will not be uninstalled when uninstalling other apps or programs.
 
 ## Setting up the Rhodes Client for RhoConnect Push Service
 
