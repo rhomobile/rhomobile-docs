@@ -4,14 +4,16 @@
 	<MODULE name="Signature" parent="Rho" license="Required">
 		<HELP_OVERVIEW>creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.</HELP_OVERVIEW>
 		<MORE_HELP>
-## Enabling the API           
+## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
     extensions: ["signature"]
 
 The `signature` extension is also included automatically if you specify the following in your `build.yml`
     :::ruby
-    app_type: "rhoelements"    
+    app_type: "rhoelements"
+
+**NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).**
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
@@ -120,7 +122,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 		<METHODS access="STATIC">
 			<METHOD name="takeFullScreen" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
-				<DESC>Shows a signature area. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible button as 'clear', 'capture' and 'cancel'. In Android/iOS, the signature area has images which will behave as a button for 'clear', 'capture' and 'cancel'.</DESC>
+				<DESC>Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel/capture and return to main application window. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible button as 'clear', 'capture' and 'cancel'. In Android/iOS, the signature area has images which will behave as a button for 'clear', 'capture' and 'cancel'. This function open modal full screen window. So other functions related to inline signature capture (work with inside browser window area) do not take effect to modal capture window showed by this function.</DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -147,7 +149,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<METHOD name="show" runInThread="ui">
 				<VER_INTRODUCED>2.0.0</VER_INTRODUCED>
-				<DESC>Show inline signature window</DESC>
+				<DESC>Show inline signature window. This function work with non-modal signature capture area showed inside browser window. All inline signature capture functions (like this) do not has affect to capture area showed in takeFullScreen (modal full screen capture area) </DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<PARAMS>
 					<PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -161,7 +163,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 		
 			<METHOD name="capture" hasCallback="mandatory" runInThread="ui">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<DESC>Captures the signature area as an image.</DESC>
+				<DESC>Captures the inline signature area as an image. This function work with non-modal signature capture area showed inside browser window. All inline signature capture functions (like this) do not has affect to capture area showed in takeFullScreen (modal full screen capture area) </DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 				<CALLBACK  type="HASH">
 					<PARAMS>
@@ -180,13 +182,13 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 			<METHOD name="clear" runInThread="ui">
 				<VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-				<DESC>Clears an inline capture area</DESC>
+				<DESC>Clears an inline capture area. This function work with non-modal signature capture area showed inside browser window. All inline signature capture functions (like this) do not has affect to capture area showed in takeFullScreen (modal full screen capture area) </DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 			</METHOD>
 
 			<METHOD name="hide" runInThread="ui">
 				<VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-				<DESC>Hides an inline capture area from view. It clears the inputed signature for inline signature areas. In a hidden state, a user cannot interact with the signature capture area.</DESC>
+				<DESC>Hides an inline capture area from view. It clears the inputed signature for inline signature areas. In a hidden state, a user cannot interact with the signature capture area. This function work with non-modal signature capture area showed inside browser window. All inline signature capture functions (like this) do not has affect to capture area showed in takeFullScreen (modal full screen capture area) </DESC>
 				<PLATFORM>iOS, Android, WM</PLATFORM>
 			</METHOD>
 			

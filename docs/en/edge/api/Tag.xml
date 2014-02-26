@@ -3,7 +3,19 @@
 <API>
   <MODULE name="Tag" parent="Rho.NFC">
     <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
-    <MORE_HELP>This calss representative NFC Tag object</MORE_HELP>
+    <MORE_HELP>This class representative NFC Tag object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
+
+The `nfc` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
+
+**NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).**
+
+    </MORE_HELP>
 
     <TEMPLATES>
     </TEMPLATES>
@@ -17,7 +29,51 @@
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="type" type="STRING" readOnly="true">
-        <DESC>see tagsSupported parameter in getDeviceInfo method in Rho.NFC.Adapter</DESC>
+        <DESC>Tag type</DESC>
+          <VALUES>
+            <VALUE constName="TAG_TYPE_TOPAZ" type="STRING" value = "1">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_FELICA" type="STRING" value = "2">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_CLASSIC" type="STRING" value = "3">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_UL" type="STRING" value = "4">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_DESFIRE" type="STRING" value = "6">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_ISO15693" type="STRING" value = "7">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_B" type="STRING" value = "8">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE" type="STRING" value = "9">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_NXP_I_CODE" type="STRING" value = "10">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS" type="STRING" value = "11">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_ULC" type="STRING" value = "12">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS_S2K" type="STRING" value = "13">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS_X2K" type="STRING" value = "14">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_UNKNOWN" type="STRING" value = "255">
+              <DESC></DESC>
+            </VALUE>
+          </VALUES>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="serialNumber" type="STRING" readOnly="true">

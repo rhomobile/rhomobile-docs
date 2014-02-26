@@ -8,9 +8,12 @@
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
     extensions: ["hardwarekeys"]
+    
 The `hardwarekeys` extension is also included automatically if you specify the following in your `build.yml`
     :::ruby
     app_type: "rhoelements"
+
+**NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).**
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
@@ -382,6 +385,11 @@ Certain devices may map their function keys to apparently normal keys, for examp
             <REMARK title="Use of Key Capture module on Localized Operating Systems">
                 <DESC>
 Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. In JavaScript the DOM element's keyup event can be used as an indication of which key has been pressed.
+                </DESC>
+            </REMARK>
+            <REMARK title="Build Configuration">
+                <DESC>
+To build the keycapture API into your application you must specify the 'hardwarekeys' extension and specify your application type to be 'rhoelements'.
                 </DESC>
             </REMARK>
 		</REMARKS>
