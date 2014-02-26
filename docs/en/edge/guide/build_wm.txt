@@ -3,6 +3,8 @@
 ## Setup
 Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-windows-mobile) for building Windows Mobile applications.
 
+**NOTE: When Building for Windows Mobile or Windows CE, it is necessary that you set `app_type: "rhoelements"` in your app's build.yml file as shown [here](build_config#buildyml-file).**
+
 ## Add Paths to Cab Wizard and Visual Studio
 
 In RhoStudio Windows -> Preferences, right-click on Rhomobile->Windows Mobile to show the rhobuild.yml preferences. Check that the Cab wizard path (which is contained in your Windows Mobile 6 SDK program installation) is correct.
