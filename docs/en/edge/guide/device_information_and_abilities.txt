@@ -126,21 +126,18 @@ JavaScript syntax:
 There are certain properties of the device that your application can use to uniquely identify the device even across reinstalls.
 
 * phoneId – returns hardware based id. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
-* phoneNumber – device phone number
 * deviceOwnerEmail – primary email of phone owner (works only on Android)
 * deviceOwnerName – name(account name) of phone owner (works only on Android)
 
 Ruby syntax:
     :::ruby
     phone_id = Rho::System.phoneId
-    phone_number = Rho::System.phoneNumber
     device_owner_email = Rho::System.deviceOwnerEmail
     device_owner_name = Rho::System.deviceOwnerName
 
 JavaScript syntax:
     :::javascript
     var phone_id = Rho.System.phoneId;
-    var phone_number = Rho.System.phoneNumber;
     var device_owner_email = Rho.System.deviceOwnerEmail;
     var device_owner_name = Rho.System.deviceOwnerName;
 
