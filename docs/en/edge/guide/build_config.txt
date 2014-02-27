@@ -1,7 +1,7 @@
 # Build time configuration
+Build time settings are dictated by a file in your app directory called `build.yml`. By default, this file has the most commonly used setting and some defaults that will work fine for most platforms however, you may need to modify it at certain points. For example, if you need to build for an iOS device, you'll need to change the iphone: sdk: section to use an `iphoneos` SDK instead of an `iphonesimulator` SDK. This doc will provide guidelines and examples of how to modify this file without jeopardizing your app.
 
-## build.yml File
-
+## Default build.yml Settings
 When you generate your app, a default version of the build.yml file will be generated and it will look like this:
 
 	:::yaml
@@ -137,9 +137,34 @@ If you are building an app for Windows Mobile or Windows CE you must specify the
 	:::yaml
 	app_type: "rhoelements"
 
-## Application Permissions and Capabilities
+### JS API Bridge
+This option is only used for Windows Mobile debugging purposes. If your AJAX-based app is not working properly, you can set this to true.
+	:::yaml
+	ajax_api_bridge: true
 
-To enable specific device capabilities, edit application's build.yml as below:
+### JavaScript and CSS Obfuscation
+
+To enable JavaScript and/or CSS code obfuscation of the files in the `public` folder of your app, just add the following lines to the build.yml:
+
+	:::yaml
+	obfuscate:
+	  js: yes
+	  css: yes
+	  exclude_dirs: ["jqmobile", "jqtouch", "jquery"]
+
+If JavaScript or CSS code obfuscation is not required, then just omit `js` or `css` line accordingly.
+NOTE: The `jqmobile`, `jqtouch`, and `jquery` folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.
+
+## Capabilities
+There are two ways of modifying your app's capabilities:
+
+* Direct Edit - Just open the file and edit it.
+* RhoStudio Modification - The RhoStudio IDE provides a GUI for modifying the capabilities using check-boxes.
+
+### Direct edit
+You can easily change specific settings in your build.yml file by simply opening it in you favorite text editor and modifying the text.
+
+To enable specific device capabilities, edit your application's build.yml as follows:
 
 	:::yaml
 	capabilities:
@@ -168,7 +193,7 @@ List of supported capabilities:
 * calendar: allow access to default device calendar
 * sdcard: allow writing to SD card on Android devices
 
-### Windows Mobile Specific Settings
+#### Windows Mobile Specific Settings
 	:::yaml
 	wm:
 		rhoelements:
@@ -176,7 +201,9 @@ List of supported capabilities:
 
 * config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the Rhomobile Project.
 
-### Android Specific Settings
+#### Android Specific Settings
+The capabilities listed above are directly related to the Android device capabilities that your app will require and that the user will be asked to give permission to when installing the app. You can add capabilities to your Android app by adding the following to the android section in your build.yml:
+
 	:::yaml
 	android:
 	  capabilities:
@@ -184,11 +211,27 @@ List of supported capabilities:
 
 * hardware_acceleration: enables the hardware_acceleration capability for Android applications
 
+### RhoStudio Modification
+You can also edit the capabilities that your app will have access to through RhoStudio. To do this, double click your build.yml in your app's project in the project explorer pane in RhoStudio.
+
+<img src="https://s3.amazonaws.com/rhodocs/guide/build_config/open-build-yml-4.1.png">
+
+Once you have done this, you should see the following screen wherein you can modify your build.yml settings, mainly, the capabilities.
+
+<img src="https://s3.amazonaws.com/rhodocs/guide/build_config/build-yml-edit-window-4.1.png">
+
+Click the add button next to the capabilities field to bring up this window and add capabilities by clicking the corresponding check-box.
+
+<img src="https://s3.amazonaws.com/rhodocs/guide/build_config/select-capabilities-rhostudio-none-selected-4.1.png"><img src="https://s3.amazonaws.com/rhodocs/guide/build_config/select-capabilities-rhostudio-camera-and-bt-4.1.png">
+
+You'll notice that as you add capabilities to your app, the build.yml text file will change to reflect these added capabilities.
+
+<img src="https://s3.amazonaws.com/rhodocs/guide/build_config/added-capabilities-in-build-yml-4.1.png">
 
 ## RhoGallery Security Token
 
-To restrict access to the application it could be built with a security token. Specify security token in the build.yml and build application. Application built with security token can be started in normal mode only if you provide this token as a parameter.
-If you do not specify correct security token in start params, application will close on start by default. If you want do something instead of exit (for example show special message or run application in limited mode etc.) you can define another start_path for your application in "rhoconfig.txt":
+To restrict access to the application you may have it built with a security token. Specify the security token in the build.yml and build the app. Apps built with a security token can be started in normal mode only if you provide this token as a parameter.
+If you do not specify the correct security token in the start params, the app will close on start by default. If you want do something instead of exit (for example show special message or run application in limited mode etc.) you can define another start_path for your application in "rhoconfig.txt":
 
 	invalid_security_token_start_path = '/app/InvalidSecurityTokenStartPage'
 
@@ -199,18 +242,3 @@ Specify security token in build.yml:
 Run application with special parameter:
 	:::ruby
 	System::run_app( 'app_name', "security_token=123" )
-
-## JavaScript and CSS Obfuscation
-
-To enable JavaScript and/or CSS code obfuscation at `public` folder of Rhodes application just add the following lines to the build.yml:
-
-	:::yaml
-	obfuscate:
-	  js: yes
-	  css: yes
-	  exclude_dirs: ["jqmobile", "jqtouch", "jquery"]
-
-If JavaScript or CSS code obfuscation is not required, then just omit `js` or `css` line accordingly.
-
-NOTE: The `jqmobile`, `jqtouch`, and `jquery` folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.
-
