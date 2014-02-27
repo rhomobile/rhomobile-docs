@@ -1,0 +1,116 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+  <MODULE name="Message" parent="Rho.NFC">
+    <HELP_OVERVIEW>NFC Message</HELP_OVERVIEW>
+    <MORE_HELP>This class representative NFC Message object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
+
+The `nfc` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
+
+**NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).**
+
+    </MORE_HELP>
+
+    <TEMPLATES>
+    </TEMPLATES>
+
+    <PROPERTIES access="INSTANCE" generateAccessors="true">
+
+      <DESC>list of properties supported by class</DESC>
+
+      <PROPERTY name="ID" type="STRING" readOnly="true">
+        <DESC>object ID</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+    </PROPERTIES>
+
+    <METHODS>
+
+      <METHOD name="getMessageById" access="STATIC">
+        <DESC>This function returns Message object</DESC>
+        <PARAMS>
+          <PARAM name="id" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="create" access="STATIC">
+        <DESC>Creates message object.</DESC>
+        <RETURN type="Rho.NFC.Message">
+          <DESC>Record object</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getRecords">
+        <DESC>return array of Record objects</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="Rho.NFC.Record"/>
+          <DESC>array of Rho.NFC.Record objects</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getMessages">
+        <DESC>return array of Smart Poster Message objects.</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="Rho.NFC.Message"/>
+          <DESC>array of Rho.NFC.Message objects</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="addRecord">
+        <DESC>add new Record to Message</DESC>
+        <PARAMS>
+          <PARAM name="recordID" type="STRING">
+            <DESC>record ID</DESC>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="addMessage">
+        <DESC>add new Smart Poster message to the message</DESC>
+        <PARAMS>
+          <PARAM name="messageID" type="STRING">
+            <DESC>message ID</DESC>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getContent">
+        <DESC>return Message as byte array</DESC>
+        <RETURN type="STRING">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="close">
+        <DESC>release resources</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+    </METHODS>
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>
