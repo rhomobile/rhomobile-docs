@@ -235,7 +235,7 @@ The default build.yml settings generated for iphone are:
 * ipa_itunesartwork_image: path to iTunesArtwork image included into IPA file (must be 512x512 JPG image) 
 
 
-** NOTE: BundleIdentifier and BundleURLScheme can contain only next symbols : "a"-"z", "A"-"Z", "0"-"9", "-", "." !
+NOTE: BundleIdentifier and BundleURLScheme can contain only next symbols : "a"-"z", "A"-"Z", "0"-"9", "-", "." !
 
 Here is an example of the iPhone settings in build.yml for a finished application:
 
