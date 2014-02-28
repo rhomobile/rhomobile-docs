@@ -41,7 +41,7 @@ Ruby
       <DESC>These properties are used to configure how the DPX works, for example how feedback is provided to the user
       </DESC>
       <PROPERTY name="template" type="STRING">
-        <DESC>The template XML which defines the document to be processed. This should be the full path to the template
+        <DESC>The template XML which defines the document to be processed. This should be file URI to the template
           on the device. You must provide this property to define the form being captured and what is contained in each
           region on that form. Templates are specific to each document format you intend on capturing and can be created
           online at https://dpx.motorolasolutions.com/.
