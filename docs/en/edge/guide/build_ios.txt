@@ -114,7 +114,7 @@ Here are the pieces that can be renamed to match your app's name:
 
 From XCode 4.2 on, Apple removed default support of the armv6 architecture. In this case there are two issues.
 
-Your distribution build should include code for both armv6 and armv7. The XCode projects included with RhoMobile and used for build RhoMobile-based application for iOS are already fixed for this.
+Your distribution build should include code for both armv6 and armv7. The XCode projects included with RhoMobile and used for build RhoMobile-based applications for iOS are already fixed for this.
 
 If you want to build/run/debug your application on devices before iPhone4/iPad (for example, on iPhone 3G), you should manually path all your native extension xcode projects used in your application for Architecture settings. In your project, under Build Settings -> Architectures, click the Debug or Release row (depending on if you are debugging or releasing), and choose "Other". In the pop-up box, modify as follows.
 
@@ -122,23 +122,16 @@ If you want to build/run/debug your application on devices before iPhone4/iPad (
 * Use the plus button to add a new row. Type `armv7`.
 * Click Done.
 
-## Restoring rhorunner.xcodeproj
-
-To restore the Xcode rhorunner.xcodeproj to its original state:
-
-    :::term
-    $ rake build:iphone:restore_xcode_project
-
 ## Building iPhone Application from the Command Line
 
-Unlike building the application from the Xcode GUI, when you build the application from the command line, use the rake command from the directory of the application that you had just generated with rhogen.
+Unlike building the application from the Xcode GUI, when you build the application from the command line, use the rake command from the directory of the application that you had just generated with the rhodes command.
 
 From the command line, navigate to the folder for your RhoMobile application.
 
 To run your RhoMobile application in the iPhone simulator, run this rake command:
-  
+
     :::term
-   $ rake run:iphone
+    $ rake run:iphone
 
 ## Building the Application for the iOS Device
 
