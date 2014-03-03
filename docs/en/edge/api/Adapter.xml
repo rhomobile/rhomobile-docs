@@ -38,11 +38,11 @@ The `nfc` extension is also included automatically if you specify the following 
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="pollingTimeout" type="INTEGER">
-        <DESC>Polling timeout in seconds of the Nfc device. 0 - timeout disabled, default: 90.</DESC>
+        <DESC>Polling timeout in seconds of the Nfc device. 0 - timeout disabled, default: 90. The property is enabled after NFC engine activation</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="passkey" type="STRING">
-        <DESC>Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey)</DESC>
+        <DESC>Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey). The property is enabled after NFC engine activation</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 

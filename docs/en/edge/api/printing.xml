@@ -128,7 +128,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. 
 Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options.
 Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
-ATTENTION: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
+
+NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
                 </DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
@@ -211,8 +212,8 @@ ATTENTION: on Android platfrom due to HW specific, when you call searchPrinters(
                         <DESC>Connect options</DESC>
                         <PARAMS>
                             <PARAM name="timeout" type="INTEGER" default="15000">
-                                <DESC>connection timeout in milliseconds</DESC>
-                                <PLATFORM>WM, iOS</PLATFORM>
+                                <DESC>connection timeout in milliseconds. Must be larger 0 !</DESC>
+                                <PLATFORM>WM, iOS, Android</PLATFORM>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
@@ -230,7 +231,14 @@ ATTENTION: on Android platfrom due to HW specific, when you call searchPrinters(
             </METHOD>
 
             <METHOD name="requestState" hasCallback="mandatory">
-                <DESC>Request printer state with a list of parameters. Works asynchronously, use callback to check the result. Returns hash with status, and parameters as keys.</DESC>
+                <DESC>
+Requests printer state with a list of parameters.
+
+* Works asynchronously and uses the callback to check the result. 
+* Returns hash with status, and parameters as keys.
+
+NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
+                </DESC>
                 <PARAMS>
                     <PARAM name="listOfParameters" type="ARRAY">
                         <DESC>list of parameters for request from printer device.</DESC>

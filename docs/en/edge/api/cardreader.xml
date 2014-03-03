@@ -179,7 +179,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <REMARK title="General">
                 <DESC>
                     <![CDATA[
-If the CardReader open method is not specified with a callback, the cardreader data will be returned as keystrokes. If both the autotab and autoenter parameters are set to "enabled", autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed. Any attempt to set a parameter to an invalid value, will result in no effect on the parameter's current value. 
+If the CardReader open method is not specified with a callback, the cardreader data will be returned as keystrokes. If both the autotab and autoenter parameters are set to "enabled", autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed. Any attempt to set a parameter to an invalid value, will result in no effect on the parameter's current value. There should be made a delay around 2 secs or more between API calls which interact with hardware.
                     ]]>
                 </DESC>
             </REMARK>

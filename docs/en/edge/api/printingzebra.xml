@@ -248,7 +248,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
                     </PARAM>
                     <PARAM name="vars" type="HASH">
-                        <DESC>An Hash which contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. For CPCL formats, the values will be passed in ascending numerical order</DESC>
+                        <DESC>An Hash which contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as String: '1':'field1' etc. CPCL format do not supported - only ZPL!</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">

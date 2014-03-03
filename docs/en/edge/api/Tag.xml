@@ -129,7 +129,7 @@ The `nfc` extension is also included automatically if you specify the following 
       </METHOD>
 
       <METHOD name="writeMessage">
-        <DESC>write messages on Tag</DESC>
+        <DESC>write messages on Tag. On the current moment only 1 message is supported.</DESC>
         <PARAMS>
           <PARAM name="messages" type="ARRAY">
             <DESC></DESC>
