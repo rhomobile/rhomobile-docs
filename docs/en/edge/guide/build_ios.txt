@@ -59,12 +59,28 @@ To run on the iOS simulator, select iPhone in Platform, Simulator in Simulator t
 
 ## Build an iOS App with Xcode
 
-If you wish to run your RhoMobile application on an iOS device, you need to build and run it using an Xcode project. To do this, simply use the run:iphone rake task from the command line.
+### Generating the XCode Project
+If you wish to run your RhoMobile application on an iOS device, you need to build and run it using an Xcode project. There are two
+ways to do this:
 
+Both from the command line:
+
+* run the `run:iphone` rake task
+
+This will create the xcode project but will also run the app in the iphone simulator.
     :::term
     $ rake run:iphone
 
+* run the `build:iphone:setup_xcode_project` rake task: 
+
+If you want to create the XCode project without running your app in the simulator, use this command instead.
+    :::term
+    $ rake build:iphone:setup_xcode_project
+
+
 After the app has built, it will create an XCode project and place it in your project folder in the app's root directory. e.g. `<path to app>/project/iphone/<name of app>.xcodeproject`.
+
+### Starting the Project in XCode
 
 Then in XCode open the  `<path to app>/project/iphone/<name of app>.xcodeproject` project.
 
