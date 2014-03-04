@@ -1,8 +1,8 @@
 # Build time configuration
-Build time settings are dictated by a file in your app directory called `build.yml`. By default, this file has the most commonly used setting and some defaults that will work fine for most platforms however, you may need to modify it at certain points. For example, if you need to build for an iOS device, you'll need to change the iphone: sdk: section to use an `iphoneos` SDK instead of an `iphonesimulator` SDK. This doc will provide guidelines and examples of how to modify this file without jeopardizing your app.
+Build time settings are dictated by a file in your app directory called `build.yml`. By default, this file has the most commonly used settings and some defaults that will work fine for most platforms. However, you may need to modify it at certain points. For example, if you need to build for an iOS device, you'll need to change the iphone: sdk: section to use an `iphoneos` SDK instead of an `iphonesimulator` SDK. This doc will provide guidelines and examples of how to modify this file without jeopardizing your app.
 
 ## Default build.yml Settings
-When you generate your app, a default version of the build.yml file will be generated and it will look like this:
+When you create your app, a default version of the build.yml file will be generated and it will look like this:
 
 	:::yaml
 	#sdk: "<Path to Rhodes Gem>"
@@ -44,8 +44,8 @@ When you generate your app, a default version of the build.yml file will be gene
 	</tr>
 	<tr>
 		<td>sdkversion</td>
-		<td>Sets the protocol over which the logging data will be sent.</td>
-		<td>SDK Version</td>
+		<td>The version of your Rhodes gem.</td>
+		<td>Rhodes Version</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">name</td>
@@ -79,7 +79,7 @@ When you generate your app, a default version of the build.yml file will be gene
 	</tr>
 	<tr>
 		<td class="clsEvenRow">iphone\\sdk</td>
-		<td class="clsEvenRow">The version of the sdk used to build. Typically iphonesimulatorX.X or iphoneosX.X.</td>
+		<td class="clsEvenRow">The version of the sdk used to build. Typically, iphonesimulatorX.X or iphoneosX.X.</td>
 		<td class="clsEvenRow">iPhone SDK Version</td>
 	</tr>
 	<tr>
@@ -90,11 +90,11 @@ When you generate your app, a default version of the build.yml file will be gene
 	<tr>
 		<td class="clsEvenRow">iphone\\codesignidentity</td>
 		<td class="clsEvenRow">The name of the code signing identity to use when signing for device.</td>
-		<td class="clsEvenRow">File size in kilobytes</td>
+		<td class="clsEvenRow">Code Sign Identity, String</td>
 	</tr>
 	<tr>
 		<td>iphone\\entitlements</td>
-		<td>Property list file for entitlements for your build. Typically is Entitlements.plist.</td>
+		<td>Property list file for entitlements for your build. Typically, Entitlements.plist.</td>
 		<td>.plist file</td>
 	</tr>
 	<tr>
@@ -124,8 +124,8 @@ When you generate your app, a default version of the build.yml file will be gene
 	</tr>
 	<tr>
 	<td>extensions</td>
-	<td>Comma separated list of extensions your app will be using.</td>
-	<td></td>
+	<td>Comma-separated list of extensions your app will be using.</td>
+	<td>Comma-separated list</td>
 	</tr>
 </table>
 
