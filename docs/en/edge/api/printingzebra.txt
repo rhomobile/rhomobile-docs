@@ -38,7 +38,7 @@
 <p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
 
 <pre><code>:::ruby
-extensions: ["printing_zebra"]
+extensions: ["printing","printing_zebra"]
 </code></pre>
 
 <p>The <code>printing_zebra</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>

@@ -28,7 +28,7 @@ Android platfrom specific:
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
-    extensions: ["printing_zebra"]
+    extensions: ["printing","printing_zebra"]
 
 The `printing_zebra` extension is also included automatically if you specify the following in your `build.yml`
     :::ruby
