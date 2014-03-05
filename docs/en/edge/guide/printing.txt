@@ -1,26 +1,112 @@
 # Printing
 
-### Printing on iOS
-iOS include printing support. You should prepare File for printing and open it by standart platform - use:
-	:::ruby
-	System.open_url(file_full_path)
+## Overview
+In RhoMobile 4.1, we have introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and BlueTooth), but in subsequent releases we will be adding different printer types. 
 
-We recommend prepare PDF. You can use PDF-Writer pure Ruby library for it - we include it into rhodes - just include "pdf-writer" and "thread" extensions to your application extension list in build.yml :
-	:::yaml
-	extensions: ["pdf-writer", "thread"] 
+## Enabling the APIs
+In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The `Printing` API is a parent class that is defined to easily define common class attributes that specific printer type APIs like [PrintingZebra](../api/printingzebra) will inherit. To enable this functionality in your application, your must include both of these extensions in you build.yml
 
-See example in our [System API Samples application Generate PDF example](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/GeneratePDF/controller.rb) application.
+    :::ruby
+    extensions: ["printing","printing_zebra"]
+
+## Using the API
+In order to print you must first find and connect to a printer. There are a few different ways to do this, but they all use the [searchPrinters Method](..api/printing#msearchPrintersSTATIC). 
+
+For example, in the following code snippet, we are looking for any Zebra printers over BlueTooth only, by specifying `connectionType` and `printerType` in the `options` parameter:
+
+	:::javascript
+	var printers = [];
+
+	Rho.PrinterZebra.searchPrinters({ 
+		connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
+		printerType: Rho.PrinterZebra.PRINTER_TYPE_ZEBRA
+		 }, function (cb){
+			if(cb.status == 'PRINTER_STATUS_SUCCESS')
+			{
+				if (typeof cb.printerID != "undefined")
+				{
+					console.log('Found: ' + cb.printerID)
+					// > Found ZEBRA_PRINTER_1
+
+					printers.push(cb.printerID);
+				}
+				else
+				{
+					console.log('Done Searching');
+				}
+			}
+			else
+			{
+				console.log(cb.status);
+			}
+		});
+
+If we knew the printer's BlueTooth address we could have specified the `deviceAddress` in the `options` parameter. When you are connecting for the first time to your device, you may be prompted for the devices Bluetooth secure pairing PIN. usually by default manufacturers use `0000`, `1111` or `1234`.
+
+	:::javascript
+	Rho.PrinterZebra.searchPrinters({ 
+		connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
+		deviceAddress: '00:03:7A:4C:F2:DB'
+		...
+
+NOTE: The deviceAddress for a BlueTooth device must include the ':' like ##:##:##:##:##:##. The discovery process may take several seconds to complete.
+
+Likewise, if we were searching for a printer over WiFi, we could have also used the `deviceAddress` & `devicePort` parameters.
+	:::javascript
+	Rho.PrinterZebra.searchPrinters({ 
+		connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
+		deviceAddress: '192.168.1.121',
+		devicePort: 8080
+		...
+
+NOTE: Be sure that your BlueTooth or WiFi radios are turned on in your device. Your printer should also be in BlueTooth discover mode
+
+The searchPrinters `callback function` will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID.
+
+NOTE: This ID is a unique ID that the RhoMobile framework keeps track of. It is not an ID that the printer manufacturer may be using.
+
+## Connecting to the Printer
+Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of PrinterZebra class by calling the [getPrinterByID method](../api//printingzebra#mgetPrinterByIDSTATIC) and pass in a string that is the printerID that was returned in the `searchPrinters` call
+
+	:::javascript
+	// Ex: printers[0] = 'ZEBRA_PRINTER_1'
+	var myPrinter = Rho.PrinterZebra.getPrinterByID(printers[0]);
+
+	// myPrinter is now an instance class of PrinterZebra
+	// and can use the Instance Methods and properties associated 
+	// with that class
 
 
-### Printing on Android
-Android do not support printing. You can use any third-party application for printing, for example Google Cloud Print application for print by using of Google Cloud Print web service.
-You should prepare file for printing and open it by standart platform - use:
-	:::ruby
-	System.open_url(file_full_path)
-Android platform opens that file in application registered for file extension or show select dialog for manually choose application if there are more than one application registered for this extension.
+Once we have an instance to a specific printer we now must make a connection, using the [connect method](../api/printingzebra#mconnect), before executing any additional commands:
+	:::javascript
+	myPrinter.connect(function (cb){
+		console.log(cb);
+		// deviceName will be Zebra's 'Friendly Name'
+		// ex: deviceName = 'XXXX09-10-5799'
+		console.log(myPrinter.deviceName);
 
-We recommend prepare PDF. You can use PDF-Writer pure Ruby library for it - we include it into rhodes - just include "pdf-writer" and "thread" extensions to your application extension list in build.yml.
-	:::yaml
-	extensions: ["pdf-writer", "thread"] 
+		// deviceAddress will equal the Bluetooth Address
+		// deviceAddress = '00:03:7A:4C:F2:DB'
+		console.log(myPrinter.deviceAddress);
+	});
 
-See example in our [System API Samples application Generate PDF example](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/GeneratePDF/controller.rb) application.
+## Printing a test print
+Now that we found and connected to the printer, it is time to send a test print. The easiest way to do that is to send some text using the [printRawString method](../api//printingzebra#mprintRawString)
+
+	:::javascript
+	myPrinter.printRawString('This is a test print');
+	// You should see the printer print the text
+
+You can also check some information about the printer using the [requestState method](../api/printingzebra#mrequestState). This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [PrinterZebra Constants](../api/printingzebra#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned a a property of the callback object.
+
+	:::javascript
+	myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
+		'PRINTER_STATE_IS_PAPER_OUT'],function (cb){
+			console.log(cb.status);
+			console.log(cb.PRINTER_STATE_IS_PAPER_OUT);
+			console.log(cb.PRINTER_STATE_IS_READY_TO_PRINT);
+
+		});
+
+
+
