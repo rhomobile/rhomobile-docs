@@ -108,5 +108,74 @@ You can also check some information about the printer using the [requestState me
 
 		});
 
+## Images
+You can also print images using the [printImageFromFile method](../api/printingzebra#mprintImageFromFile). Say for example, you had included an image called `myImage.jpg` in the `public` folder of your application. You can use the [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder](../api/Application#ppublicFolder) property to create a fully qualified path to the `myImage.jpg` file. This file path is passed to the `printImageFromFile` method:
 
+	:::javascript
+	var imagefile = Rho.RhoFile.join(Rho.Application.publicFolder, 'myImage.jpg');
 
+	//assuming you made an instance and connected per the previous instructions
+	myPrinter.printImageFromFile(imagefile,0,0,{},function(e){
+		console.log(e);
+		});
+
+The callback will be a [PRINTER_STATUS constant string](../api/printingzebra#Constants)
+
+NOTE: If the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly
+
+### Storing Images
+TO DO
+
+## Files & Labels
+TODO an overview of what ZPL and CPCL files are. Not too deep out of scope 
+
+### Transferring ZPL and CPCL files
+You can included Zebra formatted files like ZPL and CPCL with your application and then send them to the printer to be stored.
+
+First send the file to the printer
+	:::javascript
+	var ZPLfile = Rho.RhoFile.join(Rho.Application.publicFolder, 'label.zpl');
+
+	//assuming you made an instance and connected per the previous instructions
+	myPrinter.sendFileContents(ZPLfile,function(e){
+		console.log(e);
+		// Will return a PRINTER_STATUS... CONSTANT String
+		});
+
+### Using Files Already Stored On The Printer
+You may have already stored files on the printer or have been included through some other means. You can retrieve a list of files that exists on the printer by using the [retrieveFileNames method](../api/printingzebra#mretrieveFileNames)
+
+	:::javascript
+	myPrinter.retrieveFileNames(function (e){
+		// e.status : PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR
+		// e.fileNames : ARRAY of file names
+		//
+	});
+
+### Printing with stored ZPL and CPCL files
+Now that we have the files stored on the printer, we can print to them and pass in variables that the file will use in place of the variables specified in the ZPL or CPCL file. We do this either using the [printStoredFormatWithArray method](../api/printingzebra#mprintStoredFormatWithArray) or the [printStoredFormatWithHash method](../api/printingzebra#mprintStoredFormatWithHash). Both of these include three parameters:
+
+*formatPathOnPrinter - this will be 'E:filename' where 'filename' is the name of the file that we sent in the previous step, or one that existed on the device
+
+*vars - This represents the data we want to pass to the label. 
+
+`printStoredFormatWithArray` - An array of strings representing the data to fill into the format. For ZPL formats, index 0 of the array corresponds to field number 2 (^FN2). For CPCL, the variables are passed in the order that they are found in the format 
+
+`printStoredFormatWithHash` (Only ZPL Support) - An hash which contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as string ex: '1':'field1', '2':'field2' etc. 
+
+*callback - Will return a PRINTER_STATUS... CONSTANT String
+
+Example using `printStoredFormatWithArray`
+	:::javascript
+	myPrinter.printStoredFormatWithArray('E:LABEL.ZPL',['John Doe','123 East Main St','Smalltown, NY 11766'],function (e){
+			// Will return a PRINTER_STATUS... CONSTANT String
+		});
+
+Example using `printStoredFormatWithHash`
+	:::javascript 
+	myPrinter.printStoredFormatWithArray('E:LABEL.ZPL',{ 'name':'John Doe','address': '123 East Main St','citystate': Smalltown, NY 11766'},function (e){
+			// Will return a PRINTER_STATUS... CONSTANT String
+		});
+
+## Printer Status
+TO DO
