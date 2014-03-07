@@ -30,14 +30,15 @@ extensions: ["screenorientation"]
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pautoRotate'></a><div class=' method  js ruby android ios' id='pautoRotate'><h3><strong  >autoRotate</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>BOOLEAN</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pautoRotate1" data-toggle="tab">Description</a></li><li ><a href="#pautoRotate2" data-toggle="tab">Params</a></li><li ><a href="#pautoRotate6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-autoRotate'><div class="tab-pane fade active in" id="pautoRotate1">Enables or Disables autorotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pautoRotate2"><p><strong>Default:</strong> true</p></div><div class="tab-pane fade" id="pautoRotate5"></div><div class="tab-pane fade" id="pautoRotate6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.ScreenOrientation.autoRotate</code> </li><li>Ruby: <code>Rho::ScreenOrientation.autoRotate</code></li></ul></li></ul></div></div></div>  </div>
+<a name='pautoRotate'></a><div class=' method  js ruby android ios' id='pautoRotate'><h3><strong  >autoRotate</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>BOOLEAN</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pautoRotate1" data-toggle="tab">Description</a></li><li ><a href="#pautoRotate2" data-toggle="tab">Params</a></li><li ><a href="#pautoRotate6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-autoRotate'><div class="tab-pane fade active in" id="pautoRotate1"><p>Enables or Disables autorotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.</p>
+<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pautoRotate2"><p><strong>Default:</strong> true</p></div><div class="tab-pane fade" id="pautoRotate5"></div><div class="tab-pane fade" id="pautoRotate6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li>Javascript: <code>Rho.ScreenOrientation.autoRotate</code> </li><li>Ruby: <code>Rho::ScreenOrientation.autoRotate</code></li></ul></li></ul></div></div></div>  </div>
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Detect screen orientation changes</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
-
-                   Detect when the device changes orientation
-               <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+<pre><code>               Detect when the device changes orientation
+</code></pre>
+<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
            
 function start_detecting_orientation_changes(){
@@ -62,9 +63,9 @@ def orientation_callback
 end
 
                  </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Change screen orientation</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
-
-                   Set the screen orientation programmatically. Particularly useful in a tablet: before capturing a signature, set the orientation to upside-down so that the interface will look right from the signer's point of view without having to physically rotate the device
-               <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
+<pre><code>               Set the screen orientation programmatically. Particularly useful in a tablet: before capturing a signature, set the orientation to upside-down so that the interface will look right from the signer's point of view without having to physically rotate the device
+</code></pre>
+<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
            
 
@@ -103,9 +104,9 @@ def signature_callback
 end
                    
                  </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class=' example' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample2"><strong>Enable / disable auto rotate</strong></div><div id="cExample2" class="accordion-body">  <div class="accordion-inner">
-
-                   Enable / disable automatic rotation of the screen according to device orientation
-               <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
+<pre><code>               Enable / disable automatic rotation of the screen according to device orientation
+</code></pre>
+<ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
 
            
 // Enable autorotate
