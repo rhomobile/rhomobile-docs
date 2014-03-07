@@ -13,9 +13,20 @@ class Api
   	end 
   end	
 #returns markdown for the name of the API 
-  def self.getApiName(doc)
+  def self.getApiName(doc,lang,allowoverride)
   	md=""
   	md = doc["MODULE"][0]["name"]
+  	if allowoverride
+	  	if !doc["MODULE"][0]["docNameOverride"].nil?
+	  		md = doc["MODULE"][0]["docNameOverride"]
+	  	else
+	  		if lang == 'JS'
+	  			md = 'Rho.' + doc["MODULE"][0]["name"]
+	  		else
+	  			md = 'Rho::' + doc["MODULE"][0]["name"]
+	  		end
+	  	end
+	end
   	# if !doc["MODULE"][0]["ALIASES"].nil? && !doc["MODULE"][0]["ALIASES"][0]["ALIAS"].nil?
   	# 	if doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["existing"].nil?
   	# 		md = doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["new"]
@@ -694,10 +705,10 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"],templatePropBag)
+				propusage=getpropusagetext(getApiName(doc,'JS',true),element["name"],'STRING',element["readOnly"],templatePropBag)
 			else
 				proptype= " : <span class='text-info'>" + element["type"] + "</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"],element["readOnly"],templatePropBag)
+				propusage=getpropusagetext(getApiName(doc,'JS',true),element["name"],element["type"],element["readOnly"],templatePropBag)
 			end
 			# readOnly is optional default is false
 			if element["readOnly"].nil?
@@ -822,10 +833,10 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
 			if javascript 
-				accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li>'
+				accesstype += '<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 			end
 			if ruby
-				accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li>'
+				accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + '</code></li>'
 			end
 			accesstype += '</ul></li>'
 
@@ -833,10 +844,10 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	else
 		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul>'
 		if javascript
-			accesstype +='<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li>'
+			accesstype +='<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 		end
 		if ruby
-			accesstype +='<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li>'
+			accesstype +='<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + '</code></li>'
 		end
 		accesstype +='</ul></li>'
 
@@ -1337,16 +1348,16 @@ end
 
 				@methcallbackparamdesc += "<p>The callback parameter can take on one of three forms</p><ol>"
 				@methcallbackparamdesc += "<li>Controller action URL"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " url_for :action => :mycallback)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + " url_for :action => :mycallback)</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "lambda{ |e|\n puts e['#{firstcallbackreturnparam}'] }\n)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + "lambda{ |e|\n puts e['#{firstcallbackreturnparam}'] }\n)</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " mycallback() )</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + " mycallback() )</code></pre>"
+				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "</ol>"
 				@methcallbackparamdesc+='  </div>'
@@ -1363,7 +1374,7 @@ end
 			
   		end
 		@seperator = ""
-		@methsample = "<b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>"
+		@methsample = "<b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams})</b><br/>"
 		if @methparams != ""
 			# @methvalues = "<br/><b>Possible Values:</b> " + @methvalues
 		end
@@ -1376,8 +1387,8 @@ end
 				@methparams = @methparams + "<span class='text-info'>#{callbacktype}</span> callback"
 
 			end
-			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
-			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
+			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc,'RUBY',true) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
+			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
 			if @methhascallback == "optional"
 				@methsample += "Callback function is optional.<br/><br/>"
 			end
@@ -1529,10 +1540,10 @@ end
 		if templateDefault
 		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+			accesstype += '<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
@@ -1540,10 +1551,10 @@ end
 	else
 		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+			accesstype += '<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
@@ -1551,10 +1562,10 @@ end
 	if constructor
 		accesstype = '<li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>var myObj = new Rho.' + getApiName(doc) + "(#{@methparams})</code> </li>"
+			accesstype += '<li>Javascript: <code>var myObj = new ' + getApiName(doc,'JS',true) + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>@myObj = Rho::' + getApiName(doc) + ".new(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>@myObj = ' + getApiName(doc,'RUBY',true) + ".new(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 	end
@@ -1723,7 +1734,7 @@ end
 	  	constantlinks = getconstantlinks(doc)
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
-	  	md += "#" + getApiName(doc) + "\n" 
+	  	md += "#" + getApiName(doc,'',true) + "\n" 
 	  	if methlinks["count"]>0
 		  	md += '<div class="btn-group">'
 		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;' + methlinks["count"].to_s + '</sub></a>'
