@@ -105,19 +105,6 @@ In order to use this API you must include the following extension in your `build
 
     <METHODS>
 
-      <METHOD name="getRecordById" access="STATIC">
-        <DESC>This function returns Record object</DESC>
-        <PARAMS>
-          <PARAM name="id" type="STRING">
-            <DESC></DESC>
-          </PARAM>
-        </PARAMS>
-        <RETURN type="SELF_INSTANCE">
-          <DESC></DESC>
-        </RETURN>
-        <PLATFORM>WM</PLATFORM>
-      </METHOD>
-
       <METHOD name="create" access="STATIC">
         <DESC>Creates record</DESC>
         <RETURN type="Rho.NFC.Record">
