@@ -225,8 +225,7 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
             </METHOD>
 
             <METHOD name="requestState" hasCallback="mandatory">
-                <DESC>
-Requests printer state with a list of parameters.
+                <DESC>Requests printer state with a list of parameters.
 
 * Works asynchronously and uses the callback to check the result. 
 * Returns hash with status, and parameters as keys.
@@ -271,8 +270,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
             <METHOD name="printFile" hasCallback="optional">
                 <DESC>Prints file. Works asynchronously, use callback to check the result. File extension is used to determine its type. Supported types: JPEG and PNG images.</DESC>
                 <PARAMS>
-                    <PARAM name="path" type="STRING">
-                        <DESC>Location of file to print.</DESC>
+                    <PARAM name="filePathOnDevice" type="STRING">
+                        <DESC>Full path to local image file on the device.</DESC>
                     </PARAM>
                     <PARAM name="options" type="HASH" generateDoc="false">
                         <CAN_BE_NIL>
@@ -300,8 +299,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
             <METHOD name="printImageFromFile" hasCallback="optional">
                 <DESC>Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly.</DESC>
                 <PARAMS>
-                    <PARAM name="path" type="STRING">
-                        <DESC>Full path to image file. (The image must be either a PNG or JPG, all other types are platform depend).</DESC>
+                    <PARAM name="filePathOnDevice" type="STRING">
+                        <DESC>Full path to local image file on the device. (The image must be either a PNG or JPG, all other types are platform depend).</DESC>
                     </PARAM>
                     <PARAM name="x" type="INTEGER">
                         <DESC>Horizontal starting position in dots.</DESC>
