@@ -11,12 +11,12 @@ In order to use this API you must include the following extension in your `build
     extensions: ["printing"]
 
 ## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
 ## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
-    
+
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
             <PROPERTY_BAG/>
@@ -26,15 +26,15 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <CONSTANTS>
             <!-- Printer control languages -->
             <CONSTANT name="PRINTER_LANGUAGE_ZPL" value="PRINTER_LANGUAGE_ZPL" type="STRING">
-                <DESC>Printer control language ZPL</DESC>
+                <DESC>Printer control language ZPL.</DESC>
             </CONSTANT>
 
             <CONSTANT name="PRINTER_LANGUAGE_CPCL" value="PRINTER_LANGUAGE_CPCL" type="STRING">
-                <DESC>Printer control language CPCL</DESC>
+                <DESC>Printer control language CPCL.</DESC>
             </CONSTANT>
 
             <CONSTANT name="PRINTER_LANGUAGE_EPS" value="PRINTER_LANGUAGE_EPS" type="STRING">
-                <DESC>Printer control language EPS</DESC>
+                <DESC>Printer control language EPS.</DESC>
             </CONSTANT>
 
             <!-- Printer types -->
@@ -63,46 +63,45 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <CONSTANT name="PRINTER_STATUS_ERR_UNSUPPORTED" value="PRINTER_STATUS_ERR_UNSUPPORTED" type="STRING"/>
 
             <CONSTANT name="PRINTER_STATE_IS_READY_TO_PRINT" value="PRINTER_STATE_IS_READY_TO_PRINT" type="STRING">
-                <DESC>use this name for requestState(), return true if printer ready to print</DESC>
+                <DESC>Use this name for requestState(), return true if printer ready to print.</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_COVER_OPENED" value="PRINTER_STATE_IS_COVER_OPENED" type="STRING">
-                <DESC>use this name for requestState(), return true if cover is opened</DESC>
+                <DESC>Use this name for requestState(), return true if cover is opened.</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_DRAWER_OPENED" value="PRINTER_STATE_IS_DRAWER_OPENED" type="STRING">
-                <DESC>use this name for requestState(), return true if drawer is opened</DESC>
+                <DESC>Use this name for requestState(), return true if drawer is opened.</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_PAPER_OUT" value="PRINTER_STATE_IS_PAPER_OUT" type="STRING">
-                <DESC>use this name for requestState(), return true if paper out</DESC>
+                <DESC>Use this name for requestState(), return true if paper out.</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_BATTERY_LOW" value="PRINTER_STATE_IS_BATTERY_LOW" type="STRING">
-                <DESC>use this name for requestState(), return true if battery low</DESC>
+                <DESC>Use this name for requestState(), return true if battery low.</DESC>
             </CONSTANT>
-            
         </CONSTANTS>
-        
+
         <PROPERTIES> 
             <!-- Common properties -->
-            <DESC>general properties for Printer</DESC>
+            <DESC>General properties for Printer.</DESC>
             <PROPERTY name="ID" type="STRING" readOnly="true">
-                <DESC>unique printer ID during application lifetime</DESC>
+                <DESC>Unique printer ID during application lifetime.</DESC>
             </PROPERTY>
             <PROPERTY name="deviceName" type="STRING" readOnly="true">
-                <DESC>Bluetooth/Network name of printer</DESC>
+                <DESC>Bluetooth/Network name of printer.</DESC>
             </PROPERTY>
             <PROPERTY name="printerType" type="STRING" readOnly="true">
-                <DESC>type of printer - see PRINTER_TYPE_... consts</DESC>
+                <DESC>Type of printer - see PRINTER_TYPE_... consts.</DESC>
             </PROPERTY>
             <PROPERTY name="deviceAddress" type="STRING" readOnly="true">
-                <DESC>Bluetooth mac/TCP IP address</DESC>
+                <DESC>Bluetooth mac/TCP IP address.</DESC>
             </PROPERTY>
             <PROPERTY name="devicePort" type="INTEGER" generateAccessors="true">
-                <DESC>Default port when connecting using TCP/IP</DESC>
+                <DESC>Default port when connecting using TCP/IP.</DESC>
             </PROPERTY>
             <PROPERTY name="connectionType" type="STRING" readOnly="true">
-                <DESC>Type of connection to printer</DESC>
+                <DESC>Type of connection to printer.</DESC>
             </PROPERTY>
             <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
-                <DESC>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchroniously. If you want real check physical connection - use requestState() method with receive result in callback. Only this way process real request to device and analyze answer from device. </DESC>
+                <DESC>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want real check physical connection - use requestState() method with receive result in callback. Only this way process real request to device and analyze answer from device.</DESC>
             </PROPERTY>
         </PROPERTIES>   
         
@@ -119,15 +118,13 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
-                <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. 
-Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options.
-Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
+                <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
 NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
                 </DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
-                        <DESC>Options for discover</DESC>
+                        <DESC>Options for discover.</DESC>
                         <CAN_BE_NIL/>
                         <PARAMS>
                             <PARAM name="printerType" type="STRING" default="PRINTER_TYPE_ANY">
@@ -160,14 +157,14 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
 * PRINTER_STATUS_SUCCESS - when printer is discovered or operation is finished;
 * PRINTER_STATUS_ERROR - general error 
 * PRINTER_STATUS_ERR_UNSUPPORTED - in case if printer type is not supported
-* PRINTER_STATUS_ERR_NOT_CONNECTED - in case if deviceAddress was specified in options and device was unable to connect to printer</DESC>
+* PRINTER_STATUS_ERR_NOT_CONNECTED - in case if deviceAddress was specified in options and device was unable to connect to printer.</DESC>
                         </PARAM>
                         <PARAM name="printerID" type="STRING">
                             <DESC>Printer ID, valid only if status equals to 'PRINTER_STATUS_SUCCESS'. If there are no more printers available printerID will not be defined.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="message" type="STRING">
-                            <DESC>error message, only if status = ERROR</DESC>
+                            <DESC>Error message, only if status = ERROR.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                     </PARAMS>
@@ -181,7 +178,7 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
             </METHOD>
             
             <METHOD name="getPrinterByID" access="STATIC">
-                <DESC>Return printer instance specified by printerId. If there is no printers with this ID null is returned. To get valid printerId please use searchPrinters function</DESC>
+                <DESC>Return printer instance specified by printerId. If there is no printers with this ID null is returned. To get valid printerId please use searchPrinters function.</DESC>
                 <PARAMS>
                     <PARAM name="printerId" type="STRING">
                     </PARAM>
@@ -192,9 +189,9 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
             </METHOD>
 
             <METHOD name="connect" hasCallback="optional">
-                <DESC>Connect to a printer using default options. Works asynchronously, use callback to check the result. If connection is successful printer state and properties are automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices. </DESC>
+                <DESC>Connect to a printer using default options. Works asynchronously, use callback to check the result. If connection is successful printer state and properties are automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices.</DESC>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
+                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND.</DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
@@ -202,11 +199,11 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
             <METHOD name="connectWithOptions" hasCallback="optional">
                 <DESC>Connect to a printer using user options. Works asynchronously, use callback to check the result. After this function call state is automatically updated.</DESC>
                 <PARAMS>
-                    <PARAM name="options" type="HASH">                              
-                        <DESC>Connect options</DESC>
+                    <PARAM name="options" type="HASH">
+                        <DESC>Connect options.</DESC>
                         <PARAMS>
                             <PARAM name="timeout" type="INTEGER" default="15000">
-                                <DESC>connection timeout in milliseconds. Must be larger 0 !</DESC>
+                                <DESC>Connection timeout in milliseconds. Must be larger 0 !</DESC>
                                 <PLATFORM>WM, iOS, Android</PLATFORM>
                                 <CAN_BE_NIL/>
                             </PARAM>
@@ -218,7 +215,7 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND</DESC>
+                    <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND.</DESC>
                     <CAN_BE_NIL/>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
@@ -230,13 +227,12 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
 * Works asynchronously and uses the callback to check the result. 
 * Returns hash with status, and parameters as keys.
 
-NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
-                </DESC>
+NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.</DESC>
                 <PARAMS>
                     <PARAM name="listOfParameters" type="ARRAY">
-                        <DESC>list of parameters for request from printer device.</DESC>
+                        <DESC>List of parameters for request from printer device.</DESC>
                         <PARAM type="STRING">
-                            <DESC>parameter name - see consts with PRINTER_STATE_...</DESC>
+                            <DESC>Parameter name - see consts with PRINTER_STATE_...</DESC>
                         </PARAM>
                     </PARAM>
                 </PARAMS>>
@@ -244,10 +240,10 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                     <DESC>If printer does not supports some parameter then it will not be included in result hash.</DESC>
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR.</DESC>
                         </PARAM>
                         <PARAM name="message" type="STRING">
-                            <DESC>error message, only if status = ERROR</DESC>
+                            <DESC>Error message, only if status = ERROR.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
@@ -262,7 +258,7 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
             <METHOD name="disconnect" hasCallback="optional">
                 <DESC>Disconnect from a printer and release OS resources. Works asynchronously, use callback to check the result.</DESC>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a disconnection. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
+                    <DESC>Returns result of a disconnection. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR.</DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
@@ -279,15 +275,15 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                         </CAN_BE_NIL>
                         <PARAMS>
                             <DESC>Provide a set of properties to configure file printing.</DESC>
-                                <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
-                                    <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
-                                    <CAN_BE_NIL/>
-                                </PARAM>
-                                <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
-                                    <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
-                                    <CAN_BE_NIL/>
-                                </PARAM>                        
-                        </PARAMS>    
+                            <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                            <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <CAN_BE_NIL/>
+                            </PARAM>
+                        </PARAMS>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
@@ -321,7 +317,7 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                             <PARAM name="isInsideFormat" type="BOOLEAN">
                                 <DESC>Boolean value indicating whether this image should be printed by itself (false), or is part of a format being written to the connection (true).</DESC>
                             </PARAM>
-                    </PARAMS>
+                        </PARAMS>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
@@ -357,21 +353,20 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                     <DESC></DESC>
                     <PARAMS>
                         <PARAM name="status" type="STRING">
-                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
+                            <DESC>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR.</DESC>
                         </PARAM>
                         <PARAM name="message" type="STRING">
-                            <DESC>error message, only if status = ERROR</DESC>
+                            <DESC>Error message, only if status = ERROR.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="stringResponce" type="STRING">
-                            <DESC>response from printer if received, converted to string from byteArray(original data)</DESC>
+                            <DESC>Response from printer if received, converted to string from byteArray(original data)</DESC>
                             <CAN_BE_NIL/>
                             <PLATFORM>Android, WM</PLATFORM>
                         </PARAM>
                         <PARAM name="byteArrayResponce" type="ARRAY">
-                            <PARAM type="INTEGER">
-                            </PARAM>    
-                            <DESC>response from printer if received</DESC>
+                            <PARAM type="INTEGER"></PARAM>    
+                            <DESC>Response from printer if received.</DESC>
                             <CAN_BE_NIL/>
                             <PLATFORM>Android</PLATFORM>
                         </PARAM>
@@ -381,9 +376,9 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
             </METHOD>
 
             <METHOD name="enumerateSupportedControlLanguages" hasCallback="optional">
-                <DESC>Return array with languages supported by this printer</DESC>
+                <DESC>Return array with languages supported by this printer.</DESC>
                 <RETURN type="ARRAY">
-                    <DESC>Array of supported printer control languages</DESC>
+                    <DESC>Array of supported printer control languages.</DESC>
                     <PARAM type="STRING">
                         <DESC>Language. See - PRINTER_LANGUAGE_... constants.</DESC>
                     </PARAM>
@@ -391,11 +386,11 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
         </METHODS>
-        
+
         <USER_OVERVIEW>
         </USER_OVERVIEW>
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>
-         </PLATFORM>
+        </PLATFORM>
     </MODULE>
-</API>    
+</API>

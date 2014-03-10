@@ -8,63 +8,53 @@
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
-    extensions: ["nfc"]
-
-
+    extensions: ["NFC"]
     </MORE_HELP>
-
     <TEMPLATES>
     </TEMPLATES>
 
     <PROPERTIES access="STATIC" generateAccessors="true">
-
-      <DESC>list of properties supported by class</DESC>
-
+      <DESC>List of properties supported by class.</DESC>
       <PROPERTY name="supported" type="BOOLEAN" readOnly="true">
-        <DESC>return true if NFC supported on this device</DESC>
+        <DESC>Return true if NFC supported on this device.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="isActive" type="BOOLEAN" readOnly="true">
-        <DESC>Gets a value indicating whether or not the Nfc device is currently active.</DESC>
+        <DESC>Gets a value indicating whether or not the NFC device is currently active.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="version" type="STRING"  readOnly="true">
-        <DESC>Gets the version of the Nfc stack.</DESC>
+        <DESC>Gets the version of the NFC stack.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="pollingTimeout" type="INTEGER">
-        <DESC>Polling timeout in seconds of the Nfc device. 0 - timeout disabled, default: 90. The property is enabled after NFC engine activation</DESC>
+        <DESC>Polling timeout in seconds of the NFC device. 0 - timeout disabled, default: 90. The property is enabled after NFC engine activation.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="passkey" type="STRING">
-        <DESC>Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey). The property is enabled after NFC engine activation</DESC>
+        <DESC>Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey). The property is enabled after NFC engine activation.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
-
     </PROPERTIES>
 
     <METHODS>
-
       <METHOD name="activate" access="STATIC">
-        <DESC>Activates the Nfc device so that all the Nfc operations will be executed</DESC>
+        <DESC>Activates the NFC device so that all the NFC operations will be executed.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="reset" access="STATIC">
-        <DESC>Resets the Nfc device to default configuration</DESC>
+        <DESC>Resets the NFC device to default configuration.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="stop" access="STATIC" hasCallback="optional">
-        <DESC>Stops the Nfc device</DESC>
+        <DESC>Stops the NFC device.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="setTagDetectionHandler" access="STATIC" hasCallback="mandatory">
-        <DESC>register callback for Tag detection</DESC>
+        <DESC>Register callback for Tag detection.</DESC>
         <PARAMS>
           <PARAM name="tagsToBeDetected" type="ARRAY">
-            <DESC>array with tag types - only those tags will be detected.  if empty array - all types. see below tagsSupported parameter in getDeviceInfo method.</DESC>
+            <DESC>Array with tag types - only those tags will be detected. If empty array - all types. See below tagsSupported parameter in getDeviceInfo method.</DESC>
             <PARAM type="INTEGER">
             </PARAM>
           </PARAM>
@@ -73,28 +63,26 @@ In order to use this API you must include the following extension in your `build
           <DESC></DESC>
           <PARAMS>
             <PARAM name="tagId" type="STRING">
-              <DESC>Tag Id</DESC>
+              <DESC>Tag Id.</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="setMessageHandler" access="STATIC" hasCallback="mandatory">
-        <DESC>register callback for Message receive</DESC>
+        <DESC>Register callback for Message receive.</DESC>
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
             <PARAM name="messageId" type="STRING">
-                  <DESC>Message Id</DESC>
+              <DESC>Message Id.</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="setConfigChangeHandler" access="STATIC" hasCallback="mandatory">
-        <DESC>register callback for Config change</DESC>
+        <DESC>Register callback for config change.</DESC>
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
@@ -102,38 +90,35 @@ In order to use this API you must include the following extension in your `build
               <DESC>Bluetooth device pass key.</DESC>
             </PARAM>
             <PARAM name="pollingTimeout" type="INTEGER">
-              <DESC>Polling timeout in seconds of the Nfc device.</DESC>
+              <DESC>Polling timeout in seconds of the NFC device.</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-      
       <METHOD name="btConnect"  access="STATIC" hasCallback="mandatory">
-        <DESC>Connects the Bluetooth device to obtain device properties</DESC>
+        <DESC>Connects the Bluetooth device to obtain device properties.</DESC>
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>
             <PARAM name="btName" type="STRING">
-              <DESC>device name</DESC>
+              <DESC>Device name.</DESC>
             </PARAM>
             <PARAM name="btAddress" type="STRING">
-              <DESC>device MAC address</DESC>
+              <DESC>Device MAC address.</DESC>
             </PARAM>
           </PARAMS>
         </CALLBACK>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="btDisconnect"  access="STATIC">
         <DESC>Disconnects the Bluetooth device.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
       <METHOD name="getDeviceInfo" access="STATIC">
-        <DESC>Gets the Nfc device capablities</DESC>
+        <DESC>Gets the NFC device capabilities.</DESC>
         <RETURN type="HASH">
-          <DESC>return hash with capabilities</DESC>
+          <DESC>Return hash with capabilities.</DESC>
           <PARAMS>
             <PARAM name="operatingModesSupported" type="ARRAY">
               <DESC></DESC>
@@ -179,7 +164,7 @@ In order to use this API you must include the following extension in your `build
               </PARAM>
             </PARAM>
             <PARAM name="tagsSupported" type="ARRAY">
-              <DESC>array with tag types - only those tags will be detected.</DESC>
+              <DESC>Array with tag types - only those tags will be detected.</DESC>
               <PARAM type="STRING">
                 <VALUES>
                   <VALUE constName="MiFareUL" type="STRING" value = "1">
@@ -228,22 +213,21 @@ In order to use this API you must include the following extension in your `build
                </PARAM>
               </PARAM>
             <PARAM name="formattingTagsSupported" type="ARRAY">
-              <DESC>array with tag types - only those tags will be detected. see above tagsSupported parameter.</DESC>
+              <DESC>Array with tag types - only those tags will be detected. See above tagsSupported parameter.</DESC>
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="writeProtectedTagsSupported" type="ARRAY">
-              <DESC>array with tag types - only those tags will be detected. see see above tagsSupported parameter.</DESC>
+              <DESC>Array with tag types - only those tags will be detected. See see above tagsSupported parameter.</DESC>
               <PARAM type="STRING"/>
             </PARAM>
             <PARAM name="firmwareVersion" type="STRING">
-              <DESC>this array has only one element</DESC>
+              <DESC>This array has only one element.</DESC>
               <PARAM type="STRING"/>
             </PARAM>
           </PARAMS>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
     </METHODS>
 
     <USER_OVERVIEW>

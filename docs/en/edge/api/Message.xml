@@ -8,8 +8,6 @@
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
     extensions: ["nfc"]
-
-
     </MORE_HELP>
 
     <TEMPLATES>
@@ -17,26 +15,24 @@ In order to use this API you must include the following extension in your `build
 
     <PROPERTIES access="INSTANCE" generateAccessors="true">
 
-      <DESC>list of properties supported by class</DESC>
+      <DESC>List of properties supported by class.</DESC>
 
       <PROPERTY name="ID" type="STRING" readOnly="true">
-        <DESC>object ID</DESC>
+        <DESC>Object ID.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
-
     </PROPERTIES>
 
     <METHODS>
-
       <METHOD name="getMessageById" access="STATIC">
-        <DESC>This function returns Message object</DESC>
+        <DESC>This function returns Message object.</DESC>
         <PARAMS>
           <PARAM name="id" type="STRING">
-            <DESC></DESC>
+            <DESC>Message object ID.</DESC>
           </PARAM>
         </PARAMS>
         <RETURN type="SELF_INSTANCE">
-          <DESC></DESC>
+          <DESC>"self" instance of the Message object.</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
@@ -44,59 +40,59 @@ In order to use this API you must include the following extension in your `build
       <METHOD name="create" access="STATIC">
         <DESC>Creates message object.</DESC>
         <RETURN type="Rho.NFC.Message">
-          <DESC>Record object</DESC>
+          <DESC>Created Message object.</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="getRecords">
-        <DESC>return array of Record objects</DESC>
+        <DESC>Return array of Record objects.</DESC>
         <RETURN type="ARRAY">
           <PARAM type="Rho.NFC.Record"/>
-          <DESC>array of Rho.NFC.Record objects</DESC>
+          <DESC>Array of Rho.NFC.Record objects.</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="getMessages">
-        <DESC>return array of Smart Poster Message objects.</DESC>
+        <DESC>Return array of Smart Poster Message objects.</DESC>
         <RETURN type="ARRAY">
           <PARAM type="Rho.NFC.Message"/>
-          <DESC>array of Rho.NFC.Message objects</DESC>
+          <DESC>Array of Rho.NFC.Message objects.</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="addRecord">
-        <DESC>add new Record to Message</DESC>
+        <DESC>Add new Record to Message.</DESC>
         <PARAMS>
           <PARAM name="recordID" type="STRING">
-            <DESC>record ID</DESC>
+            <DESC>Added Record object ID.</DESC>
           </PARAM>
         </PARAMS>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="addMessage">
-        <DESC>add new Smart Poster message to the message</DESC>
+        <DESC>Add new Smart Poster message to the message.</DESC>
         <PARAMS>
           <PARAM name="messageID" type="STRING">
-            <DESC>message ID</DESC>
+            <DESC>Added Message object ID.</DESC>
           </PARAM>
         </PARAMS>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="getContent">
-        <DESC>return Message as byte array</DESC>
+        <DESC>Returns Message as byte array.</DESC>
         <RETURN type="STRING">
-          <DESC></DESC>
+          <DESC>Message to get.</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="close">
-        <DESC>release resources</DESC>
+        <DESC>Release NFC resources.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 

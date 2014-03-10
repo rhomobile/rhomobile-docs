@@ -9,7 +9,7 @@ To use bluetooth connection on iOS devices you should take into account followin
 
 * It will only work with Zebra printers which have the Made For iPod/iPhone certification.
 * Before using printer you should pair it using system bluetooth settings.
-* You need to include the External Accessory framework in your project (will be automatically added when iphone project file is generated)
+* You need to include the External Accessory framework in your project (will be automatically added when iPhone project file is generated)
 * You need to include the Zebra printer protocol string "com.zebra.rawport" in your info.plist file ([project root]/project/iphone/Info.plist) under "Supported external accessory protocols":
         &lt;key&gt;UISupportedExternalAccessoryProtocols&lt;/key&gt;
         &lt;array&gt;
@@ -21,23 +21,22 @@ To use bluetooth connection on iOS devices you should take into account followin
             &lt;string&gt;external-accessory&lt;/string&gt;
         &lt;/array&gt;
 
-Android platfrom specific:
+Android platform specific:
 
-* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then Zebra SDK enumerate _all_ Bluetooth devices around and you can see a lot of pairing request to non-printer devices too. Just cancel them. This produced because we can not detect printer before real connection to device, but real connection require pairing :-).
+* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then Zebra SDK enumerate _all_ Bluetooth devices around and you can see a lot of pairing request to non-printer devices too. Just cancel them. This produced because we can not detect printer before real connection to device, but real connection require pairing.
 
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
+In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
     extensions: ["printing","printing_zebra"]
 
 ## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
 ## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
-
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
-    
+
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
             <PROPERTY_BAG/>
@@ -182,10 +181,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>use this name for requestState(), The print mode</DESC>
             </CONSTANT>
         </CONSTANTS>
-        
+
         <METHODS access="INSTANCE">            
             <METHOD name="retrieveFileNames" hasCallback="mandatory">
-                <DESC>Retrieves the names of the files which are stored on the printer. Works asynchonously, use callback to check the result.</DESC>
+                <DESC>Retrieves the names of the files which are stored on the printer. Works asynchronously, use callback to check the result.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
@@ -201,7 +200,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="retrieveFileNamesWithExtensions" hasCallback="mandatory">
-                <DESC>This method only returns files which have the extensions in "extensions". Works asynchonously, use callback to check the result.</DESC>
+                <DESC>This method only returns files which have the extensions in "extensions". Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="extensions" type="ARRAY">
                         <PARAM type="STRING"></PARAM>
@@ -223,7 +222,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="sendFileContents" hasCallback="optional">
-                <DESC>Sends the contents of a file to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchonously, use callback to check the result.</DESC>
+                <DESC>Sends the contents of a file to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
                         <DESC>Location of file to print.</DESC>
@@ -236,7 +235,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="printStoredFormatWithHash" hasCallback="optional">
-                <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchonously, use callback to check the result.</DESC>
+                <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
@@ -252,7 +251,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="printStoredFormatWithArray" hasCallback="optional">
-                <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchonously, use callback to check the result.</DESC>
+                <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
@@ -268,7 +267,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="storeImage" hasCallback="optional">
-                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchonously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS is supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.  </DESC>
+                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS is supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
                 <PARAMS>
                     <PARAM name="printerDriveAndFileName" type="STRING">
                         <DESC>Path on the printer where the image will be stored.</DESC>
@@ -289,30 +288,29 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
         </METHODS>
-        
+
         <USER_OVERVIEW>
         </USER_OVERVIEW>
+
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+
         <PLATFORM>
-         </PLATFORM>
-<EXAMPLES >
-           <EXAMPLE title="Printing via Bluetooth">
-            <SECTIONS>
-               
-              <SECTION>
-               <DESC>
-                   To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the 'deviceAddress' parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a 'printerID' property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.  
-               </DESC>
-               <CODE>
-                
-                <JAVASCRIPT>
+        </PLATFORM>
+
+        <EXAMPLES>
+            <EXAMPLE title="Printing via Bluetooth">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the 'deviceAddress' parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a 'printerID' property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.</DESC>
+                        <CODE>
+                            <JAVASCRIPT>
            <![CDATA[
 var printers = [];
 
 Rho.PrinterZebra.searchPrinters({ 
     connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
     printerType: Rho.PrinterZebra.PRINTER_TYPE_ZEBRA
-     }, function (cb){
+    }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
         {
             if (typeof cb.printerID != "undefined")
@@ -329,19 +327,16 @@ Rho.PrinterZebra.searchPrinters({
         {
             console.log(cb.status);
         }
-    });
-
+    }
+);
                    ]]>
-                 </JAVASCRIPT>
-               </CODE>
-               </SECTION>
-              <SECTION>
-               <DESC>
-                   Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the defaul is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).
-               </DESC>
-               <CODE>
-                
-                <JAVASCRIPT>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                    <SECTION>
+                        <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the defaul is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
+                        <CODE>
+                            <JAVASCRIPT>
            <![CDATA[
 var myPrinter = Rho.PrinterZebra.getPrinterByID(printers[0]);
 
@@ -356,17 +351,14 @@ myPrinter.connect(function (cb){
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
-
                    ]]>
-                 </JAVASCRIPT>
-               </CODE>
-               </SECTION>
-<SECTION>
-               <DESC>
-                   Now we can just print a test string and read some properties of the printer to make sure the communications is working.
-               </DESC>
-               <CODE>
-                <JAVASCRIPT>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                    <SECTION>
+                        <DESC>Now we can just print a test string and read some properties of the printer to make sure the communications is working.</DESC>
+                        <CODE>
+                            <JAVASCRIPT>
            <![CDATA[
 // This should print
 myPrinter.printRawString('This is a test print');
@@ -381,15 +373,12 @@ myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
         console.log(cb.PRINTER_STATE_IS_READY_TO_PRINT);
 
     });
-
                    ]]>
-                 </JAVASCRIPT>
-               </CODE>
-               </SECTION>
-               </SECTIONS>
-           </EXAMPLE>
-
-       </EXAMPLES>
-
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES>
     </MODULE>
-</API>    
+</API>

@@ -8,19 +8,16 @@
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
     extensions: ["nfc"]
-
-
     </MORE_HELP>
 
     <TEMPLATES>
     </TEMPLATES>
 
     <PROPERTIES access="INSTANCE" generateAccessors="true">
-
-      <DESC>list of properties supported by class</DESC>
+      <DESC>List of properties supported by class.</DESC>
 
       <PROPERTY name="ID" type="STRING" readOnly="true">
-        <DESC>object ID</DESC>
+        <DESC>Object ID.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
@@ -33,13 +30,13 @@ In order to use this API you must include the following extension in your `build
         <DESC>Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.</DESC>
         <VALUES>
           <VALUE constName="NDEF_RTD_TEXT" type="INTEGER" value = "1">
-            <DESC></DESC>
+            <DESC>A text type record.</DESC>
           </VALUE>
           <VALUE constName="NDEF_RTD_URI" type="INTEGER" value = "2">
-            <DESC></DESC>
+            <DESC>A URI type record.</DESC>
           </VALUE>
           <VALUE constName="NDEF_RTD_GENERAL" type="INTEGER" value = "3">
-            <DESC></DESC>
+            <DESC>A generic type record.</DESC>
           </VALUE>
         </VALUES>
         <PLATFORM>WM</PLATFORM>
@@ -92,7 +89,7 @@ In order to use this API you must include the following extension in your `build
       </PROPERTY>
 
       <PROPERTY name="uriProtocol" type="INTEGER">
-        <DESC>Use if record type is NFC_NDEF_RTD_URI. For values pls see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
+        <DESC>Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
@@ -100,25 +97,23 @@ In order to use this API you must include the following extension in your `build
         <DESC>Record payload(data buffer).</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
-      
     </PROPERTIES>
 
     <METHODS>
-
       <METHOD name="create" access="STATIC">
-        <DESC>Creates record</DESC>
+        <DESC>Creates record.</DESC>
         <RETURN type="Rho.NFC.Record">
-          <DESC>Record object</DESC>
+          <DESC>Record object.</DESC>
         </RETURN>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
 
       <METHOD name="close">
-        <DESC>release resources</DESC>
+        <DESC>Release resources.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
-
     </METHODS>
+
     <USER_OVERVIEW>
     </USER_OVERVIEW>
 

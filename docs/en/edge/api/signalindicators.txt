@@ -3,27 +3,27 @@
 <p>The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Motorola Solutions' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</p>
 <h2>Enabling the API</h2>
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
 
 <pre><code>:::ruby
 extensions: ["indicators"]
 </code></pre>
 
-<p>The <code>indicators</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>
+<p>The <code>indicators</code> extension is also included automatically if you specify the following in your <code>build.yml</code>.</p>
 
 <pre><code>:::ruby
 app_type: "rhoelements"
 </code></pre>
 
-<p><strong>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</strong></p>
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
 
 <h2>JavaScript Usage</h2>
 
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
 <h2>Ruby Usage</h2>
 
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
 
 <a name='Methods'></a>
@@ -42,11 +42,8 @@ app_type: "rhoelements"
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Retrieve the WLAN status</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
+Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-                    Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows
-                <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
-
-            
   function signal_status_sync(){
 
     signalValue = Rho.Signal.wlanStatus;
@@ -54,21 +51,17 @@ app_type: "rhoelements"
     console.log("Signal Strength is: " + signalValue['signalStrength']);
   }
                     
-                    </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+                            </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-            
   def signal_status_sync
     signalValue = Rho::Signal.wlanStatus
     puts signalValue
     puts "Signal Strength is: " + signalValue['signalStrength']
   end
                     
-                    </code></pre></div></div>
+                            </code></pre></div></div>
+Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback<ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
 
-                    Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback
-                <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
-
-            
   function signal_status_async(){
     console.log("Registering Signal Callback");
     Rho.Signal.wlanStatus(signalEvent);
@@ -78,9 +71,8 @@ app_type: "rhoelements"
     console.log("Signal Event: (Asynchronous).  Strength: " + params["signalStrength"] + ", ESS ID: " + params["essid"] + ", MacAddress: " + params["macAddress"] + ", AdapterName: " + params["adapterName"] + ", DHCP Server: " + params["dhcpServer"] + ", DHCP Static: " + params["dhcpStatic"] + ", Gateway: " + params["gateway"] + ", IP Address: " + params["ipAddress"] + ", RSSI: " + params["rssi"] + ", Subnet Mask: " + params["subnetMask"] + ", Wins: " + params["wins"]);
   }  
   
-                    </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
+                            </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
-            
   def signal_status_async
     puts "Registering Signal Callback"
     Rho::Signal.wlanStatus(url_for(:action =&gt; :signalEvent))
@@ -90,41 +82,33 @@ app_type: "rhoelements"
     puts "Signal Event: (Asynchronous).  Strength: #{@params["signalStrength"]}, ESS ID: #{@params["essid"]}, MacAddress: #{@params["macAddress"]}, AdapterName: #{@params["adapterName"]}, DHCP Server: #{@params["dhcpServer"]}, DHCP Static: #{@params["dhcpStatic"]}, Gateway: #{@params["gateway"]}, IP Address: #{@params["ipAddress"]}, RSSI: #{@params["rssi"]}, Subnet Mask: #{@params["subnetMask"]}, Wins: #{@params["wins"]}"
   end  
   
-                    </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Signal indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
+                            </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Signal indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
+If you just want to display the signal indicator in the default position and default colour then call as follows<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
-                    If you just want to display the signal indicator in the default position and default colour then call as follows
-                <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
-
-            
   function show_signal_icon(){
     Rho.Signal.showIcon({});
   }
                     
-                    </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
+                            </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-            
   def show_signal_icon
     Rho::Signal.showIcon({})
   end
                     
-                    </code></pre></div></div>
+                            </code></pre></div></div>
+To display the signal icon at the default position but blue and vertical specify as follows<ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
-                    To display the signal icon at the default position but blue and vertical specify as follows
-                <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
-
-            
   function show_signal_icon(){
     Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
   }
   
-                    </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
+                            </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
-            
   def show_signal_icon
     Rho::Signal.showIcon({color:'#0000FF',layout: Rho::Signal.SIGNAL_LAYOUT_UP})
   end
   
-                    </code></pre></div></div>  </div></div></div></div>
+                            </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 

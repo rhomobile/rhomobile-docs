@@ -8,22 +8,21 @@ example, a driver's license can be thought of as a template containing regions s
 and photo, each of these regions are processed and returned to RhoElements separately by DPX so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
-online at [The MSI DPX template builder](https://dpx.motorolasolutions.com/)
+online at [The MSI DPX template builder](https://dpx.motorolasolutions.com/).
     </HELP_OVERVIEW>
     <MORE_HELP>
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
+In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
     extensions: ["dpx"]
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
-in JavaScript
+in JavaScript.
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
-Ruby
-
+Ruby.
     </MORE_HELP>
 
     <TEMPLATES>
@@ -42,16 +41,16 @@ Ruby
         </DESC>
       </PROPERTY>
       <PROPERTY name="audioFeedback" type="BOOLEAN" default="true">
-        <DESC>Whether or not to provide audio feedback to the user following document processing</DESC>
+        <DESC>Whether or not to provide audio feedback to the user following document processing.</DESC>
       </PROPERTY>
       <PROPERTY name="debug" type="BOOLEAN" default="false">
         <DESC>If enabled, allows a session to write form capture, region images, region values, and other data to storage.</DESC>
       </PROPERTY>
       <PROPERTY name="hapticFeedback" type="BOOLEAN" default="true">
-        <DESC>Whether or not to provide haptic feedback to the user following document processing</DESC>
+        <DESC>Whether or not to provide haptic feedback to the user following document processing.</DESC>
       </PROPERTY>
       <PROPERTY name="ledFeedback" type="BOOLEAN" default="true">
-        <DESC>Whether or not to provide LED feedback to the user following document processing</DESC>
+        <DESC>Whether or not to provide LED feedback to the user following document processing.</DESC>
       </PROPERTY>
       <PROPERTY name="flashMode" type="STRING" default="off">
         <DESC>Flash mode (off, on).</DESC>
@@ -61,8 +60,8 @@ Ruby
         </VALUES>
       </PROPERTY>
       <PROPERTY name="identificationTimeout" type="INTEGER" default="15000">
-        <DESC>The length of time, in milliseconds, that the processing engine has to recognise the image from the
-          provided template. From 0 to 20000 step by 100.
+        <DESC>The length of time, in milliseconds that the processing engine has to recognize the image from the
+          provided template. From 0 to 20000 in increments of 100.
         </DESC>
       </PROPERTY>
       <PROPERTY name="inputSource" type="STRING" default="camera">
@@ -107,7 +106,7 @@ Ruby
                   <DESC>The document was decoded and processed successfully and this callback contains information about the processed form. Look at processedForm parameter.</DESC>
                 </VALUE>
                 <VALUE constName="FAILURE" value="failure">
-                  <DESC>An error has occured whilst processing the document. Look at failureReason parameter.</DESC>
+                  <DESC>An error has occurred whilst processing the document. Look at failureReason parameter.</DESC>
                 </VALUE>
                 <VALUE constName="STOP" value="stop">
                   <DESC>The processing is over. No more notifications until next captureDocument.</DESC>
@@ -117,9 +116,15 @@ Ruby
             <PARAM name="failureReason" type="STRING">
               <DESC>Describes reason for failure.</DESC>
               <VALUES>
-                <VALUE constName="FAILURE_ERROR" value="error"><DESC>DPX engine generic error.</DESC></VALUE>
-                <VALUE constName="FAILURE_IDENTIFICATION_TIMEOUT" value="identificationTimeout"><DESC>Identification timeout. Refer to identificationTimeout property.</DESC></VALUE>
-                <VALUE constName="FAILURE_PROCESSING_TIMEOUT" value="processingTimeout"><DESC>Processing timeout. Refer to processingTimeout property.</DESC></VALUE>
+                <VALUE constName="FAILURE_ERROR" value="error">
+                  <DESC>DPX engine generic error.</DESC>
+                </VALUE>
+                <VALUE constName="FAILURE_IDENTIFICATION_TIMEOUT" value="identificationTimeout">
+                  <DESC>Identification timeout. Refer to identificationTimeout property.</DESC>
+                </VALUE>
+                <VALUE constName="FAILURE_PROCESSING_TIMEOUT" value="processingTimeout">
+                  <DESC>Processing timeout. Refer to processingTimeout property.</DESC>
+                </VALUE>
               </VALUES>
             </PARAM>
             <PARAM name="processedForm" type="HASH">
@@ -144,21 +149,21 @@ Ruby
                     <DESC>Height of scanned form in pixels.</DESC>
                   </PARAM>
                   <PARAM name="id" type="INTEGER">
-                    <DESC>Id of scanned form image. Use getDataUri method to retrieve image data. Id is valid until close method is called.</DESC>
+                    <DESC>Id of scanned form image. Use getDataUri method to retrieve image data. The id is valid until close method is called.</DESC>
                   </PARAM>
                 </PARAM>
               </PARAM>
               <PARAM name="regions" type="ARRAY">
                 <PARAM name="group" type="STRING">
                   <DESC>The name of the group this region is found in, as defined in the template associated with the
-                    recognised region. It's optional parameter.
+                    recognized region. It's optional parameter.
                   </DESC>
                 </PARAM>
                 <PARAM name="name" type="STRING">
                   <DESC>The name of the region, as defined in the template associated with the document.</DESC>
                 </PARAM>
                 <PARAM name="number" type="INTEGER">
-                  <DESC>The number of the region, as defined in the template section associated with the recognised region.</DESC>
+                  <DESC>The number of the region, as defined in the template section associated with the recognized region.</DESC>
                 </PARAM>
                 <PARAM name="processingMode" type="STRING">
                   <DESC>The type of region which has been decoded.</DESC>
@@ -171,7 +176,7 @@ Ruby
                     </VALUE>
                     <VALUE constName="PM_OMR" value="omr">
                       <DESC>Optical Mark Recognition. The region is a check box or radio box. The processedData
-                        paramater of this callback will contain boolean value.
+                        parameter of this callback will contain boolean value.
                       </DESC>
                     </VALUE>
                     <VALUE constName="PM_PICTURE" value="picture">
@@ -219,10 +224,7 @@ Ruby
         </PARAMS>
       </METHOD>
       <METHOD name="getDataUri">
-         <DESC>Return data URI encoding of the raw image assocated with the region or captured form, this allows the operator to
-easily verify that the captured data is accurate and if necessary perform any post processing changes by hand.
-To show the image on the HTML page insert the data URI  string into the src attribute of the img tag: 
-
+          <DESC>Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag: 
     &lt;img src="dataURI string;"&gt;.
         </DESC>
         <PARAMS>
