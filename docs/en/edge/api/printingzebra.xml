@@ -246,7 +246,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occured.</DESC>
                 </CALLBACK>
                 <PLATFORM>Android, iOS</PLATFORM> 
             </METHOD>
@@ -262,7 +262,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occured. </DESC>
                 </CALLBACK>
                 <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
