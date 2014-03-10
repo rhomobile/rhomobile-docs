@@ -145,7 +145,7 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.1. Please consul
 
     <tr>
       <td>
-        <a href="../api/Intent">Cross-Platform Intents</a>
+        <a href="../api/Intent">Intent</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
