@@ -5,6 +5,13 @@ class Api
 
 @@apiName = ""
 
+  def self.getMDDesc(desc)
+  	if desc.is_a?(String)
+  		return RDiscount.new(desc, :smart).to_html
+  	else
+  		return desc
+  	end
+  end
   def self.getElementName(element)
   	if !element["docNameOverride"].nil?
   		return element["docNameOverride"]
@@ -20,11 +27,10 @@ class Api
 	  	if !doc["MODULE"][0]["docNameOverride"].nil?
 	  		md = doc["MODULE"][0]["docNameOverride"]
 	  	else
-	  		if lang == 'JS'
-	  			md = 'Rho.' + doc["MODULE"][0]["name"]
-	  		end
 	  		if lang == 'RUBY'
 	  			md = 'Rho::' + doc["MODULE"][0]["name"]
+	  		else
+	  			md = 'Rho.' + doc["MODULE"][0]["name"]
 	  		end
 	  	end
 	end
@@ -397,7 +403,7 @@ def self.getconstantlinks(doc)
 	  			# if section["DESC"][0].class != Hash
 	  			# puts section
 	  				if !section["DESC"].nil? && !section["DESC"][0].nil?
-						examplesections += section["DESC"][0]
+						examplesections += getMDDesc(section["DESC"][0])
 					end
 				# end
 				exampleid = "exI#{index.to_s}-S#{si.to_s}"
@@ -515,7 +521,7 @@ def self.getconstantlinks(doc)
 		    md += '</div>'
 		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body">'
 		    md +='  <div class="accordion-inner">'
-		    html = RDiscount.new(element["DESC"][0], :smart).to_html
+		    html = getMDDesc(element["DESC"][0])
 		
 		  	md += html
 		  	md += '  </div>'
@@ -539,7 +545,7 @@ def self.getconstantlinks(doc)
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
- 		        md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
+ 		        md +=  "<dd>" + getMDDesc(element["DESC"][0]) + "</dd>"
        		end
 	  	}
 	  	md += "</dl></div>"
@@ -734,7 +740,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				
 			end
 			
-			@propdesc = element["DESC"][0]
+			@propdesc = getMDDesc(element["DESC"][0])
 			if @propdesc.nil?
 				RDiscount.new(@propdesc, :smart).to_html
 			end
@@ -749,14 +755,14 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 						@propvaldesc = "<dl  >"
 						if !vaelement["DESC"].nil?
 							if !vaelement["DESC"][0].empty?
-								@propvaldesc = vaelement["DESC"][0].to_s
+								@propvaldesc = getMDDesc(vaelement["DESC"][0].to_s)
 							else
 								@propvaldesc = ""
 							end 
 						end	
 						if !vaelement["PLATFORM"].nil?
 							if !vaelement["PLATFORM"][0].empty?
-								@propvaldesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+								@propvaldesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
 							
 							end 
 						end
@@ -765,7 +771,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 							@propvaluetype = !vaelement["type"]
 						end
 						if !vaelement["constName"].nil?
-							vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+							vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
+
 						end
 						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>" 
 						
@@ -943,7 +950,7 @@ def self.getparams(element,toplevel)
 			
 					# puts param
 					if !param["DESC"].nil?
-						methparamsdetailsdesc=param["DESC"][0]
+						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
@@ -968,7 +975,7 @@ def self.getparams(element,toplevel)
 						param["CAN_BE_NIL"].each { |paramsnil|
 							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  paramsnil["DESC"][0]
+								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
 							end
 							
 						}
@@ -1005,14 +1012,14 @@ def self.getparams(element,toplevel)
 							velement["VALUE"].each() { |vaelement|
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
-										valdesc = vaelement["DESC"][0].to_s
+										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
 									else
 										valdesc = ""
 									end 
 								end	
 								if !vaelement["PLATFORM"].nil?
 									if !vaelement["PLATFORM"][0].empty?
-										valdesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
 									
 									end 
 								end
@@ -1022,7 +1029,7 @@ def self.getparams(element,toplevel)
 									valuetype = vaelement["type"]
 								end
 								if !vaelement["constName"].nil?
-									vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String:' + vaelement["value"] + ''
 								end
 
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
@@ -1064,7 +1071,7 @@ if !element["PARAM"].nil?
 			
 					# puts param
 					if !param["DESC"].nil?
-						methparamsdetailsdesc=param["DESC"][0]
+						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
@@ -1079,7 +1086,7 @@ if !element["PARAM"].nil?
 						param["CAN_BE_NIL"].each { |paramsnil|
 							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  paramsnil["DESC"][0]
+								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
 							end
 							
 						}
@@ -1114,14 +1121,14 @@ if !element["PARAM"].nil?
 								valdesc = "<dl  >"
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
-										valdesc = vaelement["DESC"][0].to_s
+										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
 									else
 										valdesc = ""
 									end 
 								end	
 								if !vaelement["PLATFORM"].nil?
 									if !vaelement["PLATFORM"][0].empty?
-										valdesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
 									
 									end 
 								end								
@@ -1130,7 +1137,7 @@ if !element["PARAM"].nil?
 									valuetype = vaelement["type"]
 								end
 								if !vaelement["constName"].nil?
-									vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
 								end
 
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
@@ -1193,7 +1200,7 @@ end
 		end 
 		
 		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
-			@methdesc = RDiscount.new(element["DESC"][0], :smart).to_html
+			@methdesc = getMDDesc(element["DESC"][0])
 			
 		else
 			@methdesc = ""
@@ -1223,7 +1230,7 @@ end
 				# puts relement
 		
 				if !relement["DESC"].nil? && !relement["DESC"][0].is_a?(Hash)
-					@methreturndesc=" : " + relement["DESC"][0]
+					@methreturndesc=" : " + getMDDesc(relement["DESC"][0])
 				end
 				methreturnparams =  getparams(relement,false)
 			}
@@ -1502,7 +1509,7 @@ end
   		# md += "</tr></table>\n\n" 
   		
   	if !element["BACKWARDS_COMPATIBILITY"].nil?
-  		@methdesc += "\n\nNOTE: #{element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0]}\n\n"
+  		@methdesc += "\n\nNOTE: #{getMDDesc(element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0])}\n\n"
 	end		
 	
 	templateDefault = false
