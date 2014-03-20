@@ -20,8 +20,20 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <METHODS  access="STATIC">
             <METHOD name="send" hasCallback="optional">
                 <DESC>Sends an intent. The receiver of the intent can either be another RhoMobile application that is listening for this Intent characteristic or on Android can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method. 
-NOTE: On Android, the callback should only be used when the intentType is set to START_ACTIVITY.</DESC>
-                <PLATFORM>iOS, WM, Win32, Android</PLATFORM>
+***NOTE: On Android, the callback should only be used when the intentType is set to START_ACTIVITY.***
+***NOTE: On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI. In most cases it is also needed to add extension of exported file to 'android:no_compression' list at build.yml***
+    :::ruby
+    android:
+      no_compression: ['pdf','html','css']
+
+    :::javascript
+    var params = {
+        intentType: Rho.Intent.START_ACTIVITY,
+        action: "ACTION_VIEW",
+        uri: "content://com.rhomobile.sample/rhodata/apps/public/sample.pdf"
+    }
+    Rho.Intent.send(params);    
+</DESC>
                 <PARAMS>
                     <PARAM name="params" type="HASH">
                         <DESC>A hash-map with intent parameters.</DESC>
@@ -118,7 +130,7 @@ Notice the use of the full constant string "android.intent.extra.TEXT" in place 
 
 In order to listen for Intents you will have to update the `AndroidManifest.erb` file and add a special section to it. This file is now generated with RhoMobile Version 4.1 when you create a new project. The file is located in the root of project.
 
-AndroidManifest.erb snippet
+Add the following snippet to AndroidManifest.erb within the `manifest` tags
 <![CDATA[
     :::xml
     <receiver android:name='com.rho.intent.IntentReceiver'>
@@ -140,7 +152,7 @@ Notice that this looks very similar to a standard AndroidManifest.XML file secti
             </METHOD>
         </METHODS>
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-        <PLATFORM>Android</PLATFORM>
+        <PLATFORM>iOS, WM, Android</PLATFORM>
         <EXAMPLES >
         </EXAMPLES>
     </MODULE>
