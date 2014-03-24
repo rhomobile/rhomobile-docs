@@ -11,7 +11,7 @@ To set up your RhoConnect application for pushing to an iOS client, you will nee
 	:development:
 	  :redis: localhost:6379
 	  :iphonecertfile: settings/apple_push_cert.pem
-	  :iphonepassphrase: #=> must be empty or a string, not a number (i.e. "" or "secure")
+	  :iphonepassphrase: #=> must be empty or a string, not a number (i.e. "" or "some-secure-passphrase-here")
 	  :iphoneserver: gateway.sandbox.push.apple.com
 	  :iphoneport: 2195
 	  :syncserver: http://localhost:9292/application/
