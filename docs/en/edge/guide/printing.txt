@@ -252,3 +252,12 @@ Be sure to disconnect from the printer when not in use. This is especially true 
 	//assumes you already created an instance object from previous instructions
 	myPrinter.disconnect();
 
+## Platform Notes
+### Windows Mobile / Windows CE
+* Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device.
+* Windows CE only - You'll need to also install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
+* Currently, the printing service only works with one client at a time but, this will be changed in RE 4.2 to include a multi-client mode.
+
+## Limitations
+* The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with bluetooth printers.
+* The method [`Printer.stopSearch()`](../api/printing#mstopSearch) currently does not work.
