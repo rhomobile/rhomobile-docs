@@ -17,9 +17,9 @@ For example, in the following code snippet, we are looking for any Zebra printer
 	:::javascript
 	var printers = [];
 
-	Rho.PrinterZebra.searchPrinters({ 
-		connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
-		printerType: Rho.PrinterZebra.PRINTER_TYPE_ZEBRA
+	Rho.Printer.searchPrinters({ 
+		connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
+		printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
 		 }, function (cb){
 			if(cb.status == 'PRINTER_STATUS_SUCCESS')
 			{
@@ -47,7 +47,7 @@ If we knew the printer's BlueTooth address we could have specified the `deviceAd
 
 	:::javascript
 	Rho.PrinterZebra.searchPrinters({ 
-		connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
+		connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		...
 
@@ -55,8 +55,8 @@ NOTE: The deviceAddress for a BlueTooth device must include the ':' like ##:##:#
 
 Likewise, if we were searching for a printer over WiFi, we could have also used the `deviceAddress` & `devicePort` parameters.
 	:::javascript
-	Rho.PrinterZebra.searchPrinters({ 
-		connectionType:Rho.PrinterZebra.CONNECTION_TYPE_TCP,  
+	Rho.Printer.searchPrinters({ 
+		connectionType:Rho.Printer.CONNECTION_TYPE_TCP,  
 		deviceAddress: '192.168.1.121',
 		devicePort: 8080
 		...
@@ -68,13 +68,13 @@ The searchPrinters `callback function` will be executed for each printer found. 
 NOTE: This ID is a unique ID that the RhoMobile framework keeps track of. It is not an ID that the printer manufacturer may be using.
 
 ## Connecting to the Printer
-Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of PrinterZebra class by calling the [getPrinterByID method](../api//printingzebra#mgetPrinterByIDSTATIC) and pass in a string that is the printerID that was returned in the `searchPrinters` call
+Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID method](../api//printingzebra#mgetPrinterByIDSTATIC) and pass in a string that is the printerID that was returned in the `searchPrinters` call
 
 	:::javascript
 	// Ex: printers[0] = 'ZEBRA_PRINTER_1'
-	var myPrinter = Rho.PrinterZebra.getPrinterByID(printers[0]);
+	var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
-	// myPrinter is now an instance class of PrinterZebra
+	// myPrinter is now an instance class of Printer
 	// and can use the Instance Methods and properties associated 
 	// with that class
 
@@ -100,7 +100,7 @@ Once we have an instance to a specific printer we now must make a connection, us
 The callback object in the `connect` method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants.
 
 ## Getting Printer State
-You can also check some information about the printer using the [requestState method](../api/printingzebra#mrequestState). This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [PrinterZebra Constants](../api/printingzebra#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned as a property of the callback object.
+You can also check some information about the printer using the [requestState method](../api/printingzebra#mrequestState). This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [Printer Constants](../api/printing#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned as a property of the callback object.
 
 	:::javascript
 	// Assumes you have created an instance 'myPrinter'
@@ -114,7 +114,7 @@ You can also check some information about the printer using the [requestState me
 		});
 
 ## Getting Supported Printer Languages
-Before you should send any commands to the printer, you should know what languages the printer supports. In the case of Zebra these may be ZPL, CPCL, EPS, etc. You can do this by using the [enumerateSupportedControlLanguages method](../api/printing#menumerateSupportedControlLanguages). The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printingzebra#Constants):
+Before you should send any commands to the printer, you should know what languages the printer supports. In the case of Zebra these may be ZPL, CPCL, EPS, etc. You can do this by using the [enumerateSupportedControlLanguages method](../api/printing#menumerateSupportedControlLanguages). The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printing#Constants):
 
 	:::javascript
 	//assumes you created a printer instance from previous instructions
