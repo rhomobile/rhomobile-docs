@@ -53,31 +53,30 @@ Now that we know the different pieces we'll need, let's put the intent together.
 Now that we have these, we simply need to put them into a hash and use the Rho [Intent API method](../api/intent#msend) `Intent.send()` to send the intent. This api takes two parameters. The first one is an object that represents the intent options that the intent receiver application is expecting. The second optional parameter is a callbackhandler for Intent call. In our example, we have chosen to not handle a callback.
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby" data-toggle="tab">Ruby</a></li>
-    <li><a href="#javascript" data-toggle="tab">JavaScript</a></li>
+    <li class="active"><a href="#ruby_send" data-toggle="tab">Ruby</a></li>
+    <li><a href="#javascriptSend" data-toggle="tab">JavaScript</a></li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade in active" id="ruby">
+    <div class="tab-pane fade in active" id="ruby_send">
         <pre class='CodeRay'><code>:::ruby
 def send_geo
-  intentParams = {:action     => "android.intent.action.VIEW",
-                  :intentType => Rho::Intent::START_ACTIVITY,
-                  :uri        => "geo:37.422, -122.084"}
+  intent_params = { :action     => "android.intent.action.VIEW",
+                    :intentType => Rho::Intent::START_ACTIVITY,
+                    :uri        => "geo:37.422, -122.084" }
 
-  Rho::Intent.send intentParams
+  Rho::Intent.send intent_params
 end</code></pre>
     </div>
-    <div class="tab-pane fade" id="javascript">
+    <div class="tab-pane fade" id="javascriptSend">
     <pre class='CodeRay'><code>:::javascript
-function send_geo(){
-  var intentParams = {action  : "android.intent.action.VIEW",
-                  intentType : Rho.Intent::START_ACTIVITY,
-                  uri        : "geo:37.422, -122.084"};
+function sendGeo(){
+  var intentParams = {action    : "android.intent.action.VIEW",
+                     intentType : Rho.Intent.START_ACTIVITY,
+                     uri        : "geo:37.422, -122.084"};
 
-  Rho::Intent.send(intentParams);
-}
-    </code></pre>
+  Rho.Intent.send(intentParams);
+}</code></pre>
     </div>
 </div>
 
@@ -135,43 +134,53 @@ This should always say `com.rho.intent.IntentReceiver`. For Android, we are basi
 Now, before we can start sending intents to this app, we need to add some code that will allow us to tell the app to start listening for intents. We do this with the Rho [Intent API method](../api/intent#mstartListening) `Intent.startListening()`.
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby" data-toggle="tab">Ruby</a></li>
-    <li><a href="#javascript" data-toggle="tab">JavaScript</a></li>
+    <li class="active"><a href="#ruby_callback" data-toggle="tab">Ruby</a></li>
+    <li><a href="#javascriptCallback" data-toggle="tab">JavaScript</a></li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade in active" id="ruby">
+    <div class="tab-pane fade in active" id="ruby_callback">
         <pre class='CodeRay'><code>:::ruby
 def start_listening
   Rho::Intent.startListening "/app/Intent/listening_for_intent_callback"
 end</code></pre>
+        <p>You can see here that we have specified a callback handler but we have not yet defined the callback handler, we'll do that next.</p>
     </div>
-    <div class="tab-pane fade" id="javascript">
-    <pre class='CodeRay'><code>:::javascript</code></pre>
+    <div class="tab-pane fade" id="javascriptCallback">
+        <pre class='CodeRay'><code>:::javascript
+Rho.intent.startListening(function(params){
+  // Your callback code here
+  console.log(params.responseCode);
+});</code>
+        </pre>
+        <p>You can see here that we have specified a callback handler and defined the callback handler in an anonymous function. All that's left is to fill in the code to handle the callback, we'll do that next.</p>
     </div>
 </div>
-
-You can see here that we have specified a callback handler but we have not yet defined the callback handler, so let's do that now.
 
 ### Add a Callback Handler
 We can now receive intents but, without a callback handler, receiving an intent is meaningless.
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby" data-toggle="tab">Ruby</a></li>
-    <li><a href="#javascript" data-toggle="tab">JavaScript</a></li>
+    <li class="active"><a href="#ruby_handle_callback" data-toggle="tab">Ruby</a></li>
+    <li><a href="#javascriptHandleCallback" data-toggle="tab">JavaScript</a></li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade in active" id="ruby">
+    <div class="tab-pane fade in active" id="ruby_handle_callback">
         <pre class='CodeRay'><code>:::ruby
 def listening_for_intent_callback
   Rho::Notification.showPopup({:message => @params['uri'],
                                :title => "Alert!",
                                :buttons => ["ok"]})
+  puts @params.responseCode
 end</code></pre>
     </div>
-    <div class="tab-pane fade" id="javascript">
-    <pre class='CodeRay'><code>:::javascript</code></pre>
+    <div class="tab-pane fade" id="javascriptHandleCallback">
+    <pre class='CodeRay'><code>:::javascript
+Rho.intent.startListening(function(params){
+    alert(params['uri']);
+    console.log(params.responseCode);
+});</code></pre>
     </div>
 </div>
 
@@ -183,28 +192,47 @@ With these pieces complete, we should be able to compile an intent to send to th
 From whatever other app you want to send an intent to this app, you must construct an intent to send to it. Since we have already done this once, I'll forego the detailed explanation and get straight to the code.
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby" data-toggle="tab">Ruby</a></li>
-    <li><a href="#javascript" data-toggle="tab">JavaScript</a></li>
-    <li><a href="#android" data-toggle="tab">Android Java</a></li>
+    <li class="active"><a href="#ruby_send_2" data-toggle="tab">Ruby</a></li>
+    <li><a href="#javascriptSend2" data-toggle="tab">JavaScript</a></li>
+    <li><a href="#androidSend2" data-toggle="tab">Android Java</a></li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade in active" id="ruby">
+    <div class="tab-pane fade in active" id="ruby_send_2">
         <pre class='CodeRay'><code>:::ruby
 def send_intent
-  intentParams = {:action      => "android.intent.action.VIEW",
-                  :intentType  => Rho::Intent::START_ACTIVITY,
-                  :uri         => "Test String!",
-                  :appName     => "com.rhomobile.intents",
-                  :targetClass => "com.rhomobile.rhodes.RhodesActivity"}
+  intent_params = {:action      => "android.intent.action.VIEW",
+                   :intentType  => Rho::Intent::START_ACTIVITY,
+                   :uri         => "Test String!",
+                   :appName     => "com.rhomobile.intents",
+                   :targetClass => "com.rhomobile.rhodes.RhodesActivity"}
 
-  Rho::Intent.send intentParams
+  Rho::Intent.send intent_params
 end</code></pre>
     </div>
-    <div class="tab-pane fade" id="javascript">
-    <pre class='CodeRay'><code>:::javascript</code></pre>
+    <div class="tab-pane fade" id="javascriptSend2">
+    <pre class='CodeRay'>
+        <code>:::javascript
+function sendIntent(){
+  var intentParams = {action      => "android.intent.action.VIEW",
+                      intentType  => Rho.Intent.START_ACTIVITY,
+                      uri         => "Test String!",
+                      appName     => "com.rhomobile.intents",
+                      targetClass => "com.rhomobile.rhodes.RhodesActivity"}
+
+  Rho.Intent.send intentParams
+}</code>
+    </pre>
     </div>
-    <div class="tab-pane fade" id="android">
-    <pre class='CodeRay'><code>:::java</code></pre>
+    <div class="tab-pane fade" id="androidSend2">
+    <pre class='CodeRay'><code>:::java
+public void testRhoIntent(View view) {
+    Intent intentRho = new Intent("android.intent.action.VIEW",
+                                  "com.rhomobile.intents",
+                                  "com.rhomobile.rhodes.RhodesActivity");
+    intentRho.setData("Test String!");
+
+    startActivity(intentRho);
+}</code></pre>
     </div>
 </div>
