@@ -226,7 +226,7 @@ function sendIntent(){
     </div>
     <div class="tab-pane fade" id="androidSend2">
     <pre class='CodeRay'><code>:::java
-public void testRhoIntent(View view) {
+public void sendIntent(View view) {
     Intent intentRho = new Intent("android.intent.action.VIEW",
                                   "com.rhomobile.intents",
                                   "com.rhomobile.rhodes.RhodesActivity");
