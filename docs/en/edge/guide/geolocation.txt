@@ -155,7 +155,7 @@ In addition to the functionality that the GeoLocation API had in previous versio
 Also, the `set_notification()` now returns the above parameters as part of the callback method.
 
 ### New Parameter Details
-#### Geolocation.
+#### Geolocation.altitude
 Fetches the altitude if available, if not available 0 is returned.
 
 * Units - Meters above sea level.
