@@ -536,7 +536,6 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Registry](../../2.2.0/rhoelements/registry)
 * [AudioCapture](../../2.2.0/rhoelements/AudioCapture)
 * [Config](../../2.2.0/rhodesapi/rhoconfig-api)
-* [GeoLocation](../../2.2.0/rhodesapi/geolocation-api)
 * [Gesture](../../2.2.0/rhoelements/Gesture)
 * Printing
 * Signature Capture - [RhoElements API](../../2.2.0/rhoelements/SignatureCapture) &  [Rhodes API](../../2.2.0/rhodesapi/signaturecapture-api)
