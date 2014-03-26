@@ -109,7 +109,7 @@ This is what our intent-filter will look like to receive a simple, plain text, i
       <receiver android:name='com.rho.intent.IntentReceiver'>
         <intent-filter>
           <action android:name="android.intent.action.SEND"/>
-          <category android:name="android.intent.category.DEFAULT"/>
+          <category android:name="<%=@appPackageName%>"/>
           <data android:mimeType="text/plain"/>
         </intent-filter>
       </receiver> 
@@ -178,7 +178,7 @@ end</code></pre>
     <div class="tab-pane fade" id="javascriptHandleCallback">
     <pre class='CodeRay'><code>:::javascript
 Rho.intent.startListening(function(params){
-    alert(params['uri']);
+    alert(params['data'][]);
     console.log(params.responseCode);
 });</code></pre>
     </div>
@@ -201,9 +201,9 @@ From whatever other app you want to send an intent to this app, you must constru
     <div class="tab-pane fade in active" id="ruby_send_2">
         <pre class='CodeRay'><code>:::ruby
 def send_intent
-  intent_params = {:action      => "android.intent.action.VIEW",
+  intent_params = {:action      => "android.intent.action.SEND",
                    :intentType  => Rho::Intent::START_ACTIVITY,
-                   :uri         => "Test String!",
+                   :data        => { "android.intent.extra.TEXT" => "Text to send to receiving app." },
                    :appName     => "com.rhomobile.intents",
                    :targetClass => "com.rhomobile.rhodes.RhodesActivity"}
 
@@ -214,9 +214,9 @@ end</code></pre>
     <pre class='CodeRay'>
         <code>:::javascript
 function sendIntent(){
-  var intentParams = {action      => "android.intent.action.VIEW",
+  var intentParams = {action      => "android.intent.action.SEND",
                       intentType  => Rho.Intent.START_ACTIVITY,
-                      uri         => "Test String!",
+                      data        => { "android.intent.extra.TEXT" => "Text to send to receiving app." },
                       appName     => "com.rhomobile.intents",
                       targetClass => "com.rhomobile.rhodes.RhodesActivity"}
 
@@ -227,12 +227,12 @@ function sendIntent(){
     <div class="tab-pane fade" id="androidSend2">
     <pre class='CodeRay'><code>:::java
 public void sendIntent(View view) {
-    Intent intentRho = new Intent("android.intent.action.VIEW",
-                                  "com.rhomobile.intents",
-                                  "com.rhomobile.rhodes.RhodesActivity");
-    intentRho.setData("Test String!");
+    Intent intentRho = new Intent("android.intent.action.SEND");
+    intentRho.addCategory("android.intent.category.DEFAULT");
+    intentRho.setType("text/plain");
+    intentRho.putExtra("android.intent.extra.TEXT": "Text to send to receiving app.");
 
-    startActivity(intentRho);
+    sendBroadcast(intentRho);
 }</code></pre>
     </div>
 </div>
