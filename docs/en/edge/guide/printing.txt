@@ -225,7 +225,7 @@ The callback will be a [PRINTER_STATUS constant string](../api/printingzebra#Con
 NOTE: If the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly. You should also consult the manufacturers' documentation on image support for your printer. The image may need to be of a certain size and color depth before sending to the printer.
 
 ### Storing Images
-Some Zebra printers support storing images. You can accomplish this by cretaing  your own ZPL or CPL command set, or use the [storeImage method](..api/printingzebra#mstoreImage)
+Some Zebra printers support storing images. You can accomplish this by creating  your own ZPL or CPL command set, or use the [storeImage method](..api/printingzebra#mstoreImage)
 
 	:::javascript
 	//location of image on device
@@ -254,10 +254,14 @@ Be sure to disconnect from the printer when not in use. This is especially true 
 
 ## Platform Notes
 ### Windows Mobile / Windows CE
+#### Pre-Installation Notes
 * Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device.
 * Windows CE only - You'll need to also install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
-* Currently, the printing service only works with one client at a time but, this will be changed in RE 4.2 to include a multi-client mode.
 
-## Limitations
+#### Installation
+* The .cab file for the printing service is held inside the `printing-service` folder inside your RhoElements directory located at `C:\<path to your rhomobile suite installation>\printing-service\PrintingService.cab`
+
+#### Limitations
+* Currently, the printing service only works with one client at a time but, this will be changed in RE 4.2 to include a multi-client mode.
 * The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with bluetooth printers.
-* The method [`Printer.stopSearch()`](../api/printing#mstopSearch) currently does not work.
+* The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.
