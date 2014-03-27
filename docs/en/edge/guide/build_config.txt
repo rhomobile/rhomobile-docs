@@ -143,6 +143,8 @@ This option is only used for Windows Mobile debugging purposes. If your AJAX-bas
     :::yaml
     ajax_api_bridge: true
 
+***NOTE: When you have this option set to `true`, the [File API](../api/File) will not work on Android or iOS. It will work on Windows mobile/CE***
+
 ### JavaScript and CSS Obfuscation
 To enable JavaScript and/or CSS code obfuscation of the files in the `public` folder of your app, just add the following lines to the build.yml:
 
