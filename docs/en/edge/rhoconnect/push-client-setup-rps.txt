@@ -171,7 +171,7 @@ Connect your device to your Windows computer. You can use USB-cable, bluetooth o
 
 Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the device. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs. You should then create a shortcut in the Startup folder so that this applications runs when the device starts. Or if you are using other methods for ensuring certain applications are always running. If this application is not running, it will not receive RhoConnect Push notifications.
 
-<!--
+
 ### Installing Runtime Apps for Windows XP Embedded
 
 Windows XPE requires that you have the Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) installed on your build machine.
@@ -179,7 +179,7 @@ Windows XPE requires that you have the Microsoft Messaging Queue or [MSMQ](http:
 Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center and copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file to start the installation process. After it is finished, you should see the app icon on your device in the programs list.
 
 NOTE: The RhoConnect push service on Windows XP Embedded is a separate program on your device and will not be uninstalled when uninstalling other apps or programs.
--->
+
 ## Setting up the Rhodes Client for RhoConnect Push Service
 
 To set up your Rhodes client application for RhoConnect Push Service, you configure rhoconfig.txt and build.yml.
