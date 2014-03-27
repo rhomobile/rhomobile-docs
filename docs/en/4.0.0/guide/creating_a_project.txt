@@ -75,10 +75,11 @@ If you prefer to use the command line or another development environment instead
 	    -f, --force                      Overwrite files that already exist.
 	    -s, --skip                       Skip files that already exist.
 	    -d, --delete                     Delete files that have previously been generated with this generator.
-		--no-color                   Don't colorize the output
+		--no-color                   	 Don't colorize the output
 	    -h, --help                       Show this message
-		--debug                      Do not catch errors
-		
+		--debug                      	 Do not catch errors
+		--norhoconnect 					 Don't include rhoconnect-client in application
+				
 To create a new application called `storemanager`, switch to the directory where you want it to be saved and run:
 
 	:::term

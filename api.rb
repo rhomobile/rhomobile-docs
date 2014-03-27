@@ -29,8 +29,11 @@ class Api
 	  	else
 	  		if lang == 'RUBY'
 	  			md = 'Rho::' + doc["MODULE"][0]["name"]
-	  		else
+	  		elsif lang =='JS'
 	  			md = 'Rho.' + doc["MODULE"][0]["name"]
+	  		else
+	  			md = doc["MODULE"][0]["name"]
+
 	  		end
 	  	end
 	end
