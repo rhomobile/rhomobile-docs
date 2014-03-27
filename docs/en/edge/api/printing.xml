@@ -41,10 +41,16 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
             <!-- Printer types -->
             <CONSTANT name="PRINTER_TYPE_ANY" value="PRINTER_TYPE_ANY" type="STRING"/>
-            <CONSTANT name="PRINTER_TYPE_NATIVE" value="PRINTER_TYPE_NATIVE" type="STRING"/>
+            <CONSTANT name="PRINTER_TYPE_NATIVE" value="PRINTER_TYPE_NATIVE" type="STRING">
+                <DESC>Not supported in 4.1</DESC>
+            </CONSTANT>
             <CONSTANT name="PRINTER_TYPE_ZEBRA" value="PRINTER_TYPE_ZEBRA" type="STRING"/>
-            <CONSTANT name="PRINTER_TYPE_EPSON" value="PRINTER_TYPE_EPSON" type="STRING"/>
-            <CONSTANT name="PRINTER_TYPE_APD" value="PRINTER_TYPE_APD" type="STRING"/>
+            <CONSTANT name="PRINTER_TYPE_EPSON" value="PRINTER_TYPE_EPSON" type="STRING">
+                <DESC>Not supported in 4.1</DESC>
+            </CONSTANT>
+            <CONSTANT name="PRINTER_TYPE_APD" value="PRINTER_TYPE_APD" type="STRING">
+                <DESC>Not supported in 4.1</DESC>
+            </CONSTANT>
             <!-- Connection types types -->
             <CONSTANT name="CONNECTION_TYPE_ANY" value="CONNECTION_TYPE_ANY" type="STRING"/>
             <CONSTANT name="CONNECTION_TYPE_ON_BOARD" value="CONNECTION_TYPE_ON_BOARD" type="STRING"/>
