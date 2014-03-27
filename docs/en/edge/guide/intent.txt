@@ -83,7 +83,27 @@ function sendGeo(){
 This intent will send the string "geo:37.422, -122.084" to the Android OS and request that it start the activity that handles geolocation coordinates. If there are multiple different apps on the device that provide geolocation services, an app chooser will pop up asking the user to choose which app they want to open the coordinates in.
 
 ### Handling Intent Response
-TOD0: This section should describe how to call an intent with a response. Needs to explain the object it will return (varies based on what is sent). Also explain the result code for Android platform
+The response that will be sent from the intent will be the same as the data that was sent from the intent that is sent. For instance, if you send intent Parameters that contain an extra called dataFromSender defined as such `{ data => { dataFromSender => "Example Data" } }`, you would access this data using the following syntax:
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#ruby_send" data-toggle="tab">Ruby</a></li>
+    <li><a href="#javascriptSend" data-toggle="tab">JavaScript</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="ruby_send">
+        <pre class='CodeRay'><code>:::ruby
+def callback
+  Alert.popup @params['data']['dataFromSender']
+end</code></pre>
+    </div>
+    <div class="tab-pane fade" id="javascriptSend">
+    <pre class='CodeRay'><code>:::javascript
+function callback(){
+  alert(params['data']['dataFromSender']);
+}</code></pre>
+    </div>
+</div>
 
 ## Receiving Intents
 Ok, we can send intents, great! But what if what you want to do is send an intent to another one of your apps, or receive an intent from another app? We can also use the Rho Intent API for this but it requires a bit more work than the sending did.
@@ -148,7 +168,7 @@ end</code></pre>
     </div>
     <div class="tab-pane fade" id="javascriptCallback">
         <pre class='CodeRay'><code>:::javascript
-Rho.intent.startListening(function(params){
+Rho.Intent.startListening(function(params){
   // Your callback code here
   console.log(params.responseCode);
 });</code>
@@ -169,16 +189,16 @@ We can now receive intents but, without a callback handler, receiving an intent 
     <div class="tab-pane fade in active" id="ruby_handle_callback">
         <pre class='CodeRay'><code>:::ruby
 def listening_for_intent_callback
-  Rho::Notification.showPopup({:message => @params['uri'],
-                               :title => "Alert!",
-                               :buttons => ["ok"]})
+  Rho::Notification.showPopup({ :message => @params['data']['dataFromSender'],
+                                :title => "Alert!",
+                                :buttons => ["ok"] })
   puts @params.responseCode
 end</code></pre>
     </div>
     <div class="tab-pane fade" id="javascriptHandleCallback">
     <pre class='CodeRay'><code>:::javascript
-Rho.intent.startListening(function(params){
-    alert(params['data'][]);
+Rho.Intent.startListening(function(params){
+    alert(params['data']['dataFromSender']);
     console.log(params.responseCode);
 });</code></pre>
     </div>
@@ -189,7 +209,7 @@ All we are doing with the received data is showing a pop-up with the data that i
 With these pieces complete, we should be able to compile an intent to send to this app and display the data that we send.
 
 ### Construct Intent to be Received
-From whatever other app you want to send an intent to this app, you must construct an intent to send to it. Since we have already done this once, I'll forego the detailed explanation and get straight to the code.
+From whatever other app you want to send an intent to this app, you must construct an intent to send to it. When creating the intent to send to the intent receiver, you must make sure the sent intent's parameters match the parameters that the intent receiver is looking for. In our case, we need to make sure we use a SEND action, some data with the text/plain mimeType, and use the DEFAULT category. We will also use a BROADCAST intentType.
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#ruby_send_2" data-toggle="tab">Ruby</a></li>
@@ -201,11 +221,11 @@ From whatever other app you want to send an intent to this app, you must constru
     <div class="tab-pane fade in active" id="ruby_send_2">
         <pre class='CodeRay'><code>:::ruby
 def send_intent
-  intent_params = {:action      => "android.intent.action.SEND",
-                   :intentType  => Rho::Intent::START_ACTIVITY,
-                   :data        => { "android.intent.extra.TEXT" => "Text to send to receiving app." },
-                   :appName     => "com.rhomobile.intents",
-                   :targetClass => "com.rhomobile.rhodes.RhodesActivity"}
+  intent_params = { :action      => "android.intent.action.SEND",
+                    :intentType  => Rho::Intent::BROADCAST,
+                    :data        => { "android.intent.extra.TEXT" => "Text to send to receiving app." },
+                    :mimeType    => "text/plain",
+                    :categories  => "android.intent.category.DEFAULT" }
 
   Rho::Intent.send intent_params
 end</code></pre>
@@ -214,11 +234,11 @@ end</code></pre>
     <pre class='CodeRay'>
         <code>:::javascript
 function sendIntent(){
-  var intentParams = {action      => "android.intent.action.SEND",
-                      intentType  => Rho.Intent.START_ACTIVITY,
-                      data        => { "android.intent.extra.TEXT" => "Text to send to receiving app." },
-                      appName     => "com.rhomobile.intents",
-                      targetClass => "com.rhomobile.rhodes.RhodesActivity"}
+  var intentParams = {action      : "android.intent.action.SEND",
+                      intentType  : Rho.Intent.BROADCAST,
+                      data        : { "android.intent.extra.TEXT" => "Text to send to receiving app." },
+                      mimType     : "text/plain",
+                      categories  : "android.intent.category.DEFAULT"}
 
   Rho.Intent.send intentParams
 }</code>
@@ -226,7 +246,7 @@ function sendIntent(){
     </div>
     <div class="tab-pane fade" id="androidSend2">
     <pre class='CodeRay'><code>:::java
-public void sendIntent(View view) {
+public void sendIntent() {
     Intent intentRho = new Intent("android.intent.action.SEND");
     intentRho.addCategory("android.intent.category.DEFAULT");
     intentRho.setType("text/plain");
