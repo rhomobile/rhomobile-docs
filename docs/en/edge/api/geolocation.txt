@@ -447,7 +447,7 @@ NOTE: There is no valid data related to distance, which the Geolocation API expo
 <div class="tab-content">
   <!-- Description -->
   <div class="tab-pane fade in active" id="speedDescription">
-    Returns the speed if it is available. If the speed is not available, 0.0 is returned.
+    Returns the speed if it is available. If the speed is not available, 0.0 is returned. On iOS it will return a negative speed when it can not calculate it - for example when device detects location not by GPS but by 3G or Wi-Fi triangulation (also in the case where accuracy is too large - about 50 and more meters).
     <p>Units: Meters/sec over ground</p>
     <p></p>
     <div>
