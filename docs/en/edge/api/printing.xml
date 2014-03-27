@@ -53,7 +53,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </CONSTANT>
             <!-- Connection types types -->
             <CONSTANT name="CONNECTION_TYPE_ANY" value="CONNECTION_TYPE_ANY" type="STRING"/>
-            <CONSTANT name="CONNECTION_TYPE_ON_BOARD" value="CONNECTION_TYPE_ON_BOARD" type="STRING"/>
+            <CONSTANT name="CONNECTION_TYPE_ON_BOARD" value="CONNECTION_TYPE_ON_BOARD" type="STRING">
+                <DESC>Not supported in 4.1</DESC>
+            </CONSTANT>
             <CONSTANT name="CONNECTION_TYPE_BLUETOOTH" value="CONNECTION_TYPE_BLUETOOTH" type="STRING"/>
             <CONSTANT name="CONNECTION_TYPE_TCP" value="CONNECTION_TYPE_TCP" type="STRING"/>
             <!-- Printer Status result -->
