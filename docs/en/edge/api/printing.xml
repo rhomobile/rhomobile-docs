@@ -337,7 +337,9 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
             </METHOD>
 
             <METHOD name="printRawString" hasCallback="optional">
-                <DESC>Send raw string to printer. Works asynchronously, use callback to check the result.</DESC>
+                <DESC>Send raw string to printer. Works asynchronously, use callback to check the result.
+NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL commands, but just line mode (or raw text).
+</DESC>
                 <PARAMS>
                     <PARAM name="command" type="STRING">
                         <DESC>Raw string to print. Could be any valid command in printer supported programming language.</DESC>
