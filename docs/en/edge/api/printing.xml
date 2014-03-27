@@ -36,7 +36,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </CONSTANT>
 
             <CONSTANT name="PRINTER_LANGUAGE_EPS" value="PRINTER_LANGUAGE_EPS" type="STRING">
-                <DESC>Printer control language EPS.</DESC>
+                <DESC>Printer control language EPS. Not Supported in 4.1</DESC>
             </CONSTANT>
 
             <!-- Printer types -->
