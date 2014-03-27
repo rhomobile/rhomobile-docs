@@ -1,10 +1,30 @@
-# GeoLocation API
+# Geolocation API
+
+<div>
+  <div class="btn-group">
+    <a href="#methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;11</sup></a>
+    <a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#methods">
+      <span class="caret"></span>&nbsp;
+    </a>
+    <ul class="dropdown-menu" style="max-height: 500px;overflow: auto;">
+      <li><a href="#accuracy">accuracy</a></li>
+      <li><a href="#altitude">altitude</a></li>
+      <li><a href="#haversinedistance">haversine_distance</a></li>
+      <li><a href="#knownposition-isknownposition">known_position?, is_known_position</a></li>
+      <li><a href="#latitude">latitude</a></li>
+      <li><a href="#longitude">longitude</a></li>
+      <li><a href="#satellites">satellites</a></li>
+      <li><a href="#setnotification">set_notification</a></li>
+      <li><a href="#setnotificationex">set_notification_ex</a></li>
+      <li><a href="#speed">speed</a></li>
+      <li><a href="#turnoff">turnoff</a></li>
+    </ul>
+  </div>
+</div>
 
 Access geolocation information from your device.
 
-See the controller and view in the [/app/GeoLocation folder of the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/GeoLocation/controller.rb) application for an example.
-
-Refer to [GeoLocation in Device Capabilites](../rhodes/device-caps#geolocation) for more discussion of GeoLocation, and for examples.
+Refer to our [Geolocation guide](../guide/geolocation) for more discussion of Geolocation, and for examples.
 
 ## Enabling Geolocation
 
@@ -14,11 +34,11 @@ To use the geolocation API, you need to enable geolocation on the device. Do thi
     capabilities:
       - gps
 
-**NOTE: We do not have a timeout parameter to automatically turn off the GPS system. If you want to turn off the GPS system, call GeoLocation.turnoff.**
+**NOTE: We do not have a timeout parameter to automatically turn off the GPS system. If you want to turn off the GPS system, call Geolocation.turnoff.**
 
 ## Using JavaScript API
 
-You can call the GeoLocation methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method.
+You can call the Geolocation methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method.
 
 The JavaScript API methods with a return value can pass it as a parameter in jQuery-compatible continuation (deferred object, a kind of callback). Possible continuations to handle are done, fail, and complete.
 
@@ -29,381 +49,49 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
     :::yaml
     extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](../rhoelements/licensing) to use the JavaScript API.
+You must have a [RhoElements license](../guide/licensing) to use the JavaScript API.
 
-## latitude
-
-Returns current latitude in degrees.
-
+<a name="methods"></a>
+<h2><i class="icon-cog"></i>Methods</h2>
+<a name="accuracy"></a>
+<div id="accuracy"><h3>accuracy()</h3></div>
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_latitude" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsLatitude" data-toggle="tab">JavaScript</a></li>
+  <li class="active"><a href="#accuracyDescription" data-toggle="tab">Description</a></li>
+  <li><a href="#accuracyReturn" data-toggle="tab">Return</a></li>
+  <li><a href="#accuracyAccess" data-toggle="tab">Access</a></li>
+  <li><a href="#accuracyExamples" data-toggle="tab">Examples</a></li>
 </ul>
 
 <div class="tab-content">
-  <!-- ruby_latitude Tab -->
-  <div class="tab-pane fade in active" id="ruby_latitude">
-    <pre class='CodeRay'>
-      <code>:::ruby
-GeoLocation.latitude</code>
-    </pre>
+  <!-- accuracyDescription Tab -->
+  <div class="tab-pane fade in active" id="accuracyDescription">
+    Returns the estimated accuracy of the fix.
+    Units: Horizontal radius in Meters.
+    <p></p>
+    <div>
+      <p>
+        <img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">
+        <img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">
+        <img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">
+        <img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">
+      </p>
+    </div>
   </div>
 
-  <!-- jsLatitude Tab -->
-  <div class="tab-pane fade" id="jsLatitude">
-    <pre class='CodeRay'>
-      <code>:::javascript
-Rho.GeoLocation.latitude();</code>
-    </pre>
-  </div>
-</div>
-
-## longitude
-
-Returns current longitude in degrees.
-
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_longitude" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsLongitude" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_longitude Tab -->
-  <div class="tab-pane fade in active" id="ruby_longitude">
-    <pre class='CodeRay'>
-      <code>:::ruby
-GeoLocation.longitude</code>
-    </pre>
+  <!-- accuracyReturn Tab -->
+  <div class="tab-pane fade" id="accuracyReturn">
+    Float
   </div>
 
-  <!-- jsLongitude Tab -->
-  <div class="tab-pane fade" id="jsLongitude">
-    <pre class='CodeRay'>
-      <code>:::javascript
-Rho.GeoLocation.longitude();</code>
-    </pre>
-  </div>
-</div>
-
-## known_position?, is_known_position
-
-Returns true if the location system is up and running, false otherwise. is_known_position returns null if this feature is not supported on the device platform.
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_known_position" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsKnonwPosition" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_known_position Tab -->
-  <div class="tab-pane fade in active" id="ruby_known_position">
-    <pre class='CodeRay'>
-      <code>:::ruby
-GeoLocation.known_position?</code>
-    </pre>
+  <!-- accuracyAccess Tab -->
+  <div class="tab-pane fade" id="accuracyAccess">
+    <p>Ruby: <code>Geolocation.accuracy</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.accuracy();</code></p>
   </div>
 
-  <!-- jsKnonwPosition Tab -->
-  <div class="tab-pane fade" id="jsKnonwPosition">
-    <pre class='CodeRay'>
-      <code>:::javascript
-Rho.GeoLocation.is_known_position();</code>
-    </pre>
-  </div>
-</div>
-
-## set_notification
-
-Set callback to track location changes.
-
-**NOTE: You only need to call GeoLocation.set_notification once. The current behavior of the callback is that it will be called forever until it is stopped; you need to call `GeoLocation.turnoff` to stop it. The previous behavior was that the callback was called once and needed to be reset.**
-
-Refer to [Device Capabilities - GeoLocation](../rhodes/device-caps#geolocation-setnotification-ex) for examples of set_notification. 
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_set_notification" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsSetNotification" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_set_notification Tab -->
-  <div class="tab-pane fade in active" id="ruby_set_notification">
-    <pre class='CodeRay'>
-      <code>:::ruby
-GeoLocation.set_notification(callback_url, callback_params, ping_gpssystem_interval)</code>
-    </pre>
-    NOTE: The callback_url parameter must be set in order for GeoLocation to function.
-  </div>
-
-  <!-- jsSetNotification Tab -->
-  <div class="tab-pane fade" id="jsSetNotification">
-    <pre class='CodeRay'>
-      <code>:::javascript
-Rho.GeoLocation.set_notification(callback, callback_params, ping_gpssystem_interval);</code>
-    </pre>
-  </div>
-</div>
-
-<table border="1">
-<tr>
-  <td><code>callback_url</code></td>
-  <td>url for the callback method called upon a location change notification or for the interval set by ping_gpssystem_interval.</td>
-</tr>
-<tr>
-  <td><code>callback_params</code></td>
-  <td>a string added to the body of the callback url. You can use it to identity who is setting up the callback, such as "my_tag=55". In general you do not set callback_param (leave it blank as in "").</td>
-</tr>
-<tr>
-  <td><code>ping_gpssystem_interval</code></td>
-  <td>(optional) If 0, the system interval is used; the callback is executed when the GPS system processes a location update (dependent on the mobile platform). If set to a number (such as 3), the callback is executed at an interval of this number of seconds (such as every three seconds).</td>
-</tr>
-</table>
-
-When the GeoLocation.set_notification callback is called, it will receive a variable called @params, just like a normal Rhodes controller action. Here are the parameters included in the @params variable.
-
-<table border="1">
-<tr>
-  <td><code>known_position</code></td>
-  <td>1 or 0. Return from known_position? method.</td>
-</tr>
-<tr>
-  <td><code>latitude</code></td>
-  <td>Return from call to latitude method.</td>
-</tr>
-<tr>
-  <td><code>longitude</code></td>
-  <td>Return from call to longitude method.</td>
-</tr>
-<tr>
-  <td><code>available</code></td>
-  <td>1 if geolocation is available, 0 otherwise. For 1, not only does the hardware exist, but also the user can turn GPS off in phone settings, or not allow GPS activity on iPhone, etc.</td>
-</tr>
-<tr>
-  <td><code>status</code></td>
-  <td>"ok" or "error"</td>
-</tr>
-<tr>
-  <td><code>error_code</code></td>
-  <td>error code from RhoError.</td>
-</tr>
-<tr>
-  <td><code>accuracy</code></td>
-  <td>horizontal radius in meters; iOS and Android.</td>
-</tr>
-</table>
-
-[Click here for the RhoError error code list.](rhoerror-api)
-
-## haversine_distance
-
-Returns the distance between two points in miles.
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_haversine" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsHaversine" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_haversine Tab -->
-  <div class="tab-pane fade in active" id="ruby_haversine">
-    <pre class='CodeRay'>
-      <code>:::ruby
-GeoLocation.haversine_distance(latitude1, longitude1, latitude2, longitude2)</code>
-    </pre>
-  </div>
-
-  <!-- jsHaversine Tab -->
-  <div class="tab-pane fade" id="jsHaversine">
-    <pre class='CodeRay'>
-      <code>:::javascript
-Rho.GeoLocation.haversine_distance(latitude1, longitude1, latitude2, longitude2);</code>
-    </pre>
-  </div>
-</div>
-
-<table border="1">
-<tr>
-  <td><code>latitude1</code></td>
-  <td>Latitude of the first point in degrees.</td>
-</tr>
-<tr>
-  <td><code>longitude1</code></td>
-  <td>Longitude of the first point in degrees.</td>
-</tr>
-<tr>
-  <td><code>latitude2</code></td>
-  <td>Latitude of the second point in degrees.</td>
-</tr>
-<tr>
-  <td><code>longitude2</code></td>
-  <td>Longitude of the second point in degrees.</td>
-</tr>
-</table>
-
-## turnoff
-
-Turn off GeoLocation.
-
-**NOTE: When you call GeoLocation.turnoff, after the GPS is switched off, you might still receive a few callbacks (this depends on the platform; iOS and Android does not receive callbacks after turnoff).**
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_turnoff" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsTurnoff" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_turnoff Tab -->
-  <div class="tab-pane fade in active" id="ruby_turnoff">
-    <pre class='CodeRay'>
-      <code>:::ruby
-GeoLocation.turnoff</code>
-    </pre>
-  </div>
-
-  <!-- jsTurnoff Tab -->
-  <div class="tab-pane fade" id="jsTurnoff">
-    <pre class='CodeRay'>
-      <code>:::javascript
-Rho.GeoLocation.turnoff();</code>
-    </pre>
-  </div>
-</div>
-
-## altitude
-Fetches the altitude if available, if not available 0 is returned.
-
-* Units - Meters above sea level.
-* Parameters - N/A
-* Return - Double
-* Access - Ruby: `GeoLocation.altitude`
-* Platform Support - Windows Mobile, Android, iOS
-
-### Example
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_altitude" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsAltitude" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_altitude Tab -->
-  <div class="tab-pane fade in active" id="ruby_altitude">
-    <pre class='CodeRay'>
-      <code>:::ruby
-def get_altitude
-  altitude = Geolocation.altitude
-  Alert.show_popup.altitude
-end</code>
-    </pre>
-  </div>
-
-  <!-- jsAltitude Tab -->
-  <div class="tab-pane fade" id="jsAltitude">
-    <pre class='CodeRay'>
-      <code>:::javascript
-function getAltitude(){
-  var altitude = Rho.Geolocation.altitude;
-  alert(altitude);
-}</code>
-    </pre>
-  </div>
-</div>
-
-## satellites
-Returns the number of satellites used to determine the fix. If this information isn't available, null is returned.
-
-* Parameters - N/A
-* Return - Integer
-* Access - Ruby: `GeoLocation.satellites`
-* Platform Support - Windows Mobile, Android
-
-### Examples
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_satellites" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsSatellites" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_satellites Tab -->
-  <div class="tab-pane fade in active" id="ruby_satellites">
-    <pre class='CodeRay'>
-      <code>:::ruby
-def get_satellites
-  satellites = Geolocation.satellites
-  Alert.show_popup.satellites
-end</code>
-    </pre>
-  </div>
-
-  <!-- jsSatellites Tab -->
-  <div class="tab-pane fade" id="jsSatellites">
-    <pre class='CodeRay'>
-      <code>:::javascript
-function getSatellites(){
-  var satellites = Rho.Geolocation.satellites;
-  alert(satellites);
-}</code>
-    </pre>
-  </div>
-</div>
-
-## speed
-Fetches the speed if it is available. If the speed is not available, 0.0 is returned.
-
-* Units - Meters/sec over ground
-* Parameters - N/A
-* Return - Float
-* Access - Ruby: `GeoLocation.speed`
-* Platform Support - Windows Mobile, Android, iOS
-
-### Examples
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_speed" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsSpeed" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_speed Tab -->
-  <div class="tab-pane fade in active" id="ruby_speed">
-    <pre class='CodeRay'>
-      <code>:::ruby
-def get_speed
-  speed = Geolocation.speed
-  Alert.show_popup speed
-end</code>
-    </pre>
-  </div>
-
-  <!-- jsSpeed Tab -->
-  <div class="tab-pane fade" id="jsSpeed">
-    <pre class='CodeRay'>
-      <code>:::javascript
-function getSpeed(){
-  var speed = Rho.Geolocation.speed;
-  alert(speed);
-}</code>
-    </pre>
-  </div>
-</div>
-
-## accuracy
-Returns the estimated accuracy of the fix.
-
-* Units - Horizontal radius in Meters.
-* Parameters - N/A
-* Return - Float
-* Access - Ruby: `GeoLocation.accuracy`
-* Platform Support - Android, iOS
-
-### Examples
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#ruby_accuracy" data-toggle="tab">Ruby</a></li>
-    <li><a href="#jsAccuracy" data-toggle="tab">JavaScript</a></li>
-</ul>
-
-<div class="tab-content">
-  <!-- ruby_accuracy Tab -->
-  <div class="tab-pane fade in active" id="ruby_accuracy">
+  <!-- accuracyExamples Tab -->
+  <div class="tab-pane fade" id="accuracyExamples">
+    Ruby
     <pre class='CodeRay'>
       <code>:::ruby
 def get_accuracy
@@ -411,10 +99,7 @@ def get_accuracy
   Alert.show_popup accuracy
 end</code>
     </pre>
-  </div>
-
-  <!-- jsAccuracy Tab -->
-  <div class="tab-pane fade" id="jsAccuracy">
+    JavaScript
     <pre class='CodeRay'>
       <code>:::javascript
 function getAccuracy(){
@@ -425,30 +110,413 @@ function getAccuracy(){
   </div>
 </div>
 
-## set_notification_ex(callback url, string callbackParams, options hash)
-* Parameters
-  * url - Callback method to be invoked on any notification
-  * callbackParams - To be used when callback is invoked. It is generally used to know the source of the callback. This is optional.
-  * options - This is a hash and can consist of the following two keys:
-    * minDistance - Minimum moving distance(in meters) to invoke the callback again.
-    * minTimeout - Minimum timeout for next callback invocation.
-* Return - Void
-* Access - Ruby: `Geolocation.set_notification_ex()`
-* Platform Support - Android
+<a name="altitude"></a>
+<div id="altitude"><h3>altitude()</h3></div>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#altitudeDescription" data-toggle="tab">Description</a></li>
+  <li><a href="#altitudeReturn" data-toggle="tab">Return</a></li>
+  <li><a href="#altitudeAccess" data-toggle="tab">Access</a></li>
+  <li><a href="#altitudeExamples" data-toggle="tab">Examples</a></li>
+</ul>
 
-NOTE: minDistance and minTimeout values are optional; if nothing is provided, whenever a location update is processed by the underlying system, it is sent to the application. It is supported only on Android devices.
+<div class="tab-content">
+  <!-- Description -->
+  <div class="tab-pane fade in active" id="altitudeDescription">
+    Returns the altitude if available, if not available 0 is returned.
+    Units: Meters above sea level.
+    <p></p>
+    <div>
+      <p>
+        <img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">
+        <img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">
+        <img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">
+        <img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">
+        <img src="/img/windowsmobile.png" style="height: 20px; padding-top: 8px;" rel="tooltip" title="">
+      </p>
+    </div>
+  </div>
 
-Discrepancy: There is no valid data related to distance, which Geolocation API exposes in WM and hence there is no support for extended notification in WM.
+  <!-- Return -->
+  <div class="tab-pane fade" id="altitudeReturn">
+    Double
+  </div>
 
-When the callback happens, it will provide the following parameters:
+  <!-- Access -->
+  <div class="tab-pane fade" id="altitudeAccess">
+    <p>Ruby: <code>Geolocation.altitude</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.altitude();</code></p>
+  </div>
 
-* __Known_position__ - 0 or 1
-* __Latitude__       - Value returned by `Geolocation.latitude()` method
-* __Longitude__      - Value returned by `Geolocation.longitude()` method
-* __Altitude__       - Value returned by `Geolocation.altitude()` method
-* __Speed__          - Value returned by `Geolocation.speed()` method
-* __Accuracy__       - Value returned by `Geolocation.accuracy()` method
-* __Satellites__     - Value returned by `Geolocation.satellites()` method
-* __Available__      - 1 if geolocation is available, otherwise 0
-* __Status__         - OK or Error
-* __Error_code__     - Error code from RhoError
+    <!-- altitudeExamples Tab -->
+  <div class="tab-pane fade" id="altitudeExamples">
+    Ruby
+    <pre class='CodeRay'>
+      <code>:::ruby
+def get_altitude
+  altitude = Geolocation.altitude
+  Alert.show_popup.altitude
+end</code>
+    </pre>
+    JavaScript
+    <pre class='CodeRay'>
+      <code>:::javascript
+function getAltitude(){
+  var altitude = Rho.Geolocation.altitude;
+  alert(altitude);
+}</code>
+    </pre>
+  </div>
+</div>
+
+<a name="haversinedistance"></a>
+<div id="haversinedistance"><h3>haversine_distance()</h3></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#haversinedistanceDescription" data-toggle="tab">Description</a></li>
+    <li><a href="#haversinedistanceParams" data-toggle="tab">Parameters</a></li>
+    <li><a href="#haversinedistanceAccess" data-toggle="tab">Access</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- haversinedistanceDescription Tab -->
+  <div class="tab-pane fade in active" id="haversinedistanceDescription">
+    Returns the distance between two points in miles.
+  </div>
+
+  <!-- haversinedistanceParams Tab -->
+  <div class="tab-pane fade" id="haversinedistanceParams">
+    <ul>
+      <li><code>latitude1</code> - Latitude of the first point in degrees.</li>
+      <li><code>longitude1</code> - Longitude of the first point in degrees.</li>
+      <li><code>latitude2</code> - Latitude of the second point in degrees.</li>
+      <li><code>longitude2</code> - Longitude of the second point in degrees.</tr>
+    </ul>
+  </div>
+
+  <!-- haversinedistanceExamples Tab -->
+  <div class="tab-pane fade" id="haversinedistanceAccess">
+    <p>Ruby: <code>Geolocation.haversine_distance(latitude1, longitude1, latitude2, longitude2)</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.haversine_distance(latitude1, longitude1, latitude2, longitude2);</code></p>
+  </div>
+</div>
+
+<a name="knownposition-isknownposition"></a>
+<div id="knownposition-isknownposition"><h3>known_position?, is_known_position()</h3></div>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#knownposition-isknownpositionDescription" data-toggle="tab">Description</a></li>
+  <li><a href="#knownposition-isknownpositionAccess" data-toggle="tab">Access</a></li>
+  <li><a href="#knownposition-isknownpositionReturn" data-toggle="tab">Return</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- knownposition-isknownpositionDescription Tab -->
+  <div class="tab-pane fade in active" id="knownposition-isknownpositionDescription">
+    Returns true if the location system is up and running, false otherwise. is_known_position returns null if this feature is not supported on the device platform.
+  </div>
+
+  <!-- knownposition-isknownpositionAccess Tab -->
+  <div class="tab-pane fade" id="knownposition-isknownpositionAccess">
+    <p>Ruby: <code>Geolocation.known_position?</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.is_known_position();</code></p>
+  </div>
+
+  <!-- knownposition-isknownpositionReturn Tab -->
+  <div class="tab-pane fade" id="knownposition-isknownpositionReturn">
+    Boolean
+  </div>
+</div>
+
+<a name="latitude"></a>
+<div id="latitude"><h3>latitude()</h3></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#latitudeDescription" data-toggle="tab">Description</a></li>
+    <li><a href="#latitudeAccess" data-toggle="tab">Access</a></li>
+    <li><a href="#latitudeReturn" data-toggle="tab">Return</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- latitudeDescription Tab -->
+  <div class="tab-pane fade in active" id="latitudeDescription">
+    Returns current latitude in degrees.
+  </div>
+
+  <!-- latitudeAccess Tab -->
+  <div class="tab-pane fade" id="latitudeAccess">
+    <p>Ruby: <code>Geolocation.latitude</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.latitude();</code></p>
+  </div>
+
+  <!-- latitudeReturn Tab -->
+  <div class="tab-pane fade" id="latitudeReturn">
+    Float
+  </div>
+</div>
+
+<a name="longitude"></a>
+<div id="longitude"><h3>longitude()</h3></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#longitudeDescription" data-toggle="tab">Description</a></li>
+    <li><a href="#longitudeAccess" data-toggle="tab">Access</a></li>
+    <li><a href="#longitudeReturn" data-toggle="tab">Return</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- longitudeDescription Tab -->
+  <div class="tab-pane fade in active" id="longitudeDescription">
+    Returns current longitude in degrees.
+  </div>
+
+  <!-- longitudeAccess Tab -->
+  <div class="tab-pane fade" id="longitudeAccess">
+    <p>Ruby: <code>Geolocation.longitude</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.longitude();</code></p>
+  </div>
+
+  <!-- longitudeReturn Tab -->
+  <div class="tab-pane fade" id="longitudeReturn">
+    Float
+  </div>
+</div>
+
+<a name="satellites"></a>
+<div id="satellites"><h3>satellites()</h3></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#satellitesDescription" data-toggle="tab">Description</a></li>
+    <li><a href="#satellitesReturn" data-toggle="tab">Return</a></li>
+    <li><a href="#satellitesAccess" data-toggle="tab">Access</a></li>
+    <li><a href="#satellitesExamples" data-toggle="tab">Examples</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- Description -->
+  <div class="tab-pane fade in active" id="satellitesDescription">
+    Returns the number of satellites used to determine the fix. If this information isn't available, null is returned.
+    <p></p>
+    <div>
+      <p>
+        <img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">
+        <img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">
+        <img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">
+        <img src="/img/windowsmobile.png" style="height: 20px; padding-top: 8px;" rel="tooltip" title="">
+      </p>
+    </div>
+  </div>
+
+  <!-- Return -->
+  <div class="tab-pane fade" id="satellitesReturn">
+    Integer
+  </div>
+
+  <!-- ruby_satellites Tab -->
+  <div class="tab-pane fade" id="satellitesExamples">
+    Ruby
+    <pre class='CodeRay'>
+      <code>:::ruby
+def get_satellites
+  satellites = Geolocation.satellites
+  Alert.show_popup.satellites
+end</code>
+    </pre>
+    JavaScript
+    <pre class='CodeRay'>
+      <code>:::javascript
+function getSatellites(){
+  var satellites = Rho.Geolocation.satellites;
+  alert(satellites);
+}</code>
+    </pre>
+  </div>
+
+  <!-- jsSatellites Tab -->
+  <div class="tab-pane fade" id="satellitesAccess">
+    <p>Ruby: <code>Geolocation.satellites</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.satellites();</code></p>
+  </div>
+</div>
+
+<a name="setnotification"></a>
+<div id="setnotification"><h3>set_notification()</h3></div>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#setnotificationDescription" data-toggle="tab">Description</a></li>
+  <li><a href="#setnotificationParams" data-toggle="tab">Parameters</a></li>
+  <li><a href="#setnotificationAccess" data-toggle="tab">Access</a></li>
+  <li><a href="#setnotificationCallback" data-toggle="tab">Callback</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- setnotificationDescription Tab -->
+  <div class="tab-pane fade in active" id="setnotificationDescription">
+    <p>Set callback to track location changes.</p>
+NOTE: You only need to call Geolocation.set_notification once. The current behavior of the callback is that it will be called forever until it is stopped; you need to call <code>Geolocation.turnoff</code> to stop it. The previous behavior was that the callback was called once and needed to be reset.
+  </div>
+
+  <!-- setnotificationAccess Tab -->
+  <div class="tab-pane fade" id="setnotificationAccess">
+    NOTE: The callback_url parameter must be set in order for Geolocation to function.
+    <p>Ruby: <code>Geolocation.set_notification(callback_url, callback_params, ping_gpssystem_interval)</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.set_notification(callback, callback_params, ping_gpssystem_interval);</code></p>
+  </div>
+
+  <!-- setnotificationParams -->
+  <div class="tab-pane fade" id="setnotificationParams">
+    <ul>
+      <li><code>callback_url</code> - url for the callback method called upon a location change notification or for the interval set by ping_gpssystem_interval.</li>
+      <li><code>callback_params</code> - a string added to the body of the callback url. You can use it to identity who is setting up the callback, such as "my_tag=55". In general you do not set callback_param (leave it blank as in "").</li>
+      <li><code>ping_gpssystem_interval</code> - (optional) If 0, the system interval is used; the callback is executed when the GPS system processes a location update (dependent on the mobile platform). If set to a number (such as 3), the callback is executed at an interval of this number of seconds (such as every three seconds).</li>
+    </ul>
+  </div>
+
+  <!-- setnotificationCallback -->
+  <div class="tab-pane fade" id="setnotificationCallback">
+    <p>When the Geolocation.set_notification callback is called, it will receive a variable called @params, just like a normal Rhodes controller action. Here are the parameters included in the @params variable.</p>
+      <ul>
+        <li><code>known_position</code> - 1 or 0. Return from known_position? method.</li>
+        <li><code>latitude</code> - Return from call to latitude method.</li>
+        <li><code>longitude</code> - Return from call to longitude method.</li>
+        <li><code>available</code> - 1 if geolocation is available, 0 otherwise. For 1, not only does the hardware exist, but also the user can turn GPS off in phone settings, or not allow GPS activity on iPhone, etc.</li>
+        <li><code>status</code> - "ok" or "error"</li>
+        <li><code>error_code</code> - error code from <a href="rhoerror">RhoError</a>.</li>
+        <li><code>accuracy</code> - horizontal radius in meters; iOS and Android.</li>
+      </ul>
+  </div>
+</div>
+
+<a name="setnotificationex"></a>
+<div id="setnotificationex"><h3>set_notification_ex()</h3></div>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#setnotificationexDescription" data-toggle="tab">Description</a></li>
+  <li><a href="#setnotificationexParams" data-toggle="tab">Parameters</a></li>
+  <li><a href="#setnotificationexAccess" data-toggle="tab">Access</a></li>
+  <li><a href="#setnotificationexCallback" data-toggle="tab">Callback</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- setnotificationexDescription Tab -->
+  <div class="tab-pane fade in active" id="setnotificationexDescription">
+    Extended notification which encompasses the recently added features.
+
+NOTE: There is no valid data related to distance, which the Geolocation API exposes in WM and hence there is no support for extended notification in WM.
+  </div>
+
+  <!-- setnotificationexParams -->
+  <div class="tab-pane fade" id="setnotificationexParams">
+    NOTE: minDistance and minTimeout values are optional; if nothing is provided, whenever a location update is processed by the underlying system, it is sent to the application. It is supported only on Android devices.
+    <ul>
+      <li><code>url</code> - Callback method to be invoked on any notification.</li>
+      <li><code>callbackParams</code> - To be used when callback is invoked. It is generally used to know the source of the callback. This is optional.</li>
+      <li><code>options</code> - This is a hash and can consist of the following two keys:</li>
+        <ul>
+          <li><code>minDistance</code> - Minimum moving distance(in meters) to invoke the callback again.</li>
+          <li><code>minTimeout</code> - Minimum timeout for next callback invocation.</li>
+        </ul>
+    </ul>
+  </div>
+
+  <!-- setnotificationexAccess Tab -->
+  <div class="tab-pane fade" id="setnotificationexAccess">
+    <p>Ruby: <code>Geolocation.set_notification_ex(callback url, string callbackParams, options hash)</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.set_notification_ex(callback url, string callbackParams, options hash);</code></p>
+  </div>
+
+  <!-- setNotificationExCallback -->
+  <div class="tab-pane fade" id="setnotificationexCallback">
+    <p>When the callback happens, it will provide the following parameters:</p>
+      <ul>
+        <li><code>known_position</code> - 1 or 0. Return from known_position? method.</li>
+        <li><code>latitude</code> - Value returned by <code>Geolocation.latitude()</code> method.</li>
+        <li><code>longitude</code> - Value returned by <code>Geolocation.longitude()</code> method.</li>
+        <li><code>altitude</code> - Value returned by <code>Geolocation.altitude()</code> method.</li>
+        <li><code>speed</code> - Value returned by <code>Geolocation.speed()</code> method.</li>
+        <li><code>accuracy</code> - Value returned by <code>Geolocation.accuracy()</code> method.</li>
+        <li><code>satellites</code> - Value returned by <code>Geolocation.satellites()</code> method.</li>
+        <li><code>available</code> - 1 if geolocation is available, 0 otherwise. For 1, not only does the hardware exist, but also the user can turn GPS off in phone settings, or not allow GPS activity on iPhone, etc.</li>
+        <li><code>status</code> - "ok" or "error"</li>
+        <li><code>error_code</code> - error code from <a href="rhoerror">RhoError</a>.</li>
+      </ul>
+  </div>
+</div>
+
+<a name="speed"></a>
+<div id="speed"><h3>speed()</h3></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#speedDescription" data-toggle="tab">Description</a></li>
+    <li><a href="#speedReturn" data-toggle="tab">Return</a></li>
+    <li><a href="#speedAccess" data-toggle="tab">Access</a></li>
+    <li><a href="#speedExamples" data-toggle="tab">Examples</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- Description -->
+  <div class="tab-pane fade in active" id="speedDescription">
+    Returns the speed if it is available. If the speed is not available, 0.0 is returned.
+    <p>Units: Meters/sec over ground</p>
+    <p></p>
+    <div>
+      <p>
+        <img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">
+        <img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">
+        <img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">
+        <img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad">
+        <img src="/img/windowsmobile.png" style="height: 20px; padding-top: 8px;" rel="tooltip" title="">
+      </p>
+    </div>
+  </div>
+
+  <!-- speedReturn Tab -->
+  <div class="tab-pane fade" id="speedReturn">
+    Float
+  </div>
+
+  <!-- speedAccess Tab -->
+  <div class="tab-pane fade" id="speedAccess">
+    <p>Ruby: <code>Geolocation.speed</code></p>
+    <p>JavaScript: <code>Rho.Geolocation.speed();</code></p>
+  </div>
+
+  <!-- speedExamples Tab -->
+  <div class="tab-pane fade" id="speedExamples">
+    <pre class='CodeRay'>
+      <code>:::ruby
+def get_speed
+  speed = Geolocation.speed
+  Alert.show_popup speed
+end</code>
+    </pre>
+    <pre class='CodeRay'>
+      <code>:::javascript
+function getSpeed(){
+  var speed = Rho.Geolocation.speed;
+  alert(speed);
+}</code>
+    </pre>
+  </div>
+</div>
+
+<a name="turnoff"></a>
+<div id="turnoff"><h3>turnoff()</h3></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#turnoffDescription" data-toggle="tab">Description</a></li>
+    <li><a href="#turnoffExamples" data-toggle="tab">Examples</a></li>
+</ul>
+
+<div class="tab-content">
+  <!-- turnoffDescription Tab -->
+  <div class="tab-pane fade in active" id="turnoffDescription">
+    Turn off Geolocation.
+
+NOTE: When you call <code>Geolocation.turnoff()</code>, after the GPS is switched off, you might still receive a few callbacks (this depends on the platform; iOS and Android does not receive callbacks after turnoff).
+  </div>
+
+  <!-- turnoffExamples Tab -->
+  <div class="tab-pane fade" id="turnoffExamples">
+    Ruby
+    <pre class='CodeRay'>
+      <code>:::ruby
+Geolocation.turnoff</code>
+    </pre>
+    JavaScript
+    <pre class='CodeRay'>
+      <code>:::javascript
+Rho.Geolocation.turnoff();</code>
+    </pre>
+  </div>
+</div>

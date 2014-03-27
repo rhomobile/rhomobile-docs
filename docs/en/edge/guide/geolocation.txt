@@ -1,9 +1,9 @@
 # Geolocation
 
 ## Overview
-Geolocation information is available in two ways: as an asynchronous service through Ajax calls to a predefined local URL, or in a controller using Ruby calls to the GeoLocation class.
+Geolocation information is available in two ways: as an asynchronous service through Ajax calls to a predefined local URL, or in a controller using Ruby calls to the Geolocation class.
 
-You need to enable the GPS capability to use GeoLocation. This is done by adding the following line to build.yml:
+You need to enable the GPS capability to use Geolocation. This is done by adding the following line to build.yml:
 
 	:::yaml
 	capabilities:
@@ -12,23 +12,21 @@ You need to enable the GPS capability to use GeoLocation. This is done by adding
 See the [Configuration](build_config) section for more details.
 
 The GPS receiver consumes a significant amount of energy, and should be switched off most of the time in order to preserve the device's battery life.
-Any call to GeoLocation method or notification call back will power up the GPS receiver.
-The GPS receiver will be switched off automatically after some time (see [Configuration](build_config) for parameters) or explicitly by GeoLocation.turnoff.
+Any call to Geolocation method or notification call back will power up the GPS receiver.
+The GPS receiver will be switched off automatically after some time (see [Configuration](build_config) for parameters) or explicitly by Geolocation.turnoff.
 Also note that it usually takes a while to acquire the device's current position; in some cases, it may take several minutes and may not work at all indoors.
 
 Note that in old rhodes versions (up to 2.3.1) this feature uses only GPS location provider. In more recent rhodes, it also uses network based location determination. Network based location
 is not as precise as GPS, but in most cases it consumes less power and returns results faster than GPS.
 Rhodes will update location using network data until the GPS signal has been received; then only GPS will be used for more precise data.
 
-There are two ways to use GeoLocation.
+There are two ways to use Geolocation:
 
- * Synchronous call to GeoLocation module for particular value.
- * Set GeoLocation notification (geoLocation.set_notification) and track location by the notification callback. In this case all location values are passed to notification as parameters in a @param variable.
+ * Synchronous call to Geolocation module for particular value.
+ * Set Geolocation notification (geoLocation.set_notification) and track location by the notification callback. In this case all location values are passed to notification as parameters in a @param variable.
 
-Note that GeoLocation is switched off automatically when the application goes into the background, and is switched on as the application goes back to foreground.
+Note that Geolocation is switched off automatically when the application goes into the background, and is switched on as the application goes back to foreground.
 However it is possible to switch on location services as usual while the application is in background.
-
-See the [Rhodes-System-Api-Samples example](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Geolocation) application for GeoLocation usage example.
 
 ## Asynchronous Ajax calls
 
@@ -47,22 +45,25 @@ For example: 37.3317° North, 122.0307° West;37.331689;-122.030731
 `<geolatitude/>` - returns just the latitude <br/>
 `<geolongitude/>` - returns just the longitude
 
-## GeoLocation API
+## Geolocation API
 
-Refer to the [GeoLocation API](../../2.2.0/rhodesapi/geolocation-api) for the methods to access geolocation information from your device.
+Refer to the [Geolocation API](../api/geolocation) for the methods to access geolocation information from your device.
 
- * [latitude](../../2.2.0/rhodesapi/geolocation-api#latitude) - Returns current latitude in degrees.
- * [longitude](../../2.2.0/rhodesapi/geolocation-api#longitude) - Returns current longitude in degrees.
- * [known_position?, is_known_position](../../2.2.0/rhodesapi/geolocation-api#knownposition-isknownposition) - Returns true if the location system is up and running, false otherwise, null if this feature is not supported on the device platform.
- * [set_notification}(../../2.2.0/rhodesapi/geolocation-api#setnotification) - Set callback to track location changes.
- * [haversine_distance](../../2.2.0/rhodesapi/geolocation-api#haversinedistance) - Returns the distance between two points in miles.
- * [turnoff](../../2.2.0/rhodesapi/geolocation-api#turnoff) - Turn off GeoLocation.
+* [accuracy](../api/geolocation#accuracy) - Returns the estimated accuracy of the fix.
+* [altitude](../api/geolocation#altitude) - Returns the altitude if available, if not available 0 is returned.
+* [haversine_distance](../api/geolocation#haversinedistance) - Returns the distance between two points in miles.
+* [known_position?, is_known_position](../api/geolocation#knownposition-isknownposition) - Returns true if the location system is up and running, false otherwise, null if this feature is not supported on the device platform.
+* [latitude](../api/geolocation#latitude) - Returns current latitude in degrees.
+* [longitude](../api/geolocation#longitude) - Returns current longitude in degrees.
+* [satellites](../api/geolocation#satellites) - Returns the number of satellites used to determine the fix. If this information isn't available, null is returned.
+* [set_notification](../api/geolocation#setnotification) - Set callback to track location changes.
+* [set_notification_ex](../api/geolocation#setnotificationex) - Extended notification which encompasses the recently added features.
+* [speed](../api/geolocation#speed) - Returns the speed if it is available. If the speed is not available, 0.0 is returned.
+* [turnoff](../api/geolocation#turnoff) - Turn off Geolocation.
 
-GeoCoding: You can use any free web service for direct and reverse geocoding. See our complete example of using Google geocoding web service in [Rhodes-System-Api-Samples example](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/GeoCoding).
+**NOTE: On iOS and Android, real GPS starts working after the first access to the Geolocation module. Real GPS hardware is switched off after a call to Geolocation.turnoff. But keep in mind - any call to Geolocation, such as getting latitude, starts the hardware GPS again!**
 
-**NOTE: On iOS and Android, real GPS starts working after the first access to the GeoLocation module. Real GPS hardware is switched off after a call to GeoLocation.turnoff. But keep in mind - any call to GeoLocation, such as getting latitude, starts the hardware GPS again!**
-
-## Testing GeoLocation
+## Testing Geolocation
 
 While developing your application on Windows Mobile emulator, you may find the [FakeGPS](http://msdn.microsoft.com/en-us/library/bb158722.aspx) utility useful.
 
@@ -72,7 +73,7 @@ To provide Mock Location Data on Android, see [here](http://developer.android.co
 
 ## Samples
 
-Here are some examples of GeoLocation Ruby code.<a id="geolocation-setnotification-ex" />
+Here are some examples of Geolocation Ruby code.<a id="geolocation-setnotification-ex" />
 
 ### Tracking location all the time
 You may decide to keep track of your position right after application starts. To do that, add following to your application.rb:
@@ -81,7 +82,7 @@ You may decide to keep track of your position right after application starts. To
     class AppApplication < Rho::RhoApplication
       def on_activate_app
         #start geolocation
-        GeoLocation.set_notification("/app/Settings/geo_callback", "", 3)
+        Geolocation.set_notification("/app/Settings/geo_callback", "", 3)
       end
     end
 
@@ -101,9 +102,9 @@ Callback points to the `geo_callback` in the Settings controller.rb:
 	:::ruby
     def show_location
 	  # check if we know our position	
-      if !GeoLocation.known_position?
+      if !Geolocation.known_position?
 		# wait till GPS receiver acquire position
-        GeoLocation.set_notification( url_for(:action => :geo_callback), "")
+        Geolocation.set_notification( url_for(:action => :geo_callback), "")
         redirect url_for(:action => :wait)
       else
 		# show position
@@ -115,133 +116,27 @@ Callback points to the `geo_callback` in the Settings controller.rb:
       # navigate to `show_location` page if GPS receiver acquire position  
 	  if @params['known_position'].to_i != 0 && @params['status'] =='ok'
 	  
-	  	GeoLocation.set_notification '', '', 2
+	  	Geolocation.set_notification '', '', 2
 	  	WebView.navigate url_for(:action => :map_all)
 	  end
     end
 
-### Turning off GeoLocation as soon as the app goes off the device front page
+### Turning off Geolocation as soon as the app goes off the device front page
 
-In this code sample, /GeoLocation/ has to be replaced with an appropriate regular expression to detect the controller. This code is called from geo_callback. This decision allows you to switch off GeoLocation from a single code point in case geo_callback is set.
+In this code sample, /Geolocation/ has to be replaced with an appropriate regular expression to detect the controller. This code is called from geo_callback. This decision allows you to switch off Geolocation from a single code point in case geo_callback is set.
 
 	:::ruby
 	def geo_callback
 	  puts "geo_callback : #{@params}"
 
-	  if WebView.current_location !~ /GeoLocation/
+	  if WebView.current_location !~ /Geolocation/
 	    puts "Stopping geo location since we are away of geo page: " + WebView.current_location
-	    GeoLocation.turnoff
+	    Geolocation.turnoff
 	    return
 	  end
 	end
 
-If the app does not need location updates, and GeoLocation should still remain active, you can send an empty notification.
+If the app does not need location updates, and Geolocation should still remain active, you can send an empty notification.
 
 	:::ruby
-	GeoLocation.set_notification "", "", 30
-
-## Code Samples
-
-See controller and view in the /app/GeoLocation folder of the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/GeoLocation/controller.rb) for more information.
-
-## Enhanced GPS Functionality
-In addition to the functionality that the GeoLocation API had in previous versions, a few more abilities have been added in version 4.0. These abilities include:
-
-* Altitude
-* Speed
-* Accuracy
-* Number of Satellites
-
-Also, the `set_notification()` now returns the above parameters as part of the callback method.
-
-### New Parameter Details
-#### Geolocation.altitude
-Fetches the altitude if available, if not available 0 is returned.
-
-* Units - Meters above sea level.
-* Parameters - N/A
-* Return - Double
-* Access - Ruby: `GeoLocation.altitude`
-* Platform Support - Windows Mobile, Android, iOS
-
-##### Example
-	:::ruby
-	def get_altitude
-		altitude = Geolocation.altitude
-		Alert.show_popup.altitude
-	end
-
-#### Geolocation.satellites
-Returns the number of satellites used to determine the fix. If this information isn't available, null is returned.
-
-* Parameters - N/A
-* Return - Integer
-* Access - Ruby: `GeoLocation.satellites`
-* Platform Support - Windows Mobile, Android
-
-##### Examples
-	:::ruby
-	def get_satellite_count
-		count = Geolocation.satellites
-		Alert.show_popup count
-	end
-
-#### Geolocation.speed
-Fetches the speed if it is available. If the speed is not available, 0.0 is returned.
-
-* Units - Meters/sec over ground
-* Parameters - N/A
-* Return - Float
-* Access - Ruby: `GeoLocation.speed`
-* Platform Support - Windows Mobile, Android, iOS
-
-##### Examples
-	:::ruby
-	def get_speed
-		speed = Geolocation.speed
-		Alert.show_popup speed
-	end
-
-#### Geolocation.accuracy
-Returns the estimated accuracy of the fix.
-
-* Units - Horizontal radius in Meters.
-* Parameters - N/A
-* Return - Float
-* Access - Ruby: `GeoLocation.accuracy`
-* Platform Support - Android, iOS
-
-##### Examples
-	:::ruby
-	def get_accuracy
-		accuracy = Geolocation.accuracy
-		Alert.show_popup accuracy
-	end
-
-#### Geolocation.set_notification_ex(callback url, string callbackParams, options hash)
-* Parameters
-	* url - Callback method to be invoked on any notification
-	* callbackParams - To be used when callback is invoked. It is generally used to know the source of the callback. This is optional.
-	* options - This is a hash and can consist of the following two keys:
-		* minDistance - Minimum moving distance(in meters) to invoke the callback again.
-		* minTimeout - Minimum timeout for next callback invocation.
-* Return - Void
-* Access - Ruby: `Geolocation.set_notification_ex()`
-* Platform Support - Android
-
-NOTE: minDistance and minTimeout values are optional; if nothing is provided, whenever a location update is processed by the underlying system, it is sent to the application. It is supported only on Android devices.
-
-Discrepancy: There is no valid data related to distance, which Geolocation API exposes in WM and hence there is no support for extended notification in WM.
-
-When the callback happens, it will provide the following parameters:
-
-* __Known_position__ - 0 or 1
-* __Latitude__       - Value returned by `Geolocation.latitude()` method
-* __Longitude__      - Value returned by `Geolocation.longitude()` method
-* __Altitude__       - Value returned by `Geolocation.altitude()` method
-* __Speed__          - Value returned by `Geolocation.speed()` method
-* __Accuracy__       - Value returned by `Geolocation.accuracy()` method
-* __Satellites__     - Value returned by `Geolocation.satellites()` method
-* __Available__      - 1 if geolocation is available, otherwise 0
-* __Status__         - OK or Error
-* __Error_code__     - Error code from RhoError
+	Geolocation.set_notification "", "", 30
