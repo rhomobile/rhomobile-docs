@@ -169,7 +169,7 @@ If you are using a Windows Mobile or CE device, install the following runtime ap
 
 Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center.
 
-Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the computer. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs.
+Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the computer. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs. You should then create a shortcut in the Startup folder so that this applications runs when the device starts. Or if you are using other methods for ensuring certain applications are always running. If this application is not running, it will not receive RhoConnect Push notifications.
 
 ## Setting up the Rhodes Client for RhoConnect Push Service
 
