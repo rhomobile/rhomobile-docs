@@ -169,7 +169,12 @@ function getAltitude(){
 </div>
 
 <a name="haversinedistance"></a>
-<div id="haversinedistance"><h3>haversine_distance()</h3></div>
+<div id="haversinedistance"><h3>haversine_distance<span style="font-size:.7em;font-weight:normal;">(
+<span class="text-info">FLOAT</span> latitude1,
+<span class="text-info">FLOAT</span> longitude1,
+<span class="text-info">FLOAT</span> latitude2,
+<span class="text-info">FLOAT</span> longitude2
+)</span></h3></div>
 <ul class="nav nav-tabs">
     <li class="active"><a href="#haversinedistanceDescription" data-toggle="tab">Description</a></li>
     <li><a href="#haversinedistanceParams" data-toggle="tab">Parameters</a></li>
@@ -334,7 +339,11 @@ function getSatellites(){
 </div>
 
 <a name="setnotification"></a>
-<div id="setnotification"><h3>set_notification()</h3></div>
+<div id="setnotification"><h3>set_notification<span style="font-size:.7em;font-weight:normal;">(
+<span class="text-info">CALLBACK</span> callback_url,
+<span class="text-info">STRING</span> callback_params,
+<span class="text-info">INT</span> ping_gpssystem_interval
+)</span></h3></div>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#setnotificationDescription" data-toggle="tab">Description</a></li>
   <li><a href="#setnotificationParams" data-toggle="tab">Parameters</a></li>
@@ -381,7 +390,11 @@ NOTE: You only need to call Geolocation.set_notification once. The current behav
 </div>
 
 <a name="setnotificationex"></a>
-<div id="setnotificationex"><h3>set_notification_ex()</h3></div>
+<div id="setnotificationex"><h3>set_notification_ex<span style="font-size:.7em;font-weight:normal;">(
+<span class="text-info">CALLBACK</span> url,
+<span class="text-info">STRING</span> callbackParams,
+<span class="text-info">HASH</span> options
+)</span></h3></div>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#setnotificationexDescription" data-toggle="tab">Description</a></li>
   <li><a href="#setnotificationexParams" data-toggle="tab">Parameters</a></li>
