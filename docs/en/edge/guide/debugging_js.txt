@@ -417,7 +417,7 @@ NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobil
 ## Remote Debugging with a Browser's Web Inspector
 
 NOTE: This JS debugging feature is currently only supported on Windows development environments.
-Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's JavaScript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in either [Mozilla Firefox](http://www.mozilla.org/en-US/firefox/new/) or [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
+Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's JavaScript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
 
 ### Using the Remote Debugger
 Before you can use this remote web inspector, you must first open the app you want to use in RhoSimulator. In this example, we'll run an app called [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample). As you can see from the data platform attribute, this is running as a Win32 app.
@@ -443,4 +443,3 @@ As with most web inspectors you can change attributes in the inspector...
 As you can probably guess by now, debugging using this method is very similar to debugging using your web browser's built in web inspector because that is exactly what you are doing. Any further tutorials concerning debugging in this fashion should be looked into via tutorials for the given web inspection utility of your respective web browser.
 
 * [Google Chrome Dev Tools Tutorial](https://developers.google.com/chrome-developer-tools/)
-* [Mozilla Firefox Developer Tools Tutorial](https://developer.mozilla.org/en-US/docs/Tools/Web_Console)
