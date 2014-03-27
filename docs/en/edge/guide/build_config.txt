@@ -160,7 +160,9 @@ By default, the build process will build only for ARM-based processors but, Rhod
 
     :::yml
     android:
-      abis: [arm, x86]
+      abis: [x86]
+
+You can also elect to build for both arm AND Intel-based processor by specifying `abis: [arm, x86]`.
 
 ## Capabilities
 There are two ways of modifying your app's capabilities:
