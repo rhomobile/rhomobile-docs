@@ -8,7 +8,7 @@ example, a driver's license can be thought of as a template containing regions s
 and photo, each of these regions are processed and returned to RhoElements separately by DPX so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
-online at [The MSI DPX template builder](https://dpx.motorolasolutions.com/).
+online at [The MSI DPX template builder](https://dpx-uat.motorolasolutions.com/).
     </HELP_OVERVIEW>
     <MORE_HELP>
 ## Enabling the API
@@ -34,10 +34,7 @@ Ruby.
       <DESC>These properties are used to configure how the DPX works, for example how feedback is provided to the user
       </DESC>
       <PROPERTY name="template" type="STRING">
-        <DESC>The template XML which defines the document to be processed. This should be file URI to the template
-          on the device. You must provide this property to define the form being captured and what is contained in each
-          region on that form. Templates are specific to each document format you intend on capturing and can be created
-          online at https://dpx.motorolasolutions.com/.
+        <DESC>The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created online at https://dpx-uat.motorolasolutions.com/.
         </DESC>
       </PROPERTY>
       <PROPERTY name="audioFeedback" type="BOOLEAN" default="true">
@@ -60,23 +57,20 @@ Ruby.
         </VALUES>
       </PROPERTY>
       <PROPERTY name="identificationTimeout" type="INTEGER" default="15000">
-        <DESC>The length of time, in milliseconds that the processing engine has to recognize the image from the
-          provided template. From 0 to 20000 in increments of 100.
+        <DESC>The length of time, in milliseconds that the processing engine has to recognize the image from the provided template. From 0 to 20000 in increments of 100.
         </DESC>
       </PROPERTY>
       <PROPERTY name="inputSource" type="STRING" default="camera">
         <DESC>Defines where the document should be captured from. The only supported source is camera.</DESC>
         <VALUES>
           <VALUE constName="SOURCE_CAMERA" value="camera">
-            <DESC>The document will be captured from the device camera. After calling the captureDocument method the
-              camera preview will be presented, the user should place the document to be captured in the preview frame
-              and press the soft button to capture &amp; process the image.
+            <DESC>The document will be captured from the device camera. After calling the captureDocument method the camera preview will be presented, the user should place the document to be captured in the preview frame and press the soft button to capture &amp; process the image.
             </DESC>
           </VALUE>
         </VALUES>
       </PROPERTY>
       <PROPERTY name="templateDirectory" type="STRING" default="/sdcard/templates">
-        <DESC>Specify where to store downloaded templates.</DESC>
+        <DESC>Specify where to store downloaded templates. See [fetchTemplates()](#mfetchTemplates)</DESC>
       </PROPERTY>
       <PROPERTY name="logDirectory" type="STRING" default="/sdcard/DPXLog">
         <DESC>Specify which directory to search for logs in.</DESC>
@@ -155,8 +149,7 @@ Ruby.
               </PARAM>
               <PARAM name="regions" type="ARRAY">
                 <PARAM name="group" type="STRING">
-                  <DESC>The name of the group this region is found in, as defined in the template associated with the
-                    recognized region. It's optional parameter.
+                  <DESC>The name of the group this region is found in, as defined in the template associated with the recognized region. It's optional parameter.
                   </DESC>
                 </PARAM>
                 <PARAM name="name" type="STRING">
@@ -169,18 +162,15 @@ Ruby.
                   <DESC>The type of region which has been decoded.</DESC>
                   <VALUES>
                     <VALUE constName="PM_OCR" value="ocr">
-                      <DESC>
-                        Optical Character Recognition. The region is a text field.
-                        The processedData parameter contains array of lines.
+                      <DESC>Optical Character Recognition. The region is a text field. The processedData parameter contains array of lines.
                       </DESC>
                     </VALUE>
                     <VALUE constName="PM_OMR" value="omr">
-                      <DESC>Optical Mark Recognition. The region is a check box or radio box. The processedData
-                        parameter of this callback will contain boolean value.
+                      <DESC>Optical Mark Recognition. The region is a check box or radio box. The processedData parameter of this callback will contain a boolean value.
                       </DESC>
                     </VALUE>
                     <VALUE constName="PM_PICTURE" value="picture">
-                      <DESC>The defined region was captured as a picture. No processedData parameter.</DESC>
+                      <DESC>The defined region was captured as a picture. No processedData parameter. Use the `image` callback property with the [getDataUri()](#mgetDataUri) to get a DataURI of the image.</DESC>
                     </VALUE>
                     <VALUE constName="PM_BARCODE" value="barcode">
                       <DESC>The region is a barcode and the decoded barcode data is given in the processedData parameter.</DESC>
@@ -188,9 +178,7 @@ Ruby.
                   </VALUES>
                 </PARAM>
                 <PARAM name="processedData">
-                  <DESC>
-                    The processed data contained in the specified region, this will depend on the type of region being captured.
-                    See values of processingMode parameter.
+                  <DESC>The processed data contained in the specified region, this will depend on the type of region being captured. See the values of the `processingMode` parameter.
                   </DESC>
                 </PARAM>
                 <PARAM name="image" type="STRING">
@@ -202,7 +190,7 @@ Ruby.
                     <DESC>Height of region in pixels.</DESC>
                   </PARAM>
                   <PARAM name="id" type="INTEGER">
-                    <DESC>Id of region image. Use getDataUri method to retrieve image data. Id is valid until close method is called.</DESC>
+                    <DESC>Id of region image. Use [getDataUri method](#mgetDataUri) to retrieve image data. Id is valid until the close method is called.</DESC>
                   </PARAM>
                 </PARAM>
                 <PARAM name="relativeOcrConfidence" type="INTEGER">
@@ -217,7 +205,7 @@ Ruby.
         </CALLBACK>
       </METHOD>
       <METHOD name="fetchTemplates">
-        <DESC>Fetch templates from dedicated DPX server and place into template directory. See templateDirectory parameter.</DESC>
+        <DESC>Fetch templates from dedicated DPX server and place into template directory. See [templateDirectory property](#ptemplateDirectory). The device must have access to the network and can access the [DPX Template Builder Website](http://dpx-uat.motorolasolutions.com)</DESC>
         <PARAMS>
           <PARAM name="userName" type="STRING"><DESC>Username of the user.</DESC></PARAM>
           <PARAM name="password" type="STRING"><DESC>Password of the user.</DESC></PARAM>
@@ -234,7 +222,7 @@ Ruby.
         </PARAMS>
       </METHOD>
       <METHOD name="close" destructor="true">
-        <DESC>Close DPX engine, and release allocated resources.</DESC>
+        <DESC>Close DPX engine, and release allocated resources. When capturing images, this is especially important since they are made available temporarily.</DESC>
       </METHOD>
     </METHODS>
     <USER_OVERVIEW>
@@ -242,5 +230,134 @@ Ruby.
     <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
     <PLATFORM>
     </PLATFORM>
+        <EXAMPLES>
+            <EXAMPLE title="Download Templates">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>Before you are able to process any documents with the DPX engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the DPX Engine as well as your application. To retrieve the templates from the server, you would use the `fetchTemplates` method. This method will communicate with the DPX backend and download the templates to the folder that is specificed by the [templateDirectory property](#ptemplateDirectory)</DESC>
+                        <CODE>
+                            <JAVASCRIPT>
+           <![CDATA[
+function downloadDPXTemplates(user,password){
+  // If you include your DPX template files in the applications public folder
+  // the DPX engine will not be able to access them due to Android
+  // security policies
+
+  Rho.DPX.templateDirectory = 'file:///sdcard/Templates';
+  Rho.DPX.fetchTemplates(user,password);
+  templates = Rho.RhoFile.listDir(Rho.DPX.templateDirectory);
+  for (var i = 0; i < templates.length; ++i) {
+      console.log(templates[i]);
+  }
+}
+
+                   ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                  </SECTIONS>
+            </EXAMPLE>
+            <EXAMPLE title="Capture Document">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>The only requirement for capturing a document is to have the DPX template file location set using the `DPX.template` property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the DPX engine (i.e. it cannot be in the applications `public` folder)</DESC>
+                        <CODE>
+                            <JAVASCRIPT>
+           <![CDATA[
+  // POSTAL.XML was exported from the DPX Template Builder
+  // In the Template Builder there were several fields defined
+
+  Rho.DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
+  
+  // Once the captureDocument method is launched,
+  // the DPX Engine dialog appears instructing the
+  // user to hold the device steady over the printed label
+  // The callback function will be triggered possibly for
+  // many reasons
+  Rho.DPX.captureDocument(function(params){
+    if(params.callbackType == Rho.DPX.SUCCESS )
+    {
+      // process the returned object:
+      var returnedField = params.processedForm;
+      processDPXForm(returnedField);
+    }
+    if(params.callbackType == Rho.DPX.FAILURE )
+    {
+      if(params.failureReason == Rho.DPX.FAILURE_IDENTIFICATION_TIMEOUT){
+        // This means it could not identify the label based on the template used
+        // Possible reasons
+        //    -label is the wrong label
+        //    -Template is poorly defined 
+        //      maybe scanned in image for defining was not high enough resolution
+        //    -camera cannot focus
+
+        // This may trigger multiple times and may not warrant display information 
+        // in your app - the DPX engine will prompt the user in most cases
+      }
+      if(params.failureReason == Rho.DPX.FAILURE_PROCESSING_TIMEOUT){
+        // This means it identified the form but could not process it
+        // Possible reasons
+        //    -Template is poorly defined 
+        //      maybe scanned in image for defining was not high enough resolution
+        //    -Camera cannot focus or poorly lit
+
+        // This will trigger once and return focus to your application
+      }
+    }
+  });
+}
+
+                   ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                    <SECTION>
+                        <DESC>Now we can loop through the `processedForm` object returned by the `captureDocument` method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Checkboxes), Barcode, Picture. It will only return regsions that it was able to be processed.</DESC>
+                        <CODE>
+                            <JAVASCRIPT>
+           <![CDATA[
+function processDPXForm(DPXform);
+  var regions = DPXForm.regions;
+  for(i=0; i< regions.length; ++i){
+      switch(regions[i].processingMode){
+      case Rho.DPX.PM_OCR:
+        // The text that OCR translated into an array of lines
+        regionTextArray = regions[i].processedData;
+
+        //maybe do something with returned confidence
+        // DPXForm.absoluteOcrConfidence
+        // DPXForm.relativeOcrConfidence
+        break;
+      case Rho.DPX.PM_OMR:
+        // Checkbox region either True or False
+        regionBooleanCheckbox = regions.processedData;
+        break;
+      case Rho.DPX.PM_PICTURE:
+        // nothing in processedData
+        // Image held temporarily until Rho.DPX.close()
+        // use the id and the Rho.DPX.getDataUri method
+        regionImageURI = Rho.DPX.getDataUri(regions.image.id);
+        break;
+      case Rho.DPX.PM_BARCODE:
+        // Barcode data will be in processedData field
+        regionBarCode = regions.processedData;
+        break;
+      }
+
+  }
+  
+}
+
+                   ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+
+                  </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES>
+
+
+
   </MODULE>
 </API>
