@@ -218,7 +218,7 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
-                                <DESC>Any additional info. Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <DESC>Any additional info. This is currently not being used.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                         </PARAMS>
@@ -257,7 +257,7 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
-                            <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                            <DESC>This is currently not being used.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                     </PARAMS>
@@ -286,11 +286,11 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                         <PARAMS>
                             <DESC>Provide a set of properties to configure file printing.</DESC>
                             <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
-                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <DESC>This is currently not being used.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
-                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <DESC>This is currently not being used.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                         </PARAMS>
@@ -351,11 +351,11 @@ NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL command
                         <PARAMS>
                             <DESC>Provide a set of properties to configure the printer.</DESC>
                             <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
-                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <DESC>This is currently not being used.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="propertyWithIntValue" type="INTEGER"  generateDoc="false">
-                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
+                                <DESC>This is currently not being used.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>                        
                         </PARAMS>    
