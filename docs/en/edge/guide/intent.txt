@@ -199,6 +199,7 @@ end</code></pre>
     <pre class='CodeRay'><code>:::javascript
 Rho.Intent.startListening(function(params){
     alert(params['data']['dataFromSender']);
+    
     console.log(params.responseCode);
 });</code></pre>
     </div>
@@ -240,7 +241,7 @@ function sendIntent(){
                       mimeType     : "text/plain",
                       categories  : "android.intent.category.DEFAULT"}
 
-  Rho.Intent.send intentParams
+  Rho.Intent.send(intentParams);
 }</code>
     </pre>
     </div>
