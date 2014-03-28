@@ -3,8 +3,8 @@
 <API>
   <MODULE name="Adapter" parent="Rho.NFC">
     <HELP_OVERVIEW>NFC Adapter</HELP_OVERVIEW>
-    <MORE_HELP>NFC Adapter provides access to the NFC device to perform device related operations.
-    All properties and methods should be used after activate. Besides supported and isActive.
+    <MORE_HELP>This class provides access to the NFC device to perform device related NFC operations. All properties and methods should be used after activate. Besides supported and isActive.
+      
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby

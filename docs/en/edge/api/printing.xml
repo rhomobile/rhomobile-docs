@@ -5,8 +5,6 @@
         <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</HELP_OVERVIEW>
         <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API. Almost all operations are asynchronous, use callbacks for sequence of operations.
 
-NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
-
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
@@ -130,7 +128,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
-                <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
+                <DESC>Search printers connected to this device, available Bluetooth(R) or Network printers. Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
 NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
                 </DESC>
@@ -220,7 +218,7 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
-                                <DESC>Any additional info. This is currently not being used.</DESC>
+                                <DESC>Any additional info. Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                         </PARAMS>
@@ -259,7 +257,7 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                             <CAN_BE_NIL/>
                         </PARAM>
                         <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
-                            <DESC>This is currently not being used.</DESC>
+                            <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                             <CAN_BE_NIL/>
                         </PARAM>
                     </PARAMS>
@@ -288,11 +286,11 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                         <PARAMS>
                             <DESC>Provide a set of properties to configure file printing.</DESC>
                             <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
-                                <DESC>This is currently not being used.</DESC>
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="propertyWithIntValue" type="INTEGER" generateDoc="false">
-                                <DESC>This is currently not being used.</DESC>
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                         </PARAMS>
@@ -339,9 +337,7 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
             </METHOD>
 
             <METHOD name="printRawString" hasCallback="optional">
-                <DESC>Send raw string to printer. Works asynchronously, use callback to check the result.
-NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL commands, but just line mode (or raw text).
-</DESC>
+                <DESC>Send raw string to printer. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="command" type="STRING">
                         <DESC>Raw string to print. Could be any valid command in printer supported programming language.</DESC>
@@ -353,11 +349,11 @@ NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL command
                         <PARAMS>
                             <DESC>Provide a set of properties to configure the printer.</DESC>
                             <PARAM name="propertyWithStringValue" type="STRING"  generateDoc="false">
-                                <DESC>This is currently not being used.</DESC>
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="propertyWithIntValue" type="INTEGER"  generateDoc="false">
-                                <DESC>This is currently not being used.</DESC>
+                                <DESC>Ignore it - it added for generate correct type for Hash in native code.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>                        
                         </PARAMS>    
@@ -406,93 +402,5 @@ NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL command
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>
         </PLATFORM>
-        <EXAMPLES>
-            <EXAMPLE title="Printing via Bluetooth">
-                <SECTIONS>
-                    <SECTION>
-                        <DESC>To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the 'deviceAddress' parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a 'printerID' property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.</DESC>
-                        <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
-var printers = [];
-
-Rho.Printer.searchPrinters({ 
-    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
-    printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
-    }, function (cb){
-        if(cb.status == 'PRINTER_STATUS_SUCCESS')
-        {
-            if (typeof cb.printerID != "undefined")
-            {
-                console.log('Found: ' + cb.printerID)
-                printers.push(cb.printerID);
-            }
-            else
-            {
-                console.log('Done Searching');
-            }
-        }
-        else
-        {
-            console.log(cb.status);
-        }
-    }
-);
-                   ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
-                    <SECTION>
-                        <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
-                        <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
-var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
-
-// Let's try connecting
-myPrinter.connect(function (cb){
-    console.log(cb);
-    // This will be the Zebra's `Friendly Name` 
-    // by default it is the serial number
-    console.log(myPrinter.deviceName);
-
-    // This will be the BT MC Address 
-    since we are connecting via BlueTooth
-    console.log(myPrinter.deviceAddress);
-});
-                   ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
-                    <SECTION>
-                        <DESC>Now we can just print a test string and read some properties of the printer to make sure the communications is working.</DESC>
-                        <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
-// If my printer was in line mode I would see this text printed
-myPrinter.printRawString('This is a test print');
-
-// Example of sending a Zebra CPCL Command
-// changing from linemode to ZPL mode
-myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
-
-//Get state - this is realtime status of printer
-// reading a property of the myPrinter instance will
-// show last known status
-myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
-    'PRINTER_STATE_IS_PAPER_OUT'],function (cb){
-        console.log(cb.status);
-        console.log(cb.PRINTER_STATE_IS_PAPER_OUT);
-        console.log(cb.PRINTER_STATE_IS_READY_TO_PRINT);
-
-    });
-                   ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
-                </SECTIONS>
-            </EXAMPLE>
-        </EXAMPLES>
-
     </MODULE>
 </API>

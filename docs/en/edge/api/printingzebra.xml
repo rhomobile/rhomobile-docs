@@ -25,10 +25,6 @@ Android platform specific:
 
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then Zebra SDK enumerate _all_ Bluetooth devices around and you can see a lot of pairing request to non-printer devices too. Just cancel them. This produced because we can not detect printer before real connection to device, but real connection require pairing.
 
-Windows Mobile/CE note:
-
-* Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
-
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
@@ -230,10 +226,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="sendFileContents" hasCallback="optional">
-                <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
+                <DESC>Sends the contents of a file to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
-                        <DESC>Location of file to print. This path must be fully qualified path to local file on the device.</DESC>
+                        <DESC>Location of file to print.</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
@@ -315,9 +311,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
            <![CDATA[
 var printers = [];
 
-Rho.Printer.searchPrinters({ 
-    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
-    printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
+Rho.PrinterZebra.searchPrinters({ 
+    connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
+    printerType: Rho.PrinterZebra.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
         {
@@ -342,11 +338,11 @@ Rho.Printer.searchPrinters({
                         </CODE>
                     </SECTION>
                     <SECTION>
-                        <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
+                        <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the defaul is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
                         <CODE>
                             <JAVASCRIPT>
            <![CDATA[
-var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
+var myPrinter = Rho.PrinterZebra.getPrinterByID(printers[0]);
 
 // Let's try connecting
 myPrinter.connect(function (cb){
@@ -368,12 +364,8 @@ myPrinter.connect(function (cb){
                         <CODE>
                             <JAVASCRIPT>
            <![CDATA[
-// If my printer was in line mode I would see this text printed
+// This should print
 myPrinter.printRawString('This is a test print');
-
-// Example of sending a Zebra CPCL Command
-// changing from linemode to ZPL mode
-myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
 
 //Get state - this is realtime status of printer
 // reading a property of the myPrinter instance will

@@ -35,25 +35,21 @@ extensions: ["coreapi"]
  </p></li><ul><li>message : <span class='text-info'>String</span><span class='label '> Default: </span><p><p>Text displayed in the popup window.</p>
  </p></li><li>title : <span class='text-info'>String</span><span class='label '> Default: </span><p><p>Title of the popup window.</p>
  </p></li><li>icon : <span class='text-info'>String</span><span class='label '> Default: </span><p><p>Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon.</p>
- Platforms:Android </p></li><li>buttons : <span class='text-info'>Array</span><span class='label '> Default: </span><p><p>Array of buttons. Specify each button either by hash with :id and :title keys or string.When using strings, the <code>id</code> and <code>title</code> will have the same value.
-For example:</p>
+ Platforms:Android </p></li><li>buttons : <span class='text-info'>Array</span><span class='label '> Default: </span><p><p>Array of buttons. Specify each button either by hash with :id and :title keys os string. For example: [{id:&lsquo;yes&rsquo;,title:&lsquo;Ok to Delete&rsquo;},{id:&lsquo;no&rsquo;,title:&lsquo;No&rsquo;}].</p>
 
-<pre><code>:::javascript
-buttonHash = [{id:'yes',title:'Ok to Delete'},{id:'no',title:'No'}];
-buttonString = ['Yes', 'No'];
+<pre><code>                              At Android if TYPE_NOTIFICATION_DIALOG is used every button in notification has an icon. By default star icon is used. In case button id is 'accept' then system accept icon is used. In case button id is 'cancel' then system cancel icon is used.
+                              Using hash this way: [{id:'yes',title:'Ok to Delete'},{id:'no',title:'No'}]
+                              Using string example: ['Yes', 'No']. Note: in case of buttons has been specified using strings an id and a title of each button will have same value.
 </code></pre>
+ </p></li><li>types : <span class='text-info'>Array</span><p><p>List which notification kinds will be shown. Several types may be listed at same time.</p>
 
-<p>NOTE: For Android, if TYPE_NOTIFICATION_DIALOG is used, every button in the notification uses an icon. By default a star icon is used. If the button id is &lsquo;accept&rsquo; then the system accept icon is used. If the button id is &lsquo;cancel&rsquo; then the system cancel icon is used.</p>
- </p></li><li>types : <span class='text-info'>Array</span><p><p>List which notification kinds will be shown. Several types may be listed at same time. <code>TYPE_NOTIFICATION</code> and <code>TYPE_NOTIFICATION_DIALOG</code> take no effect if application is in the foreground. By default <code>[Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_NOTIFICATION]</code> is used.
-Example:</p>
-
-<pre><code>:::javascript
-typeToast = [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST];
+<pre><code>                              TYPE_NOTIFICATION and TYPE_NOTIFICATION_DIALOG take no effect if application is at foreground.
+                              By default [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_NOTIFICATION] is used.
+                              Example: [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST].
 </code></pre>
  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho::Notification.TYPE_DIALOG (For Ruby use "::" instead of ".")<br/> String:dialog</dt><dd><p>Show common dialog window with buttons visible if application is active.</p>
 </dt><dt>Constant: Rho::Notification.TYPE_NOTIFICATION (For Ruby use "::" instead of ".")<br/> String:notification</dt><dd><p>Show message in Android notification bar if application is at background. Touch the message opens the application.</p>
-</dt><dt>Constant: Rho::Notification.TYPE_NOTIFICATION_DIALOG (For Ruby use "::" instead of ".")<br/> String:notificationDialog</dt><dd><p>This is the same as <code>TYPE_DIALOG</code> + <code>TYPE_NOTIFICATION</code>.
-NOTE: In Android 4.1 and above, buttons are also added to the notification message so the user can interact with the application without application activation (dialog window is not shown if user pressed button in notification). Buttons are not always displayed in the notification area &ndash; this depends on screen size and layout and system decides whether to show buttons. You need to drag notification to make buttons appear.</p>
+</dt><dt>Constant: Rho::Notification.TYPE_NOTIFICATION_DIALOG (For Ruby use "::" instead of ".")<br/> String:notificationDialog</dt><dd><p>Means TYPE_DIALOG + TYPE_NOTIFICATION. At Android 4.1 and above buttons is also added to notification message so user can interact with the application without application activation (dialog window is not shown if user pressed button at notification). NB: Buttons are not always displayed in the notification area &ndash; this depends on screen size and layot and system decides whether to show buttons. You need to drag notification to make buttons appear.</p>
 </dt><dt>Constant: Rho::Notification.TYPE_TOAST (For Ruby use "::" instead of ".")<br/> String:toast</dt><dd><p>Show toast window with message at foreground for a short time. The toast is visible nevertheless the application is at background or foreground but is not shown same time with any foreground pop-up.</p>
 </dt></dl></li></ul><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-info'>Optional</span> </li></ul></div></div><div class="tab-pane fade" id="mshowPopupSTATIC3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li>button_id : <span class='text-info'>STRING</span><p><p>ID assigned to the button when showing the popup.</p>
  </p></li><li>button_title : <span class='text-info'>STRING</span><p><p>Button text.</p>
