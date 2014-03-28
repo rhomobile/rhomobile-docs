@@ -243,9 +243,9 @@ NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL command
            
 var printers = [];
 
-Rho.PrinterZebra.searchPrinters({ 
-    connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
-    printerType: Rho.PrinterZebra.PRINTER_TYPE_ZEBRA
+Rho.Printer.searchPrinters({ 
+    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
+    printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
         {
@@ -267,11 +267,11 @@ Rho.PrinterZebra.searchPrinters({
 );
                    
                             </code></pre></div></div>
-<p>Now that we have found a printer. The <code>printers</code> array will contain the <code>printerID</code> we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the defaul is &lsquo;0000&rsquo; or &lsquo;1111&rsquo; or &lsquo;1234&rsquo;. Once it is connected, you should see some indication in the printer (like a blue light).</p>
+<p>Now that we have found a printer. The <code>printers</code> array will contain the <code>printerID</code> we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is &lsquo;0000&rsquo; or &lsquo;1111&rsquo; or &lsquo;1234&rsquo;. Once it is connected, you should see some indication in the printer (like a blue light).</p>
 <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
 
            
-var myPrinter = Rho.PrinterZebra.getPrinterByID(printers[0]);
+var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
 // Let's try connecting
 myPrinter.connect(function (cb){

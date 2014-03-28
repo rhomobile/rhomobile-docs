@@ -315,9 +315,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
            <![CDATA[
 var printers = [];
 
-Rho.PrinterZebra.searchPrinters({ 
-    connectionType:Rho.PrinterZebra.CONNECTION_TYPE_BLUETOOTH,  
-    printerType: Rho.PrinterZebra.PRINTER_TYPE_ZEBRA
+Rho.Printer.searchPrinters({ 
+    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
+    printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
         {
@@ -342,11 +342,11 @@ Rho.PrinterZebra.searchPrinters({
                         </CODE>
                     </SECTION>
                     <SECTION>
-                        <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the defaul is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
+                        <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
                         <CODE>
                             <JAVASCRIPT>
            <![CDATA[
-var myPrinter = Rho.PrinterZebra.getPrinterByID(printers[0]);
+var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
 // Let's try connecting
 myPrinter.connect(function (cb){
