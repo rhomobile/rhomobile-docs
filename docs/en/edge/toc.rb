@@ -158,6 +158,7 @@ section 'rhomob-dev',                                     'Device Capabilities',
   topic 'en/edge/guide/html5',                            'Html5 Tags'
   topic 'en/edge/guide/handling_local_files',             'File System'
   topic 'en/edge/guide/geolocation',                      'Geolocation'
+  topic 'en/edge/guide/intent',                           'Intents'
   topic 'en/edge/guide/localization',                     'Localization'
   topic 'en/edge/guide/maps',                             'Mapping'
   topic 'en/edge/guide/media',                            'Media & Ringtones'
