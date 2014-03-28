@@ -368,8 +368,12 @@ myPrinter.connect(function (cb){
                         <CODE>
                             <JAVASCRIPT>
            <![CDATA[
-// This should print
+// If my printer was in line mode I would see this text printed
 myPrinter.printRawString('This is a test print');
+
+// Example of sending a Zebra CPCL Command
+// changing from linemode to ZPL mode
+myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
 
 //Get state - this is realtime status of printer
 // reading a property of the myPrinter instance will
