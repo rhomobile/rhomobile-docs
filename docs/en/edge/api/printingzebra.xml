@@ -226,10 +226,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </METHOD>
 
             <METHOD name="sendFileContents" hasCallback="optional">
-                <DESC>Sends the contents of a file to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
+                <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
-                        <DESC>Location of file to print.</DESC>
+                        <DESC>Location of file to print. This path must be fully qualified path to local file on the device.</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
