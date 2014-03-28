@@ -233,6 +233,10 @@ The following is an example of a typical configuration file
       <ScreenOrientation>
         <AutoRotate VALUE="0"/>
       </ScreenOrientation>
+      <TabInstance>
+        <NewTabPhysicalMemLimit value="90"/>
+        <NewTabVirtualMemLimit value="80"/>
+      </TabInstance>
       <Geolocation>
         <GeolocationEnabled VALUE="0"/>
       </Geolocation>
@@ -339,8 +343,8 @@ The following is an example of a typical configuration file
 ** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
 
 ** NOTE: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc. **
-
-<table class="table table-striped table-bordered table-condensed">
+<div style="width:100%">
+<table class="table table-striped table-bordered table-condensed configxml" style="table-layout: fixed !important;">
 <tr>
 <th >Group\\XML Tag</th>
 <th >Configuration Identifier<a href="#_configIndentifiers">*</a></th>
@@ -789,13 +793,13 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <tr>
 <td>Navigation\\CaFile</td>
 <td>CAFILE</td>
-<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a>.  This setting is supported on Windows Mobile / CE and Android.</td>
+<td>A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a>.  This setting is supported on Windows Mobile / CE and Android.</td>
 <td>Local File name on the device.</td>
 </tr>
 <tr>
 <td>Navigation\\CaPath</td>
 <td>CAPATH</td>
-<td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL <code>c_rehash</code> utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information. This setting is supported on Windows Mobile / CE and Android.</td>
+<td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL <code>c_rehash</code> utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for more information. This setting is supported on Windows Mobile / CE and Android.</td>
 <td>Local File path on the device.</td>
 </tr>
 <tr>
@@ -846,7 +850,20 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 <td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
 <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
 </tr>
+<tr>
+<td >TabInstance\\NewTabPhysicalMemLimit</td>
+<td >NEWTABPHYSICALMEMLIMIT</td>
+<td >This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is >=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.</td>
+<td >0-100 (100=no limit)</td>
+</tr>
+<tr>
+<td class="clsEvenRow">TabInstance\\NewTabVirtualMemLimit</td>
+<td class="clsEvenRow">NEWTABVIRTUALMEMLIMIT</td>
+<td class="clsEvenRow">This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is >=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code></td>
+<td class="clsEvenRow">0-100 (100=no limit)</td>
+</tr>
 </table>
+</div>
 <a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="/v/2.2/rhoelements/generic">Generic</a> 
 
 
