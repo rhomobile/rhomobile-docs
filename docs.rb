@@ -9,11 +9,12 @@ require './indicators'
 require './api'
 require './lib/term.rb'
 require './pdfmaker'
+require './version.rb'
 
 
 class Docs < Sinatra::Base
   unless development?
-    PDFKit.configure do |config|       
+    PDFKit.configure do |config|
      config.wkhtmltopdf = File.expand_path(File.join( File.dirname(__FILE__), 'bin', 'wkhtmltopdf-amd64')).to_s
     end
   end
@@ -26,7 +27,7 @@ class Docs < Sinatra::Base
 
   set :app_file, __FILE__
   enable :static
-  
+
   not_found do
     begin
     # puts "/v/2.2#{request.path}"
@@ -67,15 +68,12 @@ class Docs < Sinatra::Base
     @alt = true
     erb :not_found
 
-      
     rescue Exception => e
       puts "EROR:#{e}"
       @alt=false
       erb :not_found
-      
     end
-        
-  
+
   end
 
   ['/en/2.2.0','/en/2.2.0/','/en/2.2.0/home'].each do |path|
@@ -124,13 +122,9 @@ class Docs < Sinatra::Base
       @recent_api = recent_updates(5,'api',@docversion)
       @recent_blogs = recent_updates(8,'blog','')
 
-    	erb :index
-
-
-  	end
+      erb :index
+    end
   end
-
-
 
   get '/print/home' do 
     @print = 1
@@ -171,32 +165,32 @@ class Docs < Sinatra::Base
     @print = 0
     page = params[:page].to_i
     search, prev_page, next_page = search_for(params[:q], page, params[:c],params[:v])
-	
-	xml_string = '<?xml version="1.0" encoding="UTF-8"?>'
-xml_string +=  ' <rss version="2.0" '
-xml_string +=  '  xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"'
-xml_string +=  '  xmlns:atom="http://www.w3.org/2005/Atom">'
-xml_string +=  '    <channel>'
-xml_string +=  '      <title>RhoMobile Suite Documentation</title>'
-xml_string +=  '      <link>http://docs.rhomobile.com</link>'
-xml_string +=  '      <description>Search results for docs.rhomobile.com</description>'
-xml_string +=  '      <opensearch:totalResults>' + search['matches'].to_s + '</opensearch:totalResults>'
-xml_string +=  '      <opensearch:startIndex>' + ((page + 1) * 10).to_s + '</opensearch:startIndex>'
-xml_string +=  '      <opensearch:itemsPerPage>10</opensearch:itemsPerPage>'
-xml_string +=  '      <opensearch:Query role="request" searchTerms="' + params[:q] + '" startPage="1" />'
-search['results'].each do |result| 
-xml_string +=  '<item>'
-xml_string +=  '       <title><![CDATA[' + result['title'] + ']]></title>'
-xml_string +=  '       <link>' + request.base_url + '/' + result['docid'] + '</link>'
-xml_string +=  '<pubDate>' + File.mtime('docs/' + result['docid'] + '.txt').to_s + '</pubDate>'
-xml_string +=  '       <description><![CDATA['
-xml_string +=  result['snippet_text']
-xml_string +=  '       ]]></description>'
-xml_string +=  '     </item>'
 
-end 
-xml_string +=  '   </channel>'
-xml_string +=  ' </rss>	'
+  	xml_string = '<?xml version="1.0" encoding="UTF-8"?>'
+    xml_string +=  ' <rss version="2.0" '
+    xml_string +=  '  xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"'
+    xml_string +=  '  xmlns:atom="http://www.w3.org/2005/Atom">'
+    xml_string +=  '    <channel>'
+    xml_string +=  '      <title>RhoMobile Suite Documentation</title>'
+    xml_string +=  '      <link>http://docs.rhomobile.com</link>'
+    xml_string +=  '      <description>Search results for docs.rhomobile.com</description>'
+    xml_string +=  '      <opensearch:totalResults>' + search['matches'].to_s + '</opensearch:totalResults>'
+    xml_string +=  '      <opensearch:startIndex>' + ((page + 1) * 10).to_s + '</opensearch:startIndex>'
+    xml_string +=  '      <opensearch:itemsPerPage>10</opensearch:itemsPerPage>'
+    xml_string +=  '      <opensearch:Query role="request" searchTerms="' + params[:q] + '" startPage="1" />'
+    search['results'].each do |result| 
+    xml_string +=  '<item>'
+    xml_string +=  '       <title><![CDATA[' + result['title'] + ']]></title>'
+    xml_string +=  '       <link>' + request.base_url + '/' + result['docid'] + '</link>'
+    xml_string +=  '<pubDate>' + File.mtime('docs/' + result['docid'] + '.txt').to_s + '</pubDate>'
+    xml_string +=  '       <description><![CDATA['
+    xml_string +=  result['snippet_text']
+    xml_string +=  '       ]]></description>'
+    xml_string +=  '     </item>'
+
+  end 
+  xml_string +=  '   </channel>'
+  xml_string +=  ' </rss>	'
 #<?xml version="1.0" encoding="UTF-8"?>
 # <rss version="2.0" 
 #      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
@@ -593,5 +587,3 @@ module TUT
   file = File.dirname(__FILE__) + '/tuts.rb'
   eval File.read(file), binding, file
 end
-
-
