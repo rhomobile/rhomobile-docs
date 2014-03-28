@@ -25,6 +25,10 @@ Android platform specific:
 
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then Zebra SDK enumerate _all_ Bluetooth devices around and you can see a lot of pairing request to non-printer devices too. Just cancel them. This produced because we can not detect printer before real connection to device, but real connection require pairing.
 
+Windows Mobile/CE note:
+
+* Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
     :::ruby

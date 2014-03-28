@@ -33,6 +33,13 @@
 </ul>
 
 
+<p>Windows Mobile/CE note:</p>
+
+<ul>
+<li>Requires a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></li>
+</ul>
+
+
 <h2>Enabling the API</h2>
 
 <p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>

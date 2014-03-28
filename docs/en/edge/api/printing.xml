@@ -5,6 +5,8 @@
         <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</HELP_OVERVIEW>
         <MORE_HELP>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API. Almost all operations are asynchronous, use callbacks for sequence of operations.
 
+NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby

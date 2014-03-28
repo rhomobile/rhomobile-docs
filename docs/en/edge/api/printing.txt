@@ -3,6 +3,8 @@
 <p>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</p>
 <p>This is general API that does not provides access to low level device functions. User should add appropriate extension to gain access to vendor specific API. Almost all operations are asynchronous, use callbacks for sequence of operations.</p>
 
+<p>NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></p>
+
 <h2>Enabling the API</h2>
 
 <p>In order to use this API you must include the following extension in your <code>build.yml</code></p>

@@ -254,12 +254,14 @@ Be sure to disconnect from the printer when not in use. This is especially true 
 
 ## Platform Notes
 ### Windows Mobile / Windows CE
-#### Pre-Installation Notes
+#### Requirements
+Windows Mobile/CE require that a provided `printing-service` application is installed and always running in order to use the [Printing API](../api/printing) or [PrintingZebra API](../api/printingzebra).
+
 * Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device.
 * Windows CE only - You'll need to also install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
 
-#### Installation
-* The .cab file for the printing service is held inside the `printing-service` folder inside your RhoElements directory located at `C:\<path to your rhomobile suite installation>\printing-service\PrintingService.cab`
+#### Printing-Service Installation
+* The .cab file for the printing service is held inside the `printing-service` folder inside your RhoMobile Suite installation directory located at `C:\<path to your rhomobile suite installation>\printing-service\PrintingService.cab`
 
 #### Limitations
 * Currently, the printing service only works with one client at a time but, this will be changed in RE 4.2 to include a multi-client mode.
