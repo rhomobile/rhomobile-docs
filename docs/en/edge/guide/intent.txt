@@ -236,8 +236,8 @@ end</code></pre>
 function sendIntent(){
   var intentParams = {action      : "android.intent.action.SEND",
                       intentType  : Rho.Intent.BROADCAST,
-                      data        : { "android.intent.extra.TEXT" => "Text to send to receiving app." },
-                      mimType     : "text/plain",
+                      data        : { "android.intent.extra.TEXT" : "Text to send to receiving app." },
+                      mimeType     : "text/plain",
                       categories  : "android.intent.category.DEFAULT"}
 
   Rho.Intent.send intentParams
