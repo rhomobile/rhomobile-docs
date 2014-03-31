@@ -192,6 +192,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
         <METHODS access="INSTANCE">            
             <METHOD name="retrieveFileNames" hasCallback="mandatory">
+                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
                 <DESC>Retrieves the names of the files which are stored on the printer. Works asynchronously, use callback to check the result.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
@@ -204,10 +206,11 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                         </PARAM>
                     </PARAMS>
                 </CALLBACK>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="retrieveFileNamesWithExtensions" hasCallback="mandatory">
+                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
                 <DESC>This method only returns files which have the extensions in "extensions". Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="extensions" type="ARRAY">
@@ -226,10 +229,11 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                         </PARAM>
                     </PARAMS>
                 </CALLBACK>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="sendFileContents" hasCallback="optional">
+                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
                 <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
@@ -239,10 +243,11 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR</DESC>
                 </CALLBACK>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="printStoredFormatWithHash" hasCallback="optional">
+                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
                 <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
@@ -255,10 +260,11 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occured.</DESC>
                 </CALLBACK>
-                <PLATFORM>Android, iOS</PLATFORM> 
             </METHOD>
 
             <METHOD name="printStoredFormatWithArray" hasCallback="optional">
+                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
                 <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously, use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
@@ -270,12 +276,13 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 </PARAMS>
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occured. </DESC>
-                </CALLBACK>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                </CALLBACK> 
             </METHOD>
 
             <METHOD name="storeImage" hasCallback="optional">
-                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS is supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
+                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
                 <PARAMS>
                     <PARAM name="printerDriveAndFileName" type="STRING">
                         <DESC>Path on the printer where the image will be stored.</DESC>
@@ -293,17 +300,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR, </DESC>
                 </CALLBACK>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
             </METHOD>
         </METHODS>
 
         <USER_OVERVIEW>
         </USER_OVERVIEW>
 
-        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-
-        <PLATFORM>
-        </PLATFORM>
+        <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+        <PLATFORM>WM, Android, iOS</PLATFORM>
 
         <EXAMPLES>
             <EXAMPLE title="Printing via Bluetooth">
