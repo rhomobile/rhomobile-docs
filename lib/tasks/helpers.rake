@@ -243,4 +243,7 @@ def index_variable_for(version)
   if version == '4.0.0'
     return 4.0
   end
+  if version == '4.1.0'
+    return 4.1
+  end
 end
