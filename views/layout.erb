@@ -38,7 +38,7 @@
         @docversion = Version::CURR_VERSION
       end
         # puts "version #{@docversion}"
-      if  @docversion != Version::PREV_VERSION 
+      if  @docversion != '2.2.0' # needs to stay hardcoded because we did not have folder scheme implemented 
         vpath = ""
         homepath="/en/#{@docversion}/home"
         mapipath="/en/#{@docversion}/guide/apisummary"
@@ -86,6 +86,9 @@
               </optgroup>
                 <optgroup label="Previous Releases">
                 <option value=<%= Version::PREV_VERSION %> <%=@docversion == Version::PREV_VERSION ? 'SELECTED' : ''%>><%= Version::PREV_VERSION %></option>
+                <!-- Keep all previous versions hardcoded -->
+                <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
+                
               </optgroup>
 
               </select>
