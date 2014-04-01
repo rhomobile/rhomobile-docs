@@ -3,8 +3,8 @@
 <API>
   <MODULE name="Adapter" parent="Rho.NFC">
     <HELP_OVERVIEW>NFC Adapter</HELP_OVERVIEW>
-    <MORE_HELP>This class provides access to the NFC device to perform device related NFC operations. All properties and methods should be used after activate. Besides supported and isActive.
-      
+    <MORE_HELP>NFC Adapter provides access to the NFC device to perform device related operations.
+    All properties and methods should be used after activate. Besides supported and isActive.
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
@@ -45,7 +45,7 @@ NOTE: If you are building a Windows Mobile or Windows CE app with this API, you 
         <PLATFORM>WM</PLATFORM>
       </METHOD>
       <METHOD name="reset" access="STATIC">
-        <DESC>Resets the NFC device to default configuration.</DESC>
+        <DESC>Resets the NFC device to default configuration. Pollingtime will set to 90, passkey to empty string.</DESC>
         <PLATFORM>WM</PLATFORM>
       </METHOD>
       <METHOD name="stop" access="STATIC" hasCallback="optional">
@@ -84,7 +84,7 @@ NOTE: If you are building a Windows Mobile or Windows CE app with this API, you 
         <PLATFORM>WM</PLATFORM>
       </METHOD>
       <METHOD name="setConfigChangeHandler" access="STATIC" hasCallback="mandatory">
-        <DESC>Register callback for config change.</DESC>
+        <DESC>Register callback for config change. If you change properties like pollingTimeout, passkey then callback will fire.</DESC>
         <CALLBACK type="HASH">
           <DESC></DESC>
           <PARAMS>

@@ -138,7 +138,7 @@ If you are building an app for Windows Mobile or Windows CE you must specify the
     app_type: "rhoelements"
 
 ### JS API Bridge
-This option is only used for Windows Mobile debugging purposes. If your AJAX-based app is not working properly, you can set this to true.
+This option is typically only used for debugging purposes. If your AJAX-based app is not working properly, you can set this to true. If your application code resides on a remote server (as opposed to running locally), the Rhomobile Javascript APIs will not be available when this settings = `true`
 
     :::yaml
     ajax_api_bridge: true
@@ -213,14 +213,19 @@ List of supported capabilities:
 * config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the Rhomobile Project.
 
 #### Android Specific Settings
-The capabilities listed above are directly related to the Android device capabilities that your app will require and that the user will be asked to give permission to when installing the app. You can add capabilities to your Android app by adding the following to the android section in your build.yml:
+The capabilities listed above are directly related to the Android device capabilities that your app will require and that the user will be asked to give permission to when installing the app. You can add capabilities to your Android app by adding a capabilities section to your build.yml in the android heading as such:
 
     :::yaml
     android:
       capabilities:
           - hardware_acceleration
+      mapping: yes
+      extensions:
+          - gmaps
 
 * hardware_acceleration: enables the hardware_acceleration capability for Android applications
+* mapping: enables the use of mapping apps.
+* gmaps extension: enables the use of Google maps for mapping. In RhoStudio, you can double-click on your application's build.yml and edit from the text editor; otherwise, you can edit build.yml directly.
 
 ### RhoStudio Modification
 You can also edit the capabilities that your app will have access to through RhoStudio. To do this, double click your build.yml in your app's project in the project explorer pane in RhoStudio.

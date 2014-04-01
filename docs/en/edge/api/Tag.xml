@@ -92,7 +92,7 @@ NOTE: If you are building a Windows Mobile or Windows CE app with this API, you 
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
-        <DESC>connected or not</DESC>
+        <DESC>connected or not(if connections between tag and nfc device exists)</DESC>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
 
