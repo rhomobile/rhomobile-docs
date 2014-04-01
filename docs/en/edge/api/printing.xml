@@ -3,7 +3,7 @@
 <API>
     <MODULE name="Printer" parent="Rho">
         <HELP_OVERVIEW>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</HELP_OVERVIEW>
-        <MORE_HELP>This is general API that does not provide access to specific manufacturer's features. The interfaces described here will automatically be included in manufacturer specific printer classes like [PrintingZebra](printingzebra). If you wish to have access to manufacturer specific features you would have to add both both extensions to your build.yml file.
+        <MORE_HELP>This is general API that does not provide access to specific manufacturer's features. The interfaces described here will automatically be included in manufacturer specific printer classes like [PrintingZebra](printingzebra). If you wish to have access to manufacturer specific features you would have to add both extensions to your build.yml file.
 
 NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
 
