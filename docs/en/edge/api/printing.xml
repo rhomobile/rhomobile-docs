@@ -202,7 +202,7 @@ NOTE: on Android platfrom due to HW specific, when you call searchPrinters() for
 
             <METHOD name="stopSearch" access="STATIC">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>Android, iOS</PLATFORM> 
                 <DESC>Stop all active and pending search requests. Function does not return any results. All running search requests are canceled immediately.</DESC>
             </METHOD>
             
