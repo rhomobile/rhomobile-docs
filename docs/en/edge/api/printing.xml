@@ -7,6 +7,7 @@
 
 NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
 
+
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
@@ -462,6 +463,13 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
                 <DESC>
 
 * Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+
+* You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
+
+        window.onunload = function(){
+            printer.disconnect();
+        }
+
             </DESC>                    
             </REMARK>
         </REMARKS>

@@ -11,10 +11,6 @@ In order to use this API you must include the following extension in your `build
     :::ruby
     extensions: ["printing","printing_zebra"]
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must avoid from leaving page without disconnecting from connected printer. Right way for it is using window.onunload event window.onunload = function(){printer.disconnect()}
-
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
@@ -315,7 +311,15 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
             <REMARK title="Windows Mobile/CE Notes">
                 <DESC>
 
+* You must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+
 * Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+   
+* You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
+
+        window.onunload = function(){
+            printer.disconnect();
+        }
             </DESC>                    
             </REMARK>
         </REMARKS>

@@ -9,10 +9,6 @@
 extensions: ["printing","printing_zebra"]
 </code></pre>
 
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must avoid from leaving page without disconnecting from connected printer. Right way for it is using window.onunload event window.onunload = function(){printer.disconnect()}</p>
-
 <h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
@@ -300,7 +296,14 @@ myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
 </ul>
 
   </div></div></div></div><a name='r2'></a><div class=' remarks' id='r2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark2"><strong>Windows Mobile/CE Notes</strong></div><div id="cRemark2" class="accordion-body">  <div class="accordion-inner"><ul>
-<li>Requires a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></li>
+<li><p>You must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p></li>
+<li><p>Requires a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></p></li>
+<li><p>You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:</p>
+
+<pre><code>  window.onunload = function(){
+      printer.disconnect();
+  }
+</code></pre></li>
 </ul>
 
   </div></div></div></div></div>
