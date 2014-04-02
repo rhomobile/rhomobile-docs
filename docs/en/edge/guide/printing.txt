@@ -257,7 +257,7 @@ Be sure to disconnect from the printer when not in use. This is especially true 
 #### Requirements
 Windows Mobile/CE require that a provided `printing-service` application is installed and always running in order to use the [Printing API](../api/printing) or [PrintingZebra API](../api/printingzebra).
 
-* Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device.
+* Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device. You may find the device installation package on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\NETCFv35.wm.armv4i.cab`
 * Windows CE only - You'll need to also install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
 
 #### Printing-Service Installation
