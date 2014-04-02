@@ -30,6 +30,8 @@ RhoStudio will, by default, switch to the 'Debug' perspective, and it will estab
 ## Debugging an App on an Android Device
 To use RhoStudio to debug a RhoMobile application running on your Android device you'll want to make sure that your computer can "see" your android device using the adb command. So make sure your device's USB debugging is on and run the adb command in your terminal or command prompt and confirm that your device shows up. Once you have ensured that your computer recognizes your device, follow these steps:
 
+***NOTE: The device also needs to be on the same WiFi as the build machine. In the case where the build machine is connected to multiple networks, you may also need to put a parameter in your `rhoconfig.txt` : `debughosturl='your build machine ip address'`***
+
 * Select "Android" for the platform.
 * Select "Device" for simulator type to debug on your device using RhoSimulator.
 * Click 'Debug' to start the debugger.
