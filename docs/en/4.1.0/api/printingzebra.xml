@@ -255,7 +255,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <METHOD name="storeImage" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
+                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS, Android and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
                 <PARAMS>
                     <PARAM name="printerDriveAndFileName" type="STRING">
                         <DESC>Path on the printer where the image will be stored.</DESC>
@@ -320,6 +320,9 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
         window.onunload = function(){
             printer.disconnect();
         }
+
+* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
+
             </DESC>                    
             </REMARK>
         </REMARKS>
