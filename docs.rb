@@ -134,13 +134,13 @@ class Docs < Sinatra::Base
 
   get '/search' do
     @print = 0
-    # puts params
+    q = params[:q].gsub(':','\:')
     page = params[:page].to_i
     category = params[:c]
     version = params[:v]
-    total,dum_prev,dumb_next = search_for(params[:q], page, '','')
+    total,dum_prev,dumb_next = search_for(q, page, '','')
 
-    search, prev_page, next_page = search_for(params[:q], page, params[:c],params[:v])
+    search, prev_page, next_page = search_for(q, page, params[:c],params[:v])
 
     #searchify object 
     categories = {}
@@ -372,7 +372,6 @@ end
       end
       
       categories["chunknum"] = '0'
-      # puts categories
       search = index.search(query, :start => page * 10, :len => 10, 
         :fetch => 'title,dockey,version,category,docexternal', 
         :snippet => 'text', :category_filters => categories)
