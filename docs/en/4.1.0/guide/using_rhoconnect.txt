@@ -149,10 +149,10 @@ RhoConnectClient returns information about the ongoing synchronization via the n
 
 The below parameters are included in all notifications:
 
-* `source_id` – The id of the current model that is synchronizing.
+* `source_id`   – The id of the current model that is synchronizing.
 * `source_name` – Name of the model (i.e. “Account”)
-* `sync_type` – Type of sync used for this model: “incremental” or “bulk”
-* `status` – Status of the current sync process. See below for the possible values:
+* `sync_type`   – Type of sync used for this model: “incremental” or “bulk”
+* `status`      – Status of the current sync process. See below for the possible values:
 
 Additionally, depending on the value of `status`, additional information will be present:
 
@@ -162,32 +162,33 @@ The parameters returned for `in_progress` status vary according to the sync type
 
 #### "incremental" sync parameters
 
-* `total_count` – Total number of records that exist for this RhoConnect source.
-* `processed_count` – Number of records included in the sync page.
+* `total_count`      – Total number of records that exist for this RhoConnect source.
+* `processed_count`  – Number of records included in the sync page.
 * `cumulative_count` – Number of records processed so far for this source.
 
 #### "bulk" sync parameters
 
-* `partition` – Current bulk sync partition.
-* `bulk_status` – The state of the bulk sync process as a `hash` with the below values:
-    * `start` – Bulk sync has started for a specific partition
-    * `download` – Bulk sync file download has started
+* `partition`     – Current bulk sync partition.
+* `bulk_status`   – The state of the bulk sync process as a `hash` with the below values:
+    * `start`     – Bulk sync has started for a specific partition
+    * `download`  – Bulk sync file download has started
     * `change_db` – New bulk sync database change has started
-    * `blobs` – Bulk sync blob files have started to download
-    * `ok` – Current partition has completed
-    * `complete` – All partitions have completed
+    * `blobs`     – Bulk sync blob files have started to download
+    * `ok`        – Current partition has completed
+    * `complete`  – All partitions have completed
 
 ### Status "error"
 
-* `error_code` – HTTP response code of the RhoConnect server error: 401, 500, 404, etc.
-* `error_message` – Response body (if any)
-* `server_errors` – Hash of Type objects of RhoConnect adapter error (if exists):
-    * `login-error` – An error in adapter login method
-    * `query-error` – An error in adapter query method
-    * `create-error` – An error in adapter create method
-    * `update-error` – An error in adapter update method
-    * `delete-error` – An error in adapter delete method
-    * `logoff-error` – An error in adapter logoff method
+* `error_code`           – HTTP response code of the RhoConnect server error: 401, 500, 404, etc.
+* `error_message`        – Response body (if any)
+* `server_errors`        – Hash of Type objects of RhoConnect adapter error (if exists):
+    * `login-error`          – An error in adapter login method
+    * `query-error`          – An error in adapter query method
+    * `create-error`         – An error in adapter create method
+    * `update-error`         – An error in adapter update method
+    * `delete-error`         – An error in adapter delete method
+    * `logoff-error`         – An error in adapter logoff method
+    * `unknown-client-error` - An error wherein the server cannot find the client ID.
     
 Each error contains a `message` key with the error message. For example:
 
@@ -202,8 +203,8 @@ JavaScript syntax:
 
 ### Status "ok"
 
-* `total_count` – Total number of records that exist for this RhoConnect source.
-* `processed_count` – Number of records included in the last sync page.
+* `total_count`      – Total number of records that exist for this RhoConnect source.
+* `processed_count`  – Number of records included in the last sync page.
 * `cumulative_count` – Number of records processed so far for this source.
 
 ### Status "complete"
