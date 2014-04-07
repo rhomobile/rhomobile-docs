@@ -258,18 +258,6 @@ In case of troubles in Eclipse while setting up the Android SDK and target, try 
 It is possible your application has stopped unexpectedly just after the first build. In this case try to copy auto-generated java source files from the application folder <app>/bin/tmp to the Rhodes project.
 
 ## Getting application log from device or emulator
-
-To get application log from device or emulator, from your application folder or from root of rhodes source tree (place where rhobuild.yml is located), issue command:
-
-	:::term
-	$ rake device:android:getlog
-
-Or
-	:::term
-	$ rake emulator:android:getlog
-	
-Application log will be pulled from device/emulator and stored in your application directory with name RhoLog.txt.
-
 To see all emulator messages, run 'adb logcat' and start application on emulator.
 
 To see all device messages, run 'adb -d logcat' and start application on device.
