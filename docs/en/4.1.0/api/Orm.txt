@@ -3,13 +3,21 @@
 <p>This JavaScript API class allows you to interact with the local RHOM database and programatically add models or get references to models.</p>
 <h2>Enabling the API</h2>
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.
-  :::ruby
-  extensions: [&ldquo;coreapi&rdquo;]</p>
+<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+
+<pre><code>:::ruby
+extensions: ["coreapi"]
+</code></pre>
 
 <h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+<p>If you are going to be using the JS ORM API, you&rsquo;ll also need to include this line in any files that will be using it:</p>
+
+<pre><code>:::html
+&lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"&gt;&lt;/script&gt;
+</code></pre>
 
 <h2>Ruby Usage</h2>
 
