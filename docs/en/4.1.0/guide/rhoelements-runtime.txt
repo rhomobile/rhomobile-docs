@@ -4,9 +4,6 @@ If you have an existing application that is running from a web server, it is ver
 
 **NOTE: RhoMobile Suite 4.0 provides a RhoElements Shared Runtime for Windows Mobile/CE only. It includes access to all JS API's and default API extensions and capabilities. The Shared Runtime requires a RhoElements license.**
 
-
-
-
 To enable your web app for RhoElements, perform these steps.
 
 1. Install the RhoElements Runtime
@@ -38,6 +35,12 @@ For example if you placed your html files in `Program Files\RhoElements\rho\apps
 
     :::javascript
     <script src="api/rhoapi-modules.js" type="text/javascript"></script>
+
+### JavaScript ORM
+If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
 NOTE: You do not need to place your HTML files in the `Program Files\RhoElements\rho\apps\public` folder. Just be sure to copy the `rhoapi-modules.js` to the folder you are using and reference it appropriately.
 
@@ -85,25 +88,25 @@ NOTE: Urls that contain query string parameters (?name=value) can not be used wi
 
 The format in the .lnk file is:
 
-	<line-length>#<runtime-exe> <command-line-parameter> <app-folder>
+    <line-length>#<runtime-exe> <command-line-parameter> <app-folder>
 
 For example, this code in the .lnk file will change the startup page to be a local HTML file.
 
-	70#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\helloscan.html
+    70#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\helloscan.html
 
 
 ## Running Multiple Web Apps
 
 If you have multiple web apps that you would like to point RhoElements Runtime to, you can create multiple shortcuts as described above. For example, one startup file could be:
 
-	68#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
+    68#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
 
 And another could be:
 
-	66#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
+    66#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
 
 NOTE: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL.
-	
+    
 
 ## Understanding RhoElements Configuration Parameters
 
@@ -125,7 +128,7 @@ The RhoElements Runtime is a prebuilt Rhodes application that launches in full s
 
 On the command line on your Windows PC, navigate to this folder:
 
-	<RhoMobile Suite Install Folder>\Rhoelements2
+    <RhoMobile Suite Install Folder>\Rhoelements2
 
 To build, run this command.
 
@@ -223,7 +226,7 @@ It is recommended that the JavaScript objects are preloaded if they are being us
             <PreloadJSObjects     VALUE="1"/>
         </Preloads>
     </NPAPI>
-NOTE: Some JavaScript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.     
+NOTE: Some JavaScript libraries may incorrectly think that RhoElements supports traditional ActiveX. By only loading the JS objects described above may resolve this issue.
 
 ###Plugin Dependencies
 Some plugins depend on other plugins to function properly, this section details the relationships between plugins and how the absence of one will affect the other.  If the required plugin is not preloaded RhoElements will load it at runtime; to produce the best user experience it is recommended to preload all required plugins.  If the required plugin can not be loaded (e.g. the DLL is missing from the device or Plugin.xml) the dependant plugin will function with reduced capabilities.
@@ -236,5 +239,3 @@ The [File Transfer Plugin](../../2.2.0/rhoelements/filetransfer) (PB_FileTransfe
 The buttons and command areas (PB_Controls_PLG.dll) require File Transfer if you specify a remote image for the 'ImageUp' or 'ImageDown' parameters.  If the file transfer plugin can not be loaded the default image will be shown on the button / command area.  The following modules are affected in PB_Controls_PLG: [Back Button](../../2.2.0/rhoelements/backbutton), [Forward Button](../../2.2.0/rhoelements/forwardbutton), [Go Button](../../2.2.0/rhoelements/gobutton), [Home Button](../../2.2.0/rhoelements/HomeButton), [Minimize Button](../../2.2.0/rhoelements/minimizebutton), [Quit Button](../../2.2.0/rhoelements/quitbutton), [Reload Button](../../2.2.0/rhoelements/reloadbutton), [SIP Button](../../2.2.0/rhoelements/sipbutton), [Stop Button](../../2.2.0/rhoelements/stopbutton), [Bottom Command Area](../../2.2.0/rhoelements/bottomcommandarea), [Top Command Area](../../2.2.0/rhoelements/topcommandarea)
 
 The [Imager](../../2.2.0/rhoelements/imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if you transmit the captured image to a remote server via the 'Capture' method.  Without File Transfer the file will not be transferred and the image will be stored by default in the root of the device, overwritten by each subsequent capture.
-
-

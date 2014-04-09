@@ -1,25 +1,25 @@
-# Migrating your RhoMobile application to 4.0
+# Migrating your RhoMobile application to 4.X
 
-RhoMobile Suite 4.0 offers a set of common API's to access device,system and framework capabilities across JavaScript and Ruby. 
+RhoMobile Suite 4.0 and up offers a set of common API's to access device,system and framework capabilities across JavaScript and Ruby. 
 
 
 ## RhoConnect Client
-In RhoMobile Suite 4.0, the RhoConnect Client is available via an extension. In order to use the RhoConnect Client, you must specify `rhoconnect-client` in your applications `build.yml` `extensions` section. If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
+In RhoMobile Suite 4.0 and up, the RhoConnect Client is available via an extension. In order to use the RhoConnect Client, you must specify `rhoconnect-client` in your applications `build.yml` `extensions` section. If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
 
 	:::ruby
 	extensions: ["rhoconnect-client"]
 
 ## Android WebKit
-In RhoMobile Suite 4.0, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 4.0 RhoElement API's will only work using the stock webkit. RhoElement API's that have [not yet moved](#using-22-apirsquos) to version 4.0, however will only work on the Motorola Webkit for Android.
+In RhoMobile Suite 4.0 and up, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 4.0 RhoElement API's will only work using the stock webkit. RhoElement API's that have [not yet moved](#using-22-apirsquos) to version 4.0, however will only work on the Motorola Webkit for Android.
 
 ## Shared Runtime
 In RhoMobile Suite 2.0, there was a [RhoElements Shared Runtime](rhoelements-runtime) that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and build a RhoMobile application. Although the RhoMobile Suite 4.0 installation includes a pre-built shared runtime for Windows Mobile and Windows CE it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## JavaScript Licensing
-In RhoMobile Suite 4.0 more API's have JavaScript access that did not have this interface before. In addition some API's previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 4.0, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
+In RhoMobile Suite 4.0 and up, more API's have JavaScript access that did not have this interface before. In addition some API's previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 4.0 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
 
 ## API Platform Support
-It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 4.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [4.0 API Summary](apisummary) for an overview.
+It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 4.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
 
 ## Replaced APIs
 In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description. 
@@ -331,28 +331,28 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 
 **NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
-* [Mapview](../rhodesapi/mapview-api)
-* [Camera](../rhodesapi/camera-api/)
-* [Contacts](../rhodesapi/rhocontact-api)
+* [Mapview](../../2.2.0/rhodesapi/mapview-api)
+* [Camera](../../2.2.0/rhodesapi/camera-api/)
+* [Contacts](../../2.2.0/rhodesapi/rhocontact-api)
 * Calendar
 * System.Process
-* [Registry](../rhoelements/registry)
-* [AudioCapture](../rhoelements/AudioCapture)
-* [Config](../rhodesapi/rhoconfig-api)
-* [GeoLocation](../rhodesapi/geolocation-api)
-* [Gesture](../rhoelements/Gesture)
+* [Registry](../../2.2.0/rhoelements/registry)
+* [AudioCapture](../../2.2.0/rhoelements/AudioCapture)
+* [Config](../../2.2.0/rhodesapi/rhoconfig-api)
+* [GeoLocation](../../2.2.0/rhodesapi/geolocation-api)
+* [Gesture](../../2.2.0/rhoelements/Gesture)
 * Printing
-* [Systemtime](../rhoelements/systemTime)
-* [Comm](../rhoelements/comm)
-* [Addressbar](../rhoelements/addressbar)
-* [Alarm](../rhoelements/alarm)
-* [Bluetooth](../rhodesapi/bluetoothmanager-api)
-* [NFC](../rhodesapi/NFCManager-api)
-* [Timer](../rhodesapi/timer-api)
-* [Backlight](../rhoelements/backlight)
-* [Keylight](../rhoelements/Keylight)
-* [Memory](../rhoelements/memory)
-* [Reboot](../rhoelements/reboot)
+* [Systemtime](../../2.2.0/rhoelements/systemTime)
+* [Comm](../../2.2.0/rhoelements/comm)
+* [Addressbar](../../2.2.0/rhoelements/addressbar)
+* [Alarm](../../2.2.0/rhoelements/alarm)
+* [Bluetooth](../../2.2.0/rhodesapi/bluetoothmanager-api)
+* [NFC](../../2.2.0/rhodesapi/NFCManager-api)
+* [Timer](../../2.2.0/rhodesapi/timer-api)
+* [Backlight](../../2.2.0/rhoelements/backlight)
+* [Keylight](../../2.2.0/rhoelements/Keylight)
+* [Memory](../../2.2.0/rhoelements/memory)
+* [Reboot](../../2.2.0/rhoelements/reboot)
 
 ### RhoElements 2.2 APIs
 The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
@@ -367,6 +367,11 @@ To generate this file you must enable JavaScript by putting `rho-javascript` int
 
 And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
 
+### JavaScript ORM
+If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
+
+	:::html
+	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
 ## Backwards Compatibility Notes
 

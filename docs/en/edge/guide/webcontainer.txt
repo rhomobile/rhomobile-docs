@@ -86,7 +86,7 @@ Follow the steps for the target platform and return here to contuinue
 * [Build for Windows Phone 8](build_wp8)
 * [Build for Windows](build_win)
 
-## 9) Enabling JavaScript on your Web App
+## 8) Enabling JavaScript on your Web App
 Now that you have a RhoMobile Web App container pointed to your web server, you need to configure your web application on your server to enable the RhoMobile JavaScript APIs. In order to do this, you must:
 
 a) **Generate the `rhoapi-modules.js` file**
@@ -112,3 +112,10 @@ For example if you placed `rhoapi-modules.js` in `[webserver app root]\js\` then
 
     :::javascript
     <script src="js/rhoapi-modules.js" type="text/javascript"></script>
+
+d) **JS ORM**
+
+If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>

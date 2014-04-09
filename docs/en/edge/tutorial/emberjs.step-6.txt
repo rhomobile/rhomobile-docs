@@ -289,6 +289,9 @@ In order to use the Rhom JS APIs that we used in our adapter, we need to add ref
     <script src="js/libs/ember-data.js"></script>
     <script src="js/app.js"></script>
 
+
+**NOTE: If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it: `<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>`**
+
 ## Persistent Data
 Now we should have all of the pieces we need to keep our data persistent using Rhom as the storage mechanism though the Ember `RhomDataAdapter`. If you relaunch the application, you will first see that there are no products in the list:
 

@@ -564,5 +564,11 @@ To generate this file you must enable JavaScript by putting `rho-javascript` int
 	:::yaml
 	extensions: ["rho-javascript"]
 
-And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
+### JavaScript APIs
+To use the JavaScript APIs in RE 2.2, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
 
+### JavaScript ORM
+If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
