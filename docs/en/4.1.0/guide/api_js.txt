@@ -12,6 +12,11 @@ Your html or erb pages must include reference to this file otherwise you will no
 
 **NOTE: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded. In RhoMobile suite 2.2, some `Rhodes` APIs were made available via JavaScript. However please note that the name of the RhoMobile javacript file has changed. It is no longer `rho_javscript_api.js`.**
 
+## JavaScript ORM
+If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
 ## JavaScript RhoMobile Application Structure
 The following application structure is what is minimally required to build a JavaScript RhoMobile Application. You can still use the [App Generator](creating_a_project#creating-a-project-with-rhostudio) to create the default structure, but then remove the `app` folder that is generated for a `Ruby` MVC app.
@@ -198,5 +203,3 @@ You may want the callback to return to a ruby controller method or a particular 
 
 		render :action => :list
 	end
-
-
