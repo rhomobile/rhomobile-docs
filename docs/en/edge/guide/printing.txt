@@ -194,7 +194,7 @@ Example using `printStoredFormatWithArray`
 
 Example using `printStoredFormatWithHash`
 	:::javascript 
-	myPrinter.printStoredFormatWithArray('E:LABEL.ZPL',{ '1':'John Doe','2': '123 East Main St','3': Smalltown, NY 11766'},function (e){
+	myPrinter.printStoredFormatWithHash('E:LABEL.ZPL',{ '1':'John Doe','2': '123 East Main St','3': Smalltown, NY 11766'},function (e){
 
 		// e = PRINTER_STATUS... CONSTANT String
 		if(e == 'PRINTER_STATUS_SUCCESS')
