@@ -158,7 +158,7 @@ section 'rhomob-dev',                                     'Device Capabilities',
   topic 'en/4.1.0/guide/html5',                            'Html5 Tags'
   topic 'en/4.1.0/guide/handling_local_files',             'File System'
   topic 'en/4.1.0/guide/geolocation',                      'Geolocation'
-  topic 'en/4.1.0/guide/intent',                           'Intents'
+  topic 'en/4.1.0/guide/Intent',                           'Intents'
   topic 'en/4.1.0/guide/localization',                     'Localization'
   topic 'en/4.1.0/guide/maps',                             'Mapping'
   topic 'en/4.1.0/guide/media',                            'Media & Ringtones'
