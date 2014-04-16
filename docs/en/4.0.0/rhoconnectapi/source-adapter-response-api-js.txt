@@ -1,6 +1,6 @@
 Source Adapter Response API (JavaScript)
 ===
-The Source Adapter Response API provides access to the HTTP response context (typically as a variable called `resp`) and can be used in your model or controller.  The response object manages the control flow of your JavaScript business logic, so it is important to always call [resp.send()](#send) in your functions so that they don't hang.
+The Source Adapter Response API provides access to the HTTP response context (typically as a variable called `resp`) and can be used in your model or controller.  The response object manages the control flow of your JavaScript business logic, so it is important to always call [resp.send()](#sendvalue) in your functions so that they don't hang.
 
 ## params
 A hash of parameters available from the request.

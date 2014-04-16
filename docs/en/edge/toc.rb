@@ -212,6 +212,7 @@ section 'rhoconnect-ruby-api-reference',                            'Source Adap
   topic 'en/edge/rhoconnect/rest-api',                              'RhoConnect REST API'
   topic 'en/edge/rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API'
   topic 'en/edge/rhoconnectapi/source-adapter-model-api-ruby',      'Source Adapter Model API'
+  topic 'en/edge/rhoconnectapi/source-adapter-store-api-ruby',      'Source Adapter Store API'
   topic 'en/edge/rhoconnectapi/test-api-ruby',                      'Source Adapter Test API'
 end
 
