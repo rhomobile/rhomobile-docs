@@ -195,9 +195,8 @@ NOTE: In Windows Mobile/CE using Zebra printers, this will not print ZPL command
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Printing via Bluetooth</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
 <p>To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the &lsquo;deviceAddress&rsquo; parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a &lsquo;printerID&rsquo; property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.</p>
-<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
 var printers = [];
 
 Rho.Printer.searchPrinters({ 
@@ -222,12 +221,32 @@ Rho.Printer.searchPrinters({
         }
     }
 );
-                   
+
+                            </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
+printers = []
+
+Rho::Printer.searchPrinters({ connectionType =&gt; Rho::Printer::CONNECTION_TYPE_BLUETOOTH,  
+                              printerType    =&gt; Rho::Printer::PRINTER_TYPE_ZEBRA }, 
+                              printer_callback )
+
+def find_printer_callback(cb_data)
+  if cb_data.status == 'PRINTER_STATUS_SUCCESS'
+    if defined? cb_data.printerID
+      puts "Found: #{cb_data.printerID}"
+      printers.push cb_data.printerID
+    else
+      puts "Done Searching"
+    end
+  else
+    puts cb_data.status
+  end
+end
+
                             </code></pre></div></div>
 <p>Now that we have found a printer. The <code>printers</code> array will contain the <code>printerID</code> we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is &lsquo;0000&rsquo; or &lsquo;1111&rsquo; or &lsquo;1234&rsquo;. Once it is connected, you should see some indication in the printer (like a blue light).</p>
-<ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
+<ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
 
-           
 var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
 // Let's try connecting
@@ -241,12 +260,30 @@ myPrinter.connect(function (cb){
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
-                   
+
+                            </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
+
+my_printer = Rho::Printer.getPrinterByID printers[0]
+
+# Let's try connecting
+my_printer.connect printer_connect_callback
+
+def printer_connect_callback(cb_data)
+  puts connect_data
+  # This will be the Zebra's `Friendly Name` 
+  # by default it is the serial number
+
+  puts my_printer.deviceName
+
+  # This will be the BT MAC Address
+  # since we are connecting via BlueTooth
+  puts my_printer.deviceAddress
+end
+
                             </code></pre></div></div>
 <p>Now we can just print a test string and read some properties of the printer to make sure the communications is working.</p>
-<ul class='nav nav-tabs' id='exI0-S2Tab'><li class='active'><a href='#exI0-S2JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S2JS'><pre class='CodeRay'><code>:::javascript
+<ul class='nav nav-tabs' id='exI0-S2Tab'><li class='active'><a href='#exI0-S2JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S2JS'><pre class='CodeRay'><code>:::javascript
 
-           
 // If my printer was in line mode I would see this text printed
 myPrinter.printRawString('This is a test print');
 
@@ -254,7 +291,7 @@ myPrinter.printRawString('This is a test print');
 // changing from linemode to ZPL mode
 myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
 
-//Get state - this is realtime status of printer
+// Get state - this is real-time status of printer.
 // reading a property of the myPrinter instance will
 // show last known status
 myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
@@ -265,6 +302,28 @@ myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
 
     });
                    
+                            </code></pre></div><div class='tab-pane' id='exI0-S2RUBY'><pre class='CodeRay'><code>:::ruby
+
+# If my printer was in line mode I would see this text printed
+my_printer.printRawString 'This is a test print'
+
+# Example of sending a Zebra CPCL Command
+# changing from linemode to ZPL mode
+my_printer.printRawString '! U1 setvar "device.languages" "ZPL"\r\n'
+
+# Get state - this is real-time status of printer.
+# reading a property of the my_printer instance will
+# show last known status
+my_printer.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
+                         'PRINTER_STATE_IS_PAPER_OUT'],
+                         'request_state_callback');
+
+def request_state_callback(cb_data)
+  puts cb_data.status
+  puts cb_data::PRINTER_STATE_IS_PAPER_OUT
+  puts cb_data::PRINTER_STATE_IS_READY_TO_PRINT
+end
+
                             </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>

@@ -8,7 +8,7 @@ example, a driver's license can be thought of as a template containing regions s
 and photo, each of these regions are processed and returned to RhoElements separately by DPX so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
-online at [The MSI DPX template builder](https://dpx-uat.motorolasolutions.com/).
+on-line at [The MSI DPX template builder](https://dpx-uat.motorolasolutions.com/).
     </HELP_OVERVIEW>
     <MORE_HELP>
 ## Enabling the API
@@ -22,8 +22,7 @@ in JavaScript.
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
-Ruby.
-    </MORE_HELP>
+Ruby.</MORE_HELP>
 
     <TEMPLATES>
       <DEFAULT_INSTANCE/>
@@ -34,8 +33,7 @@ Ruby.
       <DESC>These properties are used to configure how the DPX works, for example how feedback is provided to the user
       </DESC>
       <PROPERTY name="template" type="STRING">
-        <DESC>The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created online at https://dpx-uat.motorolasolutions.com/.
-        </DESC>
+        <DESC>The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created online at https://dpx-uat.motorolasolutions.com/.</DESC>
       </PROPERTY>
       <PROPERTY name="audioFeedback" type="BOOLEAN" default="true">
         <DESC>Whether or not to provide audio feedback to the user following document processing.</DESC>
@@ -46,19 +44,32 @@ Ruby.
       <PROPERTY name="hapticFeedback" type="BOOLEAN" default="true">
         <DESC>Whether or not to provide haptic feedback to the user following document processing.</DESC>
       </PROPERTY>
+      <PROPERTY name="autoImageCapture" type="BOOLEAN" default="true">
+        <DESC>If true, form will be captured automatically when detected.
+          If false, user must manually tap screen or press trigger to capture the form.</DESC>
+      </PROPERTY>
+      <PROPERTY name="frameThreshold" type="INTEGER" default="15">
+        <DESC>Only used if autoImageCapture is enabled. The number of correct frames that is needed to pass before DPX will automatically start to process form. This should be between 5 and 30.</DESC>
+      </PROPERTY>
+      <PROPERTY name="negativeFrameThreshold" type="INTEGER" default="2">
+        <DESC>Only used if autoImageCapture is enabled. Number of incorrect frames that is allowed to pass before the frame counter is reset for automatic image capture. This should be between 0 and 20.</DESC>
+      </PROPERTY>
+      <PROPERTY name="delayResultDisplay" type="BOOLEAN" default="false">
+        <DESC>If true, the success event will be sent only after the DPX dialog is dismissed. If false, the event will be sent immediately after the results are ready. A false value is recommended unless direct interaction with the underlying application is necessary (e.g. keystroke input).</DESC>
+      </PROPERTY>
       <PROPERTY name="ledFeedback" type="BOOLEAN" default="true">
         <DESC>Whether or not to provide LED feedback to the user following document processing.</DESC>
       </PROPERTY>
       <PROPERTY name="flashMode" type="STRING" default="off">
-        <DESC>Flash mode (off, on).</DESC>
+        <DESC>Flash mode (off, on, disabled).</DESC>
         <VALUES>
-          <VALUE constName="FLASH_OFF"  value="off"><DESC>Turn flash off.</DESC></VALUE>
-          <VALUE constName="FLASH_ON"   value="on"><DESC>Turn flash on.</DESC></VALUE>
+          <VALUE constName="FLASH_OFF" value="off"><DESC>Turn flash off.</DESC></VALUE>
+          <VALUE constName="FLASH_ON" value="on"><DESC>Turn flash on.</DESC></VALUE>
+          <VALUE constName="FLASH_DISABLED" value="disabled"><DESC>Disable flash.</DESC></VALUE>
         </VALUES>
       </PROPERTY>
       <PROPERTY name="identificationTimeout" type="INTEGER" default="15000">
-        <DESC>The length of time, in milliseconds that the processing engine has to recognize the image from the provided template. From 0 to 20000 in increments of 100.
-        </DESC>
+        <DESC>The length of time, in milliseconds that the processing engine has to recognize the image from the provided template. From 0 to 20000 in increments of 100.</DESC>
       </PROPERTY>
       <PROPERTY name="inputSource" type="STRING" default="camera">
         <DESC>Defines where the document should be captured from. The only supported source is camera.</DESC>
@@ -71,6 +82,9 @@ Ruby.
       </PROPERTY>
       <PROPERTY name="templateDirectory" type="STRING" default="/sdcard/templates">
         <DESC>Specify where to store downloaded templates. See [fetchTemplates()](#mfetchTemplates)</DESC>
+      </PROPERTY>
+      <PROPERTY name="decodeAudioFeedback" type="STRING" default="system/media/audio/notifications/decode.wav">
+        <DESC>Specifies the decode sound (beep) that is heard when a form is decoded.</DESC>
       </PROPERTY>
       <PROPERTY name="logDirectory" type="STRING" default="/sdcard/DPXLog">
         <DESC>Specify which directory to search for logs in.</DESC>
@@ -225,139 +239,221 @@ Ruby.
         <DESC>Close DPX engine, and release allocated resources. When capturing images, this is especially important since they are made available temporarily.</DESC>
       </METHOD>
     </METHODS>
+
     <USER_OVERVIEW>
     </USER_OVERVIEW>
+
     <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+
     <PLATFORM>
     </PLATFORM>
-        <EXAMPLES>
-            <EXAMPLE title="Download Templates">
-                <SECTIONS>
-                    <SECTION>
-                        <DESC>Before you are able to process any documents with the DPX engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the DPX Engine as well as your application. To retrieve the templates from the server, you would use the `fetchTemplates` method. This method will communicate with the DPX backend and download the templates to the folder that is specificed by the [templateDirectory property](#ptemplateDirectory)</DESC>
-                        <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
-function downloadDPXTemplates(user,password){
+
+    <EXAMPLES>
+      <EXAMPLE title="Download Templates">
+        <SECTIONS>
+          <SECTION>
+            <DESC>Before you are able to process any documents with the DPX engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the DPX Engine as well as your application. To retrieve the templates from the server, you would use the `fetchTemplates` method. This method will communicate with the DPX back-end and download the templates to the folder that is specified by the [templateDirectory property](#ptemplateDirectory)</DESC>
+            <CODE>
+              <JAVASCRIPT><![CDATA[
+function downloadDPXTemplates(user, password){
   // If you include your DPX template files in the applications public folder
   // the DPX engine will not be able to access them due to Android
   // security policies
 
   Rho.DPX.templateDirectory = 'file:///sdcard/Templates';
-  Rho.DPX.fetchTemplates(user,password);
+  Rho.DPX.fetchTemplates(user, password);
   templates = Rho.RhoFile.listDir(Rho.DPX.templateDirectory);
+  
   for (var i = 0; i < templates.length; ++i) {
-      console.log(templates[i]);
+    console.log(templates[i]);
   }
 }
+           ]]></JAVASCRIPT>
+              <RUBY><![CDATA[
+def download_dpx_templates(user, password)
+  # If you include your DPX template files in the applications public folder
+  # the DPX engine will not be able to access them due to Android
+  # security policies.
 
-                   ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
-                  </SECTIONS>
-            </EXAMPLE>
-            <EXAMPLE title="Capture Document">
-                <SECTIONS>
-                    <SECTION>
-                        <DESC>The only requirement for capturing a document is to have the DPX template file location set using the `DPX.template` property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the DPX engine (i.e. it cannot be in the applications `public` folder)</DESC>
-                        <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
-  // POSTAL.XML was exported from the DPX Template Builder
-  // In the Template Builder there were several fields defined
+  Rho::DPX.templateDirectory = 'file:///sdcard/Templates'
+  Rho::DPX.fetchTemplates user, password
+  templates = Rho::RhoFile.listDir Rho::DPX.templateDirectory
 
-  Rho.DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
-  
-  // Once the captureDocument method is launched,
-  // the DPX Engine dialog appears instructing the
-  // user to hold the device steady over the printed label
-  // The callback function will be triggered possibly for
-  // many reasons
-  Rho.DPX.captureDocument(function(params){
-    if(params.callbackType == Rho.DPX.SUCCESS )
-    {
-      // process the returned object:
-      var returnedField = params.processedForm;
-      processDPXForm(returnedField);
+  templates.each do |template|
+    puts template
+  end
+end
+           ]]></RUBY>
+            </CODE>
+          </SECTION>
+        </SECTIONS>
+      </EXAMPLE>
+
+      <EXAMPLE title="Capture Document">
+        <SECTIONS>
+          <SECTION>
+            <DESC>The only requirement for capturing a document is to have the DPX template file location set using the `DPX.template` property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the DPX engine (i.e. it cannot be in the applications `public` folder)</DESC>
+            <CODE>
+              <JAVASCRIPT><![CDATA[
+// POSTAL.XML was exported from the DPX Template Builder
+// In the Template Builder there were several fields defined
+
+Rho.DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
+
+// Once the captureDocument method is launched,
+// the DPX Engine dialog appears instructing the
+// user to hold the device steady over the printed label
+// The callback function will be triggered possibly for
+// many reasons
+Rho.DPX.captureDocument(function(params){
+
+  if(params.callbackType == Rho.DPX.SUCCESS ){
+    // process the returned object:
+    var returnedField = params.processedForm;
+    processDPXForm(returnedField);
+  }
+
+  if(params.callbackType == Rho.DPX.FAILURE ){
+    if(params.failureReason == Rho.DPX.FAILURE_IDENTIFICATION_TIMEOUT){
+      // This means it could not identify the label based on the template used
+      // Possible reasons
+      //    -label is the wrong label
+      //    -Template is poorly defined 
+      //      maybe scanned in image for defining was not high enough resolution
+      //    -camera cannot focus
+
+      // This may trigger multiple times and may not warrant display information 
+      // in your app - the DPX engine will prompt the user in most cases
     }
-    if(params.callbackType == Rho.DPX.FAILURE )
-    {
-      if(params.failureReason == Rho.DPX.FAILURE_IDENTIFICATION_TIMEOUT){
-        // This means it could not identify the label based on the template used
-        // Possible reasons
-        //    -label is the wrong label
-        //    -Template is poorly defined 
-        //      maybe scanned in image for defining was not high enough resolution
-        //    -camera cannot focus
+    if(params.failureReason == Rho.DPX.FAILURE_PROCESSING_TIMEOUT){
+      // This means it identified the form but could not process it
+      // Possible reasons
+      //    -Template is poorly defined 
+      //      maybe scanned in image for defining was not high enough resolution
+      //    -Camera cannot focus or poorly lit
 
-        // This may trigger multiple times and may not warrant display information 
-        // in your app - the DPX engine will prompt the user in most cases
-      }
-      if(params.failureReason == Rho.DPX.FAILURE_PROCESSING_TIMEOUT){
-        // This means it identified the form but could not process it
-        // Possible reasons
-        //    -Template is poorly defined 
-        //      maybe scanned in image for defining was not high enough resolution
-        //    -Camera cannot focus or poorly lit
-
-        // This will trigger once and return focus to your application
-      }
+      // This will trigger once and return focus to your application
     }
-  });
-}
+  }
+});
+         ]]></JAVASCRIPT>
+            <RUBY><![CDATA[
+# POSTAL.XML was exported from the DPX Template Builder
+# In the Template Builder there were several fields defined
 
-                   ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
-                    <SECTION>
-                        <DESC>Now we can loop through the `processedForm` object returned by the `captureDocument` method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Checkboxes), Barcode, Picture. It will only return regsions that it was able to be processed.</DESC>
-                        <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
+Rho::DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
+
+# Once the captureDocument method is launched,
+# the DPX Engine dialog appears instructing the
+# user to hold the device steady over the printed label
+# The callback function will be triggered possibly for
+# many reasons
+
+Rho::DPX.captureDocument process_document
+
+def process_document
+  if @params.callbackType == Rho::DPX.SUCCESS
+    # Process the returned object:
+    returned_field = @params.processedForm
+    processDPXForm returned_field
+  end
+
+  if @params.callbackType == Rho::DPX.FAILURE
+    if @params.failureReason == Rho::DPX.FAILURE_IDENTIFICATION_TIMEOUT
+      # This means it could not identify the label based on the template used
+      # Possible reasons
+      #    -label is the wrong label
+      #    -Template is poorly defined 
+      #      maybe scanned in image for defining was not high enough resolution
+      #    -camera cannot focus
+
+      # This may trigger multiple times and may not warrant display information 
+      # in your app - the DPX engine will prompt the user in most cases
+    end
+
+    if @params.failureReason == Rho::DPX.FAILURE_PROCESSING_TIMEOUT
+      # This means it identified the form but could not process it
+      # Possible reasons
+      #    -Template is poorly defined 
+      #      maybe scanned in image for defining was not high enough resolution
+      #    -Camera cannot focus or poorly lit
+
+      # This will trigger once and return focus to your application
+    end
+  end
+end
+         ]]></RUBY>
+          </CODE>
+        </SECTION>
+
+        <SECTION>
+          <DESC>Now we can loop through the `processedForm` object returned by the `captureDocument` method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Check-boxes), Barcode, Picture. It will only return regions that it was able to be processed.</DESC>
+          <CODE>
+            <JAVASCRIPT><![CDATA[
 function processDPXForm(DPXform);
   var regions = DPXForm.regions;
   for(i=0; i< regions.length; ++i){
-      switch(regions[i].processingMode){
+    switch(regions[i].processingMode){
       case Rho.DPX.PM_OCR:
         // The text that OCR translated into an array of lines
         regionTextArray = regions[i].processedData;
-
         //maybe do something with returned confidence
         // DPXForm.absoluteOcrConfidence
         // DPXForm.relativeOcrConfidence
-        break;
+      break;
+
       case Rho.DPX.PM_OMR:
-        // Checkbox region either True or False
+        // Check-box region either True or False
         regionBooleanCheckbox = regions.processedData;
-        break;
+      break;
+
       case Rho.DPX.PM_PICTURE:
         // nothing in processedData
         // Image held temporarily until Rho.DPX.close()
         // use the id and the Rho.DPX.getDataUri method
         regionImageURI = Rho.DPX.getDataUri(regions.image.id);
-        break;
-      case Rho.DPX.PM_BARCODE:
+      break;
+
+      case Rho.DPX.PM_BARcode:
         // Barcode data will be in processedData field
         regionBarCode = regions.processedData;
-        break;
-      }
-
+      break;
+    }
   }
-  
 }
-
-                   ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
-
-                  </SECTIONS>
-            </EXAMPLE>
-        </EXAMPLES>
-
-
-
+           ]]></JAVASCRIPT>
+              <RUBY><![CDATA[
+def process_dpx_form(dpx_form)
+  regions = dpx_form.regions
+  regions.each do |region|
+    case region.processingMode
+    when Rho::DPX.PM_OCR:
+      # The text that OCR translated into an array of lines
+      
+      regionTextArray = regions[i].processedData;
+      
+      # maybe do something with returned confidence
+      # DPXForm.absoluteOcrConfidence
+      # DPXForm.relativeOcrConfidence
+    when Rho.DPX.PM_OMR:
+      # Check-box region either True or False
+      regionBooleanCheckbox = regions.processedData;
+    when Rho.DPX.PM_PICTURE:
+      # nothing in processedData
+      # Image held temporarily until Rho.DPX.close()
+      # use the id and the Rho.DPX.getDataUri method
+      regionImageURI = Rho.DPX.getDataUri(regions.image.id);
+    when Rho.DPX.PM_BARcode:
+      # Barcode data will be in processedData field
+      regionBarCode = regions.processedData;
+    end
+  end
+end
+           ]]></RUBY>
+            </CODE>
+          </SECTION>
+        </SECTIONS>
+      </EXAMPLE>
+    </EXAMPLES>
   </MODULE>
 </API>

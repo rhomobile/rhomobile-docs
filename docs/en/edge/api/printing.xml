@@ -481,8 +481,7 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
                     <SECTION>
                         <DESC>To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the 'deviceAddress' parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a 'printerID' property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.</DESC>
                         <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
+                            <JAVASCRIPT><![CDATA[
 var printers = [];
 
 Rho.Printer.searchPrinters({ 
@@ -507,15 +506,35 @@ Rho.Printer.searchPrinters({
         }
     }
 );
-                   ]]>
+]]>
                             </JAVASCRIPT>
+                            <RUBY><![CDATA[
+printers = []
+
+Rho::Printer.searchPrinters({ connectionType => Rho::Printer::CONNECTION_TYPE_BLUETOOTH,  
+                              printerType    => Rho::Printer::PRINTER_TYPE_ZEBRA }, 
+                              printer_callback )
+
+def find_printer_callback(cb_data)
+  if cb_data.status == 'PRINTER_STATUS_SUCCESS'
+    if defined? cb_data.printerID
+      puts "Found: #{cb_data.printerID}"
+      printers.push cb_data.printerID
+    else
+      puts "Done Searching"
+    end
+  else
+    puts cb_data.status
+  end
+end
+]]>
+                            </RUBY>
                         </CODE>
                     </SECTION>
                     <SECTION>
                         <DESC>Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).</DESC>
                         <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
+                            <JAVASCRIPT><![CDATA[
 var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
 // Let's try connecting
@@ -529,15 +548,33 @@ myPrinter.connect(function (cb){
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
-                   ]]>
+]]>
                             </JAVASCRIPT>
+                            <RUBY><![CDATA[
+my_printer = Rho::Printer.getPrinterByID printers[0]
+
+# Let's try connecting
+my_printer.connect printer_connect_callback
+
+def printer_connect_callback(cb_data)
+  puts connect_data
+  # This will be the Zebra's `Friendly Name` 
+  # by default it is the serial number
+
+  puts my_printer.deviceName
+
+  # This will be the BT MAC Address
+  # since we are connecting via BlueTooth
+  puts my_printer.deviceAddress
+end
+]]>
+                            </RUBY>
                         </CODE>
                     </SECTION>
                     <SECTION>
                         <DESC>Now we can just print a test string and read some properties of the printer to make sure the communications is working.</DESC>
                         <CODE>
-                            <JAVASCRIPT>
-           <![CDATA[
+                            <JAVASCRIPT><![CDATA[
 // If my printer was in line mode I would see this text printed
 myPrinter.printRawString('This is a test print');
 
@@ -545,7 +582,7 @@ myPrinter.printRawString('This is a test print');
 // changing from linemode to ZPL mode
 myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
 
-//Get state - this is realtime status of printer
+// Get state - this is real-time status of printer.
 // reading a property of the myPrinter instance will
 // show last known status
 myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
@@ -557,11 +594,32 @@ myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
     });
                    ]]>
                             </JAVASCRIPT>
+                            <RUBY><![CDATA[
+# If my printer was in line mode I would see this text printed
+my_printer.printRawString 'This is a test print'
+
+# Example of sending a Zebra CPCL Command
+# changing from linemode to ZPL mode
+my_printer.printRawString '! U1 setvar "device.languages" "ZPL"\r\n'
+
+# Get state - this is real-time status of printer.
+# reading a property of the my_printer instance will
+# show last known status
+my_printer.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
+                         'PRINTER_STATE_IS_PAPER_OUT'],
+                         'request_state_callback');
+
+def request_state_callback(cb_data)
+  puts cb_data.status
+  puts cb_data::PRINTER_STATE_IS_PAPER_OUT
+  puts cb_data::PRINTER_STATE_IS_READY_TO_PRINT
+end
+]]>
+                            </RUBY>
                         </CODE>
                     </SECTION>
                 </SECTIONS>
             </EXAMPLE>
         </EXAMPLES>
-
     </MODULE>
 </API>
