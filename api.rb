@@ -1879,7 +1879,7 @@ end
 		    md += "</div>"
 
 	  	# puts md
-	  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
+	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
 	else
 		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
 	end

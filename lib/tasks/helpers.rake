@@ -205,8 +205,8 @@ end
 
 def name_for(doc)
   # parts = doc.split('/')
-  # parts.size == 3 ? parts[1..-1].join('/').gsub(/\.txt/,'') : File.basename(doc, '.txt')
-  return doc.gsub(/\.txt/,'').gsub('docs/','').gsub(/(.*tutorial\/)([^.]*)\.(.*)/,'\1\3/\\2')
+  # parts.size == 3 ? parts[1..-1].join('/').gsub(/\.md/,'') : File.basename(doc, '.md')
+  return doc.gsub(/\.md/,'').gsub('docs/','').gsub(/(.*tutorial\/)([^.]*)\.(.*)/,'\1\3/\\2')
 end
 
 def version_for(doc)

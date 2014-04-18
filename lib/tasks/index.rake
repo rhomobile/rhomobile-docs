@@ -15,7 +15,7 @@ task :index do
     $stdout.flush
   end
   Topic.all_topics.each do |doc|
-    if File.exist?(doc) and File.basename(doc) != 'credits.txt'
+    if File.exist?(doc) and File.basename(doc) != 'credits.md'
       name = name_for(doc)
       version = version_for(doc)   #right now uses directory scheme and hardcoded current version 
       category = category_for(name) #right now uses directory scheme need to add multi category and other methods
