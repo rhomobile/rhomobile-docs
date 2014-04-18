@@ -16,9 +16,9 @@ class Topic
   
   def self.all_topics
     dirs = AppConfig['dirs'] || {}
-    paths = dirs.values.map! { |path| path += "*.txt" }
+    paths = dirs.values.map! { |path| path += "*.md" }
     # puts paths
-    paths <<'docs/en/**/**/*.txt'
+    paths <<'docs/en/**/**/*.md'
     FileList[paths]
   end
   
@@ -45,11 +45,11 @@ class Topic
   end
   
   protected
-  
+
   def source
     @source
   end
-  
+
   def notes(source)
 		# source.gsub(
 		# 	/NOTE: (.*?)\n\n/m,
@@ -60,7 +60,7 @@ class Topic
           "<div class='alert alert-warning'><table>\n<td ><i class='icon-warning-sign icon-2x'></i></td><td >\\1</td>\n</table></div>\n\n"
         )
 	end
-	
+
 	def markdown(source)
 		html = RDiscount.new(notes(source), :smart).to_html
 		# parse custom {lang} definitions to support syntax highlighting
@@ -104,7 +104,7 @@ class Topic
     model = Models.docmodel(topicfile)
     
     
-    return model 
-  end 
-	
+    return model
+  end
+
 end
