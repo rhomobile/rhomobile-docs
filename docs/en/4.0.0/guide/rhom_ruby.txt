@@ -563,7 +563,6 @@ The guide [Using the local database](local_database) contains all the details on
 ### What is RhoConnect
 RhoConnect is the server-side part of RhoMobile Suite that connects your mobile application to external data sources. Whether your data comes from a relational database, NoSQL data store, RESTful web services or any other data source, RhoConnect bridges the gap between mobile clients and server resources. Using RhoConnect frees you from writing error-prone, hard to maintain synchronization code and takes care of all aspects of data sync.
 
-
 ### Integrating a mobile Rhodes application with RhoConnect
 Once your application can store data about a particular model, enabling two-way synchronization with a RhoConnect server is a one-step process: there is only one line to change, in your model file (`product.rb` in our example), uncomment the line
 
@@ -572,24 +571,12 @@ Once your application can store data about a particular model, enabling two-way 
     
 As long as your RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../tutorial/rhoconnect) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](local_database) to find out how to tune data synchronization according to the needs of your application.
 
-
-
-
 ## Associations
-
 Rhom has a `sync association` called `belongs_to` which you can use to trigger updates on sync-enabled models. This is useful where you have relationships between backend service objects.
 
 For example, you can have a list of customers who are assigned to a sales person:
 
     :::ruby
-    var customerModel = Rho.ORM.addModel(function(model) {
-        model.modelName('Customer');
-        model.property('name','string');
-        model.property('email','string');
-        model.belongs_to('SalesRep');
-        
-    });
-
     class Customer
       include Rhom::PropertyBag
 
@@ -628,7 +615,7 @@ If you are planning to use the bulk sync feature for your associated models, the
 corresponding support on the RhoConnect Server side. See [RhoConnect Bulk Sync associations](../rhoconnect/bulk-sync#bulk-sync-associations).
 
 ## Freezed models
-If you want to limit model attributes by specific list - you can 'freeze' model:
+If you want to limit model attributes by specific list - you can 'freeze' the model:
 
     :::ruby
     class Customer

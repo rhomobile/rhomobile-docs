@@ -4,7 +4,6 @@
 
 There are two ways to generate a Ruby model: one is using RhoStudio and the other is with the command-line generator. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent. Together with the model class itself, the generator will output a default set of views that you can customize as needed.
 
-
 ### Adding a Model from RhoStudio
 
 To generate a model, right-click on the application project in the Project Explorer and select New -> RhoMobile model.
@@ -573,24 +572,12 @@ Once your application can store data about a particular model, enabling two-way 
     
 As long as your RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../tutorial/rhoconnect) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](../rhodes/rhom#fixed-schema) to find out how to tune data synchronization according to the needs of your application.
 
-
-
-
 ## Associations
-
 Rhom has a `sync association` called `belongs_to` which you can use to trigger updates on sync-enabled models. This is useful where you have relationships between backend service objects.
 
 For example, you can have a list of customers who are assigned to a sales person:
 
     :::ruby
-    var customerModel = Rho.ORM.addModel(function(model) {
-        model.modelName('Customer');
-        model.property('name','string');
-        model.property('email','string');
-        model.belongs_to('SalesRep');
-        
-    });
-
     class Customer
       include Rhom::PropertyBag
 
