@@ -1,4 +1,4 @@
-# Rho::NFCTagTechnology_MifareClassic API
+# NFCTagTechnology_MifareClassic API
 
 Subset of NFCTagTechnology. For code examples, see [Rhodes System API Samples: NFC](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Nfc/controller.rb).
 

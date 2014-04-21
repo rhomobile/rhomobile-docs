@@ -1,4 +1,4 @@
-# Rho::RhoUtils API
+# RhoUtils API
 
 Seed the Rhom database. For an example, see [Seeding the Database in Using the Local Database with Rhom](../rhodes/rhom#seeding-the-database).
 

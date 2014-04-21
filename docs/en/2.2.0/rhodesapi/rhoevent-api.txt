@@ -1,4 +1,4 @@
-# Rho::RhoEvent API
+# RhoEvent API
 
 Access a device's calendar and events.
 

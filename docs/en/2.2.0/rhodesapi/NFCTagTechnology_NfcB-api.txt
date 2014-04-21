@@ -1,4 +1,4 @@
-# Rho::NFCTagTechnology_NfcB API
+# NFCTagTechnology_NfcB API
 
 Subclass of NFCTagTechnology.
 

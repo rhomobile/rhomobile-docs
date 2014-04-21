@@ -1,4 +1,4 @@
-# Rho::NativeToolbar API
+# NativeToolbar API
 
 The NativeToolbar methods let you create and remove toolbars at runtime. Refer to [Native Toolbar Control in User Interface](../rhodes/ui#native-toolbar-control) for a discussion and examples, and to [NativeToolbarTest in Rhodes-System-Api-Samples](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/NativeToolbarTest/) for sample code.
 

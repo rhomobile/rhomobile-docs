@@ -1,4 +1,4 @@
-# Rho::NdefMessage API
+# NdefMessage API
 
 Convert an NdefMessage into a format from which you can extract data. For code examples, see [Rhodes Webinar Sample: NFC](https://github.com/rhomobile/webinar-samples/blob/master/nfc-rhodes/app/Nfc/nfc_controller.rb) and [Rhodes System API Samples: NFC](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Nfc/controller.rb).
 

@@ -1,4 +1,4 @@
-# Rho::NFCTagTechnology_NfcF API
+# NFCTagTechnology_NfcF API
 
 Subset of NFCTagTechnology.
 

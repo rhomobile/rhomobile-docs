@@ -1,4 +1,4 @@
-# Rho::NFCTagTechnology_Ndef API
+# NFCTagTechnology_Ndef API
 
 Subset of NFCTagTechnology class.
 

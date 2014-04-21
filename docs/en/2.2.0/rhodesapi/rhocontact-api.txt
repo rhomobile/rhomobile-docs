@@ -1,4 +1,4 @@
-# Rho::RhoContact API
+# RhoContact API
 
 Provides access to a device's phone book and contacts. For a code example, see the view and controller in the [/app/Contacts folder in the System API Samples](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Contacts/controller.rb) application. For other examples, refer to [PIM Contacts in Rhodes Device Capabilities](../rhodes/device-caps#pim-contacts).
 

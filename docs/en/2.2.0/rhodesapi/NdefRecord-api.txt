@@ -1,4 +1,4 @@
-# Rho::NdefRecord API
+# NdefRecord API
 
 Get data from near field communications Ndef tag records. For code examples, see [Rhodes Webinar Sample: NFC](https://github.com/rhomobile/webinar-samples/blob/master/nfc-rhodes/app/Nfc/nfc_controller.rb) and [Rhodes System API Samples: NFC](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Nfc/controller.rb).
 

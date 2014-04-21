@@ -1,4 +1,4 @@
-# Rho::NFCTagTechnology_NdefFormatable API
+# NFCTagTechnology_NdefFormatable API
 
 Subclass of NFCTagTechnology.
 

@@ -1,4 +1,4 @@
-# Rho::Timer API
+# Timer API
 
 Lets the device use a timer.
 

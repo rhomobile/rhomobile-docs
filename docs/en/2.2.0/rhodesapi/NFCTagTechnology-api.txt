@@ -1,4 +1,4 @@
-# Rho::NFCTagTechnology Class API
+# NFCTagTechnology Class API
 
 Use the NFCTagTechnology to connect to NFC tags and to determine their type. 
 
