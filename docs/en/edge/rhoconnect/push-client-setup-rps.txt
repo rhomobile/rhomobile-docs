@@ -174,7 +174,14 @@ Manually copy the .cab files to the device. For example, you can use the device 
 
 ### Installing Runtime Apps for Windows XP Embedded
 
-Windows XPE requires that you have the Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) installed on your build machine.
+Windows XPE installation requires that you have the following items installed on your XPE device.
+
+* .NET 3.5 Compact framework
+* .NET 4 Compact framework
+
+NOTE: These are both required because the push service for XPE needs parts of both 3.5 and 4 to function properly.
+
+You'll also need to install Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) on your build machine.
 
 Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center and copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file to start the installation process. After it is finished, you should see the app icon on your device in the programs list.
 
