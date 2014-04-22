@@ -25,7 +25,7 @@ RhoElements is an additional API library set that is accessible to RhoMobile app
 RhoConnect is a server application that either can be hosted on our system or yours and acts as a seamless bridge for your enterprise data to exist both on your backend and your mobile device. With RhoConnect, you can simultaneously connect your application to many data sources just as easily as you can connect to one data source — including enterprise back-end customer relationship management (CRM) and enterprise resource planning (ERP) systems, web services, databases and much more. 
 
 ##RhoHub
-Package apps for all platforms without installing SDKs locally, including iPhone apps from your Windows PC. RhoHub is a cloud based platform that integrates with RhoStudio to provide seemless local coding and building in the cloud to quickly get you up and running.
+Package apps for all platforms without installing SDKs locally, including iPhone apps from your Windows PC. RhoHub is a cloud based platform that integrates with RhoStudio to provide seamless local coding and building in the cloud to quickly get you up and running.
 
 ##RhoGallery 
 Unlike other mobile management solutions RhoGallery focuses just on the apps and data for enterprise users. RhoGallery lets you easily deploy your applications to your mobile devices whether they are RhoMobile applications or native applications using your personal App Store. This makes the solution easier to use and cheaper to operate.
