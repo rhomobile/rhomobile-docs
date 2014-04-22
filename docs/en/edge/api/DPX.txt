@@ -122,40 +122,26 @@ Ruby.</p>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Download Templates</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
 <p>Before you are able to process any documents with the DPX engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the DPX Engine as well as your application. To retrieve the templates from the server, you would use the <code>fetchTemplates</code> method. This method will communicate with the DPX back-end and download the templates to the folder that is specified by the <a href="#ptemplateDirectory">templateDirectory property</a></p>
-<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
+<ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-function downloadDPXTemplates(user, password){
+       
+function downloadDPXTemplates(user,password){
   // If you include your DPX template files in the applications public folder
   // the DPX engine will not be able to access them due to Android
   // security policies
 
   Rho.DPX.templateDirectory = 'file:///sdcard/Templates';
-  Rho.DPX.fetchTemplates(user, password);
+  Rho.DPX.fetchTemplates(user,password);
   templates = Rho.RhoFile.listDir(Rho.DPX.templateDirectory);
-  
   for (var i = 0; i &lt; templates.length; ++i) {
     console.log(templates[i]);
   }
 }
-           </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
-
-def download_dpx_templates(user, password)
-  # If you include your DPX template files in the applications public folder
-  # the DPX engine will not be able to access them due to Android
-  # security policies.
-
-  Rho::DPX.templateDirectory = 'file:///sdcard/Templates'
-  Rho::DPX.fetchTemplates user, password
-  templates = Rho::RhoFile.listDir Rho::DPX.templateDirectory
-
-  templates.each do |template|
-    puts template
-  end
-end
            </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Capture Document</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>The only requirement for capturing a document is to have the DPX template file location set using the <code>DPX.template</code> property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the DPX engine (i.e. it cannot be in the applications <code>public</code> folder)</p>
-<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
+<ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
+       
 // POSTAL.XML was exported from the DPX Template Builder
 // In the Template Builder there were several fields defined
 
@@ -166,8 +152,8 @@ Rho.DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
 // user to hold the device steady over the printed label
 // The callback function will be triggered possibly for
 // many reasons
-Rho.DPX.captureDocument(function(params){
 
+Rho.DPX.captureDocument(function(params){
   if(params.callbackType == Rho.DPX.SUCCESS ){
     // process the returned object:
     var returnedField = params.processedForm;
@@ -197,113 +183,38 @@ Rho.DPX.captureDocument(function(params){
     }
   }
 });
-         </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
-
-# POSTAL.XML was exported from the DPX Template Builder
-# In the Template Builder there were several fields defined
-
-Rho::DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
-
-# Once the captureDocument method is launched,
-# the DPX Engine dialog appears instructing the
-# user to hold the device steady over the printed label
-# The callback function will be triggered possibly for
-# many reasons
-
-Rho::DPX.captureDocument process_document
-
-def process_document
-  if @params.callbackType == Rho::DPX.SUCCESS
-    # Process the returned object:
-    returned_field = @params.processedForm
-    processDPXForm returned_field
-  end
-
-  if @params.callbackType == Rho::DPX.FAILURE
-    if @params.failureReason == Rho::DPX.FAILURE_IDENTIFICATION_TIMEOUT
-      # This means it could not identify the label based on the template used
-      # Possible reasons
-      #    -label is the wrong label
-      #    -Template is poorly defined 
-      #      maybe scanned in image for defining was not high enough resolution
-      #    -camera cannot focus
-
-      # This may trigger multiple times and may not warrant display information 
-      # in your app - the DPX engine will prompt the user in most cases
-    end
-
-    if @params.failureReason == Rho::DPX.FAILURE_PROCESSING_TIMEOUT
-      # This means it identified the form but could not process it
-      # Possible reasons
-      #    -Template is poorly defined 
-      #      maybe scanned in image for defining was not high enough resolution
-      #    -Camera cannot focus or poorly lit
-
-      # This will trigger once and return focus to your application
-    end
-  end
-end
-         </code></pre></div></div>
+          </code></pre></div></div>
 <p>Now we can loop through the <code>processedForm</code> object returned by the <code>captureDocument</code> method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Check-boxes), Barcode, Picture. It will only return regions that it was able to be processed.</p>
-<ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
+<ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>Javascript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
-function processDPXForm(DPXform);
+       
+function processDPXForm(DPXform){
   var regions = DPXForm.regions;
   for(i=0; i&lt; regions.length; ++i){
     switch(regions[i].processingMode){
-      case Rho.DPX.PM_OCR:
-        // The text that OCR translated into an array of lines
-        regionTextArray = regions[i].processedData;
-        //maybe do something with returned confidence
-        // DPXForm.absoluteOcrConfidence
-        // DPXForm.relativeOcrConfidence
-      break;
+    case Rho.DPX.PM_OCR:
+      // The text that OCR translated into an array of lines
+      regionTextArray = regions[i].processedData;
 
-      case Rho.DPX.PM_OMR:
-        // Check-box region either True or False
-        regionBooleanCheckbox = regions.processedData;
+      //maybe do something with returned confidence
+      // DPXForm.absoluteOcrConfidence
+      // DPXForm.relativeOcrConfidence
       break;
-
-      case Rho.DPX.PM_PICTURE:
-        // nothing in processedData
-        // Image held temporarily until Rho.DPX.close()
-        // use the id and the Rho.DPX.getDataUri method
-        regionImageURI = Rho.DPX.getDataUri(regions.image.id);
+    case Rho.DPX.PM_OMR:
+      // Checkbox region either True or False
+      regionBooleanCheckbox = regions.processedData;
       break;
-
-      case Rho.DPX.PM_BARcode:
-        // Barcode data will be in processedData field
-        regionBarCode = regions.processedData;
+    case Rho.DPX.PM_PICTURE:
+      // nothing in processedData
+      // Image held temporarily until Rho.DPX.close()
+      // use the id and the Rho.DPX.getDataUri method
+      regionImageURI = Rho.DPX.getDataUri(regions.image.id);
+      break;
+    case Rho.DPX.PM_BARCODE:
+      // Barcode data will be in processedData field
+      regionBarCode = regions.processedData;
       break;
     }
   }
 }
-           </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
-
-def process_dpx_form(dpx_form)
-  regions = dpx_form.regions
-  regions.each do |region|
-    case region.processingMode
-    when Rho::DPX.PM_OCR:
-      # The text that OCR translated into an array of lines
-      
-      regionTextArray = regions[i].processedData;
-      
-      # maybe do something with returned confidence
-      # DPXForm.absoluteOcrConfidence
-      # DPXForm.relativeOcrConfidence
-    when Rho.DPX.PM_OMR:
-      # Check-box region either True or False
-      regionBooleanCheckbox = regions.processedData;
-    when Rho.DPX.PM_PICTURE:
-      # nothing in processedData
-      # Image held temporarily until Rho.DPX.close()
-      # use the id and the Rho.DPX.getDataUri method
-      regionImageURI = Rho.DPX.getDataUri(regions.image.id);
-    when Rho.DPX.PM_BARcode:
-      # Barcode data will be in processedData field
-      regionBarCode = regions.processedData;
-    end
-  end
-end
            </code></pre></div></div>  </div></div></div></div></div>

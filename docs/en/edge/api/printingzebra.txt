@@ -224,22 +224,22 @@ Rho.Printer.searchPrinters({
 
                             </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-printers = []
+@printers = []
 
-Rho::Printer.searchPrinters({ connectionType =&gt; Rho::Printer::CONNECTION_TYPE_BLUETOOTH,  
-                              printerType    =&gt; Rho::Printer::PRINTER_TYPE_ZEBRA }, 
-                              printer_callback )
+Rho::Printer.searchPrinters({ connectionType  =&gt; Rho::Printer::CONNECTION_TYPE_BLUETOOTH,
+                              printerType     =&gt; Rho::Printer::PRINTER_TYPE_ZEBRA },
+                              url_for(:action =&gt; :printer_callback) )
 
-def find_printer_callback(cb_data)
-  if cb_data.status == 'PRINTER_STATUS_SUCCESS'
-    if defined? cb_data.printerID
-      puts "Found: #{cb_data.printerID}"
-      printers.push cb_data.printerID
+def find_printer_callback
+  if @params['status'] == 'PRINTER_STATUS_SUCCESS'
+    if defined? @params['printerID']
+      puts "Found: #{@params['printerID']}"
+      @printers.push @params['printerID']
     else
       puts "Done Searching"
     end
   else
-    puts cb_data.status
+    puts @params['status']
   end
 end
 
@@ -263,21 +263,21 @@ myPrinter.connect(function (cb){
 
                             </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
-my_printer = Rho::Printer.getPrinterByID printers[0]
+@my_printer = Rho::Printer.getPrinterByID printers[0]
 
 # Let's try connecting
-my_printer.connect printer_connect_callback
+@my_printer.connect url_for(:action =&gt; :printer_connect_callback)
 
-def printer_connect_callback(cb_data)
-  puts connect_data
+def printer_connect_callback
+  puts @params.to_s
+
   # This will be the Zebra's `Friendly Name` 
   # by default it is the serial number
-
-  puts my_printer.deviceName
+  puts @my_printer['deviceName']
 
   # This will be the BT MAC Address
   # since we are connecting via BlueTooth
-  puts my_printer.deviceAddress
+  puts @my_printer['deviceAddress']
 end
 
                             </code></pre></div></div>
@@ -305,23 +305,23 @@ myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
                             </code></pre></div><div class='tab-pane' id='exI0-S2RUBY'><pre class='CodeRay'><code>:::ruby
 
 # If my printer was in line mode I would see this text printed
-my_printer.printRawString 'This is a test print'
+@my_printer.printRawString 'This is a test print'
 
 # Example of sending a Zebra CPCL Command
 # changing from linemode to ZPL mode
-my_printer.printRawString '! U1 setvar "device.languages" "ZPL"\r\n'
+@my_printer.printRawString '! U1 setvar "device.languages" "ZPL"\r\n'
 
 # Get state - this is real-time status of printer.
-# reading a property of the my_printer instance will
+# reading a property of the @my_printer instance will
 # show last known status
-my_printer.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
-                         'PRINTER_STATE_IS_PAPER_OUT'],
-                         'request_state_callback');
+@my_printer.requestState([Rho::Printer::PRINTER_STATE_IS_READY_TO_PRINT,
+                          Rho::Printer::PRINTER_STATE_IS_PAPER_OUT],
+                          url_for(:action =&gt; :request_state_callback));
 
-def request_state_callback(cb_data)
-  puts cb_data.status
-  puts cb_data::PRINTER_STATE_IS_PAPER_OUT
-  puts cb_data::PRINTER_STATE_IS_READY_TO_PRINT
+def request_state_callback
+  puts @params['status']
+  puts @params['PRINTER_STATE_IS_PAPER_OUT']
+  puts @params['PRINTER_STATE_IS_READY_TO_PRINT']
 end
 
                             </code></pre></div></div>  </div></div></div></div>
