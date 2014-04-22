@@ -1,12 +1,8 @@
 # Using Rhom in Ruby
-
 ## Creating a Ruby Data Model
-
 There are two ways to generate a Ruby model: one is using RhoStudio and the other is with the command-line generator. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent. Together with the model class itself, the generator will output a default set of views that you can customize as needed.
 
-
 ### Adding a Model from RhoStudio
-
 To generate a model, right-click on the application project in the Project Explorer and select New -> RhoMobile model.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-rhodes-model-menu-4.0.png"/>
@@ -23,9 +19,7 @@ After pressing the Finish button, you'll see the results of the RhoMobile model 
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-model-generator-output-4.0.png"/>
 
-
 ### Adding a Model from the command line
-
 If you prefer to use the command line or another development environment instead of RhoStudio, the `rhodes` tool can be invoked manually. To create the `Product` model with `name, brand, price, quantity` and `sku` as the attributes, switch to the root directory of your application (the one that contains `app` as a child) and run:
 
     :::term
@@ -33,7 +27,6 @@ If you prefer to use the command line or another development environment instead
 
 
 ### What a generated model consists of
-
 Output from the model generator will contain the following files:
 
 * app/Product/index.erb - the html view template to display the list of objects
@@ -84,7 +77,7 @@ Here, Rhom will expose a class `Account` with two attributes: `name` and `indust
     
     account.industry
       #=> "Entertainment"
-    
+
 #### Using Property Bag Models
 To use a property bag model, simply generate a new model with some attributes:
 
@@ -333,7 +326,6 @@ If you want to remove all local data when upgrading to new application version: 
 This scenario will work for Property Bag and Fixed Schema models.
 
 ## Adding new objects
-
 Use the `create` method to create a new model object and save it to the database. 
 
 NOTE: This is the fastest way to insert a single item into the database.
@@ -351,20 +343,16 @@ You can also create the new model object without saving it automatically and the
     user.email = 'alice@example.com'
     user.save
   
-
 ## Retrieving objects
-
 You can retrieve all objects for a model or only those matching given conditions using the `find` method.
 
 ### Getting all objects for a model 
-
 You can retrieve all objects for a model using the `all` parameter. 
 
     :::ruby
     users = User.find(:all)
 
 ### Finding objects matching conditions
-
 You can retrieve all objects matching given conditions using the `conditions` parameter.
 
     :::ruby
@@ -374,7 +362,6 @@ You can retrieve all objects matching given conditions using the `conditions` pa
             )
 
 ### Numeric field comparisons in property bag models
-
 Because, internally, property bag models store all their values in the same column, this column is defined as `varchar`, which means that number comparisons do not work as you would expected. If you need to perform order comparisons on a numeric field in a property bag model, use CAST to convert the value to a number of the desired type:
 
     :::ruby
@@ -386,7 +373,6 @@ Because, internally, property bag models store all their values in the same colu
         :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
 
 ### Ordering the objects
-
 You can retrieve objects sorted by one or more attributes using the `order` and `orderdir` parameters.
 
     :::ruby
@@ -405,7 +391,6 @@ You can retrieve objects sorted by one or more attributes using the `order` and 
             )
 
 ### Retrieving specific attributes
-
 If, for a particular action, you do not need every attribute in an object, you can make your application faster by selecting only the specific attributes you need using the `select` parameter.
 
     :::ruby
@@ -415,7 +400,6 @@ If, for a particular action, you do not need every attribute in an object, you c
             )
 
 ### Paginating results
-
 NOTE: this section applies to Ruby only
 
 You can pass `offset` and `per_page` parameters to `find` method to retrieve objects in chunks.
@@ -439,7 +423,6 @@ You can use `:conditions`, `:order` and `select` parameters, similarly to the `f
     users = User.paginate(:page => 1, :per_page => 20)
 
 ### Retrieving only the first object matching conditions
-
 You can get only the first object matching given conditions using `first` instead of `all` when calling `find`.
 
     :::ruby
@@ -449,14 +432,12 @@ You can get only the first object matching given conditions using `first` instea
             )
 
 ### Using SQL queries directly
-
-You can directly retrive model object(s) using SQL queries with the `findBySql` method. This method works only for fixed schema models.
+You can directly retrieve model object(s) using SQL queries with the `findBySql` method. This method works only for fixed schema models.
 
     :::ruby
     users = User.findBySql('SELECT * FROM User')
 
 ## Counting objects
-
 You can get the number of objects matching given conditions using the `count` parameter with `find` method.
 
     :::ruby
@@ -464,8 +445,8 @@ You can get the number of objects matching given conditions using the `count` pa
                 :count, 
                 :conditions => {:name => 'Alice'}
             )
-## Updating
 
+## Updating
 You can update an object’s attributes and save it to the database using the `updateAttributes` method
 
 NOTE: This is the fastest way to add or update item attributes.
@@ -477,9 +458,7 @@ NOTE: This is the fastest way to add or update item attributes.
                 :email => 'bob@example.com')
 
 ## Deleting
-
 ### Deleting one object
-
 To delete one model object use the `destroy` method on the object to be deleted.
 
     :::ruby
@@ -487,7 +466,6 @@ To delete one model object use the `destroy` method on the object to be deleted.
     user.destroy
 
 ### Delete multiple objects
-
 To delete all objects for a model, or only those matching given conditions, use the `delete_all` method.
 
     :::ruby
@@ -498,7 +476,6 @@ To delete all objects for a model, or only those matching given conditions, use 
     User.delete_all(:conditions => {:name => 'Alice'})
 
 ## Transactions
-
 Use transactions to group together database operations that must either succeed or fail as a group, without leaving any partially completed operations. You can combine any set of object/model operations like insert/update/delete under a transaction.
 
     :::ruby
@@ -517,7 +494,6 @@ Use transactions to group together database operations that must either succeed 
     end
 
 ## Executing SQL
-
 You can execute SQL statements directly on the database by using `Database.executeSql` method.
 
     :::ruby
@@ -531,18 +507,13 @@ You can execute SQL statements directly on the database by using `Database.execu
     :::ruby
     db.executeBatchSql("UPDATE User set valid=0; Update Account set active=0")
 
-
 ## Resetting database
-
 You can use the following method for recovering the database from a bad or corrupt state or if the RhoConnect server returns errors.
 
 ### Delete all objects for given models.
 
     :::ruby
     Rho::ORM.databaseFullResetEx(:models => ['User'], :reset_client_info => true, :reset_local_models => true)
-
-
-
 
 ## Adding more fields to an existing model
 
@@ -557,7 +528,6 @@ In our example `Product` model, for example, we could add
     property :color, :string
     
 The guide [Using the local database](../rhodes/rhom#fixed-schema) contains all the details on which data types are supported, as well as other ways to fine-tune data synchronization.
-
 
 ## Linking a model to a RhoConnect synchronization server
 
@@ -646,54 +616,180 @@ For such models if you try to set a property that has not been explicitly define
 
 **NOTE: FixedSchema models are 'freezed' by default. This is only supported in Ruby models.**
 
-## Data Migration (fixed schema only)
+## Resetting the Database
+Rhodes provides the following functions for recovering the database from a bad or corrupt state, or if the RhoConnect server returns errors.
 
-Data migrations are needed when your models or struture of your models change with new application versions. Rhom provides an application hook to migrate the data manually. You can also use this hook to run business logic related to updating the database. It may also be used to notify the user that a migration is in progress before starting lengthy database operations.
-
-If you want to remove all local data when upgrading to new application version, change `app_db_version` in `rhoconfig.txt`. This will work for both Property Bag and Fixed Schema models.
-
-If you want to retain existing data, you will not need any data migration for Property Bag models, since all attributes are dynamic. However for Fixed Schema models you will need to do some additional steps.
-
-First you need to track the `:schema_version` in your model:
+### `Rhom::Rhom.database_full_reset(reset_client_info=false, reset_local_models=true)` 
+Deletes all records from the property bag and model tables.
+  
+    :::ruby
+    # reset_client_info   If set to true, client_info 
+    #           table will be cleaned.
+    #
+    # reset_local_models  If set to true, local(non-synced models) 
+    #           will be cleaned.
+    Rhom::Rhom.database_full_reset(false,true)
+  
+### `Rhom::Rhom.database_full_reset_and_logout` 
+Perform a full reset and then logout the RhoConnect client.
 
     :::ruby
-    class Product
-        include Rhom::FixedSchema
+    Rhom::Rhom.database_full_reset_and_logout
 
-        set :schema_version, '1.1'
-    end
-
-Next, in your `application.rb` implement the `on_migrate_source(old_version, new_src)` method. This is called on application start if `:schema_version` has changed.
+### `Rhom::Rhom.database_fullclient_reset_and_logout` 
+Equivalent to `Rhom::Rhom.database_full_reset(true)` followed by `SyncEngine.logout`.
 
     :::ruby
-    class AppApplication < Rho::RhoApplication
-    
-        # old_version     String containing old version value (i.e. '1.0')
-        # new_src         Hash with source information:
-        #                 'schema_version', 'name', 'schema'
-        #                 new_src['schema']['sql'] contains new schema sql
-        def on_migrate_source(old_version, new_src)
-            # ... notify user about migration ...
-
-            db = Rho::RHO.get_src_db(new_src['name'])
-            db.executeSql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
-
-            true # we processed the migration ourselves, do not create the table automatically
-        end
-    end
-    
-**NOTE: When a schema changes, you can use ADD COLUMN but removing columns is not possible (this is a limitation in the underlying SQLite database engine). If your schema changes are significant and cannot be accomodated by merely adding new columns, you will need to perform a whole-table migration: create a new table with a temporary name, copy existing data to it, drop the old table and rename the new table**
-
-Return `false` to run the custom sql specified by the new_src[‘schema’][‘sql’] string:    
+    Rhom::Rhom.database_fullclient_reset_and_logout
+  
+**NOTE: If you receive a sync error "Unknown client" message in your sync callback, this means that the RhoConnect server no longer knows about the client and a `Rhom::Rhom.database_fullclient_reset_and_logout` is recommended.  This error requires proper intervention in your app so you can handle the state before resetting the client.  For example, your sync notification could contain the following:**
 
     :::ruby
-    def on_migrate_source(old_version, new_src)
-        false # create table by source schema - useful only for non-synced models
+    if @params['error_message'].downcase == 'unknown client'
+      puts "Received unknown client, resetting!"
+      Rhom::Rhom.database_fullclient_reset_and_logout
     end
 
-**NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time.**
+### `Rhom::Rhom.database_local_reset` 
+Reset only local(non-sync-enabled) models.
 
+    :::ruby
+    Rhom::Rhom.database_local_reset
 
+### `Rhom::Rhom.database_full_reset_ex( :models => [model_name1, model_name2], :reset_client_info=>false, :reset_local_models => true)` 
+Deletes all records from the property bag and model tables, if models are set then reset only selected models
+  
+    :::ruby
+    # models                Array of models names to reset
+    # reset_client_info   If set to true, client_info 
+    #           table will be cleaned.
+    #
+    # reset_local_models  If set to true, local(non-synced models) 
+    #           will be cleaned.
+    Rhom::Rhom.database_full_reset_ex(:models => ['Product', 'Customer'])
+
+## Advanced Queries
+### `find(*args)` (advanced conditions)
+Rhom also supports advanced find `:conditions`.  Using advanced `:conditions`, rhom can optimize the query for the property bag table.
+
+Let's say we have the following SQL fragment condition:
+
+    :::ruby
+    Product.find(
+     :all, 
+     :conditions => [ 
+       "LOWER(description) like ? or LOWER(title) like ?", 
+       query, 
+       query
+     ], 
+     :select => ['title','description'] 
+    )
+
+Using advanced `:conditions`, this becomes:
+
+    :::ruby
+    Product.find( 
+      :all, 
+      :conditions => { 
+      { 
+        :func => 'LOWER', 
+        :name => 'description', 
+        :op => 'LIKE'
+      } => query, 
+        {
+        :func => 'LOWER', 
+        :name => 'title', 
+        :op => 'LIKE'
+      } => query
+      }, 
+      :op => 'OR', 
+      :select => ['title','description']
+    )
+
+You can also use the 'IN' operator:
+
+    :::ruby
+    Product.find(
+      :all, 
+      :conditions => { 
+        {
+        :name => "image_uri", 
+        :op => "IN" 
+      } => "'15704','15386'" 
+      } 
+    )
+
+    # or use array notation
+    Product.find(
+      :all, 
+      :conditions => { 
+        {
+        :name => "image_uri", 
+        :op => "IN" 
+      } => ["15704","15386"]
+      } 
+    )
+
+You can also group `:conditions`:
+  
+    :::ruby
+    cond1 = {
+      :conditions => { 
+        {
+        :func => 'UPPER', 
+        :name => 'name', 
+        :op => 'LIKE' 
+      } => query, 
+        { 
+        :func => 'UPPER', 
+        :name => 'industry', 
+        :op => 'LIKE'
+      } => query
+      }, 
+      :op => 'OR'
+    }
+
+    cond2 = {
+      :conditions => { 
+        {
+        :name => 'description', 
+        :op => 'LIKE'
+        } => 'Hello%'
+      }   
+    }
+
+    @accts = Account.find( 
+      :all, 
+      :conditions => [cond1, cond2], 
+      :op => 'AND', 
+      :select => ['name','industry','description']
+    )
+
+## Find by numeric field
+To use number comparison conditions in find use CAST :
+    :::ruby
+    @accts = Account.find(:all, 
+        :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
+    #or using sql query:
+    size = 3
+    @accts = Account.find(:all, 
+        :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
+        
+## Database Encryption
+
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](build_config#other-build-time-settings). Additionally, a [RhoElements license](licensing) is required.**
+
+If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
+
+    :::yaml
+    encrypt_database: 1
+
+**NOTE: Database encryption is not supported for applications that use bulk sync at this time.**
+
+### Platform Notes
+* iOS: Uses AES 128 encryption algorithm from iOS SDK.
+* Android: Uses AES 128 ecryption algorithm from Android SDK.
+* Windows Mobile: Uses RC4 algorithm from Windows Mobile SDK.
 
 ## Related reading
 

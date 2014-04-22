@@ -1,5 +1,4 @@
 # Using the Local Database with Rhom
-
 Rhom is a mini database object mapper for Rhodes. It provides a high level interface to make it very powerful and simple to use a local database.  That database is SQLite on all platforms except BlackBerry where it is HSQLDB.
 
 Rhom currently supports two model types: ***Property Bag (default)*** and ***Fixed Schema***
@@ -234,7 +233,8 @@ Below is a full list of options available to fixed schema models:
 	  property :mycustomproperty, 'hello'
 	end
 
-## Fixed Schema Data Migrations
+## Data Migrations
+### Fixed Schema
 Rhom provides an application hook to migrate the data manually.  You can also use this hook to run business logic related to updating the database.  For example, your application may want to display a customized alert notifying the user that a migration is in progress and it may take a few moments.
 
 To use this hook, first we need to track the `:schema_version` in our model:
@@ -280,7 +280,7 @@ Return `false` to run the custom sql specified by the new_src['schema']['sql'] s
 
 **NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time. **
 
-## Property Bag Data Migrations
+### Property Bag
 No data migration required, since all attributes are dynamic. 
 If you want to remove all local data when upgrading to new application version: change `app_db_version` in `rhoconfig.txt`.
 
@@ -501,7 +501,7 @@ Assigns the [metadata](../rhoconnect/metadata) for a given model.
 
 Rhom does not support Ruby on Rails associations. However, Rhom has a [sync  association](#sync-associations) called `belongs_to` which you can use to trigger updates on sync-enabled models.
 
-## Sync Associations
+### Sync Associations
 
 For sync-enabled models, Rhom has a `belongs_to` sync association as a means to automatically trigger sync updates for dependent objects. This is useful where you have relationships between backend service objects.
 
@@ -666,7 +666,7 @@ Deletes all records from the property bag and model tables, if models are set th
 If your application requires seeding some initial data, you can use [RhoUtils.load_offline_data](../rhodesapi/rhoutils-api#loadofflinedata).
 
 For example, in the rhodes/spec/framework_spec, we use `load_offline_data` to seed the device database for each test:
-	
+
 	:::ruby
 	Rho::RhoUtils.load_offline_data(
 	  ['client_info','object_values'], 'spec'
@@ -699,7 +699,6 @@ You can export local database partition with all its blob objects to zip archive
 [Rhom.database_export](../rhodesapi/rhom-api#databaseexport) returns a local path to created archive with database and blob objects.
 
 [Rhom.database_import](../rhodesapi/rhom-api#databaseimport) imports database and blob objects from zip archive, created with `database_export` call. If imported archive is inconsistent, or other failure will occur during import process, original database will be restored.
-
 
 ## Advanced Queries
 
@@ -842,7 +841,8 @@ If your application requires that the local database is encrypted on the filesys
 ## Performance Tips
 * Before test application for performance set warning log level in rhoconfig.txt(MUST set for Blackberry testing):
 
-        MinSeverity = 3
+	:::txt
+    MinSeverity = 3
     
 * All database modification operations can be slow, especially on big databases. So optimize object modification - prepare data and call create/update_attributes once
 * Do not use sql conditions in Model.find, use Advanced Queries.
@@ -867,9 +867,9 @@ If your application requires that the local database is encrypted on the filesys
          db.rollback
         end
 
-*NOTE: If ::Rho::RHO.get_src_db('Model') returns nil, it means that you never called this model's methods before (models are loaded by demand). To fix it, call 'require_source'.
+** NOTE: If `::Rho::RHO.get_src_db('Model')` returns nil, it means that you never called this model's methods before (models are loaded on demand). To fix it, call 'require_source'. **
 
 	:::ruby
     require_source 'Model'  
 
-*NOTE: see more tips here: [How can I create a lot of objects in controller action](../faq#how-can-i-create-a-lot-of-objects-in-controller-action).
+** NOTE: see more tips here: [How can I create a lot of objects in controller action](../faq#how-can-i-create-a-lot-of-objects-in-controller-action). **
