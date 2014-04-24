@@ -2,7 +2,7 @@
 
 The Intent API class allows your app to communicate with other apps on the device. With this API, you'll be able to communicate between two RhoMobile applications as well as between RhoMobile and a native application.
 
-**NOTE: To us this class, you should first read up on the [Intent API](../api/intent) in our API docs so that the concepts mentioned here are more familiar.**
+**NOTE: To us this class, you should first read up on the [Intent API](../api/Intent) in our API docs so that the concepts mentioned here are more familiar.**
 
 ## What are Intents?
 Before we start sending or receiving intents, we first need to answer the question, "What are intents?". Intents are a mechanism setup and used by the Android operating system that allow application components to request functionality from other Android components. Intents allow you to interact with components from the same application as well as with components contributed by other applications. 
@@ -20,7 +20,7 @@ When it comes to having multiple RhoMobile applications running on a device, you
 You can also read up on intents on Google's [Android docs regarding intents](http://developer.android.com/guide/components/intents-filters.html).
 
 ## Constructing an Intent
-As you may have gleaned from our [Intent API docs](../api/intent), there are only three methods available:
+As you may have gleaned from our [Intent API docs](../api/Intent), there are only three methods available:
 
 * send
 * startListening
@@ -50,7 +50,7 @@ Now that we know the different pieces we'll need, let's put the intent together.
 * uri        => "geo:37.422, -122.084"
 
 ### Send the Intent
-Now that we have these, we simply need to put them into a hash and use the Rho [Intent API method](../api/intent#msend) `Intent.send()` to send the intent. This api takes two parameters. The first one is an object that represents the intent options that the intent receiver application is expecting. The second optional parameter is a callbackhandler for Intent call. In our example, we have chosen to not handle a callback.
+Now that we have these, we simply need to put them into a hash and use the Rho [Intent API method](../api/Intent#msend) `Intent.send()` to send the intent. This api takes two parameters. The first one is an object that represents the intent options that the intent receiver application is expecting. The second optional parameter is a callbackhandler for Intent call. In our example, we have chosen to not handle a callback.
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#ruby_send" data-toggle="tab">Ruby</a></li>
@@ -151,7 +151,7 @@ This should always say `com.rho.intent.IntentReceiver`. For Android, we are basi
 ***NOTE: For Android, this is common syntax for an [intent-filter element].(http://developer.android.com/guide/topics/manifest/intent-filter-element.html). Also, We could have easily used any custom string that we wanted for our `action` and `category` fields. By using standard Android strings, our application will be presented as a choice when another app uses the same signature for sending an intent.***
 
 ### Add Code to Start Listening for Intents
-Now, before we can start sending intents to this app, we need to add some code that will allow us to tell the app to start listening for intents. We do this with the Rho [Intent API method](../api/intent#mstartListening) `Intent.startListening()`.
+Now, before we can start sending intents to this app, we need to add some code that will allow us to tell the app to start listening for intents. We do this with the Rho [Intent API method](../api/Intent#mstartListening) `Intent.startListening()`.
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#ruby_callback" data-toggle="tab">Ruby</a></li>
