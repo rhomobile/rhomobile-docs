@@ -332,9 +332,6 @@ When you are ready to submit your application, you can do it [using XCode](http:
 Once your application is submitted successfully you can view its review status by referring to [these](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/UsingiTunesConnect/UsingiTunesConnect.html#//apple_ref/doc/uid/TP40012582-CH22-SW8) steps.
 
 ## Differences building for iOS7
-
-NOTE: The following examples are all done using the rhodes-system-api-sample app that is included in your RhoMobile Suite Download.
-
 ### System Status Bar
 <div class="row-fluid">
   <div class="span6">
