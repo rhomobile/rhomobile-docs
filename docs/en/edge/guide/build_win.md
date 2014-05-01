@@ -138,7 +138,7 @@ So, if your application needs HTTPS or Windows XP compatibility, then you need t
 
 Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically.
 
-<a name="build-qt5-for-vs2008"></a>
+<!-- <a name="build-qt5-for-vs2008"></a>
 ### Visual Studio 2008
 
 It's recommended to build Windows desktop applications with Visual Studio 2012. However if you can't use VS2012, then you need to use a custom build of the Qt libraries for Visual Studio 2008 (since there are no official binaries of Qt 5.1.1 libraries for VS2008).
@@ -204,4 +204,4 @@ To build your own binaries of the Qt libraries for Visual Studio 2008:
   Be aware that it will take a while to build the Qt libraries from sources (maybe few hours or even a day).
 * After the build process is completed exit Visual Studio 2008 Command Prompt
 
-Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically.
+Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically. -->
