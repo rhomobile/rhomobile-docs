@@ -43,15 +43,15 @@ class Docs < Sinatra::Base
         topic_file = topic
       elsif subpath
         if docversion.nil?
-          # topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+          # topic_file = File.join(AppConfig['dirs'][subpath], "#{topic}.md")
         else
-          topic_file = File.join("docs/en/#{docversion}/#{subpath}/", "#{topic}.txt")
+          topic_file = File.join("docs/en/#{docversion}/#{subpath}/", "#{topic}.md")
         end  
       else
         if docversion.nil?
-         topic_file = "#{settings.root}/docs/#{topic}.txt"
+         topic_file = "#{settings.root}/docs/#{topic}.md"
         else
-         topic_file = "#{settings.root}/docs/en/#{docversion}/#{topic}.txt"
+         topic_file = "#{settings.root}/docs/en/#{docversion}/#{topic}.md"
         end
       end
     if  topic == 'apicompatibility'
@@ -182,7 +182,7 @@ class Docs < Sinatra::Base
     xml_string +=  '<item>'
     xml_string +=  '       <title><![CDATA[' + result['title'] + ']]></title>'
     xml_string +=  '       <link>' + request.base_url + '/' + result['docid'] + '</link>'
-    xml_string +=  '<pubDate>' + File.mtime('docs/' + result['docid'] + '.txt').to_s + '</pubDate>'
+    xml_string +=  '<pubDate>' + File.mtime('docs/' + result['docid'] + '.md').to_s + '</pubDate>'
     xml_string +=  '       <description><![CDATA['
     xml_string +=  result['snippet_text']
     xml_string +=  '       ]]></description>'
@@ -294,7 +294,7 @@ get '/exists' do
   status 200
   topic = params[:doc]
   puts topic
-  if !File.exist?("docs/#{topic}.txt")
+  if !File.exist?("docs/#{topic}.md")
     status 404
   end
 end
@@ -421,12 +421,12 @@ end
         topic
   		# elsif subpath
     #     if docversion.nil?
-    #       File.join(AppConfig['dirs'][subpath], "#{topic}.txt")
+    #       File.join(AppConfig['dirs'][subpath], "#{topic}.md")
     #     else
-    #       File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.txt")
+    #       File.join((AppConfig['dirs'][subpath]).gsub("docs/","v/#{docversion}/docs/"), "#{topic}.md")
     #     end  
   		else
-        File.join("docs/en/#{docversion}/#{subpath}/#{topic}.txt")
+        File.join("docs/en/#{docversion}/#{subpath}/#{topic}.md")
   		end
   	end
 	
