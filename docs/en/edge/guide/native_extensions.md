@@ -400,7 +400,7 @@ If your return value is a primitive or simple type (number, string), you can cal
 				<code>
 					NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:<br/>
 					@"value1", @"key1", @"value2", @"key2", nil];<br/>
-					methodResult.set(dict);<br/>
+					[methodResult setResult:dict];<br/>
 				</code>
 			</td>
 		</tr>
