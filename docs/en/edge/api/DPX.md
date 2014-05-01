@@ -189,7 +189,7 @@ Rho.DPX.captureDocument(function(params){
 
        
 function processDPXForm(DPXform){
-  var regions = DPXForm.regions;
+  var regions = DPXform.regions;
   for(i=0; i&lt; regions.length; ++i){
     switch(regions[i].processingMode){
     case Rho.DPX.PM_OCR:
@@ -197,22 +197,22 @@ function processDPXForm(DPXform){
       regionTextArray = regions[i].processedData;
 
       //maybe do something with returned confidence
-      // DPXForm.absoluteOcrConfidence
-      // DPXForm.relativeOcrConfidence
+      // PDXform.absoluteOcrConfidence
+      // PDXform.relativeOcrConfidence
       break;
     case Rho.DPX.PM_OMR:
       // Checkbox region either True or False
-      regionBooleanCheckbox = regions.processedData;
+      regionBooleanCheckbox = regions[i].processedData;
       break;
     case Rho.DPX.PM_PICTURE:
       // nothing in processedData
       // Image held temporarily until Rho.DPX.close()
       // use the id and the Rho.DPX.getDataUri method
-      regionImageURI = Rho.DPX.getDataUri(regions.image.id);
+      regionImageURI = Rho.DPX.getDataUri(regions[i].image.id);
       break;
     case Rho.DPX.PM_BARCODE:
       // Barcode data will be in processedData field
-      regionBarCode = regions.processedData;
+      regionBarCode = regions[i].processedData;
       break;
     }
   }
