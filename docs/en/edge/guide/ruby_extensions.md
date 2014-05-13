@@ -302,3 +302,8 @@ Add to build.yml:
 
 NOTE: openssl.so is native c-library and should be included in extensions list to use openssl-base libraries
 
+## Rhomobile Ruby Implementation Limitations
+Our Ruby implementation is based on Ruby 1.9.2.p290 but, there are a few main differences between our implementation of Ruby and core Ruby 1.9.2:
+* `eval` is disabled for string evaluation because of limitations with iOS.
+* `eval` for blocks **is** functional.
+* Currently, Ruby threads do not work on Android. This is a known issue and is in the process of being fixed.
