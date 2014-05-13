@@ -16,7 +16,7 @@ end
 section 'rhodescommonapi-reference',      '4.1 API Reference','Mobile API Docs' do
   topic 'en/edge/guide/apisummary',       'RhoMobile API Summary'
   topic 'en/edge/api/Application',        'Application'
-  # topic 'en/edge/api/audiocapture',       'AudioCapture'
+  topic 'en/edge/api/audiocapture',       'AudioCapture'
   topic 'en/edge/api/barcode',            'Barcode'
   topic 'en/edge/api/battery',            'Battery'
   # topic 'en/edge/api/camera',             'Camera'
