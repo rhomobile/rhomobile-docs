@@ -23,9 +23,9 @@ Then, run this command to install the Rho Gems.
 
 NOTE: Installing RhoMobile Suite will install these gems automatically. You can have multiple versions of these gems installed on your system. By default when building your application the most recent version # is used. Please consult the guide on building for a specific version of RhoMobile.
 
-* The `rhodes` gem is distrubuted to publically availabl Ruby repositories. The command above will install the latest version available. If you are testing a beta release, you can also use the local syntax for installing a local copy of the gem file
+* The `rhodes` gem is distrubuted to publically availableRuby repositories. The command above will install the latest version available. If you are testing a beta release, you can also use the local syntax for installing a local copy of the gem file
 
-* The `rhoelements` gem is only needed if you application will be taking advantage of mobile APIs and features that are targeted towards enterprise devices. You will also need this gem if you wish to have a Webkit enabled application running on Windows Mobile/CE.
+* The `rhoelements` gem is only needed if your application will be taking advantage of mobile APIs and features that are targeted towards enterprise devices. You will also need this gem if you wish to have a Webkit enabled application running on Windows Mobile/CE.
 
 * The `rhoconnect-client` was previosly included in the `rhodes` gem prior to version 4.0. If your application plans on using the RhoConnect client for data synchronization, you will need to install this gem.
 
