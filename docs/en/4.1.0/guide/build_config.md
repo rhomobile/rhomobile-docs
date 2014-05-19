@@ -137,6 +137,12 @@ If you are building an app for Windows Mobile or Windows CE you must specify the
     :::yaml
     app_type: "rhoelements"
 
+### Android Title
+If you want your app to hide the default android title bar, you need to set `android_title` to '0' as follows:
+
+    :::yaml
+    android_title: 0
+
 ### JS API Bridge
 This option is typically only used for debugging purposes. If your AJAX-based app is not working properly, you can set this to true. If your application code resides on a remote server (as opposed to running locally), the Rhomobile Javascript APIs will not be available when this settings = `true`
 
