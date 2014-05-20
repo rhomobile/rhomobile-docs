@@ -1,18 +1,6 @@
-# The RhoMobile Ruby environment
+# Ruby Native Extensions
 
-Our C/C++ Ruby implementation is based on original Ruby C code, 1.9 release and support such core classes and module as:
- 
-<i>
-BasicObject, Object, Module, Class, Integer, Float, Numeric, Bignum, Rational, Complex, Math, String, StringScanner, StringIO, 
-Array, Hash, Struct, Regexp, RegexpError, MatchData, Data, NilClass, TrueClass, FalseClass, Comparable, Enumerable, Enumerator,
-Converter, Marshal, IO, Dir, Time, Date, Signal, Mutex, Thread, ThreadGroup, Process, Fiber, FiberError, Method, UnboundMethod, 
-Binding, RubyVM, GC, Exception, SystemExit, fatal, SignalException, Interrupt, StandardError, TypeError, ArgumentError, IndexError, 
-KeyError, RangeError, ScriptError, SyntaxError, LoadError, NotImplementedError, NameError, NoMethodError, RuntimeError, 
-SecurityError, NoMemoryError, EncodingError, CompatibilityError, SystemCallError, Errno, ZeroDivisionError, FloatDomainError, 
-IOError, EOFError, ThreadError
-</i>
-
-We are using Rubinius specs to test Ruby compatibility across different platforms.
+This doc will explain extensions to the Rhodes framework using Ruby and how to add them to your Rhodes app, including the handling of JSON and XML data with regards to your app's data.
 
 ## Extensions
 
@@ -192,7 +180,7 @@ Using this technique you can easily remove extension from application or include
   
 ## Adding Libraries to Your Rhodes Application
 
-During the course of your app development you might need to add an external ruby library with extra features that the rhodes framework doesn't provide.  While we don't guarantee that all ruby libraries will work on the mobile device, you can follow the steps below to add and test libraries as needed.
+During the course of your app development you might need to add an external ruby library with extra features that the Rhodes framework doesn't provide.  While we don't guarantee that all ruby libraries will work on the mobile device, you can follow the steps below to add and test libraries as needed.
 
 In RhoMobile, the require path is relative to the "app" subdirectory, since this is what gets bundled with the application.
 
@@ -301,9 +289,3 @@ Add to build.yml:
 	extensions: ["openssl.so", "openssl", "digest", "digest-sha2" ]
 
 NOTE: openssl.so is native c-library and should be included in extensions list to use openssl-base libraries
-
-## Rhomobile Ruby Implementation Limitations
-Our Ruby implementation is based on Ruby 1.9.2.p290 but, there are a few main differences between our implementation of Ruby and core Ruby 1.9.2:
-* `eval` is disabled for string evaluation because of limitations with iOS.
-* `eval` for blocks **is** functional.
-* Currently, Ruby threads do not work on Android. This is a known issue and is in the process of being fixed.

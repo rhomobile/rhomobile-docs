@@ -1,18 +1,6 @@
 # The RhoMobile Ruby environment
 
-Our C/C++ Ruby implementation is based on original Ruby C code, 1.9 release and support such core classes and module as:
- 
-<i>
-BasicObject, Object, Module, Class, Integer, Float, Numeric, Bignum, Rational, Complex, Math, String, StringScanner, StringIO, 
-Array, Hash, Struct, Regexp, RegexpError, MatchData, Data, NilClass, TrueClass, FalseClass, Comparable, Enumerable, Enumerator,
-Converter, Marshal, IO, Dir, Time, Date, Signal, Mutex, Thread, ThreadGroup, Process, Fiber, FiberError, Method, UnboundMethod, 
-Binding, RubyVM, GC, Exception, SystemExit, fatal, SignalException, Interrupt, StandardError, TypeError, ArgumentError, IndexError, 
-KeyError, RangeError, ScriptError, SyntaxError, LoadError, NotImplementedError, NameError, NoMethodError, RuntimeError, 
-SecurityError, NoMemoryError, EncodingError, CompatibilityError, SystemCallError, Errno, ZeroDivisionError, FloatDomainError, 
-IOError, EOFError, ThreadError
-</i>
-
-We are using Rubinius specs to test Ruby compatibility across different platforms.
+This doc will explain extensions to the Rhodes framework using Ruby and how to add them to your Rhodes app, including the handling of JSON and XML data with regards to your app's data.
 
 ## Extensions
 
