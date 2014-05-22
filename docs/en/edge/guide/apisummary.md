@@ -49,21 +49,21 @@ Below is a list of the new `common api's` for RhoMobile Suite 4.1. Please consul
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
     </tr>
 
-    <!-- <tr>
+     <tr>
       <td>
         <a href="../api/audiocapture">AudioCapture</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-      <td style="text-align:center" class=" "></td>
-    </tr> -->
+    </tr> 
 
     <tr>
       <td>
@@ -534,7 +534,6 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * Calendar
 * System.Process
 * [Registry](../../2.2.0/rhoelements/registry)
-* [AudioCapture](../../2.2.0/rhoelements/AudioCapture)
 * [Config](../../2.2.0/rhodesapi/rhoconfig-api)
 * [Gesture](../../2.2.0/rhoelements/Gesture)
 * Printing
