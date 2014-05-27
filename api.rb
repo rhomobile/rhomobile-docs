@@ -108,7 +108,7 @@ class Api
 # md+='  </div>'
 # md+='  <div class="modal-body">'
 
-  	md = "\n\n<strong>Javascript Usage</strong>"
+  	md = "\n\n<strong>JavaScript Usage</strong>"
   	md += "\n\n<pre class='CodeRay'><code>:::javascript\n"
   	if !ro
 	  	md += "\n// Setting directly"
@@ -458,7 +458,7 @@ def self.getconstantlinks(doc)
 				exampletabs = "<ul class='nav nav-tabs' id='#{exampleid}Tab'>"
 				activeindicator = "class='active'"
 				if codejs != ''
-					exampletabs +=  "<li #{activeindicator}><a href='##{exampleid}JS' data-toggle='tab'>Javascript</a></li>"
+					exampletabs +=  "<li #{activeindicator}><a href='##{exampleid}JS' data-toggle='tab'>JavaScript</a></li>"
 					activeindicator = ''
 				end
 				if coderuby != ''
@@ -568,7 +568,7 @@ def self.getconstantlinks(doc)
   	end
   	indicators = ""
   	if javascript
-		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
+		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
 	end
 	if ruby
 	
@@ -844,7 +844,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
 			if javascript 
-				accesstype += '<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
+				accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 			end
 			if ruby
 				accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + '</code></li>'
@@ -855,7 +855,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	else
 		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul>'
 		if javascript
-			accesstype +='<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
+			accesstype +='<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 		end
 		if ruby
 			accesstype +='<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + '</code></li>'
@@ -1360,15 +1360,15 @@ end
 				@methcallbackparamdesc += "<p>The callback parameter can take on one of three forms</p><ol>"
 				@methcallbackparamdesc += "<li>Controller action URL"
 				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + " url_for :action => :mycallback)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
+				@methcallbackparamdesc += "<p>JavaScript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
 				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + "lambda{ |e|\n puts e['#{firstcallbackreturnparam}'] }\n)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
+				@methcallbackparamdesc += "<p>JavaScript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
 				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + " mycallback() )</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
+				@methcallbackparamdesc += "<p>JavaScript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "</ol>"
 				@methcallbackparamdesc+='  </div>'
@@ -1399,7 +1399,7 @@ end
 
 			end
 			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc,'RUBY',true) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
-			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
+			@methsample += "<br/>JavaScript Syntax:<br/><b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
 			if @methhascallback == "optional"
 				@methsample += "Callback function is optional.<br/><br/>"
 			end
@@ -1551,7 +1551,7 @@ end
 		if templateDefault
 		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
 			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
@@ -1562,7 +1562,7 @@ end
 	else
 		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
 			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
@@ -1573,7 +1573,7 @@ end
 	if constructor
 		accesstype = '<li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>var myObj = new ' + getApiName(doc,'JS',true) + "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>var myObj = new ' + getApiName(doc,'JS',true) + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
 			accesstype += '<li>Ruby: <code>@myObj = ' + getApiName(doc,'RUBY',true) + ".new(#{@methparams})</code></li>"
@@ -1583,7 +1583,7 @@ end
 	if destructor
 		accesstype = '<li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
 		end
 		if ruby 
 			accesstype += '<li>Ruby: <code>@myObj.' +  element["name"]  +  "(#{@methparams})</code></li>"
@@ -1832,7 +1832,7 @@ end
 
 			md += '<div class="btn-group pull-right">'
 			md += '<button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button>'
-		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option>'
+		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option>'
 			md += '<option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select>'
 
 		  	# md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
