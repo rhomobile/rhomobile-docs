@@ -28,11 +28,11 @@ If the device is equipped with a hardware beeper, it can be made to sound at a s
 
 Ruby syntax:
     :::ruby
-    Rho::Notification.beep({ :frequency => 8000, :volume => 3, :duration => 1000 })
+    Rho::Notification.beep({ :frequency => 4000, :volume => 3, :duration => 1000 })
     
 JavaScript syntax:
     :::javascript
-    Rho.Notification.beep({ frequency: 8000, volume: 3, duration: 1000 });
+    Rho.Notification.beep({ frequency: 4000, volume: 3, duration: 1000 });
 
 #### Vibrate
 
