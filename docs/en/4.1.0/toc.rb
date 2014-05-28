@@ -183,6 +183,7 @@ end
 section 'rhomob-ext',                       'Extending','Mobile Guides' do
   topic 'en/4.1.0/guide/native_extensions', 'Extending the Rhodes Framework'
   topic 'en/4.1.0/guide/ruby_extensions',   'Ruby Native Extensions'
+  topic 'en/4.1.0/guide/rho_ruby',          'Rhomobile Ruby'
   topic 'en/4.1.0/guide/view_extensions',   'View Extensions'
 end
 
