@@ -28,77 +28,85 @@
 <body>
 <div class="navbar " id="top_navbar">
   <div class="navbar-inner">
-    <a class="brand" href="/"><img src="/images/bg/motorola-logo.png" style="width:32px"/>&nbsp;<strong>RhoMobile Suite Documentation</strong></a>
-      <form class="navbar-search pull-right" id="searchForm" action="/search">
-        <input type="text" class="search-query span4" id="query" placeholder="Search" name="q" size="31" value="">
-      </form>
 
-      <% sectionGroup  = TOC.findGroup(request.path_info) 
-      if @docversion.nil?
-        @docversion = Version::CURR_VERSION
-      end
-        # puts "version #{@docversion}"
-      if  @docversion != '2.2.0' # needs to stay hardcoded because we did not have folder scheme implemented 
-        vpath = ""
-        homepath="/en/#{@docversion}/home"
-        mapipath="/en/#{@docversion}/guide/apisummary"
-        mguidepath="/en/#{@docversion}/guide/welcome"
-        rcguidepath="/en/#{@docversion}/rhoconnect/introduction"
-      else
-        vpath = "/en/#{@docversion}"
-        homepath="#{vpath}/home"
-        mapipath="#{vpath}/rhoelements/apicompatibility"
-        mguidepath="#{vpath}/rhodes/introduction"
-        rcguidepath="#{vpath}/rhoconnect/introduction"
-      end
-      %>
+    <!-- Brand Logo -->
+    <a class="brand" href="/"><img src="/images/bg/motorola-logo.png" style="width:32px"/>&nbsp;<strong>RhoMobile Suite Documentation</strong></a>
+
+    <!-- Docs Search -->
+    <form class="navbar-search pull-right" id="searchForm" action="/search">
+      <input type="text" class="search-query span4" id="query" placeholder="Search" name="q" size="31" value="">
+    </form>
+
+    <!-- Set DocVersion and Paths -->
+    <% sectionGroup  = TOC.findGroup(request.path_info)
+    if @docversion.nil? or @docversion == 'cloud'
+      @docversion = Version::CURR_VERSION
+    end
+    vpath = "/en/#{@docversion}"
+    # puts "version #{@docversion}"
+    if @docversion != '2.2.0' # needs to stay hard-coded because we did not have folder scheme implemented
+      homepath    = "#{vpath}/home"
+      mapipath    = "#{vpath}/guide/apisummary"
+      mguidepath  = "#{vpath}/guide/welcome"
+      rcguidepath = "#{vpath}/rhoconnect/introduction"
+    else
+      vpath       = "/en/#{@docversion}"
+      homepath    = "#{vpath}/home"
+      mapipath    = "#{vpath}/rhoelements/apicompatibility"
+      mguidepath  = "#{vpath}/rhodes/introduction"
+      rcguidepath = "#{vpath}/rhoconnect/introduction"
+    end
+
+    # Set cloud services path no matter the version
+    cloudguidepath = "/en/cloud/introduction"
+    %>
 
     <div class="row span11">
-      <!-- <div class="span6"> -->
-        <ul class="nav">
-          <li class="<%=sectionGroup=='Home' ? 'active' : ''%>">
-            <a href="<%=homepath%>"><i class="icon-home"></i></a>
-          </li>
-          <li class="<%=sectionGroup=='Mobile API Docs' ? 'active' : ''%>">
-              <a href="<%=mapipath%>"><i class="icon-cog"></i>API Reference</a>
-          </li>
-          <li class="<%=sectionGroup=='Mobile Guides' ? 'active' : ''%>">
-            <a href="<%=mguidepath%>"><i class="icon-book"></i>RhoMobile Guides</a>
-          </li>
-          <li class="<%=sectionGroup=='RhoConnect Guides' ? 'active' : ''%>">
-            <a href="<%=rcguidepath%>"><i class="icon-refresh"></i>RhoConnect Guides</a>
-          </li>
-        <!-- </ul> -->
-      <!-- </div> -->
-      <!-- <div class="span1 pull-right"> -->
-        </ul>
-        <ul class="nav pull-right">
+      <!-- Products Links -->
+      <ul class="nav">
+        <li class="<%=sectionGroup == 'Home' ? 'active' : ''%>">
+          <a href="<%=homepath%>"><i class="icon-home"></i></a>
+        </li>
+        <li class="<%=sectionGroup == 'Mobile API Docs' ? 'active' : ''%>">
+            <a href="<%=mapipath%>"><i class="icon-cog"></i> API Reference</a>
+        </li>
+        <li class="<%=sectionGroup == 'Mobile Guides' ? 'active' : ''%>">
+          <a href="<%=mguidepath%>"><i class="icon-book"></i> RhoMobile Guides</a>
+        </li>
+        <li class="<%=sectionGroup == 'RhoConnect Guides' ? 'active' : ''%>">
+          <a href="<%=rcguidepath%>"><i class="icon-refresh"></i> RhoConnect Guides</a>
+        </li>
+        <li class="<%=sectionGroup == 'Cloud Services' ? 'active' : ''%>">
+          <a href="<%=cloudguidepath%>"><i class="icon-cloud"></i> Cloud Services</a>
+        </li>
+      </ul>
+
+      <ul class="nav pull-right">
+        <!-- Version selector -->
         <li class="navbar-form">
-        <!-- </div> -->
-      <!-- <div class="span2 pull-right"> -->
-          <% if request.path_info != '/search' %>
+          <!-- Do not show version selector if in search results or in cloud services docs -->
+          <% if request.path_info != '/search' and !request.path_info.include? '/cloud/' %>
             <select id="version_select" class="input input-medium">
-                <optgroup label="Current Release" >
-                <option value=<%= Version::CURR_VERSION %> <%=@docversion.nil? || @docversion == Version::CURR_VERSION ? 'SELECTED' : ''%>><%=Version::CURR_VERSION %></option>
-              </optgroup>
               <optgroup label="Beta">
                 <option value=<%= Version::NEXT_VERSION %> <%=@docversion.nil? || @docversion == Version::NEXT_VERSION ? 'SELECTED' : ''%>><%=Version::NEXT_VERSION %></option>
               </optgroup>
-                <optgroup label="Previous Releases">
-                <option value=<%= Version::PREV_VERSION %> <%=@docversion == Version::PREV_VERSION ? 'SELECTED' : ''%>><%= Version::PREV_VERSION %></option>
-                <!-- Keep all previous versions hardcoded -->
-                <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
-                
+              <optgroup label="Current Release" >
+                <option value=<%= Version::CURR_VERSION %> <%=@docversion.nil? || @docversion == Version::CURR_VERSION ? 'SELECTED' : ''%>><%=Version::CURR_VERSION %></option>
               </optgroup>
-
+              <optgroup label="Previous Releases">
+                <option value=<%= Version::PREV_VERSION %> <%=@docversion == Version::PREV_VERSION ? 'SELECTED' : ''%>><%= Version::PREV_VERSION %></option>
+                <!-- Keep all previous versions hard-coded -->
+                <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
+              </optgroup>
               </select>
           <% end %>
-          </li>
-          <li class="pull-right">
-          <a  rel="tooltip" title="Report Doc Issue" tooltip="Report Doc Issue" href="#"><i class="icon icon-bug "></i> Report Issue</a>
         </li>
-        <!-- </div> -->
-    </ul>
+
+        <!-- Bug Report Link -->
+        <li class="pull-right">
+          <a rel="tooltip" title="Report Doc Issue" tooltip="Report Doc Issue" href="#"><i class="icon icon-bug "></i> Report Issue</a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
