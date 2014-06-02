@@ -1,35 +1,78 @@
-#Rhoconnect Tutorial
+# Rhoconnect Tutorial
 
-To test to make sure the sync is working, we need to create a basic RhoMobile application.
+To test to make sure the sync is working, we need to create a basic RhoMobile application. This can be done either through the command line interface or through RhoStudio.
 
-## Creating the RhoMobile Application
+## Creating the RhoMobile client Application
 
-<div class="row-fluid">
-  <div class="span6">
-    <p>1. Open RhoStudio</p>
-    <p>2. Select File / New Project / RhoMobile Application</p>
-    <p>3. After choosing an application name click Finish</p>
+<div>
+  <ul class="nav nav-tabs" style="margin-bottom:0">
+    <li class="active"><a href="#cli_app_gen" data-toggle="tab">Command Line Interface</a></li>
+    <li><a href="#rs_app_gen" data-toggle="tab">RhoStudio</a></li>
+  </ul>
+</div>
+<div class="tab-content" id="tc-app_gen" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px">
+  <div class="tab-pane fade active in" id="cli_app_gen">
+    <div class="row-fluid">
+      <div class="span6">
+        <p>1. Open your terminal or preferred command line interface.</p>
+        <p>2. Run the following command without the brackets.</p>
+        <pre><code class="term">$ rhodes app &lt;appname&gt;</code></pre>
+      </div>
+      <div class="span4 offset2" style="text-align:center">
+        <!-- <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-project.png"> -->
+      </div>
+    </div>
   </div>
-  <div class="span4 offset2" style="text-align:center">
-    <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-project.png">
+  <div class="tab-pane fade" id="rs_app_gen">
+    <div class="row-fluid">
+      <div class="span6">
+        <p>1. Open RhoStudio</p>
+        <p>2. Select File / New Project / RhoMobile Application</p>
+        <p>3. After choosing an application name click Finish</p>
+      </div>
+      <div class="span4 offset2" style="text-align:center">
+        <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-project.png">
+      </div>
+    </div>
   </div>
 </div>
 
 ## Adding the Product Model
 
-<div class="row-fluid">
-  <div class="span6">
-    <p>1. While in RhoStudio, right click on the project you just created</p>
-    <p>2. Choose New / RhoMobile Model</p>
-    <p>3. Enter <code>Product</code> in the <code>Model name</code> field</p>
-    <p>4. Enter <code>name,brand,quantity,price</code> in the <code>Model attributes</code> field</p>
+<div>
+  <ul class="nav nav-tabs" style="margin-bottom:0">
+    <li class="active"><a href="#cli_model_gen" data-toggle="tab">Command Line Interface</a></li>
+    <li><a href="#rs_model_gen" data-toggle="tab">RhoStudio</a></li>
+  </ul>
+</div>
+<div class="tab-content" id="tc-app_gen" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px">
+  <div class="tab-pane fade active in" id="cli_model_gen">
+    <div class="row-fluid">
+      <div class="span6">
+        While in the command line, run the following command without the brackets.</p>
+        <pre><code class="term">$ rhodes model &lt;modelname&gt; &lt;comma,seperated,list,of,attributes&gt;</code></pre>
+      </div>
+      <div class="span4 offset2" style="text-align:center">
+        <!-- <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-model.png"> -->
+      </div>
+    </div>
   </div>
-  <div class="span4 offset2" style="text-align:center">
-    <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-model.png">
+  <div class="tab-pane fade" id="rs_model_gen">
+    <div class="row-fluid">
+      <div class="span6">
+        <p>1. While in RhoStudio, right click on the project you just created</p>
+        <p>2. Choose New / RhoMobile Model</p>
+        <p>3. Enter <code>Product</code> in the <code>Model name</code> field</p>
+        <p>4. Enter <code>name,brand,quantity,price</code> in the <code>Model attributes</code> field</p>
+      </div>
+      <div class="span4 offset2" style="text-align:center">
+        <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-client-new-model.png">
+      </div>
+    </div>
   </div>
 </div>
 
-NOTE: Pay attention to spelling of the model and attributes, as the sample code is assuming that it will match exactly to the JSON object coming from the backend.
+NOTE: Pay attention to spelling of the model and attributes, as the sample code is assuming that it will match exactly to the JSON object coming from the back-end.
 
 ## Enabling Sync
 

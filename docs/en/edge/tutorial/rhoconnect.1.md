@@ -24,7 +24,7 @@ Ruby RhoConnect apps can also be generated using RhoStudio. To use this method, 
 
 After code generation, the bundle install command will be run for the first time automatically.
 
-NOTE: It is required to have a connection to the internet to create an application. There are certain Ruby gems that RhoConnect is dependant on.
+NOTE: It is required to have a connection to the internet to create an application. There are certain Ruby gems that RhoConnect is dependent on.
 
 ## Starting Your RhoConnect App
 
