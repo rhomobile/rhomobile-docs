@@ -12,4 +12,36 @@ Under export
 * launchpad - will contain html files to be used to import into Launchpad
 * offline - will contain HTMl files/folder structure used for offline CHM help generation
 
+## API Reference docs template
+
+* Overview H2
+	* Summary Text
+* Methods H2
+	* Name H3
+		* Usage H4
+		* Description H4
+		* Parameters H4
+		* Return H4
+		* Access H4
+		* Platforms H4
+		* Version H4
+* Properties H2
+	* Name H3
+		* Description H4
+		* Values H4
+		* Access H4
+		* Platforms H4
+		* Version H4
+* Constants H2
+	* Name H3
+		* Description H4
+* Examples H2
+	* Title H3
+	* Description
+* Remarks H2
+	* Title H3
+	* Description	
+
+
+
 

@@ -5,6 +5,7 @@ development:
     - '../rhodes/res/generators/templates/api/xml_templates/'
     - '../rhoconnect-client/ext/rhoconnect-client/ext/'
   api: 'docs/en/edge/api/'
+  api_eb: 'eb/en/edge/api/'
 
   index: 'rhodocs_edge'
   pdfkithost: 'localhost:9393'
@@ -16,16 +17,19 @@ jenkins:
     - '../../rhodes/workspace/res/generators/templates/api/xml_templates/'
     - '../../rhoconnect-client/workspace/ext/rhoconnect-client/ext/'
   api: 'docs/en/edge/api/'
+  api_eb: 'eb/en/edge/api/'
   index: 'rhodocs_edge'
   pdfkithost: 'localhost:9393'
   current_version: '4.1.0'
 edge:
   api: 'docs/en/edge/api/'
+  api_eb: 'eb/en/edge/api/'
   index: 'rhodocs_edge'
   pdfkithost: 'edgedocs.rhomobile.com'
   current_version: '4.1.0'
 production:
   api: 'docs/en/edge/api/'
+  api_eb: 'eb/en/edge/api/'
   index: 'rhodocs'
   pdfkithost: 'docs.rhomobile.com'
   current_version: '4.1.0'

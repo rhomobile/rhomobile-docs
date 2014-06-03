@@ -160,6 +160,24 @@ def process_xml
   end
 end
 
+def process_xml_eb
+  puts 'rebuilding API docs'
+  apiXML = File.join(AppConfig['api_eb'],"**","*.xml")
+  
+  apiFiles = Dir.glob(apiXML)
+
+  # Links that go to 127.0.0.1:9393 (where no server is running) get styled dark red
+  # Links that go to external sites (may not be reachable if user is truly offline) get italics
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['api_eb'],'')
+    if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
+      puts "Processing " + basename
+    
+      Apieb.markdown(fileName)
+    end
+  end
+end
+
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
