@@ -33,8 +33,38 @@ app_type: "rhoelements"
 
 
 
-### hideStates()
-Stops showing keystate icons representing the shifted state of the hardware keyboard.
+### hideStates()Stops showing keystate icons representing the shifted state of the hardware keyboard.
 
-### showStates()
-Display keystate icons representing the shifted state of the hardware keyboard.
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
+
+####Platforms
+
+* Javascript
+* Ruby
+* Windows Embedded
+* Motorola Solutions Devices Only
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.KeyState.hideStates()</code> </li></ul></li></ul>
+
+### showStates(<span class="text-info">HASH</span> propertyMap)Display keystate icons representing the shifted state of the hardware keyboard.
+
+####Parameters
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>The properties associated with the keystate indicator, its size and position. Not specifying any properties will display the keystate indicators at the bottom right hand corner of the screen.</p></li><ul><li>right : <span class='text-info'>INTEGER</span><span class='label '> Default: [Keystate Indicators start at the bottom right of the screen]</span><p>The absolute horizontal position of the keystate indicators in pixels. This is the rightmost edge of the rightmost indicator, where multiple indicators are displayed simultaneously they will grow from right to left. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Keystate Indicators start at the bottom right of the screen]</span><p>The absolute vertical position of the keystate indicators in pixels. </p></li><li>width : <span class='text-info'>INTEGER</span><span class='label '> Default: [A sensible width based on Screen Resolution]</span><p>The width of each keystate indicator in pixels. </p></li><li>height : <span class='text-info'>INTEGER</span><span class='label '> Default: [A sensible height based on Screen Resolution]</span><p>The width of each keystate indicator in pixels. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
+
+####Platforms
+
+* Javascript
+* Ruby
+* Windows Embedded
+* Motorola Solutions Devices Only
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.KeyState.showStates(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>

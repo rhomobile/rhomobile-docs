@@ -25,17 +25,111 @@ extensions: ["screenorientation"]
 
 
 
-### leftHanded()
-Sets the screen orientation to left-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
+### leftHanded()Sets the screen orientation to left-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
 
-### normal()
-Sets the screen orientation to default device orientation.
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-### rightHanded()
-Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
 
-### setScreenOrientationEvent()
-Sets the callback to be called when a screen orientation event occurs.
+####Platforms
 
-### upsideDown()
-Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.
+* Javascript
+* Ruby
+* Android
+* Windows Embedded
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.leftHanded()</code> </li></ul></li></ul>
+
+### normal()Sets the screen orientation to default device orientation.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
+
+####Platforms
+
+* Javascript
+* Ruby
+* Android
+* Windows Embedded
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.normal()</code> </li></ul></li></ul>
+
+### rightHanded()Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
+
+####Platforms
+
+* Javascript
+* Ruby
+* Android
+* Windows Embedded
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.rightHanded()</code> </li></ul></li></ul>
+
+### setScreenOrientationEvent()Sets the callback to be called when a screen orientation event occurs.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
+
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
+
+####Platforms
+
+* Javascript
+* Ruby
+* Android
+* iOS
+* Windows Embedded
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.setScreenOrientationEvent()</code> </li></ul></li></ul>
+
+### upsideDown()Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:<ul><li>Void</li></ul>
+
+####Platforms
+
+* Javascript
+* Ruby
+* Android
+* Windows Embedded
+
+####Method Access:
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.upsideDown()</code> </li></ul></li></ul>
+
+##Properties
+
+
+
+###autoRotate
+
+####Type
+<span class='text-info'>BOOLEAN</span> 
+####Description
+Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.
+####Params
+<p><strong>Default:</strong> true</p>
+####Access
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.autoRotate</code> </li></ul></li></ul>
