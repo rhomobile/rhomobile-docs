@@ -161,7 +161,7 @@ def process_xml
 end
 
 def process_xml_eb
-  puts 'rebuilding API docs'
+  puts 'rebuilding EB API docs'
   apiXML = File.join(AppConfig['api_eb'],"**","*.xml")
   
   apiFiles = Dir.glob(apiXML)
