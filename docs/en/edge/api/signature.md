@@ -71,7 +71,7 @@ app_type: "rhoelements"
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Capture signature to file (fullscreen) and display it in a view</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
-<p>In order to capture a signature in fullscreen mode you need to</p>
+<p>In order to capture a signature in full-screen mode you need to</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
            
   def capture_fullscreen
@@ -82,7 +82,7 @@ app_type: "rhoelements"
   end
 
   def signature_callback
-    # If status is not 'ok', the capture was cancelled
+    # If status is not 'ok', the capture was canceled
     if @params['status'] == 'ok'
     
       # By default, the output format is "image", so the imageUri parameter will contain the relative filename of an image
@@ -127,30 +127,30 @@ app_type: "rhoelements"
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
            
-// Change fullscreen from true (default) to false
+// Change full-screen from true (default) to false
 // Change background color from white (default) to black
 // Change pen color from blue (default) to white
-Rho::Signature.show ({:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF"});
+Rho.Signature.show ({"fullScreen" : false, "bgColor" : "#000000", "penColor" : "#FFFFFF"});
                    
                  </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-            
-# Change fullscreen from true (default) to false           
+           
+# Change full-screen from true (default) to false
 # Change background color from white (default) to black
 # Change pen color from blue (default) to white
-Rho::Signature.show {:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF"}
+Rho::Signature.show { :fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF" }
                    
                  </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class=' example' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample2"><strong>Capture as DataURI</strong></div><div id="cExample2" class="accordion-body">  <div class="accordion-inner">
 <p>By default, the Signature API returns the capture as an image. If you prefer a DataURI representation of the signature, use the &ldquo;outputFormat&rdquo; property</p>
 <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
 
            
-Rho.Signature.takeFullScreen({outputFormat : "dataUri"}, signature_callback)
+Rho.Signature.takeFullScreen({"outputFormat" : "dataUri"}, signature_callback)
                    
                  </code></pre></div><div class='tab-pane' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
            
-Rho::Signature.takeFullScreen({:outputFormat =&gt; "dataUri"}, url_for(:action =&gt; :signature_callback))
+Rho::Signature.takeFullScreen({ :outputFormat =&gt; "dataUri" }, url_for(:action =&gt; :signature_callback))
                    
                  </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
