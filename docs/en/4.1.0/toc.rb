@@ -214,7 +214,7 @@ section 'rhoconnect-ruby-api-reference',                              'Source Ad
 end
 
 section 'rhoconnect-js-api-reference',                              'Source Adapter JS APIs','RhoConnect Guides' do
-  topic 'en/4.1.0/rhoconnect/rest-api',                             'RhoConnect REST API'
+  # topic 'en/4.1.0/rhoconnect/rest-api',                             'RhoConnect REST API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-controller-api-js',  'Source Adapter Controller API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-model-api-js',       'Source Adapter Model API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-request-api-js',     'Source Request API'
