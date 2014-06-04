@@ -1,0 +1,1 @@
+This will be the folder to hold manual written guides in MD format
