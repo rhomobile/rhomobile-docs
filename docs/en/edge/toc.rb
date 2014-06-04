@@ -210,7 +210,6 @@ section 'rhoconnect-source-adapter-reference',      'Source Adapters','RhoConnec
 end
 
 section 'rhoconnect-ruby-api-reference',                            'Source Adapter Ruby APIs','RhoConnect Guides' do
-  topic 'en/edge/rhoconnect/rest-api',                              'RhoConnect REST API'
   topic 'en/edge/rhoconnectapi/source-adapter-controller-api-ruby', 'Source Adapter Controller API'
   topic 'en/edge/rhoconnectapi/source-adapter-model-api-ruby',      'Source Adapter Model API'
   topic 'en/edge/rhoconnectapi/source-adapter-store-api-ruby',      'Source Adapter Store API'
@@ -218,7 +217,6 @@ section 'rhoconnect-ruby-api-reference',                            'Source Adap
 end
 
 section 'rhoconnect-js-api-reference',                            'Source Adapter JS APIs','RhoConnect Guides' do
-  # topic 'en/edge/rhoconnect/rest-api',                            'RhoConnect REST API'
   topic 'en/edge/rhoconnectapi/source-adapter-controller-api-js', 'Source Adapter Controller API'
   topic 'en/edge/rhoconnectapi/source-adapter-model-api-js',      'Source Adapter Model API'
   topic 'en/edge/rhoconnectapi/source-adapter-request-api-js',    'Source Request API'
@@ -268,6 +266,7 @@ end
 
 section 'rhoconnect-nonrhodes-client-reference',  'Clients','RhoConnect Guides' do
   topic 'en/edge/rhoconnect/client',              'Using RhoConnect without Rhodes'
+  topic 'en/edge/rhoconnect/rest-api',            'RhoConnect REST API'
   topic 'en/edge/rhoconnect/client-objc',         'RhoConnect Client for iOS'
   topic 'en/edge/rhoconnect/client-java',         'RhoConnect without Rhodes: Android Java'
   topic 'rhoconnectjs/introduction',              'RhoConnect.JS Client'
