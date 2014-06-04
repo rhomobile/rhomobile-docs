@@ -15,7 +15,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["indicators"]
+</pre>
 
 
 
@@ -25,7 +27,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+app_type: "rhoelements"
+</pre>
 
 
 
@@ -264,22 +268,58 @@ The current WINs server IP address.  Not available on Android and iOS. Platforms
 
 <p>Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+  function signal_status_sync(){
+
+    signalValue = Rho.Signal.wlanStatus;
+    console.log(signalValue);
+    console.log("Signal Strength is: " + signalValue['signalStrength']);
+  }
+                    
+                            
+</pre>
 
 
 <p>Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+  function signal_status_async(){
+    console.log("Registering Signal Callback");
+    Rho.Signal.wlanStatus(signalEvent);
+  }
+
+  function signalEvent(params){
+    console.log("Signal Event: (Asynchronous).  Strength: " + params["signalStrength"] + ", ESS ID: " + params["essid"] + ", MacAddress: " + params["macAddress"] + ", AdapterName: " + params["adapterName"] + ", DHCP Server: " + params["dhcpServer"] + ", DHCP Static: " + params["dhcpStatic"] + ", Gateway: " + params["gateway"] + ", IP Address: " + params["ipAddress"] + ", RSSI: " + params["rssi"] + ", Subnet Mask: " + params["subnetMask"] + ", Wins: " + params["wins"]);
+  }  
+  
+                            
+</pre>
 
 
 <h3>Working with the Signal indicator</h3>
 
 <p>If you just want to display the signal indicator in the default position and default colour then call as follows</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+  function show_signal_icon(){
+    Rho.Signal.showIcon({});
+  }
+                    
+                            
+</pre>
 
 
 <p>To display the signal icon at the default position but blue and vertical specify as follows</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+  function show_signal_icon(){
+    Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
+  }
+  
+                            
+</pre>
 

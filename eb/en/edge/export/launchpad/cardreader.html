@@ -20,7 +20,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["cardreader"]
+</pre>
 
 
 
@@ -30,7 +32,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+app_type: "rhoelements"
+</pre>
 
 
 
@@ -602,12 +606,37 @@ This method is present to provide backwards compatibility with PocketBrowser cod
 
 <p>Enable card reader and receive a callback when a card is swiped.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+function cardreader_callback(params) {
+  alert("Received data from card reader: "+params["data"]);
+}
+
+function connect() {
+  Rho.CardReader.open(cardreader_callback);
+}
+                   
+                 
+</pre>
 
 
 <h3>Set card reader properties</h3>
 
 <p>There are two ways to use the card reader. One is to receive a callback when a card is swiped, the other is to have it simulate keypresses. See below for an example of this second option.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+// Configure the MSR to output keystrokes instead of calling a function when a card is swiped
+// Note the absence of a callback parameter
+// Also, After emitting the keystrokes, automatically send a "Tab" keypress
+Rho.CardReader.autoTab = true;
+Rho.CardReader.open();
+
+Rho.CardReader.autoEnter = true;
+Rho.CardReader.open();
+                   
+                 
+</pre>
 

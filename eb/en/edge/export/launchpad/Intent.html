@@ -15,7 +15,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
 
 
 
@@ -47,11 +49,21 @@
 <strong><em>NOTE: On Android, the only valid way to pass private file from package directly to another application is set &lsquo;uri&rsquo; parameter with content URI. In most cases it is also needed to add extension of exported file to &lsquo;android:no_compression&rsquo; list at build.yml</em></strong>
 <code>build.yml:</code></p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+android:
+  no_compression: ['pdf','html','css']
+</pre>
 
 <p><code>JavaScript:</code></p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::javascript
+var params = {
+    intentType: Rho.Intent.START_ACTIVITY,
+    action: "ACTION_VIEW",
+    uri: "content://com.rhomobile.sample/rhodata/apps/public/sample.pdf"
+}
+Rho.Intent.send(params);    
+</pre>
 
 <h4>Parameters</h4>
 
@@ -134,7 +146,13 @@ Response code passed to Android Activity.setResult() method. <a href="http://dev
 
 <p>Add the following snippet to AndroidManifest.erb within the <code>manifest</code> tags</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::xml
+&lt;receiver android:name='com.rho.intent.IntentReceiver'&gt;
+  &lt;intent-filter&gt;
+    &lt;action android:name="Intent.ACTION_BATTERY_CHANGED" /&gt;
+  &lt;/intent-filter&gt;
+&lt;/receiver&gt; 
+</pre>
 
 <p>Notice that this looks very similar to a standard AndroidManifest.XML file section except the <code>receiver</code> is the common RhoMobile intent receiver. The <code>intent-filter</code> tags within this section are standard AndroidManifest.XML notation that you would put in for the Intent-Filters that you want to listen for. Consult the <a href="http://developer.android.com/guide/components/intents-filters.html#Receiving">Android Docs</a> for more information about Intent Filters. From your Android application, you would use the <a href="http://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">sendBroadcast() method</a> with the appropriate parameters for this filter.</p>
 
@@ -202,12 +220,30 @@ Response code passed to Android Activity.setResult() method. <a href="http://dev
 
 <p>You can use the Intent API to use the default mapping program to plot locations.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+function sendGeo(){
+  var intentParams = {action     : "android.intent.action.VIEW",
+                      intentType : Rho.Intent.START_ACTIVITY,
+                      uri        : "geo:37.422, -122.084"};
+
+  Rho.Intent.send(intentParams);
+}
+</pre>
 
 
 <h3>Sending Extras</h3>
 
 <p>Sometimes you will want to send some extras along with an intent such as an SMS body or do a web search with a given string. Here is an example of an intent that will launch the default web browser and perform a search with the default search engine.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+function webSearch(){}
+  var intentParams = {action     : "android.intent.action.WEB_SEARCH",
+                      intentType : Rho.Intent.START_ACTIVITY,
+                      data       : {query : "Rhomobile docs"}}
+
+  Rho.Intent.send(intentParams)
+}
+</pre>
 

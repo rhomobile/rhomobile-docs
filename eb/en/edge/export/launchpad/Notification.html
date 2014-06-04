@@ -15,7 +15,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
 
 
 
@@ -274,5 +276,28 @@ The duration of the vibration, in milliseconds. Note you may also need to add th
 
 <p>This example shows how to show an alert in JavaScript.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+function show_alert()
+{
+    //creates a popup with a message and two buttons
+    Rho.Notification.showPopup({
+        title:'My Popup',
+        message:'Do you really want to delete this record',
+        buttons:[
+            {id:'yes',title:'Ok to Delete'},
+            {id:'no',title:'No'}]
+        },
+            function(e){
+                if(e.button_id == "yes")
+                {
+                    // go ahead and delete the record
+                }
+            }
+    );
+}
+                   
+                 
+</pre>
 

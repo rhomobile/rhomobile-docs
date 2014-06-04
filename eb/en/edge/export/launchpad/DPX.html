@@ -22,7 +22,9 @@ on-line at <a href="https://dpx-uat.motorolasolutions.com/">The MSI DPX template
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["dpx"]
+</pre>
 
 
 
@@ -78,24 +80,28 @@ Height of scanned form in pixels. </p></li><li>id : <span class='text-info'>INTE
 Id of scanned form image. Use getDataUri method to retrieve image data. The id is valid until close method is called. </p></li></ul></ul><li>regions : <span class='text-info'>ARRAY</span><p> </p></li><ul><li>group : <span class='text-info'>STRING</span><p>
 The name of the group this region is found in, as defined in the template associated with the recognized region. It&rsquo;s optional parameter.</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">               &lt;/p&gt;&lt;/li&gt;&lt;li&gt;name : &lt;span class='text-info'&gt;STRING&lt;/span&gt;&lt;p&gt;
+</pre>
 
 <p>The name of the region, as defined in the template associated with the document. </p></li><li>number : <span class='text-info'>INTEGER</span><p>
 The number of the region, as defined in the template section associated with the recognized region. </p></li><li>processingMode : <span class='text-info'>STRING</span><p>
 The type of region which has been decoded. </p><p><strong>Possible Values</strong> :</p> <dt>Constant: Database.PM_OCR <br/> String: ocr </dt><dd>
 Optical Character Recognition. The region is a text field. The processedData parameter contains array of lines.</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                  &lt;/dd&gt;&lt;dt&gt;Constant: Database.PM_OMR &lt;br/&gt; String: omr &lt;/dt&gt;&lt;dd&gt;
+</pre>
 
 <p>Optical Mark Recognition. The region is a check box or radio box. The processedData parameter of this callback will contain a boolean value.</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                  &lt;/dd&gt;&lt;dt&gt;Constant: Database.PM_PICTURE &lt;br/&gt; String: picture &lt;/dt&gt;&lt;dd&gt;
+</pre>
 
 <p>The defined region was captured as a picture. No processedData parameter. Use the <code>image</code> callback property with the <a href="#mgetDataUri">getDataUri()</a> to get a DataURI of the image.</dd><dt>Constant: Database.PM_BARCODE <br/> String: barcode </dt><dd>
 The region is a barcode and the decoded barcode data is given in the processedData parameter.</dd></dl></li><li>processedData : <span class='text-info'>STRING</span><p>
 The processed data contained in the specified region, this will depend on the type of region being captured. See the values of the <code>processingMode</code> parameter.</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">               &lt;/p&gt;&lt;/li&gt;&lt;li&gt;image : &lt;span class='text-info'&gt;STRING&lt;/span&gt;&lt;p&gt;
+</pre>
 
 <p>The image of region. </p></li><ul><li>width : <span class='text-info'>INTEGER</span><p>
 Width of region in pixels. </p></li><li>height : <span class='text-info'>INTEGER</span><p>
@@ -210,7 +216,8 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 <p>Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag:</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">&lt;img src="dataURI string;"&gt;.
+</pre>
 
 <h4>Parameters</h4>
 
@@ -444,7 +451,8 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 <p>If true, form will be captured automatically when detected.</p>
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">      If false, user must manually tap screen or press trigger to capture the form.
+</pre>
 
 <h4>Params</h4>
 
@@ -816,17 +824,111 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 <p>Before you are able to process any documents with the DPX engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the DPX Engine as well as your application. To retrieve the templates from the server, you would use the <code>fetchTemplates</code> method. This method will communicate with the DPX back-end and download the templates to the folder that is specified by the <a href="#ptemplateDirectory">templateDirectory property</a></p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+       
+function downloadDPXTemplates(user,password){
+  // If you include your DPX template files in the applications public folder
+  // the DPX engine will not be able to access them due to Android
+  // security policies
+
+  Rho.DPX.templateDirectory = 'file:///sdcard/Templates';
+  Rho.DPX.fetchTemplates(user,password);
+  templates = Rho.RhoFile.listDir(Rho.DPX.templateDirectory);
+  for (var i = 0; i &lt; templates.length; ++i) {
+    console.log(templates[i]);
+  }
+}
+           
+</pre>
 
 
 <h3>Capture Document</h3>
 
 <p>The only requirement for capturing a document is to have the DPX template file location set using the <code>DPX.template</code> property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the DPX engine (i.e. it cannot be in the applications <code>public</code> folder)</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+       
+// POSTAL.XML was exported from the DPX Template Builder
+// In the Template Builder there were several fields defined
+
+Rho.DPX.template = 'file:///sdcard/Templates/POSTAL.XML';
+
+// Once the captureDocument method is launched,
+// the DPX Engine dialog appears instructing the
+// user to hold the device steady over the printed label
+// The callback function will be triggered possibly for
+// many reasons
+
+Rho.DPX.captureDocument(function(params){
+  if(params.callbackType == Rho.DPX.SUCCESS ){
+    // process the returned object:
+    var returnedField = params.processedForm;
+    processDPXForm(returnedField);
+  }
+
+  if(params.callbackType == Rho.DPX.FAILURE ){
+    if(params.failureReason == Rho.DPX.FAILURE_IDENTIFICATION_TIMEOUT){
+      // This means it could not identify the label based on the template used
+      // Possible reasons
+      //    -label is the wrong label
+      //    -Template is poorly defined 
+      //      maybe scanned in image for defining was not high enough resolution
+      //    -camera cannot focus
+
+      // This may trigger multiple times and may not warrant display information 
+      // in your app - the DPX engine will prompt the user in most cases
+    }
+    if(params.failureReason == Rho.DPX.FAILURE_PROCESSING_TIMEOUT){
+      // This means it identified the form but could not process it
+      // Possible reasons
+      //    -Template is poorly defined 
+      //      maybe scanned in image for defining was not high enough resolution
+      //    -Camera cannot focus or poorly lit
+
+      // This will trigger once and return focus to your application
+    }
+  }
+});
+          
+</pre>
 
 
 <p>Now we can loop through the <code>processedForm</code> object returned by the <code>captureDocument</code> method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Check-boxes), Barcode, Picture. It will only return regions that it was able to be processed.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+       
+function processDPXForm(DPXform){
+  var regions = DPXform.regions;
+  for(i=0; i&lt; regions.length; ++i){
+    switch(regions[i].processingMode){
+    case Rho.DPX.PM_OCR:
+      // The text that OCR translated into an array of lines
+      regionTextArray = regions[i].processedData;
+
+      //maybe do something with returned confidence
+      // PDXform.absoluteOcrConfidence
+      // PDXform.relativeOcrConfidence
+      break;
+    case Rho.DPX.PM_OMR:
+      // Checkbox region either True or False
+      regionBooleanCheckbox = regions[i].processedData;
+      break;
+    case Rho.DPX.PM_PICTURE:
+      // nothing in processedData
+      // Image held temporarily until Rho.DPX.close()
+      // use the id and the Rho.DPX.getDataUri method
+      regionImageURI = Rho.DPX.getDataUri(regions[i].image.id);
+      break;
+    case Rho.DPX.PM_BARCODE:
+      // Barcode data will be in processedData field
+      regionBarCode = regions[i].processedData;
+      break;
+    }
+  }
+}
+           
+</pre>
 

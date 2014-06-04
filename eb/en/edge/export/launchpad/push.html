@@ -25,7 +25,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+capabilities: ["push"]
+</pre>
 
 
 
@@ -35,7 +37,10 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["rhoconnect-push", "rhoconnect-client"]
+For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
+</pre>
 
 
 
@@ -554,5 +559,20 @@ UI notification mode. Use <code>Rho.Notification</code> instead.</p>
 
 <p>Start Push Notifications service and define alert popup window in push callback method.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+                                
+function setupPush() {
+  // Start listening for push messages. Parameter is an url to push_callback method
+  Rho.Push.startNotifications(pushCallback);
+}
+
+function pushCallback(params) {
+  // Show 'alert' popup window with push message text
+  var propertyMap = {message: params["alert"], buttons: [{id: 'OK', title: 'OK'}]};
+  Rho.Notification.showPopup(propertyMap);
+}
+                                
+                            
+</pre>
 

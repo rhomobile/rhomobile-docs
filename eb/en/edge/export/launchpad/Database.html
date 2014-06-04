@@ -20,7 +20,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
 
 
 
@@ -379,19 +381,66 @@ The name of the table. </p></li><li>callback : <span class='text-info'>CallBackH
 
 <p>To insert/update multiple object/models use database transactions. This is the most performant method to initialize your application with a large set of data.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+                
+var db = Rho.Database;
+db.startTransaction();
+try
+{
+  for (var index in items) {
+    // create hash of attribute/value pairs
+    data = {
+      field1 : item[index].value1, 
+      field2 : item[index].value2
+    }; 
+    // Creates a new itemModel object and saves it
+    new_item = itemModel.create(data);
+  }
+  
+ db.commitTransaction();
+}
+catch
+{
+ db.rollbackTransaction();
+}
+
+              
+</pre>
 
 
 <h3>Open and close database</h3>
 
 <p>The following example opens the database using the <code>constructor</code> method: .initialize. It then closes the database using the destructor method <code>.close()</code></p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+                
+var db = new Rho.Database(Rho.Application.databaseFilePath('test'), 'test');
+db.close();
+
+              
+</pre>
 
 
 <h3>destroyTables</h3>
 
 <p>Destroy multiple tables. The following example opens the database using the <code>constructor</code> method: .initialize.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+                
+var db = new Rho.Database(...);
+
+// destroy all tables in database
+db.destroyTables({include: [], exclude: []});
+
+// destroy specified tables
+db.destroyTables({include: ['table1', 'table2'], exclude: []});
+
+// destroy all but specified tables
+db.destroyTables({include: [], exclude: ['table1', 'table2']});
+
+              
+</pre>
 

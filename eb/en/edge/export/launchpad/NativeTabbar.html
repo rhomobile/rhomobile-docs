@@ -20,7 +20,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
 
 
 
@@ -265,19 +267,51 @@ The index for this tab (index numbered from 0). </p></li><li>callback : <span cl
 
 <p>Create a platform-native tabbar. Tabs can link to internal application links (such as those built with &ldquo;url_for&rdquo;) as well as external URLs.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+function create_tabbar() {
+    Rho.NativeTabbar.create([{
+            label: "Home",
+            action: "/app"
+        }, {
+            label: "example.com"
+            action: "http://www.example.com"
+        }], {}, tabbar_callback
+    );
+}
+
+function tabbar_callback(params) {
+    alert("Switching to tab "+params["tab_index"]);
+}
+                   
+                 
+</pre>
 
 
 <h3>Switch tab</h3>
 
 <p>Switch the active tab.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+// Make the third tab active
+Rho.NativeTabbar.switchTab(2);
+                   
+                 
+</pre>
 
 
 <h3>Remove tabbar</h3>
 
 <p>Remove the tabbar.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+Rho.NativeTabbar.remove();
+                   
+                 
+</pre>
 

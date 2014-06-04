@@ -15,7 +15,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
 
 
 
@@ -685,33 +687,72 @@ URL to page which will be loaded into tab. It may be path to Ruby controller act
 
 <p>If your application is internationalized, you may want to set the locale depending on the user&rsquo;s preference.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+Rho.Application.setLocale('en')
+var current_locale = Rho.Application.locale();
+alert(current_locale)
+                   
+                 
+</pre>
 
 
 <h3>Get folders where items are stored</h3>
 
 <p>There are times where you need access to files bundled with your application, or to write files to a safe folder. These examples show how to retrieve each of the several important folders available.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+           
+     // Get and show the various app folders
+     var appFolder = Rho.Application.appBundleFolder;
+     var appsBundleFolder = Rho.Application.appsBundleFolder;
+     var databaseBlobFolder = Rho.Application.databaseBlobFolder;
+     var publicFolder = Rho.Application.publicFolder;
+     var userFolder = Rho.Application.userFolder;
+     
+     var message = "App bundle folder: "+appFolder+"\n"+
+     "Apps bundle folder: "+appsBundleFolder+"\n"+ 
+     "Database blob folder: "+databaseBlobFolder+"\n"+ 
+     "Public folder: "+publicFolder+"\n"+ 
+     "User folder: "+userFolder;
+     
+     alert(message);
+                   
+                 
+</pre>
 
 
 <h3>Minimize your application</h3>
 
 <p>This will minimize your application.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+Rho.Application.minimize();
+                 
+</pre>
 
 
 <h3>Quit your application</h3>
 
 <p>This will exit your application.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+Rho.Application.quit();
+                 
+</pre>
 
 
 <h3>Restore your application</h3>
 
 <p>This will restore you application.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+Rho.Application.restore();
+                 
+</pre>
 

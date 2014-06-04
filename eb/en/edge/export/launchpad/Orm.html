@@ -15,7 +15,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
 
 
 
@@ -35,7 +37,9 @@
 
 
 
-
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::html
+&lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"&gt;&lt;/script&gt;
+</pre>
 
 
 
@@ -445,19 +449,63 @@ The name of the zip file. </p></li><li>callback : <span class='text-info'>CallBa
 
 <p>This example describes creating model and adding model object.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+                
+var productModel = Rho.ORM.addModel(function(model){
+  model.modelName("Product");
+  model.enable("sync");
+  model.property("name","string");
+  model.property("brand","string");
+  model.property("price","float");
+  model.set("partition","user");
+});
+
+// create model object and save it to database
+var product = productModel.create({
+  brand: 'Apple',
+  name: 'iPhone5',
+  price: 199.99});
+
+// read product from database
+var product = productModel.find('first');
+product.get('brand'); // Apple
+product.get('name'); // iPhone5
+
+                        
+</pre>
 
 
 <h3>Get Model by name</h3>
 
 <p>Get a model.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+   
+// The model 'Product' must have been defined in JavaScript execution earlier 
+// in order for 'getModel' to work properly. 
+
+// The models generated in RhoStudio, are not accessible in JavaScript unless 
+// the classes are defined via the  Rho.ORM.addModel api
+
+
+// Get a model by its name after it has been added
+var productModel = Rho.ORM.getModel("Product");
+
+           
+                    
+</pre>
 
 
 <h3>ORM databaseFullResetEx Method Examples</h3>
 
 <p>Delete all Rhodes model objects for a source, filtering by conditions.</p>
 
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
 
+                
+Rho.ORM.databaseFullResetEx({'models' : ['Product', 'Customer'], 'reset_client_info' : true, 'reset_local_models' : true} 
+                            
+</pre>
 
