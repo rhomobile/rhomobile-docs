@@ -15,9 +15,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["screenorientation"]
-</code></pre>
+
 
 
 
@@ -215,59 +213,19 @@ extensions: ["screenorientation"]
 
 <p>Detect when the device changes orientation.</p>
 
-<pre class='CodeRay'><code>
 
-function start_detecting_orientation_changes(){
-  ScreenOrientation.setScreenOrientationEvent(orientation_callback)
-}
- 
-function orientation_callback(){
-    
-  Alert.show_popup("The screen changed orientation")
-}
-                   
-                            
-</code></pre>
 
 
 <h3>Change screen orientation</h3>
 
 <p>Set the screen orientation programmatically. Particularly useful in a tablet: before capturing a signature, set the orientation to upside-down so that the interface will look right from the signer&rsquo;s point of view without having to physically rotate the device.</p>
 
-<pre class='CodeRay'><code>
 
-function capture_signature_with_attention_to_details() {
-    // Set screen orientation to upside down
-    Rho.ScreenOrientation.upsideDown();
-
-    // At this point, offer the device to the user. You just saved the user the hassle of rotating the tablet
-    // and there's less potential for the device to be dropped along the way  
-    Rho.Signature.takeFullScreen({}, signature_callback);
-}           
-
-function signature_callback(params) {
-    // do whatever we need to do with the signature
-    ...
-    // restore screen orientation to default
-    Rho.ScreenOrientation.normal();
-}
-                   
-                            
-</code></pre>
 
 
 <h3>Enable / disable auto rotate</h3>
 
 <p>Enable / disable automatic rotation of the screen according to device orientation.</p>
 
-<pre class='CodeRay'><code>
 
-// Enable autorotate
-Rho.ScreenOrientation.autoRotate=true;
-
-// Disable autorotate
-Rho.ScreenOrientation.autoRotate=false;
-                   
-                            
-</code></pre>
 

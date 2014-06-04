@@ -970,13 +970,13 @@ def self.getexamples(doc)
   			 	end
   			 end
   			 if codelang == 'ruby'
-  			 	#coderuby = "<pre class='CodeRay'><code>:::#{codelang}"
+  			 	#coderuby = "<pre><code>:::#{codelang}"
 	  			#cleanCode = codesnip[0]["content"].gsub('<','&lt;')
 	  			#cleanCode = cleanCode.gsub('>','&gt;')
 	  			#coderuby += cleanCode
 				#coderuby += "</code></pre>"
   			 else
-  			 	codejs = "\n<pre class='CodeRay'><code>"
+  			 	codejs = "\n<pre><code>"
 	  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
 	  			cleanCode = cleanCode.gsub('>','&gt;')
 	  			codejs += cleanCode
@@ -984,14 +984,14 @@ def self.getexamples(doc)
   			 end
   			else
   			 if !codesnip[0]["RUBY"].nil?
-  			 	#coderuby = "<pre class='CodeRay'><code>:::ruby\n"
+  			 	#coderuby = "<pre><code>:::ruby\n"
 	  			#cleanCode = codesnip[0]["RUBY"][0].gsub('<','&lt;')
 	  			#cleanCode = cleanCode.gsub('>','&gt;')
 	  			#coderuby += cleanCode
 				#coderuby += "</code></pre>"
   			 end
   			 if !codesnip[0]["JAVASCRIPT"].nil?
-  			 	codejs = "\n<pre class='CodeRay'><code>\n"
+  			 	codejs = "\n<pre><code>\n"
 	  			cleanCode = codesnip[0]["JAVASCRIPT"][0].gsub('<','&lt;')
 	  			cleanCode = cleanCode.gsub('>','&gt;')
 	  			codejs += cleanCode

@@ -91,7 +91,7 @@ Menu item will be displayed as disabled. Platforms:WM </p></li></ul>
 
 ###Customize the extra menu
 
-<pre class='CodeRay'><code>
+<pre><code>
 
                   
 Rho.NativeMenubar.extraButton = {
@@ -118,7 +118,7 @@ Rho.NativeMenubar.extraMenu = [
 
 ###Clear the main menu
 
-<pre class='CodeRay'><code>
+<pre><code>
 
                   
 function remove_menuitems() {

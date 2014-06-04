@@ -550,7 +550,7 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
 ###Request a notification from the system when network availability changes
 
 When you need to be notified of changes in the status of the network (connected / disconnected), use Network.startStatusNotify.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
     function status_notify_callback(params) {
@@ -574,7 +574,7 @@ When you need to be notified of changes in the status of the network (connected 
 ###Check whether the network is available
 
 You can check whether the mobile, WiFi or other network is available. This can be useful for example if you only want to perform large data transfers on WiFi and avoid doing them while on the cell network.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
     function network_availability() {
@@ -595,7 +595,7 @@ You can check whether the mobile, WiFi or other network is available. This can b
 ###Download file and save it to permanent storage
 
 Download any file from an external server and store it in your device.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 function download_file_callback(params) {
@@ -622,7 +622,7 @@ function download_file() {
 ###Upload files via HTTP POST
 
 You can upload any file to an external server via HTTP POST and be notified whether the transfer succeeded or not.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 function upload_file_callback(params) {

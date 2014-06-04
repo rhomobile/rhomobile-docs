@@ -102,7 +102,7 @@ The keystate indicator positions are absolute and so when rotating the screen yo
 ###Show the Keystate Indicators
 
 If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows.
-<pre class='CodeRay'><code>
+<pre><code>
 
                             
 function show_keystates(){

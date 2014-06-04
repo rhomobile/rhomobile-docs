@@ -173,7 +173,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ###Plot a location on a map
 
 You can use the Intent API to use the default mapping program to plot locations.
-<pre class='CodeRay'><code>
+<pre><code>
 
 function sendGeo(){
   var intentParams = {action     : "android.intent.action.VIEW",
@@ -187,7 +187,7 @@ function sendGeo(){
 ###Sending Extras
 
 Sometimes you will want to send some extras along with an intent such as an SMS body or do a web search with a given string. Here is an example of an intent that will launch the default web browser and perform a search with the default search engine.
-<pre class='CodeRay'><code>
+<pre><code>
 
 function webSearch(){}
   var intentParams = {action     : "android.intent.action.WEB_SEARCH",

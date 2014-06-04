@@ -918,7 +918,7 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
 ###Printing via Bluetooth
 
 To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the 'deviceAddress' parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a 'printerID' property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.
-<pre class='CodeRay'><code>
+<pre><code>
 
 var printers = [];
 
@@ -949,7 +949,7 @@ Rho.Printer.searchPrinters({
 </code></pre>
 
 Now that we have found a printer. The `printers` array will contain the `printerID` we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is '0000' or '1111' or '1234'. Once it is connected, you should see some indication in the printer (like a blue light).
-<pre class='CodeRay'><code>
+<pre><code>
 
 var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
@@ -969,7 +969,7 @@ myPrinter.connect(function (cb){
 </code></pre>
 
 Now we can just print a test string and read some properties of the printer to make sure the communications is working.
-<pre class='CodeRay'><code>
+<pre><code>
 
 // If my printer was in line mode I would see this text printed
 myPrinter.printRawString('This is a test print');

@@ -15,9 +15,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
+
 
 
 
@@ -276,28 +274,5 @@ The duration of the vibration, in milliseconds. Note you may also need to add th
 
 <p>This example shows how to show an alert in JavaScript.</p>
 
-<pre class='CodeRay'><code>
 
-           
-function show_alert()
-{
-    //creates a popup with a message and two buttons
-    Rho.Notification.showPopup({
-        title:'My Popup',
-        message:'Do you really want to delete this record',
-        buttons:[
-            {id:'yes',title:'Ok to Delete'},
-            {id:'no',title:'No'}]
-        },
-            function(e){
-                if(e.button_id == "yes")
-                {
-                    // go ahead and delete the record
-                }
-            }
-    );
-}
-                   
-                 
-</code></pre>
 

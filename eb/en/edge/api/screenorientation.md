@@ -147,7 +147,7 @@ Enables or Disables auto-rotation of the screen orientation when the device is r
 ###Detect screen orientation changes
 
 Detect when the device changes orientation.
-<pre class='CodeRay'><code>
+<pre><code>
 
 function start_detecting_orientation_changes(){
   ScreenOrientation.setScreenOrientationEvent(orientation_callback)
@@ -164,7 +164,7 @@ function orientation_callback(){
 ###Change screen orientation
 
 Set the screen orientation programmatically. Particularly useful in a tablet: before capturing a signature, set the orientation to upside-down so that the interface will look right from the signer's point of view without having to physically rotate the device.
-<pre class='CodeRay'><code>
+<pre><code>
 
 function capture_signature_with_attention_to_details() {
     // Set screen orientation to upside down
@@ -188,7 +188,7 @@ function signature_callback(params) {
 ###Enable / disable auto rotate
 
 Enable / disable automatic rotation of the screen according to device orientation.
-<pre class='CodeRay'><code>
+<pre><code>
 
 // Enable autorotate
 Rho.ScreenOrientation.autoRotate=true;

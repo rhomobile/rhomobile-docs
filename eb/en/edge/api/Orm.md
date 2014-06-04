@@ -322,7 +322,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ###Add ORM model, create ORM object
 
 This example describes creating model and adding model object.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var productModel = Rho.ORM.addModel(function(model){
@@ -351,7 +351,7 @@ product.get('name'); // iPhone5
 ###Get Model by name
 
 Get a model.
-<pre class='CodeRay'><code>
+<pre><code>
 
    
 // The model 'Product' must have been defined in JavaScript execution earlier 
@@ -371,7 +371,7 @@ var productModel = Rho.ORM.getModel("Product");
 ###ORM databaseFullResetEx Method Examples
 
 Delete all Rhodes model objects for a source, filtering by conditions.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 Rho.ORM.databaseFullResetEx({'models' : ['Product', 'Customer'], 'reset_client_info' : true, 'reset_local_models' : true} 

@@ -17,9 +17,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["mediaplayer"]
-</code></pre>
+
 
 
 
@@ -270,20 +268,5 @@ File name of the video media to be played - full filepath. On iOS when you post 
 
 <h3>Play the first available ringtone</h3>
 
-<pre class='CodeRay'><code>
 
-                  
-function list_ringtones() {
-  // Enumerate ringtones
-  Rho.Mediaplayer.getAllRingtones(list_ringtones_callback);
-}
-
-function list_ringtones_callback(params) {
-  // play the first ringtone
-  var first_ringtone = params[0]["name"];
-  Rho.Mediaplayer.playRingTone(first_ringtone);
-}
-                  
-                 
-</code></pre>
 

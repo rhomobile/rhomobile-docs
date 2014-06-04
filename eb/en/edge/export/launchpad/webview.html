@@ -15,9 +15,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
+
 
 
 
@@ -657,10 +655,7 @@ Map of menu items: name to action. </p></li><li>callback : <span class='text-inf
 
 <p>Defines in config.xml: Navigation\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:</p>
 
-<pre><code>                %p - platform name ("Windows CE " + version number)
-                %w - WebKit version number
-                %e - MotorolaWebKit version number.
-</code></pre>
+
 
 <h4>Access</h4>
 
@@ -727,14 +722,7 @@ Map of menu items: name to action. </p></li><li>callback : <span class='text-inf
 
 <p>You can also call your own functions.</p>
 
-<pre class='CodeRay'><code>
 
-function greet(name) {
-    alert("Hello, "+name);  
-}
-
-                            
-</code></pre>
 
 
 <p>From the Ruby controller we can execute the JavaScript function that may be in the view.</p>
@@ -745,15 +733,7 @@ function greet(name) {
 
 <p>This property can also be assigned to in JavaScript.</p>
 
-<pre class='CodeRay'><code>
 
-// Fullscreen can also be invoked from JavaScript
-Rho.WebView.fullScreen = true;
-
-Rho.WebView.fullScreen = false;
-
-                            
-</code></pre>
 
 
 <h3>Navigate</h3>
@@ -764,13 +744,7 @@ Rho.WebView.fullScreen = false;
 
 <p>This API is also available from JavaScript.</p>
 
-<pre class='CodeRay'><code>
 
-//Navigate out of the local application and into an externally-served site
-Rho.WebView.navigate("http://www.example.com");
-
-                            
-</code></pre>
 
 
 <h3>Navigate back</h3>
@@ -779,13 +753,7 @@ Rho.WebView.navigate("http://www.example.com");
 
 <p>The same method is available in JavaScript.</p>
 
-<pre class='CodeRay'><code>
 
-//Force WebView to navigate to the previous page using Browser back.
-Rho.WebView.navigateBack();
-
-                            
-</code></pre>
 
 
 <h3>Refresh the page</h3>
@@ -796,14 +764,5 @@ Rho.WebView.navigateBack();
 
 <p>Also available from JavaScript.</p>
 
-<pre class='CodeRay'><code>
 
-// Reload the current page
-Rho.WebView.refresh()
-
-// Reload the page on WebView number 3
-Rho.WebView.refresh(3)
-
-                            
-</code></pre>
 

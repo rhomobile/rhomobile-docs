@@ -493,7 +493,7 @@ You can call the WebView and make it execute JavaScript code from a Ruby control
 As an example, you can invoke JQuery Mobile's changePage.
 
 You can also call your own functions.
-<pre class='CodeRay'><code>
+<pre><code>
 
 function greet(name) {
     alert("Hello, "+name);  
@@ -509,7 +509,7 @@ From the Ruby controller we can execute the JavaScript function that may be in t
 The WebView can be set to use all the available screen real-estate by turning on "full-screen" mode.
 
 This property can also be assigned to in JavaScript.
-<pre class='CodeRay'><code>
+<pre><code>
 
 // Fullscreen can also be invoked from JavaScript
 Rho.WebView.fullScreen = true;
@@ -526,7 +526,7 @@ This is the section that will appear before the code block.
 You can also navigate outside of your application, to an external site.
 
 This API is also available from JavaScript.
-<pre class='CodeRay'><code>
+<pre><code>
 
 //Navigate out of the local application and into an externally-served site
 Rho.WebView.navigate("http://www.example.com");
@@ -539,7 +539,7 @@ Rho.WebView.navigate("http://www.example.com");
 This is the section that will appear before the code block.
 
 The same method is available in JavaScript.
-<pre class='CodeRay'><code>
+<pre><code>
 
 //Force WebView to navigate to the previous page using Browser back.
 Rho.WebView.navigateBack();
@@ -554,7 +554,7 @@ Reload the current URL into the WebView. This is useful especially after having 
 By default, "refresh" will update the current view. If you are using the native Tabbar and have multiple WebViews, you can specify which one to refresh.
 
 Also available from JavaScript.
-<pre class='CodeRay'><code>
+<pre><code>
 
 // Reload the current page
 Rho.WebView.refresh()

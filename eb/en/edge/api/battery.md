@@ -248,7 +248,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 
                     Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
                 
-<pre class='CodeRay'><code>
+<pre><code>
 
             
   function battery_status_sync(){
@@ -262,7 +262,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 
                     Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
                 
-<pre class='CodeRay'><code>
+<pre><code>
 
             
   function battery_status_async(){
@@ -281,7 +281,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 ###Working with the Battery indicator
 
 If you just want to display the battery indicator in the default position and default color then call as follows.
-<pre class='CodeRay'><code>
+<pre><code>
 
             
   function show_battery_icon(){
@@ -292,7 +292,7 @@ If you just want to display the battery indicator in the default position and de
 </code></pre>
 
 To display the battery icon at the default position but blue and vertical specify as follows.
-<pre class='CodeRay'><code>
+<pre><code>
 
             
   function show_battery_icon(){

@@ -15,9 +15,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["hardwarekeys"]
-</code></pre>
+
 
 
 
@@ -27,9 +25,7 @@ extensions: ["hardwarekeys"]
 
 
 
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
+
 
 
 
@@ -289,103 +285,40 @@ Tab           0x09    Advance to next control       Advance to next control</p>
 
 <p>This shows how to capture all hardware keys so that they are not propagated through to the page.</p>
 
-<pre class='CodeRay'><code>
 
-                    
-    Rho.KeyCapture.captureKey(false, "ALL", callback);
-                            
-                            
-</code></pre>
 
 
 <h3>Capturing all keys</h3>
 
 <p>This shows how to get notified when any hardware key is pressed (except trigger keys). In this example, the keys will pass through to the web page.</p>
 
-<pre class='CodeRay'><code>
 
-                    
-    function keyCallback(result)
-    {
-        alert("this key has just been pressed!: " + result.keyValue);
-    }
-
-    Rho.KeyCapture.captureKey(true, "ALL", keyCallback);
-                            
-                            
-</code></pre>
 
 
 <h3>Remapping ET1 P keys to arrow keys</h3>
 
 <p>In this example, the P1 and P2 keys of the ET1 tablet are remapped to the left key and right key respectively.</p>
 
-<pre class='CodeRay'><code>
 
-                
-function remap()
-{
-    Rho.KeyCapture.remapKey('0x19','0x15'); //P1, left
-    Rho.KeyCapture.remapKey('0x18','0x16'); //P2, right
-}
-                        
-                        
-</code></pre>
 
 
 <h3>Trigger capture</h3>
 
 <p>This example notifies the user when a trigger key is pressed.</p>
 
-<pre class='CodeRay'><code>
 
-                
-function trigger()
-{
-    Rho.KeyCapture.captureTrigger(triggerCallback);
-}
-
-function triggerCallback(result)
-{
-    alert("this trigger event has just been received!: " + result.triggerFlag);
-}
-                        
-                        
-</code></pre>
 
 
 <h3>HomeKeyValue</h3>
 
 <p>The following example will navigate to the RhoElements start page when return is pressed.</p>
 
-<pre class='CodeRay'><code>
 
-                
-function goHome()
-{
-    Rho.KeyCapture.homeKeyValue = '0x0D';
-}
-                        
-                        
-</code></pre>
 
 
 <h3>iPhoneVolume</h3>
 
 <p>The following example shows how to capture the iPhone Volume Up trigger.</p>
 
-<pre class='CodeRay'><code>
 
-                
-    function keyCallback(result)
-    {
-        if(result.keyValue == Rho.KeyCapture.IPHONE_VOLUME_UP){
-            //do something
-        }
-    }
-
-    Rho.KeyCapture.captureKey(true, Rho.KeyCapture.IPHONE_VOLUME_UP, keyCallback);
-                        
-                        
-</code></pre>
 

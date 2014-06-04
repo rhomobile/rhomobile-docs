@@ -689,7 +689,7 @@ Number of bytes written.</li></ul>
 ###List contents of a folder
 
 Iterate through the contents of a folder and divide the entries in "folders" and "files".
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 var folders = [];

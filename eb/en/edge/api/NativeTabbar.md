@@ -192,7 +192,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ###Create native tabbar
 
 Create a platform-native tabbar. Tabs can link to internal application links (such as those built with "url_for") as well as external URLs.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 function create_tabbar() {
@@ -216,7 +216,7 @@ function tabbar_callback(params) {
 ###Switch tab
 
 Switch the active tab.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 // Make the third tab active
@@ -228,7 +228,7 @@ Rho.NativeTabbar.switchTab(2);
 ###Remove tabbar
 
 Remove the tabbar.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.NativeTabbar.remove();

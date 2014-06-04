@@ -478,7 +478,7 @@ Version from build time configuration file (build.yml).
 ###Set the locale
 
 If your application is internationalized, you may want to set the locale depending on the user's preference.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.Application.setLocale('en')
@@ -491,7 +491,7 @@ alert(current_locale)
 ###Get folders where items are stored
 
 There are times where you need access to files bundled with your application, or to write files to a safe folder. These examples show how to retrieve each of the several important folders available.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
      // Get and show the various app folders
@@ -515,7 +515,7 @@ There are times where you need access to files bundled with your application, or
 ###Minimize your application
 
 This will minimize your application.
-<pre class='CodeRay'><code>
+<pre><code>
 
 Rho.Application.minimize();
                  
@@ -524,7 +524,7 @@ Rho.Application.minimize();
 ###Quit your application
 
 This will exit your application.
-<pre class='CodeRay'><code>
+<pre><code>
 
 Rho.Application.quit();
                  
@@ -533,7 +533,7 @@ Rho.Application.quit();
 ###Restore your application
 
 This will restore you application.
-<pre class='CodeRay'><code>
+<pre><code>
 
 Rho.Application.restore();
                  

@@ -373,7 +373,7 @@ On Quitting of the Application, Android will save the data in the file and grace
 ###Starting, Stopping And Cancelling Audio Capture
 
 Starting, Stopping and Cancelling audio capture is same across all platforms.
-<pre class='CodeRay'><code>
+<pre><code>
 
 // Starting Audio Capture without settings. Callback is mandatory. Setting the file name at least once is also mandatory before invoking 'start' method.
 Rho.AudioCapture.start({},mycallback);
@@ -395,7 +395,7 @@ Rho.AudioCapture.cancel();
 ###Setting And Getting File Name
 
 In WM/WinCE, one can set the fileName with or without extensions. On retrieving, the fileName property will return the complete path with the extension name.
-<pre class='CodeRay'><code>
+<pre><code>
 
 // Setting fileName without extension
 Rho.AudioCapture.fileName = "\\Application\\Audio1";
@@ -413,7 +413,7 @@ alert(Rho.AudioCapture.fileName);
 </code></pre>
 
 In Android, one can set the fileName with or without extensions. The extension depends on encoder. The directory should be present. 
-<pre class='CodeRay'><code>
+<pre><code>
 
 // Setting fileName without extension
 Rho.AudioCapture.fileName = "/sdcard/Audio/sample";
@@ -431,7 +431,7 @@ alert(Rho.AudioCapture.fileName);
 </code></pre>
 
 In iOS, one can set the fileName without extensions. The extension depends on encoder and will be automatically added. Currently supported WAV (16kHz, 16 bit, mono) IF you do not specify fullpath filename, then file will be placed to default folder. You can receive result fullpath filename in callback.
-<pre class='CodeRay'><code>
+<pre><code>
 
 #Setting fileName without extension
 Rho::AudioCapture.fileName = "sample";

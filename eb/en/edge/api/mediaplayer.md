@@ -196,7 +196,7 @@ When more flexible file transfer is required than is provided by MediaPlayer its
 
 ###Play the first available ringtone
 
-<pre class='CodeRay'><code>
+<pre><code>
 
                   
 function list_ringtones() {

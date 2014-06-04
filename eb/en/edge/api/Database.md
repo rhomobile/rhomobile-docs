@@ -270,7 +270,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ###Using Transactions
 
 To insert/update multiple object/models use database transactions. This is the most performant method to initialize your application with a large set of data.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var db = Rho.Database;
@@ -300,7 +300,7 @@ catch
 ###Open and close database
 
 The following example opens the database using the `constructor` method: .initialize. It then closes the database using the destructor method `.close()`
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var db = new Rho.Database(Rho.Application.databaseFilePath('test'), 'test');
@@ -312,7 +312,7 @@ db.close();
 ###destroyTables
 
 Destroy multiple tables. The following example opens the database using the `constructor` method: .initialize.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var db = new Rho.Database(...);

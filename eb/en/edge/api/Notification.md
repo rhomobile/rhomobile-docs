@@ -205,7 +205,7 @@ Not every device is equipped with a hardware beeper but if present this code sni
 ###Show an alert
 
 This example shows how to show an alert in JavaScript.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 function show_alert()

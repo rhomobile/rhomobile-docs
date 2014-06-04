@@ -371,7 +371,7 @@ Synchronous Return:<ul><li>HASH</li></ul>
 ###ORM Make and Create Method Examples
 
 Use method make for creating a new ORM object and assign given attributes. Make does not save to the database until you execute a .save. To insert a new record right away use the create method instead.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var account = Account.make({name: "ABC Inc.", address: "555 5th St."});
@@ -380,7 +380,7 @@ account.get("name") // "ABC Inc."
 </code></pre>
 
 Use method Create for creating a new ORM object and save to the database.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var account = Account.create({name: "some new record", industry: "electronics"})  
@@ -390,7 +390,7 @@ var account = Account.create({name: "some new record", industry: "electronics"})
 ###ORM DeleteAll Method Examples
 
 Delete all Rhodes model objects for a source, filtering by conditions.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 Account.deleteAll();
@@ -400,7 +400,7 @@ Account.deleteAll();
 ###ORM Find Method Examples
 
 Find all objects for specific ORM model
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 vat accounts = Account.find('all');
@@ -408,7 +408,7 @@ vat accounts = Account.find('all');
 </code></pre>
 
 Find all objects for specific ORM model with conditions
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var accounts = Account.find(
@@ -421,7 +421,7 @@ var accounts = Account.find(
 </code></pre>
 
 Use select option for retrieves some attributes of object.  You must pass "conditions" hash with Javascript implementation.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var accounts = Account.find(
@@ -437,7 +437,7 @@ accounts[0].get("telephone"); // nil
 </code></pre>
 
 Order option is used to sort objects by one or more attributes. You must pass a  conditions hash to use ordering.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var accounts = Account.find(
@@ -452,7 +452,7 @@ var accounts = Account.find(
 </code></pre>
 
 Order by multiple attributes. You must pass conditions hash.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var accounts = Account.find(
@@ -467,7 +467,7 @@ var accounts = Account.find(
 </code></pre>
 
 Order by one attribute with an orderFunction.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var accounts = Account.find(
@@ -481,7 +481,7 @@ var accounts = Account.find(
 </code></pre>
 
 Order with a block.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var accounts = Account.find(
@@ -496,7 +496,7 @@ var accounts = Account.find(
 ###ORM Destroy Method Examples
 
 Destroy a Rhodes model object from database.
-<pre class='CodeRay'><code>
+<pre><code>
 
                 
 var account = Account.find('first');
@@ -507,7 +507,7 @@ account.destroy();
 ###ORM UpdateAttributes Method Example
 
 Update the current ORM object’s attributes and saves it to the database.
-<pre class='CodeRay'><code>
+<pre><code>
 
 var account = Account.find("first", {conditions: {name: "ABC Inc."});
 account.updateAttributes({name: "ABC Inc.", industry: "Technology"});
@@ -517,7 +517,7 @@ account.get("industry") // "Technology"
 ###ORM Save Method Example
 
 Saves the current ORM object to the database.
-<pre class='CodeRay'><code>
+<pre><code>
 
 var account = Account.make({name: "some new record", industry: "electronics"});
 account.save();

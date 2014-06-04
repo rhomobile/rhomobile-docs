@@ -106,7 +106,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ###Create native toolbar
 
 Create a native Toolbar.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.NativeToolbar.create([{
@@ -123,7 +123,7 @@ Rho.NativeToolbar.create([{
 ###Remove the toolbar
 
 Remove the toolbar.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.NativeToolbar.remove();

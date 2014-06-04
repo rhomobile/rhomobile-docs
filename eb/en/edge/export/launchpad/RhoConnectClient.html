@@ -17,9 +17,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["rhoconnect-client"]
-</code></pre>
+
 
 
 
@@ -699,17 +697,11 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <p>Ruby Example:</p>
 
-<pre><code>:::ruby
-@params["server_errors"]["query-error"]["message"] 
-#=&gt; "Error connecting to backend server: http://rhostore.herokuapp.com"
-</code></pre>
+
 
 <p>JavaScript Example:</p>
 
-<pre><code>:::javascript
-params.server_errors["query-error"].message
-//=&gt; "Error connecting to backend server: http://rhostore.herokuapp.com"
-</code></pre>
+
 
 <h4>Handling &lsquo;create-error&rsquo;</h4>
 
@@ -733,85 +725,29 @@ params.server_errors["query-error"].message
 
 <p>In your controller call login.</p>
 
-<pre class='CodeRay'><code>
 
 
-Rho.RhoConnectClient.login('john','password',function(result){
-   loginCallback(result);
-});
-                          
-</code></pre>
 
 
-<pre><code>                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-</code></pre>
 
-<pre class='CodeRay'><code>
 
-// Error codes:
-// ERR_NONE = 0
-// ERR_NETWORK = 1
-// ERR_REMOTESERVER = 2
-// ERR_RUNTIME = 3
-// ERR_UNEXPECTEDSERVERRESPONSE = 4
-// ERR_DIFFDOMAINSINSYNCSRC = 5
-// ERR_NOSERVERRESPONSE = 6
-// ERR_CLIENTISNOTLOGGEDIN = 7
-// ERR_CUSTOMSYNCSERVER = 8
-// ERR_UNATHORIZED = 9
-
-function loginCallback(result) {
-  var errorCode = parseInt(result.error_code);
-  var errorMessage = result.error_message;
-  if(errorCode === 0 {
-    // process success
-  } else {
-    // process error with errorMessage
-  }
-}
-                            
-</code></pre>
 
 
 <h3>Notifications</h3>
 
 <p>First, assign a sync notification for the Account model:</p>
 
-<pre class='CodeRay'><code>
 
-function syncNotify(params) {
-  // handle notifications...
-}
-Rho.RhoConnectClient.setNotification('Account', syncNotify);
-
-                            
-</code></pre>
 
 
 <p>Which is the same as:</p>
 
-<pre class='CodeRay'><code>
 
-function syncNotify() {
-  // handle notifications...
-}
-Account.setNotification(syncNotify);
-
-                            
-</code></pre>
 
 
 <p>You can also set a notification for all models:</p>
 
-<pre class='CodeRay'><code>
 
-function syncNotify(params) {
-  // handle notifications...
-}
-Rho.RhoConnectClient.setNotification('*', syncNotify);
-
-                            
-</code></pre>
 
 
 <h3>Object notifications</h3>
@@ -820,38 +756,14 @@ Rho.RhoConnectClient.setNotification('*', syncNotify);
 
 <p>Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:</p>
 
-<pre class='CodeRay'><code>
 
-function syncObjectNotified(params) {
-  // handle notifications...
-}
-
-var product = Product.find('first');
-
-Rho.RhoConnectClient.addObjectNotify('Product', product.id);
-
-                            
-</code></pre>
 
 
 <h3>Handling Errors</h3>
 
 <p>Here we will set a notification and log an error code 1 or ERR_NETWORK:</p>
 
-<pre class='CodeRay'><code>
 
-function syncNotify(result) {
-  var errorCode = parseInt(result.error_code);
-  var errorMessage = result.error_message;
-  if(errorCode === 1) {
-    console.log("We received a network error: " + errorMessage);
-    return;
-  }
-}
-Rho.RhoConnectClient.setNotification('*', syncNotify);
-
-                            
-</code></pre>
 
 
 <h3>Using search (Ruby Only)</h3>

@@ -535,7 +535,7 @@ Version of DPX engine.
 ###Download Templates
 
 Before you are able to process any documents with the DPX engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the DPX Engine as well as your application. To retrieve the templates from the server, you would use the `fetchTemplates` method. This method will communicate with the DPX back-end and download the templates to the folder that is specified by the [templateDirectory property](#ptemplateDirectory)
-<pre class='CodeRay'><code>
+<pre><code>
 
        
 function downloadDPXTemplates(user,password){
@@ -556,7 +556,7 @@ function downloadDPXTemplates(user,password){
 ###Capture Document
 
 The only requirement for capturing a document is to have the DPX template file location set using the `DPX.template` property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the DPX engine (i.e. it cannot be in the applications `public` folder)
-<pre class='CodeRay'><code>
+<pre><code>
 
        
 // POSTAL.XML was exported from the DPX Template Builder
@@ -604,7 +604,7 @@ Rho.DPX.captureDocument(function(params){
 </code></pre>
 
 Now we can loop through the `processedForm` object returned by the `captureDocument` method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Check-boxes), Barcode, Picture. It will only return regions that it was able to be processed.
-<pre class='CodeRay'><code>
+<pre><code>
 
        
 function processDPXForm(DPXform){

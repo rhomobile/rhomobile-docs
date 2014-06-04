@@ -435,7 +435,7 @@ Skip http package body from log(for security reasons). Please note that this par
 ###Show log file
 
 Show the contents of the log file in a window with controls to refresh, clear and send. Useful for debugging and when asking users to report error messages.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.Log.showLog();
@@ -445,7 +445,7 @@ Rho.Log.showLog();
 ###Read log file content
 
 Retrieve the contents of the log file as a string.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 //Read at most 16384 symbols
@@ -456,7 +456,7 @@ logFileContent = Rho.Log.readLogFile(16384);
 ###Clean log file
 
 Clear the contents of the log file. In this example, logFileContentBefore will contain the log up until that point, while logFileContentAfter will be empty.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 // Read log file
@@ -473,7 +473,7 @@ logFileContentAfter = Rho.Log.readLogFile(16384);
 ###Logging categories
 
 Categories help you organize your logging messages and find related statements using tools like grep or a text editor's "search" function.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.Log.info("Consectetuer adipiscing elit", "Lorem Ipsum");
@@ -489,7 +489,7 @@ Miscellaneous Foo acquired value Bar in method Baz
 ###Memory Usage
 
 You can ask the system to automatically log memory usage information on a set interval. This can be used to debug potential memory leaks in operations where a high number of objects are touched in memory. 
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 Rho.Log.memoryPeriod = 1000;

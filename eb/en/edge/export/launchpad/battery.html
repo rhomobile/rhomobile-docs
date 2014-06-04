@@ -15,9 +15,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["indicators"]
-</code></pre>
+
 
 
 
@@ -27,9 +25,7 @@ extensions: ["indicators"]
 
 
 
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
+
 
 
 
@@ -311,65 +307,24 @@ The battery health is unknown.</dd></dl></li></ul></li></ul></p>
 
 <h3>Retrieve the Battery status</h3>
 
-<pre><code>                Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
-</code></pre>
-
-<pre class='CodeRay'><code>
-
-            
-  function battery_status_sync(){
-    batteryValues = Rho.Battery.batteryStatus({});
-    console.log("Battery Level is: " + batteryValues['batteryLifePercent']);
-  }
-                    
-                    
-</code></pre>
 
 
-<pre><code>                Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
-</code></pre>
 
-<pre class='CodeRay'><code>
 
-            
-  function battery_status_async(){
-    console.log("Registering Battery Callback");
-    Rho.Battery.batteryStatus({},batteryEvent);
-  }
 
-   function batteryEvent(params){
-    console.log("Battery Event Fired:");
-    console.log("Battery Event (Asynchronous). AC Line Status: " + params["acLineStatus"] + " Battery Life Percent: " + params["batteryLifePercent"] + " Backup Battery Life Percent: " + params["backupBatteryLifePercent"] + " Status: " + params["batteryStatus"] + " Battery Life Known: " + params["batteryLifeKnown"] + " Backup Battery Life Known: " + params["backupBatteryLifeKnown"]);
-  }  
-  
-                    
-</code></pre>
+
+
+
 
 
 <h3>Working with the Battery indicator</h3>
 
 <p>If you just want to display the battery indicator in the default position and default color then call as follows.</p>
 
-<pre class='CodeRay'><code>
 
-            
-  function show_battery_icon(){
-    Rho.Battery.showIcon({});
-  }
-                    
-                    
-</code></pre>
 
 
 <p>To display the battery icon at the default position but blue and vertical specify as follows.</p>
 
-<pre class='CodeRay'><code>
 
-            
-  function show_battery_icon(){
-    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
-  }
-  
-                    
-</code></pre>
 

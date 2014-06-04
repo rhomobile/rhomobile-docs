@@ -436,7 +436,7 @@ The default card reader on the device is enabled when the index view is loaded. 
 ###Connect to card reader
 
 Enable card reader and receive a callback when a card is swiped.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 function cardreader_callback(params) {
@@ -453,7 +453,7 @@ function connect() {
 ###Set card reader properties
 
 There are two ways to use the card reader. One is to receive a callback when a card is swiped, the other is to have it simulate keypresses. See below for an example of this second option.
-<pre class='CodeRay'><code>
+<pre><code>
 
            
 // Configure the MSR to output keystrokes instead of calling a function when a card is swiped

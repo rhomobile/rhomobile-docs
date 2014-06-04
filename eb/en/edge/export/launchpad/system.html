@@ -15,9 +15,7 @@
 
 
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
+
 
 
 
@@ -1999,91 +1997,35 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <p>You can find out whether the device has access to several system-dependent features such as calendar, camera, touchscreen, etc.</p>
 
-<pre class='CodeRay'><code>
 
-// Returns true if device supports Motorola device capabilities, such as Scanner, etc.
-var is_motorola_device = Rho.System.isMotorolaDevice;
-
-var has_calendar = Rho.System.hasCalendar;
-var has_camera = Rho.System.hasCamera;
-var has_cell_network = Rho.System.hasCellNetwork;
-var has_wifi_network = Rho.System.hasWifiNetwork;
-var has_network = Rho.System.hasNetwork;
-var has_sqlite = Rho.System.hasSqlite;
-var has_touchscreen = Rho.System.hasTouchscreen;
-
-message = "Motorola device: "+is_motorola_device+"\n"+
-  "Calendar: "+has_calendar+"\n"+ 
-  "Camera: "+has_camera+"\n"+
-  "Cell network: "+has_cell_network+"\n"+
-  "WiFi: "+has_wifi_network+"\n"+
-  "Network: "+has_network+"\n"+
-  "SQLite: "+has_sqlite+"\n"+
-  "Touchscreen: "+has_touchscreen;
-
-alert(message);
-
-                            
-</code></pre>
 
 
 <h3>Get version information</h3>
 
 <p>Retrieve the version of the underlying Operating System.</p>
 
-<pre class='CodeRay'><code>
 
-var version_info = Rho.System.osVersion;
-alert(version_info);
-
-                                
-</code></pre>
 
 
 <h3>Install / uninstall other applications</h3>
 
 <p>You can ask the system to install or uninstall a different application. This feature is useful for installing sub-applications, custom upgrades, etc.</p>
 
-<pre class='CodeRay'><code>
 
-// install an application from given url
-Rho.System.applicationInstall("/bin/target/android/rhodes-app-debug.apk");
-  
-// uninstall the application
-Rho.System.applicationUninstall("rhodes-app");
-
-                                
-</code></pre>
 
 
 <h3>Get the local server port for debug purposes</h3>
 
 <p>If necessary, you can read the embedded HTTP server&rsquo;s port, for debugging purposes.</p>
 
-<pre class='CodeRay'><code>
 
-// Get port of the local (embedded) HTTP server
-var local_port = Rho.System.localServerPort;
-alert(local_port);
-
-                                
-</code></pre>
 
 
 <h3>Zipping and unzipping files</h3>
 
 <p>If you ever need to build or extract zip archives, RhoMobile includes easy-to-use APIs for this task.</p>
 
-<pre class='CodeRay'><code>
 
-// unzip file 
-Rho.System.unzipFile("/app/public/sample.zip");
-  
-// zip file
-Rho.System.zipFile("/app/public/zipfile.zip", "/app/public/sample.txt");
-
-                                
-</code></pre>
 
 
 <h3>Working with the Windows Registry</h3>
