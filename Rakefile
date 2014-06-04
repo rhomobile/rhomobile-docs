@@ -5,6 +5,7 @@ require 'date'
 require 'bundler'
 require './api'
 require './api-eb'
+require './launchpad'
 
 Bundler.setup
 

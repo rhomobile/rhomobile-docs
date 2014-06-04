@@ -1,0 +1,435 @@
+<div class='tableofcontents'> </div><h1>Tag</h1>
+
+<h2>Overview</h2>
+
+<p>NFC Tag</p>
+
+
+<p>This class representative NFC Tag object</p>
+
+
+
+
+<h1>Enabling the API</h1>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+
+
+
+
+<pre><code>:::ruby
+extensions: ["nfc"]
+</code></pre>
+
+
+
+
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+
+
+<h2>Methods</h2>
+
+<h3>close()</h3>
+
+<p>release resources, close connection</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
+
+
+<h3>exchangeData(<span class="text-info">STRING</span> sendData)</h3>
+
+<p>This function exchanges raw data with Tag</p>
+
+<h4>Parameters</h4>
+
+<ul><li>sendData : <span class='text-info'>STRING</span><p>
+{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>receiveData : <span class='text-info'>STRING</span><p>
+NFC_SUCCESS if OK </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>HASH<ul><li>receiveData : <span class='text-info'>STRING</span><p>
+NFC_SUCCESS if OK </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.exchangeData(<span class="text-info">STRING</span> sendData)</code></li></ul></li></ul>
+
+
+<h3>formatNDEF()</h3>
+
+<p>format Tag to NDEF type</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.formatNDEF()</code></li></ul></li></ul>
+
+
+<h3>getTagById(<span class="text-info">STRING</span> id)</h3>
+
+<p>This function returns Tag object</p>
+
+<h4>Parameters</h4>
+
+<ul><li>id : <span class='text-info'>STRING</span><p>
+{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>SELF_INSTANCE</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Tag.getTagById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
+
+
+<h3>makeReadOnly()</h3>
+
+<p>make Tag read only</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.makeReadOnly()</code></li></ul></li></ul>
+
+
+<h3>writeMessage(<span class="text-info">ARRAY</span> messages)</h3>
+
+<p>write messages on Tag. On the current moment only 1 message is supported.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>messages : <span class='text-info'>ARRAY</span><p>
+{} </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>
+id of Rho.NFC.Message object </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.writeMessage(<span class="text-info">ARRAY</span> messages)</code></li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>ID</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>object ID</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
+
+
+<h3>freeSize</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>free size in bytes</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.freeSize</code></li></ul></li></ul>
+
+
+<h3>isConnected</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>connected or not(if connections between tag and nfc device exists)</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isConnected</code></li></ul></li></ul>
+
+
+<h3>isNdef</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>ndef or not</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isNdef</code></li></ul></li></ul>
+
+
+<h3>isReadOnly</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Indicating if the tag is locked for write operation.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isReadOnly</code></li></ul></li></ul>
+
+
+<h3>serialNumber</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>The serial number of a tag.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.serialNumber</code></li></ul></li></ul>
+
+
+<h3>size</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>size in bytes</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.size</code></li></ul></li></ul>
+
+
+<h3>type</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Tag type</p>
+
+<h4>Values</h4>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>false</span>):</p>
+
+<ul>
+<li>Constant: Rho.Tag.TAG_TYPE_TOPAZ
+
+<ul>
+<li>String: 1</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_FELICA
+
+<ul>
+<li>String: 2</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_CLASSIC
+
+<ul>
+<li>String: 3</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_UL
+
+<ul>
+<li>String: 4</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_DESFIRE
+
+<ul>
+<li>String: 6</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_ISO15693
+
+<ul>
+<li>String: 7</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_B
+
+<ul>
+<li>String: 8</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE
+
+<ul>
+<li>String: 9</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_NXP_I_CODE
+
+<ul>
+<li>String: 10</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_PLUS
+
+<ul>
+<li>String: 11</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_ULC
+
+<ul>
+<li>String: 12</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_PLUS_S2K
+
+<ul>
+<li>String: 13</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_MIFARE_PLUS_X2K
+
+<ul>
+<li>String: 14</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Tag.TAG_TYPE_UNKNOWN
+
+<ul>
+<li>String: 255</li>
+<li><h4>Access</h4></li>
+</ul>
+</li>
+</ul>
+
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul>
+

@@ -178,6 +178,20 @@ def process_xml_eb
   end
 end
 
+def lp_generate_html
+  puts "Getting MD in #{AppConfig['api_eb']}"
+  puts "Generating Launchpad Docs in: #{AppConfig['launchpad_eb']}"
+  apiMD = File.join(AppConfig['api_eb'],"**","*.md")
+  
+  apiFiles = Dir.glob(apiMD)
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['api_eb'],'')
+      puts "Processing " + basename
+      Launchpad.generate_html(fileName)
+    
+  end
+end
+
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|

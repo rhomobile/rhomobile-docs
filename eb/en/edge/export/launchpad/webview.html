@@ -1,0 +1,809 @@
+<div class='tableofcontents'> </div><h1>WebView</h1>
+
+<h2>Overview</h2>
+
+<p>The <code>Webview</code> is the core container used for rendering your application code. You can control certain behaviors of the webview by using this API class.</p>
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+
+
+
+
+<pre><code>:::ruby
+extensions: ["coreapi"]
+</code></pre>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+
+<h2>Methods</h2>
+
+<h3>active_tab()</h3>
+
+<p>Use Rho::NativeTabbar.currentTab property: returns the current tab index.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>INTEGER</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.active_tab()</code> </li></ul></li></ul>
+
+
+<h3>currentLocation(<span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Returns the relative url (location) of the current page(without server and port); the last URL loaded to WebView from Ruby controller action.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored.Tab should be loaded once to return current url. 
+Current location of active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+
+
+<h3>currentURL(<span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Returns the actual URL in WebView. This works the same as the JavaScript window.location.href.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored. 
+Current url of active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+
+
+<h3>executeJavascript(<span class="text-info">STRING</span> javascriptText, <span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Execute JavaScript on the current page from your controller.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>javascriptText : <span class='text-info'>STRING</span><p>
+The call to the JavaScript method on the current page, such as "test();". </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored. 
+Execute javascript in active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+
+
+<h3>full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</h3>
+
+<p>Use WebView.fullScreen property: Switch to / from full screen mode.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>enable : <span class='text-info'>BOOLEAN</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
+
+
+<h3>navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Force WebView to navigate to a URL.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>url : <span class='text-info'>STRING</span><p>
+Navigate to this url. </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored. Please avoid of navigate in not opened tab - this is unsupported on Android. 
+Refresh active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+
+
+<h3>navigateBack(<span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Force WebView to navigate to the previous page using Browser back.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored. 
+Navigate back in active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigateBack(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+
+
+<h3>refresh(<span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Force WebView to refresh the current page.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored. 
+Refresh active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.refresh(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+
+
+<h3>save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)</h3>
+
+<p>Save current page to file system.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>format : <span class='text-info'>STRING</span><p>
+Format of the saved page. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.WebView.SAVE_FORMAT_JPEG <br/> String:jpeg</dt><dd>
+Save as jpeg image.</dd></dl></li><li>path : <span class='text-info'>STRING</span><p>
+Path to the file / folder to save the page. </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
+TabBar tab index. If no tab bar present, index is ignored. 
+If tabbar index omitted then active WebView will be saved.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+
+
+<h3>setCookie(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> cookie)</h3>
+
+<p>When WebView loads the specified url (either by selecting link or from calling WebView.navigate), it will add this cookie to the HTTP request.Not implemented for Motorola Solutions' WebKit.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>url : <span class='text-info'>STRING</span><p>
+Set a cookie to be used by WebView for this url. </p></li><li>cookie : <span class='text-info'>STRING</span><p>
+One or more name-value pairs of the format "NAME=VALUE". Separate multiple name-value pairs with a semicolon, such as "NAME1=VALUE1; NAME2=VALUE2". </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+
+
+<h3>set_menu_items(<span class="text-info">HASH</span> menuItems)</h3>
+
+<p>Use Rho::Application.nativeMenu property: set native menu items.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>menuItems : <span class='text-info'>HASH</span><p>
+Map of menu items: name to action. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.set_menu_items(<span class="text-info">HASH</span> menuItems)</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>activeTab</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Return an active tab index. For change active tab use Use Rho.NativeTabbar.currentTab property.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.activeTab</code> </li></ul></li></ul>
+
+
+<h3>cacheSize</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>The browser cache size, in whole MBs. Defines in config.xml: Navigation\Cache.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.cacheSize</code> </li></ul></li></ul>
+
+
+<h3>enableCache</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Enable / disable Browser cache. Use &lsquo;WebView.enableCache&rsquo; parameter in rhoconfig.txt to configure this value.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enableCache</code> </li></ul></li></ul>
+
+
+<h3>enablePageLoadingIndication</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Show page loading indication. On Windows Mobile/CE this property can be set only in config.xml: GUI\HourglassEnabled. At Android  use &lsquo;disable_loading_indication&rsquo; parameter in rhoconfig.txt to configure this value.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enablePageLoadingIndication</code> </li></ul></li></ul>
+
+
+<h3>enableWebPlugins</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Enable / disable web plug-ins. Use &lsquo;enable_web_plugins&rsquo; parameter in rhoconfig.txt to configure this value. This option only has effect on Android versions before 4.0 (ICS). It mainly affects if Flash content is displayed.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enableWebPlugins</code> </li></ul></li></ul>
+
+
+<h3>enableZoom</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Enable WebView zoom. Use &lsquo;enable_screen_zoom&rsquo; parameter in rhoconfig.txt to configure this value.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enableZoom</code> </li></ul></li></ul>
+
+
+<h3>fontFamily</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to &lsquo;Tahoma&rsquo; as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\FontFamily</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.fontFamily</code> </li></ul></li></ul>
+
+
+<h3>framework</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Same as System.webViewFramework.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.framework</code> </li></ul></li></ul>
+
+
+<h3>fullScreen</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>Use full screen mode.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> false</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.fullScreen</code> </li></ul></li></ul>
+
+
+<h3>navigationTimeout</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Can be defined in config.xml: Navigation\NavTimeout. Number of milliseconds(maximum is 45000) before the browser times out and navigates to the page specified in the badlink setting. If it is determined that the destination is unreachable regardless of wait time, the badlink may be loaded before NAVTIMEOUT. This is the time taken to establish communication with the server, not the time taken to fully load the page.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> 0</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigationTimeout</code> </li></ul></li></ul>
+
+
+<h3>scrollTechnique</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Specifies the technique used to scroll about the page.Defines in config.xml: Scrolling\ScrollTechnique.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> FingerScroll</p>
+
+
+<h4>Values</h4>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
+
+<ul>
+<li>Constant: Rho.WebView.SCROLL_NONE
+
+<ul>
+<li>String: None</li>
+<li><p>No scrollbars will be displayed and the page will not respond to finger swipes.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.WebView.SCROLL_SCROLLBARS
+
+<ul>
+<li>String: Scrollbars</li>
+<li><p>When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.WebView.SCROLL_FINGER
+
+<ul>
+<li>String: FingerScroll</li>
+<li><p>You can scroll around the page using finger swiping.</p>
+
+<h4>Access</h4></li>
+</ul>
+</li>
+</ul>
+
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.scrollTechnique</code> </li></ul></li></ul>
+
+
+<h3>textZoomLevel</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the font size to be displayed on the page, set to 0 for the smallest font and 4 for the largest font.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.textZoomLevel</code> </li></ul></li></ul>
+
+
+<h3>userAgent</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Defines in config.xml: Navigation\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:</p>
+
+<pre><code>                %p - platform name ("Windows CE " + version number)
+                %w - WebKit version number
+                %e - MotorolaWebKit version number.
+</code></pre>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.userAgent</code> </li></ul></li></ul>
+
+
+<h3>viewportEnabled</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Whether to enable or disable viewport meta tag processing.Defines in config.xml: Navigation\ViewportEnabled.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.viewportEnabled</code> </li></ul></li></ul>
+
+
+<h3>viewportWidth</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified).Defines in config.xml: Navigation\ViewportWidth.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.viewportWidth</code> </li></ul></li></ul>
+
+
+<h3>zoomPage</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>FLOAT</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.zoomPage</code> </li></ul></li></ul>
+
+
+<h2>Examples</h2>
+
+<h3>Execute javascript</h3>
+
+<p>You can call the WebView and make it execute JavaScript code from a Ruby controller. This can be particularly helpful in order to reuse JavaScript functionality that is already included in your pages.</p>
+
+<p>As an example, you can invoke JQuery Mobile&rsquo;s changePage.</p>
+
+<p>You can also call your own functions.</p>
+
+<pre class='CodeRay'><code>
+
+function greet(name) {
+    alert("Hello, "+name);  
+}
+
+                            
+</code></pre>
+
+
+<p>From the Ruby controller we can execute the JavaScript function that may be in the view.</p>
+
+<h3>Use full-screen mode</h3>
+
+<p>The WebView can be set to use all the available screen real-estate by turning on &ldquo;full-screen&rdquo; mode.</p>
+
+<p>This property can also be assigned to in JavaScript.</p>
+
+<pre class='CodeRay'><code>
+
+// Fullscreen can also be invoked from JavaScript
+Rho.WebView.fullScreen = true;
+
+Rho.WebView.fullScreen = false;
+
+                            
+</code></pre>
+
+
+<h3>Navigate</h3>
+
+<p>This is the section that will appear before the code block.</p>
+
+<p>You can also navigate outside of your application, to an external site.</p>
+
+<p>This API is also available from JavaScript.</p>
+
+<pre class='CodeRay'><code>
+
+//Navigate out of the local application and into an externally-served site
+Rho.WebView.navigate("http://www.example.com");
+
+                            
+</code></pre>
+
+
+<h3>Navigate back</h3>
+
+<p>This is the section that will appear before the code block.</p>
+
+<p>The same method is available in JavaScript.</p>
+
+<pre class='CodeRay'><code>
+
+//Force WebView to navigate to the previous page using Browser back.
+Rho.WebView.navigateBack();
+
+                            
+</code></pre>
+
+
+<h3>Refresh the page</h3>
+
+<p>Reload the current URL into the WebView. This is useful especially after having updated data that must be now shown to the user</p>
+
+<p>By default, &ldquo;refresh&rdquo; will update the current view. If you are using the native Tabbar and have multiple WebViews, you can specify which one to refresh.</p>
+
+<p>Also available from JavaScript.</p>
+
+<pre class='CodeRay'><code>
+
+// Reload the current page
+Rho.WebView.refresh()
+
+// Reload the page on WebView number 3
+Rho.WebView.refresh(3)
+
+                            
+</code></pre>
+

@@ -1,0 +1,294 @@
+<div class='tableofcontents'> </div><h1>Message</h1>
+
+<h2>Overview</h2>
+
+<p>NFC Message</p>
+
+
+<p>This class representative NFC Message object</p>
+
+
+
+
+<h1>Enabling the API</h1>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+
+
+
+
+<pre><code>:::ruby
+extensions: ["nfc"]
+</code></pre>
+
+
+
+
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+
+
+<h2>Methods</h2>
+
+<h3>addMessage(<span class="text-info">STRING</span> messageID)</h3>
+
+<p>Add new Smart Poster message to the message.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>messageID : <span class='text-info'>STRING</span><p>
+Added Message object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addMessage(<span class="text-info">STRING</span> messageID)</code></li></ul></li></ul>
+
+
+<h3>addRecord(<span class="text-info">STRING</span> recordID)</h3>
+
+<p>Add new Record to Message.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>recordID : <span class='text-info'>STRING</span><p>
+Added Record object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addRecord(<span class="text-info">STRING</span> recordID)</code></li></ul></li></ul>
+
+
+<h3>close()</h3>
+
+<p>Release NFC resources.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
+
+
+<h3>create()</h3>
+
+<p>Creates message object.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>Rho.NFC.Message</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Rho.NFC.Message :
+Created Message object.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Message.create()</code> </li></ul></li></ul>
+
+
+<h3>getContent()</h3>
+
+<p>Returns Message as byte array.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>STRING :
+Message to get.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getContent()</code></li></ul></li></ul>
+
+
+<h3>getMessageById(<span class="text-info">STRING</span> id)</h3>
+
+<p>This function returns Message object.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>id : <span class='text-info'>STRING</span><p>
+Message object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>SELF_INSTANCE :
+&ldquo;self&rdquo; instance of the Message object.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
+
+
+<h3>getMessages()</h3>
+
+<p>Return array of Smart Poster Message objects.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>ARRAY :
+Array of Rho.NFC.Message objects.<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getMessages()</code></li></ul></li></ul>
+
+
+<h3>getRecords()</h3>
+
+<p>Return array of Record objects.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>ARRAY :
+Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getRecords()</code></li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>ID</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Object ID.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
+
