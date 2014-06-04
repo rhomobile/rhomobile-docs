@@ -14,7 +14,8 @@
 ### addEventListener(<span class="text-info">STRING</span> event)
 
 ####Parameters
-<ul><li>event : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>event : <span class='text-info'>STRING</span><p>
+{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul></ul>
@@ -55,6 +56,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
+
 {}
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onerror</code></li></ul></li></ul>
@@ -64,6 +66,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
+
 {}
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onmessage</code></li></ul></li></ul>
@@ -73,6 +76,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
+
 {}
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onopen</code></li></ul></li></ul>
@@ -82,6 +86,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
+
 Represents the state of the connection.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.readyState</code></li></ul></li></ul>
@@ -91,6 +96,7 @@ Represents the state of the connection.
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
+
 URL passed to EventSource constructor.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.url</code></li></ul></li></ul>
@@ -100,6 +106,17 @@ URL passed to EventSource constructor.
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
+
 Currently will return empty string.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.withCredentials</code></li></ul></li></ul>
+
+##Constants
+
+
+* CONNECTING
+The connection has not yet been established.
+* OPEN
+The WebSocket connection is established and communication is possible.
+* CLOSED
+The connection has been closed or could not be opened.

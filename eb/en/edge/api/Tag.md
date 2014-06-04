@@ -21,7 +21,8 @@ extensions: ["nfc"]
 
 
 
-### close()release resources, close connection
+### close()
+release resources, close connection
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -38,16 +39,20 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
 
-### exchangeData(<span class="text-info">STRING</span> sendData)This function exchanges raw data with Tag
+### exchangeData(<span class="text-info">STRING</span> sendData)
+This function exchanges raw data with Tag
 
 ####Parameters
-<ul><li>sendData : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>sendData : <span class='text-info'>STRING</span><p>
+{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>receiveData : <span class='text-info'>STRING</span><p>NFC_SUCCESS if OK </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>receiveData : <span class='text-info'>STRING</span><p>
+NFC_SUCCESS if OK </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>HASH<ul><li>receiveData : <span class='text-info'>STRING</span><p>NFC_SUCCESS if OK </p></li></ul></li></ul>
+Synchronous Return:<ul><li>HASH<ul><li>receiveData : <span class='text-info'>STRING</span><p>
+NFC_SUCCESS if OK </p></li></ul></li></ul>
 
 ####Platforms
 
@@ -58,7 +63,8 @@ Synchronous Return:<ul><li>HASH<ul><li>receiveData : <span class='text-info'>STR
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.exchangeData(<span class="text-info">STRING</span> sendData)</code></li></ul></li></ul>
 
-### formatNDEF()format Tag to NDEF type
+### formatNDEF()
+format Tag to NDEF type
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -75,10 +81,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.formatNDEF()</code></li></ul></li></ul>
 
-### getTagById(<span class="text-info">STRING</span> id)This function returns Tag object
+### getTagById(<span class="text-info">STRING</span> id)
+This function returns Tag object
 
 ####Parameters
-<ul><li>id : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>id : <span class='text-info'>STRING</span><p>
+{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
@@ -95,7 +103,8 @@ Synchronous Return:<ul><li>SELF_INSTANCE</li></ul>
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Tag.getTagById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
 
-### makeReadOnly()make Tag read only
+### makeReadOnly()
+make Tag read only
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -112,10 +121,13 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.makeReadOnly()</code></li></ul></li></ul>
 
-### writeMessage(<span class="text-info">ARRAY</span> messages)write messages on Tag. On the current moment only 1 message is supported.
+### writeMessage(<span class="text-info">ARRAY</span> messages)
+write messages on Tag. On the current moment only 1 message is supported.
 
 ####Parameters
-<ul><li>messages : <span class='text-info'>ARRAY</span><p> </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>id of Rho.NFC.Message object </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>messages : <span class='text-info'>ARRAY</span><p>
+{} </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>
+id of Rho.NFC.Message object </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
@@ -138,6 +150,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
+
 object ID
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
@@ -147,6 +160,7 @@ object ID
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
+
 free size in bytes
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.freeSize</code></li></ul></li></ul>
@@ -156,6 +170,7 @@ free size in bytes
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
+
 connected or not(if connections between tag and nfc device exists)
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isConnected</code></li></ul></li></ul>
@@ -165,6 +180,7 @@ connected or not(if connections between tag and nfc device exists)
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
+
 ndef or not
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isNdef</code></li></ul></li></ul>
@@ -174,6 +190,7 @@ ndef or not
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
+
 Indicating if the tag is locked for write operation.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isReadOnly</code></li></ul></li></ul>
@@ -183,6 +200,7 @@ Indicating if the tag is locked for write operation.
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
+
 The serial number of a tag.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.serialNumber</code></li></ul></li></ul>
@@ -192,6 +210,7 @@ The serial number of a tag.
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
+
 size in bytes
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.size</code></li></ul></li></ul>
@@ -201,6 +220,7 @@ size in bytes
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
+
 Tag type
 ####Values
 

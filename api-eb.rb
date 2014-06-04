@@ -6,7 +6,7 @@ class Apieb
 @@apiName = ""
 
   def self.getMDDesc(desc)
-  	return "#{desc}"
+  	return "\n#{desc}"
   	# if desc.is_a?(String)
   		# return RDiscount.new(desc, :smart).to_html
   	# else
@@ -120,7 +120,6 @@ class Apieb
   	md = ""
   	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
-	  	md += "\n\n##Remarks"
 	  	s.each_with_index() { |element,index|
 		    md += "\n\n###" + element["title"]
 		    html = getMDDesc(element["DESC"][0])
@@ -135,7 +134,6 @@ class Apieb
   	md = ""
   	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
-	  	md += '##Constants'
 	  	s.each_with_index() { |element,index|
 	  		element["name"] = getElementName(element) 
 			md +=  "\n* " + element["name"]
@@ -935,6 +933,83 @@ def self.getproperties(doc)
 	return md
 end
 
+def self.getexamples(doc)
+	md = ""
+	# puts doc["MODULE"][0]["EXAMPLES"]
+	if !doc["MODULE"][0]["EXAMPLES"].nil? && !doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"].nil?
+  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
+  	s.each_with_index() { |element,index|
+  		examplename = ""
+			examplesections = ""
+  		examplename = element["title"]
+  		sect=element["SECTIONS"][0]["SECTION"]
+  		sect.each_with_index() { |section,si|
+  			#puts "**********"
+  			#puts section
+  			examplesections += "\n"
+  			# puts section["DESC"][0]
+  			# if section["DESC"][0].class != Hash
+  			# puts section
+  				if !section["DESC"].nil? && !section["DESC"][0].nil?
+					examplesections += getMDDesc(section["DESC"][0])
+				end
+			# end
+			exampleid = "exI#{index.to_s}-S#{si.to_s}"
+  			
+			codelang = 'ruby'
+  			codesnip = section["CODE"]
+  			codejs = ''
+  			coderuby = ''
+  			# puts codesnip
+  			if !codesnip[0]["content"].nil? #uses one code block
+  			 # puts codesnip
+  			 if !codesnip[0]["lang"].nil?
+  			 	codelang = codesnip[0]["lang"]
+  			 	if codelang.empty?
+  			 		codelang = 'ruby'
+  			 	end
+  			 end
+  			 if codelang == 'ruby'
+  			 	#coderuby = "<pre class='CodeRay'><code>:::#{codelang}"
+	  			#cleanCode = codesnip[0]["content"].gsub('<','&lt;')
+	  			#cleanCode = cleanCode.gsub('>','&gt;')
+	  			#coderuby += cleanCode
+				#coderuby += "</code></pre>"
+  			 else
+  			 	codejs = "\n<pre class='CodeRay'><code>"
+	  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
+	  			cleanCode = cleanCode.gsub('>','&gt;')
+	  			codejs += cleanCode
+				codejs += "\n</code></pre>"
+  			 end
+  			else
+  			 if !codesnip[0]["RUBY"].nil?
+  			 	#coderuby = "<pre class='CodeRay'><code>:::ruby\n"
+	  			#cleanCode = codesnip[0]["RUBY"][0].gsub('<','&lt;')
+	  			#cleanCode = cleanCode.gsub('>','&gt;')
+	  			#coderuby += cleanCode
+				#coderuby += "</code></pre>"
+  			 end
+  			 if !codesnip[0]["JAVASCRIPT"].nil?
+  			 	codejs = "\n<pre class='CodeRay'><code>\n"
+	  			cleanCode = codesnip[0]["JAVASCRIPT"][0].gsub('<','&lt;')
+	  			cleanCode = cleanCode.gsub('>','&gt;')
+	  			codejs += cleanCode
+				codejs += "\n</code></pre>"
+  			 end
+
+  			end
+  			examplesections += codejs
+
+  		}
+  	
+	    md += "\n\n###" + element["title"]
+	  	md += examplesections
+  	}
+
+end
+return md
+end
 
 
 
@@ -1016,6 +1091,9 @@ end
 
 	  	docmethods = getmethods(doc)
 	  	docproperties = getproperties(doc)
+	  	docexamples = getexamples(doc)
+	  	docremarks = getremarks(doc)
+	  	docconstants = getconstants(doc)
 	  	
 
 	  	md += "#" + getApiName(doc,'',true) + "\n" 
@@ -1030,7 +1108,18 @@ end
 		  	md += "\n\n##Properties" + "\n\n" 
 		  	md += docproperties
 		end
-
+		if docconstants !=""
+		  	 md += "\n\n##Constants" + "\n\n" 
+		  	 md += "" + docconstants + ""
+	  	end 
+  	    if docremarks !=""
+		  	 md += "\n\n##Remarks" + "\n\n" 
+		  	 md += "" + docremarks + ""
+	  	end 
+		if docexamples !=""
+		  	 md += "\n\n##Examples" + "\n\n" 
+		  	 md += "" + docexamples + ""
+	  	end 
 	  	# puts md
 	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
 	else
