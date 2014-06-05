@@ -1,7 +1,11 @@
 require 'xmlsimple'
 require 'rdiscount'
-
+require 'rest-client'
+require 'json'
 class Launchpad
+	@my_server = 'developer-uat.motorolasolutions.com/api/core/v3'
+	@my_user = 'emdk'
+	@my_pass = 'emdk1234'
 
   def self.generate_html(topic)
 		#open Markdown content
@@ -29,4 +33,42 @@ class Launchpad
 	
   end
 
+  def self.publish_html(topic)
+
+  	# read file contents
+  	html = File.read(topic)
+  	subject = 'APi Doc Test From Ruby'
+  	# need to get parent for UAT or Production
+  	parent = 'https://developer-uat.motorolasolutions.com/api/core/v3/places/18095'
+  	
+  	# Jive V3 Endpoint
+  	endpoint = '/contents'
+
+	# create REST JSON Body		
+  	jdata = {
+  		:visibility => 'place',
+  		:subject => subject,
+  		:content => {
+  			:type => 'text/html',
+  			:text => html
+  			},
+  		:type => 'document',
+  		:parent => parent
+  		}.to_json
+  	begin
+  		# Create Doc
+		response = RestClient::Request.execute :method=> :post, :url => "https://#{@my_user}:#{@my_pass}@#{@my_server}#{endpoint}", 
+		:headers => {'Content-Type' => 'application/json'}, 
+		:payload => jdata 
+
+  		#response.code = 201 is success, else parsed.message = error message, parsed.code
+		parsed = JSON.parse(response)
+		@documentId = parsed["id"]
+		puts "Success: ID => #{@documentId}"
+	rescue => e
+	  puts "The request failed with HTTP status code #{e.response.code}"
+	  puts "The body was:"
+	  puts e
+	end
+  end
 end

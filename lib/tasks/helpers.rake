@@ -192,6 +192,19 @@ def lp_generate_html
   end
 end
 
+def lp_publish_html
+  puts "Getting HTML in #{AppConfig['launchpad_eb']}"
+  apiMD = File.join(AppConfig['launchpad_eb'],"**","barcode.html")
+  
+  apiFiles = Dir.glob(apiMD)
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+      puts "Processing " + basename
+      Launchpad.publish_html(fileName)
+    
+  end
+end
+
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
