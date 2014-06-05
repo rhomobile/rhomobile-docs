@@ -205,6 +205,8 @@ def lp_publish_html
   end
 end
 
+
+
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
