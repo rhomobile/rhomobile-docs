@@ -39,6 +39,13 @@ The following is an example of a typical configuration file, many of the attribu
 		<FullScreen VALUE="1"/>
 		<PageZoom VALUE="1.0"/>
 	  </Screen>
+	  <VoidConnection>
+		<TrackConnection value="0"/>
+		<HostURL value="100.159.16.12"/>
+     		<Message value="Establishing Connection "/>
+     		<Timeout value="30000"/>
+		<PollInterval value="5000"/>
+	  </VoidConnection>
 	  <WebServer>
 		<Enabled   VALUE="1"/>
 		<Port      VALUE="8080"/>
@@ -271,6 +278,36 @@ The following is an example of a typical configuration file, many of the attribu
 <td >PAGEZOOM</td>
 <td >Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. Negative Values and 0.0 is not supported.<a href="#_pageZoom">* (see remark)</a></td>
 <td >Zoom factor of the page.</td>
+</tr>
+<tr>
+<td >VoidConnection\\TrackConnection</td>
+<td >TrackConnection</td>
+<td >This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page.</td>
+<td >Connection Tracking</td>
+</tr>
+<tr>
+<td >VoidConnection\\HostURL</td>
+<td >HostURL</td>
+<td >This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip </td>
+<td >Connection Tracking</td>
+</tr>
+<tr>
+<td >VoidConnection\\Message</td>
+<td >Message</td>
+<td >Message is the customized Message to be shown in the pop up window.</td>
+<td >Customized Message</td>
+</tr>
+<tr>
+<td >VoidConnection\\Timeout</td>
+<td >Timeout</td>
+<td >This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. </td>
+<td >Timeout</td>
+</tr>
+<tr>
+<td >VoidConnection\\PollInterval</td>
+<td >PollInterval</td>
+<td >This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value .  </td>
+<td >PollInterval</td>
 </tr>
 <tr>
 <td class="clsEvenRow">WebServer\\Enabled</td>
