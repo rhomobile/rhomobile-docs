@@ -2,7 +2,7 @@
 
 
 
-## Html files
+## Html files (api/guide)
 * These files will have been preformatted to be 'Launchpad friendly' so that they can just be imported into LP directly
 * These files will be imported into LP using Jive REST v3 APIs https://developers.jivesoftware.com/api/v3/cloud/rest/index.html
 
