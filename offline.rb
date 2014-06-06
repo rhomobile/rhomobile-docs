@@ -5,7 +5,7 @@ require 'json'
 class Offline
 	def self.generate_json_index
 	  puts "Getting MD in #{AppConfig['api_eb']}"
-	  puts "Generating JSON Index: #{AppConfig['launchpad_eb']}index.json"
+	  puts "Generating JSON Index: #{AppConfig['offline_eb']}#{AppConfig['offline_eb_mapping']}"
 	  apiMD = File.join(AppConfig['api_eb'],"**","*.md")
 	  apiFiles = Dir.glob(apiMD)
 	  index_hash = []
@@ -46,7 +46,7 @@ class Offline
 	    index_hash.push hash_object    
 	  end
 
-	  outputfile = "#{AppConfig['api_eb']}index.json"
+	  outputfile = "#{AppConfig['offline_eb']}#{AppConfig['offline_eb_mapping']}"
 		File.open("#{outputfile}", 'w') {|f| 
 			f.write(index_hash.to_json) 
 		}
