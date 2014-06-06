@@ -180,28 +180,45 @@ end
 
 def lp_generate_html
   puts "Getting MD in #{AppConfig['api_eb']}"
-  puts "Generating Launchpad Docs in: #{AppConfig['launchpad_eb']}"
+  puts "Generating Launchpad Docs in: #{AppConfig['api_eb']}"
   apiMD = File.join(AppConfig['api_eb'],"**","*.md")
-  
   apiFiles = Dir.glob(apiMD)
   apiFiles.each do |fileName|
     basename = fileName.gsub(AppConfig['api_eb'],'')
       puts "Processing " + basename
-      Launchpad.generate_html(fileName)
+      Launchpad.generate_html(fileName,AppConfig['api_eb'])
+    
+  end
+  guidesMD = File.join(AppConfig['guides_eb'],"**","*.md")
+  guidesFiles = Dir.glob(guidesMD)
+  guidesFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['guides_eb'],'')
+      puts "Processing " + basename
+      Launchpad.generate_html(fileName,AppConfig['guides_eb'])
     
   end
 end
 
 def lp_publish_html
-  puts "Getting HTML in #{AppConfig['launchpad_eb']}"
-  apiMD = File.join(AppConfig['launchpad_eb'],"**","barcode.html")
-  
-  apiFiles = Dir.glob(apiMD)
-  apiFiles.each do |fileName|
-    basename = fileName.gsub(AppConfig['launchpad_eb'],'')
-      puts "Processing " + basename
-      Launchpad.publish_html(fileName)
+  # Get Mapping File
+  if File.file?("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}")
+    # Open mapping file that has a string in Ruby hash format
+    # this object will be used to hold id/urls of documents created
+    url_map = eval(File.read("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"))
+    puts url_map
+
+    puts "Getting HTML in #{AppConfig['launchpad_eb']}"
+    apiMD = File.join(AppConfig['launchpad_eb'],"**","*.html")
     
+    apiFiles = Dir.glob(apiMD)
+    apiFiles.each do |fileName|
+      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        puts "Processing " + basename
+        Launchpad.publish_html(fileName,url_map,"uat")
+      
+    end
+  else
+    puts 'ERROR No Mapping File Exists - run rake lp_generate_mapping_index to generate a baseline'
   end
 end
 

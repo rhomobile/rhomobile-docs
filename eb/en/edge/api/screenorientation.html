@@ -1,0 +1,273 @@
+<div class='tableofcontents'> </div><h1>ScreenOrientation</h1>
+
+<h2>Overview</h2>
+
+<p>The ScreenOrientation Module is used to control the screen orientation / layout and register to receive an event when it changes.</p>
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["screenorientation"]
+</pre>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+
+<h2>Methods</h2>
+
+<h3>leftHanded()</h3>
+
+<p>Sets the screen orientation to left-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.leftHanded()</code> </li></ul></li></ul>
+
+
+<h3>normal()</h3>
+
+<p>Sets the screen orientation to default device orientation.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.normal()</code> </li></ul></li></ul>
+
+
+<h3>rightHanded()</h3>
+
+<p>Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.rightHanded()</code> </li></ul></li></ul>
+
+
+<h3>setScreenOrientationEvent()</h3>
+
+<p>Sets the callback to be called when a screen orientation event occurs.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.setScreenOrientationEvent()</code> </li></ul></li></ul>
+
+
+<h3>upsideDown()</h3>
+
+<p>Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.upsideDown()</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>autoRotate</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.autoRotate</code> </li></ul></li></ul>
+
+
+<h2>Examples</h2>
+
+<h3>Detect screen orientation changes</h3>
+
+<p>Detect when the device changes orientation.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+function start_detecting_orientation_changes(){
+  ScreenOrientation.setScreenOrientationEvent(orientation_callback)
+}
+ 
+function orientation_callback(){
+    
+  Alert.show_popup("The screen changed orientation")
+}
+                   
+                            
+</pre>
+
+
+<h3>Change screen orientation</h3>
+
+<p>Set the screen orientation programmatically. Particularly useful in a tablet: before capturing a signature, set the orientation to upside-down so that the interface will look right from the signer&rsquo;s point of view without having to physically rotate the device.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+function capture_signature_with_attention_to_details() {
+    // Set screen orientation to upside down
+    Rho.ScreenOrientation.upsideDown();
+
+    // At this point, offer the device to the user. You just saved the user the hassle of rotating the tablet
+    // and there's less potential for the device to be dropped along the way  
+    Rho.Signature.takeFullScreen({}, signature_callback);
+}           
+
+function signature_callback(params) {
+    // do whatever we need to do with the signature
+    ...
+    // restore screen orientation to default
+    Rho.ScreenOrientation.normal();
+}
+                   
+                            
+</pre>
+
+
+<h3>Enable / disable auto rotate</h3>
+
+<p>Enable / disable automatic rotation of the screen according to device orientation.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+// Enable autorotate
+Rho.ScreenOrientation.autoRotate=true;
+
+// Disable autorotate
+Rho.ScreenOrientation.autoRotate=false;
+                   
+                            
+</pre>
+

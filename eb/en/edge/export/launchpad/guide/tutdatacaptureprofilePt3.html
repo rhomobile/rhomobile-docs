@@ -1,0 +1,440 @@
+<div class='tableofcontents'> </div><!-- Launchpad Link id: tutdatacaptureprofile
+    usage <a data-link="id">blah blah</a>
+    replace id
+-->
+
+
+<div class="tableofcontents"> </div>
+
+
+<h2>Developing an EMDK for Android Application Part 3</h2>
+
+<p>This guide will walk you through adding MSR support and multiple profiles to the Android application you made using <a data-link="tutdatacaptureprofilept2">&ldquo;Developing an EMDK for Android Application Part 2&rdquo;</a>. This tutorial will add some more complexity by adding a second screen as well as adding a second Data Capture Profile.</p>
+
+<h3>Prerequisites</h3>
+
+<ul>
+<li>Java Development Kit (JDK)</li>
+<li>Android Developer Tools (ADT)</li>
+<li>Motorola EMDK for Android</li>
+<li>Completion of <a data-link="tutdatacaptureprofile">&ldquo;Developing an EMDK for Android Application Part 1&rdquo;</a></li>
+<li>Completion of <a data-link="tutdatacaptureprofilePt2">&ldquo;Developing an EMDK for Android Application Part 2&rdquo;</a></li>
+</ul>
+
+
+<p>For more information about setting up the EMDK please see the EMDK <a data-link="setup">Setup</a>.</p>
+
+<h2>Using EMDK Wizard and EMDK for Android MSR data capture.</h2>
+
+<h3>Adding MSR Activity</h3>
+
+<p>Let&rsquo;s start by defining a second activity for the application. This activity will be used to to activate a Data Capture profile that listens for MSR data.</p>
+
+<ol>
+<li>Select &ldquo;EMDKSample&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image122.jpg" alt="img" /></li>
+<li>Right Click and select &ldquo;New&rdquo; &ndash;> &ldquo;Other&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image123.jpg" alt="img" /></li>
+<li>Select &ldquo;Android&rdquo; &ndash;> &ldquo;Android Activity&rdquo; and click &ldquo;Next&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image124.jpg" alt="img" /></li>
+<li>Select &ldquo;Empty Activity&rdquo; and click &ldquo;Next&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image125.jpg" alt="img" /></li>
+<li>Change &ldquo;Activity name&rdquo; to &ldquo;MSRActivity&rdquo; and click &ldquo;Finish&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image126.jpg" alt="img" /></li>
+</ol>
+
+
+<h3>Adding MSR Completed Activity</h3>
+
+<p>Next let&rsquo;s create a third activity that will listen for the MSR data and display the data to the user.</p>
+
+<ol>
+<li>Select &ldquo;EMDKSample&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image122.jpg" alt="img" /></li>
+<li>Right Click and select &ldquo;New&rdquo; &ndash;> &ldquo;Other&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image123.jpg" alt="img" /></li>
+<li>Select &ldquo;Android&rdquo; &ndash;> &ldquo;Android Activity&rdquo; and click &ldquo;Next&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image124.jpg" alt="img" /></li>
+<li>Select &ldquo;Empty Activity&rdquo; and click &ldquo;Next&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image125.jpg" alt="img" /></li>
+<li>Change &ldquo;Activity name&rdquo; to &ldquo;MSRCompletedActivity&rdquo; and click &ldquo;Finish&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image127.jpg" alt="img" /></li>
+</ol>
+
+
+<h3>Updating Main Activity</h3>
+
+<p>Now we will update &ldquo;MainActivity&rdquo;, adding a button to launch our &ldquo;MSRActivity&rdquo;.</p>
+
+<ol>
+<li>Select &ldquo;activity_main.xml&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image128.jpg" alt="img" /></li>
+<li><p>Add the following Button to &ldquo;activity_main.xml&rdquo;. This Button will be used for opening &ldquo;MSRActivity&rdquo;.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml"
+ _jivemacro_uid="_1398870592774641">
+ <p>&lt;Button</p>
+ <p> android:id=&ldquo;@+id/buttonMSR&rdquo;</p>
+ <p> android:layout_width=&ldquo;wrap_content&rdquo;</p>
+ <p> android:layout_height=&ldquo;wrap_content&rdquo;</p>
+ <p> android:layout_alignParentBottom=&ldquo;true&rdquo;</p>
+ <p> android:layout_marginBottom=&ldquo;50dp&rdquo;</p>
+ <p> android:layout_marginLeft=&ldquo;50dp&rdquo;</p>
+ <p> android:text=&ldquo;MSR&rdquo; /&gt;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image129.jpg" alt="img" /></p></li>
+<li><p>Select &ldquo;MainActivity.java&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image130.jpg" alt="img" /></p></li>
+<li><p>Add the following Imports to &ldquo;MainActivity.java&rdquo;.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>import android.widget.Button;</p>
+ <p>import android.view.View;</p>
+ <p>import android.view.View.OnClickListener;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image131.jpg" alt="img" /></p></li>
+<li><p>Declare a variable inside &ldquo;MainActivity&rdquo; to store &ldquo;buttonMSR&rdquo;.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Declare a variable to store the buttonMSR</p>
+ <p>private Button buttonMSR = null;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image132.jpg" alt="img" /></p></li>
+<li><p>Inside &ldquo;onCreate&rdquo; get a reference to &ldquo;buttonMSR&rdquo;.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Declare a variable to store the buttonMSR</p>
+ <p>private Button buttonMSR = null;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image133.jpg" alt="img" /></p></li>
+<li><p>Inside &ldquo;onCreate&rdquo; add an &ldquo;OnClickListener&rdquo; for &ldquo;buttonMSR&rdquo;.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>/Add an OnClickListener for buttonMSR</p>
+ <p>buttonMSR.setOnClickListener(buttonMSROnClick);</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image134.jpg" alt="img" /></p></li>
+<li><p>Add a new &ldquo;OnClickListener&rdquo; inside &ldquo;MainActivity&rdquo;.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//OnClickListener for buttonMSR</p>
+ <p>private OnClickListener buttonMSROnClick = new OnClickListener() {</p>
+ <p> public void onClick(View v) {</p>
+ <p></p>
+ <p> }</p>
+ <p>};</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image135.jpg" alt="img" /></p></li>
+<li><p>Add the following code to &ldquo;onClick&rdquo; to launch &ldquo;MSRActivity&rdquo;.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Launch MSRActivity</p>
+ <p>Intent myIntent = new Intent(MainActivity.this, MSRActivity.class);</p>
+ <p>startActivity(myIntent);</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image136.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Creating MSR UI</h3>
+
+<p>Next we will create the UI for &ldquo;MSRActivity&rdquo;.</p>
+
+<ol>
+<li>Select &ldquo;activity_msr.xml&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image137.jpg" alt="img" /></li>
+<li>Remove the default &ldquo;TextView&rdquo;.</li>
+<li><p>Add the following TextView.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml"
+ _jivemacro_uid="_1398870592774641">
+ <p>&lt;TextView</p>
+ <p> android:id=&ldquo;@+id/textViewInfo&rdquo;</p>
+ <p> android:layout_width=&ldquo;wrap_content&rdquo;</p>
+ <p> android:layout_height=&ldquo;wrap_content&rdquo;</p>
+ <p> android:layout_alignParentTop=&ldquo;true&rdquo;</p>
+ <p> android:layout_centerHorizontal=&ldquo;true&rdquo;</p>
+ <p> android:layout_marginTop=&ldquo;50dp&rdquo;</p>
+ <p> android:text=&ldquo;Please swipe a card to continue.&rdquo;</p>
+ <p> android:textAppearance=&ldquo;?android:attr/textAppearanceLarge&rdquo; /&gt;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image138.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Creating our MSR Profile</h3>
+
+<p>Next we will create a Data Capture profile that will activate the MSR on &ldquo;MSRActivity&rdquo; and send the data via a startActivity Intent to &ldquo;MSRCompletedActivity&rdquo;.</p>
+
+<ol>
+<li>Select &ldquo;EMDKSample&rdquo; project from Package Explorer.</li>
+<li>Click &ldquo;EMDK&rdquo; menu and select &ldquo;Profile Manager&rdquo;.<br/>
+ <img src="https://launchpad-images.s3-us-west-1.amazonaws.com/emdk/setup/image043.jpg" alt="img" /></li>
+<li>The EMDK Profile Manager Window will appear.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image139.jpg" alt="img" /></li>
+<li>click &ldquo;Create&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image140.jpg" alt="img" /></li>
+<li>Enter the Profile Name &ldquo;DataCaptureProfileMSR&rdquo; and click &ldquo;Create&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image141.jpg" alt="img" /></li>
+<li>select &ldquo;ActivitySelection&rdquo; from the list of &ldquo;Available Features&rdquo; and add it to &ldquo;Selected Features&rdquo; using the arrow.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image142.jpg" alt="img" /></li>
+<li>Select &ldquo;Activity Selection&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image143.jpg" alt="img" /></li>
+<li>Enter &ldquo;com.symbol.emdksample&rdquo; as the application name and click apply.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image144.jpg" alt="img" /></li>
+<li>Enter &ldquo;MSRActivity&rdquo; as the activity name and click apply.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image145.jpg" alt="img" /></li>
+<li>Click Okay.</li>
+<li>select &ldquo;MSR&rdquo; from the list of &ldquo;Available Features&rdquo; and add it to &ldquo;Selected Features&rdquo; using the arrow.
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image146.jpg" alt="img" /></li>
+<li>Change &ldquo;MSR Input Enable&rdquo; to &ldquo;Enable&rdquo;.<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image147.jpg" alt="img" /></li>
+<li>select &ldquo;Intent&rdquo; from the list of &ldquo;Available Features&rdquo; and add it to &ldquo;Selected Features&rdquo; using the arrow.
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image148.jpg" alt="img" /></li>
+<li><p>Now we will configure the &ldquo;Intent&rdquo; settings.</p>
+
+<ul>
+<li>Switch &ldquo;Intent Output Enable&rdquo; to Enable".</li>
+<li>For &ldquo;Intent Output Action&rdquo; enter &ldquo;com.symbol.emdksample.RECVRMSR&rdquo;.</li>
+<li>For &ldquo;Intent Output Category&rdquo; enter &ldquo;android.intent.category.DEFAULT&rdquo;.</li>
+<li>Switch &ldquo;Intent Output Delivery&rdquo; to &ldquo;Send via startActivity&rdquo;.</li>
+<li>Switch &ldquo;Basic data formatting Enable&rdquo; to Enable".</li>
+<li>Switch &ldquo;Basic data formatting Send Data&rdquo; to Enable".</li>
+</ul>
+
+
+<p>Your Intent configuration should now look like this:<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image149.jpg" alt="img" /></p></li>
+<li><p>Click &ldquo;Apply&rdquo; and &ldquo;Finish&rdquo;.<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image150.jpg" alt="img" /></p></li>
+<li>Click &ldquo;Close&rdquo;.
+
+<blockquote><p>Note:<br/>
+Now the &ldquo;EMDKConfig.xml&rdquo; file under the &ldquo;\assets&rdquo; folder will be updated with your changes.</p></blockquote></li>
+</ol>
+
+
+<h3>Adding the MSR Intent Filter</h3>
+
+<p>Now will add an Intent filter to our Manifest file to allow &ldquo;MSRCompletedActivity&rdquo; to listen for our new Data Capture Intent.</p>
+
+<ol>
+<li>Open your application&rsquo;s &ldquo;Manifest.xml&rdquo; file.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image151.jpg" alt="img" /></li>
+<li><p>Add the following configuration to the activity &ldquo;com.symbol.emdksample.MSRCompletedActivity&rdquo; to revive our MSR intent.</p>
+
+<p> <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml" _jivemacro_uid="_1398870592774641">
+ <p>&lt;intent-filter&gt;</p>
+ <p>     &lt;action android:name=&ldquo;com.symbol.emdksample.RECVRMSR&rdquo;/&gt;</p>
+ <p>     &lt;category android:name=&ldquo;android.intent.category.DEFAULT&rdquo;/&gt;</p>
+ <p>&lt;/intent-filter&gt;</p>
+ </pre></p>
+
+<p> When done, your manifest.xml should look like this:</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image152.jpg" alt="img" /></p>
+
+<blockquote><p>Note:</p>
+
+<ul>
+<li>The intent action name should match the value of &ldquo;Intent Output Action&rdquo; in the EMDK Profile Manager.</li>
+<li>The intent category name should match the value of &ldquo;Intent Output Category&rdquo; in the EMDK Profile Manager.</li>
+</ul>
+</blockquote></li>
+</ol>
+
+
+<h3>Registering the MSR EMDK profile</h3>
+
+<p>Next we will register our new Data Capture profile from &ldquo;MainActivity&rdquo;.</p>
+
+<ol>
+<li><p>Select &ldquo;MainActivity.java&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image153.jpg" alt="img" /></p></li>
+<li><p>Inside &ldquo;MainActivity&rdquo; add the following code to hold the name of our MSR profile.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Assign the profile name used in EMDKConfig.xml  for MSR handling</p>
+ <p>private String profileNameMSR = &ldquo;DataCaptureProfileMSR&rdquo;;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image154.jpg" alt="img" /></p></li>
+<li><p>Inside &ldquo;onOpened&rdquo; add the following code to register the MSR EMDK profile.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Call processPrfoile for profile MSR</p>
+ <p>results = mProfileManager.processProfile(profileNameMSR, ProfileManager.PROFILE_FLAG.SET, modifyData);</p>
+ <p></p>
+ <p>if(results.statusCode == STATUS_CODE.FAILURE)</p>
+ <p>{</p>
+ <p> //Failed to set profile MSR</p>
+ <p>}</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image155.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Creating MSR Completed UI</h3>
+
+<p>Now we will create the UI for &ldquo;MSRCompletedActivity&rdquo;. This UI will allow us to display the MSR data to the user.</p>
+
+<ol>
+<li>Select &ldquo;activity_msr.xml&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image156.jpg" alt="img" /></li>
+<li>Remove the default &ldquo;TextView&rdquo;.</li>
+<li><p>Add the following TextView.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml"
+ _jivemacro_uid="_1398870592774641">
+ <p>&lt;TextView</p>
+ <p> android:id=&ldquo;@+id/textViewMSRData&rdquo;</p>
+ <p> android:layout_width=&ldquo;wrap_content&rdquo;</p>
+ <p> android:layout_height=&ldquo;wrap_content&rdquo;</p>
+ <p> android:layout_alignParentTop=&ldquo;true&rdquo;</p>
+ <p> android:layout_centerHorizontal=&ldquo;true&rdquo;</p>
+ <p> android:layout_marginTop=&ldquo;50dp&rdquo;</p>
+ <p> android:text=&ldquo;Data = &rdquo;</p>
+ <p> android:textAppearance=&ldquo;?android:attr/textAppearanceMedium&rdquo; /&gt;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image157.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Handling MSR Intents</h3>
+
+<p>Next will will add the code to &ldquo;MSRCompletedActivity&rdquo; for capturing the startActivity Intent and displaying the result data to the user.</p>
+
+<ol>
+<li><p>Select &ldquo;MSRCompletedActivity.java&rdquo; from &ldquo;Package Explorer&rdquo; in Eclipse.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image158.jpg" alt="img" /></p></li>
+<li><p>Add the following imports.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>import android.content.Intent;</p>
+ <p>import android.widget.TextView;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image159.jpg" alt="img" /></p></li>
+<li><p>Add the following function for processing intents.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//This function is responsible for getting the data from the intent</p>
+ <p>private void handleDecodeData(Intent i)</p>
+ <p>{</p>
+ <p></p>
+ <p>}</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image160.jpg" alt="img" /></p></li>
+<li><p>Add the following code to your &ldquo;onCreate&rdquo; function to check for a possible intent;<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//In case we have been launched by the DataWedge intent plug-in</p>
+ <p>Intent i = getIntent();</p>
+ <p>handleDecodeData(i);</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image161.jpg" alt="img" /></p></li>
+<li><p>Overide &ldquo;onNewIntent&rdquo; to handle incoming intents.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//We need to handle any incoming intents, so let override the onNewIntent method</p>
+ <p>@Override</p>
+ <p>public void onNewIntent(Intent i) {</p>
+ <p> handleDecodeData(i);</p>
+ <p>}</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image162.jpg" alt="img" /></p></li>
+<li><p>Add a global variable for the TextView.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Declare a variable to store the textViewMSRData</p>
+ <p>private TextView textViewMSRData = null;</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image163.jpg" alt="img" /></p></li>
+<li><p>Add the following code to your onCreate function to get a handle on the TextView.</p>
+
+<p> <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Get the textViewBarcode</p>
+ <p>textViewMSRData = (TextView) findViewById(R.id.textViewMSRData);</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image164.jpg" alt="img" /></p></li>
+<li><p>Add the following code to your &ldquo;handleDecodeData&rdquo; function to confirm the intent was meant for us.
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Check the intent action is for us</p>
+ <p>if (i.getAction().contentEquals(&ldquo;com.symbol.emdksample.RECVRMSR&rdquo;))</p>
+ <p>{</p>
+ <p></p>
+ <p>}</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image165.jpg" alt="img" /></p></li>
+<li><p>Add the following code to your &ldquo;handleDecodeData&rdquo; function to check if the intent contains MSR data.<br/>
+ <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+ <p>//Get the source of the data</p>
+ <p>String source = i.getStringExtra(&ldquo;com.motorolasolutions.emdk.datawedge.source&rdquo;);</p>
+ <p></p>   <br/>
+ <p>//Check if the data has come from the msr</p>
+ <p>if(source.equalsIgnoreCase(&ldquo;msr&rdquo;))</p>
+ <p>{</p>
+ <p></p>
+ <p>}</p>
+ </pre></p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image166.jpg" alt="img" /></p></li>
+<li><p>Add the following code to your &ldquo;handleDecodeData&rdquo; function to retrieve MSR data.<br/>
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+<p>//Get the data from the intent</p>
+<p>String data = i.getStringExtra(&ldquo;com.motorolasolutions.emdk.datawedge.data_string&rdquo;);</p>
+<p></p>
+<p>//Check that we have received data</p>
+<p>if(data != null &amp;&amp; data.length() > 0)</p>
+<p>{</p>
+<p></p>
+<p>}</p>
+</pre></p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image167.jpg" alt="img" /></p></li>
+<li><p>Add the following code to your &ldquo;handleDecodeData&rdquo; function to populate the TextView with the revived MSR data.
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641">
+<p>//Display the data to textViewMSRData</p>
+<p>textViewMSRData.setText(&ldquo;Data = &rdquo; + data);</p>
+</pre></p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image168.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Running the Application</h3>
+
+<p>Lastly we will run and test our application.</p>
+
+<ol>
+<li><p>Connect Motorola Solutions Android device (having the latest EMDK runtime) to the USB port.</p>
+
+<blockquote><p>Note: <br/>
+Make sure the device is in USB debug.</p></blockquote></li>
+<li><p>Run the application.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image169.png" alt="img" /></p></li>
+<li>Press the trigger button and scan a Barcode.</li>
+<li><p>Like before the scanned data will be populated in the Edit Text field Through the previous Keystroke Intent and will appear on the Text View using the previous Datawedge Intent.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image170.png" alt="img" /></p></li>
+<li><p>Press the button &ldquo;MSR&rdquo;.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image171.png" alt="img" /></p></li>
+<li><p>Swipe a cad through the MSR.</p>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image172.png" alt="img" /></p></li>
+<li>Press return to go back to the MSR where you can swipe another card, or hit return again to go back to the main screen.</li>
+</ol>
+
+
+<h2>What&rsquo;s Next</h2>
+
+<p>The <a data-link="tutdatacaptureprofilePt4">next tutorial</a> will show you how to use the Intent Output as a Broadcast instead of starting an activity.</p>
+
+<h2>Download the Source</h2>
+
+<p>The project source to this tutorial can be found attached to the end of this document.</p>

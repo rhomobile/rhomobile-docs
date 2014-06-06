@@ -1,0 +1,139 @@
+<div class='tableofcontents'> </div><!-- Launchpad Link id: setup
+    usage <a data-link="id">blah blah</a>
+    replace id
+-->
+
+
+<div class="tableofcontents"> </div>
+
+
+<h2>Overview</h2>
+
+<p>The EMDK for Android provides the interface to Motorola value adds such as scanning and magstripe for developing Enterprise applications on Motorola Android devices.
+This document is a guide to start working with Android Developer Tools (ADT)/Eclipse IDE environment for &ldquo;Motorola EMDK for Android&rdquo; development.</p>
+
+<h2>Configuring Development Computer</h2>
+
+<h3>Installing Java Development Kit (JDK)</h3>
+
+<ol>
+<li>Go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>.</li>
+<li>Download and install JDK v7u45 or newer.</li>
+</ol>
+
+
+<h3>Installing Android Developer Tools (ADT)</h3>
+
+<ol>
+<li>Go to <a href="http://developer.android.com/sdk/index.html" title="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>.</li>
+<li>Click &ldquo;Download the SDK&rdquo; button.</li>
+<li>Accept the License Agreement and Select the PC&rsquo;s architecture (32-bit or 64-bit).</li>
+<li>Click &ldquo;Download the SDK ADT Bundle for Windows&rdquo; button.</li>
+<li><p>Extract the downloaded ADT Bundle (ex. adt-bundle-windows-x86-20140321.zip) to any desired location.</p>
+
+<blockquote><p>NOTE:<br/>
+EMDK for Android requires ADT v22.3.0-887826 or higher version.</p></blockquote></li>
+</ol>
+
+
+<h3>Configuring the Android Developer Tools (ADT) for EMDK</h3>
+
+<p>The EMDK requires Android API&rsquo;s 16 and 19 to be Installed.</p>
+
+<p>To check which API&rsquo;s you have installed:</p>
+
+<ol>
+<li>In Eclipse go to &ldquo;Window&rdquo; &ndash;> &ldquo;Android SDK Manager&rdquo;</li>
+<li>Check that the status of &ldquo;Android 1.1.2 (API 16)&rdquo; and &ldquo;Android  4.4.2 (API 19)&rdquo; SDK Platforms status is &ldquo;Installed&rdquo;.</li>
+<li>If either SDK platform is not installed check the SDK check mark, click &ldquo;Install Packages&rdquo;, and follow the on screen instructions. When the install is complete restart Eclipse.</li>
+</ol>
+
+
+<h3>Installing EMDK for Android</h3>
+
+<ol>
+<li>Go to <a href="https://portal.motorolasolutions.com/Support/US-EN" title="https://portal.motorolasolutions.com/Support/US-EN">https://portal.motorolasolutions.com/Support/US-EN</a>.</li>
+<li>Search &ldquo;Motorola EMDK for Android&rdquo; using the Search Support.</li>
+<li>Download and install Motorola EMDK for Android v2.0 or higher version.</li>
+<li><p>During installation, it will ask to specify the preferred Android development environment.
+This can be either the Android Developer Tools (ADT) Bundle or the existing Eclipse IDE and the Android SDK (installed separately).</p>
+
+<ul>
+<li>The Android Developer Tools (ADT) Bundle. This includes Android SDK components and a version of the Eclipse IDE with built-in ADT.
+
+<blockquote><p>NOTE:<br/>
+Make sure to specify the extracted ADT Bundle folder as the ADT Root Folder (i.e. the parent folder which &ldquo;eclipse&rdquo; and &ldquo;sdk&rdquo; sub folders reside. See below).</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image001.png" alt="img" /></p></blockquote></li>
+<li>During installation, it will ask the approval for Motorola Android USB driver installation. If you have installed them already, skip this step.</li>
+<li>The existing Eclipse IDE and Android SDK (installed separately).
+
+<blockquote><p>NOTE:<br/>
+Make sure to specify the parent folder where &ldquo;eclipse.exe&rdquo; resides as the Eclipse Root Folder. See below.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image003.jpg" alt="img" /></p>
+
+<p>Make sure to specify the parent folder where &ldquo;platform-tools&rdquo; folder resides as the Android SDK Root Folder. See below.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image005.jpg" alt="img" /></p></blockquote></li>
+</ul>
+</li>
+<li><p>During installation, it will ask the approval for Motorola Android USB driver installation too.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image007.png" alt="img" /></p>
+
+<blockquote><p>NOTE:</p>
+
+<ul>
+<li><p>If you have installed it already, click &ldquo;No&rdquo;. Then it will switch back to the EMDK for Android installation.</p></li>
+<li><p>If you have not installed, click &ldquo;Yes&rdquo;. Then it will start the Motorola Android USB driver installation automatically. Once completed, make sure to select &ldquo;I want to manually reboot later&rdquo; and click &ldquo;Finish&rdquo;. Then it will switch back to the EMDK for Android installation.</p></li>
+</ul>
+</blockquote></li>
+</ol>
+
+
+<h2>Configuring Device</h2>
+
+<h3>Installing EMDK for Android Device Runtime using Deployment utility</h3>
+
+<ol>
+<li>Connect the Motorola Android device to the PC.</li>
+<li>Launch the Start menu program shortcut &ldquo;Device Runtime Deployment&rdquo;. This will open the command prompt window.</li>
+<li>Click any key to continue.</li>
+<li>This process will deploy the device runtime and reboot automatically to finish the OS update.</li>
+</ol>
+
+
+<h2>Verifying EMDK for Android Development Environment</h2>
+
+<h3>Verifying the EMDK Wizard plug-in integration into the ADT/Eclipse IDE</h3>
+
+<ol>
+<li>Run &ldquo;eclipse.exe&rdquo; available under &ldquo;<adt-bundle>\eclipse&rdquo; (ex. \adt-bundle-windows-x86-20140321\eclipse\eclipse.exe) or &ldquo;<eclipse-root>&rdquo; (ex. \eclipse-standard-kepler-SR2-win32\eclipse\eclipse.exe).</li>
+<li><p>The menu bar should contain a new menu called &ldquo;EMDK&rdquo; (see below)</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image009.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Verifying the SDK add-on integration into the ADT/Eclipse IDE</h3>
+
+<ol>
+<li>Select any existing Android application project.</li>
+<li><p>Go to &ldquo;File&rdquo; &ndash;> &ldquo;Properties&rdquo;</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image011.jpg" alt="img" /></p></li>
+<li><p>Select &ldquo;Android&rdquo; from left pane.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image015.jpg" alt="img" /></p></li>
+<li><p>Check the availability of &ldquo;Motorola Solutions EMDK v2.0&rdquo; in the list of Project Build Targets.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image017.jpg" alt="img" /></p></li>
+</ol>
+
+
+<h3>Verifying EMDK for Android Runtime Environment</h3>
+
+<p>To check whether the EMDK runtime is installed on the device or not, check for the existence of &ldquo;/system/framework/com.symbol.emdk.jar&rdquo; on the device.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image097.jpg" alt="img" /></p>

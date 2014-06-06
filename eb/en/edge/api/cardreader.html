@@ -1,0 +1,642 @@
+<div class='tableofcontents'> </div><h1>CardReader</h1>
+
+<h2>Overview</h2>
+
+<p>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.</p>
+
+
+<p>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</p>
+
+
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["cardreader"]
+</pre>
+
+
+
+
+<p>The <code>cardreader</code> extension is also included automatically if you specify the following in your <code>build.yml</code>.</p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+app_type: "rhoelements"
+</pre>
+
+
+
+
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+
+<h2>Methods</h2>
+
+<h3>close()</h3>
+
+<p>Closes the card reader.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+<li>Motorola Solutions Devices Only</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.close()</code> </li></ul></li></ul>
+
+
+<h3>enumerate()</h3>
+
+<p>Enumerates all the available card readers.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li>cardreaderArray : <span class='text-info'>SELF_INSTANCE: Rho.CardReader</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>ARRAY :
+Array of Card reader objects.<ul><li>cardreaderArray : <span class='text-info'>SELF_INSTANCE: Rho.CardReader</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.CardReader.enumerate()</code> </li></ul></li></ul>
+
+
+<h3>getAllProperties()</h3>
+
+<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>HASH :
+Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.getAllProperties()</code> </li></ul></li></ul>
+
+
+<h3>getDefault()</h3>
+
+<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>SELF_INSTANCE :
+Default object of Module.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.CardReader.getDefault()</code> </li></ul></li></ul>
+
+
+<h3>getProperties(<span class="text-info">ARRAY</span> arrayofNames)</h3>
+
+<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
+List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>HASH :
+Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+
+
+<h3>getProperty(<span class="text-info">STRING</span> propertyName)</h3>
+
+<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>
+The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>STRING :
+The property to return info about.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+
+
+<h3>open()</h3>
+
+<p>Opens the card reader.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>data : <span class='text-info'>STRING</span><p>
+Data read by the card reader. This may be card data, the PAN data extracted from the card data, encrypted PIN block data, or a message. In case of an ISO/ABA card [eg: a financial card], data is encrypted. For other cards, data is in the clear. </p></li><li>mode : <span class='text-info'>STRING</span><p>
+Describes the data. This will be either: &lsquo;CR&rsquo;,&lsquo;ENCDATA&rsquo;,&lsquo;PAN&rsquo;, or &lsquo;MESSAGE&rsquo;. This equates to card data, encrypted PIN block data, PAN data, or a message, respectively. </p></li><li>encryption : <span class='text-info'>BOOLEAN</span><p>
+This provides the information regarding the card reader head configuration. Available only on Android. </p></li><li>rawData : <span class='text-info'>STRING</span><p>
+This is the raw data read by the card reader from all the tracks. Available only on Android and the value is in HEX format. </p></li><li>track1 : <span class='text-info'>STRING</span><p>
+The track1 clear/masked data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track1Status value returned is true. </p></li><li>track2 : <span class='text-info'>STRING</span><p>
+The track2 clear/masked data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track2Status value returned is true. </p></li><li>track3 : <span class='text-info'>STRING</span><p>
+The track3 clear/masked data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track3Status value returned is true. </p></li><li>track1Status : <span class='text-info'>BOOLEAN</span><p>
+The status of the track1 clear/masked data read by the card reader. Available only on Android. </p></li><li>track2Status : <span class='text-info'>BOOLEAN</span><p>
+The status of the track2 clear/masked data read by the card reader. Available only on Android. </p></li><li>track3Status : <span class='text-info'>BOOLEAN</span><p>
+The status of the track3 clear/masked data read by the card reader. Available only on Android. </p></li><li>track1Encrypted : <span class='text-info'>STRING</span><p>
+The track1 encrypted data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track1EncryptedStatus value returned is true. </p></li><li>track2Encrypted : <span class='text-info'>STRING</span><p>
+The track2 encrypted data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track2EncryptedStatus value returned is true. </p></li><li>track3Encrypted : <span class='text-info'>STRING</span><p>
+The track3 encrypted data read by the card reader. Available only on Android and the value is in HEX format. This value should be used only when the track3EncryptedStatus value returned is true. </p></li><li>track1EncryptedStatus : <span class='text-info'>BOOLEAN</span><p>
+The status of the track1 encrypted data read by the card reader. Available only on Android. </p></li><li>track2EncryptedStatus : <span class='text-info'>BOOLEAN</span><p>
+The status of the track2 encrypted data read by the card reader. Available only on Android. </p></li><li>track3EncryptedStatus : <span class='text-info'>BOOLEAN</span><p>
+The status of the track3 encrypted data read by the card reader. Available only on Android. </p></li><li>ksn : <span class='text-info'>STRING</span><p>
+The encrypted KSN serial number read by the card reader. Available only on Android. The value is in HEX format. </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+<li>Motorola Solutions Devices Only</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.open()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.open()</code> </li></ul></li></ul>
+
+
+<h3>setDefault(<span class="text-info">SELF_INSTANCE: Rho.CardReader</span> defaultInstance)</h3>
+
+<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.CardReader</span><p>
+An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.CardReader.setDefault(<span class="text-info">SELF_INSTANCE: Rho.CardReader</span> defaultInstance)</code> </li></ul></li></ul>
+
+
+<h3>setProperties(<span class="text-info">HASH</span> propertyMap)</h3>
+
+<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
+Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+
+<h3>setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</h3>
+
+<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>
+The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
+The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>autoEnter</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>When enabled, appends a carriage return to any data returned as keystrokes by the cardreader. This is useful for auto submitting returned data without extra interaction necessary.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> false</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoEnter</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.autoEnter</code> </li></ul></li></ul>
+
+
+<h3>autoTab</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>When enabled, appends a tab to any data returned as keystrokes by the cardreader. This is useful when filling out a form so that you can move to the next field without extra interaction necessary.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> false</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoTab</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.autoTab</code> </li></ul></li></ul>
+
+
+<h3><span class="text-error">moduleName</span></h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p><span class='label label-important'>Deprecated</span>
+This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform. If the device has multiple card reader drivers installed this parameter is used to select which driver to use. The drivers present are output in the log file when the card reader is initialized. This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as &lsquo;MSR7000&rsquo;.</p>
+
+<h4>Values</h4>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
+
+<ul>
+<li>Constant: Rho.CardReader.MSR9000
+
+<ul>
+<li>String: msr9000</li>
+<li><p>MSR9000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSR3000.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.MSR9001
+
+<ul>
+<li>String: msr9001</li>
+<li><p>MSR9001 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSR3000.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.MSR9500
+
+<ul>
+<li>String: msr9500</li>
+<li><p>MSR9500 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC50.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.MSRCAMEO
+
+<ul>
+<li>String: msrcameo</li>
+<li><p>MSRCAMEO drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRCAMEO.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.MSR7000
+
+<ul>
+<li>String: msr7000</li>
+<li><p>MSR7000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC50.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.DCR7000
+
+<ul>
+<li>String: dcr7000</li>
+<li><p>DCR7000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC50.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.MSR55
+
+<ul>
+<li>String: msr55</li>
+<li><p>MSR55 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSRMC55.DLL.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.CardReader.MSR3000
+
+<ul>
+<li>String: msr3000</li>
+<li><p>MSR3000 drivers. Return value while getting the property of moduleName will be its associated DLL name i.e. MSR3000.DLL.</p>
+
+<h4>Access</h4></li>
+</ul>
+</li>
+</ul>
+
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.moduleName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.moduleName</code> </li></ul></li></ul>
+
+
+<h3>panData</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the card data without the need of a swipe. This accepts any 16 digit number as the string value. Ensure that pinEntry is true before getting the property of panData.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.panData</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.panData</code> </li></ul></li></ul>
+
+
+<h3>pinEntry</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>Turns the PIN entry on or off.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pinEntry</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.pinEntry</code> </li></ul></li></ul>
+
+
+<h3>pinTimeout</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> 30000</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pinTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.CardReader.pinTimeout</code> </li></ul></li></ul>
+
+
+<h2>Remarks</h2>
+
+<h3>General</h3>
+
+<p>If the CardReader open method is not specified with a callback, the cardreader data will be returned as keystrokes. If both the autotab and autoenter parameters are set to &ldquo;enabled&rdquo;, autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed. Any attempt to set a parameter to an invalid value, will result in no effect on the parameter&rsquo;s current value. There should be made a delay around 2 secs or more between API calls which interact with hardware.</p>
+
+<h3>Operational Modes (Backwards compatibility with PocketBrowser)</h3>
+
+<p>For the DCR7000 the ModuleName parameter must be set at least once before the readevent parameter is set. If the card reader is an MSR, when a card is swiped it returns the data read from the card. Setting ModuleName to a DCR will cause the card data to be returned followed by the PAN Data before waiting for a PIN to be entered on the keypad. Once entered the PIN will be encrypted and returned by a third ReadEvent. The card must be a validly formatted IATA or ABA card.</p>
+
+<h3>Closing the reader while PIN entry pending</h3>
+
+<p>There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or RhoElements is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.</p>
+
+<h3>Blank card data</h3>
+
+<p>In certain circumstances it is possible that the card reader may return empty card data. The JavaScript event function should be able to handle this correctly.</p>
+
+<h3>Detaching / Reattaching the Card Reader</h3>
+
+<p>Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.</p>
+
+<h3>Encrypted Card data</h3>
+
+<p>The encrypted data is supported only on the card readers that are configured for encryption. Since the encrypted data might contain unreadable characters sometimes it is recommended to use only JSON object method rather than JavaScript &lsquo;%s&rsquo; notation.</p>
+
+<h2>Examples</h2>
+
+<h3>Basic Example</h3>
+
+<p>The default card reader on the device is enabled when the index view is loaded. When a card is swiped the swipeEvent is called.</p>
+
+<h3>Connect to card reader</h3>
+
+<p>Enable card reader and receive a callback when a card is swiped.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+           
+function cardreader_callback(params) {
+  alert("Received data from card reader: "+params["data"]);
+}
+
+function connect() {
+  Rho.CardReader.open(cardreader_callback);
+}
+                   
+                 
+</pre>
+
+
+<h3>Set card reader properties</h3>
+
+<p>There are two ways to use the card reader. One is to receive a callback when a card is swiped, the other is to have it simulate keypresses. See below for an example of this second option.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+           
+// Configure the MSR to output keystrokes instead of calling a function when a card is swiped
+// Note the absence of a callback parameter
+// Also, After emitting the keystrokes, automatically send a "Tab" keypress
+Rho.CardReader.autoTab = true;
+Rho.CardReader.open();
+
+Rho.CardReader.autoEnter = true;
+Rho.CardReader.open();
+                   
+                 
+</pre>
+

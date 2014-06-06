@@ -1,0 +1,320 @@
+<div class='tableofcontents'> </div><h1>Record</h1>
+
+<h2>Overview</h2>
+
+<p>NFC Record</p>
+
+
+<p>This class representative Record object</p>
+
+
+
+
+<h1>Enabling the API</h1>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["nfc"]
+</pre>
+
+
+
+
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+
+
+<h2>Methods</h2>
+
+<h3>close()</h3>
+
+<p>Release resources.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
+
+
+<h3>create()</h3>
+
+<p>Creates record.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>Rho.NFC.Record</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Rho.NFC.Record :
+Record object.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Record.create()</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>ID</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Object ID.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
+
+
+<h3>payload</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Record payload(data buffer).</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.payload</code></li></ul></li></ul>
+
+
+<h3>recordId</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Optional field for NFC_NDEF_RTD_GENERAL record type.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.recordId</code></li></ul></li></ul>
+
+
+<h3>textCharEncoding</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.textCharEncoding</code></li></ul></li></ul>
+
+
+<h3>textLanguage</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.textLanguage</code></li></ul></li></ul>
+
+
+<h3>tnf</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.</p>
+
+<h4>Values</h4>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>false</span>):</p>
+
+<ul>
+<li>Constant: Rho.Record.NDEF_TNF_EMPTY
+
+<ul>
+<li>String: 1</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_WELL_KNOWN
+
+<ul>
+<li>String: 2</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_MEDIA
+
+<ul>
+<li>String: 3</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_ABSOLUTE_URI
+
+<ul>
+<li>String: 4</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_EXTERNAL
+
+<ul>
+<li>String: 5</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_UNKNOWN
+
+<ul>
+<li>String: 6</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_UNCHANGED
+
+<ul>
+<li>String: 7</li>
+<li></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_TNF_ANY_TYPE
+
+<ul>
+<li>String: 8</li>
+<li><h4>Access</h4></li>
+</ul>
+</li>
+</ul>
+
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.tnf</code></li></ul></li></ul>
+
+
+<h3>type</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.</p>
+
+<h4>Values</h4>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>false</span>):</p>
+
+<ul>
+<li>Constant: Rho.Record.NDEF_RTD_TEXT
+
+<ul>
+<li>String: 1</li>
+<li><p>A text type record.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_RTD_URI
+
+<ul>
+<li>String: 2</li>
+<li><p>A URI type record.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.Record.NDEF_RTD_GENERAL
+
+<ul>
+<li>String: 3</li>
+<li><p>A generic type record.</p>
+
+<h4>Access</h4></li>
+</ul>
+</li>
+</ul>
+
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul>
+
+
+<h3>typeName</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.typeName</code></li></ul></li></ul>
+
+
+<h3>uriProtocol</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.uriProtocol</code></li></ul></li></ul>
+

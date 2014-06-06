@@ -1,0 +1,251 @@
+<div class='tableofcontents'> </div><!-- Launchpad Link id: tutdatacaptureintent
+    usage <a data-link="profilebarcode">blah blah</a>
+    replace id
+-->
+
+
+<div class="tableofcontents"> </div>
+
+
+<h2>EMDK Profiles Overview</h2>
+
+<p>Motorola&rsquo;s EMDK for Android allows you to easily access various capabilities of your Motorola Android device from within an Android application. These settings are grouped together into, what is referred to as EMDK profiles. Each EMDK profile is broken into various feature types. Each profile feature type has settings to provide automatic enablement as well as configuration options that will control it&rsquo;s behavior. One such profile feature type is Data Capture, which allows you to accesses the devices bar code scanner and magstripe reader.</p>
+
+<h2>EMDK Feature Types</h2>
+
+<h3>Data Capture</h3>
+
+<p>EMDK Data Capture profiles allow you to access and configure a devices bar code scanner and magstripe reader, along with how the data captured should be transmitted to your application. There are typically three components that are used to make this work:</p>
+
+<ul>
+<li>Activity Selector &ndash; Automatically activates the profile based on application &amp; activity combinations.</li>
+<li>Input Sources &ndash; Choose if Barcode &amp; MSR is the source of the data.</li>
+<li>Output Sources &ndash; Output the input source data as a Keystroke or Intent output.</li>
+</ul>
+
+
+<h4>Activity Selector</h4>
+
+<p>This feature allows you to select a combination of applications and activities that will be used to automatically activate this profile.</p>
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image018.jpg" alt="img" /></p>
+
+<h4>Data Capture Inputs</h4>
+
+<p>Currently there are Barcode and MSR methods for Data Capture. In the future, there may be other methods for capturing data like RFID, etc. Each Input type can be configured individually and should be accompanied with an Output feature in order for the data to be received by your application.</p>
+
+<ul>
+<li><a data-link="profilebarcode">Barcode</a> &ndash; These settings allows you to select how the device should handle bar code scanning.</li>
+<li><a data-link="profilemsr">MSR</a> &ndash; This setting allows you to enable magstripe reader input support.</li>
+</ul>
+
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image019.jpg" alt="img" /></p>
+
+<h4>Data Capture Outputs</h4>
+
+<p>Once data is captured using either Barcode or MSR, the data captured will not be delivered to your application unless you have a Data Capture output configured. Currently there are two options for outputting data:</p>
+
+<ul>
+<li><a data-link="profileintent">Intent</a> &ndash; These settings allows you to select how data should be delivered to your application in the form of an intent.</li>
+<li><a data-link="profilekeystroke">Keystroke</a> &ndash; These settings allows you to specify how data should be delivered to your app in the form of keystrokes.</li>
+</ul>
+
+
+<p><img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image020.jpg" alt="img" /></p>
+
+<h2>Using the EMDK Profile Manager</h2>
+
+<p>Profile Manager is an exclusive EMDK technology offered within the Eclipse IDE, providing a GUI based development tool. This allows you to write fewer lines of code resulting in reduced development time, effort and errors.</p>
+
+<h3>Accessing the Profile Manager</h3>
+
+<ol>
+<li>Inside the Eclipse ADT select an Android Application in the &ldquo;Package Explorer&rdquo;.</li>
+<li>Select &ldquo;EMDK&rdquo; &ndash;> &ldquo;Profile Manager&rdquo; on the toolbar.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image001.jpg" alt="img" /></li>
+</ol>
+
+
+<h3>Creating a Profile</h3>
+
+<ol>
+<li>Open the &ldquo;EMDK Profile Manager&rdquo;.</li>
+<li><p>Click &ldquo;Create&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image002.jpg" alt="img" /></p></li>
+<li><p>Enter a Profile Name and click &ldquo;Create&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image003.jpg" alt="img" /></p></li>
+<li>Select the features you would like to enable by selecting the item from the list of &ldquo;Available Features&rdquo; and clicking the right arrow button.
+
+<blockquote><p>Note:</p>
+
+<p>You must enable both a Data Capture feature and a Data Capture Input Feature for the profile to send data to your application. For example &ldquo;Barcode&rdquo; and &ldquo;Intent&rdquo;.</p>
+
+<p>You can remove a feature from the &ldquo;Selected Features&rdquo; list by clicking the left arrow button.</p></blockquote>
+
+<p> <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image004.jpg" alt="img" /></p></li>
+<li>Select a &ldquo;Selected Features&rdquo; and the list of settings will populate on the left hand side of the dialog. When click on a setting a description with populate on the lower left hand corner of the dialog.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image005.jpg" alt="img" /></li>
+<li>When complete click &ldquo;Finish&rdquo;.</li>
+<li><p>Click &ldquo;Close&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image006.jpg" alt="img" /></p>
+
+<blockquote><p>Note:<br/>
+The profile XML will be generated and saved to &ldquo;EMDKConfig.XML&rdquo; inside your projects &ldquo;assets&rdquo; folder.</p></blockquote></li>
+</ol>
+
+
+<h3>Editing a Profile</h3>
+
+<ol>
+<li>Open the EMDK Profile Manager.</li>
+<li>Select a Profile to modify and click &ldquo;Edit&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image007.jpg" alt="img" /></li>
+<li>Edit the profile using the Profile Manager in the same way you would when creating a new profile.</li>
+<li>When complete click &ldquo;Finish&rdquo;.</li>
+<li><p>Click &ldquo;Close&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image008.jpg" alt="img" /></p>
+
+<blockquote><p>Note:<br/>
+The profile XML will be updated and saved to &ldquo;EMDKConfig.XML&rdquo; inside your projects &ldquo;assets&rdquo; folder.</p></blockquote></li>
+</ol>
+
+
+<h3>Renaming a Profile</h3>
+
+<ol>
+<li>Open the EMDK Profile Manager.</li>
+<li>Select a Profile to rename and click &ldquo;Rename&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image009.jpg" alt="img" /></li>
+<li>Enter the new name and click &ldquo;Rename&rdquo;;<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image010.jpg" alt="img" /></li>
+<li><p>Click &ldquo;Close&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image011.jpg" alt="img" /></p>
+
+<blockquote><p>Note:<br/>
+The profile XML will be updated and saved to &ldquo;EMDKConfig.XML&rdquo; inside your projects &ldquo;assets&rdquo; folder.</p></blockquote></li>
+</ol>
+
+
+<h3>Copying a Profile</h3>
+
+<ol>
+<li>Open the EMDK Profile Manager.</li>
+<li>Select a Profile to copy and click &ldquo;Copy&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image012.jpg" alt="img" /></li>
+<li>Enter the a name profile name to uses and click &ldquo;Copy&rdquo;;<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image013.jpg" alt="img" /></li>
+<li><p>Click &ldquo;Close&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image014.jpg" alt="img" /></p>
+
+<blockquote><p>Note:<br/>
+The profile XML will be updated and saved to &ldquo;EMDKConfig.XML&rdquo; inside your projects &ldquo;assets&rdquo; folder.</p></blockquote></li>
+</ol>
+
+
+<h3>Deleting a Profile</h3>
+
+<ol>
+<li>Open the EMDK Profile Manager.</li>
+<li>Select a Profile to delete and click &ldquo;Delete&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image015.jpg" alt="img" /></li>
+<li>Confirm delete by clicking &ldquo;Delete&rdquo;;<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image016.jpg" alt="img" /></li>
+<li><p>Click &ldquo;Close&rdquo;.<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/profiles/image017.jpg" alt="img" /></p>
+
+<blockquote><p>Note:<br/>
+The profile XML will be updated and saved to &ldquo;EMDKConfig.XML&rdquo; inside your projects &ldquo;assets&rdquo; folder.</p></blockquote></li>
+</ol>
+
+
+<h2>Using the Profile Manager API</h2>
+
+<p>Once you create your profiles using the Profile Manager, they will be bundled with your application and available to access using the <a data-link="refemdk">Profile Manager APIs</a>.</p>
+
+<h3>Multiple Ways to Access</h3>
+
+<p>In the ProfileManager API, you will see three methods for <code>processProfile</code>. Essentially the last parameter, <code>extraData</code>, is one of three types:</p>
+
+<ul>
+<li><strong>Document</strong> &ndash; data will be handled as a XML Document.</li>
+<li><strong>String</strong> &ndash; data will be handled as a raw string.</li>
+<li><strong>ProfileConfig</strong> &ndash; data will be handled as a ProfileConfig class.</li>
+</ul>
+
+
+<p>The preferred way is to use the <code>profileConfig</code> option and the examples below present using such option. Using the Document or String methods may not work if the XML is not structured properly.</p>
+
+<h3>Creating or Activating a Profile</h3>
+
+<p>A profile is created or activated with using the PROFILE_FLAG.SET option. If the profileFlag is set to SET, and if the given profile is not available, it will look for valid profile in extraData argument and if present, the profile  will be added to the internal XML volatile repository and also applied to the device.  If the profile is present, then it will be applied to the device.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"><code>
+<p> @Override </p>
+<p> public void onOpened(EMDKManager emdkmanager) </p>
+<p> {</p>
+<p>     //Create the Profile Config object</p>
+<p>     ProfileConfig profileConfigObj = new ProfileConfig();</p>
+<p>     
+<p>     //Get the Profile Manager</p>
+<p>     ProfileManager profileManager = (ProfileManager)emdkmanager.getInstance(FEATURE_TYPE.PROFILE);</p>
+<p>     
+<p>     //Create the new profile</p>
+<p>     EMDKResults results = profileManager.processProfile("ProfileName", ProfileManager.PROFILE_FLAG.SET, profileConfigObj);      </p>
+<p> }</p>
+</code></pre>
+
+
+<h3>Getting a Profile</h3>
+
+<p>If profileFlag is set to GET and if the profile is present in the internal repository, it will be returned in the extraData object.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"><code>
+<p> @Override</p>
+<p> public void onOpened(EMDKManager emdkmanager) </p>
+<p> {</p>
+<p>     //Create the Profile Config object</p>
+<p>     ProfileConfig profileConfigObj = new ProfileConfig();</p>
+<p>     
+<p>     //Get the Profile Manager</p>
+<p>     ProfileManager profileManager = (ProfileManager)emdkmanager.getInstance(FEATURE_TYPE.PROFILE);</p>
+<p>     </p>
+<p>     //Get the profile and store it in the ProfileConfig object </p>
+<p>     EMDKResults results = profileManager.processProfile("ProfileName", ProfileManager.PROFILE_FLAG.GET, profileConfigObj);          </p>
+<p> }</p>
+</code></pre>
+
+
+<h3>Modifying a Profile</h3>
+
+<p>To modify a profile, you would:</p>
+
+<ul>
+<li>Use the PROFILE_FLAG.GET option to retrieve the profile (if it exists).</li>
+<li>Use the profileConfig Object and APIs to modify the settings.</li>
+<li>Use the PROFILE_FLAG.SET option to save the settings.</li>
+</ul>
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"><code>
+
+<p> @Override</p>
+<p> public void onOpened(EMDKManager emdkmanager) </p>
+<p> {</p>
+<p>     //Create the Profile Config object</p>
+<p>     ProfileConfig profileConfigObj = new ProfileConfig();</p>
+<p>     
+<p>     //Get the Profile Manager</p>
+<p>     ProfileManager profileManager = (ProfileManager)emdkmanager.getInstance(FEATURE_TYPE.PROFILE);</p>
+<p>     
+<p>     //Get the profile and store it in the ProfileConfig object </p>
+<p>     EMDKResults results = profileManager.processProfile("ProfileName", ProfileManager.PROFILE_FLAG.GET, profileConfigObj);</p>
+                
+<p>     //Enable MSR</p>
+<p>     profileConfigObj.dataCapture.msr.msr_input_enabled = ENABLED_STATE.TRUE;</p>
+        
+<p>     //Modify Profile </p>
+<p>     EMDKResults ModifyResults = profileManager.processProfile("ProfileName", ProfileManager.PROFILE_FLAG.SET, profileConfigObj);</p>
+<p> }</p>
+</code></pre>
+

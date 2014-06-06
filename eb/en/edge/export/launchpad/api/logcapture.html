@@ -1,0 +1,245 @@
+<div class='tableofcontents'> </div><h1>LogCapture</h1>
+
+<h2>Overview</h2>
+
+<p>The LogCapture class is used for capturing logging events.</p>
+
+
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["logCapture"]
+</pre>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
+
+
+<h2>Methods</h2>
+
+<h3>clear()</h3>
+
+<p>Clear captured events.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.clear()</code> </li></ul></li></ul>
+
+
+<h3>numLines()</h3>
+
+<p>Return number of captured lines.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>INTEGER</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.numLines()</code> </li></ul></li></ul>
+
+
+<h3>read()</h3>
+
+<p>Read captured items.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.read()</code> </li></ul></li></ul>
+
+
+<h3>start()</h3>
+
+<p>Start capture log events.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.start()</code> </li></ul></li></ul>
+
+
+<h3>stop()</h3>
+
+<p>Stop capture log events.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.stop()</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>excludeCategories</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Comma-separated list of excluded log categories.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.excludeCategories</code> </li></ul></li></ul>
+
+
+<h3>maxLines</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Maximum number of captured lines.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> 1024</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.maxLines</code> </li></ul></li></ul>
+

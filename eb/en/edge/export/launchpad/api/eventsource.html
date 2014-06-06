@@ -1,0 +1,168 @@
+<div class='tableofcontents'> </div><h1>EventSource</h1>
+
+<h2>Overview</h2>
+
+<p>Example extension api</p>
+
+
+<p>This is example of API. Implementation contain in extension.</p>
+
+
+<h2>Methods</h2>
+
+<h3>addEventListener(<span class="text-info">STRING</span> event)</h3>
+
+<h4>Parameters</h4>
+
+<ul><li>event : <span class='text-info'>STRING</span><p>
+{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addEventListener(<span class="text-info">STRING</span> event)</code></li></ul></li></ul>
+
+
+<h3><span class="label label-inverse"> Destructor</span> close()</h3>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>onerror</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>CALLBACK</span></p>
+
+<h4>Description</h4>
+
+<p>{}</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onerror</code></li></ul></li></ul>
+
+
+<h3>onmessage</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>CALLBACK</span></p>
+
+<h4>Description</h4>
+
+<p>{}</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onmessage</code></li></ul></li></ul>
+
+
+<h3>onopen</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>CALLBACK</span></p>
+
+<h4>Description</h4>
+
+<p>{}</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onopen</code></li></ul></li></ul>
+
+
+<h3>readyState</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Represents the state of the connection.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.readyState</code></li></ul></li></ul>
+
+
+<h3>url</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>URL passed to EventSource constructor.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.url</code></li></ul></li></ul>
+
+
+<h3>withCredentials</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Currently will return empty string.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.withCredentials</code></li></ul></li></ul>
+
+
+<h2>Constants</h2>
+
+<ul>
+<li>CONNECTING
+The connection has not yet been established.</li>
+<li>OPEN
+The WebSocket connection is established and communication is possible.</li>
+<li>CLOSED
+The connection has been closed or could not be opened.</li>
+</ul>
+

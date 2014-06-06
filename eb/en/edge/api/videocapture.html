@@ -1,0 +1,514 @@
+<div class='tableofcontents'> </div><h1>Videocapture</h1>
+
+<h2>Overview</h2>
+
+<p>captures video files from the default camera device.</p>
+
+
+<p>Only the foreground RhoElements application is given access to capture video, when an application is sent to the background any capture that is in progress will be canceled and it will automatically relinquish control of the video hardware. When brought back to the foreground, an application previously using the video capture will have its previous configuration (eg. name etc.) reapplied to the plug-in automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.</p>
+
+
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["mediacapture"]
+</pre>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
+
+
+<h2>Methods</h2>
+
+<h3>cancel()</h3>
+
+<p>Stops capturing video and discards any captured video data. No file transfer takes place if the video capture is canceled. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to cancel the video capture.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.cancel()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.cancel()</code> </li></ul></li></ul>
+
+
+<h3>enumerate()</h3>
+
+<p>Enumerates all the available cameras for capturing video.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>ARRAY :
+Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.enumerate()</code> </li></ul></li></ul>
+
+
+<h3>getAllProperties()</h3>
+
+<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>HASH :
+Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getAllProperties()</code> </li></ul></li></ul>
+
+
+<h3>getDefault()</h3>
+
+<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>SELF_INSTANCE :
+Default object of Module.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.getDefault()</code> </li></ul></li></ul>
+
+
+<h3>getProperties(<span class="text-info">ARRAY</span> arrayofNames)</h3>
+
+<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
+List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>HASH :
+Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+
+
+<h3>getProperty(<span class="text-info">STRING</span> propertyName)</h3>
+
+<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>
+The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>STRING :
+The property to return info about.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+
+
+<h3>setDefault(<span class="text-info">SELF_INSTANCE: Rho.Videocapture</span> defaultInstance)</h3>
+
+<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p>
+An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.setDefault(<span class="text-info">SELF_INSTANCE: Rho.Videocapture</span> defaultInstance)</code> </li></ul></li></ul>
+
+
+<h3>setProperties(<span class="text-info">HASH</span> propertyMap)</h3>
+
+<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
+Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+
+<h3>setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</h3>
+
+<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>
+The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
+The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+
+
+<h3>start()</h3>
+
+<p>Starts capturing video until either &lsquo;stop&rsquo; is received, or &lsquo;duration&rsquo; is reached. NOTE: On Android this meta tag wouldn&rsquo;t immediately start recording and presents a preview window with controls (start, stop and cancel) for recording.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>transferResult : <span class='text-info'>STRING</span><p>
+Reports success or failure of transfer. </p></li><li>fileName : <span class='text-info'>STRING</span><p>
+Name of the saved file (absolute path). </p></li><li>fileSize : <span class='text-info'>STRING</span><p>
+Size of the saved file in kilobytes (KB). </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void :
+Not providing a callback to be invoked will result in that file is saved only locally and file is not transfered.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.start()</code> </li></ul></li></ul>
+
+
+<h3>stop()</h3>
+
+<p>Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to stop the video capture. Please note that the file transfer happens as specified even if we don&rsquo;t call the stop method.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.stop()</code> </li></ul></li></ul>
+
+
+<h2>Properties</h2>
+
+<h3>duration</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Specifies the number of milliseconds of video to capture. This is the maximum number of milliseconds of video to capture when the &lsquo;start&rsquo; method is called if not interrupted with the &lsquo;stop&rsquo; method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milliseconds is specified, the interval will be defaulted to 5000 milliseconds.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> 5000</p>
+
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.duration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.duration</code> </li></ul></li></ul>
+
+
+<h3>fileName</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>The path and name of the file that the video is saved to locally on the device. When the video capture completes the file is saved in the root directory of the device (In case of Android this is the external storage directory). For example, if the user specifies &lsquo;/video/file1&rsquo; then the file gets saved as &lsquo;/mnt/sdcard/video/file1.mp4&rsquo; in Android, and as &lsquo;\video\file1.mov&rsquo; on Windows. The file extension should not be provided as this is determined by the platform (.mp4 in Android and .mov in Windows). On iOS you&rsquo;ll need to provide the entire path, including the extension, which should be .MOV.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.fileName</code> </li></ul></li></ul>
+
+
+<h3>resolution</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>The resolution of the video file to be captured.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> HIGH</p>
+
+
+<h4>Values</h4>
+
+<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
+
+<ul>
+<li>Constant: Rho.Videocapture.LOW
+
+<ul>
+<li>String: low</li>
+<li><p>Low resolution.</p></li>
+</ul>
+</li>
+<li>Constant: Rho.Videocapture.HIGH
+
+<ul>
+<li>String: high</li>
+<li><p>High resolution.</p>
+
+<h4>Access</h4></li>
+</ul>
+</li>
+</ul>
+
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.resolution</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.resolution</code> </li></ul></li></ul>
+
+
+<h3>saveToGallery</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>Specifies whether or not to save the recorded video file into the device gallery.</p>
+
+<h4>Access</h4>
+
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.saveToGallery</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.saveToGallery</code> </li></ul></li></ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Memory requirements</h3>
+
+<p>Once duration has been reached the video file will be saved or transferred. Calling &lsquo;stop&rsquo; once this has occurred will have no effect. A Video Capture will fail if there is not sufficient space on the device&rsquo;s filesystem to store it.</p>
+
+<h3>File Formats</h3>
+
+<p>The output file format on Android is MP4 and on Windows is WMV.</p>
+
+<h2>Examples</h2>
+
+<h3>Basic Example</h3>
+
+<p>The default video capture object on the device is enabled when the index view is loaded.</p>
+
+<p>Then in index.erb file:</p>

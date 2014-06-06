@@ -1,0 +1,446 @@
+<div class='tableofcontents'> </div><h1>Database</h1>
+
+<h2>Overview</h2>
+
+<p>Database is low-level API to access SQLite local database.</p>
+
+
+<p>This API used internally by RHOM. To use RHOM, just define your models and partition databases will be created automatically.</p>
+
+
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["coreapi"]
+</pre>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+
+<h2>Methods</h2>
+
+<h3><span class="label label-inverse"> Destructor</span> close()</h3>
+
+<p>Closes the database. The database will not be accessible until it is opened again.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
+
+
+<h3>commitTransaction()</h3>
+
+<p>Commit database transaction. Saves all updates to the database from the start of the transaction.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.commitTransaction()</code></li></ul></li></ul>
+
+
+<h3>destroyTable(<span class="text-info">STRING</span> tableName)</h3>
+
+<p>Destroys a database table.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>tableName : <span class='text-info'>STRING</span><p>
+Table name to destroy. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.destroyTable(<span class="text-info">STRING</span> tableName)</code></li></ul></li></ul>
+
+
+<h3>destroyTables(<span class="text-info">HASH</span> propertyMap)</h3>
+
+<p>Destroy a list of database tables.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p> </p></li><ul><li>include : <span class='text-info'>ARRAY</span><p>
+Include tables. </p></li><li>exclude : <span class='text-info'>ARRAY</span><p>
+Exclude tables. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.destroyTables(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li></ul>
+
+
+<h3>executeBatchSql(<span class="text-info">STRING</span> sqlStmt)</h3>
+
+<p>Execute a series of sql statements included in the sqlStmt string parameter.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>sqlStmt : <span class='text-info'>STRING</span><p>
+The SQL statement. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.executeBatchSql(<span class="text-info">STRING</span> sqlStmt)</code></li></ul></li></ul>
+
+
+<h3>executeSql(<span class="text-info">STRING</span> sqlStmt, <span class="text-info">ARRAY</span> args)</h3>
+
+<p>Execute the sql statement specified in the method&rsquo;s parameters.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>sqlStmt : <span class='text-info'>STRING</span><p>
+The SQL statement. </p></li><li>args : <span class='text-info'>ARRAY</span> <span class='label label-info'>Optional</span><p>
+Array of the sql expressions. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>ARRAY :
+Array of Hashes. Each Hash item represents record from Database.</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.executeSql(<span class="text-info">STRING</span> sqlStmt, <span class="text-info">ARRAY</span> args)</code></li></ul></li></ul>
+
+
+<h3><span class="label label-inverse"> Constructor</span>  new Rho.Database(<span class="text-info">STRING</span> dbPath, <span class="text-info">STRING</span> dbPartition)</h3>
+
+<p>This method is a constructor for this class. Instead of saying Rho.Database.initialize(dbPath,dbPartition) you would use new Rho.Database(dbPath,dbPartition). ex: <code>var db = new Rho.Database(Rho.Application.databaseFilePath('test'), 'test');</code> Make sure you issue a <code>.close()</code> when you are finished using the database. If the database file does not exist it will be created using a SQL schema: rhodes\platform\shared\db\res\db\syncdb.schema. Do not use predefined partition names: app, user, local. Do not open the same database file in different partitions. Do not use the same partition for different database files. Do not open the same file twice.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>dbPath : <span class='text-info'>STRING</span><p>
+The path to the database. Databases stored at the path provided by Rho::Application.databaseFilePath. </p></li><li>dbPartition : <span class='text-info'>STRING</span><p>
+The database partition. Used as a file name for database and when connecting to RhoConnect server. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new Rho.Database(<span class="text-info">STRING</span> dbPath, <span class="text-info">STRING</span> dbPartition)</code> </li></ul></li></ul>
+
+
+<h3>isTableExist(<span class="text-info">STRING</span> tableName)</h3>
+
+<p>Will return true or false if the specified table exists in the current database.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>tableName : <span class='text-info'>STRING</span><p>
+The name of the table. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>BOOLEAN</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.isTableExist(<span class="text-info">STRING</span> tableName)</code></li></ul></li></ul>
+
+
+<h3>rollbackTransaction()</h3>
+
+<p>Rollback database transaction. This will cancel any pending actions to the database that were executed since the last Start and before a commit.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.rollbackTransaction()</code></li></ul></li></ul>
+
+
+<h3>startTransaction()</h3>
+
+<p>Start database transaction. All operations will not be the saved to the database until a commit is executed.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Android</li>
+<li>iOS</li>
+<li>Windows Embedded</li>
+<li>Windows Phone 8</li>
+<li>Windows Desktop</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startTransaction()</code></li></ul></li></ul>
+
+
+<h2>Examples</h2>
+
+<h3>Using Transactions</h3>
+
+<p>To insert/update multiple object/models use database transactions. This is the most performant method to initialize your application with a large set of data.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+                
+var db = Rho.Database;
+db.startTransaction();
+try
+{
+  for (var index in items) {
+    // create hash of attribute/value pairs
+    data = {
+      field1 : item[index].value1, 
+      field2 : item[index].value2
+    }; 
+    // Creates a new itemModel object and saves it
+    new_item = itemModel.create(data);
+  }
+  
+ db.commitTransaction();
+}
+catch
+{
+ db.rollbackTransaction();
+}
+
+              
+</pre>
+
+
+<h3>Open and close database</h3>
+
+<p>The following example opens the database using the <code>constructor</code> method: .initialize. It then closes the database using the destructor method <code>.close()</code></p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+                
+var db = new Rho.Database(Rho.Application.databaseFilePath('test'), 'test');
+db.close();
+
+              
+</pre>
+
+
+<h3>destroyTables</h3>
+
+<p>Destroy multiple tables. The following example opens the database using the <code>constructor</code> method: .initialize.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+                
+var db = new Rho.Database(...);
+
+// destroy all tables in database
+db.destroyTables({include: [], exclude: []});
+
+// destroy specified tables
+db.destroyTables({include: ['table1', 'table2'], exclude: []});
+
+// destroy all but specified tables
+db.destroyTables({include: [], exclude: ['table1', 'table2']});
+
+              
+</pre>
+

@@ -1,0 +1,60 @@
+<div class='tableofcontents'> </div><!-- Launchpad Link id: samplebatteryintent
+    usage <a data-link="id">blah blah</a>
+    replace id
+-->
+
+
+<div class="tableofcontents"> </div>
+
+
+<h2>Overview</h2>
+
+<p>On Motorola Solutions Android devices like the MC40, extra battery information can be retrieved using the standard <a href="http://developer.android.com/training/monitoring-device-state/battery-monitoring.html">Android Battery Intent</a>. Setting up to receive this information is the same as with consumer Android devices. However, the data that is returned to your application includes some extra information like:</p>
+
+<ul>
+<li>Backup Battery Voltage</li>
+<li>Battery Manufacture Date</li>
+<li>Battery Serial Number</li>
+<li>Part Number for Battery</li>
+<li>Unique ID for Battery</li>
+<li>Rated Capacity of the Battery</li>
+<li>Charge Cycle count of the Battery</li>
+</ul>
+
+
+<h2>Using This Sample</h2>
+
+<p>You may choose to install the Battery Sample Application.apk attached at the <a href="#theend">end of the document</a> or to run the project from Eclipse:</p>
+
+<ol>
+<li>Download the battery sample application zip.</li>
+<li>Unzip the battery sample application zip.</li>
+<li>Start the Android ADT or compatible eclipse environment.</li>
+<li><p>Import the sample application.</p>
+
+<blockquote><p>How to import:<br/>
+1. Go to &ldquo;File&rdquo; &ndash;> &ldquo;Import"<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/SampleBatteryIntent/FileImport.jpg" alt="img" /> <br/>
+2. Select "Android&rdquo; &ndash;> &ldquo;Existing Android Code Into Workspace&rdquo; &ndash;> &ldquo;Next&rdquo; <br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/SampleBatteryIntent/ImportNext.jpg" alt="img" /> <br/>
+3. Select &ldquo;Browse&rdquo; and navigate to your unzipped battery sample application folder.<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/SampleBatteryIntent/Browse.jpg" alt="img" /><br/>
+4. Select &ldquo;Finish&rdquo;.<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/SampleBatteryIntent/Finish.jpg" alt="img" /></p></blockquote></li>
+<li><p>Run the sample application.</p>
+
+<blockquote><p>How to run the sample application: <br/>
+1. Select the sample application folder in &ldquo;Package Explorer&rdquo;.    <br/>
+2. Right click and select &ldquo;Run As&rdquo; &ndash;> &ldquo;Android Application"<br/>
+<img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/SampleBatteryIntent/RunAs.jpg" alt="img" /></p></blockquote></li>
+<li><p>The battery sample application should look like the following:<br/>
+ <img src="https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/SampleBatteryIntent/BatterySampleApplication.jpg" alt="img" /></p></li>
+<li><p>The information on the screen will update each time a battery intent is received. To force the intent you may change power state of the device by charging or unplugging it from a power source.</p></li>
+</ol>
+
+
+<h2>How This Sample Was Built</h2>
+
+<p>A <a data-link="tutbatteryintent">Tutorial</a> walks through how this sample application was built.</p>
+
+<p><a name="theend"></a></p>

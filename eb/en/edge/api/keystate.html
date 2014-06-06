@@ -1,0 +1,157 @@
+<div class='tableofcontents'> </div><h1>KeyState</h1>
+
+<h2>Overview</h2>
+
+<p>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessry if more than one key state is set at once. This API is only supported on a subset of Motorola Solutions' Windows Mobile / CE / Embedded handheld devices (see remarks).</p>
+
+
+<h2>Enabling the API</h2>
+
+
+
+
+<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+extensions: ["indicators"]
+</pre>
+
+
+
+
+<p>The <code>indicators</code> extension is also included automatically if you specify the following in your <code>build.yml</code>.</p>
+
+
+
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
+app_type: "rhoelements"
+</pre>
+
+
+
+
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+
+
+
+
+<h2>JavaScript Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+
+
+
+<h2>Ruby Usage</h2>
+
+
+
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+
+<h2>Methods</h2>
+
+<h3>hideStates()</h3>
+
+<p>Stops showing keystate icons representing the shifted state of the hardware keyboard.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+<li>Motorola Solutions Devices Only</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.KeyState.hideStates()</code> </li></ul></li></ul>
+
+
+<h3>showStates(<span class="text-info">HASH</span> propertyMap)</h3>
+
+<p>Display keystate icons representing the shifted state of the hardware keyboard.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
+The properties associated with the keystate indicator, its size and position. 
+Not specifying any properties will display the keystate indicators at the bottom right hand corner of the screen.</p></li><ul><li>right : <span class='text-info'>INTEGER</span><span class='label '> Default: [Keystate Indicators start at the bottom right of the screen]</span><p>
+The absolute horizontal position of the keystate indicators in pixels. This is the rightmost edge of the rightmost indicator, where multiple indicators are displayed simultaneously they will grow from right to left. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Keystate Indicators start at the bottom right of the screen]</span><p>
+The absolute vertical position of the keystate indicators in pixels. </p></li><li>width : <span class='text-info'>INTEGER</span><span class='label '> Default: [A sensible width based on Screen Resolution]</span><p>
+The width of each keystate indicator in pixels. </p></li><li>height : <span class='text-info'>INTEGER</span><span class='label '> Default: [A sensible height based on Screen Resolution]</span><p>
+The width of each keystate indicator in pixels. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:<ul><li>Void</li></ul></p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Javascript</li>
+<li>Ruby</li>
+<li>Windows Embedded</li>
+<li>Motorola Solutions Devices Only</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.KeyState.showStates(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Devices lacking support</h3>
+
+<p>Due to platform limitations this API is not available on the following Motorola Solutions' devices:</p>
+
+<ul>
+<li>ES400</li>
+<li>MC45</li>
+<li>MC65</li>
+<li>VC70</li>
+<li>MC45</li>
+</ul>
+
+
+<h3>Rotating the Screen</h3>
+
+<p>The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.</p>
+
+<h2>Examples</h2>
+
+<h3>Show the Keystate Indicators</h3>
+
+<p>If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows.</p>
+
+<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
+
+                            
+function show_keystates(){
+    Rho.Keystate.showStates({width:25;height:25});
+}
+                        
+</pre>
+
