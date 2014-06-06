@@ -200,12 +200,13 @@ def lp_generate_html
 end
 
 def lp_publish_html
+  $stdout.sync = true
   # Get Mapping File
   if File.file?("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}")
     # Open mapping file that has a string in Ruby hash format
     # this object will be used to hold id/urls of documents created
     url_map = eval(File.read("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"))
-    puts url_map
+    # puts url_map
 
     puts "Getting HTML in #{AppConfig['launchpad_eb']}"
     apiMD = File.join(AppConfig['launchpad_eb'],"**","*.html")
@@ -213,7 +214,7 @@ def lp_publish_html
     apiFiles = Dir.glob(apiMD)
     apiFiles.each do |fileName|
       basename = fileName.gsub(AppConfig['launchpad_eb'],'')
-        puts "Processing " + basename
+        print "."
         Launchpad.publish_html(fileName,url_map,"uat")
       
     end

@@ -6,8 +6,8 @@ require 'pathname'
 
 class Launchpad
 	@my_server = 'developer-uat.motorolasolutions.com/api/core/v3'
-	@my_user = 'emdk'
-	@my_pass = 'emdk1234'
+	@my_user = 'eb'
+	@my_pass = 'eb1234'
 
   def self.generate_html(topic,parent_source)
 		#open Markdown content
@@ -58,18 +58,16 @@ class Launchpad
     end
 
     if html.match(/<h1>(.*)<\/h1>/).nil? 
-      puts ("WARNING: No H1 Tag for Subject #{topic}")
-      title = topic.gsub('.html','')
+      puts ("WARNING: No H1 Title #{topic}")
+      title = File.basename(topic).gsub('.html','')
     else
       title = html.match(/<h1>(.*)<\/h1>/)[1]
     end
 
     # need to get parent for UAT or Production
-    parent = 'https://developer-uat.motorolasolutions.com/api/core/v3/places/18095'
+    parent = 'https://developer-uat.motorolasolutions.com/api/core/v3/places/18127'
 
-    # Jive V3 Endpoint
-    endpoint = '/contents'
-
+    
     # create REST JSON Body		
     jdata = {
     	:visibility => 'place',
@@ -84,24 +82,37 @@ class Launchpad
       
     begin
       if create_doc
-        puts "Creating"
+        # puts "Creating"
+        rest_method = "post"
+        # Jive V3 Endpoint
+        endpoint = "https://#{@my_user}:#{@my_pass}@#{@my_server}/contents"
 
+      else
+        # puts "Updating"
+        rest_method = "put"
+        # Jive V3 Endpoint
+        endpoint = url_map[index_key]["id"][env].gsub("https://","https://#{@my_user}:#{@my_pass}@")
+      end
     	# Create Doc
-    	#response = RestClient::Request.execute :method=> :post, :url => "https://#{@my_user}:#{@my_pass}@#{@my_server}#{endpoint}", 
-    	#:headers => {'Content-Type' => 'application/json'}, 
-    	#:payload => jdata 
+    	response = RestClient::Request.execute :method=> rest_method, :url => endpoint, 
+    	:headers => {'Content-Type' => 'application/json'}, 
+    	:payload => jdata 
 
     		#response.code = 201 is success, else parsed.message = error message, parsed.code
-    	#parsed = JSON.parse(response)
-    	#@documentId = parsed["id"]
-    	#puts "Success: ID => #{@documentId}"
-      else
-        puts "Updating"
-      end
+    	parsed = JSON.parse(response)
+        #Jive REST API for Document Update
+        url_map[index_key]["id"][env] = parsed["resources"]["self"]["ref"]
+        #Jive URL to document
+        url_map[index_key]["url"][env] = parsed["resources"]["html"]["ref"]
+        # puts url_map[index_key]
+        outputfile = "#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"
+        File.open("#{outputfile}", 'w') {|f| 
+          f.write(url_map.to_s) 
+        }
+        # puts "Success: ID => #{@documentId}"
+      
     rescue => e
-      puts "The request failed with HTTP status code #{e.response.code}"
-      puts "The body was:"
-      puts e
+      puts "ERROR: #{topic}:#{e}"
     end
     
          
