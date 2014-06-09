@@ -6,8 +6,8 @@ require 'pathname'
 
 class Launchpad
 	@my_server = 'developer-uat.motorolasolutions.com/api/core/v3'
-	@my_user = 'eb'
-	@my_pass = 'eb1234'
+	@my_user = ENV['user']
+	@my_pass = ENV['password']
 
   def self.generate_html(topic,parent_source)
 		#open Markdown content
