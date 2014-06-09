@@ -112,7 +112,10 @@ class Launchpad
         # puts "Success: ID => #{@documentId}"
       
     rescue => e
-      puts "ERROR: #{topic}:#{e}"
+      puts "ERROR: #{topic}:#{e} - check #{topic}.error for JSON - File may have malformed HTML - check for Amperstand escaping"
+      File.open(topic+'.error','w'){|f| 
+          f.write(jdata) 
+        }
     end
     
          
