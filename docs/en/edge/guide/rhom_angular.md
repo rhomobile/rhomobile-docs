@@ -380,7 +380,7 @@ The code for `ProductHelper` is below:
 					}
 				}
 			},
-			update: function(rhoProduct, hash) {
+			update: function(rhoProduct, hash) {
 					rhoProduct.updateAttributes(hash);
 
 					for (var i=0; i<this.products.length; i++) {
