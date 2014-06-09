@@ -105,6 +105,8 @@ class Launchpad
       title = File.basename(topic).gsub('.html','')
     else
       title = html.match(/<h1>(.*)<\/h1>/)[1]
+      #remove H1 as Launchpad auto puts in H1 for Doc title
+      html.gsub!(/<h1>(.*)<\/h1>/,'')
     end
 
     # need to get parent for UAT or Production
