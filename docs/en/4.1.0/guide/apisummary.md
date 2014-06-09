@@ -1,6 +1,6 @@
 # RhoMobile API Summary
 
-Below is a list of the new `common api's` for RhoMobile Suite 4.1. Please consult the [2.x migration guide](apiusage) if you are moving a 2.x application to 4.1. If you are starting a new project, it is advised to the use 4.x API's going forward, however the 2.x APIs are still currently supported.
+Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult the [2.x migration guide](apiusage) if you are moving a 2.x application to 4.1. If you are starting a new project, it is advised to the use 4.x API's going forward, however the 2.x APIs are still currently supported.
 
 ## 4.1 API's
 <div class="alert alert-warning">
