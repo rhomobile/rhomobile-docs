@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["indicators"]
+<pre name="code" class="ruby">extensions: ["indicators"]
 </pre>
 
 
@@ -27,8 +26,7 @@ extensions: ["indicators"]
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-app_type: "rhoelements"
+<pre name="code" class="ruby">app_type: "rhoelements"
 </pre>
 
 
@@ -311,13 +309,10 @@ The battery health is unknown.</dd></dl></li></ul></li></ul></p>
 
 <h3>Retrieve the Battery status</h3>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
+<pre><code>                Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
 </pre>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-            
-  function battery_status_sync(){
+<pre name="code" class="javascript">  function battery_status_sync(){
     batteryValues = Rho.Battery.batteryStatus({});
     console.log("Battery Level is: " + batteryValues['batteryLifePercent']);
   }
@@ -326,13 +321,10 @@ The battery health is unknown.</dd></dl></li></ul></li></ul></p>
 </pre>
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
+<pre><code>                Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
 </pre>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-            
-  function battery_status_async(){
+<pre name="code" class="javascript">  function battery_status_async(){
     console.log("Registering Battery Callback");
     Rho.Battery.batteryStatus({},batteryEvent);
   }
@@ -350,10 +342,7 @@ The battery health is unknown.</dd></dl></li></ul></li></ul></p>
 
 <p>If you just want to display the battery indicator in the default position and default color then call as follows.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-            
-  function show_battery_icon(){
+<pre name="code" class="javascript">  function show_battery_icon(){
     Rho.Battery.showIcon({});
   }
                     
@@ -363,10 +352,7 @@ The battery health is unknown.</dd></dl></li></ul></li></ul></p>
 
 <p>To display the battery icon at the default position but blue and vertical specify as follows.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-            
-  function show_battery_icon(){
+<pre name="code" class="javascript">  function show_battery_icon(){
     Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
   }
   

@@ -202,8 +202,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 ###Retrieve the WLAN status
 
 Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows
-<pre><code>
-
+<pre><code>:::javascript
   function signal_status_sync(){
 
     signalValue = Rho.Signal.wlanStatus;
@@ -215,8 +214,7 @@ Synchronously: If you are only interested in the current signal state, for examp
 </code></pre>
 
 Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback
-<pre><code>
-
+<pre><code>:::javascript
   function signal_status_async(){
     console.log("Registering Signal Callback");
     Rho.Signal.wlanStatus(signalEvent);
@@ -232,8 +230,7 @@ Asynchronously:  If you want to be notified of changes to the WLAN signal then y
 ###Working with the Signal indicator
 
 If you just want to display the signal indicator in the default position and default colour then call as follows
-<pre><code>
-
+<pre><code>:::javascript
   function show_signal_icon(){
     Rho.Signal.showIcon({});
   }
@@ -242,8 +239,7 @@ If you just want to display the signal indicator in the default position and def
 </code></pre>
 
 To display the signal icon at the default position but blue and vertical specify as follows
-<pre><code>
-
+<pre><code>:::javascript
   function show_signal_icon(){
     Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
   }

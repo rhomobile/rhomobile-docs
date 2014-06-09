@@ -435,8 +435,7 @@ Skip http package body from log(for security reasons). Please note that this par
 ###Show log file
 
 Show the contents of the log file in a window with controls to refresh, clear and send. Useful for debugging and when asking users to report error messages.
-<pre><code>
-
+<pre><code>:::javascript
            
 Rho.Log.showLog();
                 
@@ -445,8 +444,7 @@ Rho.Log.showLog();
 ###Read log file content
 
 Retrieve the contents of the log file as a string.
-<pre><code>
-
+<pre><code>:::javascript
            
 //Read at most 16384 symbols
 logFileContent = Rho.Log.readLogFile(16384);
@@ -456,8 +454,7 @@ logFileContent = Rho.Log.readLogFile(16384);
 ###Clean log file
 
 Clear the contents of the log file. In this example, logFileContentBefore will contain the log up until that point, while logFileContentAfter will be empty.
-<pre><code>
-
+<pre><code>:::javascript
            
 // Read log file
 logFileContentBefore = Rho.Log.readLogFile(16384);
@@ -473,8 +470,7 @@ logFileContentAfter = Rho.Log.readLogFile(16384);
 ###Logging categories
 
 Categories help you organize your logging messages and find related statements using tools like grep or a text editor's "search" function.
-<pre><code>
-
+<pre><code>:::javascript
            
 Rho.Log.info("Consectetuer adipiscing elit", "Lorem Ipsum");
 Rho.Log.info("Foo acquired value Bar in method Baz", "Miscellaneous");
@@ -489,8 +485,7 @@ Miscellaneous Foo acquired value Bar in method Baz
 ###Memory Usage
 
 You can ask the system to automatically log memory usage information on a set interval. This can be used to debug potential memory leaks in operations where a high number of objects are touched in memory. 
-<pre><code>
-
+<pre><code>:::javascript
            
 Rho.Log.memoryPeriod = 1000;
 // Perform memory-intensive operations here. Examining the log will tell us if we have a memory leak

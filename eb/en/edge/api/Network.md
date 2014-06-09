@@ -550,8 +550,7 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
 ###Request a notification from the system when network availability changes
 
 When you need to be notified of changes in the status of the network (connected / disconnected), use Network.startStatusNotify.
-<pre><code>
-
+<pre><code>:::javascript
            
     function status_notify_callback(params) {
       alert("Network status changed from "+params["prev_status"]+" to "+params["current_status"]);
@@ -574,8 +573,7 @@ When you need to be notified of changes in the status of the network (connected 
 ###Check whether the network is available
 
 You can check whether the mobile, WiFi or other network is available. This can be useful for example if you only want to perform large data transfers on WiFi and avoid doing them while on the cell network.
-<pre><code>
-
+<pre><code>:::javascript
            
     function network_availability() {
       // shows the network availability for...
@@ -595,8 +593,7 @@ You can check whether the mobile, WiFi or other network is available. This can b
 ###Download file and save it to permanent storage
 
 Download any file from an external server and store it in your device.
-<pre><code>
-
+<pre><code>:::javascript
            
 function download_file_callback(params) {
   if (params["status"] == "ok") {
@@ -622,8 +619,7 @@ function download_file() {
 ###Upload files via HTTP POST
 
 You can upload any file to an external server via HTTP POST and be notified whether the transfer succeeded or not.
-<pre><code>
-
+<pre><code>:::javascript
            
 function upload_file_callback(params) {
   // Check the result of the upload and act accordingly

@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["coreapi"]
+<pre name="code" class="ruby">extensions: ["coreapi"]
 </pre>
 
 
@@ -758,10 +757,7 @@ Verify SSL certificates. When set to false it will allow untrusted certificates.
 
 <p>When you need to be notified of changes in the status of the network (connected / disconnected), use Network.startStatusNotify.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-    function status_notify_callback(params) {
+<pre name="code" class="javascript">    function status_notify_callback(params) {
       alert("Network status changed from "+params["prev_status"]+" to "+params["current_status"]);
     }
   
@@ -784,10 +780,7 @@ Verify SSL certificates. When set to false it will allow untrusted certificates.
 
 <p>You can check whether the mobile, WiFi or other network is available. This can be useful for example if you only want to perform large data transfers on WiFi and avoid doing them while on the cell network.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-    function network_availability() {
+<pre name="code" class="javascript">    function network_availability() {
       // shows the network availability for...
       // Cell network
       var cell_network = Rho.Network.hasCellNetwork()
@@ -807,10 +800,7 @@ Verify SSL certificates. When set to false it will allow untrusted certificates.
 
 <p>Download any file from an external server and store it in your device.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function download_file_callback(params) {
+<pre name="code" class="javascript">function download_file_callback(params) {
   if (params["status"] == "ok") {
     alert("Download Succeeded, path is /public/images/sample.png");
   } else {
@@ -836,10 +826,7 @@ function download_file() {
 
 <p>You can upload any file to an external server via HTTP POST and be notified whether the transfer succeeded or not.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function upload_file_callback(params) {
+<pre name="code" class="javascript">function upload_file_callback(params) {
   // Check the result of the upload and act accordingly
   if (params["status"] == "ok") {
     alert("Upload Succeeded.");

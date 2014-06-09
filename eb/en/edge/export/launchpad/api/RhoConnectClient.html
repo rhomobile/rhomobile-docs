@@ -17,8 +17,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["rhoconnect-client"]
+<pre name="code" class="ruby">extensions: ["rhoconnect-client"]
 </pre>
 
 
@@ -699,15 +698,13 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <p>Ruby Example:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-@params["server_errors"]["query-error"]["message"] 
+<pre name="code" class="ruby">@params["server_errors"]["query-error"]["message"] 
 #=&gt; "Error connecting to backend server: http://rhostore.herokuapp.com"
 </pre>
 
 <p>JavaScript Example:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::javascript
-params.server_errors["query-error"].message
+<pre name="code" class="javascript">params.server_errors["query-error"].message
 //=&gt; "Error connecting to backend server: http://rhostore.herokuapp.com"
 </pre>
 
@@ -733,22 +730,17 @@ params.server_errors["query-error"].message
 
 <p>In your controller call login.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-
-Rho.RhoConnectClient.login('john','password',function(result){
+<pre name="code" class="javascript">Rho.RhoConnectClient.login('john','password',function(result){
    loginCallback(result);
 });
                           
 </pre>
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
+<pre><code>                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
 </pre>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Error codes:
+<pre name="code" class="javascript">// Error codes:
 // ERR_NONE = 0
 // ERR_NETWORK = 1
 // ERR_REMOTESERVER = 2
@@ -777,9 +769,7 @@ function loginCallback(result) {
 
 <p>First, assign a sync notification for the Account model:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function syncNotify(params) {
+<pre name="code" class="javascript">function syncNotify(params) {
   // handle notifications...
 }
 Rho.RhoConnectClient.setNotification('Account', syncNotify);
@@ -790,9 +780,7 @@ Rho.RhoConnectClient.setNotification('Account', syncNotify);
 
 <p>Which is the same as:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function syncNotify() {
+<pre name="code" class="javascript">function syncNotify() {
   // handle notifications...
 }
 Account.setNotification(syncNotify);
@@ -803,9 +791,7 @@ Account.setNotification(syncNotify);
 
 <p>You can also set a notification for all models:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function syncNotify(params) {
+<pre name="code" class="javascript">function syncNotify(params) {
   // handle notifications...
 }
 Rho.RhoConnectClient.setNotification('*', syncNotify);
@@ -820,9 +806,7 @@ Rho.RhoConnectClient.setNotification('*', syncNotify);
 
 <p>Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function syncObjectNotified(params) {
+<pre name="code" class="javascript">function syncObjectNotified(params) {
   // handle notifications...
 }
 
@@ -838,9 +822,7 @@ Rho.RhoConnectClient.addObjectNotify('Product', product.id);
 
 <p>Here we will set a notification and log an error code 1 or ERR_NETWORK:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function syncNotify(result) {
+<pre name="code" class="javascript">function syncNotify(result) {
   var errorCode = parseInt(result.error_code);
   var errorMessage = result.error_message;
   if(errorCode === 1) {

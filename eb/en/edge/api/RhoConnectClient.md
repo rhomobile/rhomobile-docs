@@ -528,8 +528,7 @@ On iOS, if the application is backgrounded, it will be suspended. This also mean
 ###Sync Authentication
 
 In your controller call login.
-<pre><code>
-
+<pre><code>:::javascript
 
 Rho.RhoConnectClient.login('john','password',function(result){
    loginCallback(result);
@@ -540,8 +539,7 @@ Rho.RhoConnectClient.login('john','password',function(result){
 
                             When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
                         
-<pre><code>
-
+<pre><code>:::javascript
 // Error codes:
 // ERR_NONE = 0
 // ERR_NETWORK = 1
@@ -569,8 +567,7 @@ function loginCallback(result) {
 ###Notifications
 
 First, assign a sync notification for the Account model:
-<pre><code>
-
+<pre><code>:::javascript
 function syncNotify(params) {
   // handle notifications...
 }
@@ -580,8 +577,7 @@ Rho.RhoConnectClient.setNotification('Account', syncNotify);
 </code></pre>
 
 Which is the same as:
-<pre><code>
-
+<pre><code>:::javascript
 function syncNotify() {
   // handle notifications...
 }
@@ -591,8 +587,7 @@ Account.setNotification(syncNotify);
 </code></pre>
 
 You can also set a notification for all models:
-<pre><code>
-
+<pre><code>:::javascript
 function syncNotify(params) {
   // handle notifications...
 }
@@ -606,8 +601,7 @@ Rho.RhoConnectClient.setNotification('*', syncNotify);
 To use object notifications, first set the notification callback in application.rb#initialize.
 
 Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:
-<pre><code>
-
+<pre><code>:::javascript
 function syncObjectNotified(params) {
   // handle notifications...
 }
@@ -622,8 +616,7 @@ Rho.RhoConnectClient.addObjectNotify('Product', product.id);
 ###Handling Errors
 
 Here we will set a notification and log an error code 1 or ERR_NETWORK:
-<pre><code>
-
+<pre><code>:::javascript
 function syncNotify(result) {
   var errorCode = parseInt(result.error_code);
   var errorMessage = result.error_message;

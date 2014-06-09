@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["coreapi"]
+<pre name="code" class="ruby">extensions: ["coreapi"]
 </pre>
 
 
@@ -1999,9 +1998,7 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <p>You can find out whether the device has access to several system-dependent features such as calendar, camera, touchscreen, etc.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Returns true if device supports Motorola device capabilities, such as Scanner, etc.
+<pre name="code" class="javascript">// Returns true if device supports Motorola device capabilities, such as Scanner, etc.
 var is_motorola_device = Rho.System.isMotorolaDevice;
 
 var has_calendar = Rho.System.hasCalendar;
@@ -2031,9 +2028,7 @@ alert(message);
 
 <p>Retrieve the version of the underlying Operating System.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-var version_info = Rho.System.osVersion;
+<pre name="code" class="javascript">var version_info = Rho.System.osVersion;
 alert(version_info);
 
                                 
@@ -2044,9 +2039,7 @@ alert(version_info);
 
 <p>You can ask the system to install or uninstall a different application. This feature is useful for installing sub-applications, custom upgrades, etc.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// install an application from given url
+<pre name="code" class="javascript">// install an application from given url
 Rho.System.applicationInstall("/bin/target/android/rhodes-app-debug.apk");
   
 // uninstall the application
@@ -2060,9 +2053,7 @@ Rho.System.applicationUninstall("rhodes-app");
 
 <p>If necessary, you can read the embedded HTTP server&rsquo;s port, for debugging purposes.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Get port of the local (embedded) HTTP server
+<pre name="code" class="javascript">// Get port of the local (embedded) HTTP server
 var local_port = Rho.System.localServerPort;
 alert(local_port);
 
@@ -2074,9 +2065,7 @@ alert(local_port);
 
 <p>If you ever need to build or extract zip archives, RhoMobile includes easy-to-use APIs for this task.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// unzip file 
+<pre name="code" class="javascript">// unzip file 
 Rho.System.unzipFile("/app/public/sample.zip");
   
 // zip file

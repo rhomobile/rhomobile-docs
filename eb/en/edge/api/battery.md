@@ -248,8 +248,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 
                     Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
                 
-<pre><code>
-
+<pre><code>:::javascript
             
   function battery_status_sync(){
     batteryValues = Rho.Battery.batteryStatus({});
@@ -262,8 +261,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 
                     Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
                 
-<pre><code>
-
+<pre><code>:::javascript
             
   function battery_status_async(){
     console.log("Registering Battery Callback");
@@ -281,8 +279,7 @@ The indicator positions are absolute and so when rotating the screen you should 
 ###Working with the Battery indicator
 
 If you just want to display the battery indicator in the default position and default color then call as follows.
-<pre><code>
-
+<pre><code>:::javascript
             
   function show_battery_icon(){
     Rho.Battery.showIcon({});
@@ -292,8 +289,7 @@ If you just want to display the battery indicator in the default position and de
 </code></pre>
 
 To display the battery icon at the default position but blue and vertical specify as follows.
-<pre><code>
-
+<pre><code>:::javascript
             
   function show_battery_icon(){
     Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  

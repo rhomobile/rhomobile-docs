@@ -20,8 +20,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["mediacapture"]
+<pre name="code" class="ruby">extensions: ["mediacapture"]
 </pre>
 
 
@@ -938,10 +937,7 @@ If true, the picture you take will be added to the device photo gallery. At Andr
 
 <p>Take an image with as little code as possible, using all default values.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function take_picture_with_default_camera() {
+<pre name="code" class="javascript">function take_picture_with_default_camera() {
   // Capture an image from the default camera on the device, using the default image settings
   Rho.Camera.takePicture({}, picture_taken_callback);
 }
@@ -962,10 +958,7 @@ function picture_taken_callback(params) {
 
 <p>On devices with more than one camera, you can select which camera to use for taking pictures.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-&lt;div id="camera_list"&gt;
+<pre name="code" class="javascript">&lt;div id="camera_list"&gt;
 &lt;/div&gt;
 
 
@@ -1003,10 +996,7 @@ function take_picture_with_camera(cameraIndex) {
 
 <p>Apart from taking new pictures, you can also save images to the built-in gallery. In the following examples, the picture we are adding to the gallery is one that was just taken with the camera, but you can add any other image you can access by filename.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function take_picture_and_save_it_to_gallery() {
+<pre name="code" class="javascript">function take_picture_and_save_it_to_gallery() {
   Rho.Camera.choosePicture({}, picture_taken_callback_save_to_gallery);
 }
 
@@ -1026,10 +1016,7 @@ function picture_taken_callback_save_to_gallery(params) {
 
 <p>You can tweak multiple options to get an image exactly as you need it</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function control_image_properties() {
+<pre name="code" class="javascript">function control_image_properties() {
   // Instead of accepting the defaults, let's set some properties to our liking
   
   // We will ask for a PNG file...
@@ -1063,10 +1050,7 @@ function picture_taken_callback(params) {
 
 <p>You can get all available camera properties in a single call.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function determine_camera_capabilities() {
+<pre name="code" class="javascript">function determine_camera_capabilities() {
   var capabilitiesList = "&lt;ul&gt;"; 
 
   // Get all capabilities of the camera...
@@ -1091,10 +1075,7 @@ function determine_camera_capabilities() {
 
 <p>Apart from taking new pictures, the Camera API also lets you access existing images on the device&rsquo;s gallery.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function select_picture_from_gallery() {
+<pre name="code" class="javascript">function select_picture_from_gallery() {
   Rho.Camera.choose_picture({}, picture_taken_callback);
 }
 

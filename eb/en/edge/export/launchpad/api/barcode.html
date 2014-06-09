@@ -20,8 +20,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["barcode"]
+<pre name="code" class="ruby">extensions: ["barcode"]
 </pre>
 
 
@@ -32,8 +31,7 @@ extensions: ["barcode"]
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-app_type: "rhoelements"
+<pre name="code" class="ruby">app_type: "rhoelements"
 </pre>
 
 
@@ -4764,10 +4762,7 @@ it is necessary to disable the scanner and then re-enable it before another scan
 
 <p>Getting started with barcode scanning is very straightforward. If you do not need to customize the defaults, you need very little code.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-function scan_using_default_scanner(){
+<pre name="code" class="javascript">function scan_using_default_scanner(){
   // Scan with default options
   Rho.Barcode.take({}, scan_received);
 }
@@ -4792,10 +4787,7 @@ function scan_received(params)
 
 <p>By default, Rho::Barcode will select a hardware scanner if present on the device. If you want to let the user choose which scanner to use at any particular time, you must enumerate the available scanners and select one from the set.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-var scanners;
+<pre name="code" class="javascript">var scanners;
              
 function choose_scanner(){
     
@@ -4829,10 +4821,7 @@ function scan_received_callback(params)
 
 <p>Specify which symbologies the barcode scanner must recognize.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-// For the purpose of this example, let's say our application only needs to recognize one type of barcode.
+<pre name="code" class="javascript">// For the purpose of this example, let's say our application only needs to recognize one type of barcode.
 // In that case, we will disable all decoders...
 Rho.Barcode.allDecoders = false;
 // ... and enable only the one we are interested in:
@@ -4848,10 +4837,7 @@ Rho.Barcode.take({}, scan_received_callback);
 
 <p>Examples of setting barcode scanner properties.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-// There are over 200 properties to fine-tune the barcode scanner functionality and adapt it to suit your application.
+<pre name="code" class="javascript">// There are over 200 properties to fine-tune the barcode scanner functionality and adapt it to suit your application.
 // Almost all properties depend on the scanner hardware for support, please check the documentation to see if your device
 // supports a particular setting
 
@@ -4887,10 +4873,7 @@ Rho.Barcode.beamWidth = "wide";
 
 <p>You can customize or eliminate the beep that the device emits when a barcode is recognized. Support and valid ranges for these values depend on the device.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-// Maximum volume (default)
+<pre name="code" class="javascript">// Maximum volume (default)
 Rho.Barcode.decodeVolume = 5;
 // Low-pitched sound
 Rho.Barcode.decodeFrequency = 1000;

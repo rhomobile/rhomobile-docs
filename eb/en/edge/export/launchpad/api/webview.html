@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["coreapi"]
+<pre name="code" class="ruby">extensions: ["coreapi"]
 </pre>
 
 
@@ -657,7 +656,7 @@ Map of menu items: name to action. </p></li><li>callback : <span class='text-inf
 
 <p>Defines in config.xml: Navigation\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                %p - platform name ("Windows CE " + version number)
+<pre><code>                %p - platform name ("Windows CE " + version number)
                 %w - WebKit version number
                 %e - MotorolaWebKit version number.
 </pre>
@@ -727,9 +726,7 @@ Map of menu items: name to action. </p></li><li>callback : <span class='text-inf
 
 <p>You can also call your own functions.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function greet(name) {
+<pre name="code" class="javascript">function greet(name) {
     alert("Hello, "+name);  
 }
 
@@ -745,9 +742,7 @@ function greet(name) {
 
 <p>This property can also be assigned to in JavaScript.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Fullscreen can also be invoked from JavaScript
+<pre name="code" class="javascript">// Fullscreen can also be invoked from JavaScript
 Rho.WebView.fullScreen = true;
 
 Rho.WebView.fullScreen = false;
@@ -764,9 +759,7 @@ Rho.WebView.fullScreen = false;
 
 <p>This API is also available from JavaScript.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-//Navigate out of the local application and into an externally-served site
+<pre name="code" class="javascript">//Navigate out of the local application and into an externally-served site
 Rho.WebView.navigate("http://www.example.com");
 
                             
@@ -779,9 +772,7 @@ Rho.WebView.navigate("http://www.example.com");
 
 <p>The same method is available in JavaScript.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-//Force WebView to navigate to the previous page using Browser back.
+<pre name="code" class="javascript">//Force WebView to navigate to the previous page using Browser back.
 Rho.WebView.navigateBack();
 
                             
@@ -796,9 +787,7 @@ Rho.WebView.navigateBack();
 
 <p>Also available from JavaScript.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Reload the current page
+<pre name="code" class="javascript">// Reload the current page
 Rho.WebView.refresh()
 
 // Reload the page on WebView number 3

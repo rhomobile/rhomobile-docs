@@ -377,8 +377,7 @@ Notify user using notification bar if in background and with alerts in foregroun
 ###Handle push message
 
 Start Push Notifications service and define alert popup window in push callback method.
-<pre><code>
-
+<pre><code>:::javascript
                                 
 function setupPush() {
   // Start listening for push messages. Parameter is an url to push_callback method

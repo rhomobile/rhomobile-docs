@@ -91,8 +91,7 @@ Menu item will be displayed as disabled. Platforms:WM </p></li></ul>
 
 ###Customize the extra menu
 
-<pre><code>
-
+<pre><code>:::javascript
                   
 Rho.NativeMenubar.extraButton = {
     label: "Extra"
@@ -118,8 +117,7 @@ Rho.NativeMenubar.extraMenu = [
 
 ###Clear the main menu
 
-<pre><code>
-
+<pre><code>:::javascript
                   
 function remove_menuitems() {
     Rho.NativeMenubar.mainMenu = [];

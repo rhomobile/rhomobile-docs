@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["printing","printing_zebra"]
+<pre name="code" class="ruby">extensions: ["printing","printing_zebra"]
 </pre>
 
 
@@ -1175,14 +1174,14 @@ Use this name for requestState(), return true if battery low.</li>
 <li>You need to include the External Accessory framework in your project (this is automatically added when you first generate the iPhone project file)</li>
 <li>You need to include the Zebra printer protocol string &ldquo;com.zebra.rawport&rdquo; in your info.plist file ([project root]/project/iphone/Info.plist) under &ldquo;Supported external accessory protocols&rdquo;:
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">  &lt;key&gt;UISupportedExternalAccessoryProtocols&lt;/key&gt;
+<pre><code>  &lt;key&gt;UISupportedExternalAccessoryProtocols&lt;/key&gt;
   &lt;array&gt;
       &lt;string&gt;com.zebra.rawport&lt;/string&gt;
   &lt;/array&gt;
 </pre></li>
 <li>You need to set the key <code>Required Background modes</code> to <code>App Communicates with an accessory</code> in your app&rsquo;s plist file
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">  &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+<pre><code>  &lt;key&gt;UIBackgroundModes&lt;/key&gt;
   &lt;array&gt;
       &lt;string&gt;external-accessory&lt;/string&gt;
   &lt;/array&gt;
@@ -1204,7 +1203,7 @@ Use this name for requestState(), return true if battery low.</li>
 <li><p>Requires a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></p></li>
 <li><p>You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">  window.onunload = function(){
+<pre><code>  window.onunload = function(){
       printer.disconnect();
   }
 </pre></li>
@@ -1218,9 +1217,7 @@ Use this name for requestState(), return true if battery low.</li>
 
 <p>To print to the Zebra printer we must first search for the device. In this example we are using the searchPrinters method and passing in options to limit the search to Bluetooth and also look for Zebra printers only. If we knew the printer Bluetooth address we could have added the &lsquo;deviceAddress&rsquo; parameter. The callback function will be executed for each printer found. When a printer is found the callback object will contain a &lsquo;printerID&rsquo; property. This ID is an internal RhoMobie ID used. If no printerID property is there for the successful callback object, then it means that the search has finished.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-var printers = [];
+<pre name="code" class="javascript">var printers = [];
 
 Rho.Printer.searchPrinters({ 
     connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
@@ -1251,9 +1248,7 @@ Rho.Printer.searchPrinters({
 
 <p>Now that we have found a printer. The <code>printers</code> array will contain the <code>printerID</code> we need to create an instance object that we will use for all communications. Upon first connection to the printer via Bluetooth, you may see a prompt to enter the Bluetooth PIN. Check the manufacturers guide for details. Normally the default is &lsquo;0000&rsquo; or &lsquo;1111&rsquo; or &lsquo;1234&rsquo;. Once it is connected, you should see some indication in the printer (like a blue light).</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
+<pre name="code" class="javascript">var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 
 // Let's try connecting
 myPrinter.connect(function (cb){
@@ -1273,9 +1268,7 @@ myPrinter.connect(function (cb){
 
 <p>Now we can just print a test string and read some properties of the printer to make sure the communications is working.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// If my printer was in line mode I would see this text printed
+<pre name="code" class="javascript">// If my printer was in line mode I would see this text printed
 myPrinter.printRawString('This is a test print');
 
 // Example of sending a Zebra CPCL Command

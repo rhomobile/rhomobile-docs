@@ -371,8 +371,7 @@ Synchronous Return:<ul><li>HASH</li></ul>
 ###ORM Make and Create Method Examples
 
 Use method make for creating a new ORM object and assign given attributes. Make does not save to the database until you execute a .save. To insert a new record right away use the create method instead.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var account = Account.make({name: "ABC Inc.", address: "555 5th St."});
 account.get("name") // "ABC Inc." 
@@ -380,8 +379,7 @@ account.get("name") // "ABC Inc."
 </code></pre>
 
 Use method Create for creating a new ORM object and save to the database.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var account = Account.create({name: "some new record", industry: "electronics"})  
                             
@@ -390,8 +388,7 @@ var account = Account.create({name: "some new record", industry: "electronics"})
 ###ORM DeleteAll Method Examples
 
 Delete all Rhodes model objects for a source, filtering by conditions.
-<pre><code>
-
+<pre><code>:::javascript
                 
 Account.deleteAll();
                             
@@ -400,16 +397,14 @@ Account.deleteAll();
 ###ORM Find Method Examples
 
 Find all objects for specific ORM model
-<pre><code>
-
+<pre><code>:::javascript
                 
 vat accounts = Account.find('all');
                             
 </code></pre>
 
 Find all objects for specific ORM model with conditions
-<pre><code>
-
+<pre><code>:::javascript
                 
 var accounts = Account.find(
     'all',
@@ -421,8 +416,7 @@ var accounts = Account.find(
 </code></pre>
 
 Use select option for retrieves some attributes of object.  You must pass "conditions" hash with Javascript implementation.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var accounts = Account.find(
     'all',
@@ -437,8 +431,7 @@ accounts[0].get("telephone"); // nil
 </code></pre>
 
 Order option is used to sort objects by one or more attributes. You must pass a  conditions hash to use ordering.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var accounts = Account.find(
     'all',
@@ -452,8 +445,7 @@ var accounts = Account.find(
 </code></pre>
 
 Order by multiple attributes. You must pass conditions hash.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var accounts = Account.find(
     'all',
@@ -467,8 +459,7 @@ var accounts = Account.find(
 </code></pre>
 
 Order by one attribute with an orderFunction.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var accounts = Account.find(
     'all',
@@ -481,8 +472,7 @@ var accounts = Account.find(
 </code></pre>
 
 Order with a block.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var accounts = Account.find(
     'all',
@@ -496,8 +486,7 @@ var accounts = Account.find(
 ###ORM Destroy Method Examples
 
 Destroy a Rhodes model object from database.
-<pre><code>
-
+<pre><code>:::javascript
                 
 var account = Account.find('first');
 account.destroy();
@@ -507,8 +496,7 @@ account.destroy();
 ###ORM UpdateAttributes Method Example
 
 Update the current ORM object’s attributes and saves it to the database.
-<pre><code>
-
+<pre><code>:::javascript
 var account = Account.find("first", {conditions: {name: "ABC Inc."});
 account.updateAttributes({name: "ABC Inc.", industry: "Technology"});
 account.get("industry") // "Technology"
@@ -517,8 +505,7 @@ account.get("industry") // "Technology"
 ###ORM Save Method Example
 
 Saves the current ORM object to the database.
-<pre><code>
-
+<pre><code>:::javascript
 var account = Account.make({name: "some new record", industry: "electronics"});
 account.save();
 </code></pre>

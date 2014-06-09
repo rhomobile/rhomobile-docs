@@ -143,7 +143,7 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
 </ol>
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">&gt;Note:  
+<pre><code>&gt;Note:  
 &gt;Now the "EMDKConfig.xml" is created under "\assets" folder. This file will contain a definition of all of your profiles that you create. 
 
 ![img](https://launchpad-images.s3-us-west-1.amazonaws.com/emdk/setup/image081.jpg)  
@@ -238,7 +238,7 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
 <p>  <img src="https://launchpad-images.s3-us-west-1.amazonaws.com/emdk/setup/image091.jpg" alt="img" /></p></li>
 <li><p>Now we need to use the <code>onOpened</code> method to get a reference to the EMDKManager. The EMDKListener interface will trigger this event when the EMDK is ready to be used. This must be implemented in order to get a reference to the EMDKManager APIs. This event will pass the EMDKManager instance and we assign it to the global variable <code>emdkManager</code> that we created in the previous steps. We then use that instance object to get an instance of ProfileManager and assign it to the global variable <code>mProfileManager</code>. This is how we will interface with the APIs in the rest of the code:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641"> &lt;pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"&gt;
+<pre><code> &lt;pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"&gt;
  &lt;p&gt;this.emdkManager = emdkManager;&lt;/p&gt;
  &lt;p&gt;&lt;/P&gt;
  &lt;p&gt;//Get the ProfileManager object to process the profiles&lt;/p&gt;
@@ -248,7 +248,7 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
 
  Now that we have a reference to ProfleManager, we use it to install and activate the profile we built earlier using the <code>processProfile</code> method. We could have also performed this action at a different time, say when someone pressed a button, but we chose to do it as soon as the EMDK was ready:
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641"> &lt;pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"&gt;
+<pre><code> &lt;pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="java" _jivemacro_uid="_1398870592774641"&gt;
  &lt;p&gt;if(mProfileManager != null)&lt;/p&gt;
  &lt;p&gt;{&lt;/p&gt;
  &lt;p&gt;     String[] modifyData = new String[1];&lt;/p&gt;
@@ -285,10 +285,11 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
 <li><p>Remove the default &ldquo;TextView&rdquo;, inside &ldquo;res/layout/activity_main.xml&rdquo;.</p></li>
 <li><p>Add an EditText Field in the UI called &ldquo;editTextBarcode&rdquo;, inside &ldquo;res/layout/activity_main.xml&rdquo;.</p>
 
-<p> 
+<p> <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml"
+   _jivemacro_uid="_1398870592774641">
    <p> &lt;EditText</p></p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641"> &lt;p&gt;    android:id="@+id/editTextBarcode"&lt;/p&gt;
+<pre><code> &lt;p&gt;    android:id="@+id/editTextBarcode"&lt;/p&gt;
  &lt;p&gt;    android:layout_width="wrap_content"&lt;/p&gt;
  &lt;p&gt;    android:layout_height="wrap_content"&lt;/p&gt;
  &lt;p&gt;    android:layout_marginTop="200dp"&lt;/p&gt;
@@ -296,7 +297,7 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
  &lt;p&gt;    android:ems="10" &amp;gt;&lt;/p&gt;
 </pre>
 
-<p>  </p></li>
+<p>  </pre></p></li>
 <li><p>Connect Motorola Solutions Android device (having the latest EMDK runtime) to the USB port.</p>
 
 <blockquote><p>Note: <br/>
@@ -314,6 +315,11 @@ Make sure the device is in USB debug.</p></blockquote></li>
 <ol>
 <li><p>It is required to do the following changes in the application&rsquo;s AndroidManifest.xml:</p>
 
+<blockquote><p>Note:
+* Include the permission for EMDK:<br/>
+ <uses-permission android:name="com.symbol.emdk.permission.EMDK"/>
+* Use the EMDK library:<br/>
+ <uses-library android:name="com.symbol.emdk"/></p></blockquote></li>
 <li><p>When using the &ldquo;Barcode&rdquo; feature in EMDK Wizard, the specified value for &ldquo;Scanner&rdquo; is not supported on the device, it will be considered as &ldquo;Auto&rdquo; during runtime (Ex: BT_LASER1, BT_IMAGER1 and BT_CAMERA1).</p></li>
 <li>Installing the EMDK for Android application without deploying the EMDK runtime on the Motorola Solutions Android  device will fail because of missing shared library on the device.</li>
 <li>Use the DataWedge v1.7.12 or higher version to test the ProfileManager.processProfile() for DataWedge profiles.</li>

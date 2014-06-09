@@ -375,7 +375,7 @@ The width of the signature capture area in pixels. Not applicable to fullscreen 
 In order to capture a signature in fullscreen mode you need to 
 
 In the view, we have an img element to display the captured signature and a JavaScript function to update it
-<pre><code>
+<pre><code>:::javascript
            
 &lt;div data-role="page"&gt;
 
@@ -402,8 +402,7 @@ In the view, we have an img element to display the captured signature and a Java
 ###Set signature capture properties
 
 Several properties affect the appearance of the signature capture functionality. You can set their values before showing the capture interface:
-<pre><code>
-
+<pre><code>:::javascript
            
 // Change fullscreen from true (default) to false
 // Change background color from white (default) to black
@@ -416,8 +415,7 @@ Rho::Signature.show ({:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penCol
 ###Capture as DataURI
 
 By default, the Signature API returns the capture as an image. If you prefer a DataURI representation of the signature, use the "outputFormat" property
-<pre><code>
-
+<pre><code>:::javascript
            
 Rho.Signature.takeFullScreen({outputFormat : "dataUri"}, signature_callback)
                    

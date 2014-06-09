@@ -1377,8 +1377,7 @@ Browser framework identity string.
 ###Get device capabilities
 
 You can find out whether the device has access to several system-dependent features such as calendar, camera, touchscreen, etc.
-<pre><code>
-
+<pre><code>:::javascript
 // Returns true if device supports Motorola device capabilities, such as Scanner, etc.
 var is_motorola_device = Rho.System.isMotorolaDevice;
 
@@ -1407,8 +1406,7 @@ alert(message);
 ###Get version information
 
 Retrieve the version of the underlying Operating System.
-<pre><code>
-
+<pre><code>:::javascript
 var version_info = Rho.System.osVersion;
 alert(version_info);
 
@@ -1418,8 +1416,7 @@ alert(version_info);
 ###Install / uninstall other applications
 
 You can ask the system to install or uninstall a different application. This feature is useful for installing sub-applications, custom upgrades, etc.
-<pre><code>
-
+<pre><code>:::javascript
 // install an application from given url
 Rho.System.applicationInstall("/bin/target/android/rhodes-app-debug.apk");
   
@@ -1432,8 +1429,7 @@ Rho.System.applicationUninstall("rhodes-app");
 ###Get the local server port for debug purposes
 
 If necessary, you can read the embedded HTTP server's port, for debugging purposes.
-<pre><code>
-
+<pre><code>:::javascript
 // Get port of the local (embedded) HTTP server
 var local_port = Rho.System.localServerPort;
 alert(local_port);
@@ -1444,8 +1440,7 @@ alert(local_port);
 ###Zipping and unzipping files
 
 If you ever need to build or extract zip archives, RhoMobile includes easy-to-use APIs for this task.
-<pre><code>
-
+<pre><code>:::javascript
 // unzip file 
 Rho.System.unzipFile("/app/public/sample.zip");
   

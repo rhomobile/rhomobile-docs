@@ -106,8 +106,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ###Create native toolbar
 
 Create a native Toolbar.
-<pre><code>
-
+<pre><code>:::javascript
            
 Rho.NativeToolbar.create([{
         label: "Home",
@@ -123,8 +122,7 @@ Rho.NativeToolbar.create([{
 ###Remove the toolbar
 
 Remove the toolbar.
-<pre><code>
-
+<pre><code>:::javascript
            
 Rho.NativeToolbar.remove();
                    

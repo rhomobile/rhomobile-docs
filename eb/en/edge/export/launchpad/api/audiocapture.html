@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["audiocapture"]
+<pre name="code" class="ruby">extensions: ["audiocapture"]
 </pre>
 
 
@@ -487,9 +486,7 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <p>Starting, Stopping and Cancelling audio capture is same across all platforms.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Starting Audio Capture without settings. Callback is mandatory. Setting the file name at least once is also mandatory before invoking 'start' method.
+<pre name="code" class="javascript">// Starting Audio Capture without settings. Callback is mandatory. Setting the file name at least once is also mandatory before invoking 'start' method.
 Rho.AudioCapture.start({},mycallback);
 
 // Starting Audio Capture with settings. Callback is mandatory. 
@@ -511,9 +508,7 @@ Rho.AudioCapture.cancel();
 
 <p>In WM/WinCE, one can set the fileName with or without extensions. On retrieving, the fileName property will return the complete path with the extension name.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Setting fileName without extension
+<pre name="code" class="javascript">// Setting fileName without extension
 Rho.AudioCapture.fileName = "\\Application\\Audio1";
 
 // The returned value is "\Application\Audio1.wav"
@@ -531,9 +526,7 @@ alert(Rho.AudioCapture.fileName);
 
 <p>In Android, one can set the fileName with or without extensions. The extension depends on encoder. The directory should be present.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Setting fileName without extension
+<pre name="code" class="javascript">// Setting fileName without extension
 Rho.AudioCapture.fileName = "/sdcard/Audio/sample";
 
 // The returned value is "/sdcard/Audio/sample";
@@ -551,9 +544,7 @@ alert(Rho.AudioCapture.fileName);
 
 <p>In iOS, one can set the fileName without extensions. The extension depends on encoder and will be automatically added. Currently supported WAV (16kHz, 16 bit, mono) IF you do not specify fullpath filename, then file will be placed to default folder. You can receive result fullpath filename in callback.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-#Setting fileName without extension
+<pre name="code" class="javascript">#Setting fileName without extension
 Rho::AudioCapture.fileName = "sample";
 
 // The returned value is "sample";

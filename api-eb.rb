@@ -976,7 +976,7 @@ def self.getexamples(doc)
 	  			#coderuby += cleanCode
 				#coderuby += "</code></pre>"
   			 else
-  			 	codejs = "\n<pre><code>"
+  			 	codejs = "\n<pre><code>:::javascript"
 	  			cleanCode = codesnip[0]["content"].gsub('<','&lt;')
 	  			cleanCode = cleanCode.gsub('>','&gt;')
 	  			codejs += cleanCode
@@ -991,7 +991,7 @@ def self.getexamples(doc)
 				#coderuby += "</code></pre>"
   			 end
   			 if !codesnip[0]["JAVASCRIPT"].nil?
-  			 	codejs = "\n<pre><code>\n"
+  			 	codejs = "\n<pre><code>:::javascript"
 	  			cleanCode = codesnip[0]["JAVASCRIPT"][0].gsub('<','&lt;')
 	  			cleanCode = cleanCode.gsub('>','&gt;')
 	  			codejs += cleanCode

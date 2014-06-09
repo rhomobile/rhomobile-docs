@@ -20,9 +20,12 @@ class Launchpad
   		html += RDiscount.new(md, :smart).to_html 	
 
   		# Reformat code blocks
-  		html = html.gsub(/<pre><code>(.*?)<\/code><\/pre>/m) do |m|
-      		 m.gsub("<pre><code>","<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\"javascript\" _jivemacro_uid=\"_1398870592774641\">").gsub("</code></pre>","</pre>")
-    	end
+  		# html = html.gsub(/<pre><code>(.*?)<\/code><\/pre>/m) do |m|
+      		 # m.gsub("<pre><code>","<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\"javascript\" _jivemacro_uid=\"_1398870592774641\">").gsub("</code></pre>","</pre>")
+    	# end
+
+      html.gsub!(/<pre><code>:::(\w+)\s*(\n|&#x000A;)/, '<pre name="code" class="\1">')
+      html.gsub!('</code></pre>','</pre>')
   		
   		# reformat image links
 

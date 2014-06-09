@@ -618,8 +618,7 @@ Uses the system Camera application to take a picture instead of rhodes' camera. 
 ###Take picture with default camera
 
 Take an image with as little code as possible, using all default values.
-<pre><code>
-
+<pre><code>:::javascript
            
 function take_picture_with_default_camera() {
   // Capture an image from the default camera on the device, using the default image settings
@@ -640,8 +639,7 @@ function picture_taken_callback(params) {
 ###Choose which camera to use when taking images
 
 On devices with more than one camera, you can select which camera to use for taking pictures.
-<pre><code>
-
+<pre><code>:::javascript
            
 &lt;div id="camera_list"&gt;
 &lt;/div&gt;
@@ -679,8 +677,7 @@ function take_picture_with_camera(cameraIndex) {
 ###Saving a picture to the device's gallery
 
 Apart from taking new pictures, you can also save images to the built-in gallery. In the following examples, the picture we are adding to the gallery is one that was just taken with the camera, but you can add any other image you can access by filename.
-<pre><code>
-
+<pre><code>:::javascript
            
 function take_picture_and_save_it_to_gallery() {
   Rho.Camera.choosePicture({}, picture_taken_callback_save_to_gallery);
@@ -700,8 +697,7 @@ function picture_taken_callback_save_to_gallery(params) {
 ###Control image properties
 
 You can tweak multiple options to get an image exactly as you need it 
-<pre><code>
-
+<pre><code>:::javascript
            
 function control_image_properties() {
   // Instead of accepting the defaults, let's set some properties to our liking
@@ -735,8 +731,7 @@ function picture_taken_callback(params) {
 ###Determine camera capabilities
 
 You can get all available camera properties in a single call.
-<pre><code>
-
+<pre><code>:::javascript
            
 function determine_camera_capabilities() {
   var capabilitiesList = "&lt;ul&gt;"; 
@@ -761,8 +756,7 @@ function determine_camera_capabilities() {
 ###Select picture from device gallery
 
 Apart from taking new pictures, the Camera API also lets you access existing images on the device's gallery.
-<pre><code>
-
+<pre><code>:::javascript
            
 function select_picture_from_gallery() {
   Rho.Camera.choose_picture({}, picture_taken_callback);

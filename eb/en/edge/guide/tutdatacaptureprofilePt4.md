@@ -1,4 +1,4 @@
- <!-- Launchpad Link id: tutdatacaptureprofile
+<!-- Launchpad Link id: tutdatacaptureprofile
     usage <a data-link="id">blah blah</a>
     replace id
 -->
@@ -40,19 +40,19 @@ Next we will update "MainActivity", adding a button to launch our "BroadcastInte
 1. Select "activity_main.xml" from "Package Explorer" in Eclipse.  
 	![img](https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image170.jpg)  
 2. Add the following Button to "activity_main.xml". This Button will be used for opening "BroadcastIntentActivity".  
-	<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml" 
-    _jivemacro_uid="_1398870592774641">
- 	<p>&lt;Button<p>	
-    <p>	android:id="@+id/buttonBroadcastIntent"</p>
-    <p>	android:layout_width="wrap_content"</p>
-    <p>	android:layout_height="wrap_content"</p>
-    <p>	android:layout_alignParentBottom="true"</p>
-    <p>	android:layout_marginBottom="50dp"</p>
-    <p>	android:layout_marginLeft="120dp"</p>
-    <p>	android:text="Broadcast Intent" " /&gt;</p>
-	</pre>
 
-	![img](https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image171.jpg)  
+	<pre name="code" class="xml">
+ 	&lt;Button	
+	android:id="@+id/buttonBroadcastIntent"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_alignParentBottom="true"
+	android:layout_marginBottom="50dp"
+	android:layout_marginLeft="120dp"
+	android:text="Broadcast Intent" " &gt;
+    </pre>
+	
+    ![img](https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image171.jpg)  
 3. Select "MainActivity.java" from "Package Explorer" in Eclipse. 
 
 	![img](https://s3-us-west-1.amazonaws.com/launchpad-images/emdk/setup/image172.jpg) 

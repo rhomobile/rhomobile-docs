@@ -102,8 +102,7 @@ The keystate indicator positions are absolute and so when rotating the screen yo
 ###Show the Keystate Indicators
 
 If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows.
-<pre><code>
-
+<pre><code>:::javascript
                             
 function show_keystates(){
     Rho.Keystate.showStates({width:25;height:25});

@@ -3132,8 +3132,7 @@ In order to use the scanner with RhoElements Native Apps you will need to either
 ###Scan barcodes with the default scanner
 
 Getting started with barcode scanning is very straightforward. If you do not need to customize the defaults, you need very little code.
-<pre><code>
-
+<pre><code>:::javascript
            
 function scan_using_default_scanner(){
   // Scan with default options
@@ -3158,8 +3157,7 @@ function scan_received(params)
 ###Select which scanner to use
 
 By default, Rho::Barcode will select a hardware scanner if present on the device. If you want to let the user choose which scanner to use at any particular time, you must enumerate the available scanners and select one from the set.
-<pre><code>
-
+<pre><code>:::javascript
            
 var scanners;
              
@@ -3193,8 +3191,7 @@ function scan_received_callback(params)
 ###Set recognized symbologies
 
 Specify which symbologies the barcode scanner must recognize.
-<pre><code>
-
+<pre><code>:::javascript
            
 // For the purpose of this example, let's say our application only needs to recognize one type of barcode.
 // In that case, we will disable all decoders...
@@ -3210,8 +3207,7 @@ Rho.Barcode.take({}, scan_received_callback);
 ###Control scanner properties
 
 Examples of setting barcode scanner properties.
-<pre><code>
-
+<pre><code>:::javascript
            
 // There are over 200 properties to fine-tune the barcode scanner functionality and adapt it to suit your application.
 // Almost all properties depend on the scanner hardware for support, please check the documentation to see if your device
@@ -3247,8 +3243,7 @@ Rho.Barcode.beamWidth = "wide";
 ###Change audible options
 
 You can customize or eliminate the beep that the device emits when a barcode is recognized. Support and valid ranges for these values depend on the device.
-<pre><code>
-
+<pre><code>:::javascript
            
 // Maximum volume (default)
 Rho.Barcode.decodeVolume = 5;

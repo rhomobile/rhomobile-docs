@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["signature"]
+<pre name="code" class="ruby">extensions: ["signature"]
 </pre>
 
 
@@ -27,8 +26,7 @@ extensions: ["signature"]
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-app_type: "rhoelements"
+<pre name="code" class="ruby">app_type: "rhoelements"
 </pre>
 
 
@@ -529,22 +527,22 @@ The filename in which to store the signature image, if &ldquo;image&rdquo; is us
 
 <h3>Fullscreen and In-line</h3>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                    The signature capture feature can work in two visual modes, Fullscreen and In-line. The fullscreen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the in-line signature capture, there are no such buttons so these will have to be designed into the app itself.
+<pre><code>                    The signature capture feature can work in two visual modes, Fullscreen and In-line. The fullscreen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the in-line signature capture, there are no such buttons so these will have to be designed into the app itself.
 </pre>
 
 <h3>Parameters which clear the signature</h3>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                    The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
+<pre><code>                    The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
 </pre>
 
 <h3>Page Navigation</h3>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                    In Android, the state of the signature will not be cleared on page navigation whereas in Windows, the state of the signature is cleared.
+<pre><code>                    In Android, the state of the signature will not be cleared on page navigation whereas in Windows, the state of the signature is cleared.
 </pre>
 
 <h3>Persistent Behaviour</h3>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">                    While using "takeFullScreen" method, if we press Home button and re-launch the application the state won't be persisted in Android platform.
+<pre><code>                    While using "takeFullScreen" method, if we press Home button and re-launch the application the state won't be persisted in Android platform.
 </pre>
 
 <h2>Examples</h2>
@@ -555,9 +553,7 @@ The filename in which to store the signature image, if &ldquo;image&rdquo; is us
 
 <p>In the view, we have an img element to display the captured signature and a JavaScript function to update it</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-           
-&lt;div data-role="page"&gt;
+<pre name="code" class="javascript">&lt;div data-role="page"&gt;
 
     
   &lt;div data-role="header" data-position="in-line"&gt;
@@ -584,10 +580,7 @@ The filename in which to store the signature image, if &ldquo;image&rdquo; is us
 
 <p>Several properties affect the appearance of the signature capture functionality. You can set their values before showing the capture interface:</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-// Change fullscreen from true (default) to false
+<pre name="code" class="javascript">// Change fullscreen from true (default) to false
 // Change background color from white (default) to black
 // Change pen color from blue (default) to white
 Rho::Signature.show ({:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penColor =&gt; "#FFFFFF"});
@@ -600,10 +593,7 @@ Rho::Signature.show ({:fullScreen =&gt; false, :bgColor =&gt; "#000000", :penCol
 
 <p>By default, the Signature API returns the capture as an image. If you prefer a DataURI representation of the signature, use the &ldquo;outputFormat&rdquo; property</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-Rho.Signature.takeFullScreen({outputFormat : "dataUri"}, signature_callback)
+<pre name="code" class="javascript">Rho.Signature.takeFullScreen({outputFormat : "dataUri"}, signature_callback)
                    
                  
 </pre>

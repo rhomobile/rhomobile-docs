@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["screenorientation"]
+<pre name="code" class="ruby">extensions: ["screenorientation"]
 </pre>
 
 
@@ -215,9 +214,7 @@ extensions: ["screenorientation"]
 
 <p>Detect when the device changes orientation.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function start_detecting_orientation_changes(){
+<pre name="code" class="javascript">function start_detecting_orientation_changes(){
   ScreenOrientation.setScreenOrientationEvent(orientation_callback)
 }
  
@@ -234,9 +231,7 @@ function orientation_callback(){
 
 <p>Set the screen orientation programmatically. Particularly useful in a tablet: before capturing a signature, set the orientation to upside-down so that the interface will look right from the signer&rsquo;s point of view without having to physically rotate the device.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-function capture_signature_with_attention_to_details() {
+<pre name="code" class="javascript">function capture_signature_with_attention_to_details() {
     // Set screen orientation to upside down
     Rho.ScreenOrientation.upsideDown();
 
@@ -260,9 +255,7 @@ function signature_callback(params) {
 
 <p>Enable / disable automatic rotation of the screen according to device orientation.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-// Enable autorotate
+<pre name="code" class="javascript">// Enable autorotate
 Rho.ScreenOrientation.autoRotate=true;
 
 // Disable autorotate

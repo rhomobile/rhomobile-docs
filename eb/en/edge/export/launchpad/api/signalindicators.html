@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["indicators"]
+<pre name="code" class="ruby">extensions: ["indicators"]
 </pre>
 
 
@@ -27,8 +26,7 @@ extensions: ["indicators"]
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-app_type: "rhoelements"
+<pre name="code" class="ruby">app_type: "rhoelements"
 </pre>
 
 
@@ -268,9 +266,7 @@ The current WINs server IP address.  Not available on Android and iOS. Platforms
 
 <p>Synchronously: If you are only interested in the current signal state, for example to decide whether to perform some online operation then you can immediately determine the WLAN status as follows</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-  function signal_status_sync(){
+<pre name="code" class="javascript">  function signal_status_sync(){
 
     signalValue = Rho.Signal.wlanStatus;
     console.log(signalValue);
@@ -283,9 +279,7 @@ The current WINs server IP address.  Not available on Android and iOS. Platforms
 
 <p>Asynchronously:  If you want to be notified of changes to the WLAN signal then you can register to receive values through a callback</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-  function signal_status_async(){
+<pre name="code" class="javascript">  function signal_status_async(){
     console.log("Registering Signal Callback");
     Rho.Signal.wlanStatus(signalEvent);
   }
@@ -302,9 +296,7 @@ The current WINs server IP address.  Not available on Android and iOS. Platforms
 
 <p>If you just want to display the signal indicator in the default position and default colour then call as follows</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-  function show_signal_icon(){
+<pre name="code" class="javascript">  function show_signal_icon(){
     Rho.Signal.showIcon({});
   }
                     
@@ -314,9 +306,7 @@ The current WINs server IP address.  Not available on Android and iOS. Platforms
 
 <p>To display the signal icon at the default position but blue and vertical specify as follows</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-  function show_signal_icon(){
+<pre name="code" class="javascript">  function show_signal_icon(){
     Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
   }
   

@@ -15,8 +15,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["coreapi"]
+<pre name="code" class="ruby">extensions: ["coreapi"]
 </pre>
 
 
@@ -687,10 +686,7 @@ URL to page which will be loaded into tab. It may be path to Ruby controller act
 
 <p>If your application is internationalized, you may want to set the locale depending on the user&rsquo;s preference.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-Rho.Application.setLocale('en')
+<pre name="code" class="javascript">Rho.Application.setLocale('en')
 var current_locale = Rho.Application.locale();
 alert(current_locale)
                    
@@ -702,10 +698,7 @@ alert(current_locale)
 
 <p>There are times where you need access to files bundled with your application, or to write files to a safe folder. These examples show how to retrieve each of the several important folders available.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-           
-     // Get and show the various app folders
+<pre name="code" class="javascript">     // Get and show the various app folders
      var appFolder = Rho.Application.appBundleFolder;
      var appsBundleFolder = Rho.Application.appsBundleFolder;
      var databaseBlobFolder = Rho.Application.databaseBlobFolder;
@@ -728,9 +721,7 @@ alert(current_locale)
 
 <p>This will minimize your application.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-Rho.Application.minimize();
+<pre name="code" class="javascript">Rho.Application.minimize();
                  
 </pre>
 
@@ -739,9 +730,7 @@ Rho.Application.minimize();
 
 <p>This will exit your application.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-Rho.Application.quit();
+<pre name="code" class="javascript">Rho.Application.quit();
                  
 </pre>
 
@@ -750,9 +739,7 @@ Rho.Application.quit();
 
 <p>This will restore you application.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-Rho.Application.restore();
+<pre name="code" class="javascript">Rho.Application.restore();
                  
 </pre>
 

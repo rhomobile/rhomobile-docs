@@ -211,8 +211,7 @@ To build the keycapture API into your application you must specify the 'hardware
 ###Disabling all keys
 
 This shows how to capture all hardware keys so that they are not propagated through to the page.
-<pre><code>
-
+<pre><code>:::javascript
                     
     Rho.KeyCapture.captureKey(false, "ALL", callback);
                             
@@ -222,8 +221,7 @@ This shows how to capture all hardware keys so that they are not propagated thro
 ###Capturing all keys
 
 This shows how to get notified when any hardware key is pressed (except trigger keys). In this example, the keys will pass through to the web page.
-<pre><code>
-
+<pre><code>:::javascript
                     
     function keyCallback(result)
     {
@@ -238,8 +236,7 @@ This shows how to get notified when any hardware key is pressed (except trigger 
 ###Remapping ET1 P keys to arrow keys
 
 In this example, the P1 and P2 keys of the ET1 tablet are remapped to the left key and right key respectively.
-<pre><code>
-
+<pre><code>:::javascript
                 
 function remap()
 {
@@ -253,8 +250,7 @@ function remap()
 ###Trigger capture
 
 This example notifies the user when a trigger key is pressed.
-<pre><code>
-
+<pre><code>:::javascript
                 
 function trigger()
 {
@@ -272,8 +268,7 @@ function triggerCallback(result)
 ###HomeKeyValue
 
 The following example will navigate to the RhoElements start page when return is pressed.
-<pre><code>
-
+<pre><code>:::javascript
                 
 function goHome()
 {
@@ -286,8 +281,7 @@ function goHome()
 ###iPhoneVolume
 
 The following example shows how to capture the iPhone Volume Up trigger.
-<pre><code>
-
+<pre><code>:::javascript
                 
     function keyCallback(result)
     {

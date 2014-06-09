@@ -12,8 +12,7 @@
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::js
-var productModel = Rho.ORM.addModel(function(model){
+<pre name="code" class="js">var productModel = Rho.ORM.addModel(function(model){
   model.modelName("Product");
   model.enable("sync");
   model.property("name","string");
@@ -45,8 +44,7 @@ product.get('name'); // iPhone5
 
 
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">:::ruby
-extensions: ["coreapi"]
+<pre name="code" class="ruby">extensions: ["coreapi"]
 </pre>
 
 
@@ -518,10 +516,7 @@ List of attributes and their updated values, such as {name : "ABC Inc.",address:
 
 <p>Use method make for creating a new ORM object and assign given attributes. Make does not save to the database until you execute a .save. To insert a new record right away use the create method instead.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var account = Account.make({name: "ABC Inc.", address: "555 5th St."});
+<pre name="code" class="javascript">var account = Account.make({name: "ABC Inc.", address: "555 5th St."});
 account.get("name") // "ABC Inc." 
                             
 </pre>
@@ -529,10 +524,7 @@ account.get("name") // "ABC Inc."
 
 <p>Use method Create for creating a new ORM object and save to the database.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var account = Account.create({name: "some new record", industry: "electronics"})  
+<pre name="code" class="javascript">var account = Account.create({name: "some new record", industry: "electronics"})  
                             
 </pre>
 
@@ -541,10 +533,7 @@ var account = Account.create({name: "some new record", industry: "electronics"})
 
 <p>Delete all Rhodes model objects for a source, filtering by conditions.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-Account.deleteAll();
+<pre name="code" class="javascript">Account.deleteAll();
                             
 </pre>
 
@@ -553,20 +542,14 @@ Account.deleteAll();
 
 <p>Find all objects for specific ORM model</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-vat accounts = Account.find('all');
+<pre name="code" class="javascript">vat accounts = Account.find('all');
                             
 </pre>
 
 
 <p>Find all objects for specific ORM model with conditions</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var accounts = Account.find(
+<pre name="code" class="javascript">var accounts = Account.find(
     'all',
     {
       conditions: {industry: 'Technology'}
@@ -578,10 +561,7 @@ var accounts = Account.find(
 
 <p>Use select option for retrieves some attributes of object.  You must pass &ldquo;conditions&rdquo; hash with Javascript implementation.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var accounts = Account.find(
+<pre name="code" class="javascript">var accounts = Account.find(
     'all',
     {
       conditions: {name:'address'},
@@ -596,10 +576,7 @@ accounts[0].get("telephone"); // nil
 
 <p>Order option is used to sort objects by one or more attributes. You must pass a  conditions hash to use ordering.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var accounts = Account.find(
+<pre name="code" class="javascript">var accounts = Account.find(
     'all',
     {
       conditions: {"name":"industry"},
@@ -613,10 +590,7 @@ var accounts = Account.find(
 
 <p>Order by multiple attributes. You must pass conditions hash.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var accounts = Account.find(
+<pre name="code" class="javascript">var accounts = Account.find(
     'all',
     {
       conditions: {"name":"industry"},
@@ -630,10 +604,7 @@ var accounts = Account.find(
 
 <p>Order by one attribute with an orderFunction.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var accounts = Account.find(
+<pre name="code" class="javascript">var accounts = Account.find(
     'all',
     {
       order: 'name',
@@ -646,10 +617,7 @@ var accounts = Account.find(
 
 <p>Order with a block.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var accounts = Account.find(
+<pre name="code" class="javascript">var accounts = Account.find(
     'all',
     {
       orderFunction: function (item1, item2) { return item1.name &lt;= item2.name }
@@ -663,10 +631,7 @@ var accounts = Account.find(
 
 <p>Destroy a Rhodes model object from database.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-                
-var account = Account.find('first');
+<pre name="code" class="javascript">var account = Account.find('first');
 account.destroy();
                             
 </pre>
@@ -676,9 +641,7 @@ account.destroy();
 
 <p>Update the current ORM object’s attributes and saves it to the database.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-var account = Account.find("first", {conditions: {name: "ABC Inc."});
+<pre name="code" class="javascript">var account = Account.find("first", {conditions: {name: "ABC Inc."});
 account.updateAttributes({name: "ABC Inc.", industry: "Technology"});
 account.get("industry") // "Technology"
 </pre>
@@ -688,9 +651,7 @@ account.get("industry") // "Technology"
 
 <p>Saves the current ORM object to the database.</p>
 
-<pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-
-var account = Account.make({name: "some new record", industry: "electronics"});
+<pre name="code" class="javascript">var account = Account.make({name: "some new record", industry: "electronics"});
 account.save();
 </pre>
 
