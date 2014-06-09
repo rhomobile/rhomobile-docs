@@ -276,7 +276,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >Screen\\PageZoom</td>
 <td >PAGEZOOM</td>
-<td >Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. Negative Values and 0.0 is not supported.<a href="#_pageZoom">* (see remark)</a></td>
+<td >Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.<a href="#_pageZoom">* (see remark)</a></td>
 <td >Zoom factor of the page.</td>
 </tr>
 <tr>
