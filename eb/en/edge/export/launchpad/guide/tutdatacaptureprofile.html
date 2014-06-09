@@ -9,6 +9,11 @@
 
 <h2>Developing an EMDK for Android Application Part 1</h2>
 
+<p><a href="../guide/profilebarcode">a local link same folder</a>
+<a href="../api/Adapter">a local link other folder</a>
+<a href="http://www.google.com">a remote link</a>
+<a href="https://www.google.com">another remote link</a></p>
+
 <p>This guide will walk you through creating an EMDK For Android application that will use <a data-link="profilebarcode">Data Capture Profiles</a> to get barcode data into your application using the <a data-link="profilekeystroke">KeyStroke output</a> feature of <a data-link="usingwizard">EMDK Profiles</a>.</p>
 
 <h3>Prerequisites</h3>
@@ -280,8 +285,7 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
 <li><p>Remove the default &ldquo;TextView&rdquo;, inside &ldquo;res/layout/activity_main.xml&rdquo;.</p></li>
 <li><p>Add an EditText Field in the UI called &ldquo;editTextBarcode&rdquo;, inside &ldquo;res/layout/activity_main.xml&rdquo;.</p>
 
-<p> <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="xml"
-   _jivemacro_uid="_1398870592774641">
+<p> 
    <p> &lt;EditText</p></p>
 
 <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641"> &lt;p&gt;    android:id="@+id/editTextBarcode"&lt;/p&gt;
@@ -292,7 +296,7 @@ If you are using Java 1.7 as the compiler, you may see this error</p></blockquot
  &lt;p&gt;    android:ems="10" &amp;gt;&lt;/p&gt;
 </pre>
 
-<p>  </pre></p></li>
+<p>  </p></li>
 <li><p>Connect Motorola Solutions Android device (having the latest EMDK runtime) to the USB port.</p>
 
 <blockquote><p>Note: <br/>
@@ -310,11 +314,6 @@ Make sure the device is in USB debug.</p></blockquote></li>
 <ol>
 <li><p>It is required to do the following changes in the application&rsquo;s AndroidManifest.xml:</p>
 
-<blockquote><p>Note:
-* Include the permission for EMDK:<br/>
- <uses-permission android:name="com.symbol.emdk.permission.EMDK"/>
-* Use the EMDK library:<br/>
- <uses-library android:name="com.symbol.emdk"/></p></blockquote></li>
 <li><p>When using the &ldquo;Barcode&rdquo; feature in EMDK Wizard, the specified value for &ldquo;Scanner&rdquo; is not supported on the device, it will be considered as &ldquo;Auto&rdquo; during runtime (Ex: BT_LASER1, BT_IMAGER1 and BT_CAMERA1).</p></li>
 <li>Installing the EMDK for Android application without deploying the EMDK runtime on the Motorola Solutions Android  device will fail because of missing shared library on the device.</li>
 <li>Use the DataWedge v1.7.12 or higher version to test the ProfileManager.processProfile() for DataWedge profiles.</li>

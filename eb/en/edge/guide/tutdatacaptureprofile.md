@@ -5,6 +5,11 @@
 <div class="tableofcontents"> </div>
 ## Developing an EMDK for Android Application Part 1
 
+[a local link same folder](../guide/profilebarcode)
+[a local link other folder](../api/Adapter)
+[a remote link](http://www.google.com)
+[another remote link](https://www.google.com)
+
 This guide will walk you through creating an EMDK For Android application that will use <a data-link="profilebarcode">Data Capture Profiles</a> to get barcode data into your application using the <a data-link="profilekeystroke">KeyStroke output</a> feature of <a data-link="usingwizard">EMDK Profiles</a>. 
 
 ###Prerequisites###

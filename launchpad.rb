@@ -36,11 +36,51 @@ class Launchpad
 	  	}
 	
   end
+  
+  def self.replace_url (topic,url_map,env)
+    # find all a href="" and decide if it should be changed
 
-  def self.publish_html(topic,url_map,env)
+    # read file contents
+    html = File.read(topic)
+    matched = false
+    html_mod = html.gsub(/<a href="(.*?)"/m) do |m|
+      match = $1
+      index_key = $1
+      # if starts with ../ then use the string minus the ../ for the index
+      if index_key.start_with?('../') 
+        index_key.gsub!('../','')
+      end
+      # otherwise use the match for the lookup
+      if url_map[index_key].nil?
+        # do nothing, myable external url or one we do not know
+        m
+      else
+        # if exisrts in mapping but is blank then we need to create it
+        if url_map[index_key]["url"][env] == ""
+          puts "ERROR: #{index_key} missing url"
+          m
+        else
+          # get the lookup for the real LP url
+          # then replace the a href tag with the lookup
+          matched = true
+          newurl = url_map[index_key]["url"][env]
+          puts "\n#{index_key} => #{newurl}"
+          puts "\n#{match}"
+          puts "\n#{m}"
+          m.gsub(match,url_map[index_key]["url"][env])
+        end
+      end      
+      
+    end
+    if matched
+      puts "\nReposting #{topic}"
+      publish_html(topic,html_mod,url_map,env)
+    end
+  end
+  
+  def self.publish_html(topic,html,url_map,env)
 
   	# read file contents
-  	html = File.read(topic)
   	warnings = [] #missing titles or unable to post
     newfiles = [] #file is a new post to Launchpad
     missingfiles = [] #file is missed from mapping

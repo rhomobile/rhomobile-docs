@@ -215,9 +215,19 @@ def lp_publish_html
     apiFiles.each do |fileName|
       basename = fileName.gsub(AppConfig['launchpad_eb'],'')
         print "."
-        Launchpad.publish_html(fileName,url_map,"uat")
+        html = File.read(fileName)
+    
+         Launchpad.publish_html(fileName,html,url_map,"uat")
       
     end
+    # Edit document with updated links
+    apiFiles.each do |fileName|
+      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        Launchpad.replace_url fileName,url_map,"uat"
+      
+    end
+    
+    
   else
     puts 'ERROR No Mapping File Exists - run rake lp_generate_mapping_index to generate a baseline'
   end

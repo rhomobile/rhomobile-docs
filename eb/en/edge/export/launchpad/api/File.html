@@ -953,7 +953,7 @@ Number of bytes written.</li></ul></p>
 <p>Iterate through the contents of a folder and divide the entries in &ldquo;folders&rdquo; and &ldquo;files&rdquo;.</p>
 
 <pre class="jive_text_macro jive_macro_code" jivemacro="code" ___default_attr="javascript" _jivemacro_uid="_1398870592774641">
-<code>
+
            
 var folders = [];
 var files = [];
@@ -962,12 +962,12 @@ var entries = Rho.RhoFile.listDir(root_path);
 
 for (var i = 0; i &lt; entries.length; i++) {
   var entry = entries[i];
-  if ((entry != ".") &amp;&amp; (entry != "..")) {
+  if ((entry != ".") && (entry != "..")) {
 
     (Rho.RhoFile.isDir(Rho.RhoFile.join(root_path, entry)) ? folders : files).push(entry);
   }
 }
                    
-</code>                 
+                 
 </pre>
 
