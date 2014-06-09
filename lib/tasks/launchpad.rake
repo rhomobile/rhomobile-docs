@@ -5,8 +5,8 @@ end
 
 desc 'publish Launchpad HTMl pass in user= password= ex: rake lp_publish_html user=abc password=abc123 '
 task :lp_publish_html do
-  if ENV['user'].nil? || ENV['password'].nil?
-  	puts "Wrong format: rake lp_publish_html user=abc password=abc123"
+  if ENV['user'].nil? || ENV['password'].nil? || ENV['server'].nil?
+  	puts "Wrong format: rake lp_publish_html user=abc password=abc123 server=uat or prod"
   else
 	  lp_publish_html
   end
@@ -15,8 +15,8 @@ end
 
 desc 'delete docs from LP'
 task :lp_delete_docs do
-  if ENV['user'].nil? || ENV['password'].nil?
-  	puts "Wrong format: rake lp_publish_html user=abc password=abc123"
+  if ENV['user'].nil? || ENV['password'].nil? || ENV['server'].nil?
+  	puts "Wrong format: rake lp_publish_html user=abc password=abc123 server=uat or prod"
   else
 	  lp_delete_docs
   end

@@ -8,6 +8,26 @@ class Launchpad
 	@my_server = 'developer-uat.motorolasolutions.com/api/core/v3'
 	@my_user = ENV['user']
 	@my_pass = ENV['password']
+  @current_env = ENV['server']
+
+  #parent places are per folder
+  @servers = {
+    "uat" =>{
+      "server" => "developer-uat.motorolasolutions.com/api/core/v3",
+      "parent_places" => {
+        "api" => "https://developer-uat.motorolasolutions.com/api/core/v3/places/18127",
+        "guide" => "https://developer-uat.motorolasolutions.com/api/core/v3/places/18127"
+      }
+    },
+    "prod" =>{
+      "server" => "developer.motorolasolutions.com/api/core/v3",
+      "parent_places" => {
+        "api" => "",
+        "guide" => ""
+      }
+    }
+
+  }
 
   def self.generate_html(topic,parent_source)
 		#open Markdown content
@@ -82,12 +102,13 @@ class Launchpad
   end
   
   def self.publish_html(topic,html,url_map,env)
-
+    
   	# read file contents
   	warnings = [] #missing titles or unable to post
     newfiles = [] #file is a new post to Launchpad
     missingfiles = [] #file is missed from mapping
     
+    # index_key = parentfolder/filename with no extension
     index_key = topic.gsub(AppConfig['launchpad_eb'],'').gsub('.html','')
     if url_map[index_key].nil?
       #need to create doc in LP and also update mapping
@@ -109,10 +130,7 @@ class Launchpad
       html.gsub!(/<h1>(.*)<\/h1>/,'')
     end
 
-    # need to get parent for UAT or Production
-    parent = 'https://developer-uat.motorolasolutions.com/api/core/v3/places/18127'
-
-    
+     
     # create REST JSON Body		
     jdata = {
     	:visibility => 'place',
@@ -122,7 +140,7 @@ class Launchpad
     		:text => html
     		},
     	:type => 'document',
-    	:parent => parent
+    	:parent => @servers[@current_env]["parent_places"][Pathname(index_key).each_filename.to_a.first]
     	}.to_json
       
     begin
