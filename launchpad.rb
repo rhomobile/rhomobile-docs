@@ -120,7 +120,76 @@ class Launchpad
     
          
   end
-  
+
+  def self.delete_doc(topic,url_map,env)
+
+    # read file contents
+    html = File.read(topic)
+    warnings = [] #missing titles or unable to post
+    newfiles = [] #file is a new post to Launchpad
+    missingfiles = [] #file is missed from mapping
+    
+    index_key = topic.gsub(AppConfig['launchpad_eb'],'').gsub('.html','')
+    if url_map[index_key].nil?
+      #need to create doc in LP and also update mapping
+      new_doc = true
+    else
+      new_doc = false
+      # if exisrts in mapping but is blank then we need to create it
+      if url_map[index_key]["id"][env] == ""
+        new_doc = true
+      end
+    end
+   
+    begin
+      if new_doc
+        #just ignore it
+      
+      else
+        # puts "Updating"
+        rest_method = "delete"
+        # Jive V3 Endpoint
+        endpoint = url_map[index_key]["id"][env].gsub("https://","https://#{@my_user}:#{@my_pass}@")
+      # Delete Doc
+      response = RestClient::Request.execute :method=> rest_method, :url => endpoint, 
+      :headers => {'Content-Type' => 'application/json'}
+       
+
+        #response.code = 201 is success, else parsed.message = error message, parsed.code
+        # if response.code == 201
+          #Jive REST API for Document Update
+          url_map[index_key]["id"][env] = ""
+          #Jive URL to document
+          url_map[index_key]["url"][env] = ""
+          # puts url_map[index_key]
+          outputfile = "#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"
+          File.open("#{outputfile}", 'w') {|f| 
+            f.write(url_map.to_s) 
+          }
+        # else
+          # puts "ERROR: #{topic}:#{response.code}#{response.message}"
+        # end
+      end
+      
+    rescue => e
+      puts "ERROR: #{topic}:#{e.response}"
+      response =  JSON.parse(e.response.to_s)
+      if response["error"]["status"] == 404
+        # then doc does not exist on LP so clear mapping anyway
+        url_map[index_key]["id"][env] = ""
+        #Jive URL to document
+        url_map[index_key]["url"][env] = ""
+        # puts url_map[index_key]
+        outputfile = "#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"
+        File.open("#{outputfile}", 'w') {|f| 
+          f.write(url_map.to_s) 
+        }
+      end
+    end
+    
+         
+  end
+   
   # Used to created baseline hash object stored in file 
   # to be used to track mapping of files created on launchpad
   def self.generate_mapping_index

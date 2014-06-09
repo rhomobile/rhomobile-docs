@@ -223,6 +223,30 @@ def lp_publish_html
   end
 end
 
+def lp_delete_docs
+  $stdout.sync = true
+  # Get Mapping File
+  if File.file?("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}")
+    # Open mapping file that has a string in Ruby hash format
+    # this object will be used to hold id/urls of documents created
+    url_map = eval(File.read("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"))
+    # puts url_map
+
+    puts "Getting HTML in #{AppConfig['launchpad_eb']}"
+    apiMD = File.join(AppConfig['launchpad_eb'],"**","*.html")
+    
+    apiFiles = Dir.glob(apiMD)
+    apiFiles.each do |fileName|
+      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        print "."
+        Launchpad.delete_doc(fileName,url_map,"uat")
+      
+    end
+  else
+    puts 'ERROR No Mapping File Exists - run rake lp_generate_mapping_index to generate a baseline'
+  end
+end
+
 
 
 def update_xml
