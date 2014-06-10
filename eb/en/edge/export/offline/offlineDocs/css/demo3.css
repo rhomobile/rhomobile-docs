@@ -64,3 +64,13 @@ format("eot"),url("fonts/57/1eaf27c0-f4de-4273-9f4c-1b3236ad2f3c.woff")
 	margin-top:2px;
 	margin-right:40px;
 }
+#searchRes{
+	height:300px;
+	max-height:300px;
+	width:256px;
+	overflow:auto;
+}
+
+.highlight {
+	background-color: #f5f500;
+}

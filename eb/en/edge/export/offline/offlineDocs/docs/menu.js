@@ -1,6 +1,6 @@
 var menuStrcture = [
 	{
-		title: 'Documents',
+		title: 'Help',
 		icon: 'fa fa-reorder',
 		items: [
 			{
