@@ -8,10 +8,11 @@ class Offline
 	  puts "Generating JSON Index: #{AppConfig['offline_eb']}#{AppConfig['offline_eb_mapping']}"
 	  apiMD = File.join(AppConfig['api_eb'],"**","*.md")
 	  apiFiles = Dir.glob(apiMD)
-	  index_hash = []
+	  index_hash = {}
 	  apiFiles.each do |fileName|
 	    basename = fileName.gsub(AppConfig['api_eb'],'')
-	    md = File.read(fileName)
+	    parent = Pathname(fileName.gsub(basename,'')).each_filename.to_a.last
+      	md = File.read(fileName)
 	    if md.match(/#(.*)$/).nil? 
 	    	title = basename.gsub('.md','')
 	    else
@@ -19,11 +20,11 @@ class Offline
 	    end
 		
 	    puts "Processing API: #{title} in #{basename}"
-	    hash_object = {
+	    hash_object =   {
 	      :name => title,
 	      :md => md
 	    }
-	    index_hash.push hash_object    
+	    index_hash["#{parent}-#{basename.gsub('.md','')}"] = hash_object    
 	  end
 
 	  guidesMD = File.join(AppConfig['guides_eb'],"**","*.md")
@@ -31,7 +32,8 @@ class Offline
 
 	  guidesFiles.each do |fileName|
 	    basename = fileName.gsub(AppConfig['guides_eb'],'')
-	    md = File.read(fileName)
+	    parent = Pathname(fileName.gsub(basename,'')).each_filename.to_a.last
+      	md = File.read(fileName)
 	    if md.match(/#(.*)$/).nil? 
 	    	title = basename.gsub('.md','')
 	    else
@@ -39,16 +41,16 @@ class Offline
 	    end
 		
 	    puts "Processing Guide: #{title} in #{basename}"
-	    hash_object = {
+	    hash_object =   {
 	      :name => title,
 	      :md => md
 	    }
-	    index_hash.push hash_object    
+	    index_hash["#{parent}-#{basename.gsub('.md','')}"] = hash_object    
 	  end
 
-	  outputfile = "#{AppConfig['offline_eb']}#{AppConfig['offline_eb_mapping']}"
+	  outputfile = "#{AppConfig['offline_eb_mapping']}"
 		File.open("#{outputfile}", 'w') {|f| 
-			f.write(index_hash.to_json) 
+			f.write("var docs = #{index_hash.to_json};") 
 		}
 
 	end

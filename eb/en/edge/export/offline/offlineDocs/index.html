@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+
+        <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">
+        <link rel="stylesheet" href="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu_red.css">
+		<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/demo3.css">
+		
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/Markdown.Converter.js"></script>
+		<script type="text/javascript" src="js/jquery.highlight.js"></script>
+		<script type="text/javascript" src="js/fuse.js"></script>
+		<script type="text/javascript" src="docs/docs.js"></script>
+		<script type="text/javascript" src="docs/menu.js"></script>
+		<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+		
+        <script type="text/javascript" src="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu.js"></script>
+        <script type="text/javascript" src="js/modernizr.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				// HTML markup implementation, overlap mode
+				$( '#menu' ).multilevelpushmenu({
+					menu:menuStrcture,
+					containersToPush: [$( '#pushobj' )],
+
+					//Setup the look of the menu
+					wrapperClass: 'mlpm_w',
+					menuInactiveClass: 'mlpm_inactive',
+					
+					//Get links to work
+					onItemClick: function() {
+						// Anchor href
+						var itemHref = $item.find( 'a:first' ).attr( 'href' );
+						// Redirecting the page
+						location.href = itemHref;
+					}
+				});
+				
+				//Check for url change
+				$(window).on('hashchange', function(e)
+				{
+					var hash = location.hash.replace("#","");
+					loadDoc(hash);
+				});
+				
+				// Load Starting Page
+				loadDoc('guide-about');
+			});
+
+			function loadDoc(i)
+			{
+				var converter = new  Markdown.Converter();
+				$("#markdownDoc").html(converter.makeHtml(docs[i].md));
+				
+				$("#markdownDoc").animate({ scrollTop: 0 }, 500);
+				
+				//search();
+			}
+				
+			function search()
+			{
+				$("#markdownDoc").unhighlight();
+					
+				var words = $("#searchBox").val().split(" "); 
+				for(var i = 0; i<words.length; i++)
+				{
+					$("#markdownDoc").highlight(words[i]);
+				}
+					
+				var options = {
+					caseSensitive: false,
+					includeScore: false,
+					shouldSort: true,
+					threshold: 0.5,
+					location: 0,
+					distance: 10000,
+					maxPatternLength: 32,
+					keys: ["md"]
+				};
+					
+				var fuse = new Fuse(docs, options); // "list" is the item array
+					
+				var result = fuse.search($("#searchBox").val());
+					
+				var html = "";
+				for(var i = 0; i<result.length; i++)
+				{
+					for(var j = 0; j<docs.length; j++)
+					{
+						if(docs[j].name == result[i].name)
+						{
+							html += '<p><a href="#' + j + '">' + result[i].name + '</a></p>';
+							break;
+						}
+					}
+				}
+				$("#searchRes").html(html);
+			}
+		</script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="pushobj">
+			<div id="docsHeader">
+				Motorola EMDK documentation
+				
+				<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search">
+			</div>
+			<div id="markdownDoc">
+				
+			</div>
+        </div>
+		
+        <div id="menu">
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
+
+#pushobj {
+	position: absolute;
+	top: 7px;
+	left: 210px;
+	color: #000;
+	font-family: 'Open Sans Condensed', sans-serif;
+	z-index: 0;
+	margin-right:0px !important;
+	top:0px;
+	right:0px;
+	bottom:0px;
+}
+
+#docsHeader{
+	background-color: #CE3130;
+	color:#870000;
+	padding-top:6px;
+	padding-bottom:5px;
+	padding-left:20px;
+	border-bottom: solid 1px #870000;
+	font-size: 2em;
+}
+
+#markdownDoc{
+	padding-left:40px;
+	padding-right:25px;
+	position: absolute;
+	top:52px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	overflow:auto;
+}
+
+#searchBox{
+	width:300px;
+	float:right;
+	margin-top:2px;
+	margin-right:40px;
+}

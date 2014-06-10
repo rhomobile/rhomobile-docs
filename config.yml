@@ -10,7 +10,7 @@ development:
   launchpad_eb: 'eb/en/edge/export/launchpad/'
   launchpad_eb_mapping: 'index.hash'
   offline_eb: 'eb/en/edge/export/offline/'
-  offline_eb_mapping: 'index.json'
+  offline_eb_mapping: 'eb/en/edge/export/offline/offlineDocs/docs/docs.js'
 
   index: 'rhodocs_edge'
   pdfkithost: 'localhost:9393'
