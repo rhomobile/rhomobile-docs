@@ -11,7 +11,7 @@
         <meta name="description" content="">
 
         <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">
-        <link rel="stylesheet" href="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu_red.css">
+        <link rel="stylesheet" href="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu_grey.css">
 		<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/demo3.css">
 		
@@ -60,13 +60,28 @@
 			function loadDoc(i)
 			{
 				var converter = new  Markdown.Converter();
-				$("#markdownDoc").html(converter.makeHtml(docs[i].md));
+				md = getByKey(i).md;
+				$("#markdownDoc").html(converter.makeHtml(md));
 				
 				$("#markdownDoc").animate({ scrollTop: 0 }, 500);
 				
 				//search();
 			}
-				
+			
+			function getByKey(key) {
+			    var found = null;
+
+			    for (var i = 0; i < docs.length; i++) {
+			        var element = docs[i];
+
+			        if (element.key == key) {
+			           found = element;
+			       } 
+			    }
+
+			    return found;
+			}
+
 			function search()
 			{
 				$("#markdownDoc").unhighlight();
@@ -112,13 +127,13 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <div id="pushobj">
 			<div id="docsHeader">
 				Motorola EMDK documentation
 				
 				<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search">
 			</div>
+        <div id="pushobj">
+			
 			<div id="markdownDoc">
 				
 			</div>

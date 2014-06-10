@@ -8,7 +8,7 @@ class Offline
 	  puts "Generating JSON Index: #{AppConfig['offline_eb']}#{AppConfig['offline_eb_mapping']}"
 	  apiMD = File.join(AppConfig['api_eb'],"**","*.md")
 	  apiFiles = Dir.glob(apiMD)
-	  index_hash = {}
+	  index_hash = []
 	  apiFiles.each do |fileName|
 	    basename = fileName.gsub(AppConfig['api_eb'],'')
 	    parent = Pathname(fileName.gsub(basename,'')).each_filename.to_a.last
@@ -21,10 +21,11 @@ class Offline
 		
 	    puts "Processing API: #{title} in #{basename}"
 	    hash_object =   {
+	    	:key => "#{parent}-#{basename.gsub('.md','')}",
 	      :name => title,
 	      :md => md
 	    }
-	    index_hash["#{parent}-#{basename.gsub('.md','')}"] = hash_object    
+	    index_hash.push hash_object    
 	  end
 
 	  guidesMD = File.join(AppConfig['guides_eb'],"**","*.md")
@@ -42,10 +43,11 @@ class Offline
 		
 	    puts "Processing Guide: #{title} in #{basename}"
 	    hash_object =   {
+	    	:key => "#{parent}-#{basename.gsub('.md','')}",
 	      :name => title,
 	      :md => md
 	    }
-	    index_hash["#{parent}-#{basename.gsub('.md','')}"] = hash_object    
+	    index_hash.push hash_object    
 	  end
 
 	  outputfile = "#{AppConfig['offline_eb_mapping']}"
