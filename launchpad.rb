@@ -80,16 +80,14 @@ class Launchpad
       else
         # if exisrts in mapping but is blank then we need to create it
         if url_map[index_key]["url"][env] == ""
-          puts "ERROR: #{index_key} missing url"
+          puts "\nERROR: #{index_key} missing url"
           m
         else
           # get the lookup for the real LP url
           # then replace the a href tag with the lookup
           matched = true
           newurl = url_map[index_key]["url"][env]
-          puts "\n#{index_key} => #{newurl}"
-          puts "\n#{match}"
-          puts "\n#{m}"
+          
           m.gsub(match,url_map[index_key]["url"][env])
         end
       end      
@@ -175,7 +173,7 @@ class Launchpad
         # puts "Success: ID => #{@documentId}"
       
     rescue => e
-      puts "ERROR: #{topic}:#{e} - check #{topic}.error for JSON - File may have malformed HTML - check for Amperstand escaping"
+      puts "\nERROR: #{topic}:#{e} - check #{topic}.error for JSON - File may have malformed HTML - check for Amperstand escaping"
       File.open(topic+'.error','w'){|f| 
           f.write(jdata) 
         }
@@ -235,7 +233,7 @@ class Launchpad
       end
       
     rescue => e
-      puts "ERROR: #{topic}:#{e.response}"
+      puts "\nERROR: #{topic}:#{e.response}"
       response =  JSON.parse(e.response.to_s)
       if response["error"]["status"] == 404
         # then doc does not exist on LP so clear mapping anyway
