@@ -207,7 +207,15 @@ The following is an example of a typical configuration file
       </FileLocations>
       <Screen>
         <FullScreen VALUE="1"/>
+		<PageZoom VALUE="1.0"/>
       </Screen>
+	  <VoidConnection>
+		<TrackConnection value="0"/>
+		<HostURL value="100.159.16.12"/>
+     	<Message value="Establishing Connection "/>
+     	<Timeout value="30000"/>
+		<PollInterval value="5000"/>
+	  </VoidConnection>
       <WebServer>
         <Enabled   VALUE="1"/>
         <Port      VALUE="8080"/>
@@ -462,6 +470,48 @@ The following is an example of a typical configuration file
     </tr>
 
     <tr>
+	<td >Screen\\PageZoom</td>
+	<td >PAGEZOOM</td>
+	<td >Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.<a href="#_pageZoom">* (see remark)</a></td>
+	<td >Zoom factor of the page.</td>
+	</tr>
+	
+	<tr>
+	<td >VoidConnection\\TrackConnection</td>
+	<td >TrackConnection</td>
+	<td >This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page.</td>
+	<td >Connection Tracking</td>
+	</tr>
+	
+	<tr>
+	<td >VoidConnection\\HostURL</td>
+	<td >HostURL</td>
+	<td >This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip </td>
+	<td >Connection Tracking</td>
+	</tr>
+	
+	<tr>
+	<td >VoidConnection\\Message</td>
+	<td >Message</td>
+	<td >Message is the customized Message to be shown in the pop up window.</td>
+	<td >Customized Message</td>
+	</tr>
+	
+	<tr>
+	<td >VoidConnection\\Timeout</td>
+	<td >Timeout</td>
+	<td >This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. </td>
+	<td >Timeout</td>
+	</tr>
+	
+	<tr>
+	<td >VoidConnection\\PollInterval</td>
+	<td >PollInterval</td>
+	<td >This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value .  </td>
+	<td >PollInterval</td>
+	</tr>
+	
+	<tr>
     <td class="clsEvenRow">WebServer\\Enabled</td>
     <td class="clsEvenRow">WEBSENABLED</td>
     <td class="clsEvenRow">Enables or Disables an internal web server to run locally on the device.  If running multiple applications with internal web servers consideration should be made over whether a single server should be used or multiple servers running on different ports.</td>
@@ -986,6 +1036,10 @@ The following substitution variables are available in the configuration file
 ## Remarks
 ###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity
 The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+###<a name="_pageZoom">*</a>Page Zoom Configuration
+Sometimes, while navigating from any page to any other page, the actual page zoom setting reflects after few milli seconds delay. This doesn't happens everytime.
+
+Setting page zoom property on page load event doesnot reflect the set value for the Application start page for the first time. Users are advised to set the page zoom property with a minimum of 1 second delay on page load.
 ###<a name="_batteryRefresh">*</a>Battery Polling on the Enterprise Tablet
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 ###<a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
