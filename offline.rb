@@ -20,6 +20,8 @@ class Offline
 	    end
 		
 	    puts "Processing API: #{title} in #{basename}"
+	    # Change links in MD to use hash scheme #parent folder-filename
+	    md = replace_url md
 	    hash_object =   {
 	    	:key => "#{parent}-#{basename.gsub('.md','')}",
 	      :name => title,
@@ -42,6 +44,8 @@ class Offline
 	    end
 		
 	    puts "Processing Guide: #{title} in #{basename}"
+
+	    md = replace_url md
 	    hash_object =   {
 	    	:key => "#{parent}-#{basename.gsub('.md','')}",
 	      :name => title,
@@ -56,4 +60,27 @@ class Offline
 		}
 
 	end
+
+	def self.replace_url (md)
+
+	    md_mod = md.gsub(/\[.*\]\((.*?)\)/) do |m|
+	      match = $1
+	      # if starts with ../ then use the string minus the ../ for the index
+	      if match.start_with?('../') 
+	        #strip leading path
+	        new_url = match.gsub('../','')
+	        #replace seperator
+	        new_url.gsub!('/','-')
+	        # add a hash symbol in fron
+	        # new_url => #parentFolder-filename
+	        new_url = "##{new_url}"
+	        puts "#{match} => #{new_url}"
+	        m.gsub(match,new_url)
+	      else
+	      	#leave alone
+	      	m
+	      end
+	    end
+		return md_mod    
+  	end
 end
