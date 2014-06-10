@@ -86,10 +86,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <PROPERTY name="ppiY" type="INTEGER" readOnly="true">
                 <DESC>Vertical PPI (Pixels Per Inch).</DESC>
             </PROPERTY>
-            <PROPERTY name="phoneNumber" type="STRING" readOnly="true" deprecated="true">
-                <DESC>Device phone number.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
-            </PROPERTY>
+           
             <PROPERTY name="deviceOwnerEmail" type="STRING" readOnly="true">
                 <DESC>Primary email of phone owner. To access this property 'pim' capability must be enabled in your build.yml.</DESC>
                 <PLATFORM>Android</PLATFORM>
@@ -339,12 +336,12 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                                         <DESC>The type of the value being set is a natural number (DWORD)</DESC>
                                     </VALUE>
                                     <VALUE constName="REGTYPE_MULTI_SZ" value ="MultiSZ">
-                                        <DESC>The type of the value being set is a multi line string.  Separate your lines with \n (\\n in Javascript)</DESC>
+                                        <DESC>The type of the value being set is a multi line string.  Separate your lines with \n (\\n in JavaScript)</DESC>
                                     </VALUE>
                                 </VALUES>
                             </PARAM>
                             <PARAM name="key" type="STRING">
-                                <DESC>Full path of the key, including '\' separators as required. Remember to use '\\' in Javascript to specify backslash</DESC>
+                                <DESC>Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash</DESC>
                             </PARAM>
                             <PARAM name="setting" type="STRING">
                                 <DESC>The name of the registry setting to be set</DESC>
@@ -374,7 +371,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                                 <DESC>The hive name, see setRegistrySetting</DESC>
                             </PARAM>
                             <PARAM name="key" type="STRING">
-                                <DESC>Full path of the key, including '\' separators as required. Remember to use '\\' in Javascript to specify backslash</DESC>
+                                <DESC>Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash</DESC>
                             </PARAM>
                             <PARAM name="setting" type="STRING">
                                 <DESC>The name of the setting to be retrieved</DESC>
@@ -398,7 +395,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                                 <DESC>The hive name, setRegistrySetting</DESC>
                             </PARAM>
                             <PARAM name="key" type="STRING">
-                                <DESC>Full path of the key, including '\' separators as required. Remember to use '\\' in Javascript to specify backslash</DESC>
+                                <DESC>Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash</DESC>
                             </PARAM>
                             <PARAM name="setting" type="STRING">
                                 <DESC>The name of the setting to be deleted</DESC>

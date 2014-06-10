@@ -142,9 +142,9 @@ class Indicators
       if @api["win32"]
         html = html + '<img src="/img/windows.png" style="padding-top:6px;" rel="tooltip" title="Windows Desktop XP And Windows 7">'
       end
-      if @api["win7"]
-        html = html + '<img src="/img/wp7.png" style="padding-top:6px;" rel="tooltip" title="Windows Phone 7 Devices">'
-      end
+      # if @api["win7"]
+        # html = html + '<img src="/img/wp7.png" style="padding-top:6px;" rel="tooltip" title="Windows Phone 7 Devices">'
+      # end
       if @api["wm"] or @api["wince"]
         html = html + '<img src="/img/windowsembedded.png" style="width: 180px;padding-top: 10px" rel="tooltip" title="Windows Mobile/CE from any manufacturer">'
       end
@@ -198,9 +198,9 @@ class Indicators
       if @api["wm"] or @api["wince"]
         html = html + '<li>Windows Embedded Handheld</li>'
       end
-      if @api["win7"]
-        html = html + '<li>Window Phone 7</li>'
-      end
+      # if @api["win7"]
+        # html = html + '<li>Window Phone 7</li>'
+      # end
       if @api["win32"]
         html = html + '<li>Windows 32/64</li>'
       end
@@ -260,7 +260,6 @@ The following table shows the compatibility for each Mobile API.
   <th style="text-align:center"><img src="/img/android.png" rel="tooltip" title="ET1 and Consumer Android Devices" style="width: 33px;padding-top: 6px;"></th>
   <th colspan="3" style="text-align:center"><img src="/img/windowsembedded.png" style="width: 180px;padding-top: 10px" rel="tooltip" title="Windows Mobile/CE from any manufacturer"></th>
   <th  style="text-align:center"><img src="/img/windows.png" style="padding-top:6px;" rel="tooltip"  title="Windows Desktop XP And Windows 7"></th>
-  <th style="text-align:center"><img src="/img/wp7.png"  style="padding-top:6px;" rel="tooltip" title="Windows Phone 7 Devices"></th>
   <th><img src="/img/bb.png"  style="width:30px;padding-top:6px;" rel="tooltip" title="BlackBerry Devices"></th>
   <th style="text-align:center;vertical-align: middle;"><img src="/img/rhodes.png" rel="tooltip" title="RhoMobile Simulator Included with RhoStudio">SIM</th>
  <th></th>
@@ -275,7 +274,6 @@ The following table shows the compatibility for each Mobile API.
   <th style="text-align:center">WM6.5+</th>
   <th style="text-align:center">CE6.0+</th>
   <th style="text-align:center">XP/7</th>
-  <th style="text-align:center">7.0+</th>
   <th style="text-align:center">4.6+</th>
   <th></th>
   <th>Ver</th>
@@ -325,11 +323,11 @@ The following table shows the compatibility for each Mobile API.
       else
         win32 = ''
       end
-      if api["win7"]
-        win7 =  '<span class="icon-star"></span><span style="display:none">win7 windows</span>'
-      else
+      # if api["win7"]
+        # win7 =  '<span class="icon-star"></span><span style="display:none">win7 windows</span>'
+      # else
         win7 = ''
-      end
+      # end
       if api["wm"]
         wm = '<span class="icon-star"></span><span style="display:none">windows mobile windows</span>'
       else
@@ -360,7 +358,6 @@ The following table shows the compatibility for each Mobile API.
 	    <td style="text-align:center">' + wm + '</td>
 	    <td style="text-align:center">' + wince + '</td>
 	    <td style="text-align:center">' + win32 + '</td>
-	    <td style="text-align:center">' + win7 + '</td>
 	    <td style="text-align:center">' + bb + '</td>
 	    <td style="text-align:center">' + rhosim + '</td>
 	     <td> ' + api["version_supported"] + '</td>

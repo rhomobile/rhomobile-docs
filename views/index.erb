@@ -1,90 +1,88 @@
 <div class="row">
-    <div class="span6">
-<h1>RhoMobile Suite Docs</h1>
-  
-  <p>Welcome to the Rhomobile Suite documentation site. Here you will find developer guides to walk you through activities using the framework. You will also find a complete API reference section that describes the available interfaces.</p>
-    </div>
-    <div class="span6">
-        <p><img src="https://s3.amazonaws.com/rhodocs-images/guide/docs_landing.jpg"></p>
-    </div>
-  
+  <div class="span6">
+    <h1>RhoMobile Suite Docs</h1>
+    <p>Welcome to the Rhomobile Suite documentation site. Here you will find developer guides to walk you through activities using the framework. You will also find a complete API reference section that describes the available interfaces.</p>
+  </div>
+  <div class="span6">
+    <p><img src="https://s3.amazonaws.com/rhodocs-images/guide/docs_landing.jpg"></p>
+  </div>
 </div>
+
 <div class="row">
-    <div class="span4">
-        <h2>Get Started</h2>
-        <ul>
-            <li><a href="/en/<%=@docversion%>/guide/welcome">RhoMobile Suite Introduction </a></li>
-            <li><a href="/en/<%=@docversion%>/guide/creating_a_project">RhoStudio Tutorial </a></li>
-            <li><a href="/en/<%=@docversion%>/tutorial/rhoconnect">RhoConnect Tutorial </a></li>
-            <li><a href="/en/<%=@docversion%>/guide/kitchensink">KitchenSink Sample </a></li>
-            <li><a href="/en/<%=@docversion%>/guide/remote-debug">JS Debugging on Devices </a></li>
-        </ul>
-    </div>
-    <div class="span4">
-        <h2>New Guides</h2>
-        <ul>
-            <li><a href="/en/<%=@docversion%>/guide/api_js">Javascript API Guide</a></li>
-            <li><a href="/en/<%=@docversion%>/guide/apiusage">RhoMobile Migration Guide</a></li>
-            <li><a href="/en/<%=@docversion%>/rhoconnect/migration">RhoConnect Migration Guide</a></li>
-            <li><a href="/en/<%=@docversion%>/guide/visualstudio">Visual Studio Plugin</a></li>
-            <li><a href="/en/<%=@docversion%>/rhoconnectapi/source-adapter-controller-api-js">Javascript RhoConnect Source Adapters</a></li>
-        </ul>
-    </div>
-    <div class="span4">
-        <h2>API Updates</h2>
-        <ul>
-            <li><a href="/en/<%=@docversion%>/api/OrmModel">Javascript Data Access</a><span class="label label-success">New</span></li>
-            <li><a href="/en/<%=@docversion%>/api/RhoConnectClient">RhoConnect Client </a><span class="label label-warning">Updated</span></li>
-            <li><a href="/en/<%=@docversion%>/api/sensor">Device Sensors</a><span class="label label-success">New</span></li>
-            <li><a href="/en/<%=@docversion%>/api/NativeMenubar">Native Menus</a><span class="label label-success">New</span></li>
-            <li><a href="/en/<%=@docversion%>/api/system">System </a><span class="label label-warning">Updated</span></li>
-        </ul>
-    </div>
-
+  <div class="span4">
+      <h2>Get Started</h2>
+      <ul>
+        <li><a href="/en/<%=@docversion%>/guide/welcome">RhoMobile Suite Introduction </a></li>
+        <li><a href="/en/<%=@docversion%>/guide/creating_a_project">RhoStudio Tutorial </a></li>
+        <li><a href="/en/<%=@docversion%>/tutorial/rhoconnect">RhoConnect Tutorial </a></li>
+        <li><a href="/en/<%=@docversion%>/guide/kitchensink">KitchenSink Sample </a></li>
+        <li><a href="/en/<%=@docversion%>/guide/remote-debug">JS Debugging on Devices </a></li>
+      </ul>
+  </div>
+  <div class="span4">
+      <h2>Updated Guides</h2>
+      <ul>
+        <% @recent_guides['results'].each do |result| %>
+          <% if !result['docexternal'].nil? && result['docexternal'] == 'True' %>
+            <li><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+          <% else %>
+            <li><a href="/<%= result['dockey'] %>"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+          <% end %>
+        <% end %>
+      </ul>
+  </div>
+  <div class="span4">
+      <h2>API Updates</h2>
+      <ul>
+        <% @recent_api["results"].each do |result| %>
+          <% if !result['docexternal'].nil? && result['docexternal']== 'True' %>
+            <li><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+          <% else %>
+            <li><a href="/<%= result['dockey'] %>"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+          <% end %>
+        <% end %>
+      </ul>
+  </div>
 </div>
-
-
-
 
 <div class='row'>
-    <div class="span6">
-<h2>Community Resources</h2>
-<ul>
-    <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite">RhoMobile Community:</a> Launchpad to all technical resources related to Rho.</li>
-    <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/videos">Webinars and Videos:</a> Learn through watching instructional videos.</li>
-    <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/discussions">Discussion Group:</a> Get help or share an idea with the rest of the developer community.</li>
-    <li><a href="https://developer.motorolasolutions.com/docs/DOC-1773">Certified Partners:</a> Get help from certified Rho experts for training, consulting or development work.</li>
-    <li><a href="https://developer.motorolasolutions.com/docs/DOC-1804">Books:</a> See what books have been written about RhoMobile.</li>
-    <li><a href="http://pinterest.com/motosolutions/rhomobile-apps/">Apps:</a> Checkout our Pinterest board filled with Apps.</li>
-    <li><a href="https://twitter.com/rhomobile">Twitter</a> Follow us and find out when the next DevTalk Webinar will be.</li>
-</ul>
-    </div>
-        <div class="span6">
-<h2>Featured Blogs</h2>
-    <ul id="bloglist">
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/11/11/considerations-when-selecting-a-js-mvc-framework">Considerations when selecting a JS MVC framework</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/11/13/samsung-remote-test-lab">Remote Device Testing</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/10/10/the-last-javascript-frontier-rhoconnect-source-adapters-part-2">The last (Javascript) frontier: RhoConnect source adapters. Part 2.</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/10/07/the-last-javascript-frontier-rhoconnect-source-adapters-part-1">The last (Javascript) frontier: RhoConnect source adapters. Part 1.</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/10/01/do-not-fear-the-natives--writing-native-extensions-in-rhomobile-4">Do not fear the natives - writing native extensions in RhoMobile 4</a></li>
-        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/rhomobile-community/rhomobile-blogs/blog/2013/08/06/save-time-debugging-hardware-js-apis-with-rhomobile-40-and-weinre">Save time debugging hardware JS apis with RhoMobile 4.0 and Weinre</a></li>
+  <div class="span6">
+    <h2>Community Resources</h2>
+    <ul>
+        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite">RhoMobile Community:</a> Launchpad to all technical resources related to Rho.</li>
+        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/videos">Webinars and Videos:</a> Learn through watching instructional videos.</li>
+        <li><a href="https://developer.motorolasolutions.com/community/rhomobile-suite/discussions">Discussion Group:</a> Get help or share an idea with the rest of the developer community.</li>
+        <li><a href="https://developer.motorolasolutions.com/docs/DOC-1773">Certified Partners:</a> Get help from certified Rho experts for training, consulting or development work.</li>
+        <li><a href="https://developer.motorolasolutions.com/docs/DOC-1804">Books:</a> See what books have been written about RhoMobile.</li>
+        <li><a href="http://pinterest.com/motosolutions/rhomobile-apps/">Apps:</a> Checkout our Pinterest board filled with Apps.</li>
+        <li><a href="https://twitter.com/rhomobile">Twitter</a> Follow us and find out when the next DevTalk Webinar will be.</li>
     </ul>
-    </div>
+  </div>
 
+  <div class="span6">
+    <h2>Recent Blogs</h2>
+    <ul id="bloglist">
+      <% @recent_blogs['results'].each do |result| %>
+        <li><a href="<%= result['dockey'] %>" target="_blank"><%=h Nokogiri::HTML.parse(result['title']).text %></a></li>
+      <%end%>
+    </ul>
+  </div>
 </div>
+
 <div class="row">
-    <H2> Featured Videos </h2>
-    <div class="span2"></div>    
-    <div class="span8">
-        <ul class="bxslider">
-          <li>
-            <iframe width="640" height="480" src="//www.youtube.com/embed/snBGENkalV8" frameborder="0" allowfullscreen></iframe>
-          </li>
-          <li><iframe width="640" height="480" src="//www.youtube.com/embed/tiFYNt1D6FU" frameborder="0" allowfullscreen></iframe></li>
-          <li><iframe width="640" height="480" src="//www.youtube.com/embed/fr9As1uEqN8" frameborder="0" allowfullscreen></iframe></li>
-          <li><iframe width="640" height="480" src="//www.youtube.com/embed/Btbsgm-xPi8" frameborder="0" allowfullscreen></iframe></li>
-          <li><iframe width="640" height="480" src="//www.youtube.com/embed/aSTXEEAfJ6M" frameborder="0" allowfullscreen></iframe></li>
-          <li><iframe width="640" height="480" src="//www.youtube.com/embed/xx9zqEcQ4uI" frameborder="0" allowfullscreen></iframe></li>
-        </ul>
-    </div>    
+  <H2>Featured Videos</h2>
+  <div class="span2"></div>
+  <div class="span8">
+    <ul class="bxslider">
+      
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/KFaXcPkI_zw" frameborder="0" allowfullscreen></iframe></li>
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/8oUPVpS_JXA" frameborder="0" allowfullscreen></iframe></li>
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/wxuDhbFNAz0" frameborder="0" allowfullscreen></iframe></li>
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/snBGENkalV8" frameborder="0" allowfullscreen></iframe></li>
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/tiFYNt1D6FU" frameborder="0" allowfullscreen></iframe></li>
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/fr9As1uEqN8" frameborder="0" allowfullscreen></iframe></li>
+      <li><iframe width="640" height="480" src="//www.youtube.com/embed/Btbsgm-xPi8" frameborder="0" allowfullscreen></iframe></li>
+      
+    </ul>
+  </div>
 </div>

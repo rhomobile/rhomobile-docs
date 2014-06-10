@@ -4,10 +4,39 @@ require 'rdiscount'
 class Api
 
 @@apiName = ""
+
+  def self.getMDDesc(desc)
+  	if desc.is_a?(String)
+  		return RDiscount.new(desc, :smart).to_html
+  	else
+  		return desc
+  	end
+  end
+  def self.getElementName(element)
+  	if !element["docNameOverride"].nil?
+  		return element["docNameOverride"]
+  	else
+  		return element["name"]
+  	end 
+  end	
 #returns markdown for the name of the API 
-  def self.getApiName(doc)
+  def self.getApiName(doc,lang,allowoverride)
   	md=""
   	md = doc["MODULE"][0]["name"]
+  	if allowoverride
+	  	if !doc["MODULE"][0]["docNameOverride"].nil?
+	  		md = doc["MODULE"][0]["docNameOverride"]
+	  	else
+	  		if lang == 'RUBY'
+	  			md = 'Rho::' + doc["MODULE"][0]["name"]
+	  		elsif lang =='JS'
+	  			md = 'Rho.' + doc["MODULE"][0]["name"]
+	  		else
+	  			md = doc["MODULE"][0]["name"]
+
+	  		end
+	  	end
+	end
   	# if !doc["MODULE"][0]["ALIASES"].nil? && !doc["MODULE"][0]["ALIASES"][0]["ALIAS"].nil?
   	# 	if doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["existing"].nil?
   	# 		md = doc["MODULE"][0]["ALIASES"][0]["ALIAS"][0]["new"]
@@ -79,7 +108,7 @@ class Api
 # md+='  </div>'
 # md+='  <div class="modal-body">'
 
-  	md = "\n\n<strong>Javascript Usage</strong>"
+  	md = "\n\n<strong>JavaScript Usage</strong>"
   	md += "\n\n<pre class='CodeRay'><code>:::javascript\n"
   	if !ro
 	  	md += "\n// Setting directly"
@@ -192,10 +221,13 @@ def self.getconstantlinks(doc)
   	ctr =0
   	groupctr = 0
   	if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].nil?
+  		# puts(doc["MODULE"][0]["PROPERTIES"])
 	  	s=doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].sort {|x,y| x["name"] <=> y["name"]}
 	  	# ctr = s.count()
 	  	# md += "<ul>"
 	  	s.each() { |element|
+	  		element["name"] = getElementName(element) 
+		
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	  			ctr+=1
 				propreplaces = ""
@@ -230,11 +262,16 @@ def self.getconstantlinks(doc)
 						# md+="</ul><ul>"
 						groupctr = 0
 					end
-				if element["access"].nil?
+				if element["access"].nil? && element["scopeOverride"].nil?
 						#use global PROPERTIES field
 						propsAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
 				else
-						propsAccess = element["access"]
+						if !element["scopeOverride"].nil?
+							propsAccess = element["scopeOverride"]
+						else
+							propsAccess = element["access"]
+						end
+
 				end
 				if propsAccess.nil? || propsAccess == 'INSTANCE' || propsAccess == ''
 					menuGroupName = "Instance Properties"
@@ -276,6 +313,8 @@ def self.getconstantlinks(doc)
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
 	  	
 	  	s.each() { |element|
+	  		element["name"] = getElementName(element) 
+		
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	 			ctr+=1
 	  			methname = element["name"]
@@ -284,7 +323,7 @@ def self.getconstantlinks(doc)
 		    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
 					#puts a
 					if a["existing"] == element["name"]
-						methname = "<span class='text-info'>" + element["name"] + "</span>"
+						methname = "&nbsp;<span class='text-info'>" + element["name"] + "</span>"
 		  			end
 				}
 				end
@@ -296,11 +335,15 @@ def self.getconstantlinks(doc)
 		  			methname = "<span class='text-error'>" + element["name"] + "</span>"
 				end
 				methtype=''
-				if element["access"].nil?
+				if element["access"].nil? && element["scopeOverride"].nil?
 						#use global methods field
 						methodsAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 				else
+					if !element["scopeOverride"].nil?
+						methodsAccess = element["scopeOverride"]
+					else
 						methodsAccess = element["access"]
+					end
 				end
 				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
 					methtype = '<i class="icon-file pull-right"></i>'
@@ -363,7 +406,7 @@ def self.getconstantlinks(doc)
 	  			# if section["DESC"][0].class != Hash
 	  			# puts section
 	  				if !section["DESC"].nil? && !section["DESC"][0].nil?
-						examplesections += section["DESC"][0]
+						examplesections += getMDDesc(section["DESC"][0])
 					end
 				# end
 				exampleid = "exI#{index.to_s}-S#{si.to_s}"
@@ -415,7 +458,7 @@ def self.getconstantlinks(doc)
 				exampletabs = "<ul class='nav nav-tabs' id='#{exampleid}Tab'>"
 				activeindicator = "class='active'"
 				if codejs != ''
-					exampletabs +=  "<li #{activeindicator}><a href='##{exampleid}JS' data-toggle='tab'>Javascript</a></li>"
+					exampletabs +=  "<li #{activeindicator}><a href='##{exampleid}JS' data-toggle='tab'>JavaScript</a></li>"
 					activeindicator = ''
 				end
 				if coderuby != ''
@@ -481,7 +524,7 @@ def self.getconstantlinks(doc)
 		    md += '</div>'
 		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body">'
 		    md +='  <div class="accordion-inner">'
-		    html = RDiscount.new(element["DESC"][0], :smart).to_html
+		    html = getMDDesc(element["DESC"][0])
 		
 		  	md += html
 		  	md += '  </div>'
@@ -500,10 +543,12 @@ def self.getconstantlinks(doc)
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
 	  	md += '<div><dl  >'
 	  	s.each_with_index() { |element,index|
+	  		element["name"] = getElementName(element) 
+		
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
-			if !element["DESC"][0].is_a?(Hash)
- 		        md +=  "<dd>" + RDiscount.new(element["DESC"][0], :smart).to_html + "</dd>"
+			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
+ 		        md +=  "<dd>" + getMDDesc(element["DESC"][0]) + "</dd>"
        		end
 	  	}
 	  	md += "</dl></div>"
@@ -523,7 +568,7 @@ def self.getconstantlinks(doc)
   	end
   	indicators = ""
   	if javascript
-		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Javascript">'
+		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
 	end
 	if ruby
 	
@@ -605,6 +650,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
 		s.each() { |element|
+			element["name"] = getElementName(element) 
+		
 			if element["generateDoc"].nil? || element["generateDoc"] == "true"
  
 			propname = element["name"]
@@ -668,10 +715,10 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],'STRING',element["readOnly"],templatePropBag)
+				propusage=getpropusagetext(getApiName(doc,'JS',true),element["name"],'STRING',element["readOnly"],templatePropBag)
 			else
 				proptype= " : <span class='text-info'>" + element["type"] + "</span>"
-				propusage=getpropusagetext(getApiName(doc),element["name"],element["type"],element["readOnly"],templatePropBag)
+				propusage=getpropusagetext(getApiName(doc,'JS',true),element["name"],element["type"],element["readOnly"],templatePropBag)
 			end
 			# readOnly is optional default is false
 			if element["readOnly"].nil?
@@ -696,7 +743,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 				
 			end
 			
-			@propdesc = element["DESC"][0]
+			@propdesc = getMDDesc(element["DESC"][0])
 			if @propdesc.nil?
 				RDiscount.new(@propdesc, :smart).to_html
 			end
@@ -711,14 +758,14 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 						@propvaldesc = "<dl  >"
 						if !vaelement["DESC"].nil?
 							if !vaelement["DESC"][0].empty?
-								@propvaldesc = vaelement["DESC"][0].to_s
+								@propvaldesc = getMDDesc(vaelement["DESC"][0].to_s)
 							else
 								@propvaldesc = ""
 							end 
 						end	
 						if !vaelement["PLATFORM"].nil?
 							if !vaelement["PLATFORM"][0].empty?
-								@propvaldesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+								@propvaldesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
 							
 							end 
 						end
@@ -727,7 +774,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 							@propvaluetype = !vaelement["type"]
 						end
 						if !vaelement["constName"].nil?
-							vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+							vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
+
 						end
 						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>" 
 						
@@ -780,21 +828,26 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
 	  		templateDefault = true
 	  	end
-	if element["access"].nil?
+	if element["access"].nil? && element["scopeOverride"].nil?
 			#use global PROPERTIES field
 			masterAccess = doc["MODULE"][0]["PROPERTIES"][0]["access"]
 	else
-			masterAccess = element["access"]
+			if !element["scopeOverride"].nil?
+				masterAccess = element["scopeOverride"]
+			else
+				masterAccess = element["access"]
+			end
+
 	end
 	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
 		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
 			if javascript 
-				accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li>'
+				accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 			end
 			if ruby
-				accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li>'
+				accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + '</code></li>'
 			end
 			accesstype += '</ul></li>'
 
@@ -802,10 +855,10 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	else
 		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul>'
 		if javascript
-			accesstype +='<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + '</code> </li>'
+			accesstype +='<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 		end
 		if ruby
-			accesstype +='<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + '</code></li>'
+			accesstype +='<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + '</code></li>'
 		end
 		accesstype +='</ul></li>'
 
@@ -885,6 +938,7 @@ def self.getparams(element,toplevel)
 		
 	# puts '***** IN GETPARAMS'
 	# puts element
+
 	methparamsdetails = ""
 	methsectionparams = ""
 		if !element["PARAMS"].nil?
@@ -893,11 +947,13 @@ def self.getparams(element,toplevel)
 			end
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
+					param["name"] = getElementName(param) 
+		
 					methparamsdetailsdesc = ''
 			
 					# puts param
 					if !param["DESC"].nil?
-						methparamsdetailsdesc=param["DESC"][0]
+						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
@@ -922,7 +978,7 @@ def self.getparams(element,toplevel)
 						param["CAN_BE_NIL"].each { |paramsnil|
 							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  paramsnil["DESC"][0]
+								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
 							end
 							
 						}
@@ -940,7 +996,7 @@ def self.getparams(element,toplevel)
 						param["type"] = "SELF_INSTANCE: " + @@apiName
 					end
 					if toplevel
-
+						
 						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
 						@seperator =  ', '
 					end 
@@ -959,14 +1015,14 @@ def self.getparams(element,toplevel)
 							velement["VALUE"].each() { |vaelement|
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
-										valdesc = vaelement["DESC"][0].to_s
+										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
 									else
 										valdesc = ""
 									end 
 								end	
 								if !vaelement["PLATFORM"].nil?
 									if !vaelement["PLATFORM"][0].empty?
-										valdesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
 									
 									end 
 								end
@@ -976,7 +1032,7 @@ def self.getparams(element,toplevel)
 									valuetype = vaelement["type"]
 								end
 								if !vaelement["constName"].nil?
-									vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String:' + vaelement["value"] + ''
 								end
 
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
@@ -1012,11 +1068,13 @@ if !element["PARAM"].nil?
 				methsectionparams += "<ul>"
 			end
 				element["PARAM"].each { |param|
+					param["name"] = getElementName(param) 
+		
 					methparamsdetailsdesc = ''
 			
 					# puts param
 					if !param["DESC"].nil?
-						methparamsdetailsdesc=param["DESC"][0]
+						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
@@ -1031,7 +1089,7 @@ if !element["PARAM"].nil?
 						param["CAN_BE_NIL"].each { |paramsnil|
 							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  paramsnil["DESC"][0]
+								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
 							end
 							
 						}
@@ -1066,14 +1124,14 @@ if !element["PARAM"].nil?
 								valdesc = "<dl  >"
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
-										valdesc = vaelement["DESC"][0].to_s
+										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
 									else
 										valdesc = ""
 									end 
 								end	
 								if !vaelement["PLATFORM"].nil?
 									if !vaelement["PLATFORM"][0].empty?
-										valdesc += " Platforms: " + vaelement["PLATFORM"][0].to_s
+										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
 									
 									end 
 								end								
@@ -1082,7 +1140,7 @@ if !element["PARAM"].nil?
 									valuetype = vaelement["type"]
 								end
 								if !vaelement["constName"].nil?
-									vaelement["value"] = @@apiName + '.' + vaelement["constName"] + ' - (' + vaelement["value"] + ')'
+									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
 								end
 
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
@@ -1127,7 +1185,8 @@ end
     
     #puts methodaliases
 		
-	s.each() { |element| 
+	s.each() { |element|
+		element["name"] = getElementName(element) 
 		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	
 		 #puts element["name"]
@@ -1144,7 +1203,7 @@ end
 		end 
 		
 		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
-			@methdesc = RDiscount.new(element["DESC"][0], :smart).to_html
+			@methdesc = getMDDesc(element["DESC"][0])
 			
 		else
 			@methdesc = ""
@@ -1155,7 +1214,7 @@ end
 	    	doc["MODULE"][0]["METHODS"][0]["ALIASES"][0]["ALIAS"].each() { |a|
 				#puts a
 				if a["existing"] == element["name"]
-					methreplaces += a["new"]
+					methreplaces += "<span class='label label-info'>" + a["new"] + "</span> "
 				end
 			}
 		end
@@ -1174,7 +1233,7 @@ end
 				# puts relement
 		
 				if !relement["DESC"].nil? && !relement["DESC"][0].is_a?(Hash)
-					@methreturndesc=" : " + relement["DESC"][0]
+					@methreturndesc=" : " + getMDDesc(relement["DESC"][0])
 				end
 				methreturnparams =  getparams(relement,false)
 			}
@@ -1300,16 +1359,16 @@ end
 
 				@methcallbackparamdesc += "<p>The callback parameter can take on one of three forms</p><ol>"
 				@methcallbackparamdesc += "<li>Controller action URL"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " url_for :action => :mycallback)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + " url_for :action => :mycallback)</code></pre>"
+				@methcallbackparamdesc += "<p>JavaScript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "'/app/model/mycallback');</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Anonymous function:"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "lambda{ |e|\n puts e['#{firstcallbackreturnparam}'] }\n)</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + "lambda{ |e|\n puts e['#{firstcallbackreturnparam}'] }\n)</code></pre>"
+				@methcallbackparamdesc += "<p>JavaScript</p>\n<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + "function(e){\n//Your code here\n alert(e.#{firstcallbackreturnparam});\n};);</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "<li>Function"
-				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " mycallback() )</code></pre>"
-				@methcallbackparamdesc += "<p>Javascript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
+				@methcallbackparamdesc += "<p>Ruby</p>\n<pre class='CodeRay'><code>:::ruby\n" + "" + getApiName(doc,'RUBY',true) + ".#{methname}(#{prevparams}" + " mycallback() )</code></pre>"
+				@methcallbackparamdesc += "<p>JavaScript</p>\nok	<pre class='CodeRay'><code>:::javascript\n" + "" + getApiName(doc,'JS',true) + ".#{methname}(#{prevparams}" + " mycallback());</code></pre>"
 				@methcallbackparamdesc += "</li>"
 				@methcallbackparamdesc += "</ol>"
 				@methcallbackparamdesc+='  </div>'
@@ -1326,7 +1385,7 @@ end
 			
   		end
 		@seperator = ""
-		@methsample = "<b>" + getApiName(doc) + ".#{methname}(#{@methparams})</b><br/>"
+		@methsample = "<b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams})</b><br/>"
 		if @methparams != ""
 			# @methvalues = "<br/><b>Possible Values:</b> " + @methvalues
 		end
@@ -1339,8 +1398,8 @@ end
 				@methparams = @methparams + "<span class='text-info'>#{callbacktype}</span> callback"
 
 			end
-			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
-			@methsample += "<br/>Javascript Syntax:<br/><b>" + getApiName(doc) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
+			@methsample = "Ruby Syntax:<br/><b>" + getApiName(doc,'RUBY',true) + ".#{methname}(#{@methparams}#{@callbackrubysample})</b><br/>"
+			@methsample += "<br/>JavaScript Syntax:<br/><b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams}#{@callbackjssample})</b><br/><br/>"
 			if @methhascallback == "optional"
 				@methsample += "Callback function is optional.<br/><br/>"
 			end
@@ -1355,7 +1414,7 @@ end
 			#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
 			# @methdesc = " <span class='label label-info'>Replaces:#{methreplaces}</span>" + @methdesc
 			methname = '<span class="text-info">' + methname + '</span>'
-			@methdesc = "<span class='label label-info'>Replaces:#{methreplaces}</span> " + @methdesc
+			@methdesc = "<span class='label label-info'>Replaces:</span> #{methreplaces} " + @methdesc
 
 		end
 		# md += "\n" + '<h3 data-h2="methods">' + "#{methname}</h3>\n"
@@ -1453,18 +1512,23 @@ end
   		# md += "</tr></table>\n\n" 
   		
   	if !element["BACKWARDS_COMPATIBILITY"].nil?
-  		@methdesc += "\n\nNOTE: #{element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0]}\n\n"
+  		@methdesc += "\n\nNOTE: #{getMDDesc(element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0])}\n\n"
 	end		
 	
 	templateDefault = false
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
 	  		templateDefault = true
 	  	end
-	if element["access"].nil?
+	if element["access"].nil? && element["scopeOverride"].nil?
 			#use global PROPERTIES field
 			masterAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 	else
-			masterAccess = element["access"]
+			if !element["scopeOverride"].nil?
+				masterAccess = element["scopeOverride"]
+			else
+				masterAccess = element["access"]
+			end
+
 	end
 	constructor = false
   	constructorLabel = ''
@@ -1487,10 +1551,10 @@ end
 		if templateDefault
 		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
@@ -1498,10 +1562,10 @@ end
 	else
 		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>Rho.' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>Rho::' + getApiName(doc) + '.' + element["name"] + "(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
@@ -1509,17 +1573,17 @@ end
 	if constructor
 		accesstype = '<li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>var myObj = new Rho.' + getApiName(doc) + "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>var myObj = new ' + getApiName(doc,'JS',true) + "(#{@methparams})</code> </li>"
 		end
 		if ruby 
-			accesstype += '<li>Ruby: <code>@myObj = Rho::' + getApiName(doc) + ".new(#{@methparams})</code></li>"
+			accesstype += '<li>Ruby: <code>@myObj = ' + getApiName(doc,'RUBY',true) + ".new(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 	end
 	if destructor
 		accesstype = '<li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul>'
 		if javascript 
-			accesstype += '<li>Javascript: <code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
+			accesstype += '<li>JavaScript: <code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
 		end
 		if ruby 
 			accesstype += '<li>Ruby: <code>@myObj.' +  element["name"]  +  "(#{@methparams})</code></li>"
@@ -1617,6 +1681,32 @@ end
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
 	  		templateSingleton = true
 	  	end
+	  	# Add template methods,properties,constants
+	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
+	  		
+	  		puts 'Has a template' 
+	  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
+	  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
+	  		w = templateFileString.split("/")
+	  		templateFile = w[w.length() - 1]
+	  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api'],templateFile))
+			templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
+				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+			}
+			# puts(doc)
+			if doc["MODULE"][0]["PROPERTIES"].nil?
+				doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
+			else
+				templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
+					doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
+				}
+
+			end
+			puts (doc["MODULE"][0]["PROPERTIES"])
+			templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
+				doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
+			}
+	  	end
 	  	if templateDefault
 	  		#get xml from file and put it in main array so it is handled like other methods
 	  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api'],'default_instance.xml'))
@@ -1655,7 +1745,7 @@ end
 	  	constantlinks = getconstantlinks(doc)
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
-	  	md += "#" + getApiName(doc) + "\n" 
+	  	md += "#" + getApiName(doc,'',true) + "\n" 
 	  	if methlinks["count"]>0
 		  	md += '<div class="btn-group">'
 		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;' + methlinks["count"].to_s + '</sub></a>'
@@ -1742,7 +1832,7 @@ end
 
 			md += '<div class="btn-group pull-right">'
 			md += '<button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button>'
-		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">Javascript</option><option value="ruby">Ruby</option>'
+		  	md += '<select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option>'
 			md += '<option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select>'
 
 		  	# md += '<button class="btn" id="expandAll" data-toggle="tooltip" title="Expand/Collapse all"><i class="icon-th-list "></i>&nbsp;</button>'
@@ -1789,7 +1879,7 @@ end
 		    md += "</div>"
 
 	  	# puts md
-	  	File.open("#{topic.gsub!('.xml','.txt')}", 'w') {|f| f.write(md) }
+	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
 	else
 		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
 	end

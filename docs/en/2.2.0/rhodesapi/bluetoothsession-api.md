@@ -1,0 +1,134 @@
+# BluetoothSession API
+
+Manages a connection session between your Bluetooth-equipped device and another Bluetooth-equipped device. [Click for a short example of using bluetooth](../rhodes/device-caps#bluetooth-ex), or here for [Rhodes-System-Api-Samples – BluetoothChat](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/BluetoothChat/).
+
+## Enabling Bluetooth
+
+You need to enable Bluetooth on the device. Do this by adding that capability to the build.yml file:
+
+	:::yaml
+	capabilities:
+	  - bluetooth
+
+## set_callback
+
+Set the Bluetooth session callback. Returns OK or ERROR.
+
+	:::ruby
+	Rho::BluetoothSession.set_callback(connected_device_name, session_callback_url)
+
+<table border="1">
+<tr>
+	<td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device.</td>
+</tr>
+<tr>
+	<td><code>session_callback_url</code></td>
+	<td>url to a callback method. Parameters received in the callback: <code>connected_device_name</code> - name of connected device; <code>event_type</code> - SESSION_INPUT_DATA_RECEIVED or ERROR or SESSION_DISCONNECT
+	</td>
+</tr>
+</table>
+
+## disconnect
+
+Disconnect from the device. Returns OK or ERROR.
+
+	:::ruby
+	Rho::BluetoothSession.disconnect(connected_device_name)
+
+<table border="1">
+<tr>
+	<table border="1">
+<tr>
+	<td><code>role</code></td>
+	<td>ROLE_SERVER or ROLE_CLIENT</td>
+</tr>
+<tr>
+	<td><code>callback_url</code></td>
+	<td>url to a callback method called after the Bluetooth session is created or canceled. Parameters received in the callback: status of OK / ERROR / CANCEL, and connected_device_name (the name of the device connected via Bluetooth.
+	</td>
+</tr>
+</table><td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device that is to be disconnected.</td>
+</tr>
+</table>
+
+## get_status
+
+Get the session status. Returns the size of the data received by the bluetooth connection (data has not been read or parsed yet); or -1 if error; or 0 if empty (did not receive data).
+
+	:::ruby
+	Rho::BluetoothSession.get_status(connected_device_name)
+
+<table border="1">
+<tr>
+	<td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device.</td>
+</tr>
+</table>
+
+## read
+
+Read data from the connected device. Returns an array of bytes.
+
+	:::ruby
+	Rho::BluetoothSession.read(connected_device_name)
+
+<table border="1">
+<tr>
+	<td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device that is read from.</td>
+</tr>
+</table>
+
+## write
+
+Write data to the connected device.
+
+	:::ruby
+	Rho::BluetoothSession.write(connected_device_name, data)
+
+<table border="1">
+<tr>
+	<td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device that is written to.</td>
+</tr>
+<tr>
+	<td><code>data</code></td>
+	<td>The information to write to the connected device. Array of bytes or fixnum.</td>
+</tr>
+</table>
+
+## read_string
+
+Read string from the connected device. Returns a string.
+
+	:::ruby
+	Rho::BluetoothSession.read_string(connected_device_name)
+
+connected_device_name – name of the connected device.
+
+<table border="1">
+<tr>
+	<td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device that is read from.</td>
+</tr>
+</table>
+
+## write_string
+
+Write string to the connected device. Returns OK or ERROR.
+
+	:::ruby
+	Rho::BluetoothSession.write_string(connected_device_name, data)
+
+<table border="1">
+<tr>
+	<td><code>connected_device_name</code></td>
+	<td>String. The name of the connected Bluetooth device that is written to.</td>
+</tr>
+<tr>
+	<td><code>data</code></td>
+	<td>The information to write to the connected device. String.</td>
+</tr>
+</table>

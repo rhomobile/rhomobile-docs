@@ -1,0 +1,49 @@
+# NativeToolbar API
+
+The NativeToolbar methods let you create and remove toolbars at runtime. Refer to [Native Toolbar Control in User Interface](../rhodes/ui#native-toolbar-control) for a discussion and examples, and to [NativeToolbarTest in Rhodes-System-Api-Samples](https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/NativeToolbarTest/) for sample code.
+
+## create
+
+Creates a toolbar.
+
+	:::ruby
+	Rho::NativeToolbar.create(toolbar-elements)
+
+<table border="1">
+<tr>
+	<td><code>toolbar-elements</code></td>
+	<td>Name/value array for the tabbar, such as <code>{:label => 'Main page',  :action => '/app', :icon => '/public/images/bar/colored_btn.png', :reload => true}</code></td>
+</tr>
+</table>
+
+The toolbar-elements parameter is a list of name/value pairs from the following list of toolbar elements.
+
+<table border="1">
+<tr>
+	<td><code>:label</code></td>
+	<td>Visible label to display instead of an icon.</td>
+</tr>
+<tr>
+	<td><code>:action</code></td>
+	<td>Path to your rhodes action (i.e. '/app/Account' would load the Account index action). Either :icon or :label must be specified: if both are omitted, Rhodes will not add the button to the toolbar. If both are specified, :icon is drawn and :label is discarded.</td>
+</tr>
+<tr>
+	<td><code>:icon</code></td>
+	<td>Relative path to toolbar item icon in your rhodes app (typically located in /public/images/). iPhone and Android: Icons must be no more than 30x30 pixels and must be in .png format. Windows Mobile: Icons can be any size, but all icons should have same size (default – 48x48).</td>
+</tr>
+<tr>
+	<td><code>:colored_icon</code></td>
+	<td>(optional) true or false; true tells rhodes to use color icon in toolbar on iPhone instead of standard monochrome white icon (prepared from image alpha).</td>
+</tr>
+<tr>
+	<td><code>:width</code></td>
+	<td>(optional) For Windows Mobile, define width in pixels for separator element.</td>
+</tr>
+</table>
+
+## remove
+
+Removes the toolbar.
+
+	:::ruby
+	Rho::NativeToolbar.remove
