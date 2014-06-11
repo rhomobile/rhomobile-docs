@@ -10,17 +10,6 @@ This tutorial shows you how to build a simple product inventory application that
 ## Support Matrix
 The following is a table showing the versions of Rhodes that are supported for which platforms concerning cloud builds. Note that the end of life date is simply an estimate and will not necessarily be exact to the day.
 
-<style type="text/css">
-.platform{
-  text-align: center;
-}
-
-.os-image{
-  width:       20px;
-  padding-top: 8px;
-}
-</style>
-
 <table class="table table-condensed table-striped">
   <thead>
     <tr>
@@ -32,11 +21,11 @@ The following is a table showing the versions of Rhodes that are supported for w
     <tr>
       <th style="width:20%;text-align:center;" colspan="2"></th>
       <th style="text-align:center"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile"></th>
-      <th style="text-align:center"><img src="/img/windows.jpg" class="os-image" rel="tooltip" title="Win 32 Desktop" style="height: 30px"></th>
-      <th style="text-align:center"><img src="/img/wince.png"   class="os-image" rel="tooltip" title="Windows CE" style="height: 30px"></th>
-      <th style="text-align:center"><img src="/img/wp8.png"     class="os-image" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"></th>
-      <th style="text-align:center"><img src="/img/android.png" class="os-image" rel="tooltip" title="Android"></th>
-      <th style="text-align:center"><img src="/img/ios.png"     class="os-image" rel="tooltip" title="iOS"></th>
+      <th style="text-align:center"><img src="/img/windows.jpg"       style="height: 20px;padding-top: 8px" rel="tooltip" title="Win 32 Desktop" style="height: 30px"></th>
+      <th style="text-align:center"><img src="/img/wince.png"         style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows CE" style="height: 30px"></th>
+      <th style="text-align:center"><img src="/img/wp8.png"           style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"></th>
+      <th style="text-align:center"><img src="/img/android.png"       style="height: 20px;padding-top: 8px" rel="tooltip" title="Android"></th>
+      <th style="text-align:center"><img src="/img/ios.png"           style="height: 20px;padding-top: 8px" rel="tooltip" title="iOS"></th>
     </tr>
   </thead>
 
@@ -44,7 +33,7 @@ The following is a table showing the versions of Rhodes that are supported for w
     <tr>
       <td><a href="/en/2.2.0/rhodes/introduction">3.4.2.1</a></td>
       <td style="width:20%;text-align:center;">June 31, 2014</th>
-      <td style="text-align:center"><span style="width:12%" class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center"><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -55,7 +44,7 @@ The following is a table showing the versions of Rhodes that are supported for w
     <tr>
       <td><a href="/en/2.2.0/rhodes/introduction">3.5.1.14</a></td>
       <td style="width:20%;text-align:center;">July 7, 2014</th>
-      <td style="text-align:center"><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center"><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -66,7 +55,7 @@ The following is a table showing the versions of Rhodes that are supported for w
     <tr>
       <td><a href="/en/4.0.0/guide/welcome">4.0.9</a></td>
       <td style="width:20%;text-align:center;">Q1 - Q2 2015</th>
-      <td style="text-align:center"><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center"><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -77,7 +66,7 @@ The following is a table showing the versions of Rhodes that are supported for w
     <tr>
       <td><a href="/en/4.1.0/guide/welcome">4.1.6</a></td>
       <td style="width:20%;text-align:center;">Q3 - Q4, 2015</th>
-      <td style="text-align:center"><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center"><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -88,7 +77,7 @@ The following is a table showing the versions of Rhodes that are supported for w
     <tr>
       <td><a href="/en/4.1.0/guide/welcome">4.2.x</a></td>
       <td style="width:20%;text-align:center;">Q1 - Q2, 2016</th>
-      <td style="text-align:center"><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center"><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
       <td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
