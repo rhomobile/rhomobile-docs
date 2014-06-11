@@ -84,6 +84,15 @@ Once your `build.yml` is set up, you can run:
     
 The compiled application .xap file will be located in `<your project folder>\bin\target\wp8`
 
+### Deploying application to Windows Phone 8 device
+
+To deploy application .xap file to WP8 device:
+
+1. Windows Phone 8 device should be [registered for development](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff769508.aspx).
+2. Connect WP8 device to your development Windows 8.x PC via USB
+3. On the PC go to Start screen and search for `Application Deployment`
+4. Run Application Deployment tool, specify Target=Device, select your XAP file and click Deploy.
+
 ## Publishing on Windows Phone Store
 
 ### Getting a Windows Phone Dev Center account
