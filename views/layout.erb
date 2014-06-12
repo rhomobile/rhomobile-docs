@@ -39,7 +39,7 @@
 
     <!-- Set DocVersion and Paths -->
     <% sectionGroup  = TOC.findGroup(request.path_info)
-    if @docversion.nil? or @docversion == 'cloud'
+    if @docversion.nil? or @docversion == 'hosted'
       @docversion = Version::CURR_VERSION
     end
     vpath = "/en/#{@docversion}"
@@ -57,8 +57,8 @@
       rcguidepath = "#{vpath}/rhoconnect/introduction"
     end
 
-    # Set cloud services path no matter the version
-    cloudguidepath = "/en/cloud/introduction"
+    # Set hosted services path no matter the version
+    hostedguidepath = "/en/hosted/introduction"
     %>
 
     <div class="row span11">
@@ -77,15 +77,15 @@
           <a href="<%=rcguidepath%>"><i class="icon-refresh"></i> RhoConnect Guides</a>
         </li>
         <li class="<%=sectionGroup == 'Cloud Services' ? 'active' : ''%>">
-          <a href="<%=cloudguidepath%>"><i class="icon-cloud"></i> Cloud Services</a>
+          <a href="<%=hostedguidepath%>"><i class="icon-cloud"></i> Hosted Services</a>
         </li>
       </ul>
 
       <ul class="nav pull-right">
         <!-- Version selector -->
         <li class="navbar-form">
-          <!-- Do not show version selector if in search results or in cloud services docs -->
-          <% if request.path_info != '/search' and !request.path_info.include? '/cloud/' %>
+          <!-- Do not show version selector if in search results or in hosted services docs -->
+          <% if request.path_info != '/search' and !request.path_info.include? '/hosted/' %>
             <select id="version_select" class="input input-medium">
               <optgroup label="Beta">
                 <option value=<%= Version::NEXT_VERSION %> <%=@docversion.nil? || @docversion == Version::NEXT_VERSION ? 'SELECTED' : ''%>><%=Version::NEXT_VERSION %></option>
