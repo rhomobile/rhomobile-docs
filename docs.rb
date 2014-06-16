@@ -86,6 +86,16 @@ class Docs < Sinatra::Base
     end
   end
 
+  ['/en/hosted/guide/welcome', '/en/hosted/?', '/en/hosted/guide/?'].each do |path|
+    get path do
+      @title = "Intro"
+      @print = 0
+      @docsversion = 'hosted'
+      cache_long
+      erb :hosted_home
+    end
+  end
+
   ['/'].each do |path|
      get path do
       puts ENV["RACK_ENV"]
@@ -221,7 +231,7 @@ class Docs < Sinatra::Base
 #		xml_string += '   <channel>	     <title>Example.com Search: New York history</title>	     <link>http://example.com/New+York+history</link>	     <description>Search results for "New York history" at Example.com</description>	     <opensearch:totalResults>4230000</opensearch:totalResults>	     <opensearch:startIndex>21</opensearch:startIndex>	     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>	     <atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>	     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />	     <item>	       <title>New York History</title>	       <link>http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html</link>	       <description>	         ... Harlem.NYC - A virtual tour and information on 	         businesses ...  with historic photos of Columbias own New York 	         neighborhood ... Internet Resources for the Citys History. ...	       </description>	     </item>	   </channel>	 </rss>'	
     xml_string
   end
-  
+
 ['/tutorial/:step/:topic/?',  '/tutorial/:topic/?','/en/:vnum/tutorial/:step/:topic/?',  '/en/:vnum/tutorial/:topic/?'].each do |path|
     get path do
       cache_long

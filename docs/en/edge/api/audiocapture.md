@@ -49,7 +49,7 @@ extensions: ["audiocapture"]
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pencoder'></a><div class=' method  js ruby android' id='pencoder'><h3><strong  >encoder</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pencoder1" data-toggle="tab">Description</a></li><li ><a href="#pencoder5" data-toggle="tab">Values</a></li><li ><a href="#pencoder6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-encoder'><div class="tab-pane fade active in" id="pencoder1"><p>Encoder to compress recorded audio. In Android devices the supported encoder type is dependent upon device hardware snd vendor.</p>
+<a name='pencoder'></a><div class=' method  js ruby android' id='pencoder'><h3><strong  >encoder</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>STRING</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pencoder1" data-toggle="tab">Description</a></li><li ><a href="#pencoder5" data-toggle="tab">Values</a></li><li ><a href="#pencoder6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-encoder'><div class="tab-pane fade active in" id="pencoder1"><p>Encoder to compress recorded audio. In Android devices the supported encoder type is dependent upon device hardware and vendor.</p>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"> </p></div></p></div><div class="tab-pane fade" id="pencoder2"></div><div class="tab-pane fade" id="pencoder5"><p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p> <dt>Constant: Rho.AudioCapture.ENCODER_AAC (For Ruby use "::" instead of ".")<br/> String: AAC </dt><dd><p>AAC low complexity. This is the default value. If wrong or no value is specified this value will be accounted.</p>
 </dt><dt>Constant: Rho.AudioCapture.ENCODER_AMR_NB (For Ruby use "::" instead of ".")<br/> String: AMR_NB </dt><dd><p>AMR narrow-band.</p>
 </dt><dt>Constant: Rho.AudioCapture.ENCODER_AMR_WB (For Ruby use "::" instead of ".")<br/> String: AMR_WB </dt><dd><p>AMR wide-band.</p>
@@ -158,13 +158,13 @@ Alert.show_popup(Rho::AudioCapture.fileName);
 <ul class='nav nav-tabs' id='exI1-S2Tab'><li class='active'><a href='#exI1-S2JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S2JS'><pre class='CodeRay'><code>:::javascript
 
 #Setting fileName without extension
-Rho::AudioCapture.fileName = "sample";
+Rho.AudioCapture.fileName = "sample";
 
 // The returned value is "sample";
 alert(Rho.AudioCapture.fileName);
 
 #Setting fileName with fullpath
-Rho::AudioCapture.fileName = Rho::Application.userFolder + 'mysound';
+Rho.AudioCapture.fileName = Rho.Application.userFolder + 'mysound';
 
 // The returned value is (this is example for simulator) "/Users/MOHUS/Library/Application Support/iPhone Simulator/7.1/Applications/376D660D-B6C7-4E6E-8B69-38E7C681DAC5/Documents/apps/mysound";
 alert(Rho.AudioCapture.fileName);
