@@ -158,13 +158,13 @@ Alert.show_popup(Rho::AudioCapture.fileName);
 <ul class='nav nav-tabs' id='exI1-S2Tab'><li class='active'><a href='#exI1-S2JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S2JS'><pre class='CodeRay'><code>:::javascript
 
 #Setting fileName without extension
-Rho::AudioCapture.fileName = "sample";
+Rho.AudioCapture.fileName = "sample";
 
 // The returned value is "sample";
 alert(Rho.AudioCapture.fileName);
 
 #Setting fileName with fullpath
-Rho::AudioCapture.fileName = Rho::Application.userFolder + 'mysound';
+Rho.AudioCapture.fileName = Rho.Application.userFolder + 'mysound';
 
 // The returned value is (this is example for simulator) "/Users/MOHUS/Library/Application Support/iPhone Simulator/7.1/Applications/376D660D-B6C7-4E6E-8B69-38E7C681DAC5/Documents/apps/mysound";
 alert(Rho.AudioCapture.fileName);
@@ -196,5 +196,5 @@ Alert.show_popup(Rho.AudioCapture.fileName)
   </div></div></div></div><a name='r4'></a><div class=' remarks' id='r4'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark4"><strong>Page Navigation</strong></div><div id="cRemark4" class="accordion-body">  <div class="accordion-inner"><p>Audio recording should be cancelled.In iOS, the state will be persisted.</p>
   </div></div></div></div><a name='r5'></a><div class=' remarks' id='r5'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark5"><strong>Duration And File Name Settings</strong></div><div id="cRemark5" class="accordion-body">  <div class="accordion-inner"><p>The default values will be applied for duration if no values are provided by the user. If values are provided then it will apply the user provided values. Later if values are not provided then it will apply the last provided values for the same. The settings for duration and file name will not be applied if the audio capture is already started and in progress. In android, there might be slight omit of recording data initially.</p>
   </div></div></div></div><a name='r6'></a><div class=' remarks' id='r6'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark6"><strong>Get Property Or Get Properties</strong></div><div id="cRemark6" class="accordion-body">  <div class="accordion-inner"><p>In Windows, &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; for fileName will return the complete path along with the extension name. For example: If file name was set to &lsquo;\Application\AudioCapture&rsquo;, then &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; will return &lsquo;\Application\AudioCapture.wav&rsquo;. If file name was set to &lsquo;AudioCapture&rsquo;, then &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; will return &lsquo;\AudioCapture.wav&rsquo;. In android, the fileName will return whatever is set with or without extension.</p>
-  </div></div></div></div><a name='r7'></a><div class=' remarks' id='r7'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark7"><strong>General</strong></div><div id="cRemark7" class="accordion-body">  <div class="accordion-inner"><p>On Quitting of the Application, Android will save the data in the file and gracefully exit.</p>
+  </div></div></div></div><a name='r7'></a><div class=' remarks' id='r7'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark7"><strong>General</strong></div><div id="cRemark7" class="accordion-body">  <div class="accordion-inner"><p>On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.</p>
   </div></div></div></div></div>
