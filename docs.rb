@@ -69,11 +69,10 @@ class Docs < Sinatra::Base
     erb :not_found
 
     rescue Exception => e
-      puts "EROR:#{e}"
+      puts "ERROR:#{e}"
       @alt=false
       erb :not_found
     end
-
   end
 
   ['/en/2.2.0','/en/2.2.0/','/en/2.2.0/home'].each do |path|
@@ -83,16 +82,6 @@ class Docs < Sinatra::Base
       @docversion = '2.2.0'
       cache_long
       erb :oldverhome
-    end
-  end
-
-  ['/en/hosted/guide/welcome', '/en/hosted/?', '/en/hosted/guide/?'].each do |path|
-    get path do
-      @title = "Intro"
-      @print = 0
-      @docsversion = 'hosted'
-      cache_long
-      erb :hosted_home
     end
   end
 
@@ -308,9 +297,6 @@ get '/exists' do
     status 404
   end
 end
-  
-
-
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
@@ -331,7 +317,7 @@ end
       end
       source = source
       @topic = Topic.load(topic, source)
-		
+
   		@title   = @topic.title 
   		@content = @topic.content
       @intro   = @topic.intro
@@ -342,8 +328,8 @@ end
   		  # @title  += Indicators.load('/' + subpath + '/' + topic + '/') 
          @indicatorslang = Indicators.languages('/' + subpath + '/' + topic + '/')
          @oslist = Indicators.oslist('/' + subpath + '/' + topic + '/')
-      
 		  end
+
   		@toc     = @topic.toc
   		@toc_sub     = @topic.toc_sub
       @body    = @topic.body
@@ -502,7 +488,6 @@ module TOC
 
 	def sections
 		@sections ||= []
-
 	end
 
 	# define a section
@@ -519,7 +504,6 @@ module TOC
   
   def find(path)
      # puts "#{path}"
-      
     compare = path.dup
     compare.slice!(0)
     compare.gsub!(/v\/([^\/]+)\//,'')
@@ -540,13 +524,10 @@ module TOC
     compare = path.dup
     compare.slice!(0)
     compare.gsub!(/v\/([^\/]+)\//,'')
-    
     found = 'Home' # Default to first section
     @sections.map do |section|
       section[3].map do |slug, title, group, _|
-        
         found = section[2] if slug == compare
-
       end
     end
     found
@@ -558,10 +539,8 @@ end
 module TUT
   extend self
 
-  
   def tutorials
     @tutorials ||= []
-
   end
 
   # define a section
@@ -576,9 +555,7 @@ module TUT
   end
   
   def steps(tut)
-      # puts "#{tut}"
-      
-    
+    # puts "#{tut}"
     found={}
     # found = @tutorials[0][0] # Default to first section
     @tutorials.each do |tutsection|
@@ -586,13 +563,11 @@ module TUT
       if tutsection[0] == tut
         found = tutsection
       end
-      
     end
-    # puts "FOund:#{found}"
+    # puts "Found:#{found}"
     found
   end
 
- 
   file = File.dirname(__FILE__) + '/tuts.rb'
   eval File.read(file), binding, file
 end

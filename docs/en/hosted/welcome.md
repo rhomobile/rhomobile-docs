@@ -1,1 +1,0 @@
-# Welcome to RhoMobile Hosted Services
