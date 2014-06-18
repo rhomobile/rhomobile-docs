@@ -1,99 +1,15 @@
-RhoHub Tutorial
-================
+Remote Build Tutorial
+=====================
 
 ## Introduction
-
-The RhoMobile framework allows you to quickly create and build applications for multiple smartphone operating systems. RhoHub makes building RhoMobile applications even easier, reducing the overhead of getting started and as well as streamlining ongoing development efforts. 
-
 This tutorial shows you how to build a simple product inventory application that allows users to create, retrieve and edit local data without requiring a connection to the Internet.
 
+
+
 ## Setup
-
-Before using your RhoHub account, you should [install RhoMobile SUite](rhomobile-install). This will install RhoMobile, RhoConnect, RhoStudio, and Git on Windows.
-
-You need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3) or [Linux](http://git-scm.com/download).
-
-If you decide not to use RhoStudio, but instead [use your own IDE or text editor](nonrhostudio), you need to install Git on [Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3), [Windows](http://code.google.com/p/msysgit/), or [Linux](http://git-scm.com/download).
-
-Refer to the [Git resources](#git-resources) for more information on git, such as references and tutorials.
-
-### Create your RhoHub Account
-
-[Create a RhoHub account](https://app.rhohub.com) or if you already have an account, [login](https://app.rhohub.com/login). After signing up, you will receive an email containing a link directing you to `http://app.rhohub.com/your-user-name`.  
-
-Add your SSH public key in the RhoHub "SSH Keys" section of your RhoHub profile. 
-
-NOTE: For help with generating and adding a public key for your operating system, click on the `More Info` button in the upper right corner of your RhoHub Profile page, SSH Keys tab.
-
-* From your home page on RhoHub (`http://app.rhohub.com/your-user-name`), click on your user name, then click Profile in the popup menu to open your Profile.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-profilemenu-arrow.png">
-
-* On your Profile page, click the `SSH Keys` tab in the left column.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-ssl.png">
-
-* Click the `Public Key` button. The public key form appears on the page.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-ssl-publickey.png">
-
-* Copy the contents of your public key and paste it into the "Public Key" field of the form. Type a title for your public key into the form. Then click the Save button.
-
-### Create a RhoMobile App on RhoHub
-
-In RhoHub, you can create a RhoMobile app for your mobile device and a RhoConnect app for your RhoConnect server. You can store these apps in your local git repsoitory. We'll focus first on the RhoMobile application: creating it in RhoHub and local setup for development.
-
-To create your new RhoMobile app, go to [rhohub.com](http://rhohub.com). Log into your account if needed and click Dashboard in the top bar.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-dashboard.png">
-
-Click the "Create App" button. The "Create a new app" window appears. Click the "Rhodes" button. Give your app a name. Then click the "Create App" button.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-create-app.png">
-
-Your new RhoMobile app appears in the App info tab.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-tutorial/rhohub-new-rhodes-app.png">
-
-If you click the More Info button to the right of your RhoMobile app name, help text appears with commands that help you install your app to your mobile device once you have built it.
-
-If you click on the small pencil icon to the right of your RhoMobile app name, you can edit the name.
-
-### Setup Local GIT Development for the RhoMobile App
-
-The GIT Url shows the command you use to add your RhoMobile app to your local git repository, such as `git@git.rhohub.com:your-rhohub-account/your-rhoMobile-app.git`. 
-
-Actually, the app in RhoHub is empty: no code. You need to generate the code for that app on your local git repositiory, and then push the app code to your RhoHub account.
-
-Use the following command in your local account to generate the code for your RhoMobile app. 
-
-	:::term
-	$ rhodes app your-local-rhomobile-app
-
-If you are new to git, you will need to set up your credentials:
-
-	:::term
-	$ git config --global user.name 'John Doe'
-	$ git config --global user.email johndoe@example.com
-
-Now you can add the code in your local git repository to RHoHub.
-
-	:::init
-	$ cd your-local-rhomobile-app/
-	$ git init
-	$ git add .
-	$ git commit -m "initial commit"
-	$ git remote add origin git@git.rhohub.com:your-rhohub-account/your-rhomobile-app.git
-	$ git push -u origin master
-
-These commands initialize your local directory containing your Rhodes app code, add that directory to your next Git commit, create your initial commit, add your RhoHub git URL as an alias to your local directory, then push your local code to RhoHub.
-
-For more details on git, see the [git documentation](http://git-scm.com/documentation).
-
-With RhoHub you can pick just one platform SDK for local development and then use the hosted build capability to build and test the other platforms.  This saves significant setup time for developers and creates an efficient workflow.  Since the Android SDK supports Mac, Windows and Linux, we will use it for this tutorial.
+Before building remotely, you'll need to sign up for a [subscription plan](http://www.rhomobile.com/pricing.html) of either silver or gold; only paid subscription plans allow the use of the remote build feature. Refer to the [licensing](../../edge/guide/licensing) doc for assistance on signing up and applying your remote build token.
 
 ## Creating a Simple Application
-
 Next we'll modify the Rhodes application on the local git repository to track store inventory on the device.  We'll create a "product" model object and the UI to create, modify, display and delete data.  Initially we'll focus on building an application that runs completely on the device without server connectivity.
 
 ### Verify Setup
