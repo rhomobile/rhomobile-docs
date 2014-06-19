@@ -479,7 +479,7 @@ The following is an example of a typical configuration file
 	<tr>
 	<td >VoidConnection\\TrackConnection</td>
 	<td >TrackConnection</td>
-	<td >This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page.</td>
+	<td >This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page. If this feature is enable it will displya a non modal dialog whenever connectivity goes, whereas in case of Android it will display a modal dialog.</td>
 	<td >Connection Tracking</td>
 	</tr>
 	
