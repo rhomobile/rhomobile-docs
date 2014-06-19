@@ -1,5 +1,4 @@
-RhoHub Gallery and RhoGallery Tutorial
-========
+# RhoHub Gallery and RhoGallery Tutorial
 
 You also need consumers for your app. Consumers can use the RhoGallery mobile app to receive your app from your RhoHub gallery, and install it on their mobile device.
 

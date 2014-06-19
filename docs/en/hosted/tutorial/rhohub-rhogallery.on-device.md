@@ -1,5 +1,4 @@
-RhoHub Gallery and RhoGallery Tutorial
-========
+# RhoHub Gallery and RhoGallery Tutorial
 
 RhoHub gallery administrators can invite mobile device owners to connect to their RhoHub gallery. You use the RhoGallery app on your mobile device to connect to that RhoHub gallery. Then you can install the apps in that RhoHub gallery onto your mobile device, and run those apps.
 

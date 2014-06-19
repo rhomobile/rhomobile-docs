@@ -1,5 +1,5 @@
-RhoHub Gallery and RhoGallery Tutorial 
-========
+# RhoHub Gallery and RhoGallery Tutorial 
+
 This tutorial will guide you through setting up a gallery on RhoHub and adding consumers, groups, and applications to it. 
 
 It also shows how to install RhoGallery, which is the mobile app that consumers use to connect to a RhoHub gallery. It shows how to connect to a RhoHub gallery with the RhoGallery app, and how to install, run, and uninstall apps from a RhoHub gallery.
@@ -24,5 +24,3 @@ Related Material
  * [RhoGallery Webinar](http://vimeo.com/16679855)
  * [RhoGallery Management Webinar](http://vimeo.com/17457250)
  * [RhoHub Tutorial](../guide/rhohubtutorial)
-
-

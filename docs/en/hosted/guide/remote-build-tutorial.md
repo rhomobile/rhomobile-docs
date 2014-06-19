@@ -1,5 +1,4 @@
-Remote Build Tutorial
-=====================
+# Remote Build Tutorial
 
 ## Introduction
 This tutorial shows you how to build a simple product inventory application that allows users to create, retrieve and edit local data without requiring a connection to the Internet.

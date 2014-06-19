@@ -1,5 +1,4 @@
-RhoHub Gallery and RhoGallery Tutorial
-========
+# RhoHub Gallery and RhoGallery Tutorial
 
 Now you need to add apps to your gallery. Click the Add a new App button.
 

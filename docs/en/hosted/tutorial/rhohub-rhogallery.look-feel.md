@@ -1,6 +1,4 @@
-RhoHub Gallery and RhoGallery Tutorial
-========
-
+# RhoHub Gallery and RhoGallery Tutorial
 
 You can build your own custom RhoGallery Mobile. From the "Galleries" tab, select the "RhoGallery Mobile" section.
 

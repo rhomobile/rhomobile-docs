@@ -1,5 +1,4 @@
-RhoHub Gallery and RhoGallery Tutorial
-========
+# RhoHub Gallery and RhoGallery Tutorial
 
 You can create groups and add consumers to those groups. For example, you may wish to have a group for sales consumers, and another group for engineers. Also, you can add these groups to other galleries. For example, if you create a new gallery, you can add the sales group from your original gallery to your new gallery.
 
@@ -40,4 +39,3 @@ In the Invite Consumers pop-up window, click the Existing Consumers tab. Then ch
 The group is now added to your gallery.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/galleries-group-added.jpg"/>
-
