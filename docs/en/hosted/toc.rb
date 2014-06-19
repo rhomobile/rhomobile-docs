@@ -3,5 +3,13 @@ section 'getting-started',                  'Introduction','Hosted Services' do
 end
 
 section 'hosted-guides',                           'Guides','Hosted Services' do
-  topic 'en/hosted/guide/remote-build-tutorial',   'Remote Build Tutorial'
+  topic 'en/hosted/guide/rhomobile-eb',            'Rhomobile.com'
+  topic 'en/hosted/guide/rhogellery-tutorial',     'App Management'
+  topic 'en/hosted/guide/licensing-rhoconnect',    'Licensing RhoConnect'
+end
+
+section 'tutorials',                             'Tutorials', 'Hosted Services' do
+  topic 'en/hosted/guide/remote-build-tutorial', 'Remote Build Tutorial'
+  topic 'en/hosted/tutorial/rhohub-rhogallery',  'App Management Tutorial'
+  topic 'en/hosted/tutorial/rhoconnect',         'RhoConnect Tutorial'
 end
