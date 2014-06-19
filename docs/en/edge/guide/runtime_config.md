@@ -500,14 +500,14 @@ The following is an example of a typical configuration file
 	<tr>
 	<td >VoidConnection\\Timeout</td>
 	<td >Timeout</td>
-	<td >This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. </td>
+	<td >This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be atleast 3 times bigger than PollInterval,else both will take default  values </td>
 	<td >Timeout</td>
 	</tr>
 	
 	<tr>
 	<td >VoidConnection\\PollInterval</td>
 	<td >PollInterval</td>
-	<td >This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value .  </td>
+	<td >This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value. The minimum value is 5000. If specified less than 5000, it will take 5000. It is a non-testable parameter.   </td>
 	<td >PollInterval</td>
 	</tr>
 	
