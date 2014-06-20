@@ -247,3 +247,20 @@ def index_variable_for(version)
     return 4.1
   end
 end
+
+# Helpers for broken link checker
+def get_links(file)
+  @links = []
+  path = File.dirname file
+  # Get lines in file that have MD style links
+  File.readlines(file).each do |line|
+    line.to_s
+    line.scan(/\[.*?\]\((.*?)#.+\)/).each do |item|
+      item = item.to_s[2...-2]
+      next if item.include? "http://" or item.include? "https://" or
+              item.empty?
+      puts "#{path}/#{item}"
+    end
+  end
+  puts @links
+end
