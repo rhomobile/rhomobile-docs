@@ -37,7 +37,7 @@ Adding to the above example:
 
 This is done with [`AsyncHttp`](rhodes/connect-to-web-services).  You will then use either JSON (if its a JSON web service) or REXML (if the web service returns XML) to process the data. 
 
-See the [`AsyncHttp` example code](rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at <a href="http://rhostore.heroku.com/products.xml"/> and parses it with rexml.
+See the [`AsyncHttp` example code](rhodes/connect-to-web-services#asynchttp-example) which connects to an XML feed at [our rhosrore app](http://rhostore.heroku.com/products.xml) and parses it with rexml.
 
 ## How do I make a POST request to web service?
 To make a POST request, use the `AsyncHttp.post` method.  See the [`AsyncHttp.post` docs here](rhodes/connect-to-web-services#asynchttp-api).

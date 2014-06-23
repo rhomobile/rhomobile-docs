@@ -250,17 +250,44 @@ end
 
 # Helpers for broken link checker
 def get_links(file)
-  @links = []
-  path = File.dirname file
+  web_links_arry    = []
+  local_links_array = []
+
+  path = File.absolute_path(File.dirname(file))
   # Get lines in file that have MD style links
   File.readlines(file).each do |line|
     line.to_s
-    line.scan(/\[.*?\]\((.*?)#.+\)/).each do |item|
-      item = item.to_s[2...-2]
-      next if item.include? "http://" or item.include? "https://" or
-              item.empty?
-      puts "#{path}/#{item}"
+    line.scan(/\[.*?\]\((.*?#?.?)\)/).each do |item|
+      # Flatten and stringify arrays
+      if item.class == Array
+        if item.length == 1
+          item = item[0].to_s
+        else
+          item = item.flatten.join("").to_s
+        end
+      end
+
+      # Remove strings following anchor hashes (#)
+      if item.include? '#'
+        item = item.match(/(.*?)#+/)[0].chomp('#')
+      end
+
+      # Add web links to their own array
+      if item.include?("http:") or item.include?("https:")
+        web_links_arry << "#{path}/#{item}.md" unless web_links_arry.include? "#{path}/#{item}.md"
+        next
+      elsif item.empty?
+        next
+      else
+        # Add local links to their own array
+        local_links_array << "#{path}/#{item}.md" unless local_links_array.include? "#{path}/#{item}.md"
+      end
     end
   end
-  puts @links
+  @web_links[file] = web_links_arry
+  @local_links[file] = local_links_array
+end
+
+def test_link(file, link)
+  File.exists?(link)
 end

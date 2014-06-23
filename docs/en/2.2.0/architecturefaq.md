@@ -8,13 +8,13 @@ Rhodes compiles Ruby into Ruby 1.9 bytecode.  Apps written in Rhodes are very fa
 There are thousands of apps written with Rhodes and other frameworks on the App Store. Apple has clarified that use of frameworks is completely acceptable.  No Rhodes app has ever been rejected for using a framework. 
 
 ## Will Rhodes apps look as good as "native" apps?
-Rhodes is for building native apps.  But for developer productivity, Rhodes allows programmers to use HTML for its their views (interfaces). Combined with HTML5/CSS/JavaScript libraries like [SenchaTouch](http://sencha.com) and [JQuery Mobile](http://jquerymobile.com) Rhodes enables much better user interfaces than are typically done with underlying SDKs or with frameworks that use their own JavaScript UI libraries (such as Appcelerator). Rhodes apps are generated with support for [JQTouch](jqtouch.com) out of the box today, but it is easy to use Sencha or JQuery Mobile as well.  
+Rhodes is for building native apps.  But for developer productivity, Rhodes allows programmers to use HTML for its their views (interfaces). Combined with HTML5/CSS/JavaScript libraries like [SenchaTouch](http://sencha.com) and [JQuery Mobile](http://jquerymobile.com) Rhodes enables much better user interfaces than are typically done with underlying SDKs or with frameworks that use their own JavaScript UI libraries (such as Appcelerator). Rhodes apps are generated with support for [JQTouch](http://jqtouch.com) out of the box today, but it is easy to use Sencha or JQuery Mobile as well.
 
 ## What about when you need to use "native controls"?
 Rhodes includes several "native controls" such as native mapping, a date/time picker, and tabbars and toolbars. But developers can add their own controls as well via [native extensions](http://docs.rhomobile.com/rhodes/extensions#native-view-extension)
 
 ## Do you really expose all device capabilities?
-Rhodes exposes [almost every capability of the underlying device](http://docs.rhomobile.com/rhodes/device-caps).  
+Rhodes exposes [almost every capability of the underlying device](http://docs.rhomobile.com/rhodes/device-caps).
 
 ## What if some device capability is not supported?   
 You can implement it with [Rhodes native extensions](http://docs.rhomobile.com/rhodes/extensions#native-extensions)
@@ -23,16 +23,16 @@ You can implement it with [Rhodes native extensions](http://docs.rhomobile.com/r
 The Model View Controller pattern separates data definitions (models) from business logic (controllers) from interfaces (views).  MVC based apps are far more maintainable and understandable.  All modern web development languages now use MVC as their dominant approach (Java/Struts, ASP.NET MVC, Python/Django, Ruby/Rails, PHP/Zend). Rhodes is the only framework to offer MVC for native mobile app development. 
 
 ## Isn't MVC on the server enough?
-Having a backend app written with MVC is great.  If you have real business logic on the device, MVC is a better approach.  
+Having a backend app written with MVC is great.  If you have real business logic on the device, MVC is a better approach.
 
 ## Can I really use Rho if I am not a Ruby programmer?
-Ruby is easy to learn.  See [Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/). Just as most Ruby on Rails programmers came to Rails years ago without any Ruby background, most Rhodes developers do not start doing Rhodes development with existing Ruby knowledge.  The Rhodes app generator generates the basic business logic in Ruby, allowing developers with zero Ruby knowledge to be immediately productive with Rhodes.   
+Ruby is easy to learn.  See [Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/). Just as most Ruby on Rails programmers came to Rails years ago without any Ruby background, most Rhodes developers do not start doing Rhodes development with existing Ruby knowledge.  The Rhodes app generator generates the basic business logic in Ruby, allowing developers with zero Ruby knowledge to be immediately productive with Rhodes.
 
 ## Can I write Rhodes apps with my favorite editor/Integrated Development Environment?   
 Rhodes apps can be written with any editor or IDE which supports Ruby and HTML.  This includes Eclipse, IntelliJ, NetBeans, Visual Studio, Textmate, VIM, emacs and others.
 
 ## Does Rhodes have an IDE?
-We do provide an Integrated Development Environment called [RhoStudio](http://docs.rhomobile.com/rhostudio.tutorial). We also supply, [RhoHub 3.0](http://rhohub.com) which features a hosted IDE, allowing developers to write apps whether or not they have anything installed locally on their own machine.  You can generate, edit, and build your native smartphone apps, all online on RhoHub.  
+We do provide an Integrated Development Environment called [RhoStudio](http://docs.rhomobile.com/rhostudio.tutorial). We also supply, [RhoHub 3.0](http://rhohub.com) which features a hosted IDE, allowing developers to write apps whether or not they have anything installed locally on their own machine.  You can generate, edit, and build your native smartphone apps, all online on RhoHub.
 
 ## How do I debug my app?
 Use the Rhodes debugger.  See the [Rhodes debugger webinar](http://www.youtube.com/watch?v=xtpjlIdOdQE&feature=player_profilepage)
@@ -62,7 +62,7 @@ RhoSync handles large data sync better than any other sync server with [bulk syn
 Rhodes is the only way (framework or underlying SDK) to support [automatic data encryption](http://docs.rhomobile.com/rhodes/rhom#database-encryption)
 
 ## What about Rho for highly secure apps in general?
-You need to handle on device encryption (see last question), transport security, and delegated authentication.  See [Building Highly Secure Apps](http://docs.rhomobile.com/secure-apps).  
+You need to handle on device encryption (see last question), transport security, and delegated authentication.  See [Building Highly Secure Apps](http://docs.rhomobile.com/secure-apps).
 
 ## How do I handle lost or stolen devices?
 You can purchase a mobile device management server or just use the free RhoGallery feature on [RhoHub](http://rhohub.com)
