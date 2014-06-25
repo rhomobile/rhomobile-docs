@@ -211,7 +211,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <![CDATA[
 Fullscreen and In-line
 =====================
-The signature capture feature can work in two visual modes, Fullscreen and In-line. The fullscreen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the in-line signature capture, there are no such buttons so these will have to be designed into the app itself.
+The signature capture feature can work in two visual modes, Full-screen and In-line. The full-screen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the in-line signature capture, there are no such buttons so these will have to be designed into the app itself.
 
 Parameters which clear the signature
 ====================================
@@ -255,7 +255,7 @@ The signature capture area is designed to be set up prior to capturing the signa
            <EXAMPLE title="Capture signature to file (fullscreen) and display it in a view">
                <SECTIONS>
                <SECTION>
-               <DESC>In order to capture a signature in fullscreen mode you need to </DESC>
+               <DESC>In order to capture a signature in full-screen mode you need to </DESC>
                <CODE lang='ruby'>
            <![CDATA[
   def capture_fullscreen
@@ -266,7 +266,7 @@ The signature capture area is designed to be set up prior to capturing the signa
   end
 
   def signature_callback
-    # If status is not 'ok', the capture was cancelled
+    # If status is not 'ok', the capture was canceled
     if @params['status'] == 'ok'
     
       # By default, the output format is "image", so the imageUri parameter will contain the relative filename of an image
@@ -318,19 +318,19 @@ The signature capture area is designed to be set up prior to capturing the signa
                <DESC>Several properties affect the appearance of the signature capture functionality. You can set their values before showing the capture interface:</DESC>
                <CODE>
                 <RUBY>
-           <![CDATA[ 
-# Change fullscreen from true (default) to false           
+           <![CDATA[
+# Change full-screen from true (default) to false
 # Change background color from white (default) to black
 # Change pen color from blue (default) to white
-Rho::Signature.show {:fullScreen => false, :bgColor => "#000000", :penColor => "#FFFFFF"}
+Rho::Signature.show { :fullScreen => false, :bgColor => "#000000", :penColor => "#FFFFFF" }
                    ]]>
                  </RUBY>
                  <JAVASCRIPT>
            <![CDATA[
-// Change fullscreen from true (default) to false
+// Change full-screen from true (default) to false
 // Change background color from white (default) to black
 // Change pen color from blue (default) to white
-Rho::Signature.show ({:fullScreen => false, :bgColor => "#000000", :penColor => "#FFFFFF"});
+Rho.Signature.show ({"fullScreen" : false, "bgColor" : "#000000", "penColor" : "#FFFFFF"});
                    ]]>
                  </JAVASCRIPT>
                </CODE>
@@ -345,12 +345,12 @@ Rho::Signature.show ({:fullScreen => false, :bgColor => "#000000", :penColor => 
                <CODE>
                 <RUBY>
            <![CDATA[
-Rho::Signature.takeFullScreen({:outputFormat => "dataUri"}, url_for(:action => :signature_callback))
+Rho::Signature.takeFullScreen({ :outputFormat => "dataUri" }, url_for(:action => :signature_callback))
                    ]]>
                  </RUBY>
                 <JAVASCRIPT>
            <![CDATA[
-Rho.Signature.takeFullScreen({outputFormat : "dataUri"}, signature_callback)
+Rho.Signature.takeFullScreen({"outputFormat" : "dataUri"}, signature_callback)
                    ]]>
                  </JAVASCRIPT>
                </CODE>

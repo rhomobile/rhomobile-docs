@@ -37,7 +37,6 @@ The following is an example of a typical configuration file, many of the attribu
 	  </FileLocations>
 	  <Screen>
 		<FullScreen VALUE="1"/>
-		<PageZoom VALUE="1.0"/>
 	  </Screen>
 	  <WebServer>
 		<Enabled   VALUE="1"/>
@@ -265,12 +264,6 @@ The following is an example of a typical configuration file, many of the attribu
 <td >FULLSCREEN</td>
 <td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/Application">Application</a> tag.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
-</tr>
-<tr>
-<td >Screen\\PageZoom</td>
-<td >PAGEZOOM</td>
-<td >Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. Negative Values and 0.0 is not supported.<a href="#_pageZoom">* (see remark)</a></td>
-<td >Zoom factor of the page.</td>
 </tr>
 <tr>
 <td class="clsEvenRow">WebServer\\Enabled</td>
@@ -767,10 +760,6 @@ The [Imager](imager) Plugin (PB_ImageCapture_PLG.dll) requires File Transfer if 
 ##Remarks
 ###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity
 The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
-###<a name="_pageZoom">*</a>Page Zoom Configuration
-Sometimes, while navigating from any page to any other page, the actual page zoom setting reflects after few milli seconds delay. This doesn't happens everytime.
-
-Setting page zoom property on page load event doesnot reflect the set value for the Application start page for the first time. Users are advised to set the page zoom property with a minimum of 1 second delay on page load.
 ###<a name="_batteryRefresh">*</a>Battery Polling on the Enterprise Tablet
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 ###<a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings

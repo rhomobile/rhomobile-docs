@@ -48,7 +48,7 @@ In the device rhodes application, setting `bulksync_state` to 0 in rhoconfig.txt
 
 	bulksync_state = 0
 
-After application executed bulk sync it will set `bulksync_state` to 1 and next time sync will happen, it will not execute bulk sync anymore. You may force bulk sync on the next sync cycle by setting `bulksync_state` to 0 again using ruby in your application:
+Once a bulk sync has been executed, the `bulksync_state` flag will be set to 1. This is done to make sure that subsequent syncs are incremental syncs, not bulk. You may force bulk sync on the next sync cycle by setting `bulksync_state` to 0 again using ruby in your application:
 	
 	:::ruby
 	Rho::RhoConfig.bulksync_state = '0'

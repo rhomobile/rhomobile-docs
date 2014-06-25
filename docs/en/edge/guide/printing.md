@@ -10,7 +10,7 @@ In the [API reference](apisummary), you will see two new APIs: [Printing](../api
     extensions: ["printing","printing_zebra"]
 
 ## Finding Printers
-In order to print you must first find and connect to a printer. There are a few different ways to do this, but they all use the [searchPrinters Method](..api/printing#msearchPrintersSTATIC). 
+In order to print you must first find and connect to a printer. There are a few different ways to do this, but they all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
 
 For example, in the following code snippet, we are looking for any Zebra printers over BlueTooth only, by specifying `connectionType` and `printerType` in the `options` parameter:
 
@@ -225,7 +225,7 @@ The callback will be a [PRINTER_STATUS constant string](../api/printingzebra#Con
 NOTE: If the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly. You should also consult the manufacturers' documentation on image support for your printer. The image may need to be of a certain size and color depth before sending to the printer.
 
 ### Storing Images
-Some Zebra printers support storing images. You can accomplish this by creating  your own ZPL or CPL command set, or use the [storeImage method](..api/printingzebra#mstoreImage)
+Some Zebra printers support storing images. You can accomplish this by creating  your own ZPL or CPL command set, or use the [storeImage method](../api/printingzebra#mstoreImage)
 
 	:::javascript
 	//location of image on device

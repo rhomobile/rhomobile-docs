@@ -183,7 +183,7 @@ When you click the new button, `testService` will be invoked in the scope and `G
 
 ## Applications
 
-Angular.js was designed so that it could be added to an existing page and control only part of the DOM without interferring with the rest of the page. It is actually possible to have several Angular applications on the same page, completely independent from one another. However, because mobile devices have to work with limited screen real estate compared to traditional desktop computers, it is common for mobile apps to be composed of a single Angular app. The ability to have more than one is still there, if you want to use it. The `ngApp` directive controls which part of the DOM belongs to which application and in single-app pages, it is common to have it in the `html` tag.
+Angular.js was designed so that it could be added to an existing page and control only part of the DOM without interfering with the rest of the page. It is actually possible to have several Angular applications on the same page, completely independent from one another. However, because mobile devices have to work with limited screen real estate compared to traditional desktop computers, it is common for mobile apps to be composed of a single Angular app. The ability to have more than one is still there, if you want to use it. The `ngApp` directive controls which part of the DOM belongs to which application and in single-app pages, it is common to have it in the `html` tag.
 
 
 ## Views and Routing
@@ -230,7 +230,7 @@ Mapping urls to views and controllers is straightforward:
 		});
 	});
 
-When the application starts, the router will check the current url and process the rules. If none of them match, it will fallback to the "otherwise" section, if present. Once the router has determined which view to, it will process the template and try to find a tag with an `ngView` directive:
+When the application starts, the router will check the current url and process the rules. If none of them match, it will fall back to the "otherwise" section, if present. Once the router has determined which view to, it will process the template and try to find a tag with an `ngView` directive:
 
 	:::html
 	<!-- designate this tag as the placeholder for views -->
@@ -380,7 +380,7 @@ The code for `ProductHelper` is below:
 					}
 				}
 			},
-			update: function(rhoProduct, hash) {
+			update: function(rhoProduct, hash) {
 					rhoProduct.updateAttributes(hash);
 
 					for (var i=0; i<this.products.length; i++) {
