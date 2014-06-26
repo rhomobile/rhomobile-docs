@@ -4,7 +4,6 @@ end
 
 section 'hosted-guides',                           'Guides','Hosted Services' do
   topic 'en/hosted/guide/rhomobile-web',           'Rhomobile.com'
-  topic 'en/hosted/guide/rhogellery-tutorial',     'App Management'
   topic 'en/hosted/guide/licensing-rhoconnect',    'Licensing RhoConnect'
 end
 
