@@ -9,6 +9,7 @@ class Offline
 	  apiMD = File.join(AppConfig['api_eb'],"**","*.md")
 	  apiFiles = Dir.glob(apiMD)
 	  index_hash = []
+	  api_mapping = []
 	  apiFiles.each do |fileName|
 	    basename = fileName.gsub(AppConfig['api_eb'],'')
 	    parent = Pathname(fileName.gsub(basename,'')).each_filename.to_a.last
@@ -27,6 +28,11 @@ class Offline
 	      :name => title,
 	      :md => md
 	    }
+	    api_object = {
+	    	:name => hash_object[:name],
+	    	:link => "##{hash_object[:key]}"
+	    }
+	    api_mapping.push api_object
 	    index_hash.push hash_object    
 	  end
 
@@ -58,7 +64,10 @@ class Offline
 		File.open("#{outputfile}", 'w') {|f| 
 			f.write("var docs = #{index_hash.to_json};") 
 		}
-
+		outputfile = "#{AppConfig['offline_eb_mapping']}.menu_api.js"
+		File.open("#{outputfile}", 'w') {|f| 
+			f.write("items : #{api_mapping.to_json}") 
+		}
 	end
 
 	def self.replace_url (md)

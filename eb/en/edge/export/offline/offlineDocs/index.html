@@ -6,16 +6,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Motorola Solutions Enteprise Browser Documentation</title>
+        <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
 
         <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">
         <link rel="stylesheet" href="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu_grey.css">
 		<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/demo3.css">
-<link href="css/shCore.css" rel="stylesheet" type="text/css" />
-<link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="jquery.tocify.js-master/libs/jquery.ui.all.css" rel="stylesheet">
+		<link rel="stylesheet" href="jquery.tocify.js-master/src/stylesheets/jquery.tocify.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/demo4.css">
 		
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/Markdown.Converter.js"></script>
@@ -24,16 +24,14 @@
 		<script type="text/javascript" src="docs/docs.js"></script>
 		<script type="text/javascript" src="docs/menu.js"></script>
 		<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-		
         <script type="text/javascript" src="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu.js"></script>
         <script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/shCore.js"></script>
-<script type="text/javascript" src="js/shBrushJScript.js"></script>
-<script type="text/javascript" src="js/shBrushJava.js"></script>
-<script type="text/javascript" src="js/shBrushRuby.js"></script>
-<script type="text/javascript" src="js/shBrushXml.js"></script>
+		<script type="text/javascript" src="jquery.tocify.js-master/libs/jquery-ui-1.9.1.custom.min.js"></script>
+		<script type="text/javascript" src="jquery.tocify.js-master/src/javascripts/jquery.tocify.js"></script>
 		
 		<script>
+			var toc = null;
+		
 			$(document).ready(function(){
 				// HTML markup implementation, overlap mode
 				$( '#menu' ).multilevelpushmenu({
@@ -46,7 +44,8 @@
 					
 					//Get links to work
 					onItemClick: function() {
-						// Anchor href
+						// Get Anchor href
+						$item = arguments[2]
 						var itemHref = $item.find( 'a:first' ).attr( 'href' );
 						// Redirecting the page
 						location.href = itemHref;
@@ -82,6 +81,26 @@
 				$("#markdownDoc").animate({ scrollTop: 0 }, 500);
 				
 				search();
+				
+				if(toc != null)
+				{
+					$("#toc").remove();
+					toc = null;
+				}
+				$("#pushobj").append('<div id="toc" class="panel panel-primary"> <div class="panel-heading">IN THIS DOCUMENT</div></div>');
+				
+				toc = $("#toc").tocify({
+					selectors: "h2,h3,h4,h5",
+					context: "#markdownDoc",
+					history:false,
+					scrollTo:52
+				}).data("toc-tocify");
+				
+				$("#toc").affix({
+					offset: {
+						top: 20
+					}
+				});	
 			}
 			
 			function getByKey(key) 
@@ -117,7 +136,7 @@
 					shouldSort: true,
 					threshold: 0.4,
 					location: 0,
-					distance: 1000,
+					distance: 10000,
 					maxPatternLength: 32,
 					keys: ["md", "name"]
 				};
@@ -153,15 +172,16 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="docsHeader">
-			Motorola Solutions Enteprise Browser Documentation
+		
+		<div id="docsHeader">
+			Motorola EMDK documentation
+			<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search" data-placement="bottom" data-html="true" data-original-title="Search Results" data-trigger="manual">
 		</div>
 		
-		<div id="pushobj">
-		    			<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search" data-placement="bottom" data-html="true" data-original-title="Search Results" data-trigger="manual">
+		<div id="pushobj">		
 			<div id="markdownDoc">
 
-			</div>
+			</div>			
 		</div>
 		
         <div id="menu">
