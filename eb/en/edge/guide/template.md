@@ -33,4 +33,3 @@ We will be using Syntaxhighlighter.js for code highlight in both Launchpad (uses
 ## Offline Doc Notes
 
 * Put in some notes about offline docs
-
