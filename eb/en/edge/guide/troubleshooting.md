@@ -1,13 +1,11 @@
 # Troubleshooting
-
-
-## Debugging
-### ...
+If you are having issues with your MEB app, here are a few things you can try to get back on track.
 
 ## Logging
 Sometimes it is necessary to view your logs in order to pin down the exact source of the issue you are encountering.
 
-### Rholog.txt
+### log.txt
+The log.txt file is generated automatically by your app as it runs. By default, the file will be located in the install directory on your device.
 
 ## FAQ
 These are some of the most frequently asked questions and common fixes for frequently encountered issues while using the Motorola Enterprise Browser.
