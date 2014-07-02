@@ -3,17 +3,8 @@
 ## Setup
 Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-windows-phone-8) for building Windows Phone 8 applications.
 
-### Using RhoHub
-
-Alternatively, you can create the device builds with RhoHub. RhoHub is a cloud based service that integrates with RhoStudio to allow building and packaging apps for all platforms.
-
-You can use it:
-
-* to avoid installing SDKs locally
-* to quickly get you up and running
-* for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
-
-See the [RhoHub tutorial](rhohubtutorial) for more details.
+### Building Remotely
+Alternatively, you can create the device builds remotely with RhoMobile hosted builds. Refer to our [remote build guide](../../hosted/guide/remote-build-guide) for more info.
 
 ## Application changes
     

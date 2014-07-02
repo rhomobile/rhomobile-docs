@@ -1,6 +1,9 @@
 # Welcome to RhoMobile Hosted Services
 The RhoMobile.com product suite provides access to two main hosted services: remote build and app management. To use these features, you must have a paid subscription through [Rhomobile.com](http://www.rhomobile.com/pricing.html) (either silver or gold).
 
+## RhoMobile Account
+Before using any RhoMobile product, you must sign up for a RhoMobile account on [rhomobile.com](http://www.rhomobile.com). Refer to our [RhoMobile Account guide](rhomobile-account) for steps on creating your account and applying the account credentials to your RhoMobile product.
+
 ## RhoMobile Suite
 The following pages will assume that you have already downloaded and installed the RhoMobile suite, which includes the RhoStudio IDE and the libraries necessary to build apps using the RhoMobile framework. If you have not done this, Download them here:
 

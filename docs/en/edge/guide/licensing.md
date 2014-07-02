@@ -10,7 +10,7 @@ New to 4.2 we are introducing a subscription model for licensing for our product
 NOTE: This <b>does</b> mean that without a paid subscription your usage of RhoMobile products is limited to Rhodes and RhoStudio for local builds only.
 
 ## Applying Your Subscription Plan
-Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobile.com), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
+Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobile.com/content/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
 
 ### Signing In With the Command Line
 <div class="row-fluid">

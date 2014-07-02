@@ -1,27 +1,22 @@
 # Creating a RhoMobile project
-
-You can create a Rhomobile project either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent.
+You can create a RhoMobile project either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent.
 
 ## Prerequisites
-
 In order to build a Native Application, you will need to have the SDK environments setup on your machine for each targeted mobile platform that you wish to support. In order for RhoStudio to build the final application, these environments must be setup properly and then RhoStudio will need need to know the paths to the build components. 
 
-###1) Setup Mobile Development Environments</b>
-
-[Windows Mobile](nativesdksetup#setup-for-windows-mobile)
-
+### 1) Setup Mobile Development Environments</b>
 [iPhone/iPad](nativesdksetup#setup-for-ios)
 
 [Android](nativesdksetup#setup-for-android)
 
+[Windows Mobile](nativesdksetup#setup-for-windows-mobile)
+
 [Windows Phone 8](nativesdksetup#setup-for-windows-phone-8)
 
-###2) Java Development Kit
-
+### 2) Java Development Kit
 In the [RhoMobile Suite installation instructions](rhomobile-install), review the Java Development Kit instructions for your operating system.
 
-###3) Install RhoMobile Suite
-
+### 3) Install RhoMobile Suite
 Follow operating specific instructions for your development machine:
 
 [Mac OS](rhomobile-install#mac-os)
@@ -31,17 +26,18 @@ Follow operating specific instructions for your development machine:
 [Windows 64-bit](rhomobile-install#windows-64-bit)
 
 
-###4) Setup RhoStudio Mobile SDK Paths
-
+### 4) Setup RhoStudio Mobile SDK Paths
 Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. 
 
 	C:\> rhodes-setup
 
 This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](#prerequisites).
 
+### 5) Sign Up For a Subscription Plan at rhomobile.com
+Building any app using Rhodes or RhoElements requires a license, even if it's a free license. Refer to our [licensing doc](licensing) for more information on which plan is right for you.
+
 
 ## Creating a project with RhoStudio
-
 To create your first Rhodes project using RhoStudio, select File -> New -> Project
 
 The New Project window opens. Select the Rhodes application wizard and click the Next button.
@@ -52,9 +48,7 @@ Enter the name of your new application in Project name; in this example, we will
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png"/>
 
-
 ## Creating a project from the command line
-
 If you prefer to use the command line or another development environment instead of RhoStudio, the `rhodes` tool can be invoked manually.
 
 	:::term
@@ -87,7 +81,6 @@ To create a new application called `storemanager`, switch to the directory where
 		
 
 ## Project structure
-
 The generated application has the following structure:
 
 <img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/project-structure-4.0.png"/>
@@ -95,7 +88,6 @@ The generated application has the following structure:
 Here is an overview of what each file and folder contains.
 
 ### Root application folder
-
 * build.yml
 
 This file controls compile-time settings such as the name of the application, which extensions to include, which version of the Rhodes SDK to use for compiling, etc.
@@ -110,7 +102,6 @@ A standard Ruby rakefile, designed to find the appropriate Rhodes SDK and compil
 
 
 ### app
-
 `app` contains all the Ruby code for your application, as well as its views. In a newly-created application, there are two other folders inside:
 
 * `app/helpers` contains view helpers, used to extract common functionality into reusable functions. Rhodes generates `application_helper.rb` and `browser_helper.rb` automatically, and you can add your own as needed.
@@ -129,15 +120,12 @@ Apart from these folders, there are several other files in `app`:
 * models / controllers - when you [add a model to your application](local_database), each model will be created in its own folder within `app`. For example, a model called `Product` will produce `app/Product`
 
 ### framework
-
 This folder does not exist within your application, but RhoStudio shows it for reference. This is a link to the implementation of the Rhodes framework itself, you should never modify any files in this folder unless you are [contributing to Rhodes](../rhodes/contributing)
 
 ### icon
-
 The icon for your application in different formats, as required for each platform (iOS, Android, Windows Mobile, etc).
 
 ### public
-
 Any file linked from a view (or that must be reachable by the embedded web browser for any reason) belongs here. Rhodes organizes the files it generates in several sub-directories:
 
 * `css` - stylesheets
@@ -149,8 +137,8 @@ Any file linked from a view (or that must be reachable by the embedded web brows
 You can create any other folders and organize your files following any structure you prefer, but it is recommended to stay as close as possible to the default, as this will make things easier when working with a team or asking for help.  
 
 ## Running your application
-
 ### Running from RhoStudio
+**NOTE: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.**
 
 To start your application for the first time, right click your project, then click Run As -> Run Configurations...
 
@@ -163,6 +151,7 @@ Select "RhoMobile Application" and click the "New" button, then click "Run"
 After a brief compilation period, the application will start in [RhoSimulator](debugging_with_rhosimulator)
 
 ### Running from the command line
+**NOTE: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.**
 
 To start a Rhodes application from the command line, switch to the folder that contains the application and run
 
@@ -185,7 +174,6 @@ The application will start inside RhoSimulator with a different look depending o
 <img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/rhosimulator-web-inspector-4.0.png"/>
 
 ## Related reading
-
 Now that your first application is ready to run, there are some other topics you should become familiar with:
 
 * [Adding models](local_database)

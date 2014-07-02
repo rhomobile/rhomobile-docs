@@ -109,8 +109,6 @@ section 'rhomob-setup',                     'Dev Environment Setup','Mobile Guid
   topic 'en/edge/guide/nativesdksetup',     'Native SDK Setup'
   topic 'en/edge/guide/nonrhostudio',       'Developing Without RhoStudio'
   topic 'en/edge/guide/visualstudio',       'Developing with Visual Studio'
-  topic 'en/edge/guide/rhohubtutorial',     'Build In The Cloud With RhoHub'
-  topic 'en/edge/rhostudio-rhohub',         'Using RhoStudio with RhoHub'
 end
 
 section 'rhomob-apps',                        'Developing Apps','Mobile Guides' do
