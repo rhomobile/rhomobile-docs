@@ -28,7 +28,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.1.0/api/cardreader',                                  'CardReader'
   topic 'en/2.2.0/rhoelements/comm',                                'Comm'
   topic 'en/4.1.0/api/Database',                                    'Database'
-  topic 'en/4.1.0/api/DPX',                                         'DPX (BETA)'
+  topic 'en/4.1.0/api/SimulScan',                                   'SimulScan (BETA)'
   topic 'en/4.1.0/api/geolocation',                                 'Geolocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'

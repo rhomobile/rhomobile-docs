@@ -12,14 +12,16 @@ class Api
   		return desc
   	end
   end
+
   def self.getElementName(element)
   	if !element["docNameOverride"].nil?
   		return element["docNameOverride"]
   	else
   		return element["name"]
-  	end 
-  end	
-#returns markdown for the name of the API 
+  	end
+  end
+
+	#returns markdown for the name of the API 
   def self.getApiName(doc,lang,allowoverride)
   	md=""
   	md = doc["MODULE"][0]["name"]
@@ -568,12 +570,11 @@ def self.getconstantlinks(doc)
   	end
   	indicators = ""
   	if javascript
-		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
-	end
-	if ruby
-	
-	indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
-	end 
+			indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
+		end
+		if ruby
+			indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
+		end 
 	if !platforms.is_a?(Hash)
 		if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
 			indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
@@ -1254,7 +1255,7 @@ end
 		msionly = false
 		ruby = true
 		javascript = true
-		methnote = ""		
+		methnote = ""
 		if !element["APPLIES"].nil? 
 
 				appliescontent = ""

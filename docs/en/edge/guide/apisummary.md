@@ -249,7 +249,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/DPX">DPX (BETA)</a>
+        <a href="../api/SimulScan">SimulScan (BETA)</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
