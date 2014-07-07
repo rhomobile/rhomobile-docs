@@ -1,9 +1,8 @@
 # Licensing
-
-Licensing in 4.2 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have a subscription from our [rhomobile.com](http://www.rhomobile.com) site. This does not meant that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in subscribing and building an app locally.
+Licensing in 5.0 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have a subscription from our [rhomobile.com](http://www.rhomobile.com) site. This does not meant that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in subscribing and building an app locally.
 
 ## Subscriptions
-New to 4.2 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. The details of these plans are listed below.
+New to 5.0 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. The details of these plans are listed below.
 
 <img style="border:solid;border-color:#999" src="https://s3.amazonaws.com/rhodocs/cloud/licensing/sub-details.png">
 

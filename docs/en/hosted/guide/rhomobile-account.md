@@ -1,11 +1,11 @@
 # Rhomobile Account
-Licensing in 4.2 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have an account on [rhomobile.com](http://www.rhomobile.com). This does not mean that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in signing up and applying your credentials to your RhoMobile product.
+Licensing in 5.0 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have an account on [rhomobile.com](http://www.rhomobile.com). This does not mean that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in signing up and applying your credentials to your RhoMobile product.
 
 ##Signing Up
 Signing up is easy, simply click the “Sign Up” button on the main page, choose a plan, and enter an email and password (or sign up with Google or GitHub) and click “Sign Up”. You'll receive a verification email to complete your sign up. Once you have completed sign up, you will be able to build RhoMobile apps by simply providing these credentials before building your first app.
 
 ## Subscriptions
-New to 4.2 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. When you sign up for an account on rhomobile.com you will be prompted to choose an subscription plan, the details of these plans are listed below.
+New to 5.0 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. When you sign up for an account on rhomobile.com you will be prompted to choose an subscription plan, the details of these plans are listed below.
 
 NOTE: Without choosing one of these subscription plans, you will not be able to build any app remotely OR locally using RhoMobile products.
 

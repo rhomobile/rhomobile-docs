@@ -7,9 +7,9 @@ Before using any RhoMobile product, you must sign up for a RhoMobile account on 
 ## RhoMobile Suite
 The following pages will assume that you have already downloaded and installed the RhoMobile suite, which includes the RhoStudio IDE and the libraries necessary to build apps using the RhoMobile framework. If you have not done this, Download them here:
 
-[Mac OS X .dmg](http://rhomobile-suite.s3.amazonaws.com/4.2/4.2.0.beta.17/RMS_4.2.0.beta.17.dmg)
+[Mac OS X .dmg](http://rhomobile-suite.s3.amazonaws.com/5.0/5.0.0.beta.17/RMS_5.0.0.dmg)
 
-[Windows 7+ .exe](http://rhomobile-suite.s3.amazonaws.com/4.2/4.2.0.beta.17/RMS_4.2.0.beta.17.exe)
+[Windows 7+ .exe](http://rhomobile-suite.s3.amazonaws.com/5.0/5.0.0.beta.17/RMS_5.0.0.exe)
 
 ## Remote Build (RhoHub)
 The RhoMobile framework allows you to quickly create and build applications for multiple smart-phone operating systems. Remote build makes building RhoMobile applications even easier, reducing the overhead of getting started and as well as streamlining ongoing development efforts.

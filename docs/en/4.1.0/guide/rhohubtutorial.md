@@ -75,7 +75,7 @@ The following is a table showing the versions of Rhodes that are supported for w
     </tr>
 
     <tr>
-      <td><a href="/en/4.1.0/guide/welcome">4.2.x</a></td>
+      <td><a href="/en/4.1.0/guide/welcome">5.0.x</a></td>
       <td style="width:20%;text-align:center;">Q1 - Q2, 2016</th>
       <td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center"><span class="icon-check icon-primary"></span></td>
