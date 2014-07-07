@@ -1040,6 +1040,8 @@ The operating systems of some devices have case sensitive file systems. Therefor
 Sometimes, while navigating from any page to any other page, the actual page zoom setting reflects after few milli seconds delay. This doesn't happens everytime.
 
 Setting page zoom property on page load event doesnot reflect the set value for the Application start page for the first time. Users are advised to set the page zoom property with a minimum of 1 second delay on page load.
+
+Setting page zoom property on page load will reflect only for that page.
 ###<a name="_batteryRefresh">*</a>Battery Polling on the Enterprise Tablet
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 ###<a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
