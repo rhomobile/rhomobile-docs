@@ -273,7 +273,7 @@ Perform action upon a synchronization delete error.
 </tr>
 <tr>
 	<td><code>action</code></td>
-	<td>:retry – will push delete object operation to server again at next sync.</td>
+	<td>:retry to push delete object operation to server again at next sync.</td>
 </tr>
 </table>
 
