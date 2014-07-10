@@ -35,7 +35,7 @@ To Set Zoom parameters via Ruby use the following syntax: Zoom.parameter = 'valu
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>text:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Number in the range 0 to 4</td><td class="clsSyntaxCells clsOddRow">Sets the font size to be displayed on the page, set to 0 for the smallest font and 4 for the largest font.</td><td class="clsSyntaxCells clsOddRow">2</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>page:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Number greater than 0.0</td><td class="clsSyntaxCells clsEvenRow">Sets the zoom factor of the page.  Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.</td><td class="clsSyntaxCells clsEvenRow">1.0</td></tr></table>
+</b></td><td class="clsSyntaxCells clsEvenRow">Number greater than 0.0</td><td class="clsSyntaxCells clsEvenRow">Sets the zoom factor of the page.  Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. In android,zoom will take effect after page refresh or page transition.</td><td class="clsSyntaxCells clsEvenRow">1.0</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
