@@ -308,41 +308,41 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <RETURN type="STRING"/>
         </METHOD>
 
-        <METHOD name="lock_sync_mutex" generateAPI="false">
+        <METHOD name="lock_sync_mutex" generateAPI="false" generateDoc="false">
             <DESC>Blocks the synchronization call to wait for RhoConnectClient lock (useful for performing batch operations).</DESC>
             <APPLIES rubyOnly="true"/>
         </METHOD>
 
-        <METHOD name="unlock_sync_mutex" generateAPI="false">
+        <METHOD name="unlock_sync_mutex" generateAPI="false" generateDoc="false">
             <DESC>Release the RhoConnectClient lock started by lock_sync_mutex.</DESC>
             <APPLIES rubyOnly="true"/>
         </METHOD>
 
         <METHOD name="set_syncserver" generateAPI="false">
-            <DESC>Sets the RhoConnect server address and stores it in rhoconfig.txt.</DESC>
+            <DESC>Sets the RhoConnect server address and stores it in rhoconfig.txt. This will modify the URL set before running the app.</DESC>
             <PARAMS>
                 <PARAM name="server_url" type="STRING">
-                    <DESC>The url for the RhoConnect server.</DESC>
+                    <DESC>The URL for the RhoConnect server.</DESC>
                 </PARAM>
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
         
         <METHOD name="on_sync_create_error" generateAPI="false">
-            <DESC>Perform an action upon a synchronization create error.</DESC>
+            <DESC>Perform an action on a record upon a sync create-error. The `:recreate` action will write the records to the local DB and schedule them to be pushed to the back-end again at the next sync. For example, if a create-error occurred because something was missing but it is mandatory for validation. You can use the :recreate flag after catching the error in order resend a fixed record. The `:delete` action will permanently delete a record on the local DB and will never be synced with the back-end. This might be used in cases where a time-stamp is vital and upon error, a new record must be generated before syncing.</DESC>
             <APPLIES rubyOnly="true"/>
             <PARAMS>
                 <PARAM name="source_name" type="STRING">
-                    <DESC>The name of the source on the RhoConnect server.</DESC>
+                    <DESC>The ORM model name. This is necessary for RhoConnect to know the model on which the action is to be performed.</DESC>
                 </PARAM>
                 <PARAM name="objects" type="ARRAY">
-                    <DESC>An array of one or more error object IDs.</DESC>
+                    <DESC>An array of one or more object IDs. These IDs are the IDs of the objects that failed to create.</DESC>
                 </PARAM>
                 <PARAM name="action" type="STRING">
-                    <DESC>Action to be performed on the error object(s).</DESC>
+                    <DESC>Action to be performed on the objects specified in the objects array.</DESC>
                     <PARAMS>
                         <PARAM name=":delete" type="STRING">
-                            <DESC>Remove the object from client.</DESC>
+                            <DESC>Remove the object from the local DB and do not retry creation of the record on the back-end.</DESC>
                         </PARAM>
                         <PARAM name=":recreate" type="STRING">
                             <DESC>Push this object to the server again at the next sync.</DESC>
@@ -351,18 +351,18 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 </PARAM>
             </PARAMS>
         </METHOD>
-        
+
         <METHOD name="on_sync_update_error" generateAPI="false">
-            <DESC>Perform an action upon a sync update error.</DESC>
+            <DESC>Perform an action on a record upon a sync update-error. The `:retry` action is similar to the `:recreate` action in the [`on_sync_create_error`](#mon_sync_create_error) method. The `:rollback` action will roll back changes that are not accepted by the back-end. The record that will be rolled back to is the record(s) provided in the rollback_objects parameter. We recommend that the previous state of the record be saved in some way (preferably local such as cache) so that it can be provided upon update-error.</DESC>
             <PARAMS>
                 <PARAM name="source_name" type="STRING">
-                    <DESC>The name of the source on the RhoConnect server.</DESC>
+                    <DESC>The ORM model name. This is necessary for RhoConnect to know the model on which the action is to be performed.</DESC>
                 </PARAM>
                 <PARAM name="objects" type="HASH">
-                    <DESC>A hash of one or more error objects. Structure of the `objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
+                    <DESC>A hash of one or more error objects. The structure of the `objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
                 </PARAM>
                 <PARAM name="action" type="STRING">
-                    <DESC>Action to be performed on the error object(s).</DESC>
+                    <DESC>Action to be performed on the objects specified in the objects hash.</DESC>
                     <PARAMS>
                         <PARAM name=":retry" type="STRING">
                             <DESC>Push the update object operation to server again at next sync.</DESC>
@@ -378,9 +378,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="on_sync_delete_error" generateAPI="false">
-            <DESC>Perform action upon a synchronization delete error.</DESC>
+            <DESC>Decide whether or not to retry deletion of a record upon a sync delete-error. In case you would like to retry for example, if the network your device is on is not completely reliable, you may opt to retry a few times before reporting that the delete failed.</DESC>
             <PARAMS>
                 <PARAM name="source_name" type="STRING">
                     <DESC>The name of the source on the RhoConnect server.</DESC>
@@ -399,7 +399,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="set_pollinterval" generateAPI="false">
             <DESC>Updates the RhoConnectClient poll interval.</DESC>
             <PARAMS>
@@ -409,7 +409,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="set_pagesize" generateAPI="false" default="2000">
             <DESC>Set the synchronization page size for the RhoConnectClient.</DESC>
             <PARAMS>
@@ -419,7 +419,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="get_pagesize" generateAPI="false">
             <DESC>Returns the current sync page size for the RhoConnectClient.</DESC>
             <RETURN type="INTEGER">
@@ -427,7 +427,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </RETURN>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="enable_status_popup" generateAPI="false">
             <DESC>Enable or disable the show status popup.</DESC>
             <PARAMS>
@@ -444,7 +444,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="set_ssl_verify_peer" generateAPI="false">
             <DESC>Enable or disable verification of RhoConnect SSL certificates.</DESC>
             <PARAMS>
@@ -461,7 +461,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <APPLIES rubyOnly="true"/>
         </METHOD>
-        
+
         <METHOD name="get_user_name" generateAPI="false">
             <DESC>Returns the current username of the RhoConnectClient session.</DESC>
             <RETURN type="STRING">
@@ -865,7 +865,7 @@ JavaScript Example:
     //=> "Error connecting to backend server: http://rhostore.herokuapp.com"
 
 #### Handling 'create-error'
-"create-error" is a unique situation that needs to be handled in your sync callback. See `RhoConnectClient.onSyncCreateError()` for more details.
+"create-error" is a unique situation that needs to be handled in your sync callback. See [`RhoConnectClient.on_sync_create_error()`](#mon_sync_create_error) for more details.
 
 ### status: "complete"
 This status returns only when the sync run is complete (all partitions are done synchronizing).
