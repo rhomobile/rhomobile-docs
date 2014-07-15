@@ -338,7 +338,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <PARAM name="objects" type="ARRAY">
                     <DESC>An array of one or more object IDs. These IDs are the IDs of the objects that failed to create.</DESC>
                 </PARAM>
-                <PARAM name="action" type="STRING">
+                <PARAM name="action" type="SYMBOL">
                     <DESC>Action to be performed on the objects specified in the objects array.</DESC>
                     <PARAMS>
                         <PARAM name=":delete" type="STRING">
@@ -361,7 +361,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <PARAM name="objects" type="HASH">
                     <DESC>A hash of one or more error objects. The structure of the `objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
                 </PARAM>
-                <PARAM name="action" type="STRING">
+                <PARAM name="action" type="SYMBOL">
                     <DESC>Action to be performed on the objects specified in the objects hash.</DESC>
                     <PARAMS>
                         <PARAM name=":retry" type="STRING">
@@ -380,7 +380,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </METHOD>
 
         <METHOD name="on_sync_delete_error" generateAPI="false">
-            <DESC>Decide whether or not to retry deletion of a record upon a sync delete-error. In case you would like to retry for example, if the network your device is on is not completely reliable, you may opt to retry a few times before reporting that the delete failed.</DESC>
+            <DESC>Decide whether or not to retry deletion of a record upon a sync delete-error. In case you would like to retry for example, if the network your device is on is not completely reliable, you may opt to retry a few times before reporting that the delete failed. To retry a delete specify the `:retry` action with this method. For example: `RhoConnectClient.on_sync_delete_error('Product', object, :retry)` </DESC>
             <PARAMS>
                 <PARAM name="source_name" type="STRING">
                     <DESC>The name of the source on the RhoConnect server.</DESC>
@@ -388,7 +388,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <PARAM name="objects" type="HASH">
                     <DESC>An hash of one or more error objects. Structure of the `objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
                 </PARAM>
-                <PARAM name="action" type="STRING">
+                <PARAM name="action" type="SYMBOL">
                     <DESC>Action to be performed on the error object(s).</DESC>
                     <PARAMS>
                         <PARAM name=":retry" type="STRING">
