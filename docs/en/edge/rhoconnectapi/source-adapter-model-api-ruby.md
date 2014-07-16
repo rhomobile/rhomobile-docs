@@ -1,5 +1,5 @@
-Source Adapter Model API (Ruby)
-===
+# Source Adapter Model API (Ruby)
+
 Your RhoConnect source adapter model can use any of these methods to interact with your backend service. Refer to the [source adapter sample](../rhoconnect/source-adapters#sample-adapter) for a complete example.
 
 ## login
@@ -12,8 +12,7 @@ Login to your backend service (optional).
 	end
 
 ## logoff
-
-Logoff from your backend service (optional).
+Logoff from your back-end service (optional).
 
 	:::ruby
 	def logoff
@@ -21,13 +20,12 @@ Logoff from your backend service (optional).
 	end
 
 ## query
-
-Query your backend service and build a hash of hashes (required).
+Query your back-end service and build a hash of hashes (required). The `query_params` parameter in this method is nil by default but you can use it to pass custom data from the client to the RhoConnect server using [`RhoConnectClient.doSyncSource()`](../api/RhoConnectClient#mdoSyncSource) method. Typically this is done when you want to implement some custom query behavior.
 
 **NOTE: This method must assign `@result` to a hash of hashes.  If @result is `nil` or `{}`, the master document will be erased from redis.**
 
 	:::ruby
-	def query
+	def query(query_params = nil)
 	  parsed = JSON.parse(RestClient.get("#{@base}.json").body)
 
       @result = {}
@@ -37,8 +35,7 @@ Query your backend service and build a hash of hashes (required).
 	end
 
 ## search
-
-Search your backend based on params and build a hash of hashes (optional).  Similar to query, however the master document accumulates the data in `@result` instead of replacing when it runs.
+Search your back-end based on params and build a hash of hashes (optional).  Similar to query, however the master document accumulates the data in `@result` instead of replacing when it runs.
 
 	:::ruby
 	def search(params)
@@ -55,8 +52,7 @@ Search your backend based on params and build a hash of hashes (optional).  Simi
 Next, you will need to add search to your Rhodes application. For details, see the [Rhodes search section](../guide/using_rhoconnect#filtering-datasets-with-search).
 
 ## create
-
-Create a new record in the backend (optional).
+Create a new record in the back-end (optional).
 
 **NOTE: RhoConnect can establish a 'link' between the local record id provided by the client and the new record id provided by the backend service.  To enable this link, return the new record id as a string.**
 
