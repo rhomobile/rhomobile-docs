@@ -136,7 +136,7 @@ section 'rhomob-data',                    'Data Handling','Mobile Guides' do
   topic 'en/edge/guide/rhom_js',          'Using Rhom with JavaScript'
   topic 'en/edge/guide/rhom_backbone',    'Using Rhom with Backbone.JS'
   topic 'en/edge/guide/rhom_angular',     'Using Rhom with Angular JS'
-  topic 'en/edge/guide/using_rhoconnect', 'Synchronization'
+  topic 'en/edge/guide/synchronization',  'Synchronization'
   topic 'en/edge/guide/web_services',     'Web Services & AJAX'
 end
 
