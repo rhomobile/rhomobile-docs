@@ -1,6 +1,6 @@
 # Rhom Ruby API
 
-Allows Ruby access to the Rhodes mini database object mapper, performing database operation on Rhodes model objects. 
+Allows Ruby access to the Rhodes mini database object mapper, performing database operation on Rhodes model objects.
 
 **NOTE: For JavaScript access to the Rhom, see the [ORM JavaScript API](Orm).**
 
@@ -94,8 +94,7 @@ Delete a rhom object.
 
 
 ## find
-
-Find Rhodes model objects. 
+Find Rhodes model objects.
 
 	:::ruby
 	modelname.find(argument list)
@@ -336,11 +335,27 @@ Paginate calls `find` with a limit on the # of records. This emulates rails' cla
 	  :order => 'name'
 	) #=> you can have :conditions and :order as well
 
+## push_changes
+Force the sending of local changes to the RhoConnect server.
 
+NOTE: This method is available in Ruby only.
+
+	:::ruby
+	modelname.push_changes()
+
+This method can be used even when there are no pending changes, to artificially put the client into a state where it sends a POST request to the server on the next sync (even if it is an empty sync). An empty POST method is useful because if there is something left in the CRUD queue in the server, it will be forced to be processed. For example:
+
+1. Five records are created on the client.
+2. 1st sync, five records are sent to RhoConnect, all of those records are marked as sent on the client.
+3. RhoConnect starts processing the records on the server and 3rd record is thrown out (for some reason) by the back-end.
+4. RhoConnect sends 1st & 2nd record as processed and also sends `create-error` with 3rd record and PUSHES remaining records, 4th & 5th, back into the server queue.
+5. After that, if you choose to use the `:delete` action, there are no more pending changes on the client. The 4th & 5th records were sent and no error was received, so the client assumes it will receive the records later, maybe as a postponed job.
+6. So, if you just trigger Sync now on the client, the 4th & 5th records won't be processed on server still because, in order to process the queue there should be a POST method and Sync will send POST method **only** if there are new changes and, as it stands, there are none.
+7. So, to force the server to process the remainder of the queue, you can use the `push_changes` method. This will force a POST method to be sent in the next sync (even if there are no changes) and will, in turn, force queue to be processed on the server.
 
 ## sync
 
-Start the sync process for a Rhodes model. 
+Start the sync process for a Rhodes model.
 
 	:::ruby
 	modelname.sync(callback_url, callback_data, show_status_popup, query_params)
@@ -662,6 +677,7 @@ You can also group `:conditions`:
 
 ## Find by numeric field
 To use number comparison conditions in find use CAST :
+
     :::ruby
     @accts = Account.find(:all, 
         :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
@@ -669,4 +685,3 @@ To use number comparison conditions in find use CAST :
     size = 3
     @accts = Account.find(:all, 
         :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
-        
