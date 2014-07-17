@@ -66,11 +66,12 @@ This sample checks the login `error_code`, if it is `0`, perform a full sync and
 The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered.  One a sync is processing for a model, notifications are called with parameters containing sync process state.  Your application can use this information to display different wait pages, progress bars, etc. Below are two flowcharts describing the notification process during sync along with details of each of the steps. Each part in the flow chart also has an associated section below the two charts for even more in-depth description.
 
 ### Notifications Flow
-The flow chart below shows the logic flow for notifications that have been set for syncing models.
+The flow chart below shows the logic flow for notifications that have been set for syncing models. References to `@params` below signify a notification being received from the RhoConnectClient framework, `@params` being the parameters passed to your `sync_notify` action in your model's controller.
 
 <p align="center">
 	<img src="https://s3.amazonaws.com/rhodocs/guide/synchronization/notification-flow.png">
 </p>
+
 Let's go over what is happening here:
 
 * First, the model has notifications enabled using the [`RhoConnectClient.setNotification`](../api/RhoConnectClient#msetNotification) method.
