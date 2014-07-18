@@ -66,35 +66,20 @@ This sample checks the login `error_code`, if it is `0`, perform a full sync and
 The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered.  One a sync is processing for a model, notifications are called with parameters containing sync process state.  Your application can use this information to display different wait pages, progress bars, etc. Below are two flowcharts describing the notification process during sync along with details of each of the steps. Each part in the flow chart also has an associated section below the two charts for even more in-depth description.
 
 ### Notifications Flow
-The flow chart below shows the logic flow for notifications that have been set for syncing models. References to `@params` below signify a notification being received from the RhoConnectClient framework, `@params` being the parameters passed to your `sync_notify` action in your model's controller.
+The flow charts below shows the logic flow for notifications concerning model sync. Bulk sync and incremental sync are handled differently and therefore are illustrated in two separate flow charts. The details of each step are spelled out further down this page.
 
-<p align="center">
-	<img src="https://s3.amazonaws.com/rhodocs/guide/synchronization/notification-flow.png">
-</p>
+<div class="row-fluid">
+	<div class="span6">
+		<p style="text-align:center"><b>Incremental Sync</b></p>
+		<img src="https://s3.amazonaws.com/rhodocs/guide/synchronization/incremental-sync.png">
+	</div>
+	<div class="span6">
+		<p style="text-align:center"><b>Bulk Sync</b></p>
+		<img src="https://s3.amazonaws.com/rhodocs/guide/synchronization/bulk-sync.png">
+	</div>
+</div>
 
-Let's go over what is happening here:
-
-* First, the model has notifications enabled using the [`RhoConnectClient.setNotification`](../api/RhoConnectClient#msetNotification) method.
-* Then the sync is triggered using the [`RhoConnectClient.doSync()`](../api/RhoConnectClient#mdoSync) method.
-* This is where the first separation happens: if the [`<modelname>.bulksyncState`](../api/RhoConnectClient#pbulksyncState) property is set to 0 (meaning a bulk sync has **not** happened), a bulk sync will be triggered, if this is set to 1, the `@params["sync_type"]` will be "incremental"
-	* **Incremental Sync** - Sync only the changes since the last sync. If you are syncing data that exceeds your value set in your [`RhoConnectClient.pageSize`](../api/RhoConnectClient#ppageSize), you will find that `@params["status"]` will be "ok" or "error". This is where you'll want to record the values of the `@params["server_errors"]` hash in order to handle them after sync as they must be handled on the next sync. If en error is found, sync will stop even if all records are not synced.
-	* **Bulk Sync** - Except for very few and unusual cases, bulk sync will always consist of at least two GET method calls: the first call starts the bulk sync asynchronously and the value of `@params["status"]` is set to "in_progress". The second call checks to see if the bulk sync is done. Once bulk sync is done, `@params["status"]` is set to "ok" or "error". If there is an error during bulk sync, the [`<modelname>.bulksyncState`](../api/RhoConnectClient#pbulksyncState) will remain 0 until a successful bulk sync occurs.
-* Next we check to see if sync is done. If it is, `@params["status"]` is set to "complete" and sync is finished. If it is not done, i.e. if you have more pages to sync incrementally or more partitions left in bulk sync, `@params["status"]` is set to "in_progress" and sync continues.
-
-But what do you do when there were errors syncing specific models?
-
-### Handling Errors
-Below is the logic that should be followed for error handling.
-
-<p align="center">
-	<img src="https://s3.amazonaws.com/rhodocs/guide/synchronization/notification-errors.png">
-</p>
-* First, you identify the errors that happened during sync. If you recorded `@params["server_errors"]` during the sync process you should have a collection of objects that failed to sync for one of three reasons: create-error, update-error, or delete-error.
-* You'll need to go through the errors you have found and decide what to do with them; in either of the three cases, you will have the opportunity to either retry the create, update, or delete or to throw out the changes:
-	* [`Rho::RhoConnectClient.on_sync_create_error(source_name, error_objects, action)`](../api/RhoConnectClient#mon_sync_create_error) - The action in the create-error case can be either `:recreate` or `:delete`. If you choose to use the `:delete` action it is recommended that you employ the `<modelname>.push_changes()` method in the [Rhom API](../api/rhom-api) to tell RhoConnect to process anything that was not yet processed due to an error.
-	* [`Rho::RhoConnectClient.on_sync_delete_error(source_name, error_objects, action)`](../api/RhoConnectClient#mon_sync_delete_error) - The action in the delete-error case can only be `:retry`. If you choose not to retry deletion of the record on the back-end, you do not need to do anything as the record is already deleted locally.
-	* [`Rho::RhoConnectClient.on_sync_update_error(source_name, objects, action, rollback_objects)`](../api/RhoConnectClient#mon_sync_update_error) - The action in the update-error case can be either `:retry` or `:rollback`. If you decide to use the `:rollback` action, you must specify the `rollback_objects` parameter; a hash of attributes to rollback to.
-* Should you decide to retry, the retries will be processed on the next sync attempt. Should you choose not to retry, the sync flow completes.
+It is important to note that, for bulk sync, the value of `@params["status"]` will only ever be "in_progress", "error", or "complete". There is no step in the process that will return an `@params["status"]` of "ok" status. Instead, `@params["bulk_status"]` (described in detail below) can be accessed to get the status of the bulk sync job. This is done because of the asynchronous nature of the bulk sync process.
 
 ### Set Notifications
 To set a notification for a model, you can use the [setNotification](../api/RhoConnectClient#msetNotification) method using this syntax `RhoConnectClient.setNotification(STRING sourceName, CallBackHandler callback)`:
