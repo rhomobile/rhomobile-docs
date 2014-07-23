@@ -196,7 +196,7 @@
   </div>
 
   <div class="span8">
-    <% if !@docversion.nil? && @docversion != Version::CURR_VERSION%>
+    <% if !@docversion.nil? && @docversion != Version::CURR_VERSION && @docversion != 'hosted'%>
       <% if @docversion == Version::NEXT_VERSION%>
         <div class="alert alert-block alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
