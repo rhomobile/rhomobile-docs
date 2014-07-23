@@ -39,10 +39,14 @@
 
     <!-- Set DocVersion and Paths -->
     <% sectionGroup  = TOC.findGroup(request.path_info)
-    if @docversion.nil? or @docversion == 'hosted'
+    if @docversion.nil? 
       @docversion = Version::CURR_VERSION
     end
-    vpath = "/en/#{@docversion}"
+    if @docversion  == 'hosted'
+      vpath = "/en/#{Version::CURR_VERSION}"
+    else
+      vpath = "/en/#{@docversion}"
+    end 
     # puts "version #{@docversion}"
     if @docversion != '2.2.0' # needs to stay hard-coded because we did not have folder scheme implemented
       homepath    = "#{vpath}/home"
@@ -76,9 +80,9 @@
         <li class="<%=sectionGroup == 'RhoConnect Guides' ? 'active' : ''%>">
           <a href="<%=rcguidepath%>"><i class="icon-refresh"></i> RhoConnect Guides</a>
         </li>
-        <!-- <li class="<%=sectionGroup == 'Hosted Services' ? 'active' : ''%>">
+        <li class="<%=sectionGroup == 'Hosted Services' ? 'active' : ''%>">
           <a href="<%=hostedguidepath%>"><i class="icon-cloud"></i> rhomobile.com</a>
-        </li> -->
+        </li>
       </ul>
 
       <ul class="nav pull-right">
@@ -114,11 +118,11 @@
 <div id="" class="row-fluid">
   <div id="doc_container" class="span12">
   <div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %>>
-      <% collapsed = true
-         first = true
-      %>
-  <% 
-  if !@steps.nil?
+    <% collapsed = true
+       first = true
+    %>
+    <% 
+      if !@steps.nil?
     %>
     <div class='well'>
       <ul class='nav nav-list'>
@@ -140,7 +144,7 @@
     </div>
      
   <% else
-  sections.each do |slug, title, sectgroup, topics|
+    sections.each do |slug, title, sectgroup, topics|
   %>
   <% if sectionGroup == sectgroup %>
     <% if topics and topics.length > 0 %>
@@ -184,17 +188,15 @@
         <% end %>
         <h3><%= title %></h3>
         <ul class="nav nav-list">
-
     <% end %>
     <% end %>
   <% end %>
     </ul> 
   <% end %>
-
   </div>
 
   <div class="span8">
-    <% if !@docversion.nil? && @docversion != Version::CURR_VERSION%>
+    <% if !@docversion.nil? && @docversion != Version::CURR_VERSION && @docversion != 'hosted'%>
       <% if @docversion == Version::NEXT_VERSION%>
         <div class="alert alert-block alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>

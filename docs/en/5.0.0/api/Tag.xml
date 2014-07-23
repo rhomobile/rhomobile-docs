@@ -1,0 +1,171 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+  <MODULE name="Tag" parent="Rho.NFC">
+    <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
+    <MORE_HELP>This class representative NFC Tag object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
+
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+    </MORE_HELP>
+
+    <TEMPLATES>
+    </TEMPLATES>
+
+    <PROPERTIES access="INSTANCE" generateAccessors="true">
+
+      <DESC>list of properties supported by class</DESC>
+
+      <PROPERTY name="ID" type="STRING" readOnly="true">
+        <DESC>object ID</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="type" type="STRING" readOnly="true">
+        <DESC>Tag type</DESC>
+          <VALUES>
+            <VALUE constName="TAG_TYPE_TOPAZ" type="STRING" value = "1">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_FELICA" type="STRING" value = "2">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_CLASSIC" type="STRING" value = "3">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_UL" type="STRING" value = "4">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_DESFIRE" type="STRING" value = "6">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_ISO15693" type="STRING" value = "7">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_B" type="STRING" value = "8">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE" type="STRING" value = "9">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_NXP_I_CODE" type="STRING" value = "10">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS" type="STRING" value = "11">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_ULC" type="STRING" value = "12">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS_S2K" type="STRING" value = "13">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS_X2K" type="STRING" value = "14">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_UNKNOWN" type="STRING" value = "255">
+              <DESC></DESC>
+            </VALUE>
+          </VALUES>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="serialNumber" type="STRING" readOnly="true">
+        <DESC>The serial number of a tag.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="size" type="INTEGER" readOnly="true">
+        <DESC>size in bytes</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="freeSize" type="INTEGER" readOnly="true">
+        <DESC>free size in bytes</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="isReadOnly" type="BOOLEAN" readOnly="true">
+        <DESC>Indicating if the tag is locked for write operation.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="isNdef" type="BOOLEAN" readOnly="true">
+        <DESC>ndef or not</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
+        <DESC>connected or not(if connections between tag and nfc device exists)</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+    </PROPERTIES>
+
+    <METHODS>
+
+      <METHOD name="getTagById" access="STATIC">
+        <DESC>This function returns Tag object</DESC>
+        <PARAMS>
+          <PARAM name="id" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="makeReadOnly">
+        <DESC>make Tag read only</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="formatNDEF">
+        <DESC>format Tag to NDEF type</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="writeMessage">
+        <DESC>write messages on Tag. On the current moment only 1 message is supported.</DESC>
+        <PARAMS>
+          <PARAM name="messages" type="ARRAY">
+            <DESC></DESC>
+            <PARAM type="STRING">
+              <DESC>id of Rho.NFC.Message object</DESC>
+            </PARAM>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="exchangeData">
+        <DESC>This function exchanges raw data with Tag</DESC>
+        <PARAMS>
+          <PARAM name="sendData" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="HASH">
+          <DESC></DESC>
+          <PARAMS>
+            <PARAM name="receiveData" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+          </PARAMS>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="close">
+        <DESC>release resources, close connection</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+    </METHODS>
+
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>
