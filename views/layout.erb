@@ -114,11 +114,11 @@
 <div id="" class="row-fluid">
   <div id="doc_container" class="span12">
   <div id="docsnav" class="span2" <% if @print != 0 %> style="display:none" <% end %>>
-      <% collapsed = true
-         first = true
-      %>
-  <% 
-  if !@steps.nil?
+    <% collapsed = true
+       first = true
+    %>
+    <% 
+      if !@steps.nil?
     %>
     <div class='well'>
       <ul class='nav nav-list'>
@@ -140,7 +140,7 @@
     </div>
      
   <% else
-  sections.each do |slug, title, sectgroup, topics|
+    sections.each do |slug, title, sectgroup, topics|
   %>
   <% if sectionGroup == sectgroup %>
     <% if topics and topics.length > 0 %>
@@ -184,13 +184,11 @@
         <% end %>
         <h3><%= title %></h3>
         <ul class="nav nav-list">
-
     <% end %>
     <% end %>
   <% end %>
     </ul> 
   <% end %>
-
   </div>
 
   <div class="span8">
