@@ -228,6 +228,7 @@ class Docs < Sinatra::Base
       if @docversion.nil?
         @docversion = AppConfig['current_version']
       end
+
       # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
       
       @tut = TUT.steps(params[:topic])
@@ -300,7 +301,7 @@ end
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
-        # puts "#{subpath} :#{topic} :  #{docversion}"
+         # puts "#{subpath} :#{topic} :  #{docversion}"
       if TOC.find("/#{subpath}/#{topic}") == '' && docversion.nil?
         
           #if not in TOC then make it default to 2.2 version

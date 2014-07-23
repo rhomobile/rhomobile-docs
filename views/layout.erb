@@ -39,10 +39,14 @@
 
     <!-- Set DocVersion and Paths -->
     <% sectionGroup  = TOC.findGroup(request.path_info)
-    if @docversion.nil? or @docversion == 'hosted'
+    if @docversion.nil? 
       @docversion = Version::CURR_VERSION
     end
-    vpath = "/en/#{@docversion}"
+    if @docversion  == 'hosted'
+      vpath = "/en/#{Version::CURR_VERSION}"
+    else
+      vpath = "/en/#{@docversion}"
+    end 
     # puts "version #{@docversion}"
     if @docversion != '2.2.0' # needs to stay hard-coded because we did not have folder scheme implemented
       homepath    = "#{vpath}/home"
