@@ -1,0 +1,2 @@
+# Config.XML Reference
+TBD - This is the complete reference of the confog.xml settings. Would like to conside rnot presenting it the way it is presented as one long hairy table. It can be broken up into logical sections to take advantage of the auto H2 H3 'In this document' menu

@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Enterprise Browser 1.0</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
 
@@ -15,157 +15,23 @@
 		<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="jquery.tocify.js-master/libs/jquery.ui.all.css" rel="stylesheet">
 		<link rel="stylesheet" href="jquery.tocify.js-master/src/stylesheets/jquery.tocify.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/demo4.css">
-		
+		<link type="text/css" rel="stylesheet" href="css/prettify.css"/>
+		<link rel="stylesheet" href="css/docs.css">
+	
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/Markdown.Converter.js"></script>
 		<script type="text/javascript" src="js/jquery.highlight.js"></script>
 		<script type="text/javascript" src="js/fuse.js"></script>
 		<script type="text/javascript" src="docs/docs.js"></script>
 		<script type="text/javascript" src="docs/menu.js"></script>
+		<script type="text/javascript" src="docs/versions.js"></script>
 		<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu.js"></script>
         <script type="text/javascript" src="js/modernizr.min.js"></script>
 		<script type="text/javascript" src="jquery.tocify.js-master/libs/jquery-ui-1.9.1.custom.min.js"></script>
 		<script type="text/javascript" src="jquery.tocify.js-master/src/javascripts/jquery.tocify.js"></script>
-		
-		<script>
-			var toc = null;
-		
-			$(document).ready(function(){
-				// HTML markup implementation, overlap mode
-				$( '#menu' ).multilevelpushmenu({
-					menu:menuStrcture,
-					containersToPush: [$( '#pushobj' )],
-
-					//Setup the look of the menu
-					wrapperClass: 'mlpm_w',
-					menuInactiveClass: 'mlpm_inactive',
-					
-					//Get links to work
-					onItemClick: function() {
-						// Get Anchor href
-						$item = arguments[2]
-						var itemHref = $item.find( 'a:first' ).attr( 'href' );
-						// Redirecting the page
-						location.href = itemHref;
-					}
-				});
-				
-				//Clear Search
-				$("#searchBox").val("");
-			
-				//Bind Search
-				$("#searchBox").keyup(function() {
-					search();
-				});
-				
-				//Search popover
-				$("#searchBox").popover();
-				
-				//Check for url change
-				$(window).on('hashchange', function(e)
-				{
-					var hash = location.hash.replace("#","");
-					loadDoc(hash);
-				});
-				
-				loadDoc('guide-template');
-			});
-
-			function loadDoc(key)
-			{
-				var converter = new  Markdown.Converter();
-				$("#markdownDoc").html(converter.makeHtml(getByKey(key).md));
-				
-				$("#markdownDoc").animate({ scrollTop: 0 }, 500);
-				
-				search();
-				
-				if(toc != null)
-				{
-					$("#toc").remove();
-					toc = null;
-				}
-				$("#pushobj").append('<div id="toc" class="panel panel-primary"> <div class="panel-heading">IN THIS DOCUMENT</div></div>');
-				
-				toc = $("#toc").tocify({
-					selectors: "h2,h3,h4,h5",
-					context: "#markdownDoc",
-					history:false,
-					scrollTo:52
-				}).data("toc-tocify");
-				
-				$("#toc").affix({
-					offset: {
-						top: 20
-					}
-				});	
-			}
-			
-			function getByKey(key) 
-			{
-			    var found = null;
-
-			    for (var i = 0; i < docs.length; i++) 
-				{
-			        var element = docs[i];
-
-			        if (element.key == key) 
-					{
-			           found = element;
-			       } 
-			    }
-				
-				return found;
-			}
-			
-			function search()
-			{
-				$("#markdownDoc").unhighlight();
-					
-				var words = $("#searchBox").val().split(" "); 
-				for(var i = 0; i<words.length; i++)
-				{
-					$("#markdownDoc").highlight(words[i]);
-				}
-					
-				var options = {
-					caseSensitive: false,
-					includeScore: false,
-					shouldSort: true,
-					threshold: 0.4,
-					location: 0,
-					distance: 10000,
-					maxPatternLength: 32,
-					keys: ["md", "name"]
-				};
-					
-				var fuse = new Fuse(docs, options); // "list" is the item array
-					
-				var result = fuse.search($("#searchBox").val());
-					
-				var html = "";
-				for(var i = 0; i<result.length; i++)
-				{
-					html += '<p><a href="#' + result[i].key + '">' + result[i].name + '</a></p>';
-				}
-				
-				var popover = $("#searchBox").data('bs.popover');
-				popover.options.content = '<div id="searchRes">' + html +' </div>';
-				
-				if(result.length>0)
-				{
-					//Show results
-					$("#searchBox").popover("show")
-				}
-				else
-				{
-					//Show results
-					$("#searchBox").popover("hide")
-				}
-			}
-		</script>
+		<script type="text/javascript" src="js/prettify.js"></script>
+		<script type="text/javascript" src="js/docs.js"></script>		
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -173,19 +39,41 @@
         <![endif]-->
 
 		
-		<div id="docsHeader">
-			Motorola EMDK documentation
-			<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search" data-placement="bottom" data-html="true" data-original-title="Search Results" data-trigger="manual">
+		<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+					</div>
+					<div class="modal-body">
+						<div id="modalImg">
+						
+						</div>
+					</div>
+			</div>
+		  </div>
 		</div>
 		
-		<div id="pushobj">		
+		<div id="docsHeader">
+			<div id="headerText"><a href="#" >Enterprise Browser 1.0</a></div><div id="versions" data-placement="bottom" data-html="true" data-original-title="Versions" ><i class="fa fa-code-fork"></i></div>
+			<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search" data-placement="bottom" data-html="true" data-original-title=" Search Results &nbsp;<i class='pull-right cursorPointer fa fa-minus-square'></i>" data-trigger="manual">
+		</div>
+		
+		<div id="pushobj">	
 			<div id="markdownDoc">
-
 			</div>			
 		</div>
 		
-        <div id="menu">
-            
+        <div id="menu">         
         </div>
+		
+		
+		<script>
+		  !function ($) {
+			$(function(){
+			  window.prettyPrint && prettyPrint()
+			})
+		  }(window.jQuery)
+		</script>        
     </body>
 </html>
