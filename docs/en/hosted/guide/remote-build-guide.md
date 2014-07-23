@@ -1,5 +1,5 @@
 # Remote Build Guide
-This guide will assist you in building your apps using the remote build capabilities rhomobile.com. Using this tool you will be able to build for any of the platforms that we support regardless of your computer hardware. That means you will be able to build iOS apps even if you are using a Windows computer and build Windows Mobile apps even if you are using an Apple computer. There are however, a few limitations to this build process and we have listed them [below](#remote-build-limitations).
+This guide will assist you in building your apps using the remote build capabilities of [rhomobile.com](http://rhomobile.com/index.html). Using this tool you will be able to build for any of the platforms that we support regardless of your computer hardware. That means you will be able to build iOS apps even if you are using a Windows computer and build Windows Mobile apps even if you are using an Apple computer. There are however, a few limitations to this build process and we have listed them [below](#remote-build-limitations).
 
 ## Support Matrix
 The following is a table showing the versions of Rhodes that are supported for which platforms concerning cloud builds. Note that the end of life date is simply an estimate and will not necessarily be exact to the day.
@@ -84,7 +84,7 @@ The following is a table showing the versions of Rhodes that are supported for w
 NOTE: Dates for estimated End of Life are subject to change as release dates of next versions change.
 
 ## Setup
-Before building remotely, you'll need to sign up for a [subscription plan](http://www.rhomobile.com/pricing.html) of either silver or gold; only paid subscription plans allow the use of the remote build feature. Refer to the [licensing](../../latest/guide/licensing) doc for assistance on signing up and applying your remote build token.
+Before building remotely, you'll need to sign up for a [subscription plan](http://rhomobile.com/rhopricing.html) of either silver or gold; only paid subscription plans allow the use of the remote build feature. Refer to the [licensing](../../latest/guide/licensing) doc for assistance on signing up and applying your remote build token.
 
 ## Generating an App
 Using RhoMobile's product suite, apps can be built using either the command line interface, or with our eclipse based IDE, RhoStudio. All steps will be shown using both methods.
@@ -110,7 +110,7 @@ At this point, you can actually build the app for the platform of your choice an
 ## Setting Up Your Remote Repo
 <div class="row-fluid">
 	<div class="span6">
-		<p>Once you've set up your account and generated an app it's time to build that app for a device. To build locally using RhoStudio or the command line interface follow our guide on <a href="../../latest/guide/creating_a_project">running your app locally</a>. To build your app remotely, start by logging into your <a href="rhomobile.com/login">rhomobile.com account</a> and add an app to your account that has the same name as the app that you just created in RhoStudio or with the CLI. The name of the remote project does not need to be the same but it aids in reducing confusion. If you experience trouble during any of the steps below, please see our <a href="#troubleshooting">troubleshooting</a> section below.</p>
+		<p>Once you've set up your account and generated an app it's time to build that app for a device. To build locally using RhoStudio or the command line interface follow our guide on <a href="../../latest/guide/creating_a_project">running your app locally</a>. To build your app remotely, start by logging into your <a href="https://rms.rhomobile.com/">rhomobile.com account</a> and add an app to your account that has the same name as the app that you just created in RhoStudio or with the CLI. The name of the remote project does not need to be the same but it aids in reducing confusion. If you experience trouble during any of the steps below, please see our <a href="#troubleshooting">troubleshooting</a> section below.</p>
 	</div>
 	<div class="span6">
 		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/create-new-app.png">
@@ -187,7 +187,7 @@ That's all there is to it! You can now build your app remotely on rhomobile.com.
 ### Rhomobile.com Build
 <div class="row-fluid">
 	<div class="span6">
-		<p>Building on rhomobile.com is fairly straight forward, once you have completed the steps above, you'll see a screen similar to this one once you sign into rhomobile.com. From here, all you need to do is select the parameters you want to build with from the drop-down boxes shown and click build.</p>
+		<p>Building on rhomobile.com is fairly straight forward, once you have completed the steps above, you'll see a screen similar to this one once you sign into <a href="https://rms.rhomobile.com/">rhomobile.com</a>. From here, all you need to do is select the parameters you want to build with from the drop-down boxes shown and click build.</p>
 		<p>NOTE: When building for iOS you will need to provide your developer certificate, the password for that certificate, your provisioning profile file, and your bundle identifier. These items are not necessary when building for other platforms but Apple is very strict on it's policy for building apps.</p>
 	</div>
 	<div class="span6">
@@ -202,7 +202,7 @@ That's all there is to it! You can now build your app remotely on rhomobile.com.
 		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/online-build-success-and-failure.png">
 	</div>
 	<div class="span6">
-		<p style="vertical-align:text-center">Once you have built your app through the online console, you will be able to  click the download icon to download the app package (.apk for android, .cab for Windows Mobile, etc), put the package on your device, and install it. If the build failed, you'll be able to download the logs of the build to debug the reason for the failed build.</p>
+		<p>Once you have built your app through the online console, you will be able to  click the download icon to download the app package (.apk for android, .cab for Windows Mobile, etc), put the package on your device, and install it. If the build failed, you'll be able to download the logs of the build to debug the reason for the failed build.</p>
 	</div>
 </div>
 
@@ -237,7 +237,7 @@ That's all there is to it! You can now build your app remotely on rhomobile.com.
 		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/rhostudio-remote-build-config.png">
 	</div>
 	<div class="span6">
-		<p>Once you have logged in and RhoStudio has verified your subscription, you <a href="../../en/latest/guide/creating_a_project#creating-a-project-with-rhostudio">build your app the same way you normally would</a> but in the build configuration for your app, choose "Rhomobile.com" in the Build field. This type of build can only be done for device and simulator builds. Click run and the app will start to build remotely. If you receive error concerning your local build during this step, it does not necessarily mean the the remote build failed.</p>
+		<p>Once you have logged in and RhoStudio has verified your subscription, you <a href="../../latest/guide/creating_a_project#creating-a-project-with-rhostudio">build your app the same way you normally would</a> but in the build configuration for your app, choose "Rhomobile.com" in the Build field. This type of build can only be done for device and simulator builds. Click run and the app will start to build remotely. If you receive error concerning your local build during this step, it does not necessarily mean the the remote build failed.</p>
 	</div>
 </div>
 
@@ -309,4 +309,4 @@ A: This happens when you are trying to build remotely to a GitHub repo instead o
 A: You'll get this error if you forget to add and commit your changes before your initial push. Follow the instructions [here](#git-integration) closely to remedy this.
 
 #### Q: I'm getting an access denied error when I try to push my code up to the remote repo.
-A: The most common cause for this is that you have not yet added your SSH public key to your account on rhomobile.com. Follow [github's guide on SSH keys](https://help.github.com/articles/generating-ssh-keys) to generate your public key if you have not already done so. Then go to your profile on [rhomobile.com](https://rms.rhomobile.com) (click "Profile" in the account menu in the upper-right corner of the page) and select "SSH Keys" to add it to your account.
+A: The most common cause for this is that you have not yet added your SSH public key to your account on rhomobile.com. Follow [github's guide on SSH keys](https://help.github.com/articles/generating-ssh-keys) to generate your public key if you have not already done so. Then go to your profile on [rhomobile.com](https://rms.rhomobile.com) (after signing in, click "Profile" in the account menu in the upper-right corner of the page) and select "SSH Keys" to add it to your account.

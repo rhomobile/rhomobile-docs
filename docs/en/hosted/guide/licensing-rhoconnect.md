@@ -6,7 +6,7 @@ If you plan to deploy your RhoConnect application using RhoMobile.com under a su
 **NOTE: Toggling this button will re-deploy your RhoConnect application to a new redis database.  Make sure you __backup all critical data__ before doing this!**
 
 ## On-Premise License
-Your RhoConnect application was generated with a default license which supports up to 10 devices.  After [signing up](http://www.rhomobile.com/pricing.html) for a plan, you can opt to deploy your RhoConnect app on-premise instead. To do this, go to [rhomobile.com]() and click the "On-Premise License" to retrieve your license. The license will also be available on your profile page.
+Your RhoConnect application was generated with a default license which supports up to 10 devices.  After [signing up](http://rhomobile.com/rhopricing.html) for a plan, you can opt to deploy your RhoConnect app on-premise instead. To do this, go to [rhomobile.com](http://rhomobile.com/index.html) and click the "On-Premise License" to retrieve your license. The license will also be available on your profile page.
 
 NOTE: Requesting an on-premise license will switch any live apps you have currently deployed to off. Each subscription is limited to 1 live OR 1 on-premise RhoConnect app at a time.
 

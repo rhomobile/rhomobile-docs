@@ -1,5 +1,5 @@
 # Licensing
-Licensing in 5.0 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have a subscription from our [rhomobile.com](http://www.rhomobile.com) site. This does not meant that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in subscribing and building an app locally.
+Licensing in 5.0 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have a subscription from our [rhomobile.com](http://rhomobile.com/index.html) site. This does not meant that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in subscribing and building an app locally.
 
 ## Subscriptions
 New to 5.0 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. The details of these plans are listed below.
@@ -9,7 +9,7 @@ New to 5.0 we are introducing a subscription model for licensing for our product
 NOTE: This <b>does</b> mean that without a paid subscription your usage of RhoMobile products is limited to Rhodes and RhoStudio for local builds only.
 
 ## Applying Your Subscription Plan
-Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobile.com/content/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
+Once you have signed up for a subscription on [rhomobile.com](http://rhomobile.com/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
 
 ### Signing In With the Command Line
 <div class="row-fluid">
