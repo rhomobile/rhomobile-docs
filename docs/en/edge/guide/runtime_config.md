@@ -493,7 +493,7 @@ The following is an example of a typical configuration file
 	<tr>
 	<td >VoidConnection\\Message</td>
 	<td >Message</td>
-	<td >Message is the customized Message to be shown in the pop up window.</td>
+	<td >Message is the customized Message to be shown in the pop up window. For windows devices, message length is limited to 160 characters including spaces. Characters beyond this limit might be truncated based on the device screen size.</td>
 	<td >Customized Message</td>
 	</tr>
 	
