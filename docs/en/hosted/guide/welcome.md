@@ -1,5 +1,5 @@
 # Welcome to RhoMobile Hosted Services
-The RhoMobile.com product suite provides access to two main hosted services: remote build and app management. To use these features, you must have a paid subscription through [Rhomobile.com](http://rhomobile.com/rhopricing.html) (either silver or gold).
+The RhoMobile.com product suite provides access to two main hosted services: remote build and app management (RhoGallery). To use these features, you must have a paid subscription through [Rhomobile.com](http://rhomobile.com/rhopricing.html) (either silver or gold).
 
 ## RhoMobile Account
 Before using any RhoMobile product, you must sign up for a RhoMobile account on [rhomobile.com](http://www.rhomobile.com). Refer to our [RhoMobile Account guide](rhomobile-account) for steps on creating your account and applying the account credentials to your RhoMobile product.
@@ -16,10 +16,10 @@ The RhoMobile framework allows you to quickly create and build applications for 
 
 For more information on remote build, head over to our [remote build guide](remote-build-guide).
 
-## App Management (RhoGallery)
+## RhoGallery
 RhoMobile offers a method of app distribution through it's app management, formerly known as RhoGallery. Using RhoGallery, you can custom tailor an app distribution system akin to the app store or Google's Play store, which will only contain apps that you determine should be distributed to your users.
 
-For more information on RhoMobile's app management head over to our [App Management Tutorial](../tutorial/rhohub-rhogallery).
+For more information on RhoGallery head over to our [RhoGallery Tutorial](../tutorial/rhohub-rhogallery).
 
 ## Synchronization (RhoConnect)
 In addition to the services listed above, RhoMobile also offers a synchronization tool to add sync to your client app. Using this software requires writing a separate app that defines the CRUD (Create, Read, Update, and Delete) operations that will be used to interact with your back-end database.
