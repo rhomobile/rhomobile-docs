@@ -2,14 +2,22 @@
 
 Before you can send your applications to consumers, you need to have a RhoHub gallery for your applications and consumers.
 
-In your RhoHub account, click on Galleries.
+<div class="row-fluid">
+	<div class="span6">
+		<p>In your <a href="https://gallery.rhohub.com/galleries">RhoGallery account</a>, click "New Gallery" to add a new gallery.</p>
+	</div>
+	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-new-gallery.png"/>
+	</div>
+</div>
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/galleries-tab.jpg"/>
+---
 
-If needed, click on Galleries to show the Galleries section. In the Galleries section, click the Create Galleries button.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/gallery-button.jpg"/>
-
-In the Add new Gallery pop-up window, enter a name for the gallery. Optionally, you can enter a description for your gallery, and choose an icon for that gallery. Click Create Gallery.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/add-new-gallery.jpg"/>
+<div class="row-fluid">
+	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-new-gallery-details.png"/>
+	</div>
+	<div class="span6">
+		<p>Fill out the details of your Gallery and click "Save" to continue. The description and icon for your gallery are optional.</p>
+	</div>
+</div>

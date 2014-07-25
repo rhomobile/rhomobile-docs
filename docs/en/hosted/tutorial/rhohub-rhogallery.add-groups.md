@@ -1,41 +1,96 @@
-# RhoHub Gallery and RhoGallery Tutorial
+# Adding Groups
+Sometimes, you'll want to invite entire groups of people to a gallery to download that gallery's apps. For example if you had a specific set of apps that you want all your delivery drivers to have, you would add all the drivers to a group and invite the whole group to that gallery instead of inviting each person separately.
 
-You can create groups and add consumers to those groups. For example, you may wish to have a group for sales consumers, and another group for engineers. Also, you can add these groups to other galleries. For example, if you create a new gallery, you can add the sales group from your original gallery to your new gallery.
+There are again, two ways to accomplish this:
 
-To create a group, go to the Consumers section in your gallery by clicking on Consumers.
+1. [From the Gallery](#from-the-gallery) - You can create a new group or add an existing group to your gallery from within the gallery.
+2. ["My Groups" List](#from-the-ldquomy-groupsrdquo-list) - You can add a new group to your list of groups, then add that group as an existing group, to any of your galleries.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/consumers-button-section.jpg"/>
+## From the Gallery
+<div class='row-fluid'>
+	<div class='span6'>
+		<p>Add groups to your gallery from within the gallery, open the gallery to which you want to add the group and click the "Groups" tab and then click the "Invite Group" button.</p>
+	</div>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-invite-group-gallery.png">
+	</div>
+</div>
 
-In the Consumers section, click the Create Group button.
+---
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/create-group-button.jpg"/>
+<div class='row-fluid'>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-invite-group-gallery-detail.png">
+	</div>
+	<div class='span6'>
+		<p>In the Invite Group pop-up window, choose a name for the group and add existing consumers to the group. Then type a message to be seen by those invited to this gallery via this group invite.</p>
+	</div>
+</div>
 
-In the Add new Group pop-up window, enter the name for your group, then click Create Group.
+---
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/add-new-group.jpg"/>
+<div class='row-fluid'>
+	<div class='span6'>
+		<p>Now this group of consumers is added to your gallery!</p>
+	</div>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-group-added-gallery.png">
+	</div>
+</div>
 
-Now you can add consumers to the group. Click on Add Consumer.
+## From the "My Groups" List
+<div class='row-fluid'>
+	<div class='span6'>
+		<p>To add a group to your list of groups, click the "My Groups" tab at the top of the page, and then click the "New Group" button.</p>
+	</div>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-new-group-list.png">
+	</div>
+</div>
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/Add-Consumer.jpg"/>
+---
 
-In the Add Consumers pop-up window, under the New Consumers tab, you can add a new consumer to your group by entering a login name and consumer name, and entering your consumer's email address to notify by email, or cell phone number if you notify by SMS. (This is the same process you would use when you add a consumer from the Gallery section.) Then click Invite.
+<div class='row-fluid'>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-new-group-list-detail.png">
+	</div>
+	<div class='span6'>
+		<p>In the New Group pop-up window, choose a name for the group, and add existing consumers. Then type a message to be seen by those invited to this gallery via this group invite.</p>
+	</div>
+</div>
 
-Under the Existing Consumer tab, you see a list of consumers whom you have added to your gallery. To add these consumers to your group, check the checkbox for those consumers. Then click Invite. 
+---
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/add-consumer-existing.jpg"/>
+<div class='row-fluid'>
+	<div class='span6'>
+		<p>After you have added the group(s) to your list of groups, you'll need to add that group to a gallery before anyone will be invited. To do this, open the gallery to which you would like to add the group, click the "Groups" tab in the gallery, and then click "Invite Group".</p>
+	</div>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-invite-group-gallery.png">
+	</div>
+</div>
 
-Those consumers are added to the group.
+---
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/consumers-group.jpg"/>
+<div class='row-fluid'>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-invite-group-to-gallery-detail.png">
+	</div>
+	<div class='span6'>
+		<p>In the Invite Group pop-up window, Use the "Add Existing Groups" field to add the groups you want to invite to this gallery. You should see a list of all eligible groups in the drop-down menu but you can also type the names. Then type a message to be seen by those invited to this gallery via this group invite. As you can see here, you can add multiple groups at a time.</p>
+	</div>
+</div>
 
-Now add the group to your gallery. In the Galleries section, click on the Invite button, as you did when you invited consumers to the gallery.
+---
 
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/rhohub-gallery-invite-button2.png"/>
+<div class='row-fluid'>
+	<div class='span6'>
+		<p>This group is now invited to your gallery!</p>
+	</div>
+	<div class='span6'>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/tutorial/rhogallery-tutorial/rhogallery-group-added-to-gallery.png">
+	</div>
+</div>
 
-In the Invite Consumers pop-up window, click the Existing Consumers tab. Then check the checkbox for the group that you are adding to your gallery. Then click the Invite button, then Close.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/invite-group.jpg"/>
-
-The group is now added to your gallery.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhohub-rhogallery/galleries-group-added.jpg"/>
+## Group Invitation Message
+When you invite a group to a gallery, the invitation message will be sent to each individual in the group and will look exactly like the [consumer invitation message](../add-consumers/rhohub-rhogallery#rhogallery-message).

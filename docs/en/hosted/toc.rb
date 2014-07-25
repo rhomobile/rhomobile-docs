@@ -9,6 +9,6 @@ section 'hosted-guides',                           'Guides','Hosted Services' do
 end
 
 section 'tutorials',                             'Tutorials', 'Hosted Services' do
-  topic 'en/hosted/tutorial/rhohub-rhogallery',  'App Management Tutorial'
+  topic 'en/hosted/tutorial/rhohub-rhogallery',  'RhoGallery Tutorial'
   topic 'en/hosted/tutorial/rhoconnect',         'RhoConnect Tutorial'
 end
