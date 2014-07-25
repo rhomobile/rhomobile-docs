@@ -493,7 +493,7 @@ The following is an example of a typical configuration file
 	<tr>
 	<td >VoidConnection\\Message</td>
 	<td >Message</td>
-	<td >Message is the customized Message to be shown in the pop up window.</td>
+	<td >Message is the customized Message to be shown in the pop up window. For windows devices, message length is limited to 160 characters including spaces. Characters beyond this limit might be truncated based on the device screen size.</td>
 	<td >Customized Message</td>
 	</tr>
 	
@@ -792,7 +792,7 @@ The following is an example of a typical configuration file
     <tr>
     <td>System\\LowBatteryScan</td>
     <td>LOWBATTERYSCAN</td>
-    <td>Windows Mobile and CE only.  Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling <code>Barcode.enable</code>.</td>
+    <td>Windows Mobile and CE only.  Set to 0 to disable scanning when the battery is low/critical or set to 1 to enable it.</code>.</td>
     <td>0 - Disabled<BR>1 - Enabled</td>
     </tr>
 
