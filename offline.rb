@@ -23,10 +23,10 @@ class Offline
 	    puts "Processing API: #{title} in #{basename}"
 	    # Change links in MD to use hash scheme #parent folder-filename
 	    md = replace_url md
-	    	    md = replace_images md
-	    md = replace_tables md
 	    md = replace_images md
 	    md = replace_tables md
+	    # md = replace_images md
+	    # md = replace_tables md
 
 	    hash_object =   {
 	    	:key => "#{parent}-#{basename.gsub('.md','')}",
