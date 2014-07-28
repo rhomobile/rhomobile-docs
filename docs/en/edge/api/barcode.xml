@@ -426,7 +426,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>Set to false to disable scanning when the battery is low or set to true to enable it. Once disabled the scanner can be enabled again by calling enable().</DESC>
+                <DESC>Set to false to disable scanning when the battery is low/critical or set to true to enable it.</DESC>
             </PROPERTY>
             <PROPERTY name="triggerConnected" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
