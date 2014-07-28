@@ -86,6 +86,8 @@ NOTE: Dates for estimated End of Life are subject to change as release dates of 
 ## Setup
 Before building remotely, you'll need to sign up for a [subscription plan](http://rhomobile.com/rhopricing.html) of either silver or gold; only paid subscription plans allow the use of the remote build feature. Refer to the [licensing](../../latest/guide/licensing) doc for assistance on signing up and applying your remote build token.
 
+NOTE: Once you login using your rhomobile.com account credentials, the token used to verify your identity will be saved for about a week, at which time you'll need to have an data connection in order to update your token. You must do this even if you are building your app off-line.
+
 ## Generating an App
 Using RhoMobile's product suite, apps can be built using either the command line interface, or with our eclipse based IDE, RhoStudio. All steps will be shown using both methods.
 

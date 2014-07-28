@@ -16,6 +16,8 @@ NOTE: This <b>does</b> mean that without a paid subscription your usage of RhoMo
 ## Applying Your Subscription Plan
 Once you have signed up for a subscription on [rhomobile.com](http://rhomobile.com/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
 
+NOTE: Once you login using your rhomobile.com account credentials, the token used to verify your identity will be saved for about a week, at which time you'll need to have an data connection in order to update your token. You must do this even if you are building your app off-line.
+
 ### Signing In With the Command Line
 <div class="row-fluid">
 	<div class="span7">
