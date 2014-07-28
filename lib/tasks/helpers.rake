@@ -1,3 +1,5 @@
+require_relative '../../version.rb'
+
 def get_lp_content url,category
   rest_result = RestClient.get("#{url}").body
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
@@ -215,7 +217,7 @@ def version_for(doc)
   if !version.nil? && !version.captures.nil?
     return version.captures[0]
   else
-    return '4.0.0'
+    return Version::CURR_VERSION
   end
 end
 
@@ -245,5 +247,11 @@ def index_variable_for(version)
   end
   if version == '4.1.0'
     return 4.1
+  end
+  if version == '5.0.0'
+    return 5.0
+  end
+  if version == 'hosted'
+    return 5.0
   end
 end
