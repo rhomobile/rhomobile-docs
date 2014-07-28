@@ -236,22 +236,26 @@ def category_for(doc)
 end
 
 def index_variable_for(version)
+  # this function is used for seacrchify to 
+  # put the most recent versions of docs in search results first
+  # the return of this function should be a decimal number
+  # the higher the number the more relevant it will be in search
+  # when new releases are created this needs to be updated
+
+  index_version = 0
+  begin
+    parts = version.split('.')
+    newversion = parts[0]+'.'+parts[1]+parts[2]
+    index_version = newversion.to_f
+    # puts "variable#{index_version}"
+  rescue Exception => e
+
+  end
   if version == 'edge'
-    return 0
+    index_version =  0
   end
   if version == '2.2.0'
-    return 2.2
+    index_version =  2.2
   end
-  if version == '4.0.0'
-    return 4.0
-  end
-  if version == '4.1.0'
-    return 4.1
-  end
-  if version == '5.0.0'
-    return 5.0
-  end
-  if version == 'hosted'
-    return 5.0
-  end
+  return index_version
 end
