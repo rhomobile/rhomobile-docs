@@ -33,8 +33,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -52,8 +50,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -70,8 +66,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -92,8 +86,6 @@ Created Message object.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -114,8 +106,6 @@ Message to get.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -137,8 +127,6 @@ Synchronous Return:<ul><li>SELF_INSTANCE :
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -159,8 +147,6 @@ Array of Rho.NFC.Message objects.<ul><li><i>Object</i> : <span class='text-info'
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -181,8 +167,6 @@ Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:

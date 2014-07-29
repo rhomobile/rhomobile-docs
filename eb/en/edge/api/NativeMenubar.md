@@ -25,18 +25,6 @@ extensions: ["coreapi"]
 
 
 
-###defaultMainMenu
-
-####Type
-<span class='text-info'>ARRAY</span> <span class='label'>Read Only</span>
-####Description
-
-This will return what the default right menu should be. This is a read-only property.
-####Params
-<li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li>
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul></ul></li></ul>
-
 ###extraButton
 
 ####Type

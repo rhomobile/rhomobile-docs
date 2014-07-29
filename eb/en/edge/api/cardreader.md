@@ -46,8 +46,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 * Motorola Solutions Devices Only
@@ -70,8 +68,6 @@ Array of Card reader objects.<ul><li>cardreaderArray : <span class='text-info'>S
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -93,8 +89,6 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -116,8 +110,6 @@ Default object of Module.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -140,8 +132,6 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -164,8 +154,6 @@ The property to return info about.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -203,8 +191,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 * Motorola Solutions Devices Only
@@ -224,8 +210,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -244,8 +228,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
@@ -265,8 +247,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 

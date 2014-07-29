@@ -39,89 +39,11 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.active_tab()</code> </li></ul></li></ul>
-
-### currentLocation(<span class="text-info">INTEGER</span> tabIndex)
-Returns the relative url (location) of the current page(without server and port); the last URL loaded to WebView from Ruby controller action.
-
-####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-TabBar tab index. If no tab bar present, index is ignored.Tab should be loaded once to return current url. 
-Current location of active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Callback
-Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
-
-####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Embedded
-* Windows Phone 8
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
-
-### currentURL(<span class="text-info">INTEGER</span> tabIndex)
-Returns the actual URL in WebView. This works the same as the JavaScript window.location.href.
-
-####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-TabBar tab index. If no tab bar present, index is ignored. 
-Current url of active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Callback
-Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
-
-####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
-
-### executeJavascript(<span class="text-info">STRING</span> javascriptText, <span class="text-info">INTEGER</span> tabIndex)
-Execute JavaScript on the current page from your controller.
-
-####Parameters
-<ul><li>javascriptText : <span class='text-info'>STRING</span><p>
-The call to the JavaScript method on the current page, such as "test();". </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-TabBar tab index. If no tab bar present, index is ignored. 
-Execute javascript in active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Embedded
-* Windows Phone 8
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
 
 ### full_screen_mode(<span class="text-info">BOOLEAN</span> enable)
 Use WebView.fullScreen property: Switch to / from full screen mode.
@@ -134,13 +56,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
@@ -159,13 +76,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -183,13 +95,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigateBack(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -207,13 +114,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.refresh(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -234,33 +136,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
-
-### setCookie(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> cookie)
-When WebView loads the specified url (either by selecting link or from calling WebView.navigate), it will add this cookie to the HTTP request.Not implemented for Motorola Solutions' WebKit.
-
-####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>
-Set a cookie to be used by WebView for this url. </p></li><li>cookie : <span class='text-info'>STRING</span><p>
-One or more name-value pairs of the format "NAME=VALUE". Separate multiple name-value pairs with a semicolon, such as "NAME1=VALUE1; NAME2=VALUE2". </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
 
 ### set_menu_items(<span class="text-info">HASH</span> menuItems)
 Use Rho::Application.nativeMenu property: set native menu items.
@@ -274,8 +153,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 

@@ -157,26 +157,31 @@ class Apieb
   	end
   	indicators = ""
   	if javascript
-		indicators += "\n* Javascript"
+  		# Ignoring for EB
+		# indicators += "\n* Javascript"
 	end
   	if ruby
-		indicators += "\n* Ruby"
+  		# Ignoring for EB
+		# indicators += "\n* Ruby"
 	end
 	if !platforms.is_a?(Hash)
 		if !platforms.downcase.index("android").nil? || !platforms.downcase.index("all").nil?
 			indicators += "\n* Android"
 	  	end
 	  	if (!platforms.downcase.index("ios").nil? || !platforms.downcase.index("all").nil?) && !msionly
-			indicators += "\n* iOS"
+  			# Ignoring for EB
+			# indicators += "\n* iOS"
 	  	end
 	  	if !platforms.downcase.index("wm").nil? || !platforms.downcase.index("all").nil?
 			indicators += "\n* Windows Embedded"
 	  	end
 	  	if !platforms.downcase.index("wp8").nil? || !platforms.downcase.index("all").nil?
-			indicators += "\n* Windows Phone 8"
+  			# Ignoring for EB
+			# indicators += "\n* Windows Phone 8"
 	  	end
 	  	if (!platforms.downcase.index("win32").nil? || !platforms.downcase.index("all").nil?) && !msionly
-			indicators += "\n* Windows Desktop"
+  			# Ignoring for EB
+			#indicators += "\n* Windows Desktop"
 	  	end
 	  	if msionly
 			indicators += "\n* Motorola Solutions Devices Only"
@@ -665,30 +670,32 @@ end
 			end
 			@methsectionaccess = "\n\n####Method Access:\n<ul>#{accesstype}</ul>"			
 
-			# *** BUILD ORDER OF SECTIONS
-		  	if constructor
-			    md += "\n\n### #{constructorLabel} new " + @@apiName +  "(#{@methparams})"
-		  	else
-			    md += "\n\n### #{destructorLabel}" + methname + "(#{@methparams})"
-		  	end
+			#EB : Do not show if not supporting javascript
+			if javascript
+				# *** BUILD ORDER OF SECTIONS
+			  	if constructor
+				    md += "\n\n### #{constructorLabel} new " + @@apiName +  "(#{@methparams})"
+			  	else
+				    md += "\n\n### #{destructorLabel}" + methname + "(#{@methparams})"
+			  	end
 
-		    md += @methdesc 
-		    if @methsectionparams != ''
-    			md += @methsectionparams
+			    md += @methdesc 
+			    if @methsectionparams != ''
+	    			md += @methsectionparams
+	    		end
+			    if @methsectioncallbackparams != ''
+	    			md += @methsectioncallbackparams
+	    		end
+			    if @methsectionreturns != ''
+	    			md += @methsectionreturns
+	    		end
+	    		if @methplatforms != ''
+	    			md += @methplatforms
+	    		end
+	    		if @methsectionaccess != ''
+	    			md += @methsectionaccess
+	    		end
     		end
-		    if @methsectioncallbackparams != ''
-    			md += @methsectioncallbackparams
-    		end
-		    if @methsectionreturns != ''
-    			md += @methsectionreturns
-    		end
-    		if @methplatforms != ''
-    			md += @methplatforms
-    		end
-    		if @methsectionaccess != ''
-    			md += @methsectionaccess
-    		end
-
 		end 
   	}
 
@@ -907,25 +914,30 @@ def self.getproperties(doc)
 				if !generateAccessors
 					@propsectionaccess += "\nThis property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in."
 				end
-				md += "\n\n###" + propdisplayname 
-				md += "\n\n####Type" 
-				md += "\n#{proptype} #{propreadOnly}"
-				md += "\n####Description"
-				md += "\n#{@propdesc}"
-				if propParasDef != ''
-					md += "\n####Params"
-					md += "\n#{propParasDef}"
-				end
-				if @propvalues != ''
-					md += "\n####Values"
-					md += "\n#{@propvalues}"
-				end
-				if @propsectionaccess != ''
-					md += "\n####Access"
-					md += "\n#{@propsectionaccess}"
-				end
-				if @propsectionplatforms != ''
-					md += "\n#{@propsectionplatforms}#{propnote}"
+
+				#EB : Ignore if not javascript supported
+				if javascript
+			
+					md += "\n\n###" + propdisplayname 
+					md += "\n\n####Type" 
+					md += "\n#{proptype} #{propreadOnly}"
+					md += "\n####Description"
+					md += "\n#{@propdesc}"
+					if propParasDef != ''
+						md += "\n####Params"
+						md += "\n#{propParasDef}"
+					end
+					if @propvalues != ''
+						md += "\n####Values"
+						md += "\n#{@propvalues}"
+					end
+					if @propsectionaccess != ''
+						md += "\n####Access"
+						md += "\n#{@propsectionaccess}"
+					end
+					if @propsectionplatforms != ''
+						md += "\n#{@propsectionplatforms}#{propnote}"
+					end
 				end
 			end
 	  	}

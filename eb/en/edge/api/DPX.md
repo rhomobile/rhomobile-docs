@@ -81,11 +81,6 @@ Absolute OCR confidence for processed data if applicable. </p></li></ul></ul></u
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.captureDocument()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.captureDocument()</code> </li></ul></li></ul>
 
@@ -97,11 +92,6 @@ Close DPX engine, and release allocated resources. When capturing images, this i
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
@@ -116,11 +106,6 @@ Password of the user. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.fetchTemplates(<span class="text-info">STRING</span> userName, <span class="text-info">STRING</span> password)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.fetchTemplates(<span class="text-info">STRING</span> userName, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
@@ -138,11 +123,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 Synchronous Return:<ul><li>HASH : 
 Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getAllProperties()</code> </li></ul></li></ul>
 
@@ -157,11 +137,6 @@ Id of image to retrieve. Ids are valid until close method call. </p></li><li>cal
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDataUri(<span class="text-info">INTEGER</span> imageId)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getDataUri(<span class="text-info">INTEGER</span> imageId)</code> </li></ul></li></ul>
@@ -178,11 +153,6 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:<ul><li>SELF_INSTANCE : 
 Default object of Module.</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.DPX.getDefault()</code> </li></ul></li></ul>
@@ -201,11 +171,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 Synchronous Return:<ul><li>HASH : 
 Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
@@ -223,11 +188,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 Synchronous Return:<ul><li>STRING : 
 The property to return info about.</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
@@ -240,11 +200,6 @@ An instance object that is of the same class. </p></li><li>callback : <span clas
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.DPX.setDefault(<span class="text-info">SELF_INSTANCE: Rho.DPX</span> defaultInstance)</code> </li></ul></li></ul>
@@ -259,11 +214,6 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
@@ -277,11 +227,6 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>

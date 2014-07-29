@@ -51,10 +51,7 @@ Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -75,10 +72,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -99,10 +93,7 @@ Default object of Module.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -122,10 +113,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -147,10 +135,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -172,10 +157,7 @@ The property to return info about.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -193,10 +175,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -214,10 +193,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -236,10 +212,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -263,10 +236,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -283,10 +253,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -337,38 +304,6 @@ RhoConnect push engine.
 Native push engine (like GCM on Android).
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.type</code> </li></ul></li></ul>
-
-###<span class="text-error">userNotifyMode</span>
-
-####Type
-<span class='text-info'>STRING</span> 
-####Description
-<span class='label label-important'>Deprecated</span> 
-UI notification mode. Use `Rho.Notification` instead.
-####Params
-<p><strong>Default:</strong> backgroundNotifications</p>
-####Values
-
-<strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
- 
-* Constant: Rho.Push.PUSH_NOTIFY_NONE 
-	* String: none
-	* 
-Do not notify user about received push messages.
-* Constant: Rho.Push.PUSH_NOTIFY_ALERTS 
-	* String: alert
-	* 
-Notify user with alerts inside of application UI only.
-* Constant: Rho.Push.PUSH_NOTIFY_NOTIFICATIONS 
-	* String: notification
-	* 
-Notify user using notification bar.
-* Constant: Rho.Push.PUSH_NOTIFY_NOTIFICATIONS_AND_ALERTS 
-	* String: backgroundNotifications
-	* 
-Notify user using notification bar if in background and with alerts in foreground.
-####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.userNotifyMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul></ul></li></ul>
 
 ##Examples
 

@@ -39,11 +39,6 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:<ul><li>INTEGER</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)</code> </li></ul></li></ul>
 
@@ -58,11 +53,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY : 
 Array of PrintingEpson objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.PrintingEpson</span><p> </p></li></ul></li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrintingEpson.enumerate()</code> </li></ul></li></ul>
@@ -80,11 +70,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 Synchronous Return:<ul><li>HASH : 
 Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getAllProperties()</code> </li></ul></li></ul>
 
@@ -101,11 +86,6 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 Synchronous Return:<ul><li>SELF_INSTANCE : 
 Default object of Module.</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrintingEpson.getDefault()</code> </li></ul></li></ul>
 
@@ -120,11 +100,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 
 ####Returns
 Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getPlatformName()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getPlatformName()</code> </li></ul></li></ul>
@@ -143,11 +118,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 Synchronous Return:<ul><li>HASH : 
 Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
@@ -165,11 +135,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 Synchronous Return:<ul><li>STRING : 
 The property to return info about.</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
@@ -185,11 +150,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:<ul><li>STRING</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)</code> </li></ul></li></ul>
 
@@ -202,11 +162,6 @@ An instance object that is of the same class. </p></li><li>callback : <span clas
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrintingEpson.setDefault(<span class="text-info">SELF_INSTANCE: Rho.PrintingEpson</span> defaultInstance)</code> </li></ul></li></ul>
@@ -221,11 +176,6 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
@@ -239,11 +189,6 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>

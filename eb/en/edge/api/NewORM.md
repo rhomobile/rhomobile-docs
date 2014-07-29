@@ -21,11 +21,6 @@ Whether or not to reset Local Models. </p></li><li>callback : <span class='text-
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
@@ -40,11 +35,6 @@ Whether or not to reset Local Models. </p></li><li>callback : <span class='text-
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
@@ -56,11 +46,6 @@ Resets sync models, client info and local models and does the user logout.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
@@ -77,11 +62,6 @@ Whether or not to reset Local Models. </p></li><li>callback : <span class='text-
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
@@ -94,11 +74,6 @@ Resets sync models, client info and local models and does the user logout.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
 
@@ -110,11 +85,6 @@ Resets local database.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseLocalReset()</code> </li></ul></li></ul>
@@ -131,11 +101,6 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:<ul><li>INTEGER</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.generateId()</code> </li></ul></li></ul>
 
@@ -150,11 +115,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 
 ####Returns
 Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.getClientId()</code> </li></ul></li></ul>
@@ -171,11 +131,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.haveLocalChanges()</code> </li></ul></li></ul>
 
@@ -190,11 +145,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.useNewOrm()</code> </li></ul></li></ul>

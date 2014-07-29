@@ -64,10 +64,7 @@ Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. Th
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -84,8 +81,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 * Motorola Solutions Devices Only
@@ -113,8 +108,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 * Motorola Solutions Devices Only
@@ -154,8 +147,6 @@ The battery health is unknown.</dd></dl></li></ul></li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 * Motorola Solutions Devices Only
 
@@ -173,10 +164,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
