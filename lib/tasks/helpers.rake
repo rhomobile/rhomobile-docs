@@ -243,6 +243,12 @@ def index_variable_for(version)
   # when new releases are created this needs to be updated
 
   index_version = 0
+  if version == 'hosted'
+    version =  Version::CURR_VERSION
+  end
+  if version == 'edge'
+    version =  0.0.0
+  end
   begin
     parts = version.split('.')
     newversion = parts[0]+'.'+parts[1]+parts[2]
@@ -251,11 +257,7 @@ def index_variable_for(version)
   rescue Exception => e
 
   end
-  if version == 'edge'
-    index_version =  0
-  end
-  if version == '2.2.0'
-    index_version =  2.2
-  end
+  
+  
   return index_version
 end
