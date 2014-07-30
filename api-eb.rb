@@ -1033,110 +1033,116 @@ end
   	
   	# puts topic
   	doc = XmlSimple.xml_in(topic)
-  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
-	  	templatePropBag = false
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
-	  		templatePropBag = true
-	  	end
-	  	templateDefault = false
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
-	  		templateDefault = true
-	  	end
-	  	templateSingleton = false
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
-	  		templateSingleton = true
-	  	end
-	  	# Add template methods,properties,constants
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
-	  		
-	  		puts 'Has a template' 
-	  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
-	  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
-	  		w = templateFileString.split("/")
-	  		templateFile = w[w.length() - 1]
-	  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],templateFile))
-			templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
-			# puts(doc)
-			if doc["MODULE"][0]["PROPERTIES"].nil?
-				doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
-			else
-				templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
-					doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
-				}
 
-			end
-			puts (doc["MODULE"][0]["PROPERTIES"])
-			templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
-				doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
-			}
-	  	end
-	  	if templateDefault
-	  		#get xml from file and put it in main array so it is handled like other methods
-	  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'default_instance.xml'))
-			defaultdoc["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
-	  	end
-	  	if templateSingleton
-	  		#get xml from file and put it in main array so it is handled like other methods
-	  		puts topic + 'trying to use singleton'
-	  		# This was commented out as engineering changed their minds on singleton usage no longer used
-	  		# it use to be just enumerate, but now that is in indicidual api docs
-
-	  		# singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
-			# singletondoc["METHODS"][0]["METHOD"].each { |m|
-				# doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			# }
-	  	end
-	  	if templatePropBag
-	  		#get xml from file and put it in main array so it is handled like other methods
-	  		propbagdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'property_bag.xml'))
-			propbagdoc["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
-	  	end
-	  	#get api name from <MODULE name="" ...
-	  	# need to figure out what to do if multiple <MODULE tags in one physical file
-	  	#puts doc
-
-	  	docmethods = getmethods(doc)
-	  	docproperties = getproperties(doc)
-	  	docexamples = getexamples(doc)
-	  	docremarks = getremarks(doc)
-	  	docconstants = getconstants(doc)
-	  	
-
-	  	md += "#" + getApiName(doc,'',true) + "\n" 
-	  	md += "\n\n## Overview" 
-	  	md += "\n" + getApiDesc(doc) + "\n" 
-	  	
-	  	if docmethods !=""
-		  	md += "\n\n##Methods" + "\n\n" 
-		  	md += docmethods
-		end
-		if docproperties !=""
-		  	md += "\n\n##Properties" + "\n\n" 
-		  	md += docproperties
-		end
-		if docconstants !=""
-		  	 md += "\n\n##Constants" + "\n\n" 
-		  	 md += "" + docconstants + ""
-	  	end 
-  	    if docremarks !=""
-		  	 md += "\n\n##Remarks" + "\n\n" 
-		  	 md += "" + docremarks + ""
-	  	end 
-		if docexamples !=""
-		  	 md += "\n\n##Examples" + "\n\n" 
-		  	 md += "" + docexamples + ""
-	  	end 
-	  	# puts md
-	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
+  	#EB don't process if module has productException
+  	if !doc["MODULE"][0]["productException"].nil? && doc["MODULE"][0]["productException"]=="eb"
+		puts "API Not Supported in EB"
 	else
-		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
-	end
+	  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"  
+		  	templatePropBag = false
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+		  		templatePropBag = true
+		  	end
+		  	templateDefault = false
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+		  		templateDefault = true
+		  	end
+		  	templateSingleton = false
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+		  		templateSingleton = true
+		  	end
+		  	# Add template methods,properties,constants
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
+		  		
+		  		puts 'Has a template' 
+		  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
+		  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
+		  		w = templateFileString.split("/")
+		  		templateFile = w[w.length() - 1]
+		  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],templateFile))
+				templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
+					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				}
+				# puts(doc)
+				if doc["MODULE"][0]["PROPERTIES"].nil?
+					doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
+				else
+					templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
+						doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
+					}
+
+				end
+				puts (doc["MODULE"][0]["PROPERTIES"])
+				templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
+					doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
+				}
+		  	end
+		  	if templateDefault
+		  		#get xml from file and put it in main array so it is handled like other methods
+		  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'default_instance.xml'))
+				defaultdoc["METHODS"][0]["METHOD"].each { |m|
+					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				}
+		  	end
+		  	if templateSingleton
+		  		#get xml from file and put it in main array so it is handled like other methods
+		  		puts topic + 'trying to use singleton'
+		  		# This was commented out as engineering changed their minds on singleton usage no longer used
+		  		# it use to be just enumerate, but now that is in indicidual api docs
+
+		  		# singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
+				# singletondoc["METHODS"][0]["METHOD"].each { |m|
+					# doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				# }
+		  	end
+		  	if templatePropBag
+		  		#get xml from file and put it in main array so it is handled like other methods
+		  		propbagdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'property_bag.xml'))
+				propbagdoc["METHODS"][0]["METHOD"].each { |m|
+					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				}
+		  	end
+		  	#get api name from <MODULE name="" ...
+		  	# need to figure out what to do if multiple <MODULE tags in one physical file
+		  	#puts doc
+
+		  	docmethods = getmethods(doc)
+		  	docproperties = getproperties(doc)
+		  	docexamples = getexamples(doc)
+		  	docremarks = getremarks(doc)
+		  	docconstants = getconstants(doc)
+		  	
+
+		  	md += "#" + getApiName(doc,'',true) + "\n" 
+		  	md += "\n\n## Overview" 
+		  	md += "\n" + getApiDesc(doc) + "\n" 
+		  	
+		  	if docmethods !=""
+			  	md += "\n\n##Methods" + "\n\n" 
+			  	md += docmethods
+			end
+			if docproperties !=""
+			  	md += "\n\n##Properties" + "\n\n" 
+			  	md += docproperties
+			end
+			if docconstants !=""
+			  	 md += "\n\n##Constants" + "\n\n" 
+			  	 md += "" + docconstants + ""
+		  	end 
+	  	    if docremarks !=""
+			  	 md += "\n\n##Remarks" + "\n\n" 
+			  	 md += "" + docremarks + ""
+		  	end 
+			if docexamples !=""
+			  	 md += "\n\n##Examples" + "\n\n" 
+			  	 md += "" + docexamples + ""
+		  	end 
+		  	# puts md
+		  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
+		else
+			puts ('Skipping API: ' + doc["MODULE"][0]["name"] )
+		end
+	end  		
   return md
   end
 
