@@ -41,7 +41,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.clear()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.clear()</code> </li></ul></li></ul>
 
 ### numLines()
 Return number of captured lines.
@@ -61,7 +61,7 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.numLines()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.numLines()</code> </li></ul></li></ul>
 
 ### read()
 Read captured items.
@@ -81,7 +81,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.read()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.read()</code> </li></ul></li></ul>
 
 ### start()
 Start capture log events.
@@ -98,7 +98,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.start()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.start()</code> </li></ul></li></ul>
 
 ### stop()
 Stop capture log events.
@@ -115,7 +115,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.stop()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.stop()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -129,7 +129,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Comma-separated list of excluded log categories.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.excludeCategories</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.LogCapture.excludeCategories</code> </li></ul></li></ul>
 
 ###maxLines
 
@@ -141,4 +141,4 @@ Maximum number of captured lines.
 ####Params
 <p><strong>Default:</strong> 1024</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.LogCapture.maxLines</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.LogCapture.maxLines</code> </li></ul></li></ul>

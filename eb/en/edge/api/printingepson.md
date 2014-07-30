@@ -40,7 +40,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 Synchronous Return:<ul><li>INTEGER</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)</code> </li></ul></li></ul>
 
 ### enumerate()
 
@@ -48,14 +48,14 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.PrintingEpson</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY : 
-Array of PrintingEpson objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.PrintingEpson</span><p> </p></li></ul></li></ul>
+Array of PrintingEpson objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrintingEpson.enumerate()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrintingEpson.enumerate()</code> </li></ul></li></ul>
 
 ### getAllProperties()
 This method will return all of object/value pairs for the propertyNames of the API class.
@@ -71,7 +71,7 @@ Synchronous Return:<ul><li>HASH :
 Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getAllProperties()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.getAllProperties()</code> </li></ul></li></ul>
 
 ### getDefault()
 This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
@@ -87,7 +87,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE :
 Default object of Module.</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrintingEpson.getDefault()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrintingEpson.getDefault()</code> </li></ul></li></ul>
 
 ### getPlatformName()
 Return string with platform.
@@ -102,7 +102,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getPlatformName()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getPlatformName()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getPlatformName()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.getPlatformName()</code> </li></ul></li></ul>
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
 This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
@@ -119,7 +119,7 @@ Synchronous Return:<ul><li>HASH :
 Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
 This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
@@ -136,7 +136,7 @@ Synchronous Return:<ul><li>STRING :
 The property to return info about.</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
 ### joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)
 Return join of two strings: a+b.
@@ -151,20 +151,20 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)</code> </li></ul></li></ul>
 
-### setDefault(<span class="text-info">SELF_INSTANCE: Rho.PrintingEpson</span> defaultInstance)
+### setDefault(<span class="text-info">SELF_INSTANCE: EB.PrintingEpson</span> defaultInstance)
 This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.PrintingEpson</span><p>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p>
 An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrintingEpson.setDefault(<span class="text-info">SELF_INSTANCE: Rho.PrintingEpson</span> defaultInstance)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrintingEpson.setDefault(<span class="text-info">SELF_INSTANCE: EB.PrintingEpson</span> defaultInstance)</code> </li></ul></li></ul>
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
 This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -177,7 +177,7 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
 This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -191,7 +191,7 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -205,4 +205,4 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Simple string property.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.simpleStringProperty</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrintingEpson.simpleStringProperty</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.simpleStringProperty</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrintingEpson.simpleStringProperty</code> </li></ul></li></ul>

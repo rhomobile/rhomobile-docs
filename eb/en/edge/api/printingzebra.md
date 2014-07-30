@@ -43,7 +43,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.connect()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.connect()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.connect()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.connect()</code> </li></ul></li></ul>
 
 ### connectWithOptions(<span class="text-info">HASH</span> options)
 Connect to a printer using user options. Works asynchronously, use callback to check the result. After this function call state is automatically updated.
@@ -66,7 +66,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.connectWithOptions(<span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.connectWithOptions(<span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.connectWithOptions(<span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.connectWithOptions(<span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
 
 ### disconnect()
 Disconnect from a printer and release OS resources. Works asynchronously, use callback to check the result.
@@ -86,7 +86,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.disconnect()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.disconnect()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.disconnect()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.disconnect()</code> </li></ul></li></ul>
 
 ### enumerateSupportedControlLanguages()
 Return array with languages supported by this printer.
@@ -109,7 +109,7 @@ Language. See - PRINTER_LANGUAGE_... constants. </p></li></ul></li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.enumerateSupportedControlLanguages()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.enumerateSupportedControlLanguages()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.enumerateSupportedControlLanguages()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.enumerateSupportedControlLanguages()</code> </li></ul></li></ul>
 
 ### enumerateSupportedTypes()
 Returns array with supported printer types immediately. The result depends on your build configuration. Each extension is linked to application during build. If you want to add or remove support of any printer type please update extension list in the build.yml. 
@@ -132,7 +132,7 @@ Type of device. </p></li></ul></li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrinterZebra.enumerateSupportedTypes()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrinterZebra.enumerateSupportedTypes()</code> </li></ul></li></ul>
 
 ### getAllProperties()
 This method will return all of object/value pairs for the propertyNames of the API class.
@@ -153,7 +153,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.getAllProperties()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.getAllProperties()</code> </li></ul></li></ul>
 
 ### getDefault()
 This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
@@ -174,7 +174,7 @@ Default object of Module.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrinterZebra.getDefault()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrinterZebra.getDefault()</code> </li></ul></li></ul>
 
 ### getPrinterByID(<span class="text-info">STRING</span> printerId)
 Return printer instance specified by printerId. If there is no printers with this ID null is returned. To get valid printerId please use searchPrinters function.
@@ -194,7 +194,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrinterZebra.getPrinterByID(<span class="text-info">STRING</span> printerId)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrinterZebra.getPrinterByID(<span class="text-info">STRING</span> printerId)</code> </li></ul></li></ul>
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
 This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
@@ -216,7 +216,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
 This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
@@ -238,7 +238,7 @@ The property to return info about.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
 ### printFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">HASH</span> options)
 Prints file. Works asynchronously, use callback to check the result. File extension is used to determine its type. Supported types: JPEG and PNG images.
@@ -262,7 +262,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.printFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.printFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
 
 ### printImageFromFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">HASH</span> options)
 Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly.
@@ -289,7 +289,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printImageFromFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.printImageFromFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printImageFromFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.printImageFromFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
 
 ### printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)
 Send raw string to printer. Works asynchronously, use callback to check the result.
@@ -319,7 +319,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
 
 ### printStoredFormatWithArray(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">Array</span> vars)
 Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously, use callback to check the result.
@@ -341,7 +341,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printStoredFormatWithArray(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">Array</span> vars)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.printStoredFormatWithArray(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">Array</span> vars)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printStoredFormatWithArray(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">Array</span> vars)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.printStoredFormatWithArray(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">Array</span> vars)</code> </li></ul></li></ul>
 
 ### printStoredFormatWithHash(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">HASH</span> vars)
 Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously, use callback to check the result.
@@ -363,7 +363,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printStoredFormatWithHash(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">HASH</span> vars)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.printStoredFormatWithHash(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">HASH</span> vars)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.printStoredFormatWithHash(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">HASH</span> vars)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.printStoredFormatWithHash(<span class="text-info">STRING</span> formatPathOnPrinter, <span class="text-info">HASH</span> vars)</code> </li></ul></li></ul>
 
 ### requestState(<span class="text-info">ARRAY</span> listOfParameters)
 Requests printer state with a list of parameters.
@@ -393,7 +393,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.requestState(<span class="text-info">ARRAY</span> listOfParameters)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.requestState(<span class="text-info">ARRAY</span> listOfParameters)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.requestState(<span class="text-info">ARRAY</span> listOfParameters)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.requestState(<span class="text-info">ARRAY</span> listOfParameters)</code> </li></ul></li></ul>
 
 ### retrieveFileNames()
 Retrieves the names of the files which are stored on the printer. Works asynchronously, use callback to check the result.
@@ -415,7 +415,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.retrieveFileNames()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.retrieveFileNames()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.retrieveFileNames()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.retrieveFileNames()</code> </li></ul></li></ul>
 
 ### retrieveFileNamesWithExtensions(<span class="text-info">ARRAY</span> extensions)
 This method only returns files which have the extensions in "extensions". Works asynchronously, use callback to check the result.
@@ -438,7 +438,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.retrieveFileNamesWithExtensions(<span class="text-info">ARRAY</span> extensions)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.retrieveFileNamesWithExtensions(<span class="text-info">ARRAY</span> extensions)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.retrieveFileNamesWithExtensions(<span class="text-info">ARRAY</span> extensions)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.retrieveFileNamesWithExtensions(<span class="text-info">ARRAY</span> extensions)</code> </li></ul></li></ul>
 
 ### searchPrinters(<span class="text-info">HASH</span> options)
 Search printers connected to this device, available Bluetooth(R) or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network/bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. Callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note: discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
@@ -474,7 +474,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrinterZebra.searchPrinters(<span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrinterZebra.searchPrinters(<span class="text-info">HASH</span> options)</code> </li></ul></li></ul>
 
 ### sendFileContents(<span class="text-info">STRING</span> path)
 Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.
@@ -495,13 +495,13 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.sendFileContents(<span class="text-info">STRING</span> path)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.sendFileContents(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.sendFileContents(<span class="text-info">STRING</span> path)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.sendFileContents(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
-### setDefault(<span class="text-info">SELF_INSTANCE: Rho.PrinterZebra</span> defaultInstance)
+### setDefault(<span class="text-info">SELF_INSTANCE: EB.PrinterZebra</span> defaultInstance)
 This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.PrinterZebra</span><p>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.PrinterZebra</span><p>
 An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
@@ -513,7 +513,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrinterZebra.setDefault(<span class="text-info">SELF_INSTANCE: Rho.PrinterZebra</span> defaultInstance)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrinterZebra.setDefault(<span class="text-info">SELF_INSTANCE: EB.PrinterZebra</span> defaultInstance)</code> </li></ul></li></ul>
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
 This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -531,7 +531,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
 This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -550,7 +550,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
 
 ### stopSearch()
 Stop all active and pending search requests. Function does not return any results. All running search requests are canceled immediately.
@@ -566,7 +566,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Android
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.PrinterZebra.stopSearch()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.PrinterZebra.stopSearch()</code> </li></ul></li></ul>
 
 ### storeImage(<span class="text-info">STRING</span> printerDriveAndFileName, <span class="text-info">STRING</span> imageFilePathOnDevice, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)
 Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS, Android and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.
@@ -590,7 +590,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.storeImage(<span class="text-info">STRING</span> printerDriveAndFileName, <span class="text-info">STRING</span> imageFilePathOnDevice, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.storeImage(<span class="text-info">STRING</span> printerDriveAndFileName, <span class="text-info">STRING</span> imageFilePathOnDevice, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.storeImage(<span class="text-info">STRING</span> printerDriveAndFileName, <span class="text-info">STRING</span> imageFilePathOnDevice, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.storeImage(<span class="text-info">STRING</span> printerDriveAndFileName, <span class="text-info">STRING</span> imageFilePathOnDevice, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -604,7 +604,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Unique printer ID during application lifetime.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.ID</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.ID</code> </li></ul></li></ul>
 
 ###connectionType
 
@@ -614,7 +614,7 @@ Unique printer ID during application lifetime.
 
 Type of connection to printer.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.connectionType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.connectionType</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.connectionType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.connectionType</code> </li></ul></li></ul>
 
 ###deviceAddress
 
@@ -624,7 +624,7 @@ Type of connection to printer.
 
 Bluetooth mac/TCP IP address.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.deviceAddress</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.deviceAddress</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.deviceAddress</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.deviceAddress</code> </li></ul></li></ul>
 
 ###deviceName
 
@@ -634,7 +634,7 @@ Bluetooth mac/TCP IP address.
 
 Bluetooth/Network name of printer.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.deviceName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.deviceName</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.deviceName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.deviceName</code> </li></ul></li></ul>
 
 ###devicePort
 
@@ -644,7 +644,7 @@ Bluetooth/Network name of printer.
 
 Default port when connecting using TCP/IP.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.devicePort</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.devicePort</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.devicePort</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.devicePort</code> </li></ul></li></ul>
 
 ###isConnected
 
@@ -654,7 +654,7 @@ Default port when connecting using TCP/IP.
 
 Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want real check physical connection - use requestState() method with receive result in callback. Only this way process real request to device and analyze answer from device.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isConnected</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.isConnected</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isConnected</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.isConnected</code> </li></ul></li></ul>
 
 ###printerType
 
@@ -664,7 +664,7 @@ Connection status flag. All other properties are valid only if isConnect equals 
 
 Type of printer - see PRINTER_TYPE_... consts.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.printerType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.PrinterZebra.printerType</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.printerType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.PrinterZebra.printerType</code> </li></ul></li></ul>
 
 ##Constants
 

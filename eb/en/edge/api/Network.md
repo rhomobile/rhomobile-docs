@@ -40,7 +40,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.cancel()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.cancel()</code> </li></ul></li></ul>
 
 ### connectWan(<span class="text-info">STRING</span> connectionDestination)
 Connects the device to a Wide Area Network. The connection destination must be first configured through the Connection Manager (on the device) and the destination name provided to this method. If a connection is already established, you must first call disconnectWan before attempting another connection. A list of available connection destinations is written to the log file when either connectWan or disconnectWan are first specified. Specify the connection as 'Internet' to use the default internet connection defined on the device. If the specified destination does not exist no connection attempt will be made and an entry will be made in the log file.
@@ -65,7 +65,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.connectWan(<span class="text-info">STRING</span> connectionDestination)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.connectWan(<span class="text-info">STRING</span> connectionDestination)</code> </li></ul></li></ul>
 
 ### detectConnection(<span class="text-info">HASH</span> propertyMap)
 Begins polling the specified host on the specified URL to check if there is a network connection available. The connection status is reported back via the provided callback. Note that callback will be called only if connection status has changed compared to previous polling.
@@ -92,7 +92,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.detectConnection(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.detectConnection(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### disconnectWan()
 Disconnects the current WAN connection. DisconnectWan will only affect connections established by RhoElements so if you have not previously called connectWan this function will have no effect.
@@ -108,7 +108,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.disconnectWan()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.disconnectWan()</code> </li></ul></li></ul>
 
 ### downloadFile(<span class="text-info">HASH</span> propertyMap)
 Download a file to the specified filename. Note: if 'overwriteFile' flag is default or false, the HEAD request to the server will be performed before actual download to retrieve 'last-modified' header which is used to support resuming interrupted download. If targeted server doesn't support HEAD requests, 'overwriteFile' should be set to true.
@@ -143,7 +143,7 @@ When overwriteFile is false and file exists, when error return and this flag set
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.downloadFile(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.downloadFile(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### get(<span class="text-info">HASH</span> propertyMap)
 Perform a HTTP GET request.
@@ -172,7 +172,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.get(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.get(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### hasCellNetwork()
 Returns true if the device is connected to a cell network. Not supported on Windows CE.
@@ -192,7 +192,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.hasCellNetwork()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.hasCellNetwork()</code> </li></ul></li></ul>
 
 ### hasNetwork()
 Returns true if the device is connected to a network. Not supported on Windows CE.
@@ -212,7 +212,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.hasNetwork()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.hasNetwork()</code> </li></ul></li></ul>
 
 ### hasWifiNetwork()
 Returns true if the device is connected to a WiFi network. Not supported on Windows CE.
@@ -232,7 +232,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.hasWifiNetwork()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.hasWifiNetwork()</code> </li></ul></li></ul>
 
 ### post(<span class="text-info">HASH</span> propertyMap)
 Perform a HTTP Post.
@@ -262,7 +262,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.post(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.post(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)
 Start network status notifications. Notifications are sent when WiFi or Cell network appear/disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.
@@ -285,7 +285,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)</code> </li></ul></li></ul>
 
 ### stopDetectingConnection()
 Ceases the network detection identified by the given callback.
@@ -302,7 +302,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.stopDetectingConnection()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.stopDetectingConnection()</code> </li></ul></li></ul>
 
 ### stopStatusNotify()
 Stop network status notifications. Not supported on Windows CE.
@@ -319,7 +319,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.stopStatusNotify()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.stopStatusNotify()</code> </li></ul></li></ul>
 
 ### uploadFile(<span class="text-info">HASH</span> propertyMap)
 Upload the specified file using HTTP POST.
@@ -357,7 +357,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Network.uploadFile(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.uploadFile(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -371,7 +371,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 
 Password for basic authentication. You must also specify `authType='basic'
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.authPassword</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.authPassword</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###authType
@@ -385,12 +385,12 @@ Type of authentication used for this request. Check the list of available option
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Network.AUTH_BASIC 
+* Constant: EB.Network.AUTH_BASIC 
 	* String: basic
 	* 
 Basic Authentication Type. uses authUser and authPassword.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.authType</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.authType</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###authUser
@@ -401,7 +401,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 User name for basic authentication. You must also specify `authType='basic'`
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.authUser</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.authUser</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###headers
@@ -412,7 +412,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 List of HTTP headers to be used in the network  request.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.headers</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.headers</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###<span class="text-info">httpVerb</span>
@@ -423,7 +423,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 <span class='label label-info'>Replaces:http_command</span> 
 HTTP verb to be used in the network request.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.httpVerb</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.httpVerb</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###responseTimeout
@@ -436,7 +436,7 @@ Timeout of network requests in seconds. This property has module scope. Do not p
 ####Params
 <p><strong>Default:</strong> 30</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.responseTimeout</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.responseTimeout</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###url
@@ -447,7 +447,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 URL of the request. This should be fully formatted URL like http://domain.com/
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.url</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.url</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ###<span class="text-info">verifyPeerCertificate</span>
@@ -460,7 +460,7 @@ Verify SSL certificates. When set to false it will allow untrusted certificates.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Network.verifyPeerCertificate</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.verifyPeerCertificate</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
 ##Remarks

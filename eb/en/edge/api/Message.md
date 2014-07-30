@@ -89,7 +89,7 @@ Created Message object.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Message.create()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.create()</code> </li></ul></li></ul>
 
 ### getContent()
 Returns Message as byte array.
@@ -130,7 +130,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE :
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
 
 ### getMessages()
 Return array of Smart Poster Message objects.

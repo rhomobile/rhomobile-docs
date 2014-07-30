@@ -48,7 +48,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.KeyState.hideStates()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.KeyState.hideStates()</code> </li></ul></li></ul>
 
 ### showStates(<span class="text-info">HASH</span> propertyMap)
 Display keystate icons representing the shifted state of the hardware keyboard.
@@ -71,7 +71,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.KeyState.showStates(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.KeyState.showStates(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ##Remarks
 

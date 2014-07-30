@@ -44,7 +44,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Notification.beep(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.beep(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### hidePopup()
 Closes the current popup window.
@@ -61,7 +61,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Notification.hidePopup()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.hidePopup()</code> </li></ul></li></ul>
 
 ### playFile(<span class="text-info">STRING</span> path, <span class="text-info">STRING</span> media_type)
 Play an audio file if that media type is supported by the device.
@@ -80,7 +80,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Notification.playFile(<span class="text-info">STRING</span> path, <span class="text-info">STRING</span> media_type)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.playFile(<span class="text-info">STRING</span> path, <span class="text-info">STRING</span> media_type)</code> </li></ul></li></ul>
 
 ### showPopup(<span class="text-info">HASH</span> propertyMap)
 Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on one of the buttons in the `button` array. Icon is not supported on iOS devices.
@@ -102,11 +102,11 @@ NOTE: For Android, if TYPE_NOTIFICATION_DIALOG is used, every button in the noti
 List which notification kinds will be shown. Several types may be listed at same time. `TYPE_NOTIFICATION` and `TYPE_NOTIFICATION_DIALOG` take no effect if application is in the foreground. By default `[Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_NOTIFICATION]` is used.
 Example:
     :::javascript
-    typeToast = [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST]; </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.Notification.TYPE_DIALOG <br/> String:dialog</dt><dd>
-Show common dialog window with buttons visible if application is active.</dd><dt>Constant: Rho.Notification.TYPE_NOTIFICATION <br/> String:notification</dt><dd>
-Show message in Android notification bar if application is at background. Touch the message opens the application.</dd><dt>Constant: Rho.Notification.TYPE_NOTIFICATION_DIALOG <br/> String:notificationDialog</dt><dd>
+    typeToast = [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST]; </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Notification.TYPE_DIALOG <br/> String:dialog</dt><dd>
+Show common dialog window with buttons visible if application is active.</dd><dt>Constant: EB.Notification.TYPE_NOTIFICATION <br/> String:notification</dt><dd>
+Show message in Android notification bar if application is at background. Touch the message opens the application.</dd><dt>Constant: EB.Notification.TYPE_NOTIFICATION_DIALOG <br/> String:notificationDialog</dt><dd>
 This is the same as `TYPE_DIALOG` + `TYPE_NOTIFICATION`. 
-NOTE: In Android 4.1 and above, buttons are also added to the notification message so the user can interact with the application without application activation (dialog window is not shown if user pressed button in notification). Buttons are not always displayed in the notification area - this depends on screen size and layout and system decides whether to show buttons. You need to drag notification to make buttons appear.</dd><dt>Constant: Rho.Notification.TYPE_TOAST <br/> String:toast</dt><dd>
+NOTE: In Android 4.1 and above, buttons are also added to the notification message so the user can interact with the application without application activation (dialog window is not shown if user pressed button in notification). Buttons are not always displayed in the notification area - this depends on screen size and layout and system decides whether to show buttons. You need to drag notification to make buttons appear.</dd><dt>Constant: EB.Notification.TYPE_TOAST <br/> String:toast</dt><dd>
 Show toast window with message at foreground for a short time. The toast is visible nevertheless the application is at background or foreground but is not shown same time with any foreground pop-up.</dd></dl></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
@@ -124,7 +124,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Notification.showPopup(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.showPopup(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### showStatus(<span class="text-info">STRING</span> title, <span class="text-info">STRING</span> status_text, <span class="text-info">STRING</span> hide_button_label)
 Display a window containing a status message. The window closes after the user clicks on its hide button. Note: Android will show a toast message for a short time in addition to a dialog window.
@@ -144,7 +144,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Notification.showStatus(<span class="text-info">STRING</span> title, <span class="text-info">STRING</span> status_text, <span class="text-info">STRING</span> hide_button_label)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.showStatus(<span class="text-info">STRING</span> title, <span class="text-info">STRING</span> status_text, <span class="text-info">STRING</span> hide_button_label)</code> </li></ul></li></ul>
 
 ### vibrate(<span class="text-info">Integer</span> duration)
 Vibrate the device's pager hardware. Need 'vibrate' capability set at build.yml for Android.
@@ -162,7 +162,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Notification.vibrate(<span class="text-info">Integer</span> duration)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.vibrate(<span class="text-info">Integer</span> duration)</code> </li></ul></li></ul>
 
 ##Remarks
 

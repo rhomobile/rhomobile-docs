@@ -43,7 +43,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.addObjectNotify(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.addObjectNotify(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)</code> </li></ul></li></ul>
 
 ### cleanObjectNotify()
 Removes callback for object notifications.
@@ -60,7 +60,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.cleanObjectNotify()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.cleanObjectNotify()</code> </li></ul></li></ul>
 
 ### clearNotification(<span class="text-info">STRING</span> sourceName)
 Clears the sync notification for a given source.
@@ -78,7 +78,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.clearNotification(<span class="text-info">STRING</span> sourceName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.clearNotification(<span class="text-info">STRING</span> sourceName)</code> </li></ul></li></ul>
 
 ### doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)
 Start the RhoConnectClient sync process.
@@ -101,7 +101,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)</code> </li></ul></li></ul>
 
 ### doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)
 Start RhoConnectClient sync process for a given source name.
@@ -124,7 +124,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)</code> </li></ul></li></ul>
 
 ### isLoggedIn()
 Returns true if the RhoConnectClient currently has a user session, false if not.
@@ -145,7 +145,7 @@ True if have logged in user session, false if not.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.isLoggedIn()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.isLoggedIn()</code> </li></ul></li></ul>
 
 ### isSyncing()
 Returns true if sync is currently in progress.
@@ -166,7 +166,7 @@ True if sync has started but not finished yet, false otherwise.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.isSyncing()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.isSyncing()</code> </li></ul></li></ul>
 
 ### login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)
 Authenticates the user with RhoConnect. The callback will be executed when it is finished.
@@ -188,7 +188,7 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
 
 ### logout()
 Logout the user from the RhoConnect server. This removes the local user session.
@@ -205,7 +205,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.logout()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.logout()</code> </li></ul></li></ul>
 
 ### setNotification(<span class="text-info">STRING</span> sourceName)
 The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered. Once a sync is processing for a model, notifications are called with parameters containing sync process state. Your application can use this information to display different wait pages, progress bars, etc. setNotification will set notification for a model.
@@ -223,7 +223,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.setNotification(<span class="text-info">STRING</span> sourceName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.setNotification(<span class="text-info">STRING</span> sourceName)</code> </li></ul></li></ul>
 
 ### setObjectNotification()
 The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.
@@ -246,7 +246,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.setObjectNotification()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.setObjectNotification()</code> </li></ul></li></ul>
 
 ### stopSync()
 Stops any sync operations currently in progress.
@@ -263,7 +263,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.stopSync()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.stopSync()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -277,7 +277,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Page size for RhoConnectClient. Default size is 2000.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.pageSize</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.pageSize</code> </li></ul></li></ul>
 
 ###pollInterval
 
@@ -289,7 +289,7 @@ Sync poll interval in seconds. Setting this to 0 will disable polling-based sync
 ####Params
 <p><strong>Default:</strong> 60</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.pollInterval</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.pollInterval</code> </li></ul></li></ul>
 
 ###showStatusPopup
 
@@ -301,7 +301,7 @@ Enable or disable show status popup.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.showStatusPopup</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.showStatusPopup</code> </li></ul></li></ul>
 
 ###sslVerifyPeer
 
@@ -313,7 +313,7 @@ Enable or disable verification of RhoConnect ssl certificates, true by default.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.sslVerifyPeer</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.sslVerifyPeer</code> </li></ul></li></ul>
 
 ###syncServer
 
@@ -323,7 +323,7 @@ Enable or disable verification of RhoConnect ssl certificates, true by default.
 
 Sync server URL.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.syncServer</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.syncServer</code> </li></ul></li></ul>
 
 ###userName
 
@@ -333,7 +333,7 @@ Sync server URL.
 
 Current username of the RhoConnectClient session if isLoggedIn is true, otherwise returns the last logged in username.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.userName</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.RhoConnectClient.userName</code> </li></ul></li></ul>
 
 ##Remarks
 

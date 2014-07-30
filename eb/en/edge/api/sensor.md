@@ -111,7 +111,7 @@ Returns a sensor object for the sensor type passed as parameter. You can use the
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Sensor.makeSensorByType(<span class="text-info">STRING</span> type)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Sensor.makeSensorByType(<span class="text-info">STRING</span> type)</code> </li></ul></li></ul>
 
 ### readData()
 Read current sensor data from the sensor object retrieved by using makeSensorByType.

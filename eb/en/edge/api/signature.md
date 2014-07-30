@@ -54,7 +54,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Signature.capture()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.capture()</code> </li></ul></li></ul>
 
 ### clear()
 Clears an in-line capture area. This function works with a non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect to capture area shown in takeFullScreen (modal full screen capture area) 
@@ -71,7 +71,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Signature.clear()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.clear()</code> </li></ul></li></ul>
 
 ### hide()
 Hides an in-line capture area from view. It clears the inputed signature for in-line signature areas. In a hidden state, a user cannot interact with the signature capture area. This function work with non-modal signature capture area showed inside browser window. All in-line signature capture functions (like this) do not has affect to capture area showed in takeFullScreen (modal full screen capture area) 
@@ -88,7 +88,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Signature.hide()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.hide()</code> </li></ul></li></ul>
 
 ### setVectorCallback()
 Signature data is formatted into a series of vectors and returned to the application via this callback function. The received data may not represent the entire signature as the vectors will be sent in batches if the signature is large. A single vector (array entry) contains an X, Y coordinate and the beginning / end of the signature is defined by (65535, 65535). This callback is independent of the callback of the capture method, when specified the callback will be called whenever a 'pen up' occurs in the signature box.
@@ -109,7 +109,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Signature.setVectorCallback()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.setVectorCallback()</code> </li></ul></li></ul>
 
 ### show(<span class="text-info">HASH</span> propertyMap)
 Show in-line signature window. This function works witha non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect the capture area shown in takeFullScreen (modal full screen capture area).
@@ -128,7 +128,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Signature.show(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.show(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### takeFullScreen(<span class="text-info">HASH</span> propertyMap)
 Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel / capture and return to main application window. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible buttons for 'clear', 'capture' and 'cancel'. In Android / iOS, the signature area has images which will behave as buttons for 'clear', 'capture' and 'cancel'. This function open modal full screen window, therefore other functions related to in-line signature capture (work with inside browser window area) do not affect the capture window shown by this function.
@@ -153,7 +153,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Signature.takeFullScreen(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.takeFullScreen(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -169,7 +169,7 @@ RGB or ARGB value that sets the background color of the signature capture area.
 ####Params
 <p><strong>Default:</strong> #FFFFFFFF</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.bgColor</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.bgColor</code> </li></ul></li></ul>
 
 ###border
 
@@ -181,7 +181,7 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.border</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.border</code> </li></ul></li></ul>
 
 ###<span class="text-info">compressionFormat</span>
 
@@ -194,20 +194,20 @@ Compression format of the image file for the captured signature. In WM/CE, irres
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Signature.COMPRESSION_FORMAT_JPG 
+* Constant: EB.Signature.COMPRESSION_FORMAT_JPG 
 	* String: jpg
 	* 
 JPEG file format (Not available on WM/CE).
-* Constant: Rho.Signature.COMPRESSION_FORMAT_PNG 
+* Constant: EB.Signature.COMPRESSION_FORMAT_PNG 
 	* String: png
 	* 
 Portable Network Graphics file (Not available on WM/CE).
-* Constant: Rho.Signature.COMPRESSION_FORMAT_BMP 
+* Constant: EB.Signature.COMPRESSION_FORMAT_BMP 
 	* String: bmp
 	* 
 Bitmap image file (Not available on iOS).
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.compressionFormat</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.compressionFormat</code> </li></ul></li></ul>
 
 ###<span class="text-info">fileName</span>
 
@@ -219,7 +219,7 @@ The filename in which to store the signature image, if "image" is used as the ou
 ####Params
 <p><strong>Default:</strong> signature</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.fileName</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.fileName</code> </li></ul></li></ul>
 
 ###height
 
@@ -231,7 +231,7 @@ The height of the signature capture area in pixels. Not applicable to fullscreen
 ####Params
 <p><strong>Default:</strong> 150</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.height</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.height</code> </li></ul></li></ul>
 
 ###left
 
@@ -243,7 +243,7 @@ The coordinates in pixels of the left side of the signature capture area. Not ap
 ####Params
 <p><strong>Default:</strong> 15</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.left</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.left</code> </li></ul></li></ul>
 
 ###outputFormat
 
@@ -258,16 +258,16 @@ The return type of the saved signature capture image.
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Signature.OUTPUT_FORMAT_IMAGE 
+* Constant: EB.Signature.OUTPUT_FORMAT_IMAGE 
 	* String: image
 	* 
 Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.
-* Constant: Rho.Signature.OUTPUT_FORMAT_DATAURI 
+* Constant: EB.Signature.OUTPUT_FORMAT_DATAURI 
 	* String: dataUri
 	* 
 Outputs the signature capture image as a DataURI string. (Not available on iOS).
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.outputFormat</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.outputFormat</code> </li></ul></li></ul>
 
 ###penColor
 
@@ -279,7 +279,7 @@ RGB or ARGB value that sets the color of the stylus pen ink using HTML web color
 ####Params
 <p><strong>Default:</strong> #FF000000</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.penColor</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.penColor</code> </li></ul></li></ul>
 
 ###penWidth
 
@@ -291,7 +291,7 @@ Sets the width of the pen line in pixels. Advised to keep this to 5 or less.
 ####Params
 <p><strong>Default:</strong> 3</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.penWidth</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.penWidth</code> </li></ul></li></ul>
 
 ###top
 
@@ -303,7 +303,7 @@ The coordinates in pixels of the top side of the signature capture area. Not app
 ####Params
 <p><strong>Default:</strong> 60</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.top</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.top</code> </li></ul></li></ul>
 
 ###width
 
@@ -315,7 +315,7 @@ The width of the signature capture area in pixels. Not applicable to fullscreen 
 ####Params
 <p><strong>Default:</strong> 200</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Signature.width</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.width</code> </li></ul></li></ul>
 
 ##Remarks
 

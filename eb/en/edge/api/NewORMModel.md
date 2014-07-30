@@ -111,7 +111,7 @@ Very, very dangerous method - only to be used in specs!!!
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORMModel.clear()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORMModel.clear()</code> </li></ul></li></ul>
 
 ### createInstance(<span class="text-info">HASH</span> attrs)
 Initializes model's object.
@@ -227,14 +227,14 @@ Synchronous Return:<ul><li>Void</li></ul>
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY : 
-Array of NewORMModel objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></li></ul>
+Array of NewORMModel objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORMModel.enumerate()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORMModel.enumerate()</code> </li></ul></li></ul>
 
 ### findObjects(<span class="text-info">STRING</span> whatParam, <span class="text-info">HASH</span> strOptions, <span class="text-info">ARRAY</span> quests, <span class="text-info">ARRAY</span> selectAttrs, <span class="text-info">ARRAY</span> orderAttrs)
 Returns array of objects for the given model queried according to the specified conditions.
@@ -364,14 +364,14 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 Name of the model you want returned. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>STRING : 
-NewORMModel object.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></li></ul>
+NewORMModel object.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORMModel.getModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORMModel.getModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
 
 ### getModelProperty(<span class="text-info">STRING</span> propertyName)
 Returns info about model's field property.
@@ -437,7 +437,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.hasChanges(<span class="text-info">STRING</span> objId)</code></li></ul></li></ul>
 
-### <span class="label label-inverse"> Constructor</span>  new Rho.NewORMModel(<span class="text-info">STRING</span> modelName)
+### <span class="label label-inverse"> Constructor</span>  new EB.NewORMModel(<span class="text-info">STRING</span> modelName)
 Initializes new model's instance.
 
 ####Parameters
@@ -447,7 +447,7 @@ Initializes new model's instance.
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new Rho.NewORMModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
+<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new EB.NewORMModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
 
 ### initModel()
 Initializes model's internal DB.

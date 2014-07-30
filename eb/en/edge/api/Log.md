@@ -66,7 +66,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.cleanLogFile()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.cleanLogFile()</code> </li></ul></li></ul>
 
 ### error(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
 Log message at the Error level.
@@ -85,7 +85,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.error(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.error(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
 
 ### fatalError(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
 Log message at the FatalError level. Application will be terminated (on all platforms except iOS).
@@ -104,7 +104,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.fatalError(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.fatalError(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
 
 ### info(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
 Log message at the Info level.
@@ -123,7 +123,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.info(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.info(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
 
 ### readLogFile(<span class="text-info">INTEGER</span> limit)
 Read log file. Returns string from the log file containing specified number of symbols.
@@ -144,7 +144,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.readLogFile(<span class="text-info">INTEGER</span> limit)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.readLogFile(<span class="text-info">INTEGER</span> limit)</code> </li></ul></li></ul>
 
 ### sendLogFile()
 Send log file to destinationURI property. Please note that this procedure is blocking and will stop any logging while log file is being send.
@@ -161,7 +161,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.sendLogFile()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.sendLogFile()</code> </li></ul></li></ul>
 
 ### showLog()
 Display Log view window.
@@ -178,7 +178,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.showLog()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.showLog()</code> </li></ul></li></ul>
 
 ### trace(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
 Log message at the Trace level. By default trace messages are not shown in log (if level equals to 1).
@@ -197,7 +197,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.trace(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.trace(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
 
 ### warning(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
 Log message at the Warning level.
@@ -216,7 +216,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Log.warning(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Log.warning(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -233,20 +233,20 @@ List of log destinations that are being used. Destination could be set to empty 
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Log.DEST_FILE 
+* Constant: EB.Log.DEST_FILE 
 	* String: file
 	* 
 Log is written to a local file on the device (typically rholog.txt)
-* Constant: Rho.Log.DEST_OUTPUT 
+* Constant: EB.Log.DEST_OUTPUT 
 	* String: stdio
 	* 
 Log is written to the standard output (ex: Android ADB)
-* Constant: Rho.Log.DEST_URI 
+* Constant: EB.Log.DEST_URI 
 	* String: uri
 	* 
 Log is written to a remote logger.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.destination</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.destination</code> </li></ul></li></ul>
 
 ###destinationURI
 
@@ -256,7 +256,7 @@ Log is written to a remote logger.
 
 Log server URI where log will be posted by using Rho::Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: 'http://host:port[/path][?log_name=appName]'. Default value is set in rhoconfig.txt (logserver)
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.destinationURI</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.destinationURI</code> </li></ul></li></ul>
 
 ###excludeCategories
 
@@ -266,7 +266,7 @@ Log server URI where log will be posted by using Rho::Log.sendLogFile or from th
 
 Comma-separated list of excluded log categories. Set to '' (empty) to allow all messages to be logged. Set to concrete value to filter out log from those categories. Default value is '' (empty), it is set in rhoconfig.txt (ExcludeLogCategories)
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.excludeCategories</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.excludeCategories</code> </li></ul></li></ul>
 
 ###excludeFilter
 
@@ -276,7 +276,7 @@ Comma-separated list of excluded log categories. Set to '' (empty) to allow all 
 
 Define exclude parameters log filter(for security reasons) - parameter names separated by comma. It works when user tries to put in log string containing json / urls. Default value is "" (empty). For example, if user set excludeFilter="password", then tries to put in log this string: "{"user":"alex","password":"abcdef","sessionid":123456}", "abcdef" will not appear in log.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.excludeFilter</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.excludeFilter</code> </li></ul></li></ul>
 
 ###filePath
 
@@ -288,7 +288,7 @@ Path to the log file including file name. The path is relative to the platform s
 ####Params
 <p><strong>Default:</strong> rholog.txt</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.filePath</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.filePath</code> </li></ul></li></ul>
 
 ###fileSize
 
@@ -300,7 +300,7 @@ Maximum log file size in bytes, set 0 to unlimited size; when limit is reached, 
 ####Params
 <p><strong>Default:</strong> 50000</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.fileSize</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.fileSize</code> </li></ul></li></ul>
 
 ###includeCategories
 
@@ -312,7 +312,7 @@ Comma-separated list of included log categories. Set to '*' to log all categorie
 ####Params
 <p><strong>Default:</strong> *</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.includeCategories</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.includeCategories</code> </li></ul></li></ul>
 
 ###level
 
@@ -325,28 +325,28 @@ The current logging level. Minimal severity level of messages that will appear i
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Log.LEVEL_TRACE 
+* Constant: EB.Log.LEVEL_TRACE 
 	* String: 0
 	* 
 Everything will be logged. Also see settings for controlling log size.
-* Constant: Rho.Log.LEVEL_INFO 
+* Constant: EB.Log.LEVEL_INFO 
 	* String: 1
 	* 
 Information level logs and above will be shown.
-* Constant: Rho.Log.LEVEL_WARNING 
+* Constant: EB.Log.LEVEL_WARNING 
 	* String: 2
 	* 
 Warnings and above will only be shown.
-* Constant: Rho.Log.LEVEL_ERROR 
+* Constant: EB.Log.LEVEL_ERROR 
 	* String: 3
 	* 
 Error level log messages and above will be shown.
-* Constant: Rho.Log.LEVEL_FATAL 
+* Constant: EB.Log.LEVEL_FATAL 
 	* String: 4
 	* 
 Fatal level log messages and above will be shown.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.level</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.level</code> </li></ul></li></ul>
 
 ###memoryPeriod
 
@@ -358,7 +358,7 @@ Enables the logging of memory usage in the system; specifies the time interval i
 ####Params
 <p><strong>Default:</strong> 0</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.memoryPeriod</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.memoryPeriod</code> </li></ul></li></ul>
 
 ###netTrace
 
@@ -370,7 +370,7 @@ Turn on local http server traces. Traces contain information about connection pr
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.netTrace</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.netTrace</code> </li></ul></li></ul>
 
 ###skipPost
 
@@ -382,7 +382,7 @@ Skip http package body from log(for security reasons). Please note that this par
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Log.skipPost</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Log.skipPost</code> </li></ul></li></ul>
 
 ##Examples
 

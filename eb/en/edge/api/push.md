@@ -55,7 +55,7 @@ Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Push.enumerate()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.enumerate()</code> </li></ul></li></ul>
 
 ### getAllProperties()
 This method will return all of object/value pairs for the propertyNames of the API class.
@@ -76,7 +76,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getAllProperties()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getAllProperties()</code> </li></ul></li></ul>
 
 ### getDefault()
 This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
@@ -97,7 +97,7 @@ Default object of Module.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Push.getDefault()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.getDefault()</code> </li></ul></li></ul>
 
 ### getDeviceId()
 Returns push token used to identify particular device.
@@ -117,7 +117,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDeviceId()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getDeviceId()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDeviceId()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getDeviceId()</code> </li></ul></li></ul>
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
 This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
@@ -139,7 +139,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
 This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
@@ -161,13 +161,13 @@ The property to return info about.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
-### setDefault(<span class="text-info">SELF_INSTANCE: Rho.Push</span> defaultInstance)
+### setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)
 This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.Push</span><p>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Push</span><p>
 An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
@@ -179,7 +179,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Push.setDefault(<span class="text-info">SELF_INSTANCE: Rho.Push</span> defaultInstance)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</code> </li></ul></li></ul>
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
 This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -197,7 +197,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
 This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -216,7 +216,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
 
 ### startNotifications()
 Start listening for push messages, errors or other push related events.
@@ -240,7 +240,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.startNotifications()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.startNotifications()</code> </li></ul></li></ul>
 
 ### stopNotifications()
 Stop listening push events.
@@ -257,7 +257,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stopNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.stopNotifications()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stopNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.stopNotifications()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -271,7 +271,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Application name used by RhoConnect Push server to identify application.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushAppName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.pushAppName</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushAppName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.pushAppName</code> </li></ul></li></ul>
 
 ###pushServer
 
@@ -281,7 +281,7 @@ Application name used by RhoConnect Push server to identify application.
 
 URL of RhoConnect Push server.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushServer</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.pushServer</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushServer</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.pushServer</code> </li></ul></li></ul>
 
 ###type
 
@@ -294,16 +294,16 @@ Push engine type.
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Push.PUSH_TYPE_RHOCONNECT 
+* Constant: EB.Push.PUSH_TYPE_RHOCONNECT 
 	* String: rhoconnect-push
 	* 
 RhoConnect push engine.
-* Constant: Rho.Push.PUSH_TYPE_NATIVE 
+* Constant: EB.Push.PUSH_TYPE_NATIVE 
 	* String: native-push
 	* 
 Native push engine (like GCM on Android).
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.type</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.type</code> </li></ul></li></ul>
 
 ##Examples
 

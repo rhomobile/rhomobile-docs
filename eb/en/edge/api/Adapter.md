@@ -38,7 +38,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.activate()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.activate()</code> </li></ul></li></ul>
 
 ### btConnect()
 Connects the Bluetooth device to obtain device properties.
@@ -59,7 +59,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.btConnect()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.btConnect()</code> </li></ul></li></ul>
 
 ### btDisconnect()
 Disconnects the Bluetooth device.
@@ -75,7 +75,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.btDisconnect()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.btDisconnect()</code> </li></ul></li></ul>
 
 ### getDeviceInfo()
 Gets the NFC device capabilities.
@@ -85,8 +85,8 @@ Gets the NFC device capabilities.
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>operatingModesSupported : <span class='text-info'>ARRAY</span><p>
-{} </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: Rho.Adapter.NFC_P2P <br/> String: 1 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_Reader_Writer <br/> String: 2 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE <br/> String: 3 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE_UICC <br/> String: 4 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE_SE <br/> String: 5 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE_Host <br/> String: 6 </dt><dd></dd><dt>Constant: Rho.Adapter.Multiple_NDEFMessages <br/> String: 7 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_LLCP <br/> String: 8 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_SNEP <br/> String: 9 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_NPP <br/> String: 10 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_BT_StaticHandover <br/> String: 11 </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_BT_DynamicHandover <br/> String: 12 </dt><dd></dd></dl></li></ul><li>tagsSupported : <span class='text-info'>ARRAY</span><p>
-Array with tag types - only those tags will be detected. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: Rho.Adapter.MiFareUL <br/> String: 1 </dt><dd></dd><dt>Constant: Rho.Adapter.MiFareStd <br/> String: 2 </dt><dd></dd><dt>Constant: Rho.Adapter.MifareULC <br/> String: 3 </dt><dd></dd><dt>Constant: Rho.Adapter.ISO14443_4A <br/> String: 4 </dt><dd></dd><dt>Constant: Rho.Adapter.ISO14443_4B <br/> String: 5 </dt><dd></dd><dt>Constant: Rho.Adapter.ISO15693 <br/> String: 6 </dt><dd></dd><dt>Constant: Rho.Adapter.FeliCa <br/> String: 7 </dt><dd></dd><dt>Constant: Rho.Adapter.Jewel <br/> String: 8 </dt><dd></dd><dt>Constant: Rho.Adapter.Desfire <br/> String: 9 </dt><dd></dd><dt>Constant: Rho.Adapter.MiFarePlus <br/> String: 10 </dt><dd></dd><dt>Constant: Rho.Adapter.NXPIcode <br/> String: 11 </dt><dd></dd><dt>Constant: Rho.Adapter.Topaz <br/> String: 12 </dt><dd></dd><dt>Constant: Rho.Adapter.Calypso <br/> String: 13 </dt><dd></dd><dt>Constant: Rho.Adapter.TITagIt <br/> String: 14 </dt><dd></dd></dl></li></ul><li>formattingTagsSupported : <span class='text-info'>ARRAY</span><p>
+{} </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: EB.Adapter.NFC_P2P <br/> String: 1 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_Reader_Writer <br/> String: 2 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE <br/> String: 3 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE_UICC <br/> String: 4 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE_SE <br/> String: 5 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE_Host <br/> String: 6 </dt><dd></dd><dt>Constant: EB.Adapter.Multiple_NDEFMessages <br/> String: 7 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_LLCP <br/> String: 8 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_SNEP <br/> String: 9 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_NPP <br/> String: 10 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_BT_StaticHandover <br/> String: 11 </dt><dd></dd><dt>Constant: EB.Adapter.NFC_BT_DynamicHandover <br/> String: 12 </dt><dd></dd></dl></li></ul><li>tagsSupported : <span class='text-info'>ARRAY</span><p>
+Array with tag types - only those tags will be detected. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: EB.Adapter.MiFareUL <br/> String: 1 </dt><dd></dd><dt>Constant: EB.Adapter.MiFareStd <br/> String: 2 </dt><dd></dd><dt>Constant: EB.Adapter.MifareULC <br/> String: 3 </dt><dd></dd><dt>Constant: EB.Adapter.ISO14443_4A <br/> String: 4 </dt><dd></dd><dt>Constant: EB.Adapter.ISO14443_4B <br/> String: 5 </dt><dd></dd><dt>Constant: EB.Adapter.ISO15693 <br/> String: 6 </dt><dd></dd><dt>Constant: EB.Adapter.FeliCa <br/> String: 7 </dt><dd></dd><dt>Constant: EB.Adapter.Jewel <br/> String: 8 </dt><dd></dd><dt>Constant: EB.Adapter.Desfire <br/> String: 9 </dt><dd></dd><dt>Constant: EB.Adapter.MiFarePlus <br/> String: 10 </dt><dd></dd><dt>Constant: EB.Adapter.NXPIcode <br/> String: 11 </dt><dd></dd><dt>Constant: EB.Adapter.Topaz <br/> String: 12 </dt><dd></dd><dt>Constant: EB.Adapter.Calypso <br/> String: 13 </dt><dd></dd><dt>Constant: EB.Adapter.TITagIt <br/> String: 14 </dt><dd></dd></dl></li></ul><li>formattingTagsSupported : <span class='text-info'>ARRAY</span><p>
 Array with tag types - only those tags will be detected. See above tagsSupported parameter. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>writeProtectedTagsSupported : <span class='text-info'>ARRAY</span><p>
 Array with tag types - only those tags will be detected. See see above tagsSupported parameter. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>firmwareVersion : <span class='text-info'>STRING</span><p>
 This array has only one element. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></ul>
@@ -94,8 +94,8 @@ This array has only one element. </p></li><ul><li><i>Object</i> : <span class='t
 ####Returns
 Synchronous Return:<ul><li>HASH : 
 Return hash with capabilities.<ul><li>operatingModesSupported : <span class='text-info'>ARRAY</span><p>
-{} </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: Rho.Adapter.NFC_P2P <br/> String: Constant: Rho.Adapter.NFC_P2P <br/> String: 1  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_Reader_Writer <br/> String: Constant: Rho.Adapter.NFC_Reader_Writer <br/> String: 2  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE <br/> String: Constant: Rho.Adapter.NFC_CE <br/> String: 3  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE_UICC <br/> String: Constant: Rho.Adapter.NFC_CE_UICC <br/> String: 4  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE_SE <br/> String: Constant: Rho.Adapter.NFC_CE_SE <br/> String: 5  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_CE_Host <br/> String: Constant: Rho.Adapter.NFC_CE_Host <br/> String: 6  </dt><dd></dd><dt>Constant: Rho.Adapter.Multiple_NDEFMessages <br/> String: Constant: Rho.Adapter.Multiple_NDEFMessages <br/> String: 7  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_LLCP <br/> String: Constant: Rho.Adapter.NFC_LLCP <br/> String: 8  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_SNEP <br/> String: Constant: Rho.Adapter.NFC_SNEP <br/> String: 9  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_NPP <br/> String: Constant: Rho.Adapter.NFC_NPP <br/> String: 10  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_BT_StaticHandover <br/> String: Constant: Rho.Adapter.NFC_BT_StaticHandover <br/> String: 11  </dt><dd></dd><dt>Constant: Rho.Adapter.NFC_BT_DynamicHandover <br/> String: Constant: Rho.Adapter.NFC_BT_DynamicHandover <br/> String: 12  </dt><dd></dd></dl></li></ul><li>tagsSupported : <span class='text-info'>ARRAY</span><p>
-Array with tag types - only those tags will be detected. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: Rho.Adapter.MiFareUL <br/> String: Constant: Rho.Adapter.MiFareUL <br/> String: 1  </dt><dd></dd><dt>Constant: Rho.Adapter.MiFareStd <br/> String: Constant: Rho.Adapter.MiFareStd <br/> String: 2  </dt><dd></dd><dt>Constant: Rho.Adapter.MifareULC <br/> String: Constant: Rho.Adapter.MifareULC <br/> String: 3  </dt><dd></dd><dt>Constant: Rho.Adapter.ISO14443_4A <br/> String: Constant: Rho.Adapter.ISO14443_4A <br/> String: 4  </dt><dd></dd><dt>Constant: Rho.Adapter.ISO14443_4B <br/> String: Constant: Rho.Adapter.ISO14443_4B <br/> String: 5  </dt><dd></dd><dt>Constant: Rho.Adapter.ISO15693 <br/> String: Constant: Rho.Adapter.ISO15693 <br/> String: 6  </dt><dd></dd><dt>Constant: Rho.Adapter.FeliCa <br/> String: Constant: Rho.Adapter.FeliCa <br/> String: 7  </dt><dd></dd><dt>Constant: Rho.Adapter.Jewel <br/> String: Constant: Rho.Adapter.Jewel <br/> String: 8  </dt><dd></dd><dt>Constant: Rho.Adapter.Desfire <br/> String: Constant: Rho.Adapter.Desfire <br/> String: 9  </dt><dd></dd><dt>Constant: Rho.Adapter.MiFarePlus <br/> String: Constant: Rho.Adapter.MiFarePlus <br/> String: 10  </dt><dd></dd><dt>Constant: Rho.Adapter.NXPIcode <br/> String: Constant: Rho.Adapter.NXPIcode <br/> String: 11  </dt><dd></dd><dt>Constant: Rho.Adapter.Topaz <br/> String: Constant: Rho.Adapter.Topaz <br/> String: 12  </dt><dd></dd><dt>Constant: Rho.Adapter.Calypso <br/> String: Constant: Rho.Adapter.Calypso <br/> String: 13  </dt><dd></dd><dt>Constant: Rho.Adapter.TITagIt <br/> String: Constant: Rho.Adapter.TITagIt <br/> String: 14  </dt><dd></dd></dl></li></ul><li>formattingTagsSupported : <span class='text-info'>ARRAY</span><p>
+{} </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: EB.Adapter.NFC_P2P <br/> String: Constant: EB.Adapter.NFC_P2P <br/> String: 1  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_Reader_Writer <br/> String: Constant: EB.Adapter.NFC_Reader_Writer <br/> String: 2  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE <br/> String: Constant: EB.Adapter.NFC_CE <br/> String: 3  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE_UICC <br/> String: Constant: EB.Adapter.NFC_CE_UICC <br/> String: 4  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE_SE <br/> String: Constant: EB.Adapter.NFC_CE_SE <br/> String: 5  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_CE_Host <br/> String: Constant: EB.Adapter.NFC_CE_Host <br/> String: 6  </dt><dd></dd><dt>Constant: EB.Adapter.Multiple_NDEFMessages <br/> String: Constant: EB.Adapter.Multiple_NDEFMessages <br/> String: 7  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_LLCP <br/> String: Constant: EB.Adapter.NFC_LLCP <br/> String: 8  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_SNEP <br/> String: Constant: EB.Adapter.NFC_SNEP <br/> String: 9  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_NPP <br/> String: Constant: EB.Adapter.NFC_NPP <br/> String: 10  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_BT_StaticHandover <br/> String: Constant: EB.Adapter.NFC_BT_StaticHandover <br/> String: 11  </dt><dd></dd><dt>Constant: EB.Adapter.NFC_BT_DynamicHandover <br/> String: Constant: EB.Adapter.NFC_BT_DynamicHandover <br/> String: 12  </dt><dd></dd></dl></li></ul><li>tagsSupported : <span class='text-info'>ARRAY</span><p>
+Array with tag types - only those tags will be detected. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p><p><strong>Possible Values</strong> :</p> <dt>Constant: EB.Adapter.MiFareUL <br/> String: Constant: EB.Adapter.MiFareUL <br/> String: 1  </dt><dd></dd><dt>Constant: EB.Adapter.MiFareStd <br/> String: Constant: EB.Adapter.MiFareStd <br/> String: 2  </dt><dd></dd><dt>Constant: EB.Adapter.MifareULC <br/> String: Constant: EB.Adapter.MifareULC <br/> String: 3  </dt><dd></dd><dt>Constant: EB.Adapter.ISO14443_4A <br/> String: Constant: EB.Adapter.ISO14443_4A <br/> String: 4  </dt><dd></dd><dt>Constant: EB.Adapter.ISO14443_4B <br/> String: Constant: EB.Adapter.ISO14443_4B <br/> String: 5  </dt><dd></dd><dt>Constant: EB.Adapter.ISO15693 <br/> String: Constant: EB.Adapter.ISO15693 <br/> String: 6  </dt><dd></dd><dt>Constant: EB.Adapter.FeliCa <br/> String: Constant: EB.Adapter.FeliCa <br/> String: 7  </dt><dd></dd><dt>Constant: EB.Adapter.Jewel <br/> String: Constant: EB.Adapter.Jewel <br/> String: 8  </dt><dd></dd><dt>Constant: EB.Adapter.Desfire <br/> String: Constant: EB.Adapter.Desfire <br/> String: 9  </dt><dd></dd><dt>Constant: EB.Adapter.MiFarePlus <br/> String: Constant: EB.Adapter.MiFarePlus <br/> String: 10  </dt><dd></dd><dt>Constant: EB.Adapter.NXPIcode <br/> String: Constant: EB.Adapter.NXPIcode <br/> String: 11  </dt><dd></dd><dt>Constant: EB.Adapter.Topaz <br/> String: Constant: EB.Adapter.Topaz <br/> String: 12  </dt><dd></dd><dt>Constant: EB.Adapter.Calypso <br/> String: Constant: EB.Adapter.Calypso <br/> String: 13  </dt><dd></dd><dt>Constant: EB.Adapter.TITagIt <br/> String: Constant: EB.Adapter.TITagIt <br/> String: 14  </dt><dd></dd></dl></li></ul><li>formattingTagsSupported : <span class='text-info'>ARRAY</span><p>
 Array with tag types - only those tags will be detected. See above tagsSupported parameter. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>writeProtectedTagsSupported : <span class='text-info'>ARRAY</span><p>
 Array with tag types - only those tags will be detected. See see above tagsSupported parameter. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>firmwareVersion : <span class='text-info'>STRING</span><p>
 This array has only one element. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></li></ul>
@@ -105,7 +105,7 @@ This array has only one element. </p></li><ul><li><i>Object</i> : <span class='t
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.getDeviceInfo()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.getDeviceInfo()</code> </li></ul></li></ul>
 
 ### reset()
 Resets the NFC device to default configuration. Pollingtime will set to 90, passkey to empty string.
@@ -121,7 +121,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.reset()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.reset()</code> </li></ul></li></ul>
 
 ### setConfigChangeHandler()
 Register callback for config change. If you change properties like pollingTimeout, passkey then callback will fire.
@@ -142,7 +142,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.setConfigChangeHandler()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.setConfigChangeHandler()</code> </li></ul></li></ul>
 
 ### setMessageHandler()
 Register callback for Message receive.
@@ -162,7 +162,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.setMessageHandler()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.setMessageHandler()</code> </li></ul></li></ul>
 
 ### setTagDetectionHandler(<span class="text-info">ARRAY</span> tagsToBeDetected)
 Register callback for Tag detection.
@@ -183,7 +183,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.setTagDetectionHandler(<span class="text-info">ARRAY</span> tagsToBeDetected)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.setTagDetectionHandler(<span class="text-info">ARRAY</span> tagsToBeDetected)</code> </li></ul></li></ul>
 
 ### stop()
 Stops the NFC device.
@@ -199,7 +199,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Adapter.stop()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.stop()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -213,7 +213,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Gets a value indicating whether or not the NFC device is currently active.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Adapter.isActive</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.isActive</code> </li></ul></li></ul>
 
 ###passkey
 
@@ -223,7 +223,7 @@ Gets a value indicating whether or not the NFC device is currently active.
 
 Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey). The property is enabled after NFC engine activation.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Adapter.passkey</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.passkey</code> </li></ul></li></ul>
 
 ###pollingTimeout
 
@@ -233,7 +233,7 @@ Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Defa
 
 Polling timeout in seconds of the NFC device. 0 - timeout disabled, default: 90. The property is enabled after NFC engine activation.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Adapter.pollingTimeout</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.pollingTimeout</code> </li></ul></li></ul>
 
 ###supported
 
@@ -243,7 +243,7 @@ Polling timeout in seconds of the NFC device. 0 - timeout disabled, default: 90.
 
 Return true if NFC supported on this device.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Adapter.supported</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.supported</code> </li></ul></li></ul>
 
 ###version
 
@@ -253,4 +253,4 @@ Return true if NFC supported on this device.
 
 Gets the version of the NFC stack.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Adapter.version</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.version</code> </li></ul></li></ul>

@@ -19,7 +19,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </TEMPLATES>
 
         <PROPERTIES access="STATIC" generateAccessors="true">
-            <PROPERTY name="appBundleFolder" type="STRING" readOnly="true">
+            <PROPERTY name="appBundleFolder" type="STRING" readOnly="true" >
                 <DESC>Path to apps/app folder inside the application bundle.</DESC>
             </PROPERTY>
             <PROPERTY name="appsBundleFolder" type="STRING" readOnly="true">

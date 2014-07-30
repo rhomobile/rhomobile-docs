@@ -5,6 +5,14 @@ class Apieb
 
 @@apiName = ""
 
+	def self.noproductException(element)
+		noexception = true
+		if !element["productException"].nil? && element["productException"] =="eb"
+			noexception = false
+		end
+		return noexception
+	end
+
   def self.getMDDesc(desc)
   	return "\n#{desc}"
   	# if desc.is_a?(String)
@@ -31,7 +39,7 @@ class Apieb
 	  		if lang == 'RUBY'
 	  			md = 'Rho::' + doc["MODULE"][0]["name"]
 	  		elsif lang =='JS'
-	  			md = 'Rho.' + doc["MODULE"][0]["name"]
+	  			md = 'EB.' + doc["MODULE"][0]["name"]
 	  		else
 	  			md = doc["MODULE"][0]["name"]
 
@@ -121,9 +129,13 @@ class Apieb
   	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	s.each_with_index() { |element,index|
-		    md += "\n\n###" + element["title"]
-		    html = getMDDesc(element["DESC"][0])
-		  	md += html
+	  		#EB only show if no exception
+	  		if noproductException(element)
+
+			    md += "\n\n###" + element["title"]
+			    html = getMDDesc(element["DESC"][0])
+			  	md += html
+		  	end
 	  	}
 
 	end
@@ -135,10 +147,13 @@ class Apieb
   	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
 	  	s.each_with_index() { |element,index|
-	  		element["name"] = getElementName(element) 
-			md +=  "\n* " + element["name"]
-			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
- 		        md +=  getMDDesc(element["DESC"][0])
+	  		#EB only show if no exception
+	  		if noproductException(element)
+		  		element["name"] = getElementName(element) 
+				md +=  "\n* " + element["name"]
+				if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
+	 		        md +=  getMDDesc(element["DESC"][0])
+	       		end
        		end
 	  	}
 	end
@@ -204,6 +219,8 @@ def self.getparams(element,toplevel)
 
 	methparamsdetails = ""
 	methsectionparams = ""
+	#EB show only if no exception
+	if noproductException(element)
 		if !element["PARAMS"].nil?
 			if !toplevel
 				methsectionparams += "<ul>"
@@ -432,7 +449,7 @@ def self.getparams(element,toplevel)
 			
 			
 		end
-
+	end 
 	return methsectionparams
 end
 
@@ -450,7 +467,7 @@ end
 		
 	s.each() { |element|
 		element["name"] = getElementName(element) 
-		if element["generateDoc"].nil? || element["generateDoc"] == "true"
+		if (element["generateDoc"].nil? || element["generateDoc"] == "true") && noproductException(element)
 			methname = element["name"]
 
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
@@ -723,7 +740,7 @@ def self.getproperties(doc)
 		s.each() { |element|
 			element["name"] = getElementName(element) 
 		
-			if element["generateDoc"].nil? || element["generateDoc"] == "true"
+			if (element["generateDoc"].nil? || element["generateDoc"] == "true") && noproductException(element)
 
 				propname = element["name"]
 				propusage = ""
@@ -1035,7 +1052,7 @@ end
   	doc = XmlSimple.xml_in(topic)
 
   	#EB don't process if module has productException
-  	if !doc["MODULE"][0]["productException"].nil? && doc["MODULE"][0]["productException"]=="eb"
+  	if !noproductException doc["MODULE"][0]
 		puts "API Not Supported in EB"
 	else
 	  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"  

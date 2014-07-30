@@ -82,7 +82,7 @@ Absolute OCR confidence for processed data if applicable. </p></li></ul></ul></u
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.captureDocument()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.captureDocument()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.captureDocument()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.captureDocument()</code> </li></ul></li></ul>
 
 ### <span class="label label-inverse"> Destructor</span> close()
 Close DPX engine, and release allocated resources. When capturing images, this is especially important since they are made available temporarily.
@@ -108,7 +108,7 @@ Password of the user. </p></li><li>callback : <span class='text-info'>CallBackHa
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.fetchTemplates(<span class="text-info">STRING</span> userName, <span class="text-info">STRING</span> password)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.fetchTemplates(<span class="text-info">STRING</span> userName, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.fetchTemplates(<span class="text-info">STRING</span> userName, <span class="text-info">STRING</span> password)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.fetchTemplates(<span class="text-info">STRING</span> userName, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
 
 ### getAllProperties()
 This method will return all of object/value pairs for the propertyNames of the API class.
@@ -124,7 +124,7 @@ Synchronous Return:<ul><li>HASH :
 Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getAllProperties()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.getAllProperties()</code> </li></ul></li></ul>
 
 ### getDataUri(<span class="text-info">INTEGER</span> imageId)
 Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag: 
@@ -139,7 +139,7 @@ Id of image to retrieve. Ids are valid until close method call. </p></li><li>cal
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDataUri(<span class="text-info">INTEGER</span> imageId)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getDataUri(<span class="text-info">INTEGER</span> imageId)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDataUri(<span class="text-info">INTEGER</span> imageId)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.getDataUri(<span class="text-info">INTEGER</span> imageId)</code> </li></ul></li></ul>
 
 ### getDefault()
 This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
@@ -155,7 +155,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE :
 Default object of Module.</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.DPX.getDefault()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.DPX.getDefault()</code> </li></ul></li></ul>
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
 This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
@@ -172,7 +172,7 @@ Synchronous Return:<ul><li>HASH :
 Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
 This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
@@ -189,20 +189,20 @@ Synchronous Return:<ul><li>STRING :
 The property to return info about.</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
-### setDefault(<span class="text-info">SELF_INSTANCE: Rho.DPX</span> defaultInstance)
+### setDefault(<span class="text-info">SELF_INSTANCE: EB.DPX</span> defaultInstance)
 This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.DPX</span><p>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.DPX</span><p>
 An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.DPX.setDefault(<span class="text-info">SELF_INSTANCE: Rho.DPX</span> defaultInstance)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.DPX.setDefault(<span class="text-info">SELF_INSTANCE: EB.DPX</span> defaultInstance)</code> </li></ul></li></ul>
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
 This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -215,7 +215,7 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
 This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -229,7 +229,7 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -245,7 +245,7 @@ Whether or not to provide audio feedback to the user following document processi
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.audioFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.audioFeedback</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.audioFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.audioFeedback</code> </li></ul></li></ul>
 
 ###autoImageCapture
 
@@ -258,7 +258,7 @@ If true, form will be captured automatically when detected.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoImageCapture</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.autoImageCapture</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoImageCapture</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.autoImageCapture</code> </li></ul></li></ul>
 
 ###debug
 
@@ -270,7 +270,7 @@ If enabled, allows a session to write form capture, region images, region values
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.debug</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.debug</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.debug</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.debug</code> </li></ul></li></ul>
 
 ###decodeAudioFeedback
 
@@ -282,7 +282,7 @@ Specifies the decode sound (beep) that is heard when a form is decoded.
 ####Params
 <p><strong>Default:</strong> system/media/audio/notifications/decode.wav</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeAudioFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.decodeAudioFeedback</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeAudioFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.decodeAudioFeedback</code> </li></ul></li></ul>
 
 ###delayResultDisplay
 
@@ -294,7 +294,7 @@ If true, the success event will be sent only after the DPX dialog is dismissed. 
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.delayResultDisplay</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.delayResultDisplay</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.delayResultDisplay</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.delayResultDisplay</code> </li></ul></li></ul>
 
 ###flashMode
 
@@ -309,20 +309,20 @@ Flash mode (off, on, disabled).
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.DPX.FLASH_OFF 
+* Constant: EB.DPX.FLASH_OFF 
 	* String: off
 	* 
 Turn flash off.
-* Constant: Rho.DPX.FLASH_ON 
+* Constant: EB.DPX.FLASH_ON 
 	* String: on
 	* 
 Turn flash on.
-* Constant: Rho.DPX.FLASH_DISABLED 
+* Constant: EB.DPX.FLASH_DISABLED 
 	* String: disabled
 	* 
 Disable flash.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.flashMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.flashMode</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.flashMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.flashMode</code> </li></ul></li></ul>
 
 ###frameThreshold
 
@@ -334,7 +334,7 @@ Only used if autoImageCapture is enabled. The number of correct frames that is n
 ####Params
 <p><strong>Default:</strong> 15</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.frameThreshold</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.frameThreshold</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.frameThreshold</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.frameThreshold</code> </li></ul></li></ul>
 
 ###hapticFeedback
 
@@ -346,7 +346,7 @@ Whether or not to provide haptic feedback to the user following document process
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.hapticFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.hapticFeedback</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.hapticFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.hapticFeedback</code> </li></ul></li></ul>
 
 ###identificationTimeout
 
@@ -358,7 +358,7 @@ The length of time, in milliseconds that the processing engine has to recognize 
 ####Params
 <p><strong>Default:</strong> 15000</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.identificationTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.identificationTimeout</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.identificationTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.identificationTimeout</code> </li></ul></li></ul>
 
 ###inputSource
 
@@ -373,13 +373,13 @@ Defines where the document should be captured from. The only supported source is
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.DPX.SOURCE_CAMERA 
+* Constant: EB.DPX.SOURCE_CAMERA 
 	* String: camera
 	* 
 The document will be captured from the device camera. After calling the captureDocument method the camera preview will be presented, the user should place the document to be captured in the preview frame and press the soft button to capture & process the image.
             
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.inputSource</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.inputSource</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.inputSource</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.inputSource</code> </li></ul></li></ul>
 
 ###ledFeedback
 
@@ -391,7 +391,7 @@ Whether or not to provide LED feedback to the user following document processing
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ledFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.ledFeedback</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ledFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.ledFeedback</code> </li></ul></li></ul>
 
 ###logDirectory
 
@@ -403,7 +403,7 @@ Specify which directory to search for logs in.
 ####Params
 <p><strong>Default:</strong> /sdcard/DPXLog</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.logDirectory</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.logDirectory</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.logDirectory</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.logDirectory</code> </li></ul></li></ul>
 
 ###negativeFrameThreshold
 
@@ -415,7 +415,7 @@ Only used if autoImageCapture is enabled. Number of incorrect frames that is all
 ####Params
 <p><strong>Default:</strong> 2</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.negativeFrameThreshold</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.negativeFrameThreshold</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.negativeFrameThreshold</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.negativeFrameThreshold</code> </li></ul></li></ul>
 
 ###processingTimeout
 
@@ -427,7 +427,7 @@ Amount of time in milliseconds to wait before timing out processing.
 ####Params
 <p><strong>Default:</strong> 10000</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.processingTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.processingTimeout</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.processingTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.processingTimeout</code> </li></ul></li></ul>
 
 ###template
 
@@ -437,7 +437,7 @@ Amount of time in milliseconds to wait before timing out processing.
 
 The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created online at https://dpx-uat.motorolasolutions.com/.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.template</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.template</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.template</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.template</code> </li></ul></li></ul>
 
 ###templateDirectory
 
@@ -449,7 +449,7 @@ Specify where to store downloaded templates. See [fetchTemplates()](#mfetchTempl
 ####Params
 <p><strong>Default:</strong> /sdcard/templates</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.templateDirectory</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.templateDirectory</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.templateDirectory</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.templateDirectory</code> </li></ul></li></ul>
 
 ###uiResultConfirmation
 
@@ -461,7 +461,7 @@ If enabled, shows a UI confirmation with results in DPXView before sending resul
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.uiResultConfirmation</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.DPX.uiResultConfirmation</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.uiResultConfirmation</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.DPX.uiResultConfirmation</code> </li></ul></li></ul>
 
 ###version
 
@@ -471,7 +471,7 @@ If enabled, shows a UI confirmation with results in DPXView before sending resul
 
 Version of DPX engine.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.DPX.version</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.DPX.version</code> </li></ul></li></ul>
 
 ##Examples
 

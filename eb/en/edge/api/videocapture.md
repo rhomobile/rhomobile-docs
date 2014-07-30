@@ -41,7 +41,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.cancel()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.cancel()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.cancel()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.cancel()</code> </li></ul></li></ul>
 
 ### enumerate()
 Enumerates all the available cameras for capturing video.
@@ -50,11 +50,11 @@ Enumerates all the available cameras for capturing video.
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY : 
-Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p> </p></li></ul></li></ul>
+Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p> </p></li></ul></li></ul>
 
 ####Platforms
 
@@ -62,7 +62,7 @@ Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>S
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.enumerate()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Videocapture.enumerate()</code> </li></ul></li></ul>
 
 ### getAllProperties()
 This method will return all of object/value pairs for the propertyNames of the API class.
@@ -83,7 +83,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getAllProperties()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.getAllProperties()</code> </li></ul></li></ul>
 
 ### getDefault()
 This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
@@ -104,7 +104,7 @@ Default object of Module.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.getDefault()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Videocapture.getDefault()</code> </li></ul></li></ul>
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
 This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
@@ -126,7 +126,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
 This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
@@ -148,13 +148,13 @@ The property to return info about.</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
 
-### setDefault(<span class="text-info">SELF_INSTANCE: Rho.Videocapture</span> defaultInstance)
+### setDefault(<span class="text-info">SELF_INSTANCE: EB.Videocapture</span> defaultInstance)
 This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p>
 An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
@@ -166,7 +166,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.setDefault(<span class="text-info">SELF_INSTANCE: Rho.Videocapture</span> defaultInstance)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Videocapture.setDefault(<span class="text-info">SELF_INSTANCE: EB.Videocapture</span> defaultInstance)</code> </li></ul></li></ul>
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
 This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -184,7 +184,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
 This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
@@ -203,7 +203,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
 
 ### start()
 Starts capturing video until either 'stop' is received, or 'duration' is reached. NOTE: On Android this meta tag wouldn't immediately start recording and presents a preview window with controls (start, stop and cancel) for recording.
@@ -227,7 +227,7 @@ Not providing a callback to be invoked will result in that file is saved only lo
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.start()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.start()</code> </li></ul></li></ul>
 
 ### stop()
 Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to stop the video capture. Please note that the file transfer happens as specified even if we don't call the stop method.
@@ -243,7 +243,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.stop()</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.stop()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -259,7 +259,7 @@ Specifies the number of milliseconds of video to capture. This is the maximum nu
 ####Params
 <p><strong>Default:</strong> 5000</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.duration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.duration</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.duration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.duration</code> </li></ul></li></ul>
 
 ###fileName
 
@@ -269,7 +269,7 @@ Specifies the number of milliseconds of video to capture. This is the maximum nu
 
 The path and name of the file that the video is saved to locally on the device. When the video capture completes the file is saved in the root directory of the device (In case of Android this is the external storage directory). For example, if the user specifies '/video/file1' then the file gets saved as '/mnt/sdcard/video/file1.mp4' in Android, and as '\video\file1.mov' on Windows. The file extension should not be provided as this is determined by the platform (.mp4 in Android and .mov in Windows). On iOS you'll need to provide the entire path, including the extension, which should be .MOV.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.fileName</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.fileName</code> </li></ul></li></ul>
 
 ###resolution
 
@@ -284,16 +284,16 @@ The resolution of the video file to be captured.
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.Videocapture.LOW 
+* Constant: EB.Videocapture.LOW 
 	* String: low
 	* 
 Low resolution.
-* Constant: Rho.Videocapture.HIGH 
+* Constant: EB.Videocapture.HIGH 
 	* String: high
 	* 
 High resolution.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.resolution</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.resolution</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.resolution</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.resolution</code> </li></ul></li></ul>
 
 ###saveToGallery
 
@@ -303,7 +303,7 @@ High resolution.
 
 Specifies whether or not to save the recorded video file into the device gallery.
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.saveToGallery</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.saveToGallery</code> </li></ul></li></ul>
+<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.saveToGallery</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.saveToGallery</code> </li></ul></li></ul>
 
 ##Remarks
 

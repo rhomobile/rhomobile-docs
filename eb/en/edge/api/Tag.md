@@ -93,7 +93,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Tag.getTagById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Tag.getTagById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
 
 ### makeReadOnly()
 make Tag read only
@@ -214,46 +214,46 @@ Tag type
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
  
-* Constant: Rho.Tag.TAG_TYPE_TOPAZ 
+* Constant: EB.Tag.TAG_TYPE_TOPAZ 
 	* String: 1
 	* 
-* Constant: Rho.Tag.TAG_TYPE_FELICA 
+* Constant: EB.Tag.TAG_TYPE_FELICA 
 	* String: 2
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_CLASSIC 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_CLASSIC 
 	* String: 3
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_UL 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_UL 
 	* String: 4
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_DESFIRE 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_DESFIRE 
 	* String: 6
 	* 
-* Constant: Rho.Tag.TAG_TYPE_ISO15693 
+* Constant: EB.Tag.TAG_TYPE_ISO15693 
 	* String: 7
 	* 
-* Constant: Rho.Tag.TAG_TYPE_B 
+* Constant: EB.Tag.TAG_TYPE_B 
 	* String: 8
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE 
+* Constant: EB.Tag.TAG_TYPE_MIFARE 
 	* String: 9
 	* 
-* Constant: Rho.Tag.TAG_TYPE_NXP_I_CODE 
+* Constant: EB.Tag.TAG_TYPE_NXP_I_CODE 
 	* String: 10
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_PLUS 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_PLUS 
 	* String: 11
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_ULC 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_ULC 
 	* String: 12
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_PLUS_S2K 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_PLUS_S2K 
 	* String: 13
 	* 
-* Constant: Rho.Tag.TAG_TYPE_MIFARE_PLUS_X2K 
+* Constant: EB.Tag.TAG_TYPE_MIFARE_PLUS_X2K 
 	* String: 14
 	* 
-* Constant: Rho.Tag.TAG_TYPE_UNKNOWN 
+* Constant: EB.Tag.TAG_TYPE_UNKNOWN 
 	* String: 255
 	* 
 ####Access

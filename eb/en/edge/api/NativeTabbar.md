@@ -69,7 +69,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NativeTabbar.create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)</code> </li></ul></li></ul>
 
 ### currentTabIndex()
 Returns the current tab 0-based index.
@@ -89,7 +89,7 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NativeTabbar.currentTabIndex()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.currentTabIndex()</code> </li></ul></li></ul>
 
 ### remove()
 Removes the current tabbar. Does nothing if there is no active tabbar.
@@ -106,7 +106,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NativeTabbar.remove()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.remove()</code> </li></ul></li></ul>
 
 ### removeTab(<span class="text-info">INTEGER</span> tabIndex)
 Removes the Tab by index. Method will remove the WebView for the specific tab, it will not remove the tab from the tab array, so all indexes will remain the same.You cannot delete the tab with useCurrentViewForTab flag.If you switch to previously removed tab, tab will be recreated.
@@ -123,7 +123,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NativeTabbar.removeTab(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.removeTab(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
 
 ### setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)
 Set the iPhone badge to tab.
@@ -137,7 +137,7 @@ String for iPhone badge, such as '12'. </p></li><li>callback : <span class='text
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NativeTabbar.setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)</code> </li></ul></li></ul>
 
 ### switchTab(<span class="text-info">INTEGER</span> tabIndex)
 Switch active tab.
@@ -155,7 +155,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NativeTabbar.switchTab(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.switchTab(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
 
 ##Examples
 

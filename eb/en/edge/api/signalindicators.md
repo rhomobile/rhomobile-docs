@@ -49,7 +49,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.SignalIndicators.hideIcon()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.SignalIndicators.hideIcon()</code> </li></ul></li></ul>
 
 ### showIcon(<span class="text-info">HASH</span> propertyMap)
 Overlays a small signal icon on top of the view indicating the remaining signal strength.  This is particularly useful in full screen applications which cover the system signal level indicator.
@@ -59,10 +59,10 @@ Overlays a small signal icon on top of the view indicating the remaining signal 
 The properties associated with the indicator, its position and colour. </p></li><ul><li>left : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top right of the screen]</span><p>
 The absolute horizontal position of the indicator in pixels.  This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top right of the screen]</span><p>
 The absolute vertical position of the indicator in pixels.  Positive numbers go towards the bottom of the screen.  The value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>layout : <span class='text-info'>STRING</span><span class='label '> Default: [Right]</span><p>
-Sets the orientation of the icon, see the remarks section for illustrations. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.SignalIndicators.SIGNAL_LAYOUT_LEFT <br/> String:left</dt><dd>
-See the remarks section for illustrations of icon layout</dd><dt>Constant: Rho.SignalIndicators.SIGNAL_LAYOUT_RIGHT <br/> String:right</dt><dd>
-See the remarks section for illustrations of icon layout</dd><dt>Constant: Rho.SignalIndicators.SIGNAL_LAYOUT_UP <br/> String:up</dt><dd>
-See the remarks section for illustrations of icon layout</dd><dt>Constant: Rho.SignalIndicators.SIGNAL_LAYOUT_DOWN <br/> String:down</dt><dd>
+Sets the orientation of the icon, see the remarks section for illustrations. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_LEFT <br/> String:left</dt><dd>
+See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_RIGHT <br/> String:right</dt><dd>
+See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_UP <br/> String:up</dt><dd>
+See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_DOWN <br/> String:down</dt><dd>
 See the remarks section for illustrations of icon layout</dd></dl></li><li>color : <span class='text-info'>STRING</span><span class='label '> Default: #000000</span><p>
 The color of the icon.  This value must be specified as a Hex value in the format #000000 to #FFFFFF.  Alpha values are not supported, i.e. you can only use the component parts RRGGBB. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
@@ -76,7 +76,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.SignalIndicators.showIcon(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.SignalIndicators.showIcon(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### stopWlanStatus()
 If the signal is being retrieved via callback, by a previously invoked call to wlanStatus, this method will stop the callback from firing.
@@ -93,7 +93,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.SignalIndicators.stopWlanStatus()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.SignalIndicators.stopWlanStatus()</code> </li></ul></li></ul>
 
 ### wlanStatus()
 Retrieve the current signal status.  If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval. On Android, instead of being called periodically, the callback will be called when one of the below values changes.
@@ -135,7 +135,7 @@ The current WINs server IP address.  Not available on Android and iOS. Platforms
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.SignalIndicators.wlanStatus()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.SignalIndicators.wlanStatus()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -151,7 +151,7 @@ A callback to retrieve the signal strength can be specified to occur periodicall
 ####Params
 <p><strong>Default:</strong> 5000</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.SignalIndicators.refreshInterval</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.SignalIndicators.refreshInterval</code> </li></ul></li></ul>
 
 ##Remarks
 
