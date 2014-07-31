@@ -187,7 +187,7 @@ The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###enableCache
 
@@ -222,7 +222,7 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ####Platforms
 
 * Android
-* Windows Mobile/CE(Motorola Solutions' WebKit on Windows Mobile/CE)
+* Windows Mobile/CE(Motorola Solutions' WebKit on Windows Mobile/CE)(Motorola Solutions' WebKit on Windows Mobile/CE)
 
 ###enableWebPlugins
 
@@ -271,7 +271,7 @@ Specifies the default font to use when rendering text in web pages. The specifie
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###framework
 
@@ -322,7 +322,7 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###scrollTechnique
 
@@ -355,7 +355,7 @@ You can scroll around the page using finger swiping.
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###textZoomLevel
 
@@ -370,7 +370,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###userAgent
 
@@ -389,7 +389,7 @@ Defines in config.xml: Navigation\\UserAgent. When visiting a web server the Web
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###viewportEnabled
 
@@ -406,7 +406,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###viewportWidth
 
@@ -421,7 +421,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###zoomPage
 
@@ -436,82 +436,4 @@ Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 ar
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
-
-##Examples
-
-
-
-###Execute javascript
-
-You can call the WebView and make it execute JavaScript code from a Ruby controller. This can be particularly helpful in order to reuse JavaScript functionality that is already included in your pages.
-
-As an example, you can invoke JQuery Mobile's changePage.
-
-You can also call your own functions.
-<pre><code>:::javascript
-function greet(name) {
-    alert("Hello, "+name);  
-}
-
-                            
-</code></pre>
-
-From the Ruby controller we can execute the JavaScript function that may be in the view.
-
-###Use full-screen mode
-
-The WebView can be set to use all the available screen real-estate by turning on "full-screen" mode.
-
-This property can also be assigned to in JavaScript.
-<pre><code>:::javascript
-// Fullscreen can also be invoked from JavaScript
-Rho.WebView.fullScreen = true;
-
-Rho.WebView.fullScreen = false;
-
-                            
-</code></pre>
-
-###Navigate
-
-This is the section that will appear before the code block.
-
-You can also navigate outside of your application, to an external site.
-
-This API is also available from JavaScript.
-<pre><code>:::javascript
-//Navigate out of the local application and into an externally-served site
-Rho.WebView.navigate("http://www.example.com");
-
-                            
-</code></pre>
-
-###Navigate back
-
-This is the section that will appear before the code block.
-
-The same method is available in JavaScript.
-<pre><code>:::javascript
-//Force WebView to navigate to the previous page using Browser back.
-Rho.WebView.navigateBack();
-
-                            
-</code></pre>
-
-###Refresh the page
-
-Reload the current URL into the WebView. This is useful especially after having updated data that must be now shown to the user 
-
-By default, "refresh" will update the current view. If you are using the native Tabbar and have multiple WebViews, you can specify which one to refresh.
-
-Also available from JavaScript.
-<pre><code>:::javascript
-// Reload the current page
-Rho.WebView.refresh()
-
-// Reload the page on WebView number 3
-Rho.WebView.refresh(3)
-
-                            
-</code></pre>
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)

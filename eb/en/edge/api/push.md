@@ -313,26 +313,3 @@ Native push engine (like GCM on Android).
 
 * Android
 * Windows Mobile/CE
-
-##Examples
-
-
-
-###Handle push message
-
-Start Push Notifications service and define alert popup window in push callback method.
-<pre><code>:::javascript
-                                
-function setupPush() {
-  // Start listening for push messages. Parameter is an url to push_callback method
-  Rho.Push.startNotifications(pushCallback);
-}
-
-function pushCallback(params) {
-  // Show 'alert' popup window with push message text
-  var propertyMap = {message: params["alert"], buttons: [{id: 'OK', title: 'OK'}]};
-  Rho.Notification.showPopup(propertyMap);
-}
-                                
-                            
-</code></pre>

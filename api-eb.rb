@@ -1020,8 +1020,8 @@ end
 def self.getexamples(doc)
 	md = ""
 	# puts doc["MODULE"][0]["EXAMPLES"]
-	if !doc["MODULE"][0]["EXAMPLES"].nil? && !doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"].nil?
-  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
+	if !doc["MODULE"][0]["EXAMPLES_EB"].nil? && !doc["MODULE"][0]["EXAMPLES_EB"][0]["EXAMPLE"].nil?
+  	s=doc["MODULE"][0]["EXAMPLES_EB"][0]["EXAMPLE"]
   	s.each_with_index() { |element,index|
   		examplename = ""
 			examplesections = ""

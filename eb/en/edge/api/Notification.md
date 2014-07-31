@@ -169,38 +169,3 @@ On Android, the maximum duration for vibrate is 15 seconds (15000ms).
 
 ###Spuriously reported hardware
 Some Windows Mobile or CE devices may report hardware which is not present on the device such as a pager or LEDs. This is a limitation of the underlying driver layer reporting spurious results to the application, though all real hardware will be controllable.
-
-##Examples
-
-
-
-###Sound the device beeper
-
-Not every device is equipped with a hardware beeper but if present this code snippet will cause the beeper to sound.
-
-###Show an alert
-
-This example shows how to show an alert in JavaScript.
-<pre><code>:::javascript
-           
-function show_alert()
-{
-    //creates a popup with a message and two buttons
-    Rho.Notification.showPopup({
-        title:'My Popup',
-        message:'Do you really want to delete this record',
-        buttons:[
-            {id:'yes',title:'Ok to Delete'},
-            {id:'no',title:'No'}]
-        },
-            function(e){
-                if(e.button_id == "yes")
-                {
-                    // go ahead and delete the record
-                }
-            }
-    );
-}
-                   
-                 
-</code></pre>

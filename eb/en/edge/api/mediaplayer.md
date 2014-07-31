@@ -167,25 +167,3 @@ On Android devices, HTTPS is supported only on Android versions 4.0 (Ice Cream S
 
 When more flexible file transfer is required than is provided by MediaPlayer itself it is recommended to use the Network API to fetch the media file, and then to play the local file using MediaPlayer. For example, if playing a file from an FTP server, or an HTTP server requiring authentication. This can also be more efficient if the same file is to be played multiple times, especially on Windows Mobile/CE, where there is no streaming support and therefore the file is completely downloaded before being played.
                 
-
-##Examples
-
-
-
-###Play the first available ringtone
-
-<pre><code>:::javascript
-                  
-function list_ringtones() {
-  // Enumerate ringtones
-  Rho.Mediaplayer.getAllRingtones(list_ringtones_callback);
-}
-
-function list_ringtones_callback(params) {
-  // play the first ringtone
-  var first_ringtone = params[0]["name"];
-  Rho.Mediaplayer.playRingTone(first_ringtone);
-}
-                  
-                 
-</code></pre>

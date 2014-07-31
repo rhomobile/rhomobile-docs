@@ -156,33 +156,3 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Intent.stopListening()</code> </li></ul></li></ul>
-
-##Examples
-
-
-
-###Plot a location on a map
-
-You can use the Intent API to use the default mapping program to plot locations.
-<pre><code>:::javascript
-function sendGeo(){
-  var intentParams = {action     : "android.intent.action.VIEW",
-                      intentType : Rho.Intent.START_ACTIVITY,
-                      uri        : "geo:37.422, -122.084"};
-
-  Rho.Intent.send(intentParams);
-}
-</code></pre>
-
-###Sending Extras
-
-Sometimes you will want to send some extras along with an intent such as an SMS body or do a web search with a given string. Here is an example of an intent that will launch the default web browser and perform a search with the default search engine.
-<pre><code>:::javascript
-function webSearch(){}
-  var intentParams = {action     : "android.intent.action.WEB_SEARCH",
-                      intentType : Rho.Intent.START_ACTIVITY,
-                      data       : {query : "Rhomobile docs"}}
-
-  Rho.Intent.send(intentParams)
-}
-</code></pre>

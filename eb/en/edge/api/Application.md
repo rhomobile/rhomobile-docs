@@ -253,7 +253,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
 
 ###bundleFolder
 
@@ -500,66 +500,3 @@ Version from build time configuration file (build.yml).
 
 * Android
 * Windows Mobile/CE
-
-##Examples
-
-
-
-###Set the locale
-
-If your application is internationalized, you may want to set the locale depending on the user's preference.
-<pre><code>:::javascript
-           
-Rho.Application.setLocale('en')
-var current_locale = Rho.Application.locale();
-alert(current_locale)
-                   
-                 
-</code></pre>
-
-###Get folders where items are stored
-
-There are times where you need access to files bundled with your application, or to write files to a safe folder. These examples show how to retrieve each of the several important folders available.
-<pre><code>:::javascript
-           
-     // Get and show the various app folders
-     var appFolder = Rho.Application.appBundleFolder;
-     var appsBundleFolder = Rho.Application.appsBundleFolder;
-     var databaseBlobFolder = Rho.Application.databaseBlobFolder;
-     var publicFolder = Rho.Application.publicFolder;
-     var userFolder = Rho.Application.userFolder;
-     
-     var message = "App bundle folder: "+appFolder+"\n"+
-     "Apps bundle folder: "+appsBundleFolder+"\n"+ 
-     "Database blob folder: "+databaseBlobFolder+"\n"+ 
-     "Public folder: "+publicFolder+"\n"+ 
-     "User folder: "+userFolder;
-     
-     alert(message);
-                   
-                 
-</code></pre>
-
-###Minimize your application
-
-This will minimize your application.
-<pre><code>:::javascript
-Rho.Application.minimize();
-                 
-</code></pre>
-
-###Quit your application
-
-This will exit your application.
-<pre><code>:::javascript
-Rho.Application.quit();
-                 
-</code></pre>
-
-###Restore your application
-
-This will restore you application.
-<pre><code>:::javascript
-Rho.Application.restore();
-                 
-</code></pre>

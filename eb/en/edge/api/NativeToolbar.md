@@ -85,33 +85,3 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeToolbar.remove()</code> </li></ul></li></ul>
-
-##Examples
-
-
-
-###Create native toolbar
-
-Create a native Toolbar.
-<pre><code>:::javascript
-           
-Rho.NativeToolbar.create([{
-        label: "Home",
-        action: Rho.Application.startURI
-    }, {
-        label: "example.com",
-        action: "http://www.example.org"
-    }], {})
-                   
-                 
-</code></pre>
-
-###Remove the toolbar
-
-Remove the toolbar.
-<pre><code>:::javascript
-           
-Rho.NativeToolbar.remove();
-                   
-                 
-</code></pre>

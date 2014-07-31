@@ -353,7 +353,7 @@ Sets the card data without the need of a swipe. This accepts any 16 digit number
 ####Platforms
 
 * Windows Mobile/CE
-* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)(Only compatible with DCR7000-x00)
 
 ###pinEntry
 
@@ -369,7 +369,7 @@ Turns the PIN entry on or off.
 ####Platforms
 
 * Windows Mobile/CE
-* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)(Only compatible with DCR7000-x00)
 
 ###pinTimeout
 
@@ -387,7 +387,7 @@ PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite
 ####Platforms
 
 * Windows Mobile/CE
-* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)(Only compatible with DCR7000-x00)
 
 ##Remarks
 
@@ -434,44 +434,3 @@ Applications running in RhoElements should be resilient against the card reader 
 The encrypted data is supported only on the card readers that are configured for encryption. Since the encrypted data might contain unreadable characters sometimes it is recommended to use only JSON object method rather than JavaScript '%s' notation. 
                     
                 
-
-##Examples
-
-
-
-###Basic Example
-
-The default card reader on the device is enabled when the index view is loaded. When a card is swiped the swipeEvent is called.
-
-###Connect to card reader
-
-Enable card reader and receive a callback when a card is swiped.
-<pre><code>:::javascript
-           
-function cardreader_callback(params) {
-  alert("Received data from card reader: "+params["data"]);
-}
-
-function connect() {
-  Rho.CardReader.open(cardreader_callback);
-}
-                   
-                 
-</code></pre>
-
-###Set card reader properties
-
-There are two ways to use the card reader. One is to receive a callback when a card is swiped, the other is to have it simulate keypresses. See below for an example of this second option.
-<pre><code>:::javascript
-           
-// Configure the MSR to output keystrokes instead of calling a function when a card is swiped
-// Note the absence of a callback parameter
-// Also, After emitting the keystrokes, automatically send a "Tab" keypress
-Rho.CardReader.autoTab = true;
-Rho.CardReader.open();
-
-Rho.CardReader.autoEnter = true;
-Rho.CardReader.open();
-                   
-                 
-</code></pre>

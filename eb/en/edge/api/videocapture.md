@@ -336,13 +336,3 @@ Once duration has been reached the video file will be saved or transferred. Call
 The output file format on Android is MP4 and on Windows is WMV.
 
                 
-
-##Examples
-
-
-
-###Basic Example
-
-The default video capture object on the device is enabled when the index view is loaded.
-
-Then in index.erb file:

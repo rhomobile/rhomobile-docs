@@ -346,11 +346,3 @@ As this extension returns the raw sensor values reported by the operating system
 
 ###Supporting Sensors
 In Android, as supported sensors could vary from product to product so please refer to Device's PRD/TRD for the list of supported sensors in that particular device.
-
-##Examples
-
-
-
-###Basic Example
-
-The below example gets the Accelerometer values for every 500 milliseconds.

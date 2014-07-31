@@ -549,28 +549,3 @@ Number of bytes written.</li></ul>
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.write(<span class="text-info">STRING</span> val)</code></li></ul></li></ul>
-
-##Examples
-
-
-
-###List contents of a folder
-
-Iterate through the contents of a folder and divide the entries in "folders" and "files".
-<pre><code>:::javascript
-           
-var folders = [];
-var files = [];
-var root_path = "/arbitrary/path"
-var entries = Rho.RhoFile.listDir(root_path);
-
-for (var i = 0; i &lt; entries.length; i++) {
-  var entry = entries[i];
-  if ((entry != ".") && (entry != "..")) {
-
-    (Rho.RhoFile.isDir(Rho.RhoFile.join(root_path, entry)) ? folders : files).push(entry);
-  }
-}
-                   
-                 
-</code></pre>

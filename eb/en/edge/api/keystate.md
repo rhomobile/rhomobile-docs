@@ -84,18 +84,3 @@ Due to platform limitations this API is not available on the following Motorola 
 
 ###Rotating the Screen
 The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.
-
-##Examples
-
-
-
-###Show the Keystate Indicators
-
-If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows.
-<pre><code>:::javascript
-                            
-function show_keystates(){
-    Rho.Keystate.showStates({width:25;height:25});
-}
-                        
-</code></pre>
