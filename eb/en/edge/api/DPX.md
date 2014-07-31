@@ -2,32 +2,27 @@
 
 
 ## Overview
-<p>The DPX (Document Processing eXtensions) is a software solution that enables customers to extract and
+The DPX (Document Processing eXtensions) is a software solution that enables customers to extract and
 process various types of information from documents. A single document may contain barcodes, text, image data and
 forms, using DPX this data can be extracted programmatically using OCR, barcode decoding and image capture. For
-example, a driver&rsquo;s license can be thought of as a template containing regions such as name and address, signature
+example, a driver's license can be thought of as a template containing regions such as name and address, signature
 and photo, each of these regions are processed and returned to RhoElements separately by DPX so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
-on-line at <a href="https://dpx-uat.motorolasolutions.com/">The MSI DPX template builder</a>.</p>
-<h2>Enabling the API</h2>
+on-line at [The MSI DPX template builder](https://dpx-uat.motorolasolutions.com/).
+    
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    :::ruby
+    extensions: ["dpx"]
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
+in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["dpx"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API
-in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in
-Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
+Ruby.
 
 
 ##Methods

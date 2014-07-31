@@ -2,23 +2,18 @@
 
 
 ## Overview
-<p>The <code>Webview</code> is the core container used for rendering your application code. You can control certain behaviors of the webview by using this API class.</p>
-<h2>Enabling the API</h2>
+The `Webview` is the core container used for rendering your application code. You can control certain behaviors of the webview by using this API class.
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -40,7 +35,7 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.active_tab()</code> </li></ul></li></ul>
@@ -57,7 +52,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
@@ -77,7 +72,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -96,7 +91,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.navigateBack(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -115,7 +110,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.refresh(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -154,7 +149,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.set_menu_items(<span class="text-info">HASH</span> menuItems)</code> </li></ul></li></ul>
@@ -173,6 +168,12 @@ Return an active tab index. For change active tab use Use Rho.NativeTabbar.curre
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.activeTab</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###cacheSize
 
 ####Type
@@ -182,6 +183,11 @@ Return an active tab index. For change active tab use Use Rho.NativeTabbar.curre
 The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.cacheSize</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###enableCache
 
@@ -195,6 +201,11 @@ Enable / disable Browser cache. Use 'WebView.enableCache' parameter in rhoconfig
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enableCache</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###enablePageLoadingIndication
 
 ####Type
@@ -206,6 +217,12 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 <p><strong>Default:</strong> true</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enablePageLoadingIndication</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE(Motorola Solutions' WebKit on Windows Mobile/CE)
 
 ###enableWebPlugins
 
@@ -219,6 +236,11 @@ Enable / disable web plug-ins. Use 'enable_web_plugins' parameter in rhoconfig.t
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enableWebPlugins</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###enableZoom
 
 ####Type
@@ -231,6 +253,11 @@ Enable WebView zoom. Use 'enable_screen_zoom' parameter in rhoconfig.txt to conf
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enableZoom</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###fontFamily
 
 ####Type
@@ -241,6 +268,11 @@ Specifies the default font to use when rendering text in web pages. The specifie
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.fontFamily</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
+
 ###framework
 
 ####Type
@@ -250,6 +282,12 @@ Specifies the default font to use when rendering text in web pages. The specifie
 Same as System.webViewFramework.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.framework</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###fullScreen
 
@@ -263,6 +301,12 @@ Use full screen mode.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.fullScreen</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###navigationTimeout
 
 ####Type
@@ -274,6 +318,11 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 <p><strong>Default:</strong> 0</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.navigationTimeout</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###scrollTechnique
 
@@ -303,6 +352,11 @@ You can scroll around the page using finger swiping.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.scrollTechnique</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
+
 ###textZoomLevel
 
 ####Type
@@ -312,6 +366,11 @@ You can scroll around the page using finger swiping.
 Sets the font size to be displayed on the page, set to 0 for the smallest font and 4 for the largest font.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.textZoomLevel</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###userAgent
 
@@ -327,6 +386,11 @@ Defines in config.xml: Navigation\\UserAgent. When visiting a web server the Web
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.userAgent</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
+
 ###viewportEnabled
 
 ####Type
@@ -339,6 +403,11 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.viewportEnabled</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
+
 ###viewportWidth
 
 ####Type
@@ -349,6 +418,11 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.viewportWidth</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
+
 ###zoomPage
 
 ####Type
@@ -358,6 +432,11 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.zoomPage</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ##Examples
 

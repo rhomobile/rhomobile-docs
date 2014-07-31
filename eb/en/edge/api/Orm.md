@@ -2,29 +2,23 @@
 
 
 ## Overview
-<p>This JavaScript API class allows you to interact with the local RHOM database and programatically add models or get references to models.</p>
-<h2>Enabling the API</h2>
+This JavaScript API class allows you to interact with the local RHOM database and programatically add models or get references to models.
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
+If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
 
-<h2>JavaScript Usage</h2>
+    :::html
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<p>If you are going to be using the JS ORM API, you&rsquo;ll also need to include this line in any files that will be using it:</p>
-
-<pre><code>:::html
-&lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<h2>Ruby Usage</h2>
-
-<p>For Ruby access to the RHOM database please see the <a href="/api/rhom-api">Rhom Ruby API guide</a>.</p>
-
+## Ruby Usage
+For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/rhom-api).
+        
 
 
 ##Methods
@@ -69,7 +63,7 @@ Synchronous Return:<ul><li>Model</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.addModel(<span class="text-info"></span> Anoynomous Function methods)</code> </li></ul></li></ul>
@@ -90,7 +84,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
@@ -107,7 +101,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
@@ -130,7 +124,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullResetEx(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -147,7 +141,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
@@ -164,7 +158,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseLocalReset()</code> </li></ul></li></ul>
@@ -184,7 +178,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.export()</code> </li></ul></li></ul>
@@ -204,7 +198,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.getClientId()</code> </li></ul></li></ul>
@@ -225,7 +219,7 @@ Synchronous Return:<ul><li>Model</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.getModel(<span class="text-info">String</span> modelName)</code> </li></ul></li></ul>
@@ -245,7 +239,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.haveLocalChanges()</code> </li></ul></li></ul>
@@ -266,7 +260,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.import(<span class="text-info">STRING</span> zipName)</code> </li></ul></li></ul>

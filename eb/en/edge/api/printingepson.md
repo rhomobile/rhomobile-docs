@@ -2,25 +2,18 @@
 
 
 ## Overview
-<p>Example extension api</p>
+Example extension api
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    :::ruby
+    extensions: ["printing_epson"]
 
-<h2>Enabling the API</h2>
+The `printing_epson` extension is also included automatically if you specify the following in your `build.yml`.
+    :::ruby
+    app_type: "rhoelements"
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
-
-<pre><code>:::ruby
-extensions: ["printing_epson"]
-</code></pre>
-
-<p>The <code>printing_epson</code> extension is also included automatically if you specify the following in your <code>build.yml</code>.</p>
-
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-<p>This is example of API. Implementation contain in extension.</p>
-
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+        This is example of API. Implementation contain in extension.
 
 
 ##Methods

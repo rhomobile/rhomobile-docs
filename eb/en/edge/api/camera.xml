@@ -54,6 +54,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PROPERTY>
             <PROPERTY name="maxWidth" type="INTEGER" generateAccessors="true" readOnly="true">
                 <PLATFORM>Android, iOS, WM</PLATFORM>
+                <PLATFORM_EB>Android</PLATFORM_EB>
                 <DESC>The maximum width of images which can be captured.</DESC>
             </PROPERTY>
             <PROPERTY name="maxHeight" type="INTEGER" generateAccessors="true" readOnly="true">

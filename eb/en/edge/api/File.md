@@ -2,25 +2,18 @@
 
 
 ## Overview
-<p>File I/O</p>
-<p>Use this API to access local files for reading and writing. Only string data can be read and written with this API. Please note that binary files are not supported. Strings filled with \0 will be truncated to the last non \0 character.</p>
+File I/OUse this API to access local files for reading and writing. Only string data can be read and written with this API. Please note that binary files are not supported. Strings filled with \0 will be truncated to the last non \0 character. 
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<h2>Enabling the API</h2>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
-
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+  
 
 
 ##Methods
@@ -44,7 +37,7 @@ Basename part for the given path.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.basename(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -61,7 +54,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
@@ -84,7 +77,7 @@ Error code raised during copy operation. 0 if no error.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
@@ -106,7 +99,7 @@ Error code raised on directory deletion. 0 on success, -1 otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -128,7 +121,7 @@ Error code raised on file deletion. 0 on success, -1 otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -147,7 +140,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code> </li></ul></li></ul>
@@ -169,7 +162,7 @@ Directory name.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.dirname(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -191,7 +184,7 @@ True if path exists, otherwise false.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.exists(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -208,7 +201,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.flush()</code></li></ul></li></ul>
@@ -230,7 +223,7 @@ File size in bytes.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -252,7 +245,7 @@ True if path is a directory. False otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.isDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -274,7 +267,7 @@ True if path is a file, false otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.isFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -295,7 +288,7 @@ True if file is opened, false otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.isOpened()</code></li></ul></li></ul>
@@ -318,7 +311,7 @@ Joined path.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code> </li></ul></li></ul>
@@ -340,7 +333,7 @@ Array of directory entry names. If directory is empty array of size 0 will be re
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.listDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -362,7 +355,7 @@ Error code raised on directory creation. 0 on success, -1 otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -380,7 +373,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -403,7 +396,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code> </li></ul></li></ul>
@@ -425,7 +418,7 @@ File contents.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.read(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
@@ -447,7 +440,7 @@ String from current position of file containing specified number of characters.<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.read(<span class="text-info">INTEGER</span> size)</code></li></ul></li></ul>
@@ -468,7 +461,7 @@ Contents of the file.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.readAll()</code></li></ul></li></ul>
@@ -491,7 +484,7 @@ Error code raised on move / rename. 0 on success, -1 otherwise.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
@@ -509,7 +502,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code></li></ul></li></ul>
@@ -530,7 +523,7 @@ File size in bytes.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.size()</code></li></ul></li></ul>
@@ -552,7 +545,7 @@ Number of bytes written.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.write(<span class="text-info">STRING</span> val)</code></li></ul></li></ul>

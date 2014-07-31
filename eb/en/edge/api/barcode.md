@@ -2,33 +2,25 @@
 
 
 ## Overview
-<p>The Barcode Module provides access to control the functionality of the device&rsquo;s scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Motorola Solutions devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a &lsquo;one shot&rsquo; use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Motorola Windows Mobile / CE devices.</p>
-<p>Only the foreground RhoElements application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.</p>
+The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Motorola Solutions devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Motorola Windows Mobile / CE devices.Only the foreground RhoElements application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["barcode"]
 
-<h2>Enabling the API</h2>
+The `barcode` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-<pre><code>:::ruby
-extensions: ["barcode"]
-</code></pre>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
 
-<p>The <code>barcode</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
 
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
+        
 
 
 ##Methods
@@ -68,7 +60,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -86,7 +78,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -115,7 +107,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -136,7 +128,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Barcode.enumerate()</code> </li></ul></li></ul>
@@ -157,7 +149,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getAllProperties()</code> </li></ul></li></ul>
@@ -178,7 +170,7 @@ Default object of Module.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Barcode.getDefault()</code> </li></ul></li></ul>
@@ -200,7 +192,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
@@ -222,7 +214,7 @@ The property to return info about.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
@@ -243,7 +235,7 @@ Array of property names supported by this scanner.<ul><li><i>Object</i> : <span 
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getSupportedProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getSupportedProperties()</code> </li></ul></li></ul>
@@ -263,7 +255,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -282,7 +274,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Barcode.setDefault(<span class="text-info">SELF_INSTANCE: EB.Barcode</span> defaultInstance)</code> </li></ul></li></ul>
@@ -300,7 +292,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -319,7 +311,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
@@ -336,7 +328,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -354,7 +346,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -379,7 +371,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.take(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.take(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -413,6 +405,12 @@ Enables or disables adaptive scanning. When set to true, the scan engine will au
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.adaptiveScanning</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.adaptiveScanning</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Laser Scanners on Motorola Solutions' devices)
+
 ###aimMode
 
 ####Type
@@ -442,6 +440,12 @@ Laser barcode readers will show a slab for aiming.
 Imager barcode readers will show a reticle for aiming.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.aimMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.aimMode</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###aimType
 
@@ -481,6 +485,12 @@ Once the trigger is pulled barcodes will continue to be scanned as long as the t
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.aimType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.aimType</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###allDecoders
 
 ####Type
@@ -490,6 +500,12 @@ Once the trigger is pulled barcodes will continue to be scanned as long as the t
 When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading. When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies. The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be. This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned. Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: "canpostal" and "auspostal" both use a 4-state system, so devices will only enable either "canpostal" OR "auspostal" when "alldecoders" is enabled. Note that other symbologies also share the 4-state system.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.allDecoders</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.allDecoders</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE(Scanners on Motorola Solutions' devices)
 
 ###ausPostal
 
@@ -501,6 +517,13 @@ Enables or disables the symbology for Australian Postal barcodes. If your applic
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ausPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ausPostal</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###autoEnter
 
 ####Type
@@ -510,6 +533,13 @@ Enables or disables the symbology for Australian Postal barcodes. If your applic
 When true, automatically appends the character code for 'enter' to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoEnter</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.autoEnter</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###autoTab
 
@@ -521,6 +551,13 @@ When true, automatically appends the tab character to the end of any barcodes sc
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoTab</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.autoTab</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###aztec
 
 ####Type
@@ -530,6 +567,13 @@ When true, automatically appends the tab character to the end of any barcodes sc
 Enables or disables the symbology for Aztec barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.aztec</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.aztec</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###barcodeDataFormat
 
@@ -552,6 +596,12 @@ Scanned data will be returned in Data URI format.
 Scanned data will be returned in Text format.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.barcodeDataFormat</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.barcodeDataFormat</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera / Imager Scanners on Motorola Solutions' devices)
 
 ###beamWidth
 
@@ -579,6 +629,12 @@ Laser beam width is narrow.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.beamWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.beamWidth</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Laser Scanners on Motorola Solutions' devices)
+
 ###bidirectionalRedundancy
 
 ####Type
@@ -588,6 +644,12 @@ Laser beam width is narrow.
 Enables or disables bidirectional redundancy.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.bidirectionalRedundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.bidirectionalRedundancy</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Laser Scanners on Motorola Solutions' devices)
 
 ###canPostal
 
@@ -599,6 +661,13 @@ Enables or disables the symbology for Canadian Postal barcodes. If your applicat
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.canPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.canPostal</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###chinese2of5
 
 ####Type
@@ -608,6 +677,13 @@ Enables or disables the symbology for Canadian Postal barcodes. If your applicat
 Enables or disables the symbology for Chinese 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.chinese2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.chinese2of5</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabar
 
@@ -619,6 +695,13 @@ Enables or disables the symbology for Codabar barcodes. If your application does
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabar</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabar</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###codabarClsiEditing
 
 ####Type
@@ -628,6 +711,13 @@ Enables or disables the symbology for Codabar barcodes. If your application does
 Enables Codabar CLSi formatting when set to true.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarClsiEditing</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarClsiEditing</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarMaxLength
 
@@ -639,6 +729,13 @@ Specifies the maximum number of allowable characters in a Codabar barcode. If yo
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarMaxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarMaxLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###codabarMinLength
 
 ####Type
@@ -648,6 +745,13 @@ Specifies the maximum number of allowable characters in a Codabar barcode. If yo
 Specifies the minimum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarMinLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarMinLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarNotisEditing
 
@@ -659,6 +763,13 @@ Enables Codabar NotisEditing formatting when set to true.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarNotisEditing</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarNotisEditing</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###codabarRedundancy
 
 ####Type
@@ -669,6 +780,13 @@ Sets the Codabar Redundancy property, if set the barcode must be decoded twice b
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarRedundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarRedundancy</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code11
 
 ####Type
@@ -678,6 +796,13 @@ Sets the Codabar Redundancy property, if set the barcode must be decoded twice b
 Enables or disables the symbology for Code11 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11checkDigitCount
 
@@ -705,6 +830,13 @@ Scanning engine will verify two Code 11 check digits.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11checkDigitCount</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11checkDigitCount</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code11maxLength
 
 ####Type
@@ -714,6 +846,13 @@ Scanning engine will verify two Code 11 check digits.
 Specifies the maximum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11maxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11minLength
 
@@ -725,6 +864,13 @@ Specifies the minimum number of allowable characters in a Code 11 barcode. If yo
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code11redundancy
 
 ####Type
@@ -734,6 +880,13 @@ Specifies the minimum number of allowable characters in a Code 11 barcode. If yo
 Sets the Code 11 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11redundancy</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11reportCheckDigit
 
@@ -745,6 +898,13 @@ When true, the barcode check digit(s) will be reported for scanned Code 11 barco
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11reportCheckDigit</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code128
 
 ####Type
@@ -754,6 +914,13 @@ When true, the barcode check digit(s) will be reported for scanned Code 11 barco
 Enables or disables the symbology for Code128 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128checkIsBtTable
 
@@ -765,6 +932,13 @@ When true, decodes concatenated Code128 output only if the pair belongs to one o
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128checkIsBtTable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128checkIsBtTable</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code128ean128
 
 ####Type
@@ -775,6 +949,13 @@ When true, barcodes with the EAN128 subtype property set will be read.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128ean128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128ean128</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code128isbt128
 
 ####Type
@@ -784,6 +965,13 @@ When true, barcodes with the EAN128 subtype property set will be read.
 When true, barcodes with the isbt128 subtype property set will be read.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128isbt128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128isbt128</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128isbt128ConcatMode
 
@@ -811,6 +999,13 @@ Auto-Discriminate.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128isbt128ConcatMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128isbt128ConcatMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code128maxLength
 
 ####Type
@@ -820,6 +1015,13 @@ Auto-Discriminate.
 Specifies the maximum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128maxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128minLength
 
@@ -831,6 +1033,13 @@ Specifies the minimum number of allowable characters in a Code 128 barcode. If y
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code128other128
 
 ####Type
@@ -840,6 +1049,13 @@ Specifies the minimum number of allowable characters in a Code 128 barcode. If y
 Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128other128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128other128</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128redundancy
 
@@ -851,6 +1067,13 @@ Sets the Code 128 Redundancy property, if set the barcode must be decoded twice 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128redundancy</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code128securityLevel
 
 ####Type
@@ -860,6 +1083,13 @@ Sets the Code 128 Redundancy property, if set the barcode must be decoded twice 
 Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: Allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: Eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128securityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128securityLevel</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39
 
@@ -871,6 +1101,13 @@ Enables or disables the symbology for Code 39 barcodes. If your application does
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code39code32Prefix
 
 ####Type
@@ -880,6 +1117,13 @@ Enables or disables the symbology for Code 39 barcodes. If your application does
 Enables reporting of the Code32 prefix when a Code39 barcode is converted.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39code32Prefix</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39code32Prefix</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39convertToCode32
 
@@ -891,6 +1135,13 @@ Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39convertToCode32</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39convertToCode32</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code39fullAscii
 
 ####Type
@@ -900,6 +1151,13 @@ Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode
 Enables full ASCII conversion of Code 39 barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39fullAscii</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39fullAscii</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39maxLength
 
@@ -911,6 +1169,13 @@ Specifies the maximum number of allowable characters in a Code 39 barcode. If yo
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39maxLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code39minLength
 
 ####Type
@@ -920,6 +1185,13 @@ Specifies the maximum number of allowable characters in a Code 39 barcode. If yo
 Specifies the minimum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39minLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39redundancy
 
@@ -931,6 +1203,13 @@ Sets the Code 39 Redundancy property, if set the barcode must be decoded twice b
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39redundancy</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code39reportCheckDigit
 
 ####Type
@@ -940,6 +1219,13 @@ Sets the Code 39 Redundancy property, if set the barcode must be decoded twice b
 Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39reportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39securityLevel
 
@@ -951,6 +1237,13 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39securityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39securityLevel</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code39verifyCheckDigit
 
 ####Type
@@ -960,6 +1253,13 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 Turns on verification of the Code 39 check digit.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39verifyCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39verifyCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93
 
@@ -971,6 +1271,13 @@ Enables or disables the symbology for Code 93 barcodes. If your application does
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code93maxLength
 
 ####Type
@@ -980,6 +1287,13 @@ Enables or disables the symbology for Code 93 barcodes. If your application does
 Specifies the maximum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93maxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93minLength
 
@@ -991,6 +1305,13 @@ Specifies the minimum number of allowable characters in a Code 93 barcode. If yo
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###code93redundancy
 
 ####Type
@@ -1001,6 +1322,13 @@ Sets the Code 93 Redundancy property, if set the barcode must be decoded twice b
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93redundancy</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###compositeAb
 
 ####Type
@@ -1010,6 +1338,13 @@ Sets the Code 93 Redundancy property, if set the barcode must be decoded twice b
 Enables or disables the symbology for Composite AB barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeAb</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeAb</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAbUccLinkMode
 
@@ -1037,6 +1372,13 @@ Auto-discriminate whether Composite AB barcodes are linked.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeAbUccLinkMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeAbUccLinkMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###compositeAbUseUpcPreambleCheckDigitRules
 
 ####Type
@@ -1046,6 +1388,12 @@ Auto-discriminate whether Composite AB barcodes are linked.
 This setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeAbUseUpcPreambleCheckDigitRules</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeAbUseUpcPreambleCheckDigitRules</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeC
 
@@ -1057,6 +1405,13 @@ Enables or disables the symbology for Composite C barcodes. If your application 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeC</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeC</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###connectionIdleTimeout
 
 ####Type
@@ -1066,6 +1421,12 @@ Enables or disables the symbology for Composite C barcodes. If your application 
 Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.connectionIdleTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.connectionIdleTimeout</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Bluetooth Scanners on Motorola Solutions' devices)
 
 ###d2of5
 
@@ -1077,6 +1438,13 @@ Enables or disables the symbology for D2of5 barcodes. If your application does n
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###d2of5maxLength
 
 ####Type
@@ -1086,6 +1454,13 @@ Enables or disables the symbology for D2of5 barcodes. If your application does n
 Specifies the maximum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5maxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5minLength
 
@@ -1097,6 +1472,13 @@ Specifies the minimum number of allowable characters in a D2of5 barcode. If your
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###d2of5redundancy
 
 ####Type
@@ -1106,6 +1488,13 @@ Specifies the minimum number of allowable characters in a D2of5 barcode. If your
 Sets the D2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5redundancy</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###dataBufferSize
 
@@ -1117,6 +1506,12 @@ Specifies the number of bytes allocated to receive the scanned barcode. This par
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dataBufferSize</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dataBufferSize</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###datamatrix
 
 ####Type
@@ -1126,6 +1521,13 @@ Specifies the number of bytes allocated to receive the scanned barcode. This par
 Enables or disables the symbology for Datamatrix barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.datamatrix</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.datamatrix</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###dbpMode
 
@@ -1149,6 +1551,12 @@ Tells the scan engine to produce composite DBP, which is 2 different sets of DBP
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dbpMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dbpMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Laser Scanners on Motorola Solutions' devices)
+
 ###decodeDuration
 
 ####Type
@@ -1160,6 +1568,13 @@ The duration of the device beeper when a barcode is scanned, in milliseconds.
 <p><strong>Default:</strong> 250</p>
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeDuration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeDuration</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###decodeFrequency
 
@@ -1173,6 +1588,13 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeFrequency</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeFrequency</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###decodeSound
 
 ####Type
@@ -1182,6 +1604,13 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeSound</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeSound</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###decodeVolume
 
@@ -1195,6 +1624,13 @@ The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being t
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeVolume</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeVolume</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###differentSymbolTimeout
 
 ####Type
@@ -1204,6 +1640,12 @@ The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being t
 When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.differentSymbolTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.differentSymbolTimeout</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###disconnectBtOnDisable
 
@@ -1215,6 +1657,12 @@ Forces the scanner to disconnect from the terminal when it is 'disabled'. Since 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.disconnectBtOnDisable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.disconnectBtOnDisable</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Bluetooth Scanners on Motorola Solutions' devices)
+
 ###displayBtAddressBarcodeOnEnable
 
 ####Type
@@ -1224,6 +1672,12 @@ Forces the scanner to disconnect from the terminal when it is 'disabled'. Since 
 If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling 'enable' on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to 'enable'.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.displayBtAddressBarcodeOnEnable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.displayBtAddressBarcodeOnEnable</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Bluetooth Scanners on Motorola Solutions' devices)
 
 ###dpmMode
 
@@ -1235,6 +1689,12 @@ Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversel
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dpmMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dpmMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Imager / Camera Scanners on Motorola Solutions' devices. The scanning engine must support DPM barcodes.)
+
 ###dutchPostal
 
 ####Type
@@ -1244,6 +1704,13 @@ Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversel
 Enables or disables the symbology for Dutch Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dutchPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dutchPostal</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean13
 
@@ -1255,6 +1722,13 @@ Enables or disables the symbology for EAN 13 barcodes. If your application does 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ean13</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ean13</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###ean8
 
 ####Type
@@ -1264,6 +1738,13 @@ Enables or disables the symbology for EAN 13 barcodes. If your application does 
 Enables or disables the symbology for EAN 8 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ean8</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ean8</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean8convertToEan13
 
@@ -1275,6 +1756,13 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ean8convertToEan13</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ean8convertToEan13</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###enableTimeout
 
 ####Type
@@ -1284,6 +1772,12 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the 'enable()' method. You must specify this parameter before calling 'enable' to change the default.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.enableTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.enableTimeout</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Bluetooth Scanners on Motorola Solutions' devices)
 
 ###focusMode
 
@@ -1307,6 +1801,12 @@ Use auto focus.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.focusMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.focusMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Imager / Camera Scanners on Motorola Solutions' devices)
+
 ###friendlyName
 
 ####Type
@@ -1316,6 +1816,13 @@ Use auto focus.
 Returns the friendly name associated with the scanner.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.friendlyName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.friendlyName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###gs1dataBar
 
@@ -1327,6 +1834,13 @@ Enables or disables the symbology for GS1 DataBar barcodes. If your application 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.gs1dataBar</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.gs1dataBar</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###gs1dataBarExpanded
 
 ####Type
@@ -1337,6 +1851,13 @@ Enables or disables the symbology for GS1 Databar Expanded barcodes. If your app
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.gs1dataBarExpanded</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.gs1dataBarExpanded</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###gs1dataBarLimited
 
 ####Type
@@ -1346,6 +1867,13 @@ Enables or disables the symbology for GS1 Databar Expanded barcodes. If your app
 Enables or disables the symbology for GS1 Databar Limited barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssLim.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.gs1dataBarLimited</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.gs1dataBarLimited</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###hapticFeedback
 
@@ -1359,6 +1887,12 @@ Controls the haptic feedback on decode. This means that if this is set to true, 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.hapticFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.hapticFeedback</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###i2of5
 
 ####Type
@@ -1368,6 +1902,13 @@ Controls the haptic feedback on decode. This means that if this is set to true, 
 Enables or disables the symbology for I2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5convertToEan13
 
@@ -1379,6 +1920,13 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5convertToEan13</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5convertToEan13</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###i2of5maxLength
 
 ####Type
@@ -1388,6 +1936,13 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 Specifies the maximum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5maxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5minLength
 
@@ -1399,6 +1954,13 @@ Specifies the minimum number of allowable characters in a I2of5 barcode. If your
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###i2of5redundancy
 
 ####Type
@@ -1409,6 +1971,13 @@ Sets the I2of5 Redundancy property, if set the barcode must be decoded twice bef
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5redundancy</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###i2of5reportCheckDigit
 
 ####Type
@@ -1418,6 +1987,13 @@ Sets the I2of5 Redundancy property, if set the barcode must be decoded twice bef
 When true, the barcode check digit(s) will be reported for scanned I2of5 barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5reportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5verifyCheckDigit
 
@@ -1445,6 +2021,13 @@ Enables the OPCC format for the check digit.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5verifyCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5verifyCheckDigit</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###illuminationMode
 
 ####Type
@@ -1471,6 +2054,13 @@ External illumination is always off.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.illuminationMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.illuminationMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Imager / Camera Scanners on Motorola Solutions' devices)
+
 ###invalidDecodeFrequency
 
 ####Type
@@ -1483,6 +2073,12 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.invalidDecodeFrequency</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.invalidDecodeFrequency</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###invalidDecodeSound
 
 ####Type
@@ -1492,6 +2088,12 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.invalidDecodeSound</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.invalidDecodeSound</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###inverse1dMode
 
@@ -1519,6 +2121,13 @@ Allows decoding of both positive and inverse 1D symbologies.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.inverse1dMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.inverse1dMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices. The scanning engine must support inverse barcodes)
+
 ###japPostal
 
 ####Type
@@ -1528,6 +2137,13 @@ Allows decoding of both positive and inverse 1D symbologies.
 Enables or disables the symbology for Japanese Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.japPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.japPostal</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###klasseEins
 
@@ -1539,6 +2155,12 @@ Enables or disables the Klasse Eins laser on time function.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.klasseEins</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.klasseEins</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Laser Scanners on Motorola Solutions' devices)
+
 ###korean3of5
 
 ####Type
@@ -1548,6 +2170,13 @@ Enables or disables the Klasse Eins laser on time function.
 Enables or disables the symbology for Korean 3of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###korean3of5maxLength
 
@@ -1559,6 +2188,12 @@ Specifies the maximum number of allowable characters in a Korean 3of5 barcode. I
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5maxLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###korean3of5minLength
 
 ####Type
@@ -1569,6 +2204,12 @@ Specifies the minimum number of allowable characters in a Korean 3of5 barcode. I
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###korean3of5redundancy
 
 ####Type
@@ -1578,6 +2219,12 @@ Specifies the minimum number of allowable characters in a Korean 3of5 barcode. I
 Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5redundancy</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###lcdMode
 
@@ -1590,6 +2237,12 @@ Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to
 <p><strong>Default:</strong> false</p>
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.lcdMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.lcdMode</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###linearSecurityLevel
 
@@ -1625,6 +2278,13 @@ Triple redundancy for all barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.linearSecurityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.linearSecurityLevel</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###lowBatteryScan
 
 ####Type
@@ -1637,6 +2297,12 @@ Set to false to disable scanning when the battery is low or set to true to enabl
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.lowBatteryScan</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.lowBatteryScan</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###macroMicroPdf
 
 ####Type
@@ -1646,6 +2312,12 @@ Set to false to disable scanning when the battery is low or set to true to enabl
 Enables or disables the symbology for MacroMicroPDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdf</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroMicroPdfBufferLabels
 
@@ -1657,6 +2329,12 @@ If true, the scanner driver will return the barcode data only after the complete
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfBufferLabels</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfBufferLabels</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###macroMicroPdfConvertToMicroPdf
 
 ####Type
@@ -1666,6 +2344,12 @@ If true, the scanner driver will return the barcode data only after the complete
 If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfConvertToMicroPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfConvertToMicroPdf</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroMicroPdfExclusive
 
@@ -1677,6 +2361,12 @@ If true, the scanner driver will not complete read requests while in the middle 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfExclusive</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfExclusive</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###macroMicroPdfReportAppendInfo
 
 ####Type
@@ -1686,6 +2376,12 @@ If true, the scanner driver will not complete read requests while in the middle 
 If true, the appended info is concatenated to the decoded data before being returned.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfReportAppendInfo</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfReportAppendInfo</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroPdf
 
@@ -1697,6 +2393,12 @@ Enables or disables the symbology for Macro PDF barcodes. If your application do
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdf</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###macroPdfBufferLabels
 
 ####Type
@@ -1706,6 +2408,12 @@ Enables or disables the symbology for Macro PDF barcodes. If your application do
 When true, the scanner driver will return  he barcode data only after the complete macroPdf sequence has been read. If false, the scan driver will return each barcode in the macroPdf sequence as it is read.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdfBufferLabels</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdfBufferLabels</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroPdfConvertToPdf417
 
@@ -1717,6 +2425,12 @@ If true, MacroPDF barcodes will be converted to PDF417 codes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdfConvertToPdf417</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdfConvertToPdf417</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###macroPdfExclusive
 
 ####Type
@@ -1726,6 +2440,12 @@ If true, MacroPDF barcodes will be converted to PDF417 codes.
 If true, the scanner driver will not complete read requests while in the middle of a macroPdf sequence. Once a macroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdfExclusive</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdfExclusive</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5
 
@@ -1737,6 +2457,13 @@ Enables or disables the symbology for Matrix 2of5 barcodes. If your application 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###matrix2of5maxLength
 
 ####Type
@@ -1746,6 +2473,13 @@ Enables or disables the symbology for Matrix 2of5 barcodes. If your application 
 Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5maxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5minLength
 
@@ -1757,6 +2491,13 @@ Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. I
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5minLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###matrix2of5reportCheckDigit
 
 ####Type
@@ -1766,6 +2507,13 @@ Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. I
 When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5reportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5verifyCheckDigit
 
@@ -1777,6 +2525,13 @@ Enables verification of the Matrix 2of5 symbology check digit.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5verifyCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5verifyCheckDigit</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###maxiCode
 
 ####Type
@@ -1786,6 +2541,13 @@ Enables verification of the Matrix 2of5 symbology check digit.
 Enables or disables the symbology for Maxicode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.maxiCode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.maxiCode</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###microPdf
 
@@ -1797,6 +2559,13 @@ Enables or disables the symbology for Micro PDF barcodes. If your application do
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.microPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.microPdf</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###microQr
 
 ####Type
@@ -1807,6 +2576,13 @@ Enables or disables the symbology for Micro QR barcodes. If your application doe
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.microQr</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.microQr</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###msi
 
 ####Type
@@ -1816,6 +2592,13 @@ Enables or disables the symbology for Micro QR barcodes. If your application doe
 Enables or disables the symbology for MSI barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msi</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msi</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiCheckDigitScheme
 
@@ -1839,6 +2622,13 @@ Both check digits are MOD 10.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiCheckDigitScheme</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiCheckDigitScheme</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###msiCheckDigits
 
 ####Type
@@ -1861,6 +2651,13 @@ Use two check digits for MSI barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiCheckDigits</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiCheckDigits</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###msiMaxLength
 
 ####Type
@@ -1870,6 +2667,13 @@ Use two check digits for MSI barcodes.
 Specifies the maximum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiMaxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiMaxLength</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiMinLength
 
@@ -1881,6 +2685,13 @@ Specifies the minimum number of allowable characters in a MSI barcode. If your a
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiMinLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiMinLength</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###msiRedundancy
 
 ####Type
@@ -1890,6 +2701,13 @@ Specifies the minimum number of allowable characters in a MSI barcode. If your a
 Sets the MSI Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiRedundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiRedundancy</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiReportCheckDigit
 
@@ -1901,6 +2719,13 @@ When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiReportCheckDigit</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###pdf417
 
 ####Type
@@ -1910,6 +2735,13 @@ When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
 Enables or disables the symbology for PDF 417 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pdf417</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.pdf417</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###picklistMode
 
@@ -1937,6 +2769,13 @@ Enables picklist mode so that only the barcode in the center of the image is dec
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.picklistMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.picklistMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Imager / Camera Scanners on Motorola Solutions' devices)
+
 ###poorQuality1dMode
 
 ####Type
@@ -1946,6 +2785,12 @@ Enables picklist mode so that only the barcode in the center of the image is dec
 Allows poor quality 1D barcodes to be read When true, but this will adversely affect the overall decoding performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.poorQuality1dMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.poorQuality1dMode</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Imager / Camera Scanners on Motorola Solutions' devices)
 
 ###qrCode
 
@@ -1957,6 +2802,13 @@ Enables or disables the symbology for QR Code barcodes. If your application does
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.qrCode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.qrCode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###rasterHeight
 
 ####Type
@@ -1966,6 +2818,12 @@ Enables or disables the symbology for QR Code barcodes. If your application does
 Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied. This value must be between 0 and 100.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rasterHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rasterHeight</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Laser Scanners on Motorola Solutions' devices)
 
 ###rasterMode
 
@@ -1997,6 +2855,12 @@ Vertical rastering mode is 'Cyclone'.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rasterMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rasterMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###rsmBatteryCapacity
 
 ####Type
@@ -2006,6 +2870,12 @@ Vertical rastering mode is 'Cyclone'.
 The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBatteryCapacity</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBatteryCapacity</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBatteryId
 
@@ -2017,6 +2887,12 @@ One of 'simple', 'double', 'disabled' or 'unknown'
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBatteryId</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBatteryId</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmBatteryStatus
 
 ####Type
@@ -2026,6 +2902,12 @@ One of 'simple', 'double', 'disabled' or 'unknown'
 Indicates the status of the remote scanner's battery, will be one of 'unknown', 'full', 'medium', 'empty', 'chargingFullRate', 'chargingHalfRate', 'chargingTrickle' or 'discharging'
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBatteryStatus</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBatteryStatus</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAddress
 
@@ -2037,6 +2919,12 @@ Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothAddress</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothAddress</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmBluetoothAuthentication
 
 ####Type
@@ -2046,6 +2934,12 @@ Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 True if authentication is required.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothAuthentication</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothAuthentication</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAutoReconnect
 
@@ -2077,6 +2971,12 @@ When powered on or when the device goes out of range.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothAutoReconnect</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothAutoReconnect</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmBluetoothBeepOnReconnectAttempt
 
 ####Type
@@ -2086,6 +2986,12 @@ When powered on or when the device goes out of range.
 When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in progress.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothBeepOnReconnectAttempt</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothBeepOnReconnectAttempt</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothEncryption
 
@@ -2097,6 +3003,12 @@ True if encryption is required.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothEncryption</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothEncryption</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmBluetoothFriendlyName
 
 ####Type
@@ -2106,6 +3018,12 @@ True if encryption is required.
 Friendly Bluetooth name, e.g. 'MyBTScanner'
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothFriendlyName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothFriendlyName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothHidAutoReconnect
 
@@ -2117,6 +3035,12 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothHidAutoReconnect</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothHidAutoReconnect</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmBluetoothInquiryMode
 
 ####Type
@@ -2126,6 +3050,12 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 To use a general inquiry mode, 'general' else, 'limited'
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothInquiryMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothInquiryMode</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothPinCode
 
@@ -2137,6 +3067,12 @@ Up to 5 character PIN code used for Bluetooth authentication.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothPinCode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothPinCode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmBluetoothPinCodeType
 
 ####Type
@@ -2146,6 +3082,12 @@ Up to 5 character PIN code used for Bluetooth authentication.
 'UseStored' will use the PIN code stored in the memory of the ring scanner, by default '12345'. 'PromptUser' indicates that the ring scanner should be used to scan 5 alpha numeric barcodes to define the PIN, eg. "1", "2", "3", "4", "5" (for PIN 12345). This parameter is not saved permanently on the ring scanner.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothPinCodeType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothPinCodeType</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothReconnectionAttempts
 
@@ -2157,6 +3099,12 @@ How long the scanner tries to re-establish connection if it goes out of range, i
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothReconnectionAttempts</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothReconnectionAttempts</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmDateOfManufacture
 
 ####Type
@@ -2166,6 +3114,12 @@ How long the scanner tries to re-establish connection if it goes out of range, i
 Ring scanner date of manufacture as DDMMYY.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDateOfManufacture</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDateOfManufacture</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmDateOfService
 
@@ -2177,6 +3131,12 @@ Ring scanner date of service as DDMMYY.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDateOfService</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDateOfService</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmDecodeFeedback
 
 ####Type
@@ -2186,6 +3146,12 @@ Ring scanner date of service as DDMMYY.
 If true, the remote scanner beeps and illuminates its green LED on a successful decode.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDecodeFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDecodeFeedback</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmDeviceClass
 
@@ -2197,6 +3163,12 @@ The device class of the ring scanner.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDeviceClass</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDeviceClass</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmFirmwareVersion
 
 ####Type
@@ -2206,6 +3178,12 @@ The device class of the ring scanner.
 Scanner's operating system version.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmFirmwareVersion</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmFirmwareVersion</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmForceSavePairingBarcode
 
@@ -2217,6 +3195,12 @@ Force saving the barcode assigned to the device to which the scanner has been pa
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmForceSavePairingBarcode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmForceSavePairingBarcode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmGoodScansDelay
 
 ####Type
@@ -2226,6 +3210,12 @@ Force saving the barcode assigned to the device to which the scanner has been pa
 Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000. This value must be a multiple of 100.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmGoodScansDelay</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmGoodScansDelay</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmIgnoreCode128Usps
 
@@ -2237,6 +3227,12 @@ Feature for ignoring Code 128 barcodes beginning with 420 and 421.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmIgnoreCode128Usps</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmIgnoreCode128Usps</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmLowBatteryIndication
 
 ####Type
@@ -2246,6 +3242,12 @@ Feature for ignoring Code 128 barcodes beginning with 420 and 421.
 Whether or not the ring scanner should give a low battery indication.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmLowBatteryIndication</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmLowBatteryIndication</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmLowBatteryIndicationCycle
 
@@ -2257,6 +3259,12 @@ Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmLowBatteryIndicationCycle</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmLowBatteryIndicationCycle</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmMems
 
 ####Type
@@ -2266,6 +3274,12 @@ Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 
 If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmMems</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmMems</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmModelNumber
 
@@ -2277,6 +3291,12 @@ Ring scanner model number.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmModelNumber</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmModelNumber</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmPagingBeepSequence
 
 ####Type
@@ -2286,6 +3306,12 @@ Ring scanner model number.
 Range 0 to 15 to specify the pattern for the paging beep sequence.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmPagingBeepSequence</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmPagingBeepSequence</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmPagingEnable
 
@@ -2297,6 +3323,12 @@ Specify whether paging the device is enabled.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmPagingEnable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmPagingEnable</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmProximityContinuous
 
 ####Type
@@ -2306,6 +3338,12 @@ Specify whether paging the device is enabled.
 Proximity continuous mode.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmProximityContinuous</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmProximityContinuous</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityDistance
 
@@ -2317,6 +3355,12 @@ Specify the distance for the proximity feature as 'short', 'medium' or 'long'
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmProximityDistance</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmProximityDistance</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmProximityEnable
 
 ####Type
@@ -2326,6 +3370,12 @@ Specify the distance for the proximity feature as 'short', 'medium' or 'long'
 If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmProximityEnable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmProximityEnable</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmScanLineWidth
 
@@ -2337,6 +3387,12 @@ The laser scan line width, 'wide' or 'narrow'.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmScanLineWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmScanLineWidth</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###rsmScanTriggerWakeup
 
 ####Type
@@ -2346,6 +3402,12 @@ The laser scan line width, 'wide' or 'narrow'.
 Scanner trigger will wakeup the device from a low power state.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmScanTriggerWakeup</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmScanTriggerWakeup</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
 
 ###rsmSerialNumber
 
@@ -2357,6 +3419,12 @@ Ring scanner serial number.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmSerialNumber</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmSerialNumber</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Motorola Solutions' Bluetooth barcode scanners, model RS507)
+
 ###sameSymbolTimeout
 
 ####Type
@@ -2366,6 +3434,12 @@ Ring scanner serial number.
 When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this value to prevent accidental duplicate scans.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.sameSymbolTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.sameSymbolTimeout</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
 
 ###scanTimeout
 
@@ -2377,6 +3451,13 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.scanTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.scanTimeout</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###scannerType
 
 ####Type
@@ -2386,6 +3467,12 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.scannerType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.scannerType</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE(All Scanners)
 
 ###signature
 
@@ -2397,6 +3484,13 @@ Enables or disables the symbology for Signature barcodes. If your application do
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signature</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signature</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###signatureImageHeight
 
 ####Type
@@ -2406,6 +3500,12 @@ Enables or disables the symbology for Signature barcodes. If your application do
 Specifies the output height of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signatureImageHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signatureImageHeight</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###signatureImageQuality
 
@@ -2417,6 +3517,12 @@ Specifies the output quality of the captured signature barcode. Signature barcod
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signatureImageQuality</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signatureImageQuality</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###signatureImageWidth
 
 ####Type
@@ -2426,6 +3532,12 @@ Specifies the output quality of the captured signature barcode. Signature barcod
 Specifies the output width of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signatureImageWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signatureImageWidth</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###timedAimDuration
 
@@ -2437,6 +3549,12 @@ Duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.timedAimDuration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.timedAimDuration</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###tlc39
 
 ####Type
@@ -2446,6 +3564,13 @@ Duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 Enables or disables the symbology for TLC 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.tlc39</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.tlc39</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###triggerConnected
 
@@ -2459,6 +3584,12 @@ Only applies to an enabled laser or imaging scanner. Disconnecting the trigger w
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.triggerConnected</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.triggerConnected</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Scanners on Motorola Solutions' devices)
+
 ###trioptic39
 
 ####Type
@@ -2468,6 +3599,13 @@ Only applies to an enabled laser or imaging scanner. Disconnecting the trigger w
 Enables or disables the symbology for Trioptic 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.trioptic39</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.trioptic39</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###trioptic39Redundancy
 
@@ -2479,6 +3617,13 @@ Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twi
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.trioptic39Redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.trioptic39Redundancy</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###ukPostal
 
 ####Type
@@ -2488,6 +3633,13 @@ Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twi
 Enables or disables the symbology for UK Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ukPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ukPostal</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ukPostalReportCheckDigit
 
@@ -2499,6 +3651,12 @@ When true, the barcode check digit(s) will be reported for scanned UK Postal bar
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ukPostalReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ukPostalReportCheckDigit</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcEanBookland
 
 ####Type
@@ -2508,6 +3666,13 @@ When true, the barcode check digit(s) will be reported for scanned UK Postal bar
 Enables or disables decoding of UPC EAN Bookland barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanBookland</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanBookland</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanBooklandFormat
 
@@ -2531,6 +3696,13 @@ Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanBooklandFormat</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanBooklandFormat</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcEanConvertGs1dataBarToUpcEan
 
 ####Type
@@ -2540,6 +3712,13 @@ Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 
 If true, RSS barcodes will be converted to UPC/EAN format. For this setting to work UPC/EAN symbologies must be enabled.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanConvertGs1dataBarToUpcEan</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanConvertGs1dataBarToUpcEan</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanCoupon
 
@@ -2551,6 +3730,13 @@ Enables or disables decoding of UPC EAN Coupon barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanCoupon</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanCoupon</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcEanLinearDecode
 
 ####Type
@@ -2560,6 +3746,13 @@ Enables or disables decoding of UPC EAN Coupon barcodes.
 Sets the linear decode property.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanLinearDecode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanLinearDecode</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanRandomWeightCheckDigit
 
@@ -2571,6 +3764,13 @@ When true, enables random weight check digit verification.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanRandomWeightCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanRandomWeightCheckDigit</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcEanRetryCount
 
 ####Type
@@ -2580,6 +3780,13 @@ When true, enables random weight check digit verification.
 Sets the retry count for auto-discriminating for supplementals. The value must be between 2 - 20 inclusive.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanRetryCount</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanRetryCount</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSecurityLevel
 
@@ -2591,6 +3798,13 @@ Sets the Security level for decoding UPC EAN barcodes and accepts a value betwee
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSecurityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSecurityLevel</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcEanSupplemental2
 
 ####Type
@@ -2601,6 +3815,13 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSupplemental2</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSupplemental2</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcEanSupplemental5
 
 ####Type
@@ -2610,6 +3831,13 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSupplemental5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSupplemental5</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplementalMode
 
@@ -2653,6 +3881,13 @@ Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 43
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSupplementalMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSupplementalMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upca
 
 ####Type
@@ -2662,6 +3897,13 @@ Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 43
 Enables or disables the symbology for UPCA barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upca</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upca</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcaPreamble
 
@@ -2689,6 +3931,13 @@ Applies both system and country code preamble to the bar code.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcaPreamble</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcaPreamble</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upcaReportCheckDigit
 
 ####Type
@@ -2698,6 +3947,13 @@ Applies both system and country code preamble to the bar code.
 When true, the barcode check digit(s) will be reported for scanned UPCA barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcaReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcaReportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0
 
@@ -2709,6 +3965,13 @@ Enables or disables the symbology for UPCE0 barcodes. If your application does n
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upce0convertToUpca
 
 ####Type
@@ -2718,6 +3981,13 @@ Enables or disables the symbology for UPCE0 barcodes. If your application does n
 When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters used.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0convertToUpca</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0convertToUpca</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0preamble
 
@@ -2745,6 +4015,13 @@ Applies both system and country code preamble to the bar code.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0preamble</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0preamble</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upce0reportCheckDigit
 
 ####Type
@@ -2754,6 +4031,13 @@ Applies both system and country code preamble to the bar code.
 When true, the barcode check digit(s) will be reported for scanned UPCE0 barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0reportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1
 
@@ -2765,6 +4049,13 @@ Enables or disables the symbology for UPCE1 barcodes. If your application does n
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upce1convertToUpca
 
 ####Type
@@ -2774,6 +4065,13 @@ Enables or disables the symbology for UPCE1 barcodes. If your application does n
 When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters used.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1convertToUpca</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1convertToUpca</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1preamble
 
@@ -2801,6 +4099,13 @@ Applies both system and country code preamble to the bar code.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1preamble</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1preamble</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###upce1reportCheckDigit
 
 ####Type
@@ -2810,6 +4115,13 @@ Applies both system and country code preamble to the bar code.
 When true, the barcode check digit(s) will be reported for scanned UPCE1 barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1reportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###us4state
 
@@ -2821,6 +4133,13 @@ Enables or disables the symbology for US 4-State barcodes. If your application d
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.us4state</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.us4state</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###us4stateFics
 
 ####Type
@@ -2830,6 +4149,13 @@ Enables or disables the symbology for US 4-State barcodes. If your application d
 Enables or disables the symbology for US 4-State FICS barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.us4stateFics</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.us4stateFics</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPlanet
 
@@ -2841,6 +4167,13 @@ Enables or disables the symbology for US Planet barcodes. If your application do
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPlanet</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPlanet</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###usPlanetReportCheckDigit
 
 ####Type
@@ -2850,6 +4183,12 @@ Enables or disables the symbology for US Planet barcodes. If your application do
 When true, the barcode check digit(s) will be reported for scanned US Planet barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPlanetReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPlanetReportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPostNet
 
@@ -2861,6 +4200,13 @@ Enables or disables the symbology for US Post Net barcodes. If your application 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPostNet</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPostNet</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###usPostNetReportCheckDigit
 
 ####Type
@@ -2870,6 +4216,12 @@ Enables or disables the symbology for US Post Net barcodes. If your application 
 When true, the barcode check digit(s) will be reported for scanned US Post Net barcodes.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPostNetReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPostNetReportCheckDigit</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###viewfinderFeedback
 
@@ -2897,6 +4249,13 @@ The last image that was successfully decoded is displayed along with a red retic
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderFeedback</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
+
 ###viewfinderFeedbackTime
 
 ####Type
@@ -2907,6 +4266,13 @@ If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderFeedbackTime</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderFeedbackTime</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
+
 ###viewfinderHeight
 
 ####Type
@@ -2916,6 +4282,12 @@ If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then
 When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels in height. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderHeight</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
 
 ###viewfinderMode
 
@@ -2947,6 +4319,13 @@ Displays the viewfinder as well as draws a red reticle in the center of the imag
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
+
 ###viewfinderWidth
 
 ####Type
@@ -2956,6 +4335,12 @@ Displays the viewfinder as well as draws a red reticle in the center of the imag
 When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels wide. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderWidth</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
 
 ###viewfinderX
 
@@ -2967,6 +4352,12 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderX</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderX</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
+
 ###viewfinderY
 
 ####Type
@@ -2976,6 +4367,12 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the top of the screen. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderY</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderY</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Camera Scanners on Motorola Solutions' devices)
 
 ###webcode
 
@@ -2987,6 +4384,13 @@ Enables or disables the symbology for Webcode barcodes. If your application does
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.webcode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.webcode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
+
 ###webcodeDecodeGtSubtype
 
 ####Type
@@ -2996,6 +4400,13 @@ Enables or disables the symbology for Webcode barcodes. If your application does
 If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.webcodeDecodeGtSubtype</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.webcodeDecodeGtSubtype</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ##Remarks
 

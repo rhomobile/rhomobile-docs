@@ -2,25 +2,18 @@
 
 
 ## Overview
-<p>Database is low-level API to access SQLite local database.</p>
-<p>This API used internally by RHOM. To use RHOM, just define your models and partition databases will be created automatically.</p>
+Database is low-level API to access SQLite local database.This API used internally by RHOM. To use RHOM, just define your models and partition databases will be created automatically.
+## Enabling the API           
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<h2>Enabling the API</h2>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
-
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+    
 
 
 ##Methods
@@ -39,7 +32,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
@@ -56,7 +49,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.commitTransaction()</code></li></ul></li></ul>
@@ -74,7 +67,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.destroyTable(<span class="text-info">STRING</span> tableName)</code></li></ul></li></ul>
@@ -93,7 +86,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.destroyTables(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li></ul>
@@ -111,7 +104,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.executeBatchSql(<span class="text-info">STRING</span> sqlStmt)</code></li></ul></li></ul>
@@ -134,7 +127,7 @@ Array of Hashes. Each Hash item represents record from Database.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.executeSql(<span class="text-info">STRING</span> sqlStmt, <span class="text-info">ARRAY</span> args)</code></li></ul></li></ul>
@@ -153,7 +146,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new EB.Database(<span class="text-info">STRING</span> dbPath, <span class="text-info">STRING</span> dbPartition)</code> </li></ul></li></ul>
@@ -174,7 +167,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.isTableExist(<span class="text-info">STRING</span> tableName)</code></li></ul></li></ul>
@@ -191,7 +184,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.rollbackTransaction()</code></li></ul></li></ul>
@@ -208,7 +201,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startTransaction()</code></li></ul></li></ul>

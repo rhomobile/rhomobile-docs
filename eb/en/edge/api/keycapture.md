@@ -2,31 +2,24 @@
 
 
 ## Overview
-<p>The KeyCapture module is used to intercept or override hardware keys. It is typically used to provide certain application functions through the use of the device&rsquo;s physical keyboard or other hardware enabled buttons.</p>
-<h2>Enabling the API</h2>
+The KeyCapture module is used to intercept or override hardware keys. It is typically used to provide certain application functions through the use of the device's physical keyboard or other hardware enabled buttons.
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["hardwarekeys"]
+    
+The `hardwarekeys` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-<pre><code>:::ruby
-extensions: ["hardwarekeys"]
-</code></pre>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
 
-<p>The <code>hardwarekeys</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
+        
 
 
 ##Methods
@@ -43,7 +36,8 @@ Specifies the identifier of the key to capture. This this value is the operating
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>keyValue : <span class='text-info'>INTEGER</span><p>
-The internal representation of the key expressed in decimal, e.g. 13 is the return key. Platforms:WM, Android </p></li></ul></ul>
+The internal representation of the key expressed in decimal, e.g. 13 is the return key. Platforms:
+WM, Android </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
@@ -51,7 +45,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.KeyCapture.captureKey(<span class="text-info">BOOLEAN</span> dispatch, <span class="text-info">STRING</span> keyValue)</code> </li></ul></li></ul>
@@ -72,7 +66,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -92,7 +86,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.KeyCapture.remapKey(<span class="text-info">STRING</span> keyValue, <span class="text-info">STRING</span> remapTo)</code> </li></ul></li></ul>
@@ -112,6 +106,11 @@ Specifies a key which, when pressed, will navigate to the start page as defined 
 <p><strong>Default:</strong> Disabled</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.KeyCapture.homeKeyValue</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ##Constants
 

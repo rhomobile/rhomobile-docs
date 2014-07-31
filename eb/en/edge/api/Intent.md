@@ -2,23 +2,18 @@
 
 
 ## Overview
-<p>The Intent API provides an inter-application broadcast message-passing framework.</p>
-<h2>Enabling the API</h2>
+The Intent API provides an inter-application broadcast message-passing framework.
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+    
 
 
 ##Methods
@@ -53,21 +48,25 @@ Use the intent to start a UI activity. Platforms:
 Android</dd><dt>Constant: RhoFile.START_SERVICE <br/> String:startService</dt><dd>
 Use the intent to start a background service. Platforms: 
 Android</dd></dl></li><li>permission : <span class='text-info'>STRING</span><p>
-Permission used to send a broadcast intent. Platforms:Android </p></li><li>action : <span class='text-info'>STRING</span><p>
+Permission used to send a broadcast intent. Platforms:
+Android </p></li><li>action : <span class='text-info'>STRING</span><p>
 Intent action. See [Android docs](http://developer.android.com/reference/android/content/Intent.html#setAction(java.lang.String\)). for possible values.
 ***NOTE: Use the Constant Value instead of the actual Constant Name. Ex: For the Constant [ACTION_PICK](http://developer.android.com/reference/android/content/Intent.html#ACTION_PICK) use 'android.intent.action.PICK'***
- Platforms:Android </p></li><li>categories : <span class='text-info'>ARRAY</span><p>
+ Platforms:
+Android </p></li><li>categories : <span class='text-info'>ARRAY</span><p>
 List of intent categories. See [Android docs](http://developer.android.com/reference/android/content/Intent.html#addCategory(java.lang.String\)) for possible values.
 ***NOTE: Use the Constant Value instead of the actual Constant Name. Ex: For the Constant [CATEGORY_HOME](http://developer.android.com/reference/android/content/Intent.html#CATEGORY_HOME) use 'android.intent.category.HOME'***
 
- Platforms:Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>
+ Platforms:
+Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>
 Explicit name of the application on the device to run. The platform will determine what value to use. 
 
 * iOS it is BundleURLScheme of executed application. 
 * Android it is application package name.
 * Windows it is the executable name.
  </p></li><li>targetClass : <span class='text-info'>STRING</span><p>
-Explicit name of the class in the application which will receive the intent. Must be specified if and only if 'appName' is defined. Platforms:Android </p></li><li>uri : <span class='text-info'>STRING</span><p>
+Explicit name of the class in the application which will receive the intent. Must be specified if and only if 'appName' is defined. Platforms:
+Android </p></li><li>uri : <span class='text-info'>STRING</span><p>
 Open the application associated with the URI. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix usually executes the Web Browser installed on system and open URL in executed browser.
 ***NOTE: For Android, this is similar to [Intent.setData()](http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri\)). For example, if you were sending a [Map Intent](http://developer.android.com/guide/components/intents-common.html#Maps) you would set this value to something like `geo:47.6,-122.3`***
  </p></li><li>mimeType : <span class='text-info'>STRING</span><p>
@@ -92,7 +91,8 @@ Notice the use of the full constant string "android.intent.extra.TEXT" in place 
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>responseCode : <span class='text-info'>INTEGER</span><p>
-Response code passed to Android Activity.setResult() method. [RESULT_OK](http://developer.android.com/reference/android/app/Activity.html#RESULT_OK) = -1. Check [Android Docs](http://developer.android.com/reference/android/app/Activity.html#setResult(int\)) for more information. Other attributes like `uri` may be returned depending on the Intent that was triggered. Possible parameters include the same params that are used in this `send(params)` method Platforms:Android </p></li></ul></ul>
+Response code passed to Android Activity.setResult() method. [RESULT_OK](http://developer.android.com/reference/android/app/Activity.html#RESULT_OK) = -1. Check [Android Docs](http://developer.android.com/reference/android/app/Activity.html#setResult(int\)) for more information. Other attributes like `uri` may be returned depending on the Intent that was triggered. Possible parameters include the same params that are used in this `send(params)` method Platforms:
+Android </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
@@ -100,7 +100,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Intent.send(<span class="text-info">HASH</span> params)</code> </li></ul></li></ul>
@@ -135,7 +135,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Intent.startListening()</code> </li></ul></li></ul>
@@ -152,7 +152,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Intent.stopListening()</code> </li></ul></li></ul>

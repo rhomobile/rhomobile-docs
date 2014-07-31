@@ -2,30 +2,24 @@
 
 
 ## Overview
-<p>The Battery API is used to notify the user of the remaining power in the battery. Windows Mobile / CE devices also support displaying a small indicator to show the available power.</p>
-<h2>Enabling the API</h2>
+The Battery API is used to notify the user of the remaining power in the battery. Windows Mobile / CE devices also support displaying a small indicator to show the available power.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    :::ruby
+    extensions: ["indicators"]
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+The `indicators` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
 
-<pre><code>:::ruby
-extensions: ["indicators"]
-</code></pre>
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-<p>The <code>indicators</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
 
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
 
 
@@ -48,24 +42,32 @@ Alternative way of specifying the refreshInterval parameter. If you are using a 
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>acLineStatus : <span class='text-info'>BOOLEAN</span><p>
 Whether or not the device is connected to external power. </p></li><li>batteryLifePercent : <span class='text-info'>INTEGER</span><p>
 The remaining battery power as a value between 0 and 100. </p></li><li>backupBatteryLifePercent : <span class='text-info'>INTEGER</span><p>
-The remaining backup battery power as a percentage between 0 and 100. Only supported on Motorola Windows Mobile / CE / Embedded devices. Platforms:WM </p></li><li>trigger : <span class='text-info'>STRING</span><p>
-Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery. Platforms:WM, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
-Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:WM </p></li><li>backupBatteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
-Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate. Platforms:WM </p></li></ul></ul>
+The remaining backup battery power as a percentage between 0 and 100. Only supported on Motorola Windows Mobile / CE / Embedded devices. Platforms:
+WM </p></li><li>trigger : <span class='text-info'>STRING</span><p>
+Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery. Platforms:
+WM, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
+Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:
+WM </p></li><li>backupBatteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
+Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate. Platforms:
+WM </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>HASH<ul><li>acLineStatus : <span class='text-info'>BOOLEAN</span><p>
 Whether or not the device is connected to external power. </p></li><li>batteryLifePercent : <span class='text-info'>INTEGER</span><p>
 The remaining battery power as a value between 0 and 100. </p></li><li>backupBatteryLifePercent : <span class='text-info'>INTEGER</span><p>
-The remaining backup battery power as a percentage between 0 and 100. Only supported on Motorola Windows Mobile / CE / Embedded devices. Platforms:WM </p></li><li>trigger : <span class='text-info'>STRING</span><p>
-Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery. Platforms:WM, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
-Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:WM </p></li><li>backupBatteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
-Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate. Platforms:WM </p></li></ul></li></ul>
+The remaining backup battery power as a percentage between 0 and 100. Only supported on Motorola Windows Mobile / CE / Embedded devices. Platforms:
+WM </p></li><li>trigger : <span class='text-info'>STRING</span><p>
+Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery. Platforms:
+WM, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
+Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:
+WM </p></li><li>backupBatteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>
+Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate. Platforms:
+WM </p></li></ul></li></ul>
 
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.batteryStatus(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -82,7 +84,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -109,7 +111,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -147,7 +149,7 @@ The battery health is unknown.</dd></dl></li></ul></li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -165,7 +167,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.stopBatteryStatus()</code> </li></ul></li></ul>
@@ -185,6 +187,11 @@ A callback to retrieve the battery strength can be specified to occur periodical
 <p><strong>Default:</strong> 5000</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Battery.refreshInterval</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ##Remarks
 

@@ -2,25 +2,17 @@
 
 
 ## Overview
-<p>captures video files from the default camera device.</p>
-<p>Only the foreground RhoElements application is given access to capture video, when an application is sent to the background any capture that is in progress will be canceled and it will automatically relinquish control of the video hardware. When brought back to the foreground, an application previously using the video capture will have its previous configuration (eg. name etc.) reapplied to the plug-in automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.</p>
+captures video files from the default camera device.Only the foreground RhoElements application is given access to capture video, when an application is sent to the background any capture that is in progress will be canceled and it will automatically relinquish control of the video hardware. When brought back to the foreground, an application previously using the video capture will have its previous configuration (eg. name etc.) reapplied to the plug-in automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["mediacapture"]
 
-<h2>Enabling the API</h2>
-
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["mediacapture"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
+        
 
 
 ##Methods
@@ -38,7 +30,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.cancel()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.cancel()</code> </li></ul></li></ul>
@@ -59,7 +51,7 @@ Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>S
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Videocapture.enumerate()</code> </li></ul></li></ul>
@@ -80,7 +72,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.getAllProperties()</code> </li></ul></li></ul>
@@ -101,7 +93,7 @@ Default object of Module.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Videocapture.getDefault()</code> </li></ul></li></ul>
@@ -123,7 +115,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
@@ -145,7 +137,7 @@ The property to return info about.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
@@ -163,7 +155,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Videocapture.setDefault(<span class="text-info">SELF_INSTANCE: EB.Videocapture</span> defaultInstance)</code> </li></ul></li></ul>
@@ -181,7 +173,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -200,7 +192,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
@@ -224,7 +216,7 @@ Not providing a callback to be invoked will result in that file is saved only lo
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.start()</code> </li></ul></li></ul>
@@ -240,7 +232,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.stop()</code> </li></ul></li></ul>
@@ -261,6 +253,12 @@ Specifies the number of milliseconds of video to capture. This is the maximum nu
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.duration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.duration</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###fileName
 
 ####Type
@@ -270,6 +268,12 @@ Specifies the number of milliseconds of video to capture. This is the maximum nu
 The path and name of the file that the video is saved to locally on the device. When the video capture completes the file is saved in the root directory of the device (In case of Android this is the external storage directory). For example, if the user specifies '/video/file1' then the file gets saved as '/mnt/sdcard/video/file1.mp4' in Android, and as '\video\file1.mov' on Windows. The file extension should not be provided as this is determined by the platform (.mp4 in Android and .mov in Windows). On iOS you'll need to provide the entire path, including the extension, which should be .MOV.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.fileName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###resolution
 
@@ -295,6 +299,12 @@ High resolution.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.resolution</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.resolution</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###saveToGallery
 
 ####Type
@@ -304,6 +314,12 @@ High resolution.
 Specifies whether or not to save the recorded video file into the device gallery.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.saveToGallery</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Videocapture.saveToGallery</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ##Remarks
 

@@ -2,31 +2,24 @@
 
 
 ## Overview
-<p>creates a rectangular box within which the user can draw by using a finger or the device&rsquo;s stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.</p>
-<h2>Enabling the API</h2>
+creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["signature"]
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+The `signature` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
 
-<pre><code>:::ruby
-extensions: ["signature"]
-</code></pre>
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-<p>The <code>signature</code> extension is also included automatically if you specify the following in your <code>build.yml</code></p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -51,7 +44,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.capture()</code> </li></ul></li></ul>
@@ -68,7 +61,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.clear()</code> </li></ul></li></ul>
@@ -85,7 +78,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.hide()</code> </li></ul></li></ul>
@@ -106,7 +99,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.setVectorCallback()</code> </li></ul></li></ul>
@@ -125,7 +118,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.show(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -150,7 +143,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Signature.takeFullScreen(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -171,6 +164,12 @@ RGB or ARGB value that sets the background color of the signature capture area.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.bgColor</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###border
 
 ####Type
@@ -182,6 +181,12 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 <p><strong>Default:</strong> true</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.border</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-info">compressionFormat</span>
 
@@ -209,6 +214,12 @@ Bitmap image file (Not available on iOS).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.compressionFormat</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###<span class="text-info">fileName</span>
 
 ####Type
@@ -220,6 +231,12 @@ The filename in which to store the signature image, if "image" is used as the ou
 <p><strong>Default:</strong> signature</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.fileName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###height
 
@@ -233,6 +250,12 @@ The height of the signature capture area in pixels. Not applicable to fullscreen
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.height</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###left
 
 ####Type
@@ -244,6 +267,12 @@ The coordinates in pixels of the left side of the signature capture area. Not ap
 <p><strong>Default:</strong> 15</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.left</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###outputFormat
 
@@ -269,6 +298,12 @@ Outputs the signature capture image as a DataURI string. (Not available on iOS).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.outputFormat</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###penColor
 
 ####Type
@@ -280,6 +315,12 @@ RGB or ARGB value that sets the color of the stylus pen ink using HTML web color
 <p><strong>Default:</strong> #FF000000</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.penColor</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###penWidth
 
@@ -293,6 +334,12 @@ Sets the width of the pen line in pixels. Advised to keep this to 5 or less.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.penWidth</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###top
 
 ####Type
@@ -305,6 +352,12 @@ The coordinates in pixels of the top side of the signature capture area. Not app
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.top</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###width
 
 ####Type
@@ -316,6 +369,12 @@ The width of the signature capture area in pixels. Not applicable to fullscreen 
 <p><strong>Default:</strong> 200</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Signature.width</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ##Remarks
 

@@ -2,34 +2,25 @@
 
 
 ## Overview
-<p>The Push API provides access to Push messaging functionality</p>
-<p>Use this API to give your application the ability to receive server initiated messages.</p>
+The Push API provides access to Push messaging functionalityUse this API to give your application the ability to receive server initiated messages.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`:
 
-<h2>Enabling the API</h2>
+For APNS or GCM:
+    :::ruby
+    capabilities: ["push"]
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>:</p>
+For RhoConnect Push Service:
+    :::ruby
+    extensions: ["rhoconnect-push", "rhoconnect-client"]
+    For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
 
-<p>For APNS or GCM:</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-capabilities: ["push"]
-</code></pre>
-
-<p>For RhoConnect Push Service:</p>
-
-<pre><code>:::ruby
-extensions: ["rhoconnect-push", "rhoconnect-client"]
-For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -52,7 +43,7 @@ Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.enumerate()</code> </li></ul></li></ul>
@@ -73,7 +64,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getAllProperties()</code> </li></ul></li></ul>
@@ -94,7 +85,7 @@ Default object of Module.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.getDefault()</code> </li></ul></li></ul>
@@ -114,7 +105,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDeviceId()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getDeviceId()</code> </li></ul></li></ul>
@@ -136,7 +127,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
@@ -158,7 +149,7 @@ The property to return info about.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
@@ -176,7 +167,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</code> </li></ul></li></ul>
@@ -194,7 +185,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -213,7 +204,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
@@ -237,7 +228,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.startNotifications()</code> </li></ul></li></ul>
@@ -254,7 +245,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stopNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.stopNotifications()</code> </li></ul></li></ul>
@@ -273,6 +264,12 @@ Application name used by RhoConnect Push server to identify application.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushAppName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.pushAppName</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###pushServer
 
 ####Type
@@ -282,6 +279,12 @@ Application name used by RhoConnect Push server to identify application.
 URL of RhoConnect Push server.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushServer</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.pushServer</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###type
 
@@ -304,6 +307,12 @@ RhoConnect push engine.
 Native push engine (like GCM on Android).
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.type</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ##Examples
 

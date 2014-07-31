@@ -2,23 +2,18 @@
 
 
 ## Overview
-<p>This API class allows you to interact with either the WAN or WiFI network of the device.</p>
-<h2>Enabling the API</h2>
+This API class allows you to interact with either the WAN or WiFI network of the device.
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -37,7 +32,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.cancel()</code> </li></ul></li></ul>
@@ -62,7 +57,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.connectWan(<span class="text-info">STRING</span> connectionDestination)</code> </li></ul></li></ul>
@@ -89,7 +84,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.detectConnection(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -105,7 +100,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.disconnectWan()</code> </li></ul></li></ul>
@@ -140,7 +135,7 @@ When overwriteFile is false and file exists, when error return and this flag set
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.downloadFile(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -169,7 +164,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.get(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -189,7 +184,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.hasCellNetwork()</code> </li></ul></li></ul>
@@ -209,7 +204,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.hasNetwork()</code> </li></ul></li></ul>
@@ -229,7 +224,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.hasWifiNetwork()</code> </li></ul></li></ul>
@@ -259,7 +254,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.post(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -282,7 +277,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)</code> </li></ul></li></ul>
@@ -299,7 +294,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.stopDetectingConnection()</code> </li></ul></li></ul>
@@ -316,7 +311,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.stopStatusNotify()</code> </li></ul></li></ul>
@@ -354,7 +349,7 @@ HTTP error code if response code was not 200. </p></li></ul></li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Network.uploadFile(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -373,6 +368,12 @@ Password for basic authentication. You must also specify `authType='basic'
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.authPassword</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###authType
 
@@ -393,6 +394,12 @@ Basic Authentication Type. uses authUser and authPassword.
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.authType</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###authUser
 
 ####Type
@@ -403,6 +410,12 @@ User name for basic authentication. You must also specify `authType='basic'`
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.authUser</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###headers
 
@@ -415,6 +428,12 @@ List of HTTP headers to be used in the network  request.
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.headers</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###<span class="text-info">httpVerb</span>
 
 ####Type
@@ -425,6 +444,12 @@ HTTP verb to be used in the network request.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.httpVerb</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###responseTimeout
 
@@ -439,6 +464,12 @@ Timeout of network requests in seconds. This property has module scope. Do not p
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.responseTimeout</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###url
 
 ####Type
@@ -449,6 +480,12 @@ URL of the request. This should be fully formatted URL like http://domain.com/
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.url</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-info">verifyPeerCertificate</span>
 
@@ -462,6 +499,12 @@ Verify SSL certificates. When set to false it will allow untrusted certificates.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Network.verifyPeerCertificate</code> </li></ul></li></ul>
 This property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in.
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ##Remarks
 

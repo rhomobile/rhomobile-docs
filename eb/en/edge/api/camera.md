@@ -2,25 +2,19 @@
 
 
 ## Overview
-<p>The Camera API provides access to your device&rsquo;s Camera(s)</p>
-<p>Use this API to give users the ability to take a photo via one of the device&rsquo;s cameras and return it to the application. Photos can either be stored on the device and optionally transfered to an online server using the Network API or can be returned as a DataURI object for storing or display.</p>
+The Camera API provides access to your device's Camera(s)Use this API to give users the ability to take a photo via one of the device's cameras and return it to the application. Photos can either be stored on the device and optionally transfered to an online server using the Network API or can be returned as a DataURI object for storing or display.
+## Enabling the API           
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["mediacapture"]
 
-<h2>Enabling the API</h2>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
 
-<pre><code>:::ruby
-extensions: ["mediacapture"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
+        
 
 
 ##Methods
@@ -54,7 +48,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Camera.choosePicture(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -75,7 +69,7 @@ Array of objects.<ul><li>cameraArray : <span class='text-info'>SELF_INSTANCE: EB
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Camera.enumerate()</code> </li></ul></li></ul>
@@ -96,7 +90,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.getAllProperties()</code> </li></ul></li></ul>
@@ -118,7 +112,7 @@ Camera with requested type or nil if not requested type does not exist.</li></ul
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Camera.getCameraByType(<span class="text-info">STRING</span> cameraType)</code> </li></ul></li></ul>
@@ -139,7 +133,7 @@ Default object of Module.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Camera.getDefault()</code> </li></ul></li></ul>
@@ -161,7 +155,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
@@ -183,7 +177,7 @@ The property to return info about.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
@@ -218,7 +212,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Camera.setDefault(<span class="text-info">SELF_INSTANCE: EB.Camera</span> defaultInstance)</code> </li></ul></li></ul>
@@ -236,7 +230,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -255,7 +249,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
@@ -287,7 +281,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.takePicture(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.takePicture(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -320,6 +314,12 @@ Front camera.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.cameraType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.cameraType</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###captureSound
 
 ####Type
@@ -329,6 +329,12 @@ Front camera.
 Path to a sound file resident on the device which will be played when the image is captured.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.captureSound</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.captureSound</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-info">colorModel</span>
 
@@ -354,6 +360,11 @@ A grayscale image is captured.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.colorModel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.colorModel</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###<span class="text-info">compressionFormat</span>
 
 ####Type
@@ -378,6 +389,12 @@ PNG compression.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compressionFormat</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.compressionFormat</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE(JPG is supported on all devices, Android and Windows Mobile does not support PNG images)
+
 ###<span class="text-info">desiredHeight</span>
 
 ####Type
@@ -388,6 +405,12 @@ Camera hardware is limited to taking photos in a finite number of resolutions, e
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.desiredHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.desiredHeight</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###<span class="text-info">desiredWidth</span>
 
 ####Type
@@ -397,6 +420,12 @@ Camera hardware is limited to taking photos in a finite number of resolutions, e
 Camera hardware is limited to taking photos in a finite number of resolutions, eg 2048x1536, 640x480 etc. Specifying a desiredWidth will request to take the photo with the specified width but if it is not supported by the hardware then the closest match will be selected. The callback received when a photo is taken contains the actual resolution of the captured photo.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.desiredWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.desiredWidth</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-info">enableEditing</span>
 
@@ -419,6 +448,12 @@ Enables post photo capture image customizing; image will captured reduced to scr
 The path without filename extension to store captured image in subsequent calls to takePicture(). The filename extension will be added automatically according to compressionFormat property value.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.fileName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-info">flashMode</span>
 
@@ -454,6 +489,11 @@ The flash is turned on in torch mode.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.flashMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.flashMode</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###maxHeight
 
 ####Type
@@ -464,6 +504,12 @@ The maximum height of images which can be captured.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.maxHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.maxHeight</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###maxWidth
 
 ####Type
@@ -473,6 +519,11 @@ The maximum height of images which can be captured.
 The maximum width of images which can be captured.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.maxWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.maxWidth</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
 
 ###outputFormat
 
@@ -499,6 +550,12 @@ Android,WM
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.outputFormat</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.outputFormat</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###previewHeight
 
 ####Type
@@ -508,6 +565,11 @@ Android,WM
 In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.previewHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.previewHeight</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###<span class="text-info">previewLeft</span>
 
@@ -519,6 +581,11 @@ In cases where the resident camera application on the device is not used this AP
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.previewLeft</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.previewLeft</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###<span class="text-info">previewTop</span>
 
 ####Type
@@ -529,6 +596,11 @@ In cases where the resident camera application on the device is not used this AP
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.previewTop</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.previewTop</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###previewWidth
 
 ####Type
@@ -538,6 +610,11 @@ In cases where the resident camera application on the device is not used this AP
 In cases where the resident camera application on the device is not used this API is used to control the position of the viewfinder preview window when taking a photo.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.previewWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.previewWidth</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###<span class="text-info">saveToDeviceGallery</span>
 
@@ -551,6 +628,11 @@ If true, the picture you take will be added to the device photo gallery. At Andr
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.saveToDeviceGallery</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.saveToDeviceGallery</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###supportedSizeList
 
 ####Type
@@ -563,6 +645,11 @@ List of resolutions supported by camera.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.supportedSizeList</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.supportedSizeList</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###useSystemViewfinder
 
 ####Type
@@ -574,6 +661,11 @@ Uses the system Camera application to take a picture instead of rhodes' camera. 
 <p><strong>Default:</strong> false</p>
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.useSystemViewfinder</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Camera.useSystemViewfinder</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
 
 ##Examples
 

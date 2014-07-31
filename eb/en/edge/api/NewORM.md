@@ -2,9 +2,7 @@
 
 
 ## Overview
-<p>NewORM CoreAPI module</p>
-<p>New implementation of the RHOM.</p>
-
+NewORM CoreAPI moduleNew implementation of the RHOM.
 
 
 ##Methods

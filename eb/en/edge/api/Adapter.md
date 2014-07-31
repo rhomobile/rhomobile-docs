@@ -2,22 +2,9 @@
 
 
 ## Overview
-<p>NFC Adapter</p>
-<p>NFC Adapter provides access to the NFC device to perform device related operations.</p>
-
-<pre><code>All properties and methods should be used after activate. Besides supported and isActive.
-</code></pre>
-
-<h2>Enabling the API</h2>
-
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["NFC"]
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
+EB Specific overrideNFC Adapter
+EB Specific help on how to enable this api or any other special circumstances.
+    
 
 
 ##Methods
@@ -35,7 +22,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.activate()</code> </li></ul></li></ul>
@@ -56,7 +43,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.btConnect()</code> </li></ul></li></ul>
@@ -72,7 +59,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.btDisconnect()</code> </li></ul></li></ul>
@@ -102,7 +89,7 @@ This array has only one element. </p></li><ul><li><i>Object</i> : <span class='t
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.getDeviceInfo()</code> </li></ul></li></ul>
@@ -118,7 +105,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.reset()</code> </li></ul></li></ul>
@@ -139,7 +126,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.setConfigChangeHandler()</code> </li></ul></li></ul>
@@ -159,7 +146,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.setMessageHandler()</code> </li></ul></li></ul>
@@ -180,7 +167,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.setTagDetectionHandler(<span class="text-info">ARRAY</span> tagsToBeDetected)</code> </li></ul></li></ul>
@@ -196,7 +183,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Adapter.stop()</code> </li></ul></li></ul>
@@ -215,6 +202,11 @@ Gets a value indicating whether or not the NFC device is currently active.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.isActive</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###passkey
 
 ####Type
@@ -224,6 +216,11 @@ Gets a value indicating whether or not the NFC device is currently active.
 Bluetooth device pass key. Max of 6 characters, empty string is no Passkey (Default is No Passkey). The property is enabled after NFC engine activation.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.passkey</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###pollingTimeout
 
@@ -235,15 +232,25 @@ Polling timeout in seconds of the NFC device. 0 - timeout disabled, default: 90.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.pollingTimeout</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###supported
 
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
 
-Return true if NFC supported on this device.
+This is EB specific description
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.supported</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###version
 
@@ -254,3 +261,8 @@ Return true if NFC supported on this device.
 Gets the version of the NFC stack.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.version</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE

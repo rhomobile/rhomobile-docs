@@ -2,33 +2,25 @@
 
 
 ## Overview
-<p>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.</p>
-<p>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</p>
+The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    :::ruby
+    extensions: ["cardreader"]
 
-<h2>Enabling the API</h2>
+The `cardreader` extension is also included automatically if you specify the following in your `build.yml`.
+    :::ruby
+    app_type: "rhoelements"
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-<pre><code>:::ruby
-extensions: ["cardreader"]
-</code></pre>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<p>The <code>cardreader</code> extension is also included automatically if you specify the following in your <code>build.yml</code>.</p>
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
 
-<pre><code>:::ruby
-app_type: "rhoelements"
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+        
 
 
 ##Methods
@@ -47,7 +39,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -69,7 +61,7 @@ Array of Card reader objects.<ul><li>cardreaderArray : <span class='text-info'>S
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.CardReader.enumerate()</code> </li></ul></li></ul>
@@ -90,7 +82,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.getAllProperties()</code> </li></ul></li></ul>
@@ -111,7 +103,7 @@ Default object of Module.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.CardReader.getDefault()</code> </li></ul></li></ul>
@@ -133,7 +125,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
@@ -155,7 +147,7 @@ The property to return info about.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
@@ -192,7 +184,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -211,7 +203,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.CardReader.setDefault(<span class="text-info">SELF_INSTANCE: EB.CardReader</span> defaultInstance)</code> </li></ul></li></ul>
@@ -229,7 +221,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -248,7 +240,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
@@ -269,6 +261,13 @@ When enabled, appends a carriage return to any data returned as keystrokes by th
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoEnter</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.autoEnter</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only
+
 ###autoTab
 
 ####Type
@@ -280,6 +279,13 @@ When enabled, appends a tab to any data returned as keystrokes by the cardreader
 <p><strong>Default:</strong> false</p>
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoTab</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.autoTab</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only
 
 ###<span class="text-error">moduleName</span>
 
@@ -327,6 +333,12 @@ MSR3000 drivers. Return value while getting the property of moduleName will be i
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.moduleName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.moduleName</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only
+
 ###panData
 
 ####Type
@@ -337,6 +349,12 @@ Sets the card data without the need of a swipe. This accepts any 16 digit number
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.panData</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.panData</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
+
 ###pinEntry
 
 ####Type
@@ -346,6 +364,12 @@ Sets the card data without the need of a swipe. This accepts any 16 digit number
 Turns the PIN entry on or off.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pinEntry</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.pinEntry</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
 
 ###pinTimeout
 
@@ -358,6 +382,12 @@ PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite
 <p><strong>Default:</strong> 30000</p>
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pinTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.CardReader.pinTimeout</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
 
 ##Remarks
 

@@ -2,47 +2,43 @@
 
 
 ## Overview
-<p>RhoMobile applications provide automatic JavaScript CRUD methods for any models that you have defined to interact with the database.  You must define a model class by using the <a href="Orm#maddModel">ORM.addModel</a> method before you can use the API&rsquo;s referenced here.  See <a href="Orm">Orm</a> to learn about defining and adding a model.</p>
+RhoMobile applications provide automatic JavaScript CRUD methods for any models that you have defined to interact with the database.  You must define a model class by using the [ORM.addModel](Orm#maddModel) method before you can use the API's referenced here.  See [Orm](Orm) to learn about defining and adding a model.
 
-<p>All methods here are accessed from the model instance object that you have created. In places where you see <code>[Your-OrmModel]</code> on this page, you would use the instance object instead.</p>
+All methods here are accessed from the model instance object that you have created. In places where you see `[Your-OrmModel]` on this page, you would use the instance object instead.
 
-<pre><code>:::js
-var productModel = Rho.ORM.addModel(function(model){
-  model.modelName("Product");
-  model.enable("sync");
-  model.property("name","string");
-  model.property("brand","string");
-  model.property("price","float");
-  model.set("partition","user");
-});
+    :::js
+    var productModel = Rho.ORM.addModel(function(model){
+      model.modelName("Product");
+      model.enable("sync");
+      model.property("name","string");
+      model.property("brand","string");
+      model.property("price","float");
+      model.set("partition","user");
+    });
 
-// create model object and save it to database
-var product = productModel.create({
-  brand: 'Apple',
-  name: 'iPhone5',
-  price: 199.99});
+    // create model object and save it to database
+    var product = productModel.create({
+      brand: 'Apple',
+      name: 'iPhone5',
+      price: 199.99});
 
-// read product from database
-var product = productModel.find('first');
-product.get('brand'); // Apple
-product.get('name'); // iPhone5
-</code></pre>
-<h2>Enabling the API</h2>
+    // read product from database
+    var product = productModel.find('first');
+    product.get('brand'); // Apple
+    product.get('name'); // iPhone5
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+         
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>For Ruby access to the RHOM database please see the <a href="/api/rhom-api">Rhom Ruby API guide</a>.</p>
-
+## Ruby Usage
+For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/rhom-api).
+        
 
 
 ##Methods
@@ -64,7 +60,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.canModify()</code></li></ul></li></ul>
@@ -85,7 +81,7 @@ Synchronous Return:<ul><li>OBJECT</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.create(<span class="text-info">HASH</span> attributes)</code></li></ul></li></ul>
@@ -102,7 +98,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.deleteAll()</code></li></ul></li></ul>
@@ -119,7 +115,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.destroy()</code></li></ul></li></ul>
@@ -149,7 +145,7 @@ Synchronous Return:<ul><li>ARRAY</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.find(<span class="text-info">STRING</span> queryType, <span class="text-info">HASH</span> queryOptions)</code></li></ul></li></ul>
@@ -171,7 +167,7 @@ Value of the specified property from the database.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.get(<span class="text-info">STRING</span> propertyName)</code></li></ul></li></ul>
@@ -192,7 +188,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.has(<span class="text-info">STRING</span> propertyName)</code></li></ul></li></ul>
@@ -213,7 +209,7 @@ Synchronous Return:<ul><li>OBJECT</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.make(<span class="text-info">HASH</span> attributes)</code></li></ul></li></ul>
@@ -233,7 +229,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.object()</code></li></ul></li></ul>
@@ -250,7 +246,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.save()</code></li></ul></li></ul>
@@ -269,7 +265,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.set(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li></ul>
@@ -287,7 +283,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.updateAttributes(<span class="text-info">HASH</span> attributes)</code></li></ul></li></ul>
@@ -307,7 +303,7 @@ Synchronous Return:<ul><li>HASH</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.vars()</code></li></ul></li></ul>

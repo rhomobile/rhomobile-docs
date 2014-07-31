@@ -2,19 +2,14 @@
 
 
 ## Overview
-<p>NFC Record</p>
-<p>This class representative Record object</p>
+NFC RecordThis class representative Record object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
 
-<h1>Enabling the API</h1>
-
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["nfc"]
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+    
 
 
 ##Methods
@@ -32,7 +27,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
@@ -52,7 +47,7 @@ Record object.</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Record.create()</code> </li></ul></li></ul>
@@ -71,6 +66,11 @@ Object ID.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###payload
 
 ####Type
@@ -80,6 +80,11 @@ Object ID.
 Record payload(data buffer).
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.payload</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###recordId
 
@@ -91,6 +96,11 @@ Optional field for NFC_NDEF_RTD_GENERAL record type.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.recordId</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###textCharEncoding
 
 ####Type
@@ -101,6 +111,11 @@ Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.textCharEncoding</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###textLanguage
 
 ####Type
@@ -110,6 +125,11 @@ Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8
 Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.textLanguage</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###tnf
 
@@ -149,6 +169,11 @@ When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL,
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.tnf</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###type
 
 ####Type
@@ -175,6 +200,11 @@ A generic type record.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###typeName
 
 ####Type
@@ -185,6 +215,11 @@ When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL,
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.typeName</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###uriProtocol
 
 ####Type
@@ -194,3 +229,8 @@ When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL,
 Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.uriProtocol</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE

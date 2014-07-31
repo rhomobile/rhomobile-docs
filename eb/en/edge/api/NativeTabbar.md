@@ -2,25 +2,18 @@
 
 
 ## Overview
-<p>The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, iOS and WIndows Phone 8 the tabs are true Native Tabbar controls to give your application a native look and feel.</p>
-<p>No more than 4 tabs can be created in the Windows Phone 8 tabbar. A tabbar separator doesn&rsquo;t exist in Windows Phone 8. On Windows Mobile/CE there are no visible tabs. At one time only Toolbar or Tabbar can present in application &ndash; Toolbar and Tabbar can not be used both in one time.</p>
+The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, iOS and WIndows Phone 8 the tabs are true Native Tabbar controls to give your application a native look and feel.No more than 4 tabs can be created in the Windows Phone 8 tabbar. A tabbar separator doesn't exist in Windows Phone 8. On Windows Mobile/CE there are no visible tabs. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time. 
+## Enabling the API           
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<h2>Enabling the API</h2>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
-
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -36,27 +29,42 @@ Array of Tab elements. </p></li><ul><li>tabElement : <span class='text-info'>HAS
 Properties of Tab elements. </p></li><ul><li>label : <span class='text-info'>STRING</span><p>
 Visible label to display on the tabbar. </p></li><li>action : <span class='text-info'>STRING</span><p>
 URL to page which will be loaded into tab. Predefined actions are not supported. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or javascript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li><li>icon : <span class='text-info'>STRING</span><p>
-Relative path to tabbar item icon in your rhodes app; typically located in /public/images/. Platforms:Win32, Android, iOS, WP8 </p></li><li>reload : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
+Relative path to tabbar item icon in your rhodes app; typically located in /public/images/. Platforms:
+Win32, Android, iOS, WP8 </p></li><li>reload : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
 When tab is activated  - page in tab will be reloaded. </p></li><li>selectedColor : <span class='text-info'>INTEGER</span><p>
-Change the selected color of this tab. On Android this works only if you setup selectedColor for all tabs and also setup backgroundColor for the whole Tabbar. Platforms:Win32, Android, iOS, WP8 </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Tab will be displayed as disabled. Platforms:Win32, Android, iOS, WP8 </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>
- Background color for tab. Use when your application background color is not white for removing blink during switch tabs. Platforms:Win32, Android, iOS, WP8 </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter. Platforms:WM, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Platforms:WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p>
+Change the selected color of this tab. On Android this works only if you setup selectedColor for all tabs and also setup backgroundColor for the whole Tabbar. Platforms:
+Win32, Android, iOS, WP8 </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
+Tab will be displayed as disabled. Platforms:
+Win32, Android, iOS, WP8 </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>
+ Background color for tab. Use when your application background color is not white for removing blink during switch tabs. Platforms:
+Win32, Android, iOS, WP8 </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
+Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter. Platforms:
+WM, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
+Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
+WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
+Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Platforms:
+WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p>
 Properties of TabBar. </p></li><ul><li>verticalOrientation : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Creates a vertical tabbar on the iPad. Platforms:iOS </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>
-Background color of the tabbar. Platforms:Win32, Android, iOS, WP8 </p></li><li>hiddenTabs : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p>
-Do not display Tabs with labels.Only hiddenTab=true is currently supported. Platforms:WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Create tabs immediately when TabBar is created. Action also will be executed. If false, then each tab will be created when first switch to the tab is executed. Platforms:WM </p></li><li>placeTabsBottom : <span class='text-info'>BOOLEAN</span><p>
-Place TabBar to bottom instead of default top - only for Android. Platforms:Android </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+Creates a vertical tabbar on the iPad. Platforms:
+iOS </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>
+Background color of the tabbar. Platforms:
+Win32, Android, iOS, WP8 </p></li><li>hiddenTabs : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p>
+Do not display Tabs with labels.Only hiddenTab=true is currently supported. Platforms:
+WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
+Create tabs immediately when TabBar is created. Action also will be executed. If false, then each tab will be created when first switch to the tab is executed. Platforms:
+WM </p></li><li>placeTabsBottom : <span class='text-info'>BOOLEAN</span><p>
+Place TabBar to bottom instead of default top - only for Android. Platforms:
+Android </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>tab_index : <span class='text-info'>INTEGER</span><p>
 New tab index. </p></li><li>newTabIndex : <span class='text-info'>INTEGER</span><p>
-New tab index. Platforms:WM </p></li><li>oldTabIndex : <span class='text-info'>INTEGER</span><p>
-New tab index. If you switched to first activated tab, when oldTabIndex will be -1, which means that there was no old tab index exists. Platforms:WM </p></li><li>tabEvent : <span class='text-info'>STRING</span><p>
-{} Platforms:WM </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>onTabFocus</dt><dd>
+New tab index. Platforms:
+WM </p></li><li>oldTabIndex : <span class='text-info'>INTEGER</span><p>
+New tab index. If you switched to first activated tab, when oldTabIndex will be -1, which means that there was no old tab index exists. Platforms:
+WM </p></li><li>tabEvent : <span class='text-info'>STRING</span><p>
+{} Platforms:
+WM </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>onTabFocus</dt><dd>
 Fires when a tab gains focus.</dd><dt>onTabNewError</dt><dd>
 Fires when a new tab cannot be created.</dd></dl></li></ul></ul>
 
@@ -66,7 +74,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)</code> </li></ul></li></ul>
@@ -86,7 +94,7 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.currentTabIndex()</code> </li></ul></li></ul>
@@ -103,7 +111,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.remove()</code> </li></ul></li></ul>
@@ -120,7 +128,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.removeTab(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
@@ -152,7 +160,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeTabbar.switchTab(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>

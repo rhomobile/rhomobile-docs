@@ -2,22 +2,17 @@
 
 
 ## Overview
-<p>The Application class is used for accessing or setting application level configuration settings.</p>
-<h2>Enabling the API</h2>
+The Application class is used for accessing or setting application level configuration settings.
+## Enabling the API           
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
 
 
 
@@ -42,7 +37,7 @@ Full path to the database file for given partition.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.databaseFilePath(<span class="text-info">STRING</span> partitionName)</code> </li></ul></li></ul>
@@ -64,7 +59,7 @@ Full path to the database blob.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)</code> </li></ul></li></ul>
@@ -80,7 +75,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.minimize()</code> </li></ul></li></ul>
@@ -101,7 +96,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.modelFolderPath(<span class="text-info">STRING</span> name)</code> </li></ul></li></ul>
@@ -118,7 +113,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.quit()</code> </li></ul></li></ul>
@@ -139,7 +134,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)</code> </li></ul></li></ul>
@@ -155,7 +150,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.restore()</code> </li></ul></li></ul>
@@ -188,7 +183,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.setApplicationNotify()</code> </li></ul></li></ul>
@@ -207,6 +202,12 @@ Path to apps/app folder inside the application bundle.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appBundleFolder</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###appName
 
 ####Type
@@ -216,6 +217,12 @@ Path to apps/app folder inside the application bundle.
 Application name.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###appsBundleFolder
 
@@ -227,6 +234,12 @@ Path to apps folder inside the application bundle.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appsBundleFolder</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###badLinkURI
 
 ####Type
@@ -236,6 +249,11 @@ Path to apps folder inside the application bundle.
 Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\BadLinkURI.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.badLinkURI</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###bundleFolder
 
@@ -247,6 +265,12 @@ Path to application bundle folder.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.bundleFolder</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###configPath
 
 ####Type
@@ -257,6 +281,12 @@ Path to the configuration file.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.configPath</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###databaseBlobFolder
 
 ####Type
@@ -266,6 +296,12 @@ Path to the configuration file.
 Path to folder where the database blob files are stored. Blobs are usually images or binary files. In the ORM Model you would specify that the attribute is of type blob Ex. When capturing an image, the actual file is saved in the databaseBlobFolder.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.databaseBlobFolder</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###defaultNativeMenu
 
@@ -280,6 +316,12 @@ Same values as nativeMenu. </p></li>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.defaultNativeMenu</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###invalidSecurityTokenStartPath
 
 ####Type
@@ -290,6 +332,12 @@ Page to navigate to in case of check of SecurityToken failed. Can be set in rhoc
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.invalidSecurityTokenStartPath</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###modelsManifestPath
 
 ####Type
@@ -299,6 +347,12 @@ Page to navigate to in case of check of SecurityToken failed. Can be set in rhoc
 Path to file with the model list.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.modelsManifestPath</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###nativeMenu
 
@@ -314,6 +368,12 @@ URL to page which will be loaded into tab. It may be path to Ruby controller act
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.nativeMenu</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###publicFolder
 
 ####Type
@@ -323,6 +383,12 @@ URL to page which will be loaded into tab. It may be path to Ruby controller act
 Path to the application's public folder.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.publicFolder</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###securityTokenNotPassed
 
@@ -334,6 +400,12 @@ Is the security token check was failed. Security token can be set in build.yml: 
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.securityTokenNotPassed</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###settingsPageURI
 
 ####Type
@@ -343,6 +415,12 @@ Is the security token check was failed. Security token can be set in build.yml: 
 Settings page URI. Will be used when Options menu or toolbar item is chosen by user.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.settingsPageURI</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###splash
 
@@ -354,6 +432,12 @@ Splash screen image display options. This a string with several parameters divid
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.splash</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###startURI
 
 ####Type
@@ -363,6 +447,12 @@ Splash screen image display options. This a string with several parameters divid
 Startup page for your application.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.startURI</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###title
 
@@ -374,6 +464,11 @@ Define Window caption text. If missed - caption from page used. Not supported on
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.title</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###userFolder
 
 ####Type
@@ -384,6 +479,12 @@ Path to folder where the application can write files and create subfolders.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.userFolder</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###version
 
 ####Type
@@ -393,6 +494,12 @@ Path to folder where the application can write files and create subfolders.
 Version from build time configuration file (build.yml).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.version</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ##Examples
 

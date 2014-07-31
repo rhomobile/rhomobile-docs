@@ -13,14 +13,51 @@ class Apieb
 		return noexception
 	end
 
-  def self.getMDDesc(desc)
-  	return "\n#{desc}"
-  	# if desc.is_a?(String)
-  		# return RDiscount.new(desc, :smart).to_html
-  	# else
-  		# return desc
-  	# end
+  def self.getMDDesc(element)
+  	# will check for presence of DESC_EB to override the default description
+  	desc = ""
+  	if !element["DESC_EB"].nil?
+  		desc = element["DESC_EB"][0]
+  	else
+  		if !element["DESC"].nil?
+  			desc = element["DESC"][0]
+  		end
+  	end
+  	return "\n#{desc.to_s}"
   end
+
+  def self.elementHasPlatform(element)
+  	if !element["PLATFORM"].nil? || !element["PLATFORM_EB"].nil?
+  		return true
+  	else
+  		return false
+  	end
+  end
+
+  def self.useModulePlatformOverride(element)
+  	if !element["PLATFORM"].nil? && !element["PLATFORM"][0]["usemodule"].nil? 
+  		return true
+  	end
+  	if !element["PLATFORM_EB"].nil? && !element["PLATFORM_EB"][0]["usemodule"].nil?
+  		return true
+	end
+	return false
+  end
+
+  def self.getPlatformDesc(element)
+  	# will check for presence of PLATFORM_EB to override the default description
+  	desc = ""
+  	if !element["PLATFORM_EB"].nil?
+  		desc = element["PLATFORM_EB"][0]
+  	else
+  		if !element["PLATFORM"].nil?
+  			desc = element["PLATFORM"][0]
+  		end
+  	end
+  	return "\n#{desc.to_s}"
+  end
+
+
   def self.getElementName(element)
   	if !element["docNameOverride"].nil?
   		return element["docNameOverride"]
@@ -28,6 +65,60 @@ class Apieb
   		return element["name"]
   	end 
   end	
+
+  def self.getAppliesElement(element)
+  	if !element["APPLIES"].nil?
+  		return element["APPLIES"]
+  	end
+  	if !element["APPLIES_EB"].nil?
+  		return element["APPLIES_EB"]
+  	end
+  	return nil
+  end
+
+  def self.appliesMSIOnly(element)
+  	if element[0].is_a?(Hash) && element[0].key?("msiOnly")
+		if element[0]["msiOnly"] == "true"
+			return true
+		end
+	end
+	return false
+  end
+
+  def self.appliesRubyOnly(element)
+	if element[0].is_a?(Hash) && element[0].key?("rubyOnly")
+		if element[0]["rubyOnly"] == "true"
+			return true
+		end
+	end
+	return false
+  end
+
+  def self.appliesJSOnly(element)
+	if element[0].is_a?(Hash) && element[0].key?("jsOnly")
+		if element[0]["jsOnly"] == "true"
+			return true
+		end
+	end
+	return false
+  end
+
+  def self.appliesNote(element)
+	appliescontent = ""
+	# puts element["APPLIES"]
+	if element[0].is_a?(Hash) && element[0].key?("content")
+		appliescontent = element[0]["content"]	
+	end	
+	if element[0].is_a?(String)
+		appliescontent = element[0]	
+	end	
+	if appliescontent.size >0
+		
+		return "(" + appliescontent + ")"
+	end
+	return ""
+  end
+
 #returns markdown for the name of the API 
   def self.getApiName(doc,lang,allowoverride)
   	md=""
@@ -60,14 +151,27 @@ class Apieb
 
  def self.getApiDesc(doc)
   	md=""
-  	if !doc["MODULE"][0]["HELP_OVERVIEW"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW"][0].length >0
+  	if !doc["MODULE"][0]["HELP_OVERVIEW_EB"].nil? && !doc["MODULE"][0]["HELP_OVERVIEW_EB"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW_EB"][0].length >0
 
-	  	md = RDiscount.new(doc["MODULE"][0]["HELP_OVERVIEW"][0], :smart).to_html
-	  	if !doc["MODULE"][0]["MORE_HELP"].nil? && !doc["MODULE"][0]["MORE_HELP"][0].nil? && doc["MODULE"][0]["MORE_HELP"][0].length >0
-	  		
-	  		md +=RDiscount.new(doc["MODULE"][0]["MORE_HELP"][0], :smart).to_html
+	  	md = doc["MODULE"][0]["HELP_OVERVIEW_EB"][0]
+	else
+	  	if !doc["MODULE"][0]["HELP_OVERVIEW"].nil? && !doc["MODULE"][0]["HELP_OVERVIEW"][0].nil? && doc["MODULE"][0]["HELP_OVERVIEW"][0].length >0
+
+		  	md = doc["MODULE"][0]["HELP_OVERVIEW"][0]
 	  	end
   	end
+
+  	if !doc["MODULE"][0]["MORE_HELP_EB"].nil? && !doc["MODULE"][0]["MORE_HELP_EB"][0].nil? && doc["MODULE"][0]["MORE_HELP_EB"][0].length >0
+  		
+  		md +=doc["MODULE"][0]["MORE_HELP_EB"][0]
+  	else
+	  	if !doc["MODULE"][0]["MORE_HELP"].nil? && !doc["MODULE"][0]["MORE_HELP"][0].nil? && doc["MODULE"][0]["MORE_HELP"][0].length >0
+	  		
+	  		md +=doc["MODULE"][0]["MORE_HELP"][0]
+	  	end
+
+  	end
+
   	return md
   end
  
@@ -133,7 +237,7 @@ class Apieb
 	  		if noproductException(element)
 
 			    md += "\n\n###" + element["title"]
-			    html = getMDDesc(element["DESC"][0])
+			    html = getMDDesc(element)
 			  	md += html
 		  	end
 	  	}
@@ -152,7 +256,7 @@ class Apieb
 		  		element["name"] = getElementName(element) 
 				md +=  "\n* " + element["name"]
 				if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
-	 		        md +=  getMDDesc(element["DESC"][0])
+	 		        md +=  getMDDesc(element)
 	       		end
        		end
 	  	}
@@ -164,8 +268,8 @@ class Apieb
   def self.getplatformindicators (platforms,msionly,ruby,javascript,usemoduleplatforms,doc)
   	if usemoduleplatforms
   		# puts 'using platform override' + doc["MODULE"][0]["name"]
-  		if !doc["MODULE"][0]["PLATFORM"][0].nil?
-  			platforms = doc["MODULE"][0]["PLATFORM"][0]
+  		if elementHasPlatform(doc["MODULE"][0])
+  			platforms = getPlatformDesc(doc["MODULE"][0])
   			# puts platforms
   		end
 
@@ -188,7 +292,7 @@ class Apieb
 			# indicators += "\n* iOS"
 	  	end
 	  	if !platforms.downcase.index("wm").nil? || !platforms.downcase.index("all").nil?
-			indicators += "\n* Windows Embedded"
+			indicators += "\n* Windows Mobile/CE"
 	  	end
 	  	if !platforms.downcase.index("wp8").nil? || !platforms.downcase.index("all").nil?
   			# Ignoring for EB
@@ -233,13 +337,13 @@ def self.getparams(element,toplevel)
 			
 					# puts param
 					if !param["DESC"].nil?
-						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
+						methparamsdetailsdesc=getMDDesc(param)
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
 					end
-					if !param["PLATFORM"].nil? && !toplevel
-						pdesc=param["PLATFORM"][0]
+					if elementHasPlatform(param) && !toplevel
+						pdesc= getPlatformDesc(param)
 						if pdesc.to_s == '{}'
 							pdesc= ''
 						else
@@ -258,7 +362,7 @@ def self.getparams(element,toplevel)
 						param["CAN_BE_NIL"].each { |paramsnil|
 							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
+								methparamsnildesc =  getMDDesc(paramsnil)
 							end
 							
 						}
@@ -295,16 +399,13 @@ def self.getparams(element,toplevel)
 							velement["VALUE"].each() { |vaelement|
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
-										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
+										valdesc = getMDDesc(vaelement)
 									else
 										valdesc = ""
 									end 
 								end	
-								if !vaelement["PLATFORM"].nil?
-									if !vaelement["PLATFORM"][0].empty?
-										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
-									
-									end 
+								if elementHasPlatform(vaelement)
+									valdesc += " Platforms: " + getPlatformDesc(vaelement)
 								end
 
 								@seperator = ', '
@@ -354,7 +455,7 @@ def self.getparams(element,toplevel)
 			
 					# puts param
 					if !param["DESC"].nil?
-						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
+						methparamsdetailsdesc=getMDDesc(param)
 						if methparamsdetailsdesc.to_s == '{}'
 							methparamsdetailsdesc= ''
 						end
@@ -369,7 +470,7 @@ def self.getparams(element,toplevel)
 						param["CAN_BE_NIL"].each { |paramsnil|
 							methparamsnil=" <span class='label label-info'>Optional</span>"
 							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
+								methparamsnildesc =  getMDDesc(paramsnil)
 							end
 							
 						}
@@ -404,16 +505,13 @@ def self.getparams(element,toplevel)
 								valdesc = "<dl  >"
 								if !vaelement["DESC"].nil?
 									if !vaelement["DESC"][0].empty?
-										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
+										valdesc = getMDDesc(vaelement)
 									else
 										valdesc = ""
 									end 
 								end	
-								if !vaelement["PLATFORM"].nil?
-									if !vaelement["PLATFORM"][0].empty?
-										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
-									
-									end 
+								if elementHasPlatform(vaelement)
+									valdesc += " Platforms: " + getPlatformDesc(vaelement)
 								end								
 								@seperator = ', '
 								if !vaelement["type"].nil?
@@ -471,7 +569,7 @@ end
 			methname = element["name"]
 
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
-				@methdesc = getMDDesc(element["DESC"][0])
+				@methdesc = getMDDesc(element)
 				
 			else
 				@methdesc = ""
@@ -563,7 +661,7 @@ end
 					# puts relement
 			
 					if !relement["DESC"].nil? && !relement["DESC"][0].is_a?(Hash)
-						@methreturndesc=" : " + getMDDesc(relement["DESC"][0])
+						@methreturndesc=" : " + getMDDesc(relement)
 					end
 					methreturnparams =  getparams(relement,false)
 				}
@@ -578,39 +676,16 @@ end
 			msionly = false
 			ruby = true
 			javascript = true
-			if !element["APPLIES"].nil? 
-
-				appliescontent = ""
-				# puts element["APPLIES"]
-				if !element["APPLIES"][0]["msiOnly"].nil?
-					if element["APPLIES"][0]["msiOnly"] == "true"
-						msionly = true
-					end
-				end
-				if !element["APPLIES"][0]["rubyOnly"].nil?
-					if element["APPLIES"][0]["rubyOnly"] == "true"
-						javascript = false
-					end
-				end
-				if !element["APPLIES"][0]["jsOnly"].nil?
-					if element["APPLIES"][0]["jsOnly"] == "true"
-						ruby = false
-					end
-				end
-				if !element["APPLIES"][0]["content"].nil?
-					appliescontent = element["APPLIES"][0]["content"]	
-				end	
-				if appliescontent.size >0
-					
-					methnote= "(" + appliescontent + ")"
-				end
-
+			applieselement = getAppliesElement(element)
+			if !applieselement.nil? 
+				msionly = appliesMSIOnly(applieselement)
+				javascript = !appliesRubyOnly(applieselement)
+				ruby = !appliesJSOnly(applieselement)
+				methnote= appliesNote(applieselement)
 			end			
-			if !element["PLATFORM"].nil?
-				@methplatforms = element["PLATFORM"][0]
-				if !element["PLATFORM"][0]["usemodule"].nil?
-					@usemoduleplatforms = true
-				end
+			if elementHasPlatform(element)
+				@methplatforms = getPlatformDesc(element)
+				@usemoduleplatforms = useModulePlatformOverride(element)
 
 			else
 				puts "      #{methname} no platform indicators"
@@ -739,7 +814,7 @@ def self.getproperties(doc)
 
 		s.each() { |element|
 			element["name"] = getElementName(element) 
-		
+			puts element["name"]
 			if (element["generateDoc"].nil? || element["generateDoc"] == "true") && noproductException(element)
 
 				propname = element["name"]
@@ -755,45 +830,24 @@ def self.getproperties(doc)
 				msionly = false
 				ruby = true
 				javascript = true
-		
-				if !element["APPLIES"].nil? 
-					appliescontent = ""
-					# puts element["APPLIES"]
-					if !element["APPLIES"][0]["msiOnly"].nil?
-						if element["APPLIES"][0]["msiOnly"] == "true"
-							msionly = true
-						end
-					end
-					if !element["APPLIES"][0]["rubyOnly"].nil?
-						if element["APPLIES"][0]["rubyOnly"] == "true"
-							javascript = false
-						end
-					end
-					if !element["APPLIES"][0]["jsOnly"].nil?
-						if element["APPLIES"][0]["jsOnly"] == "true"
-							ruby = false
-						end
-					end
-					if !element["APPLIES"][0]["content"].nil?
-						appliescontent = element["APPLIES"][0]["content"]	
-					end	
-					if appliescontent.size >0
-						propnote= "(" + appliescontent + ")"
-					end
-				end
+				applieselement = getAppliesElement(element)
+				if !applieselement.nil? 
+					msionly = appliesMSIOnly(applieselement)
+					javascript = !appliesRubyOnly(applieselement)
+					ruby = !appliesJSOnly(applieselement)
+					propnote= appliesNote(applieselement)
+				end			
 				@propplatforms = "All"
 				@usemoduleplatforms = false
-				if !element["PLATFORM"].nil?
-					@propplatforms = element["PLATFORM"][0]
-					if !element["PLATFORM"][0]["usemodule"].nil?
-						@usemoduleplatforms = true
-					end
+				if elementHasPlatform(element)
+					@propplatforms = getPlatformDesc(element)
+					@usemoduleplatforms = useModulePlatformOverride(element)
 				else
 					puts "      #{propname} no platform indicators"
 					@usemoduleplatforms = true
 				end
 				@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
-				@propsectionplatforms = ""
+				@propsectionplatforms = "#{@propplatforms}#{propnote}"
 				if element["type"].nil?
 					proptype= "<span class='text-info'>STRING</span>"
 				else
@@ -823,7 +877,7 @@ def self.getproperties(doc)
 					
 				end
 			
-				@propdesc = getMDDesc(element["DESC"][0])
+				@propdesc = getMDDesc(element)
 				#if @propdesc.nil?
 				#	RDiscount.new(@propdesc, :smart).to_html
 				#end
@@ -839,16 +893,13 @@ def self.getproperties(doc)
 							@propvaldesc = ""
 							if !vaelement["DESC"].nil?
 								if !vaelement["DESC"][0].empty?
-									@propvaldesc = getMDDesc(vaelement["DESC"][0].to_s)
+									@propvaldesc = getMDDesc(vaelement)
 								else
 									@propvaldesc = ""
 								end 
 							end	
-							if !vaelement["PLATFORM"].nil?
-								if !vaelement["PLATFORM"][0].empty?
-									@propvaldesc += "Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
-								
-								end 
+							if elementHasPlatform(vaelement)
+								@propvaldesc += "Platforms: " + getPlatformDesc(vaelement)
 							end
 							@seperator = ', '
 							if !vaelement["type"].nil?
@@ -955,7 +1006,11 @@ def self.getproperties(doc)
 					if @propsectionplatforms != ''
 						md += "\n#{@propsectionplatforms}#{propnote}"
 					end
+				else
+					puts "JS not supported"
 				end
+			else
+				"Puts product exception"
 			end
 	  	}
 	end
@@ -980,7 +1035,7 @@ def self.getexamples(doc)
   			# if section["DESC"][0].class != Hash
   			# puts section
   				if !section["DESC"].nil? && !section["DESC"][0].nil?
-					examplesections += getMDDesc(section["DESC"][0])
+					examplesections += getMDDesc(section)
 				end
 			# end
 			exampleid = "exI#{index.to_s}-S#{si.to_s}"

@@ -2,8 +2,7 @@
 
 
 ## Overview
-<p>This API provides access to the WebSocket protocol for two-way communication with a remote host.</p>
-
+This API provides access to the WebSocket protocol for two-way communication with a remote host.
 
 
 ##Methods

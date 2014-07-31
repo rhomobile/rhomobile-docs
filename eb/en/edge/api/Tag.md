@@ -2,19 +2,14 @@
 
 
 ## Overview
-<p>NFC Tag</p>
-<p>This class representative NFC Tag object</p>
+NFC TagThis class representative NFC Tag object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
 
-<h1>Enabling the API</h1>
-
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["nfc"]
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+    
 
 
 ##Methods
@@ -32,7 +27,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
@@ -54,7 +49,7 @@ NFC_SUCCESS if OK </p></li></ul></li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.exchangeData(<span class="text-info">STRING</span> sendData)</code></li></ul></li></ul>
@@ -70,7 +65,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.formatNDEF()</code></li></ul></li></ul>
@@ -90,7 +85,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Tag.getTagById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
@@ -106,7 +101,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.makeReadOnly()</code></li></ul></li></ul>
@@ -124,7 +119,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.writeMessage(<span class="text-info">ARRAY</span> messages)</code></li></ul></li></ul>
@@ -143,6 +138,11 @@ object ID
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###freeSize
 
 ####Type
@@ -152,6 +152,11 @@ object ID
 free size in bytes
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.freeSize</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###isConnected
 
@@ -163,6 +168,11 @@ connected or not(if connections between tag and nfc device exists)
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isConnected</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###isNdef
 
 ####Type
@@ -172,6 +182,11 @@ connected or not(if connections between tag and nfc device exists)
 ndef or not
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isNdef</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###isReadOnly
 
@@ -183,6 +198,11 @@ Indicating if the tag is locked for write operation.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.isReadOnly</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###serialNumber
 
 ####Type
@@ -193,6 +213,11 @@ The serial number of a tag.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.serialNumber</code></li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+
 ###size
 
 ####Type
@@ -202,6 +227,11 @@ The serial number of a tag.
 size in bytes
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.size</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE
 
 ###type
 
@@ -258,3 +288,8 @@ Tag type
 	* 
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE

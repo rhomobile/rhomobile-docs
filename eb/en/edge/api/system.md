@@ -2,23 +2,18 @@
 
 
 ## Overview
-<p>The System API is used to control and modify core aspects of the device such as the screen, OS and device capabilities.</p>
-<h2>Enabling the API</h2>
+The System API is used to control and modify core aspects of the device such as the screen, OS and device capabilities.
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -38,7 +33,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.applicationInstall(<span class="text-info">STRING</span> applicationUrl)</code> </li></ul></li></ul>
@@ -56,7 +51,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.applicationUninstall(<span class="text-info">STRING</span> applicationName)</code> </li></ul></li></ul>
@@ -72,7 +67,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.bringToFront()</code> </li></ul></li></ul>
@@ -89,7 +84,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.clearNetworkStatusNotify()</code> </li></ul></li></ul>
@@ -107,7 +102,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.deleteFolder(<span class="text-info">STRING</span> pathToFolder)</code> </li></ul></li></ul>
@@ -132,7 +127,7 @@ Whether or not the registry key was successfully deleted.</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.deleteRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -149,7 +144,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.exit()</code> </li></ul></li></ul>
@@ -170,7 +165,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.getAllProperties()</code> </li></ul></li></ul>
@@ -192,7 +187,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
@@ -214,7 +209,7 @@ The property to return info about.</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
@@ -238,7 +233,7 @@ Registry value of the key.</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.getRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -258,7 +253,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.getStartParams()</code> </li></ul></li></ul>
@@ -278,7 +273,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.get_locale()</code> </li></ul></li></ul>
@@ -299,7 +294,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.isApplicationInstalled(<span class="text-info">STRING</span> applicationName)</code> </li></ul></li></ul>
@@ -319,7 +314,7 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.isBlobAttr(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID, <span class="text-info">STRING</span> attrName)</code> </li></ul></li></ul>
@@ -338,7 +333,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.openUrl(<span class="text-info">STRING</span> url)</code> </li></ul></li></ul>
@@ -358,7 +353,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.replaceCurrentBundle(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)</code> </li></ul></li></ul>
@@ -379,7 +374,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> </li></ul></li></ul>
@@ -412,7 +407,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code> </li></ul></li></ul>
@@ -430,7 +425,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -449,7 +444,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
@@ -470,7 +465,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.setPushNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params, <span class="text-info">STRING</span> push_client)</code> </li></ul></li></ul>
@@ -505,7 +500,7 @@ Whether or not the registry key was successfully set.</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.setRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -524,7 +519,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.setScreenRotationNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code> </li></ul></li></ul>
@@ -596,7 +591,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)</code> </li></ul></li></ul>
@@ -613,7 +608,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.set_locale(<span class="text-info">STRING</span> locale_code, <span class="text-info">STRING</span> country_code)</code> </li></ul></li></ul>
@@ -630,7 +625,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.set_sleeping(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
@@ -650,7 +645,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code> </li></ul></li></ul>
@@ -668,7 +663,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.stopTimer(<span class="text-info">STRING</span> url)</code> </li></ul></li></ul>
@@ -684,7 +679,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.unset_http_proxy()</code> </li></ul></li></ul>
@@ -703,7 +698,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
@@ -720,7 +715,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)</code> </li></ul></li></ul>
@@ -740,7 +735,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.zipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> localPathToFile, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
@@ -761,7 +756,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.zipFiles(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> basePath, <span class="text-info">ARRAY</span> filePathsToZip, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
@@ -790,6 +785,12 @@ Current device country code.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.country</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###deviceName
 
 ####Type
@@ -799,6 +800,12 @@ Current device country code.
 Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.deviceName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###deviceOwnerEmail
 
@@ -810,6 +817,11 @@ Primary email of phone owner. To access this property 'pim' capability must be e
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.deviceOwnerEmail</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###deviceOwnerName
 
 ####Type
@@ -819,6 +831,11 @@ Primary email of phone owner. To access this property 'pim' capability must be e
 Name(account name) of phone owner. To access this property 'pim' capability must be enabled in your build.yml.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.deviceOwnerName</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
 
 ###<span class="text-info">devicePushId</span>
 
@@ -830,6 +847,12 @@ Push notifications device ID which may be used to receive push messages.To get t
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.devicePushId</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###freeServerPort
 
 ####Type
@@ -839,6 +862,12 @@ Push notifications device ID which may be used to receive push messages.To get t
 Get free local server port, available for binding.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.freeServerPort</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###hasCalendar
 
@@ -850,6 +879,12 @@ Returns true if calendar support is available.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasCalendar</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###hasCamera
 
 ####Type
@@ -859,6 +894,12 @@ Returns true if calendar support is available.
 Returns true if there is a camera available on the device.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasCamera</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-error">hasCellNetwork</span>
 
@@ -870,6 +911,12 @@ Use Network.hasCellNetwork to tell if device is connected to the cell network.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasCellNetwork</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###<span class="text-error">hasNetwork</span>
 
 ####Type
@@ -879,6 +926,12 @@ Use Network.hasCellNetwork to tell if device is connected to the cell network.
 Use Network.hasNetwork to tell if the device is connected to the network.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasNetwork</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-error">hasSqlite</span>
 
@@ -890,6 +943,12 @@ Returns true if the device has sqlite capabilities (previously only BlackBerry d
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasSqlite</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###hasTouchscreen
 
 ####Type
@@ -899,6 +958,12 @@ Returns true if the device has sqlite capabilities (previously only BlackBerry d
 Returns true if the device has touch screen capabilities.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasTouchscreen</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###<span class="text-error">hasWifiNetwork</span>
 
@@ -910,6 +975,12 @@ Use Network.hasWifiNetwork to tell if the device is connected to the wifi networ
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.hasWifiNetwork</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###<span class="text-info">httpProxyURI</span>
 
 ####Type
@@ -919,6 +990,12 @@ Use Network.hasWifiNetwork to tell if the device is connected to the wifi networ
 Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password) in rhoconfig.txt. To set proxy for Motorola WebKit for Windows Mobile/CE use config.xml settings.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.httpProxyURI</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###isEmulator
 
@@ -930,6 +1007,12 @@ Returns true if the application is running on a platform emulator.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.isEmulator</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###isMotorolaDevice
 
 ####Type
@@ -940,6 +1023,12 @@ Returns true if the device supports Motorola device capabilities. APIs will indi
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.isMotorolaDevice</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###isRhoSimulator
 
 ####Type
@@ -949,6 +1038,12 @@ Returns true if the device supports Motorola device capabilities. APIs will indi
 Returns true if the application is running on RhoSimulator.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.isRhoSimulator</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###keyboardState
 
@@ -978,6 +1073,12 @@ Automatically shows or hides the keyboard as needed by the application.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.keyboardState</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Windows Mobile/CE
+* Motorola Solutions Devices Only
+
 ###localServerPort
 
 ####Type
@@ -990,6 +1091,12 @@ Port of the local (embedded) HTTP server. This parameter is mainly for debug pur
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.localServerPort</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###locale
 
 ####Type
@@ -999,6 +1106,12 @@ Port of the local (embedded) HTTP server. This parameter is mainly for debug pur
 Current device locale Like 'en', 'ru' etc.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.locale</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###lockWindowSize
 
@@ -1022,6 +1135,13 @@ The OEM Information string for the terminal.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.oemInfo</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only
+
 ###osVersion
 
 ####Type
@@ -1032,6 +1152,12 @@ Version OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.osVersion</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###phoneId
 
 ####Type
@@ -1041,6 +1167,12 @@ Version OS of device. Examples: '4.6.0.192' (BB), '3.0' (iPhone), '1.6' (Android
 Hardware based ID. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.phoneId</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###platform
 
@@ -1071,6 +1203,12 @@ Platform where application is running.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.platform</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###ppiX
 
 ####Type
@@ -1080,6 +1218,12 @@ Platform where application is running.
 Horizontal PPI (Pixels Per Inch).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.ppiX</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###ppiY
 
@@ -1091,6 +1235,12 @@ Vertical PPI (Pixels Per Inch).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.ppiY</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###realScreenHeight
 
 ####Type
@@ -1101,6 +1251,12 @@ Screen height in real pixels.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.realScreenHeight</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###realScreenWidth
 
 ####Type
@@ -1110,6 +1266,12 @@ Screen height in real pixels.
 Screen width in real pixels.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.realScreenWidth</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###screenAutoRotate
 
@@ -1123,6 +1285,11 @@ Screen auto rotate.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.screenAutoRotate</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+
 ###screenHeight
 
 ####Type
@@ -1132,6 +1299,12 @@ Screen auto rotate.
 Screen height in logical pixels (used for set coordinates).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.screenHeight</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ###screenOrientation
 
@@ -1155,6 +1328,12 @@ The return value if the screen is in landscape mode.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.screenOrientation</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###screenSleeping
 
 ####Type
@@ -1164,6 +1343,11 @@ The return value if the screen is in landscape mode.
 If true, then screen will go to sleep by system inactivity timeout. If false then screen never go to sleep while application is in foreground.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.screenSleeping</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
 
 ###screenWidth
 
@@ -1175,6 +1359,12 @@ Screen width in logical pixels (used for set coordinates).
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.screenWidth</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+
 ###uuid
 
 ####Type
@@ -1185,6 +1375,13 @@ The Unique Unit IDentifier for the terminal.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.uuid</code> </li></ul></li></ul>
 
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
+* Motorola Solutions Devices Only
+
 ###webviewFramework
 
 ####Type
@@ -1194,6 +1391,12 @@ The Unique Unit IDentifier for the terminal.
 Browser framework identity string.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.webviewFramework</code> </li></ul></li></ul>
+
+
+####Platforms
+
+* Android
+* Windows Mobile/CE
 
 ##Examples
 

@@ -2,19 +2,14 @@
 
 
 ## Overview
-<p>NFC Message</p>
-<p>This class representative NFC Message object</p>
+NFC MessageThis class representative NFC Message object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
 
-<h1>Enabling the API</h1>
-
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["nfc"]
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
-
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+    
 
 
 ##Methods
@@ -33,7 +28,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addMessage(<span class="text-info">STRING</span> messageID)</code></li></ul></li></ul>
@@ -50,7 +45,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addRecord(<span class="text-info">STRING</span> recordID)</code></li></ul></li></ul>
@@ -66,7 +61,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
@@ -86,7 +81,7 @@ Created Message object.</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.create()</code> </li></ul></li></ul>
@@ -106,7 +101,7 @@ Message to get.</li></ul>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getContent()</code></li></ul></li></ul>
@@ -127,7 +122,7 @@ Synchronous Return:<ul><li>SELF_INSTANCE :
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
@@ -147,7 +142,7 @@ Array of Rho.NFC.Message objects.<ul><li><i>Object</i> : <span class='text-info'
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getMessages()</code></li></ul></li></ul>
@@ -167,7 +162,7 @@ Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>
 
 ####Platforms
 
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getRecords()</code></li></ul></li></ul>
@@ -185,3 +180,8 @@ Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>
 Object ID.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
+
+
+####Platforms
+
+* Windows Mobile/CE

@@ -2,24 +2,17 @@
 
 
 ## Overview
-<p>The NativeToolbar method let you create and remove a toolbar at runtime.</p>
-<p> Only a Toolbar or a Tabbar can present in application &ndash; both can not be used at the same time.</p>
+The NativeToolbar method let you create and remove a toolbar at runtime. Only a Toolbar or a Tabbar can present in application - both can not be used at the same time.
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<h2>Enabling the API</h2>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
-
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
 
 
 
@@ -54,12 +47,16 @@ WM, Win32</dd><dt>SIP</dt><dd>
 Display software keyboard window.Set Rho.System.keyboardState to Rho.System.KEYBOARD_AUTOMATIC to use this element. Platforms: 
 WM</dd></dl></li><li>icon : <span class='text-info'>STRING</span><p>
 Relative path to toolbar item icon in your rhodes app (typically located in '/public/images/'). Icon is ignored for predefined actions, icon will be displayed even if no icon specified. iPhone and Android: Icons must be no more than 30x30 pixels and must be in .png format. Windows Mobile: Icons can be any size, but all icons should have same size (default - 48x48). .png and .bmp formats are supported. </p></li><li>coloredIcon : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Use colored icon in toolbar on iPhone instead of standard monochrome white icon (prepared from image alpha). Platforms:iOS </p></li><li>width : <span class='text-info'>INTEGER</span><p>
-Button width in pixel. Used to define separator width when more than one separator specified. Platforms:WM </p></li></ul></ul><li>toolBarProperties : <span class='text-info'>HASH</span><p>
+Use colored icon in toolbar on iPhone instead of standard monochrome white icon (prepared from image alpha). Platforms:
+iOS </p></li><li>width : <span class='text-info'>INTEGER</span><p>
+Button width in pixel. Used to define separator width when more than one separator specified. Platforms:
+WM </p></li></ul></ul><li>toolBarProperties : <span class='text-info'>HASH</span><p>
 Properties of TabBar. </p></li><ul><li>backgroundColor : <span class='text-info'>INTEGER</span><p>
 Background color of the toolbar. </p></li><li>maskColor : <span class='text-info'>INTEGER</span><span class='label '> Default: 0xFFFFFF</span><p>
-Image mask color(transparent color). Platforms:WM, Win32 </p></li><li>viewHeight : <span class='text-info'>INTEGER</span><p>
-Toolbar height in pixels. Platforms:WM, Win32 </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+Image mask color(transparent color). Platforms:
+WM, Win32 </p></li><li>viewHeight : <span class='text-info'>INTEGER</span><p>
+Toolbar height in pixels. Platforms:
+WM, Win32 </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
@@ -67,7 +64,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeToolbar.create(<span class="text-info">ARRAY</span> toolbarElements, <span class="text-info">HASH</span> toolBarProperties)</code> </li></ul></li></ul>
@@ -84,7 +81,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NativeToolbar.remove()</code> </li></ul></li></ul>

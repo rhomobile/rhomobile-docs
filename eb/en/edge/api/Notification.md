@@ -2,23 +2,18 @@
 
 
 ## Overview
-<p>The Notification API allows you to provide feedback to the user, either auditory, tactile or visual. Use this API to give a visual popup window, sound the device beeper or illuminate the device LEDs (hardware permitting).</p>
-<h2>Enabling the API</h2>
+The Notification API allows you to provide feedback to the user, either auditory, tactile or visual. Use this API to give a visual popup window, sound the device beeper or illuminate the device LEDs (hardware permitting).
+## Enabling the API           
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        
 
 
 ##Methods
@@ -41,7 +36,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.beep(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -58,7 +53,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.hidePopup()</code> </li></ul></li></ul>
@@ -77,7 +72,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.playFile(<span class="text-info">STRING</span> path, <span class="text-info">STRING</span> media_type)</code> </li></ul></li></ul>
@@ -90,7 +85,8 @@ Bring the application up front and show a message in a popup window. The message
 The properties associated with the popup. </p></li><ul><li>message : <span class='text-info'>String</span><span class='label '> Default: </span><p>
 Text displayed in the popup window. </p></li><li>title : <span class='text-info'>String</span><span class='label '> Default: </span><p>
 Title of the popup window. </p></li><li>icon : <span class='text-info'>String</span><span class='label '> Default: </span><p>
-Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon. Platforms:Android </p></li><li>buttons : <span class='text-info'>Array</span><span class='label '> Default: </span><p>
+Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon. Platforms:
+Android </p></li><li>buttons : <span class='text-info'>Array</span><span class='label '> Default: </span><p>
 Array of buttons. Specify each button either by hash with :id and :title keys or string.When using strings, the `id` and `title` will have the same value.
 For example: 
     :::javascript
@@ -121,7 +117,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.showPopup(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
@@ -141,7 +137,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.showStatus(<span class="text-info">STRING</span> title, <span class="text-info">STRING</span> status_text, <span class="text-info">STRING</span> hide_button_label)</code> </li></ul></li></ul>
@@ -159,7 +155,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Platforms
 
 * Android
-* Windows Embedded
+* Windows Mobile/CE
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Notification.vibrate(<span class="text-info">Integer</span> duration)</code> </li></ul></li></ul>
