@@ -1105,7 +1105,7 @@ end
   	
   	# puts topic
   	doc = XmlSimple.xml_in(topic)
-
+	getApiName(doc,'',true)
   	#EB don't process if module has productException
   	if !noproductException doc["MODULE"][0]
 		puts "API Not Supported in EB"

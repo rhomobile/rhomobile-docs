@@ -35,10 +35,10 @@ Sends an intent. The receiver of the intent can either be another RhoMobile appl
 ####Parameters
 <ul><li>params : <span class='text-info'>HASH</span><p>
 A hash-map with intent parameters. </p></li><ul><li>intentType : <span class='text-info'>STRING</span><p>
-Type of Intent to send.  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: RhoFile.BROADCAST <br/> String:broadcast</dt><dd>
-Use the intent as broadcast intent.</dd><dt>Constant: RhoFile.START_ACTIVITY <br/> String:startActivity</dt><dd>
+Type of Intent to send.  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Intent.BROADCAST <br/> String:broadcast</dt><dd>
+Use the intent as broadcast intent.</dd><dt>Constant: Intent.START_ACTIVITY <br/> String:startActivity</dt><dd>
 Use the intent to start a UI activity. Platforms: 
-Android</dd><dt>Constant: RhoFile.START_SERVICE <br/> String:startService</dt><dd>
+Android</dd><dt>Constant: Intent.START_SERVICE <br/> String:startService</dt><dd>
 Use the intent to start a background service. Platforms: 
 Android</dd></dl></li><li>permission : <span class='text-info'>STRING</span><p>
 Permission used to send a broadcast intent. Platforms:

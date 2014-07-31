@@ -30,13 +30,13 @@ Capture a document by either taking a photo of it and process that image for fie
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>callbackType : <span class='text-info'>STRING</span><p>
-Indicates whether the document was decoded successfully or not. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Signature.SUCCESS <br/> String:success</dt><dd>
-The document was decoded and processed successfully and this callback contains information about the processed form. Look at processedForm parameter.</dd><dt>Constant: Signature.FAILURE <br/> String:failure</dt><dd>
-An error has occurred whilst processing the document. Look at failureReason parameter.</dd><dt>Constant: Signature.STOP <br/> String:stop</dt><dd>
+Indicates whether the document was decoded successfully or not. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: SimulScan.SUCCESS <br/> String:success</dt><dd>
+The document was decoded and processed successfully and this callback contains information about the processed form. Look at processedForm parameter.</dd><dt>Constant: SimulScan.FAILURE <br/> String:failure</dt><dd>
+An error has occurred whilst processing the document. Look at failureReason parameter.</dd><dt>Constant: SimulScan.STOP <br/> String:stop</dt><dd>
 The processing is over. No more notifications until next captureDocument.</dd></dl></li><li>failureReason : <span class='text-info'>STRING</span><p>
-Describes reason for failure. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Signature.FAILURE_ERROR <br/> String:error</dt><dd>
-SimulScan engine generic error.</dd><dt>Constant: Signature.FAILURE_IDENTIFICATION_TIMEOUT <br/> String:identificationTimeout</dt><dd>
-Identification timeout. Refer to identificationTimeout property.</dd><dt>Constant: Signature.FAILURE_PROCESSING_TIMEOUT <br/> String:processingTimeout</dt><dd>
+Describes reason for failure. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: SimulScan.FAILURE_ERROR <br/> String:error</dt><dd>
+SimulScan engine generic error.</dd><dt>Constant: SimulScan.FAILURE_IDENTIFICATION_TIMEOUT <br/> String:identificationTimeout</dt><dd>
+Identification timeout. Refer to identificationTimeout property.</dd><dt>Constant: SimulScan.FAILURE_PROCESSING_TIMEOUT <br/> String:processingTimeout</dt><dd>
 Processing timeout. Refer to processingTimeout property.</dd></dl></li><li>processedForm : <span class='text-info'>HASH</span><p> </p></li><ul><li>template : <span class='text-info'>HASH</span><p> </p></li><ul><li>name : <span class='text-info'>STRING</span><p>
 The name of the template was used for recognition. </p></li><li>number : <span class='text-info'>INTEGER</span><p>
 The number of the template was used for recognition. </p></li></ul><li>formCapture : <span class='text-info'>HASH</span><p> </p></li><ul><li>name : <span class='text-info'>STRING</span><p>
@@ -49,12 +49,12 @@ The name of the group this region is found in, as defined in the template associ
                    </p></li><li>name : <span class='text-info'>STRING</span><p>
 The name of the region, as defined in the template associated with the document. </p></li><li>number : <span class='text-info'>INTEGER</span><p>
 The number of the region, as defined in the template section associated with the recognized region. </p></li><li>processingMode : <span class='text-info'>STRING</span><p>
-The type of region which has been decoded. </p><p><strong>Possible Values</strong> :</p> <dt>Constant: Signature.PM_OCR <br/> String: ocr </dt><dd>
+The type of region which has been decoded. </p><p><strong>Possible Values</strong> :</p> <dt>Constant: SimulScan.PM_OCR <br/> String: ocr </dt><dd>
 Optical Character Recognition. The region is a text field. The processedData parameter contains array of lines.
-                      </dd><dt>Constant: Signature.PM_OMR <br/> String: omr </dt><dd>
+                      </dd><dt>Constant: SimulScan.PM_OMR <br/> String: omr </dt><dd>
 Optical Mark Recognition. The region is a check box or radio box. The processedData parameter of this callback will contain a boolean value.
-                      </dd><dt>Constant: Signature.PM_PICTURE <br/> String: picture </dt><dd>
-The defined region was captured as a picture. No processedData parameter. Use the `image` callback property with the [getDataUri()](#mgetDataUri) to get a DataURI of the image.</dd><dt>Constant: Signature.PM_BARCODE <br/> String: barcode </dt><dd>
+                      </dd><dt>Constant: SimulScan.PM_PICTURE <br/> String: picture </dt><dd>
+The defined region was captured as a picture. No processedData parameter. Use the `image` callback property with the [getDataUri()](#mgetDataUri) to get a DataURI of the image.</dd><dt>Constant: SimulScan.PM_BARCODE <br/> String: barcode </dt><dd>
 The region is a barcode and the decoded barcode data is given in the processedData parameter.</dd></dl></li><li>processedData : <span class='text-info'>STRING</span><p>
 The processed data contained in the specified region, this will depend on the type of region being captured. See the values of the `processingMode` parameter.
                    </p></li><li>image : <span class='text-info'>STRING</span><p>

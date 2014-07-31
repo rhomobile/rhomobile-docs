@@ -20,11 +20,11 @@ Returns the push API objects configured within the application.
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Process</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY : 
-Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Process</span><p> </p></li></ul></li></ul>
+Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></li></ul>
 
 ####Platforms
 
