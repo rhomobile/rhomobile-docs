@@ -68,15 +68,11 @@ Synchronous Return:<ul><li>Model</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.addModel(<span class="text-info"></span> Anoynomous Function methods)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.addModel(<span class="text-info"></span> Anoynomous Function methods)</code> </li></ul></li></ul>
 
 ### databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
 Deletes all records from the property bag and model tables.
@@ -93,15 +89,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
 ### databaseFullResetAndLogout()
 Deletes all records from the property bag and model tables. Logout the user from RhoConnectClient. For examples, see Resetting the Database in Using the Local Database with ORM.
@@ -114,15 +106,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
 
 ### databaseFullResetEx(<span class="text-info">HASH</span> propertyMap)
 Deletes all records from the property bag and model tables for the model names passed in parameters.
@@ -141,15 +129,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.databaseFullResetEx(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullResetEx(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### databaseFullclientResetAndLogout()
 Deletes all records from the property bag and model tables. Logout the user from RhoConnectClient and erase all RhoConnectClient device information. Equivalent to ORM::ORM.databaseFullReset(true) followed by RhoConnectClient.logout.
@@ -162,15 +146,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
 
 ### databaseLocalReset()
 Reset only local (non-sync-enabled) models.
@@ -183,15 +163,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.databaseLocalReset()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.databaseLocalReset()</code> </li></ul></li></ul>
 
 ### export()
 Export db.
@@ -207,15 +183,11 @@ Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.export()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.export()</code> </li></ul></li></ul>
 
 ### getClientId()
 Returns the current sync client id.
@@ -231,15 +203,11 @@ Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.getClientId()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.getClientId()</code> </li></ul></li></ul>
 
 ### getModel(<span class="text-info">String</span> modelName)
 Returns a model.
@@ -256,15 +224,11 @@ Synchronous Return:<ul><li>Model</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.getModel(<span class="text-info">String</span> modelName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.getModel(<span class="text-info">String</span> modelName)</code> </li></ul></li></ul>
 
 ### haveLocalChanges()
 Returns true if any of the Rhodes model objects have local database changes that need to be synchronized, false otherwise.
@@ -280,15 +244,11 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.haveLocalChanges()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.haveLocalChanges()</code> </li></ul></li></ul>
 
 ### import(<span class="text-info">STRING</span> zipName)
 Import db.
@@ -305,15 +265,11 @@ Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
 ####Platforms
 
-* Javascript
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ORM.import(<span class="text-info">STRING</span> zipName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ORM.import(<span class="text-info">STRING</span> zipName)</code> </li></ul></li></ul>
 
 ##Examples
 

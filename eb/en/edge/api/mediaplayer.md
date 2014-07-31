@@ -42,12 +42,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.getAllRingtones()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.getAllRingtones()</code> </li></ul></li></ul>
 
 ### playRingTone(<span class="text-info">STRING</span> name)
 Play a ringtone with the name supplied being used to designate which one. You cannot supply a location for the ringtone. They are built in. To get a full list of all ringtones available on the system use the method getAllRintones.
@@ -61,12 +59,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.playRingTone(<span class="text-info">STRING</span> name)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.playRingTone(<span class="text-info">STRING</span> name)</code> </li></ul></li></ul>
 
 ### start(<span class="text-info">STRING</span> filename)
 Play a media file using the supplied filename.
@@ -80,14 +76,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.start(<span class="text-info">STRING</span> filename)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.start(<span class="text-info">STRING</span> filename)</code> </li></ul></li></ul>
 
 ### startvideo(<span class="text-info">STRING</span> filename)
 Playing a video file back.
@@ -101,14 +94,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.startvideo(<span class="text-info">STRING</span> filename)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.startvideo(<span class="text-info">STRING</span> filename)</code> </li></ul></li></ul>
 
 ### stop()
 Stop playing the media file. Not applicable on iOS, because on iOS the special UI is opened for playback audio / video - user can stop / close player by UI.
@@ -121,13 +111,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.stop()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.stop()</code> </li></ul></li></ul>
 
 ### stopRingTone()
 Stop the currently playing ringtone.
@@ -140,12 +128,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.stopRingTone()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.stopRingTone()</code> </li></ul></li></ul>
 
 ### stopvideo()
 Stop the playback of a currently playing video file. Not applicable on iOS, because on iOS the special UI is opened for playback audio / video - user can stop / close player by UI.
@@ -158,13 +144,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Mediaplayer.stopvideo()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Mediaplayer.stopvideo()</code> </li></ul></li></ul>
 
 ##Remarks
 

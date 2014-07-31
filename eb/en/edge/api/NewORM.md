@@ -21,13 +21,8 @@ Whether or not to reset Local Models. </p></li><li>callback : <span class='text-
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
 ### databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
 Resets selected models, client info and local models.
@@ -40,13 +35,8 @@ Whether or not to reset Local Models. </p></li><li>callback : <span class='text-
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
 ### databaseFullResetAndLogout()
 Resets sync models, client info and local models and does the user logout.
@@ -57,13 +47,8 @@ Resets sync models, client info and local models and does the user logout.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
 
 ### databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
 Resets selected models, client info and local models.
@@ -77,13 +62,8 @@ Whether or not to reset Local Models. </p></li><li>callback : <span class='text-
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
 
 ### databaseFullclientResetAndLogout()
 Resets sync models, client info and local models and does the user logout.
@@ -94,13 +74,8 @@ Resets sync models, client info and local models and does the user logout.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
 
 ### databaseLocalReset()
 Resets local database.
@@ -111,13 +86,8 @@ Resets local database.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.databaseLocalReset()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseLocalReset()</code> </li></ul></li></ul>
 
 ### generateId()
 Returns newly generated unique object Id.
@@ -131,13 +101,8 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:<ul><li>INTEGER</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.generateId()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.generateId()</code> </li></ul></li></ul>
 
 ### getClientId()
 Returns current Client Id.
@@ -151,13 +116,8 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:<ul><li>STRING</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.getClientId()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.getClientId()</code> </li></ul></li></ul>
 
 ### haveLocalChanges()
 Returns TRUE whenever there are any local (non-synced) changes.
@@ -171,13 +131,8 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.haveLocalChanges()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.haveLocalChanges()</code> </li></ul></li></ul>
 
 ### useNewOrm()
 Returns TRUE if NewORM is enabled in rhoconfig.txt.
@@ -191,10 +146,5 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORM.useNewOrm()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.useNewOrm()</code> </li></ul></li></ul>

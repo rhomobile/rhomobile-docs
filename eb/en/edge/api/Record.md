@@ -32,8 +32,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -54,12 +52,10 @@ Record object.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Record.create()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Record.create()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -126,28 +122,28 @@ When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL,
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
  
-* Constant: Rho.Record.NDEF_TNF_EMPTY 
+* Constant: EB.Record.NDEF_TNF_EMPTY 
 	* String: 1
 	* 
-* Constant: Rho.Record.NDEF_TNF_WELL_KNOWN 
+* Constant: EB.Record.NDEF_TNF_WELL_KNOWN 
 	* String: 2
 	* 
-* Constant: Rho.Record.NDEF_TNF_MEDIA 
+* Constant: EB.Record.NDEF_TNF_MEDIA 
 	* String: 3
 	* 
-* Constant: Rho.Record.NDEF_TNF_ABSOLUTE_URI 
+* Constant: EB.Record.NDEF_TNF_ABSOLUTE_URI 
 	* String: 4
 	* 
-* Constant: Rho.Record.NDEF_TNF_EXTERNAL 
+* Constant: EB.Record.NDEF_TNF_EXTERNAL 
 	* String: 5
 	* 
-* Constant: Rho.Record.NDEF_TNF_UNKNOWN 
+* Constant: EB.Record.NDEF_TNF_UNKNOWN 
 	* String: 6
 	* 
-* Constant: Rho.Record.NDEF_TNF_UNCHANGED 
+* Constant: EB.Record.NDEF_TNF_UNCHANGED 
 	* String: 7
 	* 
-* Constant: Rho.Record.NDEF_TNF_ANY_TYPE 
+* Constant: EB.Record.NDEF_TNF_ANY_TYPE 
 	* String: 8
 	* 
 ####Access
@@ -164,15 +160,15 @@ Record type. This property will be ignored in read tag mode. If you create a rec
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
  
-* Constant: Rho.Record.NDEF_RTD_TEXT 
+* Constant: EB.Record.NDEF_RTD_TEXT 
 	* String: 1
 	* 
 A text type record.
-* Constant: Rho.Record.NDEF_RTD_URI 
+* Constant: EB.Record.NDEF_RTD_URI 
 	* String: 2
 	* 
 A URI type record.
-* Constant: Rho.Record.NDEF_RTD_GENERAL 
+* Constant: EB.Record.NDEF_RTD_GENERAL 
 	* String: 3
 	* 
 A generic type record.

@@ -33,8 +33,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -52,8 +50,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -70,8 +66,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -92,12 +86,10 @@ Created Message object.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Message.create()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.create()</code> </li></ul></li></ul>
 
 ### getContent()
 Returns Message as byte array.
@@ -114,8 +106,6 @@ Message to get.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -137,12 +127,10 @@ Synchronous Return:<ul><li>SELF_INSTANCE :
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
 
 ### getMessages()
 Return array of Smart Poster Message objects.
@@ -159,8 +147,6 @@ Array of Rho.NFC.Message objects.<ul><li><i>Object</i> : <span class='text-info'
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:
@@ -181,8 +167,6 @@ Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 
 ####Method Access:

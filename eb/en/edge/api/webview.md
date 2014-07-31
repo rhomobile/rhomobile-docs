@@ -39,89 +39,11 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.active_tab()</code> </li></ul></li></ul>
-
-### currentLocation(<span class="text-info">INTEGER</span> tabIndex)
-Returns the relative url (location) of the current page(without server and port); the last URL loaded to WebView from Ruby controller action.
-
-####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-TabBar tab index. If no tab bar present, index is ignored.Tab should be loaded once to return current url. 
-Current location of active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Callback
-Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
-
-####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Embedded
-* Windows Phone 8
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
-
-### currentURL(<span class="text-info">INTEGER</span> tabIndex)
-Returns the actual URL in WebView. This works the same as the JavaScript window.location.href.
-
-####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-TabBar tab index. If no tab bar present, index is ignored. 
-Current url of active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Callback
-Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
-
-####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
-
-### executeJavascript(<span class="text-info">STRING</span> javascriptText, <span class="text-info">INTEGER</span> tabIndex)
-Execute JavaScript on the current page from your controller.
-
-####Parameters
-<ul><li>javascriptText : <span class='text-info'>STRING</span><p>
-The call to the JavaScript method on the current page, such as "test();". </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-TabBar tab index. If no tab bar present, index is ignored. 
-Execute javascript in active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Embedded
-* Windows Phone 8
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.active_tab()</code> </li></ul></li></ul>
 
 ### full_screen_mode(<span class="text-info">BOOLEAN</span> enable)
 Use WebView.fullScreen property: Switch to / from full screen mode.
@@ -134,16 +56,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
 
 ### navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)
 Force WebView to navigate to a URL.
@@ -159,16 +76,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
 
 ### navigateBack(<span class="text-info">INTEGER</span> tabIndex)
 Force WebView to navigate to the previous page using Browser back.
@@ -183,16 +95,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigateBack(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.navigateBack(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
 
 ### refresh(<span class="text-info">INTEGER</span> tabIndex)
 Force WebView to refresh the current page.
@@ -207,23 +114,18 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.refresh(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.refresh(<span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
 
 ### save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)
 Save current page to file system.
 
 ####Parameters
 <ul><li>format : <span class='text-info'>STRING</span><p>
-Format of the saved page. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.WebView.SAVE_FORMAT_JPEG <br/> String:jpeg</dt><dd>
+Format of the saved page. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.WebView.SAVE_FORMAT_JPEG <br/> String:jpeg</dt><dd>
 Save as jpeg image.</dd></dl></li><li>path : <span class='text-info'>STRING</span><p>
 Path to the file / folder to save the page. </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
 TabBar tab index. If no tab bar present, index is ignored. 
@@ -234,33 +136,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
-
-### setCookie(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> cookie)
-When WebView loads the specified url (either by selecting link or from calling WebView.navigate), it will add this cookie to the HTTP request.Not implemented for Motorola Solutions' WebKit.
-
-####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>
-Set a cookie to be used by WebView for this url. </p></li><li>cookie : <span class='text-info'>STRING</span><p>
-One or more name-value pairs of the format "NAME=VALUE". Separate multiple name-value pairs with a semicolon, such as "NAME1=VALUE1; NAME2=VALUE2". </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)</code> </li></ul></li></ul>
 
 ### set_menu_items(<span class="text-info">HASH</span> menuItems)
 Use Rho::Application.nativeMenu property: set native menu items.
@@ -274,13 +153,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.WebView.set_menu_items(<span class="text-info">HASH</span> menuItems)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.WebView.set_menu_items(<span class="text-info">HASH</span> menuItems)</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -294,7 +171,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Return an active tab index. For change active tab use Use Rho.NativeTabbar.currentTab property.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.activeTab</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.activeTab</code> </li></ul></li></ul>
 
 ###cacheSize
 
@@ -304,7 +181,7 @@ Return an active tab index. For change active tab use Use Rho.NativeTabbar.curre
 
 The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.cacheSize</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.cacheSize</code> </li></ul></li></ul>
 
 ###enableCache
 
@@ -316,7 +193,7 @@ Enable / disable Browser cache. Use 'WebView.enableCache' parameter in rhoconfig
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enableCache</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enableCache</code> </li></ul></li></ul>
 
 ###enablePageLoadingIndication
 
@@ -328,7 +205,7 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enablePageLoadingIndication</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enablePageLoadingIndication</code> </li></ul></li></ul>
 
 ###enableWebPlugins
 
@@ -340,7 +217,7 @@ Enable / disable web plug-ins. Use 'enable_web_plugins' parameter in rhoconfig.t
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enableWebPlugins</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enableWebPlugins</code> </li></ul></li></ul>
 
 ###enableZoom
 
@@ -352,7 +229,7 @@ Enable WebView zoom. Use 'enable_screen_zoom' parameter in rhoconfig.txt to conf
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.enableZoom</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.enableZoom</code> </li></ul></li></ul>
 
 ###fontFamily
 
@@ -362,7 +239,7 @@ Enable WebView zoom. Use 'enable_screen_zoom' parameter in rhoconfig.txt to conf
 
 Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\\FontFamily 
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.fontFamily</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.fontFamily</code> </li></ul></li></ul>
 
 ###framework
 
@@ -372,7 +249,7 @@ Specifies the default font to use when rendering text in web pages. The specifie
 
 Same as System.webViewFramework.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.framework</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.framework</code> </li></ul></li></ul>
 
 ###fullScreen
 
@@ -384,7 +261,7 @@ Use full screen mode.
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.fullScreen</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.fullScreen</code> </li></ul></li></ul>
 
 ###navigationTimeout
 
@@ -396,7 +273,7 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 ####Params
 <p><strong>Default:</strong> 0</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.navigationTimeout</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.navigationTimeout</code> </li></ul></li></ul>
 
 ###scrollTechnique
 
@@ -411,20 +288,20 @@ Specifies the technique used to scroll about the page.Defines in config.xml: Scr
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: Rho.WebView.SCROLL_NONE 
+* Constant: EB.WebView.SCROLL_NONE 
 	* String: None
 	* 
 No scrollbars will be displayed and the page will not respond to finger swipes.
-* Constant: Rho.WebView.SCROLL_SCROLLBARS 
+* Constant: EB.WebView.SCROLL_SCROLLBARS 
 	* String: Scrollbars
 	* 
 When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page.
-* Constant: Rho.WebView.SCROLL_FINGER 
+* Constant: EB.WebView.SCROLL_FINGER 
 	* String: FingerScroll
 	* 
 You can scroll around the page using finger swiping.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.scrollTechnique</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.scrollTechnique</code> </li></ul></li></ul>
 
 ###textZoomLevel
 
@@ -434,7 +311,7 @@ You can scroll around the page using finger swiping.
 
 Sets the font size to be displayed on the page, set to 0 for the smallest font and 4 for the largest font.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.textZoomLevel</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.textZoomLevel</code> </li></ul></li></ul>
 
 ###userAgent
 
@@ -448,7 +325,7 @@ Defines in config.xml: Navigation\\UserAgent. When visiting a web server the Web
                     %e - MotorolaWebKit version number.
                 
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.userAgent</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.userAgent</code> </li></ul></li></ul>
 
 ###viewportEnabled
 
@@ -460,7 +337,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.viewportEnabled</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.viewportEnabled</code> </li></ul></li></ul>
 
 ###viewportWidth
 
@@ -470,7 +347,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 
 Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified).Defines in config.xml: Navigation\\ViewportWidth.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.viewportWidth</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.viewportWidth</code> </li></ul></li></ul>
 
 ###zoomPage
 
@@ -480,7 +357,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 
 Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.WebView.zoomPage</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.zoomPage</code> </li></ul></li></ul>
 
 ##Examples
 

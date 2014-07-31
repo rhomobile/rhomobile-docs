@@ -41,10 +41,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -66,10 +63,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -91,10 +85,7 @@ The property to return info about.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -116,14 +107,11 @@ Returns a sensor object for the sensor type passed as parameter. You can use the
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Sensor.makeSensorByType(<span class="text-info">STRING</span> type)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Sensor.makeSensorByType(<span class="text-info">STRING</span> type)</code> </li></ul></li></ul>
 
 ### readData()
 Read current sensor data from the sensor object retrieved by using makeSensorByType.
@@ -140,10 +128,7 @@ Current sensor data - format is the same with callback specified for start metho
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -161,10 +146,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -183,10 +165,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -241,10 +220,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
@@ -261,10 +237,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:

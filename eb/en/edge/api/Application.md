@@ -41,16 +41,11 @@ Full path to the database file for given partition.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.databaseFilePath(<span class="text-info">STRING</span> partitionName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.databaseFilePath(<span class="text-info">STRING</span> partitionName)</code> </li></ul></li></ul>
 
 ### expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)
 Generates the absolute path to database blob file. Please note that this function does not the create database file. This function only generates the file path based on application path and partition name.
@@ -68,16 +63,11 @@ Full path to the database blob.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)</code> </li></ul></li></ul>
 
 ### minimize()
 Minimize or move the application to background. When running in RhoSimulator this method is supported only for Windows OS.
@@ -90,13 +80,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.minimize()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.minimize()</code> </li></ul></li></ul>
 
 ### modelFolderPath(<span class="text-info">STRING</span> name)
 Folder of the model by name.
@@ -113,38 +100,11 @@ Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.modelFolderPath(<span class="text-info">STRING</span> name)</code> </li></ul></li></ul>
-
-### processApplicationEvent(<span class="text-info">STRING</span> applicationEvent, <span class="text-info">HASH</span> eventData)
-Ruby applications must use this method for processing of the application Event. May be called from setApplicationNotify callback.This method should be called for each event. The only exception is SyncUserChanged, where you can choose your own reset database logic.
-
-####Parameters
-<ul><li>applicationEvent : <span class='text-info'>STRING</span><p>
-See setApplicationNotify for applicationEvent values. </p></li><li>eventData : <span class='text-info'>HASH</span><p>
-This will only contain values for the `APP_EVENT_CONFIGCONFLICT` event. This event may be triggered after an application was upgraded. If your rhoconfig.txt file contains custom properties that are different then what is being provided in the application upgrade package. By default local values are kept in place but you may overwrite configuration with new values and any other steps required for your application upgrade. `eventData` will be a hash. It will look like {"conflicting key" : ["new value","old value"].. } </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Ruby
-* Android
-* iOS
-* Windows Embedded
-* Windows Desktop
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.modelFolderPath(<span class="text-info">STRING</span> name)</code> </li></ul></li></ul>
 
 ### quit()
 Quit the application.
@@ -157,16 +117,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.quit()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.quit()</code> </li></ul></li></ul>
 
 ### relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)
 Generates the relative path to database blob file. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.
@@ -183,16 +138,11 @@ Synchronous Return:<ul><li>STRING</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)</code> </li></ul></li></ul>
 
 ### restore()
 Restores the application to be in the foreground. When running in RhoSimulator the method is supported only for windows OS.
@@ -205,13 +155,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.restore()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.restore()</code> </li></ul></li></ul>
 
 ### setApplicationNotify()
 This method allows your application to register for application specific events like application activation/deactivation, UI creation/destruction as well as others. Check the Callback tab for details.
@@ -221,17 +168,17 @@ This method allows your application to register for application specific events 
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>applicationEvent : <span class='text-info'>STRING</span><p>
-{} </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.Application.APP_EVENT_ACTIVATED <br/> String:Activated</dt><dd>
-The application has been activated.</dd><dt>Constant: Rho.Application.APP_EVENT_DEACTIVATED <br/> String:Deactivated</dt><dd>
-The application has been deactivated.</dd><dt>Constant: Rho.Application.APP_EVENT_UICREATED <br/> String:UICreated</dt><dd>
-Generated before the start page is loaded. There are no means to set callback and catch event in javascript. Ruby Application class descendant can to set callback and process this event.</dd><dt>Constant: Rho.Application.APP_EVENT_UIDESTROYED <br/> String:UIDestroyed</dt><dd>
-This event is triggered when the application is closing and the UI has been cleared.</dd><dt>Constant: Rho.Application.APP_EVENT_SCREEN_OFF <br/> String:ScreenOff</dt><dd>
+{} </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Application.APP_EVENT_ACTIVATED <br/> String:Activated</dt><dd>
+The application has been activated.</dd><dt>Constant: EB.Application.APP_EVENT_DEACTIVATED <br/> String:Deactivated</dt><dd>
+The application has been deactivated.</dd><dt>Constant: EB.Application.APP_EVENT_UICREATED <br/> String:UICreated</dt><dd>
+Generated before the start page is loaded. There are no means to set callback and catch event in javascript. Ruby Application class descendant can to set callback and process this event.</dd><dt>Constant: EB.Application.APP_EVENT_UIDESTROYED <br/> String:UIDestroyed</dt><dd>
+This event is triggered when the application is closing and the UI has been cleared.</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_OFF <br/> String:ScreenOff</dt><dd>
 Device screen was turned off when power button was pressed or due to idle timeout. NB: On iOS application is also deactivated (APP_EVENT_DEACTIVATED is fired). On Android the application is not deactivated.Not supported on Windows CE. Platforms: 
-Android, iOS, WM</dd><dt>Constant: Rho.Application.APP_EVENT_SCREEN_ON <br/> String:ScreenOn</dt><dd>
+Android, iOS, WM</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_ON <br/> String:ScreenOn</dt><dd>
 Device screen was turned on and unlocked.Not supported on Windows CE. Platforms: 
-Android, iOS, WM</dd><dt>Constant: Rho.Application.APP_EVENT_SYNCUSERCHANGED <br/> String:SyncUserChanged</dt><dd>
-Event when the current RhoConnect user has changed. This is available under Ruby Only.</dd><dt>Constant: Rho.Application.APP_EVENT_CONFIGCONFLICT <br/> String:ConfigConflict</dt><dd>
-This is available under Ruby Only.</dd><dt>Constant: Rho.Application.APP_EVENT_DBMIGRATESOURCE <br/> String:DBMigrateSource</dt><dd>
+Android, iOS, WM</dd><dt>Constant: EB.Application.APP_EVENT_SYNCUSERCHANGED <br/> String:SyncUserChanged</dt><dd>
+Event when the current RhoConnect user has changed. This is available under Ruby Only.</dd><dt>Constant: EB.Application.APP_EVENT_CONFIGCONFLICT <br/> String:ConfigConflict</dt><dd>
+This is available under Ruby Only.</dd><dt>Constant: EB.Application.APP_EVENT_DBMIGRATESOURCE <br/> String:DBMigrateSource</dt><dd>
 This is available under Ruby Only.</dd></dl></li><li>eventData : <span class='text-info'>HASH</span><p>
 This will only contain values for the `APP_EVENT_CONFIGCONFLICT` event. This event may be triggered after an application was upgraded. If your rhoconfig.txt file contains custom properties that are different then what is being provided in the application upgrade package. By default local values are kept in place but you may overwrite configuration with new values and any other steps required for your application upgrade. `eventData` will be a hash. It will look like {"conflicting key" : ["new value","old value"].. } </p></li></ul></ul>
 
@@ -240,15 +187,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Application.setApplicationNotify()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.setApplicationNotify()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -262,7 +205,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 Path to apps/app folder inside the application bundle.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.appBundleFolder</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appBundleFolder</code> </li></ul></li></ul>
 
 ###appName
 
@@ -272,7 +215,7 @@ Path to apps/app folder inside the application bundle.
 
 Application name.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.appName</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appName</code> </li></ul></li></ul>
 
 ###appsBundleFolder
 
@@ -282,7 +225,7 @@ Application name.
 
 Path to apps folder inside the application bundle.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.appsBundleFolder</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appsBundleFolder</code> </li></ul></li></ul>
 
 ###badLinkURI
 
@@ -292,7 +235,7 @@ Path to apps folder inside the application bundle.
 
 Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\BadLinkURI.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.badLinkURI</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.badLinkURI</code> </li></ul></li></ul>
 
 ###bundleFolder
 
@@ -302,7 +245,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 
 Path to application bundle folder.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.bundleFolder</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.bundleFolder</code> </li></ul></li></ul>
 
 ###configPath
 
@@ -312,17 +255,7 @@ Path to application bundle folder.
 
 Path to the configuration file.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.configPath</code> </li></ul></li></ul>
-
-###country
-
-####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
-
-Current application country code.
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.configPath</code> </li></ul></li></ul>
 
 ###databaseBlobFolder
 
@@ -332,7 +265,7 @@ Current application country code.
 
 Path to folder where the database blob files are stored. Blobs are usually images or binary files. In the ORM Model you would specify that the attribute is of type blob Ex. When capturing an image, the actual file is saved in the databaseBlobFolder.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.databaseBlobFolder</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.databaseBlobFolder</code> </li></ul></li></ul>
 
 ###defaultNativeMenu
 
@@ -345,7 +278,7 @@ Native Menu items.
 <li><i>Object</i> : <span class='text-info'>HASH</span><p>
 Same values as nativeMenu. </p></li>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.defaultNativeMenu</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.defaultNativeMenu</code> </li></ul></li></ul>
 
 ###invalidSecurityTokenStartPath
 
@@ -355,17 +288,7 @@ Same values as nativeMenu. </p></li>
 
 Page to navigate to in case of check of SecurityToken failed. Can be set in rhoconfig.txt: invalid_security_token_start_path;
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.invalidSecurityTokenStartPath</code> </li></ul></li></ul>
-
-###locale
-
-####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
-
-Current application locale.Like 'en', 'ru' etc.
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.invalidSecurityTokenStartPath</code> </li></ul></li></ul>
 
 ###modelsManifestPath
 
@@ -375,7 +298,7 @@ Current application locale.Like 'en', 'ru' etc.
 
 Path to file with the model list.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.modelsManifestPath</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.modelsManifestPath</code> </li></ul></li></ul>
 
 ###nativeMenu
 
@@ -389,7 +312,7 @@ Native Menu items.
 Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>
 URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li></ul>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.nativeMenu</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.nativeMenu</code> </li></ul></li></ul>
 
 ###publicFolder
 
@@ -399,7 +322,7 @@ URL to page which will be loaded into tab. It may be path to Ruby controller act
 
 Path to the application's public folder.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.publicFolder</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.publicFolder</code> </li></ul></li></ul>
 
 ###securityTokenNotPassed
 
@@ -409,7 +332,7 @@ Path to the application's public folder.
 
 Is the security token check was failed. Security token can be set in build.yml: security_token. Same security token should be passed as command line parameter '-security_token=token_value' to application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.securityTokenNotPassed</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.securityTokenNotPassed</code> </li></ul></li></ul>
 
 ###settingsPageURI
 
@@ -419,7 +342,7 @@ Is the security token check was failed. Security token can be set in build.yml: 
 
 Settings page URI. Will be used when Options menu or toolbar item is chosen by user.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.settingsPageURI</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.settingsPageURI</code> </li></ul></li></ul>
 
 ###splash
 
@@ -429,7 +352,7 @@ Settings page URI. Will be used when Options menu or toolbar item is chosen by u
 
 Splash screen image display options. This a string with several parameters divided by ';': delay=5;center;hcenter;vcenter;vzoom;hzoom;zoom.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.splash</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.splash</code> </li></ul></li></ul>
 
 ###startURI
 
@@ -439,7 +362,7 @@ Splash screen image display options. This a string with several parameters divid
 
 Startup page for your application.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.startURI</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.startURI</code> </li></ul></li></ul>
 
 ###title
 
@@ -449,7 +372,7 @@ Startup page for your application.
 
 Define Window caption text. If missed - caption from page used. Not supported on Windows CE devices.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.title</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.title</code> </li></ul></li></ul>
 
 ###userFolder
 
@@ -459,7 +382,7 @@ Define Window caption text. If missed - caption from page used. Not supported on
 
 Path to folder where the application can write files and create subfolders.
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.userFolder</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.userFolder</code> </li></ul></li></ul>
 
 ###version
 
@@ -469,7 +392,7 @@ Path to folder where the application can write files and create subfolders.
 
 Version from build time configuration file (build.yml).
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Application.version</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.version</code> </li></ul></li></ul>
 
 ##Examples
 

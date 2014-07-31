@@ -1802,7 +1802,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>Android, iOS, WM</PLATFORM>
         <REMARKS>
-            <REMARK title="Bluetooth Scanner Overview">
+            <REMARK title="Bluetooth Scanner Overview" >
                 <DESC>
                     <![CDATA[
 Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.

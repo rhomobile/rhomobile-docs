@@ -42,12 +42,6 @@ Title of the navigation bar. </p></li></ul><li>callback : <span class='text-info
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-* iOS
-
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Navbar.create(<span class="text-info">HASH</span> navBarProperties)</code> </li></ul></li></ul>
 
@@ -59,12 +53,6 @@ Removes the current navigation bar. Does nothing if there is no active navigatio
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
-* iOS
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Navbar.remove()</code> </li></ul></li></ul>
@@ -80,12 +68,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
-* iOS
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Navbar.started()</code> </li></ul></li></ul>

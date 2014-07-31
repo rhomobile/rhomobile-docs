@@ -23,11 +23,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.anyChangedObjects()</code></li></ul></li></ul>
 
@@ -42,11 +37,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.buildComplexWhereCond(<span class="text-info">STRING</span> attrKey, <span class="text-info">ARRAY</span> attrValues, <span class="text-info">STRING</span> valOp, <span class="text-info">STRING</span> valFunc)</code></li></ul></li></ul>
@@ -63,11 +53,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.buildFindLimits(<span class="text-info">STRING</span> whatArg, <span class="text-info">HASH</span> hashArgs)</code></li></ul></li></ul>
 
@@ -82,11 +67,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.buildFindOrder(<span class="text-info">ARRAY</span> order_attrs, <span class="text-info">ARRAY</span> order_ops)</code></li></ul></li></ul>
@@ -103,11 +83,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.buildSimpleWhereCond(<span class="text-info">STRING</span> what, <span class="text-info">ARRAY</span> conditions)</code></li></ul></li></ul>
 
@@ -123,11 +98,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.canModify(<span class="text-info">STRING</span> objId)</code></li></ul></li></ul>
 
@@ -140,13 +110,8 @@ Very, very dangerous method - only to be used in specs!!!
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORMModel.clear()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORMModel.clear()</code> </li></ul></li></ul>
 
 ### createInstance(<span class="text-info">HASH</span> attrs)
 Initializes model's object.
@@ -159,11 +124,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.createInstance(<span class="text-info">HASH</span> attrs)</code></li></ul></li></ul>
@@ -180,11 +140,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.createObject(<span class="text-info">HASH</span> attrs)</code></li></ul></li></ul>
 
@@ -197,11 +152,6 @@ Deletes object's attributes from the DB.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.deleteObject(<span class="text-info">STRING</span> objId)</code></li></ul></li></ul>
 
@@ -213,11 +163,6 @@ Deletes all object's according to specified conditions.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.deleteObjects(<span class="text-info">HASH</span> strOptions, <span class="text-info">ARRAY</span> quests)</code></li></ul></li></ul>
@@ -234,11 +179,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.deleteObjectsPropertyBagByCondArray(<span class="text-info">STRING</span> conditions, <span class="text-info">ARRAY</span> quests, <span class="text-info">HASH</span> strOptions)</code></li></ul></li></ul>
 
@@ -254,11 +194,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.deleteObjectsPropertyBagByCondHash(<span class="text-info">HASH</span> conditions, <span class="text-info">HASH</span> strOptions)</code></li></ul></li></ul>
 
@@ -270,11 +205,6 @@ Destroys model's instance.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.destroy()</code> </li></ul></li></ul>
@@ -288,11 +218,6 @@ Sets model's Boolean property to true (enables model's property)
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.enable(<span class="text-info">STRING</span> propertyName)</code></li></ul></li></ul>
 
@@ -302,19 +227,14 @@ Synchronous Return:<ul><li>Void</li></ul>
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY : 
-Array of NewORMModel objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
+Array of NewORMModel objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORMModel.enumerate()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORMModel.enumerate()</code> </li></ul></li></ul>
 
 ### findObjects(<span class="text-info">STRING</span> whatParam, <span class="text-info">HASH</span> strOptions, <span class="text-info">ARRAY</span> quests, <span class="text-info">ARRAY</span> selectAttrs, <span class="text-info">ARRAY</span> orderAttrs)
 Returns array of objects for the given model queried according to the specified conditions.
@@ -327,11 +247,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.findObjects(<span class="text-info">STRING</span> whatParam, <span class="text-info">HASH</span> strOptions, <span class="text-info">ARRAY</span> quests, <span class="text-info">ARRAY</span> selectAttrs, <span class="text-info">ARRAY</span> orderAttrs)</code></li></ul></li></ul>
@@ -348,11 +263,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.findObjectsPropertyBagByCondArray(<span class="text-info">STRING</span> whatParam, <span class="text-info">STRING</span> conditions, <span class="text-info">ARRAY</span> quests, <span class="text-info">HASH</span> strOptions, <span class="text-info">ARRAY</span> selectAttrs)</code></li></ul></li></ul>
 
@@ -368,11 +278,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.findObjectsPropertyBagByCondHash(<span class="text-info">STRING</span> whatParam, <span class="text-info">HASH</span> conditions, <span class="text-info">HASH</span> strOptions, <span class="text-info">ARRAY</span> selectAttrs)</code></li></ul></li></ul>
 
@@ -387,11 +292,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.find_by_sql(<span class="text-info">STRING</span> sqlQuery)</code></li></ul></li></ul>
@@ -409,11 +309,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 Synchronous Return:<ul><li>HASH : 
 Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li></ul>
 
@@ -428,11 +323,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 
 ####Returns
 Synchronous Return:<ul><li>STRING</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getBackendRefreshTime()</code></li></ul></li></ul>
@@ -449,11 +339,6 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:<ul><li>ARRAY</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getBelongsTo(<span class="text-info">STRING</span> propertyName)</code></li></ul></li></ul>
 
@@ -469,11 +354,6 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:<ul><li>INTEGER</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getCount()</code></li></ul></li></ul>
 
@@ -484,19 +364,14 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 Name of the model you want returned. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>STRING : 
-NewORMModel object.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.NewORMModel</span><p> </p></li></ul></li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
+NewORMModel object.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.NewORMModel</span><p> </p></li></ul></li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.NewORMModel.getModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORMModel.getModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
 
 ### getModelProperty(<span class="text-info">STRING</span> propertyName)
 Returns info about model's field property.
@@ -509,11 +384,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getModelProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li></ul>
@@ -532,11 +402,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 Synchronous Return:<ul><li>HASH : 
 Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li></ul>
 
@@ -554,11 +419,6 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 Synchronous Return:<ul><li>STRING : 
 The property to return info about.</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li></ul>
 
@@ -574,15 +434,10 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.hasChanges(<span class="text-info">STRING</span> objId)</code></li></ul></li></ul>
 
-### <span class="label label-inverse"> Constructor</span>  new Rho.NewORMModel(<span class="text-info">STRING</span> modelName)
+### <span class="label label-inverse"> Constructor</span>  new EB.NewORMModel(<span class="text-info">STRING</span> modelName)
 Initializes new model's instance.
 
 ####Parameters
@@ -591,13 +446,8 @@ Initializes new model's instance.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
-<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new Rho.NewORMModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
+<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new EB.NewORMModel(<span class="text-info">STRING</span> modelName)</code> </li></ul></li></ul>
 
 ### initModel()
 Initializes model's internal DB.
@@ -607,11 +457,6 @@ Initializes model's internal DB.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.initModel()</code></li></ul></li></ul>
@@ -625,11 +470,6 @@ Handles sync create errors.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.onSyncCreateError(<span class="text-info">ARRAY</span> objects, <span class="text-info">STRING</span> action)</code></li></ul></li></ul>
 
@@ -641,11 +481,6 @@ Handles sync delete errors for the object.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.onSyncDeleteError(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrHash, <span class="text-info">STRING</span> action)</code></li></ul></li></ul>
@@ -659,11 +494,6 @@ Handles sync update errors for the object.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.onSyncUpdateError(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrHash, <span class="text-info">HASH</span> rollbackHash, <span class="text-info">STRING</span> action)</code></li></ul></li></ul>
 
@@ -675,11 +505,6 @@ Pushes all changes for the source.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.pushChanges()</code></li></ul></li></ul>
@@ -696,11 +521,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.saveObject(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrs)</code></li></ul></li></ul>
 
@@ -712,11 +532,6 @@ Sets model's property to value with additional processing for :sync property.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.set(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li></ul>
@@ -730,11 +545,6 @@ Adds 'belongs_to' relationship for the model.
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setBelongsTo(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> sourceName)</code></li></ul></li></ul>
 
@@ -746,11 +556,6 @@ Initializes new model's field property.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setModelProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyType, <span class="text-info">STRING</span> propOption)</code></li></ul></li></ul>
@@ -764,11 +569,6 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li></ul>
@@ -784,11 +584,6 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li></ul>
 
@@ -800,11 +595,6 @@ Initializes new model's schema index.
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setSchemaIndex(<span class="text-info">STRING</span> indexName, <span class="text-info">ARRAY</span> indexCols, <span class="text-info">BOOLEAN</span> is_unique)</code></li></ul></li></ul>
@@ -821,11 +611,6 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:<ul><li>HASH</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.updateObject(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> oldAttrs, <span class="text-info">HASH</span> newAttrs)</code></li></ul></li></ul>
 
@@ -841,11 +626,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.validateFreezedAttribute(<span class="text-info">STRING</span> attrName)</code></li></ul></li></ul>
 
@@ -860,11 +640,6 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 
 ####Returns
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.validateFreezedAttributes(<span class="text-info">HASH</span> attrHash)</code></li></ul></li></ul>

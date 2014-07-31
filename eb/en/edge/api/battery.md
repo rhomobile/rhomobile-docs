@@ -64,14 +64,11 @@ Only supported on Motorola Solutions' Windows Mobile / CE / Embedded devices. Th
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Battery.batteryStatus(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.batteryStatus(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### hideIcon()
 Hide the icon if it has been previously set by the 'showIcon' call.
@@ -84,14 +81,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Battery.hideIcon()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.hideIcon()</code> </li></ul></li></ul>
 
 ### showIcon(<span class="text-info">HASH</span> propertyMap)
 Overlays a small battery icon on top of the view indicating the remaining battery strength. This is particularly useful in full screen applications which cover the system battery level indicator.
@@ -101,10 +96,10 @@ Overlays a small battery icon on top of the view indicating the remaining batter
 The properties associated with the indicator, its position and color. </p></li><ul><li>left : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top left of the screen]</span><p>
 The absolute horizontal position of the indicator in pixels. This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top left of the screen]</span><p>
 The absolute vertical position of the indicator in pixels. Positive numbers go towards the bottom of the screen. This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>layout : <span class='text-info'>STRING</span><span class='label '> Default: [Right]</span><p>
-Sets the orientation of the icon, see the remarks section for illustrations. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.Battery.BATTERY_LAYOUT_LEFT <br/> String:left</dt><dd>
-See the remarks section for illustrations of icon layout.</dd><dt>Constant: Rho.Battery.BATTERY_LAYOUT_RIGHT <br/> String:right</dt><dd>
-See the remarks section for illustrations of icon layout.</dd><dt>Constant: Rho.Battery.BATTERY_LAYOUT_UP <br/> String:up</dt><dd>
-See the remarks section for illustrations of icon layout.</dd><dt>Constant: Rho.Battery.BATTERY_LAYOUT_DOWN <br/> String:down</dt><dd>
+Sets the orientation of the icon, see the remarks section for illustrations. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Battery.BATTERY_LAYOUT_LEFT <br/> String:left</dt><dd>
+See the remarks section for illustrations of icon layout.</dd><dt>Constant: EB.Battery.BATTERY_LAYOUT_RIGHT <br/> String:right</dt><dd>
+See the remarks section for illustrations of icon layout.</dd><dt>Constant: EB.Battery.BATTERY_LAYOUT_UP <br/> String:up</dt><dd>
+See the remarks section for illustrations of icon layout.</dd><dt>Constant: EB.Battery.BATTERY_LAYOUT_DOWN <br/> String:down</dt><dd>
 See the remarks section for illustrations of icon layout.</dd></dl></li><li>color : <span class='text-info'>STRING</span><p>
 The color of the icon. This value must be specified as a Hex value in the format #000000 to #FFFFFF. Alpha values are not supported, i.e. You can only use the component parts RRGGBB. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
@@ -113,14 +108,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Battery.showIcon(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.showIcon(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
 
 ### smartBatteryStatus()
 Returns the various parameters relating to battery charge and battery hardware. Not all return values may be supported by all batteries.
@@ -135,9 +128,9 @@ The Motorola Solutions' part number of the battery, e.g. 21-65587 Rev. A. </p></
 The number of times the battery has been charged. Partial charges are aggregated, therefore each charge cycle count represents one full charge / discharge cycle. The battery charge cycle count gets updated when the battery charging state changes from charging to not charging. Cycle count may not accurately predict the life of a battery. </p></li><li>ratedCapacity : <span class='text-info'>INTEGER</span><p>
 Rated capacity of the battery in mAh. </p></li><li>manufactureDate : <span class='text-info'>STRING</span><p>
 Date the battery was manufactured expressed as MM/DD/YYYY. </p></li><li>stateOfHealth : <span class='text-info'>STRING</span><p>
-The health of the battery. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.Battery.SMART_BATTERY_HEALTHY <br/> String:healthy</dt><dd>
-The battery is healthy.</dd><dt>Constant: Rho.Battery.SMART_BATTERY_UNHEALTHY <br/> String:unhealthy</dt><dd>
-The battery is unhealthy.</dd><dt>Constant: Rho.Battery.SMART_BATTERY_UNKNOWN <br/> String:unknown</dt><dd>
+The health of the battery. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Battery.SMART_BATTERY_HEALTHY <br/> String:healthy</dt><dd>
+The battery is healthy.</dd><dt>Constant: EB.Battery.SMART_BATTERY_UNHEALTHY <br/> String:unhealthy</dt><dd>
+The battery is unhealthy.</dd><dt>Constant: EB.Battery.SMART_BATTERY_UNKNOWN <br/> String:unknown</dt><dd>
 The battery health is unknown.</dd></dl></li></ul></ul>
 
 ####Returns
@@ -147,20 +140,18 @@ The Motorola Solutions' part number of the battery, e.g. 21-65587 Rev. A. </p></
 The number of times the battery has been charged. Partial charges are aggregated, therefore each charge cycle count represents one full charge / discharge cycle. The battery charge cycle count gets updated when the battery charging state changes from charging to not charging. Cycle count may not accurately predict the life of a battery. </p></li><li>ratedCapacity : <span class='text-info'>INTEGER</span><p>
 Rated capacity of the battery in mAh. </p></li><li>manufactureDate : <span class='text-info'>STRING</span><p>
 Date the battery was manufactured expressed as MM/DD/YYYY. </p></li><li>stateOfHealth : <span class='text-info'>STRING</span><p>
-The health of the battery. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.Battery.SMART_BATTERY_HEALTHY <br/> String:Constant: Rho.Battery.SMART_BATTERY_HEALTHY <br/> String:healthy</dt><dd>
-The battery is healthy.</dd><dt>Constant: Rho.Battery.SMART_BATTERY_UNHEALTHY <br/> String:Constant: Rho.Battery.SMART_BATTERY_UNHEALTHY <br/> String:unhealthy</dt><dd>
-The battery is unhealthy.</dd><dt>Constant: Rho.Battery.SMART_BATTERY_UNKNOWN <br/> String:Constant: Rho.Battery.SMART_BATTERY_UNKNOWN <br/> String:unknown</dt><dd>
+The health of the battery. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Battery.SMART_BATTERY_HEALTHY <br/> String:Constant: EB.Battery.SMART_BATTERY_HEALTHY <br/> String:healthy</dt><dd>
+The battery is healthy.</dd><dt>Constant: EB.Battery.SMART_BATTERY_UNHEALTHY <br/> String:Constant: EB.Battery.SMART_BATTERY_UNHEALTHY <br/> String:unhealthy</dt><dd>
+The battery is unhealthy.</dd><dt>Constant: EB.Battery.SMART_BATTERY_UNKNOWN <br/> String:Constant: EB.Battery.SMART_BATTERY_UNKNOWN <br/> String:unknown</dt><dd>
 The battery health is unknown.</dd></dl></li></ul></li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Windows Embedded
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Battery.smartBatteryStatus()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.smartBatteryStatus()</code> </li></ul></li></ul>
 
 ### stopBatteryStatus()
 If the battery status is being retrieved via callback, by a previously invoked call to batteryStatus, this method will stop the callback from firing.
@@ -173,14 +164,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Battery.stopBatteryStatus()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Battery.stopBatteryStatus()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -196,7 +184,7 @@ A callback to retrieve the battery strength can be specified to occur periodical
 ####Params
 <p><strong>Default:</strong> 5000</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.Battery.refreshInterval</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Battery.refreshInterval</code> </li></ul></li></ul>
 
 ##Remarks
 

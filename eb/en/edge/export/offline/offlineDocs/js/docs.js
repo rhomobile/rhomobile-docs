@@ -446,6 +446,10 @@ function loadDoc(key){
 			scroll_position = $('H3').filter(function() { return $.text([this]) == key_scrollto; }).first().offset().top-$('#docsHeader').outerHeight();
 
 		}
+		if($('H2').filter(function() { return $.text([this]) == key_scrollto; }).length>0){
+			scroll_position = $('H2').filter(function() { return $.text([this]) == key_scrollto; }).first().offset().top-$('#docsHeader').outerHeight();
+
+		}
 
 	}
 	//console.log(scroll_position);

@@ -5,6 +5,14 @@ class Apieb
 
 @@apiName = ""
 
+	def self.noproductException(element)
+		noexception = true
+		if !element["productException"].nil? && element["productException"] =="eb"
+			noexception = false
+		end
+		return noexception
+	end
+
   def self.getMDDesc(desc)
   	return "\n#{desc}"
   	# if desc.is_a?(String)
@@ -31,7 +39,7 @@ class Apieb
 	  		if lang == 'RUBY'
 	  			md = 'Rho::' + doc["MODULE"][0]["name"]
 	  		elsif lang =='JS'
-	  			md = 'Rho.' + doc["MODULE"][0]["name"]
+	  			md = 'EB.' + doc["MODULE"][0]["name"]
 	  		else
 	  			md = doc["MODULE"][0]["name"]
 
@@ -121,9 +129,13 @@ class Apieb
   	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	s.each_with_index() { |element,index|
-		    md += "\n\n###" + element["title"]
-		    html = getMDDesc(element["DESC"][0])
-		  	md += html
+	  		#EB only show if no exception
+	  		if noproductException(element)
+
+			    md += "\n\n###" + element["title"]
+			    html = getMDDesc(element["DESC"][0])
+			  	md += html
+		  	end
 	  	}
 
 	end
@@ -135,10 +147,13 @@ class Apieb
   	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
 	  	s.each_with_index() { |element,index|
-	  		element["name"] = getElementName(element) 
-			md +=  "\n* " + element["name"]
-			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
- 		        md +=  getMDDesc(element["DESC"][0])
+	  		#EB only show if no exception
+	  		if noproductException(element)
+		  		element["name"] = getElementName(element) 
+				md +=  "\n* " + element["name"]
+				if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
+	 		        md +=  getMDDesc(element["DESC"][0])
+	       		end
        		end
 	  	}
 	end
@@ -157,26 +172,31 @@ class Apieb
   	end
   	indicators = ""
   	if javascript
-		indicators += "\n* Javascript"
+  		# Ignoring for EB
+		# indicators += "\n* Javascript"
 	end
   	if ruby
-		indicators += "\n* Ruby"
+  		# Ignoring for EB
+		# indicators += "\n* Ruby"
 	end
 	if !platforms.is_a?(Hash)
 		if !platforms.downcase.index("android").nil? || !platforms.downcase.index("all").nil?
 			indicators += "\n* Android"
 	  	end
 	  	if (!platforms.downcase.index("ios").nil? || !platforms.downcase.index("all").nil?) && !msionly
-			indicators += "\n* iOS"
+  			# Ignoring for EB
+			# indicators += "\n* iOS"
 	  	end
 	  	if !platforms.downcase.index("wm").nil? || !platforms.downcase.index("all").nil?
 			indicators += "\n* Windows Embedded"
 	  	end
 	  	if !platforms.downcase.index("wp8").nil? || !platforms.downcase.index("all").nil?
-			indicators += "\n* Windows Phone 8"
+  			# Ignoring for EB
+			# indicators += "\n* Windows Phone 8"
 	  	end
 	  	if (!platforms.downcase.index("win32").nil? || !platforms.downcase.index("all").nil?) && !msionly
-			indicators += "\n* Windows Desktop"
+  			# Ignoring for EB
+			#indicators += "\n* Windows Desktop"
 	  	end
 	  	if msionly
 			indicators += "\n* Motorola Solutions Devices Only"
@@ -199,6 +219,8 @@ def self.getparams(element,toplevel)
 
 	methparamsdetails = ""
 	methsectionparams = ""
+	#EB show only if no exception
+	if noproductException(element)
 		if !element["PARAMS"].nil?
 			if !toplevel
 				methsectionparams += "<ul>"
@@ -427,7 +449,7 @@ def self.getparams(element,toplevel)
 			
 			
 		end
-
+	end 
 	return methsectionparams
 end
 
@@ -445,7 +467,7 @@ end
 		
 	s.each() { |element|
 		element["name"] = getElementName(element) 
-		if element["generateDoc"].nil? || element["generateDoc"] == "true"
+		if (element["generateDoc"].nil? || element["generateDoc"] == "true") && noproductException(element)
 			methname = element["name"]
 
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
@@ -665,30 +687,32 @@ end
 			end
 			@methsectionaccess = "\n\n####Method Access:\n<ul>#{accesstype}</ul>"			
 
-			# *** BUILD ORDER OF SECTIONS
-		  	if constructor
-			    md += "\n\n### #{constructorLabel} new " + @@apiName +  "(#{@methparams})"
-		  	else
-			    md += "\n\n### #{destructorLabel}" + methname + "(#{@methparams})"
-		  	end
+			#EB : Do not show if not supporting javascript
+			if javascript
+				# *** BUILD ORDER OF SECTIONS
+			  	if constructor
+				    md += "\n\n### #{constructorLabel} new " + @@apiName +  "(#{@methparams})"
+			  	else
+				    md += "\n\n### #{destructorLabel}" + methname + "(#{@methparams})"
+			  	end
 
-		    md += @methdesc 
-		    if @methsectionparams != ''
-    			md += @methsectionparams
+			    md += @methdesc 
+			    if @methsectionparams != ''
+	    			md += @methsectionparams
+	    		end
+			    if @methsectioncallbackparams != ''
+	    			md += @methsectioncallbackparams
+	    		end
+			    if @methsectionreturns != ''
+	    			md += @methsectionreturns
+	    		end
+	    		if @methplatforms != ''
+	    			md += @methplatforms
+	    		end
+	    		if @methsectionaccess != ''
+	    			md += @methsectionaccess
+	    		end
     		end
-		    if @methsectioncallbackparams != ''
-    			md += @methsectioncallbackparams
-    		end
-		    if @methsectionreturns != ''
-    			md += @methsectionreturns
-    		end
-    		if @methplatforms != ''
-    			md += @methplatforms
-    		end
-    		if @methsectionaccess != ''
-    			md += @methsectionaccess
-    		end
-
 		end 
   	}
 
@@ -716,7 +740,7 @@ def self.getproperties(doc)
 		s.each() { |element|
 			element["name"] = getElementName(element) 
 		
-			if element["generateDoc"].nil? || element["generateDoc"] == "true"
+			if (element["generateDoc"].nil? || element["generateDoc"] == "true") && noproductException(element)
 
 				propname = element["name"]
 				propusage = ""
@@ -907,25 +931,30 @@ def self.getproperties(doc)
 				if !generateAccessors
 					@propsectionaccess += "\nThis property cannot be accessed via setter or getter methods. It can be used in methods that allow a HASH or Array of properties to be passed in."
 				end
-				md += "\n\n###" + propdisplayname 
-				md += "\n\n####Type" 
-				md += "\n#{proptype} #{propreadOnly}"
-				md += "\n####Description"
-				md += "\n#{@propdesc}"
-				if propParasDef != ''
-					md += "\n####Params"
-					md += "\n#{propParasDef}"
-				end
-				if @propvalues != ''
-					md += "\n####Values"
-					md += "\n#{@propvalues}"
-				end
-				if @propsectionaccess != ''
-					md += "\n####Access"
-					md += "\n#{@propsectionaccess}"
-				end
-				if @propsectionplatforms != ''
-					md += "\n#{@propsectionplatforms}#{propnote}"
+
+				#EB : Ignore if not javascript supported
+				if javascript
+			
+					md += "\n\n###" + propdisplayname 
+					md += "\n\n####Type" 
+					md += "\n#{proptype} #{propreadOnly}"
+					md += "\n####Description"
+					md += "\n#{@propdesc}"
+					if propParasDef != ''
+						md += "\n####Params"
+						md += "\n#{propParasDef}"
+					end
+					if @propvalues != ''
+						md += "\n####Values"
+						md += "\n#{@propvalues}"
+					end
+					if @propsectionaccess != ''
+						md += "\n####Access"
+						md += "\n#{@propsectionaccess}"
+					end
+					if @propsectionplatforms != ''
+						md += "\n#{@propsectionplatforms}#{propnote}"
+					end
 				end
 			end
 	  	}
@@ -1021,110 +1050,116 @@ end
   	
   	# puts topic
   	doc = XmlSimple.xml_in(topic)
-  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
-	  	templatePropBag = false
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
-	  		templatePropBag = true
-	  	end
-	  	templateDefault = false
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
-	  		templateDefault = true
-	  	end
-	  	templateSingleton = false
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
-	  		templateSingleton = true
-	  	end
-	  	# Add template methods,properties,constants
-	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
-	  		
-	  		puts 'Has a template' 
-	  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
-	  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
-	  		w = templateFileString.split("/")
-	  		templateFile = w[w.length() - 1]
-	  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],templateFile))
-			templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
-			# puts(doc)
-			if doc["MODULE"][0]["PROPERTIES"].nil?
-				doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
-			else
-				templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
-					doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
-				}
 
-			end
-			puts (doc["MODULE"][0]["PROPERTIES"])
-			templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
-				doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
-			}
-	  	end
-	  	if templateDefault
-	  		#get xml from file and put it in main array so it is handled like other methods
-	  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'default_instance.xml'))
-			defaultdoc["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
-	  	end
-	  	if templateSingleton
-	  		#get xml from file and put it in main array so it is handled like other methods
-	  		puts topic + 'trying to use singleton'
-	  		# This was commented out as engineering changed their minds on singleton usage no longer used
-	  		# it use to be just enumerate, but now that is in indicidual api docs
-
-	  		# singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
-			# singletondoc["METHODS"][0]["METHOD"].each { |m|
-				# doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			# }
-	  	end
-	  	if templatePropBag
-	  		#get xml from file and put it in main array so it is handled like other methods
-	  		propbagdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'property_bag.xml'))
-			propbagdoc["METHODS"][0]["METHOD"].each { |m|
-				doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-			}
-	  	end
-	  	#get api name from <MODULE name="" ...
-	  	# need to figure out what to do if multiple <MODULE tags in one physical file
-	  	#puts doc
-
-	  	docmethods = getmethods(doc)
-	  	docproperties = getproperties(doc)
-	  	docexamples = getexamples(doc)
-	  	docremarks = getremarks(doc)
-	  	docconstants = getconstants(doc)
-	  	
-
-	  	md += "#" + getApiName(doc,'',true) + "\n" 
-	  	md += "\n\n## Overview" 
-	  	md += "\n" + getApiDesc(doc) + "\n" 
-	  	
-	  	if docmethods !=""
-		  	md += "\n\n##Methods" + "\n\n" 
-		  	md += docmethods
-		end
-		if docproperties !=""
-		  	md += "\n\n##Properties" + "\n\n" 
-		  	md += docproperties
-		end
-		if docconstants !=""
-		  	 md += "\n\n##Constants" + "\n\n" 
-		  	 md += "" + docconstants + ""
-	  	end 
-  	    if docremarks !=""
-		  	 md += "\n\n##Remarks" + "\n\n" 
-		  	 md += "" + docremarks + ""
-	  	end 
-		if docexamples !=""
-		  	 md += "\n\n##Examples" + "\n\n" 
-		  	 md += "" + docexamples + ""
-	  	end 
-	  	# puts md
-	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
+  	#EB don't process if module has productException
+  	if !noproductException doc["MODULE"][0]
+		puts "API Not Supported in EB"
 	else
-		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
-	end
+	  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"  
+		  	templatePropBag = false
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+		  		templatePropBag = true
+		  	end
+		  	templateDefault = false
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+		  		templateDefault = true
+		  	end
+		  	templateSingleton = false
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+		  		templateSingleton = true
+		  	end
+		  	# Add template methods,properties,constants
+		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
+		  		
+		  		puts 'Has a template' 
+		  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
+		  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
+		  		w = templateFileString.split("/")
+		  		templateFile = w[w.length() - 1]
+		  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],templateFile))
+				templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
+					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				}
+				# puts(doc)
+				if doc["MODULE"][0]["PROPERTIES"].nil?
+					doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
+				else
+					templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
+						doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
+					}
+
+				end
+				puts (doc["MODULE"][0]["PROPERTIES"])
+				templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
+					doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
+				}
+		  	end
+		  	if templateDefault
+		  		#get xml from file and put it in main array so it is handled like other methods
+		  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'default_instance.xml'))
+				defaultdoc["METHODS"][0]["METHOD"].each { |m|
+					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				}
+		  	end
+		  	if templateSingleton
+		  		#get xml from file and put it in main array so it is handled like other methods
+		  		puts topic + 'trying to use singleton'
+		  		# This was commented out as engineering changed their minds on singleton usage no longer used
+		  		# it use to be just enumerate, but now that is in indicidual api docs
+
+		  		# singletondoc = XmlSimple.xml_in('docs/api/singleton_instances.xml')
+				# singletondoc["METHODS"][0]["METHOD"].each { |m|
+					# doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				# }
+		  	end
+		  	if templatePropBag
+		  		#get xml from file and put it in main array so it is handled like other methods
+		  		propbagdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'property_bag.xml'))
+				propbagdoc["METHODS"][0]["METHOD"].each { |m|
+					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
+				}
+		  	end
+		  	#get api name from <MODULE name="" ...
+		  	# need to figure out what to do if multiple <MODULE tags in one physical file
+		  	#puts doc
+
+		  	docmethods = getmethods(doc)
+		  	docproperties = getproperties(doc)
+		  	docexamples = getexamples(doc)
+		  	docremarks = getremarks(doc)
+		  	docconstants = getconstants(doc)
+		  	
+
+		  	md += "#" + getApiName(doc,'',true) + "\n" 
+		  	md += "\n\n## Overview" 
+		  	md += "\n" + getApiDesc(doc) + "\n" 
+		  	
+		  	if docmethods !=""
+			  	md += "\n\n##Methods" + "\n\n" 
+			  	md += docmethods
+			end
+			if docproperties !=""
+			  	md += "\n\n##Properties" + "\n\n" 
+			  	md += docproperties
+			end
+			if docconstants !=""
+			  	 md += "\n\n##Constants" + "\n\n" 
+			  	 md += "" + docconstants + ""
+		  	end 
+	  	    if docremarks !=""
+			  	 md += "\n\n##Remarks" + "\n\n" 
+			  	 md += "" + docremarks + ""
+		  	end 
+			if docexamples !=""
+			  	 md += "\n\n##Examples" + "\n\n" 
+			  	 md += "" + docexamples + ""
+		  	end 
+		  	# puts md
+		  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
+		else
+			puts ('Skipping API: ' + doc["MODULE"][0]["name"] )
+		end
+	end  		
   return md
   end
 

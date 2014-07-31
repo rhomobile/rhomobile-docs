@@ -36,13 +36,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.leftHanded()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ScreenOrientation.leftHanded()</code> </li></ul></li></ul>
 
 ### normal()
 Sets the screen orientation to default device orientation.
@@ -55,13 +53,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.normal()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ScreenOrientation.normal()</code> </li></ul></li></ul>
 
 ### rightHanded()
 Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
@@ -74,13 +70,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.rightHanded()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ScreenOrientation.rightHanded()</code> </li></ul></li></ul>
 
 ### setScreenOrientationEvent()
 Sets the callback to be called when a screen orientation event occurs.
@@ -96,14 +90,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.setScreenOrientationEvent()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ScreenOrientation.setScreenOrientationEvent()</code> </li></ul></li></ul>
 
 ### upsideDown()
 Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.
@@ -116,13 +107,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
 * Windows Embedded
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.upsideDown()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.ScreenOrientation.upsideDown()</code> </li></ul></li></ul>
 
 ##Properties
 
@@ -138,7 +127,7 @@ Enables or Disables auto-rotation of the screen orientation when the device is r
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.ScreenOrientation.autoRotate</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.ScreenOrientation.autoRotate</code> </li></ul></li></ul>
 
 ##Examples
 

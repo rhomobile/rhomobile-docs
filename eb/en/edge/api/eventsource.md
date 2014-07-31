@@ -23,11 +23,6 @@ Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><u
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
 
-####Platforms
-
-* Javascript
-* Ruby
-
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addEventListener(<span class="text-info">STRING</span> event)</code></li></ul></li></ul>
 
@@ -38,11 +33,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Javascript
-* Ruby
 
 ####Method Access:
 <ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>

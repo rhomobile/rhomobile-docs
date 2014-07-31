@@ -43,16 +43,11 @@ Basename part for the given path.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.basename(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.basename(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### <span class="label label-inverse"> Destructor</span> close()
 Closes file.
@@ -65,13 +60,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
@@ -93,16 +83,11 @@ Error code raised during copy operation. 0 if no error.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
 
 ### deleteDir(<span class="text-info">STRING</span> path)
 Deletes specified directory. The specified directory must be empty to be deleted.
@@ -120,16 +105,11 @@ Error code raised on directory deletion. 0 on success, -1 otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### deleteFile(<span class="text-info">STRING</span> path)
 Deletes file.
@@ -147,16 +127,11 @@ Error code raised on file deletion. 0 on success, -1 otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)
 Deletes all directory contents.
@@ -171,16 +146,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code> </li></ul></li></ul>
 
 ### dirname(<span class="text-info">STRING</span> path)
 Returns directory name part of the specified path.
@@ -198,16 +168,11 @@ Directory name.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.dirname(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.dirname(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### exists(<span class="text-info">STRING</span> path)
 Checks if specified path exists.
@@ -225,16 +190,11 @@ True if path exists, otherwise false.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.exists(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.exists(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### flush()
 Flushes all buffered data to the storage media.
@@ -247,13 +207,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.flush()</code></li></ul></li></ul>
@@ -274,16 +229,11 @@ File size in bytes.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### isDir(<span class="text-info">STRING</span> path)
 Checks if specified path is a directory.
@@ -301,16 +251,11 @@ True if path is a directory. False otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.isDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.isDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### isFile(<span class="text-info">STRING</span> path)
 Checks if specified path is a file.
@@ -328,16 +273,11 @@ True if path is a file, false otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.isFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.isFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### isOpened()
 Checks if file is opened.
@@ -354,13 +294,8 @@ True if file is opened, false otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.isOpened()</code></li></ul></li></ul>
@@ -382,16 +317,11 @@ Joined path.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code> </li></ul></li></ul>
 
 ### listDir(<span class="text-info">STRING</span> path)
 Lists all entries of specified directory.
@@ -409,16 +339,11 @@ Array of directory entry names. If directory is empty array of size 0 will be re
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.listDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.listDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### makeDir(<span class="text-info">STRING</span> path)
 Creates directory with the provided path. If all top-level nodes of the path doesn't exists, directory will not be created.
@@ -436,16 +361,11 @@ Error code raised on directory creation. 0 on success, -1 otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### makeDirs(<span class="text-info">STRING</span> path)
 Creates directory and all top-level directories if necessary. Subsequent isDir call is necessary to check if path was successfully created.
@@ -459,27 +379,22 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
-### <span class="label label-inverse"> Constructor</span>  new Rho.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)
+### <span class="label label-inverse"> Constructor</span>  new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)
 Opens file in a mode specified by the "mode" parameter.
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
 Absolute path to the file. </p></li><li>mode : <span class='text-info'>INTEGER</span><p>
-Mode in which to open the file. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>
-Open file for output at the end of a file. The file is created if it does not exist.</dd><dt>Constant: Rho.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>
-Open file for read-only operations. The file must exist.</dd><dt>Constant: Rho.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>
-Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</dd><dt>Constant: Rho.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>
+Mode in which to open the file. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>
+Open file for output at the end of a file. The file is created if it does not exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>
+Open file for read-only operations. The file must exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>
+Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>
 Open a file for update (both for read and write). The file must exist.</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
@@ -487,16 +402,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new Rho.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code> </li></ul></li></ul>
+<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code> </li></ul></li></ul>
 
 ### read(<span class="text-info">STRING</span> path)
 Reads specified file to a string object.
@@ -514,16 +424,11 @@ File contents.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.read(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.read(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
 
 ### read(<span class="text-info">INTEGER</span> size)
 Reads specified number of characters from current position of the file.
@@ -541,13 +446,8 @@ String from current position of file containing specified number of characters.<
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.read(<span class="text-info">INTEGER</span> size)</code></li></ul></li></ul>
@@ -567,13 +467,8 @@ Contents of the file.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.readAll()</code></li></ul></li></ul>
@@ -595,16 +490,11 @@ Error code raised on move / rename. 0 on success, -1 otherwise.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
 
 ### seek(<span class="text-info">INTEGER</span> pos)
 Sets file position to specified value from the beginning of the file.
@@ -618,13 +508,8 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code></li></ul></li></ul>
@@ -644,13 +529,8 @@ File size in bytes.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.size()</code></li></ul></li></ul>
@@ -671,13 +551,8 @@ Number of bytes written.</li></ul>
 
 ####Platforms
 
-* Javascript
-* Ruby
 * Android
-* iOS
 * Windows Embedded
-* Windows Phone 8
-* Windows Desktop
 
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.write(<span class="text-info">STRING</span> val)</code></li></ul></li></ul>
