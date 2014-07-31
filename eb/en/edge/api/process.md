@@ -2,18 +2,10 @@
 
 
 ## Overview
-is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
+is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-## Enabling the API           
-This API is part of the `coreapi` extension that is included automatically.
-    :::ruby
-    extensions: ["coreapi"]
-
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
         
 
 

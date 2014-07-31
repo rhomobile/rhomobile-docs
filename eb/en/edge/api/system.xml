@@ -15,6 +15,11 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
+
+        </MORE_HELP_EB>
         <ALIASES>
             <ALIAS new="System" deprecated="true"/>
         </ALIASES>
@@ -138,7 +143,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <PLATFORM>iOS</PLATFORM>
             </PROPERTY>
             <PROPERTY name="httpProxyURI" type="STRING">
-                <DESC>Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password) in rhoconfig.txt. To set proxy for Motorola WebKit for Windows Mobile/CE use config.xml settings.</DESC>
+                <DESC>Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password). To set proxy for Motorola WebKit for Windows Mobile/CE use config.xml settings.</DESC>
                 <PLATFORM>Android, iOS, WM, Win32</PLATFORM>
             </PROPERTY>
             <PROPERTY name="lockWindowSize" type="BOOLEAN" default="false">
@@ -464,7 +469,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <PLATFORM>WM</PLATFORM>
             </METHOD>
 
-            <METHOD name="replaceCurrentBundle"  deprecated="true">
+            <METHOD name="replaceCurrentBundle"  deprecated="true" generateDoc="false">
                 <DESC>Replace application bundle.</DESC>
                 <PARAMS>
                     <PARAM name="pathToBundle" type="STRING">

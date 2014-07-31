@@ -2,14 +2,11 @@
 
 
 ## Overview
-NFC MessageThis class representative NFC Message object
-# Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
-    :::ruby
-    extensions: ["nfc"]
+NFC Message
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-    
+        
 
 
 ##Methods

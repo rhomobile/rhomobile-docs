@@ -2,17 +2,10 @@
 
 
 ## Overview
-The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, iOS and WIndows Phone 8 the tabs are true Native Tabbar controls to give your application a native look and feel.No more than 4 tabs can be created in the Windows Phone 8 tabbar. A tabbar separator doesn't exist in Windows Phone 8. On Windows Mobile/CE there are no visible tabs. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time. 
-## Enabling the API           
-This API is part of the `coreapi` extension that is included automatically.
-    :::ruby
-    extensions: ["coreapi"]
+The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, iOS and WIndows Phone 8 the tabs are true Native Tabbar controls to give your application a native look and feel.
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 
@@ -21,7 +14,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
 
 ### create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)
-Removes the current tabbar / toolbar and replaces it with this one. Callback will be called when tab is switched.
+Removes the current tabbar / toolbar and replaces it with this one. Callback will be called when tab is switched.  Whilst the actual number of tabs you can create will depend on the memory available on your device there is an absolute upper limit of 30 tabs in any one application.
 
 ####Parameters
 <ul><li>tabElements : <span class='text-info'>ARRAY</span><p>

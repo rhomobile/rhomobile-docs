@@ -2,9 +2,11 @@
 
 
 ## Overview
-EB Specific overrideNFC Adapter
-EB Specific help on how to enable this api or any other special circumstances.
-    
+NFC Adapter
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
+
+        
 
 
 ##Methods
@@ -243,7 +245,7 @@ Polling timeout in seconds of the NFC device. 0 - timeout disabled, default: 90.
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
 
-This is EB specific description
+Return true if NFC supported on this device.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Adapter.supported</code> </li></ul></li></ul>
 

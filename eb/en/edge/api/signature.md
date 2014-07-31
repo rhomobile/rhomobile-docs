@@ -4,21 +4,8 @@
 ## Overview
 creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
-    :::ruby
-    extensions: ["signature"]
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-The `signature` extension is also included automatically if you specify the following in your `build.yml`
-    :::ruby
-    app_type: "rhoelements"
-
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 

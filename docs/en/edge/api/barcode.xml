@@ -426,7 +426,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>Set to false to disable scanning when the battery is low or set to true to enable it. Once disabled the scanner can be enabled again by calling enable().</DESC>
+                <DESC>Set to false to disable scanning when the battery is low/critical or set to true to enable it.</DESC>
             </PROPERTY>
             <PROPERTY name="triggerConnected" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
@@ -444,7 +444,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.</DESC>
+                <DESC>The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.</DESC>
             </PROPERTY>
             <PROPERTY name="decodeDuration" type="INTEGER" generateAccessors="true" default="250">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>

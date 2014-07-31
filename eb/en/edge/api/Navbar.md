@@ -2,23 +2,11 @@
 
 
 ## Overview
-<p>The NavBar API supports a native navigation bar for iOS devices.</p>
-<h2>Enabling the API</h2>
+The NavBar API supports a native navigation bar for iOS devices.
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
-
-<pre><code>:::ruby
-extensions: ["coreapi"]
-</code></pre>
-
-<h2>JavaScript Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-<h2>Ruby Usage</h2>
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+        
 
 
 ##Methods
@@ -43,7 +31,7 @@ Title of the navigation bar. </p></li></ul><li>callback : <span class='text-info
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Navbar.create(<span class="text-info">HASH</span> navBarProperties)</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Navbar.create(<span class="text-info">HASH</span> navBarProperties)</code> </li></ul></li></ul>
 
 ### remove()
 Removes the current navigation bar. Does nothing if there is no active navigation bar.
@@ -55,7 +43,7 @@ Removes the current navigation bar. Does nothing if there is no active navigatio
 Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Navbar.remove()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Navbar.remove()</code> </li></ul></li></ul>
 
 ### started()
 Return true is navbar is started (used only for automatic tests)
@@ -70,4 +58,4 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 Synchronous Return:<ul><li>BOOLEAN</li></ul>
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Navbar.started()</code> </li></ul></li></ul>
+<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Navbar.started()</code> </li></ul></li></ul>

@@ -2,24 +2,10 @@
 
 
 ## Overview
-The Push API provides access to Push messaging functionalityUse this API to give your application the ability to receive server initiated messages.
+The Push API provides access to Push messaging functionality
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`:
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-For APNS or GCM:
-    :::ruby
-    capabilities: ["push"]
-
-For RhoConnect Push Service:
-    :::ruby
-    extensions: ["rhoconnect-push", "rhoconnect-client"]
-    For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
-
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 

@@ -3,19 +3,20 @@
 <API>
   <MODULE name="Adapter" parent="Rho.NFC">
     <HELP_OVERVIEW>NFC Adapter</HELP_OVERVIEW>
-    <HELP_OVERVIEW_EB>EB Specific overrideNFC Adapter</HELP_OVERVIEW_EB>
     <MORE_HELP>NFC Adapter provides access to the NFC device to perform device related operations.
     All properties and methods should be used after activate. Besides supported and isActive.
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
-    extensions: ["NFC"]
+    extensions: ["nfc"]
 
 NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
     </MORE_HELP>
-<MORE_HELP_EB>
-EB Specific help on how to enable this api or any other special circumstances.
-    </MORE_HELP_EB>    
+        <MORE_HELP_EB>
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
+
+        </MORE_HELP_EB>
     <TEMPLATES>
     </TEMPLATES>
 
@@ -23,7 +24,6 @@ EB Specific help on how to enable this api or any other special circumstances.
       <DESC>List of properties supported by class.</DESC>
       <PROPERTY name="supported" type="BOOLEAN" readOnly="true">
         <DESC>Return true if NFC supported on this device.</DESC>
-        <DESC_EB>This is EB specific description</DESC_EB>
         <PLATFORM>WM</PLATFORM>
       </PROPERTY>
       <PROPERTY name="isActive" type="BOOLEAN" readOnly="true">

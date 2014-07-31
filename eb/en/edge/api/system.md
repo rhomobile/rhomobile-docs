@@ -4,15 +4,8 @@
 ## Overview
 The System API is used to control and modify core aspects of the device such as the screen, OS and device capabilities.
 ## Enabling the API
-This API is part of the `coreapi` extension that is included automatically.
-    :::ruby
-    extensions: ["coreapi"]
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 
@@ -337,26 +330,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 ####Method Access:
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.openUrl(<span class="text-info">STRING</span> url)</code> </li></ul></li></ul>
-
-### replaceCurrentBundle(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)
-Replace application bundle.
-
-####Parameters
-<ul><li>pathToBundle : <span class='text-info'>STRING</span><p>
-Local path to bundle folder. See Build Application/Upgrade Application section to find out how to build bundle on computer. </p></li><li>params : <span class='text-info'>HASH</span><p>
-Update parameters. </p></li><ul><li>do_not_restart_app : <span class='text-info'>BOOLEAN</span><p>
-If true, when Application will not be automatically restarted after the replace bundle is finished. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Platforms
-
-* Android
-* Windows Mobile/CE
-
-####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.System.replaceCurrentBundle(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)</code> </li></ul></li></ul>
 
 ### runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)
 Run an application.
@@ -987,7 +960,7 @@ Use Network.hasWifiNetwork to tell if the device is connected to the wifi networ
 <span class='text-info'>STRING</span> 
 ####Description
 <span class='label label-info'>Replaces:http_proxy_url</span> 
-Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password) in rhoconfig.txt. To set proxy for Motorola WebKit for Windows Mobile/CE use config.xml settings.
+Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password). To set proxy for Motorola WebKit for Windows Mobile/CE use config.xml settings.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.System.httpProxyURI</code> </li></ul></li></ul>
 

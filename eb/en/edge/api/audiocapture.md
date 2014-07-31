@@ -4,15 +4,8 @@
 ## Overview
 Audio capture API
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
-    :::ruby
-    extensions: ["audiocapture"]
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 
@@ -229,7 +222,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>STRING</span> 
 ####Description
 
-Encoder to compress recorded audio. In Android devices the supported encoder type is dependent upon device hardware snd vendor.
+Encoder to compress recorded audio. In Android devices the supported encoder type is dependent upon device hardware and vendor.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
@@ -344,6 +337,6 @@ In Windows, 'getProperty' or 'getProperties' for fileName will return the comple
 ###General
 
                     
-On Quitting of the Application, Android will save the data in the file and gracefully exit. 
+On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.
                     
                 

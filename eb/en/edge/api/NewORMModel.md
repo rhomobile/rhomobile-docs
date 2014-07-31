@@ -459,42 +459,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 ####Method Access:
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.initModel()</code></li></ul></li></ul>
 
-### onSyncCreateError(<span class="text-info">ARRAY</span> objects, <span class="text-info">STRING</span> action)
-Handles sync create errors.
-
-####Parameters
-<ul><li>objects : <span class='text-info'>ARRAY</span><p> </p></li><li>action : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.onSyncCreateError(<span class="text-info">ARRAY</span> objects, <span class="text-info">STRING</span> action)</code></li></ul></li></ul>
-
-### onSyncDeleteError(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrHash, <span class="text-info">STRING</span> action)
-Handles sync delete errors for the object.
-
-####Parameters
-<ul><li>objId : <span class='text-info'>STRING</span><p> </p></li><li>attrHash : <span class='text-info'>HASH</span><p> </p></li><li>action : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.onSyncDeleteError(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrHash, <span class="text-info">STRING</span> action)</code></li></ul></li></ul>
-
-### onSyncUpdateError(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrHash, <span class="text-info">HASH</span> rollbackHash, <span class="text-info">STRING</span> action)
-Handles sync update errors for the object.
-
-####Parameters
-<ul><li>objId : <span class='text-info'>STRING</span><p> </p></li><li>attrHash : <span class='text-info'>HASH</span><p> </p></li><li>rollbackHash : <span class='text-info'>HASH</span><p> </p></li><li>action : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:<ul><li>Void</li></ul>
-
-####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.onSyncUpdateError(<span class="text-info">STRING</span> objId, <span class="text-info">HASH</span> attrHash, <span class="text-info">HASH</span> rollbackHash, <span class="text-info">STRING</span> action)</code></li></ul></li></ul>
-
 ### pushChanges()
 Pushes all changes for the source.
 

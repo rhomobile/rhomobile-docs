@@ -4,15 +4,8 @@
 ## Overview
 The `Webview` is the core container used for rendering your application code. You can control certain behaviors of the webview by using this API class.
 ## Enabling the API
-This API is part of the `coreapi` extension that is included automatically.
-    :::ruby
-    extensions: ["coreapi"]
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 
@@ -315,7 +308,7 @@ Use full screen mode.
 
 Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(maximum is 45000) before the browser times out and navigates to the page specified in the badlink setting. If it is determined that the destination is unreachable regardless of wait time, the badlink may be loaded before NAVTIMEOUT. This is the time taken to establish communication with the server, not the time taken to fully load the page.
 ####Params
-<p><strong>Default:</strong> 0</p>
+<p><strong>Default:</strong> 45000</p>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.WebView.navigationTimeout</code> </li></ul></li></ul>
 

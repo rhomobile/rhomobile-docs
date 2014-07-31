@@ -2,23 +2,10 @@
 
 
 ## Overview
-The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.This is general API that does not provide access to specific manufacturer's features. The interfaces described here will automatically be included in manufacturer specific printer classes like [PrintingZebra](printingzebra). If you wish to have access to manufacturer specific features you would have to add both extensions to your build.yml file.
-
-NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
-
-
+The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
-    :::ruby
-    extensions: ["printing"]
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         
 
 

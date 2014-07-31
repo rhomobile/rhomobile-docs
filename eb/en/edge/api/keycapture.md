@@ -3,22 +3,9 @@
 
 ## Overview
 The KeyCapture module is used to intercept or override hardware keys. It is typically used to provide certain application functions through the use of the device's physical keyboard or other hardware enabled buttons.
-## Enabling the API           
-In order to use this API you must include the following extension in your `build.yml`
-    :::ruby
-    extensions: ["hardwarekeys"]
-    
-The `hardwarekeys` extension is also included automatically if you specify the following in your `build.yml`
-    :::ruby
-    app_type: "rhoelements"
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
-
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
         
 
 

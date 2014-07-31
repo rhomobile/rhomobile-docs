@@ -16,7 +16,7 @@ Example extension apiThis is example of API. Implementation contain in extension
 {} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul></ul>
 
 ####Returns
 Synchronous Return:<ul><li>Void</li></ul>
