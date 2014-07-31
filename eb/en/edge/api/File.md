@@ -2,9 +2,19 @@
 
 
 ## Overview
-File I/O
+This API provides several methods for access to files and folders found on the device's local file system.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+
+* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+
+If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+
+ex:
+
+* ebapi.js - core APIs needed 
+* eb.rhofile.js - just the Fle API
+* other individual JavaScript files included with the Enterprise Browser installation
 
         
 

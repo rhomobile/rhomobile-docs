@@ -13,8 +13,8 @@ If you wish to minimize the amount of JavaScript being included, you can choose 
 ex:
 
 * ebapi.js - core APIs needed 
-* ebaudiocapture.js - just the AudioCapture API
-* other individual javascript files included with the Enterprise Browser installation
+* eb.audiocapture.js - just the AudioCapture API
+* other individual JavaScript files included with the Enterprise Browser installation
         
 
 

@@ -26,8 +26,8 @@ If you wish to minimize the amount of JavaScript being included, you can choose 
 ex:
 
 * ebapi.js - core APIs needed 
-* ebapplication.js - just the Application API
-* other individual javascript files included with the Enterprise Browser installation
+* eb.application.js - just the Application API
+* other individual JavaScript files included with the Enterprise Browser installation
 
         </MORE_HELP_EB>
 
