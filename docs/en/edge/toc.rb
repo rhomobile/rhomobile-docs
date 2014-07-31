@@ -186,7 +186,7 @@ end
 section 'rhoconnect-reference',                     'Getting Started','RhoConnect Guides' do
   topic 'en/edge/rhoconnect/introduction',          'Introduction'
   topic 'en/edge/rhoconnect/install',               'Installation'
-  topic 'en/edge/rhoconnect/migration',             'Migrating to RhoConnect 4.0'
+  topic 'en/edge/rhoconnect/migration',             'Migrating to RhoConnect 5.0'
   topic 'en/edge/rhoconnect/command-line',          'App Generator and Command Line'
   topic 'en/edge/rhoconnect/supported-platforms',   'Supported Platforms'
   topic 'en/edge/rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'

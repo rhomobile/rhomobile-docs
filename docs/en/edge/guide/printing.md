@@ -1,7 +1,7 @@
 # Printing
 
 ## Overview
-In RhoMobile 4.1, we have introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and BlueTooth), but in subsequent releases we will be adding different printer types. 
+In RhoMobile Suite 4.1, we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and BlueTooth), but in subsequent releases we will be adding different printer types. 
 
 ## Enabling the APIs
 In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The `Printing` API is a parent class that is defined to easily define common class attributes that specific printer type APIs like [PrintingZebra](../api/printingzebra) will inherit. To enable this functionality in your application, your must include both of these extensions in you build.yml

@@ -4,7 +4,7 @@
 
 [WebView](../api/webview) is the RhoMobile component responsible for rendering your application's HTML interface, showing it to the user and allowing them to interact with the application that normally occupies most of the screen.
 
-At its core, WebView is a web browser, capable of making requests both to the embedded server that runs your application as well as any other server that speaks HTTP. It can execute modern JavaScript code and libraries such as JQuery and JQuery Mobile, both of which are included by default in new projects (see below for platform-specific limitations regarding JavaScript). You can expect it to support the same features as the default browser of each platform, including AJAX, hardware-accelerated rendering, cookies, etc.   
+At its core, WebView is a web browser, capable of making requests both to the embedded server that runs your application as well as any other server that speaks HTTP. It can execute modern JavaScript code and libraries such as JQuery and JQuery Mobile, both of which are included by default in new projects (see below for platform-specific limitations regarding JavaScript). You can expect it to support the same features as the default browser of each platform, including AJAX, hardware-accelerated rendering, cookies, etc.
 
 ### The two types of `WebView` available
 
@@ -18,7 +18,7 @@ The native browser in Windows Mobile, however, is too limited for today's web de
 
 **NOTE: Although this alternative implementation is capable of supporting modern features, performance will be limited by the underlying hardware.**
 
-While the Motorola browser is also available for Android, its use is discouraged in RhoMobile 4.0 and intended only for Windows Mobile.  
+While the Motorola browser is also available for Android, its use is discouraged in RhoMobile 5.0 and intended only for Windows Mobile.
 
 **NOTE: In RhoMobile 2, using the Motorola browser was the only way to access RhoElements (licensed) APIs from your application. This is no longer the case. Except on Windows Mobile and BlackBerry, all APIs, licensed or not, are available in the default browser.**
 

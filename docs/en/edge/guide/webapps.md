@@ -13,8 +13,6 @@ Although RhoMobile applications typically involve packaging up all resources and
 ### RhoElements Shared Runtime
 The RhoElements Shared Runtime is basically a preconfigured RhoMobile Application that includes RhoElements APIs. You do not need to build and compile a RhoMobile application using RhoStudio. You simply need to enable your web app by installing a RhoElements runtime application on the device and configuring it to point to your web server.[Read More](rhoelements-runtime)
 
-NOTE: RhoMobile Suite 4.0 provides a RhoElements Shared Runtime for Windows Mobile/CE only. It includes access to all JS API's and default API extensions and capabilities. [See the Using the RhoMobile JS APIs section](#using-rhomobile-js-apis) for more details. The Shared Runtime requires a RhoElements license.
-
 ## Connecting with your web application
 To load application files to the RhoMobile application from an external Web server - set `start_path` in `rhoconfig.txt` to point to http:// or https:// protocol URI. `rhoconfig.txt` is a runtime configuration file [Read More](runtime_config)
 	:::ruby

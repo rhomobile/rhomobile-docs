@@ -1,8 +1,8 @@
 # RhoMobile API Summary
 
-Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult the [2.x migration guide](apiusage) if you are moving a 2.x application to 4.1. If you are starting a new project, it is advised to the use 4.x API's going forward, however the 2.x APIs are still currently supported.
+Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult the [2.x migration guide](apiusage) if you are moving a 2.x application to 5.0. If you are starting a new project, it is advised to the use 5.x API's going forward, however the 2.x APIs are still currently supported.
 
-## 4.1 API's
+## 5.0 API's
 <div class="alert alert-warning">
   <p>
     <span class="icon-check icon-primary icon-inverse"  rel="tooltip" title="Supported and does NOT requires a license"></span>
@@ -1120,15 +1120,15 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
   </tbody>
 </table>
 
-Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 4.0, here these APIs are marked with an asterisk (*). However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in future versions of RhoMobile Suite 4.x in order to supply both a Common API format in both JavaScript and Ruby.
+Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0, here these APIs are marked with an asterisk (*). However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in future versions of RhoMobile Suite 5.x in order to supply both a Common API format in both JavaScript and Ruby.
 
-**NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
+**NOTE: When using 2.2 API's in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
 ### RhoElements 2.2 APIs
 The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
 
 ### Rhodes 2.2 APIs
-2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 4.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
+2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
 
 To generate this file you must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
@@ -1139,7 +1139,7 @@ To generate this file you must enable JavaScript by putting `rho-javascript` int
 The items listed above that are indicated with a <span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span> require a either a silver or gold level license. Please review the [Licensing Guide](licensing) for more details regarding licensing.
 
 ### JavaScript APIs
-To use the JavaScript APIs in RE 2.2, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 4.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
+To use the JavaScript APIs in RE 2.2, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 5.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
 
 ### JavaScript ORM
 If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:

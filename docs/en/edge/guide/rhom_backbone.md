@@ -2,7 +2,7 @@
 
 ## Overview
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but in RhoMobile 5.0 is that all the features of the platform can be accessed using JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
 
 ## Why Backbone.js
 

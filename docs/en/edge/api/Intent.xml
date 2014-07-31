@@ -130,7 +130,7 @@ Notice the use of the full constant string "android.intent.extra.TEXT" in place 
             <METHOD name="startListening" hasCallback="mandatory" runInThread="none">
                 <DESC>Start listening for custom intents. 
 
-NOTE: For Android, this is how we have implemented [Android Intent Filters](http://developer.android.com/guide/components/intents-filters.html#Receiving). In order to listen for Intents you will have to update the `AndroidManifest.erb` file and add a special section to it. This file is now generated with RhoMobile Version 4.1 when you create a new project. The file is located in the root of project.
+NOTE: For Android, this is how we have implemented [Android Intent Filters](http://developer.android.com/guide/components/intents-filters.html#Receiving). In order to listen for Intents you will have to update the `AndroidManifest.erb` file and add a special section to it. This file is now generated with RhoMobile Suite 5.0 when you create a new project. The file is located in the root of project.
 
 Add the following snippet to AndroidManifest.erb within the `manifest` tags
 <![CDATA[

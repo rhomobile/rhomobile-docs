@@ -165,13 +165,13 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ### What it affects
 
-** NOTE: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser **
+** NOTE: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 5.0 applications using the stock browser **
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
-* Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
+* Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-5.0.2\libs\data\Config\Config.xml`
 
-* OS X: ~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml
+* OS X: ~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-5.0.2/libs/data/Config/Config.xml
 
 ### Configuration File Location in a mobile device
 The location of the configuration file loaded by RhoElements is dependant on a number of factors:
@@ -359,7 +359,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
+** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 5.0 native applications using the stock browser **
 
 ** NOTE: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc. **
 <div style="width:100%">
@@ -771,7 +771,7 @@ The following is an example of a typical configuration file
     <tr>
     <td class="clsEvenRow">HTMLStyles\\UseNativeFonts</td>
     <td class="clsEvenRow">USENATIVEFONTS</td>
-    <td class="clsEvenRow">When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.</td>
+    <td class="clsEvenRow">When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 5.0 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.</td>
     <td class="clsEvenRow">0 - Use FontFamily Setting<BR>1 - Use FreeType font library</td>
     </tr>
 
