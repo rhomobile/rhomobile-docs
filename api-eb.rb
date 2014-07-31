@@ -416,7 +416,9 @@ def self.getparams(element,toplevel)
 									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String:' + vaelement["value"] + ''
 								end
 
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+								if noproductException(vaelement)
+									values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>"
+								end  
 								
 							}
 						
@@ -521,7 +523,9 @@ def self.getparams(element,toplevel)
 									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String: ' + vaelement["value"] + ' '
 								end
 
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+								if noproductException(vaelement)
+									values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+								end
 								
 							}
 						values += "</dl>"
@@ -909,7 +913,9 @@ def self.getproperties(doc)
 								vaelement["value"] = "Constant: " + @@apiName + '.' + vaelement["constName"] + " \n\t* String: " + vaelement["value"] 
 
 							end
-							@propvalues += "\n* #{vaelement["value"]}\n\t* #{@propvaldesc}" 
+							if noproductException(vaelement)
+								@propvalues += "\n* #{vaelement["value"]}\n\t* #{@propvaldesc}" 
+							end
 							
 						}
 					@propvalues += ""

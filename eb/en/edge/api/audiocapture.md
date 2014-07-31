@@ -2,10 +2,19 @@
 
 
 ## Overview
-Audio capture API
+Audio capture API allows you to capture audio from the device's built in microphone or input source.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
 
+* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+
+If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+
+ex:
+
+* ebapi.js - core APIs needed 
+* ebaudiocapture.js - just the AudioCapture API
+* other individual javascript files included with the Enterprise Browser installation
         
 
 
@@ -172,11 +181,11 @@ Synchronous Return:<ul><li>Void</li></ul>
 <ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.AudioCapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
 
 ### start(<span class="text-info">HASH</span> props)
-Starts capturing audio until either 'stop' is received, or 'maxDuration' is reached. The successful recording will set 'ok' status and unsuccessful recording will set 'cancel' or 'error' status in the callback returning parameters. If 'cancel' method is called during recording, 'cancel' status will be set in the callback returning parameters. In order to restart the audio capture, if the audio capturing is already in process, it is mandatory to call 'stop' or 'cancel' method before calling 'start' method again.
+Starts capturing audio until either 'stop' is received, or 'maxDuration' is reached. The successful recording will set 'ok' as the status. An unsuccessful recording will set 'cancel' or 'error' as the status in the callback returning parameters. If 'cancel' method is called during recording, 'cancel' status will be set in the callback returning parameters. In order to restart the audio capture, if the audio capturing is already in process, it is mandatory to call 'stop' or 'cancel' method before calling 'start' method again.
 
 ####Parameters
 <ul><li>props : <span class='text-info'>HASH</span><p>
-Map of Audio Capture properties to be set. For iOS 22kHz 16bit Mono WAV file will be created. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+Map of Audio Capture properties to be set. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>
@@ -222,7 +231,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>STRING</span> 
 ####Description
 
-Encoder to compress recorded audio. In Android devices the supported encoder type is dependent upon device hardware and vendor.
+Encoder to compress recorded audio. In Android devices, the supported encoder type is dependent upon device hardware and vendor.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
@@ -253,7 +262,7 @@ AMR wide-band.
 <span class='text-info'>STRING</span> 
 ####Description
 
-This parameter is used to specify the file name. File name must be specified. File name should be set atleast once before calling 'start' method otherwise 'start' method will update the callback 'status' as 'error'.
+(Required) This parameter is used to specify the file name. The file name should be set at least once before calling 'start' method, otherwise the 'start' method will update the callback 'status' as 'error'.
 ####Access
 <ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.AudioCapture.fileName</code> </li></ul></li></ul>
 
@@ -269,7 +278,7 @@ This parameter is used to specify the file name. File name must be specified. Fi
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the number of milliseconds of audio to capture, defining the size of the capture buffer. This is also the maximum number of milliseconds of audio to capture when the 'start' method is called if not interrupted with the 'stop' method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milli seconds is specified, the interval will be defaulted to 20000 milliseconds. The default value is 20,000 milisec.
+Specifies the number of milliseconds of audio to capture, defining the size of the capture buffer. This is also the maximum number of milliseconds of audio to capture when the 'start' method is called if not interrupted with the 'stop' method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milliseconds is specified, the interval will be defaulted to 20000 milliseconds. The default value is 20,000 milliseconds.
 ####Params
 <p><strong>Default:</strong> 20000</p>
 ####Access
@@ -309,14 +318,14 @@ Audio recording will not be restarted, if the audio recording is already in proc
 ###Page Refresh
 
                     
-Audio recording should be cancelled. In android and iOS, the state will be persisted.
+If the page is to be refreshed, the audio recording should be canceled. In Android, the state will be persisted.
                     
                 
 
 ###Page Navigation
 
                     
-Audio recording should be cancelled.In iOS, the state will be persisted.
+Upon page navigation, the audio recording should be canceled.
                     
                 
 
@@ -330,7 +339,7 @@ The default values will be applied for duration if no values are provided by the
 ###Get Property Or Get Properties
 
                     
-In Windows, 'getProperty' or 'getProperties' for fileName will return the complete path along with the extension name. For example: If file name was set to '\\Application\\AudioCapture', then 'getProperty' or 'getProperties' will return '\Application\AudioCapture.wav'. If file name was set to 'AudioCapture', then 'getProperty' or 'getProperties' will return '\AudioCapture.wav'. In android, the fileName will return whatever is set with or without extension.
+In Windows, 'getProperty' or 'getProperties' for fileName will return the complete path along with the extension name. For example: If file name was set to '\\Application\\AudioCapture', then 'getProperty' or 'getProperties' will return '\Application\AudioCapture.wav'. If file name was set to 'AudioCapture', then 'getProperty' or 'getProperties' will return '\AudioCapture.wav'. In Android, the fileName will return whatever is set with or without extension.
                     
                 
 

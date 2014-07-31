@@ -4,7 +4,17 @@
 ## Overview
 The Application class is used for accessing or setting application level configuration settings.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+
+* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+
+If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+
+ex:
+
+* ebapi.js - core APIs needed 
+* ebapplication.js - just the Application API
+* other individual javascript files included with the Enterprise Browser installation
 
         
 
@@ -14,7 +24,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### databaseFilePath(<span class="text-info">STRING</span> partitionName)
-Path to database file by partition name. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.
+Path to the ORM database file by partition name. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.
 
 ####Parameters
 <ul><li>partitionName : <span class='text-info'>STRING</span><p>
@@ -58,7 +68,7 @@ Full path to the database blob.</li></ul>
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)</code> </li></ul></li></ul>
 
 ### minimize()
-Minimize or move the application to background. When running in RhoSimulator this method is supported only for Windows OS.
+Minimize or move the application to background. 
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -133,7 +143,7 @@ Synchronous Return:<ul><li>STRING</li></ul>
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)</code> </li></ul></li></ul>
 
 ### restore()
-Restores the application to be in the foreground. When running in RhoSimulator the method is supported only for windows OS.
+Restores the application to be in the foreground.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -149,7 +159,7 @@ Synchronous Return:<ul><li>Void</li></ul>
 <ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.restore()</code> </li></ul></li></ul>
 
 ### setApplicationNotify()
-This method allows your application to register for application specific events like application activation/deactivation, UI creation/destruction as well as others. Check the Callback tab for details.
+This method allows your application to register for application specific events like application activation/deactivation, UI creation/destruction as well as others. Check the Callback section for details.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -158,16 +168,12 @@ This method allows your application to register for application specific events 
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>applicationEvent : <span class='text-info'>STRING</span><p>
 {} </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Application.APP_EVENT_ACTIVATED <br/> String:Activated</dt><dd>
 The application has been activated.</dd><dt>Constant: EB.Application.APP_EVENT_DEACTIVATED <br/> String:Deactivated</dt><dd>
-The application has been deactivated.</dd><dt>Constant: EB.Application.APP_EVENT_UICREATED <br/> String:UICreated</dt><dd>
-Generated before the start page is loaded. There are no means to set callback and catch event in javascript. Ruby Application class descendant can to set callback and process this event.</dd><dt>Constant: EB.Application.APP_EVENT_UIDESTROYED <br/> String:UIDestroyed</dt><dd>
+The application has been deactivated.</dd><dt>Constant: EB.Application.APP_EVENT_UIDESTROYED <br/> String:UIDestroyed</dt><dd>
 This event is triggered when the application is closing and the UI has been cleared.</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_OFF <br/> String:ScreenOff</dt><dd>
-Device screen was turned off when power button was pressed or due to idle timeout. NB: On iOS application is also deactivated (APP_EVENT_DEACTIVATED is fired). On Android the application is not deactivated.Not supported on Windows CE. Platforms: 
+Device screen was turned off when power button was pressed or due to idle timeout. On Android the application is not deactivated.Not supported on Windows CE. Platforms: 
 Android, iOS, WM</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_ON <br/> String:ScreenOn</dt><dd>
 Device screen was turned on and unlocked.Not supported on Windows CE. Platforms: 
-Android, iOS, WM</dd><dt>Constant: EB.Application.APP_EVENT_SYNCUSERCHANGED <br/> String:SyncUserChanged</dt><dd>
-Event when the current RhoConnect user has changed. This is available under Ruby Only.</dd><dt>Constant: EB.Application.APP_EVENT_CONFIGCONFLICT <br/> String:ConfigConflict</dt><dd>
-This is available under Ruby Only.</dd><dt>Constant: EB.Application.APP_EVENT_DBMIGRATESOURCE <br/> String:DBMigrateSource</dt><dd>
-This is available under Ruby Only.</dd></dl></li><li>eventData : <span class='text-info'>HASH</span><p>
+Android, iOS, WM</dd></dl></li><li>eventData : <span class='text-info'>HASH</span><p>
 This will only contain values for the `APP_EVENT_CONFIGCONFLICT` event. This event may be triggered after an application was upgraded. If your rhoconfig.txt file contains custom properties that are different then what is being provided in the application upgrade package. By default local values are kept in place but you may overwrite configuration with new values and any other steps required for your application upgrade. `eventData` will be a hash. It will look like {"conflicting key" : ["new value","old value"].. } </p></li></ul></ul>
 
 ####Returns
@@ -185,22 +191,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 
 
 
-###appBundleFolder
-
-####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
-
-Path to apps/app folder inside the application bundle.
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appBundleFolder</code> </li></ul></li></ul>
-
-
-####Platforms
-
-* Android
-* Windows Mobile/CE
-
 ###appName
 
 ####Type
@@ -210,22 +200,6 @@ Path to apps/app folder inside the application bundle.
 Application name.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appName</code> </li></ul></li></ul>
-
-
-####Platforms
-
-* Android
-* Windows Mobile/CE
-
-###appsBundleFolder
-
-####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
-
-Path to apps folder inside the application bundle.
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appsBundleFolder</code> </li></ul></li></ul>
 
 
 ####Platforms
@@ -254,7 +228,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to application bundle folder.
+Path to the Enterprise Browser folder on the device.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.bundleFolder</code> </li></ul></li></ul>
 
@@ -321,7 +295,7 @@ Same values as nativeMenu. </p></li>
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Page to navigate to in case of check of SecurityToken failed. Can be set in rhoconfig.txt: invalid_security_token_start_path;
+Page to navigate to in case of check of SecurityToken failed. Can be set in rhoconfig.txt: invalid_security_token_start_path; This file is located in the installation folder of the EnetrpriseBrowser application installed on the device.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.invalidSecurityTokenStartPath</code> </li></ul></li></ul>
 
@@ -357,7 +331,7 @@ Native Menu items.
 ####Params
 <li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>
 Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>
-URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li></ul>
+URL to page which will be loaded. Or it can be a JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li></ul>
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.nativeMenu</code> </li></ul></li></ul>
 
@@ -389,7 +363,7 @@ Path to the application's public folder.
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
 
-Is the security token check was failed. Security token can be set in build.yml: security_token. Same security token should be passed as command line parameter '-security_token=token_value' to application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.
+Indicates if the security token check was failed. Security token can be passed as command line parameter '-security_token=token_value' to the application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.securityTokenNotPassed</code> </li></ul></li></ul>
 
@@ -484,7 +458,7 @@ Path to folder where the application can write files and create subfolders.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Version from build time configuration file (build.yml).
+Version of Enterprise Browser.
 ####Access
 <ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.version</code> </li></ul></li></ul>
 
