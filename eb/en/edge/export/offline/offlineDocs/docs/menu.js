@@ -17,6 +17,10 @@ var menuStrcture = [
 						icon: 'fa fa-book',
 						items: [
 							{
+								name: 'Quick Start Guide',
+								link: '#guide-quick-start',
+							},
+							{
 								name: 'Installation',
 								link: '#guide-setup',
 							},
