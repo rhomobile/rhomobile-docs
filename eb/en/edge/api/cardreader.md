@@ -353,7 +353,7 @@ Sets the card data without the need of a swipe. This accepts any 16 digit number
 ####Platforms
 
 * Windows Mobile/CE
-* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)(Only compatible with DCR7000-x00)
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
 
 ###pinEntry
 
@@ -369,7 +369,7 @@ Turns the PIN entry on or off.
 ####Platforms
 
 * Windows Mobile/CE
-* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)(Only compatible with DCR7000-x00)
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
 
 ###pinTimeout
 
@@ -387,7 +387,7 @@ PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite
 ####Platforms
 
 * Windows Mobile/CE
-* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)(Only compatible with DCR7000-x00)
+* Motorola Solutions Devices Only(Only compatible with DCR7000-x00)
 
 ##Remarks
 

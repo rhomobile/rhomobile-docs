@@ -253,7 +253,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###bundleFolder
 

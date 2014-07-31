@@ -393,7 +393,7 @@ PNG compression.
 ####Platforms
 
 * Android
-* Windows Mobile/CE(JPG is supported on all devices, Android and Windows Mobile does not support PNG images)(JPG is supported on all devices, Android and Windows Mobile does not support PNG images)
+* Windows Mobile/CE(JPG is supported on all devices, Android and Windows Mobile does not support PNG images)
 
 ###<span class="text-info">desiredHeight</span>
 

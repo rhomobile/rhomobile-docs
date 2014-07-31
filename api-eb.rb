@@ -823,10 +823,10 @@ def self.getproperties(doc)
 				propnote = ""
 				# type is optional default is STRING
 				 #puts element
-				if !element["VER_INTRODUCED"].nil?
-					propver= "<span class='muted pull-right'>" + element["VER_INTRODUCED"][0] + "</span>"
-					
-				end
+				#if !element["VER_INTRODUCED"].nil?
+				#	propver= "<span class='muted pull-right'>" + element["VER_INTRODUCED"][0] + "</span>"
+				#	
+				#end
 				msionly = false
 				ruby = true
 				javascript = true
@@ -847,7 +847,7 @@ def self.getproperties(doc)
 					@usemoduleplatforms = true
 				end
 				@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
-				@propsectionplatforms = "#{@propplatforms}#{propnote}"
+				@propsectionplatforms = "#{@propplatforms}"
 				if element["type"].nil?
 					proptype= "<span class='text-info'>STRING</span>"
 				else

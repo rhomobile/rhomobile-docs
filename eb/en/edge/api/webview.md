@@ -187,7 +187,7 @@ The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###enableCache
 
@@ -222,7 +222,7 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ####Platforms
 
 * Android
-* Windows Mobile/CE(Motorola Solutions' WebKit on Windows Mobile/CE)(Motorola Solutions' WebKit on Windows Mobile/CE)
+* Windows Mobile/CE(Motorola Solutions' WebKit on Windows Mobile/CE)
 
 ###enableWebPlugins
 
@@ -271,7 +271,7 @@ Specifies the default font to use when rendering text in web pages. The specifie
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###framework
 
@@ -322,7 +322,7 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###scrollTechnique
 
@@ -355,7 +355,7 @@ You can scroll around the page using finger swiping.
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###textZoomLevel
 
@@ -370,7 +370,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###userAgent
 
@@ -389,7 +389,7 @@ Defines in config.xml: Navigation\\UserAgent. When visiting a web server the Web
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###viewportEnabled
 
@@ -406,7 +406,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###viewportWidth
 
@@ -421,7 +421,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
 
 ###zoomPage
 
@@ -436,4 +436,4 @@ Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 ar
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)(Motorola Solutions' WebKit)
+* Windows Mobile/CE(Motorola Solutions' WebKit)
