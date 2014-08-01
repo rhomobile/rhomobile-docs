@@ -1,2 +1,82 @@
-#Hello EB Tutorial
-TBD - This guide will walk you through step by step to build a simple app from scratch
+# Hello EB Tutorial
+This guide will walk you through step by step to build a simple app from scratch.
+
+### Types of MEB Apps
+The MEB will usually be used in one of three different but, related, scenarios:
+
+1. Hosted Web App - You already have a web app hosted somewhere and you want the MEB to render it on your mobile device.
+2. Local Web App - You have all your assets stored on your mobile device and want MEB to render these pages for use on your mobile device.
+3. Hybrid local / hosted App - You have a web app hosted somewhere but some of the assets that your web app uses are stored locally on your device. You want the MEB to render these pages for use on your mobile device.
+
+With any of these three scenarios, you will need to be able to edit the config.xml file that comes with the MEB. The config.xml resides on the device in a directory which is dependent on your device's OS:
+
+* **Android** - /Android/data/com.motorolasolutions.enterprisebrowser/Config.xml
+* **Windows Mobile / Windows CE** - \Program Files\Enterprise Browser\Config\Config.xml
+
+NOTE: It is worth noting that, with most Windows Mobile / CE devices, you will have to copy the config.xml file to a location that is not on your device in order to modify it. Once your modifications are done, copy it back to your device and overwrite the old one.
+
+### Setting Your App's Start Page
+Whether your app is hosted, local, or both, you'll need to edit the line in the config.xml file that controls the start path of the MEB. in the config.xml you'll find the startPage value and this is what you'll need to change in order for your app to start where you want it to. For example, if I wanted my app to start at yahoo.com for some reason I would edit the startPage to look like this:
+
+	:::xml
+	<General>
+		<Name value="Menu"/>
+		<StartPage value="http://www.yahoo.com" name="Yahoo"/>
+		<UseRegularExpressions value="1"/>
+	</General>
+
+If I were starting my app from a local page I would need to prepend the file path with file://. For instance:
+
+	:::xml
+	<General>
+		<Name value="Menu"/>
+		<StartPage value="file:///index.html" name="Menu"/>
+		<UseRegularExpressions value="1"/>
+	</General>
+
+This address will cause the MEB to start my app at the index.html file located in my device's root directory.
+
+NOTE: Notice that there are three forward-slashes in that address; the first two are for the file: protocol and the third specifies the root directory of the device.
+
+## Your First MEB App
+### Create Your Start Page
+So let's create a very basic index page that we can launch from our MEB app. Create a new file called index.html and use the contents below.
+
+	:::html
+	<body>
+		<h1>My First MEB App</h1>
+
+		<p>This is my first app and all it does right now is point to Google's homepage.</p>
+
+		<a href="http://www.google.com">Click here to go to Google's homepage</a>
+	</body>
+
+Place this newly created file in your device's root directory.
+
+### Set Your Start Page
+Now change the startPage in your config.xml to:
+
+	:::xml
+	<StartPage value="file:///index.html" name="Menu"/>
+
+### Start Your MEB App
+<table>
+	<tr>
+		<td>Now start your MEB app and you should see something like this:</td>
+		<td>
+			<p>
+			And when you click on the link (assuming you have an active<br>
+			internet connection), you'll be navigated to Google's homepage.
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td><img src="images/getting-started/helloeb/helloeb-first-app-index.png"></td>
+		<td><img src="images/getting-started/helloeb/helloeb-first-app-google.png"></td>
+	</tr>
+</table>
+
+But we don't want to just link to some other page, we want to use some of the APIs at our disposal! Let's make an app that uses the Barcode API to scan an barcode and displays the barcode we scanned on the screen.
+
+## A More Useful App
+Create a new file called helloeb.html

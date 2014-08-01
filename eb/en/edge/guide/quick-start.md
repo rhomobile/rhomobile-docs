@@ -5,7 +5,7 @@ This guide will provide an easy to use overview of how to get started using the 
 To install the MEB on your device, there are two requirements:
 
 1. Your device must be a Motorola Solutions device.
-2. Your device's OS must be either Windows Mobile, Windows CE, or Android. The MEB is not supported of use on iOS, Windows Phone, or Blackberry.
+2. Your device's OS must be either Windows Mobile, Windows CE, or Android.
 
 Once you have verified that your device meets the above requirements, you'll need to make sure your device is connected to your computer in a way that the Enterprise Browser Installer can interface with it.
 
