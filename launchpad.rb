@@ -8,7 +8,7 @@ class Launchpad
 	@my_server = 'developer-uat.motorolasolutions.com/api/core/v3'
 	@my_user = ENV['user']
 	@my_pass = ENV['password']
-  @current_env = ENV['server']
+  @current_env = ENV['server'].nil? ? "uat" : ENV['server']
 
   #parent places are per folder
   @servers = {
@@ -28,7 +28,9 @@ class Launchpad
     }
 
   }
-
+  
+  @my_server = @servers[@current_env]["server"]
+  
   def self.generate_html(topic,parent_source)
 		#open Markdown content
 		md = File.read(topic)

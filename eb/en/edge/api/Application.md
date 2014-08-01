@@ -4,7 +4,17 @@
 ## Overview
 The Application class is used for accessing or setting application level configuration settings.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+
+* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+
+If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+
+ex:
+
+* ebapi.js - core APIs needed 
+* eb.application.js - just the Application API
+* other individual JavaScript files included with the Enterprise Browser installation
 
         
 
@@ -14,18 +24,23 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### databaseFilePath(<span class="text-info">STRING</span> partitionName)
-Path to database file by partition name. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.
+<p>Path to the ORM database file by partition name. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.</p>
+
 
 ####Parameters
 <ul><li>partitionName : <span class='text-info'>STRING</span><p>
-Partition name. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Partition name.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Full path to the database file for given partition.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Full path to the database file for given partition.</p>
+
 
 ####Platforms
 
@@ -33,21 +48,29 @@ Full path to the database file for given partition.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.databaseFilePath(<span class="text-info">STRING</span> partitionName)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.databaseFilePath(<span class="text-info">STRING</span> partitionName)</code> 
+
 
 ### expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)
-Generates the absolute path to database blob file. Please note that this function does not the create database file. This function only generates the file path based on application path and partition name.
+<p>Generates the absolute path to database blob file. Please note that this function does not the create database file. This function only generates the file path based on application path and partition name.</p>
+
 
 ####Parameters
 <ul><li>relativePath : <span class='text-info'>STRING</span><p>
-Relative path to the blob file, as it is stored in the database. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Relative path to the blob file, as it is stored in the database.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Full path to the database blob.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Full path to the database blob.</p>
+
 
 ####Platforms
 
@@ -55,36 +78,49 @@ Full path to the database blob.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.expandDatabaseBlobFilePath(<span class="text-info">STRING</span> relativePath)</code> 
+
 
 ### minimize()
-Minimize or move the application to background. When running in RhoSimulator this method is supported only for Windows OS.
+<p>Minimize or move the application to background.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.minimize()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.minimize()</code> 
+
 
 ### modelFolderPath(<span class="text-info">STRING</span> name)
-Folder of the model by name.
+<p>Folder of the model by name.</p>
+
 
 ####Parameters
 <ul><li>name : <span class='text-info'>STRING</span><p>
-Model name. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Model name.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
+Synchronous Return:
+
+* STRING
 
 ####Platforms
 
@@ -92,16 +128,22 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.modelFolderPath(<span class="text-info">STRING</span> name)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.modelFolderPath(<span class="text-info">STRING</span> name)</code> 
+
 
 ### quit()
-Quit the application.
+<p>Quit the application.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -109,20 +151,27 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.quit()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.quit()</code> 
+
 
 ### relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)
-Generates the relative path to database blob file. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.
+<p>Generates the relative path to database blob file. Please note that this function does not create a database file. This function only generates the file path based on the application path and partition name.</p>
+
 
 ####Parameters
 <ul><li>absolutePath : <span class='text-info'>STRING</span><p>
-Absolute path to database blob file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to database blob file.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
+Synchronous Return:
+
+* STRING
 
 ####Platforms
 
@@ -130,48 +179,63 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.relativeDatabaseBlobFilePath(<span class="text-info">STRING</span> absolutePath)</code> 
+
 
 ### restore()
-Restores the application to be in the foreground. When running in RhoSimulator the method is supported only for windows OS.
+<p>Restores the application to be in the foreground.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.restore()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.restore()</code> 
+
 
 ### setApplicationNotify()
-This method allows your application to register for application specific events like application activation/deactivation, UI creation/destruction as well as others. Check the Callback tab for details.
+<p>This method allows your application to register for application specific events like application activation/deactivation, UI creation/destruction as well as others. Check the Callback section for details.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>applicationEvent : <span class='text-info'>STRING</span><p>
-{} </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Application.APP_EVENT_ACTIVATED <br/> String:Activated</dt><dd>
-The application has been activated.</dd><dt>Constant: EB.Application.APP_EVENT_DEACTIVATED <br/> String:Deactivated</dt><dd>
-The application has been deactivated.</dd><dt>Constant: EB.Application.APP_EVENT_UICREATED <br/> String:UICreated</dt><dd>
-Generated before the start page is loaded. There are no means to set callback and catch event in javascript. Ruby Application class descendant can to set callback and process this event.</dd><dt>Constant: EB.Application.APP_EVENT_UIDESTROYED <br/> String:UIDestroyed</dt><dd>
-This event is triggered when the application is closing and the UI has been cleared.</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_OFF <br/> String:ScreenOff</dt><dd>
-Device screen was turned off when power button was pressed or due to idle timeout. NB: On iOS application is also deactivated (APP_EVENT_DEACTIVATED is fired). On Android the application is not deactivated.Not supported on Windows CE. Platforms: 
+<p>{}</p>
+ </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Application.APP_EVENT_ACTIVATED <br/> String:Activated</dt><dd>
+<p>The application has been activated.</p>
+</dd><dt>Constant: EB.Application.APP_EVENT_DEACTIVATED <br/> String:Deactivated</dt><dd>
+<p>The application has been deactivated.</p>
+</dd><dt>Constant: EB.Application.APP_EVENT_UIDESTROYED <br/> String:UIDestroyed</dt><dd>
+<p>This event is triggered when the application is closing and the UI has been cleared.</p>
+</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_OFF <br/> String:ScreenOff</dt><dd>
+<p>Device screen was turned off when power button was pressed or due to idle timeout. On Android the application is not deactivated.Not supported on Windows CE.</p>
+ Platforms: 
 Android, iOS, WM</dd><dt>Constant: EB.Application.APP_EVENT_SCREEN_ON <br/> String:ScreenOn</dt><dd>
-Device screen was turned on and unlocked.Not supported on Windows CE. Platforms: 
-Android, iOS, WM</dd><dt>Constant: EB.Application.APP_EVENT_SYNCUSERCHANGED <br/> String:SyncUserChanged</dt><dd>
-Event when the current RhoConnect user has changed. This is available under Ruby Only.</dd><dt>Constant: EB.Application.APP_EVENT_CONFIGCONFLICT <br/> String:ConfigConflict</dt><dd>
-This is available under Ruby Only.</dd><dt>Constant: EB.Application.APP_EVENT_DBMIGRATESOURCE <br/> String:DBMigrateSource</dt><dd>
-This is available under Ruby Only.</dd></dl></li><li>eventData : <span class='text-info'>HASH</span><p>
-This will only contain values for the `APP_EVENT_CONFIGCONFLICT` event. This event may be triggered after an application was upgraded. If your rhoconfig.txt file contains custom properties that are different then what is being provided in the application upgrade package. By default local values are kept in place but you may overwrite configuration with new values and any other steps required for your application upgrade. `eventData` will be a hash. It will look like {"conflicting key" : ["new value","old value"].. } </p></li></ul></ul>
+<p>Device screen was turned on and unlocked.Not supported on Windows CE.</p>
+ Platforms: 
+Android, iOS, WM</dd></dl></li><li>eventData : <span class='text-info'>HASH</span><p>
+<p>This will only contain values for the <code>APP_EVENT_CONFIGCONFLICT</code> event. This event may be triggered after an application was upgraded. If your rhoconfig.txt file contains custom properties that are different then what is being provided in the application upgrade package. By default local values are kept in place but you may overwrite configuration with new values and any other steps required for your application upgrade. <code>eventData</code> will be a hash. It will look like {&ldquo;conflicting key&rdquo; : [&ldquo;new value&rdquo;,&ldquo;old value&rdquo;].. }</p>
+ </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -179,27 +243,14 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Application.setApplicationNotify()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Application.setApplicationNotify()</code> 
+
 
 ##Properties
 
 
-
-###appBundleFolder
-
-####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
-
-Path to apps/app folder inside the application bundle.
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appBundleFolder</code> </li></ul></li></ul>
-
-
-####Platforms
-
-* Android
-* Windows Mobile/CE
 
 ###appName
 
@@ -207,25 +258,14 @@ Path to apps/app folder inside the application bundle.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Application name.
+<p>Application name.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appName</code> </li></ul></li></ul>
 
 
-####Platforms
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.appName</code>
 
-* Android
-* Windows Mobile/CE
-
-###appsBundleFolder
-
-####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
-
-Path to apps folder inside the application bundle.
-####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.appsBundleFolder</code> </li></ul></li></ul>
 
 
 ####Platforms
@@ -239,9 +279,14 @@ Path to apps folder inside the application bundle.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\BadLinkURI.
+<p>Bad link URI to navigate in browser. This is defined in config.xml: Navigation\BadLinkURI.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.badLinkURI</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.badLinkURI</code>
+
 
 
 ####Platforms
@@ -254,9 +299,14 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to application bundle folder.
+<p>Path to the Enterprise Browser folder on the device.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.bundleFolder</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.bundleFolder</code>
+
 
 
 ####Platforms
@@ -270,9 +320,14 @@ Path to application bundle folder.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to the configuration file.
+<p>Path to the configuration file.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.configPath</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.configPath</code>
+
 
 
 ####Platforms
@@ -286,9 +341,14 @@ Path to the configuration file.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to folder where the database blob files are stored. Blobs are usually images or binary files. In the ORM Model you would specify that the attribute is of type blob Ex. When capturing an image, the actual file is saved in the databaseBlobFolder.
+<p>Path to folder where the database blob files are stored. Blobs are usually images or binary files. In the ORM Model you would specify that the attribute is of type blob Ex. When capturing an image, the actual file is saved in the databaseBlobFolder.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.databaseBlobFolder</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.databaseBlobFolder</code>
+
 
 
 ####Platforms
@@ -302,12 +362,18 @@ Path to folder where the database blob files are stored. Blobs are usually image
 <span class='text-info'>ARRAY</span> <span class='label'>Read Only</span>
 ####Description
 
-Native Menu items.
+<p>Native Menu items.</p>
+
 ####Params
 <li><i>Object</i> : <span class='text-info'>HASH</span><p>
-Same values as nativeMenu. </p></li>
+<p>Same values as nativeMenu.</p>
+ </p></li>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.defaultNativeMenu</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.defaultNativeMenu</code>
+
 
 
 ####Platforms
@@ -321,9 +387,14 @@ Same values as nativeMenu. </p></li>
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Page to navigate to in case of check of SecurityToken failed. Can be set in rhoconfig.txt: invalid_security_token_start_path;
+<p>Page to navigate to in case of check of SecurityToken failed. Can be set in rhoconfig.txt: invalid_security_token_start_path; This file is located in the installation folder of the EnetrpriseBrowser application installed on the device.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.invalidSecurityTokenStartPath</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.invalidSecurityTokenStartPath</code>
+
 
 
 ####Platforms
@@ -337,9 +408,14 @@ Page to navigate to in case of check of SecurityToken failed. Can be set in rhoc
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to file with the model list.
+<p>Path to file with the model list.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.modelsManifestPath</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.modelsManifestPath</code>
+
 
 
 ####Platforms
@@ -353,13 +429,20 @@ Path to file with the model list.
 <span class='text-info'>ARRAY</span> 
 ####Description
 
-Native Menu items.
+<p>Native Menu items.</p>
+
 ####Params
 <li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>
-Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>
-URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. '/app/Account' would load the Account index action. For ruby callback use 'callback:/app/Account' Or JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li></ul>
+<p>Visible label.</p>
+ </p></li><li>action : <span class='text-info'>STRING</span><p>
+<p>URL to page which will be loaded. Or it can be a JavaScript method to call: &lsquo;javascript: methodOnTab();&rsquo;. Or path to html page to load.</p>
+ </p></li></ul>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.nativeMenu</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.nativeMenu</code>
+
 
 
 ####Platforms
@@ -373,9 +456,14 @@ URL to page which will be loaded into tab. It may be path to Ruby controller act
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to the application's public folder.
+<p>Path to the application&rsquo;s public folder.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.publicFolder</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.publicFolder</code>
+
 
 
 ####Platforms
@@ -389,9 +477,14 @@ Path to the application's public folder.
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
 
-Is the security token check was failed. Security token can be set in build.yml: security_token. Same security token should be passed as command line parameter '-security_token=token_value' to application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.
+<p>Indicates if the security token check was failed. Security token can be passed as command line parameter &lsquo;-security_token=token_value&rsquo; to the application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.securityTokenNotPassed</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.securityTokenNotPassed</code>
+
 
 
 ####Platforms
@@ -405,9 +498,14 @@ Is the security token check was failed. Security token can be set in build.yml: 
 <span class='text-info'>STRING</span> 
 ####Description
 
-Settings page URI. Will be used when Options menu or toolbar item is chosen by user.
+<p>Settings page URI. Will be used when Options menu or toolbar item is chosen by user.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.settingsPageURI</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.settingsPageURI</code>
+
 
 
 ####Platforms
@@ -421,9 +519,14 @@ Settings page URI. Will be used when Options menu or toolbar item is chosen by u
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Splash screen image display options. This a string with several parameters divided by ';': delay=5;center;hcenter;vcenter;vzoom;hzoom;zoom.
+<p>Splash screen image display options. This a string with several parameters divided by &lsquo;;&rsquo;: delay=5;center;hcenter;vcenter;vzoom;hzoom;zoom.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.splash</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.splash</code>
+
 
 
 ####Platforms
@@ -437,9 +540,14 @@ Splash screen image display options. This a string with several parameters divid
 <span class='text-info'>STRING</span> 
 ####Description
 
-Startup page for your application.
+<p>Startup page for your application.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.startURI</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.startURI</code>
+
 
 
 ####Platforms
@@ -453,9 +561,14 @@ Startup page for your application.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Define Window caption text. If missed - caption from page used. Not supported on Windows CE devices.
+<p>Define Window caption text. If missed &ndash; caption from page used. Not supported on Windows CE devices.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.title</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.title</code>
+
 
 
 ####Platforms
@@ -468,9 +581,14 @@ Define Window caption text. If missed - caption from page used. Not supported on
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Path to folder where the application can write files and create subfolders.
+<p>Path to folder where the application can write files and create subfolders.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.userFolder</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.userFolder</code>
+
 
 
 ####Platforms
@@ -484,9 +602,14 @@ Path to folder where the application can write files and create subfolders.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Version from build time configuration file (build.yml).
+<p>Version of Enterprise Browser.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.Application.version</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Application.version</code>
+
 
 
 ####Platforms

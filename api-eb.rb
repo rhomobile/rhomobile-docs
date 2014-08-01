@@ -23,7 +23,8 @@ class Apieb
   			desc = element["DESC"][0]
   		end
   	end
-  	return "\n#{desc.to_s}"
+  	return "\n" + RDiscount.new(desc.to_s, :smart).to_html
+  	# return "\n#{desc.to_s}"
   end
 
   def self.elementHasPlatform(element)
@@ -388,7 +389,7 @@ def self.getparams(element,toplevel)
 					if param["name"].nil?
 						param["name"] = ""
 					end
-					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
+					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>\n" + methparamsdetailsdesc + "\n</td><td>" + methparamsnil + "</td></tr></table>"
 					values = ""
 					valuetype = param["type"]
 								
@@ -416,7 +417,9 @@ def self.getparams(element,toplevel)
 									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String:' + vaelement["value"] + ''
 								end
 
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+								if noproductException(vaelement)
+									values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>"
+								end  
 								
 							}
 						
@@ -521,7 +524,9 @@ def self.getparams(element,toplevel)
 									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String: ' + vaelement["value"] + ' '
 								end
 
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+								if noproductException(vaelement)
+									values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+								end
 								
 							}
 						values += "</dl>"
@@ -667,8 +672,8 @@ end
 				}
 			end	  		
 			@methsectionreturns = "\n\n####Returns"
-			@methsectionreturns += "\nSynchronous Return:<ul>"
-			@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}#{methreturnparams}</li></ul>"
+			@methsectionreturns += "\nSynchronous Return:"
+			@methsectionreturns += "\n\n* #{@methreturn}#{@methreturndesc}#{methreturnparams}"
 
 			# *** PLATFORMS SECTION
 			@methplatforms = "All"
@@ -729,38 +734,38 @@ end
 				end
 		  	end
 			if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
-				accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + "(#{@methparams})</code></li></ul></li>"
+				accesstype = "\n* Instance Method: This method can be accessed via an instance object of this class: \n\t* <code>myObject." + element["name"] + "(#{@methparams})</code>"
 				if templateDefault
-				accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
+				accesstype += "\n* Default Instance: This method can be accessed via the default instance object of this class. "
 				if javascript 
-					accesstype += '<li><code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+					accesstype += "\n\t* <code>" + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> "
 				end
-				accesstype += '</ul></li>'
+				accesstype += "\n"
 
 				end 
 			else
-				accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
+				accesstype = "\n* Class Method: This method can only be accessed via the API class object. "
 				if javascript 
-					accesstype += '<li><code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
+					accesstype += "\n\t* <code>" + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> "
 				end
-				accesstype += '</ul></li>'
+				accesstype += "\n"
 
 			end	
 			if constructor
-				accesstype = '<li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul>'
+				accesstype = "\n* Class Method: This method is a constructor and can only be accessed via the `new` construct. "
 				if javascript 
-					accesstype += '<li><code>var myObj = new ' + getApiName(doc,'JS',true) + "(#{@methparams})</code> </li>"
+					accesstype += "\n\t* <code>var myObj = new " + getApiName(doc,'JS',true) + "(#{@methparams})</code>"
 				end
-				accesstype += '</ul></li>'
+				accesstype += "\n"
 			end
 			if destructor
-				accesstype = '<li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul>'
+				accesstype = "\n* Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. "
 				if javascript 
-					accesstype += '<li><code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
+					accesstype += "\n\t* <code>myObj." +  element["name"]  +  "(#{@methparams})</code>"
 				end
-				accesstype += '</ul></li>'
+				accesstype += "\n"
 			end
-			@methsectionaccess = "\n\n####Method Access:\n<ul>#{accesstype}</ul>"			
+			@methsectionaccess = "\n\n####Method Access:\n#{accesstype}"			
 
 			#EB : Do not show if not supporting javascript
 			if javascript
@@ -906,10 +911,13 @@ def self.getproperties(doc)
 								@propvaluetype = !vaelement["type"]
 							end
 							if !vaelement["constName"].nil?
-								vaelement["value"] = "Constant: " + @@apiName + '.' + vaelement["constName"] + " \n\t* String: " + vaelement["value"] 
+								vaelement["value"] = "Constant: " + @@apiName + '.' + vaelement["constName"] + " - String: " + vaelement["value"] 
 
 							end
-							@propvalues += "\n* #{vaelement["value"]}\n\t* #{@propvaldesc}" 
+							if noproductException(vaelement)
+								@propvalues += "\n* #{vaelement["value"]} #{@propvaldesc}" 
+
+							end
 							
 						}
 					@propvalues += ""
@@ -960,23 +968,23 @@ def self.getproperties(doc)
 						end
 				end
 				if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
-					accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
+					accesstype = "\n* Instance: This property can be accessed via an instance object of this class: <code>myObject." + element["name"] + '</code>'
 					if templateDefault
-						accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
+						accesstype += "\n* Default Instance: This property can be accessed via the default instance object of this class. "
 						if javascript 
-							accesstype += '<li><code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
+							accesstype += "\n\t* <code>" + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> '
 						end
-						accesstype += '</ul></li>'
+						accesstype += "\n"
 
 					end 
 				else
-					accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul>'
+					accesstype = "\n* Class: This property can only be accessed via the API class object."
 					if javascript
-						accesstype +='<li><code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
+						accesstype +="\n\t* <code>" + getApiName(doc,'JS',true) + '.' + element["name"] + '</code>'
 					end
-					accesstype +='</ul></li>'
+						accesstype += "\n"
 				end	
-				@propsectionaccess = "<ul>#{accesstype}</ul>"
+				@propsectionaccess = "\n#{accesstype}"
 
 				propParasDef = getparams(element,true) + propdefault
 				if !generateAccessors

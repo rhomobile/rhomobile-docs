@@ -2,9 +2,19 @@
 
 
 ## Overview
-is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.
+This API is used to either navigate to a URL or call a javascript function when an attached card reader decodes data. Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+
+* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+
+If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+
+ex:
+
+* ebapi.js - core APIs needed 
+* eb.process.js - just the Process API
+* other individual JavaScript files included with the Enterprise Browser installation
 
         
 
@@ -14,13 +24,16 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### closeHandle()
-Close process handle.
+<p>Close process handle.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -28,10 +41,13 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.closeHandle()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.closeHandle()</code>
 
 ### getProcessExitCode()
-GetProcessExitCode.
+<p>GetProcessExitCode.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -40,8 +56,11 @@ GetProcessExitCode.
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Process exit code.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Process exit code.</p>
+
 
 ####Platforms
 
@@ -49,24 +68,34 @@ Process exit code.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProcessExitCode()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProcessExitCode()</code>
 
 ### runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)
-Run an application.
+<p>Run an application.</p>
+
 
 ####Parameters
 <ul><li>appName : <span class='text-info'>STRING</span><p>
-The name of the application on the device to run. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-The name of the application on the device to run. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-The name of the application on the device to run. 
-False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>The name of the application on the device to run.</p>
+ </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
+<p>The name of the application on the device to run.</p>
+ </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
+<p>The name of the application on the device to run.</p>
+ 
+<p>False by default.</p>
+</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>SELF_INSTANCE : 
-Process object.</li></ul>
+Synchronous Return:
+
+* SELF_INSTANCE : 
+<p>Process object.</p>
+
 
 ####Platforms
 
@@ -74,16 +103,22 @@ Process object.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Process.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Process.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> 
+
 
 ### waitForApplication()
-WaitForApplication.
+<p>WaitForApplication.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -91,4 +126,6 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.waitForApplication()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.waitForApplication()</code>

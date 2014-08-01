@@ -2,9 +2,19 @@
 
 
 ## Overview
-The Push API provides access to Push messaging functionality
+The Push API provides access to Push messaging functionality. Use this API to give your application the ability to receive server initiated messages.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+
+* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+
+If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+
+ex:
+
+* ebapi.js - core APIs needed 
+* eb.push.js - just the Push API
+* other individual JavaScript files included with the Enterprise Browser installation
 
         
 
@@ -14,7 +24,8 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### enumerate()
-Returns the push API objects configured within the application.
+<p>Returns the push API objects configured within the application.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -23,8 +34,11 @@ Returns the push API objects configured within the application.
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>ARRAY : 
-Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* ARRAY : 
+<p>Array of available push engines.</p>
+<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -32,10 +46,14 @@ Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.enumerate()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Push.enumerate()</code> 
+
 
 ### getAllProperties()
-This method will return all of object/value pairs for the propertyNames of the API class.
+<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -44,8 +62,11 @@ This method will return all of object/value pairs for the propertyNames of the A
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>HASH : 
-Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* HASH : 
+<p>Map of all available properties</p>
+<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -53,10 +74,16 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getAllProperties()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getAllProperties()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getAllProperties()</code> 
+
 
 ### getDefault()
-This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
+<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -65,8 +92,11 @@ This method will return an object that represents the default instance of the AP
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>SELF_INSTANCE : 
-Default object of Module.</li></ul>
+Synchronous Return:
+
+* SELF_INSTANCE : 
+<p>Default object of Module.</p>
+
 
 ####Platforms
 
@@ -74,10 +104,14 @@ Default object of Module.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.getDefault()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Push.getDefault()</code> 
+
 
 ### getDeviceId()
-Returns push token used to identify particular device.
+<p>Returns push token used to identify particular device.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -86,7 +120,9 @@ Returns push token used to identify particular device.
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
+Synchronous Return:
+
+* STRING
 
 ####Platforms
 
@@ -94,21 +130,31 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDeviceId()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getDeviceId()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getDeviceId()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getDeviceId()</code> 
+
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
-This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
+<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
+
 
 ####Parameters
 <ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>List of properties I want to know about</p>
+ </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>HASH : 
-Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* HASH : 
+<p>Map of properties I want to know about</p>
+<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -116,21 +162,31 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> 
+
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
-This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
+<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
+
 
 ####Parameters
 <ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>The property to return info about.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-The property to return info about.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>The property to return info about.</p>
+
 
 ####Platforms
 
@@ -138,17 +194,26 @@ The property to return info about.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> 
+
 
 ### setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)
-This method allows you to set the attributes of the default object instance by passing in an object of the same class.
+<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
+
 
 ####Parameters
 <ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Push</span><p>
-An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>An instance object that is of the same class.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -156,17 +221,24 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Push.setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Push.setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</code> 
+
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
-This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
+<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Map of properties I want to set</p>
+ </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -174,18 +246,28 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> 
+
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
-This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
+<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
 
 ####Parameters
 <ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>The one property name that I want to set</p>
+ </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
+<p>The one property value that I want to set</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -193,23 +275,35 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> 
+
 
 ### startNotifications()
-Start listening for push messages, errors or other push related events.
+<p>Start listening for push messages, errors or other push related events.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>doSync : <span class='text-info'>STRING</span><p>
-List of sources to sync separated by comma or 'all'. </p></li><li>alertText : <span class='text-info'>STRING</span><p>
-Alert message to show to user. </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>
-Vibrate duration in milliseconds. </p></li><li>alertSound : <span class='text-info'>STRING</span><p>
-Path to sound file to play when push message is received. </p></li></ul></ul>
+<p>List of sources to sync separated by comma or &lsquo;all&rsquo;.</p>
+ </p></li><li>alertText : <span class='text-info'>STRING</span><p>
+<p>Alert message to show to user.</p>
+ </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>
+<p>Vibrate duration in milliseconds.</p>
+ </p></li><li>alertSound : <span class='text-info'>STRING</span><p>
+<p>Path to sound file to play when push message is received.</p>
+ </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -217,16 +311,24 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.startNotifications()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.startNotifications()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.startNotifications()</code> 
+
 
 ### stopNotifications()
-Stop listening push events.
+<p>Stop listening push events.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -234,7 +336,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stopNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Push.stopNotifications()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.stopNotifications()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.stopNotifications()</code> 
+
 
 ##Properties
 
@@ -246,9 +353,15 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Application name used by RhoConnect Push server to identify application.
+<p>Application name used by RhoConnect Push server to identify application.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushAppName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.pushAppName</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.pushAppName</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Push.pushAppName</code> 
+
 
 
 ####Platforms
@@ -262,9 +375,15 @@ Application name used by RhoConnect Push server to identify application.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-URL of RhoConnect Push server.
+<p>URL of RhoConnect Push server.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushServer</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.pushServer</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.pushServer</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Push.pushServer</code> 
+
 
 
 ####Platforms
@@ -278,21 +397,25 @@ URL of RhoConnect Push server.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Push engine type.
+<p>Push engine type.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Push.PUSH_TYPE_RHOCONNECT 
-	* String: rhoconnect-push
-	* 
-RhoConnect push engine.
-* Constant: EB.Push.PUSH_TYPE_NATIVE 
-	* String: native-push
-	* 
-Native push engine (like GCM on Android).
+* Constant: EB.Push.PUSH_TYPE_RHOCONNECT - String: rhoconnect-push 
+<p>RhoConnect push engine.</p>
+
+* Constant: EB.Push.PUSH_TYPE_NATIVE - String: native-push 
+<p>Native push engine (like GCM on Android).</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Push.type</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.type</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Push.type</code> 
+
 
 
 ####Platforms

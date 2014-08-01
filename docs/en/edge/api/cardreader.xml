@@ -2,8 +2,8 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="CardReader" parent="Rho" license="Required">
-        <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.</HELP_OVERVIEW>
-        <MORE_HELP>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
+        <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</HELP_OVERVIEW>
+        <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
@@ -22,6 +22,11 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
 
         </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
+
+        </MORE_HELP_EB>
 
         <TEMPLATES>
             <DEFAULT_INSTANCE/> <!-- object has default static property, all methods can be call by static way (called from default instance), produce default(), set_default() methods -->

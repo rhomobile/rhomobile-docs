@@ -10,85 +10,128 @@ NewORM CoreAPI moduleNew implementation of the RHOM.
 
 
 ### databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)
-Resets client info and sync models (optionally, local models as well)
+<p>Resets client info and sync models (optionally, local models as well)</p>
+
 
 ####Parameters
 <ul><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p>
-Whether or not to reset Local Models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Whether or not to reset Local Models.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)</code> 
+
 
 ### databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
-Resets selected models, client info and local models.
+<p>Resets selected models, client info and local models.</p>
+
 
 ####Parameters
 <ul><li>resetClientInfo : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>
-Whether or not to reset Client Info. </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: true</span><p>
-Whether or not to reset Local Models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Whether or not to reset Client Info.</p>
+ </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: true</span><p>
+<p>Whether or not to reset Local Models.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> 
+
 
 ### databaseFullResetAndLogout()
-Resets sync models, client info and local models and does the user logout.
+<p>Resets sync models, client info and local models and does the user logout.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullResetAndLogout()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.databaseFullResetAndLogout()</code> 
+
 
 ### databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
-Resets selected models, client info and local models.
+<p>Resets selected models, client info and local models.</p>
+
 
 ####Parameters
 <ul><li>models : <span class='text-info'>ARRAY</span><p>
-List of models to reset. </p></li><li>resetClientInfo : <span class='text-info'>BOOLEAN</span><p>
-Whether or not to reset Client Info. </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><p>
-Whether or not to reset Local Models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>List of models to reset.</p>
+ </p></li><li>resetClientInfo : <span class='text-info'>BOOLEAN</span><p>
+<p>Whether or not to reset Client Info.</p>
+ </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><p>
+<p>Whether or not to reset Local Models.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)</code> 
+
 
 ### databaseFullclientResetAndLogout()
-Resets sync models, client info and local models and does the user logout.
+<p>Resets sync models, client info and local models and does the user logout.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseFullclientResetAndLogout()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.databaseFullclientResetAndLogout()</code> 
+
 
 ### databaseLocalReset()
-Resets local database.
+<p>Resets local database.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.databaseLocalReset()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.databaseLocalReset()</code> 
+
 
 ### generateId()
-Returns newly generated unique object Id.
+<p>Returns newly generated unique object Id.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -97,13 +140,19 @@ Returns newly generated unique object Id.
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER</li></ul>
+Synchronous Return:
+
+* INTEGER
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.generateId()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.generateId()</code> 
+
 
 ### getClientId()
-Returns current Client Id.
+<p>Returns current Client Id.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -112,13 +161,19 @@ Returns current Client Id.
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
+Synchronous Return:
+
+* STRING
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.getClientId()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.getClientId()</code> 
+
 
 ### haveLocalChanges()
-Returns TRUE whenever there are any local (non-synced) changes.
+<p>Returns TRUE whenever there are any local (non-synced) changes.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -127,13 +182,19 @@ Returns TRUE whenever there are any local (non-synced) changes.
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>BOOLEAN</li></ul>
+Synchronous Return:
+
+* BOOLEAN
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.haveLocalChanges()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.haveLocalChanges()</code> 
+
 
 ### useNewOrm()
-Returns TRUE if NewORM is enabled in rhoconfig.txt.
+<p>Returns TRUE if NewORM is enabled in rhoconfig.txt.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -142,7 +203,11 @@ Returns TRUE if NewORM is enabled in rhoconfig.txt.
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>BOOLEAN</li></ul>
+Synchronous Return:
+
+* BOOLEAN
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.NewORM.useNewOrm()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.NewORM.useNewOrm()</code> 

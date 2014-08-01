@@ -15,13 +15,16 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### clear()
-Clear captured events.
+<p>Clear captured events.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -29,10 +32,14 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.clear()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.LogCapture.clear()</code> 
+
 
 ### numLines()
-Return number of captured lines.
+<p>Return number of captured lines.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -41,7 +48,9 @@ Return number of captured lines.
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER</li></ul>
+Synchronous Return:
+
+* INTEGER
 
 ####Platforms
 
@@ -49,10 +58,14 @@ Synchronous Return:<ul><li>INTEGER</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.numLines()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.LogCapture.numLines()</code> 
+
 
 ### read()
-Read captured items.
+<p>Read captured items.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -61,7 +74,9 @@ Read captured items.
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING</li></ul>
+Synchronous Return:
+
+* STRING
 
 ####Platforms
 
@@ -69,16 +84,22 @@ Synchronous Return:<ul><li>STRING</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.read()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.LogCapture.read()</code> 
+
 
 ### start()
-Start capture log events.
+<p>Start capture log events.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -86,16 +107,22 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.start()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.LogCapture.start()</code> 
+
 
 ### stop()
-Stop capture log events.
+<p>Stop capture log events.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -103,7 +130,10 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.LogCapture.stop()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.LogCapture.stop()</code> 
+
 
 ##Properties
 
@@ -115,9 +145,14 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>STRING</span> 
 ####Description
 
-Comma-separated list of excluded log categories.
+<p>Comma-separated list of excluded log categories.</p>
+
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.LogCapture.excludeCategories</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.LogCapture.excludeCategories</code>
+
 
 
 ####Platforms
@@ -131,11 +166,16 @@ Comma-separated list of excluded log categories.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Maximum number of captured lines.
+<p>Maximum number of captured lines.</p>
+
 ####Params
 <p><strong>Default:</strong> 1024</p>
 ####Access
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>EB.LogCapture.maxLines</code> </li></ul></li></ul>
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.LogCapture.maxLines</code>
+
 
 
 ####Platforms

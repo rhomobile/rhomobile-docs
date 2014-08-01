@@ -14,23 +14,29 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### close()
-Release resources.
+<p>Release resources.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.close()</code>
 
 ### create()
-Creates record.
+<p>Creates record.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -39,15 +45,21 @@ Creates record.
 Async Callback Returning Parameters: <span class='text-info'>Rho.NFC.Record</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Rho.NFC.Record : 
-Record object.</li></ul>
+Synchronous Return:
+
+* Rho.NFC.Record : 
+<p>Record object.</p>
+
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Record.create()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Record.create()</code> 
+
 
 ##Properties
 
@@ -59,9 +71,12 @@ Record object.</li></ul>
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Object ID.
+<p>Object ID.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ID</code>
 
 
 ####Platforms
@@ -74,9 +89,12 @@ Object ID.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Record payload(data buffer).
+<p>Record payload(data buffer).</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.payload</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.payload</code>
 
 
 ####Platforms
@@ -89,9 +107,12 @@ Record payload(data buffer).
 <span class='text-info'>STRING</span> 
 ####Description
 
-Optional field for NFC_NDEF_RTD_GENERAL record type.
+<p>Optional field for NFC_NDEF_RTD_GENERAL record type.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.recordId</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.recordId</code>
 
 
 ####Platforms
@@ -104,9 +125,12 @@ Optional field for NFC_NDEF_RTD_GENERAL record type.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.
+<p>Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.textCharEncoding</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.textCharEncoding</code>
 
 
 ####Platforms
@@ -119,9 +143,12 @@ Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8
 <span class='text-info'>STRING</span> 
 ####Description
 
-Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.
+<p>Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.textLanguage</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.textLanguage</code>
 
 
 ####Platforms
@@ -134,37 +161,24 @@ Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read t
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.
+<p>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
  
-* Constant: EB.Record.NDEF_TNF_EMPTY 
-	* String: 1
-	* 
-* Constant: EB.Record.NDEF_TNF_WELL_KNOWN 
-	* String: 2
-	* 
-* Constant: EB.Record.NDEF_TNF_MEDIA 
-	* String: 3
-	* 
-* Constant: EB.Record.NDEF_TNF_ABSOLUTE_URI 
-	* String: 4
-	* 
-* Constant: EB.Record.NDEF_TNF_EXTERNAL 
-	* String: 5
-	* 
-* Constant: EB.Record.NDEF_TNF_UNKNOWN 
-	* String: 6
-	* 
-* Constant: EB.Record.NDEF_TNF_UNCHANGED 
-	* String: 7
-	* 
-* Constant: EB.Record.NDEF_TNF_ANY_TYPE 
-	* String: 8
-	* 
+* Constant: EB.Record.NDEF_TNF_EMPTY - String: 1 
+* Constant: EB.Record.NDEF_TNF_WELL_KNOWN - String: 2 
+* Constant: EB.Record.NDEF_TNF_MEDIA - String: 3 
+* Constant: EB.Record.NDEF_TNF_ABSOLUTE_URI - String: 4 
+* Constant: EB.Record.NDEF_TNF_EXTERNAL - String: 5 
+* Constant: EB.Record.NDEF_TNF_UNKNOWN - String: 6 
+* Constant: EB.Record.NDEF_TNF_UNCHANGED - String: 7 
+* Constant: EB.Record.NDEF_TNF_ANY_TYPE - String: 8 
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.tnf</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.tnf</code>
 
 
 ####Platforms
@@ -177,25 +191,25 @@ When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL,
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.
+<p>Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
  
-* Constant: EB.Record.NDEF_RTD_TEXT 
-	* String: 1
-	* 
-A text type record.
-* Constant: EB.Record.NDEF_RTD_URI 
-	* String: 2
-	* 
-A URI type record.
-* Constant: EB.Record.NDEF_RTD_GENERAL 
-	* String: 3
-	* 
-A generic type record.
+* Constant: EB.Record.NDEF_RTD_TEXT - String: 1 
+<p>A text type record.</p>
+
+* Constant: EB.Record.NDEF_RTD_URI - String: 2 
+<p>A URI type record.</p>
+
+* Constant: EB.Record.NDEF_RTD_GENERAL - String: 3 
+<p>A generic type record.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.type</code>
 
 
 ####Platforms
@@ -208,9 +222,12 @@ A generic type record.
 <span class='text-info'>STRING</span> 
 ####Description
 
-When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.
+<p>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.typeName</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.typeName</code>
 
 
 ####Platforms
@@ -223,9 +240,12 @@ When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL,
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.
+<p>Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.uriProtocol</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.uriProtocol</code>
 
 
 ####Platforms
